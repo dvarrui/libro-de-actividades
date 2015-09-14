@@ -12,13 +12,11 @@ Realizar las siguientes tareas:
 * Trabajaremos de forma individual.
 * Usaremos 2 MVs para montar clientes ligeros con LTSP.
 * Atender a la explicación del profesor.
-* Consultar/leer:
-        [RECOMENDADO] LTSP Official site (EN)
-        Se proporciona pdf en español
+* Consultar/leer [web official de LTSP] (http://www.ltsp.org/), y los pdf 
+  que proporciona el profesor.
 
 Veamos el esquema:
-
-diagram
+![Esquema](./ltsp-diagram.png)
 
 # 3. Servidor LTSP
 ## 3.1 Preparar la MV Server
