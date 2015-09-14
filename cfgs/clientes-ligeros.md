@@ -16,6 +16,7 @@ Realizar las siguientes tareas:
   que proporciona el profesor.
 
 Veamos el esquema:
+
 ![Esquema](./ltsp-diagram.png)
 
 # 3. Servidor LTSP
