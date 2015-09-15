@@ -36,10 +36,11 @@ y una interfaz interna
 * Clave de root, poner como clave el DNI con la letra en minúsculas.
 * Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
 * Poner como nombre de dominio el segundo apellido del alumno en minúsculas y sin tildes.
+* Incluir en el informe la salida de los comandos siguientes: `ifconfig`, `route -n`, `hostname -a`, y `hostname -f`
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
-![Names](./debian-host-domain-names.png)
+![names](./debian-host-domain-names.png)
 
 
 [INFO] En OpenSUSE podemos usar la herramienta Yast2 para modificar cómodamente dichos valores.
@@ -52,7 +53,8 @@ Instalar servidor de clientes ligeros, según la documentación para el SO elegi
     apt-get install ltsp-server-standalone
     ltsp-build-client
 
-Instalar el servidor SSH `apt-get install openssh-server`
+Instalar el servidor SSH `apt-get install openssh-server`.
+
 Revisar la configuración de la tarjeta de red interna del servidor. 
 IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)
 
@@ -67,16 +69,17 @@ Con el servidor encendido, iniciar la MV cliente desde PXE:
 * Si la tarjeta de red no inicia correctamente el protocolo PXE, 
 conectar disquete Etherboot en la disquetera, tal y como se indica en la documentación de la web de LTSP.
 
-En la imagen podemos ver un ejemplo de la ventana de login de un cliente ligero. Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al cliente.
+En la imagen podemos ver un ejemplo de la ventana de login de un cliente ligero. 
+Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al cliente.
 
-client
+![client](./ltsp-client-login.png)
 
-    Cuando el cliente se conecte, entramos con los usuarios apellido-del-alumno[1-3]
-    Ir al servidor, ejecutar comando "arp" como superusuario y capturar la salida.
-    Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
+Cuando el cliente se conecte
+* entramos con los usuarios apellido-del-alumno[1-3]
+* Ir al servidor, ejecutar comando "arp" como superusuario y capturar la salida.
+* Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
 
-
-5. ANEXOS
+#5. ANEXOS
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
 5.1 Ubuntu - Installing on top of an already running desktop system
