@@ -82,9 +82,10 @@ Cuando el cliente se conecte
 #5. ANEXOS
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
-5.1 Ubuntu - Installing on top of an already running desktop system
+##5.1 Ubuntu - Installing on top of an already running desktop system
 
-You need to set up one static network interface where you will attach the thin clients, install two packages and run one command.
+You need to set up one static network interface where you will attach the thin clients, 
+install two packages and run one command.
 
 Configure your spare interface for the thin clients to have the IP 192.168.0.1 (and make sure it is up and running).
 
@@ -94,22 +95,22 @@ Now create your Thin Client environment on the server with.
 
     sudo ltsp-build-client
 
-    [WARNING] If you are on a 64-bit system but your clients have another architecture use the --arch option eg. sudo ltsp-build-client --arch i386
+[WARNING] If you are on a 64-bit system but your clients have another architecture use 
+the --arch option eg. sudo ltsp-build-client --arch i386
 
 After that, you will be able to boot your first thin client. If it doesn't boot try rebooting the server.
 
-    Note that if you want to use another IP than the above, you need to edit the /etc/ltsp/dhcpd.conf file to match the IP values and restart the dhcp server.
+Note that if you want to use another IP than the above, you need to edit the /etc/ltsp/dhcpd.conf file to match the IP values and restart the dhcp server.
 
-5.2 Personalización de los clientes
-En Debian/Ubuntu podemos personalizar la configuración de los clientes, modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf
+##5.2 Personalización de los clientes
+En Debian/Ubuntu podemos personalizar la configuración de los clientes, 
+modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf
 
 Comandos:
+* `ltsp-update-image`: Para volver a actualiza la imagen
+* `ltsp-info`: Para consultar información
 
-    ltsp-update-image: Para volver a actualiza la imagen
-    ltsp-info: Para consultar información
-
-
-5.3 For openSUSE 12.3
+##5.3 For openSUSE 12.3
 
 Via commandline(following commands to be run in terminal as root "su -"):
 
