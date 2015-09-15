@@ -1,6 +1,6 @@
 # 1. Clientes ligeros con LTSP
 Entrega de la práctica:
-* Crear informe usando plantilla HTML.
+* Crear informe usando la plantilla HTML.
 * Incluir breve explicación de clientes ligeros.
 * Detallar los pasos realizados.
 * Crear vídeo donde se muestra la práctica en funcionamiento.
@@ -21,57 +21,51 @@ Veamos el esquema:
 
 # 3. Servidor LTSP
 ## 3.1 Preparar la MV Server
-La MV del servidor necesitará dos interfaces de red:
-
-Una interfaz externa
+La MV del servidor necesitará dos interfaces de red, una interfaz externa:
 * para comunicarse con Internet.
 * Configurarla en VBox como adaptador puente.
 * IP estática 172.19.XX.11
-Una interfaz interna
+y una interfaz interna
 * para conectarse con los clientes ligeros.
 * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.0.1).
 * Configurarla en VBox como "red interna".
 
-## 3.2 Instalación del SO
-
-    Instalar un SO GNU/Linux en la MV.
-    Nombre de usuario: nombre-del-alumno, en minúsculas, sin tildes ni eñes. Poner como clave el DNI con la letra en minúsculas.
-    Clave de root, poner como clave el DNI con la letra en minúsculas.
-    Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
-    Poner como nombre de dominio el segundo apellido del alumno en minúsculas y sin tildes.
+## 3.2 Instalación del SSOO
+* Instalar un SO GNU/Linux en la MV.
+* Nombre de usuario: nombre-del-alumno, en minúsculas, sin tildes ni eñes. 
+* Clave de root, poner como clave el DNI con la letra en minúsculas.
+* Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
+* Poner como nombre de dominio el segundo apellido del alumno en minúsculas y sin tildes.
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
-names
-
-    [INFO] En OpenSUSE podemos usar la herramienta Yast2 para modificar cómodamente dichos valores.
-    Crear 3 usuarios locales llamados:
-        primer-del-apellido-alumno1,
-        primer-del-apellido-alumno2,
-        primer-del-apellido-alumno3.
-
-3.3 Instalar el servicio LTSP
-
-    Instalar servidor de clientes ligeros, según la documentación para el SO elegido. En el caso de Debian/Ubuntu puede ser
-        apt-get install ltsp-server-standalone
-        ltsp-build-client
-    Instalar el servidor SSH
-        apt-get install openssh-server
-    Revisar la configuración de la tarjeta de red interna del servidor. IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)
+![Names](./debian-host-domain-names.png)
 
 
-4. Preparar MV Cliente
+[INFO] En OpenSUSE podemos usar la herramienta Yast2 para modificar cómodamente dichos valores.
+* Crear 3 usuarios locales llamados: primer-del-apellido-alumno1, primer-del-apellido-alumno2,
+primer-del-apellido-alumno3.
 
-Crear la MV cliente:
+## 3.3 Instalar el servicio LTSP
+Instalar servidor de clientes ligeros, según la documentación para el SO elegido. En el caso de Debian/Ubuntu puede ser
 
-    Sin disco duro y sin unidad de DVD.
-    Sólo tiene RAM, flopy
-    Tarjeta de red PXE en modo "red interna".
+    apt-get install ltsp-server-standalone
+    ltsp-build-client
 
-Con el servidor encendido, iniciar la MV cliente:
+Instalar el servidor SSH `apt-get install openssh-server`
+Revisar la configuración de la tarjeta de red interna del servidor. 
+IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)
 
-    Comprobar que todo funciona correctamente.
-    Si la tarjeta de red no inicia correctamente el protocolo PXE, conectar disquete Etherboot en la disquetera, tal y como se indica en la documentación de la web de LTSP.
+# 4. Preparar MV Cliente
+Crear la MV cliente en VirtualBox:
+* Sin disco duro y sin unidad de DVD.
+* Sólo tiene RAM, flopy
+* Tarjeta de red PXE en modo "red interna".
+
+Con el servidor encendido, iniciar la MV cliente desde PXE:
+* Comprobar que todo funciona correctamente.
+* Si la tarjeta de red no inicia correctamente el protocolo PXE, 
+conectar disquete Etherboot en la disquetera, tal y como se indica en la documentación de la web de LTSP.
 
 En la imagen podemos ver un ejemplo de la ventana de login de un cliente ligero. Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al cliente.
 
