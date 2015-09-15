@@ -12,7 +12,9 @@ la opción "Download ZIP" desde la web de GitHub o mediante comandos de Git
 `git clone https://github.com/dvarrui/libro-de-actividades.git`.
 
 # ¿Cómo contribuir?
-Sólo necesitas aprender a usar Git y Markdown.
+Sólo necesitas aprender a usar Git y [Markdown] 
+(https://www.alsa.es/formacion/pda/help.php?file=markdown.html#precode).
+
 * **Git** es una herramienta para el control de versiones de los ficheros,
 documentos, etc.
 * **Markdown** es una forma de escribir los ficheros de texto plano para incluir
