@@ -47,7 +47,7 @@ Producto/Licencia:
 * Configuración de Red: Red de trabajo y nombre del grupo de trabajo AULA108.
 * Capturar imagen del Windows funcionando y mostrando las particiones del disco duro (Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento).
 
-![dual-win7-particiones](./dual-win7-particiones)
+![dual-win7-particiones] (./dual-win7-particiones.png)
 
 * Modificar la configuración de Windows Update y ponerla como Deshabilitada (Sin descargas ni notificaciones).
 * Ir a miEquipo -> Btn Derecho -> Propiedades -> Cambiar conf. equipo. Poner nombre grupo de trabajo AULA108. Reiniciar
@@ -98,7 +98,7 @@ Particionado:
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual.
 * Comprobar que todo es correcto y procedemos a "Instalar".
 
-![dual-suse-verficar] (./dual-suse-verficar.png)
+![dual-suse-verificar] (./dual-suse-verificar.png)
 
 * Poner como nombre del host o equipo DUALXnombre-alumno.
 * Poner como nombre de dominio el 1er apellido en minúsculas sin tildes.
@@ -133,33 +133,37 @@ Con el SO instalado:
 #ANEXO
 ##A1. Servicio SSH en OpenSUSE
 
-    En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de GNU/Linux.
-    Ejecutar como superusuario:
-        ifdown eth0
-        ifup eth0
-        yast2
-            Ir a Configuración del contafuegos -> Servicios Autorizados -> Añadir Servicio SSH.
-            Ir a Servicios del sistema -> sshd -> Activar
-    Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de GNU/Linux.
-    Cerrar terminal y apagar el sistema
+* En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de GNU/Linux.
+* Ejecutar como superusuario:
 
-A2. Configuración de red en OpenSUSE
-Fichero de configuración de red de OpenSUSE:
-/etc/sysconfig/network/ifcfg-eth0
+    ifdown eth0
+    ifup eth0
+    yast2
+
+* Ir a Configuración del contafuegos -> Servicios Autorizados -> Añadir Servicio SSH.
+* Ir a Servicios del sistema -> sshd -> Activar
+* Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de GNU/Linux.
+* Cerrar terminal y apagar el sistema
+
+##A2. Configuración de red en OpenSUSE
+Fichero de configuración de red de OpenSUSE `/etc/sysconfig/network/ifcfg-eth0`
 
 Contenido:
-BOOTPROTO='dhcp'
-STARTMODE='auto'
 
-A3. Menu de arranque Windows
+    BOOTPROTO='dhcp'
+    STARTMODE='auto'
 
-Si al iniciarse la MV no aparece Windows en el menú de arranque, entonces lo podemos solucionar haciendo los siguientes paso:
+##A3. Menu de arranque Windows
 
-    su (Convertirnos en superusuario)
-    cd /etc/grub.d (Cambiamos de directorio)
-    zypper install nano (Para instalar el programa nano)
-    nano 11_windows (Creamos archivo nuevo con el siguiente contenido)
+Si al iniciarse la MV no aparece Windows en el menú de arranque, entonces 
+lo podemos solucionar haciendo los siguientes paso:
 
+* `su` (Convertirnos en superusuario)
+* `cd /etc/grub.d` (Cambiamos de directorio)
+* `zypper install nano` (Para instalar el programa nano)
+* `nano 11_windows` (Creamos archivo nuevo con el siguiente contenido)
+
+```
 #!/bin/sh -e
 echo "Adding Windows 7" >&2
 cat<<EOF
@@ -168,14 +172,9 @@ set root=(hd0,1)
 chainloader +1
 }
 EOF
+```
+* Grabar el archivo y salir de nano
+* `chmod +x 11_windows`
+* `grub2-mkconfig -o /boot/grub2/grub.cfg` (Actualizamos el GRUB2 con el nuevo cambio)
+* `reboot` (Reiniciamos la MV)
 
-    Grabar el archivo y salir de nano
-    chmod +x 11_windows
-    grub2-mkconfig -o /boot/grub2/grub.cfg (Actualizamos el GRUB2 con el nuevo cambio)
-    reboot (Reiniciamos la MV)
-
-Última modificación: miércoles, 22 de octubre de 2014, 09:51
-
-Moodle Docs para esta página
-Ud. está en el sistema como David Vargas Ruiz. (Salir)
-idp1415
