@@ -55,6 +55,7 @@ Por el momento queremos un sistema sólo en modo texto.
 * Entrar al sistema como root (superusuario)
 * Ejecutar los comandos siguientes, y capturar su salida:
 
+```
     date (Muestra la fecha/hora del sistema)
     hostname (Muestra nombre del sistema)
     dnsdomainname (Muestra nombre de dominio)
@@ -64,6 +65,7 @@ Por el momento queremos un sistema sólo en modo texto.
     fdisk -l (Muestra información de particiones)
     lsblk -l
     ls -l /dev/disk/by-uuid (Muestra los códigos UUID)
+```
 
 ##Para acabar:
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
