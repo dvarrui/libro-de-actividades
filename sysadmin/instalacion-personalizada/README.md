@@ -4,8 +4,8 @@
 Entregar un documento en formato OFT o PDF con los pasos realizados. 
 Incluir capturas de pantalla del sistema operativo funcionando.
 
-NOTA:
-* Esta máquina virtual Debian la usaremos en las próximas unidades de trabajo.
+> NOTA:
+> Esta máquina virtual Debian la usaremos en las próximas unidades de trabajo.
 
 #1. Máquina virtual
 * Crear una nueva MV con: tamaño de disco de 10GB, tarjeta de red en modo bridge (Puente).
