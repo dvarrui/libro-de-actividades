@@ -54,6 +54,7 @@ Por el momento queremos un sistema sólo en modo texto.
 * Salir con el comando "exit"
 * Entrar al sistema como root (superusuario)
 * Ejecutar los comandos siguientes, y capturar su salida:
+
     date (Muestra la fecha/hora del sistema)
     hostname (Muestra nombre del sistema)
     dnsdomainname (Muestra nombre de dominio)
