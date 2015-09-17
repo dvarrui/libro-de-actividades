@@ -5,22 +5,22 @@ Boot loader es el programa encargado de la carga el sistema operativo.
 GRUB2 es el actual loader de GNU/Linux, como NTLoader lo es de WindowsXP, etc.
 
 * Trabajaremos en parejas.
+* Entregar documento en formato ODT o PDF con capturas de pantalla.
 * Sólo elegir 1 GNU/Linux y 1 Windows para la práctica.
 * Para Linux podemos usar alguna de las MV's que ya tenemos: OpenSUSE, Debian o Ubuntu. Se supone que todos estos sistemas tienen GRUB2 como bootloader.
 * Para Windows podemos usar alguna de la MV's de las que dispongamos.
 
-Información general:
-
-* El programa GRUB2 es el nuevo gestor de arranque de las distribuciones GNU/Linux, aunque es posible sustituirlo por otros como GRUB Legacy, LILO, etc.
-* En el directorio /boot están los programas y ficheros necesarios para la carga del sistema operativo. Consultar la existencia de los ficheros vmlinuz e initrd: vdir /boot. Necesitaremos estos datos más adelante.
-* Además en el directorio /etc/grub.d se alamacenan ficheros con información para personalizar la configuración de GRUB2. Es esta práctica vamos a modificar alguno de estos ficheros de configuración de GRUB2.
-* Para consultar el identificador UUID de una partición podemos usar los comandos siguientes: `blkid /dev/sdaX`, o `ls -l /dev/disk/by-uuid`.
-
-Enlaces de interés:
-* [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
-* [GRUB2 OpenSUSE Documentation] (http://activedoc.opensuse.org/book/opensuse-reference)
-* [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
-
+> Información general:
+>
+> * El programa GRUB2 es el nuevo gestor de arranque de las distribuciones GNU/Linux, aunque es posible sustituirlo por otros como GRUB Legacy, LILO, etc.
+> * En el directorio /boot están los programas y ficheros necesarios para la carga del sistema operativo. Consultar la existencia de los ficheros vmlinuz e initrd: vdir /boot. Necesitaremos estos datos más adelante.
+> * Además en el directorio /etc/grub.d se alamacenan ficheros con información para personalizar la configuración de GRUB2. Es esta práctica vamos a modificar alguno de estos ficheros de configuración de GRUB2.
+> * Para consultar el identificador UUID de una partición podemos usar los comandos siguientes: `blkid /dev/sdaX`, o `ls -l /dev/disk/by-uuid`.
+>
+> Enlaces de interés:
+> * [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
+> * [GRUB2 OpenSUSE Documentation] (http://activedoc.opensuse.org/book/opensuse-reference)
+> * [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
 
 #1. Debian/Ubuntu. GRUB2
 #1.1 Añadir entrada SO Linux a GRUB2 (Debian/Ubuntu)
@@ -178,54 +178,45 @@ OBJETIVO de la práctica:
 Enlaces de interés:
 * [Documentación "Añadir SO Linux en el arranque de Windows7"] (http://www.taringa.net/posts/linux/14679925/Insertar-linux-en-el-arranque-de-windows.html)
 * [Inicio dual de dos sistemas operativos desde Windows] (https://norfipc.com/articulos/dos-sistemas-operativos-inicio-dual.html)
-
-[Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
-
+* [Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
 
 
 #4. Windows XP Loader
 
 Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual. No es necesario hacerlo con cada Windows.
-4.1 Crear otra entrada Windows XP
 
-    Iniciar el sistema Windows XP.
-    Abrir el fichero C:\boot.ini
-    Crear una segunda entrada de SO y para WindowsXP de la siguiente forma:
-
+##4.1 Crear otra entrada Windows XP
+* Iniciar el sistema Windows XP.
+* Abrir el fichero C:\boot.ini
+* Crear una segunda entrada de SO y para WindowsXP de la siguiente forma:
+```
 [boot loader]
 timeout=30
 default=multi...
 [operating systems]
 multi....
 multi...."Windows XP 2"
+```
+* Se añade una segunda entrada en el apartado de sistemas operativos.
+* Reiniciar el sistema y comprobar los cambios.
 
-    Se añade la línea en negrita.
-    Reiniciar el sistema y comprobar los cambios.
-
-4.2 Crear entrada para Linux en XP
-(A) Crear fichero de arranque
-
-    Iniciar el sistema GNU/Linux. Abrir un terminal y entrar como superusuario.
-    Ejecutar el comando: "dd if=/dev/sda of=linux.bin bs=512 count=1". Con esto copiamos el contenido del sector 0 en el fichero "linux.bin".
-    Con esto obtenemos el fichero "linux.bin" que vamos a copiar en la partición de WindowsXP en la ruta C:\linux.bin.
-
-(B) Copiar fichero a Windows
-
-    Iniciar el sistema Windows XP.
-    Abrir el fichero C:\boot.ini
-    Crear una segunda entrada de SO y para Linux de la siguiente forma:
-
+##4.2 Crear entrada para Linux en XP
+Crear fichero de arranque
+* Iniciar el sistema GNU/Linux. Abrir un terminal y entrar como superusuario.
+* Ejecutar el comando: "dd if=/dev/sda of=linux.bin bs=512 count=1". Con esto copiamos el contenido del sector 0 en el fichero "linux.bin".
+* Con esto obtenemos el fichero "linux.bin" que vamos a copiar en la partición de WindowsXP en la ruta C:\linux.bin.
+Copiar fichero a Windows
+* Iniciar el sistema Windows XP.
+* Abrir el fichero C:\boot.ini
+* Crear una segunda entrada de SO y para GNU/Linux, añadiendo la configuración en el apartado de sistemas operativos.
+de la siguiente forma:
+```
 [boot loader]
 timeout=30
 default=multi...
 [operating systems]
 multi....
 C:\linux.bin="Iniciar Linux desde NTLoader(WXP)"
+```
+* Reiniciar el sistema y probar los cargadores de ambos sistemas operativos.
 
-    Se añade la línea en negrita.
-    Reiniciar el sistema y probar los cargadores de ambos sistemas operativos.
-
-
-5. Entrega
-
-Entregar documento en formato ODT o PDF con capturas de pantalla.
