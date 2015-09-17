@@ -9,4 +9,5 @@ del curso de 1º de **Administración de Sistemas Operativos en Red (ASIR)**.
 * ![Licencias](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/sysadmin.1/licencias)
 * ![Instalación personalizada](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/sysadmin.1/instalacion-personalizada)
 * ![Instalación dual](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/sysadmin.1/instalacion-dual)
+* ![Particiones con fdisk](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/sysadmin.1/particiones)
 
