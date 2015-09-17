@@ -19,11 +19,7 @@ Información general:
 * El programa GRUB2 es el nuevo gestor de arranque de las distribuciones GNU/Linux, aunque es posible sustituirlo por otros como GRUB Legacy, LILO, etc.
 * En el directorio /boot están los programas y ficheros necesarios para la carga del sistema operativo. Consultar la existencia de los ficheros vmlinuz e initrd: vdir /boot. Necesitaremos estos datos más adelante.
 * Además en el directorio /etc/grub.d se alamacenan ficheros con información para personalizar la configuración de GRUB2. Es esta práctica vamos a modificar alguno de estos ficheros de configuración de GRUB2.
-* Para averiguar el UUID de una partición hacemos:
-```
-        blkid /dev/sdaX, o
-        ls -l /dev/disk/by-uuid, y consultamos el valor de la partición que queramos.
-```
+* Para consultar el identificador UUID de una partición podemos usar los comandos siguientes: `blkid /dev/sdaX`, o `ls -l /dev/disk/by-uuid`.
 
 Enlaces de interés:
 * [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
@@ -62,9 +58,11 @@ Continuamos:
 * Ejecutamos el comando: `update-grub2` para activar los cmabios de la nueva configuración.
 
 Veamos imagen:
+
 ![debian-update-grub2] (./debian-update-grub2.png)
 
 Si reiniciamos el sistema debemos ver algo como:
+
 ![debian-bootmenu] (./debian-bootmenu.png)
 
 ##1.2 Añadir entrada SO Windows a GRUB2
@@ -114,6 +112,7 @@ EOF
 > * Tenemos que desactivar la línea 'exec tail'. Para ello añadimos una almohadilla (#) al comienzo de la misma.
 
 Veamos un ejemplo con una configuración diferente:
+
 ![grub2-menuentry-gnulinux] (./grub2-menuentry-gnulinux.png)
 
 * Grabamos el fichero 40_custom, ponemos permisos de ejecución (chmod +x 40_custom).
@@ -122,6 +121,7 @@ Veamos un ejemplo con una configuración diferente:
 * Reiniciamos el sistema y comprobamos los cambios. Capturar imagen.
 
 Veamos un ejemplo de un menú de inicio:
+
 ![grub2-menu-screen] (./grub2-menu-screen.png)
 
 > Información sobre Yast2:
@@ -130,8 +130,9 @@ Veamos un ejemplo de un menú de inicio:
 > * Una vez iniciada la aplicación gráfica, ir a "Opciones del cargador de arranque". Ahí podemos configurar diversos aspectos del cargador del sistema de forma cómoda. Como por ejemplo: ocultar el menú, modificar timeout, etc.
 >
 > Veamos una imagen:
+>
 > ![grub2-yast2-bootloader] (./grub2-yast2-bootloader)
-
+>
 
 ##2.2 Añadir entrada SO Windows a GRUB2
 
