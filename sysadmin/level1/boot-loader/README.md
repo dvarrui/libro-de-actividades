@@ -23,7 +23,7 @@ GRUB2 es el actual loader de GNU/Linux, como NTLoader lo es de WindowsXP, etc.
 > * [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
 
 #1. Debian/Ubuntu. GRUB2
-#1.1 Añadir entrada SO Linux a GRUB2 (Debian/Ubuntu)
+##1.1 Añadir entrada SO Linux a GRUB2 (Debian/Ubuntu)
 * Abrir un terminal y entrar como superusuario (comando su).
 * Ir a `/etc/grub.d`
 * Editamos el fichero(Script) `nano 40_custom` y vamos a modificarlo para
