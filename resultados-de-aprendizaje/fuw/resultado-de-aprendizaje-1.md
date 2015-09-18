@@ -19,18 +19,21 @@ Contenidos básicos:
 * Esquema y estructura de un ordenador.
 * Elementos funcionales y subsistemas.
 * Composición de un sistema informático.
-
+```
         La unidad central de proceso.
         La memoria.
         El subsistema de E/S.
         Tipos de arquitecturas de bus.
         Interfaces.
+``` 
 * Componentes de integración para el ensamblaje de equipos informáticos:
+```
         Chasis, alimentación y refrigeración.
         Placas base, procesadores y memorias.
         Dispositivos de almacenamiento. Controladoras.
         Periféricos. Adaptadores para la conexión de dispositivos.
         Mecanismos y técnicas de interconexión.
+```
 * Secuencia de arranque de un equipo. Posibilidades.
 * Instalación y configuración de dispositivos.
 * Normas de seguridad.
