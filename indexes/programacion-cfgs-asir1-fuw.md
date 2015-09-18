@@ -6,3 +6,5 @@ del curso de 1º de **Administración de Sistemas Operativos en Red (ASIR)**.
 
 ## UD 1 - Equipos Microinformáticos
 * ![Simulador Von Neumann](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/fuw/simulador)
+* ![Taller 1 desmontar](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/fuw/taller/taller-1-desmontar.md)
+
