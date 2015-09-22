@@ -21,7 +21,7 @@ git config --global push.default simple
 * `ssh-keygen`: Generar par de claves pública/privada
 * Copiar la clave pública en GitHub (Configuración -> SSH Keys).
 
-> `geany /ruta-al-home-del-usuario/.ssh/id_rsa.pub`: Ver la clave pública.
+> Para ver la clave pública puedo hacer `geany /ruta-al-home-del-usuario/.ssh/id_rsa.pub`: 
 
 * `git clone git@github.com:usuario-git/curso-nombre-del-alumno.git`: Clonar el repositorio remoto en el equipo local.
 * `cd curso-nombre-del-alumno`: Nos movemos al directorio controlado por git
@@ -44,7 +44,6 @@ En el equipo local cada día de trabajo:
 * `git status`: Consultar los nuevos cambios locales.
 * `git add nombre-de-fichero-o-carpeta`: Para añadir un fichero al control de git. 
 
-> [OJO] 
 > Si quiero anular esta acción hacemos `git checkout nombre-de-fichero`.
 > Para eliminar un fichero del control de git `git rm nombre-de-fichero-o-carpeta`
 
