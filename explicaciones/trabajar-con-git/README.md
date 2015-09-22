@@ -45,6 +45,7 @@ En el equipo local cada día de trabajo:
 * `git add nombre-de-fichero-o-carpeta`: Para añadir un fichero al control de git. 
 
 > Si quiero anular esta acción hacemos `git checkout nombre-de-fichero`.
+>
 > Para eliminar un fichero del control de git `git rm nombre-de-fichero-o-carpeta`
 
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante.
@@ -65,5 +66,4 @@ Imagen que muestra el texto del *commit* asociado a la entrega:
 ![git-repo-tarea-commit] (./git-repo-tarea-commit.png)
 
 Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
-
 ![git-repo-tarea-url] (./git-repo-tarea-url.png)
