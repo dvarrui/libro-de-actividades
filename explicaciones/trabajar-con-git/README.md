@@ -1,16 +1,17 @@
 
 
 #1. Trabajando con GIT
-#1.1. La primera vez
+##1.1. La primera vez
 
-Servidor GIT en Internet:
+###Servidor GIT en Internet:
 * Crear una cuenta en GitHub.
 * Crear un repositorio "curso-nombre-del-alumno". Por ejemplo, si el alumno se llama David Vargas, 
 nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los guiones (-).
 
 > [OJO] Marcar la opción "Initialize this repository with a README", para crear un repositorio que contenga al menos un fichero.
+> La creación del repositorio en GitHub, sólo hay que hacerla una vez.
 
-En el equipo local (La primera vez):
+###En el equipo local (La primera vez):
 * Instalar GIT (`apt-get install git`)
 * Establecer algunas configuraciones:
 ```
@@ -35,18 +36,30 @@ En el equipo local, al terminar de trabajar para subir los cambios al servidor G
     git commit -m "Mensaje informativo"
     git push -u origin master
 ```
+> **RECORDATORIO** 
+>
+> Cada vez que vayamos a trabajar en un equipo local por primera vez hay que:
+> * Instalar git y configurar el usuario
+> * Crear el par de claves y subir la clave pública al servidor
+> * y clonar el repositorio en el nuevo equipo local
 
 ##1.2. Cada día de trabajo
 
-En el equipo local cada día de trabajo:
+En el equipo local cada día de trabajo haremos la siguiente secuencia:
 * `git pull`: Antes de empezar a trabajar para obtener los cambios del repositorio remoto.
 * A continuación nos ponemos a trabajar con los ficheros del directorio controlado por git.
-* `git status`: Consultar los nuevos cambios locales.
+Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
+* `git status`: Para consultar y comprobar los nuevos cambios locales.
 * `git add nombre-de-fichero-o-carpeta`: Para añadir un fichero al control de git. 
 
-> Si quiero anular esta acción hacemos `git checkout nombre-de-fichero`.
+> **DESHACER**
 >
-> Para eliminar un fichero del control de git `git rm nombre-de-fichero-o-carpeta`
+> `git checkout -- nombre-de-fichero`: Para deshacer los últimos cambios realizados a un fichero y devolverlo a su estado anterior.
+> `git reset HEAD nombre-de-fichero`: Para deshacer la acción `git add nombre-de-fichero`
+> `git reset --hard HEAD-1`: Para deshacer el último `git commit ...`
+> `git rm nombre-de-fichero-o-carpeta`: Para eliminar un fichero que está controlado por git 
+> `git mv nombre-actul nombre-nuevo`: Para renombrar un fichero que está controlado por git 
+>
 
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante.
 * `git push`: Subir los cambios al repositorio remoto.
