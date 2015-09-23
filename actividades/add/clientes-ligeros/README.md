@@ -7,6 +7,10 @@ Entrega de la práctica:
 * Incluir URL del vídeo subido a youtube.
 * Entregar URL al informe con su HASH del repositorio GIT.
 
+> Al terminar la actividad, y antes de realizar la entrega, etiquetamos el proyecto con "ltsp".
+> `git tag ltsp`
+> La etiqueta es un identificador que queda asociado a un instante de tiempo determinado del proyecto git.
+
 # 2. Preparativos
 Realizar las siguientes tareas:
 * Trabajaremos de forma individual.
@@ -95,8 +99,7 @@ Now create your Thin Client environment on the server with.
 
     sudo ltsp-build-client
 
-[WARNING] If you are on a 64-bit system but your clients have another architecture use 
-the --arch option eg. sudo ltsp-build-client --arch i386
+> [WARNING] If you are on a 64-bit system but your clients have another architecture use the --arch option eg. sudo ltsp-build-client --arch i386
 
 After that, you will be able to boot your first thin client. If it doesn't boot try rebooting the server.
 
@@ -119,7 +122,6 @@ Via commandline(following commands to be run in terminal as root "su -"):
     zypper in kiwi-ltsp-prebuilt
 
 It is expected that minimum GNOME environment is installed on the server.
-Configuration
 
 Check out Network configuration instructions before proceeding.
 
