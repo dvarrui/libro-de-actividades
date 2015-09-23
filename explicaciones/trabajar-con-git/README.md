@@ -54,11 +54,11 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 
 > **DESHACER**
 >
-> `git checkout -- nombre-de-fichero`: Para deshacer los últimos cambios realizados a un fichero y devolverlo a su estado anterior.
-> `git reset HEAD nombre-de-fichero`: Para deshacer la acción `git add nombre-de-fichero`
-> `git reset --hard HEAD-1`: Para deshacer el último `git commit ...`
-> `git rm nombre-de-fichero-o-carpeta`: Para eliminar un fichero que está controlado por git 
-> `git mv nombre-actul nombre-nuevo`: Para renombrar un fichero que está controlado por git 
+> * `git checkout -- nombre-de-fichero`: Para deshacer los últimos cambios realizados a un fichero y devolverlo a su estado anterior.
+> * `git reset HEAD nombre-de-fichero`: Para deshacer la acción `git add nombre-de-fichero`
+> * `git reset --hard HEAD-1`: Para deshacer el último `git commit ...`
+> * `git rm nombre-de-fichero-o-carpeta`: Para eliminar un fichero que está controlado por git 
+> * `git mv nombre-actul nombre-nuevo`: Para renombrar un fichero que está controlado por git 
 >
 
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante.
