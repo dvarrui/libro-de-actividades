@@ -1,6 +1,6 @@
 # 1. Clientes ligeros con LTSP
 Entrega de la práctica:
-* Crear informe usando la plantilla HTML.
+* Crear informe usando ficheros de texto en Markdown.
 * Incluir breve explicación de clientes ligeros.
 * Detallar los pasos realizados.
 * Crear vídeo donde se muestra la práctica en funcionamiento.
