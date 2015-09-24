@@ -67,13 +67,20 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 Vídeo: [GIT 02 - Trabajando cada día con git] (https://youtu.be/_IFpfdeUor0)
 
 ##1.3. Entregas
-Cuando se vaya a realziar la entrega del trabajo vía repositorio GIT, hay que tener en cuenta lo siguiente:
-* El último "commit" de la entrega debe tener una mensaje como "Entrega de la Actividad X de la Unidad X". (Ver imagen).
-* Crearemos una etiqueta en git, para marcar la entrega: `git tag etiqueta`.
 
-> La etiqueta la establece el profesor y cambiará con cada entrega.
+Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado
+el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
+Esto ¿cómo lo haremos?:
+* Cada actividad tendrá asociada una etiqueta que vendrá definida en el enunciado de la misma.
+* `git tag -a etiqueta -m "Entrega de la Actividad XX"`: para crear una etiqueta.
+* `git push --tags`: Para enviar las etiquetas al servidor remoto. 
 
-* La URL del trabajo a entregar debe ser algo como "usuario-git/idp1314nombrealumno/trim3/unit5/actividad1.txt".
+> `git tag`: Para consultar las etiquetas.
+> `git show etiqueta`: Para ver el detalle de una etiqueta concreta.
+> `git log --pretty=oneline` Para consultar en pantalla todos los textos de los commits.
+
+En el moodle es conveniente indicar la URL del trabajo entregado vía Git. 
+Que debe ser algo como *"usuario-git/add1516-nombrealumno/trim.3/unit.5/actividad1/README.md*".
 
 Imagen que muestra el texto del *commit* asociado a la entrega:
 ![git-repo-tarea-commit] (./git-repo-tarea-commit.png)
