@@ -73,6 +73,7 @@ el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho 
 Esto ¿cómo lo haremos?:
 * Cada actividad tendrá asociada una etiqueta que vendrá definida en el enunciado de la misma.
 * `git tag -a etiqueta -m "Entrega de la Actividad XX"`: para crear una etiqueta.
+* `git tag -d etiqueta`: Para eliminar la etiqueta en local.
 * `git push --tags`: Para enviar las etiquetas al servidor remoto. 
 
 > `git tag`: Para consultar las etiquetas.
