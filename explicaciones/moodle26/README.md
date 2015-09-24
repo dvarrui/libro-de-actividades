@@ -9,6 +9,8 @@
 * Guardar cambios
 
 > Para cambiar el nombre del curso debo tener permisos de profesor sobre dicho curso.
+>
 > Recordar que el nombre debe comenzar por "[15/16] ...." cuando estemos en el curso 2015-2016.
+>
 > Cada nuevo curso debemos realizar este renombrado para saber que siguen en uso.
 
