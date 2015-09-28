@@ -22,3 +22,6 @@ Vamos a practicar con un SO en live CD.
 * Vamos a realizar un instalación por defecto
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO GNU/Linux Debian7 en la MV con las opciones por defecto.
+
+# ANEXO
+[Vídeo Install OpenSUSE] (http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
