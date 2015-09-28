@@ -9,6 +9,12 @@ Vamos a practicar con un SO en live CD.
 * Crear una máquina virtual sin disco duro.
 * Iniciar el SO en modo LIVE.
 * Probar el sistema.
+* Abrir un terminal y capturar la salida de los siguientes comandos:
+```
+date
+ip a
+sudo blkid
+```
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
 * Comprobar que los cambios anteriores no se han guardado.
@@ -22,6 +28,13 @@ Vamos a practicar con un SO en live CD.
 * Vamos a realizar un instalación por defecto
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO GNU/Linux Debian7 en la MV con las opciones por defecto.
+* Abrir un terminal y capturar la salida de los siguientes comandos:
+```
+hostname -f
+date
+ip a
+blkid
+```
 
 # ANEXO
 [Vídeo Install OpenSUSE] (http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
