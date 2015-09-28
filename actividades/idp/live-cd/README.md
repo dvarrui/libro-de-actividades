@@ -23,6 +23,11 @@ sudo blkid
 * Vamos a realizar un instalación por defecto
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO Windows 7 en la MV con las opciones por defecto.
+* Abrir un terminal y capturar la salida de los siguientes comandos:
+```
+date
+ipconfig
+```
 
 # GNU/Linux Debian7
 * Vamos a realizar un instalación por defecto
