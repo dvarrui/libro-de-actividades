@@ -35,4 +35,7 @@ keeppackages=0
 * `chmod +x *`
 * `./VBoxLinuxAddittions.run`
 
+> En Debian8 XFCE se requiere instalar previamente los siguientes paquetes:
+> `apt-get install gcc make linux-headers-$(uname -r)`
+>
 
