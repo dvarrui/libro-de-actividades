@@ -9,9 +9,9 @@ Vamos a practicar con un SO en live CD.
 * Crear una máquina virtual sin disco duro.
 * Iniciar el SO en modo LIVE.
 
-> Para que se nos cargue en español debemos poner en el inicio `knoppix lang=es`
+> Para que se nos cargue en español debemos poner en el inicio **boot:**` knoppix lang=es`
 
-* Probar el sistema.
+* Probar el sistema. 
 * Abrir un terminal y capturar la salida de los siguientes comandos:
 ```
 date
