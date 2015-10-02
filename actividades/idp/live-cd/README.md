@@ -26,8 +26,8 @@ sudo blkid
 * Descargar la versión *Windows7 profesional sp1 x64*.
 * Vamos a realizar un instalación por defecto.
 ```
-Nombre de usuario: nombre del alumno en minúsculas
-Nombre de máquina: 1er apellido en minúsculas
+**Nombre de usuario :** nombre del alumno en minúsculas
+**Nombre de máquina :** 1er apellido en minúsculas
 ```
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO Windows 7 en la MV con las opciones por defecto.
@@ -41,9 +41,9 @@ ipconfig
 * Descargar *GNU/Linux Debian7 amd64*.
 * Vamos a realizar un instalación por defecto
 ```
-Nombre de usuario: nombre del alumno en minúsculas
-Nombre de máquina: 1er apellido en minúsculas
-Nombre dominio: 2º apellido en minúsculas
+**Nombre de usuario :** nombre del alumno en minúsculas
+**Nombre de máquina :** 1er apellido en minúsculas
+**Nombre dominio    :** 2º apellido en minúsculas
 ```
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO GNU/Linux Debian7 en la MV con las opciones por defecto.
