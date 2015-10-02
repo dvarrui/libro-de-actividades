@@ -43,8 +43,7 @@ ipconfig
 hostname -f
 date
 ip a
-su      (Con este comando cambiamos al usuario root)
-blkid   (Es necesario ser usuario root para ejecutar este comando)
+sudo blkid
 ```
 
 # ANEXO
