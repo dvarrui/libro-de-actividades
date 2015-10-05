@@ -40,7 +40,15 @@ y una interfaz interna
 * Clave de root, poner como clave el DNI con la letra en minúsculas.
 * Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
 * Poner como nombre de dominio el segundo apellido del alumno en minúsculas y sin tildes.
-* Incluir en el informe la salida de los comandos siguientes: `ifconfig`, `route -n`, `hostname -a`, y `hostname -f`
+* Incluir en el informe la salida de los comandos siguientes: 
+```
+ip a
+route -n
+hostname -a
+hostname -f
+uname -a
+blkid
+```
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
@@ -92,7 +100,12 @@ Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al c
 
 Cuando el cliente se conecte
 * entramos con los usuarios apellido-del-alumno[1-3]
-* Ir al servidor, ejecutar comando "arp" como superusuario y capturar la salida.
+* Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
+```
+arp
+whoami
+who
+```
 * Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
 
 #5. ANEXOS
