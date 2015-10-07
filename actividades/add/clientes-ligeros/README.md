@@ -60,11 +60,11 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 primer-del-apellido-alumno3.
 
 ## 3.3 Instalar el servicio LTSP
+* Instalar el servidor SSH `apt-get install openssh-server`.
 * Instalar servidor de clientes ligeros, según la documentación para el SO elegido. 
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * Ahora vamos a crear un imagen del SO a partir del sistema real haciendo `ltsp-build-client`.
 La imagen del SO se cargará en la memoria de los clientes ligeros.
-* Instalar el servidor SSH `apt-get install openssh-server`.
 * Revisar la configuración de la tarjeta de red interna del servidor. 
 IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)
 
