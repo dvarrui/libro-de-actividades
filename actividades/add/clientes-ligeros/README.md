@@ -82,6 +82,11 @@ modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego r
 > * `ltsp-info`: Para consultar información
 >
 
+* Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
+![ltsp-services-running](./ltsp-services-running.png)
+
+
+
 # 4. Preparar MV Cliente
 Crear la MV cliente en VirtualBox:
 * Sin disco duro y sin unidad de DVD.
