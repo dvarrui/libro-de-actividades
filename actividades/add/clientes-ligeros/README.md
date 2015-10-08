@@ -85,7 +85,19 @@ modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego r
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./ltsp-services-running.png)
 
-
+> INFORMACIÓN
+>
+> Otra forma de comprobar si los servicios están iniciados en con:
+> 
+> * `/etc/init.d/isc-dhcp-server status`
+> * `/etc/init.d/tftpd-hpe status`
+>
+> * Si el servidor DHCP no se ha iniciado automáticamente al reiniciar el equipo, entonces
+vamos a intentar iniciarlo manualmente con `/etc/init.d/isc-dhcp-server start`
+> * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`
+> * Para cambiar las opciones del arranque del servicio DHCP editamos fichero `/etc/default/isc-dhcp-server`.
+Y establecemos la variable INTERFACES con el nombre del interfaz de red donde debe trabajar.
+>
 
 # 4. Preparar MV Cliente
 Crear la MV cliente en VirtualBox:
