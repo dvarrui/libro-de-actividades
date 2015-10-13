@@ -30,12 +30,11 @@ keeppackages=0
 * MV Debian -> Dispositiovos -> Insertar CD/DVR de las Guest Additions
 * Abrir un terminal, ejecutar `su`
 * `mkdir /tmp/cdrom`
-* `cd /tmp/cdrom
+* `cd /tmp/cdrom`
 * `cp -r /media/cdrom/* .`
 * `chmod +x *`
 * `./VBoxLinuxAddittions.run`
 
 > En Debian8 XFCE se requiere instalar previamente los siguientes paquetes:
 > `apt-get install gcc make linux-headers-$(uname -r)`
->
 
