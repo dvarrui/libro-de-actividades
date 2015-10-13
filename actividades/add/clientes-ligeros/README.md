@@ -65,22 +65,33 @@ primer-del-apellido-alumno3.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * Ahora vamos a crear un imagen del SO a partir del sistema real haciendo `ltsp-build-client`.
 La imagen del SO se cargará en la memoria de los clientes ligeros.
-* Revisar la configuración de la tarjeta de red interna del servidor. 
-IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)
 
-> **ADVERTENCIA**
+> **32 bits o 64 bits**
 > 
 > Si el servidor es de 64-bits pero los clientes tienen arquitectura de 32-bits 
-entonces usar el comando siguiente `ltsp-build-client --arch i386`
+entonces usar el comando siguiente `ltsp-build-client --arch i386` para crear una imagen
+de 32 bits.
 >
-> Si se desea usar una IP diferente en la red interna entonces será necesario
-modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
 
-> Comandos LTSP:
+> **Comandos LTSP**
 >
 > * `ltsp-update-image`: Para volver a actualiza la imagen
 > * `ltsp-info`: Para consultar información
 >
+
+Revisamos la configuración del servicio DHCP instalado junto con LTSP:
+* Revisar la configuración de la tarjeta de red interna del servidor. 
+IP estática compatible con la configuración dhcp.
+* Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`
+* Por defecto, este fichero de configuración establece que la imagen que hemos creado 
+debe estar en la ruta `/ltsp/i386/pxelinux.0` del servicio TFTP. 
+* Como el servicio TFTP tiene configurado como directorio de trabajo `/var/lib/tftpboot/`
+ entonces, el fichero de imagen debe estar en `/var/lib/tftpboot/ltsp/i386/pxelinux.0`
+* Comprobarlo.
+
+> **IP de la red interna**
+> Si se desea usar una IP diferente en la red interna entonces será necesario
+modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
 
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./ltsp-services-running.png)
