@@ -90,8 +90,10 @@ debe estar en la ruta `/ltsp/i386/pxelinux.0` del servicio TFTP.
 * Comprobarlo.
 
 > **IP de la red interna**
+>
 > Si se desea usar una IP diferente en la red interna entonces será necesario
 modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
+>
 
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./ltsp-services-running.png)
