@@ -87,11 +87,7 @@ IP estática compatible con la configuración dhcp.
 
 ![dhcpdconf](./ltsp-dhcpdconf.png)
 
-* Por defecto, este fichero de configuración establece que la imagen que hemos creado 
-debe estar en la ruta `/ltsp/i386/pxelinux.0` del servicio TFTP. 
-* Como el servicio TFTP tiene configurado como directorio de trabajo `/var/lib/tftpboot/`
- entonces, el fichero de imagen debe estar en `/var/lib/tftpboot/ltsp/i386/pxelinux.0`
-* Comprobarlo.
+> Comprobar las rutas de `option root-path /opt/ltsp/amd64` y de `filename /ltsp/amd64/pxelinux.0`.
 
 > **IP de la red interna**
 >
