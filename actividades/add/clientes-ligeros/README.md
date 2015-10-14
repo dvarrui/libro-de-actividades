@@ -83,11 +83,11 @@ de 32 bits.
 Revisamos la configuración del servicio DHCP instalado junto con LTSP:
 * Revisar la configuración de la tarjeta de red interna del servidor. 
 IP estática compatible con la configuración dhcp.
-* Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`. Veamos una imagen de ejemplo.
+* Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`. 
+Comprobar las rutas de `option root-path /opt/ltsp/amd64` y de `filename /ltsp/amd64/pxelinux.0`.
+Veamos una imagen de ejemplo.
 
 ![dhcpdconf](./ltsp-dhcpdconf.png)
-
-> Comprobar las rutas de `option root-path /opt/ltsp/amd64` y de `filename /ltsp/amd64/pxelinux.0`.
 
 > **IP de la red interna**
 >
