@@ -54,7 +54,6 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./debian-host-domain-names.png)
 
-
 [INFO] En OpenSUSE podemos usar la herramienta Yast2 para modificar cómodamente dichos valores.
 * Crear 3 usuarios locales llamados: primer-del-apellido-alumno1, primer-del-apellido-alumno2,
 primer-del-apellido-alumno3.
@@ -73,16 +72,21 @@ entonces usar el comando siguiente `ltsp-build-client --arch i386` para crear un
 de 32 bits.
 >
 
-> **Comandos LTSP**
+* Ejecutar `ltsp-info`, para consultar información.
+ 
+> **Comandos LTSP: Para volver a actualizar la imagen**
 >
-> * `ltsp-update-image`: Para volver a actualiza la imagen
-> * `ltsp-info`: Para consultar información
->
+> * `ltsp-update-kernel`
+> * `ltsp-update-sshkeys`
+> * `ltsp-update-image`
 
 Revisamos la configuración del servicio DHCP instalado junto con LTSP:
 * Revisar la configuración de la tarjeta de red interna del servidor. 
 IP estática compatible con la configuración dhcp.
-* Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`
+* Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`. Veamos una imagen de ejemplo.
+
+![dhcpdconf](./ltsp-dhcpdconf.png)
+
 * Por defecto, este fichero de configuración establece que la imagen que hemos creado 
 debe estar en la ruta `/ltsp/i386/pxelinux.0` del servicio TFTP. 
 * Como el servicio TFTP tiene configurado como directorio de trabajo `/var/lib/tftpboot/`
