@@ -26,9 +26,10 @@ ping www.google.es
 * Instalar el software de acceso remoto SSH `openssh-server`.
 
 > **Instalación de SSH por comandos**
-> `su`: Pasa a superusuario
-> `apt-get update`: Actualiza los repositorios
-> `apt-get install openssh-server`: Instala el paquete
+>
+> * `su`: Pasa a superusuario
+> * `apt-get update`: Actualiza los repositorios
+> * `apt-get install openssh-server`: Instala el paquete
 >
 
 ##Tarea
