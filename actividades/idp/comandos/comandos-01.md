@@ -33,7 +33,7 @@ ping www.google.es
 >
 
 ##Tarea
-Realizar las siguientes acciones en la MV:
+Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta Documentos de nuestro home:
 ```
 curso1516/fuw
