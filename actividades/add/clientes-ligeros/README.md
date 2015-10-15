@@ -1,3 +1,10 @@
+
+> **Cambiar para el curso1617**
+>
+> * Usar SO Debian 8
+> * IP eth1 192.168.67.1
+> 
+
 # 1. Clientes ligeros con LTSP
 Entrega de la práctica:
 * Crear informe usando ficheros de texto en Markdown.
@@ -8,7 +15,7 @@ Entrega de la práctica:
 * Entregar URL al informe con su HASH del repositorio GIT.
 
 > Al terminar la actividad, y antes de realizar la entrega, etiquetamos el proyecto con "ltsp".
-> `git tag ltsp`
+>
 > La etiqueta es un identificador que queda asociado a un instante de tiempo determinado del proyecto git.
 
 # 2. Preparativos
