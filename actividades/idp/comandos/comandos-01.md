@@ -12,7 +12,7 @@ Partimos que ya tenemos creada la MV Debian 7 con:
 Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 * En VirtualBox cambiamos la red de NAT a modo puente (Bridge).
 * En SO pondremos la configuración de red estática con los siguientes datos:
-    * IP: 172.18.XX.30
+    * IP: 172.18.XX.30 (XX será el identificador del puesto de cada uno)
     * Máscara: 255.255.0.0
     * Enlace (gateway): 172.18.0.1
     * DNS: 80.58.61.250
