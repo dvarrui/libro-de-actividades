@@ -33,6 +33,7 @@ ping www.google.es
 >
 
 > **Configuración SSH**
+>
 > Asegurarse de que el fichero de configuración de SSH `/etc/ssh/sshd_config`,
 tiene la opción `PermitRootLogin yes`
 >
