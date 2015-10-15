@@ -32,6 +32,11 @@ ping www.google.es
 > * `apt-get install openssh-server`: Instala el paquete
 >
 
+> **Configuración SSH**
+> Asegurarse de que el fichero de configuración de SSH `/etc/ssh/sshd_config`,
+tiene la opción `PermitRootLogin yes`
+>
+
 ##Tarea
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta Documentos de nuestro home:
