@@ -1,5 +1,5 @@
 
-#Arquietectura de Von Neumann
+#Arquitectura de Von Neumann
 
 ##Simulador
 * Instalar el programa Johnny Simulator en la MV Windows.
@@ -17,7 +17,7 @@ de nacimiento es DD/MM/XXYY, debemos realizar la siguiente operación DD+MM+XX+Y
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
     * IES Puerto de la Cruz - Curso1516
     * Fundamentos de Hardware
-    * Título de la actividad
+    * Simulación Arquitectura Von Neumann
     * Nombre del autor y fecha
 * Incluir subtítulos que comenten las imágenes que se ven en el vídeo.
 * Incluir en el vídeo el logo del IES Puerto de la Cruz para que se muestre durante todo el vídeo.
