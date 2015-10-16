@@ -3,8 +3,8 @@
 
 ##Simulador
 * Instalar el programa Johnny Simulator en la MV Windows.
-* Escribir en la RAM una program para realizar la suma de 4 números. Si nuestra fecha
-de nacimiento es DD/MM/XXYY, debemos relizar la suma de DD+MM+XX+YY.
+* Escribir en la RAM una program para realizar la sumas y restas. Si nuestra fecha
+de nacimiento es DD/MM/XXYY, debemos realizar la siguiente operación DD+MM+XX+YY-15-16.
 
 > Consultar el programa *"Adding numbers"* de la página 8 del manual del simulador Johnny.
 
