@@ -8,7 +8,10 @@ de nacimiento es DD/MM/XXYY, debemos relizar la suma de DD+MM+XX+YY.
 
 > Consultar el programa *"Adding numbers"* de la página 8 del manual del simulador Johnny.
 
-* Grabar un vídeo del programa funcionando en el simulador, ejecutando las instrucciones una a una.
+* Grabar el programa/memoria en un fichero con *nombrealumno-suma*.
+* Grabar un vídeo que muestre:
+    * Cómo se carga e programa desde fichero a la memoria.
+    * El programa funcionando en el simulador, ejecutando las instrucciones una a una.
 
 ##Editar el vídeo
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
