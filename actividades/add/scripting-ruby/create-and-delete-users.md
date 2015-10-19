@@ -18,3 +18,7 @@ para eliminar/crear dicho usuario en un sistema GNU/Linux.
     * Si el usuario no existe se crea
     * Si el usuario no tiene email entonces se muestra un mensaje en pantalla
 indicando el problema pero no se hace nada con él.
+
+##Enlaces de interés
+* ¿Cómo crear [scripts que no requieran la intervencion del usuario]
+ (https://es.opensuse.org/Scripts_sin_intervencion_del_usuario)?
