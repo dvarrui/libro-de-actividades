@@ -8,6 +8,7 @@ Incluir capturas de pantalla del sistema operativo funcionando.
 > Esta máquina virtual Debian la usaremos en las próximas unidades de trabajo.
 
 #1. Máquina virtual
+Capturar imagenes de todos estos pasos:
 * Crear una nueva MV con: tamaño de disco de 10GB, tarjeta de red en modo bridge (Puente).
 * INFO: Knoppix es una distribución de GNU/Linux que viene en CD-Live. Viene provista de un conjunto de herramientas muy útiles.
 * Descargar del servidor la ISO de Knoppix y el fichero md5.
@@ -20,8 +21,11 @@ Incluir capturas de pantalla del sistema operativo funcionando.
 * Cerrar gparted y apagar Knoppix.
 
 #2. Instalando el Sistema Operativo
+Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente: `md5sum -c nombre-de-fichero-debian.iso.md5`
+
+NO hace falta captar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * Poner como nombre del equipo el "1er-apellido-del-alumno" en minúsculas, sin tildes ni eñes.
@@ -29,21 +33,22 @@ Incluir capturas de pantalla del sistema operativo funcionando.
 * La clave de root (superusuario) será el DNI del alumno con la letra en minúsculas.
 * Poner como nombre de usuario el "nombre-del-alumno" en minúsculas, sin tildes ni eñes.
 * Zona horaria Canarias.
+
 * Método de particionado manual, y crear el siguiente esquema de particiones:
     1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
     1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
     1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
     1. Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
     1. Dejar el resto sin usar.
+* Capturar imagen del espque de particionado final. Veamos un ejemplo:
 
 ![act1-debian-particiones] (./act1-debian-particiones.png)
 
+NO hace falta capturar imágenes de lo siguiente:
 * Elegimos una réplica de red de España. El valor de Proxy lo dejamos vacío.
-* En la selección de programas poner sólo "Utilidades estándar del sistema". 
+* En la selección de programas poner *Utilidades estándar del sistema* y *SSH Server*. 
 Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio. 
 Por el momento queremos un sistema sólo en modo texto.
-
-> Podemos seleccionar la opción **SSH Server**
 
 ![act1-debian-paquetes] (./act1-debian-paquetes.png)
 
@@ -51,6 +56,7 @@ Por el momento queremos un sistema sólo en modo texto.
 * Instalación completa -> Continuar.
 
 ##Con el SO instalado
+NO hace falta capturar imágenes de lo siguiente:
 * Entrar al sistema con el usuario.
 * Configurar la tarjeta de red con:
     * IP: 172.19.XX.31
@@ -58,8 +64,8 @@ Por el momento queremos un sistema sólo en modo texto.
     * Gateway (Puerta de enlace): 172.19.0.1
     * DNS: 80.58.61.250
 * Entrar al sistema como root (superusuario)
-* Ejecutar los comandos siguientes, y capturar su salida:
 
+Capturar imagen de los siguientes comandos:
 ```
     date (Muestra la fecha/hora del sistema)
     hostname (Muestra nombre del sistema)
@@ -74,6 +80,7 @@ Por el momento queremos un sistema sólo en modo texto.
 * Salir con el comando "exit"
 
 ##Para acabar:
+NO hace falta capturar imagen de lo siguiente:
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
 * Vamos a instalar el programa openssh para que el profesor pueda acceder remotamente a la máquina. 
 Ejecutar comando como superusuario: `apt-get install openssh-server`
