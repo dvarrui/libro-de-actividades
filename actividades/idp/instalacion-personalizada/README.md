@@ -1,5 +1,5 @@
 
-#Instalación Debian personalizada
+#Instalación Knoppix-Debian personalizada
 
 Entregar un documento en formato OFT o PDF con los pasos realizados. 
 Incluir capturas de pantalla del sistema operativo funcionando.
@@ -30,11 +30,11 @@ Incluir capturas de pantalla del sistema operativo funcionando.
 * Poner como nombre de usuario el "nombre-del-alumno" en minúsculas, sin tildes ni eñes.
 * Zona horaria Canarias.
 * Método de particionado manual, y crear el siguiente esquema de particiones:
-  a) Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
-  b) Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
-  c) Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
-  d) Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
-  Dejar el resto sin usar.
+    1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
+    1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
+    1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
+    1. Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
+    1. Dejar el resto sin usar.
 
 ![act1-debian-particiones] (./act1-debian-particiones.png)
 
