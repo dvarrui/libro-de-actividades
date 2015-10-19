@@ -7,6 +7,8 @@
 * Al terminar etiquetaremos la entrega con *create-and-delete-users*.
 
 ##Script
+* Al comenzar el script se debe comprobar si el usuario que lo ejecuta es
+`root`. En caso contrario se mostrara un mensaje y se finaliza el script.
 * Los datos de los usuarios estarán en un fichero *userslist.txt*,
 con el formato `username:lastname:email:birthday`.
 * El script deberá leer el contenido de un fichero *userslist.txt*,
