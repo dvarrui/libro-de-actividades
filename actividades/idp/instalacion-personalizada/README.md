@@ -43,6 +43,8 @@ Incluir capturas de pantalla del sistema operativo funcionando.
 Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio. 
 Por el momento queremos un sistema sólo en modo texto.
 
+> Podemos seleccionar la opción **SSH Server**
+
 ![act1-debian-paquetes] (./act1-debian-paquetes.png)
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
@@ -50,12 +52,11 @@ Por el momento queremos un sistema sólo en modo texto.
 
 ##Con el SO instalado
 * Entrar al sistema con el usuario.
-* Asegurarse de que la fecha/hora del sistema son los correctos. Ejecutar el comando `date`.
 * Configurar la tarjeta de red con:
     * IP: 172.19.XX.31
     * Máscara de red: 255.255.0.0
     * Gateway (Puerta de enlace): 172.19.0.1
-    * DNS:
+    * DNS: 80.58.61.250
 * Entrar al sistema como root (superusuario)
 * Ejecutar los comandos siguientes, y capturar su salida:
 
