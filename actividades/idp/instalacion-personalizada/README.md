@@ -51,7 +51,11 @@ Por el momento queremos un sistema sólo en modo texto.
 ##Con el SO instalado
 * Entrar al sistema con el usuario.
 * Asegurarse de que la fecha/hora del sistema son los correctos. Ejecutar el comando `date`.
-* Salir con el comando "exit"
+* Configurar la tarjeta de red con:
+    * IP: 172.19.XX.31
+    * Máscara de red: 255.255.0.0
+    * Gateway (Puerta de enlace): 172.19.0.1
+    * DNS:
 * Entrar al sistema como root (superusuario)
 * Ejecutar los comandos siguientes, y capturar su salida:
 
@@ -66,6 +70,7 @@ Por el momento queremos un sistema sólo en modo texto.
     lsblk -l
     ls -l /dev/disk/by-uuid (Muestra los códigos UUID)
 ```
+* Salir con el comando "exit"
 
 ##Para acabar:
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
