@@ -1,6 +1,13 @@
 
 #Instalación de rbenv y rails en OpenSUSE 13.2
 
+## 0. Agregar los shims al PATH
+Los shims son los scripts que ejecutan las herramientas de CLI.
+
+```
+export PATH=$HOME/.rbenv/shims:$PATH
+```
+
 ##1. Hago la instalación de rbenv
 Comprobación:
 ```
@@ -9,10 +16,19 @@ david@camaleon:~> rbenv versions
   2.2.2
 ```
 
+### 2. Hay que indicar a rbenv que rubie vas a utilizar.
+```
+david@camaleon:~> rbenv global 2.2.2
+david@camaleon:~> rbenv versions
+  system (set by /home/david/.rbenv/version)
+* 2.2.2
+```
+
 ##2. Hago la instalación de rails en el ruby del sistema
 
+No instales rails con sudo
 ```
-david@camaleon:~> sudo gem install rails
+david@camaleon:~> gem install rails
 Fetching: rails-4.2.4.gem (100%)
 Successfully installed rails-4.2.4
 Parsing documentation for rails-4.2.4
@@ -71,6 +87,7 @@ tzinfo (1.2.2)
 Ejecuto `rbenv rehash`, pero sigue sin aparecer el comando de rails:
 
 ```
+# Aqui te esta diciendo que no estas utilizando la version de Ruby que instalaste con Rbenv.
 david@camaleon:~> rbenv versions
 * system (set by /home/david/.rbenv/version)
   2.2.2
@@ -87,3 +104,8 @@ If 'wich' is not a typo you can use command-not-found to lookup the package that
 ```
 
 ##4. ¿Cuál es el siguiente paso?
+
+Para saber que cual shim estas utilizando.
+```
+$ rbenv which rails
+```
