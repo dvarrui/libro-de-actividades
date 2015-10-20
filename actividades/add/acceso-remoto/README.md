@@ -5,6 +5,7 @@
 Vamos a trabajar la actividad con varios SSOO, estos son:
 * Windows 2008 Server y Windows7
 * GNU/Linux Debian.
+
 > Para usar otros sistemas fuera de la lista, consultarlo antes con el profesor.
 
 Entrega:
