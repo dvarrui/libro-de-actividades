@@ -69,14 +69,14 @@ NO hace falta capturar imágenes de lo siguiente:
 Capturar imagen de los siguientes comandos:
 ```
     date (Muestra la fecha/hora del sistema)
-    hostname (Muestra nombre del sistema)
-    dnsdomainname (Muestra nombre de dominio)
+    hostname -a (Muestra nombre del sistema)
+    hostname -d (Muestra nombre de dominio)
     uname -a (Muestra datos del kernel)
-    ifconfig (Muestra información de red)
+    ip a (Muestra información de red)
     df -hT (Muestra información de ocupación del disco)
     fdisk -l (Muestra información de particiones)
-    lsblk -l
-    ls -l /dev/disk/by-uuid (Muestra los códigos UUID)
+    lsblk (Muestra información de las particiones)
+    blkid (Muestra los códigos UUID de las particiones)
 ```
 * Salir con el comando "exit"
 
