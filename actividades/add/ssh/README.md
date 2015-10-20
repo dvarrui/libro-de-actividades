@@ -1,0 +1,272 @@
+
+#Acceso remoto SSH
+
+* Atender a la explicación del profesor.
+* Leer documentación proporcionada por el profesor.
+* Enlaces de interés: Securizar un servidor SSH
+* Vamos a necesitar las siguientes 3 MVs:
+    1. Un servidor con IP estática (172.18.XX.33). Con GNU/Linux.
+    1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
+    1. Un cliente Windows con IP estática (172.18.XX.13).
+
+[secret]
+
+Ejemplo de configuración del fichero /etc/network/interfaces para Ubuntu:
+```
+auto eth0
+iface eth0 inet static
+address 172.18.XX.33
+netmask 255.255.0.0
+gateway 172.18.0.1
+dns-search aula108
+dns-nameservers 8.8.4.4
+```
+
+#1. Preparativos
+Configurar el servidor GNU/Linux con:
+* Nombre de usuario: nombre-del-alumno
+* Clave del usuario: DNI-del-alumno
+* Clave del usuario root: DNI-del-alumno
+* Nombre de equipo: ssh-server
+* Nombre de dominio: primer-apellido-del-alumno
+
+Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
+
+names
+
+Crear los siguientes usuarios en ssh-server:
+        remoteuser1
+        remoteuser2
+        remoteuser3
+        remoteuser4
+    Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2.
+
+Configurar el cliente1 GNU/Linux:
+
+    Nombre de usuario: nombre-del-alumno
+    Clave del usuario: DNI-del-alumno
+    Clave del usuario root: DNI-del-alumno
+    Nombre de equipo: ssh-client
+    Nombre de dominio: primer-apellido-del-alumno
+    Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
+
+Configurar el cliente2 Windows:
+
+    Instalar software cliente SSH en Windows (PuTTY)
+    Añadir en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1.
+
+
+2. Instalación básica
+
+    Instalar el servicio SSH en la máquina ssh-server: "apt-get install openssh-server".
+    Los ficheros de configuración del servicio se guardan en /etc/ssh.
+
+
+
+    Desde el propio SSH-SERVER, verificar que el servicio está en ejecución. Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
+        service ssh status
+        /etc/init.d/ssh status
+        ps -ef|grep ssh
+    Modificar el fichero de configuración SSH (/etc/ssh/sshd_config) para dejar una única línea: "HostKey /etc/ssh/ssh_host_rsa_key". Comentar el resto de líneas con configuración HostKey.
+    Reiniciar el servicio SSH: service ssh restart
+    Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario remoteuser1. Desde el cliente hacemos "ssh remoteuser1@ssh-server".
+    Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+    Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo cliente. ¿Te suena la clave que aparece?
+    Generar nuevas claves de equipo en SSH-SERVER. Como usuario root ejecutamos en SSH-SERVER: "ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key"
+    Reiniciar el servicio SSH en SSH-SERVER.
+    Comprobar qué sucede al volver a conectarnos desde los clientes, usando el usuario remoteuser2 y remoteuser1. ¿Qué sucede?
+
+Enlaces de inteŕes, servicio SSH en Windows:
+
+    Tutorial FreeSShd
+    [W7-es] Configuración de OpenSSH (SSH Cygwin +Putty)
+    [WXP-en] Installing Cygwin and Starting the SSH Daemon
+    [NOTA] En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
+
+3. Personalización del prompt Bash
+
+    [INFO] Esto sólo para servidores GNU/Linux o BSD.
+    Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
+    Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración del usuario en la máquina servidor (Fichero /home/remoteuser1/.bashrc)
+
+#Cambia el prompt al conectarse vía SSH
+if [ -n "$SSH_CLIENT" ]; then
+PS1="\e[32;40m\u@\h: \w\a\$"
+fi
+
+    Comprobar funcionamiento de la conexión SSH desde cada cliente.
+
+
+4. Autenticación mediante claves públicas
+
+    Vamos a configurar autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente cliente al servidor con el usuario remoteuser4.
+    Vamos a la máquina cliente.
+    No usar el usuario root.
+    Iniciamos sesión con nuestro usuario desde la máquina cliente y ejecutamos "ssh-keygen -t rsa" para generar un nuevo par de claves para el usuario en "/home/nuestro-usuario/.ssh/id_rsa" y "/home/nuestro-usuario/.ssh/id_rsa.pub".
+    Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
+    Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
+    Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
+    Ahora podremos acceder remotamente, sin escribir la clave de acceso.
+
+clave-publica
+
+5. Uso de SSH como túnel para X
+
+    Instalar en el servidor una aplicación de entorno gráfico(APP1) que no esté en el cliente. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
+    Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes)
+    Comprobar funcionamiento de APP1 desde cliente GNU/Linux.
+    Por ejemplo, con el comando "ssh -X remoteuser1@ssh-server", podemos conectarnos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
+
+tunel
+
+
+6. Aplicaciones Windows nativas
+
+    [INFO] Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
+    Instalar emulador Wine en el ssh-server.
+    Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+    Comprobar el funcionamiento de APP2 en ssh-server.
+    Comprobar funcionamiento de APP2 desde el cliente SSH.
+    [INFO] En este caso hemos conseguido implementar una solución RemoteApps usando SSH.
+
+
+7. Restricciones de uso
+Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
+7.1 Sin restricción (tipo 1)
+
+Usuario sin restricciones:
+
+    El usuario remoteuser1, podrá conectarse vía SSH sin restricciones.
+    En principio no es necesario tocar nada.
+
+7.2 Restricción total (tipo 2)
+
+Vamos a crear una restricción de uso del SSH para un usuario:
+
+    [INFO] En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar sin problemas el usuario. Pero al tratar de usar el usuario por ssh desde los clientes tendremos permiso denegado.
+    Consultar/modificar fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para conseguir restringir el acceso a determinados usuarios. Consultar opción "AllowUsers". Más información en: "man sshd_config"
+    Comprobarlo desde los clientes.
+
+7.3 Restricción en las máquinas (tipo 3)
+
+Vamos a crear una restricción para que sólo las máquinas clientes con las IP's autorizadas puedan acceder a nuestro servidor.
+
+    Consultar los ficheros de configuración /etc/hosts.allow y /etc/host.deny
+    Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
+    Comprobar su funcionamiento.
+
+
+7.4 Restricción sobre aplicaciones (tipo 4)
+
+Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
+
+    Usaremos el usuario remoteuser4
+    Crear grupo remoteapps
+    Incluir al usuario en el grupo.
+    Localizar el programa APP1. Posiblemente tenga permisos 755.
+    Poner al programa APP1 el grupo propietario a remoteapps
+    Poner los permisos del ejecutable de APP1 a 750. Para impedir que los que no pertenezcan al grupo puedan ejecutar el programa.
+    Comprobamos el funcionamiento en el servidor.
+    Comprobamos el funcionamiento desde el cliente.
+
+8. Entrega
+
+    Añadir informe al repositorio git.
+    Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
+    Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
+
+
+
+We will be primarily working with one configuration file in this article:
+
+    OpenSSH - /etc/ssh/sshd_config
+
+OpenSSH
+
+For locking down which users may or may not access the server you will want to look into one, or more, of the following directives:
+User/Group Based Access
+
+AllowGroups
+
+    This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
+
+AllowUsers
+
+    This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
+
+DenyGroups
+
+    This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
+    `*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized. By default, login is allowed for all groups.
+
+DenyUsers
+
+    This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
+
+The first thing to do is backup the original configuration file:
+
+    cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}
+
+We will now need to edit the configuration file with your favorite editor (vi/vim/ed/joe/nano/pico/emacs.)
+
+An example of only allowing two specific users, admin and bob, to login to the server will be:
+
+/etc/ssh/sshd_config:
+
+    AllowUsers admin bob
+
+Ifyou would like to more easily control this for the future then you can create a Group on the server that will be allowed to login to the server, adding individual users as needed (replace username with the actual user):
+
+shell:
+
+    groupadd –r sshusers
+
+    usermod –a –G sshusers username
+
+With this we will no longer be using AllowUsers but AllowGroups
+
+/etc/ssh/sshd_config:
+
+    AllowGroups sshusers
+
+The alternatives to these directives are DenyGroups and DenyUsers which perform the exact opposite of the aforementioned AllowGroups and AllowUsers. When complete you will want to make sure that sshd will read in the new configuration without breaking.
+
+    /usr/sbin/sshd –t
+
+    echo $?
+
+We will want to see a 0 following the ``echo $?’’ command.Otherwise we should also see an error stating what the erroneous data is:
+
+    sshd_config: line 112: Bad configuration option: allowuser
+    sshd_config: terminating, 1 bad configuration options
+
+After verification we will simply need to restart sshd.This can be performed via many different methods, for which we will assume a sysv-compatible system:
+
+    /etc/init.d/sshd restart
+
+Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
+Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
+ANEXO 2: ITS UNIX Systems
+Editing hosts.allow and hosts.deny Files
+
+To restrict access to your Unix or Linux machine, you must modify the /etc/hosts.allow and /etc/host.deny files. These files are used by the tcpd (tcp wrapper) and sshd programs to decide whether or not to accept a connection coming in from another IP address. ITS recommends that to start with, you restrict access to only those network addresses you are certain should be allowed access. The following two example files allow connections from any address in the virginia.edu network domain, but no others.
+/etc/hosts.allow
+
+ITS recommends using the configuration shown in the following /etc/hosts.allow file, to permit connections to any services protected by the tcpd or sshd from only systems within the virginia.edu domain:
+#
+# hosts.allow This file describes the names of the hosts which are
+# allowed to use the local INET services, as decided
+# by the '/usr/sbin/tcpd' server.
+#
+# Only allow connections within the virginia.edu domain.
+ALL: .virginia.edu
+/etc/hosts.deny
+
+Following is ITS's suggested /etc/hosts.deny file content. With this configuration, access to your machine from all hosts is denied, except for those specified in hosts.allow.
+#
+# hosts.deny This file describes the names of the hosts which are
+# *not* allowed to use the local INET services, as decided
+# by the '/usr/sbin/tcpd' server.
+#
+# deny all by default, only allowing hosts or domains listed in hosts.allow.
+ALL: ALL 

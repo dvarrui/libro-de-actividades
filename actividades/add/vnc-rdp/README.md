@@ -28,6 +28,10 @@ Configuración de las máquinas virtuales:
 > * Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
 > * Para esta práctica usaremos conexiones SIN cifrar.
 >
+> Enlaces de interés
+>
+> * [VNC GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m5/servidor_vnc.html)
+>
 
 Capturar imagenes probando las conexiones remotas VNC, y ejecutando el 
 comando `netstat -ntap` en cada caso, para verificar que se han establecido 
