@@ -24,12 +24,13 @@ Configuración de las máquinas virtuales:
 
 > NOTA:
 > 
-> * RealVNC o TightVNC son algunas herramientas libres disponibles para Windows.
+> * TightVNC o RealVNC, son algunas herramientas libres disponibles para Windows.
 > * Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
 > * Para esta práctica usaremos conexiones SIN cifrar.
 >
 
 Capturar imagenes probando las conexiones remotas VNC entre:
+
 1. Acceder a Windows - desde Windows
 1. Acceder a Windows - desde Linux
 1. Acceder a Linux - desde Linux (A lo mejor no hay que instalar el software cliente VNC)
@@ -38,11 +39,14 @@ Capturar imagenes probando las conexiones remotas VNC entre:
 
 # 2. Escritorio Remoto con RDP
 Realizar las siguientes tareas:
+
 * Leer la documentación sobre escritorio remoto.
 * En Windows no hay que instalar nada, puesto que ya viene con el software de escritorio remoto RDP preinstalado.
 
 Capturar imágenes de los siguientes pasos:
-* Configurar escritorio remoto para poder acceder a otra máquina (`Panel de control -> Sistema -> Configuración de Acceso Remoto`).
+
+* Configurar escritorio remoto para poder acceder a otra máquina 
+(`Panel de control -> Sistema -> Configuración de Acceso Remoto`).
 * Probar las conexiones acceso remoto entre:
     1. **Acceder a Windows Server 2008 - desde Windows7**: El software ya viene preinstalado, sólo falta configurarlo.
     1. **Acceder a Windows Server 2008 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
