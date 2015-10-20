@@ -4,44 +4,48 @@
 # Introducción
 Vamos a trabajar la actividad con varios SSOO, estos son:
 * Windows 2008 Server y Windows7
-* GNU/Linux Debian y/o Ubuntu.
-Para usar otros sistemas fuera de la lista, consultarlo antes con el profesor.
-ENTREGA: Al finalizar entregar URL con la ruta al/los archivo/s del repositorio del alumno/grupo y el HASH del commit. Para añadir más personas con acceso a nuestro repositorio, hacerlo en "Colaboradores".
+* GNU/Linux Debian.
+> Para usar otros sistemas fuera de la lista, consultarlo antes con el profesor.
 
-Configurar las máquinas virtuales:
+Entrega:
+* Al finalizar entregar URL con la ruta al/los archivo/s del repositorio del alumno/grupo y el HASH del commit. 
+* Para añadir más personas con acceso a nuestro repositorio, hacerlo en "Colaboradores".
+* Al terminar la práctica etiquetaremos la entrega en el repositorio Git con `vnc`.
+
+Configuración de las máquinas virtuales:
 * Poner en las MV la configuración de red en modo puente.
 * Las máquinas que actuen de servidor o aquellas a las que nos vamos a conectar de forma repetida deben tener IP estática.
 * Las IP's que podemos usar son (si somos el alumno del puesto XX): 172.18.XX.0 - 172.18.XX.255
 
 # 1. Escritorio remoto con VNC
-Realizar las siguientes tareas:
 * Leer la documentación sobre conexiones VNC.
-* Vamos a instalar y configurar VNC para poder acceder a una máquina remota. 
-RealVNC o TightVNC son algunas herramientas libres disponibles para Windows.
-[NOTA] Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
-* [NOTA] Para esta práctica usaremos conexiones SIN cifrar.
-Probar las conexiones remotas VNC entre:
-* Acceder a Windows - desde Windows
-* Acceder a Windows - desde Linux
-* Acceder a Linux - desde Linux. Si usan Ubuntu no hay que instalar nada, ya viene con este software preinstalado.
-* Acceder a Linux - desde Windows
-* Ejecutar el comando `netstat`, para verificar que se ha establecido la conexión del cliente con el servidor.
+* Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota. 
+
+> RealVNC o TightVNC son algunas herramientas libres disponibles para Windows.
+> Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
+> Para esta práctica usaremos conexiones SIN cifrar.
+
+Capturar imagenes probando las conexiones remotas VNC entre:
+1. Acceder a Windows - desde Windows
+1. Acceder a Windows - desde Linux
+1. Acceder a Linux - desde Linux (A lo mejor no hay que isntalar el software cliente VNC)
+1. Acceder a Linux - desde Windows
+1. Capturar imagen ejecutando el comando `netstat` en cada caso, para verificar que se ha establecido la conexión del cliente con el servidor.
 
 # 2. Escritorio Remoto con RDP
-
 Realizar las siguientes tareas:
 * Leer la documentación sobre escritorio remoto.
 * En Windows no hay que instalar nada, puesto que ya viene con el software de escritorio remoto RDP preinstalado.
 * Configurar escritorio remoto para poder acceder a otra máquina (Panel de control -> Sistema -> Configuración de Acceso Remoto).
 * Probar las conexiones acceso remoto entre:
+    1. **Acceder a Windows Server 2008 - desde Windows7**: El software ya viene preinstalado, sólo falta configurarlo.
+    1. **Acceder a Windows Server 2008 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
+    1. **Acceder a Linux - desde Windows**: En Linux instalamos xrdp. Es un servidor de conexiones remotas por protocolo RDP. Desde Windows iniciamos escritorio remoto y ponemos modulo="vnc-any", ip="ip-de-la-máquina-Linux".
 
-    Acceder a Windows Server 2008 - desde Windows7: El software ya viene preinstalado, sólo falta configurarlo.
-    Acceder a Windows Server 2008 - desde Linux: Instalar software cliente RDP en GNU/Linux. Si usamos Ubuntu el software ya viene preinstalado. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
-    Acceder a Linux - desde Windows: En Linux instalamos xrdp. Es un servidor de conexiones remotas por protocolo RDP. Desde Windows iniciamos escritorio remoto y ponemos modulo="vnc-any", ip="ip-de-la-máquina-Linux".
-
-Enlaces de interés:
-* [XRDP: Instalar y configurar en ubuntu-12-10] (http://www.adslfaqs.com.ar/como-instalar-y-configurar-xrdp-en-ubuntu-12-10-quantal-quetzal/)
-* [XRDP: Remote desktop para Ubuntu] (http://www.pacorabadan.com/?p=283)
+> Enlaces de interés:
+>
+> * [XRDP: Instalar y configurar en ubuntu-12-10] (http://www.adslfaqs.com.ar/como-instalar-y-configurar-xrdp-en-ubuntu-12-10-quantal-quetzal/)
+> * [XRDP: Remote desktop para Ubuntu] (http://www.pacorabadan.com/?p=283)
 
 
 # 3. Servidor de Terminales
@@ -53,9 +57,11 @@ NOTA:
 ##3.1 Realizar las siguientes tareas
 * Leer el documento que se proporciona sobre la conexión Terminal Server entre máquinas Windows.
 * Necesitamos una MV con Windows Server que NO sea controlador de dominio.
-* NOTA: Es necesario tener el SO actualizado para poder realizar la instalación de los componentes de forma correcta. Por lo que actualizaremos el servidor y volvemos a desactivar las actualizaciones automáticas de Windows Update.
-* En W2k8server RC2, Terminal Service tiene un nombre diferente. Para instalarlo hay que hacer lo siguiente: Agregar roles -> Servicio de Escritorio Remoto -> Host de Sesión de Escritorio Remoto.
-* IMPORTANTE: Estar atento y leer todos los mensajes para tener claro qué tenemos permitido hacer según la licencia, y que no (Incluir resumen de la licencia en el informe). Traten de entender todos los pasos.
+> NOTA: Es necesario tener el SO actualizado para poder realizar la instalación de los componentes de forma correcta. Por lo que actualizaremos el servidor y volvemos a desactivar las actualizaciones automáticas de Windows Update.
+>
+> En W2k8server RC2, Terminal Service tiene un nombre diferente. Para instalarlo hay que hacer lo siguiente: Agregar roles -> Servicio de Escritorio Remoto -> Host de Sesión de Escritorio Remoto.
+>
+> IMPORTANTE: Estar atento y leer todos los mensajes para tener claro qué tenemos permitido hacer según la licencia, y que no (Incluir resumen de la licencia en el informe). Traten de entender todos los pasos.
 
 ##3.2 Configurar y probar conexiones al terminal server
 Crear usuarios locales:
