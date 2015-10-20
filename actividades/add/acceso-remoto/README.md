@@ -72,7 +72,9 @@ las conexiones remotas:
 * Leer el documento que se proporciona sobre la conexión Terminal Server entre máquinas Windows.
 * Necesitamos una MV con Windows Server que NO sea controlador de dominio.
 
-> NOTA: Es necesario tener el SO actualizado para poder realizar la instalación de los componentes de forma correcta. Por lo que actualizaremos el servidor y volvemos a desactivar las actualizaciones automáticas de Windows Update.
+> NOTA:
+>
+> Es necesario tener el SO actualizado para poder realizar la instalación de los componentes de forma correcta. Por lo que actualizaremos el servidor y volvemos a desactivar las actualizaciones automáticas de Windows Update.
 >
 > En W2k8server RC2, Terminal Service tiene un nombre diferente. Para instalarlo hay que hacer lo siguiente: Agregar roles -> Servicio de Escritorio Remoto -> Host de Sesión de Escritorio Remoto.
 >
