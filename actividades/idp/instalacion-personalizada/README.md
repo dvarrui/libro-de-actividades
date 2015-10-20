@@ -58,7 +58,8 @@ Por el momento queremos un sistema sólo en modo texto.
 ##Con el SO instalado
 NO hace falta capturar imágenes de lo siguiente:
 * Entrar al sistema con el usuario.
-* Configurar la tarjeta de red con:
+* [Configurar la tarjeta de red] 
+(http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) con:
     * IP: 172.19.XX.31
     * Máscara de red: 255.255.0.0
     * Gateway (Puerta de enlace): 172.19.0.1
