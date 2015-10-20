@@ -53,7 +53,6 @@ las conexiones remotas:
     1. **Acceder a Windows Server 2008 - desde Windows7**: El software ya viene preinstalado, sólo falta configurarlo.
     1. **Acceder a Windows Server 2008 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
     1. **Acceder a Linux - desde Windows**: En Linux instalamos xrdp. Es un servidor de conexiones remotas por protocolo RDP. Desde Windows iniciamos escritorio remoto y ponemos modulo="vnc-any", ip="ip-de-la-máquina-Linux".
-    1. Capturar imagen ejecutando el comando `netstat` en cada caso, para verificar que se ha establecido la conexión del cliente con el servidor.
 
 > Enlaces de interés:
 >
@@ -88,9 +87,12 @@ Crear usuarios locales:
 Veamos un ejemplo de la creación de usuarios:
 ![ts-users](./ts-w2k8-users.png)
 
-* Probar la conexión remota de escritorio RDP, desde el cliente Windows hacia el servidor Windows Server.
-* Probar la conexión remota de escritorio RDP, desde el cliente Linux hacia el servidor Windows Server.
-* Ambas conexiones de escritorio remoto deben estar funcionando simultáneamente.
+* Capturar imagenes probando las conexiones remotas, y ejecutando el 
+comando `netstat -ntap` en cada caso, para verificar que se han establecido 
+las conexiones remotas:
+    1. Probar la conexión remota de escritorio RDP, desde el cliente Windows hacia el servidor Windows Server.
+    1. Probar la conexión remota de escritorio RDP, desde el cliente Linux hacia el servidor Windows Server.
+    1. Ambas conexiones de escritorio remoto deben estar funcionando simultáneamente.
 
 > Enlace de Interés:
 >
