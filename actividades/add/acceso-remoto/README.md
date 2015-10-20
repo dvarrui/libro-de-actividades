@@ -7,10 +7,8 @@ Vamos a trabajar la actividad con los siguientes SSOO:
 * Windows 2008 Server
 * GNU/Linux Debian7.
 
-> Para usar otros sistemas fuera de la lista, consultarlo antes con el profesor.
-
 Entrega:
-* Al finalizar entregar URL con la ruta al/los archivo/s del repositorio del alumno/grupo y el HASH del commit. 
+* Al finalizar entregar URL con la ruta al/los archivo/s dentro del repositorio del alumno.
 * Al terminar la práctica etiquetaremos la entrega en el repositorio Git con `vnc`.
 
 Configuración de las máquinas virtuales:
@@ -24,16 +22,17 @@ Configuración de las máquinas virtuales:
 * Leer la documentación sobre conexiones VNC.
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota. 
 
-> RealVNC o TightVNC son algunas herramientas libres disponibles para Windows.
+> NOTA:
+> 
+> * RealVNC o TightVNC son algunas herramientas libres disponibles para Windows.
+> * Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
+> * Para esta práctica usaremos conexiones SIN cifrar.
 >
-> Si usan un servidor VNC "MarcaX", usar también el cliente "MarcaX".
->
-> Para esta práctica usaremos conexiones SIN cifrar.
 
 Capturar imagenes probando las conexiones remotas VNC entre:
 1. Acceder a Windows - desde Windows
 1. Acceder a Windows - desde Linux
-1. Acceder a Linux - desde Linux (A lo mejor no hay que isntalar el software cliente VNC)
+1. Acceder a Linux - desde Linux (A lo mejor no hay que instalar el software cliente VNC)
 1. Acceder a Linux - desde Windows
 1. Capturar imagen ejecutando el comando `netstat` en cada caso, para verificar que se ha establecido la conexión del cliente con el servidor.
 
@@ -43,7 +42,7 @@ Realizar las siguientes tareas:
 * En Windows no hay que instalar nada, puesto que ya viene con el software de escritorio remoto RDP preinstalado.
 
 Capturar imágenes de los siguientes pasos:
-* Configurar escritorio remoto para poder acceder a otra máquina (Panel de control -> Sistema -> Configuración de Acceso Remoto).
+* Configurar escritorio remoto para poder acceder a otra máquina (`Panel de control -> Sistema -> Configuración de Acceso Remoto`).
 * Probar las conexiones acceso remoto entre:
     1. **Acceder a Windows Server 2008 - desde Windows7**: El software ya viene preinstalado, sólo falta configurarlo.
     1. **Acceder a Windows Server 2008 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
@@ -57,7 +56,7 @@ Capturar imágenes de los siguientes pasos:
 
 # 3. Servidor de Terminales
 
-> NOTA:
+> Información sobre TS:
 >
 > * Si está [instalando el servicio de función Terminal Server] (https://technet.microsoft.com/es-es/library/cc754288%28v=ws.10%29.aspx) en un controlador de dominio, recibirá un mensaje de advertencia porque NO es recomendable instalar el servicio de función Terminal Server en un controlador de dominio.
 > * Para obtener más información, consulte la página sobre la instalación de Terminal Server en un controlador de dominio en la [Ayuda de Terminal Server en la biblioteca técnica de Windows Server 2008] (http://go.microsoft.com/fwlink/?LinkId=109277, puede estar en inglés).
@@ -75,7 +74,7 @@ Capturar imágenes de los siguientes pasos:
 
 ##3.2 Configurar y probar conexiones al terminal server
 Crear usuarios locales:
-* Abrir Administrador de. servidor -> Configuración -> Usuarios locales y grupos.
+* Abrir `Administrador de. servidor -> Configuración -> Usuarios locales y grupos`.
 * Crear varios usuarios. Por ejemplo, usar los nombres en minúsculas de los miembros del grupo.
 * Añadir usuarios al grupo de acceso remoto.
 
