@@ -27,6 +27,7 @@ Configuración de las máquinas virtuales:
 > Para esta práctica usaremos conexiones SIN cifrar.
 
 Capturar imagenes probando las conexiones remotas VNC entre:
+
 1. Acceder a Windows - desde Windows
 1. Acceder a Windows - desde Linux
 1. Acceder a Linux - desde Linux (A lo mejor no hay que isntalar el software cliente VNC)
