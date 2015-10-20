@@ -9,9 +9,9 @@
     1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
-[secret]
+![secret] (./ssh-secret.jpeg)
 
-Ejemplo de configuración del fichero /etc/network/interfaces para Ubuntu:
+Ejemplo de configuración del fichero /etc/network/interfaces para Debian/Ubuntu:
 ```
 auto eth0
 iface eth0 inet static
@@ -23,38 +23,37 @@ dns-nameservers 8.8.4.4
 ```
 
 #1. Preparativos
-Configurar el servidor GNU/Linux con:
-* Nombre de usuario: nombre-del-alumno
-* Clave del usuario: DNI-del-alumno
-* Clave del usuario root: DNI-del-alumno
-* Nombre de equipo: ssh-server
-* Nombre de dominio: primer-apellido-del-alumno
+
+##1.1 Servidor SSH
+* Configurar el servidor GNU/Linux con siguientes valores:
+    * Nombre de usuario: nombre-del-alumno
+    * Clave del usuario root: DNI-del-alumno
+    * Nombre de equipo: ssh-server
+    * Nombre de dominio: segundo-apellido-del-alumno
+* Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2.
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
-names
+![names] (./debian-host-domain-names.png)
 
-Crear los siguientes usuarios en ssh-server:
-        remoteuser1
-        remoteuser2
-        remoteuser3
-        remoteuser4
-    Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2.
+* Crear los siguientes usuarios en ssh-server:
+    * primer-apellido-del-alumno1
+    * primer-apellido-del-alumno2
+    * primer-apellido-del-alumno3
+    * primer-apellido-del-alumno4
 
-Configurar el cliente1 GNU/Linux:
+##1.2 Clientes GNU/Linux
+* Configurar el cliente1 GNU/Linux con los siguientes valores:
+    * Nombre de usuario: nombre-del-alumno
+    * Clave del usuario root: DNI-del-alumno
+    * Nombre de equipo: ssh-client
+    * Nombre de dominio: segundo-apellido-del-alumno
+* Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
 
-    Nombre de usuario: nombre-del-alumno
-    Clave del usuario: DNI-del-alumno
-    Clave del usuario root: DNI-del-alumno
-    Nombre de equipo: ssh-client
-    Nombre de dominio: primer-apellido-del-alumno
-    Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
-
-Configurar el cliente2 Windows:
-
-    Instalar software cliente SSH en Windows (PuTTY)
-    Añadir en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1.
-
+##1.3 Cliente Windows
+* Instalar software cliente SSH en Windows (PuTTY)
+* Configurar el cliente2 Windows con los siguientes valores:
+* Añadir en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1. 
 
 2. Instalación básica
 
