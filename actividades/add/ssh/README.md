@@ -3,13 +3,13 @@
 
 * Atender a la explicación del profesor.
 * Leer documentación proporcionada por el profesor.
-* Enlaces de interés: [Securizar un servidor SSH] (http://rm-rf.es/como-securizar-un-servidor-ssh/)
+* Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
     1. Un servidor con IP estática (172.18.XX.33). Con GNU/Linux.
     1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
-![secret] (./ssh-secret.jpeg)
+![secret](./ssh-secret.jpeg)
 
 Ejemplo de configuración del fichero /etc/network/interfaces para Debian/Ubuntu:
 ```
@@ -34,7 +34,7 @@ dns-nameservers 8.8.4.4
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
-![names] (./debian-host-domain-names.png)
+![names](./debian-host-domain-names.png)
 
 * Crear los siguientes usuarios en ssh-server:
     * primer-apellido-del-alumno1
@@ -49,6 +49,7 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
     * Nombre de equipo: ssh-client1
     * Nombre de dominio: segundo-apellido-del-alumno
 * Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
+* Comprobar haciendo ping a ambos equipos. 
 
 ##1.3 Cliente Windows
 * Instalar software cliente SSH en Windows (PuTTY)
@@ -56,7 +57,8 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
     * Nombre de usuario: nombre-del-alumno
     * Clave del usuario administrador: DNI-del-alumno
     * Nombre de equipo: ssh-client2
-* Añadir en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1. 
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-server y ssh-client1.
+* Comprobar haciendo ping a ambos equipos. 
 
 #2 Instalación del servicio SSH
 
@@ -67,17 +69,18 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 
 > Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
-> ```
-> service ssh status
-> /etc/init.d/ssh status
-> ps -ef|grep sshd
-> ```
+> 
+>     service ssh status
+>     /etc/init.d/ssh status
+>     ps -ef|grep sshd
+> 
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
 * Reiniciar el servicio SSH: `service ssh restart`.
 * Comprobar que el servicio está en ejecución.
 * Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
+
 Desde el **ssh-client1** hacemos `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 * Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. ¿Te suena la clave que aparece?
