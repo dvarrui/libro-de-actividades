@@ -125,45 +125,45 @@ nuestro usuario personal desde el equipo cliente al servidor con el
 usuario 1er-apellido-alumno4.
 * Vamos a la máquina cliente.
 * ¡OJO! No usar el usuario root.
-* Iniciamos sesión con nuestro usuario desde la máquina cliente y ejecutamos "ssh-keygen -t rsa" para generar un nuevo par de claves para el usuario en "/home/nuestro-usuario/.ssh/id_rsa" y "/home/nuestro-usuario/.ssh/id_rsa.pub".
-    Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
-    Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
-    Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
-    Ahora podremos acceder remotamente, sin escribir la clave de acceso.
+* Iniciamos sesión con nuestro usuario desde la máquina cliente y 
+ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el 
+usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
+* Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
+* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
+* Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
+* Comprobar que ahora podremos acceder remotamente, sin escribir la clave de acceso.
 
-clave-publica
+![clave-publica](./ssh-clave-publica.jpeg)
 
-5. Uso de SSH como túnel para X
+#5. Uso de SSH como túnel para X
 
-    Instalar en el servidor una aplicación de entorno gráfico(APP1) que no esté en el cliente. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
-    Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes)
-    Comprobar funcionamiento de APP1 desde cliente GNU/Linux.
-    Por ejemplo, con el comando "ssh -X remoteuser1@ssh-server", podemos conectarnos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
+* Instalar en el servidor una aplicación de entorno gráfico(APP1) que no esté en el cliente. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
+* Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes)
+* Comprobar funcionamiento de APP1 desde cliente GNU/Linux.
+Por ejemplo, con el comando "ssh -X remoteuser1@ssh-server", podemos conectarnos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
 
-tunel
+![tunel](./ssh-tunel.jpeg)
 
+#6. Aplicaciones Windows nativas
 
-6. Aplicaciones Windows nativas
+Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
+* Instalar emulador Wine en el ssh-server.
+* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+* Comprobar el funcionamiento de APP2 en ssh-server.
+* Comprobar funcionamiento de APP2 desde el cliente SSH.
 
-    [INFO] Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
-    Instalar emulador Wine en el ssh-server.
-    Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
-    Comprobar el funcionamiento de APP2 en ssh-server.
-    Comprobar funcionamiento de APP2 desde el cliente SSH.
-    [INFO] En este caso hemos conseguido implementar una solución RemoteApps usando SSH.
+> En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
-
-7. Restricciones de uso
+#7. Restricciones de uso
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
-7.1 Sin restricción (tipo 1)
 
+##7.1 Sin restricción (tipo 1)
 Usuario sin restricciones:
 
-    El usuario remoteuser1, podrá conectarse vía SSH sin restricciones.
-    En principio no es necesario tocar nada.
+* El usuario 1er-apellido-alumno1, podrá conectarse vía SSH sin restricciones.
+* En principio no es necesario tocar nada.
 
-7.2 Restricción total (tipo 2)
-
+##7.2 Restricción total (tipo 2)
 Vamos a crear una restricción de uso del SSH para un usuario:
 
     [INFO] En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar sin problemas el usuario. Pero al tratar de usar el usuario por ssh desde los clientes tendremos permiso denegado.
