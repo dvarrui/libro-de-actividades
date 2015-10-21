@@ -65,7 +65,8 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 * Instalar el servicio SSH en la máquina ssh-server:`apt-get install openssh-server`.
 
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
-> * [Vídeo](http://www.youtube.com/embed/QlqokjKt69I)
+> * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
+>
 
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 
