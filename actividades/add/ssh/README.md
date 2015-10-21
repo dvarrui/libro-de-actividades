@@ -3,7 +3,7 @@
 
 * Atender a la explicación del profesor.
 * Leer documentación proporcionada por el profesor.
-* Enlaces de interés: Securizar un servidor SSH
+* Enlaces de interés: [Securizar un servidor SSH] (http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
     1. Un servidor con IP estática (172.18.XX.33). Con GNU/Linux.
     1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
@@ -46,57 +46,72 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * Nombre de usuario: nombre-del-alumno
     * Clave del usuario root: DNI-del-alumno
-    * Nombre de equipo: ssh-client
+    * Nombre de equipo: ssh-client1
     * Nombre de dominio: segundo-apellido-del-alumno
 * Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
 
 ##1.3 Cliente Windows
 * Instalar software cliente SSH en Windows (PuTTY)
 * Configurar el cliente2 Windows con los siguientes valores:
+    * Nombre de usuario: nombre-del-alumno
+    * Clave del usuario administrador: DNI-del-alumno
+    * Nombre de equipo: ssh-client2
 * Añadir en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1. 
 
-2. Instalación básica
+#2 Instalación del servicio SSH
 
-    Instalar el servicio SSH en la máquina ssh-server: "apt-get install openssh-server".
-    Los ficheros de configuración del servicio se guardan en /etc/ssh.
+* Instalar el servicio SSH en la máquina ssh-server:`apt-get install openssh-server`.
 
+> Los ficheros de configuración del servicio se guardan en /etc/ssh.
 
+* Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 
-    Desde el propio SSH-SERVER, verificar que el servicio está en ejecución. Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
-        service ssh status
-        /etc/init.d/ssh status
-        ps -ef|grep ssh
-    Modificar el fichero de configuración SSH (/etc/ssh/sshd_config) para dejar una única línea: "HostKey /etc/ssh/ssh_host_rsa_key". Comentar el resto de líneas con configuración HostKey.
-    Reiniciar el servicio SSH: service ssh restart
-    Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario remoteuser1. Desde el cliente hacemos "ssh remoteuser1@ssh-server".
-    Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-    Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo cliente. ¿Te suena la clave que aparece?
-    Generar nuevas claves de equipo en SSH-SERVER. Como usuario root ejecutamos en SSH-SERVER: "ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key"
-    Reiniciar el servicio SSH en SSH-SERVER.
-    Comprobar qué sucede al volver a conectarnos desde los clientes, usando el usuario remoteuser2 y remoteuser1. ¿Qué sucede?
+> Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
+> ```
+> service ssh status
+> /etc/init.d/ssh status
+> ps -ef|grep sshd
+> ```
 
-Enlaces de inteŕes, servicio SSH en Windows:
+* Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
+`HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
+* Reiniciar el servicio SSH: `service ssh restart`.
+* Comprobar que el servicio está en ejecución.
+* Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
+Desde el **ssh-client1** hacemos `ssh 1er-apellido-alumno11@ssh-server`.
+* Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. ¿Te suena la clave que aparece?
+* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`
+* Reiniciar el servicio SSH en **ssh-server**.
+* Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los 
+usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
-    Tutorial FreeSShd
-    [W7-es] Configuración de OpenSSH (SSH Cygwin +Putty)
-    [WXP-en] Installing Cygwin and Starting the SSH Daemon
-    [NOTA] En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
+> Enlaces de inteŕes, servicio SSH en Windows:
+> * Tutorial FreeSShd
+> * [W7-es] Configuración de OpenSSH (SSH Cygwin +Putty)
+> * [WXP-en] Installing Cygwin and Starting the SSH Daemon
+> * [NOTA] En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
+>
 
-3. Personalización del prompt Bash
+#3. Personalización del prompt Bash
 
-    [INFO] Esto sólo para servidores GNU/Linux o BSD.
-    Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
-    Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración del usuario en la máquina servidor (Fichero /home/remoteuser1/.bashrc)
+> [INFO] Esto sólo para servidores GNU/Linux o BSD.
+>
+> Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
+>
 
+* Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración 
+del usuario en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
+
+```
 #Cambia el prompt al conectarse vía SSH
 if [ -n "$SSH_CLIENT" ]; then
 PS1="\e[32;40m\u@\h: \w\a\$"
 fi
+```
+* Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
-    Comprobar funcionamiento de la conexión SSH desde cada cliente.
-
-
-4. Autenticación mediante claves públicas
+#4. Autenticación mediante claves públicas
 
     Vamos a configurar autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente cliente al servidor con el usuario remoteuser4.
     Vamos a la máquina cliente.
