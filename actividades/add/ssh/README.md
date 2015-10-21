@@ -1,8 +1,9 @@
 
-#Acceso remoto SSH
+#0. Acceso remoto SSH
 
-* Atender a la explicación del profesor.
+##0.1 Introducción
 * Leer documentación proporcionada por el profesor.
+* Atender a la explicación del profesor.
 * Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
     1. Un servidor con IP estática (172.18.XX.33). Con GNU/Linux.
@@ -21,6 +22,11 @@ gateway 172.18.0.1
 dns-search aula108
 dns-nameservers 8.8.4.4
 ```
+
+#0.2 Entrega
+* Añadir informe al repositorio git.
+* Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
+* Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
 
 #1. Preparativos
 
@@ -166,66 +172,52 @@ Usuario sin restricciones:
 ##7.2 Restricción total (tipo 2)
 Vamos a crear una restricción de uso del SSH para un usuario:
 
-    [INFO] En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar sin problemas el usuario. Pero al tratar de usar el usuario por ssh desde los clientes tendremos permiso denegado.
-    Consultar/modificar fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para conseguir restringir el acceso a determinados usuarios. Consultar opción "AllowUsers". Más información en: "man sshd_config"
-    Comprobarlo desde los clientes.
+* En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar sin problemas el usuario. Pero al tratar de usar el usuario por ssh desde los clientes tendremos permiso denegado.
+* Consultar/modificar fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para conseguir restringir el acceso a determinados usuarios. Consultar opción "AllowUsers". Más información en: "man sshd_config"
+* Comprobarlo desde los clientes.
 
-7.3 Restricción en las máquinas (tipo 3)
-
+##7.3 Restricción en las máquinas (tipo 3)
 Vamos a crear una restricción para que sólo las máquinas clientes con las IP's autorizadas puedan acceder a nuestro servidor.
 
-    Consultar los ficheros de configuración /etc/hosts.allow y /etc/host.deny
-    Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
-    Comprobar su funcionamiento.
+* Consultar los ficheros de configuración /etc/hosts.allow y /etc/host.deny
+* Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
+* Comprobar su funcionamiento.
 
-
-7.4 Restricción sobre aplicaciones (tipo 4)
-
+#7.4 Restricción sobre aplicaciones (tipo 4)
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
-    Usaremos el usuario remoteuser4
-    Crear grupo remoteapps
-    Incluir al usuario en el grupo.
-    Localizar el programa APP1. Posiblemente tenga permisos 755.
-    Poner al programa APP1 el grupo propietario a remoteapps
-    Poner los permisos del ejecutable de APP1 a 750. Para impedir que los que no pertenezcan al grupo puedan ejecutar el programa.
-    Comprobamos el funcionamiento en el servidor.
-    Comprobamos el funcionamiento desde el cliente.
-
-8. Entrega
-
-    Añadir informe al repositorio git.
-    Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
-    Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
+* Usaremos el usuario remoteuser4
+* Crear grupo remoteapps
+* Incluir al usuario en el grupo.
+* Localizar el programa APP1. Posiblemente tenga permisos 755.
+* Poner al programa APP1 el grupo propietario a remoteapps
+* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los que no pertenezcan al grupo puedan ejecutar el programa.
+* Comprobamos el funcionamiento en el servidor.
+* Comprobamos el funcionamiento desde el cliente.
 
 
+# ANEXO 1: Configuración de seguridad en OpenSSH
 
-We will be primarily working with one configuration file in this article:
+OpenSSH iconfig file: /etc/ssh/sshd_config
 
-    OpenSSH - /etc/ssh/sshd_config
-
-OpenSSH
-
-For locking down which users may or may not access the server you will want to look into one, or more, of the following directives:
+##OpenSSH locking parameters
+* For locking down which users may or may not access the server you will want to look into one, or more, of the following directives:
 User/Group Based Access
 
 AllowGroups
-
-    This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
+* This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
 
 AllowUsers
-
-    This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
+* This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
 
 DenyGroups
-
-    This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
+* This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
     `*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized. By default, login is allowed for all groups.
 
 DenyUsers
+* This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
 
-    This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
-
+##Example configuring locking
 The first thing to do is backup the original configuration file:
 
     cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}
@@ -243,7 +235,6 @@ Ifyou would like to more easily control this for the future then you can create 
 shell:
 
     groupadd –r sshusers
-
     usermod –a –G sshusers username
 
 With this we will no longer be using AllowUsers but AllowGroups
@@ -255,7 +246,6 @@ With this we will no longer be using AllowUsers but AllowGroups
 The alternatives to these directives are DenyGroups and DenyUsers which perform the exact opposite of the aforementioned AllowGroups and AllowUsers. When complete you will want to make sure that sshd will read in the new configuration without breaking.
 
     /usr/sbin/sshd –t
-
     echo $?
 
 We will want to see a 0 following the ``echo $?’’ command.Otherwise we should also see an error stating what the erroneous data is:
@@ -267,29 +257,34 @@ After verification we will simply need to restart sshd.This can be performed via
 
     /etc/init.d/sshd restart
 
-Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
-Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
-ANEXO 2: ITS UNIX Systems
+> Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
+> Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
+
+#ANEXO 2: COnfiguración de seguridad en máquinas GNU/Linux
 Editing hosts.allow and hosts.deny Files
 
 To restrict access to your Unix or Linux machine, you must modify the /etc/hosts.allow and /etc/host.deny files. These files are used by the tcpd (tcp wrapper) and sshd programs to decide whether or not to accept a connection coming in from another IP address. ITS recommends that to start with, you restrict access to only those network addresses you are certain should be allowed access. The following two example files allow connections from any address in the virginia.edu network domain, but no others.
 /etc/hosts.allow
 
 ITS recommends using the configuration shown in the following /etc/hosts.allow file, to permit connections to any services protected by the tcpd or sshd from only systems within the virginia.edu domain:
-#
-# hosts.allow This file describes the names of the hosts which are
-# allowed to use the local INET services, as decided
-# by the '/usr/sbin/tcpd' server.
-#
-# Only allow connections within the virginia.edu domain.
-ALL: .virginia.edu
-/etc/hosts.deny
+
+    #
+    # hosts.allow This file describes the names of the hosts which are
+    # allowed to use the local INET services, as decided
+    # by the '/usr/sbin/tcpd' server.
+    #
+    # Only allow connections within the virginia.edu domain.
+    ALL: .virginia.edu
+    /etc/hosts.deny
 
 Following is ITS's suggested /etc/hosts.deny file content. With this configuration, access to your machine from all hosts is denied, except for those specified in hosts.allow.
-#
-# hosts.deny This file describes the names of the hosts which are
-# *not* allowed to use the local INET services, as decided
-# by the '/usr/sbin/tcpd' server.
-#
-# deny all by default, only allowing hosts or domains listed in hosts.allow.
-ALL: ALL 
+
+    #
+    # hosts.deny This file describes the names of the hosts which are
+    # *not* allowed to use the local INET services, as decided
+    # by the '/usr/sbin/tcpd' server.
+    #
+    # deny all by default, only allowing hosts or domains listed in hosts.allow.
+    ALL: ALL 
+
+
