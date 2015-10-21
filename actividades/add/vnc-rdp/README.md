@@ -77,6 +77,7 @@ las conexiones remotas:
 
 * Leer el documento que se proporciona sobre la conexión Terminal Server entre máquinas Windows.
 * Necesitamos una MV con Windows Server que NO sea controlador de dominio.
+* Instalar el rol de Terminal Server, agregando sólo: Servidor de Terminales y Acceso Web para TS
 
 > NOTA:
 >
