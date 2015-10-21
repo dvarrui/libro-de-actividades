@@ -57,7 +57,8 @@ comando `netstat -ntap` en cada caso, para verificar que se han establecido
 las conexiones remotas:
     1. **Acceder a Windows7 - desde Window Server**: El software ya viene preinstalado, sólo falta configurarlo.
     1. **Acceder a Windows7 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
-    1. **Acceder a Linux - desde Windows7**: En Linux instalamos xrdp. Es un servidor de conexiones remotas por protocolo RDP. Desde Windows iniciamos escritorio remoto y ponemos modulo="vnc-any", ip="ip-de-la-máquina-Linux".
+    1. **Acceder a Linux - desde Windows7**: En Linux instalamos xrdp. Es un servidor de conexiones remotas por protocolo RDP. 
+    Desde Windows iniciamos escritorio remoto. En la ventana de login ponemos modulo="vnc-any", ip="ip-de-la-máquina-Linux".
 
 > Enlaces de interés:
 >
