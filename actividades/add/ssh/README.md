@@ -78,7 +78,9 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 > 
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
-`HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
+`HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey. 
+Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
+servidor. 
 * Reiniciar el servicio SSH: `service ssh restart`.
 * Comprobar que el servicio está en ejecución.
 * Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
@@ -86,16 +88,17 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 Desde el **ssh-client1** hacemos `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 * Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. ¿Te suena la clave que aparece?
-* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`
+* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
+Estamos cambiando o volviendo a generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
 * Reiniciar el servicio SSH en **ssh-server**.
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los 
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
 > Enlaces de inteŕes, servicio SSH en Windows:
-> * Tutorial FreeSShd
-> * [W7-es] Configuración de OpenSSH (SSH Cygwin +Putty)
-> * [WXP-en] Installing Cygwin and Starting the SSH Daemon
-> * [NOTA] En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
+> * [Tutorial FreeSShd](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
+> * [Configuración de OpenSSH para Windows7 con SSH Cygwin +Putty](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
+> * [Installing Cygwin and Starting the SSH Daemon](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150)
+> * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
 >
 
 #3. Personalización del prompt Bash
@@ -117,11 +120,12 @@ fi
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
 #4. Autenticación mediante claves públicas
-
-    Vamos a configurar autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente cliente al servidor con el usuario remoteuser4.
-    Vamos a la máquina cliente.
-    No usar el usuario root.
-    Iniciamos sesión con nuestro usuario desde la máquina cliente y ejecutamos "ssh-keygen -t rsa" para generar un nuevo par de claves para el usuario en "/home/nuestro-usuario/.ssh/id_rsa" y "/home/nuestro-usuario/.ssh/id_rsa.pub".
+Vamos a configurar autenticación mediante clave pública para acceder con 
+nuestro usuario personal desde el equipo cliente al servidor con el 
+usuario 1er-apellido-alumno4.
+* Vamos a la máquina cliente.
+* ¡OJO! No usar el usuario root.
+* Iniciamos sesión con nuestro usuario desde la máquina cliente y ejecutamos "ssh-keygen -t rsa" para generar un nuevo par de claves para el usuario en "/home/nuestro-usuario/.ssh/id_rsa" y "/home/nuestro-usuario/.ssh/id_rsa.pub".
     Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
     Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
     Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
