@@ -11,4 +11,6 @@ Simplified von Neumann Computer
 3. [Simplificaciones](./3-simplificaciones.md)
 4. [El procesador](./4-procesador.md)
 
+[Descargar el proyecto Johnny Simulator](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
+
 Traducido por David Vargas Ruiz, dvarrui@gmail.com
