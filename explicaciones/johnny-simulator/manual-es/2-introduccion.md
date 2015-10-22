@@ -1,5 +1,5 @@
 
-#2. Introduccion
+#2. Introducción
 La mayoría de los ordenadores actuales están basados en la arquitectura de Von Neumann.
 A causa de la miniaturización, la mayoría de los procesos de los ordenadores modernos
 están escondidos para el usuario y no pueden ser observados. Para esto, la simulación
