@@ -6,6 +6,7 @@ Simplified von Neumann Computer
 
 *Peter Dauscher, 2009-2014*
 
+Contenido
 1. [Observaciones](./1-observaciones.md)
 2. [Introducción](./2-introduccion.md)
 3. [Simplificaciones](./3-simplificaciones.md)
