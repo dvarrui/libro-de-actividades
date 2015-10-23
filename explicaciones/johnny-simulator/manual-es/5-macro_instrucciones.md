@@ -3,15 +3,12 @@
 
 # 5. El conjunto de macro intrucciones standard
 
-The delivered micro instruction storage contains the microprograms for these 10 macro in-
-structions:
-●
-TAKE The value of the location (given by the absolute address) is transported to
-the accumulator.
-●
-SAVE The value of the accumulator is transported to the location given by the abso-
-lute address.
-The value of a location (given by the absolute address) is added to the value
+El almacén de micro instrucciones contiene los microprogramas para las 10 
+macro instrucciones siguientes:
+* `TAKE` El contenido de la dirección (proporcionado por la direccion absoluta) 
+se pasa al acumulador.
+* `SAVE` El contenido del acumulador se pasa a la dirección dada por la dirección absoluta.
+* `ADD` El coThe value of a location (given by the absolute address) is added to the value
 in the accumulator.
 ● ADD ● SUB ● INC The value of the location (given by the absolute address) is incremented.
 ● DEC The value of the location (given by the absolute address) is decremented.

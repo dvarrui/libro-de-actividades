@@ -12,6 +12,7 @@ Simplified von Neumann Computer
 2. [Introducción](./2-introduccion.md)
 3. [Simplificaciones](./3-simplificaciones.md)
 4. [El procesador](./4-procesador.md)
+5. [Macro instrucciones](./5-macro_instrucciones.md)
 
 [Descargar el proyecto Johnny Simulator](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
 
