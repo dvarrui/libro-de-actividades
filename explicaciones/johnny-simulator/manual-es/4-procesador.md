@@ -65,5 +65,5 @@ las cosas más simples.
 
 ![uc visible](./4.3-uc_visible.png)
 
-![uc oculta](.(4.3-uc_oculta.png)
+![uc oculta](./4.3-uc_oculta.png)
 
