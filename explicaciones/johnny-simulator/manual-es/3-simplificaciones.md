@@ -1,4 +1,6 @@
 
+[INDICE](./README.md)
+
 #3. Simplificaciones
 * El simulador puede ser observado a nivel de microinstrucciones y macroinstrucciones.
 La estructura interna de la Unidad de Control puede ocultarse para hacer las cosas
