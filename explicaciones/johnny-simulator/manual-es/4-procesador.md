@@ -34,8 +34,36 @@ decrementarse ( acc-- ). `db->acc` mueve la palabra de datos desde el
 bus al acumulador; `acc->db` hace la acción opuesta.
 Se puede sumar ( plus ) un valor desde el bus o restarlo ( minus ).
 
-![alu](./4.2-alu.png)
-
-
 En el modo BONSAI (Que se explica en la sección  9) se han eliminado 
 algunas de estas micro instrucciones.
+
+![alu](./4.2-alu.png)
+
+##4.3. La Unidad de Control
+La parte más compleja del procesador es la unidad de control.
+Consta de el registro de intrucción,el contador de programa y el micro
+código. Mediante `db->ins`, el contenido del bus de datos se transfiere 
+al registro de instrucción. La parte de direccionamiento de la instrucción
+puede pasar directamente al bus de direcciones ( `ins->ab` ) o al
+contador de programa ( `ins->pc` ), lo cual es necesario para implementar
+la instrucción JUMP. El contenido del contador de programa puede copiarse
+al bus de direcciones mediante `pc->ab`.
+
+![unidad de control](./4.3-unidad_de_control.png)
+
+La micro instruccion `pc++`incrementa el contador; `=0:pc++` hace lo mismo,
+pero solamente si el acumulador contiene zero. `ins->mc` pone el valor de
+las centenas y el de las decenas del contador de micro instrucción (encima
+del micro código) en el OP-Code del registro de instruccion (y resetea el
+valor de las unidades a zero). La micro instrucción `mc:=0`resetea el contador
+de micro instrucciones; `stopp` no es una instrucción en el sentido estricto: 
+sólo fuerza al simulador a mostrar un mensaje indicando que el programa ha
+terminado.
+
+Como se comentó antes, la Unidad de Control puede enmascararse para hacer
+las cosas más simples.
+
+![uc visible](./4.3-uc_visible.png)
+
+![uc oculta](.(4.3-uc_oculta.png)
+
