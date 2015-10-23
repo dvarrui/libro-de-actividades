@@ -23,17 +23,19 @@ para mover los datos desde la localización direccionada al bus y viceversa.
 ![memoria](./4.1-memoria.png)
 
 Las posiciones se pueden editar usado en GUI; mediante el menú desplegable se pueden
-elegit las macro intrucciones. En el GUI, se muestran dos secciones de memoria RAM
+elegir las macro intrucciones. En el GUI, se muestran dos secciones de memoria RAM
 (Las cuales se pueden superponer). De esta forma se pueden mostrar simultáneamente
 las instrucciones y los datos afectados.
 
-#4.2. La Unidad Aritmético Lógica
-The Arithmetic Logic Unit consists merely of the accumula-
-tor. The accumulator can be reset ( acc:=0 ), incremented
-( acc++ ), decremented ( acc-- ). db->acc
-transports a data word from the bus into the accumulator;
-acc->db does the opposite.
-A value from the bus can be added ( plus ) or subtracted
-( minus ).
-In the so-called BONSAI Mode (to be explained later in Sec-
-tion 9) some of these micro instructions are suppressed.
+##4.2. La Unidad Aritmético Lógica
+La Unidad Aritmético Lógica consta simplemente del acumulador.
+El acumulador puede resetearse ( acc:=0 ), incrementarse ( acc++ ), y
+decrementarse ( acc-- ). `db->acc` mueve la palabra de datos desde el
+bus al acumulador; `acc->db` hace la acción opuesta.
+Se puede sumar ( plus ) un valor desde el bus o restarlo ( minus ).
+
+![alu](./4.2-alu.png)
+
+
+En el modo BONSAI (Que se explica en la sección  9) se han eliminado 
+algunas de estas micro instrucciones.
