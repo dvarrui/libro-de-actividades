@@ -15,7 +15,7 @@ el resultado en la dirección <12>:
 
 #6.2. Multiplicación de números
 La multiplicación de números se lleva a cabo haciendo sumando repetidas veces el contenido
-de la direccion <10> en la dirección <12>, la cuel es inicializadas a cero.
+de la direccion <10> en la dirección <12>, la cual se inicializada a cero.
 ```
 000: NULL 012
 001: TAKE 012
