@@ -15,15 +15,20 @@ se muestra en detalle.
 |![5](./imagen/7-execute.png)      | Ejecuta el programa de forma automática (la velocidad puede controlarse mediante la barra de scroll y el botón derecho) |
 |![6](./imagen/7-stop.png) | Detiene la ejecución del programa |
 |![7](./imagen/7-set_program_counter.png) | Pone a cero al contador de programa y a el resto de registros |
-|![8](./imagen/7-show.png) | Muestra la ventana de opciones |
+|![8](./imagen/7-show_options.png) | Muestra la ventana de opciones |
 
 El botón ![detail](./imagen/7-detail.png) se usa para mostrar todos los detalles de la
-Unidad de Control. Si está activa se verán los siguientes botones:
+Unidad de Control. Si está activo se verán los siguientes botones:
 
-Open a micro code file on HD.
-Save the current micro code to HD.
-Execute a single micro instruction.
-Record a micro instruction sequence to form a new macro instruction.
+|Imagen   | Significado de los botones del grupo de Micro Código|
+|-------- | -----------|
+|![1](./imagen/7-open_micro.png)  | Abrir in fichero con micro código desde el disco duro |
+|![2](./imagen/7-save_micro.png)  | Guarda el micro código actual en un fichero del disco duro |
+|![3](./imagen/7-execute_1_micro.png)  | Ejecuta una micro instrucción |
+|![4](./imagen/7-record_sequence.png)  | Graba una secuencia de micro instrucciones para formar una nueva macro instrucción |
+
+Si haces click sobre una dirección de la RAM, aparece una ventana
+
 If you click on one RAM location, a window appears where the numerical value can be
 changed or a macro instruction can be chosen from a pull-down menu. The address can
 be entered by using the real or a virtual keyboard. A double click on the address part sets it
