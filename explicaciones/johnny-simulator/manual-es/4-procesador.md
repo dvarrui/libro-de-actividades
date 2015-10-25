@@ -7,7 +7,7 @@ El procesador consta de tre partes: La Unidad Aritmético Lógica,
 la memoria (RAM) y la Unidad de Control. Estas unidades están
 interconectadas por los buses.
 
-![procesador](./4-procesador.png)
+![procesador](./imagen/4-procesador.png)
 
 A continuación se explica cada unidad en detalle.
 
@@ -23,7 +23,7 @@ puesto que representan el código de operación de las macro instrucciones.
 Hay dos botones que se usan (disparando las microinstrucciones `ram->db` y `db->ram`)
 para mover los datos desde la localización direccionada al bus y viceversa.
 
-![memoria](./4.1-memoria.png)
+![memoria](./imagen/4.1-memoria.png)
 
 Las posiciones se pueden editar usado en GUI; mediante el menú desplegable se pueden
 elegir las macro intrucciones. En el GUI, se muestran dos secciones de memoria RAM
@@ -40,7 +40,7 @@ Se puede sumar ( plus ) un valor desde el bus o restarlo ( minus ).
 En el modo BONSAI (Que se explica en la sección  9) se han eliminado 
 algunas de estas micro instrucciones.
 
-![alu](./4.2-alu.png)
+![alu](./imagen/4.2-alu.png)
 
 ##4.3. La Unidad de Control
 La parte más compleja del procesador es la unidad de control.
@@ -52,7 +52,7 @@ contador de programa ( `ins->pc` ), lo cual es necesario para implementar
 la instrucción JUMP. El contenido del contador de programa puede copiarse
 al bus de direcciones mediante `pc->ab`.
 
-![unidad de control](./4.3-unidad_de_control.png)
+![unidad de control](./imagen/4.3-unidad_de_control.png)
 
 La micro instruccion `pc++`incrementa el contador; `=0:pc++` hace lo mismo,
 pero solamente si el acumulador contiene zero. `ins->mc` pone el valor de
@@ -66,7 +66,7 @@ terminado.
 Como se comentó antes, la Unidad de Control puede enmascararse para hacer
 las cosas más simples.
 
-![uc visible](./4.3-uc_visible.png)
+![uc visible](./imagen/4.3-uc_visible.png)
 
-![uc oculta](./4.3-uc_oculta.png)
+![uc oculta](./imagen/4.3-uc_oculta.png)
 
