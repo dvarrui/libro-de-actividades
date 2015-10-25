@@ -25,7 +25,7 @@ Unidad de Control. Si está activo se verán los siguientes botones:
 |![1](./imagen/7-open_micro.png)  | Abrir in fichero con micro código desde el disco duro |
 |![2](./imagen/7-save_micro.png)  | Guarda el micro código actual en un fichero del disco duro |
 |![3](./imagen/7-execute_1_micro.png)  | Ejecuta una micro instrucción |
-|![4](./imagen/7-record_sequence.png)  | Graba una secuencia de micro instrucciones para formar una nueva macro instrucción |
+|![4](./imagen/7-record_micro_sequence.png)  | Graba una secuencia de micro instrucciones para formar una nueva macro instrucción |
 
 Si haces click sobre una dirección de la RAM, aparece una ventana
 
