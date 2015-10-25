@@ -6,11 +6,16 @@ Los botones se organizan en dos grupos (Macro código y Micro código),
 el último de los cuales sólo están visibles si la Unidad de Control
 se muestra en detalle.
 
-The buttons in the Macro Code group mean:
-Set RAM completely to Zero (00 000 for each location)
-Open a program on HD.
-Save a program to HD.
-Execute the next macro instruction in the RAM.
+Significado de los botones del grupo de Macro Código:
+
+Cabecera A | Cabecera B
+-- | --
+Campo A0 | Pone la RAM completamente a zero (00 000 para cada dirección)
+Campo A1 | Abre un programa del disco duro
+Campo A1 | Graba un programa en el disco duro
+Campo A1 | Ejecuta la siguiente macro instrucción de la RAM
+
+
 Execute the program automatically (where the speed can be controlled by the scroll bar
 to the right of the button).
 Stop the execution of the program.

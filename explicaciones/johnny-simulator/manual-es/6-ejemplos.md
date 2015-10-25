@@ -28,5 +28,5 @@ de la direccion <10> en la dirección <12>, la cual se inicializada a cero.
 ```
 
 En cada ciclo el valor de la dirección <11> es decrementado en 1. El bucle continúa hasta que el valor
-de la direccion <11> haya llegado al valor 0.
+de la dirección <11> haya llegado al valor 0.
 
