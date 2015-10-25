@@ -8,12 +8,13 @@ se muestra en detalle.
 
 Significado de los botones del grupo de Macro Código:
 
-Cabecera A | Cabecera B
--- | --
-Campo A0 | Pone la RAM completamente a zero (00 000 para cada dirección)
-Campo A1 | Abre un programa del disco duro
-Campo A1 | Graba un programa en el disco duro
-Campo A1 | Ejecuta la siguiente macro instrucción de la RAM
+|Imagen   | Descripción|
+|-------- | -----------|
+|Campo A0 | Pone la RAM completamente a zero (00 000 para cada dirección) |
+|Campo A1 | Abre un programa del disco duro |
+|Campo A1 | Graba un programa en el disco duro |
+1Campo A1 | Ejecuta la siguiente macro instrucción de la RAM |
+
 
 
 Execute the program automatically (where the speed can be controlled by the scroll bar
