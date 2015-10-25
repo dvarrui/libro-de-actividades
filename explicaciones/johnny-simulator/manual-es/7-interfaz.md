@@ -10,16 +10,14 @@ Significado de los botones del grupo de Macro Código:
 
 |Imagen   | Descripción|
 |-------- | -----------|
-|Campo A0 | Pone la RAM completamente a zero (00 000 para cada dirección) |
-|Campo A1 | Abre un programa del disco duro |
-|Campo A1 | Graba un programa en el disco duro |
-1Campo A1 | Ejecuta la siguiente macro instrucción de la RAM |
+|![1](./imagen/7-ram_to_zero.png)  | Pone la RAM completamente a zero (00 000 para cada dirección) |
+|![2](./imagen/7-open_program.png) | Abre un programa del disco duro |
+|![3](./imagen/7-save_program.png) | Graba un programa en el disco duro |
+|![4](./imagen/7-execute_next.png) | Ejecuta la siguiente macro instrucción de la RAM |
+|![5](./imagen/7-execute.png)      | Ejecuta el programa de forma automática (la velocidad puede controlarse mediante la barra de scroll y el botón derecho) |
+|![6](./imagen/7-stop.png) | Detiene la ejecución del programa |
 
 
-
-Execute the program automatically (where the speed can be controlled by the scroll bar
-to the right of the button).
-Stop the execution of the program.
 Set the program counter and all other processor pegisters to zero.
 Show the options window.
 If the button
