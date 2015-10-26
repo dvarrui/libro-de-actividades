@@ -183,7 +183,7 @@ Vamos a crear una restricción para que sólo las máquinas clientes con las IP'
 * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
 * Comprobar su funcionamiento.
 
-#7.4 Restricción sobre aplicaciones (tipo 4)
+##7.4 Restricción sobre aplicaciones (tipo 4)
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
 * Usaremos el usuario remoteuser4
