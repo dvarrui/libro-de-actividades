@@ -45,10 +45,11 @@ Producto/Licencia:
 * Desactivar la opción *Activar Windows automáticamente*
 * Configuración de Red:
     * Red de trabajo y nombre del grupo de trabajo AULA108.
-    * IP estática 172.18.XX.12
+    * IP estática 172.19.XX.12
     * Máscara de red 255.255.0.0
-    * Gateway 172.18.0.1
+    * Gateway 172.19.0.1
     * DNS 8.8.4.4
+* Comprobar la conexión de red haciendo `ping www.google.es`.
 * Capturar imagen como la siguiente. Mostrando las particiones del disco duro 
 (`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`). 
 
@@ -113,14 +114,15 @@ Particionado:
 ![dual-suse-equipo] (./dual-suse-equipo.png)
 
 * Configuración de red:
-    * IP estática 172.18.XX.52
+    * IP estática 172.19.XX.52
     * Máscara 255.255.0.0
-    * Gateway 172.18.0.1
+    * Gateway 172.19.0.1
     * DNS 8.8.4.4
 * ¿Desea actualización en línea? -> OMITIR actualización.
 No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo 
 de ancho de banda que se produce en las actualizaciones.
 * Entrar al sistema.
+* Comprobar que la conexión de red está bien haciendo `ping www.google.es`
 * Reiniciar el sistema.
 * Capturar imagen como la siguiente donde se muestra el arranque inicial 
 donde se ve un menú para eligir el sistema operativo a iniciar.
