@@ -113,11 +113,6 @@ Particionado:
 
 ![dual-suse-equipo] (./dual-suse-equipo.png)
 
-* Configuración de red:
-    * IP estática 172.19.XX.52
-    * Máscara 255.255.0.0
-    * Gateway 172.19.0.1
-    * DNS 8.8.4.4
 * ¿Desea actualización en línea? -> OMITIR actualización.
 No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo 
 de ancho de banda que se produce en las actualizaciones.
@@ -131,7 +126,14 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 Con el SO instalado:
 * Entrar al sistema con nuestro usuario.
+* Vamos al la herramienta `YAST -> Configuración red` para poner los siguientes valores:
+    * IP estática 172.19.XX.52
+    * Máscara 255.255.0.0
+    * Gateway 172.19.0.1
+    * DNS 8.8.4.4
+    * Nombre de equipo: DUALX1er-apellido-del-alumno
 * Abrir un terminal.
+* Ejecutar `ping www.google` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
 * Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
 ```
