@@ -129,11 +129,11 @@ Con el SO instalado:
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * IP estática 172.19.XX.52
     * Máscara 255.255.0.0
-    * Gateway 172.19.0.1
-    * DNS 8.8.4.4
+    * Gateway 172.19.0.1 (Ver pestaña encaminamiento)
+    * DNS 8.8.4.4 (Ver pestaña nombres de host)
     * Nombre de equipo: DUALX1er-apellido-del-alumno
 * Abrir un terminal.
-* Ejecutar `ping www.google` para comprobar la conexión de red.
+* Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
 * Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
 ```
