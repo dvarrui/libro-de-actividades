@@ -124,7 +124,7 @@ Realizar las siguientes tareas sólo con servidor Windows 2008 server y cliente 
 > * No usar certificados.
 
 * Probar la aplicación desde el cliente.
-* Añadir restricciones temporales en el uso de alguna aplicación remota.
+* (Opcional) Añadir restricciones temporales en el uso de alguna aplicación remota.
 * Comprobar el funcionamiento.
 
 > Enlaces de interés:
