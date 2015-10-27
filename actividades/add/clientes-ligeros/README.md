@@ -1,8 +1,8 @@
 
-> **Cambiar para el curso1617**
+> **Cambiar para el próximo curso1617**
 >
-> * Usar SO Debian 8
-> * IP eth1 192.168.67.1
+> * Usar SO Debian 8 y/o OpenSUSE13.2
+> * IP iinterna de Debian8 para LTSP eth1 192.168.67.1
 > 
 
 # 1. Clientes ligeros con LTSP

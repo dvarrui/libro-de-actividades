@@ -110,7 +110,7 @@ las conexiones remotas:
 
 #4. Aplicaciones remotas mediante RemoteApp
 Realizar las siguientes tareas sólo con servidor Windows 2008 server y cliente Windows 7:
-* Leer la documentación sobre aplicaciones remotas (Consultar documentación de servidor de terminales).
+* Leer la documentación PDF proporcionada por el profesor sobre aplicaciones remotas (Consultar documentación de servidor de terminales).
 * Instalar y configurar un ejemplo de aplicación remota.
 
 > NOTA:
