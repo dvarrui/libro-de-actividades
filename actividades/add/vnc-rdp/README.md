@@ -127,6 +127,7 @@ Realizar las siguientes tareas sólo con servidor Windows 2008 server y cliente 
 * Añadir restricciones temporales en el uso de alguna aplicación remota.
 * Comprobar el funcionamiento.
 
-Enlaces de interés:
-* [RemoteApp guía paso a paso] (https://technet.microsoft.com/es-ES/library/cc730673.aspx)
-* [Technet Microsoft RemoteApp] (https://technet.microsoft.com/en-us/library/cc753844%28WS.10%29.aspx)
+> Enlaces de interés:
+> * [RemoteApp guía paso a paso] (https://technet.microsoft.com/es-ES/library/cc730673.aspx)
+> * [Technet Microsoft RemoteApp] (https://technet.microsoft.com/en-us/library/cc753844%28WS.10%29.aspx)
+
