@@ -111,10 +111,11 @@ las conexiones remotas:
 #4. Aplicaciones remotas mediante RemoteApp
 Realizar las siguientes tareas sólo con servidor Windows 2008 server y cliente Windows 7:
 * Leer la documentación PDF proporcionada por el profesor sobre aplicaciones remotas (Consultar documentación de servidor de terminales).
+* Instalar una aplicación en Windows Server que no esté en Windows7, por ejemplo Geany.
 * La idea de RemoteApp es tener una aplicación instalada en el Windows Server pero que pueda ejecutarse desde el Windows7. Hay tres formas de implementar el RemoteApp:
     1. Publicar la aplicación en el sitio web del RemoteApp, por defecto https://servidor_remote_app/rdweb.
-    2. Mediante la creación de un paquete instalable .msi, muy útil para instalarlo mediante GPO.
-    3. Creando un archivo de conexión remota .rdp. Vamos a usar este último método.
+    1. Mediante la creación de un paquete instalable .msi, muy útil para instalarlo mediante GPO.
+    1. Creando un archivo de conexión remota .rdp. Vamos a usar este último método.
 
 > NOTA:
 >
