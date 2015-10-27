@@ -126,7 +126,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 Con el SO instalado:
 * Entrar al sistema con nuestro usuario.
-* Vamos al la herramienta `YAST -> Configuración red` para poner los siguientes valores:
+* Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * IP estática 172.19.XX.52
     * Máscara 255.255.0.0
     * Gateway 172.19.0.1
