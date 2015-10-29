@@ -98,6 +98,12 @@ Vamos a cambiar la apariencia del boot loader
 * Para actualizar la configuración de GRUB2 hacemos: "grub2-mkconfig -o /boot/grub2/grub.cfg"
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
+> **Enlaces de interés**
+> 
+> * [Agregar nueva entrada al menú de Grub](https://es.opensuse.org/SDB:C%C3%93MO_Agregar_nueva_entrada_de_men%C3%BA_Grub)
+> * [Cambiar el tiempo de espera](https://es.opensuse.org/SDB:C%C3%93MO_Cambiar_la_opci%C3%B3n_y_el_tiempo_de_espera_por_defecto_en_GRUB)
+> * [Cambiar la pantalla de arranque](https://es.opensuse.org/SDB:C%C3%93MO_Cambiar_la_pantalla_de_arranque_de_Grub)
+> * [Personalizar la pantalla de arranque](https://es.opensuse.org/SDB:C%C3%93MO_Personalizar_la_pantalla_de_arranque)
 
 #2. Windows 7
 
