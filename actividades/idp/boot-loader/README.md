@@ -6,9 +6,7 @@ Una vez se termina de cargar el sistema, entonces comienza la ejecución del sis
 GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP, y bcdedit de Windows 7, etc.
 
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
-* Sólo elegir 1 GNU/Linux y 1 Windows para la práctica.
-* Para GNU/Linux podemos usar alguna de las MV's que ya tenemos: OpenSUSE, Debian. Se supone que todos estos sistemas tienen GRUB2 como bootloader.
-* Para Windows podemos usar alguna de la MV's de las que dispongamos.
+* Vamos a trabajar con la MV de la instalación dual.
 
 > Información general:
 >
