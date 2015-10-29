@@ -132,6 +132,7 @@ Con el SO instalado:
     * Gateway 172.19.0.1 (Ver pestaña encaminamiento)
     * DNS 8.8.4.4 (Ver pestaña nombres de host)
     * Nombre de equipo: DUALX1er-apellido-del-alumno
+    * NOmbre de dominio: 2º-apellido-del-alumno
 * Abrir un terminal.
 * Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
