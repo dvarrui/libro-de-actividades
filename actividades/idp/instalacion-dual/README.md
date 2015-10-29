@@ -6,6 +6,8 @@ Vamos a realizar una instalación dual Windows y GNU/Linux.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas. Incluir breves comentarios de cada captura.
 
 > Recuerda: Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
+> Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
+operativos, muy probablemente las imágenes actuales sean diferentes.
 
 #1. Preparar la máquina virtual:
 
