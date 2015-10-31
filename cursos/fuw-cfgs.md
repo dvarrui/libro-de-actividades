@@ -1,6 +1,6 @@
-
-Propuesta de programación para la asignatura **Fundamentos de Hardware (FUW)** 
-del curso de 1º de **Administración de Sistemas Operativos en Red (ASIR)**.
+#Ciclo Formativo de Grado Superior - Canarias
+##Administración de Sistemas Operativos en Red (ASIR)
+##Fundamentos de Hardware (FUW)
 
 # Trimestre 1
 

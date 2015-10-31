@@ -1,7 +1,7 @@
 
 #Ciclo Formativo de Grado Superior - Canarias
-##Asignatura **Administración de Sistemas Operativos (ADD)** 
-##del 2º curso de **Administración de Sistemas Operativos en Red (ASIR)**.
+##Administración de Sistemas Operativos en Red (ASIR)
+##Asignatura Administración de Sistemas Operativos (ADD) 
 
 # Trimestre 1
 
