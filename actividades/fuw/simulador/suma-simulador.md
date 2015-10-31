@@ -2,6 +2,7 @@
 #Arquitectura de Von Neumann
 
 ##Simulador
+* Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/libro-de-actividades/tree/master/explicaciones/johnny-simulator/manual-es)
 * Instalar el programa Johnny Simulator en la MV Windows.
 * Escribir en la RAM una program para realizar la sumas y restas. Si nuestra fecha
 de nacimiento es DD/MM/XXYY, debemos realizar la siguiente operación DD+MM+XX+YY-15-16.
