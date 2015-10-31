@@ -34,10 +34,10 @@ sistema operativo al que Lazarus pueda generar ejecutables.
 Todos los gráficos han sido creado usando OpenOffice, LibreOffice, 
 el programa de manipulación de imágenes (GIMP) e InkScape:
 
-[http://es.openoffice.org](http://de.openoffice.org)
-[http://es.libreoffice.org](http://de.libreoffice.org)
-[http://www.gimp.org](http://www.gimp.org)
-[http://www.inkscape.org](http://www.inkscape.org)
+* [http://es.openoffice.org](http://de.openoffice.org)
+* [http://es.libreoffice.org](http://de.libreoffice.org)
+* [http://www.gimp.org](http://www.gimp.org)
+* [http://www.inkscape.org](http://www.inkscape.org)
 
 
 ##10.3. Reconocimientos
@@ -52,7 +52,7 @@ comentarios útiles e informes de problemas.
 * Mis compañeros Jens Fiedler, Ewald Bickelmann, Bernd Fröhlich, Ernst-Lothar
 Stegmaier y a todos los colegas que han probado el programa con sus estudiantes
 y han encontrado problemas.
-• Alexander Güssow y Joachim Brehmer-Moltmann quienes probaron el programa
+* Alexander Güssow y Joachim Brehmer-Moltmann quienes probaron el programa
 amliamente desde la perspectiva de los estudiantes.
 * Alexander Domay por la primera compilación en un sistema Linux.
 * Klaus Merkert y Tobias Selinger, Martin Oehler, David Meder-Marouelli 
@@ -70,4 +70,4 @@ Peter Dauscher, 26.04.2014
 
 peter.dauscher@gmail.com
 
-![1](./imagen/cat.png)
+![Gato](./imagen/cat.png)
