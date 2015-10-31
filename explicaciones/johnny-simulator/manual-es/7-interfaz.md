@@ -39,5 +39,13 @@ o el virtual. Un doble click sobre la dirección establece el valor a cero.
 |![1](./imagen/7-cancel.png)  | El valor de la dirección permanece sin cambios |
 
 
-By using the right mouse button, a context menu is shown. This menu permits insertions
-an deletions in RAM.
+Usando el botón derecho del ratón aparece un menú conextual. Este menú permite
+la inserción y el borrado de la RAM.
+
+![Insert delete cell](./imagen/7-insert_delete_cell.png)
+
+Con una inserción, el bloque de la siguiente dirección con velor no cero
+se desplaza hacia abajo una posición; se elimina una dirección con valor cero
+al final del bloque. De forma similar, con un borrado el bloque con valor no cero 
+se desplaza hacia arriba y una dirección con valor cero se inserta
+debajo del bloque.
