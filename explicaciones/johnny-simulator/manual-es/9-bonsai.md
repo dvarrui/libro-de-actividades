@@ -11,10 +11,10 @@ El menú desplagable se adapta a estas instrucciones, algunas microinstrucciones
 #9.1. Cambiando al modo Bonsai
 Usando ![Modo Bonsai](./imagen/9-bonsai.png)
 
-![Opciones](./imagen/9-options.png)
-
 Se muestra una ventana que permite al usuario cambiar el modo. Atención:
 El cambio de modo elimina completamente el contenido de la RAM.
+
+![Opciones](./imagen/9-options.png)
 
 #9.2. Cargar y grabar programas
 Se pueden abrir y escribir programas de la máquina BONSAI (Ficheros `.bma`) 
