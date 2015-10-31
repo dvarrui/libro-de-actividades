@@ -24,7 +24,8 @@ es más complejo pero también más realista).
 
 Además hay tres tipos de formatos de ficheros para el contenido de la RAM:
 
-|------|-----------------------------------|
-|.ram  | Cotenido de la RAM estándar JOHNNY|
-|.bma  | Programas estándar de la máquina BONSAI|
-|.bij  | Programas BOnsai grabados en el formato estándar de JOHNNY|
+|Extensión| Descripción del fichero           |
+|---------|-----------------------------------|
+| `.ram`  | Cotenido de la RAM estándar JOHNNY |
+| `.bma`  | Programas estándar de la máquina BONSAI |
+| `.bij`  | Programas BOnsai grabados en el formato estándar de JOHNNY |
