@@ -1,21 +1,24 @@
 
 [INDICE](./README.md)
 
-#8. Creating your own Macro Instructions
-In order to create a new macro instruction (or to change an existing one) first an OP-Code
-and a mnemonic must be chosen. The latter can be chosen in the pull-down menu later on
-when RAM content is changed.
-
-![Load save Micro](./imagen/8-load_save_micro.png)
-
-Then the Record button is pressed:
+#8. Crear tus propias macro instrucciones
+Para crear una nueva macro instrucción (o para cambiar una existente)
+primero se debe elegir un código de operación (OP-Code) y un mnemotécnico.
+El último se puede elegit en el menú desplagable anterior cuando se
+modifica el contenido de la RAM.
 
 ![Pull down](./imagen/8-pull_down.png)
 
-The respective part of the micro code is set to zero at first. By pressing the buttons of the
-respective micro instructions, the sequence is recorded. The recording is indicated by a
-blinking part of the user interface. Pressing the Record button again stops the recording.
-The new micro code can be saved to HD and opened again by
+Entonces se presiona el botón para comenzar a grabar: ![Record button](./imagen/8-record_button.png)
 
-Saving a micro code creates two files: the .mpc file contains the micro code itself, the .nam
-file the Mmnemonics of the instructions.
+Al principio la parte correspondiente al micro código se pone a cero.
+Presionando los botones de las microinstrucciones se graba la secuencia respectiva.
+La grabación se indica por un parpadeo en el interfaz de usuario.
+Presionando el botón anterior se para la grabación.
+El nuevo microcódigo se puede grabar en disco y abrir nuevamente mediante
+
+![Load save Micro](./imagen/8-load_save_micro.png)
+
+La grabacion del micro código crea dos ficheros: El fichero .mpc que
+contiene el micro código en sí, y el fichero .nam con los Mnemotécnicos de
+las instrucciones.
