@@ -44,7 +44,7 @@ la inserción y el borrado de la RAM.
 
 ![Insert delete cell](./imagen/7-insert_delete_cell.png)
 
-Con una inserción, el bloque de la siguiente dirección con velor no cero
+Con una inserción, el bloque de la siguiente dirección con valor no cero
 se desplaza hacia abajo una posición; se elimina una dirección con valor cero
 al final del bloque. De forma similar, con un borrado el bloque con valor no cero 
 se desplaza hacia arriba y una dirección con valor cero se inserta
