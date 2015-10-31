@@ -4,7 +4,7 @@
 
 
 ##10.1. Aspectos legales
-El programa es Open Source y está bajo la licencia GNU GPLv3.
+El programa es Open Source y está bajo la licencia GNU GPLv3. ![GPL](./imagen/10-gpl.png)
 
 [http://www.gnu.org/licenses/gpl-3.0.txt](http://www.gnu.org/licenses/gpl-3.0.txt)
 

@@ -16,7 +16,7 @@ Simplified von Neumann Computer
 6. [Ejemplos de programas simples](./6-ejemplos.md)
 7. [Interfaz gráfico de usuario](./7-interfaz.md)
 8. [Crear tus propias macro instrucciones](./8-crear_macro_instrucciones.md)
-9. [Modo BONSAI](./7-bonsai.md)
+9. [Modo BONSAI](./9-bonsai.md)
 10. [Aspectos legales, técnicos y reconocimientos](./10-reconocimientos.md)
 
 #Descarga
