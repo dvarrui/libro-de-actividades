@@ -17,7 +17,6 @@ FAT básico
 * Explicacion de comandos: `ls`, `file` y `less` (*Capítulo 3 del pdf TLCT*)
 * ![Instalación personalizada](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/instalacion/instalacion-personalizada)
 * Explicacion de comandos: `cp`, `mv`, `mkdir`, `rm` y `ln` (*Capítulo 4 del pdf TLCT*)
-* ![Instalación dual](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/instalacion-dual)
 * Explicacion de comandos: which, help, man, apropos, info, whatis, alias (*Capítulo 5 del pdf TLCT*)
 * ![Instalación dual](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/instalacion/instalacion-dual)
 * ![Particiones con fdisk](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/particiones)
