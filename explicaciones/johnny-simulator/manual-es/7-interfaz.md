@@ -27,9 +27,17 @@ Unidad de Control. Si está activo se verán los siguientes botones:
 |![3](./imagen/7-execute_1_micro.png)  | Ejecuta una micro instrucción |
 |![4](./imagen/7-record_micro_sequence.png)  | Graba una secuencia de micro instrucciones para formar una nueva macro instrucción |
 
-Si haces click sobre una dirección de la RAM, aparece una ventana
+Si haces click sobre una dirección de la RAM, aparece una ventana donde se
+puede modificar el valor, o se puede elegir una de las macro instrucciones desde
+un menú de selección. La direcciñon se puede escribir usando el teclado real
+o el virtual. Un doble click sobre la dirección establece el valor a cero.
 
-If you click on one RAM location, a window appears where the numerical value can be
-changed or a macro instruction can be chosen from a pull-down menu. The address can
-be entered by using the real or a virtual keyboard. A double click on the address part sets it
-to zero.
+|Imagen   | Significado de los botones|
+|-------- | -----------|
+|![1](./imagen/7-location_to_zero.png)  | El contenido de la dirección se pone a cero |
+|![2](./imagen/7-write_to_ram.png)  | Los cambio se escriben en la direccion respectiva |
+|![1](./imagen/7-cancel.png)  | El valor de la dirección permanece sin cambios |
+
+
+By using the right mouse button, a context menu is shown. This menu permits insertions
+an deletions in RAM.
