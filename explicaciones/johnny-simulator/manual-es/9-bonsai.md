@@ -9,23 +9,21 @@ El menú desplagable se adapta a estas instrucciones, algunas microinstrucciones
 (que no se necesitan en este modo) son suprimidas.
 
 #9.1. Cambiando al modo Bonsai
-Usando ![Modo Bonsai](./imagenes/9-bonsai.md)
+Usando ![Modo Bonsai](./imagen/9-bonsai.md)
 
-![Opciones](./imagenes/9-options.md)
+![Opciones](./imagen/9-options.md)
 
-a window is shown which
-enables the user to change
-the mode.
-Attention: Changing the op-
-tion deletes the RAM con-
-tent completely.
+Se muestra una ventana que permite al usuario cambiar el modo. Atención:
+El cambio de modo elimina completamente el contenido de la RAM.
 
-9.2. Loading and Saving Programs
-BONSAI machine programs (.bma files) of the original BONSAI simulator can be opened
-and written. Therefore, it is possible to create a BONSAI machine program using JOHNNY
-and then transfer it to the original simulator (which is more complex but also more
-realistic).
-Therefore there are three file formats for RAM content:
-.ram Standard JOHNNY RAM content
-.bma Standard Bonsai-Machine Programs
-.bij Bonsai-Programs saved in Standard JOHNNY format
+#9.2. Cargar y grabar programas
+Se pueden abrir y escribir programas de la máquina BONSAI (Ficheros `.bma`) 
+del simulador BONSAI original. Además es posible crear programas de máquina
+BONSAI usando JOHNNY y luego trasladarlos al simulador original (El cual
+es más complejo pero también más realista).
+
+Además hay tres tipos de formatos de ficheros para el contenido de la RAM:
+
+|.ram  | Cotenido de la RAM estándar JOHNNY|
+|.bma  | Programas estándar de la máquina BONSAI|
+|.bij  | Programas BOnsai grabados en el formato estándar de JOHNNY|

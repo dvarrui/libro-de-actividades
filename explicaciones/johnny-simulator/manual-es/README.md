@@ -16,6 +16,7 @@ Simplified von Neumann Computer
 6. [Ejemplos de programas simples](./6-ejemplos.md)
 7. [Interfaz gráfico de usuario](./7-interfaz.md)
 8. [Crear tus propias macro instrucciones](./8-crear_macro_instrucciones.md)
+9. [Modo BONSAI](./7-bonsai.md)
 
 #Descarga
 [Descargar el proyecto Johnny Simulator](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
