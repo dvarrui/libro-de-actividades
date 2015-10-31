@@ -23,5 +23,5 @@ formato del texto, enlaces, insertar imágenes, etc. Pero es muy fácil de enten
 Pasos:
 * Clona este proyecto en tu PC local
 * Crear ficheros, documentos en formato Markdown y
-* Súbelos a la plataforma
+* Envía solicitud `merge` para fusionar los cambios al proyecto.
 
