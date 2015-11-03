@@ -77,39 +77,51 @@ blkid              (Comprobar UUID de la instalación)
 
 #2 Instalación del servicio SSH
 
-* Instalar el servicio SSH en la máquina ssh-server:`apt-get install openssh-server`.
+* Instalar el servicio SSH en la máquina ssh-server
+    * Desde la herramienta `yast -> Instalar Software`
+    * Desde terminal `zypper search ssh` muestra los paquetes instalados o no con nombre ssh*.
+    * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
 
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
->
 
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 
 > Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
-> 
->     service ssh status
->     /etc/init.d/ssh status
->     ps -ef|grep sshd
+>
+>    systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
+>    ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
+>    service ssh status     (Esta es la forma de comprobarlo en *Upstart*)
+>    /etc/init.d/ssh status (Esta es la forma de comprobarlo en *System V*)
 > 
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey. 
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
 servidor. 
-* Reiniciar el servicio SSH: `service ssh restart`.
-* Comprobar que el servicio está en ejecución.
+* Reiniciar el servicio SSH: `systemctl restart sshd`.
+* Comprobar que el servicio está en ejecución: `systemctl status sshd`
 * Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 
-Desde el **ssh-client1** hacemos `ssh 1er-apellido-alumno11@ssh-server`.
+Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. ¿Te suena la clave que aparece?
-* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
-Estamos cambiando o volviendo a generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
+* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. 
+¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: 
+`ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`. Estamos cambiando o volviendo a 
+generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
 * Reiniciar el servicio SSH en **ssh-server**.
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los 
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
-> Enlaces de inteŕes, servicio SSH en Windows:
+> **Enlaces de inteŕes**
+>
+> Cliente SSH para Windows:
+>
+> * [Learning Linux : Lesson 14 Using Public key Authentication with PuTTY ](https://youtu.be/xe599gD4b5E?list=PL3E447E094F7E3EBB)
+>
+> Servicio SSH en Windows:
+>
 > * [Tutorial FreeSShd](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
 > * [Configuración de OpenSSH para Windows7 con SSH Cygwin +Putty](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
 > * [Installing Cygwin and Starting the SSH Daemon](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150)
