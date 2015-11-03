@@ -126,6 +126,9 @@ fi
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
 #4. Autenticación mediante claves públicas
+
+![clave-publica](./image/ssh-clave-publica.jpeg)
+
 Vamos a configurar autenticación mediante clave pública para acceder con 
 nuestro usuario personal desde el equipo cliente al servidor con el 
 usuario 1er-apellido-alumno4.
@@ -138,8 +141,6 @@ usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_
 * Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
 * Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
 * Comprobar que ahora podremos acceder remotamente, sin escribir la clave de acceso.
-
-![clave-publica](./image/ssh-clave-publica.jpeg)
 
 #5. Uso de SSH como túnel para X
 
