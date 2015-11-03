@@ -144,12 +144,12 @@ usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_
 
 #5. Uso de SSH como túnel para X
 
+![tunel](./image/ssh-tunel.jpeg)
+
 * Instalar en el servidor una aplicación de entorno gráfico(APP1) que no esté en el cliente. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
 * Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes)
 * Comprobar funcionamiento de APP1 desde cliente GNU/Linux.
 Por ejemplo, con el comando "ssh -X remoteuser1@ssh-server", podemos conectarnos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
-
-![tunel](./ssh-tunel.jpeg)
 
 #6. Aplicaciones Windows nativas
 

@@ -171,12 +171,15 @@ al fichero "authorized_keys" del usuario *remoteuser4* en el servidor. Hay dos f
 
 #5. Uso de SSH como túnel para X
 
-* Instalar en el servidor una aplicación de entorno gráfico(APP1) que no esté en el cliente. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
-* Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes)
-* Comprobar funcionamiento de APP1 desde cliente GNU/Linux.
-Por ejemplo, con el comando "ssh -X remoteuser1@ssh-server", podemos conectarnos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
+![tunel](./image/ssh-tunel.jpeg)
 
-![tunel](./ssh-tunel.jpeg)
+* Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes. 
+Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
+* Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. 
+Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
+* Comprobar funcionamiento de APP1 desde cliente1.
+Por ejemplo, con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma 
+remota al servidor, y ahora ejecutamos APP1 de forma remota.
 
 #6. Aplicaciones Windows nativas
 
