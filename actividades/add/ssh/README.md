@@ -10,7 +10,7 @@
     1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.54).
     1. Un cliente Windows7, con IP estática (172.18.XX.13).
 
-![secret](./ssh-secret.jpeg)
+![secret](./image/secret.jpeg)
 
 ##0.2 Configuración de red
 Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico `yast`.

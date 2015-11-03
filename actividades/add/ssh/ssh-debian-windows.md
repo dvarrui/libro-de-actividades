@@ -10,7 +10,7 @@
     1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
-![secret](./ssh-secret.jpeg)
+![secret](./image/secret.jpeg)
 
 Ejemplo de configuración del fichero /etc/network/interfaces para Debian/Ubuntu:
 ```
