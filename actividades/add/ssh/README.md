@@ -6,8 +6,8 @@
 * Atender a la explicación del profesor.
 * Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
-    1. Un servidor GNU/Linux con IP estática (172.18.XX.33).
-    1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
+    1. Un servidor GNU/Linux con IP estática (172.18.XX.53).
+    1. Un cliente GNU/Linux con IP estática (172.18.XX.54).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
 ![secret](./ssh-secret.jpeg)
@@ -16,7 +16,7 @@ Ejemplo de configuración del fichero /etc/network/interfaces para Debian/Ubuntu
 ```
 auto eth0
 iface eth0 inet static
-address 172.18.XX.33
+address 172.18.XX.53
 netmask 255.255.0.0
 gateway 172.18.0.1
 dns-search aula108
