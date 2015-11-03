@@ -139,7 +139,7 @@ usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_
 * Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
 * Comprobar que ahora podremos acceder remotamente, sin escribir la clave de acceso.
 
-![clave-publica](./ssh-clave-publica.jpeg)
+![clave-publica](./image/ssh-clave-publica.jpeg)
 
 #5. Uso de SSH como túnel para X
 

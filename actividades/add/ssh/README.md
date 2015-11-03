@@ -42,7 +42,7 @@ Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico 
     * Clave del usuario root: DNI-del-alumno
     * Nombre de equipo: ssh-server
     * Nombre de dominio: segundo-apellido-del-alumno
-* Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2.
+* Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2-XX (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
 ip a               (Comprobar IP y máscara)
@@ -63,7 +63,7 @@ blkid              (Comprobar UUID de la instalación)
     * Clave del usuario root: DNI-del-alumno
     * Nombre de equipo: ssh-client1
     * Nombre de dominio: segundo-apellido-del-alumno
-* Añadir en /etc/hosts el equipo ssh-server, y ssh-client2.
+* Añadir en /etc/hosts el equipo ssh-server, y ssh-client2-XX.
 * Comprobar haciendo ping a ambos equipos. 
 
 ##1.3 Cliente Windows
@@ -71,7 +71,7 @@ blkid              (Comprobar UUID de la instalación)
 * Configurar el cliente2 Windows con los siguientes valores:
     * Nombre de usuario: nombre-del-alumno
     * Clave del usuario administrador: DNI-del-alumno
-    * Nombre de equipo: ssh-client2
+    * Nombre de equipo: ssh-client2-XX
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-server y ssh-client1.
 * Comprobar haciendo ping a ambos equipos. 
 
@@ -150,17 +150,23 @@ fi
 Vamos a configurar autenticación mediante clave pública para acceder con 
 nuestro usuario personal desde el equipo cliente al servidor con el 
 usuario 1er-apellido-alumno4.
-* Vamos a la máquina cliente.
+* Vamos a la máquina cliente1. 
 * ¡OJO! No usar el usuario root.
-* Iniciamos sesión con nuestro usuario desde la máquina cliente y 
-ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el 
-usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
-* Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
-* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys".
-* Comprobar funcionamiento de la conexión SSH desde cada cliente. Ahora si nos conectamos vía ssh desde el cliente al servidor usando el usuario remoteuser4.
-* Comprobar que ahora podremos acceder remotamente, sin escribir la clave de acceso.
 
-![clave-publica](./ssh-clave-publica.jpeg)
+Capturar imágenes de los siguientes pasos:
+* Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina ssh-client1.
+* Ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el 
+usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
+* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)de la máquina cliente, 
+al fichero "authorized_keys" del usuario *remoteuser4* en el servidor. Hay dos formas de hacerlo: 
+    * Modo 1. Usando un comando específico para ello `ssh-copy-id remoteuser4@ssh-server`
+    * Modo 2. Usando el programa de copia segura `scp`:
+        * Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
+        * Hacemos `scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys`.
+* Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el cliente1.
+* Comprobar que al acceder desde cliente2, si nos pide el password.
+
+![clave-publica](./image/ssh-clave-publica.jpeg)
 
 #5. Uso de SSH como túnel para X
 
