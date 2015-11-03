@@ -89,10 +89,10 @@ blkid              (Comprobar UUID de la instalación)
 
 > Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
 >
->    systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
->    ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
->    service ssh status     (Esta es la forma de comprobarlo en *Upstart*)
->    /etc/init.d/ssh status (Esta es la forma de comprobarlo en *System V*)
+> * systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
+> * ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
+> * service ssh status     (Esta es la forma de comprobarlo en *Upstart*)
+> * /etc/init.d/ssh status (Esta es la forma de comprobarlo en *System V*)
 > 
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
