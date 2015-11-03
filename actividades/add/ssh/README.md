@@ -6,24 +6,30 @@
 * Atender a la explicación del profesor.
 * Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
-    1. Un servidor GNU/Linux con IP estática (172.18.XX.53).
-    1. Un cliente GNU/Linux con IP estática (172.18.XX.54).
-    1. Un cliente Windows con IP estática (172.18.XX.13).
+    1. Un servidor GNU/Linux OpenSUSE, con IP estática (172.18.XX.53).
+    1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.54).
+    1. Un cliente Windows7, con IP estática (172.18.XX.13).
 
 ![secret](./ssh-secret.jpeg)
 
-Ejemplo de configuración del fichero /etc/network/interfaces para Debian/Ubuntu:
-```
-auto eth0
-iface eth0 inet static
-address 172.18.XX.53
-netmask 255.255.0.0
-gateway 172.18.0.1
-dns-search aula108
-dns-nameservers 8.8.4.4
-```
+##0.2 Configuración de red
+Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico `yast`.
+* Vamos a `yast -> Ajustes de red`
+* En la pestaña `Vista resumen` pondremos:
+    * IP estática
+    * Máscara de red
+    * Nombre de host
+    * Pulsamos en `siguiente`.
+* En la pestaña `Nombres de hosts` pondremos:
+    * Nombre de host
+    * Nombre de dominio
+    * Asignar nombre a bucle local. Esto modifica el fichero `/etc/hosts` por nosotros.
+    * Servidor DNS
+* En la pestaña `Encaminamiento` pondremos:
+    * La IP de l apuerta de enlace
+    * Elegimos el dispositivo de red asociado a la puerta de enlace.    
 
-#0.2 Entrega
+#0.3 Entrega
 * Añadir informe al repositorio git.
 * Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
 * Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
@@ -37,11 +43,14 @@ dns-nameservers 8.8.4.4
     * Nombre de equipo: ssh-server
     * Nombre de dominio: segundo-apellido-del-alumno
 * Añadir en /etc/hosts los equipos ssh-client1 y ssh-client2.
-
-Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
-
-![names](./debian-host-domain-names.png)
-
+* Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
+```
+ip a               (Comprobar IP y máscara)
+route -n           (Comprobar puerta de enlace)
+host www.google.es (Comprobar el servidor DNS)
+lsblk              (Comprobar particiones)
+blkid              (Comprobar UUID de la instalación)
+``` 
 * Crear los siguientes usuarios en ssh-server:
     * primer-apellido-del-alumno1
     * primer-apellido-del-alumno2
