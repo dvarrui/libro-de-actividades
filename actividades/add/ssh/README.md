@@ -85,14 +85,23 @@ blkid              (Comprobar UUID de la instalación)
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
-##2.1 Comprobación y primeras conexiones
+##2.1 Comprobación
 
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 ```
     systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
     ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
+    netstat -ntap          (Comprobar que el servicio está escuchando por el puerto 22)
 ```
 * Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
+
+##2.2 Primera conexión SSH desde cliente
+* Verificamos desde el cliente que el servidor es visible, `nmap` debe mostrarnos que el puerto 22 está abierto
+y es visible para el cliente:
+```
+    ping ssh-server
+    nmap ssh-server
+```
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
@@ -100,7 +109,7 @@ Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-
 ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
 
-##2.2 ¿Y si cambiamos las claves del servidor?
+##2.3 ¿Y si cambiamos las claves del servidor?
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`, 
 Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
 que identifican a nuestro servidor frente a nuestros clientes:
