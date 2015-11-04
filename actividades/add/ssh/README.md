@@ -95,10 +95,29 @@ blkid              (Comprobar UUID de la instalación)
 > * /etc/init.d/ssh status (Esta es la forma de comprobarlo en *System V*)
 > 
 
+* Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
+* Confirmar que existen los siguientes ficheros en `/etc/ssh`:
+```
+-rw-r--r-- 1 root root 136156 ago 24  2012 moduli
+-rw-r--r-- 1 root root   1667 sep 12  2012 ssh_config
+-rw-r--r-- 1 root root   2487 dic 27  2013 sshd_config
+-rw------- 1 root root    672 dic 27  2013 ssh_host_dsa_key
+-rw-r--r-- 1 root root    601 dic 27  2013 ssh_host_dsa_key.pub
+-rw------- 1 root root    227 dic 27  2013 ssh_host_ecdsa_key
+-rw-r--r-- 1 root root    173 dic 27  2013 ssh_host_ecdsa_key.pub
+-rw------- 1 root root    528 dic 27  2013 ssh_host_key
+-rw-r--r-- 1 root root    333 dic 27  2013 ssh_host_key.pub
+-rw------- 1 root root   1675 dic 27  2013 ssh_host_rsa_key
+-rw-r--r-- 1 root root    393 dic 27  2013 ssh_host_rsa_key.pub
+```
+
+> Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
+que identifican a nuestro servidor frente a nuestros clientes.
+
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey. 
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
-servidor. 
+servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución: `systemctl status sshd`
 * Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
