@@ -184,9 +184,13 @@ alias s='ssh'
 
 ![clave-publica](./image/ssh-clave-publica.jpeg)
 
-Vamos a configurar autenticación mediante clave pública para acceder con 
+El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1,
+usando el usuario4 sin poner password, pero usando claves pública/privada.
+
+Vamos a configurar la autenticación mediante clave pública para acceder con 
 nuestro usuario personal desde el equipo cliente al servidor con el 
 usuario 1er-apellido-alumno4.
+
 * Vamos a la máquina cliente1. 
 * ¡OJO! No usar el usuario root.
 
