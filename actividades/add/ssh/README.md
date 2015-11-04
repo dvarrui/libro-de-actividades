@@ -85,18 +85,26 @@ blkid              (Comprobar UUID de la instalación)
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
+##2.1 Comprobación y primeras conexiones
+
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
+```
+    systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
+    ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
+```
+* Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
+* Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
+Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
+* Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. 
+¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
 
-> Ejemplos de comandos para comprobar si el servicio ssh está iniciado:
->
-> * systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
-> * ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
-> * service ssh status     (Esta es la forma de comprobarlo en *Upstart*)
-> * /etc/init.d/ssh status (Esta es la forma de comprobarlo en *System V*)
-> 
+##2.2 ¿Y si cambiamos las claves del servidor?
+* Confirmar que existen los siguientes ficheros en `/etc/ssh`, 
+Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
+que identifican a nuestro servidor frente a nuestros clientes:
 
-* Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
-* Confirmar que existen los siguientes ficheros en `/etc/ssh`:
 ```
 -rw-r--r-- 1 root root 136156 ago 24  2012 moduli
 -rw-r--r-- 1 root root   1667 sep 12  2012 ssh_config
@@ -111,25 +119,15 @@ blkid              (Comprobar UUID de la instalación)
 -rw-r--r-- 1 root root    393 dic 27  2013 ssh_host_rsa_key.pub
 ```
 
-> Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
-que identifican a nuestro servidor frente a nuestros clientes.
-
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey. 
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
 servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
-* Reiniciar el servicio SSH: `systemctl restart sshd`.
-* Comprobar que el servicio está en ejecución: `systemctl status sshd`
-* Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
-
-Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
-* Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. 
-¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos: 
 `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`. Estamos cambiando o volviendo a 
 generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
-* Reiniciar el servicio SSH en **ssh-server**.
+* Reiniciar el servicio SSH: `systemctl restart sshd`.
+* Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los 
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
