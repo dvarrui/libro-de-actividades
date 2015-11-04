@@ -102,8 +102,9 @@ Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una líne
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-* Comprobar contenido del fichero $HOME/.ssh/known_hosts. en el equipo ssh-client1. 
-¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
+pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cliente1.
+* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
 
 ##2.3 ¿Y si cambiamos las claves del servidor?
