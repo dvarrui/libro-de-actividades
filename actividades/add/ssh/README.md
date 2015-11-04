@@ -136,13 +136,24 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 >
 
 * Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración 
-del usuario en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
+del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
 
 ```
 #Cambia el prompt al conectarse vía SSH
+
 if [ -n "$SSH_CLIENT" ]; then
-PS1="\e[32;40m\u@\h: \w\a\$"
+  PS1="AccesoRemoto_\e[32;40m\u@\h: \w\a\$"
+else
+  PS1="\[$(ppwd)\]\u@\h:\w>"
 fi
+```
+* Además, crear el fichero `/home/1er-apellido-alumno1/.alias` con el siguiente contenido:
+```
+alias c='clear'
+alias g='geany'
+alias p='ping'
+alias v='vdir -cFl
+alias s='ssh'
 ```
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
