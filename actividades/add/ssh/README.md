@@ -96,12 +96,9 @@ blkid              (Comprobar UUID de la instalación)
 * Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
 
 ##2.2 Primera conexión SSH desde cliente
-* Verificamos desde el cliente que el servidor es visible, `nmap` debe mostrarnos que el puerto 22 está abierto
-y es visible para el cliente:
-```
-    ping ssh-server
-    nmap ssh-server
-```
+* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`. 
+* Desde el cliente comprobamo que el servicio SSH es visible con `nmap ssh-server`.
+Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
 * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
