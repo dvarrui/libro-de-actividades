@@ -29,9 +29,9 @@ Vamos a crear una nueva entrada en el menú del boot loader:
 
 * Añadir las siguientes líneas:
 ```
-echo "Añadiendo GNU/Linux" >&2
+echo "[INFO] Estoy añadiendo entrada GNU/Linux" >&2
 cat<<EOF
-menuentry "Iniciar GNU/Linux desde GRUB2 (David 2013)" {
+menuentry "Iniciar GNU/Linux (David 2013)" {
 linux /boot/vmlinuz-Y root=/dev/sdaZ
 initrd /boot/initrd-Y
 }
