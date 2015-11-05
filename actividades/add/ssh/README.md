@@ -91,18 +91,39 @@ blkid              (Comprobar UUID de la instalación)
 ```
     systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
     ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
-    netstat -ntap          (Comprobar que el servicio está escuchando por el puerto 22)
 ```
+![servicio-sshd](./opensuse/opensuse-servicio-sshd.png)
+
+![servicio-sshd-yast](./opensuse/opensuse-servicio-sshd-yast.png)
+
 * Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
+* `netstat -ntap`: Comprobar que el servicio está escuchando por el puerto 22
+
+![netstat](./opensuse/opensuse-netstat.png)
 
 ##2.2 Primera conexión SSH desde cliente
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`. 
-* Desde el cliente comprobamo que el servicio SSH es visible con `nmap ssh-server`.
+* Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
+
+![zypper-ssh-nmap](./opensuse/opensuse-zypper-ssh-nmap.png)
+
+![ssh-nmap](./opensuse/opensuse-ssh-nmap.png)
+
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 * Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+
+![ssh-conexion1](./opensuse/opensuse-ssh-conexion1.png)
+
+* Si nos volvemos a conectar tendremos:
+
+![ssh-conexion2](./opensuse/opensuse-ssh-conexion2.png)
+
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
 pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cliente1.
+
+![ssh-client_files](./opensuse/opensuse-ssh-client_files.png)
+
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
 
