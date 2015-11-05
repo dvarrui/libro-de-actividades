@@ -92,9 +92,9 @@ blkid              (Comprobar UUID de la instalación)
     systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*) 
     ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
 ```
-![servicio-sshd](./opensuse/opensuse-servicio-sshd.png)
+![servicio-sshd](./opensuse/servicio-sshd.png)
 
-![servicio-sshd-yast](./opensuse/opensuse-servicio-sshd-yast.png)
+![servicio-sshd-yast](./opensuse/servicio-sshd-yast.png)
 
 * Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
 * `netstat -ntap`: Comprobar que el servicio está escuchando por el puerto 22
