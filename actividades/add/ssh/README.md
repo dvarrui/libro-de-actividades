@@ -99,30 +99,36 @@ blkid              (Comprobar UUID de la instalación)
 * Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
 * `netstat -ntap`: Comprobar que el servicio está escuchando por el puerto 22
 
-![netstat](./opensuse/opensuse-netstat.png)
+![netstat](./opensuse/sshd-netstat.png)
 
 ##2.2 Primera conexión SSH desde cliente
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`. 
 * Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 
-![zypper-ssh-nmap](./opensuse/opensuse-zypper-ssh-nmap.png)
+![zypper-nmap](./opensuse/zypper-nmap.png)
 
-![ssh-nmap](./opensuse/opensuse-ssh-nmap.png)
+![ssh-nmap](./opensuse/ssh-nmap.png)
+
+* Si esto falla debemos comprobar en el servidor la configuración del cortafuegos:
+
+![firewall1-yast](./opensuse/firewall1-yast.png)
+
+![firewall2-yast](./opensuse/firewall2-yast.png)
 
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
 * Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
-![ssh-conexion1](./opensuse/opensuse-ssh-conexion1.png)
+![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
 * Si nos volvemos a conectar tendremos:
 
-![ssh-conexion2](./opensuse/opensuse-ssh-conexion2.png)
+![ssh-conexion2](./opensuse/ssh-conexion2.png)
 
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
 pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cliente1.
 
-![ssh-client_files](./opensuse/opensuse-ssh-client_files.png)
+![ssh-files](./opensuse/ssh-files.png)
 
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
@@ -145,6 +151,8 @@ que identifican a nuestro servidor frente a nuestros clientes:
 -rw------- 1 root root   1675 dic 27  2013 ssh_host_rsa_key
 -rw-r--r-- 1 root root    393 dic 27  2013 ssh_host_rsa_key.pub
 ```
+
+![sshd-files](./opensuse/sshd-files.png)
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: 
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey. 
