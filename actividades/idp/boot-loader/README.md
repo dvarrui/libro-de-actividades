@@ -17,6 +17,7 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 #1. OpenSUSE
 ##1.1 Añadir entrada SO Linux a GRUB2
 Vamos a crear una nueva entrada en el menú del boot loader:
+* Iniciamos la MV con GNU/Linux.
 * Abrimos un terminal. Nos convertimos en superusuario. 
 * Instalamos el editor nano en OpenSuse: `zypper install nano`
 * Ir a `/etc/grub.d` y editamos el fichero: `nano 40_custom`
@@ -68,10 +69,11 @@ Veamos un ejemplo de un menú de inicio:
 
 ##1.2 Añadir entrada SO Windows a GRUB2
 Vamos a crear una nueva entrada del menú de carga para el SO Windows:
-* Ahora vamos a añadir otra entrada para el sistema Windows.
-* Añadir las siguientes líneas al fichero `/etc/grub.d/40_custom`, 
+* Iniciamos la MV con GNU/Linux.
+* Añadir las siguientes líneas al final del fichero `/etc/grub.d/40_custom`, 
 Sustituir X por el número de la partición donde está Windows:
 ```
+
 echo "Añadiendo entrada Windows" >&2
 cat<<EOF
 menuentry "Iniciar Windows desde GRUB2" {
