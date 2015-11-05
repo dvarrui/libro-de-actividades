@@ -22,4 +22,7 @@ Simplified von Neumann Computer
 #Descarga
 [Descargar el proyecto Johnny Simulator](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
 
-Traducido por David Vargas Ruiz, dvarrui@gmail.com
+#Traducción
+
+Traducido por David Vargas Ruiz, dvarrui@gmail.com, en Octubre de 2015.
+
