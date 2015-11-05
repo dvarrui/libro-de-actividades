@@ -13,7 +13,7 @@ se suma al valor del acumulador.
 * `SUB` El contenido de la dirección (dada por la dirección absoluta)
 se resta al valor del acumulador.
 * `INC` Se incrementa el valor de la dirección (dada por su dirección absoluta).
-* `DEC` Se idecrementa el valor de la dirección (dada por su dirección absoluta).
+* `DEC` Se reduce el valor de la dirección (dada por su dirección absoluta).
 * `NULL` Se pone a cero el valor de la dirección (dada por su dirección absoluta).
 * `TST` Sólo si el contenido de la dirección (dada por su dirección absoluta) es cero,
 entonces se salta la ejecución de la siguiente macro instrucción.

@@ -33,7 +33,7 @@ las instrucciones y los datos afectados.
 ##4.2. La Unidad Aritmético Lógica
 La Unidad Aritmético Lógica consta simplemente del acumulador.
 El acumulador puede resetearse ( acc:=0 ), incrementarse ( acc++ ), y
-decrementarse ( acc-- ). `db->acc` mueve la palabra de datos desde el
+reducirse ( acc-- ). `db->acc` mueve la palabra de datos desde el
 bus al acumulador; `acc->db` hace la acción opuesta.
 Se puede sumar ( plus ) un valor desde el bus o restarlo ( minus ).
 

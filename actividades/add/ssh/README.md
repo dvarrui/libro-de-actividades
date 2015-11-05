@@ -100,8 +100,7 @@ blkid              (Comprobar UUID de la instalación)
 * Desde el cliente comprobamo que el servicio SSH es visible con `nmap ssh-server`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 * Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*. 
-Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`.
-* Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
 pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cliente1.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
