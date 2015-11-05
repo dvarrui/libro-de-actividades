@@ -8,12 +8,6 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
 * Vamos a trabajar con la MV de la instalación dual.
 
-> Información general:
->
-> * El programa GRUB2 es el nuevo gestor de arranque de las distribuciones GNU/Linux, aunque es posible sustituirlo por otros como GRUB Legacy, LILO, etc.
-> * En el directorio /boot están los programas y ficheros necesarios para la carga del sistema operativo. Hay estarán los ficheros vmlinuz e initrd: vdir /boot. Necesitaremos estos datos más adelante.
-> * Además en el directorio /etc/grub.d se almacenan ficheros que nos permiten personalizar la configuración de GRUB2. En esta práctica vamos a modificar alguno de estos ficheros de configuración de GRUB2.
-> * Para consultar el identificador UUID de una partición podemos usar los comandos siguientes: `blkid /dev/sdaX`, o `ls -l /dev/disk/by-uuid`.
 >
 > Enlaces de interés:
 > * [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
@@ -26,11 +20,18 @@ Vamos a crear una nueva entrada en el menú del boot loader:
 * Abrimos un terminal. Nos convertimos en superusuario. 
 * Instalamos el editor nano en OpenSuse: `zypper install nano`
 * Ir a `/etc/grub.d` y editamos el fichero: `nano 40_custom`
+* Vamos a desactivar la línea `exec tail...` poniendo una almohadilla delante como `#exec tail...`.
+
+> * El programa GRUB2 es el nuevo gestor de arranque de las distribuciones GNU/Linux, aunque es posible sustituirlo por otros como GRUB Legacy, LILO, etc.
+> * En el directorio /boot están los programas y ficheros necesarios para la carga del sistema operativo. Hay estarán los ficheros vmlinuz e initrd: vdir /boot. Necesitaremos estos datos más adelante.
+> * Además en el directorio /etc/grub.d se almacenan ficheros que nos permiten personalizar la configuración de GRUB2. En esta práctica vamos a modificar alguno de estos ficheros de configuración de GRUB2.
+> * Para consultar el identificador UUID de una partición podemos usar los comandos siguientes: `blkid /dev/sdaX`, o `ls -l /dev/disk/by-uuid`.
+
 * Añadir las siguientes líneas:
 ```
 echo "Añadiendo GNU/Linux" >&2
 cat<<EOF
-menuentry "Iniciar GNU/Linux desde GRUB2 (**David 2013**)" {
+menuentry "Iniciar GNU/Linux desde GRUB2 (David 2013)" {
 linux /boot/vmlinuz-Y root=/dev/sdaZ
 initrd /boot/initrd-Y
 }
