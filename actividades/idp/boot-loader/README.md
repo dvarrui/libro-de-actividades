@@ -7,6 +7,7 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
 * Vamos a trabajar con la MV de la instalación dual.
+* W7 debe ser Enterprise.
 
 >
 > Enlaces de interés:
