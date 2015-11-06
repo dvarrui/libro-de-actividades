@@ -2,7 +2,7 @@
 #Instalación Dual
 Vamos a realizar una instalación dual Windows y GNU/Linux.
 
-* Usaremos en esta práctica las versiones Windows7 y OpenSUSE 13.2.
+* Usaremos en esta práctica las versiones Windows7 Enterprise, y OpenSUSE 13.2.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas. Incluir breves comentarios de cada captura.
 
 > Recuerda: Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
