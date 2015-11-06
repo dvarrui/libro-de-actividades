@@ -74,9 +74,9 @@ Vamos a crear una nueva entrada del menú de carga para el SO Windows:
 Sustituir X por el número de la partición donde está Windows:
 ```
 
-echo "Añadiendo entrada Windows" >&2
+echo "[INFO] Añadiendo entrada Windows" >&2
 cat<<EOF
-menuentry "Iniciar Windows desde GRUB2" {
+menuentry "Iniciar Windows (David 2013)" {
 set root=(hd0,X)
 chainloader +1
 }
