@@ -47,7 +47,7 @@ EOF
 
 Veamos un ejemplo con una configuración diferente:
 
-![grub2-menuentry-gnulinux] (./grub2-menuentry-gnulinux.png)
+![grub2-menuentry-gnulinux] (./images/grub2-menuentry-gnulinux.png)
 
 * Grabamos el fichero 40_custom, ponemos permisos de ejecución (chmod +x 40_custom).
 * Hacer copia de seguridad del fichero de configuración: `cp /boot/grub2/grub.cfg /boot/grub2/grub.000`
@@ -56,7 +56,7 @@ Veamos un ejemplo con una configuración diferente:
 
 Veamos un ejemplo de un menú de inicio:
 
-![grub2-menu-screen] (./grub2-menu-screen.png)
+![grub2-menu-screen] (./images/grub2-menu-screen.png)
 
 > Información sobre Yast2:
 > * Yast2 es una herramienta gráfica para OpenSUSE que sirve para gestionar el bootloader (GRUB2 en nuestro caso).
@@ -65,7 +65,7 @@ Veamos un ejemplo de un menú de inicio:
 >
 > Veamos una imagen:
 >
-> ![grub2-yast2-bootloader] (./grub2-yast2-bootloader.png)
+> ![grub2-yast2-bootloader] (./images/grub2-yast2-bootloader.png)
 >
 
 ##1.2 Añadir entrada SO Windows a GRUB2
@@ -127,10 +127,11 @@ Pasos previos:
 OBJETIVO de la práctica:
 * Modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
 
-Enlaces de interés:
-* [Create new entry with `bdcedit`](http://superuser.com/questions/511582/how-to-use-bcdedit-to-dual-boot-windows-installations)
-* [Documentación "Añadir SO Linux en el arranque de Windows7"] (http://www.taringa.net/posts/linux/14679925/Insertar-linux-en-el-arranque-de-windows.html)
-* [Inicio dual de dos sistemas operativos desde Windows] (https://norfipc.com/articulos/dos-sistemas-operativos-inicio-dual.html)
-* [Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
+> **Enlaces de interés:**
+>
+> * [Create new entry with `bdcedit`](http://superuser.com/questions/511582/how-to-use-bcdedit-to-dual-boot-windows-installations)
+> * [Documentación "Añadir SO Linux en el arranque de Windows7"] (http://www.taringa.net/posts/linux/14679925/Insertar-linux-en-el-arranque-de-windows.html)
+> * [Inicio dual de dos sistemas operativos desde Windows] (https://norfipc.com/articulos/dos-sistemas-operativos-inicio-dual.html)
+> * [Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
 
 
