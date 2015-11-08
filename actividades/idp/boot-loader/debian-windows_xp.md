@@ -1,5 +1,5 @@
 
-#BootLoader
+#BootLoader (Debian y WindowsXP)
 
 El *Boot loader* es el programa encargado de la carga el sistema operativo.
 Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo. 

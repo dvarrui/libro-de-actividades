@@ -1,5 +1,5 @@
 
-#BootLoader
+#BootLoader (OpenSUSE y Windows7)
 
 El *Boot loader* es el programa encargado de la carga el sistema operativo.
 Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo. 
@@ -122,7 +122,7 @@ Pasos previos:
 * Vamos a entrar a Window7.
 * En la línea de comandos ejecutamos el comando "bcdedit" para consultar la configuración actual del boot loader. El comando "msconfig" nos muestra también información del arranque.
 
-> Si tenemos problemas con el comando "bcdedit", es posible que se solucionen activando el sistema y manteniéndolo actualizado.
+> Si tenemos problemas con el comando "bcdedit", comporbar que tenemos la versión Enterprise del SO Windows.
 
 OBJETIVO de la práctica:
 * Modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
