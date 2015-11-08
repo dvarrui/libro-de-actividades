@@ -234,18 +234,21 @@ Por ejemplo en un sistema con soporte NFS cliente podemos hacer lo siguiente:
 
 Ahora podemos crear carpetas/ficheros en el recurso public, pero sólo podremos leer lo que aparezca en private. Comprobarlo.
 
-2.4. Montaje automático
+##2.4. Montaje automático
+Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
+Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están establecidos. 
+Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, a no ser que hagamos una configuración 
+permanente o automática.
 
-    Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están establecidos. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, a no ser que hagamos una configuración permanente o automática.
-    Para configurar acciones de montaje autoḿaticos cada vez que se inicie el equipo, debemos modificar la configuración del fichero /etc/fstab.
-    Comprobarlo.
-    Incluir contenido del fichero /etc/fstab en la entrega.
+Para configurar acciones de montaje autoḿaticos cada vez que se inicie el equipo, debemos 
+modificar la configuración del fichero `/etc/fstab`. Comprobarlo.
+
+Incluir contenido del fichero `/etc/fstab` en la entrega.
+
+#3. Preguntas
+
+* ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Comprobarlo.
+* ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? Comprobarlo.
+* Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros que se guardan en el servidor, cuando los creamos desde una conexión cliente NFS.
 
 
-3. Preguntas
-
-    ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Comprobarlo.
-    ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? Comprobarlo.
-    Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros que se guardan en el servidor, cuando los creamos desde una conexión cliente NFS.
-
-Última modificación: jueves, 5 de marzo de 2015, 09:50
