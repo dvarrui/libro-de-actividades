@@ -1,12 +1,4 @@
- INDICE
-1. Preparativos
-2. Instalación y configuracióna
-3. Cliente Windows GUI
-4. Cliente Windows Comandos
-5. Cliente GNU/Linux GUI
-6. Cliente GNU/Linux comandos
-7. Montaje automático
-8. Preguntas para resolver
+(En construcción)
 
 
 # Samba - Debian
