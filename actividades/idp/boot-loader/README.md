@@ -124,6 +124,8 @@ Pasos previos:
 
 > * `bdcedit` Muestra la configuración del boot loader
 > * `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
+> * `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
+> * `bcdedit /delete {49916baf-0e08-11db-9af4-000bdbd316a0}` Eliminar una entrada del menú
 >
 > Si tenemos problemas con el comando "bcdedit", comporbar que tenemos la versión Enterprise del SO Windows.
 
