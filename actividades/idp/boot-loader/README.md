@@ -119,9 +119,12 @@ Pasos previos:
 > * Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual.
 > * No es necesario hacerlo con los dos SO Windows.
 
-* Vamos a entrar a Window7.
+* Vamos a entrar a Window Enterprise.
 * En la línea de comandos ejecutamos el comando "bcdedit" para consultar la configuración actual del boot loader. El comando "msconfig" nos muestra también información del arranque.
 
+> * `bdcedit` Muestra la configuración del boot loader
+> * `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
+>
 > Si tenemos problemas con el comando "bcdedit", comporbar que tenemos la versión Enterprise del SO Windows.
 
 OBJETIVO de la práctica:
