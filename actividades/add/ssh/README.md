@@ -2,6 +2,9 @@
 #0. Acceso remoto SSH
 
 ##0.1 Introducción
+
+![secret](./image/secret.jpeg)
+
 * Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
 * Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
@@ -10,7 +13,7 @@
     1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.54).
     1. Un cliente Windows7, con IP estática (172.18.XX.13).
 
-![secret](./image/secret.jpeg)
+> Es aconsejable poner el tamaño del disco de OpenSUSE en 10GB 
 
 ##0.2 Configuración de red
 Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico `yast`.
@@ -275,9 +278,22 @@ Vamos a crear una restricción de uso del SSH para un usuario:
 * Comprobarlo desde los clientes.
 
 ##7.3 Restricción en las máquinas (tipo 3)
-Vamos a crear una restricción para que sólo las máquinas clientes con las IP's autorizadas puedan acceder a nuestro servidor.
+Vamos a crear una restricción para que sólo las máquinas clientes con las IP's 
+autorizadas puedan acceder a nuestro servidor.
 
-* Consultar los ficheros de configuración /etc/hosts.allow y /etc/host.deny
+* Consultar los ficheros de configuración /etc/hosts.allow y /etc/hosts.deny
+```
+# /etc/hosts.allow
+# Permitir acceso a las IP's conocidas
+sshd : 172.19.255.53/255.255.255.0 : ALLOW
+```
+
+```
+# /etc/hosts.deny
+# Denegar acceso al servicio SSH a todas las IP's 
+sshd : ALL EXCEPT LOCAL
+```
+
 * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
 * Comprobar su funcionamiento.
 
