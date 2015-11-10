@@ -273,9 +273,15 @@ Usuario sin restricciones:
 ##7.2 Restricción total (tipo 2)
 Vamos a crear una restricción de uso del SSH para un usuario:
 
-* En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar sin problemas el usuario. Pero al tratar de usar el usuario por ssh desde los clientes tendremos permiso denegado.
-* Consultar/modificar fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para conseguir restringir el acceso a determinados usuarios. Consultar opción "AllowUsers". Más información en: "man sshd_config"
-* Comprobarlo desde los clientes.
+* En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar 
+sin problemas el usuario.
+* Vamos a modificar SSH de modo que al usar el usuario por ssh desde los clientes tendremos permiso denegado.
+
+Capturar imagen de los siguientes pasos:
+* Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para 
+restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers`, `DenyUsers`. 
+Más información en: `man sshd_config` y en el Anexo de este enunciado.
+* Comprobarlo la restricción al acceder desde los clientes.
 
 ##7.3 Restricción en las máquinas (tipo 3)
 Vamos a crear una restricción para que sólo las máquinas clientes con las IP's 
