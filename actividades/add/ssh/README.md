@@ -256,9 +256,10 @@ remota al servidor, y ahora ejecutamos APP1 de forma remota.
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
 * Instalar emulador Wine en el ssh-server.
-* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH 
+usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
 * Comprobar el funcionamiento de APP2 en ssh-server.
-* Comprobar funcionamiento de APP2 desde el cliente SSH.
+* Comprobar funcionamiento de APP2, accediendo desde ssh-client1.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
