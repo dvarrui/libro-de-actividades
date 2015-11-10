@@ -250,6 +250,7 @@ Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwardi
 * Comprobar funcionamiento de APP1 desde cliente1.
 Por ejemplo, con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma 
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
+> **OJO**: El parámetro es `-X` en mayúsculas, no minúsculas
 
 #6. Aplicaciones Windows nativas
 
