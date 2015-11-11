@@ -18,8 +18,16 @@
     * Nombre de dominio: segundo-apellido-del-alumno
     * Instalar openssh-server.
 * Añadir en /etc/hosts los equipos samba-cli1 y samba-cli2-XX (Donde XX es el número del puesto de cada uno).
+Capturar salida de los comandos siguientes:
+```
+hostname -f
+ip a
+lsblk
+sudo blkid
+```
 
 ##1.2 Usuarios locales
+Capturar imágenes del resultado final.
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios. Podemos usar comandos o entorno gráfico Yast:
 * Grupo `jedis` con `jedi1`, `jedi2` y `supersamba`.
 * Grupo `siths` con `sith1` y `sith2` y `supersamba`.
@@ -29,9 +37,11 @@ siguiente manera: "smbguest:x:1001:1001:,,,:/home/smbguest:**/bin/false**".
 * Crear el grupo `startwars`, y dentro de este poner a todos los `siths`, `jedis`, `supersamba` y a `smbguest`.
 
 ##1.3 Instalar Samba
-* Podemos usar comandos o el entorno gráfico Yast.
+Capturar imágenes del proceso.
+* Podemos usar comandos o el entorno gráfico Yast para instalar servicio Samba.
 
 ##1.4 Configurar Samba
+Capturar imágenes del proceso.
 * Vamos a hacer una copia de seguridad del fichero de configuración existente 
 `cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
 * Vamos a configurar el servidor Samba usando Yast, de la siguiente forma:
@@ -65,6 +75,7 @@ path = /var/samba/tatooine.d
 read only = no
 valid users = jedi1, jedi2
 ```
+* Comprobar resultado `cat /etc/smb.conf`
 
 ##1.5 Crear los recursos compartidos
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
