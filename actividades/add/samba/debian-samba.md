@@ -3,18 +3,18 @@
 
 # Samba - Debian
 
-Vídeo "LPIC-2 202 Samba Server Configuration":
+* Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 
 #1. SO GNU/Linux
 Configurar el equipo con:
 * SO Debian
-* IP: 172.16.108.2XX (Donde XX corresponde al nº de cada puesto).
+* IP: 172.18.XX.2XX (Donde XX corresponde al nº de cada puesto).
 * Máscara de red: 255.255.0.0
 * Gateway: 172.16.1.1
 * Servidor DNS: 172.16.1.1
 * Nombre de equipo: primer-apellido-del-alumno3.
 * Tarjeta de red VBox en modo puente.
- * Instalar openssh-server.
+* Instalar openssh-server.
 
 ##1.1 Preparativos Servidor Samba
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
@@ -114,67 +114,84 @@ samba-win7-cliente-gui
         netstat -ntap
 
 
-1.5 Cliente GNU/Linux GUI
-Podemos comprobar que tenemos acceso al recurso compartido desde un cliente GNU/Linux GUI. Ejemplos:
+##1.5 Cliente GNU/Linux GUI
+Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS. 
+Estas son algunas herramientas:
+* Yast en OpenSUSE
+* Nautilus en GNOME
+* Konqueror en KDE
+* En Ubuntu podemos ir a "Lugares -> Conectar con el servidor..."
+* También podemos instalar "smb4k".
+* existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
 
-    Nautilus en GNOME
-    Konqueror en KDE
-    En Ubuntu podemos ir a "Lugares -> Conectar con el servidor..."
-    También podemos instalar "smb4k".
-    existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
-
-
-La siguiente imagen es un ejemplo de cómo se vería en Konqueror. Pulsamos CTRL+L y escribimos "smb://ip-del-servidor-samba":
+La siguiente imagen es un ejemplo de cómo se vería en Konqueror. 
+Pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
 
 Ejemplo accediendo al recurso prueba del servidor Samba:
 
-samba2
+![samba2](./images/samba2)
 
-    Probar a crear carpetas/archivos en [panaderos] e [informaticos]. Comprobar que [public] es de sólo lectura.
-    Para comprobar resultados, desde el servidor Samba ejecutamos:
-        smbstatus
-        netstat -ntap
+* Probar a crear carpetas/archivos en [corusant] y en  [tatooine].
+* Comprobar que [public] es de sólo lectura.
+* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
+##1.6. Cliente GNU/Linux comandos
+Existen comandos (`smbclient`, `mount` , `smbmount`, etc.) para ayudarnos 
+a acceder vía comandos al servidor Samba desde el cliente. Puede ser que 
+con las nuevas actualizaciones y cambios de las distribuciones alguno 
+haya cambiado de nombre. ¡Ya lo veremos!
 
-1.6. Cliente GNU/Linux comandos
-Existen comandos (smbclient, mount , smbmount, etc.) para ayudarnos a acceder vía comandos al servidor Samba desde el cliente. Puede ser que con las nuevas actualizaciones y cambios de las distribuciones alguno haya cambiado de nombre. ¡Ya lo veremos!
+* Vamos a un equipo GNU/Linux que será nuestro cliente Samba. Desde este 
+equipo usaremos comandos para acceder a la carpeta compartida.
+* Primero comprobar el uso de las siguientes herramientas:
+```
+smbtree                              (Muestra todos los equipos/recursos de la red SMB/CIFS)
+smbclient --list ip-servidor-samba   (Muestra los recursos SMB/CIFS de un equipo concreto)
+```
+* Ahora crearemos en local la carpeta `/mnt/samba-remoto/courusant`.
+* MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso 
+compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
+`mount -t cifs //172.18.XX.55/courusant /mnt/samba-remoto/courusant -o username=sith1`
 
-    Vamos a un equipo GNU/Linux que será nuestro cliente Samba. Desde este equipo usaremos comandos para acceder a la carpeta compartida.
-    Primero comprobar el uso de las siguientes herramientas:
-        smbtree
-        smbclient --list ip-servidor-samba
+> En versiones anteriores de GNU/Linux se usaba el comando 
+`smbmount //172.16.108.XX/public /mnt/samba-remoto/public/ -o -username=smbguest`.
 
-    Ahora crearemos en local la carpeta /mnt/samba-remoto/public
-    MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-        mount -t cifs //172.16.108.XX/panaderos /mnt/samba-remoto/panaderos -o username=pan1
-        [NOTA] En versiones anteriores de GNU/Linux se usaba el com,ando "smbmount //172.16.108.XX/public /mnt/samba-remoto/public/ -o -username=smbguest".
+* COMPROBAR: Ejecutar el comando `df -hT`. Veremos que el recurso ha sido montado.
 
-    COMPROBAR: Ejecutar el comando "df -hT". Veremos que el recurso ha sido montado.
+![samba-linux-mount-cifs](./images/samba-linux-mount-cifs.png)
 
-samba-linux-mount-cifs
+> * Si montamos la carpeta de courusat, lo que escribamos en `/mnt/samba-remoto/courusant` 
+debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
+> * Para desmontar el recurso remoto usamos el comando `umount`.
 
-    NOTA: Si montamos la carpeta de panaderos, lo que escribamos en /mnt/samba-remoto/panaderos debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
-    Para desmontar el recurso remoto usamos el comando umount.
-    Para comprobar resultados, desde el servidor Samba ejecutamos:
-        smbstatus
-        netstat -ntap
+* Para comprobar resultados, desde el servidor Samba ejecutamos:
+```
+smbstatus
+netstat -ntap
+```
 
+##1.7. Montaje automático
 
-1.7. Montaje automático
+Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
+Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están (`df -hT`).
+Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, 
+a no ser que hagamos una configuración de  montaje permanente o automática.
 
-    Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están establecidos. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, a no ser que hagamos una configuración permanente o automática.
-    Para configurar acciones de montaje automáticos cada vez que se inicie el equipo, debemos añadir la siguiente configuración al fichero /etc/fstab. Ejemplo:
+* Para configurar acciones de montaje automáticos cada vez que se inicie el equipo, 
+debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
+```
 ...
-//ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=pan1,password=clave 0 0
+//ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=sith1,password=clave 0 0
+```
 
-    Comprobarlo.
-    Incluir contenido del fichero /etc/fstab en la entrega.
+* Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
+* Incluir contenido del fichero `/etc/fstab` en la entrega.
 
+##1.8. Preguntas para resolver
 
-1.8. Preguntas para resolver
-
-    ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
-    ¿Puedo definir un usuario en Samba llamado panadero3, y que no exista como usuario del sistema?
-    ¿Cómo podemos hacer que los usuarios panadero1 y panadero2 no puedan acceder al sistema pero sí al samba? (Consultar /etc/passwd)
-    Añadir el recurso [homes] al fichero smb.conf según los apuntes. ¿Qué efecto tiene?
+* ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
+* ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
+* ¿Cómo podemos hacer que los usuarios sith1 y sith2 no puedan acceder al sistema pero sí al samba? 
+(Consultar `/etc/passwd`)
+* Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
