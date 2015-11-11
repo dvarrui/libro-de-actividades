@@ -107,7 +107,7 @@ para que se lean los cambios de configuración (Consultar los apuntes):
 
 Desde un cliente Windows trataremos de acceder a los recursos compartidos del servidor Samba.
 
-![samba-win7-cliente-gui](./images/samba-win7-cliente-gui.png)
+![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
 * Comprobar los accesos de todas las formas posibles. Como si fuéramos un `sith`, un `jedi` y/o un invitado.
 
@@ -146,7 +146,7 @@ Pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
 
 Ejemplo accediendo al recurso prueba del servidor Samba:
 
-![samba2](./images/samba2)
+![samba2](./images/samba2.jpg)
 
 * Probar a crear carpetas/archivos en [corusant] y en  [tatooine].
 * Comprobar que [public] es de sólo lectura.
