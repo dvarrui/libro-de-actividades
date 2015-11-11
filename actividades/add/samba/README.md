@@ -17,7 +17,7 @@
     * Nombre de equipo: samba-server
     * Nombre de dominio: segundo-apellido-del-alumno
     * Instalar openssh-server.
-* Añadir en /etc/hosts los equipos samba-client1 y samba-client2.
+* Añadir en /etc/hosts los equipos samba-cli1 y samba-cli2-XX (Donde XX es el número del puesto de cada uno).
 
 ##1.2 Usuarios locales
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios. Podemos usar comandos o entorno gráfico Yast:
