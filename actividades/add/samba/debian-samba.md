@@ -1,40 +1,49 @@
 (En construcción)
 
 
-# Samba - Debian
+#1 Samba - Debian
 
+##1.1 Introducción
+* Leer documentación proporcionada por el profesor.
+* Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
+* Vamos a necesitar las siguientes 3 MVs:
+    1. Un servidor GNU/Linux con IP estática (172.18.XX.33).
+    1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
+    1. Un cliente Windows con IP estática (172.18.XX.13).
 
-#1. SO GNU/Linux
-Configurar el equipo con:
-* SO Debian
-* IP: 172.18.XX.2XX (Donde XX corresponde al nº de cada puesto).
-* Máscara de red: 255.255.0.0
-* Gateway: 172.16.1.1
-* Servidor DNS: 172.16.1.1
-* Nombre de equipo: primer-apellido-del-alumno3.
-* Tarjeta de red VBox en modo puente.
-* Instalar openssh-server.
 
-##1.1 Preparativos Servidor Samba
+#1.1 Preparativos
+* Configurar el servidor GNU/Linux con siguientes valores:
+    * Nombre de usuario: nombre-del-alumno
+    * Clave del usuario root: DNI-del-alumno
+    * Nombre de equipo: samba-server
+    * Nombre de dominio: segundo-apellido-del-alumno
+    * Instalar openssh-server.
+* Añadir en /etc/hosts los equipos samba-client1 y samba-client2.
+
+##1.2 Usuarios locales
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
-* Grupo informaticos con info1, info2 y supersamba
-* Grupo panaderos con pan1 y pan2 y supersamba
-* Crear el usuario smbguest. Para asegurarnos que nadie puede usar smbguest para 
-entrar en nuestra máquina mediante login, vamos a modificar en el fichero /etc/passwd de la 
+* Grupo `jedis` con `jedi1`, `jedi2` y `supersamba`.
+* Grupo `siths` con `sith1` y `sith2` y `supersamba`.
+* Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para 
+entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de la 
 siguiente manera: "smbguest:x:1001:1001:,,,:/home/smbguest:**/bin/false**".
-* Crear el grupo usuariosamba, y dentro de este poner a todos los panaderos, informaticos, supersamba y a smbguest.
+* Crear el grupo `startwars`, y dentro de este poner a todos los `siths`, `jedis`, `supersamba` y a `smbguest`.
 
-#1.2 Instalar y configurar Samba
+##1.3 Instalar Samba
 * Instalar el servidor Samba en Linux: `apt-get install -y samba samba-common smbclient samba-doc cifs-utils`
+
+##1.4 Configurar Samba
 * Configurar el servidor samba
-    * Vamos a renombrar el fichero de configuración existente, y trabajaremos a partir de un fichero de configuración nuevo vacío: "mv /etc/samba/smb.conf /etc/samba/smb.conf.000".
-    * Crea un fichero vacío /etc/samba/smb.conf, y rellénalo con el contenido siguiente:
+    * Vamos a renombrar el fichero de configuración existente, y trabajaremos a partir de un fichero 
+    de configuración nuevo vacío: `mv /etc/samba/smb.conf /etc/samba/smb.conf.000`.
+    * Crea un fichero vacío `/etc/samba/smb.conf`, y rellénalo con el contenido siguiente:
 
 ```
 [global]
 netbios name = PRIMER-APELLIDO-ALUMNO
-workgroup = AULA108
+workgroup = STARWARS
 server string = Servidor Samba del PC XX
 security = user
 map to guest = bad user
@@ -46,75 +55,88 @@ guest ok = yes
 read only = yes
 
 [public]
-path = /var/samba/public
+path = /var/samba/public.d
 guest ok = yes
 read only = yes
 
-[panaderos]
-path = /var/samba/panaderos
+[corusant]
+path = /var/samba/corusant.d
 read only = no
-valid users = @panaderos, @informaticos
+valid users = @siths, @jedis
 
-[informaticos]
-path = /var/samba/informaticos
+[tatooine]
+path = /var/samba/tatooine.d
 read only = no
-valid users = info1, info2
+valid users = jedi1, jedi2
 ```
 
-Crear las rutas a los recursos compartidos
+##1.5 Crear los recursos compartidos
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
-    * /var/samba/public: Usuario propietario "supersamba", grupo propietario "usuariosamba". Poner permisos 775.
-    * /var/samba/panaderos: Usuario propietario "supersamba", grupo propietario "panaderos". Poner permisos 770.
-    * /var/samba/informaticos: Usuario propietario "supersamba", grupo propietario "informaticos". Poner permisos 770.
+    * `/var/samba/public.d`
+        * Usuario propietario `supersamba`.
+        * Grupo propietario `starwars`. 
+        * Poner permisos 775.
+    * `/var/samba/corusant.d`
+        * Usuario propietario `supersamba`.
+        * Grupo propietario `siths`. 
+        * Poner permisos 770.
+    * `/var/samba/tatooine.d`
+        * Usuario propietario `supersamba`.
+        * Grupo propietario `jedis`. 
+        * Poner permisos 770.
 
-> Información:
->
-> * public, es un recurso compartido accesible para todos los usuarios en modo lectura.
-> * cdrom, es el recurso dispositivo cdrom de la máquina donde está instalado el servidor samba.
+> * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
+> * `cdrom`, es el recurso dispositivo cdrom de la máquina donde está instalado el servidor samba.
 
-* Añadir usuarios a Samba. Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
-    * Para eso hay que usar el comando siguiente para cada usuario de Samba: `smbpasswd -a nombreusuario`
-    * Al terminar comprobamos nuestra lista de usuarios Samba con el comando: `pdbedit -L`
+##1.6 Usuarios Samba
+Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
+* Para eso hay que usar el comando siguiente para cada usuario de Samba: `smbpasswd -a nombreusuario`
+* Al terminar comprobamos nuestra lista de usuarios Samba con el comando: `pdbedit -L`
 
-Ahora que hemos terminado con el servidor, hay que reiniciar el servicio para que se lean los cambios de configuración (Consultar los apuntes):
+##1.7 Reiniciar
+* Ahora que hemos terminado con el servidor, hay que reiniciar el servicio 
+para que se lean los cambios de configuración (Consultar los apuntes):
+    * En OpenSuSe13: `systemctl stop samba`, `systemctl start samba`, `systemctl. status samba`.
+    * En Debian7: `service samba stop`, `service samba start`, `service samba status`.
+    * En Debian6: `/etc/init.d/smbd restart`, `/etc/init.d/nmbd restart`.
+* Comprobar
+```
+    testparm (Verifica la sintaxis del fichero de configuración del servidor Samba)
+    netstat -tap (Vemos que el servicio SMB/CIF está a la escucha)
+```
 
-    En Debian7: "service samba stop", "service samba start",
-    "service samba status"
-    En OpenSuSe13: "service smb stop", "service smb start",
-    "service samba status"
-    En Debian6: "/etc/init.d/smbd restart", "/etc/init.d/nmbd restart".
-
-Comprobar
-
-    testparm: Verifica la sintaxis del fichero de configuración del servidor Samba.
-    netstat -tap: Vemos que el servicio SMB/CIF está a la escucha.
-
-
-1.3 Cliente Windows GUI
+#2. Windows
+##2.1 Cliente Windows GUI
 
 Desde un cliente Windows trataremos de acceder a los recursos compartidos del servidor Samba.
 
-samba-win7-cliente-gui
+![samba-win7-cliente-gui](./images/samba-win7-cliente-gui)
 
-    Comprobar los accesos de todas las formas posibles. Como si fuéramos un panadero, un informático y un invitado.
-    [OJO] Después de cada conexión se quedan guardada la información en el cliente (Ver comando "net use"). Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: "C:>net use * /d /y".
-    Para comprobar resultados, desde el servidor Samba ejecutamos:
-        smbstatus
-        netstat -ntap
+* Comprobar los accesos de todas las formas posibles. Como si fuéramos un `sith`, un `jedi` y/o un invitado.
 
+> Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
+>
+> Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
+>
 
-1.4 Cliente Windows comandos
+* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
-    En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos "C:>net use". Si hubiera alguna conexión abierta, para cerrar las conexión SMB al servidor, podemos usar el siguiente comando "C:>net use * /d /y". Si ahora ejecutamos el comando "net use", debemos comprobar que NO hay conexiones establecidas.
-    Abrir una shell de windows. Usar el comando "net use /?", para consultar la ayuda del comando.
-    Con el comando "net view", vemos las máquinas (con recursos CIFS) accesibles por la red.
-    Vamos a conectarnos desde la máquina Windows al servidor Samba usando los comandos net. Por ejemplo el comando "net use P: \\ip-servidor-samba\panaderos /USER:pan1" establece una conexión del rescurso panaderos en la unidad P. Ahora podemos entrar en la unidad P ("p:") y crear carpetas, etc.
-    Para comprobar resultados, desde el servidor Samba ejecutamos:
-        smbstatus
-        netstat -ntap
+#2.2 Cliente Windows comandos
 
+* En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
+* Si hubiera alguna conexión abierta, para cerrar las conexión SMB al servidor, 
+podemos usar el siguiente comando `C:>net use * /d /y`. Si ahora ejecutamos el comando `net use`, 
+debemos comprobar que NO hay conexiones establecidas.
+* Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
+* Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
+* Vamos a conectarnos desde la máquina Windows al servidor Samba usando los comandos net. 
+Por ejemplo el comando `net use P: \\ip-servidor-samba\panaderos /USER:pan1` establece 
+una conexión del rescurso panaderos en la unidad P. Ahora podemos entrar en la 
+unidad P ("p:") y crear carpetas, etc.
+* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
-##1.5 Cliente GNU/Linux GUI
+#3 Cliente GNU/Linux
+##3.1 Cliente GNU/Linux GUI
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS. 
 Estas son algunas herramientas:
 * Yast en OpenSUSE
@@ -135,7 +157,7 @@ Ejemplo accediendo al recurso prueba del servidor Samba:
 * Comprobar que [public] es de sólo lectura.
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
-##1.6. Cliente GNU/Linux comandos
+##3.2 Cliente GNU/Linux comandos
 Existen comandos (`smbclient`, `mount` , `smbmount`, etc.) para ayudarnos 
 a acceder vía comandos al servidor Samba desde el cliente. Puede ser que 
 con las nuevas actualizaciones y cambios de las distribuciones alguno 
@@ -164,11 +186,7 @@ compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
-* Para comprobar resultados, desde el servidor Samba ejecutamos:
-```
-smbstatus
-netstat -ntap
-```
+* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus` y `netstat -ntap`.
 
 ##1.7. Montaje automático
 
@@ -181,8 +199,7 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
 ```
-...
-//ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=sith1,password=clave 0 0
+    //ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=sith1,password=clave 0 0
 ```
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
