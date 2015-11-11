@@ -33,7 +33,7 @@ Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico 
     * Elegimos el dispositivo de red asociado a la puerta de enlace.    
 
 #0.3 Entrega
-* Añadir informe al repositorio git.
+* Añadir informe al repositorio git. Etiqueta `ssh`.
 * Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
 * Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
 
