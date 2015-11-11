@@ -3,7 +3,7 @@
 
 #1 Samba - Debian
 
-##1.1 Introducción
+##1.0 Introducción
 * Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
@@ -12,8 +12,7 @@
     1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
-
-#1.1 Preparativos
+##1.1 Preparativos
 * Configurar el servidor GNU/Linux con siguientes valores:
     * Nombre de usuario: nombre-del-alumno
     * Clave del usuario root: DNI-del-alumno
@@ -110,14 +109,12 @@ para que se lean los cambios de configuración (Consultar los apuntes):
 
 Desde un cliente Windows trataremos de acceder a los recursos compartidos del servidor Samba.
 
-![samba-win7-cliente-gui](./images/samba-win7-cliente-gui)
+![samba-win7-cliente-gui](./images/samba-win7-cliente-gui.png)
 
 * Comprobar los accesos de todas las formas posibles. Como si fuéramos un `sith`, un `jedi` y/o un invitado.
 
-> Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
->
-> Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
->
+> * Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
+> * Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
 
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
