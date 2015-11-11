@@ -116,7 +116,7 @@ Desde un cliente Windows trataremos de acceder a los recursos compartidos del se
 
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
-#2.2 Cliente Windows comandos
+##2.2 Cliente Windows comandos
 
 * En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
 * Si hubiera alguna conexión abierta, para cerrar las conexión SMB al servidor, 
@@ -183,7 +183,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus` y `netstat -ntap`.
 
-##1.7. Montaje automático
+##2.3 Montaje automático
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
 Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están (`df -hT`).
@@ -200,7 +200,7 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
-##1.8. Preguntas para resolver
+#3. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
 * ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
