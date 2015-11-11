@@ -1,5 +1,3 @@
-(En construcción)
-
 
 #1 Samba - Debian
 
