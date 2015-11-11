@@ -29,6 +29,7 @@ la opción "Download ZIP" desde la web de GitHub.
 
 # Contribuciones
 Formar de contribuir y/o colaborar:
+
 1. Sólo necesitas aprender a usar Git y [Markdown] 
 (https://www.alsa.es/formacion/pda/help.php?file=markdown.html#precode).
 2. Si lo anterior no lo ves claro, ponte en contacto conmigo en twitter (@dvarrui) y buscamos
