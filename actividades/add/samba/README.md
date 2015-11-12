@@ -16,7 +16,7 @@
     * Clave del usuario root: DNI-del-alumno
     * Nombre de equipo: samba-server
     * Nombre de dominio: segundo-apellido-del-alumno
-    * Instalar openssh-server.
+    * Comprobar que tenemos instalado openssh-server.
 * Añadir en /etc/hosts los equipos samba-cli1 y samba-cli2-XX (Donde XX es el número del puesto de cada uno).
 
 Capturar salida de los comandos siguientes en el servidor:
@@ -36,7 +36,7 @@ Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios. Podemos usar coma
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para 
 entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de la 
 siguiente manera: "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
-* Crear el grupo `startwars`, y dentro de este poner a todos los `siths`, `jedis`, `supersamba` y a `smbguest`.
+* Crear el grupo `starwars`, y dentro de este poner a todos los `siths`, `jedis`, `supersamba` y a `smbguest`.
 
 ##1.3 Instalar Samba
 Capturar imágenes del proceso.
