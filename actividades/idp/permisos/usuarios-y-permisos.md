@@ -61,8 +61,8 @@ y no podremos crear los usuarios.
 
 > **EJEMPLO Shell CMD**
 >
-> En la consola cmd se pueden crear usuarios mediante el comando: `net user nombre-usuario clave-usuario /add`
-> Y para añadir un usuario a un grupo `net localgroup nombre-grupo nombre-usuario /add`
+> * `net user nombre-usuario clave-usuario /add` crear usuario.
+> * `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo 
 >
 > **EJEMPLO shell PowerShell**
 >
@@ -228,6 +228,9 @@ Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`
 
 ##2.4 Usando los comandos
+
+Vídeo [permisos en GNU/Linux](http//www.youtube.com/embed/Lq0UMXujGyc)
+
 Capturar imagen de los pasos realizados.
 
 * Crear el grupo `siths`.
