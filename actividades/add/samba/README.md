@@ -35,7 +35,7 @@ Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios. Podemos usar coma
 * Grupo `siths` con `sith1` y `sith2` y `supersamba`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para 
 entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de la 
-siguiente manera: "smbguest:x:1001:1001:,,,:/home/smbguest:**/bin/false**".
+siguiente manera: "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
 * Crear el grupo `startwars`, y dentro de este poner a todos los `siths`, `jedis`, `supersamba` y a `smbguest`.
 
 ##1.3 Instalar Samba
