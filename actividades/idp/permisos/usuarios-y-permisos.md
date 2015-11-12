@@ -208,11 +208,12 @@ Vamos a dar privilegios de superusuario a los miembros del grupo `jedis`.
 Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
 * Vamos a configurar a los usuarios del grupo de `jedis` para poder tener privilegio totales de uso del comando sudo.
+Añadiendo la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL`.
 
-Dos firmas de hacerlo:
+Dos formas de hacerlo:
+
 1. **GUI**: Usar Yast en OpenSUSE. Veamos imagen de ejemplo:
 1. **CLI**: Abrir el editor de la configuración sudo (`/etc/sudoers`) (Debian/Ubuntu se usa `visudo`).
-Y añadimos las líneas siguientes `%jedis ALL = (root) NOPASSWD:ALL` 
 
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
