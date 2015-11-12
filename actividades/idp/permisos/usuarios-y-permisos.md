@@ -229,7 +229,7 @@ Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo
 
 ##2.4 Usando los comandos
 
-Vídeo [permisos en GNU/Linux](http//www.youtube.com/embed/Lq0UMXujGyc)
+Vídeo [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
 Capturar imagen de los pasos realizados.
 
