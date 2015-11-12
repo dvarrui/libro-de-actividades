@@ -16,11 +16,13 @@
 * ¿Cuántos usuarios hay que no aparecen en la ventana de inicio al sistema? ¿Por qué?
 
 ##1.1 Usando el GUI Windows
+Capturar imagen del resultado final.
+
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
 * Los miembros del grupo `jedis` ponerlos dentro del grupo administradores, para que puedan actuar como superusuarios.
 * Capturar imagen. Para comprobar que los usuarios y grupos se han creado correctamente vamos a 
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
-* Para cada miembro del grupo profesores:
+* Para cada miembro del grupo `jedis`:
     * Crear la carpeta `C:\Users\jedi1\private`.
     * Crear la carpeta `C:\Users\jedi1\group`.
     * Crear la carpeta `C:\Users\jedi1\public`.
@@ -50,13 +52,19 @@ Veamos un ejemplo de permisos para la carpeta public:
 ![win-permisos-gui-public-dir](./images/win-permisos-gui-public-dir.png)
 
 ##1.2 Usando los comandos Windows
+Capturar imagen de las acciones realizadas.
 
 * Vamos a usar los comandos de la nueva shell de Windows, llamada PowerShell. 
 Para ello buscamos en el menú PowerShell -> (botón derecho) -> Iniciar como Administrador.
 Si no lo hacemos como administrador, no tendremos los privilegios necesarios, 
 y no podremos crear los usuarios.
 
-> **EJEMPLO**
+> **EJEMPLO Shell CMD**
+>
+> En la consola cmd se pueden crear usuarios mediante el comando: `net user nombre-usuario clave-usuario /add`
+> Y para añadir un usuario a un grupo `net localgroup nombre-grupo nombre-usuario /add`
+>
+> **EJEMPLO shell PowerShell**
 >
 > Veamos un ejemplo de creación de usuarios en PowerShell:
 > * Cambiar nombre-pc por el nombre del PC de cada uno.
@@ -140,14 +148,20 @@ inicio de sesión del sistema.
 
 
 #2. SO GNU/Linux OpenSUSE
+
+##2.1 Preparar la MV
 * Configurar la MV:
     * Modo de red VBox en modo puente.
-    * Nombre de equipo: primer-apellido-del-alumno (Debian/Ubuntu modificar /et/hostname y /etc/hosts, OpenSUSE usar Yast2)
+    * Nombre de equipo: primer-apellido-del-alumno. En OpenSUSE usar Yast2.
+    * Dominio: segundo-apellido-del-alumno.
+    * Instalar OpenSSH
+    * Clave de root DNI del alumno
 
-> **INFORMACIÓN**
+
+> **INFORMACIÓN Debian/Ubuntu**
 >
 > Para configurar la red sin entorno gráfico en Debian/Ubuntu, modificaremos el 
-contenido del fichero /etc/network/interfaces con lo siguiente:
+contenido del fichero `/etc/network/interfaces` con lo siguiente:
 >
 > ```
 > auto eth0
@@ -158,18 +172,19 @@ contenido del fichero /etc/network/interfaces con lo siguiente:
 > dns-nameservers 172.16.1.1
 > ```
 > 
-> Para configurar la red mediante entorno gráfico podemos usar NetworkManager en Debian/Ubuntu y Yast en OpenSuse.
+> Para configurar la red mediante entorno gráfico podemos usar NetworkManager en Debian/Ubuntu.
 >
 
-* Ir al gestor de usuarios:
-    * OpenSUSE: Ir a Yast -> Gestión de Usuarios.
-    * Debian/Ubuntu: Ir a `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`, 
-o bien ir a `Sistemas -> Administración -> Usuarios y Grupos`.
+* Ir al gestor de usuarios de OpenSUSE: Ir a Yast -> Gestión de Usuarios.
 * ¿Cuántos usuarios hay que no aparecen en la ventana de inicio al sistema? ¿Por qué?
+    
+> En Debian/Ubuntu: Ir a `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`, 
+o bien ir a `Sistemas -> Administración -> Usuarios y Grupos`.
 
-##2.1 Usando el GUI GNU/Linux
 
-Capturar imagen de las siguientes acciones:
+##2.2 Usando el GUI GNU/Linux
+Capturar imagen del resultado final.
+
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
 * Para cada usuario del grupo profesores:
     * Crear la carpeta `/home/jedi1/private`.
@@ -180,87 +195,89 @@ Veamos un ejemplo de permisos por el entorno GUI:
 
 ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
+Capturar imagen del resultado final.
 * Modificar los permisos de las carpetas de la siguiente forma:
     * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
     * group: grupo `jedis` permisos de lectura, y usuario propietario permisos de lectura y escritura.
     * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
 
-##2.2 Sudoers (Grupo privilegiado)
+##2.3 Sudoers (Grupo privilegiado)
 Vamos a dar privilegios de superusuario a los miembros del grupo `jedis`.
 
 > El comando `sudo` nos permite ejecutar comandos como si fuéramos el administrador del equipo.
 Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
-* Vamos a configurar a los usuarios del grupo de `jedis` para poder tener privilegios de uso del comando sudo.
+* Vamos a configurar a los usuarios del grupo de `jedis` para poder tener privilegio totales de uso del comando sudo.
 
-* Para ello podemos hacerlo de dos formas:
-    * (A) Abrir el editor de la configuración sudo (/etc/sudoers) haciendo `visudo` (Debian/Ubuntu). Y añadimos la línea `%jedis ALL = (root) NOPASSWD:ALL`
-            %alumnos ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient
-        (B) Usar Yast en OpenSUSE. Veamos imagen de ejemplo:
+Dos firmas de hacerlo:
+1. **GUI**: Usar Yast en OpenSUSE. Veamos imagen de ejemplo:
+1. **CLI**: Abrir el editor de la configuración sudo (`/etc/sudoers`) (Debian/Ubuntu se usa `visudo`).
+Y añadimos las líneas siguientes `%jedis ALL = (root) NOPASSWD:ALL` 
 
-sudoers
+![opensuse-sudoers](./images/opensuse-sudoers.png)
 
-    Guardar y salir
-    Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas. Y los usuarios del grupo alumnos sólo para algunos comandos.
-
+* Guardar y salir
+* Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, 
+para realizar todas las tareas administrativas.
 
 Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 
-sudo-error
+![linux-sudo-error](./images/linux-sudo-error.png)
 
+* Configurar al grupo `sith` en sudoers con 
+`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`
 
-##2.3 Usando los comandos
-> Recordar los comandos adduser, addgroup.
+##2.4 Usando los comandos
+Capturar imagen de los pasos realizados.
 
-Capturar imagen de las siguientes acciones:
 * Crear el grupo `siths`.
 * Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios 
 definidos el el sistema. Algunos son usados por personas físicas, y otros 
 son internos para uso de aplicaciones o del sistema operativo.
-
 * Para cada usuario del grupo `siths` hacer:
-
-    Crear la carpeta /home/alumno1/private
-    Crear la carpeta /home/alumno1/group
-    Crear la carpeta /home/alumno1/public
-
+    * rear la carpeta `/home/sith1/private`.
+    * Crear la carpeta `/home/sith1/group`.
+    * Crear la carpeta `/home/sith1/public`.
 
 
-Modificar los permisos de las carpetas:
+> Recordar los comandos: chown (Cambiar propietario), chgrp (Cambiar grupo propietario), 
+chmod (Cambiar permisos de acceso).
+  
+* Modificar los permisos de las carpetas:
+    * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
+    * group: grupo `stihs` permisos de lectura, y usuario propietario permisos de lectura y escritura.
+    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
 
-    [INFO] Recordar los comandos chown (Cambiar propietario), chgrp (Cambiar grupo propietario), chmod (Cambiar permisos de acceso).
-    private: Sólo el usuario alumno1 tendrá permisos lectura/escritura.
-    group: grupo alumnos permisos de lectura, y usuario alumno1 permisos de lectura y escritura.
-    public: todos tienen permiso de lectura, y el usuario alumno1 tiene permisos de lectura y escritura.
+#ANEXO
+El anexo contiene información complementaria. No son tareas que haya que realizar.
 
+##A.1 Personalización de usuarios GNU/Linux
+* En OpenSUSE vemos que cuando queremos invocar el comando `ifconfig` con 
+un usuario normal debemos hacerlo con la ruta absoluta `/sbin/ifconfig`.
 
+![opensuse-path-ifconfig](./images/opensuse-path-ifconfig.png)
 
-ANEXO
-A.1 Personalización de usuarios GNU/Linux
-En OpenSUSE vemos que cuando queremos invocar el comando "ifconfig" con un usuario normal debemos hacerlo con la ruta absoluta "/sbin/ifconfig".
+> Existe una variable llamada PATH, configurada para cada usuario de forma difierente. 
+Dicha variable de entorno contiene las rutas de los ejecutables/comandos.
+>
+> No es necesario escribir la ruta completa para invocar a los comandos/programas que estén en alguna de estas rutas.
+> 
+> Para cambiarlo añadimos las siguientes líneas al final del fichero "/home/nombre-de-usuario/.profile":
+> ```
+> PATH=$PATH:/sbin
+> export PATH
+> ```
+>
+> Para que los cambios tengan efecto debemos cerrar la sesión.
+>
+> En otras distribuciones se usa el fichero de configuración "/home/nombre-de-usuario/.bashrc"
 
-path
+##A.2 Emulador de consola portable para Windows
 
-[INFO] Existe una variable llamada PATH, configurada para cada usuario de forma difierente. Dicha variable de entorno contiene las rutas de los ejecutables/comandos. No es necesario escribir la ruta completa para invocar a los comandos/programas que estén en alguna de estas rutas.
+Cmder (http://bliker.github.io/cmder/) is a software package created out of pure 
+frustration over the absence of nice console emulators on Windows.
 
-Para cambiarlo añadimos las siguientes líneas al final del fichero "/home/nombre-de-usuario/.profile":
+It is based on amazing software, and spiced up with the Monokai color scheme and 
+a custom prompt layout. Looking sexy from the start.
 
-PATH=$PATH:/sbin
-export PATH
-
-Para que los cambios tengan efecto debemos cerrar la sesión.
-
-[INFO] En otras distribuciones se usa el fichero de configuración "/home/nombre-de-usuario/.bashrc"
-
-
-A.2 Emulador de consola portable para Windows
-
-Cmder (http://bliker.github.io/cmder/) is a software package created out of pure frustration over the absence of nice console emulators on Windows. It is based on amazing software, and spiced up with the Monokai color scheme and a custom prompt layout. Looking sexy from the start.
-
-
-A.3 Crear usuarios en Windows
-
-En la consola cmd se pueden crear usuarios mediante el comando:
-net user nombre-usuario clave-usuario /add
-net localgroup nombre-grupo nombre-usuario /add
