@@ -61,12 +61,12 @@ y no podremos crear los usuarios.
 
 > **EJEMPLO Shell CMD**
 >
-> * `net user nombre-usuario clave-usuario /add` crear usuario.
+> * `net user nombre-usuario clave-usuario /add`, crear usuario.
 > * `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo 
 >
 > **EJEMPLO shell PowerShell**
 >
-> Veamos un ejemplo de creación de usuarios en PowerShell:
+> Veamos un ejemplo de **creación de usuarios** en PowerShell:
 > * Cambiar nombre-pc por el nombre del PC de cada uno.
 > * Cambiar "alumno1" por el nombre del usuario que deseamos crear.
 > * Cambiar "123456" por el valor de password que querramos.
@@ -81,7 +81,7 @@ y no podremos crear los usuarios.
 > PS C:\> $usu1.SetInfo()
 > ```
 >
-> Veamos un ejemplo para crear grupo y añadir usuario al mismo:
+> Veamos un ejemplo para **crear grupo y añadir usuario** al mismo:
 > * Cambiar nombre-pc por el nombre del PC de cada uno.
 > * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
 > * Cambiar "alumno1" por el nombre del usuario que deseamos añadir al grupo.
@@ -95,7 +95,7 @@ y no podremos crear los usuarios.
 > PS C:\> $grupo.Add($usu1.path)
 > ```
 >
-> Veamos un ejemplo para añadir usuario a un grupo ya existente:
+> Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
 > ```
 > PS> $computerName = $env:COMPUTERNAME
 > PS> $groupName = "alumnos"
