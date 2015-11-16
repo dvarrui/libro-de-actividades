@@ -156,6 +156,6 @@ Una vez realizado este paso ya esta instalado el "gestor" de instalaciones para 
  por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: 
  `cinst notepadplusplus`
 
-![chcolatey-org.png](./images/chcolatey-org.png)
+![chcolatey-org](./images/chcolatey-org.jpg)
 
 En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
