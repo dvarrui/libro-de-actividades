@@ -195,13 +195,13 @@ haya cambiado de nombre.
 equipo usaremos comandos para acceder a la carpeta compartida.
 * Primero comprobar el uso de las siguientes herramientas:
 ```
-smbtree                              (Muestra todos los equipos/recursos de la red SMB/CIFS)
+sudo smbtree                         (Muestra todos los equipos/recursos de la red SMB/CIFS)
 smbclient --list ip-servidor-samba   (Muestra los recursos SMB/CIFS de un equipo concreto)
 ```
-* Ahora crearemos en local la carpeta `/mnt/samba-remoto/courusant`.
+* Ahora crearemos en local la carpeta `/mnt/samba-remoto/corusant`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso 
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.18.XX.55/courusant /mnt/samba-remoto/courusant -o username=sith1`
+`mount -t cifs //172.18.XX.55/corusant /mnt/samba-remoto/corusant -o username=sith1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando 
 `smbmount //172.16.108.XX/public /mnt/samba-remoto/public/ -o -username=smbguest`.
