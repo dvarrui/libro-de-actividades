@@ -1,4 +1,5 @@
-*(Utilizado en el curso 2014-2015)*
+
+*(En construcción)*
 
 #Instalar aplicaciones y actualizar el sistema
 
@@ -6,7 +7,7 @@ En esta actividad vamos a practicar diversas formas de realizar instalaciones
 de aplicaciones en varios sistemas operativos, así como la forma de 
 mantener nuestros sistemas actualizados.
 
-# Windows  
+# Windows 7 
 
 Enlaces de interés:
 * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
@@ -67,32 +68,32 @@ Capturar imágenes de los pasos realizados.
 > `$programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "`
 > `$programa.Uninstall()`
 
-# GNU/Linux
+# GNU/Linux - OpenSUSE
 
-Vamos a usar SO Debian/Ubuntu.
+Vamos a usar SO OpenSUSE.
 
 ##2.1 Usando el GUI
 
 > El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
-* Iniciar el gestor de paquetes ( Por ejemplo synaptic). 
-> Si no tienes el programa synaptic instalado en el sistema, puedes abrir una consola y ejecutar: `apt-get install synaptic`
+* Iniciar el gestor de paquetes ( `yast -> Inst. Software`). 
 
 ###Instalar paquetes
-* Iniciar Synaptic -> refrescar los repositorios.
+* Iniciar Yast -> refrescar los repositorios.
 * Instalar por ejemplo el editor geany, git, gkrellm o recordmydesktop.
 * Comprobar que funciona el programa instalado.
-* Localizar/consutlar los paquetes descargados que estarán en la caché ( /var/cache/apt/archives )
+* Localizar/consultar los paquetes descargados que estarán en la caché ( /var/cache/apt/archives )
 
 ###Desinstalar paquetes
 * Desinstalar la aplicación con el gestor de paquetes.
 * Ir al directorio de la caché. Hacer click derecho -> Instalar Software o doble click 
-sobre el paquete para ver cómo se vuelve a instalar o probar con `dpkg -i NOMBRE-PAQUETE.deb`.
+sobre el paquete para ver cómo se vuelve a instalar o probar con `rpm -i nombre-paquete.rpm`.
 
 ##2.2 Usando los comandos
 
 ###Actualización del sistema
-* Vamos a actualizar el catálogo de productos: apt-get update
-* Ahora actualizar todas las aplicaciones: apt-get upgrade
+* Entramos en la consola como `root`.
+* Vamos a actualizar el catálogo de productos: `zypper refresh`
+* Ahora actualizar todas las aplicaciones: `zypper update`
 * Ver el tamaño que ocupan los ficheros descargados en la cache: du -sh /var/cache/apt/archives
 
 Limpiar la caché:

@@ -66,6 +66,16 @@ y no podremos crear los usuarios.
 >
 > **EJEMPLO shell PowerShell**
 >
+> Veamos un ejemplo para **crear grupo**:
+> * Cambiar nombre-pc por el nombre del PC de cada uno.
+> * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
+>
+> ```
+> PS C:\> [ADSI]$server="WinNT://nombre-pc"
+> PS C:\> $grupo=$server.Create("Group","alumnos")
+> PS C:\> $grupo
+> PS C:\> $grupo.SetInfo()
+> ```
 > Veamos un ejemplo de **creación de usuarios** en PowerShell:
 > * Cambiar nombre-pc por el nombre del PC de cada uno.
 > * Cambiar "alumno1" por el nombre del usuario que deseamos crear.
@@ -81,25 +91,11 @@ y no podremos crear los usuarios.
 > PS C:\> $usu1.SetInfo()
 > ```
 >
-> Veamos un ejemplo para **crear grupo y añadir usuario** al mismo:
+> Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
 > * Cambiar nombre-pc por el nombre del PC de cada uno.
 > * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
-> * Cambiar "alumno1" por el nombre del usuario que deseamos añadir al grupo.
->
 > ```
-> PS C:\> [ADSI]$server="WinNT://nombre-pc"
-> PS C:\> $grupo=$server.Create("Group","alumnos")
-> PS C:\> $grupo
-> PS C:\> $grupo.SetInfo()
-> PS C:\> $usu1 = [adsi]"WinNT://nombre-PC/alumno1,user"
-> PS C:\> $grupo.Add($usu1.path)
-> ```
->
-> Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
-> ```
-> PS> $computerName = $env:COMPUTERNAME
-> PS> $groupName = "alumnos"
-> PS> $grupo = [adsi]"WinNT://$computerName/$groupName,group"
+> PS> $grupo = [adsi]"WinNT://nombre-pc/alumnos,group"
 > PS> $grupo
 > PS> $usu2 = [adsi]"WinNT://nombre-PC/alumno2,user"
 > PS> $grupo.Add($usu2.path)
