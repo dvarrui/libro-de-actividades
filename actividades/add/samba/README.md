@@ -68,11 +68,14 @@ Capturar imágenes del proceso.
 
 * Vamos a hacer una copia de seguridad del fichero de configuración existente 
 `cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
-* Vamos a configurar el servidor Samba usando Yast, de la siguiente forma:
+* Vamos a configurar el servidor Samba con las siguientes opciones. Podemos usar Yast o 
+modificar directamente el fichero de configuración:
+
+> Donde pone XX, sustituir por el núméro del puesto de cada uno
 
 ```
 [global]
-netbios name = PRIMER-APELLIDO-ALUMNO
+netbios name = PRIMER-APELLIDO-ALUMNO-XX
 workgroup = STARWARS
 server string = Servidor Samba del PC XX
 security = user
