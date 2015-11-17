@@ -102,8 +102,8 @@ path = /var/samba/tatooine.d
 read only = no
 valid users = jedi1, jedi2
 ```
-* Comprobar resultado `cat /etc/smb.conf`
-
+* Comprobar resultado `cat /etc/samba/smb.conf`.
+* Comprobar que todo está ok con `testparm`.
 
 ##1.6 Usuarios Samba
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
