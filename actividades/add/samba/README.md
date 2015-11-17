@@ -115,7 +115,8 @@ Capturar imagen del comando siguiente.
 ##1.7 Reiniciar
 * Ahora que hemos terminado con el servidor, hay que reiniciar el servicio 
 para que se lean los cambios de configuración (Consultar los apuntes): 
-`systemctl stop samba`, `systemctl start samba`, `systemctl. status samba`.
+* `systemctl stop smb`, `systemctl start smb`, `systemctl status smb`
+* `systemctl stop nmb`, `systemctl start nmb`, `systemctl status nmb`
 
 Capturar imagen de los comandos siguientes.
 * Comprobar
