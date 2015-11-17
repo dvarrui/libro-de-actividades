@@ -92,7 +92,7 @@ read only = yes
 [corusant]
 path = /var/samba/corusant.d
 read only = no
-valid users = @siths, @jedis
+valid users = @siths
 
 [tatooine]
 path = /var/samba/tatooine.d
