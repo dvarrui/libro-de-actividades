@@ -153,10 +153,13 @@ inicio de sesión del sistema.
     * Instalar OpenSSH
     * Clave de root DNI del alumno
 
-
-> **INFORMACIÓN Debian/Ubuntu**
+> **Configuración de red en OpenSUSE**
 >
-> Para configurar la red sin entorno gráfico en Debian/Ubuntu, modificaremos el 
+> * Para configurar la red en OpenSUSE usar Yast
+>
+> **Configuraciñon de red Debian/Ubuntu**
+>
+> * Para configurar la red sin entorno gráfico en Debian/Ubuntu, modificaremos el 
 contenido del fichero `/etc/network/interfaces` con lo siguiente:
 >
 > ```
