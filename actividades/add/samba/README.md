@@ -121,8 +121,8 @@ para que se lean los cambios de configuración (Consultar los apuntes):
 Capturar imagen de los comandos siguientes.
 * Comprobar
 ```
-    testparm (Verifica la sintaxis del fichero de configuración del servidor Samba)
-    netstat -tap (Vemos que el servicio SMB/CIF está a la escucha)
+    sudo testparm (Verifica la sintaxis del fichero de configuración del servidor Samba)
+    sudo netstat -tap (Vemos que el servicio SMB/CIF está a la escucha)
 ```
 
 #2. Windows
