@@ -152,12 +152,16 @@ inicio de sesión del sistema.
     * Dominio: segundo-apellido-del-alumno.
     * Instalar OpenSSH
     * Clave de root DNI del alumno
+    * IP: 172.19.XX.51
+    * Máscara de red: 255.255.0.0
+    * Gateway: 172.19.0.1
+    * Servidor DNS: 8.8.4.4
 
 > **Configuración de red en OpenSUSE**
 >
 > * Para configurar la red en OpenSUSE usar Yast
 >
-> **Configuraciñon de red Debian/Ubuntu**
+> **Configuración de red Debian/Ubuntu**
 >
 > * Para configurar la red sin entorno gráfico en Debian/Ubuntu, modificaremos el 
 contenido del fichero `/etc/network/interfaces` con lo siguiente:
@@ -165,10 +169,10 @@ contenido del fichero `/etc/network/interfaces` con lo siguiente:
 > ```
 > auto eth0
 > iface eth0 inet static
-> address 172.16.108.XX
+> address 172.19.XX.51
 > netmask 255.255.0.0
-> gateway 172.16.1.1
-> dns-nameservers 172.16.1.1
+> gateway 172.19.0.1
+> dns-nameservers 8.8.4.4
 > ```
 > 
 > Para configurar la red mediante entorno gráfico podemos usar NetworkManager en Debian/Ubuntu.
