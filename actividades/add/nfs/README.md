@@ -141,11 +141,12 @@ añadiendo estas líneas:
     * La carpeta `/var/export/public`, será accesible desde toda la red en modo lectura/escritura.
     * La carpeta `/var/export/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
-
+```
     ...
     /var/export/public *(rw,sync,subtree_check)
     /var/export/private ip-del-cliente/32(ro,sync,subtree_check)
     ...
+```
 
 > OJO: NO debe haber espacios entre la IP y abrir paréntesis.
 
