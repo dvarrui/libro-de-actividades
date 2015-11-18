@@ -2,6 +2,9 @@
 #1 Samba - OpenSUSE
 
 ##1.0 Introducción
+* Entrega
+    * La entrega la realizaremos a través del repositorio Git.
+    * Al terminar etiquetaremos la entrega con *samba*.
 * Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
