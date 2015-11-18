@@ -35,8 +35,8 @@ si muestra IP 172.16.8.30 entonces XX=30.
 >
 
 Instalación del servicio NFS en Windows 2008 Server
-* Agregar rol "Servidor de Archivos".
-* Marcar "Servicio para NFS"
+* Agregar rol `Servidor de Archivos`.
+* Marcar `Servicio para NFS`.
 
 Configurar el servidor NFS de la siguiente forma:
 * Crear la carpeta `c:\export\public`. Picar en la carpeta `botón derecho 
@@ -56,10 +56,9 @@ Las últimas versiones de Windows permiten trabajar con directorios de red NFS n
 En esta sección veremos como montar y desmontar estos directorios bajo un entorno de Windows 7 
 Enterprise (Las versiones home y starter no tienen soporte para NFS).
 
-###1.2.1 Instalar el soporte cliente NFS bajo Windows.
-
-En primer lugar vamos a instalar el componente cliente NFS para Windows:
-* para ello vamos a `Panel de Control -> Programas -> Activar o desactivar características de Windows`.
+**Instalar el soporte cliente NFS bajo Windows**
+* En primer lugar vamos a instalar el componente cliente NFS para Windows. 
+Para ello vamos a `Panel de Control -> Programas -> Activar o desactivar características de Windows`.
 
 ![nfs-cliente1](./images/w7-nfs-cliente1.png)
 
@@ -68,13 +67,11 @@ Captura imagen del resultado final.
 * Marcamos ambos y le damos a Aceptar.
 * En unos instantes tendremos el soporte habilitado.
 
-###1.2.2 Iniciar el servicio cliente NFS
-
-Captura imagen del proceso.
+Iniciar el servicio cliente NFS. Captura imagen del proceso.
 * Para iniciar el servicio NFS en el cliente, abrimos una consola con permisos de Administrador.
 * Ejecutamos el siguiente comando: `nfsadmin client start`
 
-###1.2.3 Montando el directorio
+**Montando el recurso**
 
 Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 * Esto no lo hacemos con Administrador, sino con nuestro usuario normal.
@@ -104,10 +101,8 @@ en el sistema nos asignará la Z.
 > * Desde un cliente GNU/Linux hacemos `nmap IP-del-servidor -Pn`.
 > * Debe aparecer abierto el puerto del servicio NFS
 
-###1.2.4 Desmontando la unidad
 * Para desmontar la unidad simplemente escribimos en una consola: `umount z:`
 * En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
-
 
 #2. SO OpenSUSE
 
