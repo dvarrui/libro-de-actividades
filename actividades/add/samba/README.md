@@ -178,7 +178,9 @@ Ejemplo accediendo al recurso prueba del servidor Samba:
 ![samba2](./images/samba2.jpg)
 
 Capturar imagen de lo siguiente:
-* Probar a crear carpetas/archivos en `corusant` y en  `tatooine`.
+* Probar a crear carpetas/archivos en `corusant` y en  `tatooine`. 
+En el momento de autenticarse para acceder al recurso remoto, poner 
+en **Dominio** el *nombre-netbios-del-servidor-samba*.
 * Comprobar que el recurso `public` es de sólo lectura.
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
 
