@@ -141,19 +141,18 @@ añadiendo estas líneas:
     * La carpeta `/var/export/public`, será accesible desde toda la red en modo lectura/escritura.
     * La carpeta `/var/export/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
-
-    #FILE /etc/exports
-    #OJO: NO debe haber espacios entre la IP y abrir paréntesis.
     ...
     /var/export/public *(rw,sync,subtree_check)
     /var/export/private ip-del-cliente/32(ro,sync,subtree_check)
     ...
+> OJO: NO debe haber espacios entre la IP y abrir paréntesis.
+
 * Para iniciar y parar el servicio NFS, usaremos Yast o `systemctl`. Si al iniciar 
 el servicio aparecen mensaje de error o advertencias, debemos resolverlas. 
 Consultar los mensajes de error del servicio.
 * Para comprobarlo, `showmount -e localhost`. Muestra la lista de recursos exportados por el servidor NFS.    
 
-##2.3 Cliente NFS
+##2.2 Cliente NFS
 En esta parte, vamos a comprobar que las carpetas del servidor son accesibles desde el cliente. 
 Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en 
 OpenSUSE `zypper in nfs-common`.
@@ -175,7 +174,7 @@ En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con 
 pero sólo podremos leer lo que aparezca en private. Comprobarlo.
 
 
-##2.4. Montaje automático
+##2.3. Montaje automático
 Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
 Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual 
 ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, 
