@@ -165,20 +165,19 @@ Capturar imagen de los comandos siguientes:
 #3 Cliente GNU/Linux
 ##3.1 Cliente GNU/Linux GUI
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS. 
-Estas son algunas herramientas:
-* Yast en OpenSUSE
-* Nautilus en GNOME
-* Konqueror en KDE
-* En Ubuntu podemos ir a "Lugares -> Conectar con el servidor..."
-* También podemos instalar "smb4k".
-* existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
 
-La siguiente imagen es un ejemplo de cómo se vería en Konqueror. 
-Pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
+> Estas son algunas herramientas:
+> * Yast en OpenSUSE
+> * Nautilus en GNOME
+> * Konqueror en KDE
+> * En Ubuntu podemos ir a "Lugares -> Conectar con el servidor..."
+> * También podemos instalar "smb4k".
+> * existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
 
-Ejemplo accediendo al recurso prueba del servidor Samba:
+Ejemplo accediendo al recurso prueba del servidor Samba, 
+pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
 
-![samba2](./images/samba2.jpg)
+![linux-gui-client](./images/linux-gui-client.png)
 
 Capturar imagen de lo siguiente:
 * Probar a crear carpetas/archivos en `corusant` y en  `tatooine`. 
