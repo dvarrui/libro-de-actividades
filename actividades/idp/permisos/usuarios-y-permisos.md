@@ -241,17 +241,16 @@ Capturar imagen de los pasos realizados.
 definidos el el sistema. Algunos son usados por personas físicas, y otros 
 son internos para uso de aplicaciones o del sistema operativo.
 * Para cada usuario del grupo `siths` hacer:
-    * rear la carpeta `/home/sith1/private`.
+    * Crear la carpeta `/home/sith1/private`.
     * Crear la carpeta `/home/sith1/group`.
     * Crear la carpeta `/home/sith1/public`.
-
 
 > Recordar los comandos: chown (Cambiar propietario), chgrp (Cambiar grupo propietario), 
 chmod (Cambiar permisos de acceso).
   
 * Modificar los permisos de las carpetas:
     * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
-    * group: grupo `stihs` permisos de lectura, y usuario propietario permisos de lectura y escritura.
+    * group: grupo `siths` permisos de lectura, y usuario propietario permisos de lectura y escritura.
     * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
 
 #ANEXO
