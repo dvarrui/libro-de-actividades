@@ -9,8 +9,8 @@
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 * Vamos a necesitar las siguientes 3 MVs:
-    1. Un servidor GNU/Linux con IP estática (172.18.XX.33).
-    1. Un cliente GNU/Linux con IP estática (172.18.XX.34).
+    1. Un servidor GNU/Linux con IP estática (172.18.XX.53).
+    1. Un cliente GNU/Linux con IP estática (172.18.XX.54).
     1. Un cliente Windows con IP estática (172.18.XX.13).
 
 ##1.1 Preparativos
