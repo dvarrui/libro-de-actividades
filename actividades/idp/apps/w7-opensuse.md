@@ -1,5 +1,5 @@
 
-*(En construcción)*
+*(Modificado para el curso 2015-16)*
 
 #Instalar aplicaciones y actualizar el sistema
 
@@ -88,9 +88,10 @@ Capturar imágenes de los pasos realizados.
 
 # GNU/Linux - OpenSUSE
 
-Vamos a usar SO OpenSUSE.
+Vamos a usar SO OpenSUSE 13.2.
 
 ##2.1 Usando el GUI
+Capturar imagen del resultado final.
 
 > El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 * Iniciar el gestor de paquetes ( `yast -> Inst. Software`). 
@@ -104,9 +105,19 @@ Vamos a usar SO OpenSUSE.
 * Desinstalar la aplicación con el gestor de paquetes.
 
 ##2.2 Usando los comandos
+Capturar imágenes de los pasos realizados.
 
 ###Actualización del sistema
 * Entramos en la consola como `root`.
 * Vamos a actualizar el catálogo de productos: `zypper refresh`
 * Ahora actualizar todas las aplicaciones: `zypper update`
+
+###Instalar/desinstalar software
+* Entramos en la consola como `root`.
+* Instalar algún programa con el comando `zypper` (`man zypper` para consultar ayuda).
+* Comprobar que el programa funciona.
+* Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
+* Desinstalar el programa.
+* Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
+
 
