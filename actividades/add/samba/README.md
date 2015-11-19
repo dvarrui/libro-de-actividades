@@ -220,7 +220,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus` y `netstat -ntap`.
 
-##2.3 Montaje automático
+##3.3 Montaje automático
 Capturar imágenes del proceso.
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
@@ -238,7 +238,7 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
-#3. Preguntas para resolver
+#4. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
 * ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
