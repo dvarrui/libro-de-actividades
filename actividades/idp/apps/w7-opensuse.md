@@ -27,12 +27,14 @@ Si hay muchas actualizaciones pendientes NO las actualizacen todas. Elijan sólo
 * Instalar Cliente Telnet y Juegos/Buscaminas. Comprobar que funcionan correctamente.
 
 > La herramienta telnet sirve para conectarse a equipos remotos.
+>
 > En este caso le estamos dando un uso poco común, porque la estamos usando para consultar 
 la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
+>
 > Una forma de comprobar el cliente telnet:
->     Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
->     Escribir `olleh` y pulsar enter
->     Debes ver algo como... etiquetas HTML ¿te suenan de algo?
+> * Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
+> * Escribir `olleh` y pulsar enter
+> * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
 ###Vamos a instalar aplicaciones
 Capturar imagenes de los pasos realizados. 
