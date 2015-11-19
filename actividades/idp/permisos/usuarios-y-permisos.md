@@ -136,9 +136,9 @@ inicio de sesión del sistema.
 > 
 
 * Modificar los permisos de la siguiente forma:
-    * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
-    * group: grupo `siths` permisos de lectura, y usuario propietario permisos de lectura y escritura.
-    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+    * private: Sólo el usuario propietario tendrá control total.
+    * group: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
+    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
 
 
 #2. SO GNU/Linux OpenSUSE
