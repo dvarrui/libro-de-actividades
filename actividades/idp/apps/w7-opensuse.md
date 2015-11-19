@@ -18,17 +18,20 @@ Capturar imagen del proceso final.
 
 ###Actualización del sistema:
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
-* Aplicar las actualizaciones del SO (Panel de control -> Windows Update). Si hay muchas actualizaciones pendientes NO las actualizacen todas. Elijan sólo algunas para probar.
+* Aplicar las actualizaciones del SO (Panel de control -> Windows Update). 
+Si hay muchas actualizaciones pendientes NO las actualizacen todas. Elijan sólo algunas para probar.
 
 ###Instalar características del sistema operativo:
-* Vamos a las herramientas de Windows (`Panel de control -> Programas y características -> Activar o desactivar características de Windows`).
+* Vamos a las herramientas de Windows 
+(`Panel de control -> Programas y características -> Activar o desactivar características de Windows`).
 * Instalar Cliente Telnet y Juegos/Buscaminas. Comprobar que funcionan correctamente.
-> La herramienta telnet sirve para conectarse a equipos remotos. 
-En este caso le estamos dando un uso poco común, porque la estamos usando para consultar 
+
+> La herramienta telnet sirve para conectarse a equipos remotos.
+> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar 
 la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 > Una forma de comprobar el cliente telnet:
->     Abrir terminal de comandos y escribir: "telnet 192.168.1.3 80"
->     Escribir "hola" y pulsar enter
+>     Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
+>     Escribir `olleh` y pulsar enter
 >     Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
 ###Vamos a instalar aplicaciones
