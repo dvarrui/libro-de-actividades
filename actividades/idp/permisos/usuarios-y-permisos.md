@@ -86,18 +86,16 @@ y no podremos crear los usuarios.
 > PS C:\> $usu1=$server.Create("User","alumno1")
 > PS C:\> $usu1
 > distinguishedName :
-> Path : WinNT://GLOBOMANTICS/nombre-pc/alumno1
+> Path : WinNT://AULA109/nombre-pc/alumno1
 > PS C:\> $usu1.SetPassword("123456")
 > PS C:\> $usu1.SetInfo()
 > ```
 >
 > Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
-> * Cambiar nombre-pc por el nombre del PC de cada uno.
-> * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
 > ```
-> PS> $grupo = [adsi]"WinNT://nombre-pc/alumnos,group"
+> PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
 > PS> $grupo
-> PS> $usu2 = [adsi]"WinNT://nombre-PC/alumno2,user"
+> PS> $usu2 = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
 > PS> $grupo.Add($usu2.path)
 > ```
 
