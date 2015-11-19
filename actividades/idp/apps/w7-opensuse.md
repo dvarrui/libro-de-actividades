@@ -112,12 +112,19 @@ Capturar imágenes de los pasos realizados.
 * Vamos a actualizar el catálogo de productos: `zypper refresh`
 * Ahora actualizar todas las aplicaciones: `zypper update`
 
-###Instalar/desinstalar software
+###Instalar software
 * Entramos en la consola como `root`.
 * Instalar algún programa con el comando `zypper` (`man zypper` para consultar ayuda).
-* Comprobar que el programa funciona.
-* Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
-* Desinstalar el programa.
-* Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
+* Comprobar que el programa está instalado:
+    * `zypper se nombre-programa`
+    * Ejecutar el programa y ver funciona.
+    * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
+
+###Desinstalar software
+* Desinstalar el programa con `zypper`.
+* Comprobar que el programa no está instalado:
+    * `zypper se nombre-programa`
+    * Ejecutar el programa y ver que funciona.
+    * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 
 
