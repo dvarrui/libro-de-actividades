@@ -15,7 +15,7 @@
 
 ROOT_PASSWORD="change-this"
 
-function change_departamento() {
+function apply_changes_to_departamento() {
 	# Apply this actions to PC's into departamento
 	for i in `seq 1 5`;
 	do
@@ -26,9 +26,9 @@ function change_departamento() {
 	done  
 }
 
-function change_aula109() {
+function apply_changes_to_aula109() {
 	# Apply this actions to PC's into aula109
-	for i in `seq 1 30`; 
+	for i in `seq 1 28`; 
 	do
     		IP="172.19.$i.0"
     		echo "* host[$IP]"
@@ -38,5 +38,5 @@ function change_aula109() {
 	done  
 }
 
-change_aula109
+apply_changes_to_aula109
 
