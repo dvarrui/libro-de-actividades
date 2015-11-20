@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Author : David Vargas
-# Data   : 20-11-2015
-# Description:
+# Author      : David Vargas
+# Date        : 20-11-2015
+# Description :
 #
 # This script execute remotely commands on several hosts at a time.
 #
@@ -28,7 +28,7 @@ function change_departamento() {
 
 function change_aula109() {
 	# Apply this actions to PC's into aula109
-	for i in `seq 11 18`; #OK 1,10
+	for i in `seq 1 30`; 
 	do
     		IP="172.19.$i.0"
     		echo "* host[$IP]"
