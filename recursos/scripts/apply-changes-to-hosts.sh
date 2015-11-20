@@ -3,16 +3,14 @@
 # Author      : David Vargas
 # Date        : 20-11-2015
 # Description :
+#    This script execute remotely commands on several hosts at a time.
 #
-# This script execute remotely commands on several hosts at a time.
+#    It's necesary generate on your local PC the SSH key pairs (ssh-keygen), and
+#    copy the public key on every remote hosts (ssh-copy-id). So you can execute
+#    the script without write the password to access the remote host.
 #
-# It's necesary generate on your local PC the SSH key pairs (ssh-keygen), and
-# copy the public key on every remote hosts (ssh-copy-id). So you can execute
-# the script without write the password to access the remote host.
-#
-# Sorry about my english! I'm Spanish speaker.
-#
-# Remember:
+# Disclaimer  : Sorry about my english! I'm Spanish speaker.
+# Remember    :
 # * Use `ssh-keygen` on your local PC to generate SSH key pair
 # * Use `ssh-copy-id` on your local PC to copy your plubic key into remote host
 #
