@@ -1,4 +1,4 @@
-# Libro de actividades profesor
+# Libro de actividades
 Este es un proyecto abierto para crear documentación sobre actividades/ejercicios 
 útiles para usar en los Ciclos Formativos de Grado Superior de Informática.
 
@@ -43,6 +43,8 @@ documentos, etc.
 formato del texto, enlaces, insertar imágenes, etc. Pero es muy fácil de entender.
 
 ##Pasos
-* Clona este proyecto en tu PC local
-* Crear ficheros, documentos en formato Markdown y
+* Haz un fork de este proyecto, y clónalo en tu PC local.
+* Haz los cambios que consideres oportunos.
 * Envía solicitud `merge` para fusionar los cambios al proyecto.
+
+¡Muchas gracias!

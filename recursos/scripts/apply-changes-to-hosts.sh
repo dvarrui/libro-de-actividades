@@ -1,4 +1,17 @@
 #!/bin/bash
+#
+# Author : David Vargas
+# Data   : 20-11-2015
+# Description:
+#
+# This script execute remotely commands on several hosts at a time.
+#
+# It's necesary generate on your local PC the SSH key pairs (ssh-keygen), and
+# copy the public key on every remote hosts (ssh-copy-id). So you can execute
+# the script without write the password to access the remote host.
+#
+# Sorry about my english! I'm Spanish speaker.
+#
 
 ROOT_PASSWORD="change-this"
 
