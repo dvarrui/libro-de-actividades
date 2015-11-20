@@ -14,7 +14,7 @@
 #
 # Remember:
 # * Use `ssh-keygen` on your local PC to generate SSH key pair
-# * Use `ssh-copy-id` on your local PC to copy your plubic key on remote host
+# * Use `ssh-copy-id` on your local PC to copy your plubic key into remote host
 #
 
 ROOT_PASSWORD="change-this"
