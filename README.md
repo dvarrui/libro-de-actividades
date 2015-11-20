@@ -1,4 +1,4 @@
-# Libro de actividades
+# Libro de actividades profesor
 Este es un proyecto abierto para crear documentación sobre actividades/ejercicios 
 útiles para usar en los Ciclos Formativos de Grado Superior de Informática.
 
