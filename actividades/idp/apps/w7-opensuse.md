@@ -7,7 +7,7 @@ En esta actividad vamos a practicar diversas formas de realizar instalaciones
 de aplicaciones en varios sistemas operativos, así como la forma de 
 mantener nuestros sistemas actualizados.
 
-# Windows 7 
+#1. Windows 7 
 
 Enlaces de interés:
 * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
@@ -91,7 +91,7 @@ Capturar imágenes de los pasos realizados.
 > En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
 
 
-# GNU/Linux - OpenSUSE
+#2. GNU/Linux - OpenSUSE
 
 Vamos a usar SO OpenSUSE 13.2.
 
