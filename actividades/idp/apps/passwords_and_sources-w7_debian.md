@@ -75,7 +75,8 @@ Usaremos una MV GNU/Linux Debian.
 ##2.1 Ocultar usuarios
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
 * Primero debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
-En el siguiente ejemplo podemos ver que estamos usando ligthdm.
+Veamos un ejemplo para consultar los procesos del sistema que tienen en su nombre las letras *dm*.
+En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un *Desktop Manager* (dm).
 ```
     asir@pc08:~$ ps -ef|grep dm
     root 881 1 0 11:17 ? 00:00:00 rpc.idmapd
