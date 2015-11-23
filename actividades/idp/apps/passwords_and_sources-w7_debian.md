@@ -41,117 +41,119 @@ por ejemplo: `jedi1` con un valor `0`.
 > En este modo debemos escribir nombre usuario y clave para iniciar sesión.
 
 #1.2 Claves seguras
-Modificar las claves de los usuarios de la siguiente forma:
+* Modificar las claves de los usuarios de la siguiente forma:
+    sith1: 1234
+    sith2: casa
+    jedi1: frodoHOBBITbolson
+    jedi2: gandalfELGRIS
+    nombrealumno: clave a elegir por el alumno
+    administrador: DNI del alumno
 
-    alumno1: 1234
-    alumno2: casa
-    profesor1: frodoHOBBITbolson
-    profesor2: gandalfELGRIS
-    nombrealumno: apellidoalumno
+> RECOMENDACióN PARA LAS CLAVES 
+>
+> Para que una clave sea un poco segura debe tener longitud 14, 
+incluir minúsculas, mayúsculas, números y algún carácter especial.
 
-Para que una clave sea un poco segura debe tener longitud 14, incluir minúsculas, mayúsculas, números y algún carácter especial.
+* Descargar la iso OphCrack para Windows7. Buscar primero en el servidor 
+del departamento antes de descargarlo de Internet.
+* Iniciar la máquina W7 con la iso OphCrack.
+* Esperar y comprobar cómo aparecen las claves.
+* REALIZAR CAPTURA DE PANTALLA para enseñar al profesor.
 
-    Descargar la iso OphCrack para Windows7. Buscar primero en el servidor del departamento antes de descargarlo de Internet.
-    Iniciar la máquina W7 con la iso OphCrack.
-    Esperar y comprobar cómo aparecen las claves.
-    REALIZAR CAPTURA DE PANTALLA para enseñar al profesor.
+> **TABLAS DE DICCIONARIO**
+>
+> Si quisiéramos aumentar las efectividad del programa debemos incluir *"tablas de diccionario"*. Las podemos descargar del servidor del departamento o la web.
+>
+> * El fichero zip lo descomprimimos dentro de la máquina con OhpCrack.
+> * En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
+> * A continuación en el programa -> Crack y comienza a buscar las claves usando las "tablas de diccionario" escogidas.
 
-Si quisiéramos aumentar las efectividad del programa debemos incluir "tablas de diccionario". Las podemos descargar del servidor del departamento o la web.
+#2. SO GNU/Linux
 
-    El fichero zip lo descomprimimos dentro de la máquina con OhpCrack.
-    En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
-    A continuación en el programa -> Crack y comienza a buscar las claves usando las "tablas de diccionario" escogidas.
+Usaremos una MV GNU/Linux Debian.
 
+##2.1 Ocultar usuarios
+Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
+* Primero debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
+En el siguiente ejemplo podemos ver que estamos usando ligthdm.
+```
+    asir@pc08:~$ ps -ef|grep dm
+    root 881 1 0 11:17 ? 00:00:00 rpc.idmapd
+    root 1125 1 0 11:17 ? 00:00:00 lightdm
+    root 1206 1125 1 11:17 tty7 00:00:12 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
+    root 2157 1125 0 11:19 ? 00:00:00 lightdm --session-child 12 21
+    asir 2805 2497 0 11:36 pts/1 00:00:00 grep --color=auto dm
+```
+* Consultar la información de nuestro gestor de inicio gráfico para cambiar la configuración y ocultar los usuarios.
 
-2. SO GNU/Linux
+> **NO HACER LO SIGUIENTE**
+>
+> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos: 
+`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación" 
+en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000, 
+se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica 
+como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
+>
+> Pero NO LO HAGAN SE ESTA FORMA.
 
-Usar una MV GNU/Linux Debian.
-
-black
-2.1 Ocultar usuarios
-
-Modificar el sistema para que los usuarios profesor1 y alumno1, NO aparezcan en la ventana de inicio del sistema.
-
-    Primero debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro. En el siguiente ejemplo podemos ver que estamos usando ligthdm.
-
-asir@pc08:~$ ps -ef|grep dm
-root 881 1 0 11:17 ? 00:00:00 rpc.idmapd
-root 1125 1 0 11:17 ? 00:00:00 lightdm
-root 1206 1125 1 11:17 tty7 00:00:12 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
-root 2157 1125 0 11:19 ? 00:00:00 lightdm --session-child 12 21
-asir 2805 2497 0 11:36 pts/1 00:00:00 grep --color=auto dm
-
-    Consultar la información de nuestro gestor de inicio gráfico para cambiar la configuración y ocultar los usuarios.
-
-OJO: NO HACER LO SIGUIENTE
-
-    El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos.: sudo usermod -u 999 nombre-de-usuario
-    Con esto podemos conseguir un efecto de "ocultación" en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000, se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
-    Pero NO LO HAGAN SE ESTA FORMA.
-
-
-(a) Gestor de inicio lightdm
-
-    Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE para Debian/Ubuntu.
-    Consultar configuración de lightdm. El fichero de configuración puede ser "/etc/ligthdm/lightdm.conf" o "/etc/ligthdm/lightdm.conf.d/20-lubuntu.conf"
+###(a) Gestor de inicio lightdm
+> Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
+>
+> El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
+o `/etc/ligthdm/lightdm.conf.d/`.
+>
+> Enlaces de interés:
+> * [http://geekland.hol.es/personalizar-y-configurar-lightdm/](http://geekland.hol.es/personalizar-y-configurar-lightdm/)
+> * [http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen)
 
 Para ocultar la lista de usuarios completa:
-
-    Editar el archivo “/etc/lightdm/lightdm.conf” o "/etc/ligthdm/lightdm.conf.d/20-lubuntu.conf".
-
-Para ocultar la lista de los usuarios:
-
-    http://geekland.hol.es/personalizar-y-configurar-lightdm/
-    http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen
-    Añadir la siguiente línea en la sección [SeatDefaults]
-
+* Editar el archivo `/etc/lightdm/lightdm.conf`.
+* Para ocultar la lista de los usuarios, añadir la siguiente línea en la sección [SeatDefaults]
+```
 [SeatDefaults]
 ...
 greeter-hide-users=true
+```
 
-(b) Gestor de inicio gdm3
+###(b) Gestor de inicio gdm3
+> Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
 
-    Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
+Con gdm3, los pasos son:
+* Abrimos consola y entramos como `root`, y editamos el archivo `/etc/gdm3/daemon.conf`.
+* En la linea bajo `[Greeter]` añadimos `Exclude=jedi1, sith1`.
+* Guardamos el archivo y reiniciamos.
 
-El escritorio GNOME suele venir con gdm3. Con gdm3, los pasos son:
+![gdm3-greeter-exclude](./images/gdm3-greeter-exclude)
 
-    Abrimos consola y entramos como root.
-    Editamos el archivo /etc/gdm3/daemon.conf
-    En la linea bajo "[Greeter]" añadimos Exclude=profesor1, profesor2
-    Guardamos el archivo y reiniciamos.
+> Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug. 
+A continuación se muestra un modo de ocultar la lista de los usuarios al inicio de sesión.
+>
+> ```
+> nano /etc/gdm3/greeter.gsettings
+> ...
+> # Greeter session choice
+> # ======================
+> [org.gnome.desktop.session]
+> session-name='gdm-fallback'
+> # session-name='gdm-shell'
+>
+> # Login manager options
+> # =====================
+> # - Disable user list
+> disable-user-list=true
+> ...
+> ```
 
-gdm3-greeter-exclude
+### (c) Gestor de inicio lxdm
+Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemplo:
 
-    Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug. A continuación se muestra un modo de ocultar la lista de los usuarios al inicio de sesión.
-
-nano /etc/gdm3/greeter.gsettings
-...
-# Greeter session choice
-# ======================
-[org.gnome.desktop.session]
-session-name='gdm-fallback'
-# session-name='gdm-shell'
-
-# Login manager options
-# =====================
-# - Disable user list
-disable-user-list=true
-...
-
-(c) Gestor de inicio lxdm
-
-    Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE.
-
-Veamos ejemplo:
-
-lxdm
+[config-lxdm](./images/config-lxdm.png)
 
     disable=1, oculta la lista de usuarios completa.
     white list: son los usuarios a mostrar.
     black list: son los usuario a ocultar.
 
-
-2.2 Claves seguras
+##2.2 Claves seguras
 Añadir el nuestro usuario y los usuarios profesor1 y profesor2 al grupo "sudo", para que puedan obtener privilegios administrativos. Modificar las claves de los usuarios de la siguiente forma:
 
     alumno1: 1234
