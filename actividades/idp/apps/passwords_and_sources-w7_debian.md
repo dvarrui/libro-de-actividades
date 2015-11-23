@@ -241,13 +241,17 @@ de la máquina donde queremos acceder.
 * runas /user:admin “cmd” -> nos abre una ventana de linea de comandos con permisos del usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
 ##A4 Instalación de GitHub app
-* Instalar node.js en Ubuntu
-* Instalar el editor Atom desde las fuentes alojadas en GitHub
+* [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
+* [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
 ##A5 Modificar apariencia Lubuntu a MAC
-* Primero debemos descargar e instalar las apariencias de las ventanas y demas en el siguiente enlace:http://sourceforge.net/projects/mac4lin/
-* Una vez instalado procederemos a activarlas manualmente en el asistente de personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento) En las pestañas control y borde de ventana
-* Luego ponemos estos comandos en consola como root para instalar un software de personalizacion de barra de tarear llamado Cairo Dock.
+* Primero debemos descargar e instalar las apariencias de las ventanas 
+y demás en el siguiente [enlace](http://sourceforge.net/projects/mac4lin/)
+* Una vez instalado procederemos a activarlas manualmente en el asistente de 
+personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento) 
+En las pestañas control y borde de ventana
+* Luego ponemos estos comandos en consola como root para instalar un software 
+de personalizacion de barra de tarear llamado Cairo Dock.
 
     sudo add-apt-repository ppa:cairo-dock-team/ppa
     sudo apt-get update
