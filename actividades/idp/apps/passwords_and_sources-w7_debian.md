@@ -13,16 +13,13 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 NO aparezcan en la ventana de inicio del sistema.
 
 > **REGISTRO DE WINDOWS**
->
-> En WXP para hacer esto mismo había que modificar valores en el registro del sistema.
-> 
-> Si tenemos que tocar el registro del sistema OJO. Ejecutar comando regedit para abrir el registro del sistema.
->
-> Primero usar la opción de export, para hacer una copia de seguridad del registro. 
+> * En WXP para hacer esto mismo había que modificar valores en el registro del sistema.
+> * Cuando tenemos que tocar el registro del sistema mucho cuidad.
+> * Ejecutar comando regedit para abrir el registro del sistema, y lo primero,
+ usar la opción de export, para hacer una copia de seguridad del registro. 
 Un error puede hacer que el sistema completo deje de funcionar.
-> Leer bien cómo hacerlo, y hacerlo con mucha atención.
-
-Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
+> * Leer bien cómo hacerlo, y hacerlo con mucha atención.
+> Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
 
 Iniciar sesión con una cuenta administrador:
 * Ir a `Inicio -> Ejecutar`
@@ -49,10 +46,12 @@ por ejemplo: `jedi1` con un valor `0`.
     nombrealumno: clave a elegir por el alumno
     administrador: DNI del alumno
 
-> RECOMENDACióN PARA LAS CLAVES 
+> **RECOMENDACIONES PARA LAS CLAVES** 
 >
-> Para que una clave sea un poco segura debe tener longitud 14, 
-incluir minúsculas, mayúsculas, números y algún carácter especial.
+> Para que una clave sea un poco segura debe tener:
+> * longitud 14, 
+> * incluir minúsculas y mayúsculas,
+> * incluir números y algún carácter especial.
 
 * Descargar la iso OphCrack para Windows7. Buscar primero en el servidor 
 del departamento antes de descargarlo de Internet.
