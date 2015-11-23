@@ -40,7 +40,7 @@ por ejemplo: `jedi1` con un valor `0`.
 >
 > En este modo debemos escribir nombre usuario y clave para iniciar sesión.
 
-#1.2 Claves seguras
+##1.2 Claves seguras
 * Modificar las claves de los usuarios de la siguiente forma:
     sith1: 1234
     sith2: casa
@@ -154,102 +154,106 @@ Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemp
     black list: son los usuario a ocultar.
 
 ##2.2 Claves seguras
-Añadir el nuestro usuario y los usuarios profesor1 y profesor2 al grupo "sudo", para que puedan obtener privilegios administrativos. Modificar las claves de los usuarios de la siguiente forma:
+* Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`, 
+para que puedan obtener privilegios administrativos.
+* Modificar las claves de los usuarios de la siguiente forma:
 
-    alumno1: 1234
-    alumno2: casa
-    profesor1: frodoHOBBITbolson
-    profesor2: gandalfELGRIS
+    sith1: 1234
+    sith2: casa
+    jedi1: frodoHOBBITbolson
+    jedi2: gandalfELGRIS
 
-Iniciar la máquina con un CDLIVE (Knoppix).
+* Iniciar la máquina con un CDLIVE (Knoppix).
+* Abrir una consola y entrar como superusuario.
+* Montar la partición del disco duro y ver el contenido. Ver ejemplo:
 
-    Abrir una consola y entrar como superusuario.
-    Montar la partición del disco duro y ver el contenido:
-        mkdir /mnt/disco
-        mount /dev/sdaX /mnt/disco (En lugar de X poner el número de la partición donde está instalado el SO)
-        cd /mnt/disco/etc
-        pdw
-        ls
-    Copia de seguridad del fichero de claves: cp /mnt/disco/etc/shadow /mnt/disco/etc/shadow.000
-    [INFO] El fichero shadow tiene una fila por cada usuarios. Dentro de cada fila los campos se separan por 2 punto. El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuario.
-    Editamos el fichero de claves: nano /mnt/disco/etc/shadow
-    Quitar la clave encriptada para los usuarios profesor2 y alumno2.Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto lo dejamos sin clave.
-    Reiniciar la MV sin el CDLIVE de Knoppix. Ahora podremos iniciar sesión con el usuario profesor2 sin clave.
+    mount /dev/sdaX /mnt (En lugar de X poner el número de la partición donde está instalado el SO)
+    cd /mnt
+    pdw
+    ls
+    
+* Copia de seguridad del fichero de claves: `cp /mnt/shadow /mnt/shadow.000`.
 
+> El fichero shadow tiene una fila por cada usuarios. 
+Dentro de cada fila los campos se separan por 2 punto. 
+El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuario.
 
-2.3 Desactivar el inicio gráfico
-Además vamos a desactivar el inicio gráfico, demo que el SO de inicia en modo texto y una vez dentro podemos activarlo manualmente.
+* Editamos el fichero de claves: `nano /mnt/shadow`
+* Quitar la clave encriptada para los usuarios `jedi2` y `sith2`.
+Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos sin clave.
+* Reiniciar la MV sin el CDLIVE de Knoppix.
+* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2` sin clave.
 
-    Desactivar inicio gráfico si tenemos Lightdm:
-        nano /etc/init/lightdm.conf
-        Poner almohadillas (#) en todas las líneas de la acción start...
-        Grabar fichero y reiniciar el equipo.
-    Desactivar inicio gráfico en GNOME:
-        mkdir /etc/rc2.d/DISABLED
-        mv /etc/rc2.d/S19gdm3 /etc/rc2.d/DISABLED
-        reboot
-    El sistema iniciará sin entorno gráfico. Una vez dentro para iniciar entorno gráfico manuamente usaremos el comando: startx
-    Para dejarlo como al principio haremos: mv /etc/rc2.d/DISABLED/S19gdm3 /etc/rc2.d/S19gdm3
+##2.3 Desactivar el inicio gráfico
+Además vamos a desactivar el inicio gráfico. Veamos unos ejemplos:
+* Desactivar inicio gráfico si tenemos Lightdm:
+    * nano /etc/init/lightdm.conf
+    * Poner almohadillas (#) en todas las líneas de la acción start...
+    * Grabar fichero y reiniciar el equipo.
+* Desactivar inicio gráfico en GNOME:
+    * mkdir /etc/rc2.d/DISABLED
+    * mv /etc/rc2.d/S19gdm3 /etc/rc2.d/DISABLED
+    * reboot
+* El sistema iniciará sin entorno gráfico. Una vez dentro para iniciar 
+entorno gráfico manuamente usaremos el comando: `startx`
+* Para dejarlo como al principio haremos: `mv /etc/rc2.d/DISABLED/S19gdm3 /etc/rc2.d/S19gdm3`
 
+##2.4 Modificar la apariencia
+* Entrar al sistema con el usuario `jedi1`.
+> Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo en WXP o Windows7 
+según queramos. Elegir sólo UNA opción.
+>
+> Podemos encontrar algún script en recursos del servidor del departamento, o buscando por Internet.
+* Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
+* Reiniciar el sistema y comprobar el resultado.
 
-2.4 Modificar la apariencia
-
-    Entrar al sistema con el usuario profesor1.
-    Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo en WXP o Windows7 según queramos. Elegir sólo UNA opción.
-    Podemos encontrar algún script en recursos del servidor del departamento, o buscando por Internet.
-    Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
-    Reiniciar el sistema y comprobar el resultado.
-
-
-2.5 Instalación desde las fuentes
-white
-
+##2.5 Instalación desde las fuentes
 Realizar las siguientes tareas:
+* Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
+    * http://goonies.jorito.net/ (SO recomendado Debian7)
+    * http://www.gameover.es/juegos-gratis/
+    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
+    * Si elijen otro programa deben consultarlo con el profesor.
+    * Geany código fuente.
+* Descargar el código fuente desde internet.
+* Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
 
-    Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
-        http://goonies.jorito.net/ (SO recomendado Debian7)
-        http://www.gameover.es/juegos-gratis/
-        http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
-        Si elijen otro programa deben consultarlo con el profesor.
-    Descargar el código fuente desde internet.
-    Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
+#ANEXOS
+##A1: Activar entorno gráfico
+Para volver a poner la activación del entorno gráfico automático al inicio hacemos:
+```
+cd /etc/rc2.d/DISABLED
+mv S20gdm3 ..
+```
 
+##A2: Poner clave de otro usuario
+Otra opción es poner la clave de otro usuario que conozcamos.
 
-ANEXOS
-A1: Activar entorno gráfico
+Por ejemplo consultar `/etc/shadow` de otra instalación, buscar una clave que conozcamos y 
+copiar dicho valor en los usuarios root y profesor1 del fichero /mnt/disco/etc/shadow 
+de la máquina donde queremos acceder.
 
-    Para volver a poner la activación del entorno gráfico automático al inicio hacemos:
-        cd /etc/rc2.d/DISABLED
-        mv S20gdm3 ..
+##A3: Precauciones en el registro de Windows
+* PRECAUCIONES: Ojo, que si se ponen todas las cuentas en el registry, Windows no podrá entrar y tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar el registry desde un live cd, en google busca: load hive)
+* Si escondes las cuentas de administrador se le pone un candado muy muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: runas /user:USUARIO_ADMIN “comando”
+* runas /user:admin “userpasswords2″ -> Este comando permite entrar a la edicion de usuarios. Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, hay que sustituir la palabra admin por el usuario que tengamos registrado. Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
+* runas /user:admin “registry” -> Este comando permite entrar al registry y desbloquear alguna cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
+* runas /user:admin “cmd” -> nos abre una ventana de linea de comandos con permisos del usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
-A2: Poner clave de otro usuario
+##A4 Instalación de GitHub app
+* Instalar node.js en Ubuntu
+* Instalar el editor Atom desde las fuentes alojadas en GitHub
 
-    Otra opción es poner la clave de otro usuario que conozcamos. Por ejemplo consultar /etc/shadow de otra instalación, buscar una clave que conozcamos y copiar dicho valor en los usuarios root y profesor1 del fichero /mnt/disco/etc/shadow de la máquina donde queremos acceder.
+##A5 Modificar apariencia Lubuntu a MAC
+* Primero debemos descargar e instalar las apariencias de las ventanas y demas en el siguiente enlace:http://sourceforge.net/projects/mac4lin/
+* Una vez instalado procederemos a activarlas manualmente en el asistente de personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento) En las pestañas control y borde de ventana
+* Luego ponemos estos comandos en consola como root para instalar un software de personalizacion de barra de tarear llamado Cairo Dock.
 
-A3: Precauciones en el registro de Windows
+    sudo add-apt-repository ppa:cairo-dock-team/ppa
+    sudo apt-get update
+    sudo apt-get install cairo-dock cairo-dock-plug-ins
 
-    PRECAUCIONES: Ojo, que si se ponen todas las cuentas en el registry, Windows no podrá entrar y tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar el registry desde un live cd, en google busca: load hive)
-    Si escondes las cuentas de administrador se le pone un candado muy muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: runas /user:USUARIO_ADMIN “comando”
-    runas /user:admin “userpasswords2″ -> Este comando permite entrar a la edicion de usuarios. Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, hay que sustituir la palabra admin por el usuario que tengamos registrado. Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
-    runas /user:admin “registry” -> Este comando permite entrar al registry y desbloquear alguna cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
-    runas /user:admin “cmd” -> nos abre una ventana de linea de comandos con permisos del usuario “admin” y asi ejecutar otros comandos con ese usuario.
-
-A3 Instalación de GitHub app
-
-    Instalar node.js en Ubuntu
-    Instalar el editor Atom desde las fuentes alojadas en GitHub
-
-
-A4 Modificar apariencia Lubuntu a MAC
-
-    Primero debemos descargar e instalar las apariencias de las ventanas y demas en el siguiente enlace:http://sourceforge.net/projects/mac4lin/
-    Una vez instalado procederemos a activarlas manualmente en el asistente de personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento) En las pestañas control y borde de ventana
-    Luego ponemos estos comandos en consola como root para instalar un software de personalizacion de barra de tarear llamado Cairo Dock.
-
-sudo add-apt-repository ppa:cairo-dock-team/ppa
-sudo apt-get update
-sudo apt-get install cairo-dock cairo-dock-plug-ins
-
-    Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos. Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
+* Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos. 
+* Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
 
 
