@@ -15,7 +15,7 @@ con el formato `package_name:action`.
 donde vendrán definidos los nombres de los paquetes. Deberá cargarlos en un array
 para luego procesarlos.
 
-> No elijan como los paquetes siguientes: geany, ruby
+> No incluyan, para desintalar, los paquetes siguientes: geany, ruby
 
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
 para actuar sobre cada paquete en un sistema GNU/Linux.
