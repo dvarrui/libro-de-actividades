@@ -50,16 +50,18 @@ En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha ver
 Capturar imágenes de los pasos realizados.
 
 ###Instalar programas:
-* Descargar el programa GIT desde la web oficial (http://git-scm.com/).
-* Abrir consola cmd, e instalar por comandos el programa GIT.
+* Vamos a descargar el programa GIT desde la web oficial (http://git-scm.com/).
+* Abrir una consola cmd.
 
-> NOTA: Sustituir el * por el número de versión que se haya descargado cada uno.
+> **NOTA:**
+> *Sustituir el * por el número de versión que se haya descargado cada uno.
+> * Ahora vamos a ejecutar el instalador del programa GIT por comandos .
 
 * `Git-*.exe /?` (Con el argumento /? vemos todas las opciones del programa)
 * `Git-*.exe /SILENT` (Hacemos una instalación sin preguntas al usuario)
 * Comprobar (por la consola cmd) que lo tenemos instalado haciendo:
-    * `cd c:\Program Files\Git\bin`
-    * `git --version`
+    * `cd c:\Program Files\Git\bin` (Esta es la ruta donde se instaló el programa)
+    * `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
 * Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
           
 ###Desinstalar programas:
