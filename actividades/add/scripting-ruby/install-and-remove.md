@@ -14,6 +14,9 @@ con el formato `package_name:action`.
 * El script deberá leer el contenido del fichero de entrada, 
 donde vendrán definidos los nombres de los paquetes. Deberá cargarlos en un array
 para luego procesarlos.
+
+> No elijan como los paquetes siguientes: geany, ruby
+
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
 para actuar sobre cada paquete en un sistema GNU/Linux.
     * Si `action=remove o r` entonces se desinstala el software.
