@@ -66,11 +66,7 @@ el fichero /etc/fstab y luego reiniciar el equipo. Este fichero define que
 particiones serán montadas automáticamente al iniciar el sistema, y con 
 qué parámetros se realizará dicha tarea.
 
-Enlaces de interés:
-* [Listas de controld e acceso](http://www.linuxito.com.ar/gnu-linux-2/nivel-alto/47-listas-de-control-de-accesos-acls)
-* [iesriorba.es](http://www.iesrioarba.es/index.php?option=com_wrapper&view=wrapper&Itemid=163)
-
-Ejemplo de como editar el fichero "/etc/fstab" para activar las ACL en las particiones 
+Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones 
 deseadas de manera permanente: `/dev/partition /home ext3 defaults,acl 0 2`
 
 Tras haber modificado /etc/fstab, para que monte una partición con el parámetro acl, 
