@@ -185,6 +185,8 @@ Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos
 * Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2` sin clave.
 
 ##2.3 Desactivar el inicio gráfico
+[Ocultar usuarios en el inicio de sesión OpenSUSE con lightdm](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-login-screen)
+
 Además vamos a desactivar el inicio gráfico. Veamos unos ejemplos:
 * Desactivar inicio gráfico si tenemos Lightdm:
     * nano /etc/init/lightdm.conf
