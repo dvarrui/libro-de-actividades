@@ -60,7 +60,8 @@ Capturar imágenes de los pasos realizados.
 * `Git-*.exe /?` (Con el argumento /? vemos todas las opciones del programa)
 * `Git-*.exe /SILENT` (Hacemos una instalación sin preguntas al usuario)
 * Comprobar (por la consola cmd) que lo tenemos instalado haciendo:
-    * `cd c:\Program Files\Git\bin` (Esta es la ruta donde se instaló el programa)
+    * `cd c:\Program Files\Git\bin` (Esta es la ruta donde se instaló el programa) Si no encuentran
+    el programa `git.exe` en esta ruta hagan una búsqueda y sitúense en el directorio encontrado.
     * `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
 * Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
           
