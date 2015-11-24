@@ -74,17 +74,23 @@ hemos reiniciado la máquina (comando reboot).
 
 
 #2. Práctica de ACL
+
 Realizar las siguientes tareas:
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
 * Iniciar MV. Comprobar los discos/particiones: `fdisk -l`
 * Crear directorio `/mnt/world`.
-* Crear un punto de montaje en `/etc/fstab` para el segundo disco. Esto es la partición /dev/sdb1 se montará en el directorio /mnt/world.
+* Crear un punto de montaje en `/etc/fstab` para el segundo disco. 
+Esto es, la partición /dev/sdb1 se montará en el directorio /mnt/world.
 * Reiniciar el sistema y comprobar los puntos de montaje. Podemos usar los comandos `df -hT`, o `mount`.
 > INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
-* Crear el grupo angeles, con los usuarios ang1, ang2.
-* Crear el grupo demonios con los usuarios dem1, dem2.
-* Crear la carpeta /mnt/world/cielo, donde ang1 y ang2 tienen permisos acl rwx, pero el grupo demonios sólo tienen permiso rx.
-* Crear la carpeta /mnt/world/infierno, donde dem1 y dem2 tienen permisos acl rwx.
-* Comprobar las asignaciones de permisos anteriores, entrando con cada usuario y creando ficheros en cada recurso si se puede.
-    * vdir /mnt/world/cielo
-    * vdir /mnt/world/infierno
+* Crear el grupo `angels`, con los usuarios `angel1`, `angel2`.
+* Crear el grupo `deemons` con los usuarios `daemon1`, `daemon2`.
+* Crear la carpeta `/mnt/world/heaven` con el usuario `root`, donde
+    * `angel1` y `angel2` tienen permisos acl rwx,
+    * pero el grupo `daemons` sólo tienen permiso rx.
+* Crear la carpeta `/mnt/world/hell` con el usuario `root`,
+    * donde `daemon1` y `daemon2` tienen permisos acl rwx.
+* Comprobar las asignaciones de permisos anteriores, entrando con cada usuario y 
+creando ficheros en cada recurso si se puede.
+    * `vdir /mnt/world/heaven`
+    * `vdir /mnt/world/hell`
