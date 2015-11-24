@@ -76,10 +76,10 @@ hemos reiniciado la máquina (comando reboot).
 #2. Práctica de ACL
 Realizar las siguientes tareas:
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
-* Iniciar MV. Comprobar los discos/particiones: fdisk -l
-* Crear directorio /mnt/world.
-* Crear un punto de montaje en /etc/fstab para el segundo disco. Esto es la partición /dev/sdb1 se montará en el directorio /mnt/world.
-* Reiniciar el sistema y comprobar los puntos de montaje. Podemos usar los comandos "df -hT", o "mount".
+* Iniciar MV. Comprobar los discos/particiones: `fdisk -l`
+* Crear directorio `/mnt/world`.
+* Crear un punto de montaje en `/etc/fstab` para el segundo disco. Esto es la partición /dev/sdb1 se montará en el directorio /mnt/world.
+* Reiniciar el sistema y comprobar los puntos de montaje. Podemos usar los comandos `df -hT`, o `mount`.
 > INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
 * Crear el grupo angeles, con los usuarios ang1, ang2.
 * Crear el grupo demonios con los usuarios dem1, dem2.
