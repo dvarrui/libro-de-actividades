@@ -5,10 +5,11 @@ Este es un proyecto abierto para crear documentación sobre actividades/ejercici
 ##Estado del proyecto
 
 El desarrollo de esta aplicación comenzó en septiembre 2015. Desde entonces 
-se le añaden actividades constantemente, se actulizan con las nuevas versiones
-de software y se corrigen fallos.
+se han ido añadiendo actividades constantemente, se van actualizando con las 
+nuevas versiones de software,  y se van corrigiendo fallos.
 
-La evolución y futura lista de funcionalidades a implementar se pueden consultar en la lista de tareas por hacer.
+La evolución y futura lista de funcionalidades a implementar se pueden consultar 
+en la lista de tareas por hacer.
 
 ##Licencia
 
