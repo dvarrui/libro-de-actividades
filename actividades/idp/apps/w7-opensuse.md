@@ -52,7 +52,9 @@ Capturar imágenes de los pasos realizados.
 ###Instalar programas:
 * Descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir consola cmd, e instalar por comandos el programa GIT.
+
 > NOTA: Sustituir el * por el número de versión que se haya descargado cada uno.
+
 * `Git-*.exe /?` (Con el argumento /? vemos todas las opciones del programa)
 * `Git-*.exe /SILENT` (Hacemos una instalación sin preguntas al usuario)
 * Comprobar (por la consola cmd) que lo tenemos instalado haciendo:
