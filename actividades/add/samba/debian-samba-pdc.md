@@ -147,25 +147,20 @@ Vamos a trabajar con perfiles móviles y obligatorios en el nuevo PDC.
     /var/samba/profiles/borg1
 ```
 
-
-1.7 Políticas de acceso
+##1.7 Políticas de acceso
 Buscar respuestas/ideas sobre:
+* ¿Cómo podríamos establecer politícas de acceso en el nuevo PDC? 
+De modo que podamos definir el rango de horas a las que cada usuario del dominio 
+tiene permitido establecer conexión al servidor. ¿Existe alguna herramienta al respecto?
+*  Si un usuario usu1 tiene permitido el acceso al dominio en el rango 8-14, 
+y el usuario se conecta a las 13:55 y está trabajando... cuándo sean las 14 horas ¿qué pasará?
 
-    ¿Cómo podríamos establecer politícas de acceso en el nuevo PDC? De modo que podamos definir el rango de horas a las que cada usuario del dominio tiene permitido establecer conexión al servidor. ¿Existe alguna herramienta al respecto?
-    Si un usuario usu1 tiene permitido el acceso al dominio en el rango
-    8-14, y el usuario se conecta a las 13:55 y está trabajando... cuándo sean las 14 horas ¿qué pasará?
-
-
-
-ANEXO I: FAQ
-
+#ANEXO I: FAQ
 Tutorial Samba en Dominio Perfiles Moviles y Obligatorios:
-
-    Consultar vídeo online
-    Descargar el vídeo http://www.mediafire.com/?ljmwoawpiniaxvq (Se necesita K-lite, CCCP o reproductor VLC)
+* Consultar [vídeo online]( http://www.youtube.com/watch?v=JHHmAuJY0nc)
+* Descargar el [vídeo](http://www.mediafire.com/?ljmwoawpiniaxvq) (Se necesita K-lite, CCCP o reproductor VLC)
 
 Otras dudas varias:
-
-    El parámetro para el fichero de claves es: smb passwd file = /etc/samba/smbpasswd.
-    Existen una herramienta llamada Zentyal (Autenticación centralizada con Zentyal), que puede ser de ayuda para gestionar todo este proceso desde un entorno gráfico.
-
+* El parámetro para el fichero de claves es: smb passwd file = /etc/samba/smbpasswd.
+* Existen una herramienta llamada Zentyal (Autenticación centralizada con Zentyal), 
+que puede ser de ayuda para gestionar todo este proceso desde un entorno gráfico.
