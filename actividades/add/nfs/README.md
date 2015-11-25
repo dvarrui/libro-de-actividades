@@ -175,7 +175,7 @@ En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con 
 * `df -hT`, y veremos que los recursos remotos están montados en nuestras carpetas locales.
 
 > Para montar los recursos NFS del servidor Windows haremos
-`mount.nfs ip-servidor-nfs-windows:/c/export/public /mnt/remoto/windows`
+`mount.nfs ip-servidor-nfs-windows:/C/export/public /mnt/remoto/windows`
 
 * Ahora podemos crear carpetas/ficheros dentro del recurso public, 
 pero sólo podremos leer lo que aparezca en private. Comprobarlo.
