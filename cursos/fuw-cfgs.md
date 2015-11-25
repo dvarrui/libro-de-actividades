@@ -6,5 +6,5 @@
 
 ## UD 1 - Equipos Microinformáticos
 * ![Simulador Von Neumann](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/fuw/simulador)
-* ![Taller 1 desmontar](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/fuw/taller/taller-1-desmontar.md)
+* ![Taller 1 desmontar y montar](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/fuw/taller/taller-1-desmontar-y-montar.md)
 
