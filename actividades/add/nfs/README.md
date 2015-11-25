@@ -154,6 +154,9 @@ añadiendo estas líneas:
 * Para iniciar y parar el servicio NFS, usaremos Yast o `systemctl`. Si al iniciar 
 el servicio aparecen mensaje de error o advertencias, debemos resolverlas. 
 Consultar los mensajes de error del servicio.
+
+> [Enlace de interés](http://www.unixmen.com/setup-nfs-server-on-opensuse-42-1/)
+
 * Para comprobarlo, `showmount -e localhost`. Muestra la lista de recursos exportados por el servidor NFS.    
 
 ##2.2 Cliente NFS

@@ -110,36 +110,42 @@ Vamos a usar clientes Windows para unirse al nuevo PDC.
 * UNIR AL DOMINIO: Vamos a unir el cliente al dominio, para ello introduciremos el nombre del dominio, nos pedirá una contraseña con derechos para agregar máquinas al dominio, esta será la de root del PDC. Se supone que previamente habremos creado su cuenta samba con el comando smbpasswd -a root.
 * PROBAR LOGIN: Probar la autenticación de dominio desde el cliente Windows hacia el servidor de dominio Samba.
 
-> NOTA si hay problemas:
+> **NOTA si hay problemas**
 >
 > Esperar 5 minutos y volver a intentarlo. Las redes SMB/CIFS suelen tardar 
 es tiempo en refrescar la información por toda la red. El tiempo depende del número de equipos en la red.
 >
->        Si tenemos problemas con el samba, consultar el fichero de log, ejecutando el comando "tail -n 20 /var/log/syslog". Esto nos puede dar pistas para solucionar el problema.
-        Si seguimos con problemas para unirnos al dominio probemos a: cambiar el nombre del dominio del PDC, reiniciar Samba, reintentar unir el cliente al nuevo dominio.
-        Usar una red interna de VBox para las dos máquinas.
+> Si tenemos problemas con el samba, consultar el fichero de log, ejecutando el comando 
+`tail -n 20 /var/log/syslog`. Esto nos puede dar pistas para solucionar el problema.
+>
+> Si seguimos con problemas para unirnos al dominio probemos a:
+> 1. Cambiar el nombre del dominio del PDC, reiniciar Samba, reintentar unir el cliente al nuevo dominio.
+> 1. Usar una red interna de VBox para las dos máquinas.
+>
+> Si al unir una máquina con Windows 7 a un dominio PDC Samba, tenemos un error del tipo 
+*"El dominio especificado no existe o no puede ser contactado"*, esto se debe a que el Windows 7 
+realiza algunos controles adicionales que provocan este error. 
+La solución consiste en
+> * modificar el registro de cada host con Windows 7 para agregar las 
+siguientes claves, ubicadas en "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanWorkstation\Parameters": 
+"DomainCompatibilityMode"=dword:00000001, "DNSNameResolutionRequired"=dword:00000000
+> * Y alterar las que se muestran debajo, ubicadas en 
+"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Netlogon\Parameters": 
+"RequireSignOnSeal"=dword:00000000, "RequireStrongKey"=dword:00000000
+>
 
-    Si al unir una máquina con Windows 7 a un dominio PDC Samba, tenemos un error del tipo "El dominio especificado no existe o no puede ser contactado”, esto se debe a que el Windows 7 realiza algunos controles adicionales que provocan este error. La solución consiste en modificar el registro de cada host con Windows 7 para agregar las siguientes claves, ubicadas en "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanWorkstation\Parameters":
-    "DomainCompatibilityMode"=dword:00000001
-    "DNSNameResolutionRequired"=dword:00000000
-
-    Y alterar las que se muestran debajo, ubicadas en "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Netlogon\Parameters":
-    "RequireSignOnSeal"=dword:00000000
-    "RequireStrongKey"=dword:00000000
-
-
-1.6 Perfiles Móviles
+##1.6 Perfiles Móviles
 Vamos a trabajar con perfiles móviles y obligatorios en el nuevo PDC.
+* El grupo `entreprise` tendrá perfiles móviles.
+* El grupo `borg` tendrá el mismo perfil de tipo obligatorio.
 
-    El grupo "entreprise" tendrá perfiles móviles.
-    El grupo "borg" tendrá el mismo perfil de tipo obligatorio.
+> Si no recuerdas cómo se hace esto... consulta apuntes de perfiles para Windows Server. Es el mismo proceso.
 
-Si no recuerdas cómo se hace esto... consulta apuntes de perfiles para Windows Server. Es el mismo proceso.
-
-    Los perfiles se guardarán en el servidor en:
-        /var/lib/samba/profiles/kirk
-        /var/lib/samba/profiles/borg1
-        etc
+* Los perfiles se guardarán en el servidor en:
+```
+    /var/samba/profiles/kirk
+    /var/samba/profiles/borg1
+```
 
 
 1.7 Políticas de acceso
