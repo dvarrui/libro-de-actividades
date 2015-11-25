@@ -75,9 +75,10 @@ Iniciar el servicio cliente NFS. Captura imagen del proceso.
 
 Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 * Esto no lo hacemos con Administrador, sino con nuestro usuario normal.
-* Montar recurso remoto: `mount –o anon,nolock,r,casesensitive \\\ip-del-servidor\Nombre-recurso-NFS *`
-* Comprobar: `net use`
-* Comprobar: `showmount -a ip-del-servidor`
+* Consultar desde el cliente los recursos que ofrece el servidor: `showmount -e ip-del-servidor`
+* Montar recurso remoto: `mount –o anon,nolock,r,casesensitive \\ip-del-servidor\Nombre-recurso-NFS *`
+* Comprobar en el cliente los recursos montados: `net use`
+* Comprobar desde el cliente: `showmount -a ip-del-servidor`
 * En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
     
 > **EXPLICACIÓN DE LOS PARÁMETROS**

@@ -112,9 +112,10 @@ Vamos a usar clientes Windows para unirse al nuevo PDC.
 
 > NOTA si hay problemas:
 >
+> Esperar 5 minutos y volver a intentarlo. Las redes SMB/CIFS suelen tardar 
+es tiempo en refrescar la información por toda la red. El tiempo depende del número de equipos en la red.
 >
-        Esperar 5 minutos y volver a intentarlo. Las redes SMB/CIFS suelen tardar es tiempo en refrescar la información por toda la red. El tiempo depende del número de equipos en la red.
-        Si tenemos problemas con el samba, consultar el fichero de log, ejecutando el comando "tail -n 20 /var/log/syslog". Esto nos puede dar pistas para solucionar el problema.
+>        Si tenemos problemas con el samba, consultar el fichero de log, ejecutando el comando "tail -n 20 /var/log/syslog". Esto nos puede dar pistas para solucionar el problema.
         Si seguimos con problemas para unirnos al dominio probemos a: cambiar el nombre del dominio del PDC, reiniciar Samba, reintentar unir el cliente al nuevo dominio.
         Usar una red interna de VBox para las dos máquinas.
 
