@@ -53,6 +53,13 @@
         * Usuario profesor con clave profesor
         * Usuario root con clave profesor
     * Entorno gráfico a elegir por el alumno
+    * Nombre de equipo: `THXX` seǵun la etiqueta del mismo.
+    * NOmbre de dominio: `taller`
+    * Configuración de red:
+        * IP estática: 172.19.107.XX, donde XX es el número del equipo.
+        * Máscara: 255.255.0.0
+        * Enlace: 172.19.0.1
+        * DNS: 8.8.4.4
     * Instalar y activar OpenSSH
     * Configuración de red dinámica
 
