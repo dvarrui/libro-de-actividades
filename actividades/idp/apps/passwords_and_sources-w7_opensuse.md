@@ -212,6 +212,7 @@ según queramos. Elegir sólo UNA opción.
 ##2.5 Instalación desde las fuentes
 Realizar las siguientes tareas:
 * Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
+    * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
     * http://goonies.jorito.net/ (SO recomendado Debian7)
     * http://www.gameover.es/juegos-gratis/
     * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
