@@ -24,5 +24,7 @@ Simplified von Neumann Computer
 
 #Traducción
 
-Traducido por David Vargas Ruiz, dvarrui@gmail.com, en Octubre de 2015.
+* Traducido por David Vargas Ruiz, dvarrui@gmail.com, en Octubre de 2015.
+* Profesor FP de Informática del [IES Puerto de la Cruz - Telesforo Bravo](http://www.iespuertodelacruz.es).
+
 
