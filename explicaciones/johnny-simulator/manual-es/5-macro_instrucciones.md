@@ -5,7 +5,7 @@
 
 El almacén de micro instrucciones contiene los microprogramas para las 10 
 macro instrucciones siguientes:
-* `TAKE` El contenido de la dirección (proporcionado por la direccion absoluta) 
+* `TAKE` El contenido de la dirección (proporcionado por la dirección absoluta) 
 se pasa al acumulador.
 * `SAVE` El contenido del acumulador se pasa a la dirección dada por la dirección absoluta.
 * `ADD` El contenido de la dirección (dada por la dirección absoluta) 
