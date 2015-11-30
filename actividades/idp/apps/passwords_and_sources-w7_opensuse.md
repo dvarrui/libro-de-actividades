@@ -66,7 +66,7 @@ del departamento antes de descargarlo de Internet.
 
 #2. SO GNU/Linux
 
-Usaremos una MV GNU/Linux Debian.
+Usaremos una MV GNU/Linux OpenSUSE 13.2.
 
 ##2.1 Ocultar usuarios
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
