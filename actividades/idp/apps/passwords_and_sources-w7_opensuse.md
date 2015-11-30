@@ -160,12 +160,14 @@ para que puedan obtener privilegios administrativos.
     * jedi2: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
-* Montar la partición del disco duro y ver el contenido. Ver ejemplo:
+* Montar la partición del disco duro y ver el contenido. 
+En lugar de X poner el número de la partición donde está instalado el SO.
+Ver ejemplo:
 ```
-    mount /dev/sdaX /mnt (En lugar de X poner el número de la partición donde está instalado el SO)
-    cd /mnt
-    pdw
-    ls
+mount /dev/sdaX /mnt 
+cd /mnt
+pdw
+ls
 ```    
 * Copia de seguridad del fichero de claves: `cp /mnt/shadow /mnt/shadow.000`.
 
@@ -180,6 +182,7 @@ Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos
 * Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2` sin clave.
 
 ##2.3 Desactivar el inicio gráfico
+
 [Ocultar usuarios en el inicio de sesión OpenSUSE con lightdm](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-login-screen)
 
 Además vamos a desactivar el inicio gráfico. Veamos unos ejemplos:
