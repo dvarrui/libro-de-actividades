@@ -36,13 +36,12 @@ por ejemplo: `jedi1` con un valor `0`.
 
 ##1.2 Claves seguras
 * Modificar las claves de los usuarios de la siguiente forma:
-
-    sith1: 1234
-    sith2: casa
-    jedi1: frodoHOBBITbolson
-    jedi2: gandalfELGRIS
-    nombrealumno: clave a elegir por el alumno
-    administrador: DNI del alumno
+    * sith1: 1234
+    * sith2: casa
+    * jedi1: frodoHOBBITbolson
+    * jedi2: gandalfELGRIS
+    * nombrealumno: clave a elegir por el alumno
+    * administrador: DNI del alumno
 
 > **RECOMENDACIONES PARA LAS CLAVES** 
 >
