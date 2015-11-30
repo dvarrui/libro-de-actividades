@@ -154,21 +154,19 @@ Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemp
 * Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`, 
 para que puedan obtener privilegios administrativos.
 * Modificar las claves de los usuarios de la siguiente forma:
-
-    sith1: 1234
-    sith2: casa
-    jedi1: frodoHOBBITbolson
-    jedi2: gandalfELGRIS
-
+    * sith1: 1234
+    * sith2: casa
+    * jedi1: frodoHOBBITbolson
+    * jedi2: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
 * Montar la partición del disco duro y ver el contenido. Ver ejemplo:
-
+```
     mount /dev/sdaX /mnt (En lugar de X poner el número de la partición donde está instalado el SO)
     cd /mnt
     pdw
     ls
-    
+```    
 * Copia de seguridad del fichero de claves: `cp /mnt/shadow /mnt/shadow.000`.
 
 > El fichero shadow tiene una fila por cada usuarios. 
