@@ -1,9 +1,6 @@
 
 
 #Claves e instalación desde la fuentes
-Modo de trabajo:
-* Mostrar resultado el profesor.
-* No se entrega documento.
 
 #1. SO Windows
 Usaremos una MV Windows 7.
@@ -220,6 +217,11 @@ Realizar las siguientes tareas:
     * Geany código fuente.
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
+
+##2.6 Emulación
+Realizar las siguientes tareas
+* Instalar el emulador de Windows (`wine`)
+* Instalar un programa de Windows. Usar el instalador de Windows.
 
 #ANEXOS
 ##A1: Activar entorno gráfico
