@@ -94,22 +94,30 @@ como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en l
 > Pero NO LO HAGAN SE ESTA FORMA.
 
 ###(a) Gestor de inicio lightdm
-> Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
->
-> El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
+* Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
+* El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
 o `/etc/ligthdm/lightdm.conf.d/`.
->
-> Enlaces de interés:
-> * [http://geekland.hol.es/personalizar-y-configurar-lightdm/](http://geekland.hol.es/personalizar-y-configurar-lightdm/)
-> * [http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen)
 
-Para ocultar la lista de usuarios completa:
-* Editar el archivo `/etc/lightdm/lightdm.conf`.
-* Para ocultar la lista de los usuarios, añadir la siguiente línea en la sección [SeatDefaults]
+Enlaces de interés:
+* [http://geekland.hol.es/personalizar-y-configurar-lightdm/](http://geekland.hol.es/personalizar-y-configurar-lightdm/)
+* [http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen)
+
+>Para ocultar la lista de usuarios completa en lightdm en Debian/ubuntu:
+>* Editar el archivo `/etc/lightdm/lightdm.conf`.
+>* Para ocultar la lista de los usuarios, añadir la siguiente línea en la sección [SeatDefaults]
+>```
+>[SeatDefaults]
+>...
+>greeter-hide-users=true
+>```
+
+Para ocultar un usuario en lightdm, cuando nuestro sistema usa AccountsService, no
+se puede usar el fichero /etc/lightdm/users.conf. Para ocultar un usuario llamado XXX, 
+crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+
 ```
-[SeatDefaults]
-...
-greeter-hide-users=true
+[User]
+SystemAccount=true
 ```
 
 ###(b) Gestor de inicio gdm3
