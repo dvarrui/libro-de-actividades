@@ -4,13 +4,18 @@
 #Servidor LDAP - OpenSUSE
 
 Enlaces de interés:
-* [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
-* [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
-* [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
-* Min 38: Crear config dir a partir de config text.
-* [Tool Openfile](http://www.openfiler.com/)
-* Tool Zentyal
-* [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
+* Teoría
+    * [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
+    * [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+* OpenSUSE
+    * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+    * [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+    * [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
+* Otros
+    * [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
+    * Min 38: Crear config dir a partir de config text.
+    * [Tool Openfile](http://www.openfiler.com/)
+    * Tool Zentyal
 
 Vamos a usar una MV OpenSUSE 13.2
 * Esta máquina deberá tener una IP fija. Cada alumno dispone de las IP's. 172.16.109.XX, 172.16.109.1XX y 172.16.109.2XX. Donde XX es su número de puesto.
