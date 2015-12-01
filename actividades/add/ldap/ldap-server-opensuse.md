@@ -1,13 +1,16 @@
 
 *(Actividad nueva para e curso 2015-2016)*
-*(Documento en costrucción)*
 
 #Servidor LDAP - OpenSUSE
 
 Enlaces de interés:
+* [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
+* [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+* [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
 * Min 38: Crear config dir a partir de config text.
-* Tool Openfile: http://www.openfiler.com/
+* [Tool Openfile](http://www.openfiler.com/)
 * Tool Zentyal
+* [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
 
 Vamos a usar una MV OpenSUSE 13.2
 * Esta máquina deberá tener una IP fija. Cada alumno dispone de las IP's. 172.16.109.XX, 172.16.109.1XX y 172.16.109.2XX. Donde XX es su número de puesto.
@@ -30,8 +33,10 @@ el comando `systemctl status ldap`, `systemctl stop ldap`, `systemctl  start lda
 > Mediante el cliente LDAP podremos escribir y/o consultar información en la base de datos LDAP.
 
 #2. Introducir datos en LDAP
+
+
 Realizar las siguientes tareas:
-* Consultar Vídeo "LPIC-2 202 LDAP Client Usage".
+* Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 * Crear las unidades organizativas: `grupos` y `usuarios`.
 * Crear dentro de ou=grupos, los grupos de `jedis` y `siths`.
 * Crear dentro de ou=usuarios, varios usuarios `jedi11`, `jedi12`, `sith21`, `sith22`.
@@ -40,25 +45,4 @@ Realizar las siguientes tareas:
 
 Vemos un ejemplo de un árbol de datos en LDAP:
 
-arbol
-
-ANEXO 1
-A1.1 phpLDAPadmin: cambiar el almacén
-
-Tras instalar phpLDAPadmin y loguearse en "http://127.0.0.1/phpldapadmin/" te aparece la configuración de ejemplo 'dc=example,dc=com'. Para cambiar esto por tus datos, hay que cambiar el archivo "config.php" de phpLDAPadmin que se encuentra en "/etc/phpldapadmin/config.php".
-
-Después en la línea 300 del archivo, modifican lo siguiente por sus datos:
-
-Original: $servers->setValue('server','base',array('dc=example,dc=com'));
-Modificado: $servers->setValue('server','base',array('dc=efrain,dc=aula108'));
-
-A1.2 phpLDAPadmin: cambiar el usuario
-SI en phpLDAPadmin a la hora de crear de un usuario, no puedes crearlo porque te tira un error que dice lo siguiente: "Error trying to get a non-existant value (appearance,password_hash)".
-
-Para arreglarlo vamos al archivo de configuración '/usr/share/phpldapadmin/lib/TemplateRender.php' y editamos la línea 2469 de la siguiente forma:
-
-Original --> $default = $this->getServer()->getValue('appearance','password_custom');
-
-Modificado --> $default = $this->getServer()->getValue('appearance','password_hash_custom');
-
-Guardamos y listo.
+![arbol](./images/arbol.png)
