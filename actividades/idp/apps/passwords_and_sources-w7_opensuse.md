@@ -94,6 +94,17 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
  la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
  gdm3, kdm, xdm, etc.
 
+> **Gestor de inicio lxdm**
+>
+> Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemplo:
+>
+> ![config-lxdm](./images/config-lxdm.png)
+> ```
+> disable=1, oculta la lista de usuarios completa.
+> white list: son los usuarios a mostrar.
+> black list: son los usuario a ocultar.
+> ```
+
 > **NO HACER LO SIGUIENTE**
 >
 > El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos: 
