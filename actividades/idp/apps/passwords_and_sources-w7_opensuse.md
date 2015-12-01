@@ -115,10 +115,9 @@ para que puedan obtener privilegios administrativos.
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
 * Para ver las particiones disponibles `fdisk -l`.
-* Montar la partición del disco duro y ver el contenido. 
-En lugar de X poner el número de la partición donde está instalado el SO.
-Ver ejemplo:
+* Montar la partición del disco duro que corresponda al SO GNU/Linux, y ver el contenido. Ver ejemplo:
 ```
+(En lugar de X poner el número de la partición donde está instalado el SO.)
 mount /dev/sdaX /mnt 
 cd /mnt
 pdw
