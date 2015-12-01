@@ -70,7 +70,16 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 
 ##2.1 Ocultar usuarios
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
-* Primero debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
+
+* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX, 
+crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+
+```
+[User]
+SystemAccount=true
+```
+* Si lo anterior no funciona porque nuestro sistema no usa AccountService, entonces
+debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
 Veamos un ejemplo para consultar los procesos del sistema que tienen en su nombre las letras *dm*.
 En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un *Desktop Manager* (dm).
 ```
@@ -81,7 +90,9 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
     root 2157 1125 0 11:19 ? 00:00:00 lightdm --session-child 12 21
     asir 2805 2497 0 11:36 pts/1 00:00:00 grep --color=auto dm
 ```
-* Consultar la información de nuestro gestor de inicio gráfico para cambiar la configuración y ocultar los usuarios.
+* Consultar la información de nuestro gestor de inicio gráfico para cambiar
+ la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
+ gdm3, kdm, xdm, etc.
 
 > **NO HACER LO SIGUIENTE**
 >
@@ -92,72 +103,6 @@ se consideran usuarios especiales del sistema. Por tanto, el sistema no los iden
 como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
 >
 > Pero NO LO HAGAN SE ESTA FORMA.
-
-**OJO**
-Para ocultar un usuario cuando nuestro sistema usa AccountsService, no
-se puede usar el fichero /etc/lightdm/users.conf. Para ocultar un usuario llamado XXX, 
-crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
-
-```
-[User]
-SystemAccount=true
-```
-
-###(a) Gestor de inicio lightdm
-* Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
-* El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
-o `/etc/ligthdm/lightdm.conf.d/`.
-
-Enlaces de interés:
-* [http://geekland.hol.es/personalizar-y-configurar-lightdm/](http://geekland.hol.es/personalizar-y-configurar-lightdm/)
-* [http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen)
-
->Para ocultar la lista de usuarios completa en lightdm en Debian/ubuntu:
->* Editar el archivo `/etc/lightdm/lightdm.conf`.
->* Para ocultar la lista de los usuarios, añadir la siguiente línea en la sección [SeatDefaults]
->```
->[SeatDefaults]
->...
->greeter-hide-users=true
->```
-
-###(b) Gestor de inicio gdm3
-> Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
-
-Con gdm3, los pasos son:
-* Abrimos consola y entramos como `root`, y editamos el archivo `/etc/gdm3/daemon.conf`.
-* En la linea bajo `[Greeter]` añadimos `Exclude=jedi1, sith1`.
-* Guardamos el archivo y reiniciamos.
-
-![gdm3-greeter-exclude](./images/gdm3-greeter-exclude)
-
-> Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug. 
-A continuación se muestra un modo de ocultar la lista de los usuarios al inicio de sesión.
->
-> ```
-> nano /etc/gdm3/greeter.gsettings
-> ...
-> # Greeter session choice
-> # ======================
-> [org.gnome.desktop.session]
-> session-name='gdm-fallback'
-> # session-name='gdm-shell'
->
-> # Login manager options
-> # =====================
-> # - Disable user list
-> disable-user-list=true
-> ...
-> ```
-
-### (c) Gestor de inicio lxdm
-Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemplo:
-
-[config-lxdm](./images/config-lxdm.png)
-
-    disable=1, oculta la lista de usuarios completa.
-    white list: son los usuarios a mostrar.
-    black list: son los usuario a ocultar.
 
 ##2.2 Claves seguras
 * Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`, 
