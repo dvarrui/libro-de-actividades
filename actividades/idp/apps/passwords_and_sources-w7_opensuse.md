@@ -93,6 +93,16 @@ como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en l
 >
 > Pero NO LO HAGAN SE ESTA FORMA.
 
+**OJO**
+Para ocultar un usuario cuando nuestro sistema usa AccountsService, no
+se puede usar el fichero /etc/lightdm/users.conf. Para ocultar un usuario llamado XXX, 
+crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+
+```
+[User]
+SystemAccount=true
+```
+
 ###(a) Gestor de inicio lightdm
 * Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
 * El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
@@ -110,15 +120,6 @@ Enlaces de interés:
 >...
 >greeter-hide-users=true
 >```
-
-Para ocultar un usuario en lightdm, cuando nuestro sistema usa AccountsService, no
-se puede usar el fichero /etc/lightdm/users.conf. Para ocultar un usuario llamado XXX, 
-crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
-
-```
-[User]
-SystemAccount=true
-```
 
 ###(b) Gestor de inicio gdm3
 > Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
@@ -168,6 +169,7 @@ para que puedan obtener privilegios administrativos.
     * jedi2: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
+* Para ver las particiones disponibles `fdisk -l`.
 * Montar la partición del disco duro y ver el contenido. 
 En lugar de X poner el número de la partición donde está instalado el SO.
 Ver ejemplo:
