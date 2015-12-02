@@ -34,6 +34,21 @@ por ejemplo: `jedi1` con un valor `0`.
 >
 > En este modo debemos escribir nombre usuario y clave para iniciar sesión.
 
+> **PRECAUCIONES en el registro de Windows**
+> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y 
+tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar
+ el registry desde un live cd, en google busca: load hive)
+> * Si escondes las cuentas de administrador se le pone un candado muy muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: runas /user:USUARIO_ADMIN “comando”
+> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios. 
+Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, 
+hay que sustituir la palabra admin por el usuario que tengamos registrado. 
+Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
+> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna 
+cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
+> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del 
+usuario “admin” y asi ejecutar otros comandos con ese usuario.
+
+
 ##1.2 Claves seguras
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith1: 1234
@@ -92,18 +107,7 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
 ```
 * Consultar la información de nuestro gestor de inicio gráfico para cambiar
  la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
- gdm3, kdm, xdm, etc.
-
-> **Gestor de inicio lxdm**
->
-> Gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. Veamos ejemplo:
->
-> ![config-lxdm](./images/config-lxdm.png)
-> ```
-> disable=1, oculta la lista de usuarios completa.
-> white list: son los usuarios a mostrar.
-> black list: son los usuario a ocultar.
-> ```
+ gdm3, kdm, xdm, etc. (*Consultar ANEXO o buscar información en Internet*).
 
 > **NO HACER LO SIGUIENTE**
 >
@@ -145,6 +149,16 @@ El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuar
 Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos sin clave.
 * Reiniciar la MV sin el CDLIVE de Knoppix.
 * Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2` sin clave.
+
+>**Poner clave de otro usuario**
+>
+> Otra opción es poner la clave de otro usuario que conozcamos.
+>
+> Por ejemplo consultar `/etc/shadow` de otro sistema que hayamos instalado nosotros, 
+buscar una clave que conozcamos y copiar dicho valor, por ejemplo, en el usuario `root` y 
+`jedi1` del fichero `/mnt/etc/shadow` de la máquina donde queremos acceder.
+>
+> Reiniciamos el equipo y comprobamos.
 
 ##2.3 Desactivar el inicio gráfico
 
@@ -189,33 +203,81 @@ Realizar las siguientes tareas
 * Instalar el emulador de Windows (`wine`)
 * Instalar un programa de Windows. Usar el instalador de Windows.
 
-#ANEXOS
-##A1: Activar entorno gráfico
+#ANEXO
+
+##A1:Desktop Manager lxdm
+Es el gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. 
+Veamos ejemplo:
+
+![config-lxdm](./images/config-lxdm.png)
+```
+disable=1, oculta la lista de usuarios completa.
+white list: son los usuarios a mostrar.
+black list: son los usuario a ocultar.
+```
+##A2: Gestor de inicio lightdm
+Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
+
+El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
+o `/etc/ligthdm/lightdm.conf.d/`.
+
+Enlaces de interés:
+* [http://geekland.hol.es/personalizar-y-configurar-lightdm/](http://geekland.hol.es/personalizar-y-configurar-lightdm/)
+* [http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-lightdm-login-screen)
+
+Para ocultar la lista de usuarios completa:
+* Editar el archivo `/etc/lightdm/lightdm.conf`.
+* Para ocultar la lista de los usuarios, añadir la siguiente línea en la sección [SeatDefaults]
+```
+[SeatDefaults]
+...
+greeter-hide-users=true
+```
+
+##A3: Gestor de inicio gdm3
+Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
+
+Con gdm3, los pasos son:
+* Abrimos consola y entramos como `root`, y editamos el archivo `/etc/gdm3/daemon.conf`.
+* En la linea bajo `[Greeter]` añadimos `Exclude=jedi1, sith1`.
+* Guardamos el archivo y reiniciamos.
+
+![gdm3-greeter-exclude](./images/gdm3-greeter-exclude)
+
+> Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug. 
+A continuación se muestra un modo de ocultar la lista de los usuarios al inicio de sesión.
+>
+> ```
+> nano /etc/gdm3/greeter.gsettings
+> ...
+> # Greeter session choice
+> # ======================
+> [org.gnome.desktop.session]
+> session-name='gdm-fallback'
+> # session-name='gdm-shell'
+>
+> # Login manager options
+> # =====================
+> # - Disable user list
+> disable-user-list=true
+> ...
+> ```
+
+
+##A4: Activar entorno gráfico con System V
+Actualmente la mayoría de las distribuciones GNU/Linux tienen Systemd en lugar de SystemV.
+
 Para volver a poner la activación del entorno gráfico automático al inicio hacemos:
 ```
 cd /etc/rc2.d/DISABLED
 mv S20gdm3 ..
 ```
 
-##A2: Poner clave de otro usuario
-Otra opción es poner la clave de otro usuario que conozcamos.
-
-Por ejemplo consultar `/etc/shadow` de otra instalación, buscar una clave que conozcamos y 
-copiar dicho valor en los usuarios root y profesor1 del fichero /mnt/disco/etc/shadow 
-de la máquina donde queremos acceder.
-
-##A3: Precauciones en el registro de Windows
-* PRECAUCIONES: Ojo, que si se ponen todas las cuentas en el registry, Windows no podrá entrar y tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar el registry desde un live cd, en google busca: load hive)
-* Si escondes las cuentas de administrador se le pone un candado muy muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: runas /user:USUARIO_ADMIN “comando”
-* runas /user:admin “userpasswords2″ -> Este comando permite entrar a la edicion de usuarios. Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, hay que sustituir la palabra admin por el usuario que tengamos registrado. Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
-* runas /user:admin “registry” -> Este comando permite entrar al registry y desbloquear alguna cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
-* runas /user:admin “cmd” -> nos abre una ventana de linea de comandos con permisos del usuario “admin” y asi ejecutar otros comandos con ese usuario.
-
-##A4 Instalación de GitHub app
+##A5 Instalación de GitHub app
 * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
-##A5 Modificar apariencia Lubuntu a MAC
+##A6 Modificar apariencia Lubuntu a MAC
 * Primero debemos descargar e instalar las apariencias de las ventanas 
 y demás en el siguiente [enlace](http://sourceforge.net/projects/mac4lin/)
 * Una vez instalado procederemos a activarlas manualmente en el asistente de 
@@ -230,5 +292,4 @@ de personalizacion de barra de tarear llamado Cairo Dock.
 
 * Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos. 
 * Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
-
 
