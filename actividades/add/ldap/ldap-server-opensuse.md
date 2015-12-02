@@ -30,6 +30,11 @@ Vamos a usar una MV OpenSUSE 13.2
 #1. Instalación Servidor LDAP
 Comenzamos la instalación del servidor LDAP:
 * Proceder a la instalación del módulo Yast para ldap (`yast-auth-server`)
+* Asegurarse que tenemos definido en el fichero /etc/hosts, el nombre DNS con su IP correspondiente: 
+    * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
+    * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`.
+
+![ opensuse-host-names.png](./images/ opensuse-host-names.png)
 
 Proceder a la instalación del [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 * Ir a Yast -> Servidor de autenticación.
@@ -37,10 +42,14 @@ Proceder a la instalación del [servidor LDAP](https://es.opensuse.org/Configura
 * Configuración TLS: NO habilitar
 * Usar como DN el siguiente: `dc=nombredealumnoXX, dc=curso1516`.
 Donde XX es el número del puesto de cada uno.
-* Asegurarse que tenemos definido en el fichero /etc/hosts, el nombre DNS con su IP correspondiente: 
-    * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
-    * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`.
+
+![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
+
 * NO habilitar kerberos.
+
+Veamos ejemplo de la configuración final:
+![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
+
 * Una vez instalado, comprobar el servicio `systemctl  start ldap`.
 * Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
 
