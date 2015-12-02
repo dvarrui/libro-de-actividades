@@ -3,23 +3,27 @@
 
 #Servidor LDAP - OpenSUSE
 
-Enlaces de interés:
-* Teoría
-    * [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
-    * [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
-* OpenSUSE
-    * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
-    * [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-    * [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
-* Otros
-    * [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
-    * Min 38: Crear config dir a partir de config text.
-    * [Tool Openfile](http://www.openfiler.com/)
-    * Tool Zentyal
+> Enlaces de interés:
+> * Teoría
+>     * [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
+>     * [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+> * OpenSUSE
+>     * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+>     * [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+>     * [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
+> * Otros
+>     * [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
+>     * Min 38: Crear config dir a partir de config text.
+>     * [Tool Openfile](http://www.openfiler.com/)
+>     * Tool Zentyal
 
 Vamos a usar una MV OpenSUSE 13.2
-* Esta máquina deberá tener una IP fija. Cada alumno dispone de las IP's. 172.16.109.XX, 172.16.109.1XX y 172.16.109.2XX. Donde XX es su número de puesto.
-    Proceder a la instalación del servidor LDAP. Si el paquete "db4.2-util" no estuviera disponible, buscar el paquete "db-util" disponible en los repositorios.
+* IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
+* IP estática del cliente 172.18.XX.52
+
+Comenzamos la instalación del servidor LDAP:
+* Proceder a la instalación del módulo Yast para ldap (`yast-auth-server`)
+* Proceder a la instalación del [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 
 #1. Instalación Servidor LDAP
 Realizar las siguientes tareas:
