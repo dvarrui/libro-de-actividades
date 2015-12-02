@@ -34,7 +34,7 @@ Comenzamos la instalación del servidor LDAP:
     * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
     * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`.
 
-![ opensuse-host-names.png](./images/ opensuse-host-names.png)
+![opensuse-host-names.png](./images/opensuse-host-names.png)
 
 Proceder a la instalación del [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 * Ir a Yast -> Servidor de autenticación.
