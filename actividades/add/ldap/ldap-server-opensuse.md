@@ -62,8 +62,8 @@ Veamos ejemplo de la configuración final:
 Realizar las siguientes tareas:
 * Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 * Crear las unidades organizativas: `grupos` y `usuarios`.
-* Crear dentro de ou=grupos, los grupos de `jedis` y `siths`.
-* Crear dentro de ou=usuarios, varios usuarios `jedi11`, `jedi12`, `sith21`, `sith22`.
+* Crear dentro de ou=grupos, los grupos de `jedis2` y `siths2`.
+* Crear dentro de ou=usuarios, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
 * Usar cliente LDAP desde la máquina local y comprobar que podemos acceder al contenido del servidor LDAP.
 * Usar cliente LDAP desde otra máquina y comprobar que podemos acceder al contenido del servidor LDAP.
 
