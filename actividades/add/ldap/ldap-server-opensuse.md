@@ -18,8 +18,12 @@
 >     * Tool Zentyal
 
 Vamos a usar una MV OpenSUSE 13.2
-* IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
-* IP estática del cliente 172.18.XX.52
+* Servidor LDAP:
+    * IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
+    * Nombre equipo: `ldap-server-XX`
+* Cliente LDAP:    
+    * IP estática del cliente 172.18.XX.52
+    * Nombre equipo: `ldap-client-XX`
 
 Comenzamos la instalación del servidor LDAP:
 * Proceder a la instalación del módulo Yast para ldap (`yast-auth-server`)
