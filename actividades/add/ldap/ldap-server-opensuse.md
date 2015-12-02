@@ -50,7 +50,7 @@ Donde XX es el número del puesto de cada uno.
 Veamos ejemplo de la configuración final:
 ![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
 
-* Una vez instalado, comprobar el servicio `systemctl  start ldapd`.
+* Una vez instalado, comprobar el servicio `systemctl  status ldapd`.
 * Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
 
 #2. Introducir datos en LDAP
