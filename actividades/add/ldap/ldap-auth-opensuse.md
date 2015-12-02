@@ -18,25 +18,27 @@ LDAP. Una especie de *Domain Controller*.
 
 ##1. Preparativos
 Vamos a usar dos MV con GNU/Linux OpenSUSE 13.2
-* Servidor LDAP:
-    * IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
-    * Nombre equipo: `ldap-server-XX`
-    * Dominio: `curso1516`
-    * Asegurarse que tenemos definido en el fichero `/etc/hosts` del servidor, el nombre DNS con su IP correspondiente: 
-        * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
-        * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`. 
-    * Instalar servidor SSH.
-    * Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
-* Cliente LDAP:    
-    * IP estática del cliente 172.18.XX.52
-    * Nombre equipo: `ldap-client-XX`
-    * Dominio: `curso1516`
-    * Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, 
+
+Servidor LDAP:
+* IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
+* Nombre equipo: `ldap-server-XX`
+* Dominio: `curso1516`
+* Asegurarse que tenemos definido en el fichero `/etc/hosts` del servidor, el nombre DNS con su IP correspondiente: 
+    * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
+    * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`. 
+* Instalar servidor SSH.
+* Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
+
+Cliente LDAP:    
+* IP estática del cliente 172.18.XX.52
+* Nombre equipo: `ldap-client-XX`
+* Dominio: `curso1516`
+* Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, 
 el nombre DNS con su IP correspondiente: 
-        * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
-        * `ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX`.
-    * Instalar servidor SSH.
-    * Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
+    * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
+    * `ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX`.
+* Instalar servidor SSH.
+* Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
 
 ##2. Configurar cliente
 * Consultar enlace sobre [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
