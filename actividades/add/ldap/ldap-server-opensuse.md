@@ -21,10 +21,11 @@ Vamos a usar una MV OpenSUSE 13.2
 * Servidor LDAP:
     * IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
     * Nombre equipo: `ldap-server-XX`
+    * Dominio: `curso1516`
 * Cliente LDAP:    
     * IP estática del cliente 172.18.XX.52
     * Nombre equipo: `ldap-client-XX`
-
+    * Dominio: `curso1516`
 
 #1. Instalación Servidor LDAP
 Comenzamos la instalación del servidor LDAP:
@@ -34,19 +35,20 @@ Proceder a la instalación del [servidor LDAP](https://es.opensuse.org/Configura
 * Ir a Yast -> Servidor de autenticación.
 * Tipo de servidor: autónomo
 * Configuración TLS: NO habilitar
-* Configurar el servidor LDAP, usando como DN el siguiente: `dc=nombredealumnoXX, dc=curso1516`.
+* Usar como DN el siguiente: `dc=nombredealumnoXX, dc=curso1516`.
 Donde XX es el número del puesto de cada uno.
-* Asegurarse que tenemos definido el nombre DNS de la máquina `nombredealumnoXX.curso1516` y
-`nombrealumnoXX`,  en el fichero /etc/hosts con su IP correspondiente.
-* Una vez instalado, comprobar a parar y reiniciar el servicio de forma manual. En OpenSUSE usaremos
-el comando `systemctl status ldap`, `systemctl stop ldap`, `systemctl  start ldap`.
+* Asegurarse que tenemos definido en el fichero /etc/hosts, el nombre DNS con su IP correspondiente: 
+    * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
+    * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`.
+* NO habilitar kerberos.
+* Una vez instalado, comprobar el servicio `systemctl  start ldap`.
 * Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
-* Instalar alguna de las herramientas cliente LDAP de OpenSUSE con Yast.
-
-> Mediante el cliente LDAP podremos escribir y/o consultar información en la base de datos LDAP.
 
 #2. Introducir datos en LDAP
 
+* Instalar alguna de las herramientas cliente LDAP de OpenSUSE con Yast.
+
+> Mediante el cliente LDAP podremos escribir y/o consultar información en la base de datos LDAP.
 
 Realizar las siguientes tareas:
 * Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
