@@ -148,20 +148,11 @@ Dentro de cada fila los campos se separan por 2 punto.
 El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuario.
 
 * Editamos el fichero de claves: `nano /mnt/etc/shadow`
-* Quitar la clave encriptada para los usuarios `jedi2` y `sith2`.
-Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos sin clave.
+* Cambiar la clave encriptada de los usuarios `jedi2` y `sith2` por otra que conozcamos.
+(La clave encriptada es el campo 2).
+* Grabamos el fichero. Con esto dejamos los usuarios con una clave conocida por nosotros.
 * Reiniciar la MV sin el CDLIVE de Knoppix.
-* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2` sin clave.
-
->**Poner clave de otro usuario**
->
-> Otra opción es poner la clave de otro usuario que conozcamos.
->
-> Por ejemplo consultar `/etc/shadow` de otro sistema que hayamos instalado nosotros, 
-buscar una clave que conozcamos y copiar dicho valor, por ejemplo, en el usuario `root` y 
-`jedi1` del fichero `/mnt/etc/shadow` de la máquina donde queremos acceder.
->
-> Reiniciamos el equipo y comprobamos.
+* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2`.
 
 ##2.3 Desactivar el inicio gráfico
 
@@ -212,6 +203,10 @@ Realizar las siguientes tareas
 * Comprobar que la aplicación se instaló y funciona correctamente.
 
 #ANEXO
+
+##A0: Desktop managet kdm
+* Buscar aplicación kdm por entorno gráfico.
+* Configurar usuarios excluidos de la ventana de inicio.
 
 ##A1:Desktop Manager lxdm
 Es el gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. 

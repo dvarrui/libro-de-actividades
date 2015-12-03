@@ -54,21 +54,18 @@ Veamos ejemplo de la configuración final:
 * Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
 
 #2. Introducir datos en LDAP
-Mediante el cliente LDAP podremos escribir y/o consultar información en la base de datos LDAP.
+Mediante el un browser LDAP podremos escribir y/o consultar información en la base de datos LDAP.
 
-Realizar las siguientes tareas:
-* Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente, 
 el nombre DNS con su IP correspondiente: 
     * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
     * `ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX`.
+* Instalar alguna de las herramientas browser LDAP de OpenSUSE con Yast, com o por ejemplo `gq`.
 
-* Instalar alguna de las herramientas cliente LDAP de OpenSUSE con Yast para poblar el árbol.
-Consultar [enlace](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
-* Crear las unidades organizativas: `groups` y `people` con indica 
-el [enlace](https://es.opensuse.org/Configurar_LDAP_usando_YaST).
+> Comprobar que ya tenemos las unidades organizativas: `groups` y `people`
+
 * Crear dentro de ou=grupos, los grupos de `jedis2` y `siths2`.
-* Crear dentro de ou=usuarios, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
+* Crear dentro de ou=people, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
 * Usar cliente LDAP desde la máquina cliente, y comprobar que podemos acceder al contenido del servidor LDAP.
 
 Vemos un ejemplo de un árbol de datos en LDAP:
@@ -76,3 +73,8 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 ![arbol](./images/arbol.png)
 
 * Guarda estas MVs porque las vamos a necesitar para la pŕoxima práctica.
+
+
+#ANEXO
+
+* Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
