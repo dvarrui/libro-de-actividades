@@ -168,24 +168,28 @@ buscar una clave que conozcamos y copiar dicho valor, por ejemplo, en el usuario
 [Ocultar usuarios en el inicio de sesión OpenSUSE con lightdm](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-login-screen)
 
 Además vamos a desactivar el inicio gráfico. Veamos unos ejemplos:
-* Desactivar inicio gráfico si tenemos Lightdm:
+* (A) Desactivar inicio gráfico en SO con Lightdm:
     * nano /etc/init/lightdm.conf
     * Poner almohadillas (#) en todas las líneas de la acción start...
     * Grabar fichero y reiniciar el equipo.
-* Desactivar inicio gráfico en GNOME:
+* (B) Desactivar inicio gráfico en SO con escritorio GNOME y servicios SystemV:
     * mkdir /etc/rc2.d/DISABLED
     * mv /etc/rc2.d/S19gdm3 /etc/rc2.d/DISABLED
     * reboot
+
+> Para dejarlo como al principio haremos: `mv /etc/rc2.d/DISABLED/S19gdm3 /etc/rc2.d/S19gdm3`
+
 * El sistema iniciará sin entorno gráfico. Una vez dentro para iniciar 
 entorno gráfico manuamente usaremos el comando: `startx`
-* Para dejarlo como al principio haremos: `mv /etc/rc2.d/DISABLED/S19gdm3 /etc/rc2.d/S19gdm3`
 
 ##2.4 Modificar la apariencia
 * Entrar al sistema con el usuario `jedi1`.
+
 > Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo en WXP o Windows7 
 según queramos. Elegir sólo UNA opción.
 >
 > Podemos encontrar algún script en recursos del servidor del departamento, o buscando por Internet.
+
 * Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
 * Reiniciar el sistema y comprobar el resultado.
 
@@ -203,8 +207,9 @@ Realizar las siguientes tareas:
 
 ##2.6 Emulación
 Realizar las siguientes tareas
-* Instalar el emulador de Windows (`wine`)
-* Instalar un programa de Windows. Usar el instalador de Windows.
+* Instalar el emulador de Windows (`wine`).
+* Instalar un programa específico de Windows. Usar el instalador de Windows en GNU/Linux.
+* Comprobar que la aplicación se instaló y funciona correctamente.
 
 #ANEXO
 
