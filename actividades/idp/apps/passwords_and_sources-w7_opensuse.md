@@ -129,7 +129,10 @@ para que puedan obtener privilegios administrativos.
     * jedi2: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
-* Para ver las particiones disponibles `fdisk -l`.
+* Usar el comando `fdisk -l` para ver las particiones MBR disponibles.
+
+> Usar el comando `gdisk` para ver las particiones GPT
+
 * Montar la partición del disco duro que corresponda al SO GNU/Linux, y ver el contenido. Ver ejemplo:
 ```
 (En lugar de X poner el número de la partición donde está instalado el SO.)
