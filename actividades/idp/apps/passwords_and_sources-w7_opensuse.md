@@ -147,7 +147,7 @@ ls
 Dentro de cada fila los campos se separan por 2 punto. 
 El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuario.
 
-* Editamos el fichero de claves: `nano /mnt/shadow`
+* Editamos el fichero de claves: `nano /mnt/etc/shadow`
 * Quitar la clave encriptada para los usuarios `jedi2` y `sith2`.
 Dejar el campo 2 vacío (sin espacios) y grabar el fichero. Con esto los dejamos sin clave.
 * Reiniciar la MV sin el CDLIVE de Knoppix.
