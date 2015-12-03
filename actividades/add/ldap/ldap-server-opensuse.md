@@ -56,6 +56,9 @@ Veamos ejemplo de la configuración final:
 #2. Introducir datos en LDAP
 Mediante el un browser LDAP podremos escribir y/o consultar información en la base de datos LDAP.
 
+**Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)**
+a partir de la sección *Poblado del Árbol LDAP*.
+
 * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente, 
 el nombre DNS con su IP correspondiente: 
     * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
