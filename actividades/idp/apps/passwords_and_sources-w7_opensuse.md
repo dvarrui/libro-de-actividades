@@ -138,7 +138,7 @@ cd /mnt
 pdw
 ls
 ```    
-* Copia de seguridad del fichero de claves: `cp /mnt/shadow /mnt/shadow.000`.
+* Copia de seguridad del fichero de claves: `cp /mnt/etc/shadow /mnt/etc/shadow.bak`.
 
 > El fichero shadow tiene una fila por cada usuarios. 
 Dentro de cada fila los campos se separan por 2 punto. 
