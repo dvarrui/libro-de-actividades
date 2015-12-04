@@ -1,9 +1,6 @@
 
 *(Actividad nueva para e curso 2015-2016)*
 
-#Servidor LDAP - OpenSUSE
-
-
 > Enlaces de interés:
 > * Teoría
 >     * [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
@@ -17,6 +14,8 @@
 >     * Consultar documento `ldap-auth-pminik-taller.pdf`, página 20.
 >     * [Autenticación con OpenLDAP web ite](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
 >     * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
+
+#Servidor LDAP - OpenSUSE
 
 ##1.1 Preparar la máquina
 Comenzamos la instalación del servidor LDAP:
