@@ -29,7 +29,8 @@ Comenzamos la instalación del servidor LDAP:
 127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX
 127.0.0.3   nombrealumnoXX.curso1516  nombrealumnoXX
 ```
-    ![opensuse-host-names.png](./images/opensuse-host-names.png)
+
+![opensuse-host-names.png](./images/opensuse-host-names.png)
 
 ##1.2 Instalación del Servidor LDAP
 
@@ -40,7 +41,8 @@ de la siguiente forma:
    * Tipo de servidor: autónomo
    * Configuración TLS: NO habilitar
    * Usar como DN el siguiente: `dc=nombredealumnoXX, dc=curso1516`. Donde XX es el número del puesto de cada uno.
-   ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
+
+![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
 
    * NO habilitar kerberos.
 * Veamos ejemplo de la configuración final:
@@ -62,8 +64,6 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 
 * Mediante el un browser LDAP (`gq`) podemos escribir y/o consultar información en la base de datos LDAP.
 
-
-
 #2. Otro equipo
 
 ##2.1 Preparativos
@@ -83,7 +83,6 @@ a partir de la sección *Poblado del Árbol LDAP*.
 * Usar cliente LDAP desde la máquina cliente, y comprobar que podemos acceder al contenido del servidor LDAP.
 
 * Instalar alguna de las herramientas browser LDAP de OpenSUSE con Yast, com o por ejemplo `gq`.
-
 
 
 #ANEXO
