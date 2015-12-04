@@ -3,24 +3,26 @@
 
 #Servidor LDAP - OpenSUSE
 
+
 > Enlaces de interés:
 > * Teoría
 >     * [Presentación: ¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 >     * [Presentación: Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 > * OpenSUSE
 >     * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+>     * VIDEO [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
 >     * [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
->     * [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
 > * Otros
->     * [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8)
->     * Min 38: Crear config dir a partir de config text.
->     * [Tool Openfile](http://www.openfiler.com/)
->     * Tool Zentyal
+>     * VIDEO [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8) Min 38: Crear config dir a partir de config text.
+>     * Consultar documento `ldap-auth-pminik-taller.pdf`, página 20.
+>     * [Autenticación con OpenLDAP web ite](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
+>     * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 ##1.1 Preparar la máquina
 Comenzamos la instalación del servidor LDAP:
 * Vamos a usar una MV para montar nuestro servidor LDAP con:
     * SO OpenSUSE 13.2
+    * Instalar servidor SSH.
     * IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
     * Nombre equipo: `ldap-serverXX`
     * Dominio: `curso1516`
@@ -29,6 +31,9 @@ Comenzamos la instalación del servidor LDAP:
 127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX
 127.0.0.3   nombrealumnoXX.curso1516  nombrealumnoXX
 ```
+* Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
+
+Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
@@ -45,15 +50,22 @@ de la siguiente forma:
 ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
 
    * NO habilitar kerberos.
-* Veamos ejemplo de la configuración final:
+   
+Veamos ejemplo de la configuración final:
+
 ![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
+
 * Una vez instalado, comprobar el servicio `systemctl  status slapd`. 
 Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
- 
-##1.3. Poblado del Árbol
-Ahora vamos a introducir datos de usuarios y grupos en el servidor LDAP
-* Comprobar que ya tenemos las unidades organizativas: `groups` y `people`. 
-Han sido creadas automáticamente por Yast.
+* Continuar los pasos del enlace hasta el final, donde se puede comprobar el contenido
+de la base de datos LDAP usando la herramienta `gq`. Esta herramienta es un browser LDAP.
+
+##1.3. Crear usuarios y grupos en LDAP
+Ahora vamos a [introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+en el servidor LDAP siguiendo los pasos indicados en el enlace, pero personalizado la información de la siguiente
+forma:
+* Comprobar que ya tenemos las unidades organizativas: `groups` y `people`. Han sido creadas 
+automáticamente por Yast en el paso anterior.
 * Crear dentro de `ou=grupos`, los grupos de `jedis2` y `siths2`.
 * Crear dentro de `ou=people`, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
 
@@ -61,86 +73,42 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 
 ![arbol](./images/arbol.png)
 
+* Comprobar mediante un browser LDAP (`gq`) la información que tenemos en la base de datos LDAP.
 
-* Mediante el un browser LDAP (`gq`) podemos escribir y/o consultar información en la base de datos LDAP.
-
-#2. Otro equipo
-
-##2.1 Preparativos
-
-* Cliente LDAP:    
-    * IP estática del cliente 172.18.XX.52
-    * Nombre equipo: `ldap-client-XX`
-    * Dominio: `curso1516`
-* Asegurarse que tenemos definido en el fichero /etc/hosts del cliente, 
-el nombre DNS con su IP correspondiente: 
-    * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
-    * `ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX`.
-
-
-**Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)**
-a partir de la sección *Poblado del Árbol LDAP*.
-* Usar cliente LDAP desde la máquina cliente, y comprobar que podemos acceder al contenido del servidor LDAP.
-
-* Instalar alguna de las herramientas browser LDAP de OpenSUSE con Yast, com o por ejemplo `gq`.
-
-
-#ANEXO
-
-* Consultar Vídeo [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
-
-*(Práctica nueva del curso 2015-2016)*
-
-#Autenticación LDAP
+##1.4. Autenticación
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
 donde se guardará la información de grupos, usuarios, claves, etc. Y desde
 otras máquinas conseguiremos autenticarnos (entrar al sistema) con los 
 usuarios definidos no en la máquina local, sino en la máquina remota con
 LDAP. Una especie de *Domain Controller*.
 
-> *Enlaces de interés*
-> * [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-> * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
->
-> Otros
-> * Consultar documento `ldap-auth-pminik-taller.pdf`, página 20.
-> * Enlaces de interés [Autenticación con OpenLDAP](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
+* Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-serverXX` usando los usuarios
+definidos en el LDAP.
 
-##1. Preparativos
-Vamos a usar dos MV con GNU/Linux OpenSUSE 13.2
-
-Servidor LDAP:
-* IP estática del servidor 172.18.XX.51 (Donde XX es su número de puesto).
-* Nombre equipo: `ldap-server-XX`
-* Dominio: `curso1516`
-* Asegurarse que tenemos definido en el fichero `/etc/hosts` del servidor, el nombre DNS con su IP correspondiente: 
-    * `127.0.0.2   ldap-serverXX.curso1516   ldap-serverXX`.
-    * `127.0.0.3   nombredealumnoXX.curso1516   nombrealumnoXX`. 
-* Instalar servidor SSH.
-* Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
-
-Cliente LDAP:    
-* IP estática del cliente 172.18.XX.52
-* Nombre equipo: `ldap-client-XX`
-* Dominio: `curso1516`
-* Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, 
+#2. Otro equipo
+Ahora que tenemos una máquina con la información cargada en LDAP, vamos a tratar de hacer uso
+de ella desde otra máquina distinta.
+ 
+##2.1 Preparativos
+* Slave LDAP:    
+    * IP estática del esclavo 172.18.XX.52
+    * Nombre equipo: `ldap-slaveXX`
+    * Dominio: `curso1516`
+    * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente, 
 el nombre DNS con su IP correspondiente: 
-    * `127.0.0.2         ldap-clientXX.curso1516   ldap-clientXX`.
-    * `ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX`.
-* Instalar servidor SSH.
+```
+127.0.0.2         ldap-slaveXX.curso1516   ldap-slaveXX
+ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX
+```
 * Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
 
-##2. Configurar cliente
-* Consultar enlace sobre [Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-* Configurar la MV cliente para usar usuarios locales y usuarios del servidor LDAP.
-* Añadir más usuarios LDAP. Como por ejemplo: `jedi31`, `jedi32`, `sith31` y `sith32`.
-* Añadir los grupos LDAP. Como por ejemplo:  `jedis3` y `siths3`.
-
-##3. Comprobaciones
-Vamos a comprobar que con los usuarios definidos en el LDAP se puede entrar a la MV cliente.
-
-* Entrar en `.ldap-clientXX`, con `jedi21` y `sith31` y ejecutar los comandos siguientes
-capturando su salida:
+##2.2 Configuración
+* Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+para crear e grupo LDAP `troopers` y dentro de éste los usuarios `trooper21` y `trooper22`.
+* Usar la heeramienta `gq` para comprobar los datos del servidor LDAP.
+* Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-slaveXX` usando los usuarios
+definidos en el LDAP remoto.
+* Capturar imagen de la salida de los siguientes comandos:
 ```
 id (Muestra información del usuario actual)
 cat /etc/passwd |grep nombre-usuario (No debe existir este usuario en la MV local)
@@ -150,4 +118,6 @@ hostname -f (Muestra nombre de la MV actual)
 ip a (Muestra datos de red de la MV actual)
 date (Muestra la fecha actual)
 ```
+
+#ANEXO
 
