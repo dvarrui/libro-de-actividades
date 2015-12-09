@@ -37,8 +37,8 @@ Veamos imagen de ejemplo:
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
 ##1.2 Instalación del Servidor LDAP
-
-* Procedemos a la instalación del módulo Yast para gestionar el servidor LDAP (`yast2-auth-server`)
+* Procedemos a la instalación del módulo Yast para gestionar el servidor LDAP (`yast2-auth-server`).
+En Yast aparecerá como `Authentication Server`.
 * Apartir de aquí seguimos los pasos indicados en [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 de la siguiente forma:
    * Ir a Yast -> Servidor de autenticación.
@@ -66,12 +66,13 @@ en el servidor LDAP siguiendo los pasos indicados en el enlace, pero personaliza
 forma:
 
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación.
+En Yast aparecerá como `Authentication Client`.
 
 > Las unidades organizativas: `groups` y `people`. Han sido creadas 
 automáticamente por Yast en el paso anterior.
 
-* Crear dentro de `ou=grupos`, los grupos de `jedis2` y `siths2`.
-* Crear dentro de `ou=people`, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
+* Crear los grupos `jedis2` y `siths2` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `jedi21`, `jedi22`, `sith21`, `sith22` (Estos se crearán dentro de la `ou=people`).
 
 Vemos un ejemplo de un árbol de datos en LDAP:
 
