@@ -58,13 +58,18 @@ Veamos ejemplo de la configuración final:
 Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
 * Continuar los pasos del enlace hasta el final, donde se puede comprobar el contenido
 de la base de datos LDAP usando la herramienta `gq`. Esta herramienta es un browser LDAP.
+* Comprobar que ya tenemos las unidades organizativas: `groups` y `people`.
 
 ##1.3. Crear usuarios y grupos en LDAP
 Ahora vamos a [introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 en el servidor LDAP siguiendo los pasos indicados en el enlace, pero personalizado la información de la siguiente
 forma:
-* Comprobar que ya tenemos las unidades organizativas: `groups` y `people`. Han sido creadas 
+
+* Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación.
+
+> Las unidades organizativas: `groups` y `people`. Han sido creadas 
 automáticamente por Yast en el paso anterior.
+
 * Crear dentro de `ou=grupos`, los grupos de `jedis2` y `siths2`.
 * Crear dentro de `ou=people`, varios usuarios `jedi21`, `jedi22`, `sith21`, `sith22`.
 
