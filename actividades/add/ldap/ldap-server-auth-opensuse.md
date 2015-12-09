@@ -38,7 +38,7 @@ Veamos imagen de ejemplo:
 
 ##1.2 Instalación del Servidor LDAP
 
-* Procedemos a la instalación del módulo Yast para gestionar el servidor LDAP (`yast-auth-server`)
+* Procedemos a la instalación del módulo Yast para gestionar el servidor LDAP (`yast2-auth-server`)
 * Apartir de aquí seguimos los pasos indicados en [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 de la siguiente forma:
    * Ir a Yast -> Servidor de autenticación.
@@ -117,6 +117,3 @@ hostname -f (Muestra nombre de la MV actual)
 ip a (Muestra datos de red de la MV actual)
 date (Muestra la fecha actual)
 ```
-
-#ANEXO
-
