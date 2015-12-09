@@ -68,7 +68,9 @@ forma:
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación.
 En Yast aparecerá como `Authentication Client`.
 
-> Las unidades organizativas: `groups` y `people`. Han sido creadas 
+> * El parámetro LDAP URI es un localizador del recurso de la base de datos LDAP. 
+Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1516`.
+> * Las unidades organizativas: `groups` y `people`. Han sido creadas 
 automáticamente por Yast en el paso anterior.
 
 * Crear los grupos `jedis2` y `siths2` (Estos se crearán dentro de la `ou=groups`).
