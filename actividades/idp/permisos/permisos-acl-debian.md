@@ -1,11 +1,10 @@
 
-#Listas de Control de Acceso
+#1. Teoría sobre las ACL
 
-#1. Introducción a las ACL
+##1.1 Introducción
 
-##Instalación
-
-Las ACL son listas de control de accesos. Esto es otra forma de añadir permisos con detalle más fino.
+Las ACL son listas de control de accesos. Esto es otra forma de añadir permisos con otro nivel de 
+detalle similar al empleado en los Routers Cisco y en el sistema de ficheros NTFS
 
 En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los comandos: getfacl y setfacl. 
 Con getfacl consultamos las ACL y con setfacl las modificamos.
@@ -28,8 +27,8 @@ Con getfacl consultamos las ACL y con setfacl las modificamos.
 > other::r-x
 > ```
 
-##Activación manual
-ACL añade más detalle al sistema clásico. 
+##1.2 Ejemplo de activación manual
+ACL añade más detalle al sistema clásico de permisos. 
 Para poder usar el comando setfacl, los ficheros deben estar en un sistema de ficheros 
 montado con la opción acl.
 
@@ -60,7 +59,7 @@ A continuación probamos el comando setfacl con éxito, añadiendo permiso de le
 
 * Comprobamos que el resultado es el que esperábamos, ejecutando nuevamente getfacl.
 
-##Activacion automática
+##1.3 Ejemplo de Activación automática
 Para activar las ACL en la partición que queramos debemos modificar 
 el fichero /etc/fstab y luego reiniciar el equipo. Este fichero define que 
 particiones serán montadas automáticamente al iniciar el sistema, y con 
