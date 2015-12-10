@@ -156,22 +156,18 @@ El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuar
 
 ##2.3 Desactivar el inicio gráfico
 
-[Ocultar usuarios en el inicio de sesión OpenSUSE con lightdm](http://askubuntu.com/questions/92349/how-do-i-hide-a-particular-user-from-the-login-screen)
+* Ir a `Yast -> Administración de Servicios`
+* Cambiar `Default system target` de `Graphical Interface` a `Multi-User System`
+* Reiniciar
+* Entramos en el sistema sin entorno gráfico.
+* Ejecutamos `yast`
 
-Además vamos a desactivar el inicio gráfico. Veamos unos ejemplos:
-* (A) Desactivar inicio gráfico en SO con Lightdm:
-    * nano /etc/init/lightdm.conf
-    * Poner almohadillas (#) en todas las líneas de la acción start...
-    * Grabar fichero y reiniciar el equipo.
-* (B) Desactivar inicio gráfico en SO con escritorio GNOME y servicios SystemV:
-    * mkdir /etc/rc2.d/DISABLED
-    * mv /etc/rc2.d/S19gdm3 /etc/rc2.d/DISABLED
-    * reboot
+> Usaremos:
+> * la tecla tabulador para movernos por los campos, y 
+> * la tecla enter para entrar/aceptar opciones
 
-> Para dejarlo como al principio haremos: `mv /etc/rc2.d/DISABLED/S19gdm3 /etc/rc2.d/S19gdm3`
-
-* El sistema iniciará sin entorno gráfico. Una vez dentro para iniciar 
-entorno gráfico manuamente usaremos el comando: `startx`
+* Vamos a `Sistema -> Administrador de Servicios`
+* Cambiamos `Default System target` a `Graphical Interface`.
 
 ##2.4 Modificar la apariencia
 * Entrar al sistema con el usuario `jedi1`.
