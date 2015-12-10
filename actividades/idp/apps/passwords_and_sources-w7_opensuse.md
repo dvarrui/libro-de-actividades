@@ -184,11 +184,12 @@ según queramos. Elegir sólo UNA opción.
 Realizar las siguientes tareas:
 * Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
     * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
+    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
+    * http://www.valarsoft.com/
     * http://goonies.jorito.net/ (SO recomendado Debian7)
     * http://www.gameover.es/juegos-gratis/
-    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
-    * Si elijen otro programa deben consultarlo con el profesor.
-    * Geany código fuente.
+    * Si elijen otro programa deben consultarlo con el profesor. Por ejemplo Geany.
+    El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
 
