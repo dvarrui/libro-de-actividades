@@ -1,4 +1,4 @@
-(En construcción)
+*(Utilizado en el curso 2015-16)*
 
 #NFS (Network File System)
 
@@ -39,16 +39,16 @@ Instalación del servicio NFS en Windows 2008 Server
 * Marcar `Servicio para NFS`.
 
 Configurar el servidor NFS de la siguiente forma:
-* Crear la carpeta `c:\export\public`. Picar en la carpeta `botón derecho 
+* Crear la carpeta `c:\exportXX\public`. Picar en la carpeta `botón derecho 
 propiedades -> Compartir NFS`, y configurarla para que sea accesible desde 
-la red en modo lectura/escritura con NFS
-* Crear la carpeta `c:\export\private`. Picar en la carpeta `botón derecho 
+la red en modo lectura/escritura con NFS.
+* Crear la carpeta `c:\exportXX\private`. Picar en la carpeta `botón derecho 
 propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red 
 sólo en modo sólo lectura.
 
 ![nfs-windows-servidor1](./images/nfs-windows-servidor1.png)
 
-* Ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
+* Ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos exportados.
 
 ##1.2 Cliente NFS
 
@@ -77,9 +77,7 @@ Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 * Esto no lo hacemos con Administrador, sino con nuestro usuario normal.
 * Consultar desde el cliente los recursos que ofrece el servidor: `showmount -e ip-del-servidor`
 * Montar recurso remoto: `mount –o anon,nolock,r,casesensitive \\ip-del-servidor\Nombre-recurso-NFS *`
-* Comprobar en el cliente los recursos montados: `net use`
-* Comprobar desde el cliente: `showmount -a ip-del-servidor`
-* En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
+* Comprobar en el cliente los recursos montados con `net use` y `showmount -a ip-del-servidor`
     
 > **EXPLICACIÓN DE LOS PARÁMETROS**
 >
@@ -136,16 +134,16 @@ añadiendo estas líneas:
 
 * Instalar servidor NFS por Yast.
 * Crear las siguientes carpetas/permisos:
-    * `/var/export/public`, usuario y grupo propietario `nobody:nogroup`
-    * `/var/export/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
+    * `/var/exportXX/public`, usuario y grupo propietario `nobody:nogroup`
+    * `/var/exportXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
 * Vamos configurar el servidor NFS de la siguiente forma:
-    * La carpeta `/var/export/public`, será accesible desde toda la red en modo lectura/escritura.
-    * La carpeta `/var/export/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
+    * La carpeta `/var/exportXX/public`, será accesible desde toda la red en modo lectura/escritura.
+    * La carpeta `/var/exportXX/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
 ```
     ...
-    /var/export/public *(rw,sync,subtree_check)
-    /var/export/private ip-del-cliente/32(ro,sync,subtree_check)
+    /var/exportXX/public *(rw,sync,subtree_check)
+    /var/exportXX/private ip-del-cliente/32(ro,sync,subtree_check)
     ...
 ```
 
@@ -184,9 +182,8 @@ En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con 
 > Para comprobar si el recurso está montado usaremos: `df -hT` o `mount`.
 >
 
-* Ahora podemos crear carpetas/ficheros dentro del recurso public, 
-pero sólo podremos leer lo que aparezca en private. Comprobarlo.
-
+* Ahora vamos a crear carpetas/ficheros dentro del recurso public.
+* Comprobar que el recurso private es de sólo lectura.
 
 ##2.3. Montaje automático
 > Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
