@@ -1,22 +1,25 @@
 
 ![win](./escritorioremotowin.jpeg)
 
-# Introducción
-Vamos a trabajar la actividad con los siguientes SSOO:
-* Windows7
-* Windows 2008 Server
-* GNU/Linux Debian7.
-
+#0. Introducción
 Entrega:
 * Al finalizar entregar URL con la ruta al/los archivo/s dentro del repositorio del alumno.
 * Al terminar la práctica etiquetaremos la entrega en el repositorio Git con `vnc`.
 
-Configuración de las máquinas virtuales:
+##0.1 Configuración de las máquinas virtuales
 * Poner en las MV la configuración de red en modo puente.
-* Las máquinas que actuen de servidor o aquellas a las que nos vamos a conectar de forma repetida deben tener IP estática.
-    * IP Windows7 172.18.XX.12
-    * IP W2k8 172.18.XX.22
-    * IP Debian7 172.18.XX.32
+* MV Windows 7
+    * IP 172.18.XX.12
+    * Nombre de equipo: 1er-apellido-alumno+XX+WC"
+* MV Windows 2008 Server
+    * IP 172.18.XX.22
+    * Nombre de equipo: 1er-apellido-alumno+XX+WS"
+* MV Debian7 Server
+    * IP 172.18.XX.32
+    * Nombre de equipo: 1er-apellido-alumno+XX+DS"
+* MV Debian7 Client
+    * IP 172.18.XX.33
+    * Nombre de equipo: 1er-apellido-alumno+XX+DC"
 
 # 1. Escritorio remoto con VNC
 * Leer la documentación sobre conexiones VNC.
@@ -48,8 +51,6 @@ Realizar las siguientes tareas:
 
 * Leer la documentación sobre escritorio remoto.
 * En Windows no hay que instalar nada, puesto que ya viene con el software de escritorio remoto RDP preinstalado.
-
-
 * Capturar imagen de la configuración escritorio remoto para poder acceder a otra máquina 
 (`Panel de control -> Sistema -> Configuración de Acceso Remoto`).
 * Capturar imagenes probando las conexiones remotas, y ejecutando el 
@@ -109,6 +110,7 @@ las conexiones remotas:
 > * [Vídeo de Youtube] (https://www.youtube.com/watch?v=Z_UeSGRqcG0)
 
 #4. Aplicaciones remotas mediante RemoteApp
+
 Realizar las siguientes tareas sólo con servidor Windows 2008 server y cliente Windows 7:
 * Leer la documentación PDF proporcionada por el profesor sobre aplicaciones remotas (Consultar documentación de servidor de terminales).
 * Instalar una aplicación en Windows Server que no esté en Windows7, por ejemplo Geany.
