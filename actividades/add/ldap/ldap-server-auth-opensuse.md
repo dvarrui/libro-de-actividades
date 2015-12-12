@@ -125,3 +125,20 @@ hostname -f (Muestra nombre de la MV actual)
 ip a (Muestra datos de red de la MV actual)
 date (Muestra la fecha actual)
 ```
+
+#A1. ANEXO
+
+Podemos tener un problema con las claves si el método de encriptación de las claves
+del sistema operativo es diferente al utilizado en el servidor LDAP.
+
+##A2. Cambiar el método de encriptación en el SO
+
+Veamos ejemplo donde se establece el método de encriptación durante la instalación del SO.
+
+![opensuse-password-encryption-method.png](./images/opensuse-password-encryption-method.png)
+
+Veamos otro ejemplo donde podemos cambiar el método de encriptación de claves con el SO
+ya instalado, usando Yast.
+
+![opensuse-yast-password-encryption-method.png](./images/opensuse-yast-password-encryption-method.png)
+
