@@ -131,7 +131,7 @@ date (Muestra la fecha actual)
 Podemos tener un problema con las claves si el método de encriptación de las claves
 del sistema operativo es diferente al utilizado en el servidor LDAP.
 
-##A2. Cambiar el método de encriptación en el SO
+##A1.2. Cambiar el método de encriptación en el SO
 
 Veamos ejemplo donde se establece el método de encriptación durante la instalación del SO.
 
@@ -142,3 +142,6 @@ ya instalado, usando Yast.
 
 ![opensuse-yast-password-encryption-method.png](./images/opensuse-yast-password-encryption-method.png)
 
+##A1.3. Cambiar el método de encriptación en la base de datos LDAP
+
+*(Pendiente)* 
