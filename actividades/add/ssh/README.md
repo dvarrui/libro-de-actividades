@@ -207,7 +207,7 @@ fi
 alias c='clear'
 alias g='geany'
 alias p='ping'
-alias v='vdir -cFl
+alias v='vdir -cFl' 
 alias s='ssh'
 ```
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
