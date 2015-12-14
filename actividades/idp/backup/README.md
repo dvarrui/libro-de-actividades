@@ -32,9 +32,9 @@ Capturar imágenes de las configuraciones.
 >**NOTA:**
 >
 > * En el caso de trabajar con WXP podremos hacer la copia de seguridad directamente en 
-una carpeta `c:\backup\nombre-del-alumno` dentro de la propia máquina.
+una carpeta `c:\backup-XX` dentro de la propia máquina.
 > * En el caso de Windows7/Window2008server, se nos obliga a que la copia de seguridad se 
-realice en un almacenamiento externo. Para ello podemos crear la carpeta `c:\backup\nombre-del-alumno`, 
+realice en un almacenamiento externo. Para ello podemos crear la carpeta `c:\backup-XX`, 
 y la definimos accesible por la red. Permisos de la carpeta compartida lectura/escritura para 
 el usuario que vamos a usar en el acceso por red. ¡OJO la carpeta compartida por red puede 
 estar en la misma máquina!
@@ -46,26 +46,29 @@ Podemos limpiar estos datos ejecutando el comando `net use /d *`.
 
 ##1.2 Configuración GNU/Linux
 Configurar el equipo con:
-* IP: 172.16.109.XX (Donde XX corresponde al nº de cada puesto).
+* IP: 172.19.XX.51 (Donde XX corresponde al nº de cada puesto).
 * Máscara de red: 255.255.0.0
-* Gateway: 172.16.1.1
-* Servidor DNS: 172.16.1.1
-* Nombre de equipo: primer-apellido-del-alumno.
+* Gateway: 172.19.0.1
+* Servidor DNS: 8.8.4.4
+* Nombre de equipo: primer-apellido-del-alumno+3.
 * Tarjeta de red VBox en modo puente.
-
 
 #2. Copia en entorno gráfico
 ##2.1 Copia en entorno gráfico Windows
 
-    Con el usuario alumno1, crear en la carpeta "Documentos", dos archivos de texto: carta11.txt y carta12.txt. Escribir algún contenido dentro de los archivos para que no estén vacíos.
-    Comprobar que existe el recurso compartido de red \server\backup\alumno1. Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
-    Copia de seguridad. Usar la herramienta de entorno gráfico que proporciona el sistema operativo. Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup. Realizar una copia de seguridad de los datos del usuario.
-    Restaurar la copia de seguridad en el directorio local c:\restore\alumno1.
-    Realizaremos los siguientes cambios: Modificar el contenido del fichero carta11.txt. Eliminar el archivo carta12.txt, y crear un nuevo archivo carta13.txt
-    Realizar una segunda copia de seguridad. Comprobar el contenido restaurando el contenido en c:\restore\alumno1
-    Restaurar únicamente el fichero borrado desde la copia de seguridad a su lugar original.
-    Programar la copia de seguridad, a las 11:00 horas diariamente.
-
+* Con el usuario `nombre-alumno1`, crear en la carpeta `Documentos`, dos archivos de texto: carta11.txt y carta12.txt. 
+Escribir algún contenido dentro de los archivos para que no estén vacíos.
+* Comprobar que existe el recurso compartido de red `\server\backup-XX\nombre-alumno1`. 
+Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
+* Copia de seguridad. Usar la herramienta de entorno gráfico que proporciona el sistema operativo. 
+Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup. 
+Realizar una copia de seguridad de los datos del usuario.
+* Restaurar la copia de seguridad en el directorio local `c:\restoreXX\nombre-alumno1`.
+* Realizaremos los siguientes cambios: Modificar el contenido del fichero carta11.txt. 
+Eliminar el archivo carta12.txt, y crear un nuevo archivo carta13.txt
+* Realizar una segunda copia de seguridad. Comprobar el contenido restaurando el contenido en `c:\restore-XX\nombre-alumno1`.
+* Restaurar únicamente el fichero borrado desde la copia de seguridad a su lugar original.
+* Programar la copia de seguridad, a las 11:00 horas diariamente.
 
 ##2.2 Entorno gráfico GNU/Linux
 
