@@ -81,6 +81,8 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 ![arbol](./images/arbol.png)
 
 * Comprobar mediante un browser LDAP (`gq`) la información que tenemos en la base de datos LDAP.
+* Con el comando `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, podemos hacer una consulta en la base
+de datos LDAP de la información del usuario.
 
 ##1.4. Autenticación
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
@@ -91,6 +93,16 @@ LDAP. Una especie de *Domain Controller*.
 
 * Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-serverXX` usando los usuarios
 definidos en el LDAP.
+* Capturar imagen de la salida de los siguientes comandos:
+```
+hostname -f (Muestra nombre de la MV actual)
+ip a (Muestra datos de red de la MV actual)
+date
+cat /etc/passwd |grep nombre-usuario (No debe existir este usuario en la MV local)
+finger nombre-usuario
+id nombre-usuario
+su nombre-usuario
+```
 
 #2. Otro equipo
 Ahora que tenemos una máquina con la información cargada en LDAP, vamos a tratar de hacer uso
@@ -117,13 +129,13 @@ para crear e grupo LDAP `troopers` y dentro de éste los usuarios `trooper21` y 
 definidos en el LDAP remoto.
 * Capturar imagen de la salida de los siguientes comandos:
 ```
-id (Muestra información del usuario actual)
-cat /etc/passwd |grep nombre-usuario (No debe existir este usuario en la MV local)
-pamtest passwd nombre-usuario
-finger nombre-usuario
 hostname -f (Muestra nombre de la MV actual)
 ip a (Muestra datos de red de la MV actual)
-date (Muestra la fecha actual)
+date
+cat /etc/passwd |grep nombre-usuario (No debe existir este usuario en la MV local)
+finger nombre-usuario
+id nombre-usuario
+su nombre-usuario
 ```
 
 #A1. ANEXO
