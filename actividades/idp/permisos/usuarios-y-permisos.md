@@ -220,14 +220,15 @@ Dos formas de hacerlo:
 
 * Guardar y salir
 * Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, 
-para realizar todas las tareas administrativas.
+para realizar todas las tareas administrativas. Comprobarlo.
 
 Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 
 ![linux-sudo-error](./images/linux-sudo-error.png)
 
 * Configurar al grupo `sith` en sudoers con 
-`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`
+`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`.
+Comprobar los nuevos permisos.
 
 ##2.4 Usando los comandos
 
