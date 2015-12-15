@@ -86,9 +86,9 @@ de datos LDAP de la información del usuario.
 
 Veamos imágenes de ejemplo
 
-![userPassword_empty-gq](userPassword_empty-gq.png)
+![userPassword_empty-gq](./images/userPassword_empty-gq.png)
 
-![userPassword_empty-ldapsearch](userPassword_empty-ldapsearch.png)
+![userPassword_empty-ldapsearch](./images/userPassword_empty-ldapsearch.png)
 
 ##1.4. Autenticación
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
