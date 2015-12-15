@@ -55,14 +55,14 @@ Producto/Licencia:
 * Capturar imagen como la siguiente. Mostrando las particiones del disco duro 
 (`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`). 
 
-![dual-win7-particiones] (./dual-win7-particiones.png)
+![dual-win7-particiones](./images/dual-win7-particiones.png)
 
 * Modificar la configuración de Windows Update y ponerla como Deshabilitada (Sin descargas ni notificaciones).
 * Ir a miEquipo -> Btn Derecho -> Propiedades -> Cambiar conf. equipo. Poner nombre grupo de trabajo AULA108. Reiniciar
 * Ir a miEquipo -> Btn derecho -> Propiedades. Capturar imagen nombre de equipo y grupo de trabajo.
 * Capturar imagen com ola siguiente:
 
-![dual-win7-nombres] (./dual-win7-nombres.png)
+![dual-win7-nombres](./images/dual-win7-nombres.png)
 
 > OJO: Cuando terminen la instalación de Windows debemos acordarnos de "quitar" la ISO (CD de instalación) de la MV.
 
@@ -82,38 +82,38 @@ Particionado:
 * Editar configuración para asegurarnos de que es correcta según el enunciado.
 * Capturar imagen como la siguiente:
 
-![dual-suse-particiones1] (./dual-suse-particiones1.png)
+![dual-suse-particiones1](./images/dual-suse-particiones1.png)
 
 * Botón derecho sobre la partición ext3 -> para montar /home
 
-![dual-suse-home] (./dual-suse-home.png)
+![dual-suse-home](./images/dual-suse-home.png)
 
 * Botón derecho sobre partición ext4 -> para montar /
 
-![dual-suse-raiz] (./dual-suse-raiz.png)
+![dual-suse-raiz](./images/dual-suse-raiz.png)
 
 * **IMPORTANTE**. Montar la partición donde tenemos instalado el SO Windows en la ruta /mnt/windows.
 * Aceptar.
 * Capturar imagen como la siguiente:
 
-![dual-suse-particiones2] (./dual-suse-particiones2.png)
+![dual-suse-particiones2](./images/dual-suse-particiones2.png)
 
 * Verificar y siguiente.
 
-![dual-suse-particiones3] (./dual-suse-particiones3.png)
+![dual-suse-particiones3](./images/dual-suse-particiones3.png)
 
 * Nombre de usuario y la clave igual que la práctica anterior.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual.
 * Comprobar que todo es correcto y procedemos a "Instalar".
 
-![dual-suse-verificar] (./dual-suse-verificar.png)
+![dual-suse-verificar](./images/dual-suse-verificar.png)
 
 * Poner como nombre del host o equipo DUALXprimer-apellido.
 * Poner como nombre de dominio el 1er apellido en minúsculas sin tildes.
 * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario el nombre del equipo puede cambiar en cada reinicio.
 
-![dual-suse-equipo] (./dual-suse-equipo.png)
+![dual-suse-equipo](./images/dual-suse-equipo.png)
 
 * ¿Desea actualización en línea? -> OMITIR actualización.
 No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo 
@@ -124,7 +124,7 @@ de ancho de banda que se produce en las actualizaciones.
 * Capturar imagen como la siguiente donde se muestra el arranque inicial 
 donde se ve un menú para eligir el sistema operativo a iniciar.
 
-![dual-menu-final] (./dual-menu-final.png)
+![dual-menu-final](./images/dual-menu-final.png)
 
 Con el SO instalado:
 * Entrar al sistema con nuestro usuario.
@@ -198,4 +198,3 @@ EOF
 * `chmod +x 11_windows`
 * `grub2-mkconfig -o /boot/grub2/grub.cfg` (Actualizamos el GRUB2 con el nuevo cambio)
 * `reboot` (Reiniciamos la MV)
-
