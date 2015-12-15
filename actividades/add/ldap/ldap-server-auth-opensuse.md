@@ -84,6 +84,12 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 * Con el comando `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, podemos hacer una consulta en la base
 de datos LDAP de la información del usuario.
 
+Veamos imágenes de ejemplo
+
+![userPassword_empty-gq](userPassword_empty-gq.png)
+
+![userPassword_empty-ldapsearch](userPassword_empty-ldapsearch.png)
+
 ##1.4. Autenticación
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
 donde se guardará la información de grupos, usuarios, claves, etc. Y desde
