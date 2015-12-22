@@ -205,7 +205,7 @@ smbclient --list ip-servidor-samba   (Muestra los recursos SMB/CIFS de un equipo
 * Ahora crearemos en local la carpeta `/mnt/samba-remoto/corusant`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso 
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.18.XX.55/corusant /mnt/samba-remoto/corusant -o username=sith1`
+`mount -t cifs //172.18.XX.55/corusant /mnt/samba-remoto/corusant -o username=sith1,password=sith1,domain=PRIMER-APELLIDO-ALUMNO-XX`
 
 > En versiones anteriores de GNU/Linux se usaba el comando 
 `smbmount //172.16.108.XX/public /mnt/samba-remoto/public/ -o -username=smbguest`.
@@ -232,7 +232,7 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
 ```
-    //ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=sith1,password=clave 0 0
+    //ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=smbguest,password=smbguest,domain=PRIMER-APELLIDO-ALUMNO-XX 0 0
 ```
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
