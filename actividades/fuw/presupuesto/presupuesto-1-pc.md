@@ -13,6 +13,8 @@ Si falta información relevante debemos contactar con el proveedor/vendedor
 para que nos complete los datos que nos hagan falta.
 
 ##Información para completar el documento
+* Precio.
+* Recogida y plazo de entrega.
 * Especificar el uso al que está destinado este equipo.
 * Datos del hardware:
     * Tipo de equipo: sobremesa, portátil, netbook, ultrabook, etc.
