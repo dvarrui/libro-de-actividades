@@ -1,7 +1,10 @@
 
 # Presupuesto para PC
 
-Realizar las siguientes tareas, trabajando de forma individual:
+* Trabaremos de forma individual.
+* Entregar un documento en formato ODT o PDF.
+
+Realizar las siguientes tareas:
 * Debemos buscar presupuesto para un equipo, donde sólo podemos gastarnos hasta un máximo de 500 euros.
 * Especificar el uso al que está destinado este equipo.
 * Podemos contactar con proveedores/vendedores locales directamente o remotos vía Internet/email.
