@@ -12,6 +12,8 @@ Realizar las siguientes tareas:
 las características hardware según hemos visto hasta hora en la asignatura. 
 Si falta información relevante debemos contactar con el proveedor/vendedor 
 para que nos complete los datos que nos hagan falta.
+
+Información para completar el presupuesto:
 * Datos del hardware:
     * Tipo de equipo: sobremesa, portátil, netbook, ultrabook, etc.
     * Monitor tipo, tamaño, conexión con PC.
