@@ -3,6 +3,7 @@
 
 Realizar las siguientes tareas, trabajando de forma individual:
 * Debemos buscar presupuesto para un equipo, donde sólo podemos gastarnos hasta un máximo de 500 euros.
+* Especificar el uso al que está destinado este equipo.
 * Podemos contactar con proveedores/vendedores locales directamente o remotos vía Internet/email.
 * Debemos tratar de encontrar un presupuesto donde se detalle al máximo posible 
 las características hardware según hemos visto hasta hora en la asignatura. 
@@ -23,4 +24,3 @@ para que nos complete los datos que nos hagan falta.
 * Incluye servicio técnico. ¿Quién proporciona el soporte?
 * Garantía.
 * Software incluido.
-
