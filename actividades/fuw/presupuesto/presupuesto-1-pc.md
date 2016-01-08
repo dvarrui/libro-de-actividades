@@ -13,6 +13,7 @@ Si falta información relevante debemos contactar con el proveedor/vendedor
 para que nos complete los datos que nos hagan falta.
 
 ##Información para completar el documento
+* Indicar de dónde se ha extraído la información (Empresa, URL, etc.)
 * Precio.
 * Recogida y plazo de entrega.
 * Especificar el uso al que está destinado este equipo.
