@@ -3,23 +3,36 @@
 
 #1. SO OpenSUSE
 
+> **Vídeos**
+>
+> * [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
+> * [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A)
+>
+
+##1.1 Tarea diferida
+
 * Hacer un ejemplo de tarea programada diferida (at). Por ejemplo ejecutar 
 el apagado de la máquina con el comando `shutdown`.
+
+##1.2 Tarea periódica
+
 * Hacer un ejemplo de tarea programada periódica (crontab). Ejemplos:
 
 ```
-#!/bin/sh
-# Mostrar mensaje en pantalla
-DISPLAY=:0
-export DISPLAY
-zenity --info --text="Tarea ejecutada"
+    #!/bin/sh
+    # Mostrar mensaje en pantalla
+    DISPLAY=:0
+    export DISPLAY
+    zenity --info --text="Tarea ejecutada"
 ```
 
 ```
-#!/bin/bash
-# Añade la fecha/hora a un fichero
-date >> /home/usuario/cron.log
+    #!/bin/bash
+    # Añade la fecha/hora a un fichero
+    date >> /home/usuario/cron.log
 ```
+
+##1.3 Tarea asíncrona
 
 * Hacer un ejemplo de tarea programada asíncrona. Elegir alguna tarea útil para la administración de sistema.
 
@@ -41,13 +54,6 @@ date >> /home/usuario/cron.log
 * Hacer un ejemplo de tarea programada asíncrona elegida por el usuario.
 
 > Para poder usar la tarea de envío de correos, es necesario tener un servidor SMTP instalado de forma local.
-
-
-> **Vídeos**
->
-> * [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
-> * [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A)
->
 
 #ANEXO
 Otras tareas que se podrían realizar en GNU/Linux:
