@@ -218,7 +218,7 @@ o en un recurso de red (Si usamos wbadmin o ntbackup).
 * En nuestro caso vamos a usar Cygwin y usaremos el recurso de directorio 
 local `c:\backup-XX\nombre-alumno2`.
 
-![cygwin-rutas](.images/cygwin-rutas.png)
+![cygwin-rutas](./images/cygwin-rutas.png)
 
 > **Cygwin**
 > Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
