@@ -102,18 +102,11 @@ Copia de seguridad
 * Vamos a usaremos una herramienta de entorno gráfico para realizar la copia del home 
 completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`).
 * Instalar alguna de estas herramientas de backup a través del gestor de paquetes:
-    * Back in Time
-    * Déjà Dup
-    * BackupPC
+    * Back in Time, Déjà Dup, BackupPC
     * Duplicity 
-    * Areca Backup
-    * Amanda
-    * Bacula
-    * Flyback
-    * luckyBackup
-    * Remastersys
+    * Amanda, Bacula
+    * Areca Backup, Flyback, luckyBackup, Time Vault, Remastersys
     * Rsync 
-    * Time Vault 
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
