@@ -11,6 +11,7 @@ Configurar el equipo GNU/Linux OpenSUSE 13.2 con:
 * Gateway: 172.19.0.1
 * Servidor DNS: 8.8.4.4
 * Nombre de equipo: primer-apellido-del-alumno+3. Ejemplo VARGAS3
+* Nombre de dominio: segundo-apellido-del-alumno.
 * Tarjeta de red VBox en modo puente.
 
 Capturar imágen de la configuración del equipo:
@@ -70,8 +71,7 @@ Preparativos:
 * Con el usuario `nombre-alumno1`, crear en dos archivos de texto: 
     * `/home/nombre-alumno1/mydocs/manual11.txt`
     * `/home/nombre-alumno1/mydocs/manual12.txt`
- 
-Escribir dentro de los ficheros lo siguiente:
+* Escribir dentro de los ficheros lo siguiente:
 ```
 GNU/Linux
 GUI
@@ -80,10 +80,9 @@ nombre-y-apellidos-del-alumno
 ``` 
 * Crear el directorio `/var/backup-XX/nombre-alumno1`. Lo utilizaremos para almacenar 
 las copias de seguridad que vayamos realizando de momento.
-
-Comprobar permisos.
-* El usuario propietario será `nombre-alumno1`, y el grupo root. 
-* Todos los permisos para usuario y grupo. Ninguno para el resto.
+* Comprobar permisos.
+    * El usuario propietario será `nombre-alumno1`, y el grupo root. 
+    * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 Copia de seguridad
 * Vamos a usaremos una herramienta de entorno gráfico para realizar la copia del home 
@@ -155,26 +154,61 @@ Comprobamos que en caso de pérdida podemos recuperar los archivos de la copia d
 
 #3. Copia de seguridad con comandos
 
-##3.1 Comandos Windows
+##3.1 Comandos en GNU/Linux
+
+Preparativos:
+* Con el usuario `nombre-alumno2`, crear en dos archivos de texto:
+    * `/home/nombre-alumno2/mydocs/manual21.txt`
+    * `/home/nombre-alumno2/mydocs/manual22.txt`
+* Escribir dentro de los ficheros lo siguiente:
+
+    GNU/Linux
+    GUI
+    nombre-y-apellidos-del-alumno
+    20160114
+ 
+* Crear el directorio `/var/backup-XX/nombre-alumno2`. Lo utilizaremos para almacenar 
+las copias de seguridad que vayamos realizando de momento.
+* Comprobar permisos.
+    * El usuario propietario será `nombre-alumno2`, y el grupo root. 
+    * Todos los permisos para usuario y grupo. Ninguno para el resto.
+
+Copia de seguridad:
+* Usaremos comandos como tar y zip. Consultar pdf y/o internet.
+* Crear copia de seguridad total (`/var/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT`)
+* Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
+* Añadir una línea al fichero manual21.txt con el texto `asir-curso1516`.
+* Crear copia incremental `/var/backup-XX/nombre-alumno2/AAAAMMDD-N2-INC`
+* Eliminar el archivo manual22.txt.
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
+* Crear un nuevo archivo manual23.txt con el mismo contenido de manual11.txt.
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
+* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
+
+##3.2 Comandos Windows
 
 Preparativos:
 * Instalar Cygwin en W7.
-> Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
-* Con el usuario `nombre-alumno2`, crear en dos archivos de texto: carta21.txt y carta22.txt.
-Con el siguiente contenido
-Ejemplo:
+
+> * Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
+> * Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y zip.
+
+* Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documentos: carta21.txt y carta22.txt.
+* Escribir el siguiente contenido dentro de los archivos:
 ```
-Windows
-CLI
-nombre-y-apellidos-del-alumno
-20160111
+    Windows
+    CLI
+    nombre-y-apellidos-del-alumno
+    20160114
 ``` 
 
 Copia de seguridad:
 * Realizar copia de seguridad de la carpeta "Documentos" del usuario `nombre-alumno2`. 
-Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
+
+> Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
 o en un recurso de red (Si usamos wbadmin o ntbackup).
-En nuestro caso vamos a usar Cygwin preferentemente. Y usaremos el directorio 
+
+* En nuestro caso vamos a usar Cygwin y usaremos el recurso de directorio 
 local `c:\backup-XX\nombre-alumno2`.
 
 ![cygwin-rutas](.images/cygwin-rutas.png)
@@ -197,26 +231,7 @@ Dentro de Cygwin la ruta "c:\Users\profesor" será "/cygdrive/c/Users/profesor"
 > 
 > Veamos un ejemplo: ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backup\alumno2\backup.bkf /V:yes
 
-       
-    Copia de seguridad: Realizar una copia de seguridad del home del usuario alumno2.
-    Restaurar la copia de seguridad en c:\restore\alumno2.
-
-
-3.2 Comandos en GNU/Linux
-
-    Con el usuario profesor2, crear en dos archivos de texto: manual21.txt y manual22.txt.
-    Crear los siguientes directorios:
-        /var/backup/profesor2, lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
-        /var/restore/profesor2, lo usaremos para las pruebas de restauración.
-    Comprobar permisos. El usuario propietario será profesor2, y el grupo root. Todos los permisos para usuario y grupo. Ninguno para el resto.
-    Copia de seguridad: Usaremos comandos como tar y zip. Vamos realizar la copia de seguridad del home completo del usuario profesor2 (/home/profesor2).
-    Restaurar la copia de seguridad en /var/restore/profesor2.
-    Realizaremos los siguientes cambios: Modificar el contenido del fichero manual21.txt. Eliminar el archivo manual22.txt, y crear un nuevo archivo manual23.txt.
-    Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
-
-
 #ANEXO
-
-    Instalar Cygwin junto con el servidor OpenSSH.
-        ¿Cómo configurar SSH desde Cygwin?
-        ¿Cómo actualizar paquetes desde Cygwin?
+* Instalar Cygwin junto con el servidor OpenSSH.
+* ¿Cómo configurar SSH desde Cygwin?
+* ¿Cómo actualizar paquetes desde Cygwin?
