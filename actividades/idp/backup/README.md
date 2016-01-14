@@ -34,10 +34,7 @@ Configurar máquina2 Windows2008Server Enterprise con:
 * Nombre de equipo: primer-apellido-del-alumno+2. Por ejemplo: VARGAS2
 * Para desactivar las contraseñas complejas: `Inicio -> Herramientas Administrativas -> Directivas de seguridad local -> Directivas de cuenta -> Directivas de contraseña`. Deshabilitar complejidad de contraseñas.
 > Lo más recomendable es mantener la política de contraseñas seguras (complejas) pero para las prácticas
-podemos deshabilitarla por comodidad. 
-* En Windows2008Server hay que instalar la característica `Copias de seguridad` (Ver imagen):
-
-![w2k8-backup-tools](./images/w2k8-backup-tools.png)
+podemos deshabilitarla por comodidad.
 
 Configurar ambas máquinas con:
 * Máscara de red: 255.255.0.0
@@ -48,13 +45,16 @@ Configurar ambas máquinas con:
 
 Capturar imágenes de las configuraciones.
 
->**NOTA:**
+>**Windows XP**
 >
 > * En el caso de trabajar con WXP podremos hacer la copia de seguridad directamente en 
 una carpeta `c:\backup-XX` dentro de la propia máquina.
-> * En el caso de Windows7/Window2008server, se nos obliga a que la copia de seguridad se 
-realice en un almacenamiento externo. Para ello podemos crear la carpeta `c:\backup-XX`, 
-y la compartimos por la red. Permisos de la carpeta compartida lectura/escritura para 
+>
+> **Windows 7**
+>
+> * En este SO nos obliga a que la copia de seguridad se realice en un almacenamiento externo. 
+Para ello podemos crear la carpeta `c:\backup-XX`, y la compartimos por la red. 
+> * Permisos de la carpeta compartida lectura/escritura para 
 el usuario que vamos a usar en el acceso por red. ¡OJO la carpeta compartida por red puede 
 estar en la misma máquina!
 > * Otra posibilidad sería la de añadir un 2º disco duro a la máquina virtual, y 
@@ -62,6 +62,13 @@ realizar el backup en este 2º disco.
 > * En Windows, cada vez que nos conectamos a un recurso compartido de red y nos pide 
 información de usuario/clave. Ésta queda guardada hasta un nuevo inicio de sesión. 
 Podemos limpiar estos datos ejecutando el comando `net use /d *`.
+>
+> **Windows 2008 Server**
+>
+> Si necesitamos hacer copias de seguridad en Windows Server necesitamos instalar dicha herramienta.
+> Para ello hay que instalar la característica `Copias de seguridad` (Ver imagen):
+>
+> ![w2k8-backup-tools](./images/w2k8-backup-tools.png)
 
 #2. Backup en Entorno gráfico
 
