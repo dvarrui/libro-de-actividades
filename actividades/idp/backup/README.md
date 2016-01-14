@@ -13,6 +13,15 @@ Configurar el equipo GNU/Linux OpenSUSE 13.2 con:
 * Nombre de equipo: primer-apellido-del-alumno+3. Ejemplo VARGAS3
 * Tarjeta de red VBox en modo puente.
 
+Capturar imágen de la configuración del equipo:
+
+    uname -a
+    hostname -a
+    hostname -d
+    ip a
+    route -n
+    blkid
+
 ##1.2 Configuración Windows 
 
 Configurar máquina1 Windows 7 Enterprise con:
@@ -27,7 +36,7 @@ Configurar máquina2 Windows2008Server Enterprise con:
 podemos deshabilitarla por comodidad. 
 * En Windows2008Server hay que instalar la característica `Copias de seguridad` (Ver imagen):
 
-[w2k8-backup-tools](./images/w2k8-backup-tools.png)
+![w2k8-backup-tools](./images/w2k8-backup-tools.png)
 
 Configurar ambas máquinas con:
 * Máscara de red: 255.255.0.0
@@ -58,9 +67,11 @@ Podemos limpiar estos datos ejecutando el comando `net use /d *`.
 ##2.1 Entorno gráfico GNU/Linux
 
 Preparativos:
-* Con el usuario `nombre-alumno1`, crear en dos archivos de texto: manual11.txt y manual12.txt. 
-Escribir dentro lo siguiente: 
-Ejemplo:
+* Con el usuario `nombre-alumno1`, crear en dos archivos de texto: 
+    * `/home/nombre-alumno1/mydocs/manual11.txt`
+    * `/home/nombre-alumno1/mydocs/manual12.txt`
+ 
+Escribir dentro de los ficheros lo siguiente:
 ```
 GNU/Linux
 GUI
@@ -90,12 +101,14 @@ completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`)
     * Remastersys (www.remastersys.klikit-linux.com)
     * Rsync (rsync.samba.org)
     * Time Vault (launchpad.net/timevault)
+* Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
-* Realizaremos los siguientes cambios:
-    * Añadir una línea al fichero manual11.txt con el texto `asir curso1516`. 
-    * Eliminar el archivo manual12.txt.
-    * Crear un nuevo archivo manual13.txt con el mismo contenido de manual11.txt.
-* Realizar una segunda copia de seguridad.
+* Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N2-INC`
+* Eliminar el archivo manual12.txt.
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
+* Crear un nuevo archivo manual13.txt con el mismo contenido de manual11.txt.
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
 * Programar una copia de seguridad, a las 11:00 horas diariamente.
 
