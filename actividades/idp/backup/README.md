@@ -76,7 +76,7 @@ Escribir dentro de los ficheros lo siguiente:
 GNU/Linux
 GUI
 nombre-y-apellidos-del-alumno
-20160111
+20160114
 ``` 
 * Crear el directorio `/var/backup-XX/nombre-alumno1`. Lo utilizaremos para almacenar 
 las copias de seguridad que vayamos realizando de momento.
@@ -117,32 +117,38 @@ completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`)
 Enlace de interés:
 * [Copia de seguridad y recuperación](https://technet.microsoft.com/es-es/library/cc754097%28v=ws.10%29.aspx).
 
+###En el Windows Server
+* Crear en Windows Server la carpeta `c:\backup-XX\nombre-alumno1`. 
+* Crear el recurso compartido de red `\1er-apellido-alumno2\backup-XX\nombre-alumno1`. 
+
+> Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
+
+* Comprobar que el recurso compartido funciona correctamente.
+
+###En el Windows 7
 * Con el usuario `nombre-alumno1`, crear en la carpeta `Documentos`, dos archivos de texto: 
-carta11.txt y carta12.txt. Escribir dentro lo siguiente:
+carta11.txt y carta12.txt.
+* Escribir dentro lo siguiente:
 ```
 Windows
 GUI
 nombre-y-apellidos-del-alumno
-20160111
+20160114
 ``` 
 
-* Crear en Windows Server la carpeta `c:\backup-XX\nombre-alumno1`. 
-* Crear el recurso compartido de red `\1er-apellido-alumno2\backup-XX\nombre-alumno1`. 
-Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
-* Comprobar que el recurso compartido funciona correctamente.
 * Vamos a usar la herramienta *copia de seguridad* que 
 proporciona el sistema operativo. Vamos a Inicio, escribimos "Copia de seguridad" para 
 buscar el programa de backup. 
-* Realizar una copia de seguridad de los datos del usuario `nombre-alumno1`.
+* Realizar una copia de seguridad (AAAAMMDD-N1-total) de los datos del usuario `nombre-alumno1` y lo grabamos en el 
+recurso compartido de red.
 * Restaurar la copia de seguridad en el directorio local `c:\temp`.
 Comprobamos que en caso de pérdida podemos recuperar los archivos de la copia de seguridad.
-
-Realizaremos los siguientes cambios:
-* Añadir una línea al fichero carta11.txt con el texto `asir curso1516`. 
+* Añadir una línea al fichero carta11.txt con el texto `asir-curso1516`. 
+* Crear copia de seguridad incremental (AAAAMMDD-N2-inc)
 * Eliminar el archivo carta12.txt.
+* Crear copia de seguridad incremental (AAAAMMDD-N3-inc)
 * Crear un nuevo archivo carta13.txt. Con el mismo contenido del archivo carta11.txt.
-
-* Realizar una segunda copia de seguridad de los datos del usuarios `nombre-alumno1`.
+* Crear copia de seguridad incremental (AAAAMMDD-N4-inc)
 * Comprobar el contenido restaurando el contenido en `c:\temp`.
 * Restaurar el fichero borrado `carta12.txt` desde la copia de seguridad a su lugar original.
 * Programar la copia de seguridad, a las 11:00 horas diariamente.
