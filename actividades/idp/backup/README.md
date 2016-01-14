@@ -36,8 +36,11 @@ Configurar máquina1 *Windows 7 Professional* con:
 Configurar máquina2 Windows2008Server Enterprise con:
 * IP: 172.19.XX.21 (Donde XX corresponde al nº de cada puesto).
 * Nombre de equipo: primer-apellido-del-alumno+2. Por ejemplo: VARGAS2
-* Para desactivar las contraseñas complejas: `Inicio -> Herramientas Administrativas -> Directivas de seguridad local -> Directivas de cuenta -> Directivas de contraseña`. Deshabilitar complejidad de contraseñas.
-> Lo más recomendable es mantener la política de contraseñas seguras (complejas) pero para las prácticas
+
+> **Contraseñas seguras**
+>
+> * Para desactivar las contraseñas complejas: `Inicio -> Herramientas Administrativas -> Directivas de seguridad local -> Directivas de cuenta -> Directivas de contraseña`. Deshabilitar complejidad de contraseñas.
+> * Lo más recomendable es mantener la política de contraseñas seguras (complejas) pero para las prácticas
 podemos deshabilitarla por comodidad.
 
 Configurar ambas máquinas con:
@@ -99,18 +102,18 @@ Copia de seguridad
 * Vamos a usaremos una herramienta de entorno gráfico para realizar la copia del home 
 completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`).
 * Instalar alguna de estas herramientas de backup a través del gestor de paquetes:
-    * Back in Time (backintime.le-web.org)
-    * Déjà Dup (mterry.name/deja-dup)
-    * BackupPC (nackuppc.sourceforge.net/index.html)
-    * Duplicity (duplicity.nongnu.org)
-    * Areca Backup (www.areca-backup.org)
-    * Amanda (www.amanda.org)
-    * Bacula (www.bacula.org/en)
-    * Flyback (flyback-project.org)
-    * luckyBackup (luckybackup.sourceforge.net)
-    * Remastersys (www.remastersys.klikit-linux.com)
-    * Rsync (rsync.samba.org)
-    * Time Vault (launchpad.net/timevault)
+    * Back in Time
+    * Déjà Dup
+    * BackupPC
+    * Duplicity 
+    * Areca Backup
+    * Amanda
+    * Bacula
+    * Flyback
+    * luckyBackup
+    * Remastersys
+    * Rsync 
+    * Time Vault 
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
