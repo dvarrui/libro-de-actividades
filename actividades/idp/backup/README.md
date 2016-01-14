@@ -25,7 +25,7 @@ Capturar imágen de la configuración del equipo:
 
 ##1.2 Configuración Windows 
 
-Configurar máquina1 Windows 7 Enterprise con:
+Configurar máquina1 *Windows 7 Professional* con:
 * IP: 172.19.XX.11 (Donde XX corresponde al nº de cada puesto).
 * Nombre de equipo: primer-apellido-del-alumno+1. Por ejemplo: VARGAS1
 
