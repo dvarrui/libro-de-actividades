@@ -3,11 +3,17 @@
 El martes 26 de enero en el horario 8:00-9:50 iremos al aula 208 a realizar una 
 presentación/exposición a los alumnos de turimos.
 
+#TEMAS
+
+Los temas han sido elegidos por el profesor de Turismo.
+* Tema1 => **LibreOffice Base**
+* Tema2 => **LibreOffice Impress**
+
 #AGRUPAMIENTOS
 
 Hemos creado la siguiente agrupación:
-* **Tema1 (LibreOffice Base)**: Manuel, Gregorio, Kevin, Michelle, Héctor, Antonio Iván y Aitor.
-* **Tema2 (LibreOffice Impress)**: Aarón, Adrián, Tomás, Kilian, Antonio y Miriam.
+* Tema1: Manuel, Gregorio, Kevin, Michelle, Héctor, Antonio Iván y Aitor.
+* Tema2: Aarón, Adrián, Tomás, Kilian, Antonio y Miriam.
 
 Cada grupo debe preparar una presentación/exposición de su tema para una 
 audiencia que tiene escasos conocimientos de Base y que entregan trabajos al 
