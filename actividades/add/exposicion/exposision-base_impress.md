@@ -1,7 +1,7 @@
 #FECHA Y LUGAR
 
-El martes 26 de enero en el horario 8:00-9:50 iremos al aula 208 a realizar una 
-presentación/exposición a los alumnos de turimos.
+El martes 26 de enero en el horario 8:00-9:50 iremos al aula 208, a realizar una 
+presentación/exposición a los alumnos de Turismo.
 
 #TEMAS
 
@@ -11,15 +11,16 @@ Los temas han sido elegidos por el profesor de Turismo.
 
 #AGRUPAMIENTOS
 
-Hemos creado la siguiente agrupación:
 * Tema1: Manuel, Gregorio, Kevin, Michelle, Héctor, Antonio Iván y Aitor.
 * Tema2: Aarón, Adrián, Tomás, Kilian, Antonio y Miriam.
 
 Cada grupo debe preparar una presentación/exposición de su tema para una 
 audiencia que tiene escasos conocimientos de Base y que entregan trabajos al 
-profesor de Turismo en Impress. Cada grupo debe ponerse de acuerdo para 
-el orden y cantidad de los contenidos a exponer. La profundidad de los 
-contenidos y cantidad de los mismos debe ir en relación al nivel de la audiencia.
+profesor de Turismo en Impress.
+
+Cada grupo debe ponerse de acuerdo para el orden y cantidad de los 
+contenidos a exponer. La profundidad de los contenidos y cantidad de los 
+mismos debe ir en relación al nivel de la audiencia.
 
 Cada grupo/tema a su vez debe hacer parejas (uno se quedará sin emparejar).
 
