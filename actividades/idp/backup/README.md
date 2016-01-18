@@ -111,7 +111,6 @@ Copia de seguridad
 completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`).
 * Instalar alguna de estas herramientas de backup a través del gestor de paquetes:
     * Back in Time, Déjà Dup, BackupPC
-    * Duplicity 
     * Amanda, Bacula
     * Areca Backup, Flyback, luckyBackup
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
