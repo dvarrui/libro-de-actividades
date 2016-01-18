@@ -14,8 +14,9 @@ Configurar el equipo GNU/Linux OpenSUSE 13.2 con:
 * Nombre de dominio: segundo-apellido-del-alumno.
 * Tarjeta de red VBox en modo puente.
 
-> * Instalar openssh-server para que el profesor pueda acceder de forma remota.
-> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
+Además también:
+* Instalar openssh-server para que el profesor pueda acceder de forma remota.
+* Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
 Para que el comando `hostname` funcione bien.
 
 Capturar imágen de la configuración del equipo:
