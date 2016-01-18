@@ -38,11 +38,18 @@ Configurar máquina2 Windows2008Server Enterprise con:
 * IP: 172.19.XX.21 (Donde XX corresponde al nº de cada puesto).
 * Nombre de equipo: primer-apellido-del-alumno+2. Por ejemplo: VARGAS2
 
-> **Contraseñas seguras**
+> **Contraseñas seguras para Windows2008server**
 >
-> * Para desactivar las contraseñas complejas: `Inicio -> Herramientas Administrativas -> Directivas de seguridad local -> Directivas de cuenta -> Directivas de contraseña`. Deshabilitar complejidad de contraseñas.
-> * Lo más recomendable es mantener la política de contraseñas seguras (complejas) pero para las prácticas
-podemos deshabilitarla por comodidad.
+> * Lo más recomendable es mantener habilitada la política de contraseñas 
+seguras (complejas) pero para las prácticas podemos deshabilitarla por comodidad.
+> * Para desactivar las contraseñas complejas: `Inicio -> Herramientas 
+Administrativas -> Directivas de seguridad local -> Directivas de cuenta -> 
+Directivas de contraseña`. Deshabilitar complejidad de contraseñas.
+> 
+> ![w2k8-claves_seguras1.png](./images/w2k8-claves_seguras1.png)
+>
+> ![w2k8-claves_seguras2.png](./images/w2k8-claves_seguras2.png)
+>
 
 Configurar ambas máquinas con:
 * Máscara de red: 255.255.0.0
