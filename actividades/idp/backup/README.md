@@ -113,8 +113,7 @@ completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`)
     * Back in Time, Déjà Dup, BackupPC
     * Duplicity 
     * Amanda, Bacula
-    * Areca Backup, Flyback, luckyBackup, Time Vault, Remastersys
-    * Rsync 
+    * Areca Backup, Flyback, luckyBackup
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
