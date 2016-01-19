@@ -38,6 +38,8 @@ Capturar imágen de la configuración del equipo:
 
 * Hacer un ejemplo de tarea programada diferida (comando `at`). Por ejemplo ejecutar 
 el apagado de la máquina con el comando `shutdown`.
+* Si el servicio `atd` (responsable de la ejecución de los comandos at) no estuviera
+en ejecución, iremos a `Yast -> Servicios` y lo iniciamos.
 
 ##1.3 Tarea periódica
 
