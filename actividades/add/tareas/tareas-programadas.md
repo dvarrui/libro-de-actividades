@@ -64,7 +64,13 @@ el apagado de la máquina con el comando `shutdown`.
 ##1.4 Tarea asíncrona
 
 * Hacer un ejemplo de tarea programada asíncrona. Elegir alguna tarea útil para la administración de sistema.
-
+* Para definir una tarea asíncrona ponemos el script de ejecución en alguno 
+de los directorios siguientes:
+    * /etc/cron.hourly
+    * /etc/cron.daily
+    * /etc/cron.weekly
+    * /etc/cron.monthly
+    
 #2. Windows7
 
 > En Windows 7 para iniciar el programador de tareas hacemos 
@@ -84,7 +90,7 @@ Configurar máquina *Windows 7 Professional* con:
 Capturar imágenes de las configuraciones.
 
 ##2.2 Tarea diferida
-* Hacer un ejemplo de tarea programada diferida de ejecutar el apagado de la máquina. 
+* Hacer un ejemplo de tarea programada diferida para ordenar el apagado de la máquina. 
 
 > Para ver la ayuda del comando shutdown hacemos "shutdown /?". 
 > Programar un apagado usando "shutdown /s".
