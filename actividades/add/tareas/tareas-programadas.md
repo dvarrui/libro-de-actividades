@@ -36,12 +36,13 @@ Capturar imágen de la configuración del equipo:
 
 ##1.2 Tarea diferida
 
-* Hacer un ejemplo de tarea programada diferida (at). Por ejemplo ejecutar 
+* Hacer un ejemplo de tarea programada diferida (comando `at`). Por ejemplo ejecutar 
 el apagado de la máquina con el comando `shutdown`.
 
 ##1.3 Tarea periódica
 
-* Hacer un ejemplo de tarea programada periódica (crontab). Ejemplos:
+* Hacer un ejemplo de tarea programada periódica (crontab).
+* Ejemplos de scripts para programar:
 
 ```
     #!/bin/sh
@@ -56,6 +57,9 @@ el apagado de la máquina con el comando `shutdown`.
     # Añade la fecha/hora a un fichero
     date >> /home/usuario/cron.log
 ```
+* Para programar una tarea periódica:
+    * Los usuarios usan el comando `crontab`  para programar sus tareas.
+    * El usuario root usa el fichero `/etc/crontab` para programar las tareas del sistema. 
 
 ##1.4 Tarea asíncrona
 
