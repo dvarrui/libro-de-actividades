@@ -112,19 +112,23 @@ completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`)
 * Vamos a usar la herramienta de copia de seguridad que venga por defecto en nuestro
 sistema.
 
-> Otras herramientas de backup:
-> * Back in Time, Déjà Dup, BackupPC
-> * Amanda, Bacula
-> * Areca Backup, Flyback, luckyBackup
+> Ejemplos de herramientas de backup:
+> * deja-dup
+> ![deja-dup](./images/deja-dup.png)
+>
+> * Back in Time
+> * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
-* Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
+
+
+* Crear copia de seguridad total (Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
-* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N2-INC`
+* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N2-INC`
 * Eliminar el archivo manual12.txt.
-* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
+* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
 * Crear un nuevo archivo manual13.txt con el mismo contenido de manual11.txt.
-* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
+* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
 * Si la herramienta de backup nos lo permite, programar una copia de 
 seguridad, por ejemplo, a las 11:00 horas diariamente.
