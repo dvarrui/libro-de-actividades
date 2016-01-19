@@ -109,10 +109,14 @@ las copias de seguridad que vayamos realizando de momento.
 Copia de seguridad
 * Vamos a usaremos una herramienta de entorno gráfico para realizar la copia del home 
 completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`).
-* Instalar alguna de estas herramientas de backup a través del gestor de paquetes:
-    * Back in Time, Déjà Dup, BackupPC
-    * Amanda, Bacula
-    * Areca Backup, Flyback, luckyBackup
+* Vamos a usar la herramienta de copia de seguridad que venga por defecto en nuestro
+sistema.
+
+> Otras herramientas de backup:
+> * Back in Time, Déjà Dup, BackupPC
+> * Amanda, Bacula
+> * Areca Backup, Flyback, luckyBackup
+
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
@@ -122,7 +126,8 @@ completo del usuario `nombre-alumno1` (Por defecto será `/home/nombre-alumno1`)
 * Crear un nuevo archivo manual13.txt con el mismo contenido de manual11.txt.
 * Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
-* Programar una copia de seguridad, a las 11:00 horas diariamente.
+* Si la herramienta de backup nos lo permite, programar una copia de 
+seguridad, por ejemplo, a las 11:00 horas diariamente.
 
 ##2.2 Copia en entorno gráfico Windows
 
