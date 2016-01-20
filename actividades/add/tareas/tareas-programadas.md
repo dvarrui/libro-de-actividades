@@ -40,11 +40,13 @@ Capturar imágen de la configuración del equipo:
 un mensaje en pantalla de ánimo.
 * Ejemplo de script que muestra un mensaje de aviso:
 
-    #!/bin/sh
-    # Mostrar mensaje en pantalla
-    DISPLAY=:0
-    export DISPLAY
-    zenity --info --text="¡Que la fuerza te acompañe!"
+```
+#!/bin/sh
+# Mostrar mensaje en pantalla
+DISPLAY=:0
+export DISPLAY
+zenity --info --text="¡Que la fuerza te acompañe!"
+```
 
 > * Si el servicio `atd` (responsable de la ejecución de los comandos at) no estuviera
 en ejecución en OpenSUSE, iremos a `Yast -> Servicios` y lo iniciamos.
@@ -57,9 +59,11 @@ en ejecución en OpenSUSE, iremos a `Yast -> Servicios` y lo iniciamos.
 * Hacer un ejemplo de tarea programada periódica (crontab).
 * Ejemplo de script:
 
-    #!/bin/bash
-    # Añade la fecha/hora a un fichero
-    date >> /home/usuario/cron.log
+```
+#!/bin/bash
+# Añade la fecha/hora a un fichero
+date >> /home/usuario/cron.log
+```
 
 * Para programar una tarea periódica tenemos estas formas:
     * Los usuarios usan el comando `crontab`  para programar sus tareas.
