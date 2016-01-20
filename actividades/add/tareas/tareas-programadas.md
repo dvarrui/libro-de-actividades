@@ -56,14 +56,8 @@ en ejecución en OpenSUSE, iremos a `Yast -> Servicios` y lo iniciamos.
 
 ##1.3 Tarea periódica
 
-* Hacer un ejemplo de tarea programada periódica (crontab).
-* Ejemplo de script:
+* Programar una tarea periódica (crontab) para apagar el equipo.
 
-```
-#!/bin/bash
-# Añade la fecha/hora a un fichero
-date >> /home/usuario/cron.log
-```
 
 * Para programar una tarea periódica tenemos estas formas:
     * Los usuarios usan el comando `crontab`  para programar sus tareas.
@@ -72,6 +66,11 @@ date >> /home/usuario/cron.log
 ##1.4 Tarea asíncrona
 
 * Vamos a programar una tarea asíncrona para realizar una copia de backup.
+* Podemos usar el comando `tar` dentro de un script para realizar la 
+copia de los ficheros del usuario en una zona de backup.
+    * Directorio de datos `/home/nombre-alumno1`.
+    * Directorio para guardar el backup `/var/backup-XX/nombre-alumno1`.
+
 > Para definir una tarea asíncrona ponemos el script de ejecución en alguno 
 de los directorios siguientes:
 > * /etc/cron.hourly
@@ -119,7 +118,14 @@ para copiar los documentos del usuario en una zona de backup.
 > * Para poder usar la tarea de envío de correos, es necesario tener un servidor SMTP instalado de forma local.
 
 #ANEXO
+
 Otras tareas que se podrían realizar en GNU/Linux:
+* Ejemplo de script:
+```
+#!/bin/bash
+# Añade la fecha/hora a un fichero
+date >> /home/usuario/cron.log
+```
 * Utilizar el servicio SSH. Programar el inicio/parada del servicio con el cron/crontab. Comprobarlo.
 * Utilizar el servicio del servicio-prueba. Programar el inicio/parada del servicio con el anacron.
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
