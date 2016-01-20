@@ -41,11 +41,11 @@ un mensaje en pantalla de ánimo.
 * Ejemplo de script que muestra un mensaje de aviso:
 
 ```
-#!/bin/sh
-# Mostrar mensaje en pantalla
-DISPLAY=:0
-export DISPLAY
-zenity --info --text="¡Que la fuerza te acompañe!"
+    #!/bin/sh
+    # Mostrar mensaje en pantalla
+    DISPLAY=:0
+    export DISPLAY
+    zenity --info --text="¡Que la fuerza te acompañe!"
 ```
 
 > * Si el servicio `atd` (responsable de la ejecución de los comandos at) no estuviera
@@ -57,8 +57,7 @@ en ejecución en OpenSUSE, iremos a `Yast -> Servicios` y lo iniciamos.
 ##1.3 Tarea periódica
 
 * Programar una tarea periódica (crontab) para apagar el equipo.
-
-
+* El comando para apagar el sistema es `shutdown`.
 * Para programar una tarea periódica tenemos estas formas:
     * Los usuarios usan el comando `crontab`  para programar sus tareas.
     * El usuario root usa el fichero `/etc/crontab` para programar las tareas del sistema. 
@@ -103,6 +102,7 @@ de ánimo en pantalla.
 ##2.3 Tarea periódica
 
 * Vamos a programar una tarea periódica para apagar el equipo.
+* El comando para apagar el sistema es `shutdown`.
 
 > * `shutdown /?`: Muestra la ayuda del comando.
 > * `shutdown /s`: Programar un apagado.
