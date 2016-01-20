@@ -112,6 +112,8 @@ de ánimo en pantalla.
 * Vamos a programar una tarea asíncrona para realizar una copia de backup.
 * Como ejemplo podemos crear un fichero `backup.bat` con comandos del tipo `xcopy`,
 para copiar los documentos del usuario en una zona de backup.
+    * Directorio de datos `c:\Users\nombre-alumno1\`.
+    * Directorio para guardar el backup `c:\backup-XX\nombre-alumno1`.
 
 > Tareas de envío de **email**
 > * La tarea de envío de email no va a funcionar por defecto.
