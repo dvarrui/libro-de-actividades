@@ -24,6 +24,7 @@ Para permitir que los alumnos se puedan automatricular en nuestro curso:
 ##1.3 Matricular alumnos
 
 Para matricular alumnos dentro de nuestro curso Moodle hacemos lo siguiente:
+
 1. Entramos en nuestro curso Moodle.
 1. Vamos al panel izquierdo que pone `Administración -> Usuarios -> Usuarios Matriculados`
 1. Una vez dentro picamos en `Matricular usuarios`
