@@ -66,6 +66,7 @@ en ejecución, iremos a `Yast -> Servicios` y lo iniciamos.
 ##1.4 Tarea asíncrona
 
 * Hacer un ejemplo de tarea programada asíncrona. Elegir alguna tarea útil para la administración de sistema.
+Como por ejemplo programar una copia de backup.
 * Para definir una tarea asíncrona ponemos el script de ejecución en alguno 
 de los directorios siguientes:
     * /etc/cron.hourly
@@ -102,8 +103,12 @@ Capturar imágenes de las configuraciones.
 
 ##2.4 Tarea asíncrona
 * Hacer un ejemplo de tarea programada asíncrona elegida por el usuario.
+ Elegir alguna tarea útil para la administración de sistema.
+Como por ejemplo programar una copia de backup.
 
-> Para poder usar la tarea de envío de correos, es necesario tener un servidor SMTP instalado de forma local.
+> Tarea de envío de **email**
+> * La tarea de envío de email no va a funcionar por defecto.
+> * Para poder usar la tarea de envío de correos, es necesario tener un servidor SMTP instalado de forma local.
 
 #ANEXO
 Otras tareas que se podrían realizar en GNU/Linux:
