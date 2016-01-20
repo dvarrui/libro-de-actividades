@@ -32,9 +32,9 @@ Para matricular alumnos dentro de nuestro curso Moodle hacemos lo siguiente:
     * Lo matriculamos
     * Al terminar de matricularlo a todos picamos en `Finalizar matrículación de usuarios`.
 
+![matricular-alumnos.png](./images/matricular-alumnos.png)
+
 > Otra forma más cómoda es usar el sistema de `Automatriculación` del propio Moodle.
-
-
 
 #2. Usuarios
 ##2.1 Cambiar el perfil de mi usuario
