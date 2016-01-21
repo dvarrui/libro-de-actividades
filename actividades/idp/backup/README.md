@@ -119,16 +119,14 @@ sistema.
 > * Back in Time
 > * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
-
-
-* Crear copia de seguridad total (Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N1-TOT`)
+* Crear copia de seguridad en el directorio `/var/backup-XX/nombre-alumno1` (N1).
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
-* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N2-INC`
+* Crear copia de seguridad (N2)
 * Eliminar el archivo manual12.txt.
-* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
+* Crear copia de seguridad (N3).
 * Crear un nuevo archivo manual13.txt con el mismo contenido de manual11.txt.
-* Crear copia incremental. Si se puede poner el nombre `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
+* Crear copia de seguridad (N4).
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
 * Si la herramienta de backup nos lo permite, programar una copia de 
 seguridad, por ejemplo, a las 11:00 horas diariamente.
@@ -160,16 +158,16 @@ nombre-y-apellidos-del-alumno
 * Vamos a usar la herramienta *copia de seguridad* que 
 proporciona el sistema operativo. Vamos a Inicio, escribimos "Copia de seguridad" para 
 buscar el programa de backup. 
-* Realizar una copia de seguridad (AAAAMMDD-N1-total) de los datos del usuario `nombre-alumno1` y lo grabamos en el 
+* Realizar una copia de seguridad (N1) de los datos del usuario `nombre-alumno1` y lo grabamos en el 
 recurso compartido de red.
 * Restaurar la copia de seguridad en el directorio local `c:\temp`.
 Comprobamos que en caso de pérdida podemos recuperar los archivos de la copia de seguridad.
 * Añadir una línea al fichero carta11.txt con el texto `asir-curso1516`. 
-* Crear copia de seguridad incremental (AAAAMMDD-N2-inc)
+* Crear copia de seguridad (N2)
 * Eliminar el archivo carta12.txt.
-* Crear copia de seguridad incremental (AAAAMMDD-N3-inc)
+* Crear copia de seguridad (N3)
 * Crear un nuevo archivo carta13.txt. Con el mismo contenido del archivo carta11.txt.
-* Crear copia de seguridad incremental (AAAAMMDD-N4-inc)
+* Crear copia de seguridad (N4)
 * Comprobar el contenido restaurando el contenido en `c:\temp`.
 * Restaurar el fichero borrado `carta12.txt` desde la copia de seguridad a su lugar original.
 * Programar la copia de seguridad, a las 11:00 horas diariamente.
