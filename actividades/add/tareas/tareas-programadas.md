@@ -1,5 +1,10 @@
 
+*(Utilizado en el curso 2015-16)*
+
 #Tareas programadas
+
+* Realizar la entrega por el repositorio GitHub.
+* Usar etiqueta `cron` al finalizar.
 
 #1. SO OpenSUSE
 
