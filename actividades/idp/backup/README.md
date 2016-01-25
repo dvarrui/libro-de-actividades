@@ -196,15 +196,15 @@ las copias de seguridad que vayamos realizando de momento.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 Copia de seguridad:
-* Usaremos comandos como tar y zip. Consultar pdf y/o internet.
-* Crear copia de seguridad total (`/var/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT`)
+* Usaremos comandos como tar y gzip. Consultar pdf y/o internet.
+* Crear copia de seguridad total (`/var/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual21.txt con el texto `asir-curso1516`.
-* Crear copia incremental `/var/backup-XX/nombre-alumno2/AAAAMMDD-N2-INC`
+* Crear copia incremental `/var/backup-XX/nombre-alumno2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo manual22.txt.
-* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC`
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N3-INC.tar.gz`
 * Crear un nuevo archivo manual23.txt con el mismo contenido de manual11.txt.
-* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC`
+* Crear copia incremental `/var/backup-XX/nombre-alumno1/AAAAMMDD-N4-INC.tar.gz`
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad.
 
 ##3.2 Comandos Windows
@@ -213,7 +213,7 @@ Preparativos:
 * Instalar Cygwin en W7.
 
 > * Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
-> * Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y zip.
+> * Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y gzip.
 
 * Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documentos: carta21.txt y carta22.txt.
 * Escribir el siguiente contenido dentro de los archivos:
@@ -226,18 +226,20 @@ Preparativos:
 
 Copia de seguridad:
 * Realizar copia de seguridad de la carpeta "Documentos" del usuario `nombre-alumno2`. 
-
-> Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
-o en un recurso de red (Si usamos wbadmin o ntbackup).
-
-* En nuestro caso vamos a usar Cygwin y usaremos el recurso de directorio 
-local `c:\backup-XX\nombre-alumno2`.
-
-![cygwin-rutas](./images/cygwin-rutas.png)
+* Usaremos comandos como tar y gzip. Consultar pdf y/o internet.
 
 > **Cygwin**
 > Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
 Dentro de Cygwin la ruta "c:\Users\profesor" será "/cygdrive/c/Users/profesor"
+> Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
+o en un recurso de red (Si usamos wbadmin o ntbackup).
+
+![cygwin-rutas](./images/cygwin-rutas.png)
+
+* Crear copia de seguridad total (`/cygdrive/c/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
+* En nuestro caso vamos a usar Cygwin y usaremos el recurso de directorio 
+local `c:\backup-XX\nombre-alumno2`.
+* Restaurar la copia de seguridad en `/c/temp` para comprobar su contenido.
 
 > **Windows Server**
 >
