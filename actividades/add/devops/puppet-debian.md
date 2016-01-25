@@ -259,105 +259,117 @@ Si tenemos problemas con los certificados, y queremos eliminar los certificados 
     En el master: puppetca --clean client1.nombregrupo
     En el cliente: rm -rf /var/lib/puppet/ssl
 
-Consultar URL https://wiki.tegnix.com/wiki/Puppet, para más información.
-
+Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 #5. Segunda versión del fichero pp
-Primero hemos probado una configuración sencilla en PuppetMaster. Ahora podemos pasar a algo más complejo como este apartado.
+Primero hemos probado una configuración sencilla en PuppetMaster. 
+Ahora podemos pasar a algo más complejo en este apartado.
 
-Contenido para hostlinux2.pp, versión 2:
+Contenido para `hostlinux2.pp`, versión 2:
 
+```
 class hostlinux2 {
-package { "tree": ensure => installed }
-package { "traceroute": ensure => installed }
-package { "geany": ensure => installed }
-package { "gnomine": ensure => purged }
+  package { "tree": ensure => installed }
+  package { "traceroute": ensure => installed }
+  package { "geany": ensure => installed }
+  package { "gnomine": ensure => purged }
 
-group { "jedy": ensure => "present", }
-group { "admin": ensure => "present", }
+  group { "jedy": ensure => "present", }
+  group { "admin": ensure => "present", }
 
-user { 'obi-wan':
-home => '/home/obi-wan',
-shell => '/bin/bash',
-password => 'kenobi',
-groups => ['jedy','admin','sudo','root'] }
+  user { 'obi-wan':
+    home => '/home/obi-wan',
+    shell => '/bin/bash',
+    password => 'kenobi',
+    groups => ['jedy','admin','sudo','root'] 
+  }
 
-file { "/home/obi-wan":
-ensure => "directory",
-owner => "obi-wan",
-group => "jedy",
-mode => 750 }
+  file { "/home/obi-wan":
+    ensure => "directory",
+    owner => "obi-wan",
+    group => "jedy",
+    mode => 750 
+  }
 
-file { "/home/obi-wan/share":
-ensure => "directory",
-owner => "obi-wan",
-group => "jedy",
-mode => 750 }
+  file { "/home/obi-wan/share":
+    ensure => "directory",
+    owner => "obi-wan",
+    group => "jedy",
+    mode => 750 
+  }
 
-file { "/home/obi-wan/share/private":
-ensure => "directory",
-owner => "obi-wan",
-group => "jedy",
-mode => 750 }
+  file { "/home/obi-wan/share/private":
+    ensure => "directory",
+    owner => "obi-wan",
+    group => "jedy",
+    mode => 750 
+  }
 
-file { "/home/obi-wan/share/public":
-ensure => "directory",
-owner => "obi-wan",
-group => "jedy",
-mode => 755 }
+  file { "/home/obi-wan/share/public":
+    ensure => "directory",
+    owner => "obi-wan",
+    group => "jedy",
+    mode => 755 
+  }
 
 }
+```
 
-Las órdenes de configuración de puppet significan lo siguiente:
+> Las órdenes de configuración de puppet significan lo siguiente:
+>
+> * **package**: indica paquetes que queremos que estén o no en el sistema.
+> * **group**: creación o eliminación de grupos.
+> * **user**: Creación o eliminación de usuarios.
+> * **file**: directorios o ficheros para crear o descargar desde servidor.
 
-    package: indica paquetes que queremos que estén o no en el sistema.
-    group: creación o eliminación de grupos.
-    user: Creación o eliminación de usuarios.
-    file: directorios o ficheros para crear o descargar desde servidor.
+Modificar `site.pp` con:
 
-Modificar site.pp con:
-
+```
 import "classes/*"
 
 node default {
-include hostlinux2
+  include hostlinux2
 }
+```
 
+#6. Cliente puppet windows
 
-6. Cliente puppet windows
+* Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
+* En el master vamos a crear una configuración puppet para las máquinas windows, 
+dentro del fichero `/etc/puppet/manifests/classes/hostwindows1.pp`, con el siguiente contenido:
 
-    Enlace de interés: http://docs.puppetlabs.com/windows/writing.html
-    En el master vamos a crear una configuración puppet para las máquinas windows dentro del fichero /etc/puppet/manifests/classes/hostwindows1.pp, con el siguiente contenido:
-
+```
 class hostwindows1 {
-file {'C:\warning.txt':
-ensure => present,
-content => "Hola Mundo Puppet!",
+  file {'C:\warning.txt':
+    ensure => present,
+    content => "Hola Mundo Puppet!",
+  }
 }
-}
+```
 
     De momento, esta configuración es muy básica. Al final la ampliaremos.
-    Además debemos modificar el fichero site.pp del master, de la siguiente forma:
+* Además debemos modificar el fichero `site.pp` del master, de la siguiente forma:
 
+```
 import "classes/*"
 
 node 'client1.nombredegrupo' {
-include hostlinux2
+  include hostlinux2
 }
-
 
 node 'client2' {
-include hostwindows1
+  include hostwindows1
 }
+```
 
-    Reiniciamos el servicio PuppetMaster.
-    Localizar el fichero /etc/hosts en Windows. Ir a la ruta de la imagen:
+* Reiniciamos el servicio PuppetMaster.
+* Localizar el fichero hosts de Windows`. Ir a la ruta de la imagen:
 
-dir
+[windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
 
-    El contenido del fichero hosts de Windows tiene este aspecto:
+* El contenido del fichero hosts de Windows tiene este aspecto:
 
-hosts
+[windows-edit-etchosts](./images/windows-edit-etchosts.png)
 
 * Modificar el fichero de la misma forma que hicimos para client1.
 * Ir al master y ejecutar el comando `facter`, para ver la versión de Puppet que está usando el master.
@@ -367,8 +379,8 @@ hosts
 
 > Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet
 
-* Iniciar consola puppet como administrador y probar el comando: `puppet agent --server master.nombregrupo --test`
-* Ejemplos útiles:
+* Iniciar consola puppet como administrador y probar los comandos: 
+    * `puppet agent --server master.nombregrupo --test`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows
     * `puppet resource user profesor`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
