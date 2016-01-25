@@ -359,30 +359,35 @@ dir
 
 hosts
 
-    Modificar el fichero de la misma forma que hicimos para client1.
-    Ir al master y ejecutar el comando "facter", para ver la versión de Puppet que está usando el master.
-    Ahora vamos a instalar puppet en Windows. Consultar URL:
-        http://docs.puppetlabs.com/windows?/installing.html
-        https://downloads.puppetlabs.com/windows/
-    Iniciar consola puppet como administrador y probar el comando: "puppet agent --server master.nombregrupo --test"
-    Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet, como por ejemplo:
-        facter: Para consultar datos de la máquina windows
-        puppet resource user profesor: Para ver la configuración puppet del usuario.
-        puppet resource file c:\Users: Para var la configuración puppet de la carpeta.
+* Modificar el fichero de la misma forma que hicimos para client1.
+* Ir al master y ejecutar el comando `facter`, para ver la versión de Puppet que está usando el master.
+* Ahora vamos a instalar puppet en Windows. Consultar URL:
+    * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
+    * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
 
-puppet-resource-windows
+> Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet
 
+* Iniciar consola puppet como administrador y probar el comando: `puppet agent --server master.nombregrupo --test`
+* Ejemplos útiles:
+    * `facter`: Para consultar datos de la máquina windows
+    * `puppet resource user profesor`: Para ver la configuración puppet del usuario.
+    * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
+
+[puppet-resource-windows](./images/puppet-resource-windows.png)
           
-    Con los comandos anteriores podemos hacernos una idea de como terminar de configurar el fichero /etc/puppet/manifests/classes/hostwindows2.pp del master.
+* Con los comandos anteriores podemos hacernos una idea de como terminar de configurar 
+el fichero `/etc/puppet/manifests/classes/hostwindows2.pp` del master.
 
+```
 class hostwindows2 {
-user { 'darth-sidius':
-ensure => 'present',
-groups => ['Administradores']
-}
+  user { 'darth-sidius':
+    ensure => 'present',
+    groups => ['Administradores']
+  }
 
-user { 'darth-maul':
-ensure => 'present',
-groups => ['Usuarios']
+  user { 'darth-maul':
+    ensure => 'present',
+    groups => ['Usuarios']
+  }
 }
-}
+```
