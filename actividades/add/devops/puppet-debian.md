@@ -72,17 +72,18 @@ starwars
 
 
 #2 Instalación y configuración del MASTER
+
 Preparativos para el MASTER:
 
 * Vamos a la máquina master.
-* Cambiar nombre de máquina: echo "master.nombregrupo" > /etc/hostname
+* Cambiar nombre de máquina: `echo "master.nombregrupo" > /etc/hostname`
 * Modificar /etc/resolv.conf y poner al comienzo:
 
     domain nombregrupo
     search nombregrupo
     ...
 
-* Añadir a /etc/hosts los nombres de las MV's.
+* Añadir a `/etc/hosts` los nombres de todas las MV's.
 
     127.0.0.1 localhost
     127.0.1.1 master.nombregrupo master
@@ -93,49 +94,54 @@ Preparativos para el MASTER:
 
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar los siguiente:
-    * El comando hostname -> nombre-del-master
-    * El comando dnsdomainname -> nombre-del-grupo
-    * ping a master.nombregrupo debe funcionar.
+    * `hostname` -> nombre-del-master
+    * `dnsdomainname` -> nombre-del-grupo
+    * `ping master.nombregrupo` -> Ok.
 
 ##2.1 Ejemplo manual
 
-Tenemos instalado "puppet" (Agente puppet) en la máquina Master, 
-y vamos a instalar el paquete "tree", crear el usuario "yoda" y la carpeta "/home/yoda/tatooine".
+Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet).
+Nuestro objetivo es usar puppet para conseguir lo siguiente:
+* instalar el paquete `tree`.
+* crear el usuario `yoda` y 
+* crear la carpeta `/home/yoda/endor`.
 
-Vamos a averiguar la configuración que lee puppet de estos recursos. Para ello ejecutamos los comandos siguientes:
+Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
+obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
 
     puppet resource package tree > yoda.pp
     puppet resource user yoda >> yoda.pp
-    puppet resource file /home/yoda/corusant >> yoda.pp
+    puppet resource file /home/yoda/endor >> yoda.pp
 
-El contenido del fichero "yoda.pp" debe ser parecido a:
+El contenido del fichero `yoda.pp` debe ser parecido a:
 
+```
 package { 'tree':
-ensure => 'present',
+  ensure => 'present',
 }
+
 user { 'yoda':
-ensure => 'present',
-home => '/home/yoda',
-password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fT4BXdSYfZKdSKOPdBIivyGJpSIxIe5HAKpbt7.jQx20nEev3PabB6HdbqBX37oXrmP6y0',
-shell => '/bin/bash',
-}
-file { '/home/yoda/corusant/':
-ensure => 'directory',
-group => '100',
-mode => '755',
-owner => '1001',
-type => 'directory',
+  ensure => 'present',
+  home => '/home/yoda',
+  password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fT4BXdSYfZKdSKOPdBIivyGJpSIxIe5HAKpbt7.jQx20nEev3PabB6HdbqBX37oXrmP6y0',
+  shell => '/bin/bash',
 }
 
+file { '/home/yoda/endor/':
+  ensure => 'directory',
+  group => '100',
+  mode => '755',
+  owner => '1001',
+  type => 'directory',
+}
+```
 
-    INFO: Si nos llevaramos el fichero "yoda.pp" a otro PC con puppet instalado, podemos forzar a que se creen estos cambios con el comando: puppet apply yoda.pp
-    Desinstalar el paquete tree y eliminar la carpeta.
-    Ejecutar el comando: puppet apply yoda.pp, y comprobar los resultados.
+Si nos lleváramos el fichero `yoda.pp` a otro PC con puppet instalado, 
+podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
 
+##2.2 Primera versión del fichero pp
 
-2.2 Primera versión del fichero pp
-
-Instalando y configurando Puppet en el master:
+* Instalando y configurando Puppet en el master:
 
     apt-get install puppetmaster
     mkdir /etc/puppet/files
@@ -145,27 +151,25 @@ Instalando y configurando Puppet en el master:
     touch /etc/puppet/manifests/site.pp
     touch /etc/puppet/manifests/classes/hostlinux1.pp
 
-Contenido para readme.txt:
+* Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`
+* Contenido para site.pp:
 
-"¡Que la fuerza te acompañe!"
-
-
-Contenido para site.pp:
-
+```
 import "classes/*"
 
 node default {
-include hostlinux1
+  include hostlinux1
 }
+```
 
-
-Contenido para hostlinux1.pp, versión 1. :
-
+* Contenido para hostlinux1.pp, versión 1. :
+```
 class hostlinux1 {
-package { "tree": ensure => installed }
-package { "traceroute": ensure => installed }
-package { "geany": ensure => installed }
+  package { "tree": ensure => installed }
+  package { "traceroute": ensure => installed }
+  package { "geany": ensure => installed }
 }
+```
 
 > **OJO** 
 >
@@ -352,8 +356,9 @@ class hostwindows1 {
 }
 ```
 
-    De momento, esta configuración es muy básica. Al final la ampliaremos.
-* Además debemos modificar el fichero `site.pp` del master, de la siguiente forma:
+* De momento, esta configuración es muy básica. Al final la ampliaremos.
+* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
+la configuración de clientes GNU/Linux y clientes Windows, de la siguiente forma:
 
 ```
 import "classes/*"
