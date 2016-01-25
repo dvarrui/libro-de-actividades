@@ -196,7 +196,18 @@ las copias de seguridad que vayamos realizando de momento.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 Copia de seguridad:
-* Usaremos comandos como tar y gzip. Consultar pdf y/o internet.
+* Usaremos comando `tar`. Consultar pdf y/o internet.
+
+> * `tar -cvf ...`: Crear fichero empaquetado.
+> * `tar -tvf ...`: Muestra el contenido del fichero empaquetado.
+> * `tar -xvf ...`: Extrae el contenido del fichero empaquetado.
+> * `tar -xvf ... --directory /dir2`: Extrae el contenido del fichero empaquetado en dir2.
+> * `tar -xvf ... -C /dir2`: Extrae el contenido del fichero empaquetado en dir2.
+> * `tar -acvf ...`: Crear fichero empaquetado y comprimido.
+> * `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
+> * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
+> * `date +%Y%m%y`: Muestra la fecha en formato AAAAMMDD
+
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
 * Añadir una línea al fichero manual21.txt con el texto `asir-curso1516`.
