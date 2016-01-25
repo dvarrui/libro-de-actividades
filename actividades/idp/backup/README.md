@@ -182,11 +182,13 @@ Preparativos:
     * `/home/nombre-alumno2/mydocs/manual22.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
+```
     GNU/Linux
     GUI
     nombre-y-apellidos-del-alumno
     20160114
- 
+```
+
 * Crear el directorio `/var/backup-XX/nombre-alumno2`. Lo utilizaremos para almacenar 
 las copias de seguridad que vayamos realizando de momento.
 * Comprobar permisos.
