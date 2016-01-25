@@ -221,12 +221,7 @@ Copia de seguridad:
 ##3.2 Comandos Windows
 
 Preparativos:
-* Instalar Cygwin en W7.
-
-> * Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
-> * Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y gzip.
-
-* Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documentos: carta21.txt y carta22.txt.
+* Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documentos/mydocs: carta21.txt y carta22.txt.
 * Escribir el siguiente contenido dentro de los archivos:
 ```
     Windows
@@ -235,14 +230,25 @@ Preparativos:
     20160114
 ``` 
 
+* Instalar [Cygwin](https://www.cygwin.com) en W7.
+   * Install from Internet
+   * Root directory: C:\cygwin
+   * Local Packages: valor por defecto
+   * Direct Connection
+   * Choose a download site
+   * Select packages: base/tar, net/rsync, archive/zip, net/openssh.   
+
 Copia de seguridad:
-* Realizar copia de seguridad de la carpeta "Documentos" del usuario `nombre-alumno2`. 
-* Usaremos comandos como tar y gzip. Consultar pdf y/o internet.
+* Vamos a realizar copia de seguridad de la carpeta "Documentos/mydocs" del usuario `nombre-alumno2`. 
+* Usando comandos como tar y gzip de Cygwin. Consultar pdf y/o internet.
 
 > **Cygwin**
-> Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
-Dentro de Cygwin la ruta "c:\Users\profesor" será "/cygdrive/c/Users/profesor"
-> Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
+>
+> * Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
+> * Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y gzip.
+> * Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
+Dentro de Cygwin la ruta `c:\Users\profesor` será `/cygdrive/c/Users/profesor`
+> * Las copias de seguridad las podemos almacenar en un directorio local (Si usamos Cygwin) 
 o en un recurso de red (Si usamos wbadmin o ntbackup).
 
 ![cygwin-rutas](./images/cygwin-rutas.png)
@@ -250,23 +256,24 @@ o en un recurso de red (Si usamos wbadmin o ntbackup).
 * Crear copia de seguridad total (`/cygdrive/c/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
 * En nuestro caso vamos a usar Cygwin y usaremos el recurso de directorio 
 local `c:\backup-XX\nombre-alumno2`.
-* Restaurar la copia de seguridad en `/c/temp` para comprobar su contenido.
+* Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 
-> **Windows Server**
->
+#ANEXO
+* Instalar Cygwin junto con el servidor OpenSSH.
+* ¿Cómo configurar SSH desde Cygwin?
+* ¿Cómo actualizar paquetes desde Cygwin?
+
+## Windows Server
+
 > Windows7/2008server proporciona el comando "wbadmin" para manejar copias de seguridad.
 > * Abrimos consola (cmd) con el usuario administrador.
 > * Ejecutamos "wbadmin get versions", para comprobar que funciona.
 > * Ejemplo de copia parcial: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:\Users\Alumno1\*"
 > * Ejemplo de copia total: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:"
 
-> **Windows XP**
+##Windows XP
+
 >
 > Windows XP proporciona el comando "ntbackup" para hacer copias de seguridad. 
 > 
 > Veamos un ejemplo: ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backup\alumno2\backup.bkf /V:yes
-
-#ANEXO
-* Instalar Cygwin junto con el servidor OpenSSH.
-* ¿Cómo configurar SSH desde Cygwin?
-* ¿Cómo actualizar paquetes desde Cygwin?
