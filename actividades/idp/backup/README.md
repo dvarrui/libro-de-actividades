@@ -120,7 +120,7 @@ sistema.
 > * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
 * Crear copia de seguridad en el directorio `/var/backup-XX/nombre-alumno1` (N1).
-* Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
+* Comprobar el contenido de la copia de seguridad a través de la propia herramienta.
 * Añadir una línea al fichero manual11.txt con el texto `asir-curso1516`.
 * Crear copia de seguridad (N2)
 * Eliminar el archivo manual12.txt.
