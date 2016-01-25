@@ -167,11 +167,12 @@ package { "traceroute": ensure => installed }
 package { "geany": ensure => installed }
 }
 
-OJO la ruta del fichero es /etc/puppet/manifests/classes/hostlinux1.pp.
+> **OJO** 
+>
+>La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
-Reiniciamos servicio: /etc/init.d/puppetmaster restart
-Consultamos log por si hay errores: tail /var/log/syslog
-
+* Reiniciamos servicio: `/etc/init.d/puppetmaster restart`
+* Consultamos log por si hay errores: `tail /var/log/syslog`
 
 #3. Instalación y configuración del cliente puppet Debian
 Preparativos para CLIENT1:
@@ -200,15 +201,16 @@ Preparativos para CLIENT1:
 
 Instalación:
 
-* Instalando y configurando Puppet en el cliente: apt-get install puppet
-* Añadir a /etc/puppet/puppet.conf:
+* Instalando y configurando Puppet en el cliente: `apt-get install puppet`
+* El cliente puppet debe ser informado de quien será su master. Para ello, 
+añadimos a `/etc/puppet/puppet.conf`:
 
     [main]
     server=master.nombregrupo
     ...
 
 * Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
-editar el archivo /etc/default/puppet, y modificar la línea
+editar el archivo `/etc/default/puppet`, y modificar la línea
 
 ```
     ...
@@ -217,11 +219,11 @@ editar el archivo /etc/default/puppet, y modificar la línea
     ...
 ```
 
-* Reiniciar servicio en el cliente: /etc/init.d/puppet restart
-* Comprobamos los log del cliente: tail /var/log/syslog
+* Reiniciar servicio en el cliente: `/etc/init.d/puppet restart`
+* Comprobamos los log del cliente: `tail /var/log/syslog`
 
 #4. Aceptar certificado
-Antes de que el master acepte a client1.nombredegrupo, como cliente, se deben intercambiar los certificados.
+Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben intercambiar los certificados.
 
 ##4.1 Aceptar certificado
 
@@ -245,21 +247,24 @@ Antes de que el master acepte a client1.nombredegrupo, como cliente, se deben in
 ##4.2 Comprobación final
 
 * Vamos a client1
-* Reiniciamos. Los cambios deben haberse realizado.
-* En caso contrario ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
-* Para ver errores podemos reiniciar el servicio puppet en el cliente, y 
+* Reiniciamos la máquina.
+* Comprobar que los cambios configurados en Puppet se han realizado.
+* En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
+* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
+* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. 
+En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 
-Puede ser que tengamos algún mensaje de error de configuración en el manifiests del master. Ir a los ficheros del master y corregir los errrores de sintaxis.
-
-[NO HACER] ¿Cómo eliminar certificados?
-Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-
-    En el master: puppetca --revoke client1.nombregrupo
-    En el master: puppetca --clean client1.nombregrupo
-    En el cliente: rm -rf /var/lib/puppet/ssl
-
-Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
+> **¿Cómo eliminar certificados?**
+>
+> *Esto NO HAY QUE HACERLO*. Sólo es información, para el caso que tengamos que eliminar los certificados
+> 
+> Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
+> * `puppetca --revoke client1.nombregrupo`: Lo ejecutamos en el master para revocar certificado del cliente.
+> * `puppetca --clean client1.nombregrupo`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
+> *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
+>
+> Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 #5. Segunda versión del fichero pp
 Primero hemos probado una configuración sencilla en PuppetMaster. 
@@ -365,11 +370,11 @@ node 'client2' {
 * Reiniciamos el servicio PuppetMaster.
 * Localizar el fichero hosts de Windows`. Ir a la ruta de la imagen:
 
-[windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
+![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
 
 * El contenido del fichero hosts de Windows tiene este aspecto:
 
-[windows-edit-etchosts](./images/windows-edit-etchosts.png)
+![windows-edit-etchosts](./images/windows-edit-etchosts.png)
 
 * Modificar el fichero de la misma forma que hicimos para client1.
 * Ir al master y ejecutar el comando `facter`, para ver la versión de Puppet que está usando el master.
@@ -385,7 +390,7 @@ node 'client2' {
     * `puppet resource user profesor`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
 
-[puppet-resource-windows](./images/puppet-resource-windows.png)
+![puppet-resource-windows](./images/puppet-resource-windows.png)
           
 * Con los comandos anteriores podemos hacernos una idea de como terminar de configurar 
 el fichero `/etc/puppet/manifests/classes/hostwindows2.pp` del master.
