@@ -168,7 +168,6 @@ Comprobamos que en caso de pérdida podemos recuperar los archivos de la copia d
 * Crear copia de seguridad (N3)
 * Crear un nuevo archivo carta13.txt. Con el mismo contenido del archivo carta11.txt.
 * Crear copia de seguridad (N4)
-* Comprobar el contenido restaurando el contenido en `c:\temp`.
 * Restaurar el fichero borrado `carta12.txt` desde la copia de seguridad a su lugar original.
 * Programar la copia de seguridad, a las 11:00 horas diariamente.
 
@@ -221,7 +220,7 @@ Copia de seguridad:
 ##3.2 Comandos Windows
 
 Preparativos:
-* Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documentos/mydocs: carta21.txt y carta22.txt.
+* Con el usuario `nombre-alumno2`, crear en dos archivos de texto en Documents/mydocs: carta21.txt y carta22.txt.
 * Escribir el siguiente contenido dentro de los archivos:
 ```
     Windows
@@ -239,7 +238,7 @@ Preparativos:
    * Select packages: base/tar, net/rsync, archive/zip, net/openssh.   
 
 Copia de seguridad:
-* Vamos a realizar copia de seguridad de la carpeta "Documentos/mydocs" del usuario `nombre-alumno2`. 
+* Vamos a realizar copia de seguridad de la carpeta "Documents/mydocs" del usuario `nombre-alumno2`. 
 * Usando comandos como tar y gzip de Cygwin. Consultar pdf y/o internet.
 
 > **Cygwin**
