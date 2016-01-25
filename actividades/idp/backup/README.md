@@ -209,7 +209,7 @@ Copia de seguridad:
 > * `date +%Y%m%y`: Muestra la fecha en formato AAAAMMDD
 
 * Crear copia de seguridad total (`/var/backup-XX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
-* Restaurar la copia de seguridad en `/temp` para comprobar su contenido.
+* Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero manual21.txt con el texto `asir-curso1516`.
 * Crear copia incremental `/var/backup-XX/nombre-alumno2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo manual22.txt.
