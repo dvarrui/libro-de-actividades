@@ -138,7 +138,7 @@ Enlace de interés:
 
 ###En el Windows Server
 * Crear en Windows Server la carpeta `c:\backup-XX\nombre-alumno1`. 
-* Crear el recurso compartido de red `\1er-apellido-alumno2\backup-XX\nombre-alumno1`. 
+* Crear el recurso compartido de red `\1er-apellido-alumno2\backup-XX`. 
 
 > Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
 
