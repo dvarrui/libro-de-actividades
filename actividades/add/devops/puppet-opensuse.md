@@ -358,10 +358,10 @@ Enlace de interés:
 ##6.1 Modificaciones en el Master
 
 * En el master vamos a crear una configuración puppet para las máquinas windows, 
-dentro del fichero `/etc/puppet/manifests/classes/hostwindows1.pp`, con el siguiente contenido:
+dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
-class hostwindows1 {
+class hostwindows3 {
   file {'C:\warning.txt':
     ensure => present,
     content => "Hola Mundo Puppet!",
