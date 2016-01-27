@@ -204,15 +204,14 @@ class hostlinux1 {
 #3. Instalación y configuración del cliente1
 
 Instalación:
-
 * Instalamos Agente Puppet en el cliente: `zypper install puppet`
-* El cliente puppet debe ser informado de quien será su master. Para ello, 
-añadimos a `/etc/puppet/puppet.conf`:
+* El cliente puppet debe ser informado de quien será su master. Para ello, añadimos a `/etc/puppet/puppet.conf`:
 
+```
     [main]
     server=masterXX.primer-apellido-alumno
     ...
-
+```
 * Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
 editar el archivo `/etc/default/puppet`, y modificar la línea
 
@@ -222,7 +221,7 @@ editar el archivo `/etc/default/puppet`, y modificar la línea
     START=yes
     ...
 ```
-> Quizás en OpenSUSE sea diferente -> Yast
+> Quizás en OpenSUSE sea diferente
 
 * Reiniciar servicio en el cliente
 * Comprobamos los log del cliente: `tail /var/log/syslog`
