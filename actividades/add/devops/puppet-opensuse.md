@@ -162,12 +162,12 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
     touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-## readme.txt
+##2.1 /etc/puppet/files/readme.txt
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
 * Los ficheros que se guardan en 
 `/etc/puppet/files` pueden se descargados por el resto de máquinas puppet.
 
-## site.pp
+##2.2 /etc/puppet/manifests/site.pp
 * Este es el fichero principal de configuración puppet.
 * Contenido para site.pp:
 
@@ -179,7 +179,7 @@ node default {
 }
 ```
 
-## hostlinux1.pp (versión 1)
+##2.3 /etc/puppet/manifests/classes/hostlinux1.pp
 
 * Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
 organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
