@@ -198,7 +198,7 @@ class hostlinux1 {
 
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
-* Reiniciamos servicio `puppetmaster`
+* Reiniciamos el servicio `puppetmaster`.
 * Consultamos log por si hay errores: `tail /var/log/syslog`
 
 #3. Instalación y configuración del cliente1
@@ -223,24 +223,24 @@ editar el archivo `/etc/default/puppet`, y modificar la línea
 ```
 > Quizás en OpenSUSE sea diferente
 
-* Reiniciar servicio en el cliente
+* Reiniciar servicio en el cliente.
 * Comprobamos los log del cliente: `tail /var/log/syslog`
 
 #4. Certificados
 
 Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre 
-ambas máquinas. Esto sólo hay que hacerlo la primera vez.
+ambas máquinas. Esto sólo hay que hacerlo una vez.
 
 ##4.1 Aceptar certificado
 
 * Vamos al master y consultamos las peticiones pendiente de unión al master:
-
+```
     root@master30# puppetca --list
     "cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
     root@master30#
-
+```
 * Aceptar al nuevo cliente desde el master:
-
+```
     root@master30# puppetca --sign "cli1alu30.vargas"
     notice: Signed certificate request for cli1alu30.vargas
     notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
@@ -251,6 +251,7 @@ ambas máquinas. Esto sólo hay que hacerlo la primera vez.
     Certificate:
     Data:
     ....
+```
 
 ##4.2 Comprobación final
 
