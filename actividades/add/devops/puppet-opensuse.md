@@ -396,8 +396,9 @@ node 'cli2alu30' {
 * Consultar URL:
     * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
     * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
-* Ahora vamos a instalar AgentePuppet en Windows. Una vez instalado el AgentePuppet 
-en Windows podemos hacer uso de comandos puppet.
+* Ahora vamos a instalar AgentePuppet en Windows.
+* Reiniciamos.
+* Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado 4.
 
 > Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
 el fichero puppet del master para la máquina Windows.
