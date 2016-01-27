@@ -47,6 +47,8 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
 entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras
 propias MV's sin tener un servidor DNS. 
 
+> **GNU/Linux**
+>
 > El fichero `/etc/hosts` debe tener un contenido similar a:
 >
 >    127.0.0.1       localhost
@@ -54,6 +56,16 @@ propias MV's sin tener un servidor DNS.
 >    172.18.30.100   master30.vargas    master30
 >    172.18.30.101   cli1alu30.vargas   cli1alu30
 >    172.18.30.102   cli2alu30.vargas   cli2alu30
+
+> **Windows**
+>
+> Para localizar el fichero hosts de Windows, vamos a la ruta de la imagen:
+> 
+> ![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
+>
+> El contenido del fichero hosts de Windows tiene el siguiente aspecto:
+>
+> ![windows-edit-etchosts](./images/windows-edit-etchosts.png)
 
 ##1.2 Comprobacion de las configuraciones
 
@@ -120,7 +132,7 @@ package { 'tree':
 user { 'yoda':
   ensure => 'present',
   home => '/home/yoda',
-  password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fT4BXdSYfZKdSKOPdBIivyGJpSIxIe5HAKpbt7.jQx20nEev3PabB6HdbqBX37oXrmP6y0',
+  password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fjQx20nEev3PabB6HdbqBX37oXrmP6y0',
   shell => '/bin/bash',
 }
 
@@ -242,8 +254,7 @@ ambas máquinas. Esto sólo hay que hacerlo la primera vez.
 
 ##4.2 Comprobación final
 
-* Vamos a cli1alu30
-* Reiniciamos la máquina.
+* Vamos a cliente1 y reiniciamos la máquina.
 * Comprobar que los cambios configurados en Puppet se han realizado.
 * En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
@@ -256,18 +267,18 @@ En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
 > Sólo es información, para el caso que tengamos que eliminar los certificados
 > 
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-> * `puppetca --revoke client1.nombregrupo`: Lo ejecutamos en el master para revocar certificado del cliente.
-> * `puppetca --clean client1.nombregrupo`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
+> * `puppetca --revoke cli1alu30.vargas`: Lo ejecutamos en el master para revocar certificado del cliente.
+> * `puppetca --clean  cli1alu30.vargas`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
 > *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
 >
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 #5. Segunda versión del fichero pp
 
-Primero hemos probado una configuración sencilla en PuppetMaster. 
-Ahora podemos pasar a algo más complejo en este apartado.
+Ya hemos probado una configuración sencilla en PuppetMaster. 
+Ahora vamos a pasar a configurar algo más complejo.
 
-Contenido para `hostlinux2.pp`, versión 2:
+* Contenido para `/etc/puppet/manifests/classes/hostlinux2.pp`:
 
 ```
 class hostlinux2 {
@@ -304,7 +315,7 @@ class hostlinux2 {
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 700 
   }
 
   file { "/home/obi-wan/share/public":
@@ -317,14 +328,14 @@ class hostlinux2 {
 }
 ```
 
-> Las órdenes de configuración de puppet significan lo siguiente:
+> Las órdenes anteriores de configuración de recursos puppet, tienen el significado siguiente:
 >
 > * **package**: indica paquetes que queremos que estén o no en el sistema.
 > * **group**: creación o eliminación de grupos.
 > * **user**: Creación o eliminación de usuarios.
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
 
-Modificar `site.pp` con:
+* Modificar `/etc/puupet/manifests/site.pp` con:
 
 ```
 import "classes/*"
@@ -333,10 +344,17 @@ node default {
   include hostlinux2
 }
 ```
+> Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
 
 #6. Cliente puppet windows
 
-* Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
+Vamos a configurar Puppet para atender también a clientes Windows.
+
+Enlace de interés: 
+* [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
+
+##6.1 Modificaciones en el Master
+
 * En el master vamos a crear una configuración puppet para las máquinas windows, 
 dentro del fichero `/etc/puppet/manifests/classes/hostwindows1.pp`, con el siguiente contenido:
 
@@ -349,49 +367,52 @@ class hostwindows1 {
 }
 ```
 
-* De momento, esta configuración es muy básica. Al final la ampliaremos.
+> De momento, esta configuración es muy básica. Al final la ampliaremos algo más.
+
 * Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
 la configuración de clientes GNU/Linux y clientes Windows, de la siguiente forma:
 
 ```
 import "classes/*"
 
-node 'client1.nombredegrupo' {
+node 'cli1alu30.vargas' {
   include hostlinux2
 }
 
-node 'client2' {
+node 'cli2alu30' {
   include hostwindows1
 }
 ```
 
 * Reiniciamos el servicio PuppetMaster.
-* Localizar el fichero hosts de Windows`. Ir a la ruta de la imagen:
+* Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
-![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
+> Debemos instalar la misma versión de puppet en master y clientes
 
-* El contenido del fichero hosts de Windows tiene este aspecto:
+##6.2 Modificaciones en el cliente2
 
-![windows-edit-etchosts](./images/windows-edit-etchosts.png)
-
-* Modificar el fichero de la misma forma que hicimos para client1.
-* Ir al master y ejecutar el comando `facter`, para ver la versión de Puppet que está usando el master.
-* Ahora vamos a instalar puppet en Windows. Consultar URL:
-    * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
-    * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
+Ahora vamos a instalar puppet en Windows. Consultar URL:
+* [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
+* [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
 
 > Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet
+>
+> Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
+el fichero puppet del master para la máquina Windows.
 
 * Iniciar consola puppet como administrador y probar los comandos: 
-    * `puppet agent --server master.nombregrupo --test`: Comprobar el estado del agente puppet.
+    * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows
-    * `puppet resource user profesor`: Para ver la configuración puppet del usuario.
+    * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
+
+Veamos imagen de ejemplo
 
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
           
-* Con los comandos anteriores podemos hacernos una idea de como terminar de configurar 
-el fichero `/etc/puppet/manifests/classes/hostwindows2.pp` del master.
+
+* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows2.pp` 
+para el cliente Windows:
 
 ```
 class hostwindows2 {
