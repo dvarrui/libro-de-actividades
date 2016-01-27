@@ -382,7 +382,7 @@ node 'cli1alu30.vargas' {
 }
 
 node 'cli2alu30' {
-  include hostwindows1
+  include hostwindows3
 }
 ```
 
@@ -413,11 +413,11 @@ Veamos imagen de ejemplo
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
           
 
-* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows2.pp` 
+* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows3.pp` 
 para el cliente Windows:
 
 ```
-class hostwindows2 {
+class hostwindows3 {
   user { 'darth-sidius':
     ensure => 'present',
     groups => ['Administradores']
@@ -429,3 +429,7 @@ class hostwindows2 {
   }
 }
 ```
+* Crear un nuevo fichero de configuración para la máquina cliente Windows.
+Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
+Incluir configuraciones elegidas por el alumno.
+
