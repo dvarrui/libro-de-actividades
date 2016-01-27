@@ -1,4 +1,4 @@
-
+*(Nueva para el curso 201516)*
 
 #1. Introducción
 
@@ -13,98 +13,95 @@ Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 Enlaces de interés:
 
 * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
-* [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA)
+* [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA) 
 * [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
 
+##1.1 Configuración
 
-##1.1 Requisitos
-Trabajaremos en parejas. Vamos a necesitar las siguientes MVs:
-* master:
-    * Es la MV que dará las órdenes de instalación/co nfiguración a los clientes.
+> En OpenSUSE podemos hacer todas estas configuraciones a través de `Yast`
+
+Vamos a usar 3 MV's con las siguientes configuraciones:
+* MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
+    * SO GNU/Linux OpenSUSE 13.2
     * IP estática 172.18.XX.100
-    * Dominio = nombre-del-grupo.
-* client1:
-    * MV que recibe órdenes del master.
+    * Enlace: 172.18.0.1
+    * DNS: 8.8.4.4
+    * Nombre del equipo: masterXX.primer-apellido-del-alumno
+    * Dominio = primer-apellido-del-alumnoXX
+* MV1 - client1: recibe órdenes del master.
+    * SO GNU/Linux OpenSUSE 13.2
     * IP estática 172.18.XX.101
-    * Dominio = nombre-del-grupo
-* client2:
-    * MV que recibe órdenes del master, pero con un SO distinto de client1.
+    * Enlace: 172.18.0.1
+    * DNS: 8.8.4.4
+    * Nombre del equipo: cli1aluXX.primer-apellido-del-alumno
+    * Dominio = primer-apellido-del-alumno
+* MV3 - client2: recibe órdenes del master.
+    * SO Windows 7.
     * IP estática 172.18.XX.102
-    * Grupo de trabajo = nombre-del-grupo
+    * Enlace: 172.18.0.1
+    * DNS: 8.8.4.4
+    * Nombre Netbios: cli2aluXX
+    * Nombre del equipo: cli2aluXX.primer-apellido-del-alumno
+    * Grupo de trabajo = AULA108
+* Cada MV debe tener configurada en su `/etc/hosts` al resto. Para poder hacer `ping`
+entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras
+propias MV's sin tener un servidor DNS. 
 
-##1.2 Servidor DNS y el fichero /etc/resolv.conf
-La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente 
-línea al fichero /etc/network/interfaces: `dns-nameservers 172.16.1.1`
+> El fichero `/etc/hosts` debe tener un contenido similar a:
+>
+>    127.0.0.1       localhost
+>    127.0.0.2       master30.vargas    master30
+>    172.18.30.100   master30.vargas    master30
+>    172.18.30.101   cli1alu30.vargas   cli1alu30
+>    172.18.30.102   cli2alu30.vargas   cli2alu30
 
-Opción A: SO con configuración manual
+##1.2 Comprobacion de las configuraciones
 
-    Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
+En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
 
-Opción B: Adaptar la configuración automática
+```
+    date
+    ip a
+    route -n
+    host www.google.es
+    hostname -a
+    hostname -f
+    hostname -d
+    ping masterXX
+    ping masterXX.primer-apellido-del-alumno
+    ping cli1aluXX
+    ping cli1aluXX.primer-apellido-del-alumno
+    ping cli2aluXX
+    ping cli2aluXX.primer-apellido-del-alumno   
+```
 
-    En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
-    El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
-    Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
+En Windows comprobamos con:
 
-Opción C: Desactivar la configuración automática
+```
+    date
+    ipconfig
+    route /PRINT
+    nslookup www.google.es
+    ping masterXX
+    ping masterXX.primer-apellido-del-alumno
+    ping cli1aluXX
+    ping cli1aluXX.primer-apellido-del-alumno
+    ping cli2aluXX
+    ping cli2aluXX.primer-apellido-del-alumno   
+```
 
-    Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
+> **IMPORTANTE**: Comprobar que todas las máquinas tienen la fecha/hora correcta.
 
+##1.3 Veamos un ejemplo
 
-1.3 Hostname y dnsdomainname
+Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto no s puede ayudar a comprender
+cómo es la sintaxis de la herramienta.
 
-    Una forma de cambiar nombre de host y de dominio:
-        Modificar /etc/hostname con "marte.starwars".
-        Añadir a /etc/hosts "127.0.0.2 marte.starwars marte".
-    Comprobarmos con "hostname -a", "hostname -d".
-    Otra forma de cambiar el nombre de host y de dominio:
-
-# hostname marte.starwars
-# /etc/init.d/hostname restart
-# service hostname restart
-
-    Comprobamos
-
-#hostname
-marte
-#dnsdomainname
-starwars
-
-
-#2 Instalación y configuración del MASTER
-
-Preparativos para el MASTER:
-
-* Vamos a la máquina master.
-* Cambiar nombre de máquina: `echo "master.nombregrupo" > /etc/hostname`
-* Modificar /etc/resolv.conf y poner al comienzo:
-
-    domain nombregrupo
-    search nombregrupo
-    ...
-
-* Añadir a `/etc/hosts` los nombres de todas las MV's.
-
-    127.0.0.1 localhost
-    127.0.1.1 master.nombregrupo master
-    IP-master master.nombregrupo master
-    IP-client1 client1.nombregrupo client1
-    IP-client2 client2.nombregrupo client2
-    ...
-
-* Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
-* Comprobar los siguiente:
-    * `hostname` -> nombre-del-master
-    * `dnsdomainname` -> nombre-del-grupo
-    * `ping master.nombregrupo` -> Ok.
-
-##2.1 Ejemplo manual
-
-Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet).
-Nuestro objetivo es usar puppet para conseguir lo siguiente:
-* instalar el paquete `tree`.
-* crear el usuario `yoda` y 
-* crear la carpeta `/home/yoda/endor`.
+Al instalar `puppetmaster` en la máquina master, también tenemos instalado el Agente puppet.
+Vamos a preguntar a puppet para ver cómo responde con lo siguiente:
+* sobre el paquete `tree` instalado en el sistema.
+* sobre el usuario `yoda` creado en el sistema, y 
+* sobre la carpeta `/home/yoda/endor` que ya existe en el sistema.
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
 obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
@@ -136,15 +133,15 @@ file { '/home/yoda/endor/':
 }
 ```
 
-Si nos lleváramos el fichero `yoda.pp` a otro PC con puppet instalado, 
+Si nos lleváramos el fichero `yoda.pp` a otro PC con el Agente puppet instalado, 
 podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
 
-##2.2 Primera versión del fichero pp
 
-* Instalando y configurando Puppet en el master:
+#2. Primera versión del fichero pp
 
+* Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet-vim`
+* Preparamos los ficheros/directorios en el master:
 ```
-    apt-get install puppetmaster
     mkdir /etc/puppet/files
     mkdir /etc/puppet/manifests
     mkdir /etc/puppet/manifests/classes
@@ -153,7 +150,13 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
     touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-* Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`
+## readme.txt
+* Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
+* Los ficheros que se guardan en 
+`/etc/puppet/files` pueden se descargados por el resto de máquinas puppet.
+
+## site.pp
+* Este es el fichero principal de configuración puppet.
 * Contenido para site.pp:
 
 ```
@@ -164,7 +167,12 @@ node default {
 }
 ```
 
-* Contenido para hostlinux1.pp, versión 1. :
+## hostlinux1.pp (versión 1)
+
+* Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
+organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
+* Vamos a crear una primera configuración para máquina estándar GNU/Linux.
+* Contenido para `hostlinux1.pp`, versión 1. :
 ```
 class hostlinux1 {
   package { "tree": ensure => installed }
@@ -177,42 +185,19 @@ class hostlinux1 {
 >
 >La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
-* Reiniciamos servicio: `/etc/init.d/puppetmaster restart`
+* Reiniciamos servicio `puppetmaster`
 * Consultamos log por si hay errores: `tail /var/log/syslog`
 
-#3. Instalación y configuración del cliente puppet Debian
-Preparativos para CLIENT1:
-* Vamos a la máquina client1. Comprobar que todas las máquinas tienen la fecha/hora correcta.
-* Cambiar nombre de máquina: echo "client1.nombregrupo" > /etc/hostname
-* Modificar /etc/resolv.conf y poner al comienzo:
-
-    domain nombregrupo
-    search nombregrupo
-    ...
-
-* Añadir a /etc/hosts
-
-    127.0.0.1 localhost
-    127.0.1.1 client1.nombregrupo client1
-    IP-master master.nombregrupo master
-    IP-client1 client1.nombregrupo client1
-    ...
-
-* Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
-* Comprobar lo siguiente:
-    
-    El comando hostname -> client1
-    El comando dnsdomainname -> nombredegrupo
-    ping a client1.nombregrupo debe funcionar.
+#3. Instalación y configuración del cliente1
 
 Instalación:
 
-* Instalando y configurando Puppet en el cliente: `apt-get install puppet`
+* Instalamos Agente Puppet en el cliente: `zypper install puppet`
 * El cliente puppet debe ser informado de quien será su master. Para ello, 
 añadimos a `/etc/puppet/puppet.conf`:
 
     [main]
-    server=master.nombregrupo
+    server=masterXX.primer-apellido-alumno
     ...
 
 * Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
@@ -224,46 +209,51 @@ editar el archivo `/etc/default/puppet`, y modificar la línea
     START=yes
     ...
 ```
+> Quizás en OpenSUSE sea diferente -> Yast
 
-* Reiniciar servicio en el cliente: `/etc/init.d/puppet restart`
+* Reiniciar servicio en el cliente
 * Comprobamos los log del cliente: `tail /var/log/syslog`
 
-#4. Aceptar certificado
-Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben intercambiar los certificados.
+#4. Certificados
+
+Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre 
+ambas máquinas. Esto sólo hay que hacerlo la primera vez.
 
 ##4.1 Aceptar certificado
 
 * Vamos al master y consultamos las peticiones pendiente de unión al master:
 
-    root@master# puppetca --list
-    "client1.nombregrupo" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-    root@master#
+    root@master30# puppetca --list
+    "cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
+    root@master30#
 
 * Aceptar al nuevo cliente desde el master:
 
-    root@master# puppetca --sign "client1.nombregrupo"
-    notice: Signed certificate request for client1.nombregrupo
-    notice: Removing file Puppet::SSL::CertificateRequest client1.nombregrupo at '/var/lib/puppet/ssl/ca/requests/client1.nombregrupo.pem'
-    root@master# puppetca --list
-    root@master# puppetca --print client1.nombregrupo
+    root@master30# puppetca --sign "cli1alu30.vargas"
+    notice: Signed certificate request for cli1alu30.vargas
+    notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
+
+    root@master30# puppetca --list
+
+    root@master30# puppetca --print cli1alu30.vargas
     Certificate:
     Data:
     ....
 
 ##4.2 Comprobación final
 
-* Vamos a client1
+* Vamos a cli1alu30
 * Reiniciamos la máquina.
 * Comprobar que los cambios configurados en Puppet se han realizado.
-* En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
+* En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
 * Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. 
-En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
+En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
 
-> **¿Cómo eliminar certificados?**
->
-> *Esto NO HAY QUE HACERLO*. Sólo es información, para el caso que tengamos que eliminar los certificados
+> **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
+> 
+> Sólo es información, para el caso que tengamos que eliminar los certificados
 > 
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
 > * `puppetca --revoke client1.nombregrupo`: Lo ejecutamos en el master para revocar certificado del cliente.
@@ -273,6 +263,7 @@ En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 #5. Segunda versión del fichero pp
+
 Primero hemos probado una configuración sencilla en PuppetMaster. 
 Ahora podemos pasar a algo más complejo en este apartado.
 
