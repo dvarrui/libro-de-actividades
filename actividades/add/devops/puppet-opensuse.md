@@ -178,6 +178,9 @@ node default {
   include hostlinux1
 }
 ```
+> Esta configuración significa:
+> * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
+> * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
 ##2.3 /etc/puppet/manifests/classes/hostlinux1.pp
 
