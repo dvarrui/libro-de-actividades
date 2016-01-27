@@ -143,6 +143,7 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 
 * Instalando y configurando Puppet en el master:
 
+```
     apt-get install puppetmaster
     mkdir /etc/puppet/files
     mkdir /etc/puppet/manifests
@@ -150,6 +151,7 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
     touch /etc/puppet/files/readme.txt
     touch /etc/puppet/manifests/site.pp
     touch /etc/puppet/manifests/classes/hostlinux1.pp
+```
 
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`
 * Contenido para site.pp:
