@@ -260,8 +260,9 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
 * En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. 
-En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
+* Puede ser que tengamos algún mensaje de error de configuración del fichero 
+`/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master 
+y corregir los errores de sintaxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 > 
@@ -392,12 +393,12 @@ node 'cli2alu30' {
 
 ##6.2 Modificaciones en el cliente2
 
-Ahora vamos a instalar puppet en Windows. Consultar URL:
-* [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
-* [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
+* Consultar URL:
+    * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
+    * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
+* Ahora vamos a instalar AgentePuppet en Windows. Una vez instalado el AgentePuppet 
+en Windows podemos hacer uso de comandos puppet.
 
-> Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet
->
 > Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
 el fichero puppet del master para la máquina Windows.
 
