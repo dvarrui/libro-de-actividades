@@ -233,13 +233,13 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
 
 ##4.1 Aceptar certificado
 
-* Vamos al master y consultamos las peticiones pendiente de unión al master:
+* Vamos al master y consultamos las peticiones pendiente de unión al master: `puppetca --list`
 ```
     root@master30# puppetca --list
     "cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
     root@master30#
 ```
-* Aceptar al nuevo cliente desde el master:
+* Aceptar al nuevo cliente desde el master `puppetca --sign "nombre-máquina-cliente"`
 ```
     root@master30# puppetca --sign "cli1alu30.vargas"
     notice: Signed certificate request for cli1alu30.vargas
