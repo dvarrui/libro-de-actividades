@@ -187,7 +187,7 @@ node default {
 * Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
 organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 * Vamos a crear una primera configuración para máquina estándar GNU/Linux.
-* Contenido para `hostlinux1.pp`, versión 1. :
+* Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
 ```
 class hostlinux1 {
   package { "tree": ensure => installed }
@@ -196,9 +196,7 @@ class hostlinux1 {
 }
 ```
 
-> **OJO** 
->
->La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
+> **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
 * Reiniciamos servicio `puppetmaster`
 * Consultamos log por si hay errores: `tail /var/log/syslog`
