@@ -1,7 +1,7 @@
 
 *(Probada en los cursos 201415, 201314, etc)*
 
-#1. Instalar SO en RAID-0
+#1. Instalar SO en RAID-0 software
 
 Vídeo de interés [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx)
 
@@ -53,9 +53,10 @@ Imagen de ejemplo, como resultado de realizar el particionado RAID0.
     lsblk -fm
 ```
 
-#2. Creación de un RAID-1 software
+#2. RAID-1 software
 
 > Consejo: Haz copia de seguridad de la MV (Exportar/importar de VBox).
+
 Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
 
 ##2.1 Preparar la MV
@@ -85,7 +86,7 @@ Realizar las siguientes tareas:
 * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md1`
 
 
-##2.3 Escribir en el RAID1
+##2.3 Escribir en el RAID-1
 
 * Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
 * Comprobamos con `df hT`, `mount`.
@@ -98,7 +99,7 @@ Realizar las siguientes tareas:
     * Directorio `/mnt/raid1/endor`
     * Fichero `/mnt/raid/endor/startrooper.txt`
 
-##2.4 Configuración de RAID1
+##2.4 Configuración de RAID-1
     
 * Consultar el fichero /etc/mdadm/mdadm.conf.
 * El archivo de configuración sólo muestra una línea ARRAY correspondiente al RAID0.
@@ -129,7 +130,7 @@ reinicio debemos añadir una línea en el fichero /etc/fstab, como la siguiente:
 
 * Sincronizamos los discos y comprobar que todo está correcto.
 
-##3.2 Salida de comprobación
+**Salida de comprobación**
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 ```
