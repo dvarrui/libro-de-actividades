@@ -26,7 +26,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * IP estática 172.18.XX.100
     * Enlace: 172.18.0.1
     * DNS: 8.8.4.4
-    * Nombre del equipo: masterXX.primer-apellido-del-alumno
+    * Nombre del equipo: masterXX
     * Dominio = primer-apellido-del-alumnoXX
     * Instalar OpenSSH-Server para acceso del profesor.
 * MV1 - client1: recibe órdenes del master.
@@ -34,7 +34,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * IP estática 172.18.XX.101
     * Enlace: 172.18.0.1
     * DNS: 8.8.4.4
-    * Nombre del equipo: cli1aluXX.primer-apellido-del-alumno
+    * Nombre del equipo: cli1aluXX
     * Dominio = primer-apellido-del-alumno
     * Instalar OpenSSH-Server para acceso del profesor.
 * MV3 - client2: recibe órdenes del master.
@@ -43,7 +43,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * Enlace: 172.18.0.1
     * DNS: 8.8.4.4
     * Nombre Netbios: cli2aluXX
-    * Nombre del equipo: cli2aluXX.primer-apellido-del-alumno
+    * Nombre del equipo: cli2aluXX
     * Grupo de trabajo = AULA108
     * Instalar ServidorSSH para acceso del profesor.
 * Cada MV debe tener configurada en su `/etc/hosts` al resto. Para poder hacer `ping`
