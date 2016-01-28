@@ -32,7 +32,7 @@ van en una partición aparte sin RAID, para evitar problemas en el boot del sist
 
 Imagen de ejemplo, como resultado de realizar el particionado RAID0.
 
-[raid0-particionado](./images/raid0-particionado.png)
+![raid0-particionado](./images/raid0-particionado.png)
 
 > Por esta vez, tampoco vamos a crear una partición independiente para `/home`
 
