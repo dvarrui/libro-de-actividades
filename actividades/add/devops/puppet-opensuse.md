@@ -28,6 +28,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * DNS: 8.8.4.4
     * Nombre del equipo: masterXX.primer-apellido-del-alumno
     * Dominio = primer-apellido-del-alumnoXX
+    * Instalar OpenSSH-Server para acceso del profesor.
 * MV1 - client1: recibe órdenes del master.
     * SO GNU/Linux OpenSUSE 13.2
     * IP estática 172.18.XX.101
@@ -35,6 +36,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * DNS: 8.8.4.4
     * Nombre del equipo: cli1aluXX.primer-apellido-del-alumno
     * Dominio = primer-apellido-del-alumno
+    * Instalar OpenSSH-Server para acceso del profesor.
 * MV3 - client2: recibe órdenes del master.
     * SO Windows 7.
     * IP estática 172.18.XX.102
@@ -43,6 +45,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * Nombre Netbios: cli2aluXX
     * Nombre del equipo: cli2aluXX.primer-apellido-del-alumno
     * Grupo de trabajo = AULA108
+    * Instalar ServidorSSH para acceso del profesor.
 * Cada MV debe tener configurada en su `/etc/hosts` al resto. Para poder hacer `ping`
 entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras
 propias MV's sin tener un servidor DNS. 
@@ -106,10 +109,12 @@ En Windows comprobamos con:
 
 ##1.3 Veamos un ejemplo
 
+*Esto NO es obligatorio hacerlo. Sólo es un ejemplo.*
+
 Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto no s puede ayudar a comprender
 cómo es la sintaxis de la herramienta.
 
-Al instalar `puppetmaster` en la máquina master, también tenemos instalado el Agente puppet.
+Al instalar el servidor puppet en la máquina master, también tenemos instalado el Agente puppet.
 Vamos a preguntar a puppet para ver cómo responde con lo siguiente:
 * sobre el paquete `tree` instalado en el sistema.
 * sobre el usuario `yoda` creado en el sistema, y 
@@ -163,14 +168,15 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 ```
 
 ##2.1 /etc/puppet/files/readme.txt
+
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
 * Los ficheros que se guardan en 
 `/etc/puppet/files` pueden se descargados por el resto de máquinas puppet.
 
 ##2.2 /etc/puppet/manifests/site.pp
+
 * Este es el fichero principal de configuración puppet.
 * Contenido para site.pp:
-
 ```
 import "classes/*"
 
@@ -198,7 +204,7 @@ class hostlinux1 {
 
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
-* Reiniciamos el servicio `puppetmaster`.
+* Reiniciamos el servicio `puppet-server`.
 * Consultamos log por si hay errores: `tail /var/log/syslog`
 
 #3. Instalación y configuración del cliente1
@@ -409,10 +415,9 @@ el fichero puppet del master para la máquina Windows.
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
 
-Veamos imagen de ejemplo
+Veamos imagen de ejemplo:
 
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
-          
 
 * Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows3.pp` 
 para el cliente Windows:
