@@ -16,11 +16,12 @@ luego optimizaremos y al final comprobaremos si han mejorado los resultados.
     * RAM
     * Disco duro
     * etc.
-* Debemos asugurarnos de tener correctamente los drivers de nuestra máquina. 
-Consultar "Administrador de dispositivos".
-* Podemos usar el siguiente [enlace, para descargar los drivers](URL:http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=es&cc=es&prodNameId=402170&prodTypeId=12454&prodSeriesId=402168&swLang=35&taskId=135&swEnvOID=1093#11360) 
-de los equipos HP que estamos utilizando para la práctica en clase. 
-* Obtener una ISO de Hiren Boot. Podremos descargarlo de Leela.
+
+> Si trabajamos en una máquina real:
+> * Debemos asegurarnos de tener correctamente los drivers de nuestra máquina. Consultar "Administrador de dispositivos".
+> * Podemos usar el siguiente [enlace](http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=es&cc=es&prodNameId=402170&prodTypeId=12454&prodSeriesId=402168&swLang=35&taskId=135&swEnvOID=1093#11360)
+, para descargar los drivers de los equipos HP que estamos utilizando para la práctica en clase. 
+> * Podemos obtener una ISO de Hiren Boot, descargándola de Leela.
 
 #3. Monitorización
 
