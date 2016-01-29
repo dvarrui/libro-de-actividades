@@ -1,12 +1,10 @@
- INDICE
-1. Análisis en Windows
-2. Herramientas de optimización
-3. Conclusiones
+
 
 #1. Introducción
 
-* Trabajar en grupos
-* Entregar un ZIP con informe ODT o PDF.
+* Trabajar de forma individual.
+* Entregar un informe en formato ODT o PDF. Si fueran varios documentos, 
+entregar un comprimido ZIP.
 
 Vamos a estudiar el rendimiento de varios equipos, primero monitorizaremos el hardware,
 luego optimizaremos y al final comprobaremos si han mejorado los resultados.
@@ -33,7 +31,7 @@ de los equipos HP que estamos utilizando para la práctica en clase.
     * Rendimiento de los discos duros.
     * Rendimiento de la tarjeta gráfica.
 
-> Usar el CD de Hiren u otras herramientas, como por ejemplo:
+> Usar el CD de Hiren y otras herramientas, como por ejemplo:
 > * Utilidad AIDA/EVEREST Home Edition. Generar un informe.
 > * Utilidad Memtest86+.
 > * Utilidad CPU‐Z.
@@ -46,7 +44,7 @@ de los equipos HP que estamos utilizando para la práctica en clase.
 
 * Usar utilidades de optimización para mejorar el rendimiento del sistema.
 
-> Usar el CD de Hiren u otras herramientas, como por ejemplo:
+> Usar el CD de Hiren y otras herramientas, como por ejemplo:
 > * Comprobación de errores del disco, chkdsk o Scandisk
 > * Desfragmentador del disco
 > * Utilidad TuneUp Utilites
