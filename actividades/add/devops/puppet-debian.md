@@ -222,18 +222,19 @@ editar el archivo `/etc/default/puppet`, y modificar la línea
 * Comprobamos los log del cliente: `tail /var/log/syslog`
 
 #4. Aceptar certificado
+
 Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben intercambiar los certificados.
 
 ##4.1 Aceptar certificado
 
 * Vamos al master y consultamos las peticiones pendiente de unión al master:
-
+```
     root@master# puppetca --list
     "client1.nombregrupo" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
     root@master#
-
+```
 * Aceptar al nuevo cliente desde el master:
-
+```
     root@master# puppetca --sign "client1.nombregrupo"
     notice: Signed certificate request for client1.nombregrupo
     notice: Removing file Puppet::SSL::CertificateRequest client1.nombregrupo at '/var/lib/puppet/ssl/ca/requests/client1.nombregrupo.pem'
@@ -242,6 +243,7 @@ Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben 
     Certificate:
     Data:
     ....
+```
 
 ##4.2 Comprobación final
 
@@ -266,6 +268,7 @@ En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 #5. Segunda versión del fichero pp
+
 Primero hemos probado una configuración sencilla en PuppetMaster. 
 Ahora podemos pasar a algo más complejo en este apartado.
 
