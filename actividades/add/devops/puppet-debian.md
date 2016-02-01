@@ -36,40 +36,36 @@ Trabajaremos en parejas. Vamos a necesitar las siguientes MVs:
 La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente 
 línea al fichero /etc/network/interfaces: `dns-nameservers 172.16.1.1`
 
-Opción A: SO con configuración manual
+* Opción A: SO con configuración manual
+    * Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas 
+    con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
+* Opción B: Adaptar la configuración automática
+    * En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios 
+    instalados: resolvconf y dnsmasq. El servicio resolvconf configura 
+    automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
+    * El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
+    * Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
+* Opción C: Desactivar la configuración automática
+    * Otra posible solución es desactivar el servicio resolvconf 
+    (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
 
-    Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
+##1.3 Hostname y dnsdomainname
 
-Opción B: Adaptar la configuración automática
-
-    En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
-    El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
-    Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
-
-Opción C: Desactivar la configuración automática
-
-    Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
-
-
-1.3 Hostname y dnsdomainname
-
-    Una forma de cambiar nombre de host y de dominio:
-        Modificar /etc/hostname con "marte.starwars".
-        Añadir a /etc/hosts "127.0.0.2 marte.starwars marte".
-    Comprobarmos con "hostname -a", "hostname -d".
-    Otra forma de cambiar el nombre de host y de dominio:
-
-# hostname marte.starwars
-# /etc/init.d/hostname restart
-# service hostname restart
-
-    Comprobamos
-
-#hostname
-marte
-#dnsdomainname
-starwars
-
+* Una forma de cambiar nombre de host y de dominio:
+    * Modificar /etc/hostname con "marte.starwars".
+    * Añadir a /etc/hosts "127.0.0.2 marte.starwars marte".
+    * Comprobarmos con "hostname -a", "hostname -d".
+    * Otra forma de cambiar el nombre de host y de dominio:
+```
+    hostname marte.starwars
+    /etc/init.d/hostname restart
+    service hostname restart
+```
+* Comprobamos
+```
+    hostname
+    dnsdomainname
+```
 
 #2 Instalación y configuración del MASTER
 
@@ -78,20 +74,20 @@ Preparativos para el MASTER:
 * Vamos a la máquina master.
 * Cambiar nombre de máquina: `echo "master.nombregrupo" > /etc/hostname`
 * Modificar /etc/resolv.conf y poner al comienzo:
-
+```
     domain nombregrupo
     search nombregrupo
     ...
-
+```
 * Añadir a `/etc/hosts` los nombres de todas las MV's.
-
+```
     127.0.0.1 localhost
     127.0.1.1 master.nombregrupo master
     IP-master master.nombregrupo master
     IP-client1 client1.nombregrupo client1
     IP-client2 client2.nombregrupo client2
     ...
-
+```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar los siguiente:
     * `hostname` -> nombre-del-master
@@ -108,11 +104,11 @@ Nuestro objetivo es usar puppet para conseguir lo siguiente:
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
 obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
-
+```
     puppet resource package tree > yoda.pp
     puppet resource user yoda >> yoda.pp
     puppet resource file /home/yoda/endor >> yoda.pp
-
+```
 El contenido del fichero `yoda.pp` debe ser parecido a:
 
 ```
@@ -142,7 +138,7 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 ##2.2 Primera versión del fichero pp
 
 * Instalando y configurando Puppet en el master:
-
+```
     apt-get install puppetmaster
     mkdir /etc/puppet/files
     mkdir /etc/puppet/manifests
@@ -150,7 +146,7 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
     touch /etc/puppet/files/readme.txt
     touch /etc/puppet/manifests/site.pp
     touch /etc/puppet/manifests/classes/hostlinux1.pp
-
+```
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`
 * Contenido para site.pp:
 
@@ -183,36 +179,35 @@ Preparativos para CLIENT1:
 * Vamos a la máquina client1. Comprobar que todas las máquinas tienen la fecha/hora correcta.
 * Cambiar nombre de máquina: echo "client1.nombregrupo" > /etc/hostname
 * Modificar /etc/resolv.conf y poner al comienzo:
-
+```
     domain nombregrupo
     search nombregrupo
     ...
-
+```
 * Añadir a /etc/hosts
-
+```
     127.0.0.1 localhost
     127.0.1.1 client1.nombregrupo client1
     IP-master master.nombregrupo master
     IP-client1 client1.nombregrupo client1
     ...
-
+```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar lo siguiente:
-    
-    El comando hostname -> client1
-    El comando dnsdomainname -> nombredegrupo
-    ping a client1.nombregrupo debe funcionar.
+   * El comando hostname -> client1
+   * El comando dnsdomainname -> nombredegrupo
+   * ping a client1.nombregrupo debe funcionar.
 
 Instalación:
 
 * Instalando y configurando Puppet en el cliente: `apt-get install puppet`
 * El cliente puppet debe ser informado de quien será su master. Para ello, 
 añadimos a `/etc/puppet/puppet.conf`:
-
+```
     [main]
     server=master.nombregrupo
     ...
-
+```
 * Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
 editar el archivo `/etc/default/puppet`, y modificar la línea
 
