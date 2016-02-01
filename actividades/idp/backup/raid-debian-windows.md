@@ -111,10 +111,13 @@ Realizar las siguientes tareas:
 * Consultar el fichero /etc/mdadm/mdadm.conf.
 * El archivo de configuración sólo muestra una línea ARRAY correspondiente al RAID0.
 * Para añadir una segunda línea ARRAY para el RAID1, nos ayudaremos de la salida del 
-comando siguiente: `mdadm --examine --scan`. Esta información la escribimos manualmente 
-en el fichero de configuración.
+comando siguiente: `mdadm --examine --scan`. Esta información la tenemos que escribir
+nosotros en el fichero de configuración.
 
-> Con esto conseguimos que el disco RAID1 no pierda su configuración con cada reinicio del sistema.
+> * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
+Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la
+salida de un comando al fichero de texto.
+> * Con esto conseguimos que el disco RAID1 no pierda su configuración con cada reinicio del sistema.
 
 ##2.5 Montaje automático
 
