@@ -1,6 +1,5 @@
 *(Ejecutada en los cursos 201415, 201314)*
 
-
 #1. Introducción
 
 Vídeos
@@ -122,31 +121,44 @@ Por ejemplo para crear un archivo de tamaño 1M podemos hacer "dd if=/dev/zero o
 * Ampliar el tamaño de lv-extra a 930MB (Comando lvextend). Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
 
-2.5 Quitar un disco físico
-En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes). El grupo de volumen vg-extra, tiene dos volúmenes físicos que son los discos (a) y (b). Vamos a quitar el disco (b) del VG, sin perder la información almacenada en él.
+#2.5 Quitar un disco físico
 
-    Primero comprobamos el tamaño utilizado de nuestros datos: du -sh /mnt/vol-extra. Este valor debe ser menor a 50 MB.
-    Reducir el tamaño del volumen lógico lv-extra a 50 MB: lvreduce --size 50MB /dev/vg-extra/lv-extra
-    Comprobamos: lvdisplay /dev/vg-extra/lv-extra
-    INFO: Vamos a quitar un disco del VG vg-extra (Consultar enlace).
-    Movemos la información del disco sdc al disco sdb:
-        pvmove /dev/sdc1 /dev/sdb1
-        pvmove /dev/sdc2 /dev/sdb1
-        pvmove /dev/sdc3 /dev/sdb1
-    Reducimos el tamaño del grupo de volumen:
-        vgreduce vg-extra /dev/sdc1
-        vgreduce vg-extra /dev/sdc2
-        vgreduce vg-extra /dev/sdc3
-    Comprobar que se mantiene la información almacenada.
-    Comprobamos lo que tenemos:
-        vgdisplay
-        lvdisplay vg-extra
+> En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes). 
 
+El grupo de volumen vg-extra, tiene dos volúmenes físicos que son los discos (a) y (b). 
+Vamos a quitar el disco (b) del VG, sin perder la información almacenada en él.
 
-ANEXO A: Esquemas LVM
+* Primero comprobamos el tamaño utilizado de nuestros datos: `du -sh /mnt/vol-extra`. 
+Este valor debe ser menor a 50 MB.
+* Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vg-extra/lv-extra`
+* Comprobamos: `lvdisplay /dev/vg-extra/lv-extra`
 
-lvm-esquema2
+> INFO: Vamos a quitar un disco del VG vg-extra (Consultar enlace).
 
-lvm-esquema3
+* Movemos la información del disco sdc al disco sdb:
+```
+    pvmove /dev/sdc1 /dev/sdb1
+    pvmove /dev/sdc2 /dev/sdb1
+    pvmove /dev/sdc3 /dev/sdb1
+```
+* Reducimos el tamaño del grupo de volumen:
+```
+    vgreduce vg-extra /dev/sdc1
+    vgreduce vg-extra /dev/sdc2
+    vgreduce vg-extra /dev/sdc3
+```
+* Comprobar que se mantiene la información almacenada.
+* Comprobamos lo que tenemos:
+```
+    ip a
+    vgdisplay
+    lvdisplay vg-extra
+```
 
-lvm-esquema4
+# ANEXO A: Esquemas LVM
+
+![lv-esquema2.jpeg](./images/lvm-esquema2.jpeg)
+
+![lv-esquema3.jpeg](./images/lvm-esquema3.jpeg)
+
+![lv-esquema4.jpeg](./images/lvm-esquema4.jpeg)
