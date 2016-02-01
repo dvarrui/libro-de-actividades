@@ -1,16 +1,19 @@
 
-*(Probada en los cursos 201415, 201314, etc)*
+*(Ejecutada en los cursos 201415, 201314)*
 
 #1. Instalar SO en RAID-0 software
 
-Vídeo de interés [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx)
+Vídeo de interés: 
+* [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx)
 
 Vamos a instalar un sistema operativo sobre unos discos con RAID-0 software.
 
 ##1.1 Creación de la MV 
 
-> Las MV de VirtualBox, sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
-> Si necesitamos más discos usaremos una controladora SATA y/o SCSI.
+> Las máquinas (Y por tanto las MV de VirtualBox también), sólo aceptan 4 discos IDE, 
+o 3 discos IDE y 1 unidad de cdrom.
+>
+> Si necesitamos mayor cantidad de discos, usaremos una controladora SATA y/o SCSI.
 
 * Crear una máquina virtual nueva con 3 discos virtuales SATA:
     * (a) 100MB, 
