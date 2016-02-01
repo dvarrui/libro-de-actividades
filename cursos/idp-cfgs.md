@@ -23,6 +23,11 @@ FAT básico
 
 ## UD 2 - Usuarios y permisos
 
+* [Usuarios y permisos](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/idp/permisos/usuarios-y-permisos.md)
+* [Instalación de software y actulizar el sistema](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/idp/apps/w7-opensuse.md)
+* [Claves e instalación desde las fuentes](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/idp/apps/passwords_and_sources-w7_opensuse.md)
+
+
 ## UD 3 - Asegurar la información
 * [Copias de seguridad](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/backup)
 * [RAID software - Debian y Windows](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/backup/raid-debian-windows.md)
