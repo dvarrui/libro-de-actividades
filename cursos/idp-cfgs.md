@@ -21,3 +21,9 @@ FAT básico
 * ![Instalación dual](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/instalacion/instalacion-dual)
 * ![Particiones con fdisk](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/particiones)
 
+## UD 2 - Usuarios y permisos
+
+## UD 3 - Asegurar la información
+* [Copias de seguridad](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/backup)
+* [RAID software - Debian y Windows](https://github.com/dvarrui/libro-de-actividades/tree/master/actividades/idp/backup/raid-debian-windows.md)
+

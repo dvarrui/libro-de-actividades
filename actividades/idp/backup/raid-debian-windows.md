@@ -4,7 +4,9 @@
 #1. Instalar SO en RAID-0 software
 
 Vídeo de interés: 
-* [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx)
+* [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx). Este
+vídeo no es exactamente la actividad que vamos a realizar, pero muestra cómo se configuran
+discos RAID-1 software durante la instalación del SO Ubuntu 12.
 
 Vamos a instalar un sistema operativo sobre unos discos con RAID-0 software.
 
@@ -25,12 +27,14 @@ o 3 discos IDE y 1 unidad de cdrom.
 > Para hacer el RAID-0:
 > * Elegimos formato de los discos (b) y (c), tipo RAID.
 > * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos hacer un raid0, con los discos (b) y (c).
+> * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos.
 
 ##1.2 Particionado e instalación
 
-* Continuamos con el proceso de instalación, y por esta vez sin swap.
+* Continuamos con el proceso de instalación, y por esta vez sin swap (Área de intercambio).
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO 
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
+* El sistema de arranque va en el disco (a).
 * Crear una partición para instalar el sistema operativo dentro del dispositivo /dev/raid0.
 
 Imagen de ejemplo, como resultado de realizar el particionado RAID0.
