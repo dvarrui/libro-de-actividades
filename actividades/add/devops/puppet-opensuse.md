@@ -156,7 +156,7 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 
 #2. Primera versión del fichero pp
 
-* Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet-vim`
+* Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`
 * Preparamos los ficheros/directorios en el master:
 ```
     mkdir /etc/puppet/files
