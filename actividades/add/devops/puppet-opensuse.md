@@ -27,7 +27,7 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * Enlace: 172.18.0.1
     * DNS: 8.8.4.4
     * Nombre del equipo: masterXX
-    * Dominio = primer-apellido-del-alumnoXX
+    * Dominio = primer-apellido-del-alumno
     * Instalar OpenSSH-Server para acceso del profesor.
 * MV1 - client1: recibe órdenes del master.
     * SO GNU/Linux OpenSUSE 13.2
