@@ -173,8 +173,16 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 ##2.1 /etc/puppet/files/readme.txt
 
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
-* Los ficheros que se guardan en 
-`/etc/puppet/files` pueden se descargados por el resto de máquinas puppet.
+
+> Los ficheros que se guardan en `/etc/puppet/files` se pueden 
+descargar por el resto de máquinas puppet.
+>
+> Ejemplo de configuración puppet para descargar fichero:
+> ```
+> file {  '/opt/readme.txt' :
+>         source => 'puppet:///files/readme.txt', 
+> }
+> ```
 
 ##2.2 /etc/puppet/manifests/site.pp
 
@@ -193,9 +201,10 @@ node default {
 
 ##2.3 /etc/puppet/manifests/classes/hostlinux1.pp
 
-* Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
+Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
 organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
-* Vamos a crear una primera configuración para máquina estándar GNU/Linux.
+
+*Vamos a crear una primera configuración para máquina estándar GNU/Linux.
 * Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
 ```
 class hostlinux1 {
@@ -209,6 +218,7 @@ class hostlinux1 {
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
 * Reiniciamos el servicio `puppet-server` (o puppetmasterd).
+* Comprobamos que el servicio está en ejecución.
 * Consultamos log por si hay errores: `tail /var/log/syslog`
 
 #3. Instalación y configuración del cliente1
@@ -223,8 +233,8 @@ Instalación:
     ...
 ```
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
-* Reiniciar servicio en el cliente.
-* Comprobamos los log del cliente: `tail /var/log/syslog`
+* Reiniciar servicio puppet en el cliente.
+* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log`
 
 #4. Certificados
 
@@ -261,10 +271,10 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
     * `puppetd --test`
     * `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
-consultar el archivo de log del cliente: `tail /var/log/syslog`.
+consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
 * Puede ser que tengamos algún mensaje de error de configuración del fichero 
 `/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master 
-y corregir los errores de sintaxis.
+y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 > 
@@ -339,7 +349,7 @@ class hostlinux2 {
 > * **user**: Creación o eliminación de usuarios.
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
 
-* Modificar `/etc/puupet/manifests/site.pp` con:
+* Modificar `/etc/puppet/manifests/site.pp` con:
 
 ```
 import "classes/*"
