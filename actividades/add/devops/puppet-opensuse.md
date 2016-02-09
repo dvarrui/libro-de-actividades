@@ -15,6 +15,9 @@ Enlaces de interés:
 * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
 * [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA) 
 * [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
+* Vídeo en inglés "LINUX: Installing the Puppet Master on openSUSE" creado por TheUrbanPenguin.
+* Vídeo en inglés "LINUX: The Puppet Client and basic site.pp" creado por TheUrbanPenguin
+para OpenSUSE.
 
 ##1.1 Configuración
 
@@ -204,7 +207,8 @@ class hostlinux1 {
 
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
-* Reiniciamos el servicio `puppet-server`.
+* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
+* Reiniciamos el servicio `puppet-server` (o puppetmasterd).
 * Consultamos log por si hay errores: `tail /var/log/syslog`
 
 #3. Instalación y configuración del cliente1
@@ -218,17 +222,7 @@ Instalación:
     server=masterXX.primer-apellido-alumno
     ...
 ```
-* Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
-editar el archivo `/etc/default/puppet`, y modificar la línea
-
-```
-    ...
-    #start puppet on boot
-    START=yes
-    ...
-```
-> Quizás en OpenSUSE sea diferente
-
+* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
 * Reiniciar servicio en el cliente.
 * Comprobamos los log del cliente: `tail /var/log/syslog`
 
@@ -263,7 +257,9 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
 
 * Vamos a cliente1 y reiniciamos la máquina.
 * Comprobar que los cambios configurados en Puppet se han realizado.
-* En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master30.vargas --test`
+* En caso contrario, ejecutar comando para comprobar errores: 
+    * `puppetd --test`
+    * `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
 * Puede ser que tengamos algún mensaje de error de configuración del fichero 
