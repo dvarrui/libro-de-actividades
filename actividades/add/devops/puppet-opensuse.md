@@ -265,21 +265,27 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
 
 ##4.1 Aceptar certificado
 
-* Vamos al master y consultamos las peticiones pendiente de unión al master: `puppetca --list`
+* Vamos al master y consultamos las peticiones pendiente de unión al master: `puppet cert list`
 ```
-    root@master30# puppetca --list
+    root@master30# puppet cert list
     "cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
     root@master30#
 ```
-* Aceptar al nuevo cliente desde el master `puppetca --sign "nombre-máquina-cliente"`
+
+![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
+
+> Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
+el cortafuegos del servidor está impidiendo el acceso al cliente.
+
+* Aceptar al nuevo cliente desde el master `puppet cert sign "nombre-máquina-cliente"`
 ```
-    root@master30# puppetca --sign "cli1alu30.vargas"
+    root@master30# puppet cert sign "cli1alu30.vargas"
     notice: Signed certificate request for cli1alu30.vargas
     notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
 
-    root@master30# puppetca --list
+    root@master30# puppet cert list
 
-    root@master30# puppetca --print cli1alu30.vargas
+    root@master30# puppet cert print cli1alu30.vargas
     Certificate:
     Data:
     ....
