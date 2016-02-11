@@ -11,7 +11,7 @@ Vídeos
 Vamos a instalar un sistema operativo GNU/Linux Debian, sobre unos discos con LVM.
 
 > Otra forma de producir un efecto similar al de LVM, es mediante el uso de 
-sistemas de ficheros ZFS (Consultar).
+sistemas de ficheros como BtrFS o ZFS (Consultar).
 > Nosotros NO vamos a usar ZFS sino LVM en nuestra práctica, pero si algún 
 grupo desea usar ZFS debe hablar con el profesor.
 
@@ -57,7 +57,7 @@ A continuación se muestra imagen de muestra que NO tiene que coincidir con lo q
 ```
       
 ##2.3 Ampliar VL
-Ahora podremos ampliar "en caliente", el espacio de lv-datos de 100MB a 400MB.
+Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 
 * Consultar el tamaño actual del volumen lógico: `lvdisplay -v /dev/vg-debian/lv-datos`
 * Para ampliar el tamaño del volumen lógico: `lvextend -L 400 /dev/vg-debian/lv-datos`
@@ -102,13 +102,14 @@ Comando: `lvcreate -L690M -n lv-extra vg-extra`.
           
 ##3.3 Escribir información
 
-* Primero vamos a crear directorio (/mnt/vol-extra),donde vamos a montar el nuevo dispositivo (Volumen lógico).
-> El nuevo dispositivo /dev/vg-extra/lv-extra no tiene formato. Debe ser formateado antes de montarse.
+* Primero vamos a crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
+> El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Debe ser formateado antes de montarse.
 * Montar el nuevo dispotivo (Volumen Lógico) en la carpeta /mnt/vol-extra. 
 A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.
-* Escribir información en /mnt/vol-extra. Crear algunas carpetas y ficheros con tamaño mayor a cero. 
-Por ejemplo para crear un archivo de tamaño 1M podemos hacer "dd if=/dev/zero of=/mnt/vol-extra/file-size-1M bs=512 count=2048". El comando dd hay que usarlo con precaución.
-* Comprobar el espacio usado en /mnt/vol-extra (df -hT).
+* Escribir información en `/mnt/vol-extra`. Crear algunas carpetas y ficheros con tamaño mayor a cero. 
+Por ejemplo para crear un archivo de tamaño 1M podemos hacer `dd if=/dev/zero of=/mnt/vol-extra/file-size-1M bs=512 count=2048`. 
+El comando dd hay que usarlo con precaución.
+* Comprobar el espacio usado en `/mnt/vol-extra` (df -hT).
 
 ##3.4 Añadir más tamaño
 
