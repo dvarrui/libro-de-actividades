@@ -176,7 +176,7 @@ virtuales de 1GB cada uno.
 ##4.2 Volumen Reflejado (RAID1)
 Un volumen *Reflejado* es similar a un RAID1.
 * Crea un par de volúmenes reflejados de 500MB cada uno, con los discos anteriormente utilizados. 
-Introduce un fichero disco1.txt en el primero de ellos y disco2.txt en el segundo. 
+Introduce un fichero prueba-mirror.txt en el primero de ellos. Escribe tu nombre dentro. 
 * Rompe los discos utilizando la opción adecuada.¿Qué ocurre?
 
 ##4.3 Pregunta RAID5
