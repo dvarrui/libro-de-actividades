@@ -14,8 +14,8 @@ Vamos a instalar un sistema operativo sobre unos discos con RAID-0 software.
 
 > Las máquinas (Y por tanto las MV de VirtualBox también), sólo aceptan 4 discos IDE, 
 o 3 discos IDE y 1 unidad de cdrom.
->
-> Si necesitamos mayor cantidad de discos, usaremos una controladora SATA y/o SCSI.
+> Como vamos a necesitar una mayor cantidad de discos, es mejor usar controladoras SATA y/o SCSI 
+en nuestra máquina.
 
 * Crear una máquina virtual nueva con 3 discos virtuales SATA:
     * (a) 100MB, 
@@ -68,10 +68,9 @@ Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1
 
 ##2.1 Preparar la MV
 
-> Como Las máquinas virtuales de VirtualBox, sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom, 
-no vamos a poder realizar este ejercicio con el SO instalado anteriormente.
->
-> Podemos resolverlo: Añadiendo controladores SATA a nuestra máquina virtual.
+> **NOTA**
+> Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
+> Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
 
 Realizar las siguientes tareas:
 * Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
