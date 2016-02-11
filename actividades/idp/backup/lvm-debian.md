@@ -34,7 +34,7 @@ un grupo de volumen llamado `vg-debian`.
 
 A continuación se muestran imágenes de referencia que NO tienen porqué coincidir con lo que se solicita.
 
-![lvm-debian-01](.images/lvm-debian-01.png)
+![lvm-debian-01](./images/lvm-debian-01.png)
 
 A continuación se muestra imagen de muestra que NO tiene que coincidir con lo que se solicita.
 
@@ -77,7 +77,7 @@ Vamos a añadir al sistema anterior, más almacenamiento físico LVM, puesto que
 todo el espacio libre de los discos físicos.
 
 Esquema de PV, VG y LV:
-![lvm-esquema1](.images/lvm-esquema1.jpeg)
+![lvm-esquema1](./images/lvm-esquema1.jpeg)
 
 ##3.1 Preparar la MV
 * Añadimos 2 discos virtuales nuevos:
@@ -158,12 +158,8 @@ Este valor debe ser menor a 50 MB.
 
 #4. Discos dinámicos en Windows
 
-> En windows las particiones se llaman volúmenes básicos.
-> 
-> Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
-> * Reflejo: RAID1
-> * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
-> * Seccionado: RAID0 con todos los discos de igual tamaño.
+En windows las particiones se llaman volúmenes básicos. Para poder hacer el mismo
+efecto de LVM debemos convertir las particiones a volúmenes básicos.
 
 ##4.1 Volumen Distribuido
 Vamos a crear un volumen dinámico *Distribuido*:
