@@ -3,8 +3,8 @@
 #1. Introducción
 
 Vídeos
-* [Learning Linux : Lesson 20 Managing LVM]
-* [LVM. Learning Linux: Lesson 21 LVM snapshots"]
+* [Learning Linux : Lesson 20 Managing LVM](https://youtu.be/m9SNN6IWyZo?list=PL3E447E094F7E3EBB)
+* [LVM. Learning Linux: Lesson 21 LVM snapshots"](https://youtu.be/N8rUlYL2O_g?list=PL3E447E094F7E3EBB)
 
 #2. Instalar SO sobre LVM
 
