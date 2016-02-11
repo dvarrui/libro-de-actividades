@@ -272,8 +272,6 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
     root@master30#
 ```
 
-![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
-
 > Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
 el cortafuegos del servidor está impidiendo el acceso al cliente.
 
@@ -290,6 +288,8 @@ el cortafuegos del servidor está impidiendo el acceso al cliente.
     Data:
     ....
 ```
+
+![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
 
 ##4.2 Comprobación final
 
