@@ -77,6 +77,7 @@ Vamos a añadir al sistema anterior, más almacenamiento físico LVM, puesto que
 todo el espacio libre de los discos físicos.
 
 Esquema de PV, VG y LV:
+
 ![lvm-esquema1](./images/lvm-esquema1.jpeg)
 
 ##3.1 Preparar la MV
