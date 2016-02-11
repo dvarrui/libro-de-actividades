@@ -156,6 +156,26 @@ Este valor debe ser menor a 50 MB.
     lvdisplay vg-extra
 ```
 
+#4. Discos dinámicos en Windows
+
+> En windows las particiones se llaman volúmenes básicos.
+> 
+> Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
+> * Reflejo: RAID1
+> * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
+> * Seccionado: RAID0 con todos los discos de igual tamaño.
+
+##4.1 Volumen Distribuido
+Vamos a crear un volumen dinámico *Distribuido*:
+* Crea un disco duro virtual con VirtualBox de 3 GB.
+* Crea dentro del mismo 5 volúmenes simples de 100, 200, 300, 400 y 500 MB respectivamente.
+* Crea un volumen distribuido con el disco anterior.
+
+> * Nota: los volúmenes simples del primer disco deben permanecer intactos.
+> * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
+para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
+
+
 # ANEXO A: Esquemas LVM
 
 ![lv-esquema2.jpeg](./images/lvm-esquema2.jpeg)

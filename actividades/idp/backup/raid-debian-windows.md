@@ -164,31 +164,21 @@ Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su 
 > 
 > Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
 > * Reflejo: RAID1
-> * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 > * Seccionado: RAID0 con todos los discos de igual tamaño.
+> * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 
-##4.1 Volumen Distribuido
-Vamos a crear un volumen dinámico *Distribuido*:
-* Crea un disco duro virtual con VirtualBox de 3 GB.
-* Crea dentro del mismo 5 volúmenes simples de 100, 200, 300, 400 y 500 MB respectivamente.
-* Crea un volumen distribuido con el disco anterior.
-
-> * Nota: los volúmenes simples del primer disco deben permanecer intactos.
-> * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
-para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
-
-##4.2 Volumen Seccionado
+##4.1 Volumen Seccionado (RAID0)
 Vamos a crear un volumen *seccionado*:
 * Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros 
 virtuales de 1GB cada uno.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
-##4.3 Volumen Reflejado
+##4.2 Volumen Reflejado (RAID1)
 Un volumen *Reflejado* es similar a un RAID1.
 * Crea un par de volúmenes reflejados de 500MB cada uno, con los discos anteriormente utilizados. 
 Introduce un fichero disco1.txt en el primero de ellos y disco2.txt en el segundo. 
 * Rompe los discos utilizando la opción adecuada.¿Qué ocurre?
 
-##4.4 Pregunta
+##4.3 Pregunta RAID5
 * Investiga acerca de cómo crear en Windows un Raid-5 por software y detalla la respuesta.
