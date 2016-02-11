@@ -123,7 +123,7 @@ El comando dd hay que usarlo con precaución.
 * Ampliar el tamaño de lv-extra a 930MB (Comando lvextend). Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
 
-#2.5 Quitar un disco físico
+##3.5 Quitar un disco físico
 
 > En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes). 
 
