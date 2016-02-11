@@ -15,11 +15,10 @@ Enlaces de interés:
 * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
 * [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA) 
 * [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
-* Vídeo en inglés "LINUX: Installing the Puppet Master on openSUSE" creado por TheUrbanPenguin.
-* Vídeo en inglés "LINUX: The Puppet Client and basic site.pp" creado por TheUrbanPenguin
-para OpenSUSE.
+* Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be).
+* Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU).
 
-Comandos de puppet que han cambiado:
+Relación de comandos de puppet que han cambiado al cambiar la versión:
 
 |Pre-2.6        | Post-2.6          |
 |-------------- |-------------------|
@@ -36,7 +35,7 @@ Comandos de puppet que han cambiado:
 
 ##1.1 Configuración
 
-> En OpenSUSE podemos hacer todas estas configuraciones a través de `Yast`
+> En OpenSUSE podemos hacer configurar el equipo a través de `Yast`
 
 Vamos a usar 3 MV's con las siguientes configuraciones:
 * MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
@@ -129,17 +128,17 @@ En Windows comprobamos con:
 
 *Esto NO es obligatorio hacerlo. Sólo es un ejemplo.*
 
-Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto no s puede ayudar a comprender
-cómo es la sintaxis de la herramienta.
+Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto nos puede 
+ayudar a comprender cómo es la sintaxis de la herramienta.
 
-Al instalar el servidor puppet en la máquina master, también tenemos instalado el Agente puppet.
-Vamos a preguntar a puppet para ver cómo responde con lo siguiente:
+Al instalar el servidor Puppet en la máquina master, también tenemos instalado el Agente puppet.
+Vamos a preguntar a puppet para ver cómo responde:
 * sobre el paquete `tree` instalado en el sistema.
 * sobre el usuario `yoda` creado en el sistema, y 
 * sobre la carpeta `/home/yoda/endor` que ya existe en el sistema.
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
-obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
+obtenidos de puppet en el fichero de prueba `yoda.pp`. Para ello ejecutamos los comandos siguientes:
 
     puppet resource package tree > yoda.pp
     puppet resource user yoda >> yoda.pp
@@ -171,13 +170,13 @@ file { '/home/yoda/endor/':
 Si nos lleváramos el fichero `yoda.pp` a otro PC con el Agente puppet instalado, 
 podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
 
-
 #2. Primera versión del fichero pp
 
 * Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * `systemctl enable puppetmaster`: Permitir que el servicio se inicie automáticamente en el inicio de la máquina.
-* `systemctl start puppetmaster`: Iniciar el servicio.
+* `systemctl start puppetmaster`: Iniciar el servicio. En este momento debería haberse creado el
+directorio `/etc/puppet/manifests`.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * Preparamos los ficheros/directorios en el master:
 ```
@@ -205,8 +204,9 @@ descargar por el resto de máquinas puppet.
 
 ##2.2 /etc/puppet/manifests/site.pp
 
-* Este es el fichero principal de configuración puppet.
-* Contenido para site.pp:
+* `/etc/puppet/manifests/site.pp` es el fichero principal de configuración 
+de órdenes para los agentes/nodos puppet.
+* Contenido de nuestro `site.pp`:
 ```
 import "classes/*"
 
@@ -237,17 +237,18 @@ class hostlinux1 {
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
 * Reiniciamos el servicio `systemctl restart puppetmaster`.
-* Comprobamos que el servicio está en ejecución.
+* Comprobamos que el servicio está en ejecución de forma correcta.
+    * `systemctl status puppetmaster`
+    * `netstat -ntap`
 * Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
+* Abrir el cortafuegos para el servicio.
 
 #3. Instalación y configuración del cliente1
 
 Instalación:
 * Instalamos Agente Puppet en el cliente: `zypper install puppet`
-* `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
-* `systemctl start puppet`: Iniciar el servicio puppet.
-* `systemctl status puppet`: Ver el estado del servicio puppet.
-* El cliente puppet debe ser informado de quien será su master. Para ello, añadimos a `/etc/puppet/puppet.conf`:
+* El cliente puppet debe ser informado de quien será su master. 
+Para ello, añadimos a `/etc/puppet/puppet.conf`:
 
 ```
     [main]
@@ -255,7 +256,11 @@ Instalación:
     ...
 ```
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
-* Reiniciar servicio puppet en el cliente.
+* `systemctl status puppet`: Ver el estado del servicio puppet.
+* `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
+* `systemctl start puppet`: Iniciar el servicio puppet.
+* `systemctl status puppet`: Ver el estado del servicio puppet.
+* `netstat -ntap`: Muestra los servicios conectados a cada puerto.
 * Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log`
 
 #4. Certificados
@@ -272,8 +277,11 @@ ambas máquinas. Esto sólo hay que hacerlo una vez.
     root@master30#
 ```
 
-> Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
-el cortafuegos del servidor está impidiendo el acceso al cliente.
+> **En caso de no aparecer el certificado en espera*
+>
+> * Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
+el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
+> * Volver a reiniciar el servicio en el cliente y comprobar su estado.
 
 * Aceptar al nuevo cliente desde el master `puppet cert sign "nombre-máquina-cliente"`
 ```
@@ -289,14 +297,17 @@ el cortafuegos del servidor está impidiendo el acceso al cliente.
     ....
 ```
 
+A continuación podemos ver una imagen de ejemplo, los datos no tienen que coincidir con
+lo que se pide en el ejercicio.
+
 ![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
 
 ##4.2 Comprobación final
 
-* Vamos a cliente1 y reiniciamos la máquina.
+* Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
 * En caso contrario, ejecutar comando para comprobar errores: 
-    * `puppetd --test`
+    * `puppet agent --test`
     * `puppet agent --server master30.vargas --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
 consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
@@ -306,11 +317,13 @@ y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 > 
-> Sólo es información, para el caso que tengamos que eliminar los certificados
+> Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
+problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
+buena idea eliminar los certificados y volverlos a generar con la nueva información.
 > 
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-> * `puppetca --revoke cli1alu30.vargas`: Lo ejecutamos en el master para revocar certificado del cliente.
-> * `puppetca --clean  cli1alu30.vargas`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
+> * `puppet cert revoke cli1alu30.vargas`: Lo ejecutamos en el master para revocar certificado del cliente.
+> * `puppet cert clean  cli1alu30.vargas`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
 > *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
 >
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
@@ -367,6 +380,9 @@ class hostlinux2 {
     mode => 755 
   }
 
+  file {  '/opt/readme.txt' :
+    source => 'puppet:///files/readme.txt', 
+  }
 }
 ```
 
