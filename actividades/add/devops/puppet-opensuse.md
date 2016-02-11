@@ -20,6 +20,7 @@ Enlaces de interés:
 para OpenSUSE.
 
 Comandos de puppet que han cambiado:
+
 |Pre-2.6        │ Post-2.6          │
 |-------------- |-------------------|
 | puppetmasterd | puppet master     |
