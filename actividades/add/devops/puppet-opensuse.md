@@ -225,6 +225,9 @@ class hostlinux1 {
 
 Instalación:
 * Instalamos Agente Puppet en el cliente: `zypper install puppet`
+* `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
+* `systemctl start puppet`: Iniciar el servicio puppet.
+* `systemctl status puppet`: Ver el estado del servicio puppet.
 * El cliente puppet debe ser informado de quien será su master. Para ello, añadimos a `/etc/puppet/puppet.conf`:
 
 ```
