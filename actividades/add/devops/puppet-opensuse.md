@@ -19,6 +19,20 @@ Enlaces de interés:
 * Vídeo en inglés "LINUX: The Puppet Client and basic site.pp" creado por TheUrbanPenguin
 para OpenSUSE.
 
+Comandos de puppet que han cambiado:
+|Pre-2.6        │ Post-2.6          │
+|-------------- |-------------------|
+| puppetmasterd | puppet master     |
+| puppetd       | puppet agent      |
+| puppet        | puppet apply      |
+| puppetca      | puppet cert       |
+| ralsh         | puppet resource   |
+| puppetrun     | puppet kick       |
+| puppetqd      | puppet queue      |
+| filebucket    | puppet filebucket |
+| puppetdoc     | puppet doc        |
+| pi            | puppet describe   |
+
 ##1.1 Configuración
 
 > En OpenSUSE podemos hacer todas estas configuraciones a través de `Yast`
