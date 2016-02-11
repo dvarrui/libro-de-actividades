@@ -12,11 +12,11 @@ Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
 Enlaces de interés:
 
+* Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be)
+* Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU)
 * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
-* [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA) 
-* [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
-* Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be).
-* Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU).
+* [Vídeo sin audio - 14 minutos de duración - Puppet en Debian](https://youtu.be/kPyaI--iAcA)
+* [Vídeo en inglés](https://youtu.be/Hiu_ui2nZa0) minuto 15, 36 minutos de duración.
 
 Relación de comandos de puppet que han cambiado al cambiar la versión:
 
