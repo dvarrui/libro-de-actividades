@@ -174,7 +174,11 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 
 #2. Primera versión del fichero pp
 
-* Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`
+* Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`.
+* `systemctl status puppetmaster`: Consultar el estado del servicio.
+* `systemctl enable puppetmaster`: Permitir que el servicio se inicie automáticamente en el inicio de la máquina.
+* `systemctl start puppetmaster`: Iniciar el servicio.
+* `systemctl status puppetmaster`: Consultar el estado del servicio.
 * Preparamos los ficheros/directorios en el master:
 ```
     mkdir /etc/puppet/files
@@ -232,9 +236,9 @@ class hostlinux1 {
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
-* Reiniciamos el servicio `puppet-server` (o puppetmasterd).
+* Reiniciamos el servicio `systemctl restart puppetmaster`.
 * Comprobamos que el servicio está en ejecución.
-* Consultamos log por si hay errores: `tail /var/log/syslog`
+* Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 
 #3. Instalación y configuración del cliente1
 
