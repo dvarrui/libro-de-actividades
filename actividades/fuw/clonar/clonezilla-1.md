@@ -3,7 +3,14 @@
 
 Vamos a hacer una práctica de clonación usando el software Clonezilla.
 
-Pasos:
+##1 Entrega
+
+* Trabajar en parejas.
+* Entregar un PDF con el informe del trabajo realizado acompañado de capturas
+de pantalla/fotos.
+
+
+##2 Pasos
 
 1. Coger una máquina del taller. Debe tener una partición de 20GB con el So OpenSUSE 13.2.
 Usuario profesor/profesor y usuario root/profesor.
