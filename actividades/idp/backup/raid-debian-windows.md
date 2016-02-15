@@ -116,9 +116,9 @@ Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
 
 * Crea lo siguiente en /mnt/raid1
     * Directorio `/mnt/raid1/naboo`
-    * Fichero `/mnt/raid/naboo/yoda.txt`
+    * Fichero `/mnt/raid1/naboo/yoda.txt`
     * Directorio `/mnt/raid1/endor`
-    * Fichero `/mnt/raid/endor/startrooper.txt`
+    * Fichero `/mnt/raid1/endor/startrooper.txt`
 
 ##2.4 Configuración de RAID-1
     
