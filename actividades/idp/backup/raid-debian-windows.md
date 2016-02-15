@@ -67,15 +67,18 @@ Imagen de ejemplo, como resultado de realizar el particionado RAID0.
 
 #2. RAID-1 software
 
-> Consejo: Haz copia de seguridad de la MV (Exportar/importar de VBox).
+> **IMPORTANTE**
+> * Haz copia de seguridad de la MV (Exportar/importar de VBox).
+> * Una vez que empiecen con los apartados 2.x, traten de NO apagar la MV. Sólo
+cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
 
 Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
 
 ##2.1 Preparar la MV
 
 > **NOTA**
-> Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
-> Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
+> * Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
+> * Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
 
 Realizar las siguientes tareas:
 * Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
@@ -87,7 +90,14 @@ Realizar las siguientes tareas:
 * Instalar el paquete mdadm (Administración de dispositivos RAID). 
 * Ahora si debe existir el fichero `/etc/mdadm/mdadm.conf`.
 * Crear un RAID-1 (/dev/md1) con los discos (d) y (e) 
-(Consultar URL: Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
+(Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm): 
+Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
+
+> * `mdadm` es la herramienta que vamos a usar para gestionar los dispositivos RAID.
+> * `--create /dev/md1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
+> * `--level=1` el dispositivo a crear será un RAID-1.
+> * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
+ 
 * Para comprobar si se ha creado el raid1 correctamente:
 ```
     cat /proc/mdstat
