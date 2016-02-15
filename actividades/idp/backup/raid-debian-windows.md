@@ -151,7 +151,7 @@ reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguient
 * Volver a poner el disco en la MV, reiniciar.
 
 > Para sincronizar los discos RAID1:
-> * [Enlace de interés](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
+> * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 > * `mdadm --detail /dev/md1`
 > * `mdadm /dev/md1 --manage --add /dev/sdd`
 
