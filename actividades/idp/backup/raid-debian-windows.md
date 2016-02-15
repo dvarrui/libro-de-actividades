@@ -135,11 +135,13 @@ salida de un comando al fichero de texto.
 
 ##2.5 Montaje automático
 
-> Además si queremos que se monte automáticamente el dispositivo en cada 
-reinicio debemos añadir una línea en el fichero /etc/fstab, como la siguiente: 
+> * El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al 
+iniciarse la máquina.
+> * Por tanto, si queremos que se monte automáticamente el dispositivo RAID1 en cada 
+reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguiente: 
 `/dev/md1 /mnt/raid1 ext4 defaults 0 2`
 
-* Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en caa reinicio.
+* Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
 
 #3. Quitar disco y probar
 
