@@ -21,6 +21,11 @@ en nuestra máquina.
     * (a) 100MB, 
     * (b) 4GB
     * (c) 4GB.
+    
+Veamos una imagen del camino para crear discos duros en una MV VirtualBox.
+
+![virtualbox-discos](./images/virtualbox-discos.png)
+
 * Vamos a instalar GNU/Linux Debian.
 * Los discos (b) y (c), van a formar un RAID-0. 
 
