@@ -107,8 +107,8 @@ Realizar las siguientes tareas:
 
 ##2.4 Configuración de RAID-1
     
-* Consultar el fichero /etc/mdadm/mdadm.conf.
-* El archivo de configuración sólo muestra una línea ARRAY correspondiente al RAID0.
+* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración 
+sólo muestra una línea ARRAY correspondiente al RAID0.
 * Para añadir una segunda línea ARRAY para el RAID1, nos ayudaremos de la salida del 
 comando siguiente: `mdadm --examine --scan`. Esta información la tenemos que escribir
 nosotros en el fichero de configuración.
