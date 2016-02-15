@@ -48,7 +48,20 @@ Imagen de ejemplo, como resultado de realizar el particionado RAID0.
 
 > Por esta vez, tampoco vamos a crear una partición independiente para `/home`
 
-* Seguimos la instalación como siempre.
+* Seguimos la instalación como siempre, usando los siguientes valores:
+    * IP: 172.19.XX.41
+    * Máscara de red: 255.255.0.0
+    * Gateway: 172.19.0.1
+    * DNS: 8.8.4.4
+    * Nombre de la máquina: 1er-apellido-del-alumno
+    * Dominio: 2do-apellido-del-alumno
+    * Usuario: nombre-del-alumno
+    * Clave de root: DNI del alumno con la letra en minúsculas
+    * Instalar openssh-server.
+        * Asegurarse de que en el fichero de configuración del servicio 
+        ssh (`/etc/ssh/sshd_config`), el parámetro `PermitRootLogin` tiene 
+        el valor `yes`. 
+        * Reiniciar el servicio con `service sshd restart`
 
 ##1.3 Comprobación
 
