@@ -340,7 +340,6 @@ class hostlinux2 {
   package { "tree": ensure => installed }
   package { "traceroute": ensure => installed }
   package { "geany": ensure => installed }
-  package { "gnomine": ensure => purged }
 
   group { "jedy": ensure => "present", }
   group { "admin": ensure => "present", }
@@ -349,7 +348,7 @@ class hostlinux2 {
     home => '/home/obi-wan',
     shell => '/bin/bash',
     password => 'kenobi',
-    groups => ['jedy','admin','sudo','root'] 
+    groups => ['jedy','admin','root'] 
   }
 
   file { "/home/obi-wan":
@@ -380,9 +379,13 @@ class hostlinux2 {
     mode => 755 
   }
 
+/*
+  package { "gnomine": ensure => purged }
   file {  '/opt/readme.txt' :
     source => 'puppet:///files/readme.txt', 
   }
+*/
+
 }
 ```
 
