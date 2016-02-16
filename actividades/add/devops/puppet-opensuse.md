@@ -422,7 +422,7 @@ dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el sigui
 ```
 class hostwindows3 {
   file {'C:\warning.txt':
-    ensure => present,
+    ensure => 'present',
     content => "Hola Mundo Puppet!",
   }
 }
