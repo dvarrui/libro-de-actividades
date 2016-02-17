@@ -474,6 +474,7 @@ el fichero puppet del master para la máquina Windows.
 
 * Iniciar consola puppet como administrador y probar los comandos: 
     * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
+    * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
