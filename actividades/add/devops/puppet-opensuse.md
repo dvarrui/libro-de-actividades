@@ -15,7 +15,7 @@ Enlaces de interés:
 * Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be)
 * Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU)
 * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
-* [Vídeo sin audio - 14 minutos de duración - Puppet en Debian](https://youtu.be/kPyaI--iAcA)
+* Vídeo sin audio (14 minutos) sobre [Puppet en Debian](https://youtu.be/kPyaI--iAcA)
 * [Vídeo en inglés](https://youtu.be/Hiu_ui2nZa0) minuto 15, 36 minutos de duración.
 
 Relación de comandos de puppet que han cambiado al cambiar la versión:
@@ -36,6 +36,10 @@ Relación de comandos de puppet que han cambiado al cambiar la versión:
 ##1.1 Configuración
 
 > En OpenSUSE podemos hacer configurar el equipo a través de `Yast`
+
+> **IMPORTANTE**
+> * Los nombres de máquinas, dominios, usuarios, etc., deben estar siempre en minúsculas.
+> * No usar tildes, caracteres especiales (ñ, ü, etc.)
 
 Vamos a usar 3 MV's con las siguientes configuraciones:
 * MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
@@ -493,3 +497,7 @@ class hostwindows3 {
 Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
 Incluir configuraciones elegidas por el alumno.
 
+#5. Entrega
+
+* El trabajo se entregará vía repositorio GitHub del alumno.
+* Usaremos la etiqueta `puppet` para la entrega.
