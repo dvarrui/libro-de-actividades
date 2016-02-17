@@ -452,7 +452,12 @@ node 'cli2alu30' {
 * Reiniciamos el servicio PuppetMaster.
 * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
-> Debemos instalar la misma versión de puppet en master y clientes
+> Debemos instalar la misma versión de puppet en master y en los clientes
+
+> **NOMBRES DE MÁQUINA**
+> * El master GNU/Linux del ejemplo se llama `master30.vargas`
+> * El cliente1 GNU/Linux del ejemplo se llama `cli1alu30.vargas`
+> * El cliente2 Windows del ejemplo se llama `cli2alu30`
 
 ##6.2 Modificaciones en el cliente2
 
@@ -497,7 +502,7 @@ class hostwindows3 {
 Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
 Incluir configuraciones elegidas por el alumno.
 
-#5. Entrega
+#7. Entrega
 
 * El trabajo se entregará vía repositorio GitHub del alumno.
 * Usaremos la etiqueta `puppet` para la entrega.
