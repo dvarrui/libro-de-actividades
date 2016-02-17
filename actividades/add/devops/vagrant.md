@@ -2,55 +2,62 @@
 #1. Introducción
 
 *Wikipedia*
+```
+    Vagrant es una herramienta para la creación y configuración de entornos 
+    de desarrollo virtualizados.
 
-Vagrant es una herramienta para la creación y configuración de entornos 
-de desarrollo virtualizados.
+    Originalmente se desarrolló para VirtualBox y sistemas de configuración tales 
+    como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es 
+    capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, 
+    DigitalOcean, etc.2
 
-Originalmente se desarrolló para VirtualBox y sistemas de configuración tales 
-como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es 
-capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, 
-DigitalOcean, etc.2
-
-Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de 
-proyectos escritos en otros lenguajes.
+    Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de 
+    proyectos escritos en otros lenguajes.
+```
 
 Enlaces de interés:
 * [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
 
-*La información para esta actividad ha sido extraída del enlace anterior
-publicado por: Jonathan Wiesel, El 16/07/2013*
+*Autor*
+```
+    La información para desarrollar esta actividad ha sido extraída del 
+    enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013*
+```
 
 #2. Primeros pasos
 
 ##2.1 Instalar
 
-* Instalar vagrant.
-* Nosotros vamos a usar el paquete [Vagrant-deb](http://172.20.1.2/~david/vagrant_1.7.2_x86_64.deb) de Leela.
+> Para instalar vagrant hay varias formas (como todos sabemos).
+
+* Nosotros vamos a usar el paquete [Vagrant-deb](http://172.20.1.2/~david/vagrant_1.7.2_x86_64.deb) 
+preparado para descargar del servidor Leela.
 
 ##2.2. Proyecto
 * Crear un directorio para nuestro proyecto vagrant.
 ```
-$ mkdir miproyecto-vagrantXX
-$ cd miproyecto-vagrantXX
-$ vagrant init
+    mkdir mivagrantXX
+    cd mivagrantXX
+    vagrant init
 ```
 
 ##2.3 Imagen, caja o box
-* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo.
+* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Por ejemplo:
 ```
-$ vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
+vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
 ```
-* Podemos listar las cajas instaladas en nuestro sistema: `vagrant box list`.
-
-* Usar la caja en nuestro proyecto. Modificamos nuestro fichero `Vagrantfile`.
-Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
+* Podemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
+* Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile` 
+de la carpeta del proyecto.
+* Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
 
 ##2.4 Iniciar la máquina
 
-* `cd miproyecto-VagrantXX`
+Vamos a iniciar la máquina virtual creada con Vagrant:
+* `cd mivagrantXX`
 * `vagrant up`: comando para iniciar una la instancia de la máquina.
 
-> Usaremos ssh para conectar con nuestra máquina.
+* Podemos usar ssh para conectar con nuestra máquina virtual (`vagrant ssh`).
 
 * Otros comandos de Vagrant:
     * `vagrant suspend`: Suspender la máquina.
@@ -66,19 +73,20 @@ Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubu
 
 ##3.1 Carpetas sincronizadas
 
-La carpeta del proyecto que contiene el Vagrantfile comparte los archivos entre el 
-sistema anfitrión y el virtualizado, esto nos permite compartir archivos 
-fácilmente entre los ambientes.
+> La carpeta del proyecto que contiene el `Vagrantfile` comparte los 
+archivos entre el sistema anfitrión y el virtualizado, esto nos permite 
+compartir archivos fácilmente entre los ambientes.
 
-Para identificar la carpeta compartida dentro del ambiente virtual volvamos a levantarlo:
+* Para identificar la carpeta compartida dentro del ambiente virtual,
+lo que hacemos es:
 ```
     vagrant up
     vagrant ssh
     ls /vagrant
 ```
 
-> Esto nos mostrará que efectivamente el directorio /vagrant dentro del ambiente 
-virtual posee el mismo Vagrantfile que se encuentra en nuestro sistema anfitrión. 
+> Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del ambiente 
+virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión. 
 >
 > Cualquier archivo que coloquemos en este directorio será accesible desde cualquiera de los 2 extremos. 
 
@@ -90,7 +98,7 @@ y para acceder a las páginas no es lo más cómodo tener que meternos
 por terminal al ambiente virtual y llamarlas desde ahí, aquí entra en 
 juego el enrutamiento de puertos.
 
-* Modificar el fichero Vagrantfile, de modo que el puerto 4567 del 
+* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del 
 sistema anfitrión será enrutado al puerto 80 del ambiente virtualizado.
 
 `config.vm.network :forwarded_port, host: 4567, guest: 80`
