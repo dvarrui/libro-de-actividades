@@ -200,7 +200,7 @@ Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su 
 ##4.1 Volumen Seccionado (RAID0)
 
 Vamos a crear un volumen *seccionado*:
-* Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
+* Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
 * Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros 
 virtuales de 1GB cada uno.
 
@@ -208,6 +208,7 @@ virtuales de 1GB cada uno.
 
 ##4.2 Volumen Reflejado (RAID1)
 Un volumen *Reflejado* es similar a un RAID1.
+* Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
 * Crea un par de volúmenes reflejados de 500MB cada uno, con los discos anteriormente utilizados. 
 Introduce un fichero prueba-mirror.txt en el primero de ellos. Escribe tu nombre dentro. 
 * Rompe los discos utilizando la opción adecuada.¿Qué ocurre?
