@@ -177,6 +177,10 @@ En windows las particiones se llaman volúmenes básicos. Para poder hacer el mi
 efecto de LVM debemos convertir las particiones a volúmenes básicos.
 
 ##4.1 Volumen Distribuido
+
+Enlaces de interés:
+* Vídeo sobre la [Creación de un volumen distribuido en Windows7](https://www.youtube.com/watch?v=prXBbHvqgx8)
+
 Vamos a crear un volumen dinámico *Distribuido*:
 * Crea un disco duro virtual con VirtualBox de 3 GB.
 * Crea dentro del mismo 5 volúmenes simples de 100, 200, 300, 400 y 500 MB respectivamente.
