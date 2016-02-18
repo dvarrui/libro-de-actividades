@@ -472,7 +472,9 @@ ambos equipos (Usar comando `facter` para ver la versión de puppet).
 > Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
 el fichero puppet del master para la máquina Windows.
 
-* Iniciar consola puppet como administrador y probar los comandos: 
+* Iniciar consola puppet como administrador y probar los comandos:
+    * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
+    En nuestro ejemplo debe ser `master30.vargas`. 
     * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows
