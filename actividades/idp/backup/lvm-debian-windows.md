@@ -26,6 +26,7 @@ Configuración de la máquina:
 * Gateway: 172.19.0.1
 * DNS: 8.8.4.4
 * Usuario: nombre-del-alumno
+* Clave de root: DNI del alumno con letra en minúscula.
 * Nombre equipo: 1er-apellido-del-alumno
 * Dominio: 2do-apellido-del-alumno
 * Instalar openssh-server
