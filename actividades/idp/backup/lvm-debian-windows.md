@@ -98,6 +98,7 @@ Esquema de PV, VG y LV:
 * Añadimos 2 discos virtuales nuevos:
     * (Disco a) 200MB: con una partición completa del disco
     * (Disco b) 750MB: con 3 particiones de 250MB sin definir.
+    
 > NOTA: Las particiones las pueden crear con fdisk, gparted, etc.
 
 ##3.2 Crear VG y VL
@@ -178,13 +179,8 @@ efecto de LVM debemos convertir las particiones a volúmenes básicos.
 
 ##4.1 Volumen Distribuido
 
-Enlaces de interés:
 * Vídeo sobre la [Creación de un volumen distribuido en Windows7](https://www.youtube.com/watch?v=prXBbHvqgx8)
-
-Vamos a crear un volumen dinámico *Distribuido*:
-* Crea un disco duro virtual con VirtualBox de 3 GB.
-* Crea dentro del mismo 5 volúmenes simples de 100, 200, 300, 400 y 500 MB respectivamente.
-* Crea un volumen distribuido con el disco anterior.
+* Vamos a crear un volumen distribuido *Distribuido* como aparece en el vídeo anterior.
 
 > * Nota: los volúmenes simples del primer disco deben permanecer intactos.
 > * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño

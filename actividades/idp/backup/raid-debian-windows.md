@@ -198,7 +198,9 @@ Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su 
 > * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 
 ##4.1 Volumen Seccionado (RAID0)
+
 Vamos a crear un volumen *seccionado*:
+* Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
 * Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros 
 virtuales de 1GB cada uno.
 
