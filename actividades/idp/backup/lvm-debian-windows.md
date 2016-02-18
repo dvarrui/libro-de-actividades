@@ -163,7 +163,8 @@ Este valor debe ser menor a 50 MB.
     vgreduce vg-extra /dev/sdc2
     vgreduce vg-extra /dev/sdc3
 ```
-* Comprobar que se mantiene la información almacenada.
+* Apagar la MV Virtual Box y quitar el disco sdc.
+* Encender la MV y comprobar que se mantiene la información almacenada.
 * Comprobamos lo que tenemos:
 ```
     ip a
