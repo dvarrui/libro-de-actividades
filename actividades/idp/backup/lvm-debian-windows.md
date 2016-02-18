@@ -20,6 +20,16 @@ Realizar las siguientes tareas:
 * Crear MV para Debian, con un disco de 8GB.
 * Comenzar a instalar GNU/Linux Debian, parar al llegar al particionado.
 
+Configuración de la máquina:
+* IP: 172.19.XX.42
+* Máscara: 255.255.0.0
+* Gateway: 172.19.0.1
+* DNS: 8.8.4.4
+* Usuario: nombre-del-alumno
+* Nombre equipo: 1er-apellido-del-alumno
+* Dominio: 2do-apellido-del-alumno
+* Instalar openssh-server
+
 ##2.2 Particionar
 
 * Crearemos una partición de 100MB para boot. 
