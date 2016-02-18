@@ -501,6 +501,15 @@ class hostwindows3 {
   }
 }
 ```
+
+> Si tenemos problemas para unir/conectar el cliente windows con el puppetmaster, porque
+no se realice el intercambio de certificados... podemos:
+> * desinstalar el puppet en el cliente,
+> * eliminar todas las carpetas de puppet en el windows, 
+> * cambiar el nombre a la máquina windows
+> * reiniciar el equipo
+> * reinstalar puppet (rezar nuestras oraciones) e intentarlo de nuevo
+
 * Crear un nuevo fichero de configuración para la máquina cliente Windows.
 Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
 Incluir configuraciones elegidas por el alumno.
