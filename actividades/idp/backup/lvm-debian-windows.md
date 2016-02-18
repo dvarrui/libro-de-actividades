@@ -33,14 +33,17 @@ Configuración de la máquina:
 
 ##2.2 Particionar
 
-* Crearemos una partición de 100MB para boot. 
+* Crearemos una partición de 100MB para boot formato ext4. 
+
 > Tener en cuenta que la partición "/boot" va a parte (Fuera de LVM).
+
 * Crear en el resto una partición LVM. En la partición LVM, podemos hacer 
 un grupo de volumen llamado `vg-debian`.
 * Dentro del `vg-debian`, podemos los VL (volúmenes lógicos) siguientes:
     * `lv-swap` (500 MB) usar para área de intercambio
     * `lv-raiz` (5GB) usar como raíz de la instalación del SO.
     * `lv-datos` (100MB) usar como /home del sistema.
+
 > Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 
 A continuación se muestran imágenes de referencia que NO tienen porqué coincidir con lo que se solicita.
