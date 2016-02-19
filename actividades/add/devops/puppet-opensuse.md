@@ -470,6 +470,24 @@ ambos equipos (Usar comando `facter` para ver la versión de puppet).
 * Reiniciamos.
 * Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado 4.
 
+
+> *Consejo/sugerencia de Héctor Pedraza*:	
+>
+> Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir 
+los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
+> * Borrar en el maestro el certificado correspondiente a esa máquina `puppet cert clean nombre-netbios-cliente`.
+> * Desinstalar el agente puppet en windows.
+> * Borrar las carpetas de datos del puppet, ya que no se borran en la desinstalación. Las carpetas son: 
+>     * `C:\ProgramData\PuppetLabs` y 
+>     * `C:\Users\usuario\.puppet`.
+> * Después reinstalamos y volvemos a probar.
+>
+> Si seguimos teniendo problemas para unir/conectar el cliente windows con el puppetmaster, porque
+no se realice el intercambio de certificados... podemos:
+> * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente
+a la máquina Windows e intentarlo de nuevo.
+> * o usar una máquina Windows nueva (limpia de las acciones anteriores).
+
 > Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
 el fichero puppet del master para la máquina Windows.
 
@@ -478,7 +496,7 @@ el fichero puppet del master para la máquina Windows.
     En nuestro ejemplo debe ser `master30.vargas`. 
     * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
-    * `facter`: Para consultar datos de la máquina windows
+    * `facter`: Para consultar datos de la máquina windows, como por ejemplo la versión de puppet del cliente.
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
 
@@ -502,14 +520,6 @@ class hostwindows3 {
   }
 }
 ```
-
-> Si tenemos problemas para unir/conectar el cliente windows con el puppetmaster, porque
-no se realice el intercambio de certificados... podemos:
-> * desinstalar el puppet en el cliente,
-> * eliminar todas las carpetas de puppet en el windows, 
-> * cambiar el nombre a la máquina windows
-> * reiniciar el equipo
-> * reinstalar puppet (rezar nuestras oraciones) e intentarlo de nuevo
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows.
 Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
