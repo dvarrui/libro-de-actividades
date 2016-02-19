@@ -18,11 +18,11 @@ Necesitaremos 2 máquinas virtuales:
     * DNS: 8.8.4.4
     * Nombre NetBios: win7aluXX (donde XX es el número del puesto del alumno)
     * Grupo de trabajo: aula108
-* MV2 con SO Windows 2008 Server
+* MV2 con SO Windows 2012 Server
     * IP: 172.19.XX.21
     * Gateway: 172.19.0.1
     * DNS: 8.8.4.4
-    * Nombre NetBios: w2k8aluXX (donde XX es el número del puesto del alumno)
+    * Nombre NetBios: w2012aluXX (donde XX es el número del puesto del alumno)
     * Grupo de trabajo: aula108
 * Abrir los cortafuegos de ambas máquinas para permitir hacer `ping` entre ellas.
 
@@ -35,7 +35,7 @@ Necesitaremos 2 máquinas virtuales:
     * Una imagen.
     * Un vídeo y/o canción.
 
-##4. Windows 2008 server
+##4. Windows 2012 server
 * Crear el usuario `nombre-del-alumno` con DNI como clave.
 * Añadir un 2º disco de la MV Windows Server 2008 de 1GB.
 * Formatear el 2º disco (1GB) NTFS.
@@ -48,9 +48,11 @@ Necesitaremos 2 máquinas virtuales:
 * Iniciar la MV Windows7 con la distro Clonezilla.
 * Realizar clonación:
     * Tipo *device-image*.
-    * Grabar sólo la partición del disco 2.
-    * Elegir `sambaserver` como repositorio de almacenamiento. Para esto usaremos el recurso
-    compartido del Windows7 con al usuario/clave que hemos creado.
+    * Elegir `samba_server` como repositorio de almacenamiento. Para esto usaremos el recurso
+    compartido del Window Server, con al usuario/clave que hemos creado.
+    * Modo *beginner*.
+    * `saveparts`, para guardar la partición.
+    * Elegiar para grabar sólo la partición del disco 2.
      
 ##6. Restauración
 Comprobar que la restauración de la imagen creada en el recurso compartido SMB/CIFS es correcta.
