@@ -99,7 +99,7 @@ Esquema de PV, VG y LV:
 ##3.1 Preparar la MV
 * Añadimos 2 discos virtuales nuevos:
     * (Disco a) 200MB: con una partición completa del disco
-    * (Disco b) 750MB: con 3 particiones de 250MB sin definir.
+    * (Disco b) 750MB: con 3 particiones de 250MB sin formato, ni tipo.
     
 > NOTA: Las particiones las pueden crear con fdisk, gparted, etc.
 
