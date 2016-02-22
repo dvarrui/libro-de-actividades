@@ -31,7 +31,7 @@ Configuración de la máquina:
 * Dominio: 2do-apellido-del-alumno
 * Instalar openssh-server (`apt-get install openssh-server`).
     * Recordar modificar el fichero `/etc/ssh/sshd_config` con `PermitRootLogin yes`.
-    * Recargar configuración `services sshd reload`
+    * Recargar configuración `service sshd reload`.
 
 ##2.2 Particionar
 
