@@ -29,7 +29,8 @@ Configuración de la máquina:
 * Clave de root: DNI del alumno con letra en minúscula.
 * Nombre equipo: 1er-apellido-del-alumno
 * Dominio: 2do-apellido-del-alumno
-* Instalar openssh-server
+* Instalar openssh-server (`apt-get install openssh-server`). Recordar
+modificar el fichero `/etc/ssh/sshd_config` con `PermitRootLogin yes`.
 
 ##2.2 Particionar
 
