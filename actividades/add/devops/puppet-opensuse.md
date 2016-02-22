@@ -59,7 +59,8 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * Dominio = primer-apellido-del-alumno
     * Instalar OpenSSH-Server para acceso del profesor.
 * MV3 - client2: recibe órdenes del master.
-    * SO Windows 7.
+    * SO Windows 7. Este SO debe haber sido instalado por cada alumno. 
+    NO clonar de un compañero y/o profesor.
     * IP estática 172.18.XX.102
     * Enlace: 172.18.0.1
     * DNS: 8.8.4.4
