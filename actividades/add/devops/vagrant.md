@@ -41,15 +41,22 @@ preparado para descargar del servidor Leela.
     vagrant init
 ```
 
+![vagrant-init](./images/vagrant-init.png)
+
 ##2.3 Imagen, caja o box
 * Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Por ejemplo:
 ```
 vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
 ```
-* Podpemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
+
+![vagrant-box-add](./images/vagrant-box-add.png)
+
+* Podemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
 * Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile` 
 de la carpeta del proyecto.
 * Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
+
+![vagrantfile](./images/vagrantfile.png)
 
 ##2.4 Iniciar la máquina
 
@@ -90,6 +97,8 @@ virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitri
 >
 > Cualquier archivo que coloquemos en este directorio será accesible desde cualquiera de los 2 extremos. 
 
+![vagrant-directory](./images/vagrant-directory.png)
+
 ##3.2 Redireccionamiento de los puertos
 
 Uno de los casos más comunes cuando tenemos una máquina virtual es la 
@@ -102,6 +111,8 @@ juego el enrutamiento de puertos.
 sistema anfitrión será enrutado al puerto 80 del ambiente virtualizado.
 
 `config.vm.network :forwarded_port, host: 4567, guest: 80`
+
+![vagrant-forward](./images/vagrant-forward.png)
 
 * Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar 
 con `vagrant reload`)
