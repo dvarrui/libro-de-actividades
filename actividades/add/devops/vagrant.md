@@ -46,7 +46,7 @@ preparado para descargar del servidor Leela.
 ```
 vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
 ```
-* Podemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
+* Podpemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
 * Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile` 
 de la carpeta del proyecto.
 * Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
@@ -109,7 +109,23 @@ con `vagrant reload`)
  y colocamos: `http://127.0.0.1:4567`. En realidad estaremos accediendo 
  al puerto 80 de nuestro sistema virtualizado. 
 
-##3.3 Suministro
+##3.3 Otras configuraciones
+
+Enlace de interés: 
+* [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
+
+Ejemplos:
+```
+  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.synced_folder "htdocs", "/var/www/html"
+  config.vm.provision "shell", path: "config.sh"
+  config.ssh.forward_x11 true
+  etc
+```
+
+#4.Suministro
+
+##4.1 Suministro mediante script
 
 Quizás el aspecto con mayor beneficios del enfoque que usa Vagrant 
 es el uso de herramientas de suministro, el cual consiste en correr 
@@ -150,3 +166,28 @@ para suministrar el ambiente virtual con el archivo `install_apache.sh`.
 podemos navegar a la siguiente ruta mediante un explorador web que configuramos anteriormente:
 `http://127.0.0.1:4567`.
 
+##4.2 Suministro mediante Puppet
+
+Enlace de interés:
+* [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
+* friendsofvagrant.github.io -> Puppet Provisioning
+
+Veamos ejemplo:
+```
+Vagrant::Config.run do |config|
+  config.vm.provision :puppet do |puppet|
+    puppet.manifest_path = "manifests"
+    puppet.manifest_file = "my_manifest.pp"
+  end
+end
+```
+
+#5. Otras cajas, nuestras cajas
+
+Existen muchos repositorios para descargar cajas. Por ejemplo:
+* [Vagrant Box List](http://www.vagrantbox.es)
+* [HashiCorp's Atlas box catalog](http://atlas.hashicorp.com)
+
+Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
+indicaciones del siguiente enlace:
+* [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
