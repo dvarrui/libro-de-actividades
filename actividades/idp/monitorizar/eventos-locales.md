@@ -22,7 +22,7 @@ de sesión al sistema (Correctos e incorrectos). Incluir captura de pantalla con
 
 A continuación se muestra imagen de ejemplo de la directiva desactivada:
 
-activar-directivas
+![activar-directivas](./images/activar-directivas.png)
 
 * Poner como nombre NETBIOS de la máquina:
     * "1er-apellido-del-alumno"+1 => Windows 7
