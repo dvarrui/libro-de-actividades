@@ -209,7 +209,7 @@ el servicio web apache2.
 
 Existen muchos repositorios para descargar cajas. Por ejemplo:
 * [Vagrant Box List](http://www.vagrantbox.es)
-* [HashiCorp's Atlas box catalog](http://atlas.hashicorp.com)
+* [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
 
 > Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
 
