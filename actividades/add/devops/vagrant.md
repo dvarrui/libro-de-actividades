@@ -129,7 +129,6 @@ Ejemplos:
 ```
   config.vm.network "private_network", ip: "192.168.33.10"
   config.vm.synced_folder "htdocs", "/var/www/html"
-  config.vm.provision "shell", path: "config.sh"
   config.ssh.forward_x11 true
   etc
 ```
@@ -166,16 +165,18 @@ contenido:
 * Modificar Vagrantfile y agregar la siguiente línea a la configuración:
 `config.vm.provision :shell, :path => "install_apache.sh"`
 
-> Esto le indicará a Vagrant que debe usar la herramienta nativa shell 
+> * Esta instrucción le indica a Vagrant que debe usar la herramienta nativa shell 
 para suministrar el ambiente virtual con el archivo `install_apache.sh`.
+> * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecuta
+directamente el comando especificado, sin usar script.
 
-* Iniciamos la MV o `vagrant reload` si está en ejecución.
+* Iniciamos la MV o `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
 
-> Podremos notar en la salida del levantamiento del ambiente como se va instalando el paquete de Apache que indicamos:
+> Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran
+mensajes que indican cómo se va instalando el paquete de Apache que indicamos:
 
-* Para verificar que efectivamente el servidor Apache ha sido levantado 
-podemos navegar a la siguiente ruta mediante un explorador web que configuramos anteriormente:
-`http://127.0.0.1:4567`.
+* Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, 
+abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
 ##4.2 Suministro mediante Puppet
 
@@ -188,16 +189,21 @@ Veamos ejemplo:
 Vagrant::Config.run do |config|
   config.vm.provision :puppet do |puppet|
     puppet.manifest_path = "manifests"
-    puppet.manifest_file = "my_manifest.pp"
+    puppet.manifest_file = "apache2.pp"
   end
 end
 ```
+
+> En el fichero `apache2.pp`, estarán las órdenes puppet para instalar y configurar 
+el servicio web apache2.
 
 #5. Otras cajas, nuestras cajas
 
 Existen muchos repositorios para descargar cajas. Por ejemplo:
 * [Vagrant Box List](http://www.vagrantbox.es)
 * [HashiCorp's Atlas box catalog](http://atlas.hashicorp.com)
+
+> Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
 
 Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
