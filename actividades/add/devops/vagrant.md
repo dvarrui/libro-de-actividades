@@ -97,8 +97,6 @@ virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitri
 >
 > Cualquier archivo que coloquemos en este directorio será accesible desde cualquiera de los 2 extremos. 
 
-![vagrant-directory](./images/vagrant-directory.png)
-
 ##3.2 Redireccionamiento de los puertos
 
 Uno de los casos más comunes cuando tenemos una máquina virtual es la 
@@ -218,3 +216,10 @@ Existen muchos repositorios para descargar cajas. Por ejemplo:
 Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
 * [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
+
+
+#ANEXO
+
+¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando?
+
+![vagrant-directory](./images/vagrant-directory.png)
