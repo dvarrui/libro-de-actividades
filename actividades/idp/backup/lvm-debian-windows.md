@@ -98,10 +98,17 @@ Esquema de PV, VG y LV:
 
 ##3.1 Preparar la MV
 * Añadimos 2 discos virtuales nuevos:
-    * (Disco a) 200MB: con una partición completa del disco
-    * (Disco b) 750MB: con 3 particiones de 250MB sin formato, ni tipo.
+    * (Disco de 200MB: con una partición completa del disco
+    * (Disco de 750MB: con 3 particiones de 250MB sin formato, ni tipo.
     
 > NOTA: Las particiones las pueden crear con fdisk, gparted, etc.
+>
+> * Para crear particiones del disco sdb con fdisk:
+>     * `fdisk /dev/sdb`
+>     * `m` ver el menú con las opciones
+>     * `n` para crear partición
+>     * `w` grabar y salir
+>     * `q` salir sin grabar
 
 ##3.2 Crear VG y VL
 
