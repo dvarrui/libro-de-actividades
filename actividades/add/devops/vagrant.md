@@ -110,7 +110,7 @@ sistema anfitrión será enrutado al puerto 80 del ambiente virtualizado.
 
 `config.vm.network :forwarded_port, host: 4567, guest: 80`
 
-![vagrant-forward](./images/vagrant-forward.png)
+![vagrant-forward-example](./images/vagrant-forward-example.png)
 
 * Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar 
 con `vagrant reload`)
