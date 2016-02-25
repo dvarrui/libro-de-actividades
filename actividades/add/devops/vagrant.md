@@ -184,15 +184,25 @@ Enlace de interés:
 * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
 * friendsofvagrant.github.io -> Puppet Provisioning
 
-Veamos ejemplo:
-```
-Vagrant::Config.run do |config|
-  config.vm.provision :puppet do |puppet|
-    puppet.manifest_path = "manifests"
-    puppet.manifest_file = "apache2.pp"
-  end
-end
-```
+Veamos imágenes de ejemplo suministradas por Aarón Gonźalez Díaz:
+
+Vagrantfile configurado con puppet:
+
+![vagranfile-puppet](./images/vagrantfile-puppet.png)
+
+Fichero de configuración de puppet:
+
+![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
+
+> Veamos otros ejemplo:
+> ```
+> Vagrant::Config.run do |config|
+>   config.vm.provision :puppet do |puppet|
+>     puppet.manifest_path = "manifests"
+>     puppet.manifest_file = "apache2.pp"
+>   end
+> end
+>```
 
 > En el fichero `apache2.pp`, estarán las órdenes puppet para instalar y configurar 
 el servicio web apache2.
