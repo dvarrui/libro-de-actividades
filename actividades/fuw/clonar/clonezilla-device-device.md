@@ -21,6 +21,8 @@ Usuario profesor/profesor y usuario root/profesor.
 1. Modificar el gestor de arranque para que detecte los dos SO instalados.
     * `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
     * `grub2-mkconfig -o /boot/grub2/grub.cgf`
+    * Ejecutar el comando siguiente en el SO1: `df -hT`.
 1. Iniciar el 2º SO, grabar archivos en /home/profesor/Documentos
-1. Iniciar el 1er SO, comprobar que no hay nada en /home/profesor/Documentos.
+    * Ejecutar el comando siguiente en el SO2: `df -hT`.
+1. Iniciar el 1er SO, comprobar que si hay o no ficheros en `/home/profesor/Documentos`.
 
