@@ -1,4 +1,5 @@
 
+*(Actividad usada en cursos anteriores 201415, 201314)*
 
 #1. Introducción
 
@@ -8,48 +9,56 @@ del sistema, que nos ayuda a modo de *"caja negra"*, a reconstruir situaciones
 del pasado para diversos fines. Esta es la utilidad de la monitorización y la auditoría,
 saber lo que ha pasado.
 
-#2. Registro en Windows
-Realizar las siguientes tareas en SO Windows:
+#2. SO Windows
 
-* Debemos activar unas directivas de seguridad, para auditar los inicios 
-de sesión al sistema (Correctos e incorrectos). Incluir captura de pantalla con la directiva activada.
+##2.1 Configuración Windows
+Configuración de la máquina Windows
+    * Sistema Operativo Windows Server 2012
+    * IP: 172.19.XX.21
+    * Gateway: 172.19.0.1
+    * DNS: 8.8.4.4
+    * Nombre NetBIOS: w12aluXX
+
+##2.2 Auditoría en Windows
+Vamos realizar las siguientes tareas en SO Windows.
+* Activar unas directivas de seguridad, para auditar los inicios de sesión 
+al sistema (Correctos e incorrectos). Incluir captura de pantalla con la directiva activada.
 * Nosotros queremos auditar los *"Sucesos de inicio de sesión"*.
 
 > NOTA:
->
-> Los "Sucesos de inicio de sesión de cuenta" no los vamos a necesitar ahora.
-Éstos sirven para auditar a los usuarios del dominio. Esto todavía no lo hemos visto.
+> * Los "Sucesos de inicio de sesión de cuenta" no los vamos a necesitar ahora.
+> * Éstos sirven para auditar a los usuarios del dominio. Esto todavía no lo hemos visto.
 
 A continuación se muestra imagen de ejemplo de la directiva desactivada:
 
 ![activar-directivas](./images/activar-directivas.png)
 
-* Poner como nombre NETBIOS de la máquina:
-    * "1er-apellido-del-alumno"+1 => Windows 7
-    * "1er-apellido-del-alumno"+2 => Windows 2008 Server
 * Reiniciar la MV para que empiecen a funcionar las auditorías.
-* Crear los usuarios nombre-alumno1, nombre-alumno2 y nombre-alumno3.
+* Crear los usuarios `nombre-alumno1`, `nombre-alumno2` y `nombre-alumno3`.
 * Hacer las siguientes acciones:
-    * Entrar al sistema con nombre-alumno1 de forma correcta.
-    * Intentar entrar con nombre-alumno2 poniendo la clave mal.
-    * y no entrar con nombre-alumno3.
-* Buscar en el sistema, la herramienta visor de sucesos. Comprobar cómo 
-se registran los eventos anteriores en la sección "Seguridad". Incluir captura de pantalla.
-* Exportar los eventos a ficheros CSV. Filtrar los eventos para NO incluirlos 
-todos (Elegir los generados hoy, o en las últimas horas). 
-Incluir fichero en la entrega con el nombre "nombre-alumno-registro-windows.csv".
-> Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas 
+    * Entrar al sistema con `nombre-alumno1` de forma correcta.
+    * Intentar entrar con `nombre-alumno2` poniendo la clave mal.
+    * y no entrar con `nombre-alumno3`.
+* Buscar en el sistema, la herramienta visor de sucesos.
+* Comprobar cómo se registran los eventos anteriores en la sección "Seguridad". 
+Incluir captura de pantalla.
+* Exportar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO 
+incluirlos todos (Elegir los generados hoy, o en las últimas horas). 
+* Incluir fichero en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
+* Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas 
 de cálculo (Por ejemplo: Excel de Microsoft, Calc de LibreOffice, etc.). Comprobarlo.
-> Realmente son ficheros de texto donde cada fila es como in registro de una tabla.
+
+> Realmente los CSV son ficheros de texto donde cada fila es como in registro de una tabla.
 Y se usa la coma para delimitar los campos dentro de cada fila.
 
 #3. Registro en GNU/Linux (Teoría)
+
 ##3.1 Monitorización
 
 Configurar y recurrir a archivos de log.
-
-    Enlaces de interés: logs en linux.
-    Los archivos de log se guardan normalmente en /var/log, aunque cada programa puede usar uno propio.
+* Enlaces de interés: logs en linux.
+* Los archivos de log se guardan normalmente en el directorio `/var/log`.
+Cada programa puede usar su propio fichero de log o bien el genérico `/var/log/syslog.log`.
     El servicio de log lo controla rsyslog o syslog en versiones antiguas.
     El fichero de configuración principal es /etc/rsyslog.conf, pero hay ficheros de configuración secundarios en /etc/rsyslog.d. Por ejemplo el fichero /etc/rsyslog.d/50-default.conf.
     Campos: selector (facility+priority) y acción. También llamado "recurso.prioridad acción".
