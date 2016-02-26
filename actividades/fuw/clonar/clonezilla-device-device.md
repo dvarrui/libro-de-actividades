@@ -19,6 +19,8 @@ Usuario profesor/profesor y usuario root/profesor.
 1. Iniciar el PC con la distro Clonezilla.
 1. Realizar clonación tipo *device-device*.
 1. Modificar el gestor de arranque para que detecte los dos SO instalados.
+    * `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
+    * `grub2-mkconfig -o /boot/grub2/grub.cgf`
 1. Iniciar el 2º SO, grabar archivos en /home/profesor/Documentos
 1. Iniciar el 1er SO, comprobar que no hay nada en /home/profesor/Documentos.
 
