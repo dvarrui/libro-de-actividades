@@ -53,28 +53,46 @@ Y se usa la coma para delimitar los campos dentro de cada fila.
 
 #3. Registro en GNU/Linux (Teoría)
 
-##3.1 Monitorización
+##3.1 Los ficheros de log
 
 Configurar y recurrir a archivos de log.
 * Enlaces de interés: logs en linux.
-* Los archivos de log se guardan normalmente en el directorio `/var/log`.
-Cada programa puede usar su propio fichero de log o bien el genérico `/var/log/syslog.log`.
-    El servicio de log lo controla rsyslog o syslog en versiones antiguas.
-    El fichero de configuración principal es /etc/rsyslog.conf, pero hay ficheros de configuración secundarios en /etc/rsyslog.d. Por ejemplo el fichero /etc/rsyslog.d/50-default.conf.
-    Campos: selector (facility+priority) y acción. También llamado "recurso.prioridad acción".
-        Facility identifica al origen del mensaje: auth, authpriv, cron, daemon, ftp, kern, lpr, mail, news, syslog, user, uucp, y local0 hasta local7.
-        Priority idenfica la urgencia del mensaje: debug, info, notice, warning, err, crit, alert y emerg.
 
-Ejemplo de configuración dentro de rsyslog:
+> **EXPLICACIÓN**
+>
+> * Los archivos de log se guardan normalmente en el directorio `/var/log`.
+> * Cada programa puede usar su propio fichero de log o bien el genérico `/var/log/syslog.log`.
 
-    kern.* /var/log/kernel: Los eventos generados por kernel, se guardarán en el fichero /var/log/kernel.
-    kern.crit @192.168.1.11: Los eventos críticos o de mayor prioridad, generados por kernel se enviarán al PC con la IP especificada.
-    kern.crit /dev/console: Los eventos críticos o de mayor prioridad, generados por el kernel se mostrarán en el dispositivo consola.
-    kern.info;kern.!err /var/log/kernel-info: Los eventos generados por el kernel, de igual o mayor prioridad a info, pero NO los eventos de error o prioridad superior, se guardarán en el fichero /var/log/kernel-info.
+##3.2 Programa rsyslog
 
-El comando logger permite crear un mensaje de log manualmente. La opción -p permite determinar el par "facility-priority". Más información en http://www.estrellateyarde.org/so/logs-en-linux
+> * El servicio de log lo controla el programa *rsyslog* (*syslog* en las versiones antiguas).
+> * El fichero de configuración principal es `/etc/rsyslog.conf`, pero pueden existir 
+ficheros de configuración secundarios en el directorio `/etc/rsyslog.d`. Por ejemplo 
+el fichero `/etc/rsyslog.d/50-default.conf` de Ubuntu 12.
+> * Campos: selector (facility+priority) y acción. También llamado "recurso.prioridad acción".
+>     * Facility 
+>         * Iidentifica al origen del mensaje
+>         * auth, authpriv, cron, daemon, ftp, kern, lpr, mail, news, syslog, user, uucp, y local0 hasta local7.
+>     * Priority
+>         * Idenfica la urgencia del mensaje
+>         * debug, info, notice, warning, err, crit, alert y emerg.
 
-3.2 Auditorías
+Ejemplos de configuración dentro de rsyslog:
+* `kern.* /var/log/kernel`: Los eventos generados por kernel, se guardarán en el fichero /var/log/kernel.
+* `kern.crit @192.168.1.11`: Los eventos críticos o de mayor prioridad, generados por kernel se enviarán al PC con la IP especificada.
+* `kern.crit /dev/console`: Los eventos críticos o de mayor prioridad, generados por el kernel se mostrarán en el dispositivo consola.
+* `kern.info;kern.!err /var/log/kernel-info`: Los eventos generados por el kernel, de igual o mayor prioridad a info, pero NO los eventos de error o prioridad superior, se guardarán en el fichero /var/log/kernel-info.
+
+##3.3 El comando `logger`
+
+Los mensajes que se registran en los ficheros de log, son enviados por los programas.
+Si queremos enviar un mensaje al registro, de forma manual, podemos usar el comando `logger`.
+
+El comando `logger` permite crear un mensaje de log manualmente. 
+La opción -p permite determinar el par "facility-priority" (
+[Más información](http://www.estrellateyarde.org/so/logs-en-linux) )
+
+##3.2 Auditorías
 
 Veamos la utilidad de algunos ficheros de log del sistema:
 
