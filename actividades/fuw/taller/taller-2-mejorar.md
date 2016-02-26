@@ -45,9 +45,9 @@
 * Instalar el SO OpenSUSE 13.2 con la siguiente configuración:
     * Esquema de particiones:
         * 1 partición extendida 
-        * 1 partición lógica de 2GB para swap
-        * 1 partición lógica de 20GB para /
-        * 1 partición lógica de 10GB para /home
+        * 1 partición lógica de 2GB para `swap`
+        * 1 partición lógica de 20GB para `/`
+        * ¡OJO! :No poner el directorio `/home` separado
         * Dejar el resto sin usar (por ahora)
     * Usuarios:
         * Usuario profesor con clave profesor
