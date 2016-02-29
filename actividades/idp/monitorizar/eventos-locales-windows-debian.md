@@ -220,6 +220,7 @@ notifempty
 máximo de 1k, que se crearán hasta 3 ficheros de rotaciones en modo comprimido.
 
 * Vamos a generar muchos mensajes de log en el fichero de registro de eventos. 
+
 > Podemos usar el script proporcionado por el profesor, cuya función es la 
 de generar cientos de mensajes de log hacia el nuevo fichero de registro.
 >
