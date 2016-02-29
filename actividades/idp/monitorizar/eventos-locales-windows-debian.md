@@ -13,11 +13,11 @@ saber lo que ha pasado.
 
 ##2.1 Configuración Windows
 Configuración de la máquina Windows
-    * Sistema Operativo Windows Server 2012
-    * IP: 172.19.XX.21
-    * Gateway: 172.19.0.1
-    * DNS: 8.8.4.4
-    * Nombre NetBIOS: w12aluXX
+* Sistema Operativo Windows Server 2012
+* IP: 172.19.XX.21
+* Gateway: 172.19.0.1
+* DNS: 8.8.4.4
+* Nombre NetBIOS: w12aluXX
 
 ##2.2 Auditoría en Windows
 
@@ -132,11 +132,11 @@ sistema de ficheros como `incron`.
 ##4.1 Configuración de la máquina Debian
 
 Configuración de la máquina
-    * Sistema Operativo Debian 8
-    * IP: 172.19.XX.41
-    * Gateway: 172.19.0.1
-    * DNS: 8.8.4.4
-    * Nombre NetBIOS: deb8aluXX
+* Sistema Operativo Debian 8
+* IP: 172.19.XX.41
+* Gateway: 172.19.0.1
+* DNS: 8.8.4.4
+* Nombre NetBIOS: deb8aluXX
 
 ##4.2 Webmin
 
@@ -171,7 +171,7 @@ Realizar las siguientes tareas:
 > * Como fichero de log usaremos "/var/log/nombrealumno/prueba-local.log".
 
 * Añadir la siguiente línea al fichero de configuracion `/etc/rsyslog.d/nombre-alumno.conf`:
-`local0.* /var/log/nombredelalumno/prueba-local.log`
+    * `local0.* /var/log/nombredelalumno/prueba-local.log`
 * Con el usuario root, crear el fichero /var/log/nombredelalumno/prueba-local.log vacío.
 * Ahora debemos reiniciar el servicio rsyslog, para que se recargue la nueva configuración.
     * `service rsyslog stop`
