@@ -52,7 +52,7 @@ de cálculo (Por ejemplo: Excel de Microsoft, Calc de LibreOffice, etc.). Compro
 > Realmente los CSV son ficheros de texto donde cada fila es como in registro de una tabla.
 Y se usa la coma para delimitar los campos dentro de cada fila.
 
-#3. Registro en GNU/Linux (Teoría)
+#3. GNU/Linux (Teoría)
 
 ##3.1 Los ficheros de log
 
@@ -127,9 +127,9 @@ command to display the content of this file.
 > Además existen otras herramientas para auditar accesos a objetos del 
 sistema de ficheros como `incron`.
 
-#4. Registro en GNU/Linux (GUI)
+#4. GNU/Linux Debian (GUI)
 
-##4.1 Configuración de la máquina Debian
+##4.1 Configuración
 
 Configuración de la máquina
 * Sistema Operativo Debian 8
@@ -151,7 +151,7 @@ paquete deb, entonces ejecutamos el siguiente comando para resolverlas: `apt-get
 * Vamos a analizar los ficheros de log con la herramienta anterior. 
 Para ello vamos a las opciones del menú "System -> System Log". Incluir captura de pantalla.
 
-#5. Registro en GNU/Linux (Comandos)
+#5. GNU/Linux Debian (Comandos)
 
 Vamos a realizar una monitorización local de nuestro equipo GNU/Linux, con rotación de log's.
 
