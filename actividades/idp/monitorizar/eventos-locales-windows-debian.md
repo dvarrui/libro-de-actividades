@@ -173,10 +173,6 @@ Realizar las siguientes tareas:
     * `service rsyslog stop`
     * `service rsyslog start`
 
-> Los sistemas que todavía usan el antiguo gestor de servicios SystemV usan los comandos siguientes:
-> * `/etc/init.d/rsyslog stop`
-> * `/etc/init.d/rsyslog start`
-
 ![debian-rsyslog-service](./images/debian-rsyslog-service.png)
 
 ##5.2 Comprobar Rsyslog
@@ -244,3 +240,7 @@ Enlace de interés:
 * La herramienta incron de GNU/Linux, permite crear/activar auditorías de cualquier 
 objeto del sistema de ficheros.
 
+##System V
+Los sistemas que todavía usan el antiguo gestor de servicios SystemV usan los comandos siguientes:
+* `/etc/init.d/rsyslog stop`
+* `/etc/init.d/rsyslog start`
