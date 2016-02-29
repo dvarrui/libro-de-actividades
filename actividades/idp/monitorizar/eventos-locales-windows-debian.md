@@ -94,8 +94,8 @@ enviados por los diversos programas/aplicaciones.
 Si queremos enviar un mensaje al registro, de forma manual, podemos usar el comando `logger`.
 
 El comando `logger` permite crear un mensaje de log manualmente. 
-Por ejemplo, la opción -p permite determinar el par "facility-priority". 
-[Más información](http://www.estrellateyarde.org/so/logs-en-linux)
+Por ejemplo, la opción -p permite determinar el par "facility-priority".
+ [Más información](http://www.estrellateyarde.org/so/logs-en-linux) 
 
 ##3.4 Auditorías
 
@@ -129,49 +129,55 @@ sistema de ficheros como `incron`.
 
 #4. Registro en GNU/Linux (GUI)
 
-* Se recomienda usar GNU/Linux Debian.
-* Para cambiar el nombre de la máquina, hacemos:
-    * `hostname "1er-apellido-alumno"+3`
-    * `hostname` (Para comprobar)
-* Instalar el programa [Webmin](http://www.webmin.com/).
-    * Primero lo inentamos vía gestor de paquetes y/o apt-get install.
-    * También podemos hacerlo descargando el paquete deb de la web de Webmin. 
-    Para instalarlo usamo dpkg. Veamos ejemplo: "dpkg -i webmin_1.550_all.deb"
-    * Si tenemos problemas de dependencias de paquetes, instalando el 
-    paquete deb, entonces ejecutamos el siguiente comando para resolverlas: 
-    `apt-get install -f`.
-    * Para iniciar el servicio Webmin, ejecutamos: "/etc/init.d/webmin start".
-    * Para acceder al programa Webmin, abrimos un navegador web y ponemos 
-    como URL "https://localhost:10000".
-    * Vamos a analizar los ficheros de log con la herramienta anterior. 
-    Para ello vamos a las opciones del menú "System -> System Log". Incluir captura de pantalla.
+##4.1 Configuración de la máquina Debian
+
+Configuración de la máquina
+    * Sistema Operativo Debian 8
+    * IP: 172.19.XX.41
+    * Gateway: 172.19.0.1
+    * DNS: 8.8.4.4
+    * Nombre NetBIOS: deb8aluXX
+
+##4.2 Webmin
+
+Instalar el programa [Webmin](http://www.webmin.com/).
+* Primero lo inentamos vía gestor de paquetes y/o apt-get install.
+* También podemos hacerlo descargando el paquete deb de la web de Webmin. 
+Para instalarlo usamo dpkg. Veamos ejemplo: "dpkg -i webmin_1.550_all.deb"
+* Si tenemos problemas de dependencias de paquetes, instalando el 
+paquete deb, entonces ejecutamos el siguiente comando para resolverlas: `apt-get install -f`.
+* Para iniciar el servicio Webmin, ejecutamos: "/etc/init.d/webmin start".
+* Para acceder al programa Webmin, abrimos un navegador web y ponemos como URL "https://localhost:10000".
+* Vamos a analizar los ficheros de log con la herramienta anterior. 
+Para ello vamos a las opciones del menú "System -> System Log". Incluir captura de pantalla.
 
 #5. Registro en GNU/Linux (Comandos)
 
 Vamos a realizar una monitorización local de nuestro equipo GNU/Linux, con rotación de log's.
-* Se recomienda usar GNU/Linux Debian.
 
-> NOTA:
-> * El fichero de configuración principal del servicio Syslog tiene el nombre /etc/rsyslog.conf.
-> * En algunas distribuciones existe además el directorio /etc/rsyslog.d que contiene la configuración repartida en varios ficheros para hacerla más manejable. Pero funciona igual que el caso anterior.
-> * El programa/demonio del servicio Syslog tiene el nombre /sbin/rsyslogd.
+* El fichero de configuración principal del servicio Syslog tiene el nombre /etc/rsyslog.conf.
+* En algunas distribuciones existe además el directorio /etc/rsyslog.d que contiene la configuración 
+repartida en varios ficheros para hacerla más manejable. Pero funciona igual que el caso anterior.
+* El programa/demonio del servicio Syslog tiene el nombre /sbin/rsyslogd.
 
 ##5.1 Configuración de Rsyslog
 
 Realizar las siguientes tareas:
 
-* Consultar el fichero "/etc/rsyslog.d/50-default.conf". Si no existe lo creamos.
+* Crear el fichero `/etc/rsyslog.d/nombre-alumno.conf`.
 > **NOTA**
 > Vamos a añadir una nueva línea para configurar la grabación de nuestros eventos:
 > * Como recurso.prioridad usaremos local0.*
 > * Como fichero de log usaremos "/var/log/nombrealumno/prueba-local.log".
 
-* Añadir la siguiente línea al fichero de configuracion /etc/rsyslog.d/50-default.conf:
+* Añadir la siguiente línea al fichero de configuracion `/etc/rsyslog.d/nombre-alumno.conf`:
 `local0.* /var/log/nombredelalumno/prueba-local.log`
 * Con el usuario root, crear el fichero /var/log/nombredelalumno/prueba-local.log vacío.
 * Ahora debemos reiniciar el servicio rsyslog, para que se recargue la nueva configuración.
     * `service rsyslog stop`
     * `service rsyslog start`
+
+Comprobando que está el servicio en ejecución:
 
 ![debian-rsyslog-service](./images/debian-rsyslog-service.png)
 
@@ -186,7 +192,8 @@ usar local1, local2, local3, local4, local5, local6 y local7.
 * Crear varios registros mediante el comando logger, usando varias prioridades 
 diferentes y otros valores. Consultar la ayuda con "man logger"· Por ejemplo, 
 probar los parámetros de logger -i, -t, etc.
-* Consultar los mensajes registrados, e indicar sobre un ejemplo el significado de cada campo de una línea concreta del log. Incluir captura de pantalla.
+* Consultar los mensajes registrados, e indicar sobre un ejemplo el 
+significado de cada campo de una línea concreta del log. Incluir captura de pantalla.
 
 #6. Configuración de Logrotate
 
