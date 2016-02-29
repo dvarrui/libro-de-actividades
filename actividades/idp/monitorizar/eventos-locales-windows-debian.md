@@ -63,6 +63,9 @@ Configurar y recurrir a archivos de log.
 > * Los archivos de log se guardan normalmente en el directorio `/var/log`.
 > * Cada programa puede usar su propio fichero de log o bien el genérico `/var/log/syslog.log`.
 
+Enlace de interés:
+* [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
+
 ##3.2 Programa rsyslog
 
 > * El servicio de log lo controla el programa *rsyslog* (*syslog* en las versiones antiguas).
