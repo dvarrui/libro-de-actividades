@@ -170,8 +170,12 @@ Realizar las siguientes tareas:
 `local0.* /var/log/nombredelalumno/prueba-local.log`
 * Con el usuario root, crear el fichero /var/log/nombredelalumno/prueba-local.log vacío.
 * Ahora debemos reiniciar el servicio rsyslog, para que se recargue la nueva configuración.
-    * `/etc/init.d/rsyslog stop`
-    * `/etc/init.d/rsyslog start`
+    * `service rsyslog stop`
+    * `service rsyslog start`
+
+> Los sistemas que todavía usan el antiguo gestor de servicios SystemV usan los comandos siguientes:
+> * `/etc/init.d/rsyslog stop`
+> * `/etc/init.d/rsyslog start`
 
 ##5.2 Comprobar Rsyslog
 
