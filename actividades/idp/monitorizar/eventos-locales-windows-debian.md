@@ -187,8 +187,10 @@ Comprobando que está el servicio en ejecución:
 el fichero de log está vació por el momento.
 * Ahora vamos a usar el comando logger para generar mensajes de log en el fichero anterior. 
 Por ejemplo: `logger -p local0.info "Hola Mundo"`.
+
 > Usaremos para nuestros ejemplos el recurso "local0". Pero también se podrían 
 usar local1, local2, local3, local4, local5, local6 y local7.
+
 * Crear varios registros mediante el comando logger, usando varias prioridades 
 diferentes y otros valores. Consultar la ayuda con "man logger"· Por ejemplo, 
 probar los parámetros de logger -i, -t, etc.
