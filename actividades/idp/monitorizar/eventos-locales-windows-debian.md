@@ -177,6 +177,8 @@ Realizar las siguientes tareas:
 > * `/etc/init.d/rsyslog stop`
 > * `/etc/init.d/rsyslog start`
 
+![debian-rsyslog-service](./images/debian-rsyslog-service.png)
+
 ##5.2 Comprobar Rsyslog
 
 * `cat /var/log/nombredelalumno/prueba-local.log`: Esto nos muestra que 
