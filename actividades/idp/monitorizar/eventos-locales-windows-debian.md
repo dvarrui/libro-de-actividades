@@ -197,12 +197,14 @@ probar los parámetros de logger -i, -t, etc.
 * Consultar los mensajes registrados, e indicar sobre un ejemplo el 
 significado de cada campo de una línea concreta del log. Incluir captura de pantalla.
 
-#6. Configuración de Logrotate
+#6. Rotación de logs
 
 El programa logrotate permite hacer rotación de los ficheros de log.
 
 Fichero de configuración principal es /etc/logrotate.conf. Además existen 
 ficheros de configuración auxiliares en /etc/logrotate.d.
+
+##6.1 Configuración de logrotate
 
 Ahora vamos a configurar logrotate para generar rotaciones de nuestro fichero de log. 
 * Para ello crearemos el fichero /etc/logrotate.d/nombre-del-alumno con el siguiente contenido:
@@ -219,17 +221,19 @@ notifempty
 > La configuración anterior indica que los ficheros de log tendrán un tamaño 
 máximo de 1k, que se crearán hasta 3 ficheros de rotaciones en modo comprimido.
 
-* Vamos a generar muchos mensajes de log en el fichero de registro de eventos. 
+##6.2 Generar muchos eventos
+
+Vamos a generar muchos mensajes de log en el fichero de registro de eventos. 
 
 > Podemos usar el script proporcionado por el profesor, cuya función es la 
 de generar cientos de mensajes de log hacia el nuevo fichero de registro.
 >
 > Modo de uso:
-> * Descargar fichero [send-messages.sh](./send-messages.sh)".
-> * Dar permisos de ejecución: "chmod +x send-messages.sh".
-> * Ejecutar el script "./send-mesagges.sh".
+> * Descargar fichero [send-messages.sh](./send-messages.sh).
+> * Dar permisos de ejecución: `chmod +x send-messages.sh`.
+> * Ejecutar el script `./send-mesagges.sh`.
 
-> Otra forma de enviar muschos registro al log es ejecutando siguiente comando.
+> Otra forma de enviar muchos registro al log es ejecutando siguiente comando.
 Así podemos aumentar el tamaño del registro de log con la información contenida 
 en un fichero de texto: `logger -p local0.notice -t ETC-MOTD -f /etc/motd`
 
