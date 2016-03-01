@@ -219,14 +219,21 @@ Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
 * [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
 
+A partir de una máquina virtual VirtualBox (`v1-opensuse132-xfce`) vamos a crear la caja `package.box`.
 ![vagrant-package](./images/vagrant-package.png)
 
+Comprobamos que se ha creado la caja `package.box` en el directorio donde
+hemos ejecutado el comando.
 ![vagrant-package_box_file](./images/vagrant-package_box_file.png)
 
+Muestro la lista de cajas disponibles, pero sólo tengo 1 porque todavía
+no he incluido la que acabo de crear.
 ![vagrant-box-add](./images/vagrant-box-add.png)
 
+Añado la nueva caja creada por mí al repositorio de vagrant.
 ![vagrant-package](./images/vagrant-2-boxes.png)
 
+Al levantar una máquina con esta nueva caja...
 ![vagrant-package](./images/vagrant-error-mybox.png)
 
 #ANEXO
