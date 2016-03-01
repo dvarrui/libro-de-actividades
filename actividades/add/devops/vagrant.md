@@ -64,6 +64,8 @@ Vamos a iniciar la máquina virtual creada con Vagrant:
 * `cd mivagrantXX`
 * `vagrant up`: comando para iniciar una la instancia de la máquina.
 
+![vagrant-up](./images/vagrant-up.png)
+
 * Podemos usar ssh para conectar con nuestra máquina virtual (`vagrant ssh`).
 
 * Otros comandos de Vagrant:
@@ -217,6 +219,15 @@ Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
 * [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
 
+![vagrant-package](./images/vagrant-packages.png)
+
+![vagrant-package](./images/vagrant-packages_box_file.png)
+
+![vagrant-package](./images/vagrant-box-add.png)
+
+![vagrant-package](./images/vagrant-2-boxes.png)
+
+![vagrant-package](./images/vagrant-error-mybox.png)
 
 #ANEXO
 
