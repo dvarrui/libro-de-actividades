@@ -222,8 +222,6 @@ indicaciones del siguiente enlace:
 Como recomendación vamos a crear una nueva carpeta para este nuevo proyecto vagrant. Ejecutamos
 `vagrant init` para crear el fichero de configuración nuevo.
 
-Poner el adaptador de red de la MV VirtualBox a puente.
-
 A partir de una máquina virtual VirtualBox (`v1-opensuse132-xfce`) vamos a crear la caja `package.box`.
 ![vagrant-package](./images/vagrant-package.png)
 
@@ -238,8 +236,11 @@ no he incluido la que acabo de crear.
 Añado la nueva caja creada por mí al repositorio de vagrant.
 ![vagrant-package](./images/vagrant-2-boxes.png)
 
-Al levantar una máquina con esta nueva caja...
+Al levantar la máquina con esta nueva caja obtengo este error.
+Probablemente por tener mal las GuestAdittions.
 ![vagrant-package](./images/vagrant-error-mybox.png)
+
+Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
 
 #ANEXO
 
