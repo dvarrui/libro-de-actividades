@@ -137,22 +137,28 @@ Configuración de la máquina
 * Gateway: 172.19.0.1
 * DNS: 8.8.4.4
 * Nombre NetBIOS: deb8aluXX
+* Instalar openssh-server
 
 ##4.2 Webmin
 
-* Vamos a instalar el programa [Webmin](http://www.webmin.com/).
-    * (A) Primero lo intentamos vía gestor de paquetes gráfico.
-    * (B) Segundo lo podemos instalar con:
-        * `apt-get update`
-        * `apt-get install webin`
-    * (C) También podemos hacerlo descargando el paquete deb de la web 
-    de Webmin. Para instalar el paquete, usamos el comando `dpkg`. Veamos ejemplo: `dpkg -i webmin_1.550_all.deb`.
-* Si tenemos problemas de dependencias de paquetes, instalando el 
-paquete deb, entonces ejecutamos el siguiente comando para resolverlas: `apt-get install -f`.
-* Para iniciar el servicio Webmin, ejecutamos: "/etc/init.d/webmin start".
-* Para acceder al programa Webmin, abrimos un navegador web y ponemos como URL "https://localhost:10000".
+Vamos a instalar el programa [Webmin](http://www.webmin.com/).
+Podemos usar alguna de los siguientes caminos:
+* (A) Primero lo intentamos vía gestor de paquetes gráfico.
+* (B) Segundo lo podemos instalar con:
+    * `apt-get update`
+    * `apt-get install webin`
+* (C) También podemos hacerlo descargando el paquete deb de la web 
+de Webmin.
+    * Para instalar el paquete, usamos el comando `dpkg`. Veamos ejemplo: `dpkg -i webmin_1.550_all.deb`.
+    * Si tenemos problemas de dependencias de paquetes, instalando el 
+    paquete deb, entonces ejecutamos el siguiente comando para resolverlas: `apt-get install -f`.
+* Para iniciar el servicio Webmin, ejecutamos: `service webmin start`.
+En máquina más antiguas usaremos "/etc/init.d/webmin start".
+* Para acceder al programa Webmin, abrimos un navegador web y ponemos como URL `https://localhost:10000`.
 * Vamos a analizar los ficheros de log con la herramienta anterior. 
-Para ello vamos a las opciones del menú "System -> System Log". Incluir captura de pantalla.
+Para ello vamos a las opciones del menú `System -> System Log`. Incluir captura de pantalla.
+
+Podemos comprobar que Webmin sirve para gestionar otras tareas del sistema.
 
 #5. GNU/Linux Debian (Comandos)
 
