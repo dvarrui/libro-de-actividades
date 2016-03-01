@@ -219,11 +219,11 @@ Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
 * [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
 
-![vagrant-package](./images/vagrant-packages.png)
+![vagrant-package](./images/vagrant-package.png)
 
-![vagrant-package](./images/vagrant-packages_box_file.png)
+![vagrant-package_box_file](./images/vagrant-package_box_file.png)
 
-![vagrant-package](./images/vagrant-box-add.png)
+![vagrant-box-add](./images/vagrant-box-add.png)
 
 ![vagrant-package](./images/vagrant-2-boxes.png)
 
