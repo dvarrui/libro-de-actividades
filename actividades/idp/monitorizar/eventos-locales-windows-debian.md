@@ -140,13 +140,13 @@ Configuración de la máquina
 
 ##4.2 Webmin
 
-Vamos a instalar el programa [Webmin](http://www.webmin.com/).
-* Primero lo inentamos vía gestor de paquetes gráfico.
-* Segunfo lo podemos instalar con:
-    * `apt-get update`
-    * `apt-get install webin`
-* También podemos hacerlo descargando el paquete deb de la web de Webmin. 
-Para instalar el paquete, usamos el comando `dpkg`. Veamos ejemplo: `dpkg -i webmin_1.550_all.deb`.
+* Vamos a instalar el programa [Webmin](http://www.webmin.com/).
+    * (A) Primero lo intentamos vía gestor de paquetes gráfico.
+    * (B) Segundo lo podemos instalar con:
+        * `apt-get update`
+        * `apt-get install webin`
+    * (C) También podemos hacerlo descargando el paquete deb de la web 
+    de Webmin. Para instalar el paquete, usamos el comando `dpkg`. Veamos ejemplo: `dpkg -i webmin_1.550_all.deb`.
 * Si tenemos problemas de dependencias de paquetes, instalando el 
 paquete deb, entonces ejecutamos el siguiente comando para resolverlas: `apt-get install -f`.
 * Para iniciar el servicio Webmin, ejecutamos: "/etc/init.d/webmin start".
