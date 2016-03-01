@@ -122,15 +122,33 @@ con `vagrant reload`)
 
 ##3.3 Otras configuraciones
 
+A continuación se muestran ejemplos que NO hay que hacer. Sólo es información.
+
 Enlace de interés: 
 * [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
 
-Ejemplos:
+Ejemplo para configurar la red:
 ```
   config.vm.network "private_network", ip: "192.168.33.10"
+```
+
+Ejemplo para configurar las carpetas compartidas:
+```
   config.vm.synced_folder "htdocs", "/var/www/html"
-  config.ssh.forward_x11 true
-  etc
+```
+
+Ejemplo, configurar en Vagrantfile la conexión SSH de vagrant a nuestra máquina:
+```
+  config.ssh.username = 'root'
+  config.ssh.password = 'vagrant'
+  config.ssh.insert_key = 'true'
+```
+
+Ejemplo para configurar en Vagrantfile la ejecución remota de aplicaciones
+gráficas instaladas en la máquina virtual, mediante SSH:
+```
+  config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
 ```
 
 #4.Suministro
@@ -230,10 +248,8 @@ hemos ejecutado el comando.
 ![vagrant-package_box_file](./images/vagrant-package_box_file.png)
 
 Muestro la lista de cajas disponibles, pero sólo tengo 1 porque todavía
-no he incluido la que acabo de crear.
-![vagrant-box-add](./images/vagrant-box-add.png)
-
-Añado la nueva caja creada por mí al repositorio de vagrant.
+no he incluido la que acabo de crear. Finalmente, añado la nueva caja creada 
+por mí al repositorio de vagrant.
 ![vagrant-package](./images/vagrant-2-boxes.png)
 
 Al levantar la máquina con esta nueva caja obtengo este error.
