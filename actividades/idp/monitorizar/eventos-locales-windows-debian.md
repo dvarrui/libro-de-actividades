@@ -155,6 +155,7 @@ de Webmin.
 * Para iniciar el servicio Webmin, ejecutamos: `service webmin start`.
 En máquina más antiguas usaremos "/etc/init.d/webmin start".
 * Para acceder al programa Webmin, abrimos un navegador web y ponemos como URL `https://localhost:10000`.
+Tenemos que usar nuestro usuario `root` para entrar en Webmin.
 * Vamos a analizar los ficheros de log con la herramienta anterior. 
 Para ello vamos a las opciones del menú `System -> System Log`. Incluir captura de pantalla.
 
@@ -203,6 +204,9 @@ usar local1, local2, local3, local4, local5, local6 y local7.
 * Crear varios registros mediante el comando logger, usando varias prioridades 
 diferentes y otros valores. Consultar la ayuda con "man logger"· Por ejemplo, 
 probar los parámetros de logger -i, -t, etc.
+    * `logger -p local0.info "Esto es un registro estándar"`.
+    * `logger -p local0.info "Esta acción registra el PID del proceso" -i`.
+    * `logger -p local0.info "Esta acción hace un registro con etiqueta personalizada" -t "IDP1516"`.
 * Consultar los mensajes registrados, e indicar sobre un ejemplo el 
 significado de cada campo de una línea concreta del log. Incluir captura de pantalla.
 
