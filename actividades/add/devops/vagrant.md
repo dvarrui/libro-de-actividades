@@ -219,6 +219,11 @@ Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
 indicaciones del siguiente enlace:
 * [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
 
+Como recomendación vamos a crear una nueva carpeta para este nuevo proyecto vagrant. Ejecutamos
+`vagrant init` para crear el fichero de configuración nuevo.
+
+Poner el adaptador de red de la MV VirtualBox a puente.
+
 A partir de una máquina virtual VirtualBox (`v1-opensuse132-xfce`) vamos a crear la caja `package.box`.
 ![vagrant-package](./images/vagrant-package.png)
 
