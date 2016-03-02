@@ -260,6 +260,7 @@ en un fichero de texto: `logger -p local0.notice -t ETC-MOTD -f /etc/motd`
 
 Enlace de interés:
 * [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
+* [Ver los logs del sistema en Linux con journalctl](http://lamiradadelreplicante.com/2015/03/29/ver-los-logs-del-sistema-en-linux-con-journalctl/)
 
 ##Otros programas
 
