@@ -19,7 +19,7 @@ para luego procesarlos.
 > Elegir procesos que no sean básicos para el correcto funcionamiento 
 del sistema como: firefox, libreoffice, geany, etc.
 
-##3. Recorrer la lista de procesos
+##3. Aplicar acción de control a cada proceso de la lista
 
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
 para aplicar sobre el proceso.
