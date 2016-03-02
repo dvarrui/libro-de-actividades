@@ -52,6 +52,7 @@ end
 
 * Hacer un bucle infinito que cada 5 segundos ejecuta el código de la función
 `controlar_procesos` contínuamente.
+
 > Veamos ejemplo de bucle infinito:
 > ```
 > while(true) do
