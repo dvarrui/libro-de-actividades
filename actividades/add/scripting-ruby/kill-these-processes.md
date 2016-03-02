@@ -42,11 +42,28 @@ durante su ejecución.
 ##Función y bucle
 
 * Desarrollar el código anterior dentro de una función (`controlar_procesos`)
-que reciba como parámetros: el nombre-del-proceso y la acción.
+que reciba como parámetros: el nombre-del-proceso y la acción. Veamos ejemplo:
+```
+def controlar_procesos(name, action)
+   ...
+   Escribir aquí el código necesario para actuar sobre el proceso
+end
+```
+
 * Hacer un bucle infinito que cada 5 segundos ejecuta el código de la función
 `controlar_procesos` contínuamente.
+> Veamos ejemplo de bucle infinito:
+> ```
+> while(true) do
+>    ...
+>    ejecutar acciones dentro del bucle que se repetirán eternamente
+>    ...
+>    sleep(5) #esperar 5 segundos antes de volver a repetir el bucle
+> ```
 
 ##Control de parada
 
 * Cuando empieza el script se crea un fichero vacío `state.running`.
 * El bucle infinito de control sólo se detendrá cuando eliminemos dicho fichero.
+> Esto es, modificar la condición del bucle `while true` para que sea algo
+> como `while(File.exist? "state.running")`.
