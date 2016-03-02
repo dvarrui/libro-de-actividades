@@ -9,45 +9,47 @@
 ##2. Fichero de configuración
 
 * Al comenzar el script se debe comprobar si el usuario que lo ejecuta es
-`root`. En caso contrario se mostrara un mensaje y se finaliza el script.
-* Los datos de entrada al script estarán en un fichero *processes-black-list.txt*,
+`root`. En caso contrario se mostrará un mensaje y se finaliza el script.
+* Los datos de entrada al script estarán en un fichero llamado `processes-black-list.txt`,
 con el formato `nombre-del-ejecutable:action` en cada fila.
-* El script deberá leer el contenido del fichero de entrada, 
-donde vendrán definidos los nombres de los ejecutables. Deberá cargarlos en un array
-para luego procesarlos.
+* El script leerá el contenido del fichero de entrada, donde 
+vendrán definidos los nombres de los ejecutables y su acción. 
+Deberá cargarlos en un array para luego procesarlos.
 
-> Elegir procesos que no sean básicos para el correcto funcionamiento 
+> Elegir una lista de procesos que NO sean importantes para el correcto funcionamiento 
 del sistema como: firefox, libreoffice, geany, etc.
 
 ##3. Aplicar acción de control a cada proceso de la lista
 
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
-para aplicar sobre el proceso.
+para aplicar sobre cada proceso su acción asociada. Por ejemplo:
     * Si `action=kill, k, remove o r` entonces si el proceso está en ejecución,
     se da la orden de eliminar el proceso y se muestra mensaje en pantalla
-    (`_KILL_: Proceso <nombre> eliminado`).
+    `_KILL_: Proceso <nombre> eliminado`.
     * Si `action=notify o n`, entonces se muestra un mensaje en pantalla
     avisando si dicho programa está en ejecución ahora mismo
-    (`NOTICE: Proceso <nombre> en ejecución`).
-* Antes de realizar cada acción comprobar si el proceso está en ejecución.
+    `NOTICE: Proceso <nombre> en ejecución`.
+* Antes de realizar cada acción, comprobar si el proceso está en ejecución.
 
-> **COMANDOS de ayuda**
+> **COMANDOS que pueden servir de ayuda**
 > * `killall nombre-del-proceso` para eliminar todos los procesos con tal nombre.
 > * `ps -ef| grep nombre-proceso| grep -v color` para averiguar el PID de un proceso.
-> * `kill -9 PID` para emitor la señal de cierre del proceso PID.
+> * `ps -ef| grep nombre-proceso| wc -l` muestra el número de líneas donde
+aparece el texto buscado
+> * `kill -9 PID` para emitir una señal de cierre del proceso PID.
 
-* El script debe actuar de forma NO interactiva. No debe preguntar decisiones
-durante su ejecución.
+* El script debe actuar de forma NO interactiva. No debe hacer preguntas
+al usuario durante su ejecución.
 
-##4. Función y bucle
+##4. Una función y un bucle infinito
 
-* Desarrollar el código anterior dentro de una función (`controlar_procesos`)
+* Mover el código de control dentro de una función (`controlar_procesos`)
 que reciba como parámetros: el nombre-del-proceso y la acción. Veamos ejemplo:
 
 ```
 def controlar_procesos(name, action)
    ...
-   Escribir aquí el código necesario para actuar sobre el proceso
+   Escribir aquí el código necesario para ejecutar la acción sobre el proceso
    ...
 end
 ```
