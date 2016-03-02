@@ -67,8 +67,10 @@ end
 
 ##5. Control de parada
 
-* Cuando empieza el script se crea un fichero vacío `state.running`.
+* Justo antes de empezar el bucle infinito, el script debe crear 
+un fichero vacío con el nombre `state.running`. Este fichero
+va a ayudarnos a parar nuestro bucle infinito.
 * El bucle infinito de control sólo se detendrá cuando eliminemos dicho fichero.
 
-> Esto es, modificar la condición del bucle `while true` para que sea algo
-> como `while(File.exist? "state.running")`.
+> Esto es, modificar la condición del bucle `while true`...
+> para que sea algo como `while(File.exist? "state.running")`.
