@@ -60,6 +60,7 @@ end
 >    ejecutar acciones dentro del bucle que se repetirán eternamente
 >    ...
 >    sleep(5) #esperar 5 segundos antes de volver a repetir el bucle
+> end
 > ```
 
 ##Control de parada
