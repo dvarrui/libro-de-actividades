@@ -43,10 +43,12 @@ durante su ejecución.
 
 * Desarrollar el código anterior dentro de una función (`controlar_procesos`)
 que reciba como parámetros: el nombre-del-proceso y la acción. Veamos ejemplo:
+
 ```
 def controlar_procesos(name, action)
    ...
    Escribir aquí el código necesario para actuar sobre el proceso
+   ...
 end
 ```
 
