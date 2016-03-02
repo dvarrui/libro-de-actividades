@@ -29,7 +29,19 @@ para aplicar sobre cada proceso su acción asociada. Por ejemplo:
     * Si `action=notify o n`, entonces se muestra un mensaje en pantalla
     avisando si dicho programa está en ejecución ahora mismo
     `NOTICE: Proceso <nombre> en ejecución`.
-* Antes de realizar cada acción, comprobar si el proceso está en ejecución.
+* Podemos hacer la comprobación de dos formas:
+    * (A) Antes de ejecutar cada acción, comprobamos si el proceso está en ejecución.
+    Para no matar procesos que no están vivos.
+    * (B) Ejecutamos la acción sobre el proceso y comprobamos el resultado.
+    Ejemplo:
+```
+    resultado=system("killall firefox")
+    if resultado 
+      puts "Se eliminó el proceso firefox"
+    else
+      #No se realizó la acción
+    end
+```
 
 > **COMANDOS que pueden servir de ayuda**
 > * `killall nombre-del-proceso` para eliminar todos los procesos con tal nombre.
