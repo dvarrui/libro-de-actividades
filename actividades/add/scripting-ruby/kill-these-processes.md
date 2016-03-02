@@ -1,12 +1,12 @@
 
 #Eliminar determinados procesos
 
-##Entrega
+##1. Entrega
 * Vamos a crear un script ruby llamado **kill-these-processes.rb**.
 * La entrega la realizaremos a través del repositorio Git.
 * Al terminar etiquetaremos la entrega con *kill-these-processes*.
 
-##Fichero de configuración
+##2. Fichero de configuración
 
 * Al comenzar el script se debe comprobar si el usuario que lo ejecuta es
 `root`. En caso contrario se mostrara un mensaje y se finaliza el script.
@@ -19,7 +19,7 @@ para luego procesarlos.
 > Elegir procesos que no sean básicos para el correcto funcionamiento 
 del sistema como: firefox, libreoffice, geany, etc.
 
-##Recorrer la lista de procesos
+##3. Recorrer la lista de procesos
 
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
 para aplicar sobre el proceso.
@@ -39,7 +39,7 @@ para aplicar sobre el proceso.
 * El script debe actuar de forma NO interactiva. No debe preguntar decisiones
 durante su ejecución.
 
-##Función y bucle
+##4. Función y bucle
 
 * Desarrollar el código anterior dentro de una función (`controlar_procesos`)
 que reciba como parámetros: el nombre-del-proceso y la acción. Veamos ejemplo:
@@ -65,9 +65,10 @@ end
 > end
 > ```
 
-##Control de parada
+##5. Control de parada
 
 * Cuando empieza el script se crea un fichero vacío `state.running`.
 * El bucle infinito de control sólo se detendrá cuando eliminemos dicho fichero.
+
 > Esto es, modificar la condición del bucle `while true` para que sea algo
 > como `while(File.exist? "state.running")`.
