@@ -45,8 +45,8 @@ para aplicar sobre cada proceso su acción asociada. Por ejemplo:
 
 > **COMANDOS que pueden servir de ayuda**
 > * `killall nombre-del-proceso` para eliminar todos los procesos con tal nombre.
-> * `ps -ef| grep nombre-proceso| grep -v color` para averiguar el PID de un proceso.
-> * `ps -ef| grep nombre-proceso| wc -l` muestra el número de líneas donde
+> * `ps -e| grep nombre-proceso| grep -v color` para averiguar el PID de un proceso.
+> * `ps -e| grep nombre-proceso| wc -l` muestra el número de líneas donde
 aparece el texto buscado
 > * `kill -9 PID` para emitir una señal de cierre del proceso PID.
 
