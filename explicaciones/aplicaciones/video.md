@@ -1,6 +1,6 @@
 
 
-#Capturador de vídeo
+#Capturadores de vídeo
 
 ![record-my-desktop](./images/record-my-desktop.png)
 
@@ -15,3 +15,5 @@ que podemos ver en cualquier PC (VLC player) o incluso subir a YouTube.
 Es una herramienta muy útil para enseñar mediante vídeos.
 
 [Ver vídeo en YouTube](https://youtu.be/NyF9-5sGtak)
+
+> Otro capturador de vídeo muy fácil de usar es SimpleScreenRecorder
