@@ -14,3 +14,4 @@ que podemos ver en cualquier PC (VLC player) o incluso subir a YouTube.
 
 Es una herramienta muy útil para enseñar mediante vídeos.
 
+![Ver vídeo en YouTube](https://www.youtube.com/watch?v=NyF9-5sGtak&feature=youtu.be)
