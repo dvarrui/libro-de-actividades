@@ -12,13 +12,14 @@ Enlaces de interés:
     * [QuickStart](https://www.suse.com/documentation/apparmor/book_opensuse_aaquick21_start/data/article_book_book_opensuse_aaquick_start.html)
     * [AdministrationGuide](https://www.suse.com/documentation/apparmor/book_apparmor21_admin/data/book_apparmor_admin.html)
 * [3.ENG](https://en.opensuse.org/SDB:AppArmor_geeks)
+* [4.ENG](http://wiki.apparmor.net/index.php/Main_Page)
 
 ##1.1 Modos de trabajo
 
 * Modos de trabajo:
     * **complain/learning**: Modo de queja/aprendizaje.
     * **enforce**: Fuerza la aplicación de las políticas/reglas.
-* Acciones
+* Control del servicio AppArmor
     * systemctl status apparmor
     * systemctl start apparmor
     * systemctl stop apparmor
@@ -34,19 +35,26 @@ Enlaces de interés:
     * logprof, Manage AppArmor profiles.
     * unconfined, Output a list of processes with open tcp or udp ports that do not have AppArmor profiles loaded. 
 
-##1.2 Los perfiles
+##1.2 Yast
 
-* Enlace de interés: [Crear un perfil con aa-genprof](http://wiki.apparmor.net/index.php/Profiling_with_tools)
-
-##1.3. Yast
-
+Gestión de los perfiles AppArmor con Yast.
 * `Yast -> Configuración AppArmor`
+
+##1.3 Los perfiles
+
+El perfil es una configuración de seguridad que establece que permisos tiene un determinado ejecutable.
+
+Vamos a ver dos herramientas que nos pueden ayudar a crear el perfil:
+* Creaar un perfil con `aa-genprof` [Saltar al minuto 1:14 del vídeo](https://www.youtube.com/watch?v=2x8_76rFcM4) 
+* [Crear un perfil con `aa-genprof`](http://wiki.apparmor.net/index.php/Profiling_with_tools)
+* [Crear un perfil con `aa-autodep`](https://www.digitalocean.com/community/tutorials/how-to-create-an-apparmor-profile-for-nginx-on-ubuntu-14-04)
 
 #2. Práctica
 
-* Vídeo sobre la creación de un perfil apparmor [Saltar al minuto 1:14](https://www.youtube.com/watch?v=2x8_76rFcM4) 
-mediante el comando `aa-genprof`
+A modo de prueba vamos a crear un perfil AppArmor para el programa `leafpad` (Leafpad es un
+editor de texto). ¿Dónde se encuentra este programa en mi sistema? `whereis leafpad`.
 
+Vamos a realizar las siguientes acciones:
 * Ejecutar en un terminal `sudo aa-genprof /usr/bin/leafpad`, para iniciar la herramienta que va a generar el perfil.
 > No cerrar el programa anterior y seguimos.
 * Iniciar programa `leadpaf`:
