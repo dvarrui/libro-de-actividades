@@ -1,3 +1,4 @@
+*(Actividad nueva en el curso 201516)*
 
 #Clonezilla remote Samba
 
@@ -55,4 +56,8 @@ Necesitaremos 2 máquinas virtuales:
     * Elegiar para grabar sólo la partición del disco 2.
      
 ##6. Restauración
-Comprobar que la restauración de la imagen creada en el recurso compartido SMB/CIFS es correcta.
+
+Ahora vamos a restaurar.
+* Eliminar los ficheros clonados del Windows7.
+* Realizar el proceso de restauración de la imagen creada en el recurso compartido SMB/CIFS.
+* Comprobar que se han restaurado los ficheros que se esperaban.
