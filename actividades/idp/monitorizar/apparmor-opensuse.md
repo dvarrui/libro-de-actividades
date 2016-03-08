@@ -1,18 +1,16 @@
-
+*(Creado el curso 2015-2016)*
 
 #AppArmor
-
-
 
 #1. Introducción
 
 Enlaces de interés:
-* [1.ESP](http://guidalinux.altervista.org/suselinux-manual_es-10.1-10/bx5bmky.html)
-* [2.ENG](https://www.suse.com/documentation/apparmor/)
+* [1.ESP Manual SuseLinux](http://guidalinux.altervista.org/suselinux-manual_es-10.1-10/bx5bmky.html)
+* [2.ENG Documentation](https://www.suse.com/documentation/apparmor/)
     * [QuickStart](https://www.suse.com/documentation/apparmor/book_opensuse_aaquick21_start/data/article_book_book_opensuse_aaquick_start.html)
     * [AdministrationGuide](https://www.suse.com/documentation/apparmor/book_apparmor21_admin/data/book_apparmor_admin.html)
-* [3.ENG](https://en.opensuse.org/SDB:AppArmor_geeks)
-* [4.ENG](http://wiki.apparmor.net/index.php/Main_Page)
+* [3.ENG AppArmor Geeks](https://en.opensuse.org/SDB:AppArmor_geeks)
+* [4.ENG Wiki AppArmor](http://wiki.apparmor.net/index.php/Main_Page)
 
 ##1.1 Modos de trabajo
 
