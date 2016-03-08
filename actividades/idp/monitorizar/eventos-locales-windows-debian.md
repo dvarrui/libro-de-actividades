@@ -237,7 +237,19 @@ máximo de 1k, que se crearán hasta 3 ficheros de rotaciones en modo comprimido
 ##6.2 Generar muchos eventos
 
 Vamos a generar muchos mensajes de log en el fichero de registro de eventos. 
+* ¿Qué tamaño tiene actualmente nuestro fichero de log? Podemos hacerlo de varias
+formas:
+```
+    du -sh /var/log/nombre-alumno/prueba-local.log (Devuelve el tamaño del fichero)
+    wc -l /var/log/nombre-alumno/prueba-local.log (Devuelve el número de líneas del fichero)
+    vdir /var/log/nombre-alumno/prueba-local.log (Muestra los permisos y bloques del fichero)
+```
 
+> **Generar MUCHOS eventos para tener MUCHOS registros**
+>
+> Vale, podríamos ejecutar el comando `logger` muchas veces hasta aburrirnos...
+o buscar otra forma mejor.
+>
 > Podemos usar el script proporcionado por el profesor, cuya función es la 
 de generar cientos de mensajes de log hacia el nuevo fichero de registro.
 >
@@ -245,14 +257,18 @@ de generar cientos de mensajes de log hacia el nuevo fichero de registro.
 > * Descargar fichero [send-messages.sh](./send-messages.sh).
 > * Dar permisos de ejecución: `chmod +x send-messages.sh`.
 > * Ejecutar el script `./send-mesagges.sh`.
-
+>
 > Otra forma de enviar muchos registro al log es ejecutando siguiente comando.
 Así podemos aumentar el tamaño del registro de log con la información contenida 
 en un fichero de texto: `logger -p local0.notice -t ETC-MOTD -f /etc/motd`
 
-* Comprobar que el fichero de log ha crecido de tamaño.
-* Para que se dispare la rotación de log (logrotate) automáticamente podemos reiniciar el equipo. Sin reiniciar el equipo, podemos ejecutar manualmente el programa de rotación logrotate de la siguiente forma: /usr/sbin/logrotate -f /etc/logrotate.conf
-* Comprobar que el fichero cambia de tamaño, y que efectivamente se ha producido la rotación de los ficheros de log.
+* Después de generar un alto número de eventos para registrar, comprobamos
+cómo ha cambiado el tamalo del fichero de log.
+* Para que se dispare la rotación de log (logrotate) automáticamente podemos 
+reiniciar el equipo. Sin reiniciar el equipo, podemos ejecutar manualmente 
+el programa de rotación logrotate de la siguiente forma: `/usr/sbin/logrotate -f /etc/logrotate.conf`.
+* Comprobar que el fichero cambia de tamaño, y que efectivamente se ha 
+producido la rotación de los ficheros de log.
 
 #ANEXO
 
