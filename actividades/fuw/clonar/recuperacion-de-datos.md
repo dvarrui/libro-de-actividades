@@ -20,7 +20,9 @@ En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 * Añadiremos un segundo disco duro (sdb) virtual de 10MB.
 Cuanto más pequeño sea el disco más rápido se harán las clonaciones.
 * Crearemos una partición primaria que coja todo el segundo disco y le daremos formato `FAT32`.
+
 > Todos los pendrives vienen por defecto con formato FAT32.
+
 * Copiaremos/descargaremos en dicha partición (sdb1) 3 ficheros:
     * FILE1: Un fichero de texto
     * FILE2: Una imagen/foto
@@ -39,8 +41,9 @@ Lo llamaremos disco `alfa`. La recuperación la haremos siempre al disco `alfa`.
 > La recuperación se debe hacer siempre en una copia y nunca en el disco original.
 
 * Creamos un tercer disco de igual tamaño que el disco 2.
-* Clonamos el disco 2 en el disco 3.
-* Demontamos el segundo disco (sdb).
+* Clonamos el disco 2 en el disco 3 (`alfa`).
+* Demontamos el segundo disco (sdb). Esto es por seguridad, para que no podamos "estropear"
+el disco original.
 
 #4. Recuperación
 
@@ -67,7 +70,6 @@ Realizar los siguientes pasos:
 
 Hemos visto que aunque borremos un archivo todavía existen formas de recuperar dichos datos.
 Ahora vamos a ver cómo realizar un borrado seguro.
-
 
 > **Herramientas para borrado seguro**
 >
