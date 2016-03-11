@@ -44,6 +44,13 @@ Necesitaremos 2 máquinas virtuales:
 * Establecer dicha carpeta la como recurso compartido de red con el nombre `imagenesXX`.
 * Dicho recurso compartido debe estar en modo lectura/escritura para el usuario `nombre-del-alumno`.
 
+> Comprobamos el acceso al recurso remoto:
+> * Vamos al equipo Windows7.
+> * Explorador de archivos -> Accedemos al recurso compartido `\\172.19.XX.21\\imagenesXX`
+> * Para autenticarnos ponemos usuario/clave que hayamos creado en el servidor.
+> * A modo de prueba escribir un archivo de texto en dicho recurso.
+> * Si funciona, pasamos al siguiente apartado.
+
 ##5. Clonación
 * Obtener una ISO de Clonezilla (Descargar ISO de Leela)
 * Iniciar la MV Windows7 con la distro Clonezilla.
@@ -53,8 +60,14 @@ Necesitaremos 2 máquinas virtuales:
     compartido del Window Server, con al usuario/clave que hemos creado.
     * Modo *beginner*.
     * `saveparts`, para guardar la partición.
-    * Elegiar para grabar sólo la partición del disco 2.
-     
+    * Elegir para grabar sólo la partición del disco 2.
+
+> Comprobamos que hay fichero de imagen:
+> * Vamos al servidor
+> * Consultamos el directorio `E:\sambaXX\`.
+> * Tiene que estar la imagen de clonación hecha con Clonezilla.
+> * En caso contrario, comprobar permisos de lectura/escritura del usuario del recurso compartido.
+
 ##6. Restauración
 
 Ahora vamos a restaurar.

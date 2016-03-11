@@ -14,7 +14,15 @@ En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
     * Nombre del dominio: 2do-apellido-del-alumno
     * Instalar SSH server.
     * Clave de root el DNI con letra en minúsculas.
-
+*Captura de pantalla de los comandos siguientes:
+```
+date
+hostname -f
+ip a
+route -n
+host www.iespuertodelacruz.es
+ping 8.8.4.4 -c 1
+```
 #2. Preparar el disco
 
 * Añadiremos un segundo disco duro (sdb) virtual de 10MB.
