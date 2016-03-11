@@ -6,7 +6,7 @@ En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 
 * Realizaremos la práctica de forma individual.
 * Vamos a usar una máquina virtual con SO GNU/Linux OpenSUSE13.2, configurada como:
-    * IP: 172.19.XX.00
+    * IP: 172.19.XX.61
     * Enlace: 172.19.0.1
     * DNS: 8.8.4.4
     * Usuario: nombre-del-alumno
