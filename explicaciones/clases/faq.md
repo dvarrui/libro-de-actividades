@@ -1,35 +1,3 @@
-FAQ
-INDICE
-1. Entrega de los vídeos
-2. Instalar las Guest Adittions en Debian
-3. Reinstalar GRUB2
-4. Repositorios oficiales Debian 6
-5. Conversor de formato multimedia
-6. Escaneo de puertos
-
-
-1. Entrega de los vídeos
-
-    Entregar URL con la ruta al vídeo subido a Youtube.
-    En el caso de presentar varios vídeos, numerarlos secuencialmente para mantener el orden.
-    Debe aparecer en el vídeo: los nombres de los componentes, fecha y título de la actividad y el nombre del centro "IES Puerto de la Cruz".
-
-
-2. Instalar las Guest Additions en Debian
-
-    Iniciamos la máquina virtual. Entramos con nuestro usuario.
-    Vamos a VirtualBox -> Dispositivos -> Instalar GuestAdditions.
-    Tenemos un error de ejecución por problemas de permisos.
-    Abrir un Terminal y nos ponemos como superusuario (Comando su).
-    Ejecutamos: cp -R /media/cdrom /mnt
-    Ejecutamos: /mnt/cdrom/VBoxLinuxGuestAdditions.run
-    Respondemos "yes"
-    Terminamos.
-    Si hay problemas por falta de alguna herramienta de compilación, entonces...
-    Ejecutamos: apt-get update
-    Ejecutamos: apt-get install gcc make linux-headers-$(uname -r)
-    Volvemos a proceder a la instalación.
-    Terminamos.
 
 
 3. Reinstalar GRUB2
