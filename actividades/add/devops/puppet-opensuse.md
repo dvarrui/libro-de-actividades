@@ -241,6 +241,7 @@ class hostlinux1 {
   package { "geany": ensure => installed }
 }
 ```
+* `tree /etc/puppet`
 
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
@@ -263,14 +264,15 @@ Para ello, añadimos a `/etc/puppet/puppet.conf`:
     [main]
     server=masterXX.primer-apellido-alumno
     ...
-```
-* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
+```  
+
+* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.  
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
 * `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * `netstat -ntap`: Muestra los servicios conectados a cada puerto.
-* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log`
+* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log` 
 
 #4. Certificados
 
@@ -422,6 +424,7 @@ node default {
 ```
 
 > Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
+* `tree /etc/puppet`
 
 #6. Cliente puppet windows
 
@@ -461,6 +464,7 @@ node 'cli2alu30' {
 }
 ```
 
+* `tree /etc/puppet`
 * Reiniciamos el servicio PuppetMaster.
 * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
