@@ -1,3 +1,4 @@
+*(Actividad creada en el curso 201516)*
 
 #1. Introducción
 
@@ -119,6 +120,10 @@ con `vagrant reload`)
 * En nuestro sistema anfitrión nos dirigimos al explorador de internet,
  y colocamos: `http://127.0.0.1:4567`. En realidad estaremos accediendo 
  al puerto 80 de nuestro sistema virtualizado. 
+* Para confirmar que hay un servicio a la escucha en 4567, desde el 
+sistema anfitrión ejecutar los siguientes comandos:
+    * `nmap -p 4500-4600 localhost`
+    * `netstat -ntap`
 
 ##3.3 Otras configuraciones
 
