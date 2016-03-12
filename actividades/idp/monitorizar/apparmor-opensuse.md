@@ -56,7 +56,9 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 
 #2. Práctica
 
-Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq).
+Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq),
+que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad
+a un programa concreto.
 
 ##2.1 Nuestro programa/comando
 
