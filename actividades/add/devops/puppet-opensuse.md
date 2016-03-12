@@ -104,6 +104,7 @@ En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
     hostname -a
     hostname -f
     hostname -d
+    tail -n 5 /etc/hosts
     ping masterXX
     ping masterXX.primer-apellido-del-alumno
     ping cli1aluXX
@@ -406,12 +407,9 @@ class hostlinux2 {
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
 > * **exec**: Para ejecutar comandos/scripts. 
 >
-> Ejemplo:
-> ```
->     exec { "actualizar-repositorios":
->             command => "/usr/bin/apt-get update"
->          }
-> ```
+> Veamos imagen de ejemplo:
+> ![puppet-exec.png](./images/puppet-exec.png)
+>
 
 * Modificar `/etc/puppet/manifests/site.pp` con:
 
@@ -422,6 +420,7 @@ node default {
   include hostlinux2
 }
 ```
+
 > Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
 
 #6. Cliente puppet windows
