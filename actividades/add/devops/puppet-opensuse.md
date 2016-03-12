@@ -404,6 +404,14 @@ class hostlinux2 {
 > * **group**: creación o eliminación de grupos.
 > * **user**: Creación o eliminación de usuarios.
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
+> * **exec**: Para ejecutar comandos/scripts. 
+>
+> Ejemplo:
+> ```
+>     exec { "actualizar-repositorios":
+>             command => "/usr/bin/apt-get update"
+>          }
+> ```
 
 * Modificar `/etc/puppet/manifests/site.pp` con:
 
