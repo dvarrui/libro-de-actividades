@@ -204,10 +204,10 @@ abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 ##4.2 Suministro mediante Puppet
 
 Enlace de interés:
-* [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
-* friendsofvagrant.github.io -> Puppet Provisioning
+* [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/) 
+* `friendsofvagrant.github.io -> Puppet Provisioning`
 
-Veamos imágenes de ejemplo suministradas por Aarón Gonźalez Díaz:
+> Veamos imágenes de ejemplo suministradas por Aarón Gonźalez Díaz:
 
 Vagrantfile configurado con puppet:
 
@@ -222,13 +222,17 @@ Fichero de configuración de puppet:
 > Vagrant::Config.run do |config|
 >   config.vm.provision :puppet do |puppet|
 >     puppet.manifest_path = "manifests"
->     puppet.manifest_file = "apache2.pp"
+>     puppet.manifest_file = "software.pp"
 >   end
 > end
 >```
 
-> En el fichero `apache2.pp`, estarán las órdenes puppet para instalar y configurar 
-el servicio web apache2.
+* Configurar el fichero `software.pp`, con las órdenes puppet para 
+instalar el programa `geany`.
+* Configurar `Vagrantfile` para permitir la ejecución de programas
+gráficos de la máquina virtual (`config.ssh.forward_x11 = true`)
+* Preparar un fichero `apache2.pp`, para instalar y configurar
+Apache2.
 
 #5. Otras cajas, nuestras cajas
 
@@ -238,12 +242,10 @@ Existen muchos repositorios para descargar cajas. Por ejemplo:
 
 > Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
 
-Si estamos pensando en crear nuestra propia caja, entonces podemos seguir las
-indicaciones del siguiente enlace:
-* [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)
-
-Como recomendación vamos a crear una nueva carpeta para este nuevo proyecto vagrant. Ejecutamos
-`vagrant init` para crear el fichero de configuración nuevo.
+Si estamos pensando en crear nuestra propia caja, entonces haremos lo siguiente:
+* Leer las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)    
+* Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
+* Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
 
 A partir de una máquina virtual VirtualBox (`v1-opensuse132-xfce`) vamos a crear la caja `package.box`.
 ![vagrant-package](./images/vagrant-package.png)
@@ -265,7 +267,7 @@ Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
 
 #ANEXO
 
-##A.1 Direcotorios
+##A.1 Directorios
 ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando?
 
 ![vagrant-directory](./images/vagrant-directory.png)
