@@ -49,12 +49,14 @@ Enlaces de interés:
 
 El perfil es una configuración de seguridad que establece que permisos tiene un determinado ejecutable.
 
-Hay herramientas que nos pueden ayudar a crear el perfil:
+Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 * Crear un perfil con `aa-genprof` [Saltar al minuto 1:14 del vídeo](https://www.youtube.com/watch?v=2x8_76rFcM4) 
 * [Crear un perfil con `aa-genprof`](http://wiki.apparmor.net/index.php/Profiling_with_tools)
 * [Crear un perfil con `aa-autodep`](https://www.digitalocean.com/community/tutorials/how-to-create-an-apparmor-profile-for-nginx-on-ubuntu-14-04)
 
 #2. Práctica
+
+Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq).
 
 ##2.1 Nuestro programa/comando
 

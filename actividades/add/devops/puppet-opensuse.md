@@ -178,6 +178,9 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 #2. Primera versión del fichero pp
 
 * Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`.
+
+> El paquete `puppet-vim`, sólo es para que el editor vim detecte la sintaxis de puppet.
+
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * `systemctl enable puppetmaster`: Permitir que el servicio se inicie automáticamente en el inicio de la máquina.
 * `systemctl start puppetmaster`: Iniciar el servicio. En este momento debería haberse creado el
