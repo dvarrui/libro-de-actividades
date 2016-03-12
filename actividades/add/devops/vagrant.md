@@ -260,6 +260,10 @@ Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
 
 #ANEXO
 
+##A.1 Direcotorios
 ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando?
 
 ![vagrant-directory](./images/vagrant-directory.png)
+
+##A.2 Windows
+Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows.
