@@ -2,23 +2,50 @@
 
 #Entregas
 
-##1. Informes
+Es obligatorio hacer la entrega de cada actividad en el plazo previsto.
 
-Entregar informe en algún formato abierto y multiplataforma, como por ejemplo:
+En el caso de los trabajos en grupo:
+* En el trabajo deben aparecer los nombres de los componentes del grupo de trabajo.
+* Todos los componentes del grupo deben hacer la entrega (aunque sea repetida) al profesor.
+
+##1.Contenido general
+
+* No repetir en la entrega del informe lo mismo que pone el enunciado.
+* Usar el color rojo de forma esporádica, y sólo para resaltar o destacar
+algún punto/apartado/texto del contenido.
+* Usar el lenguaje escrito (de los informes) y hablado (de los vídeos) 
+de forma correcta y apropiada.
+
+##2. Informes
+
+* Entregar informe en algún formato abierto y multiplataforma, como por ejemplo:
 odt, pdf, etc.
-
-En el caso de comprimir el archivo usar formatos abiertos y multiplataforma,
+* En el caso de comprimir el archivo usar formatos abiertos y multiplataforma,
 como por ejemplo: zip, 7z, etc.
 
-##2. Vídeos
+##3. Vídeos
 
 * Entregar URL con la ruta al vídeo subido a Youtube.
 * En el caso de presentar varios vídeos, numerarlos secuencialmente para mantener el orden.
-* Debe aparecer en el vídeo:
-    * los nombres de los componentes
-    * fecha y título de la actividad 
-    * el nombre del centro "IES Puerto de la Cruz".
+Por ejemplo: video01, video02, etc.
+* Al comiento del vídeo, debe mostrarse lo siguiente:
+    * El nombre del centro "IES Puerto de la Cruz".
     * Curso
     * Asignatura
+    * El/Los nombre/s de el/los componente/s
+    * Fecha y título de la actividad
+* Mostrar el icono del IES Puerto de la Cruz durante todo el vídeo.
+* Subtitular si la imagen no es lo suficientemente explícita.
+* No subtitular con textos que digan algo que se muestre claramente en la imagen.
+* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
 
-##3. Markdown + Git
+##4. Secuencia de imágenes
+
+En el caso de que la entrega sea del tipo "secuencia de imágenes":
+* Se debe entregar un fichero comprimido (zip, 7z o tgz) con los ficheros de las
+imágenes con nombres correctamente secuenciados.
+* Los ficheros deben estar ordenados y con nombres como: imagen01, imagen02, etc.
+* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+
+##5. Markdown + Git
+
