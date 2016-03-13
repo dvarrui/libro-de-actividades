@@ -43,6 +43,8 @@ Por ejemplo: video01, video02, etc.
 ##4. Imágenes
 
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+* Tener cuidado de no mostrar las imágenes deformadas.
+* Tener cuidado de no mostrar el contenido tan pequeño que cueste leerlo.
 * Si la imagen muestra mucha información, se deberá resaltar la parte relevante
 para facilitar su lectura, Por ejemplo con una marca roja, como por ejemplo:
 una flecha, un subrayado, un cuadro, etc.

@@ -9,9 +9,11 @@
 * Máscara de red: 255.255.0.0
 * Gateway: 172.18.0.1
 * Servidor DNS: 8.8.4.4
-* Nombre de equipo: primer-apellido-del-alumno+3. Ejemplo VARGAS3
+* Nombre de equipo: primer-apellido-del-alumnoXXg. Ejemplo vargas30g
 * Nombre de dominio: segundo-apellido-del-alumno.
 * Tarjeta de red VBox en modo puente.
+* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Además también:
 * Instalar openssh-server para que el profesor pueda acceder de forma remota.
@@ -25,6 +27,7 @@ uname -a
 hostname -f
 hostname -a
 hostname -d
+tail -n 5 /etc/passwd
 ip a
 route -n
 host www.iespuertodelacruz.es
@@ -35,7 +38,9 @@ blkid
 ##2 Configuración de la máquina Windows 7 Professional con:
 
 * IP: 172.18.XX.11 (Donde XX corresponde al nº de cada puesto).
-* Nombre de equipo: primer-apellido-del-alumno+1. Por ejemplo: VARGAS1
+* Nombre de equipo: primer-apellido-del-alumno+XXa. Por ejemplo: vargas30a
+* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Máscara de red: 255.255.0.0
 * Gateway: 172.18.0.1
 * Servidor DNS: 8.8.4.4
