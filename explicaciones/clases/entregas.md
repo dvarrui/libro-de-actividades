@@ -52,3 +52,25 @@ una flecha, un subrayado, un cuadro, etc.
 
 ##5. Markdown + Git
 
+* Estructurar el directorio de trabajos de la siguiente forma:
+```
+.
+├── trim1
+│   ├── u1-nombre
+│   │   ├── a1-nombre
+│   │   ├── a2-nombre
+│   │   └── a3-nombre
+│   └── u2-nombre
+│       ├── a1-nombre
+│       ├── a2-nombre
+│       └── a3-nombre
+└── trim2
+    ├── u3-nombre
+    │   ├── a1-nombre
+    │   ├── a2-nombre
+    │   └── a3-nombre
+    └── u4-nombre
+        ├── a1-nombre
+        ├── a2-nombre
+        └── a3-nombre
+```
