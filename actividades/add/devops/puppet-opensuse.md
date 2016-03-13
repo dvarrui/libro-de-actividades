@@ -249,7 +249,7 @@ class hostlinux1 {
 * Reiniciamos el servicio `systemctl restart puppetmaster`.
 * Comprobamos que el servicio está en ejecución de forma correcta.
     * `systemctl status puppetmaster`
-    * `netstat -ntap`
+    * `netstat -ntap |grep ruby`
 * Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 * Abrir el cortafuegos para el servicio.
 
@@ -271,7 +271,7 @@ Para ello, añadimos a `/etc/puppet/puppet.conf`:
 * `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
 * `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
-* `netstat -ntap`: Muestra los servicios conectados a cada puerto.
+* `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
 * Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log` 
 
 #4. Certificados
@@ -317,6 +317,7 @@ lo que se pide en el ejercicio.
 
 * Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
+    * `tree /home/nuevo-usuario`
 * En caso contrario, ejecutar comando para comprobar errores: 
     * `puppet agent --test`
     * `puppet agent --server master30.vargas --test`
@@ -523,7 +524,7 @@ Veamos imagen de ejemplo:
 para el cliente Windows:
 
 ```
-class hostwindows3 {
+class hostwindows4 {
   user { 'darth-sidius':
     ensure => 'present',
     groups => ['Administradores']
@@ -534,10 +535,10 @@ class hostwindows3 {
     groups => ['Usuarios']
   }
 }
-```
+``` 
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows.
-Nombrar el fichero con `/etc/puppet/manifests/classes/hostwindows4.pp`.
+Nombrar el fichero con `/etc/puppet/manifests/classes/hostalumno5.pp`.
 Incluir configuraciones elegidas por el alumno.
 
 #7. Entrega
