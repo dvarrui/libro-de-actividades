@@ -54,7 +54,7 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 * [Crear un perfil con `aa-genprof`](http://wiki.apparmor.net/index.php/Profiling_with_tools)
 * [Crear un perfil con `aa-autodep`](https://www.digitalocean.com/community/tutorials/how-to-create-an-apparmor-profile-for-nginx-on-ubuntu-14-04)
 
-> Ver un [perfil de ejemplo](./images/home.david.temp.aa.copy.sh)
+> Ver un [perfil de ejemplo](./images/home.david.temp.aa.copy.rb)
 
 #2. Práctica
 
