@@ -1,4 +1,5 @@
 
+*(Este documento es un borrador del curso201516. NO está acabado, ni revisado)*
 
 #Entregas
 
@@ -74,3 +75,12 @@ una flecha, un subrayado, un cuadro, etc.
         ├── a2-nombre
         └── a3-nombre
 ```
+* Dentro del directorio de cada actividad, crear el siguiente esquema:
+```
+.
+├── images
+│   └── imagen01.png
+└── README.md
+```
+Donde tendremos el/los ficheros Markdown (.md) de la actividad, y un
+subdirectorio `images` para contener las imagenes del documento Markdown.
