@@ -190,6 +190,11 @@ Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su 
 
 #4. Discos dinámicos en Windows
 
+* Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
+para implementar RAID5.
+
+> **TEORÍA**
+>
 > En windows las particiones se llaman volúmenes básicos.
 > 
 > Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.

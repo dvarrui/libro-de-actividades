@@ -79,11 +79,10 @@ Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 * Para ampliar el tamaño del volumen lógico: `lvextend -L 400 /dev/vg-debian/lv-datos`
 * Comprobar con: `lvdisplay -v /dev/vg-debian/lv-datos`
 * Comprobamos lo que tenemos ahora:
-```
-    ip a
+``` 
     vgdisplay
     lvdisplay vg-debian
-```
+``` 
 
 #3. Modificar el espacio físico LVM
 
@@ -195,6 +194,9 @@ efecto de LVM debemos convertir las particiones a volúmenes básicos.
 > * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
 para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
 
+* ¿Te das cuenta como con la misma letra de unidad se acceden a una zona
+de almacenamiento (volumen dinámico) formada por partes (particiones o 
+volúmenes básicos) de varios discos?
 
 # ANEXO A: Esquemas LVM
 
