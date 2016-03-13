@@ -42,18 +42,19 @@ Por ejemplo: video01, video02, etc.
 
 ##4. Imágenes
 
-* En el caso de que la entrega sea una "secuencia de imágenes":
-    * Se debe entregar un fichero comprimido (zip, 7z o tgz) con los 
-    ficheros de las imágenes con nombres correctamente secuenciados.
-    * Los ficheros deben estar ordenados y con nombres como: imagen01, imagen02, etc.
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
 * Si la imagen muestra mucha información, se deberá resaltar la parte relevante
 para facilitar su lectura, Por ejemplo con una marca roja, como por ejemplo:
 una flecha, un subrayado, un cuadro, etc.
+* Usar el recorte de la imagen para no mostrar un exceso de detalle.
+* En el caso de que la entrega sea una "secuencia de imágenes":
+    * Se debe entregar un fichero comprimido (zip, 7z o tgz) con los 
+    ficheros de las imágenes con nombres correctamente secuenciados.
+    * Los ficheros deben estar ordenados y con nombres como: imagen01, imagen02, etc.
 
 ##5. Markdown + Git
 
-* Estructurar el directorio de trabajos de la siguiente forma:
+* Estructurar el directorio de trabajo de la siguiente forma:
 ```
 .
 ├── trim1
@@ -78,9 +79,9 @@ una flecha, un subrayado, un cuadro, etc.
 * Dentro del directorio de cada actividad, crear el siguiente esquema:
 ```
 .
-├── images
+├── files
 │   └── imagen01.png
 └── README.md
 ```
 Donde tendremos el/los ficheros Markdown (.md) de la actividad, y un
-subdirectorio `images` para contener las imagenes del documento Markdown.
+subdirectorio `files` para contener las imagenes del documento Markdown.
