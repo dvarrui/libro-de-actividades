@@ -25,21 +25,29 @@ ping 8.8.4.4 -c 1
 ```
 #2. Preparar el disco
 
-* Añadiremos un segundo disco duro (sdb) virtual de 10MB.
+* Añadiremos un segundo disco duro (sdb) a la MV VirtualBox de 10MB con el nombre de "roto".
 Cuanto más pequeño sea el disco más rápido se harán las clonaciones.
-* Crearemos una partición primaria que coja todo el segundo disco y le daremos formato `FAT32`.
+* Iniciamos la MV y usamos la herramienta `Yast -> particionador de discos`,
+para crear una partición primaria que coja todo el segundo disco y le daremos formato `FAT32`.
 
 > Todos los pendrives vienen por defecto con formato FAT32.
 
+* `mkdir /mnt/disco_roto`
+* `mount /dev/sdb1 /mnt/disco_roto`
+* `df -hT`
 * Copiaremos/descargaremos en dicha partición (sdb1) 3 ficheros:
     * FILE1: Un fichero de texto
     * FILE2: Una imagen/foto
     * FILE3: Una canción y/o vídeo.
-* A continuación borraremos FILE1 y FILE2, usando los comandos habituales.
+* A continuación borraremos FILE1 y FILE2, usando los comandos habituales (rm).
 Si borramos por el entorno gráfico, además debemos vaciar la papelera.
 
 > * Este borrado no es *total* y por tanto todavía estamos a tiempo de recuperar los archivos.
 > * Para realizar un borrado seguro de archivos podemos usar herramientas como shred, dd, etc.
+
+* `umount /mnt/disco_roto`
+* `df -hT`
+* `ls /mnt/disco_roto`
 
 #3. Clonación
 
@@ -48,10 +56,16 @@ Lo llamaremos disco `alfa`. La recuperación la haremos siempre al disco `alfa`.
 
 > La recuperación se debe hacer siempre en una copia y nunca en el disco original.
 
-* Creamos un tercer disco de igual tamaño que el disco 2.
-* Clonamos el disco 2 en el disco 3 (`alfa`).
-* Demontamos el segundo disco (sdb). Esto es por seguridad, para que no podamos "estropear"
-el disco original.
+* Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo 
+llamaremos `alfa` en VirtualBox.
+* Iniciamos la MV
+* `fdisk -l`,  deben aparecer los 3 discos.
+* `df -hT`, no deben estar montados los discos "roto" y "alfa"
+* Clonamos el disco 2 en el disco 3 (`alfa`). `dd if=/dev/sdb of=/dev/sdc`.
+
+> En situación de trabajo real, quitaríamos el disco "roto" de la máquina y
+lo guardaríamos en sitio seguro.
+> Todas las pruebas las haremos en el disco "alfa" a partir de ahora.
 
 #4. Recuperación
 
