@@ -61,32 +61,41 @@ llamaremos `alfa` en VirtualBox.
 * Iniciamos la MV
 * `fdisk -l`,  deben aparecer los 3 discos.
 * `df -hT`, no deben estar montados los discos "roto" y "alfa"
-* Clonamos el disco 2 en el disco 3 (`alfa`). `dd if=/dev/sdb of=/dev/sdc`.
+* Clonamos el disco `roto` en el disco `alfa`. `dd if=/dev/sdb of=/dev/sdc`.
 
-> En situación de trabajo real, quitaríamos el disco "roto" de la máquina y
+> * Usamos el comando `dd` porque hace un clonado total de disco a disco incluyendo
+los sectores "vacíos".
+> * Si no clonamos los sectores "vacíos" no se incluirían los ficheros eliminados.
+> * En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
 lo guardaríamos en sitio seguro.
-> Todas las pruebas las haremos en el disco "alfa" a partir de ahora.
+
+* Todas las pruebas las haremos en el disco "alfa" a partir de ahora.
 
 #4. Recuperación
 
-Listado de algunas herramientas de recuperación:
-* PhotoRec/Testdisk: Se usa para recuperar archivos eliminados.
-    * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
-    * TestDisk también se puede usar para recuperar particiones.
-* Foremost.
-    * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
-* Recuva
-    * [Recuva](http://www.piriform.com/recuva)
-* Scalpel.
-    * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
+> Listado de algunas herramientas de recuperación:
+> * PhotoRec/Testdisk: Se usa para recuperar archivos eliminados y particiones.
+>     * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
+>     * TestDisk también se puede usar para recuperar particiones.
+> * Foremost.
+>     * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
+> * Recuva
+>     * [Recuva](http://www.piriform.com/recuva)
+> * Scalpel.
+>     * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
 
-Realizar los siguientes pasos:
-* Instalaremos una herramienta para la recuperación de archivos en nuestro sistema o bien usar:
-    * Distro Live Kali Linux (Descargar de Leela).
-    * Distro Live Caine7 (Descargar de Leela).
-* Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`. 
-    * No es conveniente crear archivos en el mismo disco que contiene los archivos que queremos recuperar.
-    * La carpeta con los archivos recuperado debe definirse en el primer disco. 
+* Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk, tenemos varias formas:
+    * Instalar el programa en nuestro sistema
+        * `zypper search nombre-programa` para buscar un programa.
+        * `zypper install nombre-programa`, para instalar el programa.
+    * Usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
+        * Caine7 (Descargar de Leela).
+        * Kali GNU/Linux (Descargar de leela).
+        * Tails GNU/Linux
+* Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
+    * Consultar documentación de la herramienta.
+    * Los archivos que se recuperen no deben escribirse en el disco "alfa".
+    * La carpeta con los archivos recuperado debe definirse en el disco del SO. 
 
 #5. Borrado seguro
 
