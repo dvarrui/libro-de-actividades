@@ -39,6 +39,7 @@ blkid
 
 * IP: 172.18.XX.11 (Donde XX corresponde al nº de cada puesto).
 * Nombre de equipo: primer-apellido-del-alumno+XXa. Por ejemplo: vargas30a
+El nombre NetBIOS sólo puede tener 16 caractéres.
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Máscara de red: 255.255.0.0
