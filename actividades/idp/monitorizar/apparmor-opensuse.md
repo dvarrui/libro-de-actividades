@@ -2,6 +2,8 @@
 
 #AppArmor
 
+Para esta práctica vamos a usar una MV con SO OpenSUSE 13.2.
+
 #1. Teoría/explicación
 
 Enlaces de interés:
@@ -65,7 +67,7 @@ a un programa concreto.
 ##2.1 Nuestro programa/comando
 
 * Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
-* Copiamos el programa `/bin/cp` a la ruta `/home/nombre-alumno/aa/mycopy`.
+* Copiamos el programa `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy.exe`.
 * Crear los directorios y ficheros siguientes:
     * `/home/nombre-alumno/aa/olimpo/zeus.txt`: Escribir en el contenido "curso1516alumnoXX".
     * `/home/nombre-alumno/aa/olimpo/hera.txt`: Escribir en el contenido "curso1516alumnoXX".
