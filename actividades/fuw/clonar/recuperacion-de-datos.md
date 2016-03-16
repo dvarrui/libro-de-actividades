@@ -2,9 +2,13 @@
 
 #1. Introducción
 
-En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
-
+* En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 * Realizaremos la práctica de forma individual.
+
+#2. Preparativos
+
+##2.1 Configuración de la MV
+
 * Vamos a usar una máquina virtual con SO GNU/Linux OpenSUSE13.2, configurada como:
     * IP: 172.19.XX.61
     * Enlace: 172.19.0.1
@@ -15,6 +19,7 @@ En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
     * Instalar SSH server.
     * Clave de root el DNI con letra en minúsculas.
 *Captura de pantalla de los comandos siguientes:
+
 ```
 date
 hostname -f
@@ -23,103 +28,127 @@ route -n
 host www.iespuertodelacruz.es
 ping 8.8.4.4 -c 1
 ```
-#2. Preparar el disco
+
+##2.2 Preparar el disco `roto`
 
 * Añadiremos un segundo disco duro (sdb) a la MV VirtualBox de 10MB con el nombre de "roto".
-Cuanto más pequeño sea el disco más rápido se harán las clonaciones.
+Cuanto más pequeño sea el disco más rápido se harán las operaciones de clonado/ y recuperación.
 * Iniciamos la MV y usamos la herramienta `Yast -> particionador de discos`,
 para crear una partición primaria que coja todo el segundo disco y le daremos formato `FAT32`.
 
-> Todos los pendrives vienen por defecto con formato FAT32.
+> Para particionar/formatear se podrían usar otras herramientas como: gparted, fdisk, etc.
+> En esta práctica usamos el formato FAT32 que es el formato en el que vienen por defecto
+todos los pendrives y discos duros externos.
 
-* `mkdir /mnt/disco_roto`
-* `mount /dev/sdb1 /mnt/disco_roto`
-* `df -hT`
+* Creamos el directorio `disco_roto` dentro de `/mnt`.
+* Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
+Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
 * Copiaremos/descargaremos en dicha partición (sdb1) 3 ficheros:
-    * FILE1: Un fichero de texto
-    * FILE2: Una imagen/foto
-    * FILE3: Una canción y/o vídeo.
-* A continuación borraremos FILE1 y FILE2, usando los comandos habituales (rm).
+    * `FILE1`: Un fichero de texto
+    * `FILE2`: Una imagen/foto
+    * `FILE3`: Una canción y/o vídeo.
+    * Feedback de comprobación `ls /mnt/disco_roto`.
+* A continuación borraremos FILE1 y FILE2, usando los comandos habituales de borrado.
 Si borramos por el entorno gráfico, además debemos vaciar la papelera.
+Feedback de comprobación `ls /mnt/disco_roto`.
 
 > * Este borrado no es *total* y por tanto todavía estamos a tiempo de recuperar los archivos.
-> * Para realizar un borrado seguro de archivos podemos usar herramientas como shred, dd, etc.
+> * Para realizar un borrado seguro de archivos usaríamos herramientas como shred, dd, etc.
 
-* `umount /mnt/disco_roto`
-* `df -hT`
-* `ls /mnt/disco_roto`
+* Desmontamos el disco "roto". Feedback de comprobación: `df -hT`, `mount |grep roto`
 
-#3. Clonación
+#3. Clonación alfa
 
-Antes de recuperar los archivos del disco (sdb) debemos hacer una clonación del mismo.
-Lo llamaremos disco `alfa`. La recuperación la haremos siempre al disco `alfa`.
+Antes de recuperar los archivos del disco "roto" (sdb) vamos hacer una clonación 
+device-device del mismo. Al disco clonado lo llamaremos disco `alfa`. Apartir de
+ahora los procesos de recuperación los haremos siempre al disco `alfa`.
 
-> La recuperación se debe hacer siempre en una copia y nunca en el disco original.
+> La recuperación se debe hacer siempre en una copia y nunca en el disco original
+para evitar que los procesos de recuperación afecten a la integridad del disco
+"roto".
 
 * Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo 
 llamaremos `alfa` en VirtualBox.
-* Iniciamos la MV
-* `fdisk -l`,  deben aparecer los 3 discos.
-* `df -hT`, no deben estar montados los discos "roto" y "alfa"
-* Clonamos el disco `roto` en el disco `alfa`. `dd if=/dev/sdb of=/dev/sdc`.
+* Iniciamos la MV. Deben estar los 3 discos.
+Feeback de comprobación: `fdisk -l`
+* Los discos "roto" y "alfa" no deben estar montados. 
+Feedback de comprobación: `df -hT`, `mount`
+* Usamos el comando `dd` para clonar el disco `roto` en el disco `alfa`.
+Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
 
 > * Usamos el comando `dd` porque hace un clonado total de disco a disco incluyendo
 los sectores "vacíos".
 > * Si no clonamos los sectores "vacíos" no se incluirían los ficheros eliminados.
-> * En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
-lo guardaríamos en sitio seguro.
 
-* Todas las pruebas las haremos en el disco "alfa" a partir de ahora.
+Todas las pruebas las haremos en el disco `alfa` a partir de ahora. 
+En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
+lo guardaríamos en sitio seguro.
 
 #4. Recuperación
 
-> Listado de algunas herramientas de recuperación:
-> * PhotoRec/Testdisk: Se usa para recuperar archivos eliminados y particiones.
->     * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
->     * TestDisk también se puede usar para recuperar particiones.
-> * Foremost.
->     * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
-> * Recuva
->     * [Recuva](http://www.piriform.com/recuva)
-> * Scalpel.
->     * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
+##4.1 Herramientas de recuperación
 
-* Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk, tenemos varias formas:
-    * Instalar el programa en nuestro sistema
-        * `zypper search nombre-programa` para buscar un programa.
-        * `zypper install nombre-programa`, para instalar el programa.
-    * Usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
-        * Caine7 (Descargar de Leela).
-        * Kali GNU/Linux (Descargar de leela).
-        * Tails GNU/Linux
-* Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
-    * Consultar documentación de la herramienta.
-    * Los archivos que se recuperen no deben escribirse en el disco "alfa".
-    * La carpeta con los archivos recuperado debe definirse en el disco del SO. 
+Listado de algunas herramientas de recuperación:
+* PhotoRec/Testdisk: Se usa para recuperar archivos eliminados y particiones.
+    * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
+    * TestDisk también se puede usar para recuperar particiones.
+* Foremost.
+    * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
+* Recuva
+    * [Recuva](http://www.piriform.com/recuva)
+* Scalpel.
+    * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
+
+##4.2 Instalando software de recuperación
+
+Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk.
+Tenemos varias formas:
+* (A) Instalar el programa en nuestro sistema. Feedback de comprobación `zypper search nombre-programa`.
+* (B) Usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
+    * Caine7 (Descargar de Leela).
+    * Kali GNU/Linux (Descargar de leela).
+    * Tails GNU/Linux (Descargar de la web).
+        
+##4.3 Recuperando los datos
+
+Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
+* Consultar documentación de la herramienta para averiguar cómo se hace.
+* Los archivos que se recuperen no deben escribirse en el disco `alfa`.
+* La carpeta con los archivos recuperados debe estar en el disco principal del SO. 
 
 #5. Borrado seguro
 
 Hemos visto que aunque borremos un archivo todavía existen formas de recuperar dichos datos.
 Ahora vamos a ver cómo realizar un borrado seguro.
 
-> **Herramientas para borrado seguro**
->
-> Enlaces de SHRED:
-> * [shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
-> * [Borrado seguro de archivos con Shred](http://www.linuxtotal.com.mx/index.php?cont=info_seyre_008)
->
-> Ejemplo con `dd`:
-> * `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
+##5.1 Herramientas de borrado seguro
 
-* Volvemos a crear/descargar 3 archivos para eliminar.
-    * FILE1: Un fichero de texto
-    * FILE2: Una imagen/foto
-    * FILE3: Una canción y/o vídeo.
+Enlaces de SHRED:
+* [shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
+* [Borrado seguro de archivos con Shred](http://www.linuxtotal.com.mx/index.php?cont=info_seyre_008)
+
+Ejemplo con `dd`:
+* `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
+
+##5.2 Proceso de borrado seguro
+
+* Creamos un disco nuevo VirtualBox de 10MB. A este disco lo llamaremos "limpio".
+* Iniciamos la MV.
+* Creamos la carpeta `disco_limpio` en `/mnt`.
+* Montamos el disco `limpio` en la ruta `/mnt/disco_limpio`.
+Feedback de comprobación: `df -hT`, `mount | grep disco`
+* Volvemos a crear/descargar 3 archivos para eliminar en el disco `limpio`.
+    * `FILE1`: Un fichero de texto (txt)
+    * `FILE2`: Una imagen/foto (png)
+    * `FILE3`: Una canción y/o vídeo.
+    * Feedback de comprobación: `ls /mnt/disco_limpio`.
 * A continuación
     * Borramos FILE1 con el comando habitual.
     * Borramos FILE2 con herramienta de borrado seguro (shred).
     * Borramos FILE3 con herramienta de borrado seguro (dd).
+    * Feedback de comprobación: `ls /mnt/disco_limpio`.
 * Ahora ejecutamos el proceso de recuperación. ¿Se consigue recuperar algún archivo?
+ ¿Todos? ¿Cuáles no se han podido recuperar?
 
 #ANEXO
 
