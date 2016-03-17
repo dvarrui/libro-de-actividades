@@ -83,10 +83,10 @@ Vamos a iniciar la máquina virtual creada con Vagrant:
 > Ejemplos de otras MV:
 >
 > Crear un proyecto vagrant con Windows7 e iniciar la MV:
-> `vagrant init opentable/win-7-professional-amd64-nocm; vagrant up --provider virtualbox`
+> * `vagrant init opentable/win-7-professional-amd64-nocm; vagrant up --provider virtualbox`
 >
 > Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
-> `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
+> * `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
 
 #3. Configuración
 
