@@ -17,12 +17,13 @@
 ```
 
 Enlaces de interés:
-* [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
+* [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/) 
+* [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)  
 
-*Autor*
+
 ```
     La información para desarrollar esta actividad ha sido extraída del 
-    enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013*
+    enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013.
 ```
 
 #2. Primeros pasos
