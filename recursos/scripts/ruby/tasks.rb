@@ -20,6 +20,7 @@ end
 def instalar_minicom(ip)
   puts "* host[#{ip}]: Instalando minicom..."
   system("ssh root@#{ip} 'apt-get install minicom -y --force-yes'")
+  system("ssh root@#{ip} 'adduser asir dialout'")
   system("ssh root@#{ip} 'adduser asir tty'")
   system("ssh root@#{ip} 'chmod 660 /dev/tty8'")
   puts "* host[#{ip}]: Minicom OK!"
