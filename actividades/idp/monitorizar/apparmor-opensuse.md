@@ -104,7 +104,7 @@ aa-genprof.
 * Seguimos en la "consola2".
     * `aa-enforce home.nombre-alumno.aa.mycopy`, para forzar el cumplimiento 
     del perfil para el programa mycopy.
-    * `aaparmor_status` para consultar el estado de los perfiles.
+    * `apparmor_status` para consultar el estado de los perfiles.
 * Volvemos a la "consola1"
     * `rm tierra/*; tree`, para limpiar y comprobar.
     * `./mycopy olimpo/* tierra`
@@ -121,7 +121,7 @@ aa-genprof.
     * `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en 
     modo queja. De esta forma no se prohibe ninguna acción, pero si
     queda auditada.
-    * `aaparmor_status` para consultar el estado de los perfiles.
+    * `apparmor_status` para consultar el estado de los perfiles.
 * Volvemos a la "consola1".
     * `tree`, comprobamos el contenido de los directorios.
     * `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
