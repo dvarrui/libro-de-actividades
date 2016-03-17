@@ -77,8 +77,16 @@ Vamos a iniciar la máquina virtual creada con Vagrant:
     * `vagrant status`: Estado actual de la máquina.
     * `vagrant destroy`: Para eliminar completamente la máquina.
 
-> Debemos tener en cuenta que tener el ambiente en modo **suspendido** consume espacio
+> Tener en cuenta que la MV en modo **suspendido** consume más espacio
  en disco debido a que el estado de la maquina virtual que suele almacenarse en RAM debe pasar a disco.
+
+> Ejemplos de otras MV:
+>
+> Crear un proyecto vagrant con Windows7 e iniciar la MV:
+> `vagrant init opentable/win-7-professional-amd64-nocm; vagrant up --provider virtualbox`
+>
+> Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
+> `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
 
 #3. Configuración
 
