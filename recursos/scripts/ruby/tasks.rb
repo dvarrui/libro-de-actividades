@@ -17,12 +17,25 @@ def delete_vhds(ip)
   system("ssh root@#{ip} 'mount /dev/sda2 /mnt/entorno2; rm -r /mnt/entorno2/VHDs/*'") #remove VHDs files
 end
 
+=begin
+* Añadir asir al grupo dialout
+    Con los dispositivos Cisco y el cable USB to Serial lo asocia a ttyUSB0
+    al incorporar el usuario al grupo adquiere los permisos y ya se podrá trabajar
+
+     dmesg | grep tty
+     usb 3-1: pl2303 converter now attached to ttyUSB0
+=end
+
 def instalar_minicom(ip)
   puts "* host[#{ip}]: Instalando minicom..."
-  system("ssh root@#{ip} 'apt-get install minicom -y --force-yes'")
-  system("ssh root@#{ip} 'adduser asir dialout'")
-  system("ssh root@#{ip} 'adduser asir tty'")
-  system("ssh root@#{ip} 'chmod 660 /dev/tty8'")
-  puts "* host[#{ip}]: Minicom OK!"
+  r = system("ssh root@#{ip} 'apt-get install minicom -y --force-yes'")
+  r = r and system("ssh root@#{ip} 'adduser asir dialout'")
+  r = r and system("ssh root@#{ip} 'adduser asir tty'")
+  r = r and system("ssh root@#{ip} 'chmod 660 /dev/tty8'")
+  if r
+    puts " [ OK! ] host<#{ip}>: Minicom OK!"
+  else
+    puts " [ERROR] host<#{ip}>"
+  end  
 end
 
