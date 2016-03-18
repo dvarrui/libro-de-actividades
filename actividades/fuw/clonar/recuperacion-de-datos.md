@@ -114,7 +114,7 @@ Tenemos varias formas:
 Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
 * Consultar documentación de la herramienta para averiguar cómo se hace.
 * Los archivos que se recuperen no deben escribirse en el disco `alfa`.
-* La carpeta con los archivos recuperados debe estar en el disco principal del SO. 
+* La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`. 
 
 #5. Borrado seguro
 
