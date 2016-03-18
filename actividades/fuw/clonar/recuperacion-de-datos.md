@@ -121,6 +121,16 @@ Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
 Hemos visto que aunque borremos un archivo todavía existen formas de recuperar dichos datos.
 Ahora vamos a ver cómo realizar un borrado seguro.
 
+> **¿De verdad?**
+>
+> Las herramientas de borrado seguro deben ejecutarse un número de veces (35 normalmente) 
+para que podamos decir (¿seguro?) que hemos logrado un borrado efectivo. La explicación 
+de por qué pasa esto la tenemos en el siguiente 
+[artículo](http://www.eldiario.es/hojaderouter/tecnologia/hardware/archivos-eliminacion-recuperacion-disco_duro-papelera_de_reciclaje_0_495201286.html)  
+>
+> Ante la duda, y para segurarse, muchas empresas recurren a la destrucción física de los disco.
+>
+
 ##5.1 Herramientas de borrado seguro
 
 Enlaces de SHRED:
