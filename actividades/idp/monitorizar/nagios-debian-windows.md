@@ -1,4 +1,5 @@
-*(Actividad realizada en los cursos: 201314, 201415, 201516. Mejorada para el curso 201516)*
+*(Actividad realizada en los cursos: 201314, 201415, 201516)*
+*Mejorada para el curso 201516*
 
 #1. Preparativos
 
