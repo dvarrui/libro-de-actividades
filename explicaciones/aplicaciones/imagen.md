@@ -3,7 +3,7 @@
 
 
 *Captura de pantalla* es un programa que nos permite hacer una *foto* de
-la pantalla y creando como resultado una imagen. Esta imagen la podemos
+la pantalla, y grabar la captura como una imagen. Esta imagen la podemos
 usar, por ejemplo, para incluirla en un informe y mostrar de esta forma
 cómo hacer algo y/o demostrar que lo hemos realizado.
 
