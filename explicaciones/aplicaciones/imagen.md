@@ -7,12 +7,14 @@ la pantalla, y grabar la captura como una imagen. Esta imagen la podemos
 usar, por ejemplo, para incluirla en un informe y mostrar de esta forma
 cómo hacer algo y/o demostrar que lo hemos realizado.
 
-El programa es muy sencillo y funciona en 3 pasos:
+El programa es muy sencillo de usar, y funciona en 3 pasos:
+
 1. Iniciamos el programa para capturar la pantalla.
 1. Seleccionamos el área de pantalla que queremos capturar.
 1. Guardamos la imagen con el nombre que elijamos.
 
-Veamos unos ejemplos:
+
+Veamos unas imágenes de ejemplo:
 
 Seleccionamos el área a capturar:
 
