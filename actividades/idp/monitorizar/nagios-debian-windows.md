@@ -1,59 +1,74 @@
- Monitorización Remota
-1 Preparativos
-2 Monitorizador Nagios
-3 Configuración de Nagios
-4 Agentes Nagios
-5 Monit en el Servidor
-
+*(Actividad realizada en los cursos: 201314, 201415, 201516. Mejorada para el curso 201516)*
 
 #1. Preparativos
 
-Para esta actividad vamos a necesitar las siguientes 3 MV's.
+Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../../global/configuracion-aula109.md) ).
 * Monitorizador
-    * SO GNU/Linux
-    * IP estática 172.16.109.X, máscara 16 bits, enlace 172.16.1.1
+    * SO Debian 8 - GNU/Linux
+    * IP estática 172.19.XX.41
+    * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * Cliente1:
-    * SO GNU/Linux para ser monitorizado.
-    * IP estática 172.16.109.1XX, máscara 16 bits, enlace 172.16.1.1
+    * SO Debian 8 - GNU/Linux para ser monitorizado.
+    * IP estática 172.19.XX.42
+    * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * Cliente2:
-    * SO Windows para ser monitorizado.
-    * IP estática 172.16.109.2XX, máscara 16 bits, enlace 172.16.1.1
+    * SO Windows 7 para ser monitorizado.
+    * IP estática 172.19.XX.11
+    * Incluir en el fichero `hosts` todas las máquinas de la práctica.
 
-Enlace de interés:
+Enlaces de interés:
 * Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 * [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/) 
-* [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/) 
+* [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
 
-#2. Monitorizador Nagios
+
+#2. Instalación del servidor Nagios
 
 * Leer los documentos proporcionados por el profesor.
-* Instalar el monitorizador Nagios y su documentación:
-```
-    apt-get update
-    apt-get install -y nagios3 nagios-nrpe-plugin nagios3-doc
-```
-* Durante la instalación nos pedirá la clave del usuario nagiosadmin (Administrador Nagios). Además se instala un servidor web.
+* Instalar el monitorizador Nagios3, su documentación y el plugin NRPE.
+    * En Debian se usa `apt-get ...`.
+    * Comprobación: `dpkg -l nagios*`
+* Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios). 
+Además se instalará un servidor web.
 
 ![nagios3-password.png](./images/nagios3-password.png)
 
-* Abrimos un navegador y ponemos el URL http://localhost/nagios3.
-* Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos interactuar con el programa de monitorización.
-* Si vamos a las opciones del menú izquierdo "Hosts" y "Services", vemos que ya estamos monitorizando nuestro propio equipo "localhost".
+* ¿Está todo instalado y en ejecución?
+    * Comprobación `netstat -ntap`.
+    * Comprobación `nmap localhost`.
+* Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
+    * Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos 
+    interactuar con el programa de monitorización.
+    * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*, 
+    vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
-#3. Configuración de Nagios
+#3. Configuración del servidor Nagios
 
-Ahora vamos a configurar Nagios para monitorizar:
-* El cliente 1, y el cliente 2.
-* Host servidor FRY(172.16.1.1) => servicios HTTP y SSH
-* Host servidor LEELA (192.168.1.3) => servicios HTTP y SSH
-* Host router (192.168.1.1).
+Ahora vamos a plantear como objetivo el configurar Nagios para monitorizar:
+* Routers:
+    * Si están activos el router Bender (172.19.0.1) y el router externo (192.168.1.1).
+* Servidores:
+    * Si el host LEELA (172.20.1.2) tiene activos los servicios HTTP y SSH.
+* Clientes:
+    * Si están activos los equipos: cliente 1, y el cliente 2.
 
-##3.1 Grupos de hosts
+##3.1 Directorio de configuraciones personales
 
-* Creamos un directorio para guardar nuestras definiciones: mkdir /etc/nagios3/mydevices.d
-* Modificamos fichero de configuración /etc/nagios3/nagios.cfg, y añadiremos la siguiente definición: cfg_dir=/etc/nagios3/mydevices.d
-* Vamos a definir dos grupos de hosts, para ello añadimos las siguientes líneas al fichero "/etc/nagios3/mydevices.d/grupos-de-hosts.cfg".
+* Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para 
+guardar nuestras configuraciones.
+* Modificamos fichero de configuración principla `/etc/nagios3/nagios.cfg`, 
+y añadiremos la siguiente definición: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
+para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 
+##3.2 Grupos de hosts
+
+Cuando se tienen muchos *hosts* es más cómodo agruparlos. Estos son los `hostgroup`.
+
+* Vamos crear `hostgroups`:
+    * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/grupos.cfg`.
+    * Dentro definimos 3 grupos de hosts: `routers`, `servidores` y `clientes`.
+    * Veamos un ejemplo:
+    
 ```
 define hostgroup {
 hostgroup_name clients
@@ -68,27 +83,51 @@ members fry
 }
 ```
 
-##3.2 Nuestros hosts servidores
+##3.3 Grupo de routers
 
-Vamos a añadir las definiciones de varias máquinas del departamento, las cuales queremos monitorizar.
-* Crear el fichero `/etc/nagios3/mydevices.d/departamento.cfg` con el siguiente contenido:
-
+* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-routers.cfg` para
+incluir las definiciones de las máquinas de tipo router.
+* Veamos un ejemplo:
 ```
-    #Define fry server
+    #Define FRY router
     define host{
     host_name fry
-    alias Servidor FRY
-    address 172.16.1.1
+    alias Servidor fry
+    address 172.20.1.1
     check_command check-host-alive
     check_interval 5
     retry_interval 1
     max_check_attempts 1
     check_period 24x7
-    hostgroups servers, http-servers, ssh-servers
+    hostgroups servidores, http-servers, ssh-servers
     icon_image cook/server.png
     statusmap_image cook/server.png
     }
+```
+> Fijarse en todos los parámetros y preguntar las dudas.
+> host_name, alias, address, hostgroups, icon_image, etc.
+* Reiniciamos Nagios (Pista `service ...`)
+    * Comprobación `netstat -ntap |grep nagios`.
+* Consultar la lista de hosts monitorizados por Nagios.
 
+##3.4 Grupo de servidores
+
+* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-servidores.cfg` para
+incluir las definiciones de las máquinas de tipo servidor.
+* Reiniciamos Nagios (Pista `service ...`)
+    * Comprobación `netstat -ntap |grep nagios`.
+* Consultar la lista de hosts monitorizados por Nagios.
+
+##3.5 Grupo de clientes
+
+* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-clientes.cfg` para
+incluir las definiciones de las máquinas de tipo cliente.
+* Reiniciamos Nagios (Pista `service ...`)
+    * Comprobación `netstat -ntap |grep nagios`.
+* Consultar la lista de hosts monitorizados por Nagios.
+
+
+```
 #Define leela server
 define host{
 host_name leela
@@ -128,10 +167,8 @@ parents fry
     }
 ```
 
-    Reiniciamos Nagios "/etc/init.d/nagios3 restart".
-    Consultar la lista de hosts monitorizados por Nagios.
 
-3.3 Resto de hosts
+##3.4 Resto de hosts
 
     Ahora hay que añadir configuración para el resto de los equipos clientes (/etc/nagios3/mydevices.d/clients.cfg). Veamos un ejemplo:
 
