@@ -3,6 +3,8 @@
 
 #1. Preparativos
 
+##1.1 Preparar las máquinas
+
 Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../../global/configuracion-aula109.md) ).
 * Monitorizador
     * SO Debian 8 - GNU/Linux
@@ -17,16 +19,17 @@ Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../.
     * IP estática 172.19.XX.11
     * Incluir en el fichero `hosts` todas las máquinas de la práctica.
 
-Enlaces de interés:
-* Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-* [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/) 
-* [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
+##1.2 Consultar la documentación
 
+* Enlaces de interés: 
+    * Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+    * [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/) 
+    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
+* Leer los documentos proporcionados por el profesor.
 
 #2. Instalación del servidor Nagios
 
-* Leer los documentos proporcionados por el profesor.
-* Instalar el monitorizador Nagios3, su documentación y el plugin NRPE.
+* Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
     * En Debian se usa `apt-get ...`.
     * Comprobación: `dpkg -l nagios*`
 * Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios). 
@@ -45,19 +48,22 @@ Además se instalará un servidor web.
 
 #3. Configuración del servidor Nagios
 
-Ahora vamos a plantear como objetivo el configurar Nagios para monitorizar:
+Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
 * Routers:
-    * Si están activos el router Bender (172.19.0.1) y el router externo (192.168.1.1).
+    * Hosts: router Bender (172.19.0.1) y el router externo (192.168.1.1).
+    * Comprobar si están activos.
 * Servidores:
-    * Si el host LEELA (172.20.1.2) tiene activos los servicios HTTP y SSH.
+    * Hosts: LEELA (172.20.1.2)
+    * Comprobar si tiene activos los servicios HTTP y SSH.
 * Clientes:
-    * Si están activos los equipos: cliente 1, y el cliente 2.
+    * Hosts: cliente 1, y el cliente 2.
+    * Comprobar si están activos los equipos.
 
 ##3.1 Directorio de configuraciones personales
 
 * Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para 
 guardar nuestras configuraciones.
-* Modificamos fichero de configuración principla `/etc/nagios3/nagios.cfg`, 
+* Modificamos fichero de configuración principal `/etc/nagios3/nagios.cfg`, 
 y añadiremos la siguiente definición: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 
