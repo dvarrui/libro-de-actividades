@@ -10,9 +10,9 @@
 Configuración de la máquina Windows 7 Professional:
 * IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33,etc.
-* Máscara de red: `255.255.0.0`
-* Gateway: `172.19.0.1`
-* Servidor DNS: `8.8.4.4`
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.19.0.1`
+    * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumno+XXw`.
     * Por ejemplo: vargas30w
     * El nombre NetBIOS sólo puede tener 16 caractéres.
@@ -47,9 +47,9 @@ es de 90 días.
 Configuración de la máquina Windows 2008 Server Professional:
 * IP: `172.19.XX.21` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.22, 172.19.XX.23,etc.
-* Máscara de red: `255.255.0.0`
-* Gateway: `172.19.0.1`
-* Servidor DNS: `8.8.4.4`
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.19.0.1`
+    * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumno+XXs`.
     * Por ejemplo: vargas30s.
     * El nombre NetBIOS sólo puede tener 16 caractéres.
@@ -84,9 +84,9 @@ es de 180 días.
 
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33,etc.
-* Máscara de red: `255.255.0.0`
-* Gateway: `172.19.0.1`
-* Servidor DNS: `8.8.4.4`
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.19.0.1`
+    * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
@@ -119,9 +119,9 @@ blkid
 
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.42, 172.19.XX.43,etc.
-* Máscara de red: `255.255.0.0`
-* Gateway: `172.19.0.1`
-* Servidor DNS: `8.8.4.4`
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.19.0.1`
+    * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
