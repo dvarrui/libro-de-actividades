@@ -27,7 +27,7 @@ Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../.
     * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
 * Leer los documentos proporcionados por el profesor.
 
-#2. Instalación del servidor Nagios
+#2. Instalación del servidor
 
 * Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
     * En Debian se usa `apt-get ...`.
@@ -46,7 +46,7 @@ Además se instalará un servidor web.
     * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*, 
     vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
-#3. Configuración del servidor Nagios
+#3. Configuración del servidor
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
 * Routers:
@@ -59,7 +59,7 @@ Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguent
     * Hosts: cliente 1, y el cliente 2.
     * Comprobar si están activos los equipos.
 
-##3.1 Directorio de configuraciones personales
+##3.1 Directorio personale
 
 * Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para 
 guardar nuestras configuraciones.
@@ -67,14 +67,14 @@ guardar nuestras configuraciones.
 y añadiremos la siguiente definición: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 
-##3.2 Grupos de hosts
+##3.2 Grupos
 
-Cuando se tienen muchos *hosts* es más cómodo agruparlos. Estos son los `hostgroup`.
+> Cuando se tienen muchos *hosts* es más cómodo agruparlos. Estos son los `hostgroup`.
 
 * Vamos crear `hostgroups`:
-    * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/grupos.cfg`.
-    * Dentro definimos 3 grupos de hosts: `routers`, `servidores` y `clientes`.
-    * Veamos un ejemplo:
+    * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
+    * Dentro definimos 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
+    * Veamos un ejemplo (no sirve copiarlo):
     
 ```
 define hostgroup {
@@ -90,11 +90,13 @@ members fry
 }
 ```
 
-##3.3 Grupo de routers
+##3.3 Hosts
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-routers.cfg` para
+###Routers
+
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
-* Veamos un ejemplo:
+* Veamos un ejemplo (no sirve copiarlo):
 ```
     #Define FRY router
     define host{
@@ -108,77 +110,40 @@ incluir las definiciones de las máquinas de tipo router.
     check_period 24x7
     hostgroups servidores, http-servers, ssh-servers
     icon_image cook/server.png
-    statusmap_image cook/server.png
+    statusmap_image cook/router.png
     }
 ```
 > Fijarse en todos los parámetros y preguntar las dudas.
-> host_name, alias, address, hostgroups, icon_image, etc.
-* Reiniciamos Nagios (Pista `service ...`)
+> * host_name
+> * alias
+> * address
+> * hostgroups
+> * icon_image: Las imágenes PNG están en /usr/share/nagios/htdocs/images/logos/cook.
+>   Poner a cada host una imagen que lo represente.
+> * etc.
+
+
+* Reiniciamos Nagios 
+    * Pista `service ...`
     * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
-##3.4 Grupo de servidores
+### Servidores
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-servidores.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
-* Reiniciamos Nagios (Pista `service ...`)
+* Reiniciamos Nagios
+    * Pista `service ...`
     * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
-##3.5 Grupo de clientes
+### Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno/grupo-clientes.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-clientesXX.cfg` para
 incluir las definiciones de las máquinas de tipo cliente.
-* Reiniciamos Nagios (Pista `service ...`)
-    * Comprobación `netstat -ntap |grep nagios`.
-* Consultar la lista de hosts monitorizados por Nagios.
-
+* Veamos un ejemplo (no sirve copiar):
 
 ```
-#Define leela server
-define host{
-host_name leela
-alias Servidor LEELA
-address 192.168.1.3
-check_command check-host-alive
-check_interval 5
-retry_interval 1
-max_check_attempts 1
-check_period 24x7
-process_perf_data 0
-retain_nonstatus_information 0
-hostgroups servers, http-servers, ssh-servers
-contact_groups admins
-notification_interval 30
-notification_period 24x7
-notification_options d,u,r
-icon_image cook/server.png
-statusmap_image cook/server.png
-parents fry
-}
-
-    #Define router
-    define host{
-    host_name router
-    alias Router1
-    address 192.168.1.1
-    check_command check-host-alive
-    check_interval 5
-    retry_interval 1
-    max_check_attempts 1
-    check_period 24x7
-    contact_groups admins
-    icon_image cook/server.png
-    statusmap_image cook/server.png
-    parents fry
-    }
-```
-
-
-##3.4 Resto de hosts
-
-    Ahora hay que añadir configuración para el resto de los equipos clientes (/etc/nagios3/mydevices.d/clients.cfg). Veamos un ejemplo:
-
 define host{
 use generic-host
 host_name client1-windows
@@ -194,11 +159,18 @@ alias client2-debian
 address 172.16.108.150
 hostgroups clients
 }
+```
 
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando. El verde significa que está OK, y el rojo que el equipo presenta algún problema y requiere atención.
-hosts
+* Reiniciamos Nagios
+    * Pista `service ...`
+    * Comprobación `netstat -ntap |grep nagios`.
+* Consultar la lista de hosts monitorizados por Nagios.
 
-    Las imágenes PNG están en /usr/share/nagios/htdocs/images/logos/cook. Poner a cada host una imagen que lo represente.
+
+A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
+El verde significa que está OK, y el rojo que el equipo presenta algún problema y requiere atención.
+hosts.
+
 
 Además podemos tener una visión completa de la red en la opción "map".
 map
@@ -206,15 +178,19 @@ map
     Consultar la lista de hosts y el mapa de Nagios.
 
 
-4. Monitorizar más información
+#5. Monitorizar más información
 
-Debemos instalar una utilidad llamada "Agente Nagios" en los clientes para poder monitorizar desde el servidor más información ( Consumo CPU, consumo de memoria, consumo de disco, etc. )
+Debemos instalar una utilidad llamada "Agente Nagios" en los clientes 
+para poder monitorizar desde el servidor más información 
+( Consumo CPU, consumo de memoria, consumo de disco, etc. )
 
-Aquí vemos un ejemplo del estado de los servicios monitorizados, en el host "localhost". Con la instalación de los "agentes", podremos tener esta información desde los clientes.
+Aquí vemos un ejemplo del estado de los servicios monitorizados, 
+en el host "localhost". Con la instalación de los "agentes", 
+podremos tener esta información desde los clientes.
 servicios
 
 
-4.1 Agente Nagios en Windows
+##5.1 Agente Nagios en Windows
 
 MODO 1:
 
@@ -429,4 +405,51 @@ host_name winserver
 service_description Explorer
 check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
 }
+
+
+
+#ANEXO
+
+##A1: Configuraciones
+
+```
+#Define leela server
+define host{
+host_name leela
+alias Servidor LEELA
+address 192.168.1.3
+check_command check-host-alive
+check_interval 5
+retry_interval 1
+max_check_attempts 1
+check_period 24x7
+process_perf_data 0
+retain_nonstatus_information 0
+hostgroups servers, http-servers, ssh-servers
+contact_groups admins
+notification_interval 30
+notification_period 24x7
+notification_options d,u,r
+icon_image cook/server.png
+statusmap_image cook/server.png
+parents fry
+}
+
+    #Define router
+    define host{
+    host_name router
+    alias Router1
+    address 192.168.1.1
+    check_command check-host-alive
+    check_interval 5
+    retry_interval 1
+    max_check_attempts 1
+    check_period 24x7
+    contact_groups admins
+    icon_image cook/server.png
+    statusmap_image cook/server.png
+    parents fry
+    }
+```
+
 
