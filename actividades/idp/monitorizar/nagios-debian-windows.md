@@ -98,7 +98,7 @@ define hostgroup {
 
 ###Routers
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-routersXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
 * Veamos un ejemplo (no sirve copiarlo):
 ```
@@ -137,7 +137,7 @@ define host{
 
 ### Servidores
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-servidoresXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
@@ -147,7 +147,7 @@ incluir las definiciones de las máquinas de tipo servidor.
 
 ### Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-clientesXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-clientesXX.cfg` para
 incluir las definiciones de las máquinas de tipo cliente.
 * Veamos un ejemplo (no sirve copiar):
 
