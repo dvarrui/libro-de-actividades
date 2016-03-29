@@ -9,7 +9,7 @@
 
 Configuración de la máquina Windows 7 Professional:
 * IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33,etc.
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.12, 172.19.XX.13,etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
