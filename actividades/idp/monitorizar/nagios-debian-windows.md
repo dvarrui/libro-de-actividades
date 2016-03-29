@@ -1,5 +1,7 @@
-*(Actividad realizada en los cursos: 201314, 201415, 201516)*
-*Mejorada para el curso 201516*
+```
+(Actividad realizada en los cursos: 201314, 201415, 201516)
+Mejorada para el curso 201516.
+```
 
 #1. Preparativos
 
@@ -50,13 +52,13 @@ Además se instalará un servidor web.
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
 * Routers:
-    * Hosts: router Bender (172.19.0.1) y el router externo (192.168.1.1).
+    * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
     * Comprobar si están activos.
 * Servidores:
-    * Hosts: LEELA (172.20.1.2)
+    * Hosts: leelaXX (172.20.1.2)
     * Comprobar si tiene activos los servicios HTTP y SSH.
 * Clientes:
-    * Hosts: cliente 1, y el cliente 2.
+    * Hosts: cliente1, y el cliente2.
     * Comprobar si están activos los equipos.
 
 ##3.1 Directorio personale
