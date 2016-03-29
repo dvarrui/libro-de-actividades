@@ -126,7 +126,7 @@ incluir las definiciones de las máquinas de tipo router.
 > * hostgroups: Grupos a los que pertenece
 > * icon_image: Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
-> * etc.
+> * parent: Nombre del equipo padre o anterior. El router caronteXX tiene como padre a benderXX.
 
 * Reiniciamos Nagios para que coja los cambios en la configuración.
     * Pista `service ...`
@@ -137,6 +137,7 @@ incluir las definiciones de las máquinas de tipo router.
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
+* El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
     * Pista `service ...`
     * Comprobación `netstat -ntap |grep nagios`.
