@@ -9,7 +9,7 @@
 
 Configuración de la máquina Windows 7 Professional:
 * IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.12, 172.19.XX.13,etc.
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.12, 172.19.XX.13, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
@@ -46,7 +46,7 @@ es de 90 días.
 
 Configuración de la máquina Windows 2008 Server Professional:
 * IP: `172.19.XX.21` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.22, 172.19.XX.23,etc.
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.22, 172.19.XX.23, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
@@ -83,7 +83,7 @@ es de 180 días.
 ##3. Configuración GNU/Linux OpenSUSE 13.2
 
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33,etc.
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
@@ -118,7 +118,7 @@ blkid
 ##4. Configuración GNU/Linux Debian 8
 
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.42, 172.19.XX.43,etc.
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.42, 172.19.XX.43, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
