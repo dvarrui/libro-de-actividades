@@ -213,7 +213,7 @@ Enlaces de interés:
 * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 
-##5.2 Instalar y configurar el cliente
+##5.2 Instalar y configurar el cliente1
 
 En el cliente:
 * Debemos instalar el agente nagios en la máquina cliente (paquete NRPE server y los plugin básicos)
@@ -233,7 +233,6 @@ En el servidor Nagios:
    * Añadir las siguientes líneas:
  
 ```
-# Define a service to check the disk space
 define service{
   use generic-service
   host_name client2-debian
@@ -269,18 +268,20 @@ define service{
 #6. Agente Nagios en Windows
 
 
-##6.1 Instalar en el cliente
+##6.1 Instalar en el cliente2
 
 * Descargar el programa Agente Windows (NSCLient++)
     * http://nsclient.org/nscp/downloads
     * http://www.nagios.org/download/addons.
 * Instalar el programa nsclient
-    * Activar las opciones "common check plugins", "nsclient server" y "NRPE server".
+    * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`.
 
-> Si tenemos un fichero de instalación MSI, al ejecutarlo nos hará la 
+> * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
+Windows y el servidor Nagios.
+> * Si tenemos un fichero de instalación MSI, al ejecutarlo nos hará la 
 instalación del programa con las opciones por defecto sin preguntarnos.
 
-* Servicio "Agente Nagios" en el cliente
+* Servicio `Agente Nagios` en el cliente
     * `net start nsclient` para iniciar el servicio del agente.
     * `net stop nsclient` para parar el servicio del agente. 
 
@@ -292,42 +293,7 @@ Configuración de los servicios del host Windows en Nagios Master.
     * En al monitorizador Nagios podemos crear el fichero `/etc/nagios3/mydevices.d/servicios-windowsXX.cfg`.
     * Y añadir las siguientes líneas:
 
-```
-# Define a services
-define service{
-  use generic-service
-  host_name client1-windows
-  service_description Disk Space
-  check_command check_nt!USEDDISKSPACE!-l c -w 80 -c 90
-}
 
-define service{
-  use generic-service
-  host_name client1-windows
-  service_description Mem Use
-  check_command check_nt!MEMUSE!-w 80 -c 90
-}
-
-define service{
-  use generic-service
-  host_name client1-windows
-  service_description Proc State Explorer
-  check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
-}
-
-define service{
-  use generic-service
-  host_name client1-windows
-  service_description NSClient++ Version
-  check_command check_nt!CLIENTVERSION
-}
-
-define service{
-  use generic-service
-  host_name client1-windows
-  service_description Uptime
-  check_command check_nt!UPTIME
-}
 ```
 
 * Consultar los servicios monitorizados por Nagios
@@ -381,9 +347,51 @@ if 5 restarts within 5 cycles then timeout
 * Comprobar la lectura de datos de monit vía GUI. Abrir un navegador web en la propia máquina, y poner URL "http://localhost:2812". Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
 * Capturar pantalla.
 
+
 #ANEXO
 
-Para revisar:
+##A.1 Comandos check_nt para Agente Windows
+
+```
+define service{
+  use generic-service
+  host_name client1-windows
+  service_description Disk Space
+  check_command check_nt!USEDDISKSPACE!-l c -w 80 -c 90
+}
+
+define service{
+  use generic-service
+  host_name client1-windows
+  service_description Mem Use
+  check_command check_nt!MEMUSE!-w 80 -c 90
+}
+
+define service{
+  use generic-service
+  host_name client1-windows
+  service_description Proc State Explorer
+  check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
+}
+
+define service{
+  use generic-service
+  host_name client1-windows
+  service_description NSClient++ Version
+  check_command check_nt!CLIENTVERSION
+}
+
+define service{
+  use generic-service
+  host_name client1-windows
+  service_description Uptime
+  check_command check_nt!UPTIME
+}
+```
+
+##A.2 Para revisar
+
+```
 define host{
 host_name winserver
 alias Windows XP del profesor
@@ -435,10 +443,7 @@ check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
 }
 
 
-
-#ANEXO
-
-##A1: Configuraciones
+##A.3 Configuraciones de ejemplo
 
 ```
 #Define leela server
@@ -479,5 +484,3 @@ parents fry
     parents fry
     }
 ```
-
-
