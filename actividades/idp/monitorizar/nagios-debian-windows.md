@@ -61,7 +61,7 @@ Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguent
     * Hosts: cliente1, y el cliente2.
     * Comprobar si están activos los equipos.
 
-##3.1 Directorio personale
+##3.1 Directorio personal
 
 * Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para 
 guardar nuestras configuraciones.
