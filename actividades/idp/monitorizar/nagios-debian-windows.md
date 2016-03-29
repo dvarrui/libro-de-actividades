@@ -27,7 +27,7 @@ Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../.
     * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
 * Leer los documentos proporcionados por el profesor.
 
-#2. Instalación del servidor
+#2. Instalar el servidor
 
 * Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
     * En Debian se usa `apt-get ...`.
@@ -46,7 +46,7 @@ Además se instalará un servidor web.
     * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*, 
     vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
-#3. Configuración del servidor
+#3. Configurar el servidor
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
 * Routers:
@@ -64,14 +64,16 @@ Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguent
 * Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para 
 guardar nuestras configuraciones.
 * Modificamos fichero de configuración principal `/etc/nagios3/nagios.cfg`, 
-y añadiremos la siguiente definición: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
+y añadiremos la siguiente línea: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 
 ##3.2 Grupos
 
-> Cuando se tienen muchos *hosts* es más cómodo agruparlos. Estos son los `hostgroup`.
+> Cuando se tienen muchos *hosts* es más cómodo agruparlos. 
+Para esto sirven son los `hostgroup`.
 
 * Vamos crear `hostgroups`:
+    * Sustituir XX por el identificador del alumno.
     * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
     * Dentro definimos 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
     * Veamos un ejemplo (no sirve copiarlo):
@@ -100,8 +102,8 @@ incluir las definiciones de las máquinas de tipo router.
 ```
     #Define FRY router
     define host{
-    host_name fry
-    alias Servidor fry
+    host_name fryXX
+    alias Servidor fryXX
     address 172.20.1.1
     check_command check-host-alive
     check_interval 5
@@ -113,17 +115,18 @@ incluir las definiciones de las máquinas de tipo router.
     statusmap_image cook/router.png
     }
 ```
-> Fijarse en todos los parámetros y preguntar las dudas.
-> * host_name
-> * alias
-> * address
-> * hostgroups
-> * icon_image: Las imágenes PNG están en /usr/share/nagios/htdocs/images/logos/cook.
+
+> Fijarse en todos los parámetros anteriores y preguntar las dudas.
+>
+> * host_name: Nombre del host
+> * alias: Nombre largo asociado al host
+> * address: Dirección IP
+> * hostgroups: Grupos a los que pertenece
+> * icon_image: Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
 > * etc.
 
-
-* Reiniciamos Nagios 
+* Reiniciamos Nagios para que coja los cambios en la configuración.
     * Pista `service ...`
     * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
@@ -160,35 +163,42 @@ address 172.16.108.150
 hostgroups clients
 }
 ```
+> Personalizar: host_name, alias, address y hostgroups.
 
-* Reiniciamos Nagios
+* Reiniciamos Nagios para que coja los cambios
     * Pista `service ...`
     * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
+#4 Ver algunos ejemplos
 
 A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-El verde significa que está OK, y el rojo que el equipo presenta algún problema y requiere atención.
-hosts.
+* El verde significa OK. 
+* El rojo que el equipo presenta algún problema y requiere atención.
 
+![nagios3-hosts](./images/nagios3-hosts.png)
 
 Además podemos tener una visión completa de la red en la opción "map".
-map
 
-    Consultar la lista de hosts y el mapa de Nagios.
+![nagios3-map](./images/nagios3-map.png)
 
+* Consulta la lista de hosts, el mapa de Nagios y haz capturas de pantalla.
 
-#5. Monitorizar más información
+#5. Agentes
 
-Debemos instalar una utilidad llamada "Agente Nagios" en los clientes 
-para poder monitorizar desde el servidor más información 
-( Consumo CPU, consumo de memoria, consumo de disco, etc. )
+Por ahora el servidor Nagios sólo puede obtener la información
+que los equipos dejan ver desde el exterior.
+
+Cuando queremos obtener más información del interior los hosts, 
+tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno.
+El agente es una especie de "chivato" que nos puede dar datos de:
+Consumo CPU, consumo de memoria, consumo de disco, etc.
 
 Aquí vemos un ejemplo del estado de los servicios monitorizados, 
 en el host "localhost". Con la instalación de los "agentes", 
 podremos tener esta información desde los clientes.
-servicios
 
+![nagios3-details](./images/nagios3-details.png)
 
 ##5.1 Agente Nagios en Windows
 
