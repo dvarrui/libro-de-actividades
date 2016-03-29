@@ -203,26 +203,26 @@ podremos tener esta información desde los clientes.
 
 ![nagios3-details](./images/nagios3-details.png)
 
-##5.1 Agente Nagios en Windows
+##5.1 Instalar el Agente en Windows
 
-MODO 1:
+* Descargar el programa Agente Windows (NSCLient++)
+    * http://nsclient.org/nscp/downloads
+    * http://www.nagios.org/download/addons.
+* Instalar el programa nsclient
+    * Activar las opciones "common check plugins", "nsclient server" y "NRPE server".
 
-    Descargar el programa Agente Windows (NSCLient++) desde
-        http://nsclient.org/nscp/downloads
-        http://www.nagios.org/download/addons.
+> Si tenemos un fichero de instalación MSI, al ejecutarlo nos hará la 
+instalación del programa con las opciones por defecto sin preguntarnos.
 
-nsclient
+* Servicio "Agente Nagios" en el cliente
+    * `net start nsclient` para iniciar el servicio del agente.
+    * `net stop nsclient` para parar el servicio del agente. 
 
-
-    Activaremos las opciones "common check plugins", "nsclient server" y "NRPE server".
-    Si nos un fichero de instalación MSI, al ejecutarlo nos hará la instalación del programa con las opciones por defecto sin preguntarnos.
-    Para iniciar el servicio "Agente Nagios" en el cliente hacemos "net start nsclient" y para pararlo "net stop nsclient".
-
+##5.2 Configurar el Agente Windows en el servidor Nagios
 
 Configuración de los servicios del host Windows en Nagios Master.
-
-    Consultar documentación http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html.
-    Veamos un ejemplo. En al monitorizador Nagios podemos crear el fichero /etc/nagios3/mydevices.d/servicios-windows.cfg, y añadir las siguientes líneas:
+* Consultar documentación http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html.
+* Veamos un ejemplo. En al monitorizador Nagios podemos crear el fichero /etc/nagios3/mydevices.d/servicios-windows.cfg, y añadir las siguientes líneas:
 
 
 # Define a services
