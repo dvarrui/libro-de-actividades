@@ -19,7 +19,7 @@ Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../.
 * Cliente2:
     * SO Windows 7 para ser monitorizado.
     * IP estática 172.19.XX.11
-    * Incluir en el fichero `hosts` todas las máquinas de la práctica.
+    * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
 ##1.2 Consultar la documentación
 
@@ -306,11 +306,11 @@ Configuración de los servicios del host Windows en Nagios Master.
 * Veamos un ejemplo:
 
 ```
-# Fichero /etc/monit/monirc de ejemplo
-# config general
-set daemon 120
-set logfile /var/log/monit.log
-set mailserver localhost
+    # Fichero /etc/monit/monirc de ejemplo
+    # config general
+    set daemon 120
+    set logfile /var/log/monit.log
+    set mailserver localhost
 
 # Plantilla de email que se envía en las alertas
 set alert nombreusuarios@correousuario.com
