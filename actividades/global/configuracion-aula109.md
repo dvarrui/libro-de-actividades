@@ -26,7 +26,7 @@ Capturar imágenes de las configuraciones.
 ```
 date
 ipconfig
-route /PRINT
+route PRINT
 nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
 ``` 
@@ -64,7 +64,7 @@ Capturar imágenes de las configuraciones.
 ``` 
 date
 ipconfig
-route /PRINT
+route PRINT
 nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
 ```  

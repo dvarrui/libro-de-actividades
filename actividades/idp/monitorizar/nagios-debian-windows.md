@@ -34,7 +34,7 @@ Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../.
 #2. Instalar el servidor
 
 * Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
-    * En Debian se usa `apt-get ...`.
+    * En Debian se usa `apt-get ...` o synaptic.
     * Comprobación: `dpkg -l nagios*`
 * Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios). 
 Además se instalará un servidor web.
@@ -84,13 +84,13 @@ Para esto sirven son los `hostgroup`.
     
 ```
 define hostgroup {
-  hostgroup_name clients
+  hostgroup_name clientes
   alias Equipos clientes
   members localhost
 }
 
 define hostgroup {
-  hostgroup_name servers
+  hostgroup_name servidores
   alias Servidores del departamento
   members fryXX
 }
