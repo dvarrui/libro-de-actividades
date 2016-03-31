@@ -99,6 +99,7 @@ Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
 Para que el comando hostname funcione bien.
 * Programa SSH server:
+    * Para veriguar si lo tenemos instalado: `zypper search openssh`
     * Instalar openssh-server para que el profesor pueda acceder 
     de forma remota:`zypper install openssh`.
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
@@ -139,6 +140,7 @@ Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
 Para que el comando hostname funcione bien.
 * Programa SSH server:
+    * Para averiguar si lo tenemos instalado: `dpkg -l openssh*`.
     * Instalar openssh-server para que el profesor pueda acceder 
     de forma remota:`apt-get install openssh-server`.
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
