@@ -86,13 +86,6 @@ Para esto sirven son los `hostgroup`.
 define hostgroup {
   hostgroup_name clientes
   alias Equipos clientes
-  members localhost
-}
-
-define hostgroup {
-  hostgroup_name servidores
-  alias Servidores del departamento
-  members fryXX
 }
 ```
 
@@ -104,7 +97,6 @@ define hostgroup {
 incluir las definiciones de las máquinas de tipo router.
 * Veamos un ejemplo (no sirve copiarlo):
 ```
-#Define FRY router
 define host{
   host_name fryXX
   alias Servidor fryXX
@@ -141,6 +133,7 @@ define host{
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
+* Todos los host servidores tienen que tener `hostgroups servidoresXX, http-servers, ssh-servers`
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
     * Pista `service ...`
@@ -156,25 +149,19 @@ incluir las definiciones de las máquinas de tipo cliente.
 ```
 define host{
   use generic-host
-  host_name client1-windows
-  alias client1-windows
+  host_name client1-debian
+  alias client1-debian
   address 172.16.108.250
-  hostgroups clientsXX
-}
-
-define host{
-  use generic-host
-  host_name client2-debian
-  alias client2-debian
-  address 172.16.108.150
-  hostgroups clientsXX
+  hostgroups clientesXX
 }
 ```
 > Personalizar: host_name, alias, address y hostgroups.
 
 * Reiniciamos Nagios para que coja los cambios
-    * Pista `service ...`
-    * Comprobación `netstat -ntap |grep nagios`.
+    * Pista `service nagios3...`
+    * Comprobación:
+        * `service nagios3 status`
+        * `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 #4 Ver algunos ejemplos
@@ -206,6 +193,7 @@ en el host "localhost". Con la instalación de los "agentes",
 podremos tener esta información desde los clientes.
 
 ![nagios3-details](./images/nagios3-details.png)
+
 
 ##5.1 Documentación
 
@@ -273,7 +261,7 @@ define service{
 ##6.1 Instalar en el cliente2
 
 * Descargar el programa Agente Windows (NSCLient++)
-    * http://nsclient.org/nscp/downloads
+    * http://nsclient.org/nscp/downloads (Recomendado).
     * http://www.nagios.org/download/addons.
 * Instalar el programa nsclient
     * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`.
@@ -287,15 +275,68 @@ instalación del programa con las opciones por defecto sin preguntarnos.
     * `net start nsclient` para iniciar el servicio del agente.
     * `net stop nsclient` para parar el servicio del agente. 
 
-##6.2 Configurar en el Servidor
+##6.2 Configurar el cliente2
 
-Configuración de los servicios del host Windows en Nagios Master.
-* [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html).
-* Veamos un ejemplo. 
-    * En al monitorizador Nagios podemos crear el fichero `/etc/nagios3/mydevices.d/servicios-windowsXX.cfg`.
-    * Y añadir las siguientes líneas:
+Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nsclient.ini`
+ (o `C:\Archivos de Programas\NSClient++\nsclient.ini`). Si no tildaron 
+ nada durante la instalación, verán que está vacío, a excepción de unos comentarios.
+ 
+NSClient no utiliza el mismo formato de configuración que el visto en el host Linux, 
+es más, varía bastante. Para empezar, la configuración se divide en secciones 
+(formato estándar de los .ini). Por otra parte, los plugins se deben habilitar 
+antes de ser utilizados. Además los plugins se llaman con ejecutables diferentes 
+(CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera. 
+Para estandarizar, en la configuración utilizaremos los mismos alias que
+ en el host Linux, así es posible realizar grupos de hosts que incluyan
+  tanto servidores Linux como Windows, y ejecutar los mismos comandos en ambos.
 
+La configuración que utilizaremos será la siguiente:
+```
+    [/modules]
+    ; habilitamos el uso de NRPE
+    NRPEServer = 1
 
+    ; habilitamos plugins a utilizar. Como se ve, los plugins se agrupan por tipo.
+    CheckSystem=1
+    CheckDisk=1
+    CheckExternalScripts=1
+
+    ; creamos los mismos alias que en la definición del host Linux, y agregamos un alias para chequear servicios
+    [/settings/external scripts/alias]
+    check_load=CheckCpu MaxWarn=80 time=5m ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
+    check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5% ; alias para chequear el espacio en todos los discos del servidor
+    check_firewall_service=CheckServiceState MpsSvc; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
+
+    [/settings/default]
+    ; permitimos el acceso al servidor Nagios para las consultas.
+    allowed hosts = 192.168.0.100
+```
+
+##6.3 Configurar en el Servidor
+
+En el servidor Nagios:
+* Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma: 
+    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`
+* Configuración de los servicios del host Windows en Nagios Master.
+    * [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html).
+* A continuación, vamos a definir servicios a monitorizar
+   * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-windowsXX.cfg`
+    * Veamos un ejemplo. 
+
+```
+define service {
+  use                  generic-service  # hereda los atributos de generic-service
+  hostgroup_           name remote-agent # indicamos que se aplica al hostgroup remote-agent
+  service_description  Load average # describimos lo que se testea
+  check_command        check_nrpe_1arg!check_load #llamamos a check_nrpe_1arg y le indicamos que debe ejecutar check_load
+}
+
+define service{
+  use                  generic-service # heredamos
+  hostgroup_name       remote-agent # aplicamos al grupo remote-agent
+  service_description  Disk Space  # describimos lo que testeamos
+  check_command        check_nrpe_1arg!check_disk # indicamos que debe ejecutarse el alias check_disk
+}
 ```
 
 * Consultar los servicios monitorizados por Nagios
