@@ -7,28 +7,31 @@ Mejorada para el curso 201516.
 
 ##1.1 Preparar las máquinas
 
-Para esta actividad vamos a necesitar 3 MV's (Consultar la [configuración](../../global/configuracion-aula109.md) ).
-* Monitorizador
+Para esta actividad vamos a necesitar 3 MV's:
+* Consultar las [configuraciones](../../global/configuracion-aula109.md) de las MV's.
+* (MV1) Monitorizador
     * SO Debian 8 - GNU/Linux
     * IP estática 172.19.XX.41
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* Cliente1:
+* (MV2) Cliente1:
     * SO Debian 8 - GNU/Linux para ser monitorizado.
     * IP estática 172.19.XX.42
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* Cliente2:
+* (MV3) Cliente2:
     * SO Windows 7 para ser monitorizado.
     * IP estática 172.19.XX.11
     * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
-![etc-hosts](./images/nagios3-etc-hosts.png)
+> Veamos una imagen de ejemplo:
+>
+> ![etc-hosts](./images/nagios3-etc-hosts.png)
 
 ##1.2 Consultar la documentación
 
 * Enlaces de interés: 
     * Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
     * [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/) 
-    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).  
+    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/). 
 * Leer los documentos proporcionados por el profesor.
 
 #2. Instalar el servidor
@@ -41,7 +44,8 @@ Además se instalará un servidor web.
 
 ![nagios3-password.png](./images/nagios3-password.png)
 
-* ¿Está todo instalado y en ejecución?
+* Comprobar que Nagios se está ejecutando.
+    * Comprobación `service nagios3 status`
     * Comprobación `netstat -ntap`.
     * Comprobación `nmap localhost`.
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
@@ -74,18 +78,18 @@ para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 ##3.2 Grupos
 
 > Cuando se tienen muchos *hosts* es más cómodo agruparlos. 
-Para esto sirven son los `hostgroup`.
+Las agrupaciones las hacemos con `hostgroup`.
 
-* Vamos crear `hostgroups`:
+* Vamos crear varios `hostgroup`:
     * Sustituir XX por el identificador del alumno.
     * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
-    * Dentro definimos 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
+    * Hay que definir 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
     * Veamos un ejemplo (no sirve copiarlo):
     
 ```
 define hostgroup {
-  hostgroup_name clientes
-  alias Equipos clientes
+  hostgroup_name NOMBRE_DEL_GRUPO
+  alias NOMBRE_LARGO_DEL_GRUPO
 }
 ```
 
@@ -95,22 +99,23 @@ define hostgroup {
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
+* Los host serán miembros también de los grupos http-servers, ssh-servers
 * Veamos un ejemplo (no sirve copiarlo):
 ```
 define host{
-  host_name fryXX
-  alias Servidor fryXX
-  address 172.20.1.1
-  hostgroups servidores, http-servers, ssh-servers
-  icon_image cook/router.png
-  statusmap_image cook/router.png
+  host_name       NOMBRE_DEL_HOST
+  alias           NOMBRE_LARGO_DEL_HOST
+  address         IP_DEL_HOST
+  hostgroups      GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
+  icon_image      cook/NOMBRE_IMAGEN.png
+  statusmap_image cook/NOMBRE_IMAGENrouter.png
   #parent
 
-  check_command check-host-alive
-  check_interval 5
-  retry_interval 1
+  check_command      check-host-alive
+  check_interval     5
+  retry_interval     1
   max_check_attempts 1
-  check_period 24x7
+  check_period       24x7
 }
 ```
 
@@ -120,24 +125,23 @@ define host{
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
 > * hostgroups: Grupos a los que pertenece
-> * icon_image: Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
+> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
-> * parent: Nombre del equipo padre o anterior. El router caronteXX tiene como padre a benderXX.
+> * parent: Nombre del equipo padre o anterior. 
 
+* El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
     * Pista `service nagios...`
-    * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Servidores
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
-* Todos los host servidores tienen que tener `hostgroups servidoresXX, http-servers, ssh-servers`
+* Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
     * Pista `service ...`
-    * Comprobación `netstat -ntap |grep nagios`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Clientes
@@ -148,20 +152,18 @@ incluir las definiciones de las máquinas de tipo cliente.
 
 ```
 define host{
-  use generic-host
-  host_name client1-debian
-  alias client1-debian
-  address 172.16.108.250
-  hostgroups clientesXX
+  use        generic-host
+  host_name  NOMBRE_HOST
+  alias      NOMBRE_LARGO_DEL_HOST
+  address    IP_DEL_HOST
+  hostgroups GRUPO_AL_QUE_PERTENECE
 }
 ```
 > Personalizar: host_name, alias, address y hostgroups.
 
 * Reiniciamos Nagios para que coja los cambios
     * Pista `service nagios3...`
-    * Comprobación:
-        * `service nagios3 status`
-        * `netstat -ntap |grep nagios`.
+    * Comprobación: `service nagios3 status`
 * Consultar la lista de hosts monitorizados por Nagios.
 
 #4 Ver algunos ejemplos
@@ -176,26 +178,25 @@ Además podemos tener una visión completa de la red en la opción "map".
 
 ![nagios3-map](./images/nagios3-map.png)
 
-* Consulta la lista de hosts, el mapa de Nagios y haz capturas de pantalla.
+* Consulta la lista de hosts, el mapa de Nagios.
 
 #5. Agente Nagios GNU/Linux
 
-Por ahora el servidor Nagios sólo puede obtener la información
-que los equipos dejan ver desde el exterior.
+##5.1 Documentación
+
+Por ahora el servidor Nagios sólo puede obtener la información que los 
+equipos dejan ver desde el exterior.
 
 Cuando queremos obtener más información del interior los hosts, 
 tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno.
 El agente es una especie de "chivato" que nos puede dar datos de:
 Consumo CPU, consumo de memoria, consumo de disco, etc.
 
-Aquí vemos un ejemplo del estado de los servicios monitorizados, 
+Aquí vemos un ejemplo del estado de los "servicios internos" monitorizados, 
 en el host "localhost". Con la instalación de los "agentes", 
-podremos tener esta información desde los clientes.
+podremos tener esta información desde los clientes remotos.
 
 ![nagios3-details](./images/nagios3-details.png)
-
-
-##5.1 Documentación
 
 Enlaces de interés:
 * [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
@@ -208,8 +209,31 @@ Enlaces de interés:
 En el cliente:
 * Debemos instalar el agente nagios en la máquina cliente (paquete NRPE server y los plugin básicos)
     * Pista: `apt-get ... `
-* Editar el fichero `/etc/nagios/nrpe.cfg` en el cliente y modificar la línea
-`allowed_hosts=127.0.0.1,ip-del-servidor-nagios` con la ip del servidor Nagios.
+* Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
+
+```
+server_port=5666              # define en qué puerto (TCP) escuchará el agente. 
+                              # Por defecto es el 5666. 
+server_address=IP_DEL_CLIENTE # indica en qué dirección IP escuchará el agente, 
+                              # en caso que la MV posea más de una IP.
+allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR # define qué IPs tienen permitido conectarse al agente en busca de datos. 
+                                        # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
+dont_blame_nrpe=0      # Esta variable indica que NO se permite que el agente 
+                       # reciba comandos con parámetros poe seguridad.
+
+ # alias check_user para obtener la cantidad de usuarios logueados 
+ # y alertar si hay más de 5 logueados al mismo tiempo.
+command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
+
+ # alias check_load para obtener la carga de CPU
+command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20 
+
+ #alias check_disk para obtener el espacio disponible en el disco /dev/sda
+ # y alertar si queda menos de 20% de espacio en alguna partición.
+command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda 
+
+```
+
 * Reiniciar el servicio en el cliente: 
     * Pista `service nagios-nrpe-server ...`
 
@@ -224,31 +248,31 @@ En el servidor Nagios:
  
 ```
 define service{
-  use generic-service
-  host_name client2-debian
-  service_description Disk Space
-  check_command check_nrpe_1arg!check_disk
+  use                  generic-service
+  host_name            NOMBRE_DEL_HOST
+  service_description  Espacio en disco
+  check_command        check_nrpe_1arg!check_disk
 }
 
 define service{
-  use generic-service
-  host_name client2-debian
-  service_description Current Users
-  check_command check_nrpe_1arg!check_users
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Usuarios actuales
+  check_command       check_nrpe_1arg!check_users
 }
 
 define service{
-  use generic-service
-  host_name client2-debian
-  service_description Total Processes
-  check_command check_nrpe_1arg!check_procs
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Procesos totales
+  check_command       check_nrpe_1arg!check_procs
 }
 
 define service{
-  use generic-service
-  host_name client2-debian
-  service_description Current Load
-  check_command check_nrpe_1arg!check_load
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Carga actual
+  check_command       check_nrpe_1arg!check_load
 }
 ```
 
@@ -257,18 +281,19 @@ define service{
 
 #6. Agente Nagios en Windows
 
-
 ##6.1 Instalar en el cliente2
 
 * Descargar el programa Agente Windows (NSCLient++)
-    * http://nsclient.org/nscp/downloads (Recomendado).
-    * http://www.nagios.org/download/addons.
-* Instalar el programa nsclient
-    * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`.
+    * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
+    * [http://www.nagios.org/download/addons](http://www.nagios.org/download/addons).
+* Instalar el programa nsclient activando las opciones:
+    * `common check plugins`
+    * `nsclient server` y 
+    * `NRPE server`.
 
 > * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
 Windows y el servidor Nagios.
-> * Si tenemos un fichero de instalación MSI, al ejecutarlo nos hará la 
+> * Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la 
 instalación del programa con las opciones por defecto sin preguntarnos.
 
 * Servicio `Agente Nagios` en el cliente
@@ -278,17 +303,17 @@ instalación del programa con las opciones por defecto sin preguntarnos.
 ##6.2 Configurar el cliente2
 
 Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nsclient.ini`
- (o `C:\Archivos de Programas\NSClient++\nsclient.ini`). Si no tildaron 
- nada durante la instalación, verán que está vacío, a excepción de unos comentarios.
+ (o `C:\Archivos de Programas\NSClient++\nsclient.ini`). 
  
-NSClient no utiliza el mismo formato de configuración que el visto en el host Linux, 
-es más, varía bastante. Para empezar, la configuración se divide en secciones 
-(formato estándar de los .ini). Por otra parte, los plugins se deben habilitar 
-antes de ser utilizados. Además los plugins se llaman con ejecutables diferentes 
+NSClient no utiliza el mismo formato de configuración que el visto en el host Linux. 
+Para empezar, la configuración se divide en secciones.
+Por otra parte, los plugins se deben habilitar antes de ser utilizados.
+Además los plugins se llaman con nombres de ejecutables diferentes 
 (CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera. 
-Para estandarizar, en la configuración utilizaremos los mismos alias que
- en el host Linux, así es posible realizar grupos de hosts que incluyan
-  tanto servidores Linux como Windows, y ejecutar los mismos comandos en ambos.
+
+> Para estandarizar, en la configuración utilizaremos los mismos alias que en el host Linux
+> Así es posible realizar grupos de hosts que incluyan tanto servidores 
+GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
 La configuración que utilizaremos será la siguiente:
 ```
@@ -296,7 +321,7 @@ La configuración que utilizaremos será la siguiente:
     ; habilitamos el uso de NRPE
     NRPEServer = 1
 
-    ; habilitamos plugins a utilizar. Como se ve, los plugins se agrupan por tipo.
+    ; habilitamos plugins a utilizar
     CheckSystem=1
     CheckDisk=1
     CheckExternalScripts=1
@@ -309,41 +334,53 @@ La configuración que utilizaremos será la siguiente:
 
     [/settings/default]
     ; permitimos el acceso al servidor Nagios para las consultas.
-    allowed hosts = 192.168.0.100
+    allowed hosts = IP_DEL_SERVIDOR
+
 ```
 
 ##6.3 Configurar en el Servidor
 
 En el servidor Nagios:
 * Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma: 
-    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`
-* Configuración de los servicios del host Windows en Nagios Master.
-    * [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html).
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`
+
+> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
+sobre cómo configurar los servicios del host Windows en Nagios Master
+
 * A continuación, vamos a definir servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-windowsXX.cfg`
-    * Veamos un ejemplo. 
+   * Veamos un ejemplo. 
 
 ```
 define service {
-  use                  generic-service  # hereda los atributos de generic-service
-  hostgroup_           name remote-agent # indicamos que se aplica al hostgroup remote-agent
-  service_description  Load average # describimos lo que se testea
-  check_command        check_nrpe_1arg!check_load #llamamos a check_nrpe_1arg y le indicamos que debe ejecutar check_load
+  use                  generic-service
+  host_name            NOMBRE_DEL_HOST 
+  service_description  Carga media 
+  check_command        check_nrpe_1arg!check_load
 }
 
 define service{
-  use                  generic-service # heredamos
-  hostgroup_name       remote-agent # aplicamos al grupo remote-agent
-  service_description  Disk Space  # describimos lo que testeamos
-  check_command        check_nrpe_1arg!check_disk # indicamos que debe ejecutarse el alias check_disk
+  use                  generic-service
+  host_name            NOMBRE_DEL_HOST 
+  service_description  Espacio en disco
+  check_command        check_nrpe_1arg!check_disk
 }
+
+define service{
+  use                  generic-service
+  host_name            NOMBRE_DEL_HOST 
+  service_description  Firewall
+  check_command        check_nrpe_1arg!check_firewall_service
+}
+
 ```
 
+* Reiniciar el servicio.
 * Consultar los servicios monitorizados por Nagios
 
 #7. Monit en el Servidor
 
-* Instalar Monit
+* Instalar Monit en MV Debian1
 * Hacer copia de seguridad al fichero `/etc/monit/monitrc`.
 * Copiar el fichero de ejemplo proporcionado por el profesor a la ruta `/etc/monit/monitrc`.
 * Veamos un ejemplo:
@@ -355,80 +392,84 @@ define service{
     set logfile /var/log/monit.log
     set mailserver localhost
 
-# Plantilla de email que se envía en las alertas
-set alert nombreusuarios@correousuario.com
-set mail-format {
-  from: monitusuario@correousuario.es
-  subject: $SERVICE $EVENT at $DATE
-  message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
-  Yours sincerely, monit
-}
+    # Plantilla de email que se envía en las alertas
+    set alert nombreusuarios@correousuario.com
+    set mail-format {
+      from: ALUMNO@EMAIL.ES
+      subject: $SERVICE $EVENT at $DATE
+      message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
+      Yours sincerely, monit
+    }
 
-set httpd port 2812 and use address localhost
-allow nombreusuario:claveusuario
+    set httpd port 2812 and use address localhost
+    allow NOMBRE_ALUMNO:CLAVE_ALUMNO
 
-# Monitorizar los recursos del sistema
-check system localhost
-if loadavg (1min) > 4 then alert
-if loadavg (5min) > 2 then alert
-if memory usage > 75% then alert
-if cpu usage (user) > 70% then alert
-if cpu usage (system) > 30% then alert
-if cpu usage (wait) > 20% then alert
+    # Monitorizar los recursos del sistema
+    check system localhost
+    if loadavg (1min) > 4 then alert
+    if loadavg (5min) > 2 then alert
+    if memory usage > 75% then alert
+    if cpu usage (user) > 70% then alert
+    if cpu usage (system) > 30% then alert
+    if cpu usage (wait) > 20% then alert
 
-# Monitorizar el servicio SSHD
-check process sshd with pidfile /var/run/sshd.pid
-start program "/etc/init.d/ssh start"
-stop program "/etc/init.d/ssh stop"
-if failed port 22 protocol ssh then restart
-if 5 restarts within 5 cycles then timeout
+    # Monitorizar el servicio NAGIOS
+    check process nagios3 with pidfile /var/run/nagios3.pid
+    start program "service nagios3 start"
+    stop program  "service nagios3 stop"
+    if failed port 2812 protocol nagios3 then restart
+    if 5 restarts within 5 cycles then timeout
 ```
 
 * Modificar el fichero /etc/monit/monitrc para adaptarlo a nuestra máquina.
 * Reiniciar el servicio: /etc/init.d/monit restart
-* Comprobar la lectura de datos de monit vía comandos: monit status
-* Comprobar la lectura de datos de monit vía GUI. Abrir un navegador web en la propia máquina, y poner URL "http://localhost:2812". Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
+* Comprobar la lectura de datos de monit vía comandos: `monit status`
+* Comprobar la lectura de datos de monit vía GUI. 
+    * Abrir un navegador web en la propia máquina, y poner URL "http://localhost:2812". 
+    * Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
 * Capturar pantalla.
 
 
 #ANEXO
 
-##A.1 Comandos check_nt para Agente Windows
+##A.1 Agente Windows
+
+Configuración del servidor para acceder usando comandos check_nt al agente Windows:
 
 ```
 define service{
-  use generic-service
-  host_name client1-windows
+  use                 generic-service
+  host_name           client1-windows
   service_description Disk Space
-  check_command check_nt!USEDDISKSPACE!-l c -w 80 -c 90
+  check_command       check_nt!USEDDISKSPACE!-l c -w 80 -c 90
 }
 
 define service{
-  use generic-service
-  host_name client1-windows
+  use                 generic-service
+  host_name           client1-windows
   service_description Mem Use
-  check_command check_nt!MEMUSE!-w 80 -c 90
+  check_command       check_nt!MEMUSE!-w 80 -c 90
 }
 
 define service{
-  use generic-service
-  host_name client1-windows
+  use                 generic-service
+  host_name           client1-windows
   service_description Proc State Explorer
-  check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
+  check_command       check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
 }
 
 define service{
-  use generic-service
-  host_name client1-windows
+  use                 generic-service
+  host_name           client1-windows
   service_description NSClient++ Version
-  check_command check_nt!CLIENTVERSION
+  check_command       check_nt!CLIENTVERSION
 }
 
 define service{
-  use generic-service
-  host_name client1-windows
+  use                 generic-service
+  host_name           client1-windows
   service_description Uptime
-  check_command check_nt!UPTIME
+  check_command       check_nt!UPTIME
 }
 ```
 
@@ -489,8 +530,7 @@ check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
 ##A.3 Configuraciones de ejemplo
 
 ```
-#Define leela server
-define host{
+efine host{
 host_name leela
 alias Servidor LEELA
 address 192.168.1.3
