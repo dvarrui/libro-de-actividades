@@ -530,7 +530,7 @@ check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
 ##A.3 Configuraciones de ejemplo
 
 ```
-efine host{
+define host{
 host_name leela
 alias Servidor LEELA
 address 192.168.1.3
