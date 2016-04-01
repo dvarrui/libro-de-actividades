@@ -39,11 +39,14 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 
 ##4.2 Instalar OwnCloud
 
-Instalación del servidor OwnCloud para Debian7:
-* Añadimos un nuevo repositorio con el paquete que queremos instalar: 
-    * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
-* Actualizamos la lista de repositorios: `apt-get up...`
-* Instalamos el paquete: `apt-get .... owncloud`
+> **Instalación del servidor OwnCloud para Debian7**
+>
+> * Añadimos un nuevo repositorio con el paquete que queremos instalar: 
+>     * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
+> * Actualizamos la lista de repositorios: `apt-get up...`
+> * Instalamos el paquete: `apt-get .... owncloud`
+
+* Elegir una MV con OpenSUSE13.2 para instalar OwnCloud Server.
 * Abrimos un navegador web, y ponemos en el URL "http://localhost/owncloud"
 * Creamos nuestro usuario/clave
 * Subiremos algunos archivos al servidor.
@@ -54,8 +57,9 @@ Instalación del servidor OwnCloud para Debian7:
 
 #5. OwnCloud Desktop Client
 
-Si instalamos el sofware cliente de OwnCloud en otra máquina podremos 
-comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
+* Ir a una MV con Windows 7.
+* Instalar el sofware cliente de OwnCloud.
+* Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
 #ANEXO
 * [BTSync: Clone Dropbox with a Raspberry Pi and BTSync](http://reustle.io/blog/btsync-pi)
