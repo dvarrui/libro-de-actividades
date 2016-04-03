@@ -1,7 +1,7 @@
 
-*(Este documento es un borrador. NO está acabado, ni revisado)*
-
-*Marzo 2016*
+```
+Creado en Marzo 2016 para el curso1516
+```
 
 #Configuraciones de las máquinas virtuales
 
