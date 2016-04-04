@@ -40,7 +40,9 @@ ping 8.8.4.4
 >
 > Una vez instalado el SO Windows 7 disponemos de unos 30 días trabajar con el sistema,
 antes de que pase al estado *"Copia ilegal"*.
+>
 > Al finalizar este plazo de tiempo podemos:
+>
 > 1. Activar el SO introduciendo un código de activación válido.
 > 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`. 
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
