@@ -109,7 +109,7 @@ define host{
   hostgroups      GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
   icon_image      cook/NOMBRE_IMAGEN.png
   statusmap_image cook/NOMBRE_IMAGENrouter.png
-  #parent
+  #parents
 
   check_command      check-host-alive
   check_interval     5
@@ -127,7 +127,7 @@ define host{
 > * hostgroups: Grupos a los que pertenece
 > * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
-> * parent: Nombre del equipo padre o anterior. 
+> * parents: Nombre del equipo padre o anterior. 
 
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
