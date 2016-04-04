@@ -319,7 +319,7 @@ La configuración que utilizaremos será la siguiente:
 ```
     [/modules]
     ; habilitamos el uso de NRPE
-    NRPEServer = 1
+    NRPEServer=1
 
     ; habilitamos plugins a utilizar
     CheckSystem=1
@@ -334,7 +334,7 @@ La configuración que utilizaremos será la siguiente:
 
     [/settings/default]
     ; permitimos el acceso al servidor Nagios para las consultas.
-    allowed hosts = IP_DEL_SERVIDOR
+    allowed hosts=IP_DEL_SERVIDOR
 
 ```
 
