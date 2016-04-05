@@ -21,11 +21,14 @@ Configuración de la máquina Windows 7 Professional:
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
 * Tarjeta de red VBox en modo puente.
-* Instalación del servidor SSH en windows7:
-    * [FreeSSHD en Windows7](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
-    * [OpenSSH en Windows7](http://wiki.elhacker.net/redes/windows/instalacion-y-configuracion-de-un-servidor-ssh-en-windows)
-    * [OpenSSH en Windows7](http://linuxbsdos.com/2015/01/17/how-to-install-the-latest-openssh-on-windows-7-and-windows-8/)
-    * [Cygwin+SSH server en Windows7](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
+* Instalación del servidor Telnet en windows7:
+    * Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
+    * Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
+        * `Automático`->`Aplicar`
+        * `Iniciar`->`Aceptar`
+    * Crear usuario `profesor` dentro de los grupos `Administradores` y `TelnetClients`.
+    * Clave de `profesor` conocida por el alumno y el profesor.
+    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 Capturar imágenes de las configuraciones.
 ```
@@ -168,3 +171,17 @@ host www.iespuertodelacruz.es
 ping 8.8.4.4
 blkid
 ```
+
+#ANEXO
+
+* Instalación del servidor SSH en windows7:
+    * [FreeSSHD en Windows7](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
+    * [OpenSSH en Windows7](http://wiki.elhacker.net/redes/windows/instalacion-y-configuracion-de-un-servidor-ssh-en-windows)
+        * Instalar Firefox
+        * [Descargar el instalador](https://sourceforge.net/projects/sshwindows/files/OpenSSH%20for%20Windows%20-%20Release/3.8p1-1%2020040709%20Build/setupssh381-20040709.zip/download)
+        * Descomprimir y ejecutar.
+        
+    * [OpenSSH en Windows7](http://linuxbsdos.com/2015/01/17/how-to-install-the-latest-openssh-on-windows-7-and-windows-8/)
+    * [Cygwin+SSH server en Windows7](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
+
+
