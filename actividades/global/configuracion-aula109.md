@@ -22,12 +22,13 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
 * Tarjeta de red VBox en modo puente.
 * Instalación del servidor Telnet en windows7:
-    * Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
-    * Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
+    * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
+    * Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
         * `Automático`->`Aplicar`
         * `Iniciar`->`Aceptar`
-    * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
-    * Clave de `sysadmingame` conocida por el alumno y el profesor.
+    * Usuario/clave
+       * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
+       * Clave de `sysadmingame` conocida por el alumno y el profesor.
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 Capturar imágenes de las configuraciones.
