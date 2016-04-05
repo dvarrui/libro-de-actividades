@@ -26,8 +26,8 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
     * Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
         * `Automático`->`Aplicar`
         * `Iniciar`->`Aceptar`
-    * Crear usuario `profesor` dentro de los grupos `Administradores` y `TelnetClients`.
-    * Clave de `profesor` conocida por el alumno y el profesor.
+    * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
+    * Clave de `sysadmingame` conocida por el alumno y el profesor.
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 Capturar imágenes de las configuraciones.
