@@ -47,11 +47,14 @@ es de 90 días.
 
 ### Servidor Telnet en windows7:
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
+
+![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
+
 * Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
     * `Automático`->`Aplicar`
     * `Iniciar`->`Aceptar`
         
-![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
+![w7-iniciar-servicio-telnet.png](./images/w7-iniciar-servicio-telnet.png)
 
 * Usuario/clave
    * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
