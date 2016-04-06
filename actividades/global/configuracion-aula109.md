@@ -45,7 +45,7 @@ Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO ante
 es de 90 días.
 >
 
-### Instalación del servidor Telnet en windows7:
+### Servidor Telnet en windows7:
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 * Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
     * `Automático`->`Aplicar`
