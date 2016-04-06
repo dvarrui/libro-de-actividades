@@ -63,6 +63,9 @@ es de 90 días.
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
 * Comprobamos dede la máquina real con `telnet IP-HOST-WINDOWS`.
+
+![w7-telnet.png](./images/w7-telnet.png)
+
 * Enlaces de interés:
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
