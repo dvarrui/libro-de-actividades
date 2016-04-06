@@ -21,22 +21,7 @@ Configuración de la máquina Windows 7 Professional:
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
 * Tarjeta de red VBox en modo puente.
-
-* Instalación del servidor Telnet en windows7:
-    * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
-    * Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
-        * `Automático`->`Aplicar`
-        * `Iniciar`->`Aceptar`
-        
-![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
-
-    * Usuario/clave
-       * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
-       * Clave de `sysadmingame` conocida por el alumno y el profesor.
-
-![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
-
-    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
+* Instalar el servidor Telnet (consultar más abajo)
 
 Capturar imágenes de las configuraciones.
 ```
@@ -59,6 +44,23 @@ antes de que pase al estado *"Copia ilegal"*.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 90 días.
 >
+
+### Instalación del servidor Telnet en windows7:
+* Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
+* Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
+    * `Automático`->`Aplicar`
+    * `Iniciar`->`Aceptar`
+        
+![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
+
+* Usuario/clave
+   * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
+   * Clave de `sysadmingame` conocida por el alumno y el profesor.
+
+![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
+
+* Enlaces de interés:
+    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 ##2. Configuración Windows 2008 Server
 
