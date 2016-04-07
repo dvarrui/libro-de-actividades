@@ -48,6 +48,7 @@ Además se instalará un servidor web.
     * Comprobación `service nagios3 status`
     * Comprobación `netstat -ntap`.
     * Comprobación `nmap localhost`.
+    * Consultar log `var/log/nagios3/nagios.log`.
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
     * Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos 
     interactuar con el programa de monitorización.
@@ -120,7 +121,7 @@ define host{
 ```
 
 > Fijarse en todos los parámetros anteriores y preguntar las dudas.
-> * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+> * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html) 
 > * host_name: Nombre del host
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
@@ -132,6 +133,7 @@ define host{
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
     * Pista `service nagios...`
+    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Servidores
@@ -142,6 +144,7 @@ incluir las definiciones de las máquinas de tipo servidor.
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
     * Pista `service ...`
+    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Clientes
@@ -164,6 +167,7 @@ define host{
 * Reiniciamos Nagios para que coja los cambios
     * Pista `service nagios3...`
     * Comprobación: `service nagios3 status`
+    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 #4 Ver algunos ejemplos
@@ -285,10 +289,9 @@ define service{
   service_description Carga actual
   check_command       check_nrpe_1arg!check_load
 }
-```
+``` 
 
 * Consultar el estado de los servicios monitorizados por Nagios.
-
 
 #6. Agente Nagios en Windows
 
@@ -328,40 +331,42 @@ Además los plugins se llaman con nombres de ejecutables diferentes
 GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
 * Enlaces de interés:
-    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html) 
 * La configuración que utilizaremos será la siguiente:
+
 ```
-    [/settings/default]
-    ;Desactivar el password
-    ;passowrd=
+[/settings/default]
+;Desactivar el password
+;password=
     
-    ; permitimos el acceso al servidor Nagios para las consultas.
-    allowed hosts=IP_DEL_SERVIDOR
+; permitimos el acceso al servidor Nagios para las consultas.
+allowed hosts=IP_DEL_SERVIDOR
 
-    [/settings/NRPE/server]
-    ssl options = no-sslv2, no-sslv3
-    verify mode = none
-    insecure = true
+[/settings/NRPE/server]
+ssl options = no-sslv2, no-sslv3
+verify mode = none
+insecure = true
 
-    [/modules]
-    ; habilitamos el uso de NRPE
-    NRPEServer=1
+[/modules]
+; habilitamos el uso de NRPE
+NRPEServer=1
 
-    ; habilitamos plugins a utilizar
-    CheckSystem=1
-    CheckDisk=1
-    CheckExternalScripts=1
+; habilitamos plugins a utilizar
+CheckSystem=1
+CheckDisk=1
+CheckExternalScripts=1
 
-    ; creamos los mismos alias que en la definición del host Linux, y agregamos un alias para chequear servicios
-    [/settings/external scripts/alias]
-    ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
-    check_load=CheckCpu MaxWarn=80 time=5m 
+[/settings/external scripts/alias]
+
+; creamos los mismos alias que en la definición del host Linux, y agregamos un alias para chequear servicios
+; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
+check_load=CheckCpu MaxWarn=80 time=5m 
     
-    ; alias para chequear el espacio en todos los discos del servidor
-    check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5% 
+; alias para chequear el espacio en todos los discos del servidor
+check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5% 
 
-    ; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
-    check_firewall_service=CheckServiceState MpsSvc
+; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
+check_firewall_service=CheckServiceState MpsSvc
 
 ```
 
