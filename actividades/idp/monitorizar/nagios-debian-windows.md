@@ -315,8 +315,21 @@ Además los plugins se llaman con nombres de ejecutables diferentes
 > Así es posible realizar grupos de hosts que incluyan tanto servidores 
 GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
-La configuración que utilizaremos será la siguiente:
+* Enlaces de interés:
+    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+* La configuración que utilizaremos será la siguiente:
 ```
+    [/settings/default]
+    ;Desactivar el password
+    
+    ; permitimos el acceso al servidor Nagios para las consultas.
+    allowed hosts=IP_DEL_SERVIDOR
+
+    [/settings/NRPE/server]
+    ssl options = no-sslv2, no-sslv3
+    verify mode = none
+    insecure = true
+
     [/modules]
     ; habilitamos el uso de NRPE
     NRPEServer=1
@@ -328,13 +341,14 @@ La configuración que utilizaremos será la siguiente:
 
     ; creamos los mismos alias que en la definición del host Linux, y agregamos un alias para chequear servicios
     [/settings/external scripts/alias]
-    check_load=CheckCpu MaxWarn=80 time=5m ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
-    check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5% ; alias para chequear el espacio en todos los discos del servidor
-    check_firewall_service=CheckServiceState MpsSvc; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
+    ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
+    check_load=CheckCpu MaxWarn=80 time=5m 
+    
+    ; alias para chequear el espacio en todos los discos del servidor
+    check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5% 
 
-    [/settings/default]
-    ; permitimos el acceso al servidor Nagios para las consultas.
-    allowed hosts=IP_DEL_SERVIDOR
+    ; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
+    check_firewall_service=CheckServiceState MpsSvc
 
 ```
 
