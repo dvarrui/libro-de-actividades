@@ -358,7 +358,6 @@ CheckExternalScripts=1
 
 [/settings/external scripts/alias]
 
-; creamos los mismos alias que en la definición del host Linux, y agregamos un alias para chequear servicios
 ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
 check_load=CheckCpu MaxWarn=80 time=5m 
     
