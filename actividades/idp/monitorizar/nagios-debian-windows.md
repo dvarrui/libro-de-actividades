@@ -211,15 +211,24 @@ En el cliente:
     * Pista: `apt-get ... `
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
+> En el **CURSO1617** usaremos fichero nrpe_local.cfg
+
 ```
-server_port=5666              # define en qué puerto (TCP) escuchará el agente. 
-                              # Por defecto es el 5666. 
-server_address=IP_DEL_CLIENTE # indica en qué dirección IP escuchará el agente, 
-                              # en caso que la MV posea más de una IP.
-allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR # define qué IPs tienen permitido conectarse al agente en busca de datos. 
-                                        # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
-dont_blame_nrpe=0      # Esta variable indica que NO se permite que el agente 
-                       # reciba comandos con parámetros poe seguridad.
+ # define en qué puerto (TCP) escuchará el agente. 
+ # Por defecto es el 5666. 
+server_port=5666
+
+ # indica en qué dirección IP escuchará el agente,                              
+ # en caso que la MV posea más de una IP.
+server_address=IP_DEL_CLIENTE 
+
+ # define qué IPs tienen permitido conectarse al agente en busca de datos. 
+ # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
+allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR
+
+ # Esta variable indica que NO se permite que el agente 
+ # reciba comandos con parámetros poe seguridad.
+dont_blame_nrpe=0 
 
  # alias check_user para obtener la cantidad de usuarios logueados 
  # y alertar si hay más de 5 logueados al mismo tiempo.
@@ -232,6 +241,8 @@ command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
  # y alertar si queda menos de 20% de espacio en alguna partición.
 command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda 
 
+
+command[check_procs]=...
 ```
 
 * Reiniciar el servicio en el cliente: 
@@ -286,10 +297,8 @@ define service{
 * Descargar el programa Agente Windows (NSCLient++)
     * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
     * [http://www.nagios.org/download/addons](http://www.nagios.org/download/addons).
-* Instalar el programa nsclient activando las opciones:
-    * `common check plugins`
-    * `nsclient server` y 
-    * `NRPE server`.
+* Instalar el programa nsclient.
+    * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`
 
 > * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
 Windows y el servidor Nagios.
@@ -297,8 +306,11 @@ Windows y el servidor Nagios.
 instalación del programa con las opciones por defecto sin preguntarnos.
 
 * Servicio `Agente Nagios` en el cliente
-    * `net start nsclient` para iniciar el servicio del agente.
-    * `net stop nsclient` para parar el servicio del agente. 
+    * Por entorno gráfico:
+        * Ir a `Equipo -> Administrar -> Servicios -> Nagios -> Reiniciar`.
+    * Por comandos:
+        * `net start nsclient` para iniciar el servicio del agente.
+        * `net stop nsclient` para parar el servicio del agente. 
 
 ##6.2 Configurar el cliente2
 
@@ -321,6 +333,7 @@ GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 ```
     [/settings/default]
     ;Desactivar el password
+    ;passowrd=
     
     ; permitimos el acceso al servidor Nagios para las consultas.
     allowed hosts=IP_DEL_SERVIDOR
