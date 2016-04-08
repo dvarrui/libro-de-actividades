@@ -1,11 +1,18 @@
 
+```
+Utilizada en los cursos 201415 y 201314
+Modificada en el curso 201516 para usar OpenSUSE13.2
+``` 
+
 #1. Entrega
 
 * Apartado 2:
     * Trabajo individual.
     * Vídeo que muestre la práctica en funcionamiento.
 * Apartados 4 y 5:
-    * Trabajar en parejas.
+    * Colaborar con otro compañero.
+        * Montar nuestro servidor para que lo use el compañero.
+        * Usar el servidor de otro compañero.
     * Entregar un informe de los pasos realizados
 
 #2. Nube ajena
@@ -33,11 +40,13 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 #4. OwnCloud Server
 
 ##4.1 Enlaces de interés:
-* Descarga e instalación de paquetes para GNU/Linux
-* Crea tu propio servidor de datos en la nube con owncloud
-* http://hipertextual.com/archivo/2014/10/owncloud/
 
-##4.2 Instalar OwnCloud
+Descarga e instalación de paquetes para GNU/Linux, y crea tu propio 
+servidor de datos en la nube con owncloud
+
+Enlaces de interés:
+* [OwnCloud en OpenSuse13.2](https://www.howtoforge.com/owncloud-install-on-opensuse-13.2)
+* [OwnCloud en Debian/Ubuntu](http://hipertextual.com/archivo/2014/10/owncloud/)
 
 > **Instalación del servidor OwnCloud para Debian7**
 >
@@ -46,7 +55,10 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 > * Actualizamos la lista de repositorios: `apt-get up...`
 > * Instalamos el paquete: `apt-get .... owncloud`
 
+##4.2 Instalar OwnCloud
+
 * Elegir una MV con OpenSUSE13.2 para instalar OwnCloud Server.
+    * [OwnCloud en OpenSuse13.2](https://www.howtoforge.com/owncloud-install-on-opensuse-13.2)
 * Abrimos un navegador web, y ponemos en el URL "http://localhost/owncloud"
 * Creamos nuestro usuario/clave
 * Subiremos algunos archivos al servidor.
