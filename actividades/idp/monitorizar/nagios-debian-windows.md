@@ -411,8 +411,8 @@ define service{
 
 #7. Monit en el Servidor
 
-* Instalar Monit en MV Debian1
-* Hacer copia de seguridad al fichero `/etc/monit/monitrc`.
+* Instalar Monit en MV Debian1.
+* Renombrar el fichero `/etc/monit/monitrc` a `/etc/monit/monitrc.bak`.
 * Copiar el fichero de ejemplo proporcionado por el profesor a la ruta `/etc/monit/monitrc`.
 * Veamos un ejemplo:
 
@@ -456,7 +456,7 @@ define service{
 * Reiniciar el servicio: /etc/init.d/monit restart
 * Comprobar la lectura de datos de monit vía comandos: `monit status`
 * Comprobar la lectura de datos de monit vía GUI. 
-    * Abrir un navegador web en la propia máquina, y poner URL "http://localhost:2812". 
+    * Abrir un navegador web en la propia máquina, y poner URL `http://localhost:2812`. 
     * Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
 * Capturar pantalla.
 
