@@ -417,39 +417,39 @@ define service{
 * Veamos un ejemplo:
 
 ```
-    # Fichero /etc/monit/monirc de ejemplo
-    # config general
-    set daemon 120
-    set logfile /var/log/monit.log
-    set mailserver localhost
+ # Fichero /etc/monit/monirc de ejemplo
+ # config general
+set daemon 120
+set logfile /var/log/monit.log
+set mailserver localhost
 
-    # Plantilla de email que se envía en las alertas
-    set alert nombreusuarios@correousuario.com
-    set mail-format {
-      from: ALUMNO@EMAIL.ES
-      subject: $SERVICE $EVENT at $DATE
-      message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
-      Yours sincerely, monit
-    }
+ # Plantilla de email que se envía en las alertas
+set alert nombreusuarios@correousuario.com
+set mail-format {
+  from: ALUMNO@EMAIL.ES
+  subject: $SERVICE $EVENT at $DATE
+  message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
+  Yours sincerely, monit
+}
 
-    set httpd port 2812 and use address localhost
-    allow NOMBRE_ALUMNO:CLAVE_ALUMNO
+set httpd port 2812 and use address localhost
+allow NOMBRE_ALUMNO:CLAVE_ALUMNO
 
-    # Monitorizar los recursos del sistema
-    check system localhost
-    if loadavg (1min) > 4 then alert
-    if loadavg (5min) > 2 then alert
-    if memory usage > 75% then alert
-    if cpu usage (user) > 70% then alert
-    if cpu usage (system) > 30% then alert
-    if cpu usage (wait) > 20% then alert
+ # Monitorizar los recursos del sistema
+check system localhost
+if loadavg (1min) > 4 then alert
+if loadavg (5min) > 2 then alert
+if memory usage > 75% then alert
+if cpu usage (user) > 70% then alert
+if cpu usage (system) > 30% then alert
+if cpu usage (wait) > 20% then alert
 
-    # Monitorizar el servicio NAGIOS
-    check process nagios3 with pidfile /var/run/nagios3.pid
-    start program "service nagios3 start"
-    stop program  "service nagios3 stop"
-    if failed port 2812 protocol nagios3 then restart
-    if 5 restarts within 5 cycles then timeout
+ # Monitorizar el servicio SSH
+check process sshd with pidfile /var/run/sshd.pid
+start program "service sshd start"
+stop program  "service sshd stop"
+if failed port 22 protocol ssh then restart
+if 5 restarts within 5 cycles then timeout
 ```
 
 * Modificar el fichero /etc/monit/monitrc para adaptarlo a nuestra máquina.
