@@ -61,5 +61,5 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 ##A.1 iSCSI en Debian
 
 Enlaces de interés:
-* iSCSI - Using iSCSI (target and initiator) on Debian
-* TARGET - Create targer iSCSI on Debian
+* iSCSI - [Using iSCSI (target and initiator) on Debian](https://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target).
+* TARGET - [Create targer iSCSI on Debian](https://wiki.debian.org/SAN/iSCSI/iscsitarget). 
