@@ -89,16 +89,17 @@ Thanks for using MariaDB!
 
 ##3.3 Comprobar vía web
 
+
+* Para permitir desde otros equipos añadimos la IP del servidor a las opciones 
+`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
+
+![owncloud-config-php](./files/owncloud-config-php.png)
+
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
 
-> **IMPORTANTE**
->
-> * Hemos conseguido habilitar el acceso web a nuestro servidor ownCloud desde localhost. 
-> * Para permitir el acceso web desde otros equipos añadimos la IP a las opciones 
-`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
 
 #4. OwnCloud Desktop Client
 
