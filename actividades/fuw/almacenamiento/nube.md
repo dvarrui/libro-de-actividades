@@ -94,9 +94,11 @@ Thanks for using MariaDB!
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
 
-> Hemos conseguido habilitar el acceso web a nuestro servidor ownCloud desde localhost. 
-> Para permitir el acceso web desde otros equipos añadimos la IP del servidor a las opciones 
-"trusted_domains" dentro del fichero de configuración "/var/www/owncloud/config/config.php".
+> **IMPORTANTE**
+>
+> * Hemos conseguido habilitar el acceso web a nuestro servidor ownCloud desde localhost. 
+> * Para permitir el acceso web desde otros equipos añadimos la IP a las opciones 
+`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
 
 #4. OwnCloud Desktop Client
 
