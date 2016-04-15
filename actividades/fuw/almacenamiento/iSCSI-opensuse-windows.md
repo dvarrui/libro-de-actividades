@@ -9,7 +9,7 @@
 
 Vamos a montar un iSCSI con Windows Server.
 
-Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/cfiguracion-aual109.md)).
+Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion-aula109.md)).
 * MV1: Esta MV actuará de "Initiator" . 
     * Con dos interfaces de red. 
     * Una en modo puente (172.19.XX.21) y la otra en red interna (192.168.XX.1). (Iniciador iSCSI).
@@ -36,7 +36,7 @@ permitir que funcione la respuesta al comando ping.
 #2. iSCSI en OpenSUSE
 
 ##2.1 Objetivo
-Vamos a montar la práctica de iSCSI con OpenSUSE 13.2 (Consultar [configuraciones](../../global/cfiguracion-aual109.md) ).
+Vamos a montar la práctica de iSCSI con OpenSUSE 13.2 (Consultar [configuraciones](../../global/configuracion-aula109.md) ).
 
 Necesitamos 2 MV's.
 * MV1: Esta MV actuará de "Initiator" . 
