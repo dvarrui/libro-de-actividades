@@ -54,7 +54,7 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 
 * Instalar el paquete mariadb. Comprobación `zypper se maridb`.
 * Activar e iniciar el servicio `mysql.service`.
-* Configurar la base de datos ejecutando el comando `mysql_secure_installation`
+* Configurar la seguridad con el comando `mysql_secure_installation`
 
 ```
 * Enter current password for root (enter for none): <--ENTER
@@ -89,8 +89,7 @@ Thanks for using MariaDB!
 
 ##3.3 Comprobar vía web
 
-
-* Para permitir desde otros equipos añadimos la IP del servidor a las opciones 
+* Para permitir desde otros equipos tenemos que añadir la IP del servidor a las opciones 
 `trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
@@ -99,7 +98,6 @@ Thanks for using MariaDB!
 * Usamos nuestro usuario/clave administrador.
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
-
 
 #4. OwnCloud Desktop Client
 
