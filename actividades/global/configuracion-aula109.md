@@ -173,7 +173,7 @@ Para que el comando hostname funcione bien.
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
     `PermitRootLogin yes`.
     * Reiniciar el servicio: `service ssh restart`
-    
+
 Capturar imágen de la configuración del equipo:
 ```
 date
@@ -188,6 +188,50 @@ host www.iespuertodelacruz.es
 ping 8.8.4.4
 blkid
 ```
+
+##4.1 Ficheros de configuración Debian/Ubuntu
+
+En máquinas Debian/Ubuntu podemos cambiar la configuración de red, 
+modificando el fichero `/etc/network/interfaces`.
+
+Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+  address 172.16.108.240
+  netmask 255.255.0.0
+  gateway 172.16.1.1
+  dns-nameservers 172.16.108.40 172.16.1.1
+  dns-search vargas1w.idp vargas1w
+  dns-domain vargas1w.idp
+
+auto eth1
+iface eth1 inet dhcp
+```
+
+Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
+```
+sudo rm /etc/resolv.conf
+sudo dpkg-reconfigure resolvconf
+```
+
+##4.2 Instalar las Guest Addittions
+
+Antes de intalar las Guest Additions, es  mejor verificar que no hace falta.
+Si la ventana de la MV se redimensiona bien, funciona el pendrive, y las carpetas compartidas
+con el host anfitrión, entonces no hace falta instalar nada.
+
+En caso contrario haremos:
+* Ubuntu: Ir a VBox -> Dispositivos -> Instalar.
+* Debian/LUbuntu:
+    * Ir a VBox -> Dispositivos -> Instalar.
+    * Abrir consola como super usuario: `apt-get -y install make gcc linux-headers-$(uname -r)`.
+    * Una vez terminada la instalación comprobar que no aparecen mensajes de error.
+    * Buscar donde está montado VBOXADDITIONS (`df -hT`), y moverse a dicho directorio.
+    * Ejecutar el programa de instalación para linux: `./VBoxLinuxAddittions.run`
 
 #ANEXO
 
