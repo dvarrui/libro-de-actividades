@@ -76,7 +76,8 @@ Configuración de la máquina Windows 2008 Server Professional:
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.22, 172.19.XX.23, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.19.0.1`
-    * Servidor DNS: `8.8.4.4`
+    * Servidor DNS1: `127.0.0.1`
+    * Servidor DNS2: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumno+XXs`.
     * Por ejemplo: vargas30s.
     * El nombre NetBIOS sólo puede tener 16 caractéres.
@@ -84,6 +85,7 @@ Configuración de la máquina Windows 2008 Server Professional:
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
+* Nombre de dominio: `primer-apellido-del-alumno+XXs.curso1516`.
 * Tarjeta de red VBox en `modo puente`.
 
 Capturar imágenes de las configuraciones.
