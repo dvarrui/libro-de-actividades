@@ -85,7 +85,7 @@ Configuración de la máquina Windows 2008 Server Professional:
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
-* Nombre de dominio: `primer-apellido-del-alumno+XXs.curso1516`.
+* Nombre de dominio: `aXXc1516`.
 * Tarjeta de red VBox en `modo puente`.
 
 Capturar imágenes de las configuraciones.
