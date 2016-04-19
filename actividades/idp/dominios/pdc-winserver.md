@@ -5,13 +5,12 @@
 #0. Introducción
 
 * En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Servidor Windows 2008.
-* Leer/consultar la documentación de la unidad y el enlace de interés 
-[Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
+* Leer/consultar la documentación de la unidad.
 * Realizaremos las prácticas en MV's que pueden estar o no en el mismo PC.
      
 #1. Configuración inicial
 
-* Necesitamos una MV con Windows 2008 Server Enterprise (Consultar [configuración](../../global/configuraion-aula109.md)).
+* Necesitamos una MV con Windows 2008 Server Enterprise (Consultar [configuración](../../global/configuracion-aula109.md)).
 
 > **NOTA**
 >
@@ -71,6 +70,7 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 * Enlace de interés:
     * [Definiciones de ámbito local, global y universal](https://msdn.microsoft.com/es-es/library/cc755692%28v=ws.10%29.aspx) 
     * [Deshabilitar políticas de clave en Windows 2008 Server](http://www.radians.com.ar/blog/?p=403)  
+    * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
 * Crear el grupo (tipo global) JEDI con los siguientes usuarios de dominio: "yoda,", "obiwan" y "quigon". No confundir usuarios locales con usuarios del dominio.
 * Crear el grupo (tipo global) SITH con los siguientes usuarios de dominio: "emperador", "vader" y "maul".
