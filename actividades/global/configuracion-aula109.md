@@ -71,7 +71,7 @@ es de 90 días.
 
 ##2. Configuración Windows 2008 Server
 
-Configuración de la máquina Windows 2008 Server Professional:
+Configuración de la máquina Windows 2008 Server Enterprise:
 * IP: `172.19.XX.21` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.22, 172.19.XX.23, etc.
     * Máscara de red: `255.255.0.0`
