@@ -202,9 +202,9 @@ perfiles-en-cliente
 
 #6. Perfiles obligatorios
 
-* Enlace de interés: [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400)
-* Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA)
-
+* Enlaces de interés:
+    * [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400).  
+    * Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA). 
 * Convertir el perfil móvil del  Sith Maul, a perfil obligatorio. 
 * Comprobar que ahora el perfil no cambia.
 
