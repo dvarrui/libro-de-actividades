@@ -55,13 +55,15 @@ Veamos imagen del comando `dcpromo` en ejecución:
 
 * Se inicia el asistente de configuración de los servicios del dominio de AD. Ponemos los
 siguientes valores:
-    * Modo experto => NO
-    * Crear un dominio nuevo de un bosque nuevo => SI
-    * FQDN del dominio => `NOMBRE_DEL_SERVIDOR.NOMBRE_DE_DOMINIO`
-    * Nivel funcional del bosque => Windows Server 2008
-    * Servidor DNS => SI
-    * Carpetas de almacenamiento => Dejar valores por defecto.
-    * Al terminar reiniciar el sistema.
+```
+* Modo experto => NO
+* Crear un dominio nuevo de un bosque nuevo => SI
+* FQDN del dominio => `NOMBRE_DEL_SERVIDOR.NOMBRE_DE_DOMINIO`
+* Nivel funcional del bosque => Windows Server 2008
+* Servidor DNS => SI
+* Carpetas de almacenamiento => Dejar valores por defecto.
+* Al terminar reiniciar el sistema.
+``` 
 
 Vemos imagen, donde podemos comprobar que se han instalado varias "funciones" para controlar el dominio:
 
