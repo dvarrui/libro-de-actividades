@@ -89,16 +89,19 @@ Vemos imagen con los usuarios del dominio creados:
 
 #4. Equipos del dominio
 
-* MV's CLIENTES: 
-    * Necesitaremos 2 MV's con Windows 7 profesional, que actuarán de clientes o equipos del dominio.
-    * Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para 
-    no tener problemas de conectividad por tarjetas de red duplicadas.
-    * [Configuración de las MVs](../../global/configuracion-aula109.md).
-* FECHA/HORA
-    * Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj. 
-    No puede haber diferencias de más de 5 minutos.
-* RED: 
-    * Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
+```
+MV's CLIENTES: 
+* Necesitaremos 2 MV's con Windows 7 profesional, que actuarán de clientes o equipos del dominio.
+* Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para 
+  no tener problemas de conectividad por tarjetas de red duplicadas.
+
+FECHA/HORA
+* Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj. 
+  No puede haber diferencias de más de 5 minutos.
+
+RED: 
+* Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
+``` 
 
 * Ahora vamos a unir el equipo cliente al dominio. 
     * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
