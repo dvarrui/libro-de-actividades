@@ -103,7 +103,8 @@ RED:
 * Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
 ``` 
 
-* Ahora vamos a unir el equipo cliente al dominio. 
+* [Configurar las MVs](../../global/configuracion-aula109.md))
+* Unir el equipo cliente al dominio. 
     * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
 
 Veamos imagen de ejemplo:
@@ -135,7 +136,7 @@ Comprobar que podemos entrar en los equipos cliente ("kenobi2a" y "kenobi2b") us
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
-* Comprobar en el PDC que aparecen los equipos "kenobi2a" y "kenobi2b" como equipos del dominio.
+* Comprobar en el PDC que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
 
@@ -182,7 +183,7 @@ Permisos lectura/escritura para todos los usuarios del dominio.
 
 [pdc-perfiles](./files/pdc-perfiles.png)
 
-##5.3 Limpiar el equipo cliente:
+##5.3 Limpiar el equipo cliente
 
 * Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
 
@@ -195,21 +196,21 @@ Ver imagen de ejemplo:
 
 perfiles-en-cliente
 
-    Ahora ya podemos entrar en los equipos "KENOBI2A" y "KENOBI2B", con los usuarios del dominio, y comprobaremos que tenemos perfiles móviles para todos.
-    [NOTA] El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
-    En este momento los usuarios "emperador", "vader" y "maul", comparten la misma configuración.
+* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul)
+* Comprobar que tenemos perfiles móviles para ellos.
 
+> El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
 
 #6. Perfiles obligatorios
 
-Vídeo: "Usuario con perfil obligatorio Windows Server 2008":
+* Enlace de interés: [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400)
+* Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA)
 
-
-    Convertir el perfil móvil de todos los SITH, a perfil obligatorio. Comprobar que ahora el perfil no cambia.
-    Enlace de interés: Crear perfil obligatorio dando los permisos adecuados
+* Convertir el perfil móvil del  Sith Maul, a perfil obligatorio. 
+* Comprobar que ahora el perfil no cambia.
 
 #7. Control de tiempo
-Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
 
-    Los "jedi" sólo pueden acceder de 08:00 a 14:00 y
-    Los "sith" sólo pueden acceder de 14:00 a 20:00
+* Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
+    * Los "jedi" sólo pueden acceder de 08:00 a 14:00 y
+    * Los "sith" sólo pueden acceder de 14:00 a 20:00
