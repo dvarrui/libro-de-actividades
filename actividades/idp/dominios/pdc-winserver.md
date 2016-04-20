@@ -151,11 +151,11 @@ Material de lectura/estudio/consulta:
 
 * Crear un segundo disco (1GB). Lo usaremos para guardar los perfiles (En la carpeta compartida `E:\perfiles$`).
 
-[pdc-disco-extra](./files/pdc-disco-extra.png)
+![pdc-disco-extra](./files/pdc-disco-extra.png)
 
 * Hay que formatear el disco NTFS y asignarle la letra E.
 
-[pdc-format-extra](./files/pdc-format-extra.png)
+![pdc-format-extra](./files/pdc-format-extra.png)
 
 ##5.2 Crear Perfiles de usuarios:
 
@@ -181,7 +181,7 @@ Permisos lectura/escritura para todos los usuarios del dominio.
 
 * Debemos comprobar que se han creado las carpetas con los perfiles en el servidor.
 
-[pdc-perfiles](./files/pdc-perfiles.png)
+![pdc-perfiles](./files/pdc-perfiles.png)
 
 ##5.3 Limpiar el equipo cliente
 
@@ -189,7 +189,7 @@ Permisos lectura/escritura para todos los usuarios del dominio.
 
 Ver imagen de ejemplo:
 
-[pdc-login-admin-pdc](./files/pdc-login-admin-pdc.png)
+![pdc-login-admin-pdc](./files/pdc-login-admin-pdc.png)
 
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`. 
 * Eliminar las copias de los perfiles locales en el equipo cliente.
