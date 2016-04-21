@@ -80,9 +80,15 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
-* Crear el grupo (tipo global) JEDI con los siguientes usuarios de dominio: `yoda`, y `obiwan`. 
+* Crear el grupo JEDI:
+    * Ámbito global
+    * Tipo Seguridad
+    * Con los siguientes usuarios de dominio: `yoda`, y `obiwan`. 
 * No confundir usuarios locales con usuarios del dominio.
-* Crear el grupo (tipo global) SITH con los siguientes usuarios de dominio: `vader` y `maul`.
+* Crear el grupo SITH: 
+    * Ámbito global
+    * Tipo Seguridad
+    * Con los siguientes usuarios de dominio: `vader` y `maul`.
 
 Vemos imagen con los usuarios del dominio creados:
 
