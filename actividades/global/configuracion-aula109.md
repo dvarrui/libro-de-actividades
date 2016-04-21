@@ -88,7 +88,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Nombre de dominio: `primer-apellido-del-alumno+XXs0.c1516`.
 
 > Para el próximo curso, usaremos este valor...
-> Nombre de dominio: `primer-apellido-del-alumno+XXdom.c1516`.
+> Nombre de dominio: `segundo-apellido-del-alumno+XXdom.c1516`.
 
 * Tarjeta de red VBox en `modo puente`.
 
