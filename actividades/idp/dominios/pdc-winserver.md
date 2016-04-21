@@ -80,9 +80,9 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
-* Crear el grupo (tipo global) JEDI con los siguientes usuarios de dominio: "yoda," y "obiwan". 
+* Crear el grupo (tipo global) JEDI con los siguientes usuarios de dominio: `yoda`, y `obiwan`. 
 * No confundir usuarios locales con usuarios del dominio.
-* Crear el grupo (tipo global) SITH con los siguientes usuarios de dominio: "vader" y "maul".
+* Crear el grupo (tipo global) SITH con los siguientes usuarios de dominio: `vader` y `maul`.
 
 Vemos imagen con los usuarios del dominio creados:
 
@@ -128,8 +128,7 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 
 ##4.2 Comprobaciones
 
-
-Comprobar que podemos entrar en los equipos cliente ("kenobi2a" y "kenobi2b") usando los usuarios del dominio.
+Comprobar que podemos entrar en los equipos cliente usando los usuarios del dominio.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
@@ -163,18 +162,18 @@ Material de lectura/estudio/consulta:
 * En el PDC, crear la carpeta `E:\perfiles$`, como compartida por red. 
 Permisos lectura/escritura para todos los usuarios del dominio.
 * En el PDC, modificar el atributo `perfil` de los siguientes usuarios del dominio:
-    * yoda: \\ip-del-PDC\perfiles$\%username%
-    * obiwan: \\ip-del-PDC\perfiles$\%username%
-    * vader: \\ip-del-PDC\perfiles$\%username%
-    * maul: \\ip-del-PDC\perfiles$\%username%
+    * yoda: `\\ip-del-PDC\perfiles$\%username%`
+    * obiwan: `\\ip-del-PDC\perfiles$\obiwan`
+    * vader: `\\ip-del-PDC\perfiles$\%username%`
+    * maul: `\\ip-del-PDC\perfiles$\maul`
 * Iniciar sesión en CLIENTE1 con los usuarios obiwan y maul. 
 * Para cada usuario modificar el entorno del escritorio, colores, iconos.
 * Para el usuario del dominio obiwan
     * Crear la carpeta jedy en el escritorio
-    * Crear fichero "Escritorio/jedi/personajes.txt". Escribir dentro los nombres de los 2 jedis.
+    * Crear fichero `Escritorio/jedi/personajes.txt`. Escribir dentro los nombres de los 2 jedis.
 * Para el usuario dominio maul
     * Crear la carpeta sith en el escritorio
-    * Crear fichero "Escritorio/sith/personajes.txt". Escribir dentro los nombres de los 2 siths.
+    * Crear fichero `Escritorio/sith/personajes.txt`. Escribir dentro los nombres de los 2 siths.
 
 > De este modo el "perfil" de cada usuario será diferente en aspecto y contenido.
 
