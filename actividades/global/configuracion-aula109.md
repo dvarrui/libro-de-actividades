@@ -85,7 +85,7 @@ Configuración de la máquina Windows 2008 Server Enterprise:
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
-* Nombre de dominio: `primer-apellido-del-alumno+XXs0.aXXc1516`.
+* Nombre de dominio: `primer-apellido-del-alumno+XXdom.c1516`.
 
 > Para el próximo curso, usaremos este valor...
 > Nombre de dominio: `aXXc1516.idp`.
