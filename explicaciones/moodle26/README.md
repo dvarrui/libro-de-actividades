@@ -53,3 +53,20 @@ Para matricular alumnos dentro de nuestro curso Moodle hacemos lo siguiente:
 ##2.3 Olvidé mi clave
 
 ![olvide-mi-clave](./images/olvide-mi-clave.png)
+
+#3. Evaluar/Calificar
+
+Moodle incorpora una herramienta para calificar.
+A continuación veremos unos enlaces a unos vídeos de YouTube, que
+explican cómo adaptar el sistema de calificaciones a nuestras necesidades:
+
+* Vídeo [Moodle -Evaluación 1](https://youtu.be/ByvpAOfncNU?list=PLFBBr-1czYNv70Tz0Q7TKCnkLlFrSQbmt) 
+     * Creamos varias actividades de clase evaluables (tareas).
+* Vídeo [Moodle -Evaluación 2](https://youtu.be/eIECh_c3np4?list=PLFBBr-1czYNv70Tz0Q7TKCnkLlFrSQbmt) 
+     * Creamos un examen como cuestionario con preguntas).
+* Vídeo [Moodle -Evaluación 3](https://youtu.be/dGuWJRdzPEY?list=PLFBBr-1czYNv70Tz0Q7TKCnkLlFrSQbmt) 
+    * Personalizamos nuestro sistema de calificación.
+* Vídeo [Moodle -Evaluación 4](https://youtu.be/P6JPWQuwrmU?list=PLFBBr-1czYNv70Tz0Q7TKCnkLlFrSQbmt) 
+    * Corregimos cada tarea de cada alumno y vemos los resultados.
+    
+    
