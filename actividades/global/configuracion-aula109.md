@@ -5,47 +5,7 @@ Creado en Marzo 2016 para el curso1516
 
 #Configuraciones de las máquinas virtuales
 
-##1. Configuración Windows 7 Professional
-
-Configuración de la máquina Windows 7 Professional:
-* IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.19.XX.12, 172.19.XX.13, etc.
-    * Máscara de red: `255.255.0.0`
-    * Gateway: `172.19.0.1`
-    * Servidor DNS: `8.8.4.4`
-* Nombre de equipo: `primer-apellido-del-alumno+XXw`.
-    * Por ejemplo: vargas30w
-    * El nombre NetBIOS sólo puede tener 16 caractéres.
-    * Si tenemos varias máquinas las llamaremos vargas30w, vargas30x, vargas30y, etc.
-* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-* Grupo de trabajo: `curso1516`
-* Tarjeta de red VBox en modo puente.
-* Instalar el servidor Telnet (consultar más abajo)
-
-Capturar imágenes de las configuraciones.
-```
-date
-ipconfig
-route PRINT
-nslookup www.iespuertodelacruz.es
-ping 8.8.4.4
-``` 
-
-> **Periodo de pruebas**
->
-> Una vez instalado el SO Windows 7 disponemos de unos 30 días trabajar con el sistema,
-antes de que pase al estado *"Copia ilegal"*.
->
-> Al finalizar este plazo de tiempo podemos:
->
-> 1. Activar el SO introduciendo un código de activación válido.
-> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`. 
-Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
-es de 90 días.
->
-
-### Servidor Telnet en windows7:
+##A. Servidor Telnet para Windows7/Windows2008Server:
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
 ![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
@@ -69,6 +29,47 @@ es de 90 días.
 * Enlaces de interés:
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
+
+##1. Configuración Windows 7 Professional
+
+Configuración de la máquina Windows 7 Professional:
+* IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
+    * Si tenemos varias máquinas usaremos las IP 172.19.XX.12, 172.19.XX.13, etc.
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.19.0.1`
+    * Servidor DNS: `8.8.4.4`
+* Nombre de equipo: `primer-apellido-del-alumno+XXw`.
+    * Por ejemplo: vargas30w
+    * El nombre NetBIOS sólo puede tener 16 caractéres.
+    * Si tenemos varias máquinas las llamaremos vargas30w, vargas30x, vargas30y, etc.
+* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+* Grupo de trabajo: `curso1516`
+* Tarjeta de red VBox en modo puente.
+* Instalar el servidor Telnet (consultar más arriba)
+
+Capturar imágenes de las configuraciones.
+```
+date
+ipconfig
+route PRINT
+nslookup www.iespuertodelacruz.es
+ping 8.8.4.4
+``` 
+
+> **Periodo de pruebas**
+>
+> Una vez instalado el SO Windows 7 disponemos de unos 30 días trabajar con el sistema,
+antes de que pase al estado *"Copia ilegal"*.
+>
+> Al finalizar este plazo de tiempo podemos:
+>
+> 1. Activar el SO introduciendo un código de activación válido.
+> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`. 
+Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
+es de 90 días.
+>
+
 ##2. Configuración Windows 2008 Server
 
 Configuración de la máquina Windows 2008 Server Enterprise:
@@ -85,12 +86,9 @@ Configuración de la máquina Windows 2008 Server Enterprise:
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
-* Nombre de dominio: `primer-apellido-del-alumno+XXs0.c1516`.
-
-> Para el próximo curso, usaremos este valor...
-> Nombre de dominio: `segundo-apellido-del-alumno+XXdom.c1516`.
-
+* Nombre de dominio: `segundo-apellido-del-alumno+XXdom.c1516`.
 * Tarjeta de red VBox en `modo puente`.
+* Instalar el servidor Telnet (consultar más arriba)
 
 Capturar imágenes de las configuraciones.
 
