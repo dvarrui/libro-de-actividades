@@ -22,7 +22,18 @@ Creado en Marzo 2016 para el curso1516
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
-* Comprobamos dede la máquina real con `telnet IP-HOST-WINDOWS`.
+* Cuando tenemos un Windows Server con Directorio Activo podemos crear usuarios del dominio,
+pero también usuarios locales. Para crear un usuario local cuando tenemos AD hacemos lo siguiente:
+    * Vamos a `USUARIOS Y EQUIPOS DE ACTIVE DIRECTORY -> USERS`
+    * Hacemos "click" en `CUENTA`y vemos nuestro nombre de usuario y dominio.
+    * Borramos el `Nombre de inicio de sesión`, y se borrará automaticamente el dominio. 
+    * Reiniciamos y ya tenemos el usuario en local y NO en dominio.
+    * Consultar imagen de ejemplo:
+    
+![winserver-usuario-local](./images/winserver-usuario-local.png)
+
+* Comprobamos el acceso al servicio Telnet desde otra máquina 
+(Por ejemplo la máquina real) con `telnet IP-HOST-WINDOWS`.
 
 ![w7-telnet.png](./images/w7-telnet.png)
 
