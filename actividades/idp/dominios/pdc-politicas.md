@@ -1,7 +1,7 @@
 
 ```
 Actividad realizada los cursos: 201415, 201516
-```
+``` 
 
 #1. Políticas o directivas de grupo
 
@@ -13,7 +13,7 @@ Actividad realizada los cursos: 201415, 201516
 Realizar las siguientes tareas:
 
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
-* Crear las OU (Unidades Organizativas) "jedi" y "sith".
+* Crear las OU (Unidades Organizativas) "jedi1516" y "sith1516".
 * Mover los usuarios a su correspondiente OU
 
 > **IMPORTANTE**
@@ -62,8 +62,11 @@ Realizar las siguientes tareas:
 
 * Vamos a crear otro "snapshot" (instantánea) de la máquina virtual.
 * Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
-* Vamos a crear nuestro propio paquete MSI ( Enlace Crear paquetes MSI ).
-    * El programa WinINSTALL lo podemos descargar desde este enlace.
-* Crear política de instalación para nuestro paquete MSI ( Enlace Windows Server 2008 - Crear GPO de despliegue de software )
+* Vamos a crear nuestro propio paquete MSI.
+    * [Crear paquetes MSI](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+    * [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
+* Crear política de instalación para nuestro paquete MSI 
+    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
     * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
-* Crear y probar las directivas del siguiente enlace Windows Server 2008 - Active Directory directivas a usuarios
+* Crear y probar las directivas del siguiente enlace Windows Server 2008
+    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
