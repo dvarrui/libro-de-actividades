@@ -7,15 +7,13 @@
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
-* La práctica de NAS consisten en:
+* Esquema de la práctica:
     * Instalar y configurar NAS.
     * Montar 2 discos para guardar los datos en RAID1.
     * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-        * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
-        * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
+        * Recurso1 compartido de lectura/escritura para el usuario1.
+        * Recurso2 de sólo lectura para el usuario2.
     * Crear usuarios/clave para acceder al repositorio NAS.
-        * Usuario `frodo`.
-        * Usuario `gandalf`.
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 * Elegir solamente, una de las siguientes opciones para realizar la práctica.
 
