@@ -46,7 +46,22 @@ La práctica de NAS consisten en:
     * Usuario `gandalf`.
 * Comprobar el acceso al servdidor NAS desde otra máquina. 
 
-#3. FreeNAS
+#3. Otros NAS
+
+Montar en una MV con otro sistema NAS a elegir por el alumno.
+* Antes de empezar consultar el profesor el NAS elegido. 
+* Instalar y configurar NAS.
+* Montar 2 discos para guardar los datos en RAID1.
+* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
+    * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
+    * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
+* Crear usuarios/clave para acceder al repositorio NAS.
+    * Usuario `frodo`.
+    * Usuario `gandalf`.
+* Comprobar el acceso al servdidor NAS desde otra máquina. 
+
+
+#4. FreeNAS
 
 * Como no disponemos de hardware NAS para hacer las prácticas con todos 
 los alumnos, nos vamos a crear nuestro propio NAS, en una MV usando 
@@ -58,26 +73,25 @@ Enlaces de interés:
 * Definición de NAS según wikipedia
 * http://cerowarnings.blogspot.com.es/2012/01/servidor-de-discos-en-red-con-freenas.html
 
-##3.1 Preparar la MV
+##4.1 Preparar la MV
 
 * Crear la MV en VBox.Elegir MV del tipo FreeBSD. Si la ISO es x86 elegimos 
 de 32 bits, y si la ISO es amd64 escogemos de 64bits.
 
-freenas-tipo-vbox
+![freenas-tipo-vbox](./files/freenas-tipo-vbox.png)
 
 * Aumentar la memoria RAM a 256 MB.
 * Además del disco duro virtual donde instalar FreeNAS, vamos a añadir 
 a la máquina virtual 2 discos más de 2GB cada uno, para crear el volumen de almacenamiento del NAS.
 
-discos-vbox
+![freenas-discos-vbox](./files/freenas-discos-vbox.png)
 
-discos-config
+![freenas-discos-config](./files/freenas-discos-config.png)
 
 * Configurar MV con la red en modo puente. Para que al terminar podamos 
 acceder al NAS desde cualquier equipo de nuestra red.
 
-
-##3.2 Instalar FreeNAS
+##4.2 Instalar FreeNAS
 
 * Descargar la ISO del servidor del departamento, o desde la web de FreeNAS.
 * Comenzamos la instalación.
@@ -85,22 +99,23 @@ acceder al NAS desde cualquier equipo de nuestra red.
 > Si la ISO es de 32 bits crear la MV del tipo FreeBSD. 
 > SI la ISO es 64 bits, crear la MV del tipo FreeBDS-64-bits (RAM 1128 MB).
 
-install01
+![freenas-install-01](./files/freenas-install-01.png)
 
 > Fijarse que los discos no se llaman sda, sdb, o C:, D:, sino asa0, ada1, etc.
 
-install02
+![freenas-install-02](./files/freenas-install-02.png)
 
-install03
+![freenas-install-03](./files/freenas-install-03.png)
+
 
 * Apagar el sistema. Quitar el disco de instalación (Fichero ISO).
 
-##3.3 Primera configuración de FreeNAS
+##4.3 Primera configuración de FreeNAS
 
 * Reiniciar la MV FreeNAS.
 * Vamos a realizar la configuración inicial. Éste es el aspecto del menú:
 
-menu-config-inicial
+![freenas-menu-config-inicial](./files/freenas-menu-config-inicial.png)
 
 Configuración de red
 
@@ -111,7 +126,7 @@ Configuración de red
 * Pulsamos 1 (Configure Network Interface) para configurar el interfaz de red: 
 Configurar la IP, máscara de red. Veamos imagen de ejemplo:
 
-opcion1
+![freenas-opcion1](./files/freenas-opcion1.png)
 
 * Pulsamos 4 (Default static route) para configurar la puerta de enlace.
 * Pulsamos 6 para configurar el servidor DNS.
@@ -125,10 +140,12 @@ Comprobar que esto ha funcionado:
 
 * Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
 
-#3.4 Crear un volumen
+##4.4 Crear un volumen
 
-    Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
-    Si no recuerdas el usuario/clave... vuelve al la MV FreeNAS, usa la opción 7 (Reset credentials) del menú.
+* Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, 
+iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
+
+> Si no recuerdas el usuario/clave... vuelve al la MV FreeNAS, usa la opción 7 (Reset credentials) del menú.
 
 Ahora vamos a crear un VOLUMEN a partir de los dos discos creados de 2GB.
 
@@ -137,13 +154,13 @@ Ahora vamos a crear un VOLUMEN a partir de los dos discos creados de 2GB.
 * Si lo necesitamos, crear directorio /mnt/volumen1, para montar el volumen.
 * Veamos imagen de ejemplo.
 
-ufs
+![freenas-volumen-ufs](./files/freenas-volumen-ufs.png)
 
 > Otras configuraciones también funcionarían pero es para tenerlos todos igual.
 
 * Activar el servicio de carpetas compartidas, ir a "Servicios" -> "Control de Servicios - > CIFS -> ON".
 
-service-on
+![freenas-service-on](./files/freenas-service-on.png)
 
 * Ir al servidor FreeNAS. Entrar en la Shell (Opción 9). Ejecutar los comandos siguientes:
     * df -hT (Para comprobar que está montado el volumen1)
@@ -151,14 +168,14 @@ service-on
     * Poner permisos a `/mnt/volumen1/public` (Creamos una carpeta de uso público lectura/escritura).
     * Creamos un recurso compartida CIFS/SMB, ir a "Sharing/Compartido" -> "Añadir recurso CIFS". Path a /mnt/volumen1/public.
 
-recurso
+![freenas-recurso](./files/freenas-recurso.png)
 
-cifs-share
+![freenas-cifs-share](./files/freenas-cifs-share.png)
 
 * Vamos a permitir el acceso de usuarios invitados.
 
 
-##3.5 Comprobar desde cliente
+##4.5 Comprobar desde cliente
 
 * Probar que podemos acceder a dicho recurso compartido SMB/CIFS, desde otro equipo de la red. Por ejemplo, usando un cliente Windows7.
 * Para comprobar el acceso al recurso compartido de red desde GNU/Linux:
@@ -166,16 +183,3 @@ cifs-share
     * Para comprobar con comandos, podemos montar el recurso compartido de red en una carpeta local, mediante la siguiente orden: "mount -t cifs //ip-del-servidor-nas/public /mnt/nas". Desmontamos mediante "umount /mnt/nas"
 * Accedemos al recurso de red y creamos algún archivo.
 
-#4. Otros NAS
-
-Montar en una MV con otro sistema NAS a elegir por el alumno.
-* Antes de empezar consultar el profesor el NAS elegido. 
-* Instalar y configurar NAS.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
-    * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodo`.
-    * Usuario `gandalf`.
-* Comprobar el acceso al servdidor NAS desde otra máquina. 
