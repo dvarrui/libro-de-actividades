@@ -1,11 +1,12 @@
 
 ```
-Creado en Marzo 2016 para el curso1516
+* Creado en Marzo 2016 para el curso1516
 ```
 
 #Configuraciones de las máquinas virtuales
 
-##A. Servidor Telnet para Windows7/Windows2008Server:
+##0. Servidor Telnet para Windows7/Windows2008Server
+
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
 ![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
@@ -250,14 +251,15 @@ En caso contrario haremos:
 
 #ANEXO
 
-* Instalación del servidor SSH en windows7:
-    * [FreeSSHD en Windows7](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
-    * [OpenSSH en Windows7](http://wiki.elhacker.net/redes/windows/instalacion-y-configuracion-de-un-servidor-ssh-en-windows)
-        * Instalar Firefox
-        * [Descargar el instalador](https://sourceforge.net/projects/sshwindows/files/OpenSSH%20for%20Windows%20-%20Release/3.8p1-1%2020040709%20Build/setupssh381-20040709.zip/download)
-        * Descomprimir y ejecutar.
-        
-    * [OpenSSH en Windows7](http://linuxbsdos.com/2015/01/17/how-to-install-the-latest-openssh-on-windows-7-and-windows-8/)
-    * [Cygwin+SSH server en Windows7](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
+#A.1 Instalación del servidor SSH en windows7
+
+* (Recomendado) CopSSH
+* [FreeSSHD en Windows7](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
+* [OpenSSH en Windows7](http://wiki.elhacker.net/redes/windows/instalacion-y-configuracion-de-un-servidor-ssh-en-windows)
+    * Instalar Firefox
+    * [Descargar el instalador](https://sourceforge.net/projects/sshwindows/files/OpenSSH%20for%20Windows%20-%20Release/3.8p1-1%2020040709%20Build/setupssh381-20040709.zip/download)
+    * Descomprimir y ejecutar.
+* [OpenSSH en Windows7](http://linuxbsdos.com/2015/01/17/how-to-install-the-latest-openssh-on-windows-7-and-windows-8/)
+* [Cygwin+SSH server en Windows7](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
 
 
