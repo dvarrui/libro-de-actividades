@@ -33,9 +33,16 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 permitir que funcione la respuesta al comando ping.
 
 
+##1.3 Resultado final
+
+Como resultado final la máquina `Initiator` debe guardar información en el sistema de
+almacenamiento proporcionado por la máquina `Target`.
+
+
 #2. iSCSI en OpenSUSE
 
 ##2.1 Objetivo
+
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2 (Consultar [configuraciones](../../global/configuracion-aula109.md) ).
 
 Necesitamos 2 MV's.
@@ -50,11 +57,16 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 ##2.2 Enlaces de interés
 
-* TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html) 
+* TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
 * INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
-
 * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
 * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo) 
+
+##2.3 Resultado final
+
+Como resultado final la máquina `Initiator` debe guardar información en el sistema de
+almacenamiento proporcionado por la máquina `Target`.
+
 
 #ANEXO
 
