@@ -23,25 +23,26 @@ La práctica de NAS consisten en:
 * Usar un dispositivo NAS Hardware proporcionado por el profesor.
 * Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
-    * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
+    * `profesores`: Recurso compartido de lectura/escritura para el usuario `profesor`
+    * `alumnos`: Recurso de sólo lectura para el usuario `alumno`.
 * Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodo`.
-    * Usuario `gandalf`.
+    * Usuario `profesor`.
+    * Usuario `alumno`.
 * Comprobar el acceso al servdidor NAS desde otra máquina.
 
-#2. NAS OpenSUSE
+#2. NAS OpenSUSE 13.2
 
 Montar en una MV con OpenSUSE el servicio Samba.
 La práctica de NAS consisten en:
-* Instalar y configurar NAS en OpenSUSE 13.2.
+* Instalar y configurar un servidor Samba.
 * Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
-    * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodo`.
-    * Usuario `gandalf`.
+    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
+    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
+* Crear usuarios/clave de para acceder a los repositorios compartidos Samba.
+    * Usuario `frodoXX`.
+    * Usuario `gandalfXX`.
+    * Poner también clave del usuario en Samba.
 * Comprobar el acceso al servdidor NAS desde otra máquina. 
 
 #3. Otros NAS
@@ -51,11 +52,11 @@ Montar en una MV con otro sistema NAS a elegir por el alumno.
 * Instalar y configurar NAS.
 * Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbiton`: Recurso compartido de lectura/escritura para el usuario `frodo`
-    * `mordor`: Recurso de sólo lectura para el usuario `gandalf`.
+    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
+    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
 * Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodo`.
-    * Usuario `gandalf`.
+    * Usuario `frodoXX`.
+    * Usuario `gandalfXX`.
 * Comprobar el acceso al servdidor NAS desde otra máquina. 
 
 
@@ -65,11 +66,22 @@ Montar en una MV con otro sistema NAS a elegir por el alumno.
 los alumnos, nos vamos a crear nuestro propio NAS, en una MV usando 
 la distro FreeNAS (Sistema Operativo BDS).
 
+La práctica de NAS consisten en:
+* Montar 2 discos para guardar los datos en RAID1.
+* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
+    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
+    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
+* Crear usuarios/clave para acceder al repositorio NAS.
+    * Usuario `frodoXX`.
+    * Usuario `gandalfXX`.
+* Comprobar el acceso al servdidor NAS desde otra máquina. 
+
 Enlaces de interés:
 * Página web: http://www.freenas.org/
 * Consultar vídeo http://www.youtube.com/watch?v=gEjpxQLphxI
 * Definición de NAS según wikipedia
 * http://cerowarnings.blogspot.com.es/2012/01/servidor-de-discos-en-red-con-freenas.html
+
 
 ##4.1 Preparar la MV
 
