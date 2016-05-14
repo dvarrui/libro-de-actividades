@@ -47,22 +47,23 @@ lo creamos ahora:
 ##1.2 Crear el acceso al fichero XML
 
 Elegiremos una de las siguientes formas para la instalación desatendida.
-* ** ISO - Fichero de control dentro de la propia ISO **
+* **ISO** - Fichero de control dentro de la propia ISO
     * Incluir el fichero XML dentro de la ISO de instalación. 
     * Para modificar la ISO podemos usar el programa isomaster. 
-* ** USB - Fichero de control en USB **
+* **USB** - Fichero de control en USB
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
-* ** HTTP - Fichero de control en un servidor Web (HTTP) **
+* **HTTP** - Fichero de control en un servidor Web (HTTP)
     * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
-      para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
+    para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
     * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
-* ** CIFS - Fichero de control en carpeta compartida de Windows**
+* **CIFS** - Fichero de control en carpeta compartida de Windows
 
 ##1.3 Comenzar la instalación desatendida
 
 * Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE. 
 
 Ver imagen de ejemplo:
+
 ![opensuse-boot-options-autoyast](./files/opensuse-boot-options-autoyast.jpg)
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
