@@ -24,6 +24,7 @@ Enlace de interés:
 ##1.1 Creación del fichero XML
 
 * Primero vamos a realizar una instalación de OpenSUSE en una MV.
+    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
     * Nos aseguraremos de que se guarda el fichero `autoyast.xml` durante el proceso.
     * Si todo es correcto, saltamos al paso siguiente.
 * Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
@@ -90,7 +91,7 @@ Resumen del proceso:
 * Vamos a crear nuestro proyecto a partir de una modelo base. 
     * Para eso elegiremos al plantilla KDE o Gnome. Esto nos crea un sistema de escritorio mínimo KDE o Gnome, y a partir de aquí seguimos con nuestra personalización.
 * Incluir:
-    * Programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom.
+    * Programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
     * Distro que se inicia en modo LIVE.
     * Opciones para instalar la distro en el disco duro.
     * Paquetes y programas necesarios.
