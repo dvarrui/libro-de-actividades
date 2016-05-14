@@ -25,14 +25,14 @@ Enlace de interés:
 
 * Primero vamos a realizar una instalación de OpenSUSE en una MV.
     * Nos aseguraremos de que se guarda el fichero `autoyast.xml` durante el proceso.
-
+    * Si todo es correcto, saltamos al paso siguiente.
 * Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
 lo creamos ahora:
     * A continuación, personalizaremos nuestra máquina, instalando software, creando usuarios, etc.
     * Instalamos la herramienta Autoyast: zypper in autoyast2
-    * Iniciamos autoyast con: /sbin/yast2 autoyast
-      Con esta herramienta (autoyast) podemos crearnos nuestro "Control File". 
-      Esto es un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
+    * Iniciamos autoyast con: `/sbin/yast2 autoyast`
+    Con esta herramienta podemos crearnos nuestro "Control File". 
+    Esto es un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
     * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
     * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
     * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
@@ -47,12 +47,12 @@ lo creamos ahora:
 ##1.2 Crear el acceso al fichero XML
 
 Elegiremos una de las siguientes formas para la instalación desatendida.
-* **ISO - Fichero de control dentro de la propia ISO**
+* ** ISO - Fichero de control dentro de la propia ISO **
     * Incluir el fichero XML dentro de la ISO de instalación. 
     * Para modificar la ISO podemos usar el programa isomaster. 
-* ** USB - Fichero de control en USB**
-    * Copiamos el fichero en un pendrive y al instalar el sistema operativo 
-* **HTTP - Fichero de control en un servidor Web (HTTP)**
+* ** USB - Fichero de control en USB **
+    * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
+* ** HTTP - Fichero de control en un servidor Web (HTTP) **
     * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
       para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
     * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
