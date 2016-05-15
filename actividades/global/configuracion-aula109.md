@@ -3,9 +3,18 @@
 * Creado en Marzo 2016 para el curso1516
 ```
 
-#Configuraciones de las máquinas virtuales
+#1. Configurar acceso remoto en Windows7/Windows2008Server
 
-##0. Servidor Telnet para Windows7/Windows2008Server
+##1.1. Servidor SSH con CopSSH
+
+* Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
+* Instalar con las opciones por defecto.
+* Configurar el usuario siguiente:
+    * Crear usuario `sysadmingame` dentro del grupo `Administradores`.
+    * Clave de `sysadmingame` conocida por el alumno y el profesor.
+    * Shell: `Linux Shell + SFTP`
+
+##1.2. Servidor Telnet
 
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
@@ -39,10 +48,12 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
 ![w7-telnet.png](./images/w7-telnet.png)
 
 * Enlaces de interés:
-    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
+    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4) 
+
+#2. Configurar las máquinas virtuales
 
 
-##1. Configuración Windows 7 Professional
+##2.1 Configuración Windows 7 Professional
 
 Configuración de la máquina Windows 7 Professional:
 * IP: `172.19.XX.11` (Donde XX corresponde al nº de cada puesto).
@@ -82,7 +93,7 @@ Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO ante
 es de 90 días.
 >
 
-##2. Configuración Windows 2008 Server
+##2.2 Configuración Windows 2008 Server
 
 Configuración de la máquina Windows 2008 Server Enterprise:
 * IP: `172.19.XX.21` (Donde XX corresponde al nº de cada puesto).
@@ -123,7 +134,7 @@ Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO ante
 es de 180 días.
 >
 
-##3. Configuración GNU/Linux OpenSUSE 13.2
+##2.3 Configuración GNU/Linux OpenSUSE 13.2
 
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
@@ -164,7 +175,7 @@ ping 8.8.4.4
 blkid
 ```
 
-##4. Configuración GNU/Linux Debian 8
+##2.4 Configuración GNU/Linux Debian 8
 
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.42, 172.19.XX.43, etc.
@@ -205,7 +216,7 @@ ping 8.8.4.4
 blkid
 ```
 
-##4.1 Ficheros de configuración Debian/Ubuntu
+##2.4.1 Ficheros de configuración Debian/Ubuntu
 
 En máquinas Debian/Ubuntu podemos cambiar la configuración de red, 
 modificando el fichero `/etc/network/interfaces`.
@@ -234,7 +245,7 @@ sudo rm /etc/resolv.conf
 sudo dpkg-reconfigure resolvconf
 ```
 
-##4.2 Instalar las Guest Addittions
+##2.4.2 Instalar las Guest Addittions
 
 Antes de intalar las Guest Additions, es  mejor verificar que no hace falta.
 Si la ventana de la MV se redimensiona bien, funciona el pendrive, y las carpetas compartidas
