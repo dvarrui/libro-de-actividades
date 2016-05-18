@@ -5,29 +5,34 @@ Actividad realizada los cursos: 201415, 201516
 
 #1. Políticas o directivas de grupo
 
-* Leer/consultar la documentación que se proporciona. Concretamente el fichero M34_directivas_grupos.pdf.
-* Incluir capturas de pantalla del proceso en el servidor, y de los resultados producidos en los clientes.
+* Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
+* Consultar las dudas al profesor.
+* Incluir capturas de pantalla de:
+    * El proceso de configuración en el servidor
+    * y de los resultados producidos en los clientes.
 
 #2. Aplicar directivas (I)
 
 Realizar las siguientes tareas:
 
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
-* Crear las OU (Unidades Organizativas) "jedi1516" y "sith1516".
-* Mover los usuarios a su correspondiente OU
+* Crear las OU (Unidades Organizativas) `jediXXc1516` y `sithXXc1516`.
+* Mover los usuarios a su correspondiente OU.
 
-> **IMPORTANTE**
->
-> No aplicar la directivas a todo el dominio. Sólo a las unidades organizativas que se especfiquen.
 
-* Crear una GPO para cada OU.
+* Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
+
+> **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
+> Sólo a las unidades organizativas que se especfiquen.
+
+* Vamos a crear una GPO diferente para cada OU.
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
 > * En Group Policy Management (Administración de directivas de grupo), en el árbol de consola, desplegar Group Policy Objects (Objetos de Directiva de grupo). Click con el botón derecho del ratón en el GPO y seleccionar Edit (Editar).
 > * En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.
 
-* Vamos a aplicar diferentes directivas a las OU anteriores.
+* Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
 
 * `Quitar el menú Ejecutar del menú Inicio`
     * Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
@@ -60,8 +65,7 @@ Realizar las siguientes tareas:
 
 #3. Aplicar directivas (II)
 
-* Vamos a crear otro "snapshot" (instantánea) de la máquina virtual.
-* Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
+* Vamos a crear otro "snapshot" de la máquina virtual.
 * Vamos a crear nuestro propio paquete MSI.
     * [Crear paquetes MSI](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
     * [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
