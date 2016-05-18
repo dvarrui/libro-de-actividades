@@ -105,8 +105,8 @@ en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto
 
 > En el tiempo comprendido entre la ejecución de este proceso y la ejecución 
 del proceso de la foto final, es crítico ejecutar únicamente el software 
-de instalación del paquete MSI a generar, pues cualquier modificación 
-que realizáramos en dicho periodo temporal, al margen de la propia de instalar
+de instalación del paquete MSI a generar.
+> Cualquier modificación en dicho periodo temporal, al margen de la propia de instalar
  el software correspondiente del que deseamos generar el paquete MSI, 
  se grabaría en el paquete MSI obtenido, cuando realmente no formaría parte de las modificaciones que realizó dicha aplicación durante su instalación. 
 
@@ -117,7 +117,8 @@ En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * Comienza la instalación de la aplicación de firefox.exe de modo manual.
 * A continuación, comienza el proceso de creación de la foto final del sistema.
 Este que puede durar varios minutos. 
-* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", yendo a la carpeta E:\SoftAdm\FilZip306 y comprobando que todos los ficheros necesarios para distribuir FilZip por medio del paquete msi se encuentran en dicha ubicación.
+* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", 
+yendo a la carpeta `E:\SoftAdm\firefox`.
 * Limpiamos el equipo cliente:
     * Eliminar el fichero firexfox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
