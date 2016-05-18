@@ -65,12 +65,67 @@ Realizar las siguientes tareas:
 
 #3. Aplicar directivas (II)
 
+> Enlaces de interés
+>
+> * Crear política de instalación para nuestro paquete MSI 
+>    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
+>    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
+> * Crear y probar las directivas del siguiente enlace Windows Server 2008
+>    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
+
 * Vamos a crear otro "snapshot" de la máquina virtual.
-* Vamos a crear nuestro propio paquete MSI.
-    * [Crear paquetes MSI](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
-    * [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
-* Crear política de instalación para nuestro paquete MSI 
-    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
-    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
-* Crear y probar las directivas del siguiente enlace Windows Server 2008
-    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
+
+Vamos a crear nuestro propio paquete MSI.
+* Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+
+En el servidor
+* [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
+* Una vez instalada la aplicación hemos de asignar permisos de acceso remoto a la carpeta compartida WinINSTALL.
+* Crear la carpeta `e:\softwareXX`.
+* Crear un recurso compartido de red `E:\softwareXX`. 
+* Crear la subcarpeta `e:\softwareXX\firefox`.
+
+En el cliente
+* Entramos con el usuario administrador del dominio.
+* Descargar el instalador de Firefox.
+* Ejecutamos `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
+para ejecutar la aplicación WinINSTALL LE de modo remoto, 
+
+![pdc-wininstall-discover.png](.files/pdc-wininstall-discover.png)
+
+* Indicamos el nombre que vamos a asociar al paquete MSI (`firefoxXX.msi`).
+* Ruta de red donde almacenaremos el MSI, en nuestro caso 
+`\\ip-del-servidor\softwareXX\firefox\firefoxXX.msi`.
+* Unidad donde se almacenarán los ficheros temporales => C:.
+* Unidades que serán analizadas para realizar la foto inicial; 
+en nuestro caso sobre la unidad C: de nuestro equipo cliente.
+* Indicar los ficheros que serán excluidos del análisis; 
+en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto.
+* Pulsamos Finish para comenzar la generación de la foto inicial del equipo.
+
+> En el tiempo comprendido entre la ejecución de este proceso y la ejecución 
+del proceso de la foto final, es crítico ejecutar únicamente el software 
+de instalación del paquete MSI a generar, pues cualquier modificación 
+que realizáramos en dicho periodo temporal, al margen de la propia de instalar
+ el software correspondiente del que deseamos generar el paquete MSI, 
+ se grabaría en el paquete MSI obtenido, cuando realmente no formaría parte de las modificaciones que realizó dicha aplicación durante su instalación. 
+
+* Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y 
+a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero 
+de instalación de la aplicación de la que vamos a generar el paquete MSI.
+En nuestro caso el fichero firefox.exe que nos habíamos descargado.
+* Comienza la instalación de la aplicación de firefox.exe de modo manual.
+* A continuación, comienza el proceso de creación de la foto final del sistema.
+Este que puede durar varios minutos. 
+* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", yendo a la carpeta E:\SoftAdm\FilZip306 y comprobando que todos los ficheros necesarios para distribuir FilZip por medio del paquete msi se encuentran en dicha ubicación.
+* Limpiamos el equipo cliente:
+    * Eliminar el fichero firexfox.exe que nos habíamos descargado.
+    * Desinstalar el programa Firefox del cliente.
+    
+Vamos al servidor:
+* Creamos la directiva de instalación de software para firefox.msi.
+* Asociamos a la directiva de grupo de Instalación de software ubicada en 
+`Configuración del equipo -> Directivas -> Configuración de software`, 
+un nuevo paquete de instalación de software de la aplicación.
+
+
