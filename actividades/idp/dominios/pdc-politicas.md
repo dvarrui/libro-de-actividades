@@ -118,7 +118,8 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 de instalación de la aplicación de la que vamos a generar el paquete MSI.
 En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * Comienza la instalación de la aplicación de firefox.exe de modo manual.
-* A continuación, comienza el proceso de creación de la foto final del sistema.
+* Volvemos a ejecutar `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
+para iniciar el proceso de creación de la foto final del sistema.
 Este que puede durar varios minutos. 
 * Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", 
 yendo a la carpeta `E:\softwareXX\firefox`.
