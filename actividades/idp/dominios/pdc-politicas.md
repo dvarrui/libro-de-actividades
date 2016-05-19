@@ -91,11 +91,14 @@ En el cliente
 * Ejecutamos `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
 para ejecutar la aplicación WinINSTALL LE de modo remoto, 
 
-![pdc-wininstall-discover.png](.files/pdc-wininstall-discover.png)
+![pdc-wininstall-discover.png](./files/pdc-wininstall-discover.png)
 
 * Indicamos el nombre que vamos a asociar al paquete MSI (`firefoxXX.msi`).
 * Ruta de red donde almacenaremos el MSI, en nuestro caso 
 `\\ip-del-servidor\softwareXX\firefox\firefoxXX.msi`.
+
+![pdc-wininstall-select-target.png](./files/pdc-wininstall-select-target.png)
+
 * Unidad donde se almacenarán los ficheros temporales => C:.
 * Unidades que serán analizadas para realizar la foto inicial; 
 en nuestro caso sobre la unidad C: de nuestro equipo cliente.
@@ -118,7 +121,7 @@ En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * A continuación, comienza el proceso de creación de la foto final del sistema.
 Este que puede durar varios minutos. 
 * Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", 
-yendo a la carpeta `E:\SoftAdm\firefox`.
+yendo a la carpeta `E:\softwareXX\firefox`.
 * Limpiamos el equipo cliente:
     * Eliminar el fichero firexfox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
@@ -129,4 +132,8 @@ Vamos al servidor:
 `Configuración del equipo -> Directivas -> Configuración de software`, 
 un nuevo paquete de instalación de software de la aplicación.
 
+Vamos al otro cliente:
+* Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
+
+![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
 
