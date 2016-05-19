@@ -133,6 +133,12 @@ Vamos al servidor:
 `Configuración del equipo -> Directivas -> Configuración de software`, 
 un nuevo paquete de instalación de software de la aplicación.
 
+> **ADVERTENCIA**
+> Cuando indiquemos la ruta al paquete MSI, debemos indicar su
+ruta de red y NO su ruta del sistema de ficheros.
+> Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+> Ejemplo incorrecto: `E:\softwareXX\firefox\firefox.msi`
+
 Vamos al otro cliente:
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
 
