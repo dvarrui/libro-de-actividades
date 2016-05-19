@@ -88,8 +88,8 @@ En el servidor
 En el cliente
 * Entramos con el usuario administrador del dominio.
 * Descargar el instalador de Firefox.
-* Ejecutamos `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
-para ejecutar la aplicación WinINSTALL LE de modo remoto, 
+* Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
+para iniciar la aplicación WinINSTALL LE de forma remota, 
 
 ![pdc-wininstall-discover.png](./files/pdc-wininstall-discover.png)
 
@@ -118,7 +118,7 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 de instalación de la aplicación de la que vamos a generar el paquete MSI.
 En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * Comienza la instalación de la aplicación de firefox.exe de modo manual.
-* Volvemos a ejecutar `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
+* Volvemos a inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
 para iniciar el proceso de creación de la foto final del sistema.
 Este que puede durar varios minutos. 
 * Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", 
