@@ -24,7 +24,9 @@ Montar en una MV con OpenSUSE el servicio Samba
 
 La práctica de NAS consisten en:
 * Montar 2 discos para guardar los datos en RAID1.
-* Montar el RAID1 en la ruta `/mnt/nas`
+* Montar el RAID1 en la ruta `/mnt/nas`.
+    * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
+    * Pista. En el directorio `/mnt/nas` debe aparecer un `lost+found`.
 * Instalar y configurar un servidor Samba (desde Yast por ejemplo o con zypper).
 
 ![nas-opensuse-yast-samba.png](./files/nas-opensuse-yast-samba.png)
