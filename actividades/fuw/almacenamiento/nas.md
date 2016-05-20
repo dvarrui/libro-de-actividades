@@ -58,6 +58,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 * Poner también clave en Samba para los usuarios.
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los 
 usuarios, y todos los recursos. 
+* Comprobaciones:
+    * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
+    
 
 #2. NAS Hardware
 
