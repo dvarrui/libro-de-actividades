@@ -50,6 +50,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
+
+![nas-samba-share.png](./files/nas-samba-share.png)
+
 * Crear el recurso compartido (II):
     * Crear la carpeta `/mnt/nas/mordorXX.d`
     * Con permisos de lectura/navegación para todos.
