@@ -61,6 +61,10 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 * Poner también clave en Samba para los usuarios.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
     * `smbpasswd -e USUARIO` para activar el usuario en samba.
+* Reiniciar el servicio:
+    * `systemctl stop smb`
+    * `systemctl start smb`
+    * `systemctl status smb`
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los 
 usuarios, y todos los recursos. 
 * Comprobaciones:
