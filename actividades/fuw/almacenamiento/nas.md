@@ -17,20 +17,7 @@
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 * Elegir solamente, una de las siguientes opciones para realizar la práctica.
 
-#1. NAS Hardware
-
-La práctica de NAS consisten en:
-* Usar un dispositivo NAS Hardware proporcionado por el profesor.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `profesores`: Recurso compartido de lectura/escritura para el usuario `profesor`
-    * `alumnos`: Recurso de sólo lectura para el usuario `alumno`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `profesor`.
-    * Usuario `alumno`.
-* Comprobar el acceso al servdidor NAS desde otra máquina.
-
-#2. NAS OpenSUSE 13.2
+#1. NAS OpenSUSE 13.2
 
 Montar en una MV con OpenSUSE el servicio Samba
 (Consultar [configuración](../../global/configuracion-aula109.md)).
@@ -42,15 +29,38 @@ La práctica de NAS consisten en:
 usando el protocolo SMB/CIFS típico de las redes Windows.
 
 * Montar 2 discos para guardar los datos en RAID1.
+* Crear el grupo `hobbitsXX`
+    * Añadir los usuarios `frodoXX` y `bilboXX`
+* Crear el grupo `humanosXX`
+    * Añadir los usuarios `gandalfXX` y `aragornXX`
+* Recurso 1:
+    * Crear la carpeta `/var/samba/hobbitonXX.d`
+    * Con permisos de lectura/navegación para todos.
+    * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`
+    * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `hobbitonXX`.
+    * Poner permisos al recurso de red de lectura para todos.
+    * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
+* Recurso 1:
+    * Crear la carpeta `/var/samba/mordorXX.d`
+    * Con permisos de lectura/navegación para todos.
+    * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `mordorXX`.
+    * Poner permisos al recurso de red de lectura para todos.
+* Poner también clave en Samba para los usuarios.
+* Comprobar el acceso al servidor NAS desde otra máquina con todos los 
+usuarios, y todos los recursos. 
+
+#2. NAS Hardware
+
+La práctica de NAS consisten en:
+* Usar un dispositivo NAS Hardware proporcionado por el profesor.
+* Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
-    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
-* Crear usuarios/clave de para acceder a los repositorios compartidos Samba.
-    * Usuario `frodoXX`.
-    * Usuario `gandalfXX`.
-    * Poner también clave del usuario en Samba.
-* Comprobar el acceso al servidor NAS desde otra máquina con los dos usuarios,
-en los dos recursos. 
+    * `profesores`: Recurso compartido de lectura/escritura para el usuario `profesor`
+    * `alumnos`: Recurso de sólo lectura para el usuario `alumno`.
+* Crear usuarios/clave para acceder al repositorio NAS.
+    * Usuario `profesor`.
+    * Usuario `alumno`.
+* Comprobar el acceso al servdidor NAS desde otra máquina.
 
 #3. Otros NAS
 
