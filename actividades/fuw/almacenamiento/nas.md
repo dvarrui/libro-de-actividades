@@ -35,9 +35,9 @@ La práctica de NAS consisten en:
 usando el protocolo SMB/CIFS típico de las redes Windows.
 
 * Configurar Servidor Samba con:
-    * Grupo de trabajo: AULA108
-    * Sin controlador de dominio
-    * Inicio del servicio: durante el arranque
+    * Grupo de trabajo: `AULA108`
+    * Sin controlador de Dominio
+    * Inicio del servicio: `durante el arranque`
     * Puerto abierto en el cortafuegos
 * Crear el grupo `hobbitsXX`
     * Añadir los usuarios `frodoXX` y `bilboXX`
@@ -46,14 +46,14 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 * Crear el recurso compartido (I):
     * Crear la carpeta `/mnt/nas/hobbitonXX.d`
     * Con permisos de lectura/navegación para todos.
-    * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`
-    * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `hobbitonXX`.
+    * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
+    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
 * Crear el recurso compartido (II):
     * Crear la carpeta `/mnt/nas/mordorXX.d`
     * Con permisos de lectura/navegación para todos.
-    * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `mordorXX`.
+    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
     * Poner permisos al recurso de red de lectura para todos.
 * Poner también clave en Samba para los usuarios.
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los 
