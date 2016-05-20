@@ -23,25 +23,33 @@ Montar en una MV con OpenSUSE el servicio Samba
 (Consultar [configuración](../../global/configuracion-aula109.md)).
 
 La práctica de NAS consisten en:
-* Instalar y configurar un servidor Samba.
+* Montar 2 discos para guardar los datos en RAID1.
+* Montar el RAID1 en la ruta `/mnt/nas`
+* Instalar y configurar un servidor Samba (desde Yast por ejemplo o con zypper).
+
+![nas-opensuse-yast-samba.png](./files/nas-opensuse-yast-samba.png)
 
 > Samba es un software que permite que el equipo se comunique
 usando el protocolo SMB/CIFS típico de las redes Windows.
 
-* Montar 2 discos para guardar los datos en RAID1.
+* Configurar Servidor Samba con:
+    * Grupo de trabajo: AULA108
+    * Sin controlador de dominio
+    * Inicio del servicio: durante el arranque
+    * Puerto abierto en el cortafuegos
 * Crear el grupo `hobbitsXX`
     * Añadir los usuarios `frodoXX` y `bilboXX`
 * Crear el grupo `humanosXX`
     * Añadir los usuarios `gandalfXX` y `aragornXX`
-* Recurso 1:
-    * Crear la carpeta `/var/samba/hobbitonXX.d`
+* Crear el recurso compartido (I):
+    * Crear la carpeta `/mnt/nas/hobbitonXX.d`
     * Con permisos de lectura/navegación para todos.
     * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`
     * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
-* Recurso 1:
-    * Crear la carpeta `/var/samba/mordorXX.d`
+* Crear el recurso compartido (II):
+    * Crear la carpeta `/mnt/nas/mordorXX.d`
     * Con permisos de lectura/navegación para todos.
     * Crear recursos compartido CIFS/SMB en dicha ruta, con el nombre `mordorXX`.
     * Poner permisos al recurso de red de lectura para todos.
