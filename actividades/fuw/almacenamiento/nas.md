@@ -32,9 +32,15 @@ La práctica de NAS consisten en:
 
 #2. NAS OpenSUSE 13.2
 
-Montar en una MV con OpenSUSE el servicio Samba.
+Montar en una MV con OpenSUSE el servicio Samba
+(Consultar [configuración](../../global/configuracion-aula109.md)).
+
 La práctica de NAS consisten en:
 * Instalar y configurar un servidor Samba.
+
+> Samba es un software que permite que el equipo se comunique
+usando el protocolo SMB/CIFS típico de las redes Windows.
+
 * Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
     * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
@@ -43,7 +49,8 @@ La práctica de NAS consisten en:
     * Usuario `frodoXX`.
     * Usuario `gandalfXX`.
     * Poner también clave del usuario en Samba.
-* Comprobar el acceso al servdidor NAS desde otra máquina. 
+* Comprobar el acceso al servidor NAS desde otra máquina con los dos usuarios,
+en los dos recursos. 
 
 #3. Otros NAS
 
