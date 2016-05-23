@@ -60,9 +60,9 @@ siguientes valores:
 * Carpetas de almacenamiento => Dejar valores por defecto.
 ``` 
 
-![pdc-dcpromo](./files/pdc-dcpromo-compatibilidad.png)
+![pdc-dcpromo-compatibilidad](./files/pdc-dcpromo-compatibilidad.png)
 
-![pdc-dcpromo](./files/pdc-dcpromo-install_params.png)
+![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
 
 * Al terminar hay que reiniciar el sistema.
 
