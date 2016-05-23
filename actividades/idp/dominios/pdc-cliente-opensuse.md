@@ -39,7 +39,9 @@ y `DNS2=8.8.4.4`.
 > IP_DEL_PDC vargas1.vargas1w.idp vargas1w.idp
 > ```
 
-* Realizar la comprobación mediante la ejecución del comando `host www.google.es`.
+* Realizar la comprobación mediante la ejecución de
+    * `host www.google.es`
+    * `host NOMBRE_DEL_PDC`
 
 ##2. Unirse al dominio
 
