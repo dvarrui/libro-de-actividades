@@ -47,16 +47,19 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Crear la carpeta `/mnt/nas/hobbitonXX.d`
     * Con permisos de lectura/navegación para todos.
     * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
-    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `hobbitonXX`.
+    * Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS) 
+    en la ruta anterior, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
-    * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
+    * Heredar ACLS
+    * `valid users = USUARIOS`
+
+![nas-samba-share.png](./files/nas-samba-share.png)
+
 * Crear el recurso compartido (II):
     * Crear la carpeta `/mnt/nas/mordorXX.d`
     * Con permisos de lectura/navegación para todos.
     * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
     * Poner permisos al recurso de red de lectura para todos.
-
-![nas-samba-share.png](./files/nas-samba-share.png)
 
 * Poner también clave en Samba para los usuarios.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
