@@ -45,7 +45,15 @@ una configuración de nombres "manual".
 ##2. Unirse al dominio
 
 * Usar Yast para unir la MV al dominio del PDC.
+    * Comprobar consultando en PDC equipos del dominio
 * Comprobar entrando con un usuario del dominio en el cliente:
+    *  Desde el cliente, entramos al sistema con algún usuario del dominio (Ejemplo username, username@DOMAIN, DOMAIN\username).
+
+Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1. Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
+
+![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
+
+* Una vez iniciada la sesión ejecutar los comandos de comprobación:
     * `whoami`
     * `id USUARIO`
     * `cat /etc/passwd |grep USUARIO`
