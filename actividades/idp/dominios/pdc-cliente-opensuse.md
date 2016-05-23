@@ -1,6 +1,6 @@
 ```
 * Práctica creada para el curso 201516
-* Inspirada el la práctica de cliente GNU/Linux Ubuntu/denian con PIBS/Likewise
+* Inspirada el la práctica de cliente GNU/Linux Ubuntu/Debian con PIBS/Likewise
 * Cliente de dominio GNU/Linux con OpenSUSE/Yast
 ```
 
@@ -39,7 +39,7 @@ y `DNS2=8.8.4.4`.
 > IP_DEL_PDC vargas1.vargas1w.idp vargas1w.idp
 > ```
 
-* Realizar la comprobación mediante la ejecución del comando host www-goole.es.
+* Realizar la comprobación mediante la ejecución del comando `host www.google.es`.
 
 ##2. Unirse al dominio
 
