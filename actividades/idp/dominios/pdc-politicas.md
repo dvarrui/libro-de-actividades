@@ -18,8 +18,6 @@ Realizar las siguientes tareas:
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
 * Crear las OU (Unidades Organizativas) `jediXXc1516` y `sithXXc1516`.
 * Mover los usuarios a su correspondiente OU.
-
-
 * Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
 
 > **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
@@ -83,6 +81,7 @@ En el servidor
 * Una vez instalada la aplicación hemos de asignar permisos de acceso remoto a la carpeta compartida WinINSTALL.
 * Crear la carpeta `e:\softwareXX`.
 * Crear un recurso compartido de red `E:\softwareXX`. 
+    * Este recurso debe leerse por todos los usuarios.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
 
 En el cliente
@@ -128,16 +127,22 @@ yendo a la carpeta `E:\softwareXX\firefox`.
     * Desinstalar el programa Firefox del cliente.
     
 Vamos al servidor:
-* Creamos la directiva de instalación de software para firefox.msi.
+* Crear las OU `maquinasXXc1516` y mover los equipos del dominio dentro de esta UO.
+* Vamos a crear una directiva de instalación del software `firefox.msi` para la OU anterior.
 * Asociamos a la directiva de grupo de Instalación de software ubicada en 
 `Configuración del equipo -> Directivas -> Configuración de software`, 
 un nuevo paquete de instalación de software de la aplicación.
-
-> **ADVERTENCIA**
-> Cuando indiquemos la ruta al paquete MSI, debemos indicar su
+    * Configurar la instalación del paquete en modo `Asignado`.
+    
+> **ADVERTENCIAS**
+>
+> * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
 ruta de red y NO su ruta del sistema de ficheros.
-> Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
-> Ejemplo incorrecto: `E:\softwareXX\firefox\firefox.msi`
+>     * Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+>     * Ejemplo incorrecto: `E:\softwareXX\firefox\firefox.msi`
+> * La configuración de instalación de paquete `Publicado` no instala el programa,
+pero lo deja disponible por si el usuario lo quiere instalar a través de la
+herramienta de `Instalación de Software` del panel de control.
 
 Vamos al otro cliente:
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
