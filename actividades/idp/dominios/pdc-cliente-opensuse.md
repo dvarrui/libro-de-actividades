@@ -31,12 +31,11 @@ y `DNS2=8.8.4.4`.
 > **Configuración "manual" de la resolución de nombres**
 >
 > Si la resolución de nombres fallara,  podemos para este caso, hacer 
-> una configuración de nombres "manual". 
-> Para ello editamos el archivo "/etc/hosts" y añadimos la línea siguiente:
+una configuración de nombres "manual". 
+> Para ello editamos el archivo `/etc/hosts` y añadimos la línea siguiente:
 >
 > ```
-> ...
-> IP_DEL_PDC vargas1.vargas1w.idp vargas1w.idp
+> IP_DEL_PDC   vargas99dom.vargas99s.c1516   vargas99s.c1516
 > ```
 
 * Realizar la comprobación mediante la ejecución de
