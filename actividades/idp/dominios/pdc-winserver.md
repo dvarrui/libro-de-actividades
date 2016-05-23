@@ -26,10 +26,6 @@ longitud superior a 10).
 > * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, 
 pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016`.
 
-Veamos imagen de configuración inicial de nuestro servidor:
-
-![pdc-config-inicial](./files/pdc-config-inicial.png)
-
 * Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, 
 que nos permite consultar la configuración del servidor, instalar/desinstalar 
 paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
@@ -68,6 +64,10 @@ siguientes valores:
 Vemos imagen, donde podemos comprobar que se han instalado varias "funciones" para controlar el dominio:
 
 ![pdc-admin-funciones](./files/pdc-admin-funciones.png)
+
+Veamos imagen de configuración de nuestro servidor:
+
+![pdc-config-inicial](./files/pdc-config-inicial.png)
 
 #3. Usuarios del dominio
 

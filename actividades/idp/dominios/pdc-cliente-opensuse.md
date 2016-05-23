@@ -60,3 +60,10 @@ Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU
     * `id USUARIO`
     * `cat /etc/passwd |grep USUARIO`
     * `cat /etc/passwd | grep $(whoami)`
+
+
+#ANEXO
+
+Enlaces de interés:
+* [Descagar guía OpenSUSE 13.1 con DA](http://www.mediafire.com/download/513w206qbg014bv/openSUSE+13.1+con+Active+Directory+Gu%C3%ADa+Ilustrada.zip)
+* [Integración OpenSUSE a Directorio Activo](https://es.opensuse.org/Integraci%C3%B3n_de_Directorio_Activo)
