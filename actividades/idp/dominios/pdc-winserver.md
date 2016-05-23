@@ -58,8 +58,13 @@ siguientes valores:
 * Nivel funcional del bosque => Windows Server 2008
 * Servidor DNS => SI
 * Carpetas de almacenamiento => Dejar valores por defecto.
-* Al terminar reiniciar el sistema.
 ``` 
+
+![pdc-dcpromo](./files/pdc-dcpromo-compatibilidad.png)
+
+![pdc-dcpromo](./files/pdc-dcpromo-install_params.png)
+
+* Al terminar hay que reiniciar el sistema.
 
 Vemos imagen, donde podemos comprobar que se han instalado varias "funciones" para controlar el dominio:
 
@@ -68,6 +73,7 @@ Vemos imagen, donde podemos comprobar que se han instalado varias "funciones" pa
 Veamos imagen de configuración de nuestro servidor:
 
 ![pdc-config-inicial](./files/pdc-config-inicial.png)
+
 
 #3. Usuarios del dominio
 
