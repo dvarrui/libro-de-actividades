@@ -80,8 +80,11 @@ En el servidor
 * [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
 * Una vez instalada la aplicación hemos de asignar permisos de acceso remoto a la carpeta compartida WinINSTALL.
 * Crear la carpeta `e:\softwareXX`.
+    * Esta carpeta con permisos de lectura para todos los usuarios.
+    * Este carpeta con permisos lectura/escritura para todos los administradores.
 * Crear un recurso compartido de red `E:\softwareXX`. 
-    * Este recurso debe leerse por todos los usuarios.
+    * Este recurso con permisos de lectura para todos los usuarios.
+    * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
 
 En el cliente

@@ -46,7 +46,11 @@ una configuración de nombres "manual".
 
 * Usar Yast para unir la MV al dominio del PDC.
     * `Yast -> Unirse a un dominio`
-    * Comprobar consultando en PDC equipos del dominio
+    * Activar
+        * Autenticación SMB
+        * Crear home del usuario 
+* Actualizar paquetes OpenSuse (`zypper update`)
+* Comprobar en el servidor PDC, consultando equipos del dominio
 * Comprobar entrando con un usuario del dominio en el cliente:
     *  Desde el cliente, entramos al sistema con algún usuario del dominio
     (Ejemplos: username@DOMAIN, DOMAIN\username, DOMAIN/username).
