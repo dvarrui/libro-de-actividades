@@ -27,7 +27,7 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
 * Incluir:
     * Programas/paquetes siguientes: 
         * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
-        * Incluir como Desktop secundario XFCE.
+        * Incluir como Desktop secundario XFCE (El nombre del paquete es `pattern-openSUSE-xfce`).
     * Activar para que la distro se inicie en modo LIVE.
     * Activar opciones para instalar la distro en el disco duro.
     * Paquetes y programas necesarios.
