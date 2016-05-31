@@ -26,8 +26,12 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
     y a partir de aquí seguimos con nuestra personalización.
 * Incluir:
     * Programas/paquetes siguientes: 
-        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
+        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
         * Incluir como Desktop secundario XFCE (El nombre del paquete es `pattern-openSUSE-xfce`).
+    * Descargar los ficheros:
+        * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
+        * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
+    * Descomprimirlos y añadirlos a la distro, en la ruta `/opt/godot-engine`.
     * Activar para que la distro se inicie en modo LIVE.
     * Activar opciones para instalar la distro en el disco duro.
     * Paquetes y programas necesarios.
@@ -54,7 +58,7 @@ Enlace de interés:
 ##2.1 Creación del fichero XML
 
 * Empezamos haciendo una nueva instalación de OpenSUSE en MV.
-    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
+    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
     * Crear el usuario `nombre-alumnoXX`.
     * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
     * Configurar dominio con `curso1516`.
