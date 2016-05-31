@@ -11,17 +11,47 @@ de la instalación del sistema operativo de forma automática, sin hacer pregunt
 
 * Vamos a crear 2 instalaciones desatendidas para el sistema operativo OpenSuse.
 * Entregas:
-    * (a) Informe los pasos del apartado 1.
-    * (b) Entregar URL apuntando a la distro creada en el apartado 2.
+    * (a) Entregar URL apuntando a la distro creada en el apartado 2.
+    * (b) Informe los pasos del apartado 1.
+
+#1. SuseStudio
+
+Vamos a crear una distro personalizada apropiada para 1ASIR. 
+
+* Ir a la web SuseStudio y registrarse.
+* Crear una distro con el nombre `idp1516-nombre-del-alumno`.
+* Vamos a crear nuestro proyecto a partir de un modelo base. 
+    * Para eso elegiremos la plantilla KDE o Gnome. 
+    Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
+    y a partir de aquí seguimos con nuestra personalización.
+* Incluir:
+    * Programas/paquetes siguientes: 
+        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
+        * Incluir como Desktop secundario XFCE.
+    * Activar para que la distro se inicie en modo LIVE.
+    * Activar opciones para instalar la distro en el disco duro.
+    * Paquetes y programas necesarios.
+    * Idioma español.
+    * Para crear el usuario elegir una de las siguientes opciones:
+        * (a) Crear usuario `linux` con clave `linux`.
+        * (b) Activar autologin o en su defecto 
+        * (c) informar en el EULA de los usuarios/claves configurados en el sistema.
+    * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
+    * Configurar dominio con `curso1516`.
+    * Elegir escritorio KDE o Gnome.
     
-#1. Instalación desatendida de OpenSUSE con `autoyast`
+> De forma opcional se puede continuar con lo siguiente:
+> * Clonar la distro y compartir la original (Share).
+> * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
+
+#2. Instalación desatendida de OpenSUSE con `autoyast`
 
 Enlace de interés:
 * [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-##1.1 Creación del fichero XML
+##2.1 Creación del fichero XML
 
 * Empezamos haciendo una nueva instalación de OpenSUSE en MV.
     * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
@@ -52,7 +82,7 @@ vamos a crearlo ahora:
     vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
     * Copiamos el fichero XML en un pendrive o en la máquina real.
 
-##1.2 Crear acceso al fichero XML
+##2.2 Crear acceso al fichero XML
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **ISO** - Fichero de control dentro de la propia ISO
@@ -66,7 +96,7 @@ Elegir una de las siguientes formas para la instalación desatendida.
     * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
 * **CIFS** - Fichero de control en carpeta compartida de Windows
 
-##1.3 Comenzar la instalación desatendida
+##2.3 Comenzar la instalación desatendida
 
 * Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE. 
 
@@ -90,28 +120,3 @@ especificadas en el fichero XML.
 
 > Los últimos cursos hemos tenido problemas con la lectura de dicho fichero XML.
 
-#2. SuseStudio
-
-Vamos a crear una distro personalizada apropiada para 1ASIR. 
-
-* Ir a la web SuseStudio y registrarse.
-* Crear una distro con el nombre `idp1516-nombre-del-alumno`.
-* Vamos a crear nuestro proyecto a partir de un modelo base. 
-    * Para eso elegiremos la plantilla KDE o Gnome. 
-    Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
-    y a partir de aquí seguimos con nuestra personalización.
-* Incluir:
-    * Programas/paquetes siguientes: 
-        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
-        * Incluir como Desktop secundario XFCE.
-    * Activar para que la distro se inicie en modo LIVE.
-    * Activar opciones para instalar la distro en el disco duro.
-    * Paquetes y programas necesarios.
-    * Idioma español.
-    * Activar autologin o en su defecto informar en el EULA de 
-    los usuarios/claves configurados en el sistema.
-    * Elegir escritorio KDE o Gnome.
-    
-> De forma opcional se puede continuar con lo siguiente:
-> * Clonar la distro y compartir la original (Share).
-> * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
