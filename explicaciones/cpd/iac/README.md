@@ -46,7 +46,7 @@ Este CPD tiene un falso suelo para el cableado de red, corriente, etc.
 Todo el cableado debe estar correctamente colocado, etiquetado y en orden.
 En la imagen vemos un ejemplo de la forma correcta de cablear la red.
 
-![08](.files/08-cableado.jpg)
+![08](./files/08-cableado.jpg)
 
 Aunque parezca una tontería, es muy importante tenerlo todo perfectamente
 etiquetado para evitar problemas en el futuro.
