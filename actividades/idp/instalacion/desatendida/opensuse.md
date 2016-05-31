@@ -40,8 +40,6 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
         * (a) Crear usuario `linux` con clave `linux`.
         * (b) Activar autologin o en su defecto 
         * (c) informar en el EULA de los usuarios/claves configurados en el sistema.
-    * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
-    * Configurar dominio con `curso1516`.
     * Elegir escritorio KDE o Gnome.
     
 > De forma opcional se puede continuar con lo siguiente:
