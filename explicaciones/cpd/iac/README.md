@@ -37,7 +37,7 @@ El CPD del IAC es miembro de una red de CPDs por toda España.
 
 ![05](./files/05-info-cpd.jpg)
 
-![06](.files/06-info-cpd.jpg)
+![06](./files/06-info-cpd.jpg)
 
 Este CPD tiene un falso suelo para el cableado de red, corriente, etc.
 
