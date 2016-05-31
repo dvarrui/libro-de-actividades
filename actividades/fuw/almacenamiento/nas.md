@@ -19,8 +19,9 @@
 
 #1. NAS OpenSUSE 13.2
 
-Montar en una MV con OpenSUSE el servicio Samba
+* Montar en una MV con OpenSUSE el servicio Samba
 (Consultar [configuración](../../global/configuracion-aula109.md)).
+* Consultar vídeo [SAMBA Management with YaST on SUSE](https://youtu.be/Zh3J-HUYDY4?list=PL3E447E094F7E3EBB)
 
 La práctica de NAS consisten en:
 * Montar 2 discos para guardar los datos en RAID1.
