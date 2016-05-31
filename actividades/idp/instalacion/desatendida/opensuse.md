@@ -1,18 +1,18 @@
 ```
 Instalación desatendida con OpenSUSE
-* Creada en el curso 201415.
+* Creada en el curso 201314.
 * Problemas en la lectura del fichero autoyast.xml
 ```
 
 #Instalaciónes desatendidas
 
-Una instalación desatendida del sistema operativo ejecuta el proceso completo d
-e la instalación de forma automática, sin hacer preguntas al usuario.
+Una instalación desatendida del sistema operativo ejecuta el proceso completo 
+de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
 * Vamos a crear 2 instalaciones desatendidas para el sistema operativo OpenSuse.
-* Entrega:
-    * Informe los pasos del paso 1.
-    * Entregar URL a la distro creada en el paso2.
+* Entregas:
+    * (a) Informe los pasos del apartado 1.
+    * (b) Entregar URL apuntando a la distro creada en el apartado 2.
     
 #1. Instalación desatendida de OpenSUSE con `autoyast`
 
@@ -23,17 +23,24 @@ Enlace de interés:
 
 ##1.1 Creación del fichero XML
 
-* Primero vamos a realizar una instalación de OpenSUSE en una MV.
-    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
-    * Nos aseguraremos de que se guarda el fichero `autoyast.xml` durante el proceso.
-    * Si todo es correcto, saltamos al paso siguiente.
+* Empezamos haciendo una nueva instalación de OpenSUSE en MV.
+    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch, shutter.
+    * Crear el usuario `nombre-alumnoXX`.
+    * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
+    * Configurar dominio con `curso1516`.
+    * Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
+    Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
+
+> `autoyast.xml`  es  nuestro "Control File". 
+> Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
+
 * Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
-lo creamos ahora:
-    * A continuación, personalizaremos nuestra máquina, instalando software, creando usuarios, etc.
-    * Instalamos la herramienta Autoyast: zypper in autoyast2
-    * Iniciamos autoyast con: `/sbin/yast2 autoyast`
-    Con esta herramienta podemos crearnos nuestro "Control File". 
-    Esto es un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
+vamos a crearlo ahora:
+    * A continuación, personalizaremos nuestra máquina como se indica más arriba.
+    * Instalamos la herramienta Autoyast (Paquete `autoyast2`).
+    * Iniciamos autoyast
+        * Por GUI `Yast -> Autoyast` o
+        * por comandos `/sbin/yast2 autoyast`.
     * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
     * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
     * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
@@ -45,9 +52,9 @@ lo creamos ahora:
     vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
     * Copiamos el fichero XML en un pendrive o en la máquina real.
 
-##1.2 Crear el acceso al fichero XML
+##1.2 Crear acceso al fichero XML
 
-Elegiremos una de las siguientes formas para la instalación desatendida.
+Elegir una de las siguientes formas para la instalación desatendida.
 * **ISO** - Fichero de control dentro de la propia ISO
     * Incluir el fichero XML dentro de la ISO de instalación. 
     * Para modificar la ISO podemos usar el programa isomaster. 
@@ -78,26 +85,33 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
     * `autoyast=cifs://servidor/carpeta/control-file.xml`
 
-* De esta forma, comenzará la instalación de forma desatendida con las opciones 
+A continuación debe comenzar la instalación de forma desatendida con las opciones 
 especificadas en el fichero XML.
 
+> Los últimos cursos hemos tenido problemas con la lectura de dicho fichero XML.
 
 #2. SuseStudio
 
-Resumen del proceso:
+Vamos a crear una distro personalizada apropiada para 1ASIR. 
 
 * Ir a la web SuseStudio y registrarse.
-* Crear una distro personalizada apropiada para 1ASIR. Usar el nombre `idp1516-nombre-del-alumno`.
-* Vamos a crear nuestro proyecto a partir de una modelo base. 
-    * Para eso elegiremos al plantilla KDE o Gnome. Esto nos crea un sistema de escritorio mínimo KDE o Gnome, y a partir de aquí seguimos con nuestra personalización.
+* Crear una distro con el nombre `idp1516-nombre-del-alumno`.
+* Vamos a crear nuestro proyecto a partir de un modelo base. 
+    * Para eso elegiremos la plantilla KDE o Gnome. 
+    Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
+    y a partir de aquí seguimos con nuestra personalización.
 * Incluir:
-    * Programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
-    * Distro que se inicia en modo LIVE.
-    * Opciones para instalar la distro en el disco duro.
+    * Programas/paquetes siguientes: 
+        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, scratch.
+        * Incluir como Desktop secundario XFCE.
+    * Activar para que la distro se inicie en modo LIVE.
+    * Activar opciones para instalar la distro en el disco duro.
     * Paquetes y programas necesarios.
     * Idioma español.
-    * Autologin o en su defecto informar en el EULA de los usuarios/claves configurados en el sistema.
+    * Activar autologin o en su defecto informar en el EULA de 
+    los usuarios/claves configurados en el sistema.
     * Elegir escritorio KDE o Gnome.
-* De forma opcional se puede continuar con lo siguiente:
-    * Clonar la distro y compartir la original (Share).
-    * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
+    
+> De forma opcional se puede continuar con lo siguiente:
+> * Clonar la distro y compartir la original (Share).
+> * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
