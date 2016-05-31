@@ -11,8 +11,8 @@ de la instalación del sistema operativo de forma automática, sin hacer pregunt
 
 * Vamos a crear 2 instalaciones desatendidas para el sistema operativo OpenSuse.
 * Entregas:
-    * (a) Entregar URL apuntando a la distro creada en el apartado 2.
-    * (b) Informe los pasos del apartado 1.
+    * (a) Entregar URL apuntando a la distro creada en el apartado 1.
+    * (b) Informe los pasos del apartado 2.
 
 #1. SuseStudio
 
