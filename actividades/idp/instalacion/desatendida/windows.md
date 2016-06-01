@@ -18,7 +18,7 @@ Ver imagen:
 
 Una posible solución será activar APCI en la MV. Ver imagen:
 
-![win-vbox-acpi](./files/win-vboc-acpi.png)
+![win-vbox-acpi](./files/win-vbox-acpi.png)
 
 > NOTA:
 >
