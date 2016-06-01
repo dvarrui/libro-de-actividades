@@ -14,11 +14,11 @@ Al terminar probamos la ISO en una máquina virtual.
 Si al iniciar la MV con la iso recién creada, aparece el error 225. 
 Ver imagen:
 
-[win-error-225](./files/win-error-225.jpg)
+![win-error-225](./files/win-error-225.jpg)
 
 Una posible solución será activar APCI en la MV. Ver imagen:
 
-[win-vbox-acpi](./files/win-vboc-acpi.png)
+![win-vbox-acpi](./files/win-vboc-acpi.png)
 
 > NOTA:
 >
