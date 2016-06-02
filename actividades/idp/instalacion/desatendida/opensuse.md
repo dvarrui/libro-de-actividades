@@ -37,7 +37,9 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
     * Descargar los ficheros:
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
-    * Descomprimirlos y añadirlos a la distro, en la ruta `/opt/godot-engine`.
+    * Añadirlos a la distro sin descomprimir
+        * `Move/rename`, definir ruta `/opt/godot-engine`.
+        * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
 
 * Ahora construimos la distro con `build`, eligiendo `Live CD/DVD iso`.
 * Probamos la distro de forma remota con `Test...`
