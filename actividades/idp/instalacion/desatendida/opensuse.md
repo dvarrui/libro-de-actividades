@@ -58,9 +58,11 @@ Enlace de interés:
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-##2.1 Fichero XML con las respuestas a las preguntas del instalador
+##2.1 Crear el fichero `autoyast.xml`
 
-###2.1.1 Opción 1 - Instando una MV desde cero
+Necesitamos el fichero `autoyast.xml`, con las respuestas a las preguntas del instalador.
+
+###2.1.1 Opción 1 - Instalando una MV desde cero
 
 Hacemos una nueva instalación de OpenSUSE en MV.
 * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
@@ -73,7 +75,7 @@ Este fichero guarda las decisiones que tomamos sobre la configuración de nuestr
 > `autoyast.xml`  es  nuestro "Control File". 
 > Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
 
-###2.1.2 OPción 2 - Usando una MV con el sistema ya instalado
+###2.1.2 Opción 2 - Usando una MV con el sistema operativo ya instalado
 
 Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
