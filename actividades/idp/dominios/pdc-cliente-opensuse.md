@@ -60,10 +60,15 @@ Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU
 ![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
 
 * Una vez iniciada la sesión ejecutar los comandos de comprobación:
-    * `whoami`
-    * `id USUARIO`
-    * `cat /etc/passwd |grep USUARIO`
-    * `cat /etc/passwd | grep $(whoami)`
+    * `whoami`, esto debe devolver DOMINIO\USER que ha iniciado sesión
+    * `cat /etc/passwd | grep $(whoami)`, esto debe devolver vacío, indicando
+    que el usuario no está definido como usuario local, por tanto, debe ser
+    un usuario del dominio.
+
+> **Otros comandos de comprobación**
+>
+> * `id USUARIO`, esto debería devolver que no existe el usuario en el sistema local.
+> * `cat /etc/passwd |grep 'DOMINIO\USUARIO'`, esto es lo mismo que `cat /etc/passwd | grep $(whoami)`.
 
 
 #ANEXO
