@@ -175,6 +175,16 @@ ping 8.8.4.4
 blkid
 ```
 
+> **Guest Additions**
+>
+> * En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`
+> * Reiniciar equipo
+> * VirtualBox -> Instalar Guest Additions
+> * En la consola como root
+>     * `cd /run/media/....`
+>     * `./VBoxLinux...`
+> * Reiniciar el equipo si todo va bien.
+
 ##2.4 Configuración GNU/Linux Debian 8
 
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
