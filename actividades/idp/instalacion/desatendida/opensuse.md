@@ -40,7 +40,13 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
     * Descomprimirlos y añadirlos a la distro, en la ruta `/opt/godot-engine`.
-    
+
+* Ahora construimos la distro con `build`.
+* Probamos la distro de forma remota con `Test`
+* Y si estamos contentos con el resultado, la publicamos con `Share`
+     * Usar etiquetas `idp1516`
+* Entregar URL de la distro publicada al profesor.
+        
 > De forma opcional se puede continuar con lo siguiente:
 > * Clonar la distro y compartir la original (Share).
 > * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
