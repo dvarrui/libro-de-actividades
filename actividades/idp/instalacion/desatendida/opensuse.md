@@ -29,9 +29,7 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
         * gree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop.
         * Incluir como Desktop secundario XFCE (El nombre del paquete es `patterns-openSUSE-xfce`).
     * Idioma español y teclado español. Zona horaria Europa/Canarias.
-    * Activar opciones para: 
-        * iniciar la distro en modo LIVE.
-        * instalar la distro en el disco duro (`Add live installer CD/DVD`).
+    * Activar `Configuración -> Appliance -> Add live installer CD/DVD`.
     * Para crear el usuario elegir una de las siguientes opciones:
         * (a) Crear usuario `linux` con clave `linux`.
         * (b) Activar autologin o en su defecto 
@@ -41,8 +39,8 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
     * Descomprimirlos y añadirlos a la distro, en la ruta `/opt/godot-engine`.
 
-* Ahora construimos la distro con `build`.
-* Probamos la distro de forma remota con `Test`
+* Ahora construimos la distro con `build`, eligiendo `Live CD/DVD iso`.
+* Probamos la distro de forma remota con `Test...`
 * Y si estamos contentos con el resultado, la publicamos con `Share`
      * Usar etiquetas `idp1516`
 * Entregar URL de la distro publicada al profesor.
