@@ -26,21 +26,20 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
     y a partir de aquí seguimos con nuestra personalización.
 * Incluir:
     * Programas/paquetes siguientes: 
-        * Tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
+        * gree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop.
         * Incluir como Desktop secundario XFCE (El nombre del paquete es `pattern-openSUSE-xfce`).
+    * Idioma español y teclado español. Zona horaria Europa/Canarias.
+    * Activar opciones para: 
+        * iniciar la distro en modo LIVE.
+        * instalar la distro en el disco duro (`Add live installer CD/DVD`).
+    * Para crear el usuario elegir una de las siguientes opciones:
+        * (a) Crear usuario `linux` con clave `linux`.
+        * (b) Activar autologin o en su defecto 
+        * (c) Informar en el EULA de los usuarios/claves configurados en el sistema.
     * Descargar los ficheros:
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
     * Descomprimirlos y añadirlos a la distro, en la ruta `/opt/godot-engine`.
-    * Activar para que la distro se inicie en modo LIVE.
-    * Activar opciones para instalar la distro en el disco duro.
-    * Paquetes y programas necesarios.
-    * Idioma español.
-    * Para crear el usuario elegir una de las siguientes opciones:
-        * (a) Crear usuario `linux` con clave `linux`.
-        * (b) Activar autologin o en su defecto 
-        * (c) informar en el EULA de los usuarios/claves configurados en el sistema.
-    * Elegir escritorio KDE o Gnome.
     
 > De forma opcional se puede continuar con lo siguiente:
 > * Clonar la distro y compartir la original (Share).
