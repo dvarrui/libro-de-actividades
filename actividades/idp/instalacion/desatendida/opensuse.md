@@ -58,36 +58,40 @@ Enlace de interés:
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-##2.1 Creación del fichero XML
+##2.1 Fichero XML con las respuestas a las preguntas del instalador
 
-* Empezamos haciendo una nueva instalación de OpenSUSE en MV.
-    * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
-    * Crear el usuario `nombre-alumnoXX`.
-    * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
-    * Configurar dominio con `curso1516`.
-    * Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
-    Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
+###2.1.1 Opción 1 - Instando una MV desde cero
+
+Hacemos una nueva instalación de OpenSUSE en MV.
+* Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
+* Crear el usuario `nombre-alumnoXX`.
+* Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
+* Configurar dominio con `curso1516`.
+* Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
+Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
 
 > `autoyast.xml`  es  nuestro "Control File". 
 > Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
 
-* Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
-vamos a crearlo ahora:
-    * A continuación, personalizaremos nuestra máquina como se indica más arriba.
-    * Instalamos la herramienta Autoyast (Paquete `autoyast2`).
-    * Iniciamos autoyast
-        * Por GUI `Yast -> Autoyast` o
-        * por comandos `/sbin/yast2 autoyast`.
-    * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
-    * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
-    * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
-    * Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
-    * Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
-    * Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
-    * Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
-    * Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML, 
-    vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
-    * Copiamos el fichero XML en un pendrive o en la máquina real.
+###2.1.2 OPción 2 - Usando una MV con el sistema ya instalado
+
+Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
+vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
+* A continuación, personalizaremos nuestra máquina como se indica más arriba.
+* Instalamos la herramienta Autoyast (Paquete `autoyast2`).
+* Iniciamos autoyast
+    * Por GUI `Yast -> Autoyast` o
+    * por comandos `/sbin/yast2 autoyast`.
+* Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
+* Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
+* Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
+* Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
+* Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
+* Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
+* Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
+* Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML, 
+vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
+* Copiamos el fichero XML en un pendrive o en la máquina real.
 
 ##2.2 Crear acceso al fichero XML
 
