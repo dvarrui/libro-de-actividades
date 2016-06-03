@@ -25,20 +25,26 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 * TARGET - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
 * TARGET - [Targets iSCSI software para Windows](https://blogs.technet.microsoft.com/davidcervigon/2007/08/29/targets-iscsi-gratuitos-para-windows) 
 * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
-* Vídeo: [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).  
 
 > **NOTA**
 >
 > En el firewall de Windows habilitar regla de entrada `eco ICMP v4` para 
 permitir que funcione la respuesta al comando ping. 
+> 
+> Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 
 ##1.3 Resultado final
 
-Como resultado final la máquina `Initiator` debe guardar información en el sistema de
+* Vamos al target, instalar el software de target en el `Administrador Servidor`.
+    * `Característiscas/Funciones -> Agregar Almacenamiento SAN`. 
+* Vamos al iniciador. El software Iniciador ya viene instalado. 
+Sólo hay que configurarlo para concentar con el target.
+* Como resultado final la máquina `Initiator` debe guardar información en el sistema de
 almacenamiento proporcionado por la máquina `Target`.
 
 Crear una carpeta en Initiator, llamada `c:\remote_target`, de modo que la información
 que se guarde en ella se almacena en el Target remoto.
+
 
 #2. iSCSI en OpenSUSE
 
