@@ -14,8 +14,10 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
     * Con dos interfaces de red. 
     * Una en modo puente (172.19.XX.21)
     * la otra en red interna (192.168.XX.21) con nombre `san_window`.
+        * Esta interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`.
     * Con un interfaz de red (192.168.XX.22) en modo red interna `san_windows`.
+    * Esta interfaz usa como gateway 192.168.XX.21.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
@@ -54,7 +56,7 @@ que se guarde en ella se almacena en el Target remoto.
 
 #2. iSCSI en OpenSUSE
 
-##2.1 Objetivo
+##2.1 Preparativos
 
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2 (Consultar [configuraciones](../../global/configuracion-aula109.md) ).
 
@@ -63,8 +65,10 @@ Necesitamos 2 MV's.
     * Con dos interfaces de red. 
     * Una en modo puente (172.19.XX.31) 
     * y la otra en red interna (192.168.XX.31) con nombre `san_gnulinux`.
+        * Este interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`. 
     * Con un interfaz de red (192.168.XX.32) en modo red interna `san_gnulinux`. 
+    * Este interfaz tiene como gateway 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
