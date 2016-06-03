@@ -5,9 +5,9 @@
 
 #1. iSCSI en Windows 2008 Server
 
-##1.1 Objetivo
-
 Vamos a montar un iSCSI con Windows Server.
+
+##1.1 Preparativos
 
 Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion-aula109.md)).
 * MV1: Esta MV actuará de `Initiator`. 
@@ -33,12 +33,18 @@ permitir que funcione la respuesta al comando ping.
 > 
 > Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 
-##1.3 Resultado final
+##1.3 Instalar el target
 
 * Vamos al target, instalar el software de target en el `Administrador Servidor`.
     * `Característiscas/Funciones -> Agregar Almacenamiento SAN`. 
+
+##1.4 Configurar Iniciador
+
 * Vamos al iniciador. El software Iniciador ya viene instalado. 
 Sólo hay que configurarlo para concentar con el target.
+
+##1.5 Comprobación final
+
 * Como resultado final la máquina `Initiator` debe guardar información en el sistema de
 almacenamiento proporcionado por la máquina `Target`.
 
