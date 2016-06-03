@@ -3,9 +3,9 @@
 * Creado en Marzo 2016 para el curso1516
 ```
 
-#1. Configurar acceso remoto en Windows
+#1. Configurar acceso remoto
 
-##1.1. Servidor SSH con CopSSH
+##1.1. Windows con Servidor SSH con CopSSH
 
 * Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
 * Instalar con las opciones por defecto.
@@ -14,7 +14,7 @@
     * Clave de `sysadmingame` conocida por el alumno y el profesor.
     * Shell: `Linux Shell + SFTP`
 
-##1.2. Servidor Telnet
+##1.2. Windows con Servidor Telnet
 
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
@@ -49,6 +49,26 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
 
 * Enlaces de interés:
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4) 
+
+##1.3 OpenSUSE Servidor SSH
+
+* Programa SSH server:
+    * Para veriguar si lo tenemos instalado: `zypper search openssh`
+    * Instalar openssh-server para que el profesor pueda acceder 
+    de forma remota:`zypper install openssh`.
+    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
+    `PermitRootLogin yes`. La línea debe estar descomentada.
+    * Reiniciar el servicio: `service ssh restart`
+
+##1.4 Debian SSH Server
+
+* Programa SSH server:
+    * Para averiguar si lo tenemos instalado: `dpkg -l openssh*`.
+    * Instalar openssh-server para que el profesor pueda acceder 
+    de forma remota:`apt-get install openssh-server`.
+    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
+    `PermitRootLogin yes`.
+    * Reiniciar el servicio: `service ssh restart`
 
 #2. Configurar las máquinas virtuales
 
@@ -153,13 +173,6 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
 Para que el comando hostname funcione bien.
-* Programa SSH server:
-    * Para veriguar si lo tenemos instalado: `zypper search openssh`
-    * Instalar openssh-server para que el profesor pueda acceder 
-    de forma remota:`zypper install openssh`.
-    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
-    `PermitRootLogin yes`. La línea debe estar descomentada.
-    * Reiniciar el servicio: `service ssh restart`
 
 Capturar imágen de la configuración del equipo:
 ```
@@ -175,16 +188,6 @@ host www.iespuertodelacruz.es
 ping 8.8.4.4
 blkid
 ```
-
-> **Guest Additions**
->
-> * En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`
-> * Reiniciar equipo
-> * VirtualBox -> Instalar Guest Additions
-> * En la consola como root
->     * `cd /run/media/....`
->     * `./VBoxLinux...`
-> * Reiniciar el equipo si todo va bien.
 
 ##2.4 Configuración GNU/Linux Debian 8
 
@@ -204,13 +207,6 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
 Para que el comando hostname funcione bien.
-* Programa SSH server:
-    * Para averiguar si lo tenemos instalado: `dpkg -l openssh*`.
-    * Instalar openssh-server para que el profesor pueda acceder 
-    de forma remota:`apt-get install openssh-server`.
-    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
-    `PermitRootLogin yes`.
-    * Reiniciar el servicio: `service ssh restart`
 
 Capturar imágen de la configuración del equipo:
 ```
@@ -256,7 +252,27 @@ sudo rm /etc/resolv.conf
 sudo dpkg-reconfigure resolvconf
 ```
 
-##2.4.2 Instalar las Guest Addittions
+#3. Configurar las Guest Adittions
+
+###3.3 Guest Additions en OpenSUSE
+
+* En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`
+* Reiniciar equipo
+* VirtualBox -> Instalar Guest Additions
+* En la consola como root
+    * `cd /run/media/....`
+    * `./VBoxLinux...`
+* Reiniciar el equipo si todo va bien.
+
+Para montar una carpeta compartida
+* Configurar en VirtualBox el recurso de carpeta compartida con NOMBRE y PATH-HOST-REAL
+* Iniciar la MV
+* Entrar en consola como root
+    * crear carpeta local PATH-DENTRO-MV
+    * `mount -t vboxsf NOMBRE PATH-DE-MV`
+* Ya está!
+
+##3.4 Instalar las Guest Addittions en Debian
 
 Antes de intalar las Guest Additions, es  mejor verificar que no hace falta.
 Si la ventana de la MV se redimensiona bien, funciona el pendrive, y las carpetas compartidas
