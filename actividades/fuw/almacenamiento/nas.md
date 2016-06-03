@@ -52,7 +52,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Poner permisos al recurso de red de lectura para todos.
     * Heredar ACLS
     * `path = /mnt/nas/hobbitonXX.d`
-    * `valid users = %hobbitsXX
+    * `valid users = @hobbitsXX` (Los usuarios de este grupo pueden acceder al recurso)
     * `read only = No`
 
 ![nas-samba-share.png](./files/nas-samba-share.png)
@@ -64,7 +64,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Poner permisos al recurso de red de lectura para todos.
     * Heredar ACLS
     * `path = /mnt/nas/mordorXX.d`
-    * `valid users = %hobbitsXX, %humanosXX`
+    * `valid users = gandalfXX, frodoXX` (Estos usuarios pueden acceder al recurso)
     * `read only = Yes`
 
 * Poner también clave en Samba para los usuarios.
