@@ -15,7 +15,6 @@
         * Recurso2 de sólo lectura para el usuario2.
     * Crear usuarios/clave para acceder al repositorio NAS.
     * Comprobar el acceso al servdidor NAS desde otra máquina.
-* Elegir solamente, una de las siguientes opciones para realizar la práctica.
 
 #1. NAS OpenSUSE 13.2
 
@@ -52,7 +51,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     en la ruta anterior, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Heredar ACLS
-    * `valid users = %hobbitsXX, %humanosXX`
+    * `path = /mnt/nas/hobbitonXX.d`
+    * `valid users = %hobbitsXX
+    * `read only = No`
 
 ![nas-samba-share.png](./files/nas-samba-share.png)
 
@@ -62,7 +63,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Heredar ACLS
+    * `path = /mnt/nas/mordorXX.d`
     * `valid users = %hobbitsXX, %humanosXX`
+    * `read only = Yes`
 
 * Poner también clave en Samba para los usuarios.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
@@ -77,29 +80,3 @@ usuarios, y todos los recursos.
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
 
-#2. NAS Hardware
-
-La práctica de NAS consisten en:
-* Usar un dispositivo NAS Hardware proporcionado por el profesor.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `profesores`: Recurso compartido de lectura/escritura para el usuario `profesor`
-    * `alumnos`: Recurso de sólo lectura para el usuario `alumno`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `profesor`.
-    * Usuario `alumno`.
-* Comprobar el acceso al servdidor NAS desde otra máquina.
-
-#3. Otros NAS
-
-Montar en una MV con otro sistema NAS a elegir por el alumno.
-* Antes de empezar consultar el profesor el NAS elegido. 
-* Instalar y configurar NAS.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
-    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodoXX`.
-    * Usuario `gandalfXX`.
-* Comprobar el acceso al servidor NAS desde otra máquina. 
