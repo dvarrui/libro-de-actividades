@@ -10,11 +10,12 @@
 Vamos a montar un iSCSI con Windows Server.
 
 Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion-aula109.md)).
-* MV1: Esta MV actuará de "Initiator" . 
+* MV1: Esta MV actuará de `Initiator`. 
     * Con dos interfaces de red. 
-    * Una en modo puente (172.19.XX.21) y la otra en red interna (192.168.XX.1). (Iniciador iSCSI).
-* MV2: Esta MV actuará de "target".
-    * Con un interfaz de red en modo red interna (192.168.XX.2).
+    * Una en modo puente (172.19.XX.21)
+    * la otra en red interna (192.168.XX.21) con nombre `san_window`.
+* MV2: Esta MV actuará de `Target`.
+    * Con un interfaz de red (192.168.XX.22) en modo red interna `san_windows`.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
@@ -24,20 +25,20 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 * TARGET - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
 * TARGET - [Targets iSCSI software para Windows](https://blogs.technet.microsoft.com/davidcervigon/2007/08/29/targets-iscsi-gratuitos-para-windows) 
 * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
-
-* Vídeo: [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
+* Vídeo: [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).  
 
 > **NOTA**
 >
 > En el firewall de Windows habilitar regla de entrada `eco ICMP v4` para 
-permitir que funcione la respuesta al comando ping.
-
+permitir que funcione la respuesta al comando ping. 
 
 ##1.3 Resultado final
 
 Como resultado final la máquina `Initiator` debe guardar información en el sistema de
 almacenamiento proporcionado por la máquina `Target`.
 
+Crear una carpeta en Initiator, llamada `c:\remote_target`, de modo que la información
+que se guarde en ella se almacena en el Target remoto.
 
 #2. iSCSI en OpenSUSE
 
@@ -46,11 +47,12 @@ almacenamiento proporcionado por la máquina `Target`.
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2 (Consultar [configuraciones](../../global/configuracion-aula109.md) ).
 
 Necesitamos 2 MV's.
-* MV1: Esta MV actuará de "Initiator" . 
+* MV1: Esta MV actuará de `Initiator` . 
     * Con dos interfaces de red. 
-    * Una en modo puente (172.19.XX.31) y la otra en red interna (192.168.XX.1). (Iniciador iSCSI).
-* MV2: Esta MV actuará de "target". 
-    * Con un interfaz de red en modo red interna (192.168.XX.2).
+    * Una en modo puente (172.19.XX.31) 
+    * y la otra en red interna (192.168.XX.31) con nombre `san_gnulinux`.
+* MV2: Esta MV actuará de `Target`. 
+    * Con un interfaz de red (192.168.XX.32) en modo red interna `san_gnulinux`. 
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
@@ -67,6 +69,8 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 Como resultado final la máquina `Initiator` debe guardar información en el sistema de
 almacenamiento proporcionado por la máquina `Target`.
 
+Crear una carpeta en Initiator, llamada `/home/remote_target`, de modo que la información
+que se guarde en ella se almacena en el Target remoto.
 
 #ANEXO
 
