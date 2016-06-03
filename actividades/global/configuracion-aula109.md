@@ -3,7 +3,7 @@
 * Creado en Marzo 2016 para el curso1516
 ```
 
-#1. Configurar acceso remoto en Windows7/Windows2008Server
+#1. Configurar acceso remoto en Windows
 
 ##1.1. Servidor SSH con CopSSH
 
@@ -51,7 +51,6 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4) 
 
 #2. Configurar las máquinas virtuales
-
 
 ##2.1 Configuración Windows 7 Professional
 
@@ -109,7 +108,9 @@ Configuración de la máquina Windows 2008 Server Enterprise:
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
-* Nombre de dominio: `segundo-apellido-del-alumno+XXdom.c1516`.
+
+> En el caso de tener un PDC, pondremos como nombre de dominio `segundo-apellido-del-alumno+XXdom.c1516`.
+
 * Tarjeta de red VBox en `modo puente`.
 * Instalar el servidor Telnet (consultar más arriba)
 
