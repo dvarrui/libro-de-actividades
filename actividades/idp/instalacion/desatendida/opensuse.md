@@ -27,17 +27,28 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
 * Incluir:
     * Añadir programas/paquetes: 
         * tree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop, recordmydesktop.
-        * Incluir paquetes idioma español: `kde4-l10n-es`, `desktop-translations`
-        * `yast2-users`
+        * Incluir paquetes idioma español: `...-l10n-es`, `desktop-translations`
         * `virtualbox-guest-desktop`
         * `pattern-openSUSE-...-basis`
         * Incluir como Desktop secundario XFCE (El nombre del paquete es `patterns-openSUSE-xfce`).
     * Idioma español y teclado español. Zona horaria Europa/Canarias.
     * Activar `Configuración -> Appliance -> Add live installer CD/DVD`.
     * Para crear el usuario elegir una de las siguientes opciones:
-        * (a) Crear usuario `linux` con clave `linux`.
-        * (b) Activar autologin o en su defecto 
-        * (c) Informar en el EULA de los usuarios/claves configurados en el sistema.
+        * Crear usuario `linux` con clave `linux`.
+        * No activar autologin. 
+        * Informar en el EULA de los usuarios/claves configurados en el sistema.
+```
+IES Puerto de la Cruz - Telesforo Bravo
+Curso 2015-2016
+CFGS 1ASIR
+
+Usuario/clave
+root/linux
+linux/linux
+
+Creado por: Nombre y apellidos del alumno
+``` 
+
     * Descargar los ficheros:
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
@@ -54,6 +65,10 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
 > De forma opcional se puede continuar con lo siguiente:
 > * Clonar la distro y compartir la original (Share).
 > * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
+
+> **Otros paquetes interesantes**
+>
+> * `yast2-users`, gestión de usuarios mediante yast.
 
 #2. Instalación desatendida de OpenSUSE con `autoyast`
 
@@ -107,11 +122,15 @@ Elegir una de las siguientes formas para la instalación desatendida.
     * Para modificar la ISO podemos usar el programa isomaster. 
 * **USB** - Fichero de control en USB
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
-* **CIFS** - Fichero de control en carpeta compartida de Windows
-* **HTTP** - Fichero de control en un servidor Web (HTTP)
-    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
-    para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
-    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
+
+> **Otras opciones**
+>
+> * **CIFS** - Fichero de control en carpeta compartida de Windows
+> * **HTTP** - Fichero de control en un servidor Web (HTTP)
+>    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
+para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
+>    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
+>
 
 ##2.3 Comenzar la instalación desatendida
 
@@ -123,7 +142,7 @@ Ver imagen de ejemplo:
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **ISO** - Fichero de control dentro de la propia ISO
-        * En boot options ponemos `autoyast=file://nombre-de-alumno.xml`
+    * En boot options ponemos `autoyast=file://nombre-de-alumno.xml`
 * **USB** - Fichero de control en USB
     * En boot opcions ponemos `autoyast=usb://nombre-del-alumno.xml`
 * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
