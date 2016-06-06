@@ -25,10 +25,12 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
     Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
     y a partir de aquí seguimos con nuestra personalización.
 * Incluir:
-    * Programas/paquetes siguientes: 
-        * gree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop.
-        * Incluir paquetes idioma español (kde4-l10n-es, etc.)
-        * Incluir paquete `yast2-users`.
+    * Añadir programas/paquetes: 
+        * tree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop, recordmydesktop.
+        * Incluir paquetes idioma español: `kde4-l10n-es`, `desktop-translations`
+        * `yast2-users`
+        * `virtualbox-guest-desktop`
+        * `pattern-openSUSE-...-basis`
         * Incluir como Desktop secundario XFCE (El nombre del paquete es `patterns-openSUSE-xfce`).
     * Idioma español y teclado español. Zona horaria Europa/Canarias.
     * Activar `Configuración -> Appliance -> Add live installer CD/DVD`.
@@ -44,7 +46,7 @@ Vamos a crear una distro personalizada apropiada para 1ASIR.
         * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
 
 * Ahora construimos la distro con `build`, eligiendo `Live CD/DVD iso`.
-* Probamos la distro de forma remota con `Test...`
+* Probamos la distro de forma remota con `Testdrive`
 * Y si estamos contentos con el resultado, la publicamos con `Share`
      * Usar etiquetas `idp1516`
 * Entregar URL de la distro publicada al profesor.
