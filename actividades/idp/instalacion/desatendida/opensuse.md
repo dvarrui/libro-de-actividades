@@ -107,11 +107,11 @@ Elegir una de las siguientes formas para la instalación desatendida.
     * Para modificar la ISO podemos usar el programa isomaster. 
 * **USB** - Fichero de control en USB
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
+* **CIFS** - Fichero de control en carpeta compartida de Windows
 * **HTTP** - Fichero de control en un servidor Web (HTTP)
     * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
     para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
     * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
-* **CIFS** - Fichero de control en carpeta compartida de Windows
 
 ##2.3 Comenzar la instalación desatendida
 
@@ -123,14 +123,14 @@ Ver imagen de ejemplo:
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **ISO** - Fichero de control dentro de la propia ISO
-        * En boot options ponemos `autoyast=file:///nombre-de-alumno.xml`
+        * En boot options ponemos `autoyast=file://nombre-de-alumno.xml`
 * **USB** - Fichero de control en USB
-    * En boot opcions ponemos `autoyast=usb:///nombre-del-alumno.xml`
+    * En boot opcions ponemos `autoyast=usb://nombre-del-alumno.xml`
+* **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
+    * `autoyast=cifs://servidor/carpeta/control-file.xml`
 * **HTTP** - Fichero de control en un servidor Web (HTTP)
     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumno.xml`.
     * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.16.109.31/16 gateway=172.16.1.1 autoyast=http://172.16.2.9/autoyast/nombre-de-alumno.xml"
-* **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
-    * `autoyast=cifs://servidor/carpeta/control-file.xml`
 
 A continuación debe comenzar la instalación de forma desatendida con las opciones 
 especificadas en el fichero XML.
