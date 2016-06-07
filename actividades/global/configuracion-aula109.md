@@ -252,41 +252,6 @@ sudo rm /etc/resolv.conf
 sudo dpkg-reconfigure resolvconf
 ```
 
-#3. Configurar las Guest Adittions
-
-###3.3 Guest Additions en OpenSUSE
-
-* En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`
-* Reiniciar equipo
-* VirtualBox -> Instalar Guest Additions
-* En la consola como root
-    * `cd /run/media/....`
-    * `./VBoxLinux...`
-* Reiniciar el equipo si todo va bien.
-
-Para montar una carpeta compartida
-* Configurar en VirtualBox el recurso de carpeta compartida con NOMBRE y PATH-HOST-REAL
-* Iniciar la MV
-* Entrar en consola como root
-    * crear carpeta local PATH-DENTRO-MV
-    * `mount -t vboxsf NOMBRE PATH-DE-MV`
-* Ya está!
-
-##3.4 Instalar las Guest Addittions en Debian
-
-Antes de intalar las Guest Additions, es  mejor verificar que no hace falta.
-Si la ventana de la MV se redimensiona bien, funciona el pendrive, y las carpetas compartidas
-con el host anfitrión, entonces no hace falta instalar nada.
-
-En caso contrario haremos:
-* Ubuntu: Ir a VBox -> Dispositivos -> Instalar.
-* Debian/LUbuntu:
-    * Ir a VBox -> Dispositivos -> Instalar.
-    * Abrir consola como super usuario: `apt-get -y install make gcc linux-headers-$(uname -r)`.
-    * Una vez terminada la instalación comprobar que no aparecen mensajes de error.
-    * Buscar donde está montado VBOXADDITIONS (`df -hT`), y moverse a dicho directorio.
-    * Ejecutar el programa de instalación para linux: `./VBoxLinuxAddittions.run`
-
 #ANEXO
 
 #A.1 Instalación del servidor SSH en windows7
