@@ -157,6 +157,10 @@ es de 180 días.
 
 ##2.3 Configuración GNU/Linux OpenSUSE 13.2
 
+Al instalar openSUSE tener en cuenta la siguiente imagen:
+
+![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
+
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
