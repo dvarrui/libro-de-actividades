@@ -84,11 +84,14 @@ Creado por: Nombre y apellidos del alumno
     * Añadirlos a la distro sin descomprimir. 
     * Usar `Move/rename`, para definir la ruta `/opt/godot-engine` .
     * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
-* `Switch to build tab`, para construir la distro y eligimos `Live CD/DVD iso`.
+* `Switch to build tab`, para construir la distro:
+    * Eligir `Live CD/DVD iso` y `USB Stick / Hard Disk Image`.
+    * Pulsar `build`. Esto tardará 60 minutos o más.
     * Probamos la distro de forma remota con `Testdrive`
     * Si nos convence la podemos descargar a nuestro PC local.
+    * En `Configuration...` podemos consultar la configuración de nuestra distro.
 * Y si estamos contentos con el resultado, la publicamos con `Share`
-     * Usar etiquetas `idp`, `iespuertodelacruz`, `curso1516`
+     * Usar etiquetas `idp`, `ies`, `puertodelacruz`, `curso`, `1516`
 * Entregar URL de la distro publicada al profesor.
         
 > **Otros paquetes interesantes**
