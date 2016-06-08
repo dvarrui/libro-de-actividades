@@ -29,7 +29,7 @@ y a partir de aquí seguimos con nuestra personalización.
 * `Choose a base template`
     * KDE4 desktop o
     * GNOME desktop
-* Nombre `idp1516-nombre-del-alumno-ESCRITORIO-VERSIONdistroSUSE`.
+* Nombre `idp1516_nombre-del-alumno_ESCRITORIO_VERSIONdistroSUSE`.
 * `Switch to software tab -> Search software -> Select software`. Añadir lo siguiente: 
     * Paquetes de redes: tree, nmap, traceroute, ipcalc, putty, hexchat, hexchat-lang, wireshark, wireshark-ui-qt
     * Paquetes de edición: gvim, geany, geany-lang , git
