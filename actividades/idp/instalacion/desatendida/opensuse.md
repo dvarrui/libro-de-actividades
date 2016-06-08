@@ -18,54 +18,79 @@ de la instalación del sistema operativo de forma automática, sin hacer pregunt
 
 Vamos a crear una distro personalizada apropiada para 1ASIR. 
 
-* Ir a la web SuseStudio y registrarse.
-* Crear una distro con el nombre `idp1516-nombre-del-alumno`.
-* Vamos a crear nuestro proyecto a partir de un modelo base. 
-    * Para eso elegiremos la plantilla KDE o Gnome. 
-    Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
-    y a partir de aquí seguimos con nuestra personalización.
-* Incluir:
-    * Añadir programas/paquetes: 
-        * tree, nmap, traceroute, gvim, ruby, geany, putty, minicom, gtk-recordmydesktop, recordmydesktop.
-        * Incluir paquetes idioma español: `...-l10n-es`, `desktop-translations`
-        * `virtualbox-guest-desktop`
-        * `pattern-openSUSE-...-basis`
-        * Incluir como Desktop secundario XFCE (El nombre del paquete es `patterns-openSUSE-xfce`).
+* Ir a la web SuseStudio, registrarse y entrar.
+* `Actions -> Create new appliance...`
+
+Vamos a crear nuestro proyecto a partir de un modelo base. 
+Para eso elegiremos la plantilla KDE o Gnome. 
+Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
+y a partir de aquí seguimos con nuestra personalización.
+
+* `Choose a base template`
+    * KDE4 desktop o
+    * GNOME desktop
+* Nombre `idp1516-nombre-del-alumno-ESCRITORIO-VERSIONdistroSUSE`.
+* `Switch to software tab -> Search software -> Select software`. Añadir lo siguiente: 
+    * Paquetes de redes: tree, nmap, traceroute, ipcalc, putty, hexchat, hexchat-lang, wireshark, wireshark-ui-qt
+    * Paquetes de edición: gvim, geany, geany-lang , git
+    * Paquetes multimedia: simplescreenrecorder, gnome-screenshot, gnome-screenshot-lang, vlc, vlc-qt,
+    gimp, gimp-lang, calligra-krita, audacity, audacity-lang
+    * Paquetes ofimática: libroffice-l10n-es
+    * Incluir paquetes idioma español: `kde-l10n-es`, `desktop-translations`
+    * `virtualbox-guest-x11`, `virtualbox-guest-tools`
+    * `patterns-openSUSE-mate`: INcluir Mate como desktop secundario.
+* `Switch to configuration tab`
     * Idioma español y teclado español. Zona horaria Europa/Canarias.
     * Activar `Configuración -> Appliance -> Add live installer CD/DVD`.
     * Para crear el usuario elegir una de las siguientes opciones:
-        * Crear usuario `linux` con clave `linux`.
-        * No activar autologin. 
-        * Informar en el EULA de los usuarios/claves configurados en el sistema.
+        * Crear usuario `alumno` con clave `alumno`.
+        * Usuario `root` con clave `profesor`
+    * Personalizar el aspecto.
+    * Informar en el EULA de los usuarios/claves configurados en el sistema.
 ```
 IES Puerto de la Cruz - Telesforo Bravo
 Curso 2015-2016
 CFGS 1ASIR
 
-Usuario/clave
-root/linux
-linux/linux
+==================
+USUARIO / CLAVE
+root    / profesor
+alumno  / alumno
+==================
 
 Creado por: Nombre y apellidos del alumno
 ``` 
+    * Activar autologin con el usuario `alumno`. 
+    * `Applience -> Add live installer`
+    * `Scripts -> Run this script at the end of the build`    
+```
+    #!/bin/bash -e
 
-    * Descargar los ficheros:
+    . /studio/profile # read in some variables
+    . /.kconfig # read in KIWI utility functions
+
+    FILE=/home/alumno/leeme.txt
+    touch $FILE
+    echo "Creado por" >> $FILE
+    echo "David Vargas Ruiz" >> $FILE
+    date >> $FILE
+```
+* `Switch to Files tab`
+    * Descargar los ficheros siguientes:
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
-    * Añadirlos a la distro sin descomprimir
-        * `Move/rename`, definir ruta `/opt/godot-engine`.
-        * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
-
-* Ahora construimos la distro con `build`, eligiendo `Live CD/DVD iso`.
-* Probamos la distro de forma remota con `Testdrive`
+        * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_export_templates.tpz`.
+        Este archivo es muy grande pero se puede subir desde casa.
+    * Añadirlos a la distro sin descomprimir. 
+    * Usar `Move/rename`, para definir la ruta `/opt/godot-engine` .
+    * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
+* `Switch to build tab`, para construir la distro y eligimos `Live CD/DVD iso`.
+    * Probamos la distro de forma remota con `Testdrive`
+    * Si nos convence la podemos descargar a nuestro PC local.
 * Y si estamos contentos con el resultado, la publicamos con `Share`
-     * Usar etiquetas `idp1516`
+     * Usar etiquetas `idp`, `iespuertodelacruz`, `curso1516`
 * Entregar URL de la distro publicada al profesor.
         
-> De forma opcional se puede continuar con lo siguiente:
-> * Clonar la distro y compartir la original (Share).
-> * Tratar de hacer una segunda versión con escritorios ligeros (LXDE o XFCE).
-
 > **Otros paquetes interesantes**
 >
 > * `yast2-users`, gestión de usuarios mediante yast.
