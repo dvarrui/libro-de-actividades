@@ -20,16 +20,17 @@ Funcionamiento de WSUS:
 * El administrador del servidor aprueba y prioriza las actualizaciones.
 * El cliente se conecta a WSUS e instala los paquetes usando Windows update.
 
-Resumen:
-* WSUS proporciona control a la hora de aprobar y distribuir actualizaciones 
+> **Resumen:**
+>
+> * WSUS proporciona control a la hora de aprobar y distribuir actualizaciones 
 de Microsoft entre sus ordenadores clientes.
-* Un servidor WSUS puede copiar actualizaciones desde Microsoft y almacenarlas 
+> * Un servidor WSUS puede copiar actualizaciones desde Microsoft y almacenarlas 
 localmente. Entonces, los ordenadores clientes descargarán las actualizaciones 
 desde su servidor WSUS en vez de descargarlas desde Microsoft a través de Internet.
-* Para soportar organizaciones con muchas oficinas, los servidores WSUS de descarga 
+> * Para soportar organizaciones con muchas oficinas, los servidores WSUS de descarga 
 pueden sincronizar actualizaciones, aprobaciones y opciones de configuración de 
 los servidores WSUS de subida.
-* WSUS también requiere IIS.
+> * WSUS también requiere IIS.
 
 #2. Servidor WSUS
 
@@ -64,12 +65,25 @@ herramienta de Administrar del servidor Windows Server.
 
 ##2.2 Configuración del servidor
 
-Consideraciones a tener en cuanta a la hora de configurar servidor:
+Consideraciones a tener en cuenta a la hora de configurar servidor:
 * Podremos usar como fuente origen de las actualizaciones a los servidor
  de Microsoft u otros servidores WSUS.
-* La base de datos que guarda la información, la podemos tener en 
+
+> La base de datos que guarda la información, la podemos tener en 
 C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
-* Para minimizar descargas es conveniente hacer una selección de idiomas y de productos para actualizar.
+> En nuestro caso lo vamos a hacer SIN MSQL-Server.
+
+* Para minimizar descargas es conveniente hacer una selección de idiomas 
+y de productos concretos para actualizar. Elegir:
+    * Idioma: Español
+    * Producto: Windows 7
+    * Tipo de actualización: Actualizaciones críticas, de segurida, etc.
+    * Sincronización manual.
+
+> **Sincronización Manual vs Automática**
+>
+> Elegimos manual para hacer nuestras pruebas en clase. 
+> Cuando estemos en la empresa elegiremos sincronización automatica. 
 
 Pasos para la configuración del servidor WSUS:
 * Editar opciones: `Updates Services > Opciones`. 
@@ -78,6 +92,8 @@ Pasos para la configuración del servidor WSUS:
 * Ver informes.
 
 #3. Cliente WSUS
+
+##3.1 Teoría
 
 Tener en cuenta que:
 * Sistemas operativos clientes son: W2K, WXP, WVista, WS2K3 y WS2K8.
@@ -93,6 +109,7 @@ Parámetros de configuración en el cliente:
 * Reinicio automático / confirmación / retrasar
 * Administración de energía: Iniciar PC si está apagado para ejecutar actualización.
 
+##3.2 Acción
 
 Dos modos de configurar equipos clientes.
 * Sin PDC: Configurar Windows Update de cada cliente de forma local.
