@@ -121,15 +121,16 @@ Parámetros de configuración en el cliente:
 
 ##3.2 Acción
 
-Dos modos de configurar equipos clientes.
-* Sin PDC: Configurar Windows Update de cada cliente de forma local.
-* Con PDC: Asignar servidor WSUS a los equipos del dominio mediante directivas de grupo.
-
 Para configurar los clientes WSUS tenemos los siguientes métodos:
-* Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
-* Política de Grupo (Local). Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69) 
-* Registro de Windows. Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
 
+* Sin PDC: Configurar Windows Update de cada cliente de forma local.
+    * Política de Grupo (Local). Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69) 
+    * Registro de Windows. Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
+        * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien
+        * Hacer una instantánea de la MV.
+* Con PDC: Asignar servidor WSUS a los equipos del dominio mediante directivas de grupo.
+    * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
+    
 > Comandos para ejecutar en el cliente como administrador:
 >
 > * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
