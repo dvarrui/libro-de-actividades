@@ -2,6 +2,8 @@
 
 #1. Servidor de actualizaciones WSUS
 
+##1.1 Teoría
+
 El mantenimiento de las actualizaciones de software es una necesidad constante. 
 Si no mantienen los sistemas actualizados:
 * Un atacante puede aprovechar las vulnerabilidades.
@@ -31,6 +33,14 @@ desde su servidor WSUS en vez de descargarlas desde Microsoft a través de Inter
 pueden sincronizar actualizaciones, aprobaciones y opciones de configuración de 
 los servidores WSUS de subida.
 > * WSUS también requiere IIS.
+
+##1.2 Preparativos
+
+Vamos a necesitar varias MVs. 
+* 1 MV Window Server 2008 (NO es ncesario que sea PDC)
+* 1 MV Windows 7
+
+Consultar [configuraciones](../../../global/configuracion-aula109-md)
 
 #2. Servidor WSUS
 
