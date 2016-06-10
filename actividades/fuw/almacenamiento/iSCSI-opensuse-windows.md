@@ -73,6 +73,11 @@ Necesitamos 2 MV's.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
 
+> **Enrutamiento**
+>
+> * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
+>
+
 ##2.2 Enlaces de interés
 
 * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
