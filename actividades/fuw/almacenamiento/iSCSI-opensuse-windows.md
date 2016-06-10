@@ -77,6 +77,18 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 >
 > * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
 >
+> *  Ejemplo de script que activa el enrutamiento y el NAT:
+> ```
+>     // activar-enrutamiento.sh
+>     echo "1" > /proc/sys/net/ipv4/ip_forward
+>     iptables -A FORWARD -j ACCEPT
+>     iptables -t nat -A POSTROUTING -s 10.0.0.0/8 -o eth0 -j MASQUERADE
+> ```
+> *  Ejemplo de script que desactivara el enrutamiento:
+> ```
+>     // desactivar-enrutamiento.sh
+>     echo "0" > /proc/sys/net/ipv4/ip_forward
+> ```
 
 ##2.2 Enlaces de interés
 
