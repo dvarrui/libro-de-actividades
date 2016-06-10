@@ -82,7 +82,7 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 >     // activar-enrutamiento.sh
 >     echo "1" > /proc/sys/net/ipv4/ip_forward
 >     iptables -A FORWARD -j ACCEPT
->     iptables -t nat -A POSTROUTING -s 10.0.0.0/8 -o eth0 -j MASQUERADE
+>     iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
 > ```
 > *  Ejemplo de script que desactivara el enrutamiento:
 > ```
