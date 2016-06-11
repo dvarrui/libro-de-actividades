@@ -140,32 +140,40 @@ Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a nuestra
 Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target 
 y podamos empezar a usar los discos por la red.
 
-
 #3 Initiator
 
 Enlaces recomendados:
 * [federicosayd - ISCSI Initiator](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
-#5. Resultado final
+##3.1 Instalar Initiator
 
-Como resultado final la máquina `Initiator` debe guardar información en el sistema de
-almacenamiento proporcionado por la máquina `Target`.
+Vamos a la máquina Iniciador
+* `zypper in open-iscsi`
 
-Crear una carpeta en Initiator, llamada `/home/remote_target`, de modo que la información
-que se guarde en ella se almacena en el Target remoto.
+##3.2 Descubrir los targets
 
+* `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
+* `iscsiadm -m discovery`
+* `iscsiadm -m mode --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
 
-> **Otros enlaces de interés:**
->
-> * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
-> * INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
-> * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
-> * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo) 
+##3.3 Autenticación y Login
 
+* `dmesg`, comprobamos que tenemos un nuevo disco SCSI de 1200M conectado a la MV.
+* Formatear el disco, crear partición.
+* Montarlo en la ruta `/home/remote_targetXX`.
+* Configurar el montaje automático en cada reinicio (`/etc/fstab`).
+* Guardar datos en el disco SAN.
 
 #ANEXO
 
-##A.1 iSCSI en Debian
+##A.1 Otros enlaces de interés
+
+* TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
+* INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
+* Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
+* Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo) 
+
+##A.2 iSCSI en Debian
 
 Enlaces de interés:
 * iSCSI - [Using iSCSI (target and initiator) on Debian](https://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target).
