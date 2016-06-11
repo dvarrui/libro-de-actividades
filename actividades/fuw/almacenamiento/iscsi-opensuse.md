@@ -8,7 +8,7 @@
 #1 Preparativos
 
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2
-(Consultar [configuraciones](../../global/configuracion-aula109.md) ).
+(Consultar [configuraciones](../../global/configuracion-aula109.md)).
 
 Necesitamos 2 MV's.
 * MV1: Esta MV actuará de `Initiator`.
@@ -20,15 +20,15 @@ Necesitamos 2 MV's.
     * Con un interfaz de red (192.168.XX.32) en modo red interna `san`. 
     * Este interfaz tiene como gateway 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
-* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
+* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
 
-* Como vamos a necesitar acceso e Internet en el Target para poder instalar
+> Como vamos a necesitar acceso e Internet en el Target para poder instalar
 software tenemos varios caminos:
-    * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
-    * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
-    * (c) Activar/configurar enrutamiento en el Initiator.
-    
+> * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
+> * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
+> * (c) Activar/configurar enrutamiento en el Initiator.
+>    
 > **Enrutamiento**
 >
 > * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
