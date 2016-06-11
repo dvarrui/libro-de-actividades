@@ -122,8 +122,9 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 ##3.4 Práctica: configuración del Target
 
 En `/etc/iet/ietd.conf` definimos
+
 ```
-    iqn.2016-06.curso1516.asir1.idp:san.1200M
+    iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX
     IncomingUser usuario-iniciador clave-iniciador
     Lun 0 Path=/root/dispositivo1.img,Type=fileio
     Lun 1 Path=/dev/sdb,Type=fileio
