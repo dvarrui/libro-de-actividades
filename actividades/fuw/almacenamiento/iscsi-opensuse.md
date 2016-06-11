@@ -22,10 +22,15 @@ Necesitamos 2 MV's.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. 
 Donde XX será el número correspondiente al puesto de cada alumno.
 
+* Como vamos a necesitar acceso e Internet en el Target para poder instalar
+software tenemos varios caminos:
+    * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
+    * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
+    * (c) Activar/configurar enrutamiento en el Initiator.
+    
 > **Enrutamiento**
 >
 > * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
->
 > *  Ejemplo de script que activa el enrutamiento y el NAT:
 > ```
 >     // activar-enrutamiento.sh
@@ -41,6 +46,11 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 #2 Enlaces de interés
 
+Enlaces recomendados:
+* [OpenSUSE iSCSI](http://es.opensuse.org/iSCSI)
+* [federicosayd ISCSI openSUSE Target](http://fefericosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
+
+Otros enlaces:
 * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
 * INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
 * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
