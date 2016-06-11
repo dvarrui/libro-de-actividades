@@ -69,13 +69,13 @@ Ya tenemos dos dispositivos para el almacenamiento.
 
 ##2.3 Teoría: configuración del Target
 
-La configuración del Target se encuentra en `/etc/iet/ietd.conf`.
-Aquí configuramos:
+La configuración del Target se encuentra en el fichero `/etc/iet/ietd.conf`.
+Contiene:
 * El nombre de nuestro target
 * El nombre de usuario y la contraseña para la conexión del iniciador
 * El dispositivo que ofreceremos como target
 
-###Nombre
+###2.3.1 Nombre
 
 El estándar iSCSI define que tanto los target como los iniciadores deben 
 tener un nombre que sigue un patrón, 
@@ -92,14 +92,14 @@ Un ejemplo válido sería: `iqn.2005-02.au.com.empresa:san.200G.samba`.
 Como vemos el identificador aunque es variable y personalizable, puede 
 reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
 
-###Autenticación
+###2.3.2 Autenticación
 
 Si queremos que nuestro target requiera autenticación, podemos definir 
 un usuario y una contraseña para que solo se conecten los iniciadores que nosotros queremos.
 
 `IncomingUser usuario-iniciador clave-iniciador`
 
-###Dispositivos
+###2.3.3 Dispositivos
 
 Luego debemos definir qué dispositivo ofreceremos como target. 
 Debemos poner una línea como la siguiente: `Lun 0 Path=/dev/sda3,Type=fileio`
