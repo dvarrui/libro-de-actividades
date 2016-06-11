@@ -48,18 +48,50 @@ y a partir de aquí seguimos con nuestra personalización.
     * Personalizar el aspecto.
     * Informar en el EULA de los usuarios/claves configurados en el sistema.
 ```
-IES Puerto de la Cruz - Telesforo Bravo
-Curso 2015-2016
-CFGS 1ASIR
-
+Creado por: Nombre y apellidos del alumno
 ==================
 USUARIO / CLAVE
 root    / profesor
 alumno  / alumno
 ==================
-
-Creado por: Nombre y apellidos del alumno
+IES Puerto de la Cruz - Telesforo Bravo
+Curso 2015-2016
+CFGS 1ASIR
+	                                                        
+                                                        
+                        ;i;;L.                          
+                       .1.  i1                          
+                      .t.    t1                         
+                     .1,      f1                        
+                    .t:        ft                       
+                   .1:          ff                      
+                  .t;            tf                     
+                 .ti.             tL.                   
+               :1t;.              .tCi                  
+            .itttttt11111t:       .1i:tL:               
+            ;f,                       ,iLt              
+       .,,,:::::::::::::::::::::,;;,:::::t:..           
+      ,::::,,...           ...,,:;LLtLLLLLLLLL1L.       
+      ::,                        .1Lt         .Lt       
+      ::                          ,LL;         ;C:      
+     .::                          .1Lf.         fL      
+     ,:,                           ,LLi         ;Ci     
+     ::.           ...              tLf.         LL.    
+    .::.       .i1ttttt:            ;LL:         iC1    
+    .::        it1,   .:,           .LL1         .CC.   
+    ,::       .1t,      .           .1LL.         fC1   
+    ,::       ,tt.                   ;LL:         iCL.  
+    ::,       :tt.                   .LLi         ;CC;  
+    ::,       ;t1.                    fL1               
+   .::,       iti                     tLt.              
+   .::,       it,                     fLt               
+   .:,.                              ,L1.               
+                                                        
 ``` 
+
+> Para convertir una imagen en letras ASCII se usó el programa online 
+[photo2text](http://photo2text.com/index.php]
+
     * Activar autologin con el usuario `alumno`. 
     * `Applience -> Add live installer`
     * `Scripts -> Run this script at the end of the build`    
