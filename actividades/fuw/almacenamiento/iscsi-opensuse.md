@@ -53,15 +53,19 @@ Enlaces recomendados:
 
 ##2.1 Instalar Target
 
-Vamos a la máquina `Target`.
+* Vamos a la máquina Target.
 * `zypper in iscsi-target`, para instalar el sofware iSCSI Target en la máquina.
 
 ##2.2 Crear dispositivos
 
-* `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`, creamos un fichero con tamaño 500M.
-* Añadiremos un 2º disco de 700M a la MV Target, de modo que `/dev/sdb` será nuestro dispositivo2.
+* Creamos el dispositivo1
+    * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`
+    * Hemos creado un fichero con tamaño 500M.
+* Creamos el dispositivo2
+    * Añadiremos un 2º disco de 700M a la MV Target.
+    * `/dev/sdb` será nuestro dispositivo2.
 
-Tenemos dos dispositivos para el almacenamiento.
+Ya tenemos dos dispositivos para el almacenamiento.
 
 ##2.3 Teoría: configuración del Target
 
