@@ -45,33 +45,25 @@ software tenemos varios caminos:
 >     echo "0" > /proc/sys/net/ipv4/ip_forward
 > ```
 
-#2 Enlaces de interés
+#2 Target
 
 Enlaces recomendados:
 * [OpenSUSE - iSCSI](http://es.opensuse.org/iSCSI)
 * [federicosayd - ISCSI Target](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
-* [federicosayd - ISCSI Initiator](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
-> Otros enlaces:
-> * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
-> * INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
-> * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
-> * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo) 
+##2.1 Instalar Target
 
-#3 Target
-
-##3.1 Instalar Target
 Vamos a la máquina `Target`.
 * `zypper in iscsi-target`, para instalar el sofware iSCSI Target en la máquina.
 
-##3.2 Crear dispositivos
+##2.2 Crear dispositivos
 
 * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`, creamos un fichero con tamaño 500M.
 * Añadiremos un 2º disco de 700M a la MV Target, de modo que `/dev/sdb` será nuestro dispositivo2.
 
 Tenemos dos dispositivos para el almacenamiento.
 
-##3.3 Teoría: configuración del Target
+##2.3 Teoría: configuración del Target
 
 La configuración del Target se encuentra en `/etc/iet/ietd.conf`.
 Aquí configuramos:
@@ -117,9 +109,7 @@ El archivo contiene muchos parámetros más de configuración,
 que en la mayoría de los casos tienen que ver con la performance del servidor. 
 En nuestro ejemplo, configurando estos tres parámetros nos basta.
 
-
-
-##3.4 Práctica: configuración del Target
+##2.4 Práctica: configuración del Target
 
 En `/etc/iet/ietd.conf` definimos
 
@@ -147,6 +137,11 @@ Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target
 y podamos empezar a usar los discos por la red.
 
 
+#3 Initiator
+
+Enlaces recomendados:
+* [federicosayd - ISCSI Initiator](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
+
 #5. Resultado final
 
 Como resultado final la máquina `Initiator` debe guardar información en el sistema de
@@ -154,6 +149,14 @@ almacenamiento proporcionado por la máquina `Target`.
 
 Crear una carpeta en Initiator, llamada `/home/remote_target`, de modo que la información
 que se guarde en ella se almacena en el Target remoto.
+
+
+> **Otros enlaces de interés:**
+>
+> * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
+> * INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html) 
+> * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys) 
+> * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo) 
 
 
 #ANEXO
