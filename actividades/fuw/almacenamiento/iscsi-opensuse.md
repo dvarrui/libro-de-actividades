@@ -118,7 +118,7 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 En `/etc/iet/ietd.conf` definimos
 
 ```
-    iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX
+    iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test
     IncomingUser usuario-iniciador clave-iniciador
     Lun 0 Path=/root/dispositivo1.img,Type=fileio
     Lun 1 Path=/dev/sdb,Type=fileio
@@ -132,7 +132,7 @@ o disco a ofrecer, debemos levantar el servidor.
 Con lo cual se cargará el módulo iSCSI target en el kernel 
 y se levantará el servidor ietd que es el que gestionará las peticiones de los iniciadores.
 
-Por último si queremos que nuestro servicio iSCSI target inicie junto con el servidor
+Por último, si queremos que nuestro servicio iSCSI target inicie junto con el servidor
 * `systemctl enable iscsitarget.service`
     * Comprobar `systemctl is-enable iscsitarget.service`
 
