@@ -123,22 +123,21 @@ En `/etc/iet/ietd.conf` definimos
     Lun 0 Path=/root/dispositivo1.img,Type=fileio
     Lun 1 Path=/dev/sdb,Type=fileio
 ``` 
- 
-Una vez que hemos configurado el servidor y que tenemos lista nuestra partición 
+
+> Una vez que hemos configurado el servidor y que tenemos lista nuestra partición 
 o disco a ofrecer, debemos levantar el servidor.
+
 * `systemctl start iscsitarget.service`
     * Comprobar `systemctl status iscsitarget.service`
 
-Con lo cual se cargará el módulo iSCSI target en el kernel 
-y se levantará el servidor ietd que es el que gestionará las peticiones de los iniciadores.
+> Con lo cual se cargará el módulo iSCSI target en el kernel y se levantará el servidor ietd que es el que gestionará las peticiones de los iniciadores.
 
 Por último, si queremos que nuestro servicio iSCSI target inicie junto con el servidor
 * `systemctl enable iscsitarget.service`
     * Comprobar `systemctl is-enable iscsitarget.service`
 
-Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a nuestra red. 
-Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target 
-y podamos empezar a usar los discos por la red.
+> Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a nuestra red. 
+> Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y podamos empezar a usar los discos por la red.
 
 #3 Initiator
 
