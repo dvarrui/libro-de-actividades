@@ -47,8 +47,9 @@ software tenemos varios caminos:
 #2 Enlaces de interés
 
 Enlaces recomendados:
-* [OpenSUSE iSCSI](http://es.opensuse.org/iSCSI)
-* [federicosayd ISCSI openSUSE Target](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
+* [OpenSUSE - iSCSI](http://es.opensuse.org/iSCSI)
+* [federicosayd - ISCSI Target](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
+* [federicosayd - ISCSI Initiator](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
 Otros enlaces:
 * TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
