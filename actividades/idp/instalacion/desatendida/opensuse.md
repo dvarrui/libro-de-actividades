@@ -159,7 +159,7 @@ Este fichero guarda las decisiones que tomamos sobre la configuración de nuestr
 Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * A continuación, personalizaremos nuestra máquina como se indica más arriba.
-* Instalamos la herramienta Autoyast (Paquete `autoyast2`).
+* Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
 * Iniciamos autoyast
     * Por GUI `Yast -> Autoyast` o
     * por comandos `/sbin/yast2 autoyast`.
