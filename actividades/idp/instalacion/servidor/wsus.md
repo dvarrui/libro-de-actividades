@@ -44,6 +44,8 @@ Consultar [configuraciones](../../../global/configuracion-aula109.md).
 
 #2. Servidor WSUS
 
+Vamos la MV con Windows Server 2008.
+
 Tener en cuenta que:
 * NO es necesario tener un Active Directory para montar el servicio WSUS.
 * Necesitamos 1 servidor WSUS por cada 10 PC's.
@@ -121,8 +123,7 @@ Parámetros de configuración en el cliente:
 
 ##3.2 Acción
 
-Para configurar los clientes WSUS tenemos los siguientes métodos:
-
+Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
 * Sin PDC: Configurar Windows Update de cada cliente de forma local.
     * Política de Grupo (Local). Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69) 
     * Registro de Windows. Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
