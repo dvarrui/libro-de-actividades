@@ -45,42 +45,14 @@ para instalar el software, podemos hacerlo de varias formas:
 >     echo "0" > /proc/sys/net/ipv4/ip_forward
 > ```
 
-#2 Target
+#2 Target - Teoría 
 
-Enlaces recomendados:
-* [OpenSUSE - iSCSI Target](http://es.opensuse.org/iSCSI)
-* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
-
-##2.1 Crear los dispositivos
-
-* Crear los dispositivos
-    * Creamos el dispositivo1 a partir de un fichero.
-        * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`
-        * Hemos creado un fichero con tamaño 500M.
-    * Creamos el dispositivo2 a partir de un disco extra.
-        * Añadiremos un 2º disco de 700M a la MV Target.
-        * `/dev/sdb` será nuestro dispositivo2.
-
-##2.2 Instalar y configurar el Target
-
-Vamos a la máquina target:
-* `zypper -n in yast2-iscsi-lio-server`, Instala yast2-iscsi-lio-server.
-* Yast -> Network services -> ISCSI LIO Target -> open firewall port -> 
-* go to Global (terminal is SHIFT+G) -> chose authentication 
-* if you need -> go to Targets (SHIFT+T) -> add target (select or not auth) -> add LUN -> select path to LUN (where you created the "vdisk") )
- 
-> **Desactualizado**
-> * `zypper in iscsi-target`, para instalar el sofware iSCSI Target en la máquina.
-
-##2.3 Teoría: configuración del Target
-
-La configuración del Target se encuentra en el fichero `/etc/iet/ietd.conf`.
-Contiene:
+La configuración del Target contiene:
 * El nombre de nuestro target
 * El nombre de usuario y la contraseña para la conexión del iniciador
 * El dispositivo que ofreceremos como target
 
-###2.3.1 Nombre
+###2.1 Nombre
 
 El estándar iSCSI define que tanto los target como los iniciadores deben 
 tener un nombre que sigue un patrón, 
@@ -97,14 +69,14 @@ Un ejemplo válido sería: `iqn.2005-02.au.com.empresa:san.200G.samba`.
 Como vemos el identificador aunque es variable y personalizable, puede 
 reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
 
-###2.3.2 Autenticación
+###2.2 Autenticación
 
 Si queremos que nuestro target requiera autenticación, podemos definir 
 un usuario y una contraseña para que solo se conecten los iniciadores que nosotros queremos.
 
 `IncomingUser usuario-iniciador clave-iniciador`
 
-###2.3.3 Dispositivos
+###2.3 Dispositivos/Destinos
 
 Luego debemos definir qué dispositivo ofreceremos como target. 
 Debemos poner una línea como la siguiente: `Lun 0 Path=/dev/sda3,Type=fileio`
@@ -118,31 +90,47 @@ El archivo contiene muchos parámetros más de configuración,
 que en la mayoría de los casos tienen que ver con la performance del servidor. 
 En nuestro ejemplo, configurando estos tres parámetros nos basta.
 
-##2.4 Práctica: configuración del Target
+##3 Práctica: configuración del Target
 
-En el fichero de configuración del target (`/etc/iet/ietd.conf`) 
-definimos lo siguiente:
+Enlaces recomendados:
+* [OpenSUSE - iSCSI Target](http://es.opensuse.org/iSCSI)
+* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
-```
-    iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test
-    IncomingUser USUARIO-INICIADOR CLAVE-INICIADOR
-    Lun 0 Path=/root/dispositivo1.img,Type=fileio
-    Lun 1 Path=/dev/sdb,Type=fileio
-``` 
+##3.1 Crear los dispositivos
 
-> El texto anterior en mayúsculas hay que adaptarlo a la máquina de cada uno.
+* Crear los dispositivos
+    * Creamos el dispositivo1 a partir de un fichero.
+        * `dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500`
+        * Hemos creado un fichero con tamaño 500M.
+    * Creamos el dispositivo2 a partir de un disco extra.
+        * Añadiremos un 2º disco de 700M a la MV Target.
+        * `/dev/sdb` será nuestro dispositivo2.
+
+##3.2 Instalar y configurar el Target
+
+Vamos a la máquina target:
+* `zypper in yast2-iscsi-lio-server`, Instala yast2-iscsi-lio-server.
+* Configuración vía Yast:
+    * Servicio
+        * Automático al inicio
+        * Abrir el cortafuegos
+    * Global
+        * Usuario/clave
+        * Sin autenticación
+    * Destinos(Dispositivos)
+        * Nombre `iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh`
+        * Identificador `sanXX.1200M.test`
+        * Seleccionar los LUN (dispositivos creados anteriormente)
+            * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
+            * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
 
 Una vez que hemos configurado el servidor, y que tenemos lista nuestros
 dispositivos de almacenamiento, vamos a levantar el servidor.
 
 * `systemctl start iscsitarget.service`, para iniciar el servicio.
     * Comprobar `systemctl status iscsitarget.service`
-
-> Con el comando anterior se cargará el módulo iSCSI target en el kernel y se levantará 
-el servidor ietd que es el que gestionará las peticiones de los iniciadores.
-
-Como queremos que nuestro servicio iSCSI target inicie automáticamente al iniciar la máquina
-* `systemctl enable iscsitarget.service`
+* `systemctl enable iscsitarget.service`, para que nuestro servicio 
+iSCSI target inicie automáticamente al iniciar la máquina.
     * Comprobar `systemctl is-enable iscsitarget.service`
 
 > Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna. 
@@ -155,14 +143,12 @@ Enlaces recomendados:
 
 ##3.1 Instalar Initiator
 
-> * add client (cat /etc/iscsi/initiatorname.iscsi fromc client side and add inq number to yast)
-> - -> Finish
+Vamos a la máquina Iniciador
+* `zypper in open-iscsi yast2-iscsi-client`, instalar paquetes necesarios
+* Entrar a Yast para configurar cliente iSCSI.
+
 > Test connection: iscsiadm -m discovery -t st -p IP.Address (default port is 3620, specify if you change it, if not leave just ip address)
 > Connect from client machine: iscsiadm -m node -l ( This is a basic config without authentication )
-
-
-Vamos a la máquina Iniciador
-* `zypper in open-iscsi`
 
 ##3.2 Descubrir los targets
 
