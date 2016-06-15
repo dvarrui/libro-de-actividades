@@ -127,37 +127,37 @@ Vamos a la máquina target:
 > Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna. 
 > Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar los discos por la red.
 
-#3 Initiator
+#4 Initiator
 
 Enlaces recomendados:
 * [federicosayd - ISCSI Initiator en GNU/Linux Debian](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
-##3.1 Instalar Initiator
+##4.1 Instalar y configurar acceso
 
 Vamos a la máquina Iniciador
 * `zypper in open-iscsi yast2-iscsi-client`, instalar paquetes necesarios
 * Entrar a Yast para configurar cliente iSCSI.
 
+##4.2 Descubrir los targets
 
-* Test connection: 
-    * `iscsiadm -m discovery -t st -p IPAddress`
-    *(default port is 3620, specify if you change it, if not leave just ip address)
-* Connect from client machine: 
-    * `iscsiadm -m node -l` ( This is a basic config without authentication )
-
-##3.2 Descubrir los targets
+> * Test connection: 
+>     * `iscsiadm -m discovery -t st -p IPAddress`
+>     *(default port is 3620, specify if you change it, if not leave just ip address)
+> * Connect from client machine: 
+>     * `iscsiadm -m node -l` ( This is a basic config without authentication )
 
 * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
 * `iscsiadm -m discovery`
 * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
 
-##3.3 Autenticación y Login
+##4.3 Usar almacenamiento
 
 * `dmesg`, comprobamos que tenemos un nuevo disco SCSI de 1200M conectado a la MV.
 * Formatear el disco, crear partición.
 * Montarlo en la ruta `/home/remote_targetXX`.
 * Configurar el montaje automático en cada reinicio (`/etc/fstab`).
 * Guardar datos en el disco SAN.
+
 
 #ANEXO
 
