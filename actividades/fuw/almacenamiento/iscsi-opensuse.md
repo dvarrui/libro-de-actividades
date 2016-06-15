@@ -138,20 +138,22 @@ Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE 13.2:
     *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
 * Entrar a Yast para configurar cliente iSCSI.
+    * Descubrir los destinos de targets.
+    * Conectar con el destino que hemos creado.
 
-##4.2 Descubrir los targets
-
+> **Comandos**
+>
 > * Test connection: 
 >     * `iscsiadm -m discovery -t st -p IPAddress`
 >     *(default port is 3620, specify if you change it, if not leave just ip address)
 > * Connect from client machine: 
 >     * `iscsiadm -m node -l` ( This is a basic config without authentication )
+>
+> * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
+> * `iscsiadm -m discovery`
+> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
 
-* `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
-* `iscsiadm -m discovery`
-* `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
-
-##4.3 Usar almacenamiento
+##4.2 Usar almacenamiento
 
 * `dmesg`, comprobamos que tenemos un nuevo disco SCSI de 1200M conectado a la MV.
 * Formatear el disco, crear partición.
