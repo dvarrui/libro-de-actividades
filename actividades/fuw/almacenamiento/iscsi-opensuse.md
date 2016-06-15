@@ -134,8 +134,9 @@ Enlaces recomendados:
 
 ##4.1 Instalar y configurar acceso
 
-Vamos a la máquina Iniciador
-* `zypper in open-iscsi yast2-iscsi-client`, instalar paquetes necesarios
+Vamos a la máquina Iniciador.
+* El software necesario viene preinstalado en OpenSUSE 13.2:
+    *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
 * Entrar a Yast para configurar cliente iSCSI.
 
 ##4.2 Descubrir los targets
