@@ -124,15 +124,6 @@ Vamos a la máquina target:
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
             * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
 
-Una vez que hemos configurado el servidor, y que tenemos lista nuestros
-dispositivos de almacenamiento, vamos a levantar el servidor.
-
-* `systemctl start iscsitarget.service`, para iniciar el servicio.
-    * Comprobar `systemctl status iscsitarget.service`
-* `systemctl enable iscsitarget.service`, para que nuestro servicio 
-iSCSI target inicie automáticamente al iniciar la máquina.
-    * Comprobar `systemctl is-enable iscsitarget.service`
-
 > Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna. 
 > Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar los discos por la red.
 
@@ -147,14 +138,18 @@ Vamos a la máquina Iniciador
 * `zypper in open-iscsi yast2-iscsi-client`, instalar paquetes necesarios
 * Entrar a Yast para configurar cliente iSCSI.
 
-> Test connection: iscsiadm -m discovery -t st -p IP.Address (default port is 3620, specify if you change it, if not leave just ip address)
-> Connect from client machine: iscsiadm -m node -l ( This is a basic config without authentication )
+
+* Test connection: 
+    * `iscsiadm -m discovery -t st -p IPAddress`
+    *(default port is 3620, specify if you change it, if not leave just ip address)
+* Connect from client machine: 
+    * `iscsiadm -m node -l` ( This is a basic config without authentication )
 
 ##3.2 Descubrir los targets
 
 * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
 * `iscsiadm -m discovery`
-* `iscsiadm -m mode --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
+* `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
 
 ##3.3 Autenticación y Login
 
