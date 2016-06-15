@@ -1,16 +1,16 @@
 ```
-* Práctica creada en el curso 201415
-* Actualizada para el curso 201516
+* Fecha de creación : curso 201415
+* Fecha de UM       : curso 201516
+* Sistema Operativo : OpenSUSE 13.2
 ```
 
 #iSCSI en OpenSUSE
 
 #1 Preparativos
 
-Vamos a montar la práctica de iSCSI con OpenSUSE 13.2
-(Consultar [configuraciones](../../global/configuracion-aula109.md)).
+Vamos a montar la práctica de iSCSI con OpenSUSE 13.2.
 
-Necesitamos 2 MV's.
+Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion-aula109.md)).
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red. 
     * Una en modo puente (172.19.XX.31) 
@@ -23,13 +23,13 @@ Necesitamos 2 MV's.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
 
-> Como vamos a necesitar acceso e Internet en el Target para poder instalar
-software tenemos varios caminos:
+> Como vamos a necesitar acceso a los repositorios de Internet en el Target 
+para instalar el software, podemos hacerlo de varias formas:
 > * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
 > * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
 > * (c) Activar/configurar enrutamiento en el Initiator.
 >    
-> **Enrutamiento**
+> **Enrutamiento en GNU/Linux**
 >
 > * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
 > *  Ejemplo de script que activa el enrutamiento y el NAT:
@@ -48,8 +48,8 @@ software tenemos varios caminos:
 #2 Target
 
 Enlaces recomendados:
-* [OpenSUSE - iSCSI](http://es.opensuse.org/iSCSI)
-* [federicosayd - ISCSI Target](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
+* [OpenSUSE - iSCSI Target](http://es.opensuse.org/iSCSI)
+* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
 ##2.1 Instalar Target
 
@@ -58,10 +58,10 @@ Enlaces recomendados:
 
 ##2.2 Crear dispositivos
 
-* Creamos el dispositivo1
+* Creamos el dispositivo1 a partir de un fichero.
     * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`
     * Hemos creado un fichero con tamaño 500M.
-* Creamos el dispositivo2
+* Creamos el dispositivo2 a partir de un disco extra.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
 
@@ -115,34 +115,38 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 
 ##2.4 Práctica: configuración del Target
 
-En `/etc/iet/ietd.conf` definimos
+En el fichero de configuración del target (`/etc/iet/ietd.conf`) 
+definimos lo siguiente:
 
 ```
     iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test
-    IncomingUser usuario-iniciador clave-iniciador
+    IncomingUser USUARIO-INICIADOR CLAVE-INICIADOR
     Lun 0 Path=/root/dispositivo1.img,Type=fileio
     Lun 1 Path=/dev/sdb,Type=fileio
 ``` 
 
-> Una vez que hemos configurado el servidor y que tenemos lista nuestra partición 
-o disco a ofrecer, debemos levantar el servidor.
+> El texto anterior en mayúsculas hay que adaptarlo a la máquina de cada uno.
 
-* `systemctl start iscsitarget.service`
+Una vez que hemos configurado el servidor, y que tenemos lista nuestros
+dispositivos de almacenamiento, vamos a levantar el servidor.
+
+* `systemctl start iscsitarget.service`, para iniciar el servicio.
     * Comprobar `systemctl status iscsitarget.service`
 
-> Con lo cual se cargará el módulo iSCSI target en el kernel y se levantará el servidor ietd que es el que gestionará las peticiones de los iniciadores.
+> Con el comando anterior se cargará el módulo iSCSI target en el kernel y se levantará 
+el servidor ietd que es el que gestionará las peticiones de los iniciadores.
 
-Por último, si queremos que nuestro servicio iSCSI target inicie junto con el servidor
+Como queremos que nuestro servicio iSCSI target inicie automáticamente al iniciar la máquina
 * `systemctl enable iscsitarget.service`
     * Comprobar `systemctl is-enable iscsitarget.service`
 
-> Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a nuestra red. 
-> Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y podamos empezar a usar los discos por la red.
+> Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna. 
+> Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar los discos por la red.
 
 #3 Initiator
 
 Enlaces recomendados:
-* [federicosayd - ISCSI Initiator](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
+* [federicosayd - ISCSI Initiator en GNU/Linux Debian](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
 ##3.1 Instalar Initiator
 
