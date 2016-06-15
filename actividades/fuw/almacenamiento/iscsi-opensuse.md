@@ -51,21 +51,26 @@ Enlaces recomendados:
 * [OpenSUSE - iSCSI Target](http://es.opensuse.org/iSCSI)
 * [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
-##2.1 Instalar Target
+##2.1 Crear los dispositivos
 
-* Vamos a la máquina Target.
-* `zypper in iscsi-target`, para instalar el sofware iSCSI Target en la máquina.
+* Crear los dispositivos
+    * Creamos el dispositivo1 a partir de un fichero.
+        * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`
+        * Hemos creado un fichero con tamaño 500M.
+    * Creamos el dispositivo2 a partir de un disco extra.
+        * Añadiremos un 2º disco de 700M a la MV Target.
+        * `/dev/sdb` será nuestro dispositivo2.
 
-##2.2 Crear dispositivos
+##2.2 Instalar y configurar el Target
 
-* Creamos el dispositivo1 a partir de un fichero.
-    * `dd if=/dev/zero of=/root/dispositivo1.img bs=1M count=500`
-    * Hemos creado un fichero con tamaño 500M.
-* Creamos el dispositivo2 a partir de un disco extra.
-    * Añadiremos un 2º disco de 700M a la MV Target.
-    * `/dev/sdb` será nuestro dispositivo2.
-
-Ya tenemos dos dispositivos para el almacenamiento.
+Vamos a la máquina target:
+* `zypper -n in yast2-iscsi-lio-server`, Instala yast2-iscsi-lio-server.
+* Yast -> Network services -> ISCSI LIO Target -> open firewall port -> 
+* go to Global (terminal is SHIFT+G) -> chose authentication 
+* if you need -> go to Targets (SHIFT+T) -> add target (select or not auth) -> add LUN -> select path to LUN (where you created the "vdisk") )
+ 
+> **Desactualizado**
+> * `zypper in iscsi-target`, para instalar el sofware iSCSI Target en la máquina.
 
 ##2.3 Teoría: configuración del Target
 
@@ -149,6 +154,12 @@ Enlaces recomendados:
 * [federicosayd - ISCSI Initiator en GNU/Linux Debian](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
 
 ##3.1 Instalar Initiator
+
+> * add client (cat /etc/iscsi/initiatorname.iscsi fromc client side and add inq number to yast)
+> - -> Finish
+> Test connection: iscsiadm -m discovery -t st -p IP.Address (default port is 3620, specify if you change it, if not leave just ip address)
+> Connect from client machine: iscsiadm -m node -l ( This is a basic config without authentication )
+
 
 Vamos a la máquina Iniciador
 * `zypper in open-iscsi`
