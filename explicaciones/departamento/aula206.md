@@ -13,6 +13,15 @@
 
 
 #Inventario
+
+* prueba
+
+|PC | RAM |
+|-- |---- |
+| 1 |4 GB |
+
+*otros
+
    
 |PC | RAM |HDD    |MAC |CPU |Estado |
 |-- |---- |------ |----|--- |------ |
