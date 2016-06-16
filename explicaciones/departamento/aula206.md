@@ -7,9 +7,9 @@
 
 #Historia
 
-|Fecha       | Acción |
-|----------- | ------ |
-| 2016-06-02 | Se instala el equipo `PC1` del aula 206 , con GNU/Linux |
+Fecha | Acción
+-- | --
+2016-06-02 | Se instala el equipo `PC1` del aula 206 , con GNU/Linux
 
 
 #Inventario
