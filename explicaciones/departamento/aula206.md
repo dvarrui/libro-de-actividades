@@ -13,11 +13,9 @@
 
 #Inventario
 
-* prueba
 
-
-| PC | RAM |
-| -- |--- |
+|PC | RAM |
+|-- |--- |
 | 1 | 4 GB |
 
 
