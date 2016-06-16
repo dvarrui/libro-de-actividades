@@ -1,5 +1,8 @@
 
-*(Este documento es un borrador del curso201516. NO está acabado, ni revisado)*
+```
+* Fecha de creación : curso201516
+* Estado            : En desarrollo
+``` 
 
 #Entregas
 
@@ -63,29 +66,32 @@ una flecha, un subrayado, un cuadro, etc.
 .
 ├── trim1
 │   ├── u1-nombre
-│   │   ├── a1-nombre
-│   │   ├── a2-nombre
-│   │   └── a3-nombre
+│   │   ├── a1-nombre.md
+│   │   ├── a2-nombre.md
+│   │   └── a3-nombre.md
 │   └── u2-nombre
-│       ├── a1-nombre
-│       ├── a2-nombre
-│       └── a3-nombre
+│       ├── a1-nombre.md
+│       ├── a2-nombre.md
+│       └── a3-nombre.md
 └── trim2
     ├── u3-nombre
-    │   ├── a1-nombre
-    │   ├── a2-nombre
-    │   └── a3-nombre
+    │   ├── a1-nombre.md
+    │   ├── a2-nombre.md
+    │   └── a3-nombre.md
     └── u4-nombre
-        ├── a1-nombre
-        ├── a2-nombre
-        └── a3-nombre
-```
+        ├── a1-nombre.md
+        ├── a2-nombre.md
+        └── a3-nombre.md
+``` 
+
 * Dentro del directorio de cada actividad, crear el siguiente esquema:
+
 ```
 .
 ├── files
 │   └── imagen01.png
 └── README.md
 ```
+
 Donde tendremos el/los ficheros Markdown (.md) de la actividad, y un
 subdirectorio `files` para contener las imagenes del documento Markdown.
