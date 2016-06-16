@@ -14,9 +14,9 @@
 #Inventario
 
 
-| PC  | RAM |
-| :-- | :--- |
-| 1   | 4 GB |
+| PC  | RAM  | HDD    |
+| :-- | :--- | :----- |
+| 1   | 4 GB | 250 GB |
 
 
 *otros
