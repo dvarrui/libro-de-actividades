@@ -14,20 +14,9 @@
 #Inventario
 
 
-| PC  | RAM  | HDD    |
-| :-- | :--- | :----- |
-| 1   | 4 GB | 250 GB |
-
-
-*otros
-
-   
-|PC | RAM |HDD    |MAC |CPU |Estado |
-|-- |---- |------ |----|--- |------ |
-| 1 |4 GB |250 GB |00-18-71-71-10-f5 | Pentium 3.2 GHz | Pdte. activar VTx en BIOS |
-
-
-
+| PC  | RAM | HDD  | MAC  | CPU  | Estado |
+| :-- | --: | ---: | :--- | :--- | :------ |
+| 1   | 4 GB | 250 GB | 00-18-71-71-10-f5 | Pentium 3.2 GHz | Pdte. activar VTx en BIOS |
 | 2 | 4 GB | 250 GB | 00-40-f4-64-f8-01, 00-18-71-71-11-43 |  | Tiene 2 tarjetas de red |
 | 3 | GB | GB |  |  | Pendiente |
 | 4 | GB | GB |  |  | Pendiente |
