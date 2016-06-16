@@ -16,9 +16,9 @@
 
 * prueba
 
-|PC | RAM|
-|-- |----|
-| 1 |4 GB|
+|PC | RAM |
+|-- | --- |
+| 1 | 4 GB |
 
 *otros
 
