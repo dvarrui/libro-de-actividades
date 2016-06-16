@@ -37,19 +37,27 @@
 | Partición | Montaje | Uso  | Tamaño |
 | :-------- | :------ | :--- | -----: | 
 | /dev/sda1 |         | Swap |   2 GB |
-| /dev/sda2 | /root   | Sistema Operativo | 20 GB |
-| /dev/sda3 | /home   | Datos de los usuarios| 2 GB |
+| /dev/sda2 | /root   | Sistema Operativo | 30 GB |
+| /dev/sda3 | /home   | Datos de los usuarios| 218 GB |
+
+* Usuarios configurados:
 
 | Usuario | Uso  |
 | :------ | :--- |
+| alumno  | Para usar programas emulados con wine (Tecnología). Los datos se borran al reiniciar la máquina |
+| guest   | Para usar en la ESO y Bachillerato. Los datos se borran al cerrar la sesión |
+| dam     | Para usar en FP Informática. Los datos se guardan en el disco |
+| super   | Sólo para tareas de mantenimiento del sistema |
 | root    | No usar en entorno gráfico. Tareas de mantenimiento del sistema |
-| super   | Tareas de mantenimiento del sistema |
-| alumno  | Para usar programas emulados con wine (Tecnología) |
-| guest   | Para usar en la ESO y Bachillerato |
 
+* En cada reinicio de la máquina se ejecuta el script [reset.rb](./files/reset.rb)
 
 #Clonación
 
 * En `/etc/fstab`, modificar montaje de la swap con nombre dispositivo en lugar de UUID.
     * Para facilitar las clonaciones.
 * Realizamos la clonación con Clonezilla.
+* La imagen está disponible para su descarga en el servidor LEELA.
+    * `http://leela/~general/aulas/aula206`
+    * `http://172.20.1.2/~general/aulas/aula206`
+    
