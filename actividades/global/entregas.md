@@ -1,7 +1,6 @@
 
 ```
 * Fecha de creación : curso201516
-* Estado            : En desarrollo
 ``` 
 
 #Entregas
@@ -34,8 +33,8 @@ como por ejemplo: zip, 7z, etc.
 Por ejemplo: video01, video02, etc.
 * Al comiento del vídeo, debe mostrarse lo siguiente:
     * El nombre del centro "IES Puerto de la Cruz".
-    * Curso
-    * Asignatura
+    * Curso y grupo (Por ejemplo: "Curso210516 - 1ºASIR")
+    * Asignatura: "Sistemas Operativos" o "Fundamentos de Hardware"
     * El/Los nombre/s de el/los componente/s
     * Fecha y título de la actividad
 * Mostrar el icono del IES Puerto de la Cruz durante todo el vídeo.
