@@ -86,38 +86,7 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 ##2.1 Ocultar usuarios
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
 
-* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX, 
-crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
-
-```
-[User]
-SystemAccount=true
-```
-* Si lo anterior no funciona porque nuestro sistema no usa AccountService, entonces
-debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
-Veamos un ejemplo para consultar los procesos del sistema que tienen en su nombre las letras *dm*.
-En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un *Desktop Manager* (dm).
-```
-    asir@pc08:~$ ps -ef|grep dm
-    root 881 1 0 11:17 ? 00:00:00 rpc.idmapd
-    root 1125 1 0 11:17 ? 00:00:00 lightdm
-    root 1206 1125 1 11:17 tty7 00:00:12 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
-    root 2157 1125 0 11:19 ? 00:00:00 lightdm --session-child 12 21
-    asir 2805 2497 0 11:36 pts/1 00:00:00 grep --color=auto dm
-```
-* Consultar la información de nuestro gestor de inicio gráfico para cambiar
- la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
- gdm3, kdm, xdm, etc. (*Consultar ANEXO o buscar información en Internet*).
-
-> **NO HACER LO SIGUIENTE**
->
-> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos: 
-`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación" 
-en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000, 
-se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica 
-como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
->
-> Pero NO LO HAGAN SE ESTA FORMA.
+* Yast -> Gestión de Usuarios -> Seleccionar usuario -> Desactivar inicio de sesión.
 
 ##2.2 Claves seguras
 * Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`, 
@@ -196,8 +165,10 @@ Realizar las siguientes tareas:
 ##2.6 Emulación
 Realizar las siguientes tareas
 * Instalar el emulador de Windows (`wine`).
-* Instalar un programa específico de Windows. Usar el instalador de Windows en GNU/Linux.
-* Comprobar que la aplicación se instaló y funciona correctamente.
+* Instalar un programa específico de Windows (por ejemplo Jhony Simulator)
+   * Abrimos consola
+   * Ejecutamos `wine programa-instalador.exe`
+* Comprobar que la aplicación se instala y que funciona correctamente.
 
 #ANEXO
 
@@ -263,7 +234,6 @@ A continuación se muestra un modo de ocultar la lista de los usuarios al inicio
 > ...
 > ```
 
-
 ##A4: Activar entorno gráfico con System V
 Actualmente la mayoría de las distribuciones GNU/Linux tienen Systemd en lugar de SystemV.
 
@@ -293,3 +263,38 @@ de personalizacion de barra de tarear llamado Cairo Dock.
 * Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos. 
 * Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
 
+##A7. OpenSUSE 13.2. Usuarios de tipo sistema
+
+
+* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX, 
+crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+
+```
+[User]
+SystemAccount=true
+```
+* Si lo anterior no funciona porque nuestro sistema no usa AccountService, entonces
+debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
+Veamos un ejemplo para consultar los procesos del sistema que tienen en su nombre las letras *dm*.
+En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un *Desktop Manager* (dm).
+```
+    asir@pc08:~$ ps -ef|grep dm
+    root 881 1 0 11:17 ? 00:00:00 rpc.idmapd
+    root 1125 1 0 11:17 ? 00:00:00 lightdm
+    root 1206 1125 1 11:17 tty7 00:00:12 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
+    root 2157 1125 0 11:19 ? 00:00:00 lightdm --session-child 12 21
+    asir 2805 2497 0 11:36 pts/1 00:00:00 grep --color=auto dm
+```
+* Consultar la información de nuestro gestor de inicio gráfico para cambiar
+ la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
+ gdm3, kdm, xdm, etc. (*Consultar ANEXO o buscar información en Internet*).
+
+> **NO HACER LO SIGUIENTE**
+>
+> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos: 
+`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación" 
+en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000, 
+se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica 
+como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
+>
+> Pero NO LO HAGAN SE ESTA FORMA.
