@@ -152,18 +152,19 @@ Vamos a la máquina Iniciador.
 * `Yast -> configurar Initiator -> Conectar` con el destino que hemos descubierto.
 
 > **Comandos**
-> Connect from client machine: 
-> * `iscsiadm -m node -l` ( This is a basic config without authentication )
-> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
+> Otra forma de conectar con el destino del Target vía comandos:
+> * `iscsiadm -m node -l` ( configuración básica sin autenticación )
+> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test -p IP`
 
 ##4.2 Usar almacenamiento
 
-* `dmesg`, comprobamos que tenemos un nuevo disco SCSI de 1200M conectado a la MV.
-* Formatear el disco, crear partición.
-* Montarlo en la ruta `/home/remote_targetXX`.
-* Configurar el montaje automático en cada reinicio (`/etc/fstab`).
+* `dmesg`, comprobar que tenemos un nuevo disco SCSI de 1200M conectado a la MV del Initiator.
+    * Debería ser un disco `/dev/sdb`.
+* Crear directorio `/mnt/remote_targetXX`.
+* `Yast -> Particionador`, elegir el disco.
+    * Crear partición y formatear el disco.
+    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXX`.
 * Guardar datos en el disco SAN.
-
 
 #ANEXO
 
