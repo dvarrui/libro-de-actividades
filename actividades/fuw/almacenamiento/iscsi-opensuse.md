@@ -109,11 +109,11 @@ Enlaces recomendados:
 ##3.2 Instalar y configurar el Target
 
 Vamos a la máquina target:
-* `zypper in yast2-iscsi-lio-server`, Instala yast2-iscsi-lio-server.
+* `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI.
 * Configuración vía Yast:
     * Servicio
-        * Automático al inicio
-        * Abrir el cortafuegos
+        * Automático al inicio = Sí
+        * Abrir el cortafuegos = Sí
     * Global
         * Usuario/clave
         * Sin autenticación
@@ -123,6 +123,9 @@ Vamos a la máquina target:
         * Seleccionar los LUN (dispositivos creados anteriormente)
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
             * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
+* `systemctl start target.service`, inicia el servicio Target manualmente.
+* `systemctl status target.service`, comprueba el estado del servicio Target.
+* `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
 
 > Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna. 
 > Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar los discos por la red.
@@ -137,20 +140,20 @@ Enlaces recomendados:
 Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE 13.2:
     *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
-* Entrar a Yast para configurar cliente iSCSI.
-    * Descubrir los destinos de targets.
-    * Conectar con el destino que hemos creado.
+* `Yast -> configurar Initiator -> Descubrir` los destinos de targets.
 
 > **Comandos**
->
-> * Test connection: 
->     * `iscsiadm -m discovery -t st -p IPAddress`
->     *(default port is 3620, specify if you change it, if not leave just ip address)
-> * Connect from client machine: 
->     * `iscsiadm -m node -l` ( This is a basic config without authentication )
->
+> Otra forma de descubrir target es usando el siguiente comando por la consola:
 > * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
-> * `iscsiadm -m discovery`
+> * `iscsiadm -m discovery -t st -p IP-DEL-TARGET`
+> El target ofrece su servicio por defecto en el puerto 3620.
+> * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
+
+* `Yast -> configurar Initiator -> Conectar` con el destino que hemos descubierto.
+
+> **Comandos**
+> Connect from client machine: 
+> * `iscsiadm -m node -l` ( This is a basic config without authentication )
 > * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh -p IP`
 
 ##4.2 Usar almacenamiento
