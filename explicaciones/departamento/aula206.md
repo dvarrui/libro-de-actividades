@@ -28,7 +28,13 @@ Se cambia el UUID por el nombre dispositivo en lugar de UUID, para facilitar las
     * Sabemos que el soporte de esta versión acaba el 2017 y que existe 
     la versión 16 LST, pero de momento queremos mantener el mismo SO/versión
     en las aulas 103,108,109,206 y comodín1.
-* Se instala el software según este [script](./files/script-instalar-aula206.rb).
+* Se instala el software según [script-instalar-aula206.rb](./files/script-instalar-aula206.rb).
+
+> **TODO**
+> Falta incluir en el script:
+> * Instrucciones para instalar VirtualBox
+> * Instrucciones para instalar algunos programas Windows que se instalan 
+y ejecutan mediante el emulador wine. Estos son: SketchUp, VirtualDub.
 
 Esquema de particiones MBR:
 
