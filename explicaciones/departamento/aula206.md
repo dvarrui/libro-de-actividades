@@ -30,13 +30,14 @@ Se cambia el UUID por el nombre dispositivo en lugar de UUID, para facilitar las
     en las aulas 103,108,109,206 y comodín1.
 * Se instala el software según [script-instalar-aula206.rb](./files/script-instalar-aula206.rb).
 
-> **TODO**
+> **TO-DO**
+>
 > Falta incluir en el script:
 > * Instrucciones para instalar VirtualBox
 > * Instrucciones para instalar algunos programas Windows que se instalan 
 y ejecutan mediante el emulador wine. Estos son: SketchUp, VirtualDub.
 
-Esquema de particiones MBR:
+**Esquema de particiones MBR:**
 
 | Partición | Montaje | Uso  | Tamaño |
 | :-------- | :------ | :--- | -----: | 
@@ -44,7 +45,7 @@ Esquema de particiones MBR:
 | /dev/sda2 | /root   | Sistema Operativo | 28 GB |
 | /dev/sda3 | /home   | Datos de los usuarios| 200 GB |
 
-Usuarios configurados:
+**Usuarios configurados:**
 
 | Usuario | Uso  |
 | :------ | :--- |
@@ -54,7 +55,7 @@ Usuarios configurados:
 | super   | Sólo para tareas de mantenimiento del sistema |
 | root    | No usar en entorno gráfico. Tareas de mantenimiento del sistema |
 
-Ficheros personalizados:
+**Ficheros personalizados:**
 
 ```
 /home/guest/
@@ -67,8 +68,8 @@ Ficheros personalizados:
 ``` 
 
 * Los ficheros `alumno*.tar` son distintas versiones de los datos para `/home/alumno`. En el aula206
-tenemos una versión sin Cocodrile (por limitaciones en la licencia) y con VirtualDub (por requeirimientos
-de informática).
+tenemos una versión sin Cocodrile (por limitaciones en la licencia) y con VirtualDub (por requerimientos
+de la asingatura informática/ESO).
 * En cada reinicio de la máquina se ejecuta el script `reset-user.rb`.
     * En el fichero /etc/rc.local se incluye orden para ejecutar el script.
     * Este script restaura el home (`/home/alumno`) de usuario alumno.
