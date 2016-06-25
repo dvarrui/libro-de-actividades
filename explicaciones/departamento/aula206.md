@@ -36,7 +36,7 @@ Esquema de particiones MBR:
 | :-------- | :------ | :--- | -----: | 
 | /dev/sda1 |         | Swap |   4 GB |
 | /dev/sda2 | /root   | Sistema Operativo | 28 GB |
-| /dev/sda3 | /home   | Datos de los usuarios|. 200 GB |
+| /dev/sda3 | /home   | Datos de los usuarios| 200 GB |
 
 Usuarios configurados:
 
