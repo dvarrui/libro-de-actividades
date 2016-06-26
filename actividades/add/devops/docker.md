@@ -28,12 +28,14 @@ docker run hello-world
 docker images
 ``` 
 
-> **Enable external network access**
+> **Habilitar el acceso a la red externa para los contenedores**
 >
 > If you want your containers to be able to access the external network, 
 you must enable the net.ipv4.ip_forward rule. To do this, use YaST.
 >
-> * For openSUSE Tumbleweed and later, browse to the System -> Network Settings -> Routing menu.
+> * Para openSUSE13.2 (cuando el método de configuracion de red es Wicked).
+`Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4`
+> * Para openSUSE Tumbleweed Yast -> Sistema -> Configuración de red -> Mené de encaminamiento.
 > * For SUSE Linux Enterprise 12 and previous openSUSE versions, 
 browse to Network Devices -> Network Settings -> Routing menu (f) and check the Enable IPv4 Forwarding box.
 > * When networking is handled by the Network Manager, instead of YaST you 
