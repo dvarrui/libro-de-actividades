@@ -21,12 +21,25 @@ usermod -a -G docker USERNAME
 
 > Salir de la sesión y volver a entrar con nuestro usuario.
 
-Ejecutar con nuestro usuario:
+Ejecutar con nuestro usuario para comprobar que todo funciona:
 ``` 
 docker images
 docker run hello-world
 docker images
-```
+``` 
+
+> **Enable external network access**
+>
+> If you want your containers to be able to access the external network, 
+you must enable the net.ipv4.ip_forward rule. To do this, use YaST.
+>
+> * For openSUSE Tumbleweed and later, browse to the System -> Network Settings -> Routing menu.
+> * For SUSE Linux Enterprise 12 and previous openSUSE versions, 
+browse to Network Devices -> Network Settings -> Routing menu (f) and check the Enable IPv4 Forwarding box.
+> * When networking is handled by the Network Manager, instead of YaST you 
+must edit the /etc/sysconfig/SuSEfirewall2 file needs by hand to ensure 
+the FW_ROUTE flag is set to yes like so: FW_ROUTE="yes"
+
 
 #ANEXO
 
