@@ -27,6 +27,7 @@ Ejecutar como superusuario:
 ```
 zypper in docker              # Instala docker
 systemctl start docker        # Inicia el servicio
+                              # "docker daemon" hace el mismo efecto
 docker version                # Debe mostrar información del cliente y del servidor
 usermod -a -G docker USERNAME # Añade permisos a nuestro usuario
 ```
@@ -55,7 +56,9 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 >
 > ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-#4. Crear una imagen personalizada
+#4. Manualmente
+
+##4.1 Crear una imagen
 
 * Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
 
@@ -109,7 +112,7 @@ docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a 
 ``` 
 
-#5. Creando contenedor con nuestra imagen
+##4.2 Crear contenedor
 
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. 
 Iniciemos el contenedor de la siguiente manera:
@@ -141,10 +144,11 @@ docker rm mv_nginx
 docker ps -a
 ```
 
+#5. Usando fichero `Dockerfile`
 
-#6. Usando el fichero `Dockerfile`
+##5.1 Crear imagen
 
-* Creamos directorio `/home/usuario/apache2`
+* Creamos directorio `/home/usuario/nginx2`
 * Creamos dentro este fichero [Dockerfile](./files/Dockerfile).
 
 El fichero `Dockerfile` contiene toda la información necesaria para contruir el
@@ -152,10 +156,19 @@ contenedor, veamos:
 
 ```
 docker images
-docker build -t dvarrui/apache2 .  # Construye imagen a partir del Dockefile
+docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
 docker images
-docker run -d  dvarrui/apache2     # Crea contenedor
 ```
+
+##5.2 Crear contenedor
+
+```
+docker run -d -p 80:80 dvarrui/nginx2
+docker ps
+```
+
+Comprobar en el navegador URL: `http://localhost`
+
 
 #ANEXO
 
