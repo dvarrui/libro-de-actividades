@@ -62,7 +62,8 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 
 ```
 docker images          # Vemos las imágenes disponibles localmente
-docker search debian   # Buscamos en los repositorios de Docker Hub contenedores con la etiqueta `debian`
+docker search debian   # Buscamos en los repositorios de Docker Hub
+                       # contenedores con la etiqueta `debian`
 docker pull debian:8   # Descargamos contenedor `debian:8` en local
 docker pull opensuse
 docker ps -a           # Vemos todos los contenedores
@@ -73,16 +74,10 @@ Vamos a crear un contenedor con nombre `mv_debian` a partir de la imagen `debian
 ```
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
-    root@ab80213de486:/# cat /etc/motd
-
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
-
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    
-    root@ab80213de486:/# exit
+(Estamos dentro del contenedor)
+root@ab80213de486:/# cat /etc/motd   # Comprobamos que estamos en Debian
+root@ab80213de486:/# exit            # Salimos del contedor
+(Fuera del contenedor)
 
 docker ps 
 docker ps -a           # Vemos el contenedor parado
