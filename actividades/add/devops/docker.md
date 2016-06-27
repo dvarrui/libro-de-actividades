@@ -130,44 +130,31 @@ y veamos si conectamo con Nginx dentro del contenedor.
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
+Paramos el contenedor y lo eliminamos.
+
 ```
 docker ps
 docker stop mv_nginx
 docker ps
 docker ps -a
+docker rm mv_nginx
+docker ps -a
 ```
 
-Dejamos, por el momento, el contenedor creado pero parado.
 
 #6. Usando el fichero `Dockerfile`
 
 * Creamos directorio `/home/usuario/apache2`
-* Creamos fichero `/home/usuario/apache2/Dockerfile` con el siguiente contenido
-```
-FROM debian:8
+* Creamos dentro este fichero [Dockerfile](./files/Dockerfile).
 
-MAINTAINER David Vargas version 1.0
-
-ENV DEBIAN_FRONTEND noninteractive
-
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-ENV APACHE_LOCK_DIR /var/lock/apache2
-ENV APACHE_PID_FILE /var/run/apache2.pid
-
-RUN apt-get update && apt-get install -y apache2
-
-EXPOSE 8080
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-```
+El fichero `Dockerfile` contiene toda la información necesaria para contruir el
+contenedor, veamos:
 
 ```
 docker images
-docker build -t dvarrui/apache2 .  # Construimos el proyecto
+docker build -t dvarrui/apache2 .  # Construye imagen a partir del Dockefile
 docker images
-docker run -d  dvarrui/apache2     # Ejecutamos nuestro proyecto
+docker run -d  dvarrui/apache2     # Crea contenedor
 ```
 
 #ANEXO
