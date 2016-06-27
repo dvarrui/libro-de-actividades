@@ -58,7 +58,7 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 >
 > ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-#4. Montar un contenedor personalizado
+#4. Crear una imagen personalizada
 
 ```
 docker images          # Vemos las imágenes disponibles localmente
@@ -75,13 +75,33 @@ Vamos a crear un contenedor con nombre `mv_debian` a partir de la imagen `debian
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
 (Estamos dentro del contenedor)
-root@ab80213de486:/# cat /etc/motd   # Comprobamos que estamos en Debian
-root@ab80213de486:/# exit            # Salimos del contedor
-(Fuera del contenedor)
+root@ab80213de486:/# cat /etc/motd            # Comprobamos que estamos en Debian
+root@78c9c995707b:/# apt-get update
+root@78c9c995707b:/# apt-get install -y nginx # Instalamos nginx en el contenedor
+root@78c9c995707b:/# nginx -v                 # Ejecutamos nginx en el contenedor
+```
 
-docker ps 
-docker ps -a           # Vemos el contenedor parado
-docker start mv_debian # Iniciamos el contenedor
+Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
+crear una nueva imagen con los cambios que hemos hecho, para esto
+ abramos en otra ventana de terminal y busquemos el ID del mismo:
+
+```
+david@camaleon:~/devops> docker ps
+CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
+7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          mv_debian
+``` 
+
+Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
+```
+docker commit 7d193d728925 dvarrui/nginx
+docker images
+``` 
+
+> Los estándares de Docker estipulan que los nombres de las imagenes deben 
+seguir el formato `nombreusuario/nombreimagen`.
+> Todo cambio que se haga en la imagen y no se le haga commit se perderá en cuanto se cierre el contenedor. 
+
+```
 docker ps 
 docker stop mv_debian  # Paramos el contenedor
 docker ps 
@@ -89,6 +109,29 @@ docker ps -a           # Vemos el contenedor parado
 docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a 
 ```
+
+#5. Usando nuestra imagen
+
+Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. 
+Iniciemos el contenedor de la siguiente manera:
+
+`docker run -p 80 -i -t dvarrui/nginx /bin/bash`
+
+> El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado 
+del contenedor, en nuestro caso el puerto 80 es el puerto por defecto 
+sobre el cual se levanta Nginx. 
+
+* Una vez dentro
+    * Iniciamos el servicio de Nginx `service nginx start`.
+    * Comprobamos `service nginx status`.
+* Ahora en una nueva ventana ejecutaremos `docker ps`. Podemos apreciar 
+que la última columna nos indica que el puerto 80 del contenedor 
+está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`, vayamos al explorador 
+y veamos si conectamo con Nginx dentro del contenedor.
+
+![docker-url-nginx.png](./files/docker-url-nginx.png)
+
+
 
 #ANEXO
 
