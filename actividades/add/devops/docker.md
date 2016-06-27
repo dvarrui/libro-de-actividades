@@ -67,7 +67,7 @@ docker pull debian:8   # Descargamos contenedor `debian:8` en local
 docker pull opensuse
 docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
-``` 
+```  
 
 Vamos a crear un contenedor con nombre `mv_debian` a partir de la imagen `debian:8`, y ejecutaremos `/bin/bash`: 
 ```
@@ -107,7 +107,7 @@ docker ps
 docker ps -a           # Vemos el contenedor parado
 docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a 
-```
+``` 
 
 #5. Creando contenedor con nuestra imagen
 
@@ -130,6 +130,45 @@ y veamos si conectamo con Nginx dentro del contenedor.
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
+```
+docker ps
+docker stop mv_nginx
+docker ps
+docker ps -a
+```
+
+Dejamos, por el momento, el contenedor creado pero parado.
+
+#6. Usando el fichero `Dockerfile`
+
+* Creamos directorio `/home/usuario/apache2`
+* Creamos fichero `/home/usuario/apache2/Dockerfile` con el siguiente contenido
+```
+FROM debian:8
+
+MAINTAINER David Vargas version 1.0
+
+ENV DEBIAN_FRONTEND noninteractive
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+RUN apt-get update && apt-get install -y apache2
+
+EXPOSE 8080
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+```
+
+```
+docker images
+docker build -t dvarrui/apache2 .  # Construimos el proyecto
+docker images
+docker run -d  dvarrui/apache2     # Ejecutamos nuestro proyecto
+```
 
 #ANEXO
 
