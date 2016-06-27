@@ -1,11 +1,6 @@
 
 #1.Introducción
 
-Enlaces de interés:
-* [Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
-* [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
-* [Docker for beginners](http://prakhar.me/docker-curriculum/)
-
 Es muy común que nos encontremos desarrollando una aplicación y llegue 
 el momento que decidamos tomar todos sus archivos y migrarlos ya sea al 
 ambiente de producción, de prueba o simplemente probar su comportamiento 
@@ -25,6 +20,8 @@ Nesitaremos una MV OpenSUSE 13.2.
 > Se requiere versión del Kernel 3.10 o superior (`uname -a`)
 
 #3. Instalación y configuración
+
+* Enlaces de interés [Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
 
 Ejecutar como superusuario:
 ```
@@ -60,6 +57,8 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 
 #4. Crear una imagen personalizada
 
+* Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
+
 ```
 docker images          # Vemos las imágenes disponibles localmente
 docker search debian   # Buscamos en los repositorios de Docker Hub
@@ -75,15 +74,15 @@ Vamos a crear un contenedor con nombre `mv_debian` a partir de la imagen `debian
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
 (Estamos dentro del contenedor)
-root@ab80213de486:/# cat /etc/motd            # Comprobamos que estamos en Debian
-root@78c9c995707b:/# apt-get update
-root@78c9c995707b:/# apt-get install -y nginx # Instalamos nginx en el contenedor
-root@78c9c995707b:/# nginx -v                 # Ejecutamos nginx en el contenedor
+root@IDContenedor:/# cat /etc/motd            # Comprobamos que estamos en Debian
+root@IDContenedor:/# apt-get update
+root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedor
+root@IDContenedor:/# nginx -v                 # Ejecutamos nginx en el contenedor
 ```
 
 Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
 crear una nueva imagen con los cambios que hemos hecho, para esto
- abramos en otra ventana de terminal y busquemos el ID del mismo:
+abrimos otra ventana de terminal y busquemos el IDContenedor:
 
 ```
 david@camaleon:~/devops> docker ps
@@ -110,7 +109,7 @@ docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a 
 ```
 
-#5. Usando nuestra imagen
+#5. Creando contenedor con nuestra imagen
 
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. 
 Iniciemos el contenedor de la siguiente manera:
@@ -132,10 +131,10 @@ y veamos si conectamo con Nginx dentro del contenedor.
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
 
-
 #ANEXO
 
 Enlaces de interés:
+* [Docker for beginners](http://prakhar.me/docker-curriculum/)
 * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
