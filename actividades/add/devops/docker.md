@@ -172,13 +172,8 @@ Comprobar en el navegador URL: `http://localhost`
 
 #ANEXO
 
-Enlaces de interés:
-* [Docker for beginners](http://prakhar.me/docker-curriculum/)
-* [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 
-Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
-
-##Apache2 con Debian 8
+##A.1 Apache2 con Debian 8
 
 Comprobaciones iniciales:
 ```
@@ -215,3 +210,11 @@ vim /var/www/html/holamundo.html
 (Fuera de MV. En otra terminal)
 Navegador -> URL http://localhost:PORT_NUMBER
 ```
+
+##A.2
+
+Enlaces de interés:
+* [Docker for beginners](http://prakhar.me/docker-curriculum/)
+* [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
+
+Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
