@@ -178,3 +178,40 @@ Enlaces de interés:
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
+##Apache2 con Debian 8
+
+Comprobaciones iniciales:
+```
+docker images
+docker ps
+docker ps -a
+```
+
+Crear MV con base Debian8 para montar apache2:
+
+```
+docker run --name=mv_apache2 -p 80 -i -t debian:8 /bin/bash
+
+(Dentro MV)
+apt-get update
+apt-get install -y apache2
+service apache2 status
+service apache2 start
+service apache2 status
+
+(Fuera de MV. En otra terminal)
+
+docker ps    # Localizar el puerto externo
+Navegador -> URL http://localhost:PORT_NUMBER
+
+```
+
+```
+(Dentro MV)
+apt-get install -y vim
+vim /var/www/html/holamundo.html
+(Personalizar el fichero)
+
+(Fuera de MV. En otra terminal)
+Navegador -> URL http://localhost:PORT_NUMBER
+```
