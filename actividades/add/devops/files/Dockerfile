@@ -8,4 +8,4 @@ RUN apt-get install -y vim
 
 EXPOSE 80
 
-CMD ["service apache2 start"]
+CMD ["service","apache2","start"]
