@@ -4,8 +4,8 @@ MAINTAINER David Vargas version 1.0
 
 RUN apt-get update
 RUN apt-get install -y apache2
+RUN apt-get install -y vim
 
 EXPOSE 80
 
 CMD ["service apache2 start"]
-
