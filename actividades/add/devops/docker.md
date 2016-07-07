@@ -56,7 +56,7 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 >
 > ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-#4. Manualmente
+#4. Manualmente (Debian8 y Nginx)
 
 ##4.1 Crear una imagen
 
@@ -144,46 +144,19 @@ docker rm mv_nginx
 docker ps -a
 ```
 
-#5. Usando fichero `Dockerfile`
+#5. Manualmente y luego `Dockerfile` (Debian8 y Apache2)
 
-##5.1 Crear imagen
+##5.1 Comprobaciones iniciales:
 
-* Creamos directorio `/home/usuario/nginx2`
-* Creamos dentro este fichero [Dockerfile](./files/Dockerfile).
-
-El fichero `Dockerfile` contiene toda la información necesaria para contruir el
-contenedor, veamos:
-
-```
-docker images
-docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
-docker images
-```
-
-##5.2 Crear contenedor
-
-```
-docker run -d -p 80:80 dvarrui/nginx2
-docker ps
-```
-
-Comprobar en el navegador URL: `http://localhost`
-
-
-#ANEXO
-
-
-##A.1 Apache2 con Debian 8
-
-Comprobaciones iniciales:
 ```
 docker images
 docker ps
 docker ps -a
 ```
 
-Crear MV con base Debian8 para montar apache2:
+##5.2 Crear MV con imagen descargada
 
+Crear MV con base Debian8 para montar apache2:
 ```
 docker run --name=mv_apache2 -p 80 -i -t debian:8 /bin/bash
 
@@ -201,15 +174,70 @@ Navegador -> URL http://localhost:PORT_NUMBER
 
 ```
 
-```
+``` 
 (Dentro MV)
 apt-get install -y vim
 vim /var/www/html/holamundo.html
 (Personalizar el fichero)
 
 (Fuera de MV. En otra terminal)
-Navegador -> URL http://localhost:PORT_NUMBER
+Navegador -> URL http://localhost:PORT_NUMBER  # Comprobamos que todo funciona
+docker stop mv_apache2                         # Paramos el contenedor
+docker ps
+``` 
+
+##5.3 Crear imagen a partir del `Dockerfile`
+
+Ahora que nos ha funcionado el proceso de creación manual del contenedor
+Debian8 con Apache2, vamos a pasar todos esos datos a un fichero `Dockerfile`.
+
+El fichero [Dockerfile](./files/Dockerfile.debian) contiene la información 
+necesaria para contruir el contenedor, veamos:
+
 ```
+docker images
+docker build -t dvarrui/apache2 .  # Construye imagen a partir del Dockefile
+docker images
+```
+
+##5.4 Crear contenedor y comprobar
+
+```
+docker run -d -p 80:80 dvarrui/nginx2
+docker ps
+```
+
+Comprobar en el navegador URL: `http://localhost`
+
+#6. Crear imagen y usar `Dockerfile`
+
+##6.1 Crear imagen
+
+* Creamos directorio `/home/usuario/nginx2`
+* Creamos dentro este fichero [Dockerfile](./files/Dockerfile.nginx).
+
+El fichero `Dockerfile` contiene toda la información necesaria para contruir el
+contenedor, veamos:
+
+```
+docker images
+docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
+docker images
+```
+
+##6.2 Crear contenedor
+
+```
+docker run -d -p 80:80 dvarrui/nginx2
+docker ps
+```
+
+Comprobar en el navegador URL: `http://localhost`
+
+
+#ANEXO
+
+
 
 ##A.2
 
