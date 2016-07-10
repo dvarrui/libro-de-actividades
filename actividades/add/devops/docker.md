@@ -97,15 +97,15 @@ root@IDContenedor:/# echo "<p>HolaMundo!</p>" > /var/www/html/holamundo.html
 * Creamos tambien un script, que no usaremos ahora, pero sí más adelante.
 Creamos el fichero `/root/server.sh` con el siguiente contenido
 ```
-#!/bin/bash
+    #!/bin/bash
 
-echo "Booting Nginx..."
-/usr/sbin/nginx &
+    echo "Booting Nginx(v1)..."
+    /usr/sbin/nginx &
 
-echo "Waiting..."
-while/true) do
-  sleep 60
-done
+    echo "Waiting..."
+    while/true) do
+      sleep 60
+    done
 ```
 
 * Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
@@ -188,6 +188,7 @@ docker ps -a
 
 ##5.2 Preparar ficheros
 
+* Crear directorio `/home/alumno/docker`, poner dentro los siguientes ficheros.
 * Dockerfile:
 ```
 FROM debian:8
@@ -197,6 +198,9 @@ MAINTAINER David Vargas version 1.0
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get install -y vim
+
+COPY holamundo.html /var/www/html
+RUN chmod 666 /var/www/html/holamundo.html
 
 COPY server.sh /root
 RUN chmod +x /root/server.sh
@@ -217,6 +221,7 @@ CMD ["/root/server.sh"]
       sleep 60
     done
 ```
+* holamundo.html...
 
 ##5.3 Crear imagen
 
@@ -224,6 +229,7 @@ El fichero [Dockerfile](./files/Dockerfile) contiene la información
 necesaria para contruir el contenedor, veamos:
 
 ```
+cd /home/alumno/docker
 docker images
 docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
 docker images
@@ -232,14 +238,12 @@ docker images
 ##5.4 Crear contenedor y comprobar
 
 ```
-docker run --name mv_nginx2 -d dvarrui/nginx2
-docker ps
-``` 
+docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
+```
 
-Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
-
-#6. Crear imagen y usar `Dockerfile`
-
+* Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha
+del servidor Nginx. 
+* Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
 
 #ANEXO
 
