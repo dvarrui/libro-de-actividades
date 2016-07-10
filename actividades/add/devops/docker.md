@@ -56,7 +56,10 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 >
 > ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-#4. Manualmente (Debian8 y Nginx)
+#4. Crear un contenedor manualmente
+
+Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8, 
+y dentro instalaremos Nginx.
 
 ##4.1 Crear una imagen
 
@@ -72,7 +75,8 @@ docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
 ```  
 
-Vamos a crear un contenedor con nombre `mv_debian` a partir de la imagen `debian:8`, y ejecutaremos `/bin/bash`: 
+* Vamos a crear un contenedor con nombre `mv_debian` a partir de la
+imagen `debian:8`, y ejecutaremos `/bin/bash`: 
 ```
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
@@ -80,10 +84,31 @@ docker run --name=mv_debian -i -t debian:8 /bin/bash
 root@IDContenedor:/# cat /etc/motd            # Comprobamos que estamos en Debian
 root@IDContenedor:/# apt-get update
 root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedor
-root@IDContenedor:/# nginx -v                 # Ejecutamos nginx en el contenedor
+root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el contenedor
+root@IDContenedor:/# /usr/sbin/nginx          # Iniciamos el servicio nginx
+root@IDContenedor:/# ps -ef
 ```
 
-Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
+* Creamos un fichero HTML.
+```
+root@IDContenedor:/# echo "<p>HolaMundo!</p>" > /var/www/html/holamundo.html
+```
+
+* Creamos tambien un script, que no usaremos ahora, pero sí más adelante.
+Creamos el fichero `/root/server.sh` con el siguiente contenido
+```
+#!/bin/bash
+
+echo "Booting Nginx..."
+/usr/sbin/nginx &
+
+echo "Waiting..."
+while/true) do
+  sleep 60
+done
+```
+
+* Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
 crear una nueva imagen con los cambios que hemos hecho, para esto
 abrimos otra ventana de terminal y busquemos el IDContenedor:
 
@@ -117,15 +142,19 @@ docker ps -a
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. 
 Iniciemos el contenedor de la siguiente manera:
 
-`docker run -p 80 -i -t dvarrui/nginx /bin/bash`
+``` 
+docker ps
+docjer ps -a
+docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
+docker ps
+``` 
 
-> El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado 
+> * El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado 
 del contenedor, en nuestro caso el puerto 80 es el puerto por defecto 
 sobre el cual se levanta Nginx. 
+> * El script `server.sh`nos sirve para iniciar el servicio y permanecer en espera.
+Lo podemos hacer también con el prgorama `Supervisor`.
 
-* Una vez dentro
-    * Iniciamos el servicio de Nginx `service nginx start`.
-    * Comprobamos `service nginx status`.
 * Ahora en una nueva ventana ejecutaremos `docker ps`. Podemos apreciar 
 que la última columna nos indica que el puerto 80 del contenedor 
 está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`, vayamos al explorador 
@@ -144,7 +173,10 @@ docker rm mv_nginx
 docker ps -a
 ```
 
-#5. Manualmente y luego `Dockerfile` (Debian8 y Apache2)
+#5. Crear un contenedor con `Dockerfile`
+
+Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
+usando un fichero de configuración, llamado `Dockerfile`
 
 ##5.1 Comprobaciones iniciales:
 
@@ -154,70 +186,42 @@ docker ps
 docker ps -a
 ```
 
-##5.2 Crear MV con imagen descargada
+##5.2 Preparar ficheros
 
-Crear MV con base Debian8 para montar apache2:
+* Dockerfile:
 ```
-docker run --name=mv_apache2 -p 80 -i -t debian:8 /bin/bash
+FROM debian:8
 
-(Dentro MV)
-apt-get update
-apt-get install -y apache2
-service apache2 status
-service apache2 start
-service apache2 status
+MAINTAINER David Vargas version 1.0
 
-(Fuera de MV. En otra terminal)
+RUN apt-get update
+RUN apt-get install -y nginx
+RUN apt-get install -y vim
 
-docker ps    # Localizar el puerto externo
-Navegador -> URL http://localhost:PORT_NUMBER
+COPY server.sh /root
+RUN chmod +x /root/server.sh
 
+EXPOSE 80
+
+CMD ["/root/server.sh"]
+```
+* server.sh
+```
+    #!/bin/bash
+
+    echo "Booting Nginx..."
+    /usr/sbin/nginx &
+
+    echo "Waiting..."
+    while/true) do
+      sleep 60
+    done
 ```
 
-``` 
-(Dentro MV)
-apt-get install -y vim
-vim /var/www/html/holamundo.html
-(Personalizar el fichero)
+##5.3 Crear imagen
 
-(Fuera de MV. En otra terminal)
-Navegador -> URL http://localhost:PORT_NUMBER  # Comprobamos que todo funciona
-docker stop mv_apache2                         # Paramos el contenedor
-docker ps
-``` 
-
-##5.3 Crear imagen a partir del `Dockerfile`
-
-Ahora que nos ha funcionado el proceso de creación manual del contenedor
-Debian8 con Apache2, vamos a pasar todos esos datos a un fichero `Dockerfile`.
-
-El fichero [Dockerfile](./files/Dockerfile.debian) contiene la información 
+El fichero [Dockerfile](./files/Dockerfile) contiene la información 
 necesaria para contruir el contenedor, veamos:
-
-```
-docker images
-docker build -t dvarrui/apache2 .  # Construye imagen a partir del Dockefile
-docker images
-```
-
-##5.4 Crear contenedor y comprobar
-
-```
-docker run -d -p 80:80 dvarrui/nginx2
-docker ps
-```
-
-Comprobar en el navegador URL: `http://localhost`
-
-#6. Crear imagen y usar `Dockerfile`
-
-##6.1 Crear imagen
-
-* Creamos directorio `/home/usuario/nginx2`
-* Creamos dentro este fichero [Dockerfile](./files/Dockerfile.nginx).
-
-El fichero `Dockerfile` contiene toda la información necesaria para contruir el
-contenedor, veamos:
 
 ```
 docker images
@@ -225,19 +229,19 @@ docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
 docker images
 ```
 
-##6.2 Crear contenedor
+##5.4 Crear contenedor y comprobar
 
 ```
-docker run -d -p 80:80 dvarrui/nginx2
+docker run --name mv_nginx2 -d dvarrui/nginx2
 docker ps
-```
+``` 
 
-Comprobar en el navegador URL: `http://localhost`
+Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
+
+#6. Crear imagen y usar `Dockerfile`
 
 
 #ANEXO
-
-
 
 ##A.2
 
