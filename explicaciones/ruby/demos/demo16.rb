@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-a = 4
+a = 3
 
 puts a.to_s+" * 1  = "+(a*1).to_s
 puts a.to_s+" * 2  = "+(a*2).to_s

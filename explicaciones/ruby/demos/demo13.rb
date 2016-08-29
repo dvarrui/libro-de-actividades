@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-a = 4
-b = 3
-c = a*b
+a = 3
+b = 4
+c =  a.to_f / b.to_f
 puts c
