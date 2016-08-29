@@ -1,5 +1,6 @@
 
 #Día 1: Introducción
+
 * `apt-get install ruby`: Instalación de ruby en Debian-Ubuntu
 * `ruby -v`: Comprobar la versión instalada de ruby
 * `irb`: Entrar en el intérprete interactivo. CTRL+D para salir
@@ -19,6 +20,7 @@ puts texto #Mostrar variable en la pantalla
 ```
 
 #Día 2: Métodos, Array e iteraciones
+
 ```
 ri String #Consultar la documentación de la clase String
 ri String#downcase #Consultar la documentación del método downcase de la clase String
