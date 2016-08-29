@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-name = ARGV.first
+name = "Obiwan"
 
-puts "Hello #{name}!"
+puts "Hello #{name.upcase}!"
