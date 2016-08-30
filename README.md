@@ -1,15 +1,20 @@
 # Libro de actividades
-Este es un proyecto abierto para crear documentación sobre actividades/ejercicios 
+
+Este es un proyecto abierto donde se almacena documentación sobre actividades/ejercicios
 útiles para usar en los Ciclos Formativos de Grado Superior de Informática.
+
+Los documentos de las actividades se guardan en el directorio [actividades](./actividades),
+que a su vez se organiza de la siguente forma:
+
+* [fuw](./actividades/fuw): Fundamentos de Hardware, 1ASIR
+* [idp](./actividades/idp): Implantación de Sistemas Operativos, 1ASIR
+* [add](./actividades/add): Adminitración de Sistemas Operativos, 1ASIR
 
 ##Estado del proyecto
 
-El desarrollo de esta aplicación comenzó en septiembre 2015. Desde entonces 
-se han ido añadiendo actividades constantemente, se van actualizando con las 
+El desarrollo de esta aplicación comenzó en septiembre 2015. Desde entonces
+se han ido añadiendo actividades constantemente, se van actualizando con las
 nuevas versiones de software,  y se van corrigiendo fallos.
-
-La evolución y futura lista de funcionalidades a implementar se pueden consultar 
-en la lista de tareas por hacer.
 
 ##Licencia
 
@@ -19,7 +24,7 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
 # ¿Cómo accedo a los documentos?
 Puedes acceder a la documentación de dos formas:
-
+/
 1. **Acceso on-line**: Se accedo a los documentos desde esta página web del proyecto
 alojado en GitHub. Los documentos en GitHub se modificarán y actualizarán
 continuamente. Por lo que podrán cambiar sus contenidos de un día para otro.
@@ -31,12 +36,15 @@ la opción "Download ZIP" desde la web de GitHub.
 # Contribuciones
 Formar de contribuir y/o colaborar:
 
-1. Sólo necesitas aprender a usar Git y [Markdown] 
+1. Reporta fallos en los documentos y/o actividades.
+1. Sugiere y envía tus propias actividades de clase.
+1. Si no lo ves claro, ponte en contacto conmigo en twitter (@dvarrui) y buscamos
+formas de colaboración.
+1. Si quieres ser más autónomo, clona el proyecto, modifícalo y envía los cambios.
+Sólo necesitas aprender a usar Git y [Markdown] 
 (https://www.alsa.es/formacion/pda/help.php?file=markdown.html#precode).
-2. Si lo anterior no lo ves claro, ponte en contacto conmigo en twitter (@dvarrui) y buscamos
-otra forma.
 
-## Requisitos para contribuir
+## Software requerido
 * Tener instalado **Git**. Git es una herramienta para el control de versiones de los ficheros,
 documentos, etc.
 * Tener un editor de texto.
