@@ -3,7 +3,7 @@
 Proyecto abierto donde se almacena documentación sobre actividades/ejercicios
 útiles para usar en los **Ciclos Formativos de Grado Superior de Informática**.
 
-## Caracteríscas
+## Características
 
 * Las actividades se guardan dentro del directorio [actividades](./actividades).
 Es la carpeta principal de este proyecto.
