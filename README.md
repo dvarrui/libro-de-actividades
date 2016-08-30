@@ -15,7 +15,7 @@ imágenes o páginas web.
 
 Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
-[http://creativecommons.org/licenses/by-sa/3.0/de/legalcode](http://creativecommons.org/licenses/by-sa/3.0/de/legalcode)
+> [http://creativecommons.org/licenses/by-sa/3.0/de/legalcode](http://creativecommons.org/licenses/by-sa/3.0/de/legalcode)
 
 ## Otras preguntas
 
