@@ -3,12 +3,11 @@
 Proyecto abierto donde se almacena documentación sobre actividades/ejercicios
 útiles para usar en los **Ciclos Formativos de Grado Superior de Informática**.
 
-## Caracterícas
+## Caractesrícas
 
 * Las actividades se guardan dentro del directorio [actividades](./actividades).
 Es la carpeta principal de este proyecto.
-* Los documentos de las actividades de las distintas materias se organizan de
-la [siguiente forma](./actividades/README.md).
+* Los documentos se organizan por materias de la [siguiente forma](./actividades/README.md).
 * Cada documento es un fichero de texto simple que puede enlazar a otros documentos,
 imágenes o páginas web.
 
