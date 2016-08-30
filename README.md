@@ -1,7 +1,9 @@
 # Libro de actividades
 
-Este es un proyecto abierto donde se almacena documentación sobre actividades/ejercicios
+Proyecto abierto donde se almacena documentación sobre actividades/ejercicios
 útiles para usar en los Ciclos Formativos de Grado Superior de Informática.
+
+## Descripción
 
 Los documentos de las actividades se guardan en el directorio [actividades](./actividades),
 que a su vez se organiza de la siguente forma:
@@ -22,7 +24,7 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
 [http://creativecommons.org/licenses/by-sa/3.0/de/legalcode](http://creativecommons.org/licenses/by-sa/3.0/de/legalcode)
 
-# ¿Cómo accedo a los documentos?
+## ¿Cómo accedo a los documentos?
 Puedes acceder a la documentación de dos formas:
 /
 1. **Acceso on-line**: Se accedo a los documentos desde esta página web del proyecto
@@ -33,27 +35,8 @@ continuamente. Por lo que podrán cambiar sus contenidos de un día para otro.
 la opción "Download ZIP" desde la web de GitHub.
     *  o mediante comandos de Git `git clone https://github.com/dvarrui/libro-de-actividades.git`.
 
-# Contribuciones
-Formar de contribuir y/o colaborar:
+## Contribuciones
 
-1. Reporta fallos en los documentos y/o actividades.
-1. Sugiere y envía tus propias actividades de clase.
-1. Si no lo ves claro, ponte en contacto conmigo en twitter (@dvarrui) y buscamos
-formas de colaboración.
-1. Si quieres ser más autónomo, clona el proyecto, modifícalo y envía los cambios.
-Sólo necesitas aprender a usar Git y [Markdown] 
-(https://www.alsa.es/formacion/pda/help.php?file=markdown.html#precode).
-
-## Software requerido
-* Tener instalado **Git**. Git es una herramienta para el control de versiones de los ficheros,
-documentos, etc.
-* Tener un editor de texto.
-* Conocer **Markdown**. Markdown es una forma de escribir los ficheros de texto plano para incluir
-formato del texto, enlaces, insertar imágenes, etc. Pero es muy fácil de entender.
-
-##Pasos
-* Haz un fork de este proyecto, y clónalo en tu PC local.
-* Haz los cambios que consideres oportunos.
-* Envía solicitud `merge` para fusionar los cambios al proyecto.
+* [¿Cómo puedo contribuir al proyecto?](contribuciones.md)
 
 ¡Muchas gracias!
