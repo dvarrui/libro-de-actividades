@@ -26,7 +26,7 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
 ## ¿Cómo accedo a los documentos?
 Puedes acceder a la documentación de dos formas:
-/
+
 1. **Acceso on-line**: Se accedo a los documentos desde esta página web del proyecto
 alojado en GitHub. Los documentos en GitHub se modificarán y actualizarán
 continuamente. Por lo que podrán cambiar sus contenidos de un día para otro.
