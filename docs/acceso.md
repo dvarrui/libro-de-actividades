@@ -1,28 +1,21 @@
 
 
-## ¿Cómo accedo a los documentos?
+##¿Cómo accedo a los documentos?
+
 Puedes acceder a la documentación de dos formas:
 
-1. **Acceso on-line**: Se accedo a los documentos desde esta página web del proyecto
-alojado en GitHub. Los documentos en GitHub se modificarán y actualizarán
-continuamente. Por lo que podrán cambiar sus contenidos de un día para otro.
-2. **Acceso off-line**: Obtienes una copia en tu PC local.
-    * Si quieres tener los ficheros en tu PC local los puedes descargar usando
-la opción "Download ZIP" desde la web de GitHub.
-    *  o mediante comandos de Git `git clone https://github.com/dvarrui/libro-de-actividades.git`.
+###Acceso on-line
 
-## Organización
+Usando un navegador web, se accede a los documentos de este proyecto alojado en GitHub.
 
-El directorio [actividades](./actividades) es la carpeta principal del proyecto.
-En este directorio se guardan los documentos de las actividades de las
-distintas materias, organizados de la siguiente forma:
+###Acceso off-line
 
-* [fuw](./actividades/fuw): Fundamentos de Hardware, 1ASIR
-* [idp](./actividades/idp): Implantación de Sistemas Operativos, 1ASIR
-* [add](./actividades/add): Adminitración de Sistemas Operativos, 1ASIR
+Puedes tener una copia en tu PC local de todos los ficheros del proyecto:
 
-El directorio [explicaciones](./explicaciones) es para documentos con
-explicaciones que se repiten mucho en clase.
+* Puedes hacer una descarga usando la opción *"Download ZIP"* desde la página web de GitHub.
+* También mediante comandos de Git puedes tener una copia local del proyecto.
+    * `git clone https://github.com/dvarrui/libro-de-actividades.git`: Clonar proyecto
+    * `git pull`:  Actualizar ficheros es local con las novedades del repositorio.
 
-En el directorio [pendiente](./pendiente) se guardan utilidades que todavía no 
-sabemos donde ponerlas.
+> Los documentos en GitHub se modifican y actualizan continuamente.
+Por lo que podrán cambiar sus contenidos de un día para otro.
