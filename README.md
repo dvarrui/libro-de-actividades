@@ -1,13 +1,16 @@
 # Libro de actividades
 
 Proyecto abierto donde se almacena documentación sobre actividades/ejercicios
-útiles para usar en los Ciclos Formativos de Grado Superior de Informática.
+útiles para usar en los **Ciclos Formativos de Grado Superior de Informática**.
 
-## Organización
+## Caracterícas
 
-El directorio [actividades](./actividades) es la carpeta principal del proyecto.
-En este directorio se guardan los documentos de las actividades de las
-distintas materias, organizados de la [siguiente forma](./actividades/README.md).
+* Las actividades se guardan dentro del directorio [actividades](./actividades).
+Es la carpeta principal de este proyecto.
+* Los documentos de las actividades de las distintas materias se organizan de
+la [siguiente forma](./actividades/README.md).
+* Cada documento es un fichero de texto simple que puede enlazar a otros documentos,
+imágenes o páginas web.
 
 ##Licencia
 
@@ -18,7 +21,9 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 ## Otras preguntas
 
 * [¿Cómo accedo a los documentos?](./docs/acceso.md)
+* [¿Cómo se organizan las actividades?](./actividades/README.md)
 * [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
 * [Estado del proyecto](./docs/estado.md)
+
 
 ¡Muchas gracias!
