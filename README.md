@@ -13,12 +13,6 @@ distintas materias, organizados de la siguiente forma:
 * [idp](./actividades/idp): Implantación de Sistemas Operativos, 1ASIR
 * [add](./actividades/add): Adminitración de Sistemas Operativos, 1ASIR
 
-##Estado del proyecto
-
-El desarrollo de esta aplicación comenzó en septiembre 2015. Desde entonces
-se han ido añadiendo actividades constantemente, se van actualizando con las
-nuevas versiones de software,  y se van corrigiendo fallos.
-
 ##Licencia
 
 Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
@@ -27,7 +21,8 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
 ## Otras preguntas
 
-* [¿Cómo accedo a los documentos?](./acceso.md)
-* [¿Cómo puedo contribuir al proyecto?](contribuciones.md)
+* [¿Cómo accedo a los documentos?](./docs/acceso.md)
+* [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
+* [Estado del proyecto](./docs/estado.md)
 
 ¡Muchas gracias!
