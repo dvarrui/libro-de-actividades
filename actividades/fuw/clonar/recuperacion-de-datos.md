@@ -1,4 +1,4 @@
-*(Actividad realizada en los cursos 201415, 201314)*
+> *Actividad realizada en los cursos 201415, 201314*
 
 #1. Introducción
 
@@ -59,7 +59,7 @@ Feedback de comprobación `ls /mnt/disco_roto`.
 
 #3. Clonación alfa
 
-Antes de recuperar los archivos del disco "roto" (sdb) vamos hacer una clonación 
+Antes de recuperar los archivos del disco "roto" (sdb) vamos hacer una clonación
 device-device del mismo. Al disco clonado lo llamaremos disco `alfa`. Apartir de
 ahora los procesos de recuperación los haremos siempre al disco `alfa`.
 
@@ -67,11 +67,11 @@ ahora los procesos de recuperación los haremos siempre al disco `alfa`.
 para evitar que los procesos de recuperación afecten a la integridad del disco
 "roto".
 
-* Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo 
+* Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo
 llamaremos `alfa` en VirtualBox.
 * Iniciamos la MV. Deben estar los 3 discos.
 Feeback de comprobación: `fdisk -l`
-* Los discos "roto" y "alfa" no deben estar montados. 
+* Los discos "roto" y "alfa" no deben estar montados.
 Feedback de comprobación: `df -hT`, `mount`
 * Usamos el comando `dd` para clonar el disco `roto` en el disco `alfa`.
 Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
@@ -80,7 +80,7 @@ Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
 los sectores "vacíos".
 > * Si no clonamos los sectores "vacíos" no se incluirían los ficheros eliminados.
 
-Todas las pruebas las haremos en el disco `alfa` a partir de ahora. 
+Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
 En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
 lo guardaríamos en sitio seguro.
 
@@ -108,13 +108,13 @@ Tenemos varias formas:
     * Caine7 (Descargar de Leela).
     * Kali GNU/Linux (Descargar de leela).
     * Tails GNU/Linux (Descargar de la web).
-        
+
 ##4.3 Recuperando los datos
 
 Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
 * Consultar documentación de la herramienta para averiguar cómo se hace.
 * Los archivos que se recuperen no deben escribirse en el disco `alfa`.
-* La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`. 
+* La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`.
 
 #5. Borrado seguro
 
@@ -123,9 +123,9 @@ Ahora vamos a ver cómo realizar un borrado seguro.
 
 > **¿De verdad?**
 >
-> Las herramientas de borrado seguro deben ejecutarse un número de veces (35 normalmente) 
-para que podamos decir (¿seguro?) que hemos logrado un borrado efectivo. La explicación 
-de por qué pasa esto la tenemos en el siguiente 
+> Las herramientas de borrado seguro deben ejecutarse un número de veces (35 normalmente)
+para que podamos decir (¿seguro?) que hemos logrado un borrado efectivo. La explicación
+de por qué pasa esto la tenemos en el siguiente
 [artículo](http://www.eldiario.es/hojaderouter/tecnologia/hardware/archivos-eliminacion-recuperacion-disco_duro-papelera_de_reciclaje_0_495201286.html)  
 >
 > Ante la duda, y para segurarse, muchas empresas recurren a la destrucción física de los disco.
@@ -174,16 +174,16 @@ Esto no hay que hacerlo. Es sólo informativo.
 ##A2. Soporte en fichero
 Vamos a crear fichero como soporte de datos:
 * Abrir consola como superusuario.
-* Crear un fichero "file-soporte", de tamaño 1MB y lleno de ceros. 
+* Crear un fichero "file-soporte", de tamaño 1MB y lleno de ceros.
     * Comando: "dd if=/dev/zero of=/mnt/file-soporte bs=512 count=2048".
 > NOTA
 >
-> El comando dd se utiliza para clonar (copiar a bajo nivel) dispositivos. 
+> El comando dd se utiliza para clonar (copiar a bajo nivel) dispositivos.
 >
 > Aunque nosotros lo hemos usado para crear un archivo de un tamaño determinado.
 
 ##A3. Formatear el fichero soporte
-* Vamos a crear un sistema de ficheros tipo ext2 dentro del fichero file-soporte. 
+* Vamos a crear un sistema de ficheros tipo ext2 dentro del fichero file-soporte.
     * Comando: "mkfs.ext2 /mnt/file-soporte".
 
 ##A4. Escribir en el soporte
