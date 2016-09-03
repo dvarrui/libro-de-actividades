@@ -2,41 +2,38 @@
 
 #1. Introducción
 
-*Wikipedia*
+Según *Wikipedia*:
 ```
-    Vagrant es una herramienta para la creación y configuración de entornos 
+    Vagrant es una herramienta para la creación y configuración de entornos
     de desarrollo virtualizados.
 
-    Originalmente se desarrolló para VirtualBox y sistemas de configuración tales 
-    como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es 
-    capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, 
+    Originalmente se desarrolló para VirtualBox y sistemas de configuración tales
+    como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es
+    capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC,
     DigitalOcean, etc.2
 
-    Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de 
+    Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
     proyectos escritos en otros lenguajes.
 ```
 
 Enlaces de interés:
-* [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/) 
+* [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
 * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)  
 
-
-```
-    La información para desarrollar esta actividad ha sido extraída del 
-    enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013.
-```
+> Para desarrollar esta actividad se ha utilizado la información del
+enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013.
 
 #2. Primeros pasos
 
 ##2.1 Instalar
 
-> Para instalar vagrant hay varias formas (como todos sabemos).
-
-* Nosotros vamos a usar el paquete [Vagrant-deb](http://172.20.1.2/~david/vagrant_1.7.2_x86_64.deb) 
+* Hay varias formas de instalar Vagrant, pero nosotros vamos a hacerlo usando
+el paquete [Vagrant-deb](http://172.20.1.2/~general/software/varios/vagrant_1.7.2_x86_64.deb)
 preparado para descargar del servidor Leela.
 
 ##2.2. Proyecto
-* Crear un directorio para nuestro proyecto vagrant.
+
+* Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
 ```
     mkdir mivagrantXX
     cd mivagrantXX
@@ -46,41 +43,50 @@ preparado para descargar del servidor Leela.
 ![vagrant-init](./images/vagrant-init.png)
 
 ##2.3 Imagen, caja o box
-* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Por ejemplo:
+
+* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Vamos,
+por ejemplo, a conseguir una imagen de un `Ubuntu Precise de 32 bits`:
 ```
 vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
 ```
 
 ![vagrant-box-add](./images/vagrant-box-add.png)
 
-* Podemos listar las cajas/imágenes disponibles actualmente en nuestro sistema con `vagrant box list`.
-* Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile` 
-de la carpeta del proyecto.
+* `vagrant box list`: Lista las cajas/imágenes disponibles actualmente en nuestra máquina.
+* Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile`
+(dentro de la carpeta de nuestro proyecto).
 * Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
 
 ![vagrantfile](./images/vagrantfile.png)
 
-##2.4 Iniciar la máquina
+> Existen muchos repositorios para descargar imágenes/cajas/boxes. Por ejemplo:
+>
+> * [Vagrant Box List](http://www.vagrantbox.es)
+> * [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
+>
+> Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
 
-Vamos a iniciar la máquina virtual creada con Vagrant:
+##2.4 Iniciar una nueva máquina
+
+Vamos a iniciar una máquina virtual nueva usando Vagrant:
 * `cd mivagrantXX`
 * `vagrant up`: comando para iniciar una la instancia de la máquina.
 
 ![vagrant-up](./images/vagrant-up.png)
 
-* Podemos usar ssh para conectar con nuestra máquina virtual (`vagrant ssh`).
-
-* Otros comandos de Vagrant:
-    * `vagrant suspend`: Suspender la máquina.
-    * `vagrant resume` : Volver a despertar la máquina.
-    * `vagrant halt`: Apagarla la máquina.
-    * `vagrant status`: Estado actual de la máquina.
-    * `vagrant destroy`: Para eliminar completamente la máquina.
+* `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
+* Otros comandos últiles de Vagrant son:
+    * `vagrant suspend`: Suspender la máquina virtual.
+    * `vagrant resume` : Volver a despertar la máquina virtual.
+    * `vagrant halt`: Apagarla la máquina virtual.
+    * `vagrant status`: Estado actual de la máquina virtual.
+    * `vagrant destroy`: Para eliminar completamente la máquina virtual.
 
 > Tener en cuenta que la MV en modo **suspendido** consume más espacio
- en disco debido a que el estado de la maquina virtual que suele almacenarse en RAM debe pasar a disco.
+ en disco debido a que el estado de la maquina virtual que suele almacenarse en RAM
+ se pasa a disco.
 
-> Ejemplos de otras MV:
+> Ejemplos:
 >
 > Crear un proyecto vagrant con Windows7 e iniciar la MV:
 > * `vagrant init opentable/win-7-professional-amd64-nocm; vagrant up --provider virtualbox`
@@ -88,57 +94,53 @@ Vamos a iniciar la máquina virtual creada con Vagrant:
 > Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
 > * `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
 
-#3. Configuración
+#3. Configuración del entorno virtual
 
 ##3.1 Carpetas sincronizadas
 
-> La carpeta del proyecto que contiene el `Vagrantfile` comparte los 
-archivos entre el sistema anfitrión y el virtualizado, esto nos permite 
-compartir archivos fácilmente entre los ambientes.
+> La carpeta del proyecto que contiene el `Vagrantfile` es visible
+para el sistema el virtualizado, esto nos permite compartir archivos fácilmente
+entre los dos entornos.
 
-* Para identificar la carpeta compartida dentro del ambiente virtual,
-lo que hacemos es:
+* Para identificar las carpetas compartidas dentro del entorno virtual, hacemos:
 ```
     vagrant up
     vagrant ssh
     ls /vagrant
 ```
 
-> Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del ambiente 
-virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión. 
->
-> Cualquier archivo que coloquemos en este directorio será accesible desde cualquiera de los 2 extremos. 
+> Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del entorno
+virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión.
 
 ##3.2 Redireccionamiento de los puertos
 
-Uno de los casos más comunes cuando tenemos una máquina virtual es la 
-situación que estamos trabajando con proyectos enfocados a la web, 
-y para acceder a las páginas no es lo más cómodo tener que meternos 
-por terminal al ambiente virtual y llamarlas desde ahí, aquí entra en 
-juego el enrutamiento de puertos.
+Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos
+enfocados a la web, y para acceder a las páginas es necesario configurar el
+enrutamiento de puertos.
 
-* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del 
-sistema anfitrión será enrutado al puerto 80 del ambiente virtualizado.
+* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del
+sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
 
 `config.vm.network :forwarded_port, host: 4567, guest: 80`
 
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
 
-* Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar 
+* Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar
 con `vagrant reload`)
-* En nuestro sistema anfitrión nos dirigimos al explorador de internet,
- y colocamos: `http://127.0.0.1:4567`. En realidad estaremos accediendo 
- al puerto 80 de nuestro sistema virtualizado. 
-* Para confirmar que hay un servicio a la escucha en 4567, desde el 
+
+> Para confirmar que hay un servicio a la escucha en 4567, desde el
 sistema anfitrión ejecutar los siguientes comandos:
-    * `nmap -p 4500-4600 localhost`
-    * `netstat -ntap`
+> * `nmap -p 4500-4600 localhost`
+> * `netstat -ntap`
 
-##3.3 Otras configuraciones
+* En nuestro sistema anfitrión, abrimos el navegador web con el URL
+`http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro
+sistema virtualizado.
 
-A continuación se muestran ejemplos que NO hay que hacer. Sólo es información.
+##3.3 Más información sobre otras configuraciones
 
-Enlace de interés: 
+A continuación se muestran ejemplos que NO ES NECESARIO hacer. Sólo es información.
+Enlace de interés:
 * [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
 
 Ejemplo para configurar la red:
@@ -167,18 +169,14 @@ gráficas instaladas en la máquina virtual, mediante SSH:
 
 #4.Suministro
 
-##4.1 Suministro mediante script
+##4.1 Suministro mediante shell script
 
-Quizás el aspecto con mayor beneficios del enfoque que usa Vagrant 
-es el uso de herramientas de suministro, el cual consiste en correr 
-una receta o una serie de scripts durante el proceso de levantamiento 
-del ambiente virtual que permite instalar y configurar un sin fin 
-piezas de software, esto con el fin de que el ambiente previamente 
-configurado y con todas las herramientas necesarias una vez haya sido levantado.
+Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
+Esot es, ejecutar *"una receta"* o una serie de scripts durante el proceso de
+arranque del entorno virtual para instalar, configurar y personalizar un sin fin
+de aspectos del SO del sistema anfitrión.
 
-Por ahora suministremos al ambiente virtual con un pequeño script que 
-instale Apache.
-
+* Por ahora suministremos al ambiente virtual con un pequeño script para instalr Apache.
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
 contenido:
 
@@ -197,35 +195,35 @@ contenido:
 * Modificar Vagrantfile y agregar la siguiente línea a la configuración:
 `config.vm.provision :shell, :path => "install_apache.sh"`
 
-> * Esta instrucción le indica a Vagrant que debe usar la herramienta nativa shell 
-para suministrar el ambiente virtual con el archivo `install_apache.sh`.
+> * Esta instrucción le indica a Vagrant que debe usar un shell script
+para ejecutar dentro del entorno virtual con el nombre de archivo `install_apache.sh`.
 > * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecuta
-directamente el comando especificado, sin usar script.
+directamente el comando especificado.
 
 * Iniciamos la MV o `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
 
 > Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran
 mensajes que indican cómo se va instalando el paquete de Apache que indicamos:
 
-* Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, 
+* Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado,
 abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
 ##4.2 Suministro mediante Puppet
 
-Enlace de interés:
-* [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/) 
-* `friendsofvagrant.github.io -> Puppet Provisioning`
+> Enlace de interés:
+> * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
+> * `friendsofvagrant.github.io -> Puppet Provisioning`
 
 > Veamos imágenes de ejemplo suministradas por Aarón Gonźalez Díaz:
-
-Vagrantfile configurado con puppet:
-
-![vagranfile-puppet](./images/vagrantfile-puppet.png)
-
-Fichero de configuración de puppet:
-
-![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
-
+>
+> * Vagrantfile configurado con puppet:
+>
+> ![vagranfile-puppet](./images/vagrantfile-puppet.png)
+>
+> * Fichero de configuración de puppet:
+>
+> ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
+>
 > Veamos otros ejemplo:
 > ```
 > Vagrant::Config.run do |config|
@@ -236,43 +234,41 @@ Fichero de configuración de puppet:
 > end
 >```
 
-* Configurar el fichero `software.pp`, con las órdenes puppet para 
+* Crear un fichero `software.pp`, con las órdenes puppet para
 instalar el programa `geany`.
 * Configurar `Vagrantfile` para permitir la ejecución de programas
 gráficos de la máquina virtual (`config.ssh.forward_x11 = true`)
 * Preparar un fichero `apache2.pp`, para instalar y configurar
 Apache2.
 
-#5. Otras cajas, nuestras cajas
-
-Existen muchos repositorios para descargar cajas. Por ejemplo:
-* [Vagrant Box List](http://www.vagrantbox.es)
-* [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
-
-> Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
+#5. Nuestra caja personalizada
 
 Si estamos pensando en crear nuestra propia caja, entonces haremos lo siguiente:
 * Leer las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)    
 * Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
+* A partir de una máquina virtual VirtualBox (Por ejemplo, `v1-opensuse132-xfce`)
+vamos a crear la caja `package.box`.
 
-A partir de una máquina virtual VirtualBox (`v1-opensuse132-xfce`) vamos a crear la caja `package.box`.
 ![vagrant-package](./images/vagrant-package.png)
 
-Comprobamos que se ha creado la caja `package.box` en el directorio donde
+* Comprobamos que se ha creado la caja `package.box` en el directorio donde
 hemos ejecutado el comando.
+
 ![vagrant-package_box_file](./images/vagrant-package_box_file.png)
 
-Muestro la lista de cajas disponibles, pero sólo tengo 1 porque todavía
-no he incluido la que acabo de crear. Finalmente, añado la nueva caja creada 
+* Muestro la lista de cajas disponibles, pero sólo tengo 1 porque todavía
+no he incluido la que acabo de crear. Finalmente, añado la nueva caja creada
 por mí al repositorio de vagrant.
+
 ![vagrant-package](./images/vagrant-2-boxes.png)
 
-Al levantar la máquina con esta nueva caja obtengo este error.
+* Al levantar la máquina con esta nueva caja obtengo este error.
 Probablemente por tener mal las GuestAdittions.
+
 ![vagrant-package](./images/vagrant-error-mybox.png)
 
-Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
+* Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
 
 #ANEXO
 
