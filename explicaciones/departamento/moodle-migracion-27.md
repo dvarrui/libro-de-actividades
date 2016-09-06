@@ -41,19 +41,21 @@ automáticas disponibles. Veremos algo similar a lo mostrado en la siguiente cap
 
 * Descargamos [moodle-2.7.15.zip](https://download.moodle.org/download.php/direct/stable27/moodle-2.7.15.zip)
 en carpeta para uso temporal.
-* `Administración del Sitio -> Servidor -> Modo Mantenimiento`.
+* `Administración del Sitio -> Servidor -> Modo Mantenimiento -> Habilitar`.
+
+> Para deshacer el modo mantenimiento poner "URL_moodle/admin" y entramos como
+administrador.
+
 * Movemos
     * `/usr/share/nginx/www/moodle26` a `/usr/share/nginx/www/moodle26.20160906`
     * `moodle27` a `/usr/share/nginx/www/moodle26`
+* Usar el fichero antiguo `config.php` para la nueva versión.
+* `service nginx reload`
+* URL moodle /admin
 
 ##Pendiente....
 
 Modo manual:
-* Renombrar el archivo `config.php` a `config.php_seg` (por seguridad).
-
-
-* Renombrar el archivo `config.php_seg` a `config.php` nuevamente.
-* Mover la carpeta `/public_html/moodle/moodledata` fuera de `/public_html` por seguridad, si no lo estuviese.
 * Deshabilitar el **Modo de Mantenimiento**.
 
 * Verificar que ya disponemos de la nueva versión accediendo al /admin de Moodle, **Notificaciones**.
