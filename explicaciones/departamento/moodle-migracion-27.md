@@ -6,8 +6,6 @@
 ## Requisitos
 
 * **Las nuevas versiones de Moodle necesitan de PHP 5.4 o superior** para funcionar,
-y esto marca un antes y un después que los administradores de sitios Moodle deben tener muy presenta para llevar a
-cabo actualizaciones a versiones estables con éxito.
 * Los usuarios que aún se mantienen en versiones no estables, 2.5 y
 principalmente 2.6 deben plantearse, previa copia de seguridad,
 actualizar a 2.7.7 estable (a fecha de abril de 2015) para
@@ -17,7 +15,7 @@ primeramente en una **COPIA** de tu sitio Moodle en producción, para
 asegurarte de que funciona como esperas.
 * Lo normal en versiones estables es poder actualizar previa
 verificación de la existencia de nuevas versiones si se tiene habilitada
- está opción en la **Administración del sitio**, **Servidor**, **Notificaciones de actualización**
+ está opción en la `Administración del sitio -> Servidor -> Notificaciones de actualización`
 * Al acceder a desde el menú **Administración del sitio** al apartado **Notificaciones**
 podemos ver si hay actualizaciones disponibles automáticas haciendo clic
 en el botón **Compruebe actualizaciones disponibles** y si las hay veremos
@@ -44,8 +42,11 @@ versión de PHP activa, ya que es una escritura manual de archivos.
 
 ## Pasos para actualizar manualmente de Moodle 2.6.x a 2.7.x
 
-* Realizar una *copia de seguridad* de la instalación de Moodle,
-la carpeta **/moodledata** y de la base de datos.
+* Se hace *copia de seguridad* de:
+    * la instalación de Moodle `/usr/share/nginx/www/moodle26`.
+    * la carpeta `/var/local/moodle26data` con datos de Moodle.
+    * la base de datos MySQL `moodle26`.
+
 * Activar en la administración de Moodle el **"Modo Mantenimiento"**.
 * Renombrar el archivo `config.php` a `config.php_seg` (por seguridad).
 * Descargar la versión estable de Moodle 2.7.7.
