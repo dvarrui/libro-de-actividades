@@ -52,10 +52,19 @@ administrador.
 * Usar el fichero antiguo `config.php` para la nueva versión.
 * `service nginx reload`
 * URL moodle /admin
+Comienzo a las 12:50...13:48...
 
-##Pendiente....
+#Error
+La actualización tardó horas y se quedó la pantalla en blanco.
+El proceso había salido mal.
+Busqué en los ficheros de log a ver si entontraba pistas del fallo, pero nada.
 
-Modo manual:
-* Deshabilitar el **Modo de Mantenimiento**.
+Pistas para seguir indagando:
+* Buscar dónde se registran los fallos.
+* Pasar de la 2.6.N a la 2.6.N+1 antes de intentar la 2.7
+* Repetir y revisar un warning sobre el formato de las tablas.
+* Mantener el entorno de producción y reproducir un entorno de pruebas.
+* Eliminar Moodle22 que no se está usando.
 
-* Verificar que ya disponemos de la nueva versión accediendo al /admin de Moodle, **Notificaciones**.
+#Deshacer
+Tuve que deshacer el proceso y volver a las copias de seguridad.
