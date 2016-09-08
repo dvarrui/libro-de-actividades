@@ -98,7 +98,7 @@ root@IDContenedor:/# echo "<p>Hola Nombre-del-alumno!</p>" > /var/www/html/holam
 ```
     #!/bin/bash
 
-    echo "Booting Nginx(v1)..."
+    echo "Booting nginx..."
     /usr/sbin/nginx &
 
     echo "Waiting..."
@@ -212,19 +212,8 @@ EXPOSE 80
 
 CMD ["/root/server.sh"]
 ```
-* server.sh
-```
-    #!/bin/bash
 
-    echo "Booting Nginx..."
-    /usr/sbin/nginx &
-
-    echo "Waiting..."
-    while(true) do
-      sleep 60
-    done
-```
-* holamundo.html...
+> Necesitaremos también los ficheros `server.sh` y `holamundo.html` que vimos antes.
 
 ##5.3 Crear imagen
 
