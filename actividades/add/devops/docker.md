@@ -1,17 +1,17 @@
 
 #1.Introducción
 
-Es muy común que nos encontremos desarrollando una aplicación y llegue 
-el momento que decidamos tomar todos sus archivos y migrarlos ya sea al 
-ambiente de producción, de prueba o simplemente probar su comportamiento 
-en diferentes plataformas y servicios. Para situaciones de este estilo 
-existen herramientas que, entre otras cosas, nos facilitan el embalaje 
+Es muy común que nos encontremos desarrollando una aplicación y llegue
+el momento que decidamos tomar todos sus archivos y migrarlos ya sea al
+ambiente de producción, de prueba o simplemente probar su comportamiento
+en diferentes plataformas y servicios. Para situaciones de este estilo
+existen herramientas que, entre otras cosas, nos facilitan el embalaje
 y despliegue de la aplicación, es aquí donde entra en juego Docker.
 
-Esta herramienta nos permite crear lo que ellos denominan contenedores, 
+Esta herramienta nos permite crear lo que ellos denominan contenedores,
 lo cual son aplicaciones empaquetadas auto-suficientes, muy livianas
- que son capaces de funcionar en prácticamente cualquier ambiente, 
- ya que tiene su propio sistema de archivos, librerías, terminal, etc. 
+ que son capaces de funcionar en prácticamente cualquier ambiente,
+ ya que tiene su propio sistema de archivos, librerías, terminal, etc.
 
 #2. Preparativos
 
@@ -35,22 +35,22 @@ usermod -a -G docker USERNAME # Añade permisos a nuestro usuario
 > Salir de la sesión y volver a entrar con nuestro usuario.
 
 Ejecutar con nuestro usuario para comprobar que todo funciona:
-``` 
+```
 docker images           # Muestra las imágenes descargadas hasta ahora
 docker ps -a            # Muestra todos los contenedores creados
 docker run hello-world  # Descarga y ejecuta un contenedor con la imagen hello-world
 docker images
 docker ps -a
-``` 
+```
 
 > **Habilitar el acceso a la red externa para los contenedores**
 >
-> If you want your containers to be able to access the external network, 
+> If you want your containers to be able to access the external network,
 you must enable the net.ipv4.ip_forward rule. To do this, use YaST.
 >
 > * Para openSUSE13.2 (cuando el método de configuracion de red es Wicked).
 `Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4`
-> * Cuando la red está gestionada por Network Manager, en lugar de usar YaST 
+> * Cuando la red está gestionada por Network Manager, en lugar de usar YaST
 debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"`.
 > * Para openSUSE Tumbleweed `Yast -> Sistema -> Configuración de red -> Menú de encaminamiento`.
 >
@@ -58,7 +58,7 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 
 #4. Crear un contenedor manualmente
 
-Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8, 
+Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8,
 y dentro instalaremos Nginx.
 
 ##4.1 Crear una imagen
@@ -76,7 +76,7 @@ docker ps              # Vemos sólo los contenedores en ejecución
 ```  
 
 * Vamos a crear un contenedor con nombre `mv_debian` a partir de la
-imagen `debian:8`, y ejecutaremos `/bin/bash`: 
+imagen `debian:8`, y ejecutaremos `/bin/bash`:
 ```
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
@@ -89,13 +89,12 @@ root@IDContenedor:/# /usr/sbin/nginx          # Iniciamos el servicio nginx
 root@IDContenedor:/# ps -ef
 ```
 
-* Creamos un fichero HTML.
+* Creamos un fichero HTML (`holamundo.html`).
 ```
-root@IDContenedor:/# echo "<p>HolaMundo!</p>" > /var/www/html/holamundo.html
+root@IDContenedor:/# echo "<p>Hola Nombre-del-alumno!</p>" > /var/www/html/holamundo.html
 ```
 
-* Creamos tambien un script, que no usaremos ahora, pero sí más adelante.
-Creamos el fichero `/root/server.sh` con el siguiente contenido
+* Creamos tambien un script `/root/server.sh` con el siguiente contenido:
 ```
     #!/bin/bash
 
@@ -103,12 +102,16 @@ Creamos el fichero `/root/server.sh` con el siguiente contenido
     /usr/sbin/nginx &
 
     echo "Waiting..."
-    while/true) do
+    while(true) do
       sleep 60
     done
 ```
 
-* Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos 
+> Este script inicia el programa/servicio y entra en un bucle, para permanecer
+activo y que no se cierre el contenedor.
+> Más adelante cambiaremos este script por la herramienta `supervisor`
+
+* Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos
 crear una nueva imagen con los cambios que hemos hecho, para esto
 abrimos otra ventana de terminal y busquemos el IDContenedor:
 
@@ -116,48 +119,48 @@ abrimos otra ventana de terminal y busquemos el IDContenedor:
 david@camaleon:~/devops> docker ps
 CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
 7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          mv_debian
-``` 
+```
 
 Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
 ```
 docker commit 7d193d728925 dvarrui/nginx
 docker images
-``` 
+```
 
-> Los estándares de Docker estipulan que los nombres de las imagenes deben 
+> Los estándares de Docker estipulan que los nombres de las imagenes deben
 seguir el formato `nombreusuario/nombreimagen`.
-> Todo cambio que se haga en la imagen y no se le haga commit se perderá en cuanto se cierre el contenedor. 
+> Todo cambio que se haga en la imagen y no se le haga commit se perderá en cuanto se cierre el contenedor.
 
 ```
-docker ps 
+docker ps
 docker stop mv_debian  # Paramos el contenedor
-docker ps 
+docker ps
 docker ps -a           # Vemos el contenedor parado
 docker rm IDcontenedor # Eliminamos el contenedor
-docker ps -a 
-``` 
+docker ps -a
+```
 
 ##4.2 Crear contenedor
 
-Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker. 
+Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 Iniciemos el contenedor de la siguiente manera:
 
-``` 
+```
 docker ps
 docjer ps -a
 docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
 docker ps
-``` 
+```
 
-> * El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado 
-del contenedor, en nuestro caso el puerto 80 es el puerto por defecto 
-sobre el cual se levanta Nginx. 
+> * El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado
+del contenedor, en nuestro caso el puerto 80 es el puerto por defecto
+sobre el cual se levanta Nginx.
 > * El script `server.sh`nos sirve para iniciar el servicio y permanecer en espera.
 Lo podemos hacer también con el prgorama `Supervisor`.
 
-* Ahora en una nueva ventana ejecutaremos `docker ps`. Podemos apreciar 
-que la última columna nos indica que el puerto 80 del contenedor 
-está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`, vayamos al explorador 
+* Ahora en una nueva ventana ejecutaremos `docker ps`. Podemos apreciar
+que la última columna nos indica que el puerto 80 del contenedor
+está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`, vayamos al explorador
 y veamos si conectamo con Nginx dentro del contenedor.
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
@@ -217,7 +220,7 @@ CMD ["/root/server.sh"]
     /usr/sbin/nginx &
 
     echo "Waiting..."
-    while/true) do
+    while(true) do
       sleep 60
     done
 ```
@@ -225,7 +228,7 @@ CMD ["/root/server.sh"]
 
 ##5.3 Crear imagen
 
-El fichero [Dockerfile](./files/Dockerfile) contiene la información 
+El fichero [Dockerfile](./files/Dockerfile) contiene la información
 necesaria para contruir el contenedor, veamos:
 
 ```
@@ -242,7 +245,7 @@ docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 ```
 
 * Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha
-del servidor Nginx. 
+del servidor Nginx.
 * Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
 
 #ANEXO
