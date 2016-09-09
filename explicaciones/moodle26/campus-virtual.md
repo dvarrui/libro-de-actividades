@@ -29,8 +29,12 @@ Desde aquí podemos gestionar nuestros cursos Moodle.
 
 ##Curso Virtual
 
-Una vez dentro del curso virtual (que está vacío por ser nuevo), procedemos
-a restaurarlo:
+* [URL del Campus Virtual](http://www3.gobiernodecanarias.org/medusa/eforma/campus/)
 
-* `Restaurar`
-* `Subir archivo de copia de seguridad`
+![campusvirtual-moodle.png](./images/campusvirtual-moodle.png)
+
+* Una vez dentro del curso virtual (que está vacío por ser nuevo), procedemos
+a restaurarlo:
+    * `Administración -> Restaurar`
+    * `Subir archivo` con la copia de seguridad.
+    * `Botón Restaurar`
