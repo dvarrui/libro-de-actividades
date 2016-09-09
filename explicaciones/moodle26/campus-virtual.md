@@ -29,7 +29,9 @@ Desde aquí podemos gestionar nuestros cursos Moodle.
 
 ##Curso Virtual
 
-* [URL del Campus Virtual](http://www3.gobiernodecanarias.org/medusa/eforma/campus/)
+* Si vamos al [URL del Campus Virtual](http://www3.gobiernodecanarias.org/medusa/eforma/campus/),
+debemos entrar en la plataforma Moodle y ver un listado con nuestros cursos.
+Ver imagen de ejemplo:
 
 ![campusvirtual-moodle.png](./images/campusvirtual-moodle.png)
 
