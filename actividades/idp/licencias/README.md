@@ -1,17 +1,21 @@
 
 # Modo de trabajo
-Se trabajará de forma individual, y se entregará un documento en formato ODF o PDF, 
-donde aparecerán el nombre del alumno con las respuestas solicitadas.
+
+Se trabajará por parejas. Cada alumno debe entregar un documento en formato ODF o PDF,
+donde aparecerán el nombre del alumno con el trabajo.
 
 # Licencias
-Leer los documentos de las licencias CLUF y GPL. Para cada una identificar 5 
-características permitidas y 5 prohibidas por cada licencia.
+
+* Leer los documentos de las licencias CLUF y GPL.
+* Para cada licencia identificar:
+    * 5 características permitidas y
+    * 5 características prohibidas.
 
 # Distribuciones
+
 Existen muchísimas distribuciones Linux, cada una de ellas con sus particularidades.
 
-Realizar una comparación con las 5 primeras distribuciones del ranking por visitas 
+* Realizar una comparación con las 5 primeras distribuciones del ranking por visitas
 que está definido en [Distrowatch] (http://www.distrowatch.com).
-
-Comentar brevemente alguna características de cada distribución.
-
+* Comentar brevemente alguna características de cada distribución, usando tus propias
+palabras.
