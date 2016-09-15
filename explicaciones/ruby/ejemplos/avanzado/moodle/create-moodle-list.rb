@@ -11,6 +11,8 @@
 #   Además cada fichero TXT servirá para que cada tutor comunique dichos
 #   datos a sus alumnos de grupo.
 
+require 'pry'
+
 =begin
 Formato de entrada:
   grupo, clave(dni), nombre, apellido1, apellido2, email
@@ -21,7 +23,7 @@ Formato de salida:
 =end
 
 class ListPeople
-  SEPARATOR=";"
+  SEPARATOR=","
 
   def initialize
     @debug=false
@@ -54,6 +56,8 @@ class ListPeople
 
     @data.each do |line|
       items=line.split(SEPARATOR)
+			raise "Error en los campos del CVS" if items.size<5
+			
       grupo=items[0].downcase
       dni=items[1]
       nombre=items[2]
