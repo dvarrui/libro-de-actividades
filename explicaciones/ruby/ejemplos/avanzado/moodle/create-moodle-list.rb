@@ -57,14 +57,14 @@ class ListPeople
     @data.each do |line|
       items=line.split(SEPARATOR)
 			raise "Error en los campos del CVS" if items.size<5
-			
+
       grupo=items[0].downcase
-      dni=items[1]
-      nombre=items[2]
-      apellido1=items[3]
-      apellido2=items[4]
+      clave=items[1].downcase
+      nombre=items[2].capitalize
+      apellido1=items[3].capitalize
+      apellido2=items[4].capitalize
       apellidos=apellido1+" "+apellido2
-      email=items[5]
+      email=items[5].gsub!("\n","").downcase
 
       #username
       u=nombre[0..2]+apellido1.gsub(' ','')[0..2]
@@ -72,18 +72,18 @@ class ListPeople
       username=u.downcase
       @change.each { |i| username.gsub!(i[0],i[1]) }
 
-      email="#{username}@#{grupo}.ies" if email.size<2
-      dni="123456" if dni.size<2
+      email="#{username}@cambiar-email.#{grupo}" if email.size<2
+      clave="201617" if clave.size<2
 
       if @output[grupo.to_sym].nil? then
         f=File.open("#{@outputfilename}_#{grupo}.txt",'w')
         @output[grupo.to_sym]=f
-        #f.write("username;password;firstname;lastname;email;city;country\n")
         f.write("username;password;firstname;lastname;email;city\n")
       end
-      #username, password, firstname, lastname, email, city, country
-			verbose("#{username};#{dni};#{nombre};#{apellidos};#{email};#{grupo}")
-      @output[grupo.to_sym].write("#{username};#{dni};#{nombre};#{apellidos};#{email};#{grupo}\n")
+      #username, password, firstname, lastname, email, city
+			msg = "#{username};#{clave};#{nombre};#{apellidos};#{email};#{grupo}"
+			verbose( msg )
+      @output[grupo.to_sym].write("#{msg}\n")
 		end
 
     @file.close
@@ -100,6 +100,9 @@ private
   def show_help
     puts "Uso:"
     puts " #{$0} FICHERO.csv"
+		puts " "
+		puts " Formato del fichero CSV:"
+		puts "   grupo, clave/DNI, nombre, apellido1, apellido2, email"
   end
 
   def verbose(lsText)
