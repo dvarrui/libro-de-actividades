@@ -1,7 +1,7 @@
 
 #Entrega
 
-* Entregar un informe con las capturas de pantalla de los pasos realizados.
+* Entregar 1 informe con las capturas de pantalla de los pasos realizados.
 * Comentar brevemente los pasos en el informe.
 
 # Live CD
@@ -19,6 +19,7 @@ Vamos a practicar con un SO en live CD.
 date
 ip a
 sudo blkid
+sudo fdisk -l
 ```
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
@@ -49,6 +50,8 @@ Nombre de usuario : nombre del alumno en minúsculas
 Nombre de máquina : 1er apellido en minúsculas
 Nombre dominio    : 2º apellido en minúsculas
 ```
+> Nombre de host es lo mismo que nombre de máquina
+
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO GNU/Linux en la MV con las opciones por defecto.
 * Abrir un terminal y capturar la salida de los siguientes comandos:
@@ -57,6 +60,7 @@ hostname -f
 date
 ip a
 sudo blkid
+sudo fdisk -l
 ```
 
 > [Vídeo Install OpenSUSE] (http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
