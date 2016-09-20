@@ -63,7 +63,6 @@ Nombre dominio    : 2º apellido en minúsculas
 
 ![hostname](./images/hostname.png)
 
-* Reiniciar la máquina para que se vean los cambios.
 * Abrir un terminal y capturar la salida de los siguientes comandos:
 ```
 hostname -f
