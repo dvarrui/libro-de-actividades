@@ -14,9 +14,15 @@ def departamento
   return equipos
 end
 
-def aula109
+def aula109old
   equipos=[]
   (1..28).each { |i| equipos << "172.19.#{i}.0" }
   return equipos
 end
 
+def aula109
+  equipos=[ '172.19.99.69' ]
+  (2..18).each { |i| equipos << "172.19.#{i}.0" }
+  [70,73,66,65,64,63,68,74,67,62].each { |i| equipos << "172.19.#{i}.0" }
+  return equipos
+end

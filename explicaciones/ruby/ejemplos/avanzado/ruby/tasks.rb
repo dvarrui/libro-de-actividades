@@ -36,6 +36,13 @@ def instalar_minicom(ip)
     puts " [ OK! ] host<#{ip}>: Minicom OK!"
   else
     puts " [ERROR] host<#{ip}>"
-  end  
+  end
 end
 
+
+def instalar_software(ip)
+  package = "shutter"
+  puts "* host[#{ip}]: Instalando #{package}..."
+  r = system("ssh root@#{ip} 'apt-get install "+package+" -y --force-yes'")
+  r = system("ssh root@#{ip} 'apt-get autoremove -y'")
+end
