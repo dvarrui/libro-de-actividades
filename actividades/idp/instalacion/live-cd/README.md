@@ -23,7 +23,7 @@ sudo fdisk -l
 ```
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
-* Comprobar que los cambios anteriores no se han guardado.
+* Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
 
 # Windows 7
 
@@ -54,6 +54,15 @@ Nombre dominio    : 2º apellido en minúsculas
 
 * Crear una MV, esta vez si tendrá disco duro.
 * Instalar el SO GNU/Linux en la MV con las opciones por defecto.
+* Una vez instalado el sistema operativo, ejecutar el programa
+`Yast`. Ir a `Ajustes de red -> Nombre de Host/DNS`.
+    * Escribir nombre de host/máquina
+    * Escribir nombre de dominio
+    * Deshabilitar `Modificar nombre...`
+    * Activar `Asignar nombre...`
+
+![hostname](./images/hostname.png)
+
 * Abrir un terminal y capturar la salida de los siguientes comandos:
 ```
 hostname -f
