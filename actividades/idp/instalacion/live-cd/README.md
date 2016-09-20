@@ -19,7 +19,6 @@ Vamos a practicar con un SO en live CD.
 date
 ip a
 sudo blkid
-sudo fdisk -l
 ```
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
