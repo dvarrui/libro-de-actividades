@@ -1,23 +1,17 @@
 
-> **Cambiar para el próximo curso1617**
->
-> * Usar SO Debian 8 y/o OpenSUSE13.2
-> * La IP interna de Debian8 para LTSP eth1 192.168.67.1
->
-
 # 1. Clientes ligeros con LTSP/Ubuntu
 
 Entrega de la práctica:
-* Crear informe usando ficheros de texto en Markdown.
+* Crear informe usando ficheros de texto en Markdown e imágenes.
 * Incluir breve explicación de clientes ligeros.
 * Detallar los pasos realizados.
-* Crear pequeño vídeo donde se muestra la práctica en funcionamiento.
+* Crear pequeño vídeo donde se muestra la práctica en funcionamiento. Esto es,
+el momento es que arrancamos un cliente e iniciamos sesión.
 * Incluir URL del vídeo subido a youtube.
 * Entregar URL(Repositorio Git) del informe.
 * Entregar URL(Repositorio Git) commit del informe.
 
 > Al terminar la actividad, y antes de realizar la entrega, etiquetamos el proyecto con "ltsp".
->
 > La etiqueta es un identificador que queda asociado a un instante de tiempo determinado del proyecto git.
 
 # 2. Preparativos
@@ -47,7 +41,7 @@ La MV del servidor necesitará dos interfaces de red:
 * Consultar [configuraciones](../../global/configuracion-aula108.md).
 
 ## 3.2 Instalación del SSOO
-* Instalar un SO GNU/Linux en la MV.
+* Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
 * Nombre de usuario: nombre-del-alumno, en minúsculas, sin tildes ni eñes.
 * Clave de root, poner como clave el DNI con la letra en minúsculas.
 * Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
@@ -66,7 +60,7 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./images/debian-host-domain-names.png)
 
-> **NOTA**: En OpenSUSE podemos usar la herramienta Yast2 para modificar cómodamente dichos valores.
+> **NOTA**: En OpenSUSE usamos la herramienta Yast2 para modificar cómodamente dichos valores.
 
 * Crear 3 usuarios locales llamados: primer-apellido-alumno1, primer-apellido-alumno2,
 primer-apellido-alumno3.
@@ -74,6 +68,7 @@ primer-apellido-alumno3.
 ## 3.3 Instalar el servicio LTSP
 * Instalar el servidor SSH `apt-get install openssh-server`, para permitir acceso
 remoto a la máquina.
+* Modificar SSH con `PermitRootLogin Yes`.
 * Instalar servidor de clientes ligeros, según la documentación para el SO elegido.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * Ahora vamos a crear un imagen del SO a partir del sistema real haciendo `ltsp-build-client`.
@@ -88,7 +83,11 @@ de 32 bits.
 
 * Ejecutar `ltsp-info`, para consultar información.
 
-> **Comandos LTSP: Para volver a actualizar la imagen**
+
+> **NOTA**
+>
+> En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
+para volver a actualizar la imagen.
 >
 > * `ltsp-update-kernel`
 > * `ltsp-update-sshkeys`
@@ -136,7 +135,7 @@ Y establecemos la variable TFTP_ADDRESS al valor de la IP:PORT de la interfaz de
 
 Crear la MV cliente en VirtualBox:
 * Sin disco duro y sin unidad de DVD.
-* Sólo tiene RAM, flopy
+* Sólo tiene RAM, floppy
 * Tarjeta de red PXE en modo "red interna".
 
 Con el servidor encendido, iniciar la MV cliente desde red/PXE:
@@ -180,3 +179,9 @@ Via commandline(following commands to be run in terminal as root "su -"):
 * Check out Network configuration instructions before proceeding.
 * Launch `Easy-LTSP` GUI as root (open terminal, run "su -", provide root
 password, and then run "easy-ltsp" command).
+
+> **Cambiar para el próximo curso1617**
+>
+> * Usar SO Debian 8 y/o OpenSUSE13.2
+> * La IP interna de Debian8 para LTSP eth1 192.168.67.1
+>
