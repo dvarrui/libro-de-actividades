@@ -26,3 +26,9 @@ def aula109
   [70,73,66,65,64,63,68,74,67,62].each { |i| equipos << "172.19.99.#{i}" }
   return equipos
 end
+
+def aula109_solonuevos
+  equipos=[ ]
+  [70,73,66,65,64,63,68,74,67,62].each { |i| equipos << "172.19.99.#{i}" }
+  return equipos
+end

@@ -41,8 +41,14 @@ end
 
 
 def instalar_software(ip)
-  package = "shutter"
-  puts "* host[#{ip}]: Instalando #{package}..."
-  r = system("ssh root@#{ip} 'apt-get install "+package+" -y --force-yes'")
-  r = system("ssh root@#{ip} 'apt-get autoremove -y'")
+  system("ssh root@#{ip} 'apt-get update -y'")
+
+  packages = [ 'ipcalc', 'krita', 'putty','shutter' ]
+  packages.each do |p|
+    puts "* host[#{ip}]: Instalando #{p}..."
+    system("ssh root@#{ip} 'apt-get install "+p+" -y --force-yes'")
+  end
+  system("ssh root@#{ip} 'apt-get autoremove -y'")
+  system("ssh root@#{ip} 'apt-get clean'")
 end
+
