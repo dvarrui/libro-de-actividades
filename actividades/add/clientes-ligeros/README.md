@@ -36,7 +36,7 @@ La MV del servidor necesitará dos interfaces de red:
     * IP estática 172.18.XX.41
 * Una interfaz interna
     * para conectarse con los clientes ligeros.
-    * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.0.1).
+    * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.67.1).
     * Configurarla en VBox como "red interna".
 * Consultar [configuraciones](../../global/configuracion-aula108.md).
 
