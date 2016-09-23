@@ -128,7 +128,7 @@ Y establecemos la variable INTERFACES con el nombre del interfaz de red donde de
 vamos a intentar iniciarlo manualmente con `/etc/init.d/tftpd-hpa start`.
 > * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`.
 > * Para cambiar las opciones del arranque del servicio TFTP editamos fichero `/etc/default/tftpd-hpa`.
-Y establecemos la variable TFTP_ADDRESS al valor de la IP:PORT de la interfaz de trabajo, esto es `192.168.0.1:69`.
+Y establecemos la variable TFTP_ADDRESS al valor de la IP:PORT de la interfaz de trabajo, esto es `192.168.67.1:69`.
 >
 
 # 4. Preparar MV Cliente
