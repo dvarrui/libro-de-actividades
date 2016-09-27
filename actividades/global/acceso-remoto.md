@@ -16,6 +16,7 @@
 
 ##2. Windows con Servidor Telnet
 
+###2.1 Instalación y configuración de Telnet
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
 ![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
@@ -23,7 +24,7 @@
 * Configurar: Ir a `Equipo`->(btn derecho)->`Administrar`->`Servicios`->`Telnet`->`Propiedades`:
     * `Automático`->`Aplicar`
     * `Iniciar`->`Aceptar`
-        
+
 ![w7-iniciar-servicio-telnet.png](./images/w7-iniciar-servicio-telnet.png)
 
 * Usuario/clave
@@ -32,31 +33,35 @@
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
+###2.2 Configuración sólo para Directorio Activo
+
 * Cuando tenemos un Windows Server con Directorio Activo podemos crear usuarios del dominio,
 pero también usuarios locales. Para crear un usuario local cuando tenemos AD hacemos lo siguiente:
     * Vamos a `USUARIOS Y EQUIPOS DE ACTIVE DIRECTORY -> USERS`
     * Hacemos "click" en `CUENTA`y vemos nuestro nombre de usuario y dominio.
-    * Borramos el `Nombre de inicio de sesión`, y se borrará automaticamente el dominio. 
+    * Borramos el `Nombre de inicio de sesión`, y se borrará automaticamente el dominio.
     * Reiniciamos y ya tenemos el usuario en local y NO en dominio.
     * Consultar imagen de ejemplo:
-    
+
 ![winserver-usuario-local](./images/winserver-usuario-local.png)
 
-* Comprobamos el acceso al servicio Telnet desde otra máquina 
+###2.3 Comprobar el funcionamiento de Telnet
+
+* Comprobamos el acceso al servicio Telnet desde otra máquina
 (Por ejemplo la máquina real) con `telnet IP-HOST-WINDOWS`.
 
 ![w7-telnet.png](./images/w7-telnet.png)
 
 * Enlaces de interés:
-    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4) 
+    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 ##3. OpenSUSE Servidor SSH
 
 * Programa SSH server:
     * Para veriguar si lo tenemos instalado: `zypper search openssh`
-    * Instalar openssh-server para que el profesor pueda acceder 
+    * Instalar openssh-server para que el profesor pueda acceder
     de forma remota:`zypper install openssh`.
-    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
+    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`. La línea debe estar descomentada.
     * Reiniciar el servicio: `service ssh restart`
 
@@ -64,9 +69,8 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
 
 * Programa SSH server:
     * Para averiguar si lo tenemos instalado: `dpkg -l openssh*`.
-    * Instalar openssh-server para que el profesor pueda acceder 
+    * Instalar openssh-server para que el profesor pueda acceder
     de forma remota:`apt-get install openssh-server`.
-    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar 
+    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`.
     * Reiniciar el servicio: `service ssh restart`
-
