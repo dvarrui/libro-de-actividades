@@ -5,18 +5,9 @@
 
 #Configurar acceso remoto
 
-##1. Windows con Servidor SSH con CopSSH
+##1. Windows con Servidor Telnet
 
-* Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
-* Instalar con las opciones por defecto.
-* Configurar el usuario siguiente:
-    * Crear usuario `sysadmingame` dentro del grupo `Administradores`.
-    * Clave de `sysadmingame` conocida por el alumno y el profesor.
-    * Shell: `Linux Shell + SFTP`
-
-##2. Windows con Servidor Telnet
-
-###2.1 Instalación y configuración de Telnet
+###1.1 Instalación y configuración de Telnet
 * Instalar: Ir a `Panel de Control`->`Instalar Características de Windows`->`Servidor Telnet`.
 
 ![w7-servidor-telnet.png](./images/w7-servidor-telnet.png)
@@ -33,7 +24,17 @@
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
-###2.2 Configuración sólo para Directorio Activo
+###1.2 Comprobar el funcionamiento de Telnet
+
+* Comprobamos el acceso al servicio Telnet desde otra máquina
+(Por ejemplo la máquina real) con `telnet IP-HOST-WINDOWS`.
+
+![w7-telnet.png](./images/w7-telnet.png)
+
+* Enlaces de interés:
+    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
+
+###1.3 Configuración sólo para Directorio Activo
 
 * Cuando tenemos un Windows Server con Directorio Activo podemos crear usuarios del dominio,
 pero también usuarios locales. Para crear un usuario local cuando tenemos AD hacemos lo siguiente:
@@ -45,15 +46,14 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
 
 ![winserver-usuario-local](./images/winserver-usuario-local.png)
 
-###2.3 Comprobar el funcionamiento de Telnet
+##2. Windows con Servidor SSH con CopSSH
 
-* Comprobamos el acceso al servicio Telnet desde otra máquina
-(Por ejemplo la máquina real) con `telnet IP-HOST-WINDOWS`.
-
-![w7-telnet.png](./images/w7-telnet.png)
-
-* Enlaces de interés:
-    * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
+* Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
+* Instalar con las opciones por defecto.
+* Configurar el usuario siguiente:
+    * Crear usuario `sysadmingame` dentro del grupo `Administradores`.
+    * Clave de `sysadmingame` conocida por el alumno y el profesor.
+    * Shell: `Linux Shell + SFTP`
 
 ##3. OpenSUSE Servidor SSH
 
