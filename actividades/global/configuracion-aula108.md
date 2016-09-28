@@ -78,9 +78,8 @@ Capturar imágenes de las configuraciones.
 ```  
 date
 ipconfig
-route PRINT
-nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
+nslookup www.iespuertodelacruz.es
 ```   
 
 > **Periodo de pruebas**

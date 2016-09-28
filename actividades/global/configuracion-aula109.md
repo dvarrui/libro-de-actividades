@@ -35,7 +35,7 @@ ipconfig
 route PRINT
 nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
-``` 
+```
 
 > **Periodo de pruebas**
 >
@@ -45,7 +45,7 @@ antes de que pase al estado *"Copia ilegal"*.
 > Al finalizar este plazo de tiempo podemos:
 >
 > 1. Activar el SO introduciendo un código de activación válido.
-> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`. 
+> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 90 días.
 >
@@ -74,12 +74,11 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Capturar imágenes de las configuraciones.
 
-``` 
+```
 date
 ipconfig
-route PRINT
-nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
+nslookup www.iespuertodelacruz.es
 ```  
 
 > **Periodo de pruebas**
@@ -88,17 +87,24 @@ ping 8.8.4.4
 antes de que pase al estado *"Copia ilegal"*.
 > Al finalizar este plazo de tiempo podemos:
 > 1. Activar el SO introduciendo un código de activación válido.
-> 2. Renovar el perido de pruebas por 60 días más, mediante el comando: `slmgr -rearm`. 
+> 2. Renovar el perido de pruebas por 60 días más, mediante el comando: `slmgr -rearm`.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 180 días.
 >
 
 ##3. Configuración GNU/Linux OpenSUSE 13.2
 
-Al instalar openSUSE tener en cuenta la siguiente imagen:
+###3.1 Durante la instalación
+Podemos configurar algunos aspectos de openSUSE durante la instalación:
 
 ![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
 
+###3.2 Con el sistema operativo instalado
+Una vez instalado el sistema operativo, podemos hacer cambios en la configuración,
+usando la herramienta `Inicio -> Configuración -> Yast`. Luego iremos a la
+opcion de `Ajustes de red`.
+
+###3.3 Configuración del equipo
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
@@ -107,13 +113,13 @@ Al instalar openSUSE tener en cuenta la siguiente imagen:
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
-* Nombre de dominio: `curso1516`.
+* Nombre de dominio: `curso1617`.
 * Tarjeta de red VBox en `modo puente`.
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
+* Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
@@ -126,8 +132,8 @@ hostname -d
 tail -n 5 /etc/passwd
 ip a
 route -n
-host www.iespuertodelacruz.es
 ping 8.8.4.4
+host www.iespuertodelacruz.es
 blkid
 ```
 
@@ -147,7 +153,7 @@ blkid
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
+* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
@@ -160,14 +166,14 @@ hostname -d
 tail -n 5 /etc/passwd
 ip a
 route -n
-host www.iespuertodelacruz.es
 ping 8.8.4.4
+host www.iespuertodelacruz.es
 blkid
 ```
 
 ##4.1 Ficheros de configuración Debian/Ubuntu
 
-En máquinas Debian/Ubuntu podemos cambiar la configuración de red, 
+En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
 
 Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
