@@ -29,16 +29,15 @@ Veamos el esquema:
 
 # 3. Servidor LTSP
 ## 3.1 Preparar la MV Server
-La MV del servidor necesitará dos interfaces de red:
-* Una interfaz externa:
+Crear la MV del servidor con dos interfaces de red.
+* La 1º interfaz será la externa:
     * para comunicarse con Internet.
     * Configurarla en VBox como adaptador puente.
-    * IP estática 172.18.XX.41
-* Una interfaz interna
+    * Consultar [configuraciones](../../global/configuracion-aula108.md).
+* La 2º interfaz será la interna
     * para conectarse con los clientes ligeros.
     * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.67.1).
     * Configurarla en VBox como "red interna".
-* Consultar [configuraciones](../../global/configuracion-aula108.md).
 
 ## 3.2 Instalación del SSOO
 * Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
