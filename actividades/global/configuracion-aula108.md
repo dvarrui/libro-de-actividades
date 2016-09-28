@@ -36,7 +36,7 @@ ipconfig
 route PRINT
 nslookup www.iespuertodelacruz.es
 ping 8.8.4.4
-``` 
+```
 
 > **Periodo de pruebas**
 >
@@ -46,7 +46,7 @@ antes de que pase al estado *"Copia ilegal"*.
 > Al finalizar este plazo de tiempo podemos:
 >
 > 1. Activar el SO introduciendo un código de activación válido.
-> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`. 
+> 2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 90 días.
 >
@@ -89,7 +89,7 @@ ping 8.8.4.4
 antes de que pase al estado *"Copia ilegal"*.
 > Al finalizar este plazo de tiempo podemos:
 > 1. Activar el SO introduciendo un código de activación válido.
-> 2. Renovar el perido de pruebas por 60 días más, mediante el comando: `slmgr -rearm`. 
+> 2. Renovar el perido de pruebas por 60 días más, mediante el comando: `slmgr -rearm`.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 180 días.
 >
@@ -114,7 +114,7 @@ Al instalar openSUSE tener en cuenta la siguiente imagen:
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
+* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
@@ -134,23 +134,23 @@ ping 8.8.4.4
 blkid
 ```
 
-##4. Configuración GNU/Linux Debian 8
+##4. Configuración GNU/Linux Debian/Ubuntu
 
 * IP: `172.18.XX.41` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.18.XX.42, 172.18.XX.43, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.18.0.1`
     * Servidor DNS: `8.8.4.4`
-* Nombre de equipo: `primer-apellido-del-alumnoXXg`.
+* Nombre de equipo: `primer-apellido-del-alumnoXXg` (Fichero `/etc/hostname` y `/etc/hosts`).
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
-* Nombre de dominio: `curso1516`.
+* Nombre de dominio: `curso1617` (Fichero `/etc/hostname` y `/etc/hosts`).
 * Tarjeta de red VBox en `modo puente`.
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts. 
+* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
@@ -170,9 +170,9 @@ ping 8.8.4.4
 blkid
 ```
 
-##4.1 Ficheros de configuración Debian/Ubuntu
+##4.1 Configuración de red para Debian/Ubuntu
 
-En máquinas Debian/Ubuntu podemos cambiar la configuración de red, 
+En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
 
 Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:

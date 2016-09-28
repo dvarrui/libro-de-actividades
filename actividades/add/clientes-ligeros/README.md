@@ -36,15 +36,16 @@ Crear la MV del servidor con dos interfaces de red.
     * Consultar [configuraciones](../../global/configuracion-aula108.md).
 * La 2º interfaz será la interna
     * para conectarse con los clientes ligeros.
-    * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.67.1).
+    * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes
+        * IP 192.168.67.1
+        * Máscara de clase C
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
 * Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
 * Nombre de usuario: nombre-del-alumno, en minúsculas, sin tildes ni eñes.
 * Clave de root, poner como clave el DNI con la letra en minúsculas.
-* Poner como nombre de equipo el primer apellido del alumno en minúsculas y sin tildes.
-* Poner como nombre de dominio el segundo apellido del alumno en minúsculas y sin tildes.
+* Consultar [configuraciones](../../global/configuracion-aula108.md).
 * Incluir en el informe la salida de los comandos siguientes:
 ```
 ip a
