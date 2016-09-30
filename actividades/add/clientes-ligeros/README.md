@@ -42,9 +42,8 @@ Crear la MV del servidor con dos interfaces de red.
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
-* Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
-* Nombre de usuario: nombre-del-alumno, en minúsculas, sin tildes ni eñes.
-* Clave de root, poner como clave el DNI con la letra en minúsculas.
+* Instalar un SO GNU/Linux Xubuntu en la MV del servidor (Se prefiere usar una versión ligera
+como Xubuntu, Lubuntu, porque las otras opciones consumen demasiada memoria).
 * Consultar [configuraciones](../../global/configuracion-aula108.md).
 * Incluir en el informe la salida de los comandos siguientes:
 ```
