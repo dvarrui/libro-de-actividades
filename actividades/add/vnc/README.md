@@ -23,10 +23,10 @@ Capturar imagenes probando las conexiones remotas VNC, y ejecutando el
 comando `netstat -ntap` en cada caso, para verificar que se han establecido
 las conexiones remotas:
 
-1. Acceder a Windows - desde Windows
-1. Acceder a Windows - desde Linux
-1. Acceder a Linux - desde Linux (A lo mejor no hay que instalar el software cliente VNC)
-1. Acceder a Linux - desde Windows
+1. Acceder a Windows Server - desde Windows 7
+1. Acceder a Windows Server - desde GNU/Linux OpenSUSE 13.2
+1. Acceder a GNU/Linux OpenSUSE 13.2 - desde GNU/Linux OpenSUSE 13.2 (A lo mejor no hay que instalar el software cliente VNC)
+1. Acceder a GNU/Linux OpenSUSE 13.2 - desde Windows 7
 
 > Enlaces de interés
 >
