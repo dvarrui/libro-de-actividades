@@ -54,6 +54,9 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * Crear usuario `sysadmingame` dentro del grupo `Administradores`.
     * Clave de `sysadmingame` conocida por el alumno y el profesor.
     * Shell: `Linux Shell + SFTP`
+* Para comprobar el acceso remoto SSH, vamos a la máquina real
+y ejecutamos:
+    * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
 
 ##3. OpenSUSE Servidor SSH
 
@@ -64,6 +67,10 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`. La línea debe estar descomentada.
     * Reiniciar el servicio: `service ssh restart`
+* Para comprobar el acceso remoto SSH, vamos a la máquina real
+y ejecutamos:
+    * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
+    * `hostname -f` para ver el nombre de la MV donde hemos entrado.
 
 ##4. Debian SSH Server
 
@@ -74,3 +81,7 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`.
     * Reiniciar el servicio: `service ssh restart`
+* Para comprobar el acceso remoto SSH, vamos a la máquina real
+y ejecutamos:
+    * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
+    * `hostname -f` para ver el nombre de la MV donde hemos entrado.

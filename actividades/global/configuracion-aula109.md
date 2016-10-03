@@ -63,11 +63,18 @@ Configuración de la máquina Windows 2008 Server Enterprise:
     * Por ejemplo: vargas30s.
     * El nombre NetBIOS sólo puede tener 16 caractéres.
     * Si tenemos varias máquinas las llamaremos vargas30s, vargas30t, vargas30u, etc.
-* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
 
 > En el caso de tener un PDC, pondremos como nombre de dominio `segundo-apellido-del-alumno+XXdom.c1516`.
+
+* Usuarios:
+    * Un usuario identificado con `nombre-del-alumno`.
+    * Poner al usuario `root` la clave del alumno con la letra en minúscula.
+
+> **ATENCIÓN**
+>
+> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 * Tarjeta de red VBox en `modo puente`.
 * Instalar el servidor Telnet (consultar más arriba)
@@ -115,11 +122,15 @@ opcion de `Ajustes de red`.
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
 * Nombre de dominio: `curso1617`.
 * Tarjeta de red VBox en `modo puente`.
-* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+* Usuarios:
+    * Un usuario identificado con `nombre-del-alumno`.
+    * Poner al usuario `root` la clave del alumno con la letra en minúscula.
 
-Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
+> **ATENCIÓN**
+>
+> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
@@ -149,11 +160,15 @@ blkid
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
 * Nombre de dominio: `curso1516`.
 * Tarjeta de red VBox en `modo puente`.
-* Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+* Usuarios:
+    * Un usuario identificado con `nombre-del-alumno`.
+    * Poner al usuario `root` la clave del alumno con la letra en minúscula.
 
-Además también:
-* Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
+> **ATENCIÓN**
+>
+> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
 Para que el comando hostname funcione bien.
 
 Capturar imágen de la configuración del equipo:
