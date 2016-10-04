@@ -63,10 +63,13 @@ y ejecutamos:
 * Programa SSH server:
     * Para veriguar si lo tenemos instalado: `zypper search openssh`
     * Instalar openssh-server para que el profesor pueda acceder
-    de forma remota:`zypper install openssh`.
+    de forma remota:
+        * Instalar SSH usando entorno gráfico `Yast -> Instalar Software`.
+        * Instalar SSH usando comandos `zypper install openssh`.
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`. La línea debe estar descomentada.
-    * Reiniciar el servicio: `service ssh restart`
+        * Debemos ser superusuario para modificar este fichero.
+    * Reiniciar el servicio: `systemctl restart ssh`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
     * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
