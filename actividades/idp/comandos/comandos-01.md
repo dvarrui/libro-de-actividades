@@ -24,10 +24,10 @@ ping www.google.es
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta Documentos de nuestro home:
 ```
-curso1516/fuw
-curso1516/idp
-curso1516/lnd
-curso1516/lnt
+curso1617/hardware
+curso1617/sistemas-operativos
+curso1617/lenguaje-de-marcas
+curso1617/ingles
 ```
 * Dentro de cada carpeta crear documento `leeme.txt`
 * Dentro de dicho documento escribir el nombre y apellidos en minúsculas, sin tildes ni eñes.
