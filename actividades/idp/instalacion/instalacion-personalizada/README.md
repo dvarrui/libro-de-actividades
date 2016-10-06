@@ -41,7 +41,7 @@ Capturar imágenes de los siguientes pasos:
 NO hace falta captar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
-* [Configuración de la MV](../../../globa/configuracion-aula109.md):
+* [Configuración de la MV](../../../global/configuracion-aula109.md):
 nombre del equipo, nombre de dominio, la clave de root (superusuario),
 nombre de usuario.
 * Zona horaria Canarias.
@@ -75,7 +75,7 @@ NO hace falta capturar imágenes de lo siguiente:
 * Configurar la tarjeta de red:
     * Enlace sobre [configurar la tarjeta de red]
 (http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) con:
-    * [Configuración de la MV](../../../globa/configuracion-aula109.md)
+    * [Configuración de la MV](../../../global/configuracion-aula109.md)
 * Entrar al sistema como root (superusuario)
 * Capturar imagen de los siguientes comandos:
 ```
@@ -95,7 +95,7 @@ NO hace falta capturar imágenes de lo siguiente:
 
 NO hace falta capturar imagen de lo siguiente:
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
-* Configuración del [Acceso remoto SSH](../../../globa/acceso-remoto.md)
+* Configuración del [Acceso remoto SSH](../../../global/acceso-remoto.md)
 
 > Vamos a instalar el programa openssh para que el profesor pueda acceder remotamente a la máquina.
 > * Ejecutar comando como superusuario: `apt-get install openssh-server` y
