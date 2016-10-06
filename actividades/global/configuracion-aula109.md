@@ -19,6 +19,7 @@ Configuración de la máquina Windows 7 Professional:
     * Gateway: `172.19.0.1`
     * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumno+XXw`.
+    * El nombre de equipo se cambia en `Inicio -> Equipo -> (Botón derecho) -> Propiedades`
     * Por ejemplo: vargas30w
     * El nombre NetBIOS sólo puede tener 16 caractéres.
     * Si tenemos varias máquinas las llamaremos vargas30w, vargas30x, vargas30y, etc.
@@ -112,6 +113,8 @@ usando la herramienta `Inicio -> Configuración -> Yast`. Luego iremos a la
 opcion de `Ajustes de red`.
 
 ###3.3 Configuración del equipo
+
+La configuración de red se cambia en `Inicio -> Yast -> Ajustes de red`.
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
