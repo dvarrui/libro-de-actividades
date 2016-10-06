@@ -118,7 +118,7 @@ La configuración de red se cambia en `Inicio -> Yast -> Ajustes de red`.
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
-    * Gateway: `172.19.0.1`
+    * Gateway: `172.19.0.1`. Esto es la puerta de enlace o encaminamiento.
     * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
