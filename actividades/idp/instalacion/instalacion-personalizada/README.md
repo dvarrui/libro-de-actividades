@@ -36,15 +36,14 @@ Capturar imagenes de los siguientes pasos:
 
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
-* Comprobar que la descarga fue correcta, ejecutando el comando siguiente: `md5sum -c nombre-de-fichero-debian.iso.md5`
+* Comprobar que la descarga fue correcta, ejecutando el comando siguiente: `md5sum -c fichero.md5`
 
 NO hace falta captar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
-* Poner como nombre del equipo el `1er-apellido-del-alumno+XX+g` en minúsculas, sin tildes ni eñes.
-* Como nombre de dominio el `curso1617` en minúsculas, sin tildes ni eñes.
-* La clave de root (superusuario) será el DNI del alumno con la letra en minúsculas.
-* Poner como nombre de usuario el `nombre-del-alumno` en minúsculas, sin tildes ni eñes.
+* [Configuración de la MV](../../../globa/configuracion-aula109.md):
+nombre del equipo, nombre de dominio, la clave de root (superusuario),
+nombre de usuario.
 * Zona horaria Canarias.
 
 * Método de particionado manual, y crear el siguiente esquema de particiones:
