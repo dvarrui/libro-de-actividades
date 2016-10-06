@@ -115,16 +115,25 @@ opcion de `Ajustes de red`.
 ###3.3 Configuración del equipo
 
 La configuración de red se cambia en `Inicio -> Yast -> Ajustes de red`.
+
+Vamos a `Vista resumen -> Interfaz -> Editar`
+* Marcamos IP fija.
 * IP: `172.19.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.32, 172.19.XX.33, etc.
     * Máscara de red: `255.255.0.0`
-    * Gateway: `172.19.0.1`. Esto es la puerta de enlace o encaminamiento.
-    * Servidor DNS: `8.8.4.4`
+* Siguiente
+
+Vamos a `Nombre de Host/DNS` y ponemos:
+* Desmarcamos `Modificar nombre mediante DHCP`
+* Marcamos `Asignar nombre de host a la IP bucle local`
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30g, vargas30h, vargas30i, etc.
 * Nombre de dominio: `curso1617`.
-* Tarjeta de red VBox en `modo puente`.
+* Servidor DNS: `8.8.4.4`
+Vamos a `Encaminamiento`y ponemos:
+* Gateway o pasarela IPv4: `172.19.0.1`. Esto es la puerta de enlace o encaminamiento.
+* Ir dispositivo y elegir interfaz de red.
 * Usuarios:
     * Un usuario identificado con `nombre-del-alumno`.
     * Poner al usuario `root` la clave del alumno con la letra en minúscula.
@@ -135,6 +144,10 @@ La configuración de red se cambia en `Inicio -> Yast -> Ajustes de red`.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
 Para que el comando hostname funcione bien.
+
+Virtual Box:
+* Tarjeta de red VBox en `modo puente`.
+
 
 Capturar imágen de la configuración del equipo:
 ```
