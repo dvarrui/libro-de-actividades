@@ -44,8 +44,8 @@ NO hace falta captar imagen de los siguientes pasos:
 * [Configuración de la MV](../../../global/configuracion-aula109.md):
     * nombre del equipo
     * nombre de dominio
-    * la clave de root (superusuario)
-    * nombre de usuario.
+    * la clave de roor
+    * nombre de usuario
 * Zona horaria Canarias.
 
 * Método de particionado manual, y crear el siguiente esquema de particiones:
