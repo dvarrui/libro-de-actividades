@@ -42,8 +42,10 @@ NO hace falta captar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * [Configuración de la MV](../../../global/configuracion-aula109.md):
-nombre del equipo, nombre de dominio, la clave de root (superusuario),
-nombre de usuario.
+    * nombre del equipo
+    * nombre de dominio
+    * la clave de root (superusuario)
+    * nombre de usuario.
 * Zona horaria Canarias.
 
 * Método de particionado manual, y crear el siguiente esquema de particiones:
