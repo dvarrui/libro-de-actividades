@@ -74,10 +74,11 @@ NO hace falta capturar imágenes de lo siguiente:
 ##Con el SO instalado
 NO hace falta capturar imágenes de lo siguiente:
 * Entrar al sistema como root (superusuario)
-* Configurar la tarjeta de red:
-    * Enlace sobre [configurar la tarjeta de red]
-(http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) con:
-    * [Configuración de la MV](../../../global/configuracion-aula109.md)
+* Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion-aula109.md).
+
+> Enlace con más información sobre [configurar la tarjeta de red]
+(http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
+
 * Entrar al sistema como root (superusuario)
 * Capturar imagen de los siguientes comandos:
 ```
