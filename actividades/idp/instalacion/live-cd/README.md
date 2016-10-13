@@ -38,6 +38,7 @@ Nombre de máquina : 1er apellido en minúsculas
 ```
 date
 ipconfig
+hostname
 ```
 
 # GNU/Linux OpenSUSE
