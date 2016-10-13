@@ -69,7 +69,7 @@ y ejecutamos:
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`. La línea debe estar descomentada.
         * Debemos ser superusuario para modificar este fichero.
-    * Reiniciar el servicio: `systemctl restart ssh`
+    * Reiniciar el servicio: `systemctl restart sshd`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
     * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
