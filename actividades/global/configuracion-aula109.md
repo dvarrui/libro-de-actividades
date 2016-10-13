@@ -29,9 +29,10 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Tarjeta de red VBox en modo puente.
 * Instalar el servidor Telnet (consultar más arriba)
 
-Capturar imágenes de las configuraciones.
+Capturar imágenes de las configuraciones desde *PowerShell*.
 ```
 date
+hostname
 ipconfig
 route PRINT
 nslookup www.iespuertodelacruz.es
@@ -204,10 +205,10 @@ blkid
 
 ##4.1 Ficheros de configuración Debian/Ubuntu
 
-En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
+* En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
-
-Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
+* Para averiguar los nombres de nuestras interfaces usamos `ip a` o `ifconfig`.
+* Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
 ```
 auto lo
 iface lo inet loopback
@@ -218,15 +219,13 @@ iface eth0 inet static
   netmask 255.255.0.0
   gateway 172.16.1.1
   dns-nameservers 172.16.108.40 172.16.1.1
-  dns-search vargas1w.idp vargas1w
-  dns-domain vargas1w.idp
+  dns-search vargas116g.curso1617 vargas116g
+  dns-domain vargas116g.curso1617
 
 auto eth1
 iface eth1 inet dhcp
 ```
 
-Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
-```
-sudo rm /etc/resolv.conf
-sudo dpkg-reconfigure resolvconf
-```
+> Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
+> * `sudo rm /etc/resolv.conf`
+> * `sudo dpkg-reconfigure resolvconf`
