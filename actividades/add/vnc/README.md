@@ -34,6 +34,6 @@ Comprobar las siguientes conexiones:
 >
 > * En OpenSUSE se puede instalar directamente desde `Yast -> VNC`
 >     * [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
->     * Cliente VNC como `krdc`
+>     * Cliente VNC: `vncviewer` o `krdc`
 > * En Debian se puede usar `tightvncserver`
 > * [VNC GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m5/servidor_vnc.html)
