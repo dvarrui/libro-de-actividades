@@ -193,9 +193,10 @@ Capturar imágen de la configuración del equipo:
 ```
 date
 uname -a
-hostname -f
-hostname -a
-hostname -d
+hostname -f #Muestra nombre-maquina.nombre-dominio
+hostname -a #Muestra nombre-maquina
+hostname -d #Muestra nombre-dominio
+
 tail -n 5 /etc/passwd
 ip a
 route -n
