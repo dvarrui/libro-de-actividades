@@ -32,4 +32,6 @@ Comprobar las siguientes conexiones:
 
 > Enlaces de interés
 >
+> * En OpenSUSE se puede instalar directamente desde `Yast -> VNC`
+> * En Debian se puede usar `tightvncserver`
 > * [VNC GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m5/servidor_vnc.html)
