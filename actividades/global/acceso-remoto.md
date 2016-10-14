@@ -34,7 +34,11 @@
 * Enlaces de interés:
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
-###1.3 Configuración sólo para Directorio Activo
+###1.3 Configuración sólo para Windows Server
+
+En Windows Server podemos instalar el servidor Telnet en agregar roles.
+
+###1.4 Configuración sólo para Directorio Activo
 
 * Cuando tenemos un Windows Server con Directorio Activo podemos crear usuarios del dominio,
 pero también usuarios locales. Para crear un usuario local cuando tenemos AD hacemos lo siguiente:
