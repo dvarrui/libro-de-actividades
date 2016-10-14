@@ -9,7 +9,6 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 
 # 2. Escritorio remoto con VNC
 
-* Leer la documentación sobre conexiones VNC.
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 
 > NOTA:
@@ -17,7 +16,7 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 > * TightVNC es una herramienta libres disponibles para Windows.
 > * Si usan un servidor VNC "Marca-ACME", usar también el cliente "Marca-ACME".
 > * Para esta práctica usaremos conexiones SIN cifrar.
->
+> * Leer la documentación sobre conexiones VNC.
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar que se
 han establecido las conexiones remotas:
