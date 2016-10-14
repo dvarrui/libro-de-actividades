@@ -30,12 +30,16 @@ Comprobar las siguientes conexiones:
 1. Acceder a GNU/Linux OpenSUSE 13.2 - desde GNU/Linux OpenSUSE 13.2 (A lo mejor no hay que instalar el software cliente VNC)
 1. Acceder a GNU/Linux OpenSUSE 13.2 - desde Windows 7
 
-> Enlaces de interés
+> **Información para OpenSUSE**
 >
-> * En OpenSUSE se puede instalar directamente desde `Yast -> VNC`
->     * [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
->     * Cliente VNC: `vncviewer` o `krdc`. En la conexion remota, hay que especificar `IP:5901`.
->     * Si no queremos usar `Yast`, se puede usar el comando `vncserver` se usa para
+> * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
+> * Enlace de interés sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
+> * Como cliente VNC podemos usar: `vncviewer` o `krdc`. En la conexion remota, hay que especificar `IP:5901`.
+>     * `vncviewer IP-vnc-server:5901`
+> * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
+
+> **Información para Debian**
+>
 > * En Debian se puede usar `tightvncserver`
 > * [VNC GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m5/servidor_vnc.html)
