@@ -14,7 +14,7 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 
 > NOTA:
 >
-> * TightVNC o RealVNC, son algunas herramientas libres disponibles para Windows.
+> * TightVNC es una herramienta libres disponibles para Windows.
 > * Si usan un servidor VNC "Marca-ACME", usar también el cliente "Marca-ACME".
 > * Para esta práctica usaremos conexiones SIN cifrar.
 >
