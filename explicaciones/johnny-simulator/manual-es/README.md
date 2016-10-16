@@ -1,8 +1,7 @@
 
 #Johnny 1.01
 
-Simulation of a
-Simplified von Neumann Computer
+Simulador de un ordenador Von Neumann simplificado
 
 *Peter Dauscher, 2009-2014*
 
@@ -26,5 +25,3 @@ Simplified von Neumann Computer
 
 * Traducido por David Vargas Ruiz, dvarrui@gmail.com, en Octubre de 2015.
 * Profesor FP de Informática del [IES Puerto de la Cruz - Telesforo Bravo](http://www.iespuertodelacruz.es).
-
-
