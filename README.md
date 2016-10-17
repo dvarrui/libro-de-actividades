@@ -1,6 +1,6 @@
 # Libro de actividades
 
-Proyecto abierto donde se almacena documentación sobre actividades/ejercicios
+Éste es un proyecto abierto donde se almacena documentación sobre actividades/ejercicios
 útiles para usar en los **Ciclos Formativos de Grado Superior de Informática**.
 
 ## Características
