@@ -3,6 +3,14 @@
 
 El servidor Moodle del Gobierno de Canarias se llama Campus Virtual.
 
+##CAU_CE
+
+CAU_CE es el Centro de Atención de Usuarios de la Consejería de Educación.
+
+Para cualquier información al respecto se pueden poner en contacto con el CAU_CE.
+* Horario: De 7:00 a 22:00 horas en días laborales.
+* Teléfono: 922 922 921, 928 117 912 y 902 111 192.
+* Correo: cibercentro@gobiernodecanarias.org
 
 ##Consola de gestión
 
