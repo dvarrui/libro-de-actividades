@@ -219,16 +219,19 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-  address 172.16.108.240
+  address 172.19.XX.41
   netmask 255.255.0.0
-  gateway 172.16.1.1
-  dns-nameservers 172.16.108.40 172.16.1.1
+  gateway 172.19.0.1
+  dns-nameservers 8.8.4.4
   dns-search vargas116g.curso1617 vargas116g
   dns-domain vargas116g.curso1617
 
 auto eth1
 iface eth1 inet dhcp
 ```
+* Para que se tengan en cuenta los cambios podemos:
+   * `service networking restart` o
+   * Reiniciar el equipo.
 
 > Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 > * `sudo rm /etc/resolv.conf`
