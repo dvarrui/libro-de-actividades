@@ -186,9 +186,12 @@ blkid
 >
 > * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-> * El nombre-maquina.nombre-dominio se pone en el fichero `/etc/hostname`
-> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
-Para que el comando hostname funcione bien.
+> * Fichero `/etc/hostname`
+>     * Ponemos el `nombre-maquina.nombre-dominio`
+>     * Por ejemplo: `vargas116g.curso1617`
+> * Fichero `/etc/hosts`.
+>     * Asegurarse de que hay una línea con `ip nombre-de-host`
+>     * Por ejemplo: `127.0.0.2   vargas116g.curso1617   vargas116g`
 
 Capturar imágen de la configuración del equipo:
 ```
