@@ -222,12 +222,12 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-  address 172.19.XX.41
+  address 172.19.42.41
   netmask 255.255.0.0
   gateway 172.19.0.1
   dns-nameservers 8.8.4.4
-  dns-search vargas116g.curso1617 vargas116g
-  dns-domain vargas116g.curso1617
+  dns-search vargas42g.curso1617 vargas42g
+  dns-domain vargas42g.curso1617
 
 auto eth1
 iface eth1 inet dhcp
