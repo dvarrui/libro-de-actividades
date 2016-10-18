@@ -82,9 +82,9 @@ y ejecutamos:
 ##4. Debian SSH Server
 
 * Programa SSH server:
-    * Para averiguar si lo tenemos instalado: `dpkg -l openssh*`.
+    * Para averiguar si lo tenemos instalado: `dpkg -l ssh`.
     * Instalar openssh-server para que el profesor pueda acceder
-    de forma remota:`apt-get install openssh-server`.
+    de forma remota:`apt-get install ssh`.
     * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
     `PermitRootLogin yes`.
     * Reiniciar el servicio: `service ssh restart`
