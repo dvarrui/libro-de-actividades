@@ -85,8 +85,9 @@ y ejecutamos:
     * Para averiguar si lo tenemos instalado: `dpkg -l ssh`.
     * Instalar openssh-server para que el profesor pueda acceder
     de forma remota:`apt-get install ssh`.
-    * Modificar el fichero `/etc/ssh/sshd_config` y cambiar
-    `PermitRootLogin yes`.
+    * Modificar el fichero `/etc/ssh/sshd_config`:
+         * Quitar y/o comentar la línea `PermitRootLogin without-password`.
+         * Dejar la siguiente configuración `PermitRootLogin yes`.
     * Reiniciar el servicio: `service ssh restart`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
