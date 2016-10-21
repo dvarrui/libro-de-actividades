@@ -10,8 +10,6 @@
     1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.32).
     1. Un cliente Windows7, con IP estática (172.18.XX.11).
 
-> Es aconsejable poner el tamaño del disco de OpenSUSE en 10GB
-
 * [Configurar las MV's](../../global/configuracion-aula108.md)
 
 Entrega:

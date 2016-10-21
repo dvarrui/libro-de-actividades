@@ -95,6 +95,8 @@ es de 180 días.
 
 ##3. Configuración GNU/Linux OpenSUSE 13.2
 
+> Es aconsejable poner el tamaño del disco de OpenSUSE en 10GB
+
 Al instalar openSUSE tener en cuenta la siguiente imagen:
 
 ![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
