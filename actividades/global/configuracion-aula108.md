@@ -99,6 +99,8 @@ Al instalar openSUSE tener en cuenta la siguiente imagen:
 
 ![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
 
+###3.1 Parámetros de configuración
+
 * IP: `172.18.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.18.XX.32, 172.18.XX.33, etc.
     * Máscara de red: `255.255.0.0`
@@ -115,6 +117,26 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
 Para que el comando hostname funcione bien.
+
+###3.2 Proceso de configuración en Yast
+
+Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico `yast`.
+* Vamos a `yast -> Ajustes de red`
+* En la pestaña `Vista resumen` pondremos:
+    * IP estática
+    * Máscara de red
+    * Nombre de host
+    * Pulsamos en `siguiente`.
+* En la pestaña `Nombres de hosts` pondremos:
+    * Nombre de host
+    * Nombre de dominio
+    * Asignar nombre a bucle local. Esto modifica el fichero `/etc/hosts` por nosotros.
+    * Servidor DNS
+* En la pestaña `Encaminamiento` pondremos:
+    * La IP de l apuerta de enlace
+    * Elegimos el dispositivo de red asociado a la puerta de enlace.    
+
+###3.3 Comprobaciones finales
 
 Capturar imágen de la configuración del equipo:
 
