@@ -108,14 +108,11 @@ Podemos configurar algunos aspectos de openSUSE durante la instalación:
 
 ![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
 
-###3.2 Con el sistema operativo instalado
+###3.2 Proceso de configuración con Yast
+
 Una vez instalado el sistema operativo, podemos hacer cambios en la configuración,
 usando la herramienta `Inicio -> Configuración -> Yast`. Luego iremos a la
 opcion de `Ajustes de red`.
-
-###3.3 Configuración del equipo
-
-La configuración de red se cambia en `Inicio -> Yast -> Ajustes de red`.
 
 Vamos a `Vista resumen -> Interfaz -> Editar`
 * Marcamos IP fija.
@@ -149,6 +146,7 @@ Para que el comando hostname funcione bien.
 Virtual Box:
 * Tarjeta de red VBox en `modo puente`.
 
+###3.3 Comprobaciones finales
 
 Capturar imágen de la configuración del equipo:
 ```
