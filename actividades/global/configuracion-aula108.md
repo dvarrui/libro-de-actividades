@@ -28,7 +28,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Tarjeta de red VBox en modo puente.
 * Instalar el servidor Telnet (consultar más arriba)
 
-Capturar imágenes de las configuraciones.
+**Comandos de comprabación**
 
 ```
 date
@@ -73,7 +73,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Tarjeta de red VBox en `modo puente`.
 * Instalar el servidor Telnet (consultar más arriba)
 
-Capturar imágenes de las configuraciones.
+**Comandos de comprobación**
 
 ```  
 date
@@ -140,7 +140,7 @@ Para configurar la red en OpenSUSE lo más cómodo es usar el interfaz gráfico 
 
 ###3.3 Comprobaciones finales
 
-Capturar imágen de la configuración del equipo:
+**Comandos de comprobación**
 
 ```
 id NOMBRE-USUARIO
@@ -176,7 +176,7 @@ Además también:
 * Asegurarse de que el nombre de host está correctamente en el fichero /etc/hosts.
 Para que el comando hostname funcione bien.
 
-Capturar imágen de la configuración del equipo:
+**Comandos de comprobación**
 
 ```
 id NOMBRE-USUARIO
