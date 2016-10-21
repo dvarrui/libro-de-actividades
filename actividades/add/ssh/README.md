@@ -4,7 +4,7 @@
 * Introducción
     * Leer documentación proporcionada por el profesor.
     * Atender a la explicación del profesor.
-    * Enlaces de interés: [Securizar un servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
+    * Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
     1. Un servidor GNU/Linux OpenSUSE, con IP estática (172.18.XX.31).
     1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.32).
@@ -12,7 +12,7 @@
 
 > Es aconsejable poner el tamaño del disco de OpenSUSE en 10GB
 
-* [Configurar las MV's](../global/configuracion-aula108.md)
+* [Configurar las MV's](../../global/configuracion-aula108.md)
 
 Entrega:
 * Añadir informe al repositorio git. Etiqueta `ssh`.
@@ -24,7 +24,7 @@ a las preguntas que pudieran hacerse en dicho instante.
 
 ##1.1 Servidor SSH
 * Configurar el servidor GNU/Linux con siguientes valores:
-    * [Configuración de las MV's](../global/configuracion-aula108.md)
+    * [Configuración de las MV's](../../global/configuracion-aula108.md)
     * Nombre de equipo: ssh-serverXX
 * Añadir en /etc/hosts los equipos ssh-clientXXa y ssh-clientXXb (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
