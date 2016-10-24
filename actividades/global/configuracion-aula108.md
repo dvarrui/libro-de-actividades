@@ -28,7 +28,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Tarjeta de red VBox en modo puente.
 * Instalar el servidor Telnet (consultar más arriba)
 
-**Comandos de comprabación**
+**Comandos de comprobación**
 
 ```
 date
@@ -50,6 +50,7 @@ antes de que pase al estado *"Copia ilegal"*.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 90 días.
 >
+
 
 ##2. Configuración Windows 2008 Server
 
