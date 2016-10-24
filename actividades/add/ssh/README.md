@@ -2,13 +2,13 @@
 #Acceso remoto SSH
 
 * Introducción
-    * Leer documentación proporcionada por el profesor.
     * Atender a la explicación del profesor.
+    * Leer documentación proporcionada por el profesor.
     * Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * Vamos a necesitar las siguientes 3 MVs:
-    1. Un servidor GNU/Linux OpenSUSE, con IP estática (172.18.XX.31).
-    1. Un cliente GNU/Linux OpenSUSE, con IP estática (172.18.XX.32).
-    1. Un cliente Windows7, con IP estática (172.18.XX.11).
+    1. Un servidor GNU/Linux OpenSUSE (IP 172.18.XX.31)
+    1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
+    1. Un cliente Windows7 (IP 172.18.XX.11)
 
 * [Configurar las MV's](../../global/configuracion-aula108.md)
 
@@ -22,16 +22,21 @@ a las preguntas que pudieran hacerse en dicho instante.
 
 ##1.1 Servidor SSH
 * Configurar el servidor GNU/Linux con siguientes valores:
-    * [Configuración de las MV's](../../global/configuracion-aula108.md)
+    * SO GNU/Linux: OpenSUSE
+    * IP estática: 172.18.XX.31
     * Nombre de equipo: ssh-serverXX
-* Añadir en /etc/hosts los equipos ssh-clientXXa y ssh-clientXXb (Donde XX es el puesto del alumno).
+    * [Configuración de las MV's](../../global/configuracion-aula108.md)
+* Añadir en `/etc/hosts` los equipos `ssh-clientXXa` y `ssh-clientXXb` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
-ip a               (Comprobar IP y máscara)
-route -n           (Comprobar puerta de enlace)
-host www.google.es (Comprobar el servidor DNS)
-lsblk              (Comprobar particiones)
-blkid              (Comprobar UUID de la instalación)
+ip a               #Comprobar IP y máscara
+route -n           #Comprobar puerta de enlace
+ping 8.8.4.4 -i 2  #Comprobar conectividad externa
+host www.google.es #Comprobar el servidor DNS
+ping ssh-clientXXa #Comprobar conectividad con cliente A
+ping ssh-clientXXb #Comprobar conectividad con cliente B
+lsblk              #Consultar particiones
+blkid              #Consultar UUID de la instalación
 ```
 * Crear los siguientes usuarios en ssh-serverXX:
     * primer-apellido-del-alumno1
@@ -39,17 +44,22 @@ blkid              (Comprobar UUID de la instalación)
     * primer-apellido-del-alumno3
     * primer-apellido-del-alumno4
 
-##1.2 Clientes GNU/Linux
+##1.2 Cliente GNU/Linux
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
+    * SO OpenSUSE
+    * IP estática 172.18.XX.32
     * [Configuración de las MV's](../global/configuracion-aula108.md)
     * Nombre de equipo: ssh-clientXXa
-* Añadir en /etc/hosts el equipo ssh-serverXX, y ssh-clientXXb.
+* Añadir en `/etc/hosts` el equipo `ssh-serverXX`, y `ssh-clientXXb`.
 * Comprobar haciendo ping a ambos equipos.
 
 ##1.3 Cliente Windows
 * Instalar software cliente SSH en Windows (PuTTY)
 * Configurar el cliente2 Windows con los siguientes valores:
+    * SO Windows 7
+    * IP estática 172.18.XX.11
     * Nombre de equipo: ssh-clientXXb
+    * [Configuración de las MV's](../../global/configuracion-aula108.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXX y ssh-clientXXa.
 * Comprobar haciendo ping a ambos equipos.
 
@@ -67,19 +77,24 @@ blkid              (Comprobar UUID de la instalación)
 
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
 ```
-    systemctl status sshd  (Esta es la forma de comprobarlo en *systemd*)
-    ps -ef|grep sshd       (Esta es la forma de comprobarlo mirando los procesos del sistema)
+    systemctl status sshd  #Esta es la forma de comprobarlo en *systemd*
+    ps -ef|grep sshd       #Esta es la forma de comprobarlo mirando los procesos del sistema
 ```
+
 ![servicio-sshd](./opensuse/servicio-sshd.png)
 
 ![servicio-sshd-yast](./opensuse/servicio-sshd-yast.png)
 
-* Para poner el servicio enable: `systemctl enable sshd`, si no lo estuviera.
+> Para poner el servicio enable, si no lo estuviera.:
+>  * `systemctl enable sshd` por comandos
+>  * `Yast -> servicios` por entorno gráfico
+
 * `netstat -ntap`: Comprobar que el servicio está escuchando por el puerto 22
 
 ![netstat](./opensuse/sshd-netstat.png)
 
 ##2.2 Primera conexión SSH desde cliente
+
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`.
 * Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
