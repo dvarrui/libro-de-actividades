@@ -161,6 +161,8 @@ Con el SO instalado:
     fdisk -l  # Muestra información de particiones
     lsblk     # Muestra UUID de las particiones
 ```
+* Al iniciarse la MV deben aparecer los dos SSOO en el menú de inicio (Boot Loader).
+
 
 #ANEXO
 
