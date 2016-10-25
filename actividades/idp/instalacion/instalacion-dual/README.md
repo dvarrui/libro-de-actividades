@@ -163,7 +163,6 @@ Con el SO instalado:
 ```
 * Al iniciarse la MV deben aparecer los dos SSOO en el menú de inicio (Boot Loader).
 
-
 #ANEXO
 
 ##Error con el menu de arranque Windows
