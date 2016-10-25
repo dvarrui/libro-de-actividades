@@ -1,6 +1,9 @@
 
-
 #Cortafuegos (Firewall)
+
+El cortafuegos a firewall es un software que controla las comunicaciones,
+permitiendo/denegando las entradas/salida de red según especifiquemos en las
+reglas de seguridad.
 
 ##1. Windows 7
 
@@ -14,7 +17,7 @@ como se muestra en las siguientes imágenes.
 
 ![w7-firewall-ping-entrada](./images/w7-firewall-ping-entrada.png)
 
-![w7-firewall-ping-salida](./images/w7-firewall-ping-salida.png) 
+![w7-firewall-ping-salida](./images/w7-firewall-ping-salida.png)
 
 ##2. Windows Server
 
@@ -23,3 +26,5 @@ como se muestra en las siguientes imágenes.
 ##3. OpenSUSE
 
 * Ir a `Yast -> Firewall`
+* Mantendremos el cortafuegos activo, y permitiremos el acceso externo únicamente
+a los servicios que necesitemos.

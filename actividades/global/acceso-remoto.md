@@ -79,6 +79,20 @@ y ejecutamos:
     * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
     * `hostname -f` para ver el nombre de la MV donde hemos entrado.
 
+
+> INSTALACIÓN SSH desde el CD/DVS
+>
+> * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de GNU/Linux.
+> * Ejecutar como superusuario:
+>     ifdown eth0
+>     ifup eth0
+>     yast2
+>
+> * Ir a Configuración del contafuegos -> Servicios Autorizados -> Añadir Servicio SSH.
+> * Ir a Servicios del sistema -> sshd -> Activar
+> * Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de GNU/Linux.
+> * Cerrar terminal y apagar el sistema
+
 ##4. Debian SSH Server
 
 * Programa SSH server:

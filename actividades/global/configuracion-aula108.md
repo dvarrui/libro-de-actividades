@@ -26,7 +26,8 @@ Configuración de la máquina Windows 7 Professional:
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516`
 * Tarjeta de red VBox en modo puente.
-* Instalar el servidor Telnet (consultar más arriba)
+* Configurar [acceso remoto](./acceso-remoto.md).
+* Configurar [firewall](./firewall.md).
 
 **Comandos de comprobación**
 

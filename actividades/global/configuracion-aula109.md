@@ -164,6 +164,14 @@ host www.iespuertodelacruz.es
 blkid
 ```
 
+> INFORMACIÓN
+>
+> El fichero de configuración de red de OpenSUSE es `/etc/sysconfig/network/ifcfg-eth0`
+> Y tiene un contenido similar al siguiente:
+>
+>     BOOTPROTO='dhcp'
+>     STARTMODE='auto'
+
 ##4. Configuración GNU/Linux Debian 8
 
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
