@@ -224,10 +224,10 @@ Capturar imágenes de los siguientes pasos:
 usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
 * Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)de la máquina cliente,
 al fichero "authorized_keys" del usuario *remoteuser4* en el servidor. Hay dos formas de hacerlo:
-    * Modo 1. Usando un comando específico para ello `ssh-copy-id remoteuser4@ssh-server`
+    * Modo 1. Usando un comando específico para ello `ssh-copy-id 1er-apellido4@ssh-server`
     * Modo 2. Usando el programa de copia segura `scp`:
         * Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
-        * Hacemos `scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys`.
+        * Hacemos `scp .ssh/id_rsa.pub 1er-apellido4@ssh-server:.ssh/authorized_keys`.
 * Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el cliente1.
 * Comprobar que al acceder desde cliente2, si nos pide el password.
 
