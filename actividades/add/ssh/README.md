@@ -4,7 +4,9 @@
 * Introducción
     * Atender a la explicación del profesor.
     * Leer documentación proporcionada por el profesor.
-    * Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
+
+> Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
+
 * Vamos a necesitar las siguientes 3 MVs:
     1. Un servidor GNU/Linux OpenSUSE (IP 172.18.XX.31)
     1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
@@ -67,7 +69,7 @@ blkid              #Consultar UUID de la instalación
 
 * Instalar el servicio SSH en la máquina ssh-server
     * Desde la herramienta `yast -> Instalar Software`
-    * Desde terminal `zypper search ssh` muestra los paquetes instalados o no con nombre ssh*.
+    * Desde terminal `zypper search openssh` muestra los paquetes instalados o no con nombre openssh*.
     * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
 
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
