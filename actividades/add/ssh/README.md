@@ -208,28 +208,32 @@ alias s='ssh'
 
 ![clave-publica](./image/ssh-clave-publica.jpeg)
 
+```
 El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1,
-usando el usuario4 sin poner password, pero usando claves pública/privada.
+usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
 
-Vamos a configurar la autenticación mediante clave pública para acceder con
+Para ello, vamos a configurar la autenticación mediante clave pública para acceder con
 nuestro usuario personal desde el equipo cliente al servidor con el
-usuario 1er-apellido-alumno4.
+usuario `1er-apellido-alumno4`.
+```
 
-* Vamos a la máquina cliente1.
+* Vamos a la máquina ss-clientXXa.
 * ¡OJO! No usar el usuario root.
 
 Capturar imágenes de los siguientes pasos:
-* Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina ssh-client1.
+* Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina ssh-clientXXa.
 * Ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el
 usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
-* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)de la máquina cliente,
-al fichero "authorized_keys" del usuario *remoteuser4* en el servidor. Hay dos formas de hacerlo:
-    * Modo 1. Usando un comando específico para ello `ssh-copy-id 1er-apellido4@ssh-server`
-    * Modo 2. Usando el programa de copia segura `scp`:
-        * Comprobar que existe el directorio /home/remoteuser4/.ssh en el servidor.
+* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
+de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
+(que está definido en el servidor. Hay dos formas de hacerlo:
+    * Modo 1 => Recomendado. Usando un comando específico para
+    ello `ssh-copy-id 1er-apellido4@ssh-serverXX`
+    * Modo 2 => Usando el programa de copia segura `scp`:
+        * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
         * Hacemos `scp .ssh/id_rsa.pub 1er-apellido4@ssh-server:.ssh/authorized_keys`.
-* Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el cliente1.
-* Comprobar que al acceder desde cliente2, si nos pide el password.
+* Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el ssh-clientXXa.
+* Comprobar que al acceder desde ssh-clientXXb, si se nos pide el password.
 
 #5. Uso de SSH como túnel para X
 
