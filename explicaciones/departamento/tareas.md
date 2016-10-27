@@ -16,3 +16,4 @@
     * Depto: teclado nuevo con problemas
     * Depto: Gestionar MSDN
     * Depto: Montar NAS y migrar datos de Leela a NAS.
+    * Imagen 109: incluir software shutter, wine y hexchat
