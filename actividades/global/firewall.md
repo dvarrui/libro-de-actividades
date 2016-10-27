@@ -26,5 +26,6 @@ como se muestra en las siguientes imágenes.
 ##3. OpenSUSE
 
 * Ir a `Yast -> Firewall`
-* Mantendremos el cortafuegos activo, y permitiremos el acceso externo únicamente
-a los servicios que necesitemos.
+* Mantendremos el cortafuegos activo.
+* Permitiremos el acceso externo únicamente a los servicios que necesitemos.
+* Ir a `Servicios autorizados -> Zona externa`
