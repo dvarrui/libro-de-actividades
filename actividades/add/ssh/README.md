@@ -260,7 +260,10 @@ Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwardi
 * Comprobar funcionamiento de APP1 desde cliente1.
 Por ejemplo, con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
+
 > **OJO**: El parámetro es `-X` en mayúsculas, no minúsculas
+>
+> Para ver los logs del sistema usar `journalctl`
 
 #6. Aplicaciones Windows nativas
 
@@ -295,25 +298,23 @@ restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers
 Más información en: `man sshd_config` y en el Anexo de este enunciado.
 * Comprobarlo la restricción al acceder desde los clientes.
 
-##7.3 Restricción en las máquinas (tipo 3)
-Vamos a crear una restricción para que sólo las máquinas clientes con las IP's
+> ##7.3 Restricción en las máquinas (tipo 3)
+> Vamos a crear una restricción para que sólo las máquinas clientes con las IP's
 autorizadas puedan acceder a nuestro servidor.
-
-* Fichero de configuración /etc/hosts.allow.
- y /etc/hosts.deny
-```
-sshd : 127.0.0.1   : allow
-sshd : 192.168.    : allow
-sshd : 130.57.5.70 : allow
-sshd : 10.         : allow
-```
-* Fichero de configuración /etc/hosts.deny,
-```
-sshd : ALL         : deny
-```
-* [More information](https://en.opensuse.org/SDB:Configure_openSSH#Limit_by_Hosts)
-* Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
-* Comprobar su funcionamiento.
+>
+> * Fichero de configuración /etc/hosts.allow.
+> ```
+> sshd : 127.0.0.1   : allow
+> sshd : 192.168.    : allow
+> sshd : 130.57.5.70 : allow
+> sshd : 10.         : allow
+> ```
+> * Fichero de configuración /etc/hosts.deny,
+> `sshd : ALL         : deny`
+>
+> * [More information](https://en.opensuse.org/SDB:Configure_openSSH#Limit_by_Hosts)
+> * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
+> * Comprobar su funcionamiento.
 
 ##7.4 Restricción sobre aplicaciones (tipo 4)
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
