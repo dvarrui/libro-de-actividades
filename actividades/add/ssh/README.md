@@ -156,11 +156,16 @@ que identifican a nuestro servidor frente a nuestros clientes:
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
 servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
-* Generar nuevas claves de equipo en **ssh-server**. Como usuario root ejecutamos:
-`ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`. Estamos cambiando o volviendo a
-generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
+
+**Regenerar certificados**
+Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
+identificación de nuestro servidor.
+* En **ssh-server**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
+* No poner password al certificado de la máquina.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
+
+**Comprobamos**
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
