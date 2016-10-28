@@ -240,8 +240,9 @@ de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-ape
 > * Copiamos el fichero `.ssh/id_rsa.pub` local al fichero `.ssh/authorized_keys` del usuario
 remoto en la máquina remota.
 
-* Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el ssh-clientXXa.
-* Comprobar que al acceder desde ssh-clientXXb, si se nos pide el password.
+* Comprobar que ahora al acceder remotamente vía SSH
+    * Desde `ssh-clientXXa`, NO se pide password.
+    * Desde `ssh-clientXXb`, SI se pide el password.
 
 #5. Uso de SSH como túnel para X
 
