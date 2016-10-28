@@ -56,7 +56,7 @@ blkid              #Consultar UUID de la instalación
 * Comprobar haciendo ping a ambos equipos.
 
 ##1.3 Cliente Windows
-* Instalar software cliente SSH en Windows (PuTTY)
+* Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
     * IP estática 172.18.XX.11
@@ -231,7 +231,7 @@ de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-ape
     ello `ssh-copy-id 1er-apellido4@ssh-serverXX`
     * Modo 2 => Usando el programa de copia segura `scp`:
         * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
-        * Hacemos `scp .ssh/id_rsa.pub 1er-apellido4@ssh-server:.ssh/authorized_keys`.
+        * Hacemos `scp .ssh/id_rsa.pub 1er-apellido4@ssh-serverXX:.ssh/authorized_keys`.
 * Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el ssh-clientXXa.
 * Comprobar que al acceder desde ssh-clientXXb, si se nos pide el password.
 
