@@ -41,8 +41,8 @@ con el usuario root ejecutando el comando `gparted`.
 
 * Dentro de la extendida haremos las siguientes particiones lógicas:
     * Área de intercambio o SWAP (500MB),
-    * Partición home (montar /home) de tamaño 100MB y con formato ext3.
-    * Partición del sistema (montar /) de tamaño 5GB y con formato ext4.
+    * Partición de tamaño 100MB y con formato ext3.
+    * Partición de tamaño 5GB y con formato ext4.
     * Quedarán libres 300 MB más o menos. Lo dejamos sin usar.
 
 * Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
@@ -78,6 +78,8 @@ Poner nombre grupo de trabajo indicado. Reiniciar
 #3. Instalación del segundo SO
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
+
+##3.1 Empezamos con la ISO
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
@@ -89,9 +91,13 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
 > * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
 > * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
-Particionado:
-* DESMARCAR "Proponer partición home independiente"
-* Editar configuración para asegurarnos de que es correcta según el enunciado.
+##3.2 Particionado
+* Entrar en el modo experto.
+* Esquema de uso de las particiones:
+    * Área de intercambio o SWAP (500MB),
+    * Partición home (montar /home) de tamaño 100MB y con formato ext3.
+    * Partición del sistema (montar /) de tamaño 5GB y con formato ext4.
+    * Quedarán libres 300 MB más o menos. Lo dejamos sin usar.
 * Capturar imagen como la siguiente:
 
 ![dual-suse-particiones1](./images/dual-suse-particiones1.png)
@@ -104,9 +110,14 @@ Particionado:
 
 ![dual-suse-raiz](./images/dual-suse-raiz.png)
 
-* IMPORTANTE: Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
+> **IMPORTANTE**
+>
+> Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
 Esto lo hacemos para poder acceder de forma sencilla a la partición Windows desde el SO
 GNU/Linux.
+> Esto lo hacemos para versiones de OpenSUSE 12.3 detecten sin problemas el Windows y
+se configure automñaticamente el gestor de arranque.
+
 * Aceptar.
 * Capturar imagen como la siguiente:
 
@@ -116,9 +127,13 @@ GNU/Linux.
 
 ![dual-suse-particiones3](./images/dual-suse-particiones3.png)
 
+##3.3 Usuario y SSH
+
 * Nombre de usuario y la clave igual que la práctica anterior.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto.md))
+
+##3.4 Instalar
 * Comprobar que todo es correcto y procedemos a "Instalar".
 
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
@@ -142,7 +157,8 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ![dual-menu-final](./images/dual-menu-final.png)
 
-Con el SO instalado:
+##3.5 Con el SO instalado
+
 * Entrar al sistema con nuestro usuario.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * [Configuración de la MV](../../../global/configuracion-aula109.md)
