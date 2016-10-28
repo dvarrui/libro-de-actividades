@@ -227,11 +227,16 @@ usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_
 * Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
 de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
 (que está definido en el servidor. Hay dos formas de hacerlo:
-    * Modo 1 => Recomendado. Usando un comando específico para
-    ello `ssh-copy-id 1er-apellido4@ssh-serverXX`
-    * Modo 2 => Usando el programa de copia segura `scp`:
-        * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
-        * Hacemos `scp .ssh/id_rsa.pub 1er-apellido4@ssh-serverXX:.ssh/authorized_keys`.
+    * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar
+    la clave pública del usuario actual al usuario remoto en la máquina remota:
+    `ssh-copy-id usuario-remoto@hostname-remoto`.
+
+> Otra forma de hacerlos sería usando el programa de copia segura `scp`.
+>
+> * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
+> * Copiamos el fichero `.ssh/id_rsa.pub` local al fichero `.ssh/authorized_keys` del usuario
+remoto en la máquina remota.
+
 * Comprobar que ahora podremos acceder remotamente, sin escribir el password desde el ssh-clientXXa.
 * Comprobar que al acceder desde ssh-clientXXb, si se nos pide el password.
 
