@@ -299,6 +299,7 @@ Más información en: `man sshd_config` y en el Anexo de este enunciado.
 * Comprobarlo la restricción al acceder desde los clientes.
 
 > ##7.3 Restricción en las máquinas (tipo 3)
+> `Los tcpwrrapers para SSH en OpenSUSE 13.2 han sido desactivados`
 > Vamos a crear una restricción para que sólo las máquinas clientes con las IP's
 autorizadas puedan acceder a nuestro servidor.
 >
