@@ -47,6 +47,7 @@ blkid              #Consultar UUID de la instalación
     * primer-apellido-del-alumno4
 
 ##1.2 Cliente GNU/Linux
+
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
     * IP estática 172.18.XX.32
@@ -56,6 +57,7 @@ blkid              #Consultar UUID de la instalación
 * Comprobar haciendo ping a ambos equipos.
 
 ##1.3 Cliente Windows
+
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
@@ -95,7 +97,7 @@ blkid              #Consultar UUID de la instalación
 
 ![netstat](./opensuse/sshd-netstat.png)
 
-##2.2 Primera conexión SSH desde cliente
+##2.2 Primera conexión SSH desde ssh-clientXXa
 
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`.
 * Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
@@ -126,7 +128,8 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 ![ssh-files](./opensuse/ssh-files.png)
 
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
-* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde los clientes. Seguimos.
+* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde
+los dos clientes. Comprobarlo.
 
 ##2.3 ¿Y si cambiamos las claves del servidor?
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`,
