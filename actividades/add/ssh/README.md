@@ -299,19 +299,19 @@ Más información en: `man sshd_config` y en el Anexo de este enunciado.
 Vamos a crear una restricción para que sólo las máquinas clientes con las IP's
 autorizadas puedan acceder a nuestro servidor.
 
-* Consultar los ficheros de configuración /etc/hosts.allow y /etc/hosts.deny
+* Fichero de configuración /etc/hosts.allow.
+ y /etc/hosts.deny
 ```
-# /etc/hosts.allow
-# Permitir acceso a las IP's conocidas
-sshd : 172.19.255.53/255.255.255.0 : ALLOW
+sshd : 127.0.0.1   : allow
+sshd : 192.168.    : allow
+sshd : 130.57.5.70 : allow
+sshd : 10.         : allow
 ```
-
+* Fichero de configuración /etc/hosts.deny,
 ```
-# /etc/hosts.deny
-# Denegar acceso al servicio SSH a todas las IP's
-sshd : ALL EXCEPT LOCAL
+sshd : ALL         : deny
 ```
-
+* [More information](https://en.opensuse.org/SDB:Configure_openSSH#Limit_by_Hosts)
 * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
 * Comprobar su funcionamiento.
 
