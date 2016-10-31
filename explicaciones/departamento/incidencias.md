@@ -35,3 +35,12 @@ Curso 2016-2017
     * Aula 109: EL PC b1 aparece con el cableado enrollado de forma delibarada alrededor de la pata de la mesa.
     * Aula 109: PC e1 cable HDMI se le añade VGA. Gabriel informa que tiene la chapa abierta.
     * Aula 109: A 6ª hora aparece aire puesto y la ventana del profesor abierta.
+* 27/10/2016 (Jueves)
+    * Aula 109 pc d1 cable de red suelto.
+* 28/10/2016 (Viernes)
+    * Alumnos (Henrique, Neftalí) con clave Ekade caducada.
+    * Aula 109: No aparece el programa kdenlive. ¿Se quitó en septiembre?
+* 31/10/2016 (Lunes)
+    * Aula 109: pc06 problemas con imagen muy grande en el modo gráfico
+      La instalación de gnome desktop con gdm3 no resuelve el caso.
+
