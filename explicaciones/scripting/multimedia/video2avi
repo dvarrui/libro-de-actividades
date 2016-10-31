@@ -1,0 +1,6 @@
+#!/bin/bash
+#convierte ogg en avi
+mencoder -idx $1.ogv -ovc lavc -oac mp3lame -o $1.avi
+# mencoder input.ogv -ovc xvid -oac mp3lame -xvidencopts pass=1 -o output.avi
+# mencoder input.ogv -ovc lavc -oac mp3lame -o output.avi
+# ffmpeg -i my-demo-video.ogv -vcodec mpeg4 -sameq -acodec libmp3lame my-demo-video.avi

@@ -1,0 +1,2 @@
+ffmpeg -i $1.ogv -s svga -r 64 -f flv $1.flv
+

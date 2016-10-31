@@ -1,0 +1,6 @@
+#ffmpeg -i $1 output.mpg 
+#mencoder -idx $1 -ovc lavc -oac lavc -lavcopts vcodec=mpeg2video -of mpeg -o salida.mpg 
+#ffmpeg -i $1 -s 352x288 -vcodec libx264 -vpre default -acodec libmp3lame -ab 192k -ac 2 -ar 44100 -f mp4 salida.mp4
+
+ffmpeg -i $1.ogv -s 1440x1080 -r 50 -b 1600k -f mp4 $1.mp4
+#avconv -i $1.ogv $1.mp4

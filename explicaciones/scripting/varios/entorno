@@ -1,0 +1,61 @@
+#!/bin/sh
+#
+# Programa    : /home/david/bin/entorno
+# Fecha UM    : 20061031
+# Autor       : David Vargas Ruiz
+# Descripción : Mostrar información del sistema
+#
+
+# Definición de variables
+PROGRAMA=/home/david/bin/entorno
+
+#
+echoLinea() {
+	echo "-------------------------------------------------------------------------"
+}
+
+# Ejecución del programa
+mostrarVariables() {
+	clear
+	echoLinea
+	echo "Ejecutando $PROGRAMA"
+	echoLinea
+	echo 
+	echo "* MAQUINA    : $HOSTNAME (CPU=$HOSTTYPE, SO=$OSTYPE)"
+	echo "* USUARIO    : $LOGNAME (LOGIN=$LOGNAME, ACTUAL=$USER)"
+	echo "* DIRECTORIO : $PWD (HOME=$HOME, ACTUAL=$PWD)"
+	echo "* SHELL      : $SHELL"
+	echo "* IDIOMA     : $LANG (LANGUAGE=$LANGUAGE)"
+	echo
+	echo "* PROCESADOR"
+	head -8 /proc/cpuinfo
+	echoLinea
+	echo "* RED     "
+	echo	
+	ifconfig|grep 'Link encap'
+	ifconfig|grep 'inet addr'
+	echo
+	route -n
+	echoLinea
+}
+
+case "$1" in
+	-all)
+		mostrarVariables
+		;;
+	-h) 
+		echo "Uso: entorno [-all][-h]"
+		echo
+		echo "     Muestra los valores de algunas variable de entorno"
+		echo "     -all , Muestra las variable de entorno"
+                echo "     -h   , Muestra esta ayuda"
+		echo
+		exit 1
+		;;
+	*)
+		echo "Uso: entorno -h"
+		exit 1
+		;;
+esac
+
+exit 0

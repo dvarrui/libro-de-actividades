@@ -1,0 +1,1 @@
+mencoder -idx $1.wav -ovc lavc -oac mp3lame -o $1.mp3

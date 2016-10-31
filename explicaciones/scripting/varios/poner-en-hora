@@ -1,0 +1,2 @@
+#!/bin/bash
+su -c "ntpdate 0.debian.pool.ntp.org"

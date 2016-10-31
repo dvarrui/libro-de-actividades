@@ -1,0 +1,2 @@
+mencoder -idx $1.ogv -ovc lavc -oac mp3lame -o $1.avi
+#mencoder -idx out.ogv -ovc lavc -oac mp3lame -o out.avi
