@@ -1,3 +1,9 @@
+```
+Fecha: 20161031
+Cambios para el curso 1718
+* Incluir servidor SSH en Windows7
+* La restricción 7.3 la implementaremos usando el cortafuegos
+```
 
 #Acceso remoto SSH
 
@@ -332,64 +338,49 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
 # ANEXO 1: Configuración de seguridad en OpenSSH
 
-OpenSSH iconfig file: /etc/ssh/sshd_config
+Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
 
 ##OpenSSH locking parameters
-* For locking down which users may or may not access the server you will want to look into one, or more, of the following directives:
-User/Group Based Access
+For locking down which users may or may not access the server you will want to look into one, or more, of the following directives: User/Group Based Access
 
-AllowGroups
-* This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
+* **AllowGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
 
-AllowUsers
-* This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
+* **AllowUsers**. This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
 
-DenyGroups
-* This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
-    `*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized. By default, login is allowed for all groups.
+* **DenyGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
+* and ? can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized. By default, login is allowed for all groups.
 
-DenyUsers
-* This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
+* **DenyUsers**. This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns. * and ? can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
 
 ##Example configuring locking
-The first thing to do is backup the original configuration file:
 
-    cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}
+* The first thing to do is backup the original configuration file:
+`cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}`
+* We will now need to edit the configuration file with your favorite editor (vi/vim/ed/joe/nano/pico/emacs.)
+* An example of only allowing two specific users, admin and bob, to login to the server will be,
+/etc/ssh/sshd_config: `AllowUsers admin bob`
 
-We will now need to edit the configuration file with your favorite editor (vi/vim/ed/joe/nano/pico/emacs.)
-
-An example of only allowing two specific users, admin and bob, to login to the server will be:
-
-/etc/ssh/sshd_config:
-
-    AllowUsers admin bob
 
 Ifyou would like to more easily control this for the future then you can create a Group on the server that will be allowed to login to the server, adding individual users as needed (replace username with the actual user):
-
-shell:
-
-    groupadd –r sshusers
-    usermod –a –G sshusers username
-
-With this we will no longer be using AllowUsers but AllowGroups
-
-/etc/ssh/sshd_config:
-
-    AllowGroups sshusers
+* Open a shell
+* `groupadd –r sshusers`
+*  `usermod –a –G sshusers username`
+* With this we will no longer be using AllowUsers but AllowGroups
+* Edit /etc/ssh/sshd_config: `AllowGroups sshusers`
 
 The alternatives to these directives are DenyGroups and DenyUsers which perform the exact opposite of the aforementioned AllowGroups and AllowUsers. When complete you will want to make sure that sshd will read in the new configuration without breaking.
-
+```
     /usr/sbin/sshd –t
     echo $?
+```
 
-We will want to see a 0 following the ``echo $?’’ command.Otherwise we should also see an error stating what the erroneous data is:
-
+We will want to see a 0 following the `echo $?` command.Otherwise we should also
+see an error stating what the erroneous data is:
+```
     sshd_config: line 112: Bad configuration option: allowuser
     sshd_config: terminating, 1 bad configuration options
-
-After verification we will simply need to restart sshd.This can be performed via many different methods, for which we will assume a sysv-compatible system:
-
-    /etc/init.d/sshd restart
+```
+After verification we will simply need to restart sshd.This can be performed via many different methods.
 
 > Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
 > Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
