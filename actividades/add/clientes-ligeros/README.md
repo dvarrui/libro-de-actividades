@@ -111,28 +111,25 @@ Veamos una imagen de ejemplo.
 modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
 >
 
+* En el fichero `/etc/ltsp/dhcpd.conf` modificar el valor `range 192.168.76.1XX 192.168.67.2XX;`.
+Donde XX es el número de puesto de cada alumno.
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./images/ltsp-services-running.png)
 
-> SERVICIO DHCP
+> SERVICIOS
 >
-> Otra forma de comprobar si el servicio `/etc/init.d/isc-dhcp-server status`.
-> * Si el servidor DHCP no se ha iniciado automáticamente al reiniciar el equipo, entonces
-vamos a intentar iniciarlo manualmente con `/etc/init.d/isc-dhcp-server start`.
-> * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`.
-> * Para cambiar las opciones del arranque del servicio DHCP editamos fichero `/etc/default/isc-dhcp-server`.
-Y establecemos la variable INTERFACES con el nombre del interfaz de red donde debe trabajar.
+> * En OpenSUSE
+>     * se usa el comando `systemctl` para iniciar y parar servicios.
+>     * Si hay algún error deberemos consultar los logs con `journalctl`.
+> * En SSOO con el antiguo System
+>     * usan `/etc/init.d/isc-dhcp-server status|start|stop`.
+>     * usan `/etc/init.d/tftpd-hpa status|start|stop`.
+>     * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`.
+> * Para cambiar las opciones del arranque por defecto, editamos fichero
+>     * `/etc/default/isc-dhcp-server` para DHCP. Modificar INTERFACES
+>     * `/etc/default/tftpd-hpa` para TFTP. Modificar TFTP_ADDRESS con IP:PORT. Por ejemplo `192.168.67.1:69`.
 >
 
-> SERVICIO TFTP
->
-> Otra forma de comprobar si el servicio `/etc/init.d/tftpd-hpa status`.
-> * Si el servicio TFTP DHCP no se ha iniciado automáticamente al reiniciar el equipo, entonces
-vamos a intentar iniciarlo manualmente con `/etc/init.d/tftpd-hpa start`.
-> * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`.
-> * Para cambiar las opciones del arranque del servicio TFTP editamos fichero `/etc/default/tftpd-hpa`.
-Y establecemos la variable TFTP_ADDRESS al valor de la IP:PORT de la interfaz de trabajo, esto es `192.168.67.1:69`.
->
 
 # 4. Preparar MV Cliente
 
