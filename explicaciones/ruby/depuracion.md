@@ -47,6 +47,6 @@ binding.pry
 funcionamiento. Se abre un intérprete interactivo de ruby donde podemos:
     * Consultar el estado de las variables del programa.
     * `next`, para ejecutar la siguiente instrución.
-    * `setp`, para ejecutar la siguiente instruccion paso a paso.
+    * `step`, para ejecutar la siguiente instruccion paso a paso.
     * `exit`, salir del depurador y continuar el programa de forma normal.
 * Al terminar la depuración bastará con quitar la línea `binding.pry` de nuestro código.
