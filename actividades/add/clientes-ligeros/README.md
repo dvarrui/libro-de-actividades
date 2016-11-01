@@ -1,4 +1,8 @@
 
+```
+* Para el curso próximo, probar a usar OpenSUSE en lugar de Ubuntu.
+```
+
 # 1. Clientes ligeros con LTSP/Ubuntu
 
 Entrega de la práctica:
