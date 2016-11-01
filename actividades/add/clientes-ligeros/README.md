@@ -167,6 +167,8 @@ netstat -ntap # Muestras las conexiones con el exterior
 #5. ANEXOS
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
+* Enlace de interés [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
+
 ##5.1 Personalización de los clientes
 En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
 modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf
