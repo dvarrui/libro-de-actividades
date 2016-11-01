@@ -164,7 +164,9 @@ netstat -ntap # Muestras las conexiones con el exterior
 #5. ANEXOS
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
-* Enlace de interés [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
+Enlaces de interés:
+* [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
+* [Conectar Knoppix7 con servidor LTSP de sistema operativo ](https://www.youtube.com/watch?v=UpNUHsXSxA4)
 
 ##5.1 Personalización de los clientes
 En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
