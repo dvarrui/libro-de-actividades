@@ -153,9 +153,10 @@ Cuando el cliente se conecte
 * entramos con los usuarios apellido-del-alumno[1-3]
 * Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
 ```
-arp
-whoami
-who
+whoami        # Muestra el usuario actual
+who           # Muestra los usuarios conectados al sistema
+arp           # Muestra la tabla ARP (Asociaciones de IP con MAC)
+netstat -ntap # Muestras las conexiones con el exterior
 ```
 * Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
 
