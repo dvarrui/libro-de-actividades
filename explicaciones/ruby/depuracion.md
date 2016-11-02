@@ -24,6 +24,13 @@ Lo recomendado es usar una herramienta específica para depurar código.
 En nuestro caso, hacemos:
 * `gem install pry-byebug`, Esta es la instrucción para instalar una
 gema/librería/pluggin, para ampliar nuevas funciones de nuestro ruby.
+
+> En Ubuntu/Debian haremos lo siguiente para instalar la gema:
+>
+> * `apt-get install -y ruby-dev`, esto instala headers necesarios para compilar.
+> * `gem install pry-byebug`
+
+
 * Editamos el programa que queremos depurar.
 * Añadimos la siguiente línea al comienzo:
 ```
