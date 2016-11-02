@@ -83,15 +83,9 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
-* Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
-* Elegir zona (Canarias)
-* Selección de entorno gráfico: XFCE
-
-> En teoría podríamos elegir el entorno gráfico que quisiéramos.
-> * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
-> * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
 ##3.2 Particionado
+* Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
 * Entrar en el modo experto.
 * Esquema de uso de las particiones:
     * Área de intercambio o SWAP (500MB),
@@ -127,7 +121,13 @@ se configure automñaticamente el gestor de arranque.
 
 ![dual-suse-particiones3](./images/dual-suse-particiones3.png)
 
-##3.3 Usuario y SSH
+##3.3 Entorno, usuario y SSH
+* Elegir zona (Canarias)
+* Selección de entorno gráfico: XFCE
+
+> En teoría podríamos elegir el entorno gráfico que quisiéramos.
+> * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
+> * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
 * Nombre de usuario y la clave igual que la práctica anterior.
 * Desmarcar inicio de sesión automático.
