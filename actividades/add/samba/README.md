@@ -135,7 +135,8 @@ para que se lean los cambios de configuración.
 
 #2. Windows
 
-* Configurar el cliente Windows con el nombre `smb-cliXXb` y la IP que hemos establecido.
+* [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
+* Usar nombre `smb-cliXXb` y la IP que hemos establecido.
 * Configurar el fichero `...\etc\hosts` de Windows.
 
 ##2.1 Cliente Windows GUI
@@ -144,13 +145,15 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
-* Comprobar los accesos de todas las formas posibles. Como si fuéramos un `sith`, un `jedi` y/o un invitado.
+* Comprobar los accesos de todas las formas posibles. Como si fuéramos:
+    * un `sith`
+    * un `jedi`
+    * y/o un invitado.
 
 > * Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
 > * Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
 
-Capturar imagen de los comandos siguientes:
-* Para comprobar resultados ejecutamos:
+* Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -ntap`, desde el cliente Windows.
@@ -158,24 +161,34 @@ Capturar imagen de los comandos siguientes:
 ##2.2 Cliente Windows comandos
 
 * En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
-* Si hubiera alguna conexión abierta, para cerrar las conexión SMB al servidor,
-podemos usar el siguiente comando `C:>net use * /d /y`. Si ahora ejecutamos el comando `net use`,
-debemos comprobar que NO hay conexiones establecidas.
+* Si hubiera alguna conexión abierta la cerramos.
+    *  `C:>net use * /d /y`, para cerrar las conexiones SMB.
+    * `net use` ahora vemos que NO hay conexiones establecidas.
 
 Capturar imagen de los comandos siguientes:
 * Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
 * Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
 * Vamos a conectarnos desde la máquina Windows al servidor Samba usando los comandos net.
 
-> Por ejemplo el comando `net use P: \\ip-servidor-samba\panaderos /USER:pan1` establece
-una conexión del rescurso panaderos en la unidad P. Ahora podemos entrar en la
-unidad P ("p:") y crear carpetas, etc.
+##2.3 Montaje automático
 
-Capturar imagen de los comandos siguientes:
-* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
+* El comando `net use P: \\ip-servidor-samba\panaderos /USER:pan1` establece
+una conexión del rescurso panaderos y lo monta en la unidad P.
+* Ahora podemos entrar en la unidad P ("p:") y crear carpetas, etc.
+
+* Capturar imagen de los siguientes comandos para comprobar los resultados:
+    * `smbstatus`, desde el servidor Samba.
+    * `netstat -ntap`, desde el servidor Samba.
+    * `netstat -ntap`, desde el cliente Windows.
 
 #3 Cliente GNU/Linux
+
+* [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
+* Usar nombre `smb-cliXXa` y la IP que hemos establecido.
+* Configurar el fichero `/etc/hosts` de la máquina.
+
 ##3.1 Cliente GNU/Linux GUI
+
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS.
 
 > Estas son algunas herramientas:
@@ -191,12 +204,16 @@ pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
 
 ![linux-gui-client](./images/linux-gui-client.png)
 
+> En el momento de autenticarse para acceder al recurso remoto, poner
+en **Dominio** el *nombre-netbios-del-servidor-samba*.
+
 Capturar imagen de lo siguiente:
 * Probar a crear carpetas/archivos en `corusant` y en  `tatooine`.
-En el momento de autenticarse para acceder al recurso remoto, poner
-en **Dominio** el *nombre-netbios-del-servidor-samba*.
 * Comprobar que el recurso `public` es de sólo lectura.
-* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus`, `netstat -ntap`
+* Capturar imagen de los siguientes comandos para comprobar los resultados:
+    * `smbstatus`, desde el servidor Samba.
+    * `netstat -ntap`, desde el servidor Samba.
+    * `netstat -ntap`, desde el cliente.
 
 ##3.2 Cliente GNU/Linux comandos
 Capturar imagenes de todo el proceso.
@@ -211,28 +228,31 @@ haya cambiado de nombre.
 equipo usaremos comandos para acceder a la carpeta compartida.
 * Primero comprobar el uso de las siguientes herramientas:
 ```
-sudo smbtree                         (Muestra todos los equipos/recursos de la red SMB/CIFS)
-smbclient --list ip-servidor-samba   (Muestra los recursos SMB/CIFS de un equipo concreto)
+sudo smbtree                       (Muestra todos los equipos/recursos de la red SMB/CIFS)
+smbclient --list ip-servidor-samba (Muestra los recursos SMB/CIFS de un equipo concreto)
 ```
-* Ahora crearemos en local la carpeta `/mnt/samba-remoto/corusant`.
+* Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/corusant`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.18.XX.55/corusant /mnt/samba-remoto/corusant -o username=sith1`
+`mount -t cifs //172.18.XX.55/corusant /mnt/sambaXX-remoto/corusant -o username=sith1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
-`smbmount //172.16.108.XX/public /mnt/samba-remoto/public/ -o -username=smbguest`.
+`smbmount //172.16.108.XX/public /mnt/sambaXX-remoto/public/ -o -username=smbguest`.
 
 * COMPROBAR: Ejecutar el comando `df -hT`. Veremos que el recurso ha sido montado.
 
 ![samba-linux-mount-cifs](./images/samba-linux-mount-cifs.png)
 
-> * Si montamos la carpeta de `corusat`, lo que escribamos en `/mnt/samba-remoto/corusant`
+> * Si montamos la carpeta de `corusat`, lo que escribamos en `/mnt/sambaXX-remoto/corusant`
 debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
-* Para comprobar resultados, desde el servidor Samba ejecutamos: `smbstatus` y `netstat -ntap`.
+* Capturar imagen de los siguientes comandos para comprobar los resultados:
+    * `smbstatus`, desde el servidor Samba.
+    * `netstat -ntap`, desde el servidor Samba.
+    * `netstat -ntap`, desde el cliente Windows.
 
-##2.3 Montaje automático
+##3.4 Montaje automático
 Capturar imágenes del proceso.
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
@@ -244,7 +264,7 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
 ```
-    //ip-del-servidor-samba/public /mnt/samba-remoto/public cifs username=sith1,password=clave 0 0
+    //ip-del-servidor-samba/public /mnt/sambaXX-remoto/public cifs username=sith1,password=clave 0 0
 ```
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
