@@ -52,6 +52,10 @@ Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO ante
 es de 90 días.
 >
 
+> **Guía para instalar BASH en Windows 10**
+>
+> * [Bash en Windows10](http://www.xataka.com/aplicaciones/asi-es-usar-la-consola-bash-de-ubuntu-en-windows-10)
+
 ##2. Configuración Windows 2008 Server
 
 Configuración de la máquina Windows 2008 Server Enterprise:
