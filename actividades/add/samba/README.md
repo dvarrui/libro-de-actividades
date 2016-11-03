@@ -54,15 +54,15 @@ siguiente manera: "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
 
 * Capturar imagen del resultado final.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
-    * `/srv/samba/public.d`
+    * `/srv/sambaXX/public.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `starwars`.
         * Poner permisos 775.
-    * `/srv/samba/corusant.d`
+    * `/srv/sambaXX/corusant.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `siths`.
         * Poner permisos 770.
-    * `/srv/samba/tatooine.d`
+    * `/srv/sambaXX/tatooine.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `jedis`.
         * Poner permisos 770.
@@ -94,17 +94,17 @@ guest ok = yes
 read only = yes
 
 [public]
-path = /srv/samba/public.d
+path = /srv/sambaXX/public.d
 guest ok = yes
 read only = yes
 
 [corusant]
-path = /srv/samba/corusant.d
+path = /srv/sambaXX/corusant.d
 read only = no
 valid users = @siths
 
 [tatooine]
-path = /srv/samba/tatooine.d
+path = /srv/sambaXX/tatooine.d
 read only = no
 valid users = jedi1, jedi2
 ```
