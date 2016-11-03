@@ -40,8 +40,8 @@ sudo blkid
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
 * Crear los grupos `jedis`, `siths` y `starwars`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
-entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de la
-siguiente manera: "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
+entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de
+modo que el usuario tenga la shell `/bin/false`. Ejemplo "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
 * Dentro del grupo `jedis` incluir a los usuarios `jedi1`, `jedi2` y `supersamba`.
 * Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
 * Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
@@ -134,7 +134,13 @@ para que se lean los cambios de configuración.
     sudo netstat -tap (Vemos que el servicio SMB/CIF está a la escucha)
 ```
 
-#2. Windows
+> CORTAFUEGOS
+>
+> * Para descartar un problema con el cortafuegos del servidor Samba.
+Probamos el comando `nmap -Pn ip-del-servidor` desde la máquina real, u otra
+máquina GNU/Linux. Deberían verse los puertos SMB/CIFS abiertos.
+
+#2. Windows (MV3: smb-cliXXb)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
 * Usar nombre `smb-cliXXb` y la IP que hemos establecido.
@@ -173,16 +179,16 @@ Capturar imagen de los comandos siguientes:
 
 ##2.3 Montaje automático
 
-* El comando `net use P: \\ip-servidor-samba\panaderos /USER:pan1` establece
-una conexión del rescurso panaderos y lo monta en la unidad P.
-* Ahora podemos entrar en la unidad P ("p:") y crear carpetas, etc.
+* El comando `net use S: \\ip-servidor-samba\panaderos /USER:pan1` establece
+una conexión del rescurso panaderos y lo monta en la unidad S.
+* Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -ntap`, desde el cliente Windows.
 
-#3 Cliente GNU/Linux
+#3 Cliente GNU/Linux (MV2 smb-cliXXa)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
 * Usar nombre `smb-cliXXa` y la IP que hemos establecido.
@@ -217,13 +223,13 @@ Capturar imagen de lo siguiente:
     * `netstat -ntap`, desde el cliente.
 
 ##3.2 Cliente GNU/Linux comandos
+
 Capturar imagenes de todo el proceso.
 
 > Existen comandos (`smbclient`, `mount` , `smbmount`, etc.) para ayudarnos
 a acceder vía comandos al servidor Samba desde el cliente.
-> Puede ser que con las nuevas actualizaciones y cambios de las distribuciones alguno
-haya cambiado de nombre.
-> ¡Ya lo veremos!
+> Puede ser que con las nuevas actualizaciones y cambios de las distribuciones
+alguno haya cambiado de nombre. ¡Ya lo veremos!
 
 * Vamos a un equipo GNU/Linux que será nuestro cliente Samba. Desde este
 equipo usaremos comandos para acceder a la carpeta compartida.
