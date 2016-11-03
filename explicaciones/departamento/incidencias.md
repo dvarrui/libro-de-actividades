@@ -1,8 +1,7 @@
 
-#Incidencias
+#Incidencias Curso 2016-2017
 
-Curso 2016-2017
-
+##Octubre
 * 13/10/2016 (Jueves)
     * Aula 109: Aparece encendido PC del profesor.Jueves (Día anterior fiesta)
     * Aula 109: Pizarra escrita
@@ -44,3 +43,8 @@ Curso 2016-2017
     * Aula 109: pc06 problemas con imagen muy grande en el modo gráfico
       La instalación de gnome desktop con gdm3 no resuelve el caso.
 
+##Noviembre
+* 02/11/2016 (Miércoles)
+    * Aula 109: a 4ªhora ventana del profesor abierta y aire acondicionado puesto.
+* 03/11/2016 (Jueves)
+    * Aula 109: a 1 hora las ventanas del aula están cerradas.
