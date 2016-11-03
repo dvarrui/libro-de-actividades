@@ -1,4 +1,10 @@
 
+```
+Curso1718
+* Comprobar que funciona el comando file
+* Instalar wget, zip
+```
+
 #Instalación Knoppix-Debian personalizada
 
 Entregar un documento en formato ODT o PDF con los pasos realizados.
