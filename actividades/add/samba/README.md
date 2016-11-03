@@ -40,8 +40,10 @@ sudo blkid
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
 * Crear los grupos `jedis`, `siths` y `starwars`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
-entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de
-modo que el usuario tenga la shell `/bin/false`. Ejemplo "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
+entrar en nuestra máquina mediante login, vamos a modificar este usuario y le ponemos
+como shell `/bin/false`.
+    * Por entorno gráfico lo cambiamos usando Yast.
+    * Por comandos el cambio se hace editando el fichero `/etc/passwd`.
 * Dentro del grupo `jedis` incluir a los usuarios `jedi1`, `jedi2` y `supersamba`.
 * Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
 * Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
