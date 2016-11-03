@@ -38,12 +38,13 @@ sudo blkid
 * Podemos usar comandos o entorno gráfico Yast.
 
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
-* Grupo `jedis` con `jedi1`, `jedi2` y `supersamba`.
-* Grupo `siths` con `sith1` y `sith2` y `supersamba`.
+* Crear los grupos `jedis`, `siths` y `starwars`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
 entrar en nuestra máquina mediante login, vamos a modificar en el fichero `/etc/passwd` de la
 siguiente manera: "smbguest: x :1001:1001:,,,:/home/smbguest:**/bin/false**".
-* Crear el grupo `starwars`, y dentro de este poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
+* Dentro del grupo `jedis` incluir a los usuarios `jedi1`, `jedi2` y `supersamba`.
+* Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
+* Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
 
 ##1.3 Instalar Samba
 
