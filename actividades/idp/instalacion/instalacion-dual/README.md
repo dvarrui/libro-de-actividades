@@ -122,14 +122,14 @@ se configure automñaticamente el gestor de arranque.
 ![dual-suse-particiones3](./images/dual-suse-particiones3.png)
 
 ##3.3 Entorno, usuario y SSH
-* Elegir zona (Canarias)
+* Elegir zona horaria (Canarias)
 * Selección de entorno gráfico: XFCE
 
 > En teoría podríamos elegir el entorno gráfico que quisiéramos.
 > * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
 > * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
-* Nombre de usuario y la clave igual que la práctica anterior.
+* Crear los usuarios ([Configuración](../../../global/configuracion-aula109.md)).
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto.md))
 
