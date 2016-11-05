@@ -93,3 +93,6 @@ no es necesario para poder trabajar con este sistema de formateo.
 * Cuando el fichero no consume completamente el último sector. Dicho espacio
 queda libre. Sólo lo puede usar el fichero asignado cuando aumente su tamaño.
 A esta situación se le llama `fragmentación interna`.
+* Cuando se borra un archivo (Por ejemplo `rm A`), se "limpia" la información de
+las tablas 1 y 2, pero los sectores del disco siguen guardando los mismos bits
+hasta que éstos sean sobreescritos en por la creación de un nuevo archivo.
