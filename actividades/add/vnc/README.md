@@ -16,6 +16,13 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
     1. Acceder a GNU/Linux OpenSUSE 13.2 - desde GNU/Linux OpenSUSE 13.2 (A lo mejor no hay que instalar el software cliente VNC)
     1. Acceder a GNU/Linux OpenSUSE 13.2 - desde Windows 7
 
+> Problemas de conexión
+>
+> * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
+> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
+> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
+desde fuera de la máquina VNC-SERVER.
+
 ##2.1 Comprobaciones
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
