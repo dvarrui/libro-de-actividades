@@ -1,4 +1,10 @@
 
+```
+Cambios para el curso1718
+* Coordinar con actividad NAS de FUW de 1ASIR, por el parecido.
+* Cambiar tema starwars por tema de piratas.
+```
+
 #Samba
 
 Samba con OpenSUSE 13.2 y Windows 7.
@@ -139,10 +145,10 @@ para que se lean los cambios de configuración.
 > CORTAFUEGOS
 >
 > * Para descartar un problema con el cortafuegos del servidor Samba.
-Probamos el comando `nmap -Pn ip-del-servidor` desde la máquina real, u otra
+Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
 máquina GNU/Linux. Deberían verse los puertos SMB/CIFS abiertos.
 
-#2. Windows (MV3: smb-cliXXb)
+#2. Windows (MV3 => smb-cliXXb)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
 * Usar nombre `smb-cliXXb` y la IP que hemos establecido.
@@ -190,7 +196,7 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -ntap`, desde el cliente Windows.
 
-#3 Cliente GNU/Linux (MV2 smb-cliXXa)
+#3 Cliente GNU/Linux (MV2 => smb-cliXXa)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
 * Usar nombre `smb-cliXXa` y la IP que hemos establecido.
@@ -246,7 +252,7 @@ compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.18.XX.55/corusant /mnt/sambaXX-remoto/corusant -o username=sith1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
-`smbmount //172.16.108.XX/public /mnt/sambaXX-remoto/public/ -o -username=smbguest`.
+`smbmount //smb-serverXX/public /mnt/sambaXX-remoto/public/ -o -username=smbguest`.
 
 * COMPROBAR: Ejecutar el comando `df -hT`. Veremos que el recurso ha sido montado.
 
@@ -261,7 +267,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -ntap`, desde el cliente Windows.
 
-##3.4 Montaje automático
+##3.3 Montaje automático
 Capturar imágenes del proceso.
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
@@ -272,14 +278,12 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
-```
-    //ip-del-servidor-samba/public /mnt/sambaXX-remoto/public cifs username=sith1,password=clave 0 0
-```
+`//smb-serverXX/public /mnt/sambaXX-remoto/public cifs username=sith1,password=clave 0 0`
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
-#3. Preguntas para resolver
+#4. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
 * ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
