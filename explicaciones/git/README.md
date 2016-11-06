@@ -1,6 +1,7 @@
 
 
 #1. Trabajando con GIT
+
 ##1.1. La primera vez
 
 Enlace de interés:
@@ -87,7 +88,29 @@ En el moodle es conveniente indicar la URL del trabajo entregado vía Git.
 Que debe ser algo como *"usuario-git/add1516-nombrealumno/trim.3/unit.5/actividad1/README.md*".
 
 Imagen que muestra el texto del *commit* asociado a la entrega:
-![git-repo-tarea-commit] (./git-repo-tarea-commit.png)
+![git-repo-tarea-commit](./images/git-repo-tarea-commit.png)
 
 Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
-![git-repo-tarea-url] (./git-repo-tarea-url.png)
+![git-repo-tarea-url](./images/git-repo-tarea-url.png)
+
+El árbol de directorios creado en el repositorio debe ser como el siguiente:
+```
+├── trim1
+│   ├── u1
+│   │   ├── script1.rb
+│   │   ├── script2.rb
+│   │   └── script3.rb
+│   ├── u2
+│   │   ├── ltsp
+│   │   │   ├── images
+│   │   │   └── README.md
+│   │   ├── vnc
+│   │   │   ├── images
+│   │   │   └── README.md
+│   │   └── ssh
+│   │       ├── images
+│   │       └── README.md
+│   ├── u3
+│   └── u4
+└── trim2    
+```
