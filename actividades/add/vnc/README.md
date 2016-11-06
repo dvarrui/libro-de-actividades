@@ -50,9 +50,9 @@ que se han establecido las conexiones remotas:
 ##3.2 Instalación en OpenSUSE
 
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
-* `vncviewer` es un cliente VNC que viene en OpenSUSE.
-* En la conexion remota, hay que especificar `IP:5901`.
-* `vncviewer IP-vnc-server:5901`
+* `vncviewer` es un cliente VNC que viene con OpenSUSE.
+* En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
+* `vncviewer IP-vnc-server:590N`.
 
 > **NOTA**
 >
