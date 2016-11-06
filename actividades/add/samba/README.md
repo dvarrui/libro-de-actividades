@@ -171,7 +171,7 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente Windows.
+    * `netstat -n`, desde el cliente Windows.
 
 ##2.2 Cliente Windows comandos
 
@@ -194,7 +194,7 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente Windows.
+    * `netstat -n`, desde el cliente Windows.
 
 #3 Cliente GNU/Linux (MV2 => smb-cliXXa)
 
@@ -228,7 +228,7 @@ Capturar imagen de lo siguiente:
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente.
+    * `netstat -n`, desde el cliente.
 
 ##3.2 Cliente GNU/Linux comandos
 
@@ -265,7 +265,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente Windows.
+    * `netstat -n`, desde el cliente Windows.
 
 ##3.3 Montaje automático
 Capturar imágenes del proceso.
