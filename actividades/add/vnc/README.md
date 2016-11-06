@@ -1,4 +1,9 @@
 
+```
+Cambios para el curso1718
+* Fijar las IPs en los suse 31 cliente y 32 server
+```
+
 #1. Introducción
 Entrega:
 * URL con la ruta al/los archivo/s dentro del repositorio del alumno.
