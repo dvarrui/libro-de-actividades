@@ -93,7 +93,7 @@ como shell `/bin/false`.
 
 ```
 [global]
-netbios name = 1er-apellido-alumno-XXg
+netbios name = 1er-apellido-alumno-XX
 workgroup = STARWARS
 server string = Servidor Samba del PC XX
 security = user
