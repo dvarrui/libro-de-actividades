@@ -54,12 +54,7 @@ como shell `/bin/false`.
 * Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
 * Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
 
-##1.3 Instalar Samba
-
-* Capturar imágenes del proceso.
-* Podemos usar comandos o el entorno gráfico Yast para instalar servicio Samba.
-
-##1.4 Crear las carpetas para los futuros recursos compartidos
+##1.3 Crear las carpetas para los futuros recursos compartidos
 
 * Capturar imagen del resultado final.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
@@ -76,6 +71,14 @@ como shell `/bin/false`.
         * Grupo propietario `jedis`.
         * Poner permisos 770.
 
+##1.4 Instalar Samba Server
+
+* Capturar imágenes del proceso.
+* Podemos usar comandos o el entorno gráfico para instalar servicio Samba.
+* `Yast -> Samba Server`
+    * Workgroup: starwars
+    * Sin controlador de dominio.
+
 ##1.5 Configurar el servidor Samba
 
 * Capturar imágenes del proceso.
@@ -90,7 +93,7 @@ como shell `/bin/false`.
 
 ```
 [global]
-netbios name = PRIMER-APELLIDO-ALUMNO-XX
+netbios name = 1er-apellido-alumno-XXg
 workgroup = STARWARS
 server string = Servidor Samba del PC XX
 security = user
@@ -153,6 +156,7 @@ máquina GNU/Linux. Deberían verse los puertos SMB/CIFS abiertos.
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
 * Usar nombre `smb-cliXXb` y la IP que hemos establecido.
 * Configurar el fichero `...\etc\hosts` de Windows.
+* En los clientes Windows el software necesario viene preinstalado.
 
 ##2.1 Cliente Windows GUI
 
@@ -243,8 +247,8 @@ alguno haya cambiado de nombre. ¡Ya lo veremos!
 equipo usaremos comandos para acceder a la carpeta compartida.
 * Primero comprobar el uso de las siguientes herramientas:
 ```
-sudo smbtree                       (Muestra todos los equipos/recursos de la red SMB/CIFS)
-smbclient --list ip-servidor-samba (Muestra los recursos SMB/CIFS de un equipo concreto)
+sudo smbtree                       # Muestra todos los equipos/recursos de la red SMB/CIFS
+smbclient --list ip-servidor-samba # Muestra los recursos SMB/CIFS de un equipo concreto
 ```
 * Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/corusant`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
