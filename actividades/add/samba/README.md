@@ -74,18 +74,28 @@ como shell `/bin/false`.
 ##1.4 Instalar Samba Server
 
 * Capturar imágenes del proceso.
-* Podemos usar comandos o el entorno gráfico para instalar servicio Samba.
+* Vamos a hacer una copia de seguridad del fichero de configuración existente
+`cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
+
+> Podemos usar comandos o el entorno gráfico para instalar y configurar el servicio Samba.
+> Como estamos en OpenSUSE vamos a usar Yast.
+
 * `Yast -> Samba Server`
-    * Workgroup: starwars
+    * Workgroup: `starwars`
     * Sin controlador de dominio.
+* En la pestaña de `Inicio` definimos
+    * Iniciar el servicio durante el arranque de la máquina.
+    * Ajustes del cortafuegos -> Abrir puertos
 
 ##1.5 Configurar el servidor Samba
 
+Vamos a configurar los recursos compartido del servidor Samba.
+Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
+
 * Capturar imágenes del proceso.
-* Podemos usar Yast o modificar directamente el fichero de configuración.
-* Vamos a hacer una copia de seguridad del fichero de configuración existente
-`cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
-* Vamos a configurar el servidor Samba con las siguientes opciones.
+* `Yast -> Samba Server -> Recursos compartidos`
+
+* Tenemos que montar una configuración como la siguiente:
 
 > * Donde pone XX, sustituir por el núméro del puesto de cada uno
 > * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
@@ -121,15 +131,16 @@ read only = no
 valid users = jedi1, jedi2
 ```
 
-* Comprobar resultado `cat /etc/samba/smb.conf`.
-* Comprobar que todo está ok con `testparm`.
+* Abrimos una consola para comprobar los resultados.
+    * `cat /etc/samba/smb.conf`
+    * `testparm`
 
 ##1.6 Usuarios Samba
 
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
-* Para eso hay que usar el comando siguiente para cada usuario de Samba: `smbpasswd -a nombreusuario`
-* Al terminar comprobamos nuestra lista de usuarios Samba con el
-comando: `pdbedit -L`. Capturar imagen del comando siguiente.
+* `smbpasswd -a nombreusuario`, para crear clave de Samba para un usuario del sistema.
+* `pdbedit -L`, para comprobar la lista de usuarios Samba.
+* Capturar imagen del comando anterior.
 
 ##1.7 Reiniciar
 
@@ -141,14 +152,14 @@ para que se lean los cambios de configuración.
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
-    sudo testparm (Verifica la sintaxis del fichero de configuración del servidor Samba)
-    sudo netstat -tap (Vemos que el servicio SMB/CIF está a la escucha)
+    sudo testparm     # Verifica la sintaxis del fichero de configuración del servidor Samba
+    sudo netstat -tap # Vemos que el servicio SMB/CIF está a la escucha
 ```
 
-> CORTAFUEGOS
+> **Comprobar CORTAFUEGOS**
 >
-> * Para descartar un problema con el cortafuegos del servidor Samba.
-Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
+> Para descartar un problema con el cortafuegos del servidor Samba.
+> Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
 máquina GNU/Linux. Deberían verse los puertos SMB/CIFS abiertos.
 
 #2. Windows (MV3 => smb-cliXXb)
