@@ -178,6 +178,9 @@ blkid
 
 ##4. Configuración GNU/Linux Debian 8
 
+En Debian/Ubuntu, para configurar la red mediante entorno gráfico podemos usar
+NetworkManager.
+
 * IP: `172.19.XX.41` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.19.XX.42, 172.19.XX.43, etc.
     * Máscara de red: `255.255.0.0`
