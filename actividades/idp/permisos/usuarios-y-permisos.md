@@ -24,33 +24,33 @@ administradores, para que puedan actuar como superusuarios.
     * Crear la carpeta `C:\Users\jedi1\group`.
     * Crear la carpeta `C:\Users\jedi1\public`.
 
-> **INFORMACIÓN: Permisos NTFS**
+> **INFORMACIÓN:** Permisos NTFS
 >
 > En Windows las carpetas HEREDAN los permisos de su carpeta padre. Para desactivar esta función
 en una carpeta determinada, haremos lo siguiente:
 >
 > * Botón derecho sobre la carpeta -> propiedades -> seguridad.
 > * Opciones avanzadas -> cambiar permisos.
-> * Desactivar herencia "Incluir permisos heredables" -> Quitar -> Aceptar.
+> * Desactivar herencia `Incluir permisos heredables -> Quitar -> Aceptar`.
 > * Aplicar y Aceptar.
 >
 > Para modificar los permisos de una carpeta vamos a `Botón derecho -> Propiedades -> Seguridad -> Editar`.
 
 * Vamos a modificar los permisos de la siguiente forma:
-    * private: El usuario propietario tendrá control total y nadie más tendrá permisos.
-    * group: grupo `jedis` permisos de lectura, y el usuario propietario control total.
-    * public: todos tienen permiso de lectura, y el usuario propietario control total.
+    * `private`: El usuario propietario tendrá control total y nadie más tendrá permisos.
+    * `group`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
+    * `public`: todos tienen permiso de lectura, y el usuario propietario control total.
 * Capturar imagen del resultado de la asignación de permisos.
 
 Veamos un ejemplo de permisos para la carpeta public:
 
 ![win-permisos-gui-public-dir](./images/win-permisos-gui-public-dir.png)
 
-##1.2 Usando los comandos Windows
-Capturar imagen de las acciones realizadas.
+##1.2 Ejemplo/Información sobre PowerShell
 
-* Vamos a usar los comandos de la nueva shell de Windows, llamada PowerShell.
-Para ello buscamos en el menú PowerShell -> (botón derecho) -> Iniciar como Administrador.
+Vamos a pronar los comandos de PowerShell. Para ello buscamos en el
+`menú -> PowerShell -> (botón derecho) -> Iniciar como Administrador`.
+
 Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
 y no podremos crear los usuarios.
 
@@ -94,11 +94,14 @@ y no podremos crear los usuarios.
 > PS> $grupo.Add($usu2.path)
 > ```
 
+##1.3 Usando los comandos Windows
+
+* Capturar imagen de las acciones finales.
 * Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
 
-> Al ponerlos dentro del grupo Usuarios conseguimos que se muestren los iconos en la ventana de
-inicio de sesión del sistema.
+> Al ponerlos dentro del grupo Usuarios conseguimos que se muestren los
+iconos en la ventana de inicio de sesión del sistema.
 >
 > [Más información sobre la creación de usuarios con PowerShell](https://www.petri.com/create-local-accounts-with-powershell)
 
@@ -130,57 +133,28 @@ inicio de sesión del sistema.
 > ```
 >
 
-* Modificar los permisos de la siguiente forma:
-    * private: Sólo el usuario propietario tendrá control total.
-    * group: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
-    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
+Modificar los permisos de la siguiente forma:
+* `private`: Sólo el usuario propietario tendrá control total.
+* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
+* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
 
 
 #2. SO GNU/Linux OpenSUSE
 
 ##2.1 Preparar la MV
-* Configurar la MV:
-    * Modo de red VBox en modo puente.
-    * Nombre de equipo: primer-apellido-del-alumno. En OpenSUSE usar Yast2.
-    * Dominio: segundo-apellido-del-alumno.
-    * Instalar OpenSSH
-    * Clave de root DNI del alumno
-    * IP: 172.19.XX.51
-    * Máscara de red: 255.255.0.0
-    * Gateway: 172.19.0.1
-    * Servidor DNS: 8.8.4.4
 
-> **Configuración de red en OpenSUSE**
->
-> * Para configurar la red en OpenSUSE usar Yast
->
-> **Configuración de red Debian/Ubuntu**
->
-> * Para configurar la red sin entorno gráfico en Debian/Ubuntu, modificaremos el
-contenido del fichero `/etc/network/interfaces` con lo siguiente:
->
-> ```
-> auto eth0
-> iface eth0 inet static
-> address 172.19.XX.51
-> netmask 255.255.0.0
-> gateway 172.19.0.1
-> dns-nameservers 8.8.4.4
-> ```
->
-> Para configurar la red mediante entorno gráfico podemos usar NetworkManager en Debian/Ubuntu.
->
-
+* [Configurar](../../global/configuracion-aula109.md) la MV.
 * Ir al gestor de usuarios de OpenSUSE: Ir a Yast -> Gestión de Usuarios.
 * ¿Cuántos usuarios hay que no aparecen en la ventana de inicio al sistema? ¿Por qué?
 
-> En Debian/Ubuntu: Ir a `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`,
-o bien ir a `Sistemas -> Administración -> Usuarios y Grupos`.
-
+> En Debian/Ubuntu iremos a
+>
+> * `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`,
+> * `Sistemas -> Administración -> Usuarios y Grupos`.
 
 ##2.2 Usando el GUI GNU/Linux
-Capturar imagen del resultado final.
 
+* Capturar imagen del resultado final.
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
 * Para cada usuario del grupo profesores:
     * Crear la carpeta `/home/jedi1/private`.
@@ -191,43 +165,44 @@ Veamos un ejemplo de permisos por el entorno GUI:
 
 ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
-Capturar imagen del resultado final.
+* Capturar imagen del resultado final.
 * Modificar los permisos de las carpetas de la siguiente forma:
-    * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
-    * group: grupo `jedis` permisos de lectura, y usuario propietario permisos de lectura y escritura.
-    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+    * `private`: Sólo el usuario propietario tendrá permisos lectura/escritura.
+    * `group`: grupo `jedis` permisos de lectura, y usuario propietario permisos de lectura y escritura.
+    * `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
 
 ##2.3 Sudoers (Grupo privilegiado)
-Vamos a dar privilegios de superusuario a los miembros del grupo `jedis`.
 
 > El comando `sudo` nos permite ejecutar comandos como si fuéramos el administrador del equipo.
 Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
-* Vamos a configurar a los usuarios del grupo de `jedis` para poder tener privilegio totales de uso del comando sudo.
-Añadiendo la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL`.
+Vamos a dar privilegios de superusuario a los miembros del grupo `jedis` usando
+las configuraciones del comando sudo.
 
-Dos formas de hacerlo:
-
-1. **GUI**: Usar Yast en OpenSUSE. Veamos imagen de ejemplo:
-1. **CLI**: Abrir el editor de la configuración sudo (`/etc/sudoers`) (Debian/Ubuntu se usa `visudo`).
+Para ello tenemos que permitir a los usuarios del grupo de `jedis` para poder tener privilegio
+totales de uso del comando sudo, añadiendo la línea siguiente
+`%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers.
 
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
+* Dos formas de hacerlo:
+    1. **GUI**: Usar Yast en OpenSUSE. Ver imagen de ejemplo.
+    2. **CLI**: Abrir el editor de la configuración sudo (`/etc/sudoers`) (Debian/Ubuntu se usa `visudo`).
 * Guardar y salir
 * Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo,
 para realizar todas las tareas administrativas. Comprobarlo.
 
-Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
-
-![linux-sudo-error](./images/linux-sudo-error.png)
+> Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
+>
+> ![linux-sudo-error](./images/linux-sudo-error.png)
 
 * Configurar al grupo `sith` en sudoers con
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`.
-Comprobar los nuevos permisos.
+* Comprobar los nuevos permisos.
 
 ##2.4 Usando los comandos
 
-Vídeo [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
+> Vídeo [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
 Capturar imagen de los pasos realizados.
 
@@ -241,37 +216,42 @@ son internos para uso de aplicaciones o del sistema operativo.
     * Crear la carpeta `/home/sith1/group`.
     * Crear la carpeta `/home/sith1/public`.
 
-> Recordar los comandos: chown (Cambiar propietario), chgrp (Cambiar grupo propietario),
-chmod (Cambiar permisos de acceso).
+> * chown (Cambiar propietario)
+> * chgrp (Cambiar grupo propietario),
+> * chmod (Cambiar permisos de acceso).
 
-* Modificar los permisos de las carpetas:
-    * private: Sólo el usuario propietario tendrá permisos lectura/escritura.
-    * group: grupo `siths` permisos de lectura, y usuario propietario permisos de lectura y escritura.
-    * public: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+Modificar los permisos de las carpetas:
+* `private`: Sólo el usuario propietario tendrá permisos lectura/escritura.
+* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de lectura y escritura.
+* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+
 
 #ANEXO
-El anexo contiene información complementaria. No son tareas que haya que realizar.
+
+El anexo contiene información complementaria. No hay que hacerlo.
 
 ##A.1 Personalización de usuarios GNU/Linux
-* En OpenSUSE vemos que cuando queremos invocar el comando `ifconfig` con
+
+En OpenSUSE vemos que cuando queremos invocar el comando `ifconfig` con
 un usuario normal debemos hacerlo con la ruta absoluta `/sbin/ifconfig`.
 
 ![opensuse-path-ifconfig](./images/opensuse-path-ifconfig.png)
 
-> Existe una variable llamada PATH, configurada para cada usuario de forma difierente.
+Existe una variable llamada PATH, configurada para cada usuario de forma difierente.
 Dicha variable de entorno contiene las rutas de los ejecutables/comandos.
->
-> No es necesario escribir la ruta completa para invocar a los comandos/programas que estén en alguna de estas rutas.
->
-> Para cambiarlo añadimos las siguientes líneas al final del fichero "/home/nombre-de-usuario/.profile":
-> ```
-> PATH=$PATH:/sbin
-> export PATH
-> ```
->
-> Para que los cambios tengan efecto debemos cerrar la sesión.
->
-> En otras distribuciones se usa el fichero de configuración "/home/nombre-de-usuario/.bashrc"
+
+No es necesario escribir la ruta completa para invocar a los comandos/programas
+que estén en alguna de estas rutas.
+
+Para cambiarlo añadimos las siguientes líneas al final del fichero `/home/nombre-de-usuario/.profile`:
+```
+PATH=$PATH:/sbin
+export PATH
+```
+
+Para que los cambios tengan efecto debemos cerrar la sesión.
+
+En otras distribuciones se usa el fichero de configuración `/home/nombre-de-usuario/.bashrc`.
 
 ##A.2 Emulador de consola portable para Windows
 
