@@ -48,3 +48,5 @@
     * Aula 109: a 4ªhora ventana del profesor abierta y aire acondicionado puesto.
 * 03/11/2016 (Jueves)
     * Aula 109: a 1 hora las ventanas del aula están cerradas.
+* 08/11/2016 (Martes)
+    * Aula 109: a 1ª hora aparece aire acondicionado puesto y pizarra toda escrita.
