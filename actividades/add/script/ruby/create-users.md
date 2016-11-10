@@ -33,9 +33,15 @@ Recordar:
 * Cargar los datos en una variable de tipo Array (Usar split cuando sea necesario).
 * Usar iteradores para el bucle.
 * Con las comillas francesas se ejecuta un comando y los mensajes de pantalla
-se guardan en una variable. Por ejemplo: `user = \`whoami\``
+se guardan en una variable. Por ejemplo:
+```
+    user = `whoami`
+```
 * Con la orden system se ejecuta un comando pero no se lee el resultado.
-Por ejemplo: `system("mkdir /home/username/private")`.
+Por ejemplo:
+```
+    system("mkdir /home/username/private")
+```
 
 ##Enlaces de interés
 * ¿Cómo crear [scripts que no requieran la intervencion del usuario]
