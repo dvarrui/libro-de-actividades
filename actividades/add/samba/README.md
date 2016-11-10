@@ -3,6 +3,7 @@
 Cambios para el curso1718
 * Coordinar con actividad NAS de FUW de 1ASIR, por el parecido.
 * Cambiar tema starwars por tema de piratas.
+* Revisar comando net view
 ```
 
 #Samba
@@ -160,7 +161,7 @@ para que se lean los cambios de configuración.
 >
 > Para descartar un problema con el cortafuegos del servidor Samba.
 > Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
-máquina GNU/Linux. Deberían verse los puertos SMB/CIFS abiertos.
+máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
 #2. Windows (MV3 => smb-cliXXb)
 
