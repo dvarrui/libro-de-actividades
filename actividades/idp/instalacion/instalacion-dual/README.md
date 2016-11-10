@@ -73,7 +73,12 @@ Poner nombre grupo de trabajo indicado. Reiniciar
 
 ![dual-win7-nombres](./images/dual-win7-nombres.png)
 
-> RECORDAR: Cuando terminen la instalación de Windows debemos acordarnos de "quitar" la ISO (CD de instalación) de la MV.
+* Cuando terminen la instalación de Windows debemos acordarnos de desmontar
+la ISO (CD de instalación) de la MV.
+
+> Enlace de interés:
+>
+> * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
 
 #3. Instalación del segundo SO
 
