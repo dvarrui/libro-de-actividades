@@ -1,5 +1,5 @@
 
-#Errores más frecuentes 
+#Errores más frecuentes
 
 A continuación, un listado de los errore más frecuentes en las entregas
 de los trabajos.
@@ -15,7 +15,7 @@ de los trabajos.
 
 **Capturas de imágenes**
 
-* Capturas de imagen borrosas o con los objetos tam pequeños que no se
+* Capturas de imagen borrosas o con los objetos tan pequeños que no se
 pueden ver bien.
 * Marcar bien (con recuadros, círculos o líneas) las partes relevantes
 de la imagen.
