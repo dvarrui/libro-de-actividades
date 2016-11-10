@@ -103,32 +103,32 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
 
 ```
 [global]
-netbios name = 1er-apellido-alumno-XX
-workgroup = STARWARS
-server string = Servidor Samba del PC XX
-security = user
-map to guest = bad user
-guest account = smbguest
+  netbios name = 1er-apellido-alumno-XX
+  workgroup = STARWARS
+  server string = Servidor Samba del PC XX
+  security = user
+  map to guest = bad user
+  guest account = smbguest
 
 [cdrom]
-path = /dev/cdrom
-guest ok = yes
-read only = yes
+  path = /dev/cdrom
+  guest ok = yes
+  read only = yes
 
 [public]
-path = /srv/sambaXX/public.d
-guest ok = yes
-read only = yes
+  path = /srv/sambaXX/public.d
+  guest ok = yes
+  read only = yes
 
 [corusant]
-path = /srv/sambaXX/corusant.d
-read only = no
-valid users = @siths
+  path = /srv/sambaXX/corusant.d
+  read only = no
+  valid users = @siths
 
 [tatooine]
-path = /srv/sambaXX/tatooine.d
-read only = no
-valid users = jedi1, jedi2
+  path = /srv/sambaXX/tatooine.d
+  read only = no
+  valid users = jedi1, jedi2
 ```
 
 * Abrimos una consola para comprobar los resultados.
