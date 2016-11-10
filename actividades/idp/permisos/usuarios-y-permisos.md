@@ -113,7 +113,10 @@ iconos en la ventana de inicio de sesión del sistema.
 > Veamos un ejemplo de permisos por comandos:
 >
 > ```
-> (Comprobar los permisos actuales de public)
+> (Quitar los permisos heredados a la carpeta public)
+> PS C:\> icacls public /inheritance:r
+>
+> (Consultar los permisos actuales de public)
 > PS C:\> icacls public
 >
 > (Dar permisos de lecturas al grupo todos)
@@ -122,16 +125,13 @@ iconos en la ventana de inicio de sesión del sistema.
 > (Dar permisos control total al usuario alumno1)
 > PS C:\> icacls public /grant alumno1:F
 >
-> (Quitar los permisos heredados a la carpeta public)
-> PS C:\> icacls public /inheritance:r
+> (Ver la ayuda del comando icacls)
+> PS C:\> icacls /?
 >
-> (Comprobar los permisos actuales de public)
-> PS C:\> icacls public
->
-> (Para quitar el acceso al directorio para todos los usuarios del dominio:)
-> PS C:\> icacls directorio /remove \"Usuarios del dominio"
+> (Para quitar el acceso al usuario USERNAME)
+> PS C:\> icacls directorio /remove USERNAME
 > ```
->
+
 
 Modificar los permisos de la siguiente forma:
 * `private`: Sólo el usuario propietario tendrá control total.
