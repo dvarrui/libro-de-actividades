@@ -181,8 +181,10 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
     * un `jedi`
     * y/o un invitado.
 
-> * Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
-> * Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
+> * Después de cada conexión se quedan guardada la información en el cliente
+Windows (Ver comando `net use`).
+> * `net use * /d /y`, para cerrar las conexión SMB/CIFS que se ha realizado
+desde el cliente al servidor.
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
@@ -193,7 +195,7 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 * En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
 * Si hubiera alguna conexión abierta la cerramos.
-    *  `C:>net use * /d /y`, para cerrar las conexiones SMB.
+    * `net use * /d /y`, para cerrar las conexiones SMB.
     * `net use` ahora vemos que NO hay conexiones establecidas.
 
 Capturar imagen de los comandos siguientes:
@@ -203,7 +205,7 @@ Capturar imagen de los comandos siguientes:
 
 ##2.3 Montaje automático
 
-* El comando `net use S: \\ip-servidor-samba\panaderos /USER:pan1` establece
+* El comando `net use S: \\ip-servidor-samba\recurso /USER:clave` establece
 una conexión del rescurso panaderos y lo monta en la unidad S.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
