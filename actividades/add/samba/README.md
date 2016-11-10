@@ -197,8 +197,8 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 Capturar imagen de los comandos siguientes:
 * Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
+* Vamos a conectarnos desde la máquina Windows al servidor Samba usando el comando net.
 * Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
-* Vamos a conectarnos desde la máquina Windows al servidor Samba usando los comandos net.
 
 ##2.3 Montaje automático
 
