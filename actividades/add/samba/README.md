@@ -6,7 +6,7 @@ Cambios para el curso1718
 * Revisar comando net view
 ```
 
-#Samba
+# Samba
 
 Samba con OpenSUSE 13.2 y Windows 7.
 
@@ -23,9 +23,9 @@ Introducción:
     * MV2: Un cliente GNU/Linux OpenSUSE 13.2 con IP estática (172.18.XX.32).
     * MV3: Un cliente Windows 7 con IP estática (172.18.XX.11).
 
-#1. Servidor Samba (MV1)
+# 1. Servidor Samba (MV1)
 
-##1.1 Preparativos
+## 1.1 Preparativos
 * [Configurar](../../global/configuracion-aula108.md) el servidor GNU/Linux.
 Usar los siguientes valores:
     * Nombre de equipo: smb-serverXX (Donde XX es el número del puesto de cada uno).
@@ -39,7 +39,7 @@ lsblk
 sudo blkid
 ```
 
-##1.2 Usuarios locales
+## 1.2 Usuarios locales
 
 * Capturar imágenes del resultado final.
 * Podemos usar comandos o entorno gráfico Yast.
@@ -55,7 +55,7 @@ como shell `/bin/false`.
 * Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
 * Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
 
-##1.3 Crear las carpetas para los futuros recursos compartidos
+## 1.3 Crear las carpetas para los futuros recursos compartidos
 
 * Capturar imagen del resultado final.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
@@ -72,7 +72,7 @@ como shell `/bin/false`.
         * Grupo propietario `jedis`.
         * Poner permisos 770.
 
-##1.4 Instalar Samba Server
+## 1.4 Instalar Samba Server
 
 * Capturar imágenes del proceso.
 * Vamos a hacer una copia de seguridad del fichero de configuración existente
@@ -88,7 +88,7 @@ como shell `/bin/false`.
     * Iniciar el servicio durante el arranque de la máquina.
     * Ajustes del cortafuegos -> Abrir puertos
 
-##1.5 Configurar el servidor Samba
+## 1.5 Configurar el servidor Samba
 
 Vamos a configurar los recursos compartido del servidor Samba.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
@@ -136,14 +136,14 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
     * `cat /etc/samba/smb.conf`
     * `testparm`
 
-##1.6 Usuarios Samba
+## 1.6 Usuarios Samba
 
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 * `smbpasswd -a nombreusuario`, para crear clave de Samba para un usuario del sistema.
 * `pdbedit -L`, para comprobar la lista de usuarios Samba.
 * Capturar imagen del comando anterior.
 
-##1.7 Reiniciar
+## 1.7 Reiniciar
 
 * Ahora que hemos terminado con el servidor, hay que reiniciar el servicio
 para que se lean los cambios de configuración.
@@ -163,14 +163,14 @@ para que se lean los cambios de configuración.
 > Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
 máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
-#2. Windows (MV3 => smb-cliXXb)
+# 2. Windows (MV3 -> smb-cliXXb)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
 * Usar nombre `smb-cliXXb` y la IP que hemos establecido.
 * Configurar el fichero `...\etc\hosts` de Windows.
 * En los clientes Windows el software necesario viene preinstalado.
 
-##2.1 Cliente Windows GUI
+## 2.1 Cliente Windows GUI
 
 Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor Samba.
 
@@ -191,7 +191,7 @@ desde el cliente al servidor.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente Windows.
 
-##2.2 Cliente Windows comandos
+## 2.2 Cliente Windows comandos
 
 * En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
 * Si hubiera alguna conexión abierta la cerramos.
@@ -203,7 +203,7 @@ Capturar imagen de los comandos siguientes:
 * Vamos a conectarnos desde la máquina Windows al servidor Samba usando el comando net.
 * Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
 
-##2.3 Montaje automático
+## 2.3 Montaje automático
 
 * El comando `net use S: \\ip-servidor-samba\recurso /USER:clave` establece
 una conexión del rescurso panaderos y lo monta en la unidad S.
@@ -214,13 +214,13 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente Windows.
 
-#3 Cliente GNU/Linux (MV2 => smb-cliXXa)
+# 3 Cliente GNU/Linux (MV2 => smb-cliXXa)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
 * Usar nombre `smb-cliXXa` y la IP que hemos establecido.
 * Configurar el fichero `/etc/hosts` de la máquina.
 
-##3.1 Cliente GNU/Linux GUI
+## 3.1 Cliente GNU/Linux GUI
 
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS.
 
@@ -248,7 +248,7 @@ Capturar imagen de lo siguiente:
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente.
 
-##3.2 Cliente GNU/Linux comandos
+## 3.2 Cliente GNU/Linux comandos
 
 Capturar imagenes de todo el proceso.
 
@@ -285,7 +285,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente Windows.
 
-##3.3 Montaje automático
+## 3.3 Montaje automático
 Capturar imágenes del proceso.
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
@@ -301,7 +301,7 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
-#4. Preguntas para resolver
+# 4. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
 * ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
