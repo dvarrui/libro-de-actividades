@@ -147,9 +147,19 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 
 * Ahora que hemos terminado con el servidor, hay que reiniciar el servicio
 para que se lean los cambios de configuración.
-* Podemos hacerlo por Yast o usar los comandos.
-    * `systemctl stop smb`, `systemctl start smb`, `systemctl status smb`
-    * `systemctl stop nmb`, `systemctl start nmb`, `systemctl status nmb`
+* Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.:
+    * Servicio smb
+        * `systemctl stop smb`
+        * `systemctl start smb`
+        * `systemctl status smb`
+    * Servicio nmb
+        * `systemctl stop nmb`
+        * `systemctl start nmb`
+        * `systemctl status nmb`
+
+> Enlaces de interés:
+>
+> * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
@@ -163,7 +173,7 @@ para que se lean los cambios de configuración.
 > Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
 máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
-# 2. Windows (MV3 -> smb-cliXXb)
+# 2. Windows (MV3 `smb-cliXXb`)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
 * Usar nombre `smb-cliXXb` y la IP que hemos establecido.
@@ -214,7 +224,7 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente Windows.
 
-# 3 Cliente GNU/Linux (MV2 => smb-cliXXa)
+# 3 Cliente GNU/Linux (MV2 `smb-cliXXa`)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
 * Usar nombre `smb-cliXXa` y la IP que hemos establecido.
