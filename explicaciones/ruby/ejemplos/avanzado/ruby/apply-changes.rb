@@ -20,10 +20,10 @@ Remember    :
 require_relative 'hosts'
 require_relative 'tasks'
 
-equipos=aula109
+equipos = aula109
 
-threads=[]
+threads = []
 equipos.each do |ip|
-  threads << Thread.new{ instalar_software(ip) } 
+  threads << Thread.new { instalar_software(ip) }
 end
-threads.each { |t| t.join }
+threads.each { |t| t.join } 
