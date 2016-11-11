@@ -3,11 +3,11 @@
 
 #Instalar aplicaciones y actualizar el sistema
 
-En esta actividad vamos a practicar diversas formas de realizar instalaciones 
-de aplicaciones en varios sistemas operativos, así como la forma de 
+En esta actividad vamos a practicar diversas formas de realizar instalaciones
+de aplicaciones en varios sistemas operativos, así como la forma de
 mantener nuestros sistemas actualizados.
 
-#1. Windows 7 
+#1. Windows 7
 
 Enlaces de interés:
 * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
@@ -18,17 +18,17 @@ Capturar imagen del proceso final.
 
 ###Actualización del sistema:
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
-* Aplicar las actualizaciones del SO (Panel de control -> Windows Update). 
+* Aplicar las actualizaciones del SO (Panel de control -> Windows Update).
 Si hay muchas actualizaciones pendientes NO las actualizacen todas. Elijan sólo algunas para probar.
 
 ###Instalar características del sistema operativo:
-* Vamos a las herramientas de Windows 
+* Vamos a las herramientas de Windows
 (`Panel de control -> Programas y características -> Activar o desactivar características de Windows`).
 * Instalar Cliente Telnet y Juegos/Buscaminas. Comprobar que funcionan correctamente.
 
 > La herramienta telnet sirve para conectarse a equipos remotos.
 >
-> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar 
+> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar
 la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 >
 > Una forma de comprobar el cliente telnet:
@@ -37,10 +37,10 @@ la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 > * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
 ###Vamos a instalar aplicaciones
-Capturar imagenes de los pasos realizados. 
-* Descargar Geany para SO Windows de las páginas oficiales. 
+Capturar imagenes de los pasos realizados.
+* Descargar Geany para SO Windows de las páginas oficiales.
 Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
-* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. 
+* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta.
 En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha verificación.
 * Realizar la instalación de la aplicación.
 * Comprobar su funcionamiento.
@@ -66,7 +66,7 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 ![windows-git-path](./images/windows-git-path.png)
 * `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
 * Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
-          
+
 ###Desinstalar programas:
 * Vamos a desinstalar el programa por comandos usando la consola wmic.
 * Abrir consola PowerShell como Administrador
@@ -91,7 +91,7 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`
 >
 > Una vez realizado este paso ya esta instalado el "gestor" de instalaciones para la terminal,
- por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: 
+ por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente:
  `cinst notepadplusplus`
 >
 > ![chcolatey-org](./images/chcolatey-org.jpg)
@@ -104,17 +104,23 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 Vamos a usar SO OpenSUSE 13.2.
 
 ##2.1 Usando el GUI
-Capturar imagen del resultado final.
 
-> El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
-* Iniciar el gestor de paquetes ( `yast -> Inst. Software`). 
+El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
+
+* Capturar imagen del resultado final.
+* Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
+
+> Enlaces de interés:
+> * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
 ###Instalar paquetes
+
 * Iniciar Yast -> refrescar los repositorios.
-* Instalar por ejemplo el editor geany, git, gkrellm o recordmydesktop.
+* Instalar por ejemplo el editor geany, git, gkrellm o gtk-recordmydesktop.
 * Comprobar que funciona el programa instalado.
 
 ###Desinstalar paquetes
+
 * Desinstalar la aplicación con el gestor de paquetes.
 
 ##2.2 Usando los comandos
@@ -139,5 +145,3 @@ Capturar imágenes de los pasos realizados.
     * `zypper se nombre-programa`
     * Ejecutar el programa y ver que funciona.
     * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
-
-
