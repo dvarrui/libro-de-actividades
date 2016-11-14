@@ -4,7 +4,7 @@
 
 # 1. SO Windows 7
 
-* [Configurar la MV](../../global/configuracion/windows7.md).
+* [Configurar la MV](../../global/configuracion/windows.md).
 * Para la creación de usuarios podemos ir por `Panel de Control`, pero esa
 herramienta está limitada. Nosotros vamos a ir a
 `miPC -> Botón derecho administrar -> Gestión de usuarios`.
@@ -159,15 +159,18 @@ Modificar los permisos de la siguiente forma:
     * Crear la carpeta `/home/jedi1/group`.
     * Crear la carpeta `/home/jedi1/public`.
 
-Veamos un ejemplo de permisos por el entorno GUI:
+> Veamos un ejemplo de permisos por el entorno GUI, donde:
+> * Permiso R = Ver contenido
+> * Permiso W = Cambiar contenido
+> * Permido X = Access content
 
 ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
 * Capturar imagen del resultado final.
 * Modificar los permisos de las carpetas de la siguiente forma:
-    * `private`: Sólo el usuario propietario tendrá permisos lectura/escritura.
-    * `group`: grupo `jedis` permisos de lectura, y usuario propietario permisos de lectura y escritura.
-    * `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+    * `private`: Sólo el usuario propietario tendrá todos los permisos.
+    * `group`: grupo `jedis` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+    * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
 ## 2.3 Sudoers (Grupo privilegiado)
 
@@ -177,58 +180,63 @@ Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 Vamos a dar privilegios de superusuario a los miembros del grupo `jedis` usando
 las configuraciones del comando sudo.
 
-Para ello tenemos que permitir a los usuarios del grupo de `jedis` para poder tener privilegio
-totales de uso del comando sudo, añadiendo la línea siguiente
+> Para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo, añadimos la línea siguiente
 `%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers.
+>
+> Esto quiere decir:
+> * `Usuarios -> %jedis`, a todos los usuarios jedis
+> * `Host -> ALL`
+> * `Ejecutar como -> (root)`, puede ejecutar como usuario root.
+> * `Sin contraseña -> Si`
+> * `Comandos -> ALL`, todos los comandos están permitidos.
 
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
 * Dos formas de hacerlo:
-    1. **GUI**: Usar Yast en OpenSUSE. Ver imagen de ejemplo.
+    1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
     2. **CLI**: Usar el comando `visudo`para editar el fichero de configuración `/etc/sudoers` (Se puede usar nano).
 * Guardar y salir
-* Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo,
-para realizar todas las tareas administrativas. Comprobarlo.
+* Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario). Comprobarlo. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
 
 > Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 >
 > ![linux-sudo-error](./images/linux-sudo-error.png)
 
 * Configurar al grupo `sith` en sudoers con
-`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/dhclient`.
+`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Comprobar los nuevos permisos.
 
-##2.4 Usando los comandos
+## 2.4 Usando los comandos
 
-> Vídeo [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
+> Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
-Capturar imagen de los pasos realizados.
+Capturar imagen del resultado final.
 
 * Crear el grupo `siths`.
 * Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
-* Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios
-definidos el el sistema. Algunos son usados por personas físicas, y otros
+* Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
 * Para cada usuario del grupo `siths` hacer:
     * Crear la carpeta `/home/sith1/private`.
     * Crear la carpeta `/home/sith1/group`.
     * Crear la carpeta `/home/sith1/public`.
 
-> * chown (Cambiar propietario)
-> * chgrp (Cambiar grupo propietario),
-> * chmod (Cambiar permisos de acceso).
+```
+* chown (Cambiar propietario)
+* chgrp (Cambiar grupo propietario),
+* chmod (Cambiar permisos de acceso).
+```
 
 Modificar los permisos de las carpetas:
-* `private`: Sólo el usuario propietario tendrá permisos lectura/escritura.
-* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de lectura y escritura.
-* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
+* `private`: Sólo el usuario propietario tendrá todos los permisos.
+* `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+* `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
-
-#ANEXO
+# ANEXO
 
 El anexo contiene información complementaria. No hay que hacerlo.
 
-##A.1 Personalización de usuarios GNU/Linux
+## A.1 Personalización de usuarios GNU/Linux
 
 En OpenSUSE vemos que cuando queremos invocar el comando `ifconfig` con
 un usuario normal debemos hacerlo con la ruta absoluta `/sbin/ifconfig`.
@@ -251,7 +259,7 @@ Para que los cambios tengan efecto debemos cerrar la sesión.
 
 En otras distribuciones se usa el fichero de configuración `/home/nombre-de-usuario/.bashrc`.
 
-##A.2 Emulador de consola portable para Windows
+## A.2 Emulador de consola portable para Windows
 
 Cmder (http://bliker.github.io/cmder/) is a software package created out of pure
 frustration over the absence of nice console emulators on Windows.
