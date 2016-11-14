@@ -65,8 +65,8 @@ Veamos un ejemplo para **crear grupo**:
 * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
 
 ```
-PS C:\> [ADSI]$server="WinNT://nombre-pc"
-PS C:\> $grupo=$server.Create("Group","alumnos")
+PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
+PS C:\> $grupo=$equipo.Create("Group","alumnos")
 PS C:\> $grupo
 PS C:\> $grupo.SetInfo()
 ```
@@ -77,21 +77,21 @@ Veamos un ejemplo de **creación de usuarios** en PowerShell:
 * Cambiar "123456" por el valor de password que querramos.
 
 ```
-PS C:\> [ADSI]$server="WinNT://nombre-pc"
-PS C:\> $usu1=$server.Create("User","alumno1")
-PS C:\> $usu1
+PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
+PS C:\> $usuario=$equipo.Create("User","alumno1")
+PS C:\> $usuario
 distinguishedName :
 Path : WinNT://AULA109/nombre-pc/alumno1
-PS C:\> $usu1.SetPassword("123456")
-PS C:\> $usu1.SetInfo()
+PS C:\> $usuario.SetPassword("123456")
+PS C:\> $usuario.SetInfo()
 ```
 
 Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
 ```
 PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
 PS> $grupo
-PS> $usu2 = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
-PS> $grupo.Add($usu2.path)
+PS> $usuario = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
+PS> $grupo.Add($usuario.path)
 ```
 
 ## 1.3 Usando los comandos Windows
