@@ -1,5 +1,6 @@
 
-#Quitar claves en GNU/Linux
+# Quitar claves en GNU/Linux
+
 Para quitar/cambiar las claves de un sistema desconocido haremos lo siguiente:
 * Iniciar máquina con CD-LIVE de Knoppik
 * Abrir terminal y convertirnos a super usuario.
@@ -22,11 +23,12 @@ Para quitar/cambiar las claves de un sistema desconocido haremos lo siguiente:
 * Grabamos los cambios, y reiniciamos el sistema sin el DVD.
 * Ahora root tiene la clave vacía.
 
-#Quitar claves en Windows
+# Quitar claves en Windows
 * Decargar distro GNU/Linux OphCrack.
 * Reiniciar máquina Windows con la distro en la unidad de CD/DVD.
 * Estará trabajando unos minutos y mostrará las claves que encuentre por el método de la fuerza bruta.
 
-#Poner claves en GRUB2
+# Poner claves en GRUB2
+
 Si ponemos claves al BootLoader sólo los usuarios autorizados podrán iniciar el SO.
 Ver [vídeo](http://www.youtube.com/watch?v=IxdzR8LkwKE).

@@ -1,17 +1,16 @@
-#Usuarios y permisos
+# Usuarios y permisos
 
-* Entregar documento en formato ODT o PDF, con el informe de la actividad
-realizadas y las capturas solicitadas.
+* Entregar documento en formato ODT o PDF, con el informe de la actividad. Incluir las acciones realizadas y las capturas solicitadas.
 
-#1. SO Windows 7
+# 1. SO Windows 7
 
-* [Configurar la MV](../../global/configuracion-aula109.md).
+* [Configurar la MV](../../global/configuracion/windows7.md).
 * Para la creación de usuarios podemos ir por `Panel de Control`, pero esa
 herramienta está limitada. Nosotros vamos a ir a
 `miPC -> Botón derecho administrar -> Gestión de usuarios`.
 * ¿Cuántos usuarios hay en el sistema que no aparecen en la ventana de inicio? ¿Por qué?
 
-##1.1 Usando el GUI Windows
+## 1.1 Usando el GUI Windows
 
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
 * Los miembros del grupo `jedis` incluirlos además como miembreos del grupo
@@ -24,7 +23,7 @@ administradores, para que puedan actuar como superusuarios.
     * Crear la carpeta `C:\Users\jedi1\group`.
     * Crear la carpeta `C:\Users\jedi1\public`.
 
-> **INFORMACIÓN:** Permisos NTFS
+> **INFORMACIÓN sobre Permisos NTFS**
 >
 > En Windows las carpetas HEREDAN los permisos de su carpeta padre. Para desactivar esta función
 en una carpeta determinada, haremos lo siguiente:
@@ -46,7 +45,7 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ![win-permisos-gui-public-dir](./images/win-permisos-gui-public-dir.png)
 
-##1.2 Ejemplo/Información sobre PowerShell
+## 1.2 Ejemplo/Información sobre PowerShell
 
 Vamos a pronar los comandos de PowerShell. Para ello buscamos en el
 `menú -> PowerShell -> (botón derecho) -> Iniciar como Administrador`.
@@ -54,54 +53,55 @@ Vamos a pronar los comandos de PowerShell. Para ello buscamos en el
 Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
 y no podremos crear los usuarios.
 
-> **EJEMPLO Shell CMD**
->
-> * `net user nombre-usuario clave-usuario /add`, crear usuario.
-> * `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo
->
-> **EJEMPLO shell PowerShell**
->
-> Veamos un ejemplo para **crear grupo**:
-> * Cambiar nombre-pc por el nombre del PC de cada uno.
-> * Cambiar "alumnos" por el nombre del grupo que deseamos crear.
->
-> ```
-> PS C:\> [ADSI]$server="WinNT://nombre-pc"
-> PS C:\> $grupo=$server.Create("Group","alumnos")
-> PS C:\> $grupo
-> PS C:\> $grupo.SetInfo()
-> ```
-> Veamos un ejemplo de **creación de usuarios** en PowerShell:
-> * Cambiar nombre-pc por el nombre del PC de cada uno.
-> * Cambiar "alumno1" por el nombre del usuario que deseamos crear.
-> * Cambiar "123456" por el valor de password que querramos.
->
-> ```
-> PS C:\> [ADSI]$server="WinNT://nombre-pc"
-> PS C:\> $usu1=$server.Create("User","alumno1")
-> PS C:\> $usu1
-> distinguishedName :
-> Path : WinNT://AULA109/nombre-pc/alumno1
-> PS C:\> $usu1.SetPassword("123456")
-> PS C:\> $usu1.SetInfo()
-> ```
->
-> Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
-> ```
-> PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
-> PS> $grupo
-> PS> $usu2 = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
-> PS> $grupo.Add($usu2.path)
-> ```
+**EJEMPLO Shell CMD**
 
-##1.3 Usando los comandos Windows
+* `net user nombre-usuario clave-usuario /add`, crear usuario.
+* `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo
+
+**EJEMPLO shell PowerShell**
+
+Veamos un ejemplo para **crear grupo**:
+* Cambiar nombre-pc por el nombre del PC de cada uno.
+* Cambiar "alumnos" por el nombre del grupo que deseamos crear.
+
+```
+PS C:\> [ADSI]$server="WinNT://nombre-pc"
+PS C:\> $grupo=$server.Create("Group","alumnos")
+PS C:\> $grupo
+PS C:\> $grupo.SetInfo()
+```
+
+Veamos un ejemplo de **creación de usuarios** en PowerShell:
+* Cambiar nombre-pc por el nombre del PC de cada uno.
+* Cambiar "alumno1" por el nombre del usuario que deseamos crear.
+* Cambiar "123456" por el valor de password que querramos.
+
+```
+PS C:\> [ADSI]$server="WinNT://nombre-pc"
+PS C:\> $usu1=$server.Create("User","alumno1")
+PS C:\> $usu1
+distinguishedName :
+Path : WinNT://AULA109/nombre-pc/alumno1
+PS C:\> $usu1.SetPassword("123456")
+PS C:\> $usu1.SetInfo()
+```
+
+Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
+```
+PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
+PS> $grupo
+PS> $usu2 = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
+PS> $grupo.Add($usu2.path)
+```
+
+## 1.3 Usando los comandos Windows
 
 * Capturar imagen de las acciones finales.
 * Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
 
-> Al ponerlos dentro del grupo Usuarios conseguimos que se muestren los
-iconos en la ventana de inicio de sesión del sistema.
+> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
+iconos de la ventana de inicio de sesión del sistema.
 >
 > [Más información sobre la creación de usuarios con PowerShell](https://www.petri.com/create-local-accounts-with-powershell)
 
@@ -132,19 +132,17 @@ iconos en la ventana de inicio de sesión del sistema.
 > PS C:\> icacls directorio /remove USERNAME
 > ```
 
-
 Modificar los permisos de la siguiente forma:
 * `private`: Sólo el usuario propietario tendrá control total.
 * `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
 * `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
 
+# 2. SO GNU/Linux OpenSUSE
 
-#2. SO GNU/Linux OpenSUSE
+## 2.1 Preparar la MV
 
-##2.1 Preparar la MV
-
-* [Configurar](../../global/configuracion-aula109.md) la MV.
-* Ir al gestor de usuarios de OpenSUSE: Ir a Yast -> Gestión de Usuarios.
+* [Configurar la MV](../../global/configuracion/opensuse.md).
+* Ir al gestor de usuarios de OpenSUSE: `Ir a Yast -> Gestión de Usuarios`.
 * ¿Cuántos usuarios hay que no aparecen en la ventana de inicio al sistema? ¿Por qué?
 
 > En Debian/Ubuntu iremos a
@@ -152,7 +150,7 @@ Modificar los permisos de la siguiente forma:
 > * `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`,
 > * `Sistemas -> Administración -> Usuarios y Grupos`.
 
-##2.2 Usando el GUI GNU/Linux
+## 2.2 Usando el GUI GNU/Linux
 
 * Capturar imagen del resultado final.
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
@@ -171,7 +169,7 @@ Veamos un ejemplo de permisos por el entorno GUI:
     * `group`: grupo `jedis` permisos de lectura, y usuario propietario permisos de lectura y escritura.
     * `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de lectura y escritura.
 
-##2.3 Sudoers (Grupo privilegiado)
+## 2.3 Sudoers (Grupo privilegiado)
 
 > El comando `sudo` nos permite ejecutar comandos como si fuéramos el administrador del equipo.
 Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
@@ -187,7 +185,7 @@ totales de uso del comando sudo, añadiendo la línea siguiente
 
 * Dos formas de hacerlo:
     1. **GUI**: Usar Yast en OpenSUSE. Ver imagen de ejemplo.
-    2. **CLI**: Abrir el editor de la configuración sudo (`/etc/sudoers`) (Debian/Ubuntu se usa `visudo`).
+    2. **CLI**: Usar el comando `visudo`para editar el fichero de configuración `/etc/sudoers` (Se puede usar nano).
 * Guardar y salir
 * Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo,
 para realizar todas las tareas administrativas. Comprobarlo.
