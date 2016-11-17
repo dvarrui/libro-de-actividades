@@ -1,25 +1,15 @@
 *(Utilizado en el curso 2015-16)*
 
-#NFS (Network File System)
+# NFS (Network File System)
 
 NFS es una forma de crear recursos en red para compartir con sistemas heterogéneos.
 
-#1. SO Windows
+# 1. SO Windows
 Para esta parte vamos a necesitar 2 máquinas:
-* MV Windows 2008 Server (Enterprise) como nuestro servidor NFS.
-    * Como nombre de esta máquina usar "primer-apellido-alumno+XX+WS".
-    * IP estática 172.18.XX.22
-    * Grupo de trabajo AULA108
-* MV Windows (Enterprise) como nuestro cliente NFS.
-    * Como nombre de esta máquina usar "primer-apellido-alumno+XX+WC".
-    * IP estática 172.18.XX.12
-    * Grupo de trabajo AULA108
-    
-> Donde XX es el número de PC de la máquina real de cada uno. 
-Para averiguar XX ejecuten en la máquina real, `ip a` o `ifconfig` o `if a s`, 
-si muestra IP 172.16.8.30 entonces XX=30.
+* MV Windows 2008 Server (Enterprise) como nuestro servidor NFS ([Configurar MV](./../../global/configuracion/windows-server.md)).
+* MV Windows (Enterprise) como nuestro cliente NFS ([Configurar MV](./../../global/configuracion/windows.md))..
 
-##1.1 Servidor NFS Windows
+## 1.1 Servidor NFS Windows
 
 > **Vídeos**
 >
@@ -39,31 +29,29 @@ Instalación del servicio NFS en Windows 2008 Server
 * Marcar `Servicio para NFS`.
 
 Configurar el servidor NFS de la siguiente forma:
-* Crear la carpeta `c:\exportXX\public`. Picar en la carpeta `botón derecho 
-propiedades -> Compartir NFS`, y configurarla para que sea accesible desde 
-la red en modo lectura/escritura con NFS.
-* Crear la carpeta `c:\exportXX\private`. Picar en la carpeta `botón derecho 
-propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red 
-sólo en modo sólo lectura.
+* Crear la carpeta `c:\exportXX\public`. Picar en la carpeta `botón derecho
+propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red en modo lectura/escritura con NFS.
+* Crear la carpeta `c:\exportXX\private`. Picar en la carpeta `botón derecho
+propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red sólo en modo sólo lectura.
 
 ![nfs-windows-servidor1](./images/nfs-windows-servidor1.png)
 
-* Ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos exportados.
+* Ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar que los recursos exportados.
 
-##1.2 Cliente NFS
+## 1.2 Cliente NFS
 
-Las últimas versiones de Windows permiten trabajar con directorios de red NFS nativos de sistemas UNIX. 
-En esta sección veremos como montar y desmontar estos directorios bajo un entorno de Windows 7 
+Las últimas versiones de Windows permiten trabajar con directorios de red NFS nativos de sistemas UNIX.
+En esta sección veremos como montar y desmontar estos directorios bajo un entorno de Windows 7
 Enterprise (Las versiones home y starter no tienen soporte para NFS).
 
 **Instalar el soporte cliente NFS bajo Windows**
-* En primer lugar vamos a instalar el componente cliente NFS para Windows. 
+* En primer lugar vamos a instalar el componente cliente NFS para Windows.
 Para ello vamos a `Panel de Control -> Programas -> Activar o desactivar características de Windows`.
 
 ![nfs-cliente1](./images/w7-nfs-cliente1.png)
 
 Captura imagen del resultado final.
-* Nos desplazamos por el menú hasta localizar Servicios para NFS y dentro de este, Cliente NFS. 
+* Nos desplazamos por el menú hasta localizar Servicios para NFS y dentro de este, Cliente NFS.
 * Marcamos ambos y le damos a Aceptar.
 * En unos instantes tendremos el soporte habilitado.
 
@@ -78,7 +66,7 @@ Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 * Consultar desde el cliente los recursos que ofrece el servidor: `showmount -e ip-del-servidor`
 * Montar recurso remoto: `mount –o anon,nolock,r,casesensitive \\ip-del-servidor\Nombre-recurso-NFS *`
 * Comprobar en el cliente los recursos montados con `net use` y `showmount -a ip-del-servidor`
-    
+
 > **EXPLICACIÓN DE LOS PARÁMETROS**
 >
 > * anon: Acceso anónimo al directorio de red.
@@ -88,78 +76,77 @@ Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 
 ![nfs-cliente2](./images/w7-nfs-cliente2.png)
 
-* Hemos decidido asignar la letra de unidad de forma automática, así que si no hay otras unidades de red 
+* Hemos decidido asignar la letra de unidad de forma automática, así que si no hay otras unidades de red
 en el sistema nos asignará la Z.
 
 ![nfs-cliente3](./images/w7-nfs-cliente3.png)
 
 ![nfs-cliente4](./images/w7-nfs-cliente4.png)
 
-> Si hay problemas, comprobar que la configuración del cortafuegos del servidor permite accesos NFS.
+> Si hay problemas:
 >
-> * Desde un cliente GNU/Linux hacemos `nmap IP-del-servidor -Pn`.
-> * Debe aparecer abierto el puerto del servicio NFS
+> * Comprobar que la configuración del cortafuegos del servidor permite accesos NFS.
+> * Desde un cliente GNU/Linux hacer `nmap IP-del-servidor -Pn`. Debe aparecer abierto el puerto del servicio NFS
 
 * Para desmontar la unidad simplemente escribimos en una consola: `umount z:`
 * En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
 
-#2. SO OpenSUSE
+# 2. SO OpenSUSE
 
 Vamos a necesitar 2 máquinas GNU/Linux:
 
-* MV OpenSUSE, donde instalamos el servicio NFS (directorios compartidos por red)
-    * Como nombre de esta máquina usar `nfs-server-XX`. Modificar el fichero /etc/hostname, 
+* MV1 OpenSUSE
+    * Donde instalamos el servicio NFS (directorios compartidos por red).
+    * [Configurar MV](./../../global/configuracion/opensuse.md)
+    * Como nombre de esta máquina usar `nfs-server-XX`. Modificar el fichero /etc/hostname,
     para establecer el nombre de máquina, y el fichero /etc/hosts.
-    * IP estática 172.18.XX.52
-    * VirtualBox Red en Modo Puente
-* MV OpenSUSE, donde instalaremos el cliente NFS.
+* MV2 OpenSUSE
+    * Donde instalaremos el cliente NFS.
+    * [Configurar MV](./../../global/configuracion/opensuse.md)
     * Como nombre de esta máquina usar `nfs-client-XX`
-    * IP estática 172.18.XX.62
-    * VirtualBox Red en Modo Puente
 
-> * /ETC/HOSTS: Por comodidad podemos configurar el fichero /etc/hosts del cliente y servidor, 
-añadiendo estas líneas:
+> Podemos configurar el fichero /etc/hosts del cliente y servidor, añadiendo estas líneas:
 > ```
-> 172.18.XX.52 nfs-server-XX.apellido-alumno   nfs-server-XX
-> 172.18.XX.62 nfs-client-XX.apellido-alumno   nfs-client-XX
+> 172.18.XX.52 nfs-server-XX.curso1617   nfs-server-XX
+> 172.18.XX.62 nfs-client-XX.curso1617   nfs-client-XX
 > ```
+
+## 2.1 Servidor NFS
+
+> Enlaces de interés:
 >
->* La configuración de los interfaces de red, servidores de nombres, etc. la podemos hacer en YAST.
-
-##2.1 Servidor NFS
-
 > * Vídeo [LPIC-2 202 NFS Server Configuration](https//www.youtube.com/embed/Kc3LZum5DIQ?list=UUFFLP0dKesrKWccYscdAr9A)
 > * Vídeo [NFS. Learning Linux: Lesson 17 NFS Server and Installation Repository](https//www.youtube.com/embed/9N8QTh-oYis?list=PL3E447E094F7E3EBB)
 > * Enlace de interés a [NFS Sistema de Archivos de red](http://recursostic.educacion.es/observatorio/web/es/software/software-general/733-nfs-sistema-de-archivos-de-red)
 
 * Instalar servidor NFS por Yast.
 * Crear las siguientes carpetas/permisos:
-    * `/var/exportXX/public`, usuario y grupo propietario `nobody:nogroup`
-    * `/var/exportXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
+    * `/srv/exportXX/public`, usuario y grupo propietario `nobody:nogroup`
+    * `/srv/exportXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
 * Vamos configurar el servidor NFS de la siguiente forma:
-    * La carpeta `/var/exportXX/public`, será accesible desde toda la red en modo lectura/escritura.
-    * La carpeta `/var/exportXX/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
+    * La carpeta `/srv/exportXX/public`, será accesible desde toda la red en modo lectura/escritura.
+    * La carpeta `/srv/exportXX/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
 ```
-    ...
-    /var/exportXX/public *(rw,sync,subtree_check)
-    /var/exportXX/private ip-del-cliente/32(ro,sync,subtree_check)
-    ...
+...
+/srv/exportXX/public *(rw,sync,subtree_check)
+/srv/exportXX/private IP-DEL-CLIENTE/32(ro,sync,subtree_check)
+...
 ```
 
 > OJO: NO debe haber espacios entre la IP y abrir paréntesis.
 
-* Para iniciar y parar el servicio NFS, usaremos Yast o `systemctl`. Si al iniciar 
-el servicio aparecen mensaje de error o advertencias, debemos resolverlas. 
+* Para iniciar y parar el servicio NFS, usaremos Yast o `systemctl`. Si al iniciar
+el servicio aparecen mensaje de error o advertencias, debemos resolverlas.
 Consultar los mensajes de error del servicio.
 
 > [Enlace de interés](http://www.unixmen.com/setup-nfs-server-on-opensuse-42-1/)
 
 * Para comprobarlo, `showmount -e localhost`. Muestra la lista de recursos exportados por el servidor NFS.    
+## 2.2 Cliente NFS
 
-##2.2 Cliente NFS
-En esta parte, vamos a comprobar que las carpetas del servidor son accesibles desde el cliente. 
-Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en 
+En esta parte, vamos a comprobar que las carpetas del servidor son accesibles desde el cliente.
+Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en
 OpenSUSE `zypper in nfs-common`.
 
 Comprobar conectividad desde cliente al servidor:
@@ -169,10 +156,10 @@ Comprobar conectividad desde cliente al servidor:
 
 En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con public.
 * Crear la carpeta /mnt/remoto/public
-* `mount.nfs ip-del-servidor:/var/export/public /mnt/remoto/public` montar el recurso
+* `mount.nfs IP-DEL-SERVIDOR:/srv/exportXX/public /mnt/remoto/public` montar el recurso
 * `df -hT`, y veremos que los recursos remotos están montados en nuestras carpetas locales.
 
-> Para montar los recursos NFS del servidor Windows haremos: 
+> Para montar los recursos NFS del servidor Windows haremos:
 > * `showmount -e ip-del-servidor`: Para consultar los recursos que exporta el servidor.
 > * `mount.nfs ip-del-servidor:/public /mnt/remoto/windows`: Para montar el recurso public del servidor.
 >
@@ -185,20 +172,21 @@ En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con 
 * Ahora vamos a crear carpetas/ficheros dentro del recurso public.
 * Comprobar que el recurso private es de sólo lectura.
 
-##2.3. Montaje automático
-> Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). 
-Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual 
-ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, 
+## 2.3. Montaje automático
+
+> Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
+Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual
+ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso,
 a no ser que hagamos una configuración permanente o automática.
 
-Para configurar acciones de montaje autoḿaticos cada vez que se inicie el equipo en
-OpenSUSE usamos Yast o bien modificamos la configuración del fichero `/etc/fstab`. Comprobarlo.
-
+* Configurar montaje autoḿatico del recurso compartido. Usar Yast o bien modificamos la configuración del fichero `/etc/fstab`.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
+* Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
+* Comprobarlo.
 
-#3. Preguntas
+# 3. Preguntas
 
 * ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Comprobarlo.
 * ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? Comprobarlo.
-* Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros 
+* Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros
 que se guardan en el servidor, cuando los creamos desde una conexión cliente NFS.
