@@ -161,8 +161,8 @@ OpenSUSE `zypper in nfs-common`.
 * `showmount -e ip-del-servidor`: Muestra la lista de recursos exportados por el servidor NFS.
 
 **En el cliente vamos a montar y usar cada recurso compartido**. Veamos ejemplo con public.
-* Crear la carpeta /mnt/remoto/public
-* `mount.nfs IP-DEL-SERVIDOR:/srv/exportXX/public /mnt/remoto/public` montar el recurso
+* Crear la carpeta `/mnt/remotoXX/public`.
+* `mount.nfs IP-DEL-SERVIDOR:/srv/exportXX/public /mnt/remotoXX/public` montar el recurso
 * `df -hT`, y veremos que los recursos remotos están montados en nuestras carpetas locales.
 
 > Para montar los recursos NFS del servidor Windows haremos:
@@ -177,6 +177,7 @@ OpenSUSE `zypper in nfs-common`.
 
 * Ahora vamos a crear carpetas/ficheros dentro del recurso public.
 * Comprobar que el recurso private es de sólo lectura.
+* `netstat -ntap`, para comprobar el acceso a los recursos NFS desde el cliente.
 
 ## 2.3. Montaje automático
 
@@ -185,7 +186,9 @@ Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de fo
 ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso,
 a no ser que hagamos una configuración permanente o automática.
 
-* Configurar montaje autoḿatico del recurso compartido. Usar Yast o bien modificamos la configuración del fichero `/etc/fstab`.
+* Configurar montaje autoḿatico del recurso compartido public.
+    * Usar Yast o
+    * Modificar directamente en el fichero `/etc/fstab`.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 * Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
 * Comprobarlo.
@@ -195,4 +198,4 @@ a no ser que hagamos una configuración permanente o automática.
 * ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Comprobarlo.
 * ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? Comprobarlo.
 * Fijarse en los valores de usuarios propietario y grupo propietario de los ficheros
-que se guardan en el servidor, cuando los creamos desde una conexión cliente NFS.
+que se guardan en el servidor NFS, cuando los creamos desde una conexión cliente NFS.
