@@ -95,6 +95,7 @@ en el sistema nos asignará la Z.
 
 * Para desmontar la unidad simplemente escribimos en una consola: `umount z:`
 * En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
+* `netstat -n`, para comprobar el acceso a los recursos NFS desde el cliente.
 
 # 2. SO OpenSUSE
 
