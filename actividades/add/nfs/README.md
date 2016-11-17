@@ -2,21 +2,26 @@
 
 # NFS (Network File System)
 
-NFS es una forma de crear recursos en red para compartir con sistemas heterogéneos.
+NFS es un protocolo àra compartir recursos en red entre sistemas heterogéneos.
 
 # 1. SO Windows
+
 Para esta parte vamos a necesitar 2 máquinas:
-* MV Windows 2008 Server (Enterprise) como nuestro servidor NFS ([Configurar MV](./../../global/configuracion/windows-server.md)).
-* MV Windows (Enterprise) como nuestro cliente NFS ([Configurar MV](./../../global/configuracion/windows.md))..
+* MV Servidor NFS
+    * Windows 2008 Server (Enterprise)
+    * [ Configurar MV ](./../../global/configuracion/windows-server.md)
+* Cliente NFS
+    * Windows 7 (Enterprise)
+    * [ Configurar MV ](./../../global/configuracion/windows.md)
 
 ## 1.1 Servidor NFS Windows
 
-> **Vídeos**
+> Vídeos:
 >
 > * [Vídeo que explica cómo instalar NFS en Windows Server](https://www.youtube.com/embed/1yigsSPwxds)
 > * [Vídeo: NFS - Parte 1. SO Windows 7 FUNCIONANDO](http://www.youtube.com/watch?v=QWx-WlKf1DY&feature=youtu.be)
 >
-> **Enlaces de interés:**
+> Enlaces de interés:
 >
 > * Cliente NFS: [Montar directorios NFS bajo Windows 7](http://www.muspells.net/blog/2011/08/montar-directorios-nfs-bajo-windows-7/)
 > * Servidor NFS: [Servidor NFS para Windows con WinNFSd](https://robleshermoso.wordpress.com/2010/07/15/tip-servidor-nfs-para-windows/)
@@ -24,11 +29,11 @@ Para esta parte vamos a necesitar 2 máquinas:
 > * Comandos NFS: [Guía paso a paso de Servicios para NFS para Windows Server 2008 R2](https://support.microsoft.com/es-es/kb/324089)
 >
 
-Instalación del servicio NFS en Windows 2008 Server
+**Instalación del servicio NFS en Windows 2008 Server**
 * Agregar rol `Servidor de Archivos`.
 * Marcar `Servicio para NFS`.
 
-Configurar el servidor NFS de la siguiente forma:
+**Configurar el servidor NFS de la siguiente forma:**
 * Crear la carpeta `c:\exportXX\public`. Picar en la carpeta `botón derecho
 propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red en modo lectura/escritura con NFS.
 * Crear la carpeta `c:\exportXX\private`. Picar en la carpeta `botón derecho
@@ -40,7 +45,7 @@ propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la re
 
 ## 1.2 Cliente NFS
 
-Las últimas versiones de Windows permiten trabajar con directorios de red NFS nativos de sistemas UNIX.
+Algunas versiones de Windows permiten trabajar con directorios de red NFS nativos de sistemas UNIX.
 En esta sección veremos como montar y desmontar estos directorios bajo un entorno de Windows 7
 Enterprise (Las versiones home y starter no tienen soporte para NFS).
 
@@ -142,19 +147,20 @@ Consultar los mensajes de error del servicio.
 
 > [Enlace de interés](http://www.unixmen.com/setup-nfs-server-on-opensuse-42-1/)
 
-* Para comprobarlo, `showmount -e localhost`. Muestra la lista de recursos exportados por el servidor NFS.    
+* Para comprobarlo, `showmount -e localhost`. Muestra la lista de recursos exportados por el servidor NFS.
+
 ## 2.2 Cliente NFS
 
 En esta parte, vamos a comprobar que las carpetas del servidor son accesibles desde el cliente.
 Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en
 OpenSUSE `zypper in nfs-common`.
 
-Comprobar conectividad desde cliente al servidor:
+**Comprobar conectividad desde cliente al servidor:**
 * `ping ip-del-servidor`: Comprobar la conectividad del cliente con el servidor. Si falla hay que revisar las configuraciones de red.
 * `nmap ip-del-servidor -Pn`: nmap sirve para escanear equipos remotos, y averiguar que servicios están ofreciendo al exterior. Hay que instalar el paquete nmap, porque normalemente no viene preinstalado.
 * `showmount -e ip-del-servidor`: Muestra la lista de recursos exportados por el servidor NFS.
 
-En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con public.
+**En el cliente vamos a montar y usar cada recurso compartido**. Veamos ejemplo con public.
 * Crear la carpeta /mnt/remoto/public
 * `mount.nfs IP-DEL-SERVIDOR:/srv/exportXX/public /mnt/remoto/public` montar el recurso
 * `df -hT`, y veremos que los recursos remotos están montados en nuestras carpetas locales.
@@ -164,7 +170,7 @@ En el cliente vamos a montar y usar cada recurso compartido. Veamos ejemplo con 
 > * `mount.nfs ip-del-servidor:/public /mnt/remoto/windows`: Para montar el recurso public del servidor.
 >
 > Otro ejemplo:
-> * `mount.nfs ip-servidor-nfs-windows:/C/export/public /mnt/remoto/windows`
+> * `mount.nfs ip-servidor-nfs-windows:/C/exportXX/public /mnt/remoto/windows`
 >
 > Para comprobar si el recurso está montado usaremos: `df -hT` o `mount`.
 >
