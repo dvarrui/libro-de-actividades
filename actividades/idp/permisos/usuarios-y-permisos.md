@@ -13,7 +13,7 @@ herramienta está limitada. Nosotros vamos a ir a
 ## 1.1 Usando el GUI Windows
 
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
-* Los miembros del grupo `jedis` incluirlos además como miembreos del grupo
+* Los miembros del grupo `jedis` incluirlos además en el grupo
 administradores, para que puedan actuar como superusuarios.
 * Para comprobar que los usuarios y grupos se han creado correctamente vamos a
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
