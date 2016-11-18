@@ -160,7 +160,9 @@ Consultar los mensajes de error del servicio.
 
 Ahora vamos a comprobar que las carpetas del servidor son accesibles desde el cliente.
 Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en
-OpenSUSE `zypper in nfs-common`.
+OpenSUSE:
+* `zypper search nfs`, para buscar los paquetes nfs.
+* `zypper install nfs-...`, para instalar el paquete cliente.
 
 ### Comprobar conectividad desde cliente al servidor
 
