@@ -198,7 +198,7 @@ ya no están. Si queremos volver a acceder a los recursos remotos debemos repeti
 a no ser que hagamos una configuración permanente o automática.
 
 * Configurar montaje autoḿatico del recurso compartido public.
-    * Usar Yast o
+    * Usar `Yast -> particionador -> NFS -> Add`.
     * Modificar directamente en el fichero `/etc/fstab`.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 * Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
