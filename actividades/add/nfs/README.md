@@ -44,6 +44,8 @@ propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la re
 
 ![nfs-windows-servidor1](./images/nfs-windows-servidor1.png)
 
+> En caso de problemas al acceder desde el cliente, configurar en el servidor el recurso con "Permitir Acceso Anónimo".
+
 * Ejecutamos el comando `showmount -e IP-DEL-SERVIDOR`, para comprobar que los recursos exportados.
 
 ## 1.2 Cliente NFS
