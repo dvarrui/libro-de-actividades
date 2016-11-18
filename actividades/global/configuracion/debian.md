@@ -1,5 +1,5 @@
 
-#Configurar MV GNU/Linux Debian 8
+# Configurar MV GNU/Linux Debian 8
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
@@ -59,7 +59,7 @@ blkid
 En Debian/Ubuntu, para configurar la red mediante entorno gráfico podemos usar
 NetworkManager.
 
-## Ficheros de configuración
+## Ficheros de configuración de red
 
 * En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
@@ -84,6 +84,17 @@ iface eth1 inet dhcp
 * Para que se tengan en cuenta los cambios podemos:
    * `service networking restart` o
    * Reiniciar el equipo.
+
+## Ficheros de configuración de DNS
+
+Para poner la información de DNS en un SO Debian, hay que abrir el fichero /etc/resolv.conf y escriblir lo siguiente:
+
+> ```
+> search <domain-name>
+> domain <domain-name>
+> nameserver 127.0.0.1
+> nameserver 172.16.1.1
+>```
 
 > Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 > * `sudo rm /etc/resolv.conf`
