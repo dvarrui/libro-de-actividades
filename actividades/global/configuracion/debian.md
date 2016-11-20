@@ -1,5 +1,7 @@
 
-# Configurar MV GNU/Linux Debian 8
+# Configurar MV GNU/Linux Debian
+
+`Revisado para Debian 8`
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
@@ -61,10 +63,15 @@ NetworkManager.
 
 ## Ficheros de configuración de red
 
+> Enlace de interés:
+>
+> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
+
 * En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
 * Para averiguar los nombres de nuestras interfaces usamos `ip a` o `ifconfig`.
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
+
 ```
 auto lo
 iface lo inet loopback
@@ -87,15 +94,15 @@ iface eth1 inet dhcp
 
 ## Ficheros de configuración de DNS
 
-Para poner la información de DNS en un SO Debian, hay que abrir el fichero /etc/resolv.conf y escriblir lo siguiente:
+Para poner la información de DNS en un SO Debian, hay que abrir el fichero `/etc/resolv.conf` y escriblir lo siguiente:
 
-> ```
-> search <domain-name>
-> domain <domain-name>
-> nameserver 127.0.0.1
-> nameserver 172.16.1.1
->```
+```
+search <domain-name>
+domain <domain-name>
+nameserver 127.0.0.1
+nameserver 172.16.1.1
+```
 
-> Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
-> * `sudo rm /etc/resolv.conf`
-> * `sudo dpkg-reconfigure resolvconf`
+Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
+* `sudo rm /etc/resolv.conf`
+* `sudo dpkg-reconfigure resolvconf`
