@@ -1,28 +1,28 @@
 
 ```
-Curso1718
+Curso 2017-2018
 * Comprobar que funciona el comando file
 * Instalar wget, zip
 ```
 
-#Instalación Knoppix-Debian personalizada
+# Instalación personalizada
 
-Entregar un documento en formato ODT o PDF con los pasos realizados.
+* Usaremos un CD-Live de Knoppix y otro de instalación de Debian.
+* Entregar un documento en formato ODT o PDF con los pasos realizados.
 
-> NOTA:
-> Esta máquina virtual Debian la usaremos en las próximas unidades de trabajo.
+> NOTA: No borrar esta máquina virtual Debian al terminar, porque la usaremos en las próximas unidades de trabajo.
 
-#1. Preparar la Máquina virtual
+# 1. Preparar la Máquina virtual
 
 Capturar imagenes de los siguientes pasos:
 * Crear una nueva MV con:
     * tamaño de disco de 10GB y
     * tarjeta de red en modo bridge (Puente).
 
-#2. Knoppix
+# 2. Knoppix
 
 > Knoppix es una distribución de GNU/Linux que viene en CD-Live.
-> Viene provista de un conjunto de herramientas muy útiles.
+> Por defecto, viene provista de un conjunto de herramientas muy útiles.
 
 * Descargar del servidor la ISO de Knoppix y el fichero md5.
 * Comprobar que la descarga de los ficheros se hizo de forma correcta, ejecutando el comando siguiente: `md5sum -c nombre-de-fichero-knoppix.iso.md5`
@@ -38,7 +38,7 @@ Capturar imagenes de los siguientes pasos:
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
-#3. Instalando el Sistema Operativo
+# 3. Instalando SO Debian
 
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
@@ -47,14 +47,14 @@ Capturar imágenes de los siguientes pasos:
 NO hace falta captar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
-* [Configuración de la MV](../../../global/configuracion-aula109.md):
-    * nombre del equipo
-    * nombre de dominio
-    * la clave de roor
-    * nombre de usuario
+* En la [configuración de la MV](../../../global/configuracion/debian.md) podremos valores a:
+    * Nombre del equipo
+    * Nombre de dominio
+    * La clave de root
+    * Nombre de usuario y su clave
 * Zona horaria Canarias.
 
-* Método de particionado manual, y crear el siguiente esquema de particiones:
+* Método de particionado manual. Crear el siguiente esquema de particiones:
     1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
     1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
     1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
@@ -62,7 +62,7 @@ NO hace falta captar imagen de los siguientes pasos:
     1. Dejar el resto sin usar.
 * Capturar imagen del esquema de particionado final. Veamos un ejemplo:
 
-![act1-debian-particiones] (./images/act1-debian-particiones.png)
+![act1-debian-particiones](./images/act1-debian-particiones.png)
 
 NO hace falta capturar imágenes de lo siguiente:
 * Elegimos una réplica de red de España. El valor de Proxy lo dejamos vacío.
@@ -70,20 +70,23 @@ NO hace falta capturar imágenes de lo siguiente:
 > Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio.
 > Por el momento queremos un sistema sólo en modo texto.
 
-* En la selección de programas marcamos *Utilidades estándar del sistema* y *SSH Server*.
+* En la selección de programas marcamos:
+    * *Utilidades estándar del sistema* y
+    * *SSH Server*
 
-![act1-debian-paquetes] (./images/act1-debian-paquetes.png)
+![act1-debian-paquetes](./images/act1-debian-paquetes.png)
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
 * Instalación completa -> Continuar.
 
-##Con el SO instalado
+# 4. Con el SO instalado
+
 NO hace falta capturar imágenes de lo siguiente:
 * Entrar al sistema como root (superusuario)
 * Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion-aula109.md).
 
-> Enlace con más información sobre [configurar la tarjeta de red]
-(http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
+> Enlace de interés:
+> * Información sobre [configurar la tarjeta de red](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) en Debian.
 
 * Entrar al sistema como root (superusuario)
 * Capturar imagen de los siguientes comandos:
