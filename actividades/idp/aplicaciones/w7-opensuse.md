@@ -85,7 +85,10 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 ### Desinstalar programas
 
-Vamos a desinstalar el programa por comandos usando la consola wmic.
+A continuacion vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
+
+> Estos comandos sólo sirven para desinstalar programas instalados MSI. NO sirve para ficheros  EXE.
+
 * Abrir consola PowerShell como Administrador
 * `wmic`, abrir consola wmic.
 * `product get name`, para localizar los programas MSI instalados.
@@ -94,26 +97,12 @@ Vamos a desinstalar el programa por comandos usando la consola wmic.
 
 > **INFORMACIÓN - PowerShell**
 >
-> Estos comandos PowerShell sirven para desinstalar programas instalados como MSI, no como .EXE. https://social.technet.microsoft.com/Forums/es-ES/b56a8e37-0840-45fb-b9ea-4ece77af1ebe/script-para-desinstalar-un-programa-con-powershell?forum=powershelles
-> Otra forma para desinstalar programas MSI mediante comandos de PowerShell.
-> Abrir consola PowerShell como Administrador
-> `$programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "`
-> `$programa.Uninstall()`
-
-> **INFORMACIÓN - Instalar desde la terminal Windows al estilo de Linux**
-> * URL: http://chocolatey.org/
-> * Probado en Windows 7 64bits.
->
-> Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
-`@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`
->
-> Una vez realizado este paso ya esta instalado el "gestor" de instalaciones para la terminal,
- por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente:
- `cinst notepadplusplus`
->
-> ![chocolatey-org](./images/chocolatey-org.jpg)
->
-> En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
+> * Ejemplo de [Script para desinstalar un programa con PowerShell](https://social.technet.microsoft.com/Forums/es-ES/b56a8e37-0840-45fb-b9ea-4ece77af1ebe/script-para-desinstalar-un-programa-con-powershell?forum=powershelles)
+> * Desinstalar programas MSI usando comandos de PowerShell. Abrir consola PowerShell como Administrador y ejecutar lo siguiente:
+> ```
+> $programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "
+> $programa.Uninstall()
+> ```
 
 ---
 
@@ -177,16 +166,37 @@ Comprobar que el programa no está instalado:
 
 ### Instalar programa desde rpm
 
-* Buscamos el programa `atom`para instalarlo. Comprobamos que no está disponible en los respositorios.
-* Buscamos el instalador (fichero `.rpm`) en la web de atom.
+> * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
+> * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
+
+* Comprobar que el programa `atom` no está disponible en los respositorios.
+* Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
 * Descargamos el fichero `.rpm`.
 * `rpm -i atom-VERSION.rm`, para instalar el programa mediante el fichero rpm.
-* `rpm -q atom`, para comprobar la instalación.
-* Comprobamos el editor atom.
+* `rpm -q atom`, para comprobar qye está el paquete instalado.
+* Comprobamos ejecutando el editor atom.
 
 ---
 
 # ANEXO
 
+## A.1 Compilación de las fuentes
+
 * Instalar programa desde el código fuente.
 * Ver ejemplo con ruby3.X.
+
+## A.2 Instalar desde la terminal Windows al estilo de Linux
+
+* URL: http://chocolatey.org/
+* Probado en Windows 7 64bits.
+
+Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
+* `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`
+
+Una vez realizado este paso ya está instalado el "gestor" de instalaciones para la terminal.
+
+Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`
+
+![chocolatey-org](./images/chocolatey-org.jpg)
+
+En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
