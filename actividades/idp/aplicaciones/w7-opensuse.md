@@ -175,6 +175,15 @@ Comprobar que el programa no está instalado:
 * Instalar el emulador Windows (`wine`).
 * Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhony Simulator.
 
+### Instalar programa desde rpm
+
+* Buscamos el programa `atom`para instalarlo. Comprobamos que no está disponible en los respositorios.
+* Buscamos el instalador (fichero `.rpm`) en la web de atom.
+* Descargamos el fichero `.rpm`.
+* `rpm -i atom-VERSION.rm`, para instalar el programa mediante el fichero rpm.
+* `rpm -q atom`, para comprobar la instalación.
+* Comprobamos el editor atom.
+
 ---
 
 # ANEXO
