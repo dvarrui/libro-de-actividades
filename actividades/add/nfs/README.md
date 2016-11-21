@@ -1,4 +1,6 @@
-*(Utilizado en el curso 2015-16)*
+```
+* Usada en los cursos 201516 y 201617.
+```
 
 # NFS (Network File System)
 
@@ -11,8 +13,10 @@ Para esta parte vamos a necesitar las siguientes máquinas:
     * Windows 2008 Server (Enterprise)
     * [ Configurar MV ](./../../global/configuracion/windows-server.md)
 * MV Cliente NFS
-    * Windows 7 (Enterprise)
+    * Windows 7 (Enterprise).
     * [ Configurar MV ](./../../global/configuracion/windows.md)
+
+>  El cliente NFS sólo lo tienen las versiones Enterprise
 
 ## 1.1 Servidor NFS Windows
 
@@ -112,13 +116,14 @@ Vamos a necesitar las siguientes máquinas:
 * MV Servidor NFS
     * SO OpenSUSE 13.2
     * [Configurar MV](./../../global/configuracion/opensuse.md)
-    * Como nombre de esta máquina usar `nfs-server-XX`. Modificar el fichero /etc/hostname,
-    para establecer el nombre de máquina, y el fichero /etc/hosts.
+    * Como nombre de esta máquina usar `nfs-server-XX`.
 * MV CLiente NFS
     * SO OpenSUSE 13.2.
     * [Configurar MV](./../../global/configuracion/opensuse.md)
     * Como nombre de esta máquina usar `nfs-client-XX`
 
+> Para cambiar el nombre de máquina podemos usar Yast o modificar directamente los ficheros `/etc/hostname` y `/etc/hosts`.
+>
 > Podemos configurar el fichero /etc/hosts del cliente y servidor, añadiendo estas líneas:
 > ```
 > 172.18.XX.52 nfs-server-XX.curso1617   nfs-server-XX
@@ -201,7 +206,7 @@ a no ser que hagamos una configuración permanente o automática.
 
 * Configurar montaje autoḿatico del recurso compartido public.
     * Usar `Yast -> particionador -> NFS -> Add`.
-    * Modificar directamente en el fichero `/etc/fstab`.
+    * Modificar directamente en el fichero `/etc/fstab` ([Consultar](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-nfs-client-config.html))
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 * Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
 * Comprobarlo.
