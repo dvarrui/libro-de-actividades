@@ -180,6 +180,8 @@ Comprobar que el programa no está instalado:
 
 # ANEXO
 
+El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
+
 ## A.1 Compilación de las fuentes
 
 * Instalar programa desde el código fuente.
