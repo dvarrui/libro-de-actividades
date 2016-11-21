@@ -180,3 +180,4 @@ Comprobar que el programa no está instalado:
 # ANEXO
 
 * Instalar programa desde el código fuente.
+* Ver ejemplo con ruby3.X.
