@@ -53,3 +53,12 @@
 * 15/11/2016 (Martes)
     * Aula 109: a 1ª hora aparece aire acondicionado puesto y pizarra toda escrita.
     * 1ASIR. Examen SQL a las 11:00 y 3 horas seguidas de FUW. Salen al recreo un poco antes.
+    * Aula 109: No se ve el cañón por HDMI
+* 16/11/2016 (Miércoles)
+    * Aula 109: 4ª hora aire puesto y ventanas abiertas. Pizarra escrita.
+* 17/11/2016 (Jueves)
+    * Aula 109: Malu comenta problemas con el VGA del cañón.
+* 18/11/2016 (Viernes)
+    * Aula 109: 3ª hora aire puesto + ventana abierta.
+* 21/11/2016 (Lunes)
+    * Aula 109: aire puesto todo el fin de semana.
