@@ -51,13 +51,14 @@ la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 ### Vamos a instalar aplicaciones
 
 Capturar imagenes de los pasos realizados.
-* Descargar Geany para Windows de la página oficial.
+* Descargar Wget para Windows de la [página oficial](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 > Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
 
 * Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha verificación.
 * Realizar la instalación de la aplicación.
-* Comprobar su funcionamiento.
+* El programa Wget se usa para hacer descargas desde la consola.
+* Comprobar su funcionamiento (`wget http://...`)
 * Desinstalar el programa.
 
 ## 1.2 Usando los comandos
@@ -66,7 +67,7 @@ Capturar imágenes de los pasos realizados.
 
 ### Instalar programas
 
-* Vamos a descargar el programa GIT desde la web oficial (http://git-scm.com/).
+* Usar wget para descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir una consola cmd.
 
 > NOTA: Sustituir VERSION por el número de versión que se haya descargado cada uno.
