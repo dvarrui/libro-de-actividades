@@ -44,6 +44,7 @@
       La instalación de gnome desktop con gdm3 no resuelve el caso.
 
 ## Noviembre
+
 * 02/11/2016 (Miércoles)
     * Aula 109: a 4ªhora ventana del profesor abierta y aire acondicionado puesto.
 * 03/11/2016 (Jueves)
@@ -62,3 +63,5 @@
     * Aula 109: 3ª hora aire puesto + ventana abierta.
 * 21/11/2016 (Lunes)
     * Aula 109: aire puesto todo el fin de semana.
+* 22/11/2016 (Martes)
+    * Aula 109: 1ª hora pizarra escrita
