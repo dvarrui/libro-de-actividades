@@ -69,6 +69,7 @@ Capturar imágenes de los pasos realizados.
 
 * Usar wget para descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir una consola cmd.
+* Ir a la carpeta donde hemos descargado el fichero.
 
 > NOTA: Sustituir VERSION por el número de versión que se haya descargado cada uno.
 
