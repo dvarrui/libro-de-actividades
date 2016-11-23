@@ -65,3 +65,7 @@
     * Aula 109: aire puesto todo el fin de semana.
 * 22/11/2016 (Martes)
     * Aula 109: 1ª hora pizarra escrita
+* 23/11/2016 (Miércoles)
+    * Aula 109: Recreo se queda el aula abierta
+    * Aula 109: 4ª hora pizarra escrita
+    * Aula 109: David JB comenta que el cañón se enciende/apaga solo.
