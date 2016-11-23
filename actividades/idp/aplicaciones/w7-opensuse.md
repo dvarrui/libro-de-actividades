@@ -178,6 +178,16 @@ Comprobar que el programa no está instalado:
 * `rpm -q atom`, para comprobar qye está el paquete instalado.
 * Comprobamos ejecutando el editor atom.
 
+### Instalación desde el código fuentes
+
+GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
+pública.
+
+* Elegir un programa de la lista [Games on GitHub](https://github.com/leereilly/games)
+* Consultar las instrucciones de instalación.
+* Descargar el proyecto.
+* Instalar el juego. 
+
 ---
 
 # ANEXO
