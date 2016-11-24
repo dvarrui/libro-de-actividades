@@ -137,6 +137,10 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 
 Capturar imágenes de los pasos realizados.
 
+> Enlace de interés:
+>
+> * [Zypper](https://es.opensuse.org/Zypper)
+
 ### Actualización del sistema
 
 * Entramos en la consola como `root`.
@@ -186,7 +190,7 @@ pública.
 * Elegir un programa de la lista [Games on GitHub](https://github.com/leereilly/games)
 * Consultar las instrucciones de instalación.
 * Descargar el proyecto.
-* Instalar el juego. 
+* Instalar el juego.
 
 ---
 
