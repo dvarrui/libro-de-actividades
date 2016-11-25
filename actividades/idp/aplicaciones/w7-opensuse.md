@@ -21,6 +21,19 @@ Capturar imagen del proceso final.
 ### Actualización del sistema
 
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
+
+** Información aportada por Víctor**
+
+> Tenemos que instalar un paquete de actualizaciones para Windows7.
+Con este paquete las actualizaciones tardan menos tiempo.
+
+* Reiniciamos el servicio Windows Update
+    * `Equipos -> Botón derecho -> Administrar -> Servicios`
+    * Buscar Windows Update.
+    * Reiniciar (Parar e iniciar)
+* Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
+* Reiniciar la máquina
+
 * Ir a `Panel de control -> Windows Update`. Actualización del sistema.
 * Consultar las actualizaciones pendientes.
 * Elijar 3 y aplicar actualización.
