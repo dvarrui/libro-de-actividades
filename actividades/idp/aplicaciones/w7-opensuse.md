@@ -22,15 +22,15 @@ Capturar imagen del proceso final.
 
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
-** Información aportada por Víctor**
+** Información aportada por Víctor (1ºASIR)**
 
 > Tenemos que instalar un paquete de actualizaciones para Windows7.
 Con este paquete las actualizaciones tardan menos tiempo.
 
 * Reiniciamos el servicio Windows Update
-    * `Equipos -> Botón derecho -> Administrar -> Servicios`
+    * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
-    * Reiniciar (Parar e iniciar)
+    * Botón derecho -> Reiniciar
 * Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
 * Reiniciar la máquina
 
@@ -71,7 +71,9 @@ Capturar imagenes de los pasos realizados.
 * Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha verificación.
 * Realizar la instalación de la aplicación.
 * El programa Wget se usa para hacer descargas desde la consola.
-* Comprobar su funcionamiento (`wget http://...`)
+* Comprobar su funcionamiento:
+    * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
+    * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 * Desinstalar el programa.
 
 ## 1.2 Usando los comandos
