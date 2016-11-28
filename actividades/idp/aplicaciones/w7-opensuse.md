@@ -208,7 +208,8 @@ manualmente. Por ejemplo:
 GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
 pública.
 
-* Elegir un programa de la lista [Games on GitHub](https://github.com/leereilly/games)
+* Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
+* Dentro de la sección `Native`, elegir un programa  de la lista.
 * Consultar las instrucciones de instalación.
 * Descargar el proyecto.
 * Instalar el juego.
