@@ -70,8 +70,11 @@ Capturar imagenes de los pasos realizados.
 
 * Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha verificación.
 * Realizar la instalación de la aplicación.
-* El programa Wget se usa para hacer descargas desde la consola.
+
+> El programa Wget se usa para hacer descargas desde la consola.
+
 * Comprobar su funcionamiento:
+    * `cd c:\Program Files (x86)/GnuWin32/bin`. Debe estar el fichero `wget.exe`.
     * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
     * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 * Desinstalar el programa.
