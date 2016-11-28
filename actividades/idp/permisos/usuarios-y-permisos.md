@@ -205,6 +205,8 @@ las configuraciones del comando sudo.
 * Configurar al grupo `sith` en sudoers con
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Comprobar los nuevos permisos.
+* Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
+la configuración de sudoers.
 
 ## 2.4 Usando los comandos
 
@@ -231,6 +233,8 @@ Modificar los permisos de las carpetas:
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
 * `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+* Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar
+la información de sudoers.
 
 # ANEXO
 

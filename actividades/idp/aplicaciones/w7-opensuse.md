@@ -194,8 +194,14 @@ Comprobar que el programa no está instalado:
 * Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
 * Descargamos el fichero `.rpm`.
 * `rpm -i atom-VERSION.rm`, para instalar el programa mediante el fichero rpm.
-* `rpm -q atom`, para comprobar qye está el paquete instalado.
-* Comprobamos ejecutando el editor atom.
+* Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla
+manualmente. Por ejemplo:
+    * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
+    * `zypper install lsb`, para instalar el paquete lsb.
+* Para comprobar que está el paquete instalado:
+    * `rpm -q atom`
+    * `atom`
+* Comprobamos que funciona bien el editor atom.
 
 ### Instalación desde el código fuentes
 
