@@ -102,6 +102,7 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 * `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
 * Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
+    * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`
 
 ### Desinstalar programas
 
