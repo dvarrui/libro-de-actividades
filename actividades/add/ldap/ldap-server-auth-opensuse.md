@@ -1,5 +1,8 @@
+```
+* Actividad adaptada para OpenSUSE en el curso 2015-2016
+```
 
-*(Actividad nueva para e curso 2015-2016)*
+# Servidor LDAP - OpenSUSE
 
 > Enlaces de interés:
 > * Teoría
@@ -15,9 +18,7 @@
 >     * [Autenticación con OpenLDAP web ite](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
 >     * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
-#Servidor LDAP - OpenSUSE
-
-##1.1 Preparar la máquina
+## 1.1 Preparar la máquina
 Comenzamos la instalación del servidor LDAP:
 * Vamos a usar una MV para montar nuestro servidor LDAP con:
     * SO OpenSUSE 13.2
@@ -36,7 +37,8 @@ Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
-##1.2 Instalación del Servidor LDAP
+## 1.2 Instalación del Servidor LDAP
+
 * Procedemos a la instalación del módulo Yast para gestionar el servidor LDAP (`yast2-auth-server`).
 En Yast aparecerá como `Authentication Server`.
 * Apartir de aquí seguimos los pasos indicados en [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
@@ -49,18 +51,19 @@ de la siguiente forma:
 ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
 
    * NO habilitar kerberos.
-   
+
 Veamos ejemplo de la configuración final:
 
 ![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
 
-* Una vez instalado, comprobar el servicio `systemctl  status slapd`. 
-Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina. 
+* Una vez instalado, comprobar el servicio `systemctl  status slapd`.
+Comprobar también que el servicio se inicia automáticamente al reiniciar la máquina.
 * Continuar los pasos del enlace hasta el final, donde se puede comprobar el contenido
 de la base de datos LDAP usando la herramienta `gq`. Esta herramienta es un browser LDAP.
 * Comprobar que ya tenemos las unidades organizativas: `groups` y `people`.
 
-##1.3. Crear usuarios y grupos en LDAP
+## 1.3. Crear usuarios y grupos en LDAP
+
 Ahora vamos a [introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 en el servidor LDAP siguiendo los pasos indicados en el enlace, pero personalizado la información de la siguiente
 forma:
@@ -68,13 +71,13 @@ forma:
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación.
 En Yast aparecerá como `Authentication Client`.
 
-> * El parámetro LDAP URI es un localizador del recurso de la base de datos LDAP. 
+> * El parámetro LDAP URI es un localizador del recurso de la base de datos LDAP.
 Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1516`.
-> * Las unidades organizativas: `groups` y `people`. Han sido creadas 
+> * Las unidades organizativas: `groups` y `people`. Han sido creadas
 automáticamente por Yast en el paso anterior.
 
-* Crear los grupos `jedis2` y `siths2` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `jedi21`, `jedi22`, `sith21`, `sith22` (Estos se crearán dentro de la `ou=people`).
+* Crear los grupos `piratas` y `soldados` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `pirata21`, `pirata21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
 
 Vemos un ejemplo de un árbol de datos en LDAP:
 
@@ -90,10 +93,11 @@ Veamos imágenes de ejemplo
 
 ![userPassword_empty-ldapsearch](./images/userPassword_empty-ldapsearch.png)
 
-##1.4. Autenticación
+## 1.4. Autenticación
+
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
 donde se guardará la información de grupos, usuarios, claves, etc. Y desde
-otras máquinas conseguiremos autenticarnos (entrar al sistema) con los 
+otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
 usuarios definidos no en la máquina local, sino en la máquina remota con
 LDAP. Una especie de *Domain Controller*.
 
@@ -110,27 +114,28 @@ id nombre-usuario
 su nombre-usuario
 ```
 
-#2. Otro equipo
+# 2. Otro equipo
 Ahora que tenemos una máquina con la información cargada en LDAP, vamos a tratar de hacer uso
 de ella desde otra máquina distinta.
- 
-##2.1 Preparativos
+
+## 2.1 Preparativos
 * Slave LDAP:    
     * IP estática del esclavo 172.18.XX.52
     * Nombre equipo: `ldap-slaveXX`
     * Dominio: `curso1516`
-    * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente, 
-el nombre DNS con su IP correspondiente: 
+    * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente,
+el nombre DNS con su IP correspondiente:
 ```
 127.0.0.2         ldap-slaveXX.curso1516   ldap-slaveXX
 ip-del-servidor   ldap-serverXX.curso1516   ldap-serverXX   nombredealumnoXX.curso1516   nombrealumnoXX
 ```
 * Capturar imagen de la salida de los siguientes comandos: `ip a`, `hostname -f`, `lsblk`, `blkid`
 
-##2.2 Configuración
+## 2.2 Configuración
+
 * Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-para crear e grupo LDAP `troopers` y dentro de éste los usuarios `trooper21` y `trooper22`.
-* Usar la heeramienta `gq` para comprobar los datos del servidor LDAP.
+para crear e grupo LDAP `aldeanos` y dentro de éste los usuarios `aldeano21` y `aldeano22`.
+* Usar la herramienta `gq` para comprobar los datos del servidor LDAP.
 * Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-slaveXX` usando los usuarios
 definidos en el LDAP remoto.
 * Capturar imagen de la salida de los siguientes comandos:
@@ -144,12 +149,12 @@ id nombre-usuario
 su nombre-usuario
 ```
 
-#A1. ANEXO
+# A1. ANEXO
 
 Podemos tener un problema con las claves si el método de encriptación de las claves
 del sistema operativo es diferente al utilizado en el servidor LDAP.
 
-##A1.2. Cambiar el método de encriptación en el SO
+## A1.2. Cambiar el método de encriptación en el SO
 
 Veamos ejemplo donde se establece el método de encriptación durante la instalación del SO.
 
@@ -160,6 +165,6 @@ ya instalado, usando Yast.
 
 ![opensuse-yast-password-encryption-method.png](./images/opensuse-yast-password-encryption-method.png)
 
-##A1.3. Cambiar el método de encriptación en la base de datos LDAP
+## A1.3. Cambiar el método de encriptación en la base de datos LDAP
 
-*(Pendiente)* 
+*(Pendiente)*
