@@ -1,5 +1,5 @@
 
-#Configurar MV GNU/Linux OpenSUSE 13.2
+# Configurar MV GNU/Linux OpenSUSE 13.2
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
@@ -7,7 +7,11 @@
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
 ## Durante la instalación
-Podemos configurar algunos aspectos de openSUSE durante la instalación:
+
+Recomendaciones:
+* Usar un disco VistualBox de 30GB.
+* Seleccionar entorno gráfico ligero como Xfce.
+* Configurar lo siguiente durante la instalación:
 
 ![opensuse-instalacion-configuracion.png](../images/opensuse-instalacion-configuracion.png)
 
