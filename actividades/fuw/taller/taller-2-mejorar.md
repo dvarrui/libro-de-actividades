@@ -47,7 +47,7 @@
 
 ## Paso5
 
-* Instalar el SO OpenSUSE 13.2 con la siguiente configuración:
+* Instalar un SO con la siguiente configuración:
     * Esquema de particiones:
         * 1 partición extendida
         * 1 partición lógica de 2GB para `swap`
