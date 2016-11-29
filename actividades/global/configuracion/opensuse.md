@@ -9,7 +9,7 @@
 ## Durante la instalación
 
 Recomendaciones:
-* Usar un disco VistualBox de 30GB.
+* Usar un disco VirtualBox de 15GB.
 * Seleccionar entorno gráfico ligero como Xfce.
 * Configurar lo siguiente durante la instalación:
 
