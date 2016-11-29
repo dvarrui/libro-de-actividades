@@ -1,13 +1,14 @@
 
-#Taller Mejorar
+# Taller Mejorar
 
 * Realizar la siguiente práctica por grupos.
 * Realizar un vídeo y editarlo adecuadamente según las indicaciones del profesor.
 * Subir el vídeo a YouTube y entregar el URL del vídeo.
 
-##Paso 1
+## Paso 1
+
 * Recoger un ordenador asignado por el profesor. Debe tener una identificación pegada. Por ejemplo `TH16`.
-* Recoger la ficha del equipo `TH16`. 
+* Recoger la ficha del equipo `TH16`.
 * Comprobar que el PC funciona correctamente. Capturar imagen.
 * Comprobar si las características del equipo según la documentación coinciden con el PC real.
 * Incluir detalles de las características en el informe:
@@ -22,18 +23,21 @@
    * Miembros involucrados.
    * Incidencias detectadas al recibir el equipo.
    * Con las actuaciones realizadas, o referencia al vídeo realizado.
-   * Incidencias no resueltas al entregar el equipo. 
+   * Incidencias no resueltas al entregar el equipo.
 
-##Paso2
+## Paso2
+
 * Desmontar el PC.
 * Capturar imagen de todos los componentes desmontados.
 
-##Paso3
+## Paso3
+
 * Volver a montarlo.
 * Comprobar que funciona correctamente. Capturar imagen.
 
-##Paso4
-* Mejorar el equipo añadiendo:
+## Paso4
+
+* Mejorar el equipo añadiendo alguno de los siguientes componentes:
     * HDD
     * RAM
     * 2º tarjeta gráfica
@@ -41,12 +45,13 @@
     * 2ª unidad DVD
 * Comprobar que funciona correctamente. Capturar imagen.
 
-##Paso5
+## Paso5
+
 * Instalar el SO OpenSUSE 13.2 con la siguiente configuración:
     * Esquema de particiones:
-        * 1 partición extendida 
+        * 1 partición extendida
         * 1 partición lógica de 2GB para `swap`
-        * 1 partición lógica de 20GB para `/`
+        * 1 partición lógica de 30GB para `/`
         * ¡OJO! :No poner el directorio `/home` separado
         * Dejar el resto sin usar (por ahora)
     * Usuarios:
@@ -54,7 +59,7 @@
         * Usuario root con clave profesor
     * Entorno gráfico a elegir por el alumno
     * Nombre de equipo: `THXX` seǵun la etiqueta del mismo.
-    * NOmbre de dominio: `taller`
+    * Nombre de dominio: `taller`
     * Configuración de red:
         * IP estática: 172.19.107.XX, donde XX es el número del equipo.
         * Máscara: 255.255.0.0
@@ -64,4 +69,3 @@
     * Configuración de red dinámica
 
 > Al terminar la actividad hay que dejar la ficha en su sitio, y el PC recogido y en donde le corresponde.
-
