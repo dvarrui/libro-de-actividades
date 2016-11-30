@@ -43,7 +43,7 @@ de la siguiente forma:
    * Ir a Yast -> Servidor de autenticación.
    * Tipo de servidor: autónomo
    * Configuración TLS: NO habilitar
-   * Usar como DN el siguiente: `dc=nombredealumnoXX, dc=curso1617`. Donde XX es el número del puesto de cada uno.
+   * Usar como DN el siguiente: `dc=nombredealumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
 
 ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
 
