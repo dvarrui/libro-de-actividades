@@ -73,11 +73,15 @@ Capturar imagenes de los pasos realizados.
 
 > El programa Wget se usa para hacer descargas desde la consola.
 
-* Comprobar su funcionamiento:
-    * `cd c:\Program Files (x86)/GnuWin32/bin`. Debe estar el fichero `wget.exe`.
-    * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
-    * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
-* Desinstalar el programa.
+Vamos a comprobar su funcionamiento:
+* `cd c:\Program Files (x86)/GnuWin32/bin`. Debe estar el fichero `wget.exe`.
+* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`,
+para descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
+
+> Información:
+>
+> * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
+> * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 
 ## 1.2 Usando los comandos
 
@@ -101,8 +105,6 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 ![windows-git-path](./images/windows-git-path.png)
 
 * `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
-* Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
-    * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`
 
 ### Desinstalar programas
 
