@@ -146,7 +146,7 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 ### Instalar paquetes
 
 * Iniciar Yast -> refrescar los repositorios.
-* Instalar por ejemplo el editor `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
+* Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
 * Comprobar que funciona el programa instalado.
 
 ### Desinstalar paquetes
