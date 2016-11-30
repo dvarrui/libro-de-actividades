@@ -65,8 +65,7 @@ Esta herramienta es un browser LDAP.
 # 2. Autenticación
 
 > Enlaces de interés:
-> * [ Crear usuarios y grupos en LDAP usando YaST ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-> * [ Autenticación con OpenLDAP web ite ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
+> * [ Autenticación con OpenLDAP ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
 > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 ## 2.1. Crear usuarios y grupos en LDAP
@@ -91,11 +90,14 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 ![arbol](./images/arbol.png)
 
 * Comprobar mediante un browser LDAP (`gq`) la información que tenemos en la base de datos LDAP.
-* `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
-Veamos imágenes de ejemplo
+Imagen de ejemplo:
 
 ![userPassword_empty-gq](./images/userPassword_empty-gq.png)
+
+* `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+
+Veamos imagen de ejemplo:
 
 ![userPassword_empty-ldapsearch](./images/userPassword_empty-ldapsearch.png)
 
@@ -142,7 +144,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 ## 3.2 Configuración
 
 * Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-para crear e grupo LDAP `aldeanos` y dentro de éste los usuarios `aldeano21` y `aldeano22`.
+para crear el grupo LDAP `aldeanos` y dentro de éste los usuarios `aldeano21` y `aldeano22`.
 * Usar la herramienta `gq` para comprobar los datos del servidor LDAP.
 * Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-slaveXX` usando los usuarios
 definidos en el LDAP remoto.
