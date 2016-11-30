@@ -42,7 +42,7 @@ Veamos imagen de ejemplo:
 * Apartir de aquí seguimos las indicaciones de [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 de la siguiente forma:
    * Ir a Yast -> Servidor de autenticación. Aparecerá como `Authentication Server`.
-   * Se requiere instalar además los paquetes openldap2, krb5-server y krb5-client
+   * Instalar los paquetes openldap2, krb5-server y krb5-client -> Aceptar
    * Iniciar servidor LDAP -> Sí
    * Registrar dameon SLP -> No
    * Puerto abierto en el cortafuegos -> Sí -> Siguiente
@@ -69,6 +69,8 @@ Veamos ejemplo de la configuración final:
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
 Esta herramienta es un browser LDAP.
 * Comprobar que tenemos creadas las unidades organizativas: `groups` y `people`.
+
+![gq-browser.png](./images/gq-browser.png)
 
 ---
 
