@@ -37,17 +37,28 @@ Veamos imagen de ejemplo:
 ## 1.2 Instalación del Servidor LDAP
 
 * Procedemos a la instalación del módulo Yast que sirve para gestionar el servidor LDAP (`yast2-auth-server`).
-En Yast aparecerá como `Authentication Server`.
-* Apartir de aquí seguimos los pasos indicados en [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+
+
+* Apartir de aquí seguimos las indicaciones de [servidor LDAP](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 de la siguiente forma:
-   * Ir a Yast -> Servidor de autenticación.
-   * Tipo de servidor: autónomo
-   * Configuración TLS: NO habilitar
-   * Usar como DN el siguiente: `dc=nombredealumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
+   * Ir a Yast -> Servidor de autenticación. Aparecerá como `Authentication Server`.
+   * Se requiere instalar además los paquetes openldap2, krb5-server y krb5-client
+   * Iniciar servidor LDAP -> Sí
+   * Registrar dameon SLP -> No
+   * Puerto abierto en el cortafuegos -> Sí -> Siguiente
+   * Tipo de servidor -> autónomo -> Siguiente
+   * Configuración TLS -> NO habilitar -> Siguiente
+   * Tipo de BD -> hdb
+   * DN base -> `dc=nombredealumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
+   * DN administrador -> `dn=Administrator`
+   * Añadir DN base -> Sí
+   * Contraseña del administrador
+   * Directorio de BD -> /var/lib/ldap
+   * Usar esta BD predeterminada para clientes LDAP -> Sí -> Siguiente
 
 ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
 
-   * NO habilitar kerberos.
+   * Habilitar kerberos -> No
 
 Veamos ejemplo de la configuración final:
 
