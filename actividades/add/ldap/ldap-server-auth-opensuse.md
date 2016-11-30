@@ -55,7 +55,6 @@ Veamos ejemplo de la configuración final:
 
 * `systemctl status slapd`, para comprobar el estado del servicio.
 * `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
-* Continuar los pasos indicados en la documentación del enlace anterior.
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
 Esta herramienta es un browser LDAP.
 * Comprobar que tenemos creadas las unidades organizativas: `groups` y `people`.
@@ -65,7 +64,7 @@ Esta herramienta es un browser LDAP.
 # 2. Autenticación
 
 > Enlaces de interés:
-> * [ Autenticación con OpenLDAP ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
+> * [ Autenticación con OpenLDAPt ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
 > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 ## 2.1. Crear usuarios y grupos en LDAP
