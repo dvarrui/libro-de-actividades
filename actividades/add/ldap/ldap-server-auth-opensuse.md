@@ -5,6 +5,8 @@
 
 # Servidor LDAP - OpenSUSE
 
+![arbol](./images/arbol.png)
+
 > Enlaces de interés sobre teoría LDAP:
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
@@ -66,6 +68,7 @@ Veamos ejemplo de la configuración final:
 
 * `systemctl status slapd`, para comprobar el estado del servicio.
 * `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
+* `netstat -tap`
 * `slapcat` para consultar los datos.
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
 Esta herramienta es un browser LDAP.
@@ -109,7 +112,7 @@ Vamos a crear los usuarios y grupos en LDAP.
 
 Vemos un ejemplo de un árbol de datos en LDAP:
 
-![arbol](./images/arbol.png)
+![gq-browser-users.png](./images/gq-browser-users.png)
 
 * Comprobar mediante un browser LDAP (`gq`) la información que tenemos en la base de datos LDAP.
 
