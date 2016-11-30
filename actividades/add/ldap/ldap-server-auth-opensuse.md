@@ -66,18 +66,28 @@ Veamos ejemplo de la configuración final:
 
 * `systemctl status slapd`, para comprobar el estado del servicio.
 * `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
+* `slapcat` para consultar los datos.
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
 Esta herramienta es un browser LDAP.
 * Comprobar que tenemos creadas las unidades organizativas: `groups` y `people`.
 
 ![gq-browser.png](./images/gq-browser.png)
 
+## 1.3 Problemas
+
+Si tenemos que desinstalar el paquete hacemos:
+```
+zypper remove yast2-auth-server
+zypper remove openldap2 krb5-server krb5-client
+mv /etc/openldap /etc/openldap.000
+mv /var/lib/ldap /var/lib/ldap.000
+```
 ---
 
 # 2. Autenticación
 
 > Enlaces de interés:
-> * [ Autenticación con OpenLDAPt ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
+> * [ Autenticación con OpenLDAP ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
 > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 ## 2.1. Crear usuarios y grupos en LDAP
@@ -86,12 +96,12 @@ En este punto vamos a escribir información en el servidor LDAP.
 
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
 
-> * El parámetro LDAP URI es un localizador del recurso de la base de datos LDAP.
-Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
-> * Las unidades organizativas: `groups` y `people`. Han sido creadas
-automáticamente por Yast en el paso anterior.
+![opensuse-auth-client.png](./images/opensuse-auth-client.png)
 
-Vamos a crear dentro de las unidades organizativas anteriores, los usuarios y grupos.
+> LDAP URI es un localizador del recurso de la base de datos LDAP.
+Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
+
+Vamos a crear los usuarios y grupos en LDAP.
 
 * Enlace de interés: [Introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 * Crear los grupos `piratas` y `soldados` (Estos se crearán dentro de la `ou=groups`).
