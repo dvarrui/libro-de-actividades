@@ -149,8 +149,6 @@ Ver imagen de ejemplo:
 
 ![opensuse-ldap-client-conf.png](./images/opensuse-ldap-client-conf.png)
 
-![opensuse-auth-client.png](./images/opensuse-auth-client.png)
-
 * Vamos a la consola y hacemos `id pirata21`.
 
 ## 2.3 Crear usuarios y grupos en LDAP
