@@ -93,6 +93,12 @@ mv /var/lib/ldap /var/lib/ldap.000
 ```
 ---
 
+## 1.4 Crear usuarios y grupos LDAP
+
+* `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
+* Crear los grupos `piratas` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `pirata21`, `pirata21` (Estos se crearán dentro de la `ou=people`).
+
 # 2. Autenticación
 
 En este punto vamos a escribir información en el servidor LDAP.
@@ -148,8 +154,8 @@ Vamos a crear los usuarios y grupos en LDAP.
 > * [Introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
-* Crear los grupos `piratas` y `soldados` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `pirata21`, `pirata21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
+* Crear los grupos `aldeanos` y `soldados` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `aldeano21`, `aldeano21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
 
 ### Problemas
 
