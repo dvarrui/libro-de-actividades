@@ -71,7 +71,9 @@ Veamos ejemplo de la configuración final:
 
 Comprobaciones
 * `systemctl status slapd`, para comprobar el estado del servicio.
-* `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
+
+> `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
+
 * `nmap localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible
 desde la red.
 * `slapcat` para comprobar que la base de datos está bien configurada.
@@ -100,26 +102,31 @@ mv /var/lib/ldap /var/lib/ldap.000
 > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 ## 2.1 Preparativos
-* Slave LDAP con OpenSUSE 13.2:    
+
+* Vamos a otra MV OpenSUSE 13.2.
+* Cliente LDAP con OpenSUSE 13.2:    
     * [Configuración MV](../../global/configuracion/opensuse.md)
-    * Nombre equipo: `ldap-slaveXX`
+    * Nombre equipo: `ldap-clientXX`
     * Dominio: `curso1617`
     * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente,
 el nombre DNS con su IP correspondiente:
 ```
-127.0.0.2         ldap-slaveXX.curso1617   ldap-slaveXX
+127.0.0.2         ldap-clientXX.curso1617   ldap-clientXX
 ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.curso1617   nombrealumnoXX
 ```
 
 ## 2.2 Crear usuarios y grupos en LDAP
 
 En este punto vamos a escribir información en el servidor LDAP.
-* Vamos a otra MV OpenSUSE 13.2.
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
 
 ![opensuse-auth-client.png](./images/opensuse-auth-client.png)
 
-> LDAP URI es un localizador del recurso de la base de datos LDAP.
+Parámetros:
+* Nuevo dominio -> vargasXX
+* Proveedor -> ldap
+* Proveedor -> ldap
+* LDAP URI es un localizador del recurso de la base de datos LDAP.
 Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
 
 Vamos a crear los usuarios y grupos en LDAP.
