@@ -117,6 +117,13 @@ el nombre DNS con su IP correspondiente:
 ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.curso1617   nombrealumnoXX
 ```
 
+## Comprobación
+
+* Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
+    * File -> Preferencias -> Servidor -> Nuevo
+    * URI = ldap://ldap-serverXX
+    * Base DN = dc=vargasXX,dc=curso1617
+
 ## 2.2 Instalar cliente LDAP
 
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
@@ -131,8 +138,6 @@ Parámetros:
 * Proveedor -> ldap
 * LDAP URI es un localizador del recurso de la base de datos LDAP.
 Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
-* Usar `gq` en el cliente para comprobar que funciona bien la conexión con el
-servidor LDAP.
 
 ## 2.3 Crear usuarios y grupos en LDAP
 
@@ -145,7 +150,6 @@ Vamos a crear los usuarios y grupos en LDAP.
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `piratas` y `soldados` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `pirata21`, `pirata21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
-* Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
 
 ### Problemas
 
