@@ -134,16 +134,24 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
 
-![opensuse-auth-client.png](./images/opensuse-auth-client.png)
-
 ### Configuración de la conexión
 
-Parámetros:
-* Nuevo dominio -> vargasXX
-* Proveedor -> ldap
-* Proveedor -> ldap
-* LDAP URI es un localizador del recurso de la base de datos LDAP.
-Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
+* Click on Authentication client
+* Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
+* Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
+    * id_provider = ldap
+    * auth_provider = ldap
+    * chpass_provider = ldap
+    . ldap_uri = LDAP server full name ldap://ldapserver.mycompany.in
+    * ldap_search base = search base ex: dc=example, dc=com
+
+Ver imagen de ejemplo:
+
+![opensuse-ldap-client-conf.png](./images/opensuse-ldap-client-conf.png)
+
+![opensuse-auth-client.png](./images/opensuse-auth-client.png)
+
+* Vamos a la consola y hacemos `id pirata21`.
 
 ## 2.3 Crear usuarios y grupos en LDAP
 
@@ -166,17 +174,6 @@ Vamos a crear los usuarios y grupos en LDAP.
 > Initially I was also surprised by this sudden change from Open SuSE 13.2, but after bit experiment I could do it without any problem.
 >
 > You should use the yast module "Authentication Client" and follow steps as given below
->
-> Click on Authentication client
->
-> 1. Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
->
-> 2. Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
->     1. id_provider = ldap
->     2. auth_provider = ldap
->     3. chpass_provider = ldap
->     4. ldap_uri = LDAP server full name : ex : ldap://ldapserver.mycompany.in
->     5. ldap_search base = search base ex: dc=example, dc=com
 >     6. tls_reqcert : demand
 >     7. ldap_tls_cacert = certificate in pem format that you got it from LDAP server. ( Hope you know how to do this as you have already done for 13.1 client)
 >
