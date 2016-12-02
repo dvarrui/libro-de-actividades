@@ -96,6 +96,8 @@ mv /var/lib/ldap /var/lib/ldap.000
 
 # 2. Autenticación
 
+En este punto vamos a escribir información en el servidor LDAP.
+
 > Enlaces de interés:
 > * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 > * [ Autenticación con OpenLDAP ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
@@ -115,12 +117,13 @@ el nombre DNS con su IP correspondiente:
 ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.curso1617   nombrealumnoXX
 ```
 
-## 2.2 Crear usuarios y grupos en LDAP
+## 2.2 Instalar cliente LDAP
 
-En este punto vamos a escribir información en el servidor LDAP.
 * Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
 
 ![opensuse-auth-client.png](./images/opensuse-auth-client.png)
+
+### Configuración de la conexión
 
 Parámetros:
 * Nuevo dominio -> vargasXX
@@ -128,14 +131,47 @@ Parámetros:
 * Proveedor -> ldap
 * LDAP URI es un localizador del recurso de la base de datos LDAP.
 Veamos un ejemplo: `ldap://ldap-serverXX/dc=nombrealumnoXX,dc=curso1617`.
+* Usar `gq` en el cliente para comprobar que funciona bien la conexión con el
+servidor LDAP.
+
+## 2.3 Crear usuarios y grupos en LDAP
 
 Vamos a crear los usuarios y grupos en LDAP.
 
-* Enlace de interés: [Introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+> Enlace de interés:
+>
+> * [Introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+
+* `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `piratas` y `soldados` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `pirata21`, `pirata21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
+* Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
 
-## 2.3 Comprobación desde el servidor
+### Problemas
+
+> https://forums.opensuse.org/showthread.php/502305-Setting-up-LDAP-on-13-2
+>
+> Default Re: Setting up LDAP on 13.2
+>
+> Initially I was also surprised by this sudden change from Open SuSE 13.2, but after bit experiment I could do it without any problem.
+>
+> You should use the yast module "Authentication Client" and follow steps as given below
+>
+> Click on Authentication client
+> 1. Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
+> 2. Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
+>     1. id_provider = ldap
+>     2. auth_provider = ldap
+>     3. chpass_provider = ldap
+>     4. ldap_uri = LDAP server full name : ex : ldap://ldapserver.mycompany.in
+>     5. ldap_search base = search base ex: dc=example, dc=com
+>     6. tls_reqcert : demand
+>     7. ldap_tls_cacert = certificate in pem format that you got it from LDAP server. ( Hope you know how to do this as you have already done for 13.1 client)
+>
+> <if any of these fields are not found in dialogue box, just click button "New" and selct from the list. click Ok.
+> Your client is configured to get authenticated with your LDAP server.
+
+## 2.4 Comprobación desde el servidor
 
 * Vamos al servidor y comprobamos que se han creado los usuarios.
 
@@ -156,7 +192,7 @@ en la base de datos LDAP la información del usuario con uid concreto.
 >
 > ![userPassword_empty-ldapsearch](./images/userPassword_empty-ldapsearch.png)
 
-## 2.4 Autenticación desde el cliente
+## 2.5 Autenticación desde el cliente
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio
 centralizado de la información de grupos, usuarios, claves, etc.
