@@ -120,9 +120,9 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 ## Comprobación
 
 * Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
-    * File -> Preferencias -> Servidor -> Nuevo
-    * URI = ldap://ldap-serverXX
-    * Base DN = dc=vargasXX,dc=curso1617
+    * `File -> Preferencias -> Servidor -> Nuevo`
+    * URI = `ldap://ldap-serverXX`
+    * Base DN = `dc=vargasXX,dc=curso1617`
 
 ## 2.2 Instalar cliente LDAP
 
@@ -162,7 +162,9 @@ Vamos a crear los usuarios y grupos en LDAP.
 > You should use the yast module "Authentication Client" and follow steps as given below
 >
 > Click on Authentication client
+>
 > 1. Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
+>
 > 2. Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
 >     1. id_provider = ldap
 >     2. auth_provider = ldap
