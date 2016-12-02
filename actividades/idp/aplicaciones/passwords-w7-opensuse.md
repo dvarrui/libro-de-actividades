@@ -90,8 +90,8 @@ del departamento antes de descargarlo de Internet.
 
 Usaremos una MV GNU/Linux OpenSUSE 13.2.
 
-Enlaces de interés:
-* [Cuentas de usuario](https://es.opensuse.org/Cuentas_de_usuario)
+> Enlaces de interés:
+> * [Cuentas de usuario](https://es.opensuse.org/Cuentas_de_usuario)
 
 ## 2.1 Ocultar usuarios
 
@@ -162,37 +162,17 @@ según queramos. Elegir sólo UNA opción.
 * Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
 * Reiniciar el sistema y comprobar el resultado.
 
-## 2.5 Instalación desde las fuentes
-
-Realizar las siguientes tareas:
-* Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
-    * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
-    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
-    * http://www.valarsoft.com/
-    * http://goonies.jorito.net/ (SO recomendado Debian7)
-    * http://www.gameover.es/juegos-gratis/
-    * Si elijen otro programa deben consultarlo con el profesor. Por ejemplo Geany.
-    El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
-* Descargar el código fuente desde internet.
-* Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
-
-## 2.6 Emulación
-Realizar las siguientes tareas
-* Instalar el emulador de Windows (`wine`).
-* Instalar un programa específico de Windows (por ejemplo Jhony Simulator)
-   * Abrimos consola
-   * Ejecutamos `wine programa-instalador.exe`
-* Comprobar que la aplicación se instala y que funciona correctamente.
-
 ---
 
 # ANEXO
 
-##A0: Desktop managet kdm
+## A0: Desktop managet kdm
+
 * Buscar aplicación kdm por entorno gráfico.
 * Configurar usuarios excluidos de la ventana de inicio.
 
-##A1:Desktop Manager lxdm
+## A1:Desktop Manager lxdm
+
 Es el gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE.
 Veamos ejemplo:
 
@@ -202,7 +182,9 @@ disable=1, oculta la lista de usuarios completa.
 white list: son los usuarios a mostrar.
 black list: son los usuario a ocultar.
 ```
-##A2: Gestor de inicio lightdm
+
+## A2: Gestor de inicio lightdm
+
 Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
 
 El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/`
@@ -221,7 +203,8 @@ Para ocultar la lista de usuarios completa:
 greeter-hide-users=true
 ```
 
-##A3: Gestor de inicio gdm3
+## A3: Gestor de inicio gdm3
+
 Suele ser el gestor de inicio por defecto para instalaciones con el escritorio GNOME.
 
 Con gdm3, los pasos son:
@@ -250,7 +233,7 @@ A continuación se muestra un modo de ocultar la lista de los usuarios al inicio
 > ...
 > ```
 
-##A4: Activar entorno gráfico con System V
+## A4: Activar entorno gráfico con System V
 Actualmente la mayoría de las distribuciones GNU/Linux tienen Systemd en lugar de SystemV.
 
 Para volver a poner la activación del entorno gráfico automático al inicio hacemos:
@@ -259,11 +242,11 @@ cd /etc/rc2.d/DISABLED
 mv S20gdm3 ..
 ```
 
-##A5 Instalación de GitHub app
+## A5 Instalación de GitHub app
 * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
-##A6 Modificar apariencia Lubuntu a MAC
+## A6 Modificar apariencia Lubuntu a MAC
 * Primero debemos descargar e instalar las apariencias de las ventanas
 y demás en el siguiente [enlace](http://sourceforge.net/projects/mac4lin/)
 * Una vez instalado procederemos a activarlas manualmente en el asistente de
@@ -279,7 +262,7 @@ de personalizacion de barra de tarear llamado Cairo Dock.
 * Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos.
 * Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
 
-##A7. OpenSUSE 13.2. Usuarios de tipo sistema
+## A7. OpenSUSE 13.2. Usuarios de tipo sistema
 
 
 * Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,

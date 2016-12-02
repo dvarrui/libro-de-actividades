@@ -246,3 +246,25 @@ Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal 
 ![chocolatey-org](./images/chocolatey-org.jpg)
 
 En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
+
+## 2.5 Instalación desde las fuentes
+
+Realizar las siguientes tareas:
+* Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
+    * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
+    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
+    * http://www.valarsoft.com/
+    * http://goonies.jorito.net/ (SO recomendado Debian7)
+    * http://www.gameover.es/juegos-gratis/
+    * Si elijen otro programa deben consultarlo con el profesor. Por ejemplo Geany.
+    El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
+* Descargar el código fuente desde internet.
+* Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
+
+## 2.6 Emulación
+Realizar las siguientes tareas
+* Instalar el emulador de Windows (`wine`).
+* Instalar un programa específico de Windows (por ejemplo Jhony Simulator)
+   * Abrimos consola
+   * Ejecutamos `wine programa-instalador.exe`
+* Comprobar que la aplicación se instala y que funciona correctamente.
