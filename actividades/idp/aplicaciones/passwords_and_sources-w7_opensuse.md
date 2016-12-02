@@ -1,19 +1,21 @@
 
 
-#Claves e instalación desde la fuentes
+# Claves e instalación desde la fuentes
 
-#1. SO Windows
-Usaremos una MV Windows 7.
+# 1. SO Windows
 
-##1.1 Ocultación de usuarios
-Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`, 
-NO aparezcan en la ventana de inicio del sistema.
+Vamos a usar una MV Windows 7.
+
+## 1.1 Ocultación de usuarios
+
+Vamos a modificar la configuración del sistema para que los
+usuarios `jedi1` y `jedi2`, NO aparezcan en la ventana de inicio del sistema.
 
 > **REGISTRO DE WINDOWS**
 > * En WXP para hacer esto mismo había que modificar valores en el registro del sistema.
 > * Cuando tenemos que tocar el registro del sistema mucho cuidad.
 > * Ejecutar comando regedit para abrir el registro del sistema, y lo primero,
- usar la opción de export, para hacer una copia de seguridad del registro. 
+ usar la opción de export, para hacer una copia de seguridad del registro.
 Un error puede hacer que el sistema completo deje de funcionar.
 > * Leer bien cómo hacerlo, y hacerlo con mucha atención.
 > Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
@@ -21,12 +23,14 @@ Un error puede hacer que el sistema completo deje de funcionar.
 Iniciar sesión con una cuenta administrador:
 * Ir a `Inicio -> Ejecutar`
 * Entrar al registry (comando `regedit`)
-* Ir a la llave: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\` (OJO: HKLM = H Key Local Machine) 
+* Ir a la llave: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\` (OJO: HKLM = H Key Local Machine)
 Crear una llave (carpeta del registry) con el nombre: `SpecialAccounts`
 * Dentro de `SpecialAccounts` crear otra llave (carpeta) llamada: `UserList`.
-* Dentro de `UserList` crear un registro tipo `DWORD` con el nombre de la cuenta que se desea ocultar, 
+* Dentro de `UserList` crear un registro tipo `DWORD` con el nombre de la cuenta que se desea ocultar,
 por ejemplo: `jedi1` con un valor `0`.
 * Reiniciar y comprobar.
+
+## 1.2 Precauciones
 
 > **MODO DE INICIO DE SESIÓN SEGURA**
 >
@@ -35,21 +39,22 @@ por ejemplo: `jedi1` con un valor `0`.
 > En este modo debemos escribir nombre usuario y clave para iniciar sesión.
 
 > **PRECAUCIONES en el registro de Windows**
-> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y 
+> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y
 tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar
  el registry desde un live cd, en google busca: load hive)
 > * Si escondes las cuentas de administrador se le pone un candado muy muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: runas /user:USUARIO_ADMIN “comando”
-> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios. 
-Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, 
-hay que sustituir la palabra admin por el usuario que tengamos registrado. 
+> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios.
+Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto,
+hay que sustituir la palabra admin por el usuario que tengamos registrado.
 Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
-> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna 
+> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna
 cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
-> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del 
+> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del
 usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
 
-##1.2 Claves seguras
+## 1.3 Claves seguras
+
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith1: 1234
     * sith2: casa
@@ -58,14 +63,14 @@ usuario “admin” y asi ejecutar otros comandos con ese usuario.
     * nombrealumno: clave a elegir por el alumno
     * administrador: DNI del alumno
 
-> **RECOMENDACIONES PARA LAS CLAVES** 
+> **RECOMENDACIONES PARA LAS CLAVES**
 >
 > Para que una clave sea un poco segura debe tener:
-> * longitud 14, 
+> * longitud 14,
 > * incluir minúsculas y mayúsculas,
 > * incluir números y algún carácter especial.
 
-* Descargar la iso OphCrack para Windows7. Buscar primero en el servidor 
+* Descargar la iso OphCrack para Windows7. Buscar primero en el servidor
 del departamento antes de descargarlo de Internet.
 * Iniciar la máquina W7 con la iso OphCrack.
 * Esperar y comprobar cómo aparecen las claves.
@@ -79,17 +84,21 @@ del departamento antes de descargarlo de Internet.
 > * En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
 > * A continuación en el programa -> Crack y comienza a buscar las claves usando las "tablas de diccionario" escogidas.
 
-#2. SO GNU/Linux
+---
+
+# 2. SO GNU/Linux
 
 Usaremos una MV GNU/Linux OpenSUSE 13.2.
 
-##2.1 Ocultar usuarios
+## 2.1 Ocultar usuarios
+
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`, NO aparezcan en la ventana de inicio del sistema.
 
 * Yast -> Gestión de Usuarios -> Seleccionar usuario -> Desactivar inicio de sesión.
 
-##2.2 Claves seguras
-* Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`, 
+## 2.2 Claves seguras
+
+* Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`,
 para que puedan obtener privilegios administrativos.
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith1: 1234
@@ -100,20 +109,20 @@ para que puedan obtener privilegios administrativos.
 * Abrir una consola y entrar como superusuario.
 * Usar el comando `fdisk -l` para ver las particiones MBR disponibles.
 
-> Usar el comando `gdisk` para ver las particiones GPT
+> En el caso de GPT debemos usar el comando `gdisk` en lugar de `fdisk`.
 
 * Montar la partición del disco duro que corresponda al SO GNU/Linux, y ver el contenido. Ver ejemplo:
 ```
 (En lugar de X poner el número de la partición donde está instalado el SO.)
-mount /dev/sdaX /mnt 
+mount /dev/sdaX /mnt
 cd /mnt
 pdw
 ls
 ```    
 * Copia de seguridad del fichero de claves: `cp /mnt/etc/shadow /mnt/etc/shadow.bak`.
 
-> El fichero shadow tiene una fila por cada usuarios. 
-Dentro de cada fila los campos se separan por 2 punto. 
+> El fichero shadow tiene una fila por cada usuarios.
+Dentro de cada fila los campos se separan por 2 punto.
 El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuario.
 
 * Editamos el fichero de claves: `nano /mnt/etc/shadow`
@@ -123,7 +132,7 @@ El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuar
 * Reiniciar la MV sin el CDLIVE de Knoppix.
 * Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2`.
 
-##2.3 Desactivar el inicio gráfico
+## 2.3 Desactivar el inicio gráfico
 
 * Ir a `Yast -> Administración de Servicios`
 * Cambiar `Default system target` de `Graphical Interface` a `Multi-User System`
@@ -132,16 +141,17 @@ El campo 1 es el nombre del usuario, el campo 2 es la clave escriptada del usuar
 * Ejecutamos `yast`
 
 > Usaremos:
-> * la tecla tabulador para movernos por los campos, y 
+> * la tecla tabulador para movernos por los campos, y
 > * la tecla enter para entrar/aceptar opciones
 
 * Vamos a `Sistema -> Administrador de Servicios`
 * Cambiamos `Default System target` a `Graphical Interface`.
 
-##2.4 Modificar la apariencia
+## 2.4 Modificar la apariencia
+
 * Entrar al sistema con el usuario `jedi1`.
 
-> Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo en WXP o Windows7 
+> Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo en WXP o Windows7
 según queramos. Elegir sólo UNA opción.
 >
 > Podemos encontrar algún script en recursos del servidor del departamento, o buscando por Internet.
@@ -149,7 +159,8 @@ según queramos. Elegir sólo UNA opción.
 * Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
 * Reiniciar el sistema y comprobar el resultado.
 
-##2.5 Instalación desde las fuentes
+## 2.5 Instalación desde las fuentes
+
 Realizar las siguientes tareas:
 * Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
     * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
@@ -162,7 +173,7 @@ Realizar las siguientes tareas:
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
 
-##2.6 Emulación
+## 2.6 Emulación
 Realizar las siguientes tareas
 * Instalar el emulador de Windows (`wine`).
 * Instalar un programa específico de Windows (por ejemplo Jhony Simulator)
@@ -170,14 +181,16 @@ Realizar las siguientes tareas
    * Ejecutamos `wine programa-instalador.exe`
 * Comprobar que la aplicación se instala y que funciona correctamente.
 
-#ANEXO
+---
+
+# ANEXO
 
 ##A0: Desktop managet kdm
 * Buscar aplicación kdm por entorno gráfico.
 * Configurar usuarios excluidos de la ventana de inicio.
 
 ##A1:Desktop Manager lxdm
-Es el gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE. 
+Es el gestor de inicio por defecto para OpenSUSE12.3 con escritorio LXDE.
 Veamos ejemplo:
 
 ![config-lxdm](./images/config-lxdm.png)
@@ -189,7 +202,7 @@ black list: son los usuario a ocultar.
 ##A2: Gestor de inicio lightdm
 Suele ser el gestor de inicio por defecto de instalaciones con el escritorio LXDE y XFCE.
 
-El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/` 
+El fichero de configuración de **lightdm** suele estar en `/etc/ligthdm/`
 o `/etc/ligthdm/lightdm.conf.d/`.
 
 Enlaces de interés:
@@ -215,7 +228,7 @@ Con gdm3, los pasos son:
 
 ![gdm3-greeter-exclude](./images/gdm3-greeter-exclude)
 
-> Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug. 
+> Parece que la configuración anterior de Gnome3 en Debian7 tiene un bug.
 A continuación se muestra un modo de ocultar la lista de los usuarios al inicio de sesión.
 >
 > ```
@@ -248,25 +261,25 @@ mv S20gdm3 ..
 * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
 ##A6 Modificar apariencia Lubuntu a MAC
-* Primero debemos descargar e instalar las apariencias de las ventanas 
+* Primero debemos descargar e instalar las apariencias de las ventanas
 y demás en el siguiente [enlace](http://sourceforge.net/projects/mac4lin/)
-* Una vez instalado procederemos a activarlas manualmente en el asistente de 
-personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento) 
+* Una vez instalado procederemos a activarlas manualmente en el asistente de
+personalizacion del sistema. (Preferencias->Personalizar apariencia y comportamiento)
 En las pestañas control y borde de ventana
-* Luego ponemos estos comandos en consola como root para instalar un software 
+* Luego ponemos estos comandos en consola como root para instalar un software
 de personalizacion de barra de tarear llamado Cairo Dock.
 
     sudo add-apt-repository ppa:cairo-dock-team/ppa
     sudo apt-get update
     sudo apt-get install cairo-dock cairo-dock-plug-ins
 
-* Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos. 
+* Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos.
 * Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
 
 ##A7. OpenSUSE 13.2. Usuarios de tipo sistema
 
 
-* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX, 
+* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,
 crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
 
 ```
@@ -291,10 +304,10 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
 
 > **NO HACER LO SIGUIENTE**
 >
-> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos: 
-`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación" 
-en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000, 
-se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica 
+> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos:
+`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación"
+en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000,
+se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica
 como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
 >
 > Pero NO LO HAGAN SE ESTA FORMA.
