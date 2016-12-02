@@ -74,8 +74,7 @@ Comprobaciones
 
 > `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
 
-* `nmap localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible
-desde la red.
+* `nmap localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
 * `slapcat` para comprobar que la base de datos está bien configurada.
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
 Esta herramienta es un browser LDAP.
@@ -119,6 +118,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 
 ## Comprobación
 
+* `nmap ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde el cliente.
 * Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
