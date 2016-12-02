@@ -136,20 +136,31 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 
 ### Configuración de la conexión
 
-* Click on Authentication client
+> Información extraída de https://forums.opensuse.org/showthread.php/502305-Setting-up-LDAP-on-13-2
+
+* `Yast -> Authentication client`
 * Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
 * Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
     * id_provider = ldap
     * auth_provider = ldap
     * chpass_provider = ldap
-    . ldap_uri = LDAP server full name ldap://ldapserver.mycompany.in
-    * ldap_search base = search base ex: dc=example, dc=com
+    . ldap_uri = `ldap://ldapserver.mycompany.in`
+    * ldap_search base = `dc=example, dc=com`
 
 Ver imagen de ejemplo:
 
 ![opensuse-ldap-client-conf.png](./images/opensuse-ldap-client-conf.png)
 
-* Vamos a la consola y hacemos `id pirata21`.
+* Vamos a la consola y probamos con
+```
+$ id pirata21
+$ finger pirata21
+$ cat /etc/passwd | grep pirata21
+```
+
+---
+HASTA AQUÍ ES LA ENTREGA DEL INFORME
+---
 
 ## 2.3 Crear usuarios y grupos en LDAP
 
@@ -162,21 +173,6 @@ Vamos a crear los usuarios y grupos en LDAP.
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `aldeanos` y `soldados` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `aldeano21`, `aldeano21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
-
-### Problemas
-
-> https://forums.opensuse.org/showthread.php/502305-Setting-up-LDAP-on-13-2
->
-> Default Re: Setting up LDAP on 13.2
->
-> Initially I was also surprised by this sudden change from Open SuSE 13.2, but after bit experiment I could do it without any problem.
->
-> You should use the yast module "Authentication Client" and follow steps as given below
->     6. tls_reqcert : demand
->     7. ldap_tls_cacert = certificate in pem format that you got it from LDAP server. ( Hope you know how to do this as you have already done for 13.1 client)
->
-> <if any of these fields are not found in dialogue box, just click button "New" and selct from the list. click Ok.
-> Your client is configured to get authenticated with your LDAP server.
 
 ## 2.4 Comprobación desde el servidor
 
