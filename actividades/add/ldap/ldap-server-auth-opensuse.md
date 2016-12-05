@@ -16,7 +16,7 @@
 Comenzamos la instalación y configuración del servidor LDAP.
 
 > Enlaces de interés:
-> * [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+> * Guía sobre  [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 > * VIDEO [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
 > * VIDEO [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8) Min 38: Crear config dir a partir de config text.
 > * Consultar documento `ldap-auth-pminik-taller.pdf`, página 20.
@@ -144,8 +144,11 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
     * id_provider = ldap
     * auth_provider = ldap
     * chpass_provider = ldap
+    * ldap_schema = rfc2307bis
     . ldap_uri = `ldap://ldapserver.mycompany.in`
     * ldap_search base = `dc=example, dc=com`
+
+> Consultar el fichero `/etc/sssd/sssd.conf` para confirmar el valor de ldap_schema.
 
 Ver imagen de ejemplo:
 
@@ -153,14 +156,30 @@ Ver imagen de ejemplo:
 
 * Vamos a la consola y probamos con
 ```
+$ systemctl status sssd | grep domain
 $ id pirata21
 $ finger pirata21
 $ cat /etc/passwd | grep pirata21
+$ su pirata21
 ```
 
 ---
-HASTA AQUÍ ES LA ENTREGA DEL INFORME
+
+# HASTA AQUÍ ES LA ENTREGA DEL INFORME
+
 ---
+
+> **Default Re: Setting up LDAP on 13.2**
+>
+> Did you ever resolve your secondary group issues? I'm seeing the same problem and have already changed ldap_schema to rfc2307bis.
+>
+> sorry for my late replay. Yes. I have resolved this issue. My solution was in `/etc/sssd/sssd.conf`
+>
+>  comment out the lines
+> ```
+> # ldap_user_uuid = entryuuid
+> # ldap_group_uuid = entryuuid
+> ```
 
 ## 2.3 Crear usuarios y grupos en LDAP
 
