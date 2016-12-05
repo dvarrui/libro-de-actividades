@@ -1,7 +1,7 @@
 
-#Compilar desde las fuentes
+# Compilar desde las fuentes
 
-##Johnny Simulator
+## Johnny Simulator
 Instalar desde las fuentes el programa Johnny Simulator.
 
 LINUX: It is quite easy to port it to the Linux distribution you have.
