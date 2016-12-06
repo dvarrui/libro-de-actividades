@@ -91,15 +91,15 @@ NO hace falta capturar imágenes de lo siguiente:
 * Entrar al sistema como root (superusuario)
 * Capturar imagen de los siguientes comandos:
 ```
-    date (Muestra la fecha/hora del sistema)
-    hostname -a (Muestra nombre del sistema)
-    hostname -d (Muestra nombre de dominio)
-    uname -a (Muestra datos del kernel)
-    ip a (Muestra información de red)
-    df -hT (Muestra información de ocupación del disco)
-    fdisk -l (Muestra información de particiones)
-    lsblk (Muestra información de las particiones)
-    blkid (Muestra los códigos UUID de las particiones)
+    date         # Muestra la fecha/hora del sistema
+    hostname -a  # Muestra nombre del sistema
+    hostname -d  # Muestra nombre de dominio
+    uname -a     # Muestra datos del kernel
+    ip a         # Muestra información de red
+    df -hT       # Muestra información de ocupación del disco
+    fdisk --list # Muestra información de particiones
+    lsblk        # Muestra información de las particiones
+    blkid        # Muestra los códigos UUID de las particiones
 ```
 * Salir con el comando `exit`.
 
