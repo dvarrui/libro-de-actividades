@@ -103,7 +103,7 @@ NO hace falta capturar imágenes de lo siguiente:
 ```
 * Salir con el comando `exit`.
 
-##Para acabar:
+## Acceso externo
 
 NO hace falta capturar imagen de lo siguiente:
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
@@ -114,4 +114,6 @@ NO hace falta capturar imagen de lo siguiente:
 > * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
 
 * Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de Debian.
+* Desde la máquina real hacer `ssh usuario@ip-de-la-máquina-virtual`, para
+comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
