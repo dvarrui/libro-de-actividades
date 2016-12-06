@@ -5,18 +5,19 @@ Cambios para el curso 1718
 * La restricción 7.3 la implementaremos usando el cortafuegos
 ```
 
-#Acceso remoto SSH
+# Acceso remoto SSH
 
-* Introducción
-    * Atender a la explicación del profesor.
-    * Leer documentación proporcionada por el profesor.
+## Introducción
+
+* Atender a la explicación del profesor.
+* Leer documentación proporcionada por el profesor.
 
 > Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 
-* Vamos a necesitar las siguientes 3 MVs:
-    1. Un servidor GNU/Linux OpenSUSE (IP 172.18.XX.31)
-    1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
-    1. Un cliente Windows7 (IP 172.18.XX.11)
+Vamos a necesitar las siguientes 3 MVs:
+1. Un servidor GNU/Linux OpenSUSE (IP 172.18.XX.31)
+1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
+1. Un cliente Windows7 (IP 172.18.XX.11)
 
 * [Configurar las MV's](../../global/configuracion-aula108.md)
 
@@ -26,9 +27,10 @@ Entrega:
 * Además se mostrará al profesor la práctica funcionando en clase y se responderá
 a las preguntas que pudieran hacerse en dicho instante.
 
-#1. Preparativos
+# 1. Preparativos
 
-##1.1 Servidor SSH
+## 1.1 Servidor SSH
+
 * Configurar el servidor GNU/Linux con siguientes valores:
     * SO GNU/Linux: OpenSUSE
     * IP estática: 172.18.XX.31
@@ -52,7 +54,7 @@ blkid              #Consultar UUID de la instalación
     * primer-apellido-del-alumno3
     * primer-apellido-del-alumno4
 
-##1.2 Cliente GNU/Linux
+## 1.2 Cliente GNU/Linux
 
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
@@ -62,7 +64,7 @@ blkid              #Consultar UUID de la instalación
 * Añadir en `/etc/hosts` el equipo `ssh-serverXX`, y `ssh-clientXXb`.
 * Comprobar haciendo ping a ambos equipos.
 
-##1.3 Cliente Windows
+## 1.3 Cliente Windows
 
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
@@ -73,7 +75,9 @@ blkid              #Consultar UUID de la instalación
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXX y ssh-clientXXa.
 * Comprobar haciendo ping a ambos equipos.
 
-#2 Instalación del servicio SSH
+---
+
+# 2 Instalación del servicio SSH
 
 * Instalar el servicio SSH en la máquina ssh-server
     * Desde la herramienta `yast -> Instalar Software`
@@ -83,13 +87,11 @@ blkid              #Consultar UUID de la instalación
 > * Los ficheros de configuración del servicio se guardan en /etc/ssh.
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
-##2.1 Comprobación
+## 2.1 Comprobación
 
 * Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
-```
-    systemctl status sshd  #Esta es la forma de comprobarlo en *systemd*
-    ps -ef|grep sshd       #Esta es la forma de comprobarlo mirando los procesos del sistema
-```
+    * `systemctl status sshd`, esta es la forma de comprobarlo en *systemd*
+    * `ps -ef|grep sshd`, esta es la forma de comprobarlo mirando los procesos del sistema.
 
 ![servicio-sshd](./opensuse/servicio-sshd.png)
 
@@ -103,7 +105,7 @@ blkid              #Consultar UUID de la instalación
 
 ![netstat](./opensuse/sshd-netstat.png)
 
-##2.2 Primera conexión SSH desde ssh-clientXXa
+## 2.2 Primera conexión SSH desde ssh-clientXXa
 
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`.
 * Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
@@ -137,7 +139,8 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde
 los dos clientes. Comprobarlo.
 
-##2.3 ¿Y si cambiamos las claves del servidor?
+## 2.3 ¿Y si cambiamos las claves del servidor?
+
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`,
 Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
 que identifican a nuestro servidor frente a nuestros clientes:
@@ -163,7 +166,8 @@ que identifican a nuestro servidor frente a nuestros clientes:
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
 servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
 
-**Regenerar certificados**
+### Regenerar certificados
+
 Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
 identificación de nuestro servidor.
 * En **ssh-server**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
@@ -171,7 +175,8 @@ identificación de nuestro servidor.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
 
-**Comprobamos**
+### Comprobamos
+
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
@@ -189,7 +194,9 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 > * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
 >
 
-#3. Personalización del prompt Bash
+---
+
+# 3. Personalización del prompt Bash
 
 > [INFO] Esto sólo para servidores GNU/Linux o BSD.
 >
@@ -200,12 +207,12 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
 
 ```
-#Cambia el prompt al conectarse vía SSH
+# Se cambia el prompt al conectarse vía SSH
 
 if [ -n "$SSH_CLIENT" ]; then
-  PS1="AccesoRemoto_\e[32;40m\u@\h: \w\a\$"
+  PS1="AccesoRemoto_\e[32m\u@\h:\e[0m \w\a\$"
 else
-  PS1="\[$(ppwd)\]\u@\h:\w>"
+  PS1="\[$(pwd)\]\u@\h:\w>"
 fi
 ```
 * Además, crear el fichero `/home/1er-apellido-alumno1/.alias` con el siguiente contenido:
@@ -218,18 +225,14 @@ alias s='ssh'
 ```
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
-#4. Autenticación mediante claves públicas
+# 4. Autenticación mediante claves públicas
 
 ![clave-publica](./image/ssh-clave-publica.jpeg)
 
-```
-El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1,
-usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
+El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1, usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
 
-Para ello, vamos a configurar la autenticación mediante clave pública para acceder con
-nuestro usuario personal desde el equipo cliente al servidor con el
+Para ello, vamos a configurar la autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente al servidor con el
 usuario `1er-apellido-alumno4`.
-```
 
 * Vamos a la máquina ss-clientXXa.
 * ¡OJO! No usar el usuario root.
