@@ -13,34 +13,28 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 * Iniciar sesión con una cuenta administrador.
 * Ir a `Inicio -> Ejecutar`
 * Entrar al registry (comando `regedit`)
+
+> Hacer una copia de seguridad del resgistro (exportar) antes de hacer cualquier cambio.
+>
+> Cuando tenemos que tocar el registro del sistema hay que ser muy precavidos. Un error puede hacer que el sistema completo deje de funcionar.
+> * Ejecutar comando regedit para abrir el registro del sistema, y lo primero,
+ usar la opción de export, para hacer una copia de seguridad del registro.
+> * Leer bien cómo hacerlo, y hacerlo con mucha atención.
+> * Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
+
 * Ir a la llave: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\` (OJO: HKLM = H Key Local Machine)
 * Crear una llave (carpeta del registry) con el nombre: `SpecialAccounts`
 * Dentro de `SpecialAccounts` crear otra llave (carpeta) llamada: `UserList`.
 * Dentro de `UserList` crear un registro tipo `DWORD` con el nombre de la cuenta que se desea ocultar. Por ejemplo: `jedi1` con un valor `0`.
 * Reiniciar y comprobar.
 
-## 1.2 Precauciones
+## 1.2 Modo de inicio de sesión seguro
 
-> **MODO DE INICIO DE SESIÓN SEGURA**
->
-> Con el programa `netplwiz` podemos cambiar al modo de inicio de sesión seguro.
->
-> En este modo debemos escribir nombre usuario y clave para iniciar sesión.
-
-> **PRECAUCIONES en el registro de Windows**
-> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y
-tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar
- el registry desde un live cd, en google busca: load hive)
-> * Si escondes las cuentas de administrador se le pone un candado muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: `runas /user:USUARIO_ADMIN “comando”``
-> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios.
-Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto,
-hay que sustituir la palabra admin por el usuario que tengamos registrado.
-Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
-> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna
-cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
-> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del
-usuario “admin” y asi ejecutar otros comandos con ese usuario.
-
+* [Enlace de interés](http://www.zonasystem.com/2012/04/no-mostrar-nombres-de-usuarios-en-el.html)
+* Inciar consola CMD con usuario administrador.
+* Ejecutar `secpo.msc`
+* `Directivas locales -> Seguridad -> Inicio de sesión...: No mostrar último nombre... -> Habilitar`. En este modo debemos escribir nombre usuario y clave para iniciar sesión.
+* Comprobarlo.
 
 ## 1.3 Claves seguras
 
@@ -150,14 +144,20 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
-## A.1 Ocultación de usuarios en WXP
+## A.1 PRECAUCIONES en el registro de Windows
 
-* En WXP para hacer esto mismo había que modificar valores en el registro del sistema.
-* Cuando tenemos que tocar el registro del sistema hay que ser muy precavidos. Un error puede hacer que el sistema completo deje de funcionar.
-* Ejecutar comando regedit para abrir el registro del sistema, y lo primero,
- usar la opción de export, para hacer una copia de seguridad del registro.
-* Leer bien cómo hacerlo, y hacerlo con mucha atención.
-Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
+> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y
+tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar
+ el registry desde un live cd, en google busca: load hive)
+> * Si escondes las cuentas de administrador se le pone un candado muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: `runas /user:USUARIO_ADMIN “comando”``
+> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios.
+Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto,
+hay que sustituir la palabra admin por el usuario que tengamos registrado.
+Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
+> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna
+cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
+> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del
+usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
 ## A.2 Desktop Manager
 
