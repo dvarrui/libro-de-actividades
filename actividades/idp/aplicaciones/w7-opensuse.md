@@ -268,3 +268,12 @@ Realizar las siguientes tareas
    * Abrimos consola
    * Ejecutamos `wine programa-instalador.exe`
 * Comprobar que la aplicación se instala y que funciona correctamente.
+
+---
+
+# ANEXO
+
+## A.1 Ejemplo de instalación usando las fuentes de GitHub
+
+* [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
+* [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
