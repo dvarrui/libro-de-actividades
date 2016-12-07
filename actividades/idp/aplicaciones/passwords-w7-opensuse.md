@@ -71,8 +71,7 @@ del departamento antes de descargarlo de Internet.
 
 Usaremos una MV GNU/Linux OpenSUSE 13.2.
 
-> Enlaces de interés:
-> * [Cuentas de usuario](https://es.opensuse.org/Cuentas_de_usuario)
+> Enlaces de interés sobre  [Cuentas de usuario](https://es.opensuse.org/Cuentas_de_usuario)
 
 ## 2.1 Ocultar usuarios
 
