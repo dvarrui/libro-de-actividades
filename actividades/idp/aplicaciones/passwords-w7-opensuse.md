@@ -32,7 +32,7 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 
 * [Enlace de interés](http://www.zonasystem.com/2012/04/no-mostrar-nombres-de-usuarios-en-el.html)
 * Inciar consola CMD con usuario administrador.
-* Ejecutar `secpo.msc`
+* Ejecutar `secpol.msc`
 * `Directivas locales -> Seguridad -> Inicio de sesión...: No mostrar último nombre... -> Habilitar`. En este modo debemos escribir nombre usuario y clave para iniciar sesión.
 * Comprobarlo.
 
