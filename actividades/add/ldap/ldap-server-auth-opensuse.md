@@ -70,6 +70,8 @@ Veamos ejemplo de la configuración final:
 ![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
 
 Comprobaciones
+* `slaptest -f /etc/openldap/slapd.conf` para comprobar la sintaxis del fichero
+do configuración.
 * `systemctl status slapd`, para comprobar el estado del servicio.
 
 > `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
@@ -148,15 +150,30 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
     . ldap_uri = `ldap://ldapserver.mycompany.in`
     * ldap_search base = `dc=example, dc=com`
 
-> Consultar el fichero `/etc/sssd/sssd.conf` para confirmar el valor de ldap_schema.
-
 Ver imagen de ejemplo:
 
 ![opensuse-ldap-client-conf.png](./images/opensuse-ldap-client-conf.png)
 
+Consultar el fichero `/etc/sssd/sssd.conf` para confirmar el valor de ldap_schema.
+```
+# A native LDAP domain
+[domain/LDAP]
+enumerate = true
+cache_credentials = TRUE
+
+id_provider = ldap
+auth_provider = ldap
+chpass_provider = ldap
+
+ldap_uri = ldap://ldap.mydomain.org
+ldap_search_base = dc=mydomain,dc=org
+```
+
 * Vamos a la consola y probamos con
 ```
 $ systemctl status sssd | grep domain
+$ getent passwd pirata21
+$ getent group piratas
 $ id pirata21
 $ finger pirata21
 $ cat /etc/passwd | grep pirata21

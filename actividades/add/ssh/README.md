@@ -258,7 +258,7 @@ remoto en la máquina remota.
     * Desde `ssh-clientXXa`, NO se pide password.
     * Desde `ssh-clientXXb`, SI se pide el password.
 
-#5. Uso de SSH como túnel para X
+# 5. Uso de SSH como túnel para X
 
 ![tunel](./image/ssh-tunel.jpeg)
 
@@ -274,7 +274,7 @@ remota al servidor, y ahora ejecutamos APP1 de forma remota.
 >
 > Para ver los logs del sistema usar `journalctl`
 
-#6. Aplicaciones Windows nativas
+# 6. Aplicaciones Windows nativas
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
 * Instalar emulador Wine en el ssh-server.
@@ -285,16 +285,16 @@ usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wi
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
-#7. Restricciones de uso
+# 7. Restricciones de uso
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
 
-##7.1 Sin restricción (tipo 1)
+## 7.1 Sin restricción (tipo 1)
 Usuario sin restricciones:
 
 * El usuario 1er-apellido-alumno1, podrá conectarse vía SSH sin restricciones.
 * En principio no es necesario tocar nada.
 
-##7.2 Restricción total (tipo 2)
+## 7.2 Restricción total (tipo 2)
 Vamos a crear una restricción de uso del SSH para un usuario:
 
 * En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar
@@ -326,7 +326,7 @@ autorizadas puedan acceder a nuestro servidor.
 > * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
 > * Comprobar su funcionamiento.
 
-##7.4 Restricción sobre aplicaciones (tipo 4)
+## 7.4 Restricción sobre aplicaciones (tipo 4)
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
 * Usaremos el usuario remoteuser4
@@ -338,12 +338,13 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 * Comprobamos el funcionamiento en el servidor.
 * Comprobamos el funcionamiento desde el cliente.
 
+---
 
 # ANEXO 1: Configuración de seguridad en OpenSSH
 
 Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
 
-##OpenSSH locking parameters
+## OpenSSH locking parameters
 For locking down which users may or may not access the server you will want to look into one, or more, of the following directives: User/Group Based Access
 
 * **AllowGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
@@ -355,7 +356,7 @@ For locking down which users may or may not access the server you will want to l
 
 * **DenyUsers**. This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns. * and ? can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
 
-##Example configuring locking
+## Example configuring locking
 
 * The first thing to do is backup the original configuration file:
 `cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}`
@@ -388,7 +389,7 @@ After verification we will simply need to restart sshd.This can be performed via
 > Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
 > Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
 
-#ANEXO 2: COnfiguración de seguridad en máquinas GNU/Linux
+# ANEXO 2: COnfiguración de seguridad en máquinas GNU/Linux
 Editing hosts.allow and hosts.deny Files
 
 To restrict access to your Unix or Linux machine, you must modify the /etc/hosts.allow and /etc/host.deny files. These files are used by the tcpd (tcp wrapper) and sshd programs to decide whether or not to accept a connection coming in from another IP address. ITS recommends that to start with, you restrict access to only those network addresses you are certain should be allowed access. The following two example files allow connections from any address in the virginia.edu network domain, but no others.
