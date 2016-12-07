@@ -56,12 +56,11 @@ Vamos a modificar las claves de los usuarios de la siguiente forma:
 del departamento antes de descargarlo de Internet.
 * Iniciar la máquina W7 con la iso OphCrack.
 * Esperar y comprobar cómo aparecen las claves.
-* REALIZAR CAPTURA DE PANTALLA para enseñar al profesor.
-
+* Realizar captura de pantalla.
 
 > **TABLAS DE DICCIONARIO**
 >
-> Si quisiéramos aumentar las efectividad del programa, deberíamos incluir *"tablas de diccionario"*. Las podemos descargar del servidor del departamento o la web.
+> Si quisiéramos aumentar la velocidad del programa, deberíamos incluir *"tablas de diccionario"*. Las podemos descargar del servidor del departamento o la web.
 >
 > * El fichero zip lo descomprimimos dentro de la máquina con OhpCrack.
 > * En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
@@ -81,7 +80,7 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`,
 NO aparezcan en la ventana de inicio del sistema.
 
-* Yast -> Gestión de Usuarios -> Seleccionar usuario -> Desactivar inicio de sesión.
+* `Yast -> Gestión de Usuarios -> Seleccionar usuario -> Desactivar inicio de sesión`.
 
 ## 2.2 Claves seguras
 
@@ -120,7 +119,8 @@ El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave escriptada d
 > Con este cambio hemos dejamos los usuarios con una clave conocida por nosotros.
 
 * Reiniciar la MV sin el CDLIVE de Knoppix.
-* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2`.
+* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2`, usando la
+clave 123456.
 
 ## 2.3 Desactivar el inicio gráfico
 
@@ -230,11 +230,13 @@ cd /etc/rc2.d/DISABLED
 mv S20gdm3 ..
 ```
 
-## A5 Instalación de GitHub app
+## A.4 Instalación de GitHub app
+
 * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
-## A6 Modificar apariencia Lubuntu a MAC
+## A.5 Modificar apariencia Lubuntu a MAC
+
 * Primero debemos descargar e instalar las apariencias de las ventanas
 y demás en el siguiente [enlace](http://sourceforge.net/projects/mac4lin/)
 * Una vez instalado procederemos a activarlas manualmente en el asistente de
@@ -250,7 +252,7 @@ de personalizacion de barra de tarear llamado Cairo Dock.
 * Y por ultimo buscamos el Cairo Dock modo gráfico y lo personalizamos.
 * Para personalizar el Cairo-Dock y agregar los iconos de Mac--> (click derecho sobre la barra-->Cairo-Dock-->configurar-->temas (Importamos el tema macOSX)
 
-## A7. OpenSUSE 13.2. Usuarios de tipo sistema
+## A.6 OpenSUSE 13.2. Usuarios de tipo sistema
 
 
 * Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,
@@ -285,15 +287,3 @@ se consideran usuarios especiales del sistema. Por tanto, el sistema no los iden
 como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
 >
 > Pero NO LO HAGAN SE ESTA FORMA.
-
-## 2.4 Modificar la apariencia
-
-* Entrar al sistema con el usuario `jedi1`.
-
-> Existen scripts que modifican la apariencia del GNOME-Debian para convertirlo
-en WXP o Windows7 según queramos. Elegir sólo UNA opción.
->
-> Podemos encontrar algún script en recursos del servidor del departamento, o buscando por Internet.
-
-* Descargar fichero, descomprimirlo, leer documentación, seguir los pasos indicados.
-* Reiniciar el sistema y comprobar el resultado.
