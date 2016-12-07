@@ -1,6 +1,6 @@
 
 
-# Claves e instalación desde la fuentes
+# Claves y ocultación
 
 # 1. SO Windows
 
