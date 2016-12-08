@@ -210,9 +210,9 @@ del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc
 # Se cambia el prompt al conectarse vía SSH
 
 if [ -n "$SSH_CLIENT" ]; then
-  PS1="AccesoRemoto_\e[32m\u@\h:\e[0m \w\a\$"
+   PS1="AccesoRemoto_\e[32m\u@\h:\e[0m \w\a\$"
 else
-  PS1="\[$(pwd)\]\u@\h:\w>"
+   PS1="\[$(pwd)\]\u@\h:\w>"
 fi
 ```
 * Además, crear el fichero `/home/1er-apellido-alumno1/.alias` con el siguiente contenido:
@@ -288,13 +288,8 @@ usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wi
 # 7. Restricciones de uso
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
 
-## 7.1 Sin restricción (tipo 1)
-Usuario sin restricciones:
+## Restricción sobre un usuario
 
-* El usuario 1er-apellido-alumno1, podrá conectarse vía SSH sin restricciones.
-* En principio no es necesario tocar nada.
-
-## 7.2 Restricción total (tipo 2)
 Vamos a crear una restricción de uso del SSH para un usuario:
 
 * En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar
@@ -307,39 +302,29 @@ restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers
 Más información en: `man sshd_config` y en el Anexo de este enunciado.
 * Comprobarlo la restricción al acceder desde los clientes.
 
-> ##7.3 Restricción en las máquinas (tipo 3)
-> `Los tcpwrrapers para SSH en OpenSUSE 13.2 han sido desactivados`
-> Vamos a crear una restricción para que sólo las máquinas clientes con las IP's
-autorizadas puedan acceder a nuestro servidor.
->
-> * Fichero de configuración /etc/hosts.allow.
-> ```
-> sshd : 127.0.0.1   : allow
-> sshd : 192.168.    : allow
-> sshd : 130.57.5.70 : allow
-> sshd : 10.         : allow
-> ```
-> * Fichero de configuración /etc/hosts.deny,
-> `sshd : ALL         : deny`
->
-> * [More information](https://en.opensuse.org/SDB:Configure_openSSH#Limit_by_Hosts)
-> * Modificar configuración en el servidor para denegar accesos de todas las máquinas, excepto nuestros clientes.
-> * Comprobar su funcionamiento.
+## Restricción sobre una aplicación
 
-## 7.4 Restricción sobre aplicaciones (tipo 4)
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
-* Usaremos el usuario remoteuser4
 * Crear grupo remoteapps
-* Incluir al usuario en el grupo.
+* Incluir al usuario remoteuser4 en el grupo remoteapps.
 * Localizar el programa APP1. Posiblemente tenga permisos 755.
-* Poner al programa APP1 el grupo propietario a remoteapps
-* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los que no pertenezcan al grupo puedan ejecutar el programa.
+* Poner al programa APP1 el grupo propietario a remoteapps.
+* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usurios
+que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor.
 * Comprobamos el funcionamiento desde el cliente.
 
----
+## Restricción sobre una IP
 
+* Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.
+* Enlace de interés:
+    * [ Howto Ejemplos de iptables ](http://www.seavtec.com/en/content/soporte/documentacion/iptables-howto-ejemplos-de-iptables-para-sysadmins)
+    * [ 20 ejemplos de iptables para sysadmins ](https://elbauldelprogramador.com/20-ejemplos-de-iptables-para-sysadmins/#parar--iniciar--reiniciar-el-firewall)
+* Usar `iptables` para restringir el acceso al puerto 22 desde `ssh-clientXXb`.
+* Comprobar.
+
+---
 # ANEXO 1: Configuración de seguridad en OpenSSH
 
 Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
@@ -388,30 +373,3 @@ After verification we will simply need to restart sshd.This can be performed via
 
 > Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
 > Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
-
-# ANEXO 2: COnfiguración de seguridad en máquinas GNU/Linux
-Editing hosts.allow and hosts.deny Files
-
-To restrict access to your Unix or Linux machine, you must modify the /etc/hosts.allow and /etc/host.deny files. These files are used by the tcpd (tcp wrapper) and sshd programs to decide whether or not to accept a connection coming in from another IP address. ITS recommends that to start with, you restrict access to only those network addresses you are certain should be allowed access. The following two example files allow connections from any address in the virginia.edu network domain, but no others.
-/etc/hosts.allow
-
-ITS recommends using the configuration shown in the following /etc/hosts.allow file, to permit connections to any services protected by the tcpd or sshd from only systems within the virginia.edu domain:
-
-    #
-    # hosts.allow This file describes the names of the hosts which are
-    # allowed to use the local INET services, as decided
-    # by the '/usr/sbin/tcpd' server.
-    #
-    # Only allow connections within the virginia.edu domain.
-    ALL: .virginia.edu
-    /etc/hosts.deny
-
-Following is ITS's suggested /etc/hosts.deny file content. With this configuration, access to your machine from all hosts is denied, except for those specified in hosts.allow.
-
-    #
-    # hosts.deny This file describes the names of the hosts which are
-    # *not* allowed to use the local INET services, as decided
-    # by the '/usr/sbin/tcpd' server.
-    #
-    # deny all by default, only allowing hosts or domains listed in hosts.allow.
-    ALL: ALL
