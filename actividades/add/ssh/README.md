@@ -2,7 +2,7 @@
 Fecha: 20161031
 Cambios para el curso 1718
 * Incluir servidor SSH en Windows7
-* La restricción 7.3 la implementaremos usando el cortafuegos
+* La restricción IP la implementaremos usando iptables
 ```
 
 # Acceso remoto SSH
