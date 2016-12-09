@@ -325,6 +325,7 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobar.
 
 ---
+
 # ANEXO 1: Configuración de seguridad en OpenSSH
 
 Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
