@@ -139,7 +139,7 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde
 los dos clientes. Comprobarlo.
 
-## 2.3 ¿Y si cambiamos las claves del servidor?
+# 3 ¿Y si cambiamos las claves del servidor?
 
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`,
 Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
@@ -196,7 +196,7 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
 ---
 
-# 3. Personalización del prompt Bash
+# 4. Personalización del prompt Bash
 
 > [INFO] Esto sólo para servidores GNU/Linux o BSD.
 >
@@ -225,7 +225,7 @@ alias s='ssh'
 ```
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
-# 4. Autenticación mediante claves públicas
+# 5. Autenticación mediante claves públicas
 
 ![clave-publica](./image/ssh-clave-publica.jpeg)
 
@@ -258,7 +258,7 @@ remoto en la máquina remota.
     * Desde `ssh-clientXXa`, NO se pide password.
     * Desde `ssh-clientXXb`, SI se pide el password.
 
-# 5. Uso de SSH como túnel para X
+# 6. Uso de SSH como túnel para X
 
 ![tunel](./image/ssh-tunel.jpeg)
 
@@ -266,7 +266,10 @@ remoto en la máquina remota.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
 * Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes.
 Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
-* Comprobar funcionamiento de APP1 desde cliente1.
+
+Vamos al clienteXXa.
+* Comprobar que no está instalada APP1: `zypper se APP1`.
+* Comprobar desde el clienteXXa, que funciona APP1(del servidor).
 Por ejemplo, con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
 
@@ -274,7 +277,7 @@ remota al servidor, y ahora ejecutamos APP1 de forma remota.
 >
 > Para ver los logs del sistema usar `journalctl`
 
-# 6. Aplicaciones Windows nativas
+# 7. Aplicaciones Windows nativas
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
 * Instalar emulador Wine en el ssh-server.
@@ -285,7 +288,8 @@ usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wi
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
-# 7. Restricciones de uso
+# 8. Restricciones de uso
+
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
 
 ## Restricción sobre un usuario
