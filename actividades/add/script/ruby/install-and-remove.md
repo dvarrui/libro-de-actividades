@@ -24,6 +24,14 @@ para actuar sobre cada paquete en un sistema GNU/Linux.
     * Si `ACTION` es remove o r, entonces desinstalar el software.
     * Si `ACTION` es install o i, entonces instalar el software.
     * Si `ACTION` es status o s, entonces mostrar un mensaje (instalado o no instalado).
+
+> PISTA para saber si tenemos un programa instalado o no...
+>
+> * `whereis PACKAGENAME |grep bin |wc -l`
+> * `zypper se geany|grep 'i '|wc -l`
+> * Si el resultado es 0 -> NO está instalado
+> * Si el resultado es mayor que 0 -> SI está instalado 
+
 * El script debe actuar de forma NO interactiva. No debe hacer preguntas al usuario
 durante la ejecución.
 * Antes de realizar cada acción comprobar:
