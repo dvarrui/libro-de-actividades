@@ -104,9 +104,9 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
 
 ```
 [global]
-  netbios name = 1er-apellido-alumno-XX
+  netbios name = isla-XX
   workgroup = mar1617
-  server string = Servidor Samba del PC XX
+  server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
   guest account = smbguest
