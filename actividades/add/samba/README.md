@@ -285,13 +285,13 @@ compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.18.XX.55/castillo /mnt/sambaXX-remoto/castillo -o username=soldado1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
-`smbmount //smb-serverXX/public /mnt/sambaXX-remoto/public/ -o -username=smbguest`.
+`smbmount //smb-serverXX/public /mnt/remotoXX/public/ -o -username=smbguest`.
 
 * COMPROBAR: Ejecutar el comando `df -hT`. Veremos que el recurso ha sido montado.
 
 ![samba-linux-mount-cifs](./images/samba-linux-mount-cifs.png)
 
-> * Si montamos la carpeta de `castillo`, lo que escribamos en `/mnt/sambaXX-remoto/castillo`
+> * Si montamos la carpeta de `castillo`, lo que escribamos en `/mnt/remotoXX/castillo`
 debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
@@ -312,7 +312,7 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
-`//smb-serverXX/public /mnt/sambaXX-remoto/public cifs username=soldado1,password=clave 0 0`
+`//smb-serverXX/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
