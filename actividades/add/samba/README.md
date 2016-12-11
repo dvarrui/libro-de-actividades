@@ -301,6 +301,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
     * `netstat -n`, desde el cliente Windows.
 
 ## 3.3 Montaje automático
+
 Capturar imágenes del proceso.
 
 Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
