@@ -31,7 +31,7 @@ Comenzamos la instalación y configuración del servidor LDAP.
 127.0.0.2   ldap-serverXX.curso1617   ldap-serverXX
 127.0.0.3   nombrealumnoXX.curso1617  nombrealumnoXX
 ```
-
+ 
 Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
