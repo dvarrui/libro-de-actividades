@@ -104,7 +104,7 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
 
 ```
 [global]
-  netbios name = isla-XX
+  netbios name = smb-serverXX
   workgroup = mar1617
   server string = Servidor de nombre-alumno-XX
   security = user
