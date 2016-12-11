@@ -45,15 +45,15 @@ sudo blkid
 * Podemos usar comandos o entorno gráfico Yast.
 
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
-* Crear los grupos `jedis`, `siths` y `starwars`.
+* Crear los grupos `piratas`, `soldados` y `todos`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
 entrar en nuestra máquina mediante login, vamos a modificar este usuario y le ponemos
 como shell `/bin/false`.
     * Por entorno gráfico lo cambiamos usando Yast.
     * Por comandos el cambio se hace editando el fichero `/etc/passwd`.
-* Dentro del grupo `jedis` incluir a los usuarios `jedi1`, `jedi2` y `supersamba`.
-* Dentro del grupo `siths` incluir a los usuarios `sith1` y `sith2` y `supersamba`.
-* Dentro del grupo `starwars`, poner a todos los usuarios `siths`, `jedis`, `supersamba` y a `smbguest`.
+* Dentro del grupo `piratas` incluir a los usuarios `pirata1`, `pirata2` y `supersamba`.
+* Dentro del grupo `soldados` incluir a los usuarios `soldado1` y `soldado2` y `supersamba`.
+* Dentro del grupo `todos`, poner a todos los usuarios `soldados`, `pitatas`, `supersamba` y a `smbguest`.
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
@@ -61,15 +61,15 @@ como shell `/bin/false`.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
     * `/srv/sambaXX/public.d`
         * Usuario propietario `supersamba`.
-        * Grupo propietario `starwars`.
+        * Grupo propietario `todos`.
         * Poner permisos 775.
-    * `/srv/sambaXX/corusant.d`
+    * `/srv/sambaXX/castillo.d`
         * Usuario propietario `supersamba`.
-        * Grupo propietario `siths`.
+        * Grupo propietario `soldados`.
         * Poner permisos 770.
-    * `/srv/sambaXX/tatooine.d`
+    * `/srv/sambaXX/barco.d`
         * Usuario propietario `supersamba`.
-        * Grupo propietario `jedis`.
+        * Grupo propietario `piratas`.
         * Poner permisos 770.
 
 ## 1.4 Instalar Samba Server
@@ -82,7 +82,7 @@ como shell `/bin/false`.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `starwars`
+    * Workgroup: `mar1617`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
@@ -105,7 +105,7 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
 ```
 [global]
   netbios name = 1er-apellido-alumno-XX
-  workgroup = STARWARS
+  workgroup = mar1617
   server string = Servidor Samba del PC XX
   security = user
   map to guest = bad user
@@ -121,15 +121,15 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
   guest ok = yes
   read only = yes
 
-[corusant]
-  path = /srv/sambaXX/corusant.d
+[castillo]
+  path = /srv/sambaXX/castillo.d
   read only = no
-  valid users = @siths
+  valid users = @soldados
 
-[tatooine]
-  path = /srv/sambaXX/tatooine.d
+[barco]
+  path = /srv/sambaXX/piratas.d
   read only = no
-  valid users = jedi1, jedi2
+  valid users = pirata1, pirata2
 ```
 
 * Abrimos una consola para comprobar los resultados.
@@ -189,8 +189,8 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
 * Comprobar los accesos de todas las formas posibles. Como si fuéramos:
-    * un `sith`
-    * un `jedi`
+    * un `soldado`
+    * un `pirata`
     * y/o un invitado.
 
 > * Después de cada conexión se quedan guardada la información en el cliente
@@ -255,7 +255,7 @@ pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
 en **Dominio** el *nombre-netbios-del-servidor-samba*.
 
 Capturar imagen de lo siguiente:
-* Probar a crear carpetas/archivos en `corusant` y en  `tatooine`.
+* Probar a crear carpetas/archivos en `castillo` y en  `barco`.
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
@@ -282,7 +282,7 @@ smbclient --list ip-servidor-samba # Muestra los recursos SMB/CIFS de un equipo 
 * Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/corusant`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.18.XX.55/corusant /mnt/sambaXX-remoto/corusant -o username=sith1`
+`mount -t cifs //172.18.XX.55/castillo /mnt/sambaXX-remoto/castillo -o username=soldado1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
 `smbmount //smb-serverXX/public /mnt/sambaXX-remoto/public/ -o -username=smbguest`.
@@ -291,7 +291,7 @@ compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 
 ![samba-linux-mount-cifs](./images/samba-linux-mount-cifs.png)
 
-> * Si montamos la carpeta de `corusat`, lo que escribamos en `/mnt/sambaXX-remoto/corusant`
+> * Si montamos la carpeta de `castillo`, lo que escribamos en `/mnt/sambaXX-remoto/castillo`
 debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
@@ -311,7 +311,7 @@ a no ser que hagamos una configuración de  montaje permanente o automática.
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
-`//smb-serverXX/public /mnt/sambaXX-remoto/public cifs username=sith1,password=clave 0 0`
+`//smb-serverXX/public /mnt/sambaXX-remoto/public cifs username=soldado1,password=clave 0 0`
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
@@ -321,7 +321,7 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 # 4. Preguntas para resolver
 
 * ¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?
-* ¿Puedo definir un usuario en Samba llamado sith3, y que no exista como usuario del sistema?
-* ¿Cómo podemos hacer que los usuarios sith1 y sith2 no puedan acceder al sistema pero sí al samba?
+* ¿Puedo definir un usuario en Samba llamado soldado3, y que no exista como usuario del sistema?
+* ¿Cómo podemos hacer que los usuarios soldado1 y soldado2 no puedan acceder al sistema pero sí al samba?
 (Consultar `/etc/passwd`)
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
