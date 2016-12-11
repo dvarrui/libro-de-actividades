@@ -210,7 +210,7 @@ del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc
 # Se cambia el prompt al conectarse vía SSH
 
 if [ -n "$SSH_CLIENT" ]; then
-   PS1="AccesoRemoto_\e[32m\u@\h:\e[0m \w\a\$"
+   PS1="AccesoRemoto_\e[32m\u@\h:\e[0m \w\a\$ "
 else
    PS1="\[$(pwd)\]\u@\h:\w>"
 fi
