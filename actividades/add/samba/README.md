@@ -173,6 +173,8 @@ para que se lean los cambios de configuración.
 > Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
 máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
+---
+
 # 2. Windows (MV3 `smb-cliXXb`)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
@@ -224,6 +226,8 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
     * `netstat -ntap`, desde el servidor Samba.
     * `netstat -n`, desde el cliente Windows.
 
+---
+
 # 3 Cliente GNU/Linux (MV2 `smb-cliXXa`)
 
 * [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
@@ -272,6 +276,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 * Primero comprobar el uso de las siguientes herramientas:
 ```
 sudo smbtree                       # Muestra todos los equipos/recursos de la red SMB/CIFS
+                                   # Hay que abroir el cortafuegos para que funcione.
 smbclient --list ip-servidor-samba # Muestra los recursos SMB/CIFS de un equipo concreto
 ```
 * Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/corusant`.
@@ -310,6 +315,8 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
+
+---
 
 # 4. Preguntas para resolver
 
