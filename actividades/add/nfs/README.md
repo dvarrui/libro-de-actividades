@@ -41,14 +41,19 @@ Vamos a la MV con Windows 2008 Server
 
 ### Configurar el servidor NFS
 
-* Crear la carpeta `c:\exportXX\public`. Picar en la carpeta `botón derecho
-propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red en modo lectura/escritura con NFS.
-* Crear la carpeta `c:\exportXX\private`. Picar en la carpeta `botón derecho
-propiedades -> Compartir NFS`, y configurarla para que sea accesible desde la red sólo en modo sólo lectura.
+* Crear la carpeta `c:\exportXX\public`.
+    * Configurar en `Carpeta -> Botón derecho propiedades -> Compartir NFS`.
+    * En modo lectura/escritura con NFS.
+    * Acceso a todos los equipos.
+* Crear la carpeta `c:\exportXX\private`.
+    * Configurar en `Carpeta -> Botón derecho propiedades -> Compartir NFS`.
+    * Sólo en modo sólo lectura.
+    * Acceso sólo al equipo cliente.
 
 ![nfs-windows-servidor1](./images/nfs-windows-servidor1.png)
 
-> En caso de problemas al acceder desde el cliente, configurar en el servidor el recurso con "Permitir Acceso Anónimo".
+> En caso de problemas al acceder desde el cliente, configurar en el servidor
+el recurso con "Permitir Acceso Anónimo".
 
 * Ejecutamos el comando `showmount -e IP-DEL-SERVIDOR`, para comprobar que los recursos exportados.
 
@@ -102,10 +107,10 @@ en el sistema nos asignará la Z.
 > * Comprobar que la configuración del cortafuegos del servidor permite accesos NFS.
 > * Desde un cliente GNU/Linux hacer `nmap IP-del-servidor -Pn`. Debe aparecer abierto el puerto del servicio NFS
 
-* Comprobar en el cliente los recursos montados con `net use` y `showmount -a ip-del-servidor`
+* Comprobar en el cliente los recursos montados con `net use`.
+* Leer y escribir en los recursos compartidos.
 * `netstat -n`, para comprobar el acceso a los recursos NFS desde el cliente.
 * Para desmontar la unidad simplemente escribimos en una consola: `umount z:`
-* En el servidor ejecutamos el comando `showmount -e ip-del-servidor`, para comprobar los recursos compartidos.
 
 ---
 
@@ -169,7 +174,7 @@ Ahora vamos a comprobar que las carpetas del servidor son accesibles desde el cl
 Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en
 OpenSUSE:
 * `zypper search nfs`, para buscar los paquetes nfs.
-* `zypper install nfs-...`, para instalar el paquete cliente.
+* `zypper install nfs-client`, para instalar el paquete cliente.
 
 ### Comprobar conectividad desde cliente al servidor
 
