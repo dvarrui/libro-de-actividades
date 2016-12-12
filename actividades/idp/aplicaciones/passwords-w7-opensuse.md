@@ -80,6 +80,15 @@ NO aparezcan en la ventana de inicio del sistema.
 
 * `Yast -> Gestión de Usuarios -> Seleccionar usuario -> Desactivar inicio de sesión`.
 
+> Mostrar los usuarios en un menú contextual LIGTHDM
+>
+> Cada vez que entramos en el menú de Lightdm es un poco engorroso tener que introducir el nombre de nuestro usuario y seguidamente el password. Podemos simplificar este paso haciendo que la totalidad de usuarios aparezcan en un menú contextual del siguiente estilo:
+>
+> * Para disponer del menú contextual tan solo tenemos acceder a los archivos de configuración. Por lo tanto en la terminal tecleamos: `sudo gedit /etc/lightdm/lightdm.conf`
+> * Localizamos la siguiente linea: `greeter-hide-users=true`
+> * Una vez localizada la linea cambiamos el valor de true por false. Por lo tanto la linea a modificar quedará de la siguiente forma: `greeter-hide-users=false`
+> * Una vez realizado este paso guardamos el fichero. La próxima vez que arranquemos Lightdm ya nos aparecerá el menú contextual con la totalidad de usuario que tiene nuestro sistema operativo.
+
 ## 2.2 Claves seguras
 
 * Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`,
