@@ -111,7 +111,10 @@ Dentro de cada fila los campos se separan por 2 puntos.
 El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave escriptada del usuario.
 
 * Copiar la clave del usuario `c3po` del fichero `/etc/shadow` a los usuarios
-`jedi2` y `sith2` del fichero `/mnt/etc/shadow`
+`jedi2` y `sith2` del fichero `/mnt/etc/shadow`.
+
+> Podemos usar el editor `geany` que ya viene preinstalado en Knoppix.
+
 * Grabamos el fichero.
 
 > Con este cambio hemos dejamos los usuarios con una clave conocida por nosotros.
