@@ -13,7 +13,7 @@ Para esta parte vamos a necesitar las siguientes máquinas:
     * Windows 2008 Server (Enterprise)
     * [ Configurar MV ](./../../global/configuracion/windows-server.md)
 * MV Cliente NFS
-    * Windows 7 (Enterprise).
+    * Windows 7 (Enterprise). **IMPORTANTE** usar la versión especificada.
     * [ Configurar MV ](./../../global/configuracion/windows.md)
 
 >  El cliente NFS sólo lo tienen las versiones Enterprise
@@ -204,12 +204,13 @@ Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de fo
 ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso,
 a no ser que hagamos una configuración permanente o automática.
 
-* Configurar montaje autoḿatico del recurso compartido public.
-    * Usar `Yast -> particionador -> NFS -> Add`.
+* Vamos a configurar el montaje autoḿatico del recurso compartido public. Para
+ello podemos hacerlo de dos formas:
+    * Usando `Yast -> particionador -> NFS -> Add`.
     * Modificar directamente en el fichero `/etc/fstab` ([Consultar](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-nfs-client-config.html))
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 * Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
-* Comprobarlo.
+* `mount` o `df -hT`
 
 # 3. Preguntas
 
