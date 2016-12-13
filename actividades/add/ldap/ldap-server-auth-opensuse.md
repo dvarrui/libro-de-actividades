@@ -31,7 +31,7 @@ Comenzamos la instalación y configuración del servidor LDAP.
 127.0.0.2   ldap-serverXX.curso1617   ldap-serverXX
 127.0.0.3   nombrealumnoXX.curso1617  nombrealumnoXX
 ```
- 
+
 Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
@@ -47,7 +47,7 @@ Enlaces de interés:
 
 Hacemos lo siguiente:
 * Ir a Yast -> Servidor de autenticación. Aparecerá como `Authentication Server`.
-* Instalar los paquetes openldap2, krb5-server y krb5-client -> Aceptar
+* Se requiere, además, instalar los paquetes: openldap2, krb5-server y krb5-client.
 * Iniciar servidor LDAP -> Sí
 * Registrar dameon SLP -> No
 * Puerto abierto en el cortafuegos -> Sí -> Siguiente
@@ -86,7 +86,7 @@ Esta herramienta es un browser LDAP.
 
 ## 1.3 Problemas
 
-Si tenemos que desinstalar el paquete hacemos:
+Si tenemos que desinstalar el software anterior, hacemos lo siguiente:
 ```
 zypper remove yast2-auth-server
 zypper remove openldap2 krb5-server krb5-client
@@ -100,6 +100,8 @@ mv /var/lib/ldap /var/lib/ldap.000
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `piratas` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `pirata21`, `pirata21` (Estos se crearán dentro de la `ou=people`).
+
+---
 
 # 2. Autenticación
 
@@ -147,7 +149,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
     * auth_provider = ldap
     * chpass_provider = ldap
     * ldap_schema = rfc2307bis
-    . ldap_uri = `ldap://ldapserver.mycompany.in`
+    * ldap_uri = `ldap://ldap-serverXX`
     * ldap_search base = `dc=example, dc=com`
 
 Ver imagen de ejemplo:
@@ -165,7 +167,7 @@ id_provider = ldap
 auth_provider = ldap
 chpass_provider = ldap
 
-ldap_uri = ldap://ldap.mydomain.org
+ldap_uri = ldap://ldap-serverXX
 ldap_search_base = dc=mydomain,dc=org
 ```
 
