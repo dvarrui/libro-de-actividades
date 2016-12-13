@@ -143,8 +143,15 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 > Información extraída de https://forums.opensuse.org/showthread.php/502305-Setting-up-LDAP-on-13-2
 
 * `Yast -> Authentication client`
-* Under Basic Settings click on sssd. A new dialogue box will appear, in that write LDAP under domain section. Click OK & Close the dialogue box.
-* Under Configured Authentication Domains list, you can see domain/LDAP. Click Edit
+* Hacemos click sobre el botón sssd.
+    * Aparece una ventana de configuración.
+        * config_file_version = 2
+        * services = nss, pam
+        * domains = LDAP, nombre-de-alumnoXX
+    * Escribir LDAP en la sección dominio.
+    * Pulsamos OK y cerramos la ventana.
+* Creamos un nuevo dominios.
+    * domains = nombre-de-alumnoXX
     * id_provider = ldap
     * auth_provider = ldap
     * chpass_provider = ldap
