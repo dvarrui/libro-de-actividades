@@ -78,13 +78,13 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`,
 NO aparezcan en la ventana de inicio del sistema.
 
-> Mostrar/Ocultar los usuarios en el menú contextual `ligthdm (XFCE y LXDE)`
->
-> * `sudo gedit /etc/lightdm/lightdm.conf`, para editar la configuración del menú contextual.
-> * `greeter-hide-users=false`, para ocultar los usuarios en el menú contextual.
-> * `greeter-hide-users=true`, para mostrar los usuarios en el menú contextual.
-> * Guardamos el fichero.
-> * Al reiniciar veremos los cambios.
+* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,
+crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+
+```
+[User]
+SystemAccount=true
+```
 
 ## 2.2 Claves seguras
 
@@ -168,14 +168,15 @@ usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
 ## A.2 OpenSUSE 13.2. Usuarios de tipo sistema
 
-* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,
-crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+> Mostrar/Ocultar los usuarios en el menú contextual `ligthdm (XFCE y LXDE)`
+>
+> * `sudo gedit /etc/lightdm/lightdm.conf`, para editar la configuración del menú contextual.
+> * `greeter-hide-users=false`, para ocultar los usuarios en el menú contextual.
+> * `greeter-hide-users=true`, para mostrar los usuarios en el menú contextual.
+> * Guardamos el fichero.
+> * Al reiniciar veremos los cambios.
 
-```
-[User]
-SystemAccount=true
-```
-* Si lo anterior no funciona porque nuestro sistema no usa AccountService, entonces
+* Si nuestro sistema no usa AccountService, entonces
 debemos localizar cúal es el gestor de inicio gráfico que está usando nuestra distro.
 Veamos un ejemplo para consultar los procesos del sistema que tienen en su nombre las letras *dm*.
 En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un *Desktop Manager* (dm).
