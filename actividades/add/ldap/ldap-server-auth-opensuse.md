@@ -54,11 +54,11 @@ Hacemos lo siguiente:
 * Tipo de servidor -> autónomo -> Siguiente
 * Configuración TLS -> NO habilitar -> Siguiente
 * Tipo de BD -> hdb
-* DN base -> `dc=nombredealumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
+* DN base -> `dc=nombre-del-alumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
 * DN administrador -> `dn=Administrator`
 * Añadir DN base -> Sí
 * Contraseña del administrador
-* Directorio de BD -> /var/lib/ldap
+* Directorio de BD -> `/var/lib/ldap`
 * Usar esta BD predeterminada para clientes LDAP -> Sí -> Siguiente
 
 ![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
@@ -132,7 +132,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 * Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
-    * Base DN = `dc=vargasXX,dc=curso1617`
+    * Base DN = `dc=davidXX,dc=curso1617`
 
 ## 2.2 Instalar cliente LDAP
 
@@ -151,13 +151,13 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
     * Escribir LDAP en la sección dominio.
     * Pulsamos OK y cerramos la ventana.
 * Creamos un nuevo dominios.
-    * domains = nombre-de-alumnoXX
-    * id_provider = ldap
-    * auth_provider = ldap
-    * chpass_provider = ldap
-    * ldap_schema = rfc2307bis
+    * domains = `nombre-de-alumnoXX`
+    * id_provider = `ldap`
+    * auth_provider = `ldap`
+    * chpass_provider = `ldap`
+    * ldap_schema = `rfc2307bis`
     * ldap_uri = `ldap://ldap-serverXX`
-    * ldap_search base = `dc=example, dc=com`
+    * ldap_search base = `dc=davidXX, dc=curso1617`
 
 Ver imagen de ejemplo:
 
@@ -175,7 +175,7 @@ auth_provider = ldap
 chpass_provider = ldap
 
 ldap_uri = ldap://ldap-serverXX
-ldap_search_base = dc=mydomain,dc=org
+ldap_search_base = dc=davidXX,dc=curso1617
 ```
 
 * Vamos a la consola y probamos con
