@@ -41,6 +41,7 @@ a tratar él de forma ordenada.
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
 * En el caso de imágenes estáticas, es conveniente incluir flechas y comentarios
 para marcar/resaltar las zonas de la imagen que requieran nuestra atención.
+* Si hacen fotos con el móvil, es recomendable ponerlo en horizontal.
 
 ## Subtítulos/textos
 
@@ -48,8 +49,13 @@ para marcar/resaltar las zonas de la imagen que requieran nuestra atención.
 * No subtitular con textos que digan algo que se muestre claramente en la imagen.
 * El color/tamaño de las letras debe tener el contraste suficiente con la imagen
 del fondo para poder verse con claridad.
+* No repetir de forma contínua en la entrega lo mismo que pone el enunciado.
+* Usar el color rojo de forma esporádica, y sólo para resaltar o destacar
+algún punto/apartado/texto del contenido.
+* Usar el lenguaje escrito forma correcta y apropiada.
 
 ## Sonido/Música
 
 * El sonido no debe resultar molesto, ni el volumen ser excesivo.
 * Si queremos usar música con licencia libre, podemos descargar de la web de Jamendo.
+* Usar el lenguaje hablado de forma correcta y apropiada.
