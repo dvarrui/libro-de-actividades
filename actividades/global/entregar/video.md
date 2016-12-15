@@ -41,4 +41,8 @@ a tratar él de forma ordenada.
 * Subtitular si la imagen no es lo suficientemente explícita.
 * No subtitular con textos que digan algo que se muestre claramente en la imagen.
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+
+## Sonido/Música
+
 * El sonido no debe resultar molesto, ni el volumen ser excesivo.
+* Si queremos usar música con licencia libre, podemos descargar de la web de Jamendo.
