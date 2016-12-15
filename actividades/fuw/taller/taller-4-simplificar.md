@@ -8,13 +8,21 @@ para un correcto funcionamiento del equipo.
 ## Entregar
 
 * Realizar la siguiente práctica en parejas.
-* Realizar un vídeo de la actividad. Editar el vídeo según las indicaciones comentadas en clase.
+* Realizar un vídeo de la actividad. Editar el vídeo según las
+[indicaciones](../../global/entregar/video.md) comentadas en clase.
 * Esta práctica es similar al taller 1 pero con los siguientes cambios:
     * Incluir en la entrega secuencias con los procesos realizados (montar/desmontar).
     * Incluir voz en el audio donde se explica lo que vemos en el vídeo.
 * Entregar:
     * (A) URL del vídeo subido a Youtube.
     * (B) URL o pdf del manual de la placa base del equipo asignado.
+* Esquema del vídeo:
+    * Presentación
+    * ¿Qué vamos a ver en este vídeo?
+    * Comprobar el estado inicial del equipo.
+    * Identificar los componentes duplicados/repetidos.
+    * Mostrar proceso para simplificar.
+    * Comprobar el estado final del equipo.
 
 ## Paso 1
 
