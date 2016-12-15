@@ -29,10 +29,12 @@
     * c:\Users\mario\casa.d
         * Permiso control total a mario
         * Permiso control total a sysadmingame
+        * Nadie más tendrá permisos
     * c:\Users\mario\plataformas.d
-    * Permiso control total a mario
-    * Permiso control total a sysadmingame
-    * Permiso lectura/mostrar a Todos
+        * Permiso control total a mario
+        * Permiso control total a sysadmingame
+        * Permiso lectura/mostrar a Todos
+        * Nadie más tendrá permisos
 
 # OpenSUSE 13.2
 
