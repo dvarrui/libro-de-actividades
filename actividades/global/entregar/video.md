@@ -38,9 +38,14 @@ a tratar él de forma ordenada.
 ## Durante todo el vídeo
 
 * Mostrar el icono del IES Puerto de la Cruz durante todo el vídeo.
+* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+
+## Subtítulos/textos
+
 * Subtitular si la imagen no es lo suficientemente explícita.
 * No subtitular con textos que digan algo que se muestre claramente en la imagen.
-* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+* El color/tamaño de las letras debe tener el contraste suficiente con la imagen
+del fondo para poder verse con claridad.
 
 ## Sonido/Música
 
