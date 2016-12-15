@@ -11,9 +11,13 @@
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
+
 ## 1. Servidor LDAP
 
-Comenzamos la instalación y configuración del servidor LDAP.
+Hay varias herramientas que implementan el protocolo LDAP, por ejemplo:
+OpenLDAP, 389-DC, Active Directory, etc.
+
+En esta guía vamos a instalar y configurar del servidor LDAP OpenLDAP.
 
 > Enlaces de interés:
 > * Guía sobre  [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
