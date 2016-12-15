@@ -3,6 +3,7 @@
 
 * MV Windows7 Professional [configurada](../../global/configuracion/windows.md).
 * MV OpenSUSE 13.2 [configurada](../../global/configuracion/opensuse.md).
+* Acceso remoto telnet en Windows7 y SSH en OpenSUSE 13.2
 
 # Windows 7
 
