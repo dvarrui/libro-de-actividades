@@ -35,10 +35,12 @@ a tratar él de forma ordenada.
     * Fecha y título de la actividad
     * El/Los nombre/s de el/los componente/s
 
-## Durante todo el vídeo
+## Imágenes
 
 * Mostrar el icono del IES Puerto de la Cruz durante todo el vídeo.
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
+* En el caso de imágenes estáticas, es conveniente incluir flechas y comentarios
+para marcar/resaltar las zonas de la imagen que requieran nuestra atención.
 
 ## Subtítulos/textos
 
