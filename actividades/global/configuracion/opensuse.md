@@ -72,7 +72,7 @@ host www.iespuertodelacruz.es
 blkid
 ```
 
-## Entorno gráfico
+## Configurar con entorno gráfico
 
 Para configurar la red por entorno gráfico vamos a
 `Inicio -> Yast -> Ajustes de red`
@@ -92,3 +92,22 @@ BOOTPROTO='static'
 IPADDR='192.168.16.11/24'
 STARTMODE='ifplugd'
 ```
+
+## EFI + GPT
+
+* Creamos una MV VirtualBox para usar con SO OpenSUSE Leap 42.2
+    * Tamaño de disco 15 GB.
+    * Dos tarjetas de red:
+        * (1) Adaptador puente y configuración estática
+        * (2) NAT y configuracion dinámica.
+* Ir a `VBox -> Configuración -> Sistema -> EFI -> Habilitar`.
+* Consultar la siguiente propuesta de particionamiento y comprobar que se
+proponen 3 particiones (swap, para el sistema y una nueva para el boot/efi).
+
+![opensuse-particiones-efi.png](./images/opensuse-particiones-efi.png)
+
+![opensuse-particiones-efi2.png](./images/opensuse-particiones-efi2.png)
+
+* Recordatorio. En la sección `Configuración de la Instalación -> Cortafuegos y SSH`:
+    * Abrir puerto SSH.
+    * Habilitar servicio SSH.
