@@ -111,6 +111,7 @@ A continuacion vamos a desinstalar un programa MSI por comandos, usando la conso
 
 ## 1.3 Actualización del sistema
 
+* Hacer un snapshot de la MV.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
 ** Información aportada por Víctor (1ºASIR)**
@@ -217,6 +218,7 @@ pública.
 
 ## 2.3 Actualización del sistema
 
+* Hacer un snapshot de la MV.
 * Entramos en la consola como `root`.
 * `zypper refresh`, para actualizar el catálogo de productos software disponible.
 * `zypper update`, para actualizar todas las aplicaciones del sistema.
