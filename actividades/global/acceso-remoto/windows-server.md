@@ -1,9 +1,9 @@
 
-#Configurar acceso remoto para Windows Server
+# Configurar acceso remoto para Windows Server
 
-##1. Windows con Servidor Telnet
+## 1. Windows con Servidor Telnet
 
-###1.1 Instalación y configuración de Telnet
+### 1.1 Instalación y configuración de Telnet
 
 En Windows Server podemos instalar el servidor Telnet en agregar roles.
 
@@ -11,9 +11,9 @@ En Windows Server podemos instalar el servidor Telnet en agregar roles.
    * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
    * Clave de `sysadmingame` conocida por el alumno y el profesor.
 
-![w7-usuario-telnet.png](../images/w7-usuario-telnet.png)
+![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
-###1.2 Comprobar el funcionamiento de Telnet
+### 1.2 Comprobar el funcionamiento de Telnet
 
 * Comprobamos el acceso al servicio Telnet desde otra máquina
 (Por ejemplo la máquina real) con `telnet IP-HOST-WINDOWS`.
@@ -34,7 +34,9 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * Reiniciamos y ya tenemos el usuario en local y NO en dominio.
     * Consultar imagen de ejemplo:
 
-![winserver-usuario-local](../images/winserver-usuario-local.png)
+![winserver-usuario-local](./images/winserver-usuario-local.png)
+
+---
 
 ##2. Windows con Servidor SSH con CopSSH
 
