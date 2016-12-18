@@ -45,9 +45,53 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ![win-permisos-gui-public-dir](./images/win-permisos-gui-public-dir.png)
 
-## 1.2 Ejemplo/Información sobre PowerShell
+## 1.2 Usando los comandos Windows
 
-Vamos a pronar los comandos de PowerShell. Para ello buscamos en el
+* Capturar imagen de las acciones finales.
+* Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
+    * `net localgroup`, para ver los grupos.
+* Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
+    * `net user USERNAME /add`, para crear usuarios.
+    * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario en un grupo.
+
+> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
+iconos de la ventana de inicio de sesión del sistema.
+
+* Para cada usuario del grupo `siths` hay que:
+    * Crear la carpeta `C:\Users\sith\private`
+    * Crear la carpeta `C:\Users\sith1\group`
+    * Crear la carpeta `C:\Users\sith1\public`
+
+> Veamos un ejemplo de permisos por comandos:
+>
+> ```
+> (Quitar los permisos heredados a la carpeta public)
+> PS C:\> icacls public /inheritance:r
+>
+> (Consultar los permisos actuales de public)
+> PS C:\> icacls public
+>
+> (Dar permisos de lecturas al grupo todos)
+> PS C:\> icacls public /grant todos:R
+>
+> (Dar permisos control total al usuario alumno1)
+> PS C:\> icacls public /grant alumno1:F
+>
+> (Ver la ayuda del comando icacls)
+> PS C:\> icacls /?
+>
+> (Para quitar el acceso al usuario USERNAME)
+> PS C:\> icacls directorio /remove USERNAME
+> ```
+
+Modificar los permisos de la siguiente forma:
+* `private`: Sólo el usuario propietario tendrá control total.
+* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
+* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
+
+## 1.3 Ejemplo/Información sobre PowerShell
+
+Vamos a usar los comandos del SO Windows. Para ello buscamos en el
 `menú -> PowerShell -> (botón derecho) -> Iniciar como Administrador`.
 
 Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
@@ -93,49 +137,9 @@ PS> $grupo
 PS> $usuario = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
 PS> $grupo.Add($usuario.path)
 ```
-
-## 1.3 Usando los comandos Windows
-
-* Capturar imagen de las acciones finales.
-* Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
-* Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
-
-> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
-iconos de la ventana de inicio de sesión del sistema.
->
 > [Más información sobre la creación de usuarios con PowerShell](https://www.petri.com/create-local-accounts-with-powershell)
 
-* Para cada usuario del grupo `siths` hay que:
-    * Crear la carpeta `C:\Users\sith\private`
-    * Crear la carpeta `C:\Users\sith1\group`
-    * Crear la carpeta `C:\Users\sith1\public`
-
-> Veamos un ejemplo de permisos por comandos:
->
-> ```
-> (Quitar los permisos heredados a la carpeta public)
-> PS C:\> icacls public /inheritance:r
->
-> (Consultar los permisos actuales de public)
-> PS C:\> icacls public
->
-> (Dar permisos de lecturas al grupo todos)
-> PS C:\> icacls public /grant todos:R
->
-> (Dar permisos control total al usuario alumno1)
-> PS C:\> icacls public /grant alumno1:F
->
-> (Ver la ayuda del comando icacls)
-> PS C:\> icacls /?
->
-> (Para quitar el acceso al usuario USERNAME)
-> PS C:\> icacls directorio /remove USERNAME
-> ```
-
-Modificar los permisos de la siguiente forma:
-* `private`: Sólo el usuario propietario tendrá control total.
-* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
-* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
+---
 
 # 2. SO GNU/Linux OpenSUSE
 
