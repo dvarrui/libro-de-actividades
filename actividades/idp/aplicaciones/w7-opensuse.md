@@ -211,7 +211,10 @@ pública.
 
 * Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
 * Dentro de la sección `Native`, elegir un programa  de la lista. Ejemplos:
-    * Space Shooter: https://github.com/prodicus/spaceShooter
+    * Dyna Dungeons
+    * Dungeon Monkey Eternal
+    * Space Shooter
+    * Super Mario Bros Level 1
 * Consultar las instrucciones de instalación.
 * Descargar el proyecto.
 * Instalar el juego.
