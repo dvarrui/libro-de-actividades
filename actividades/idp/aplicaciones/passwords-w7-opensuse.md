@@ -29,6 +29,7 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 
 ## 1.2 Modo de inicio de sesión seguro
 
+Con este modo de inicio se ocultan los nombres de todos los usuarios.
 * [Enlace de interés](http://www.zonasystem.com/2012/04/no-mostrar-nombres-de-usuarios-en-el.html)
 * Inciar consola CMD con usuario administrador.
 * Ejecutar `secpol.msc`
@@ -43,8 +44,8 @@ Para que una clave sea un poco segura debe tener:
 * incluir números y algún carácter especial.
 
 Vamos a modificar las claves de los usuarios de la siguiente forma:
-* sith1: 1234
-* sith2: casa
+* sith1: 1234 (También se puede probar con un número de 4 dígitos)
+* sith2: casa (También se puede probar con una palabra de 4 letras del diccionario)
 * jedi1: frodoHOBBITbolson
 * jedi2: gandalfELGRIS
 * nombrealumno: clave a elegir por el alumno
@@ -78,8 +79,9 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`,
 NO aparezcan en la ventana de inicio del sistema.
 
-* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado XXX,
-crear el fichero `/var/lib/AccountsService/users/XXX` con el siguiente contenido:
+* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado
+USERNAME, modificar el fichero `/var/lib/AccountsService/users/USERNAME`
+con el siguiente contenido:
 
 ```
 [User]
