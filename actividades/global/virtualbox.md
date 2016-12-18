@@ -1,8 +1,4 @@
 
-```
-* Creado en Junio 2016 para el curso1516
-```
-
 #1. Configurar las Guest Adittions
 
 ##1.1 Guest Additions en OpenSUSE
@@ -23,7 +19,7 @@ Para montar una carpeta compartida
     * `mount -t vboxsf NOMBRE PATH-DE-MV`
 * Ya está!
 
-##1.2 Instalar las Guest Addittions en Debian
+## 1.2 Instalar las Guest Addittions en Debian
 
 Antes de intalar las Guest Additions, es  mejor verificar que no hace falta.
 Si la ventana de la MV se redimensiona bien, funciona el pendrive, y las carpetas compartidas
@@ -52,9 +48,9 @@ En caso contrario haremos:
 > `apt-get install gcc make linux-headers-$(uname -r)`
 
 
-#2. Instalar VirtualBox
+# 2. Instalar VirtualBox
 
-#2.1 VirtualBox en OpenSuse 13.2
+# 2.1 VirtualBox en OpenSuse 13.2
 
 Problemas en la instalación:
 * La instalación por repositorios estándar `zypper in virtualbox` la hizo bien, pero no funcionaba el front-end gráfico virtualboxgtk.
@@ -77,4 +73,3 @@ keeppackages=0
 * Además hay que instalar los paquetes make, gcc y kernel-devel
 * Ejecutamos /etc/init.d/vboxdvr setup
 * y listo
-
