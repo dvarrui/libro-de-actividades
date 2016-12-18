@@ -78,6 +78,7 @@ Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)/GnuWin32/bin`. Debe estar el fichero `wget.exe`.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`,
 para descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
+* También se puede probar `wget` descargando una ISO del servidor Leela.
 
 > Información:
 >
