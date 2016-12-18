@@ -1,5 +1,9 @@
 
 
+Documentos relacionados
+* Configurar [VirtualBox](../virtualbox/general.md)
+* Configurar [Acceso remoto](../acceso-remoto/windows7.md)
+
 # Configurar MV Windows 7 Professional
 
 > * Donde aparezca AA debemos poner el código asignado al aula:

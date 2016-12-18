@@ -1,4 +1,8 @@
 
+Documentos relacionados
+* Configurar [VirtualBox](../virtualbox/debian.md)
+* Configurar [Acceso remoto](../acceso-remoto/debian.md)
+
 # Configurar MV GNU/Linux Debian
 
 `Revisado para Debian 8`

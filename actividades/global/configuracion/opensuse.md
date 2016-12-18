@@ -1,4 +1,8 @@
 
+Documentos relacionados
+* Configurar [VirtualBox](../virtualbox/opensuse.md)
+* Configurar [Acceso remoto](../acceso-remoto/opensuse.md)
+
 # Configurar MV GNU/Linux OpenSUSE 13.2
 
 > * Donde aparezca AA debemos poner el código asignado al aula:

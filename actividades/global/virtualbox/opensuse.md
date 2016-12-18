@@ -1,6 +1,8 @@
 
 # VirtualBox y SO OpenSUSE
 
+* Configurar [MAC](general.md) de la máquina virtual.
+
 ## Guest Additions en OpenSUSE
 
 * En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`

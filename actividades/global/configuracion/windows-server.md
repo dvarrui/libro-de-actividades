@@ -1,5 +1,9 @@
 
-#Configurar MV Windows 2008 Server
+Documentos relacionados
+* Configurar [VirtualBox](../virtualbox/general.md)
+* Configurar [Acceso remoto](../acceso-remoto/windows-server.md)
+
+# Configurar MV Windows 2008 Server
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
