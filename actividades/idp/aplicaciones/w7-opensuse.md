@@ -48,6 +48,7 @@ El SO viene con software que se puede instalar si se necesita. Esto es caracterÃ
     * Juegos/Buscaminas.
     * Otra a elecciÃ³n del alumno.
 * Comprobar que funcionan correctamente.
+    * `telnet towel.blinkenlights.nl`
 
 > **Cliente Telnet**
 >
