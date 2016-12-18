@@ -13,7 +13,7 @@ Recomendaciones:
 * Seleccionar entorno gráfico ligero como Xfce.
 * Configurar lo siguiente durante la instalación:
 
-![opensuse-instalacion-configuracion.png](../images/opensuse-instalacion-configuracion.png)
+![opensuse-instalacion-configuracion.png](./images/opensuse-instalacion-configuracion.png)
 
 ## Proceso de configuración con Yast
 
