@@ -18,26 +18,6 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 
 Capturar imagen del proceso final.
 
-### Actualización del sistema
-
-* Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
-
-** Información aportada por Víctor (1ºASIR)**
-
-> Tenemos que instalar un paquete de actualizaciones para Windows7.
-Con este paquete las actualizaciones tardan menos tiempo.
-
-* Reiniciamos el servicio Windows Update
-    * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
-    * Buscar Windows Update.
-    * Botón derecho -> Reiniciar
-* Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
-* Reiniciar la máquina
-
-* Ir a `Panel de control -> Windows Update`. Actualización del sistema.
-* Consultar las actualizaciones pendientes.
-* Elijar 3 y aplicar actualización.
-
 ### Instalar características del sistema operativo
 
 El SO viene con software que se puede instalar si se necesita. Esto es características del sistema.
@@ -129,6 +109,26 @@ A continuacion vamos a desinstalar un programa MSI por comandos, usando la conso
 > $programa.Uninstall()
 > ```
 
+## 1.3 Actualización del sistema
+
+* Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
+
+** Información aportada por Víctor (1ºASIR)**
+
+> Tenemos que instalar un paquete de actualizaciones para Windows7.
+Con este paquete las actualizaciones tardan menos tiempo.
+
+* Reiniciamos el servicio Windows Update
+    * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
+    * Buscar Windows Update.
+    * Botón derecho -> Reiniciar
+* Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
+* Reiniciar la máquina
+
+* Ir a `Panel de control -> Windows Update`. Actualización del sistema.
+* Consultar las actualizaciones pendientes.
+* Elijar 3 y aplicar actualización.
+
 ---
 
 # 2. GNU/Linux - OpenSUSE
@@ -139,15 +139,14 @@ Vamos a usar SO OpenSUSE 13.2.
 
 El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 
+* Enlaces de interés:
+    * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 * Capturar imagen del resultado final.
-* Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
-
-> Enlaces de interés:
-> * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
 ### Instalar paquetes
 
-* Iniciar Yast -> refrescar los repositorios.
+* Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
+* Refrescar los repositorios.
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
 * Comprobar que funciona el programa instalado.
 
@@ -160,15 +159,8 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 
 Capturar imágenes de los pasos realizados.
 
-> Enlace de interés:
->
-> * [Zypper](https://es.opensuse.org/Zypper)
-
-### Actualización del sistema
-
-* Entramos en la consola como `root`.
-* `zypper refresh`, para actualizar el catálogo de productos software disponible.
-* `zypper update`, para actualizar todas las aplicaciones del sistema.
+Enlace de interés:
+* [Zypper](https://es.opensuse.org/Zypper)
 
 ### Instalar software
 
@@ -217,10 +209,17 @@ GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
 pública.
 
 * Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
-* Dentro de la sección `Native`, elegir un programa  de la lista.
+* Dentro de la sección `Native`, elegir un programa  de la lista. Ejemplos:
+    * Space Shooter: https://github.com/prodicus/spaceShooter
 * Consultar las instrucciones de instalación.
 * Descargar el proyecto.
 * Instalar el juego.
+
+## 2.3 Actualización del sistema
+
+* Entramos en la consola como `root`.
+* `zypper refresh`, para actualizar el catálogo de productos software disponible.
+* `zypper update`, para actualizar todas las aplicaciones del sistema.
 
 ---
 
