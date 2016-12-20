@@ -44,7 +44,7 @@ Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente: `md5sum -c fichero.md5`
 
-NO hace falta captar imagen de los siguientes pasos:
+NO hace falta capturar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * En la [configuración de la MV](../../../global/configuracion/debian.md) podremos valores a:
@@ -60,7 +60,10 @@ NO hace falta captar imagen de los siguientes pasos:
     1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
     1. Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
     1. Dejar el resto sin usar.
-* Capturar imagen del esquema de particionado final. Veamos un ejemplo:
+
+Capturar imagen del esquema de particionado final.
+
+Veamos un ejemplo:
 
 ![act1-debian-particiones](./images/act1-debian-particiones.png)
 
@@ -79,9 +82,12 @@ NO hace falta capturar imágenes de lo siguiente:
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
 * Instalación completa -> Continuar.
 
+---
+
 # 4. Con el SO instalado
 
 NO hace falta capturar imágenes de lo siguiente:
+
 * Entrar al sistema como root (superusuario)
 * Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion-aula109.md).
 
@@ -89,7 +95,9 @@ NO hace falta capturar imágenes de lo siguiente:
 > * Información sobre [configurar la tarjeta de red](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) en Debian.
 
 * Entrar al sistema como root (superusuario)
-* Capturar imagen de los siguientes comandos:
+
+Capturar imagen de los siguientes comandos:
+
 ```
     date         # Muestra la fecha/hora del sistema
     hostname -a  # Muestra nombre del sistema
