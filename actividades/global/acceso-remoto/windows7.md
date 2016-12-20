@@ -41,7 +41,7 @@
 * Configurar el usuario siguiente:
     * Crear usuario `sysadmingame` dentro del grupo `Administradores`.
     * Clave de `sysadmingame` conocida por el alumno y el profesor.
-    * Shell: `Linux Shell + SFTP`
+    * Shell: `Windows Shell`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
     * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
