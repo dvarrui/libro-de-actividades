@@ -31,6 +31,18 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Configurar [acceso remoto](../acceso-remoto.md).
 * Configurar [firewall](../firewall.md).
 
+## Contraseñas seguras en Windows 2008 Server
+
+Se recomienda mantener habilitada la política de contraseñas seguras (complejas). Pero para las prácticas, la podemos deshabilitarla por comodidad.
+
+* Para desactivar las contraseñas complejas: `Inicio -> Herramientas
+Administrativas -> Directivas de seguridad local -> Directivas de cuenta ->
+Directivas de contraseña -> Deshabilitar complejidad de contraseñas`.
+
+![w2k8-claves_seguras1.png](./images/w2k8-claves_seguras1.png)
+
+![w2k8-claves_seguras2.png](./images/w2k8-claves_seguras2.png)
+
 ## Comprobaciones finales
 
 ```  
