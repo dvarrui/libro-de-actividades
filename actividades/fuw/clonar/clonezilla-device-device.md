@@ -20,14 +20,17 @@ de pantalla/fotos de los pasos realizados.
 1. Iniciar la MV con la distro Clonezilla.
 1. Realizar clonación tipo *device-device*.
 
-# 3. Gestor de arranque
+# 3. Configurar el gestor de arranque
 
 Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
+
 * Iniciar SO1.
 * `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
 * `grub2-mkconfig -o /boot/grub2/grub.cgf`
 * Crear algunos archivos en /home/profesor/Documentos.
 * Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar que estamos en el SO1.
+
+# 4. Comprobamos
 
 * Reiniciar la MV.
 * Iniciar el SO2,
