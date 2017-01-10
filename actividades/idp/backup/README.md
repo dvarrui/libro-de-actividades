@@ -23,9 +23,9 @@ Capturar imágenes de las configuraciones.
 
 ### El usuario tiene datos para guardar
 
-* Con el usuario `nombre-alumno1`, crear en dos archivos de texto:
-    * `/home/nombre-alumno1/mydocsXX/manual-xwing.txt`
-    * `/home/nombre-alumno1/mydocsXX/mapa-luke-skywalker.txt`
+* Con el usuario `rebelde1`, crear en dos archivos de texto:
+    * `/home/rebelde1/mydocsXX/manual-xwing.txt`
+    * `/home/rebelde1/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -37,15 +37,15 @@ alumnoXX
 ### Preparamos la copia de seguridad
 
 Vamos crear un directorio para almacenar las copias de seguridad que vayamos realizando.
-* Crear el directorio `/srv/backupXX/nombre-alumno1`.
-* El usuario propietario será `nombre-alumno1`, y el grupo root.
+* Crear el directorio `/srv/backupXX/rebelde1`.
+* El usuario propietario será `rebelde1`, y el grupo root.
 * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ### Realizar la copia de seguridad
 
 Vamos a usar una herramienta de entorno gráfico para realizar la copia de seguridad.
 * Iniciar la herramienta de copia de seguridad que venga por defecto en nuestro sistema.
-* Copiar los datos del directorio `mydocsXX` del usuario `nombre-alumno1`.
+* Copiar los datos del directorio `mydocsXX` del usuario `rebelde1`.
 
 > Ejemplos de herramientas de backup:
 > * deja-dup
@@ -54,7 +54,7 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 > * Back in Time
 > * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
-* Crear copia de seguridad en el directorio `/srv/backupXX/nombre-alumno1` (N1).
+* Crear copia de seguridad en el directorio `/srv/backupXX/rebelde1` (N1).
 * Comprobar el contenido de la copia de seguridad a través de la propia herramienta.
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Crear copia de seguridad (N2).
@@ -71,13 +71,13 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 
 Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de seguridad que vayamos realizando.
 
-* Crear la carpeta `c:\backupXX\nombre-alumno1`.
+* Crear la carpeta `c:\backupXX\soldado1`.
 * Habilitar la carpeta anterior como recurso compartido de red `backupXX`.
 
 ### En el Windows 7
 
 * Comprobar que podemos acceder al recurso compartido anterior del Windows Server.
-* Con el usuario `nombre-alumno1`, crear la carpeta `C:\Users\nombre-alumno1\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
+* Con el usuario `nombre-alumno1`, crear la carpeta `C:\Users\soldado1\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 * Escribir dentro lo siguiente:
 
 ```
@@ -87,8 +87,8 @@ alumnoXX
 ```
 
 * Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup.
-* Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `nombre-alumno1` y lo grabamos en el
-recurso compartido de red (Windows 2008 Server).
+* Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
+y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 * Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp`.
 * Eliminar el archivo `plano-estrella-muerte.txt`.
 * Crear copia de seguridad (N2).
@@ -103,10 +103,10 @@ recurso compartido de red (Windows 2008 Server).
 
 ### El usuario tiene datos
 
-* Iniciar sesión con el usuario `nombre-alumno2`.
+* Iniciar sesión con el usuario `jedi2`.
 * Crear en dos archivos de texto:
-    * `/home/nombre-alumno2/mydocs/manual-xwing.txt`
-    * `/home/nombre-alumno2/mydocs/mapa-luke-skywalker.txt`
+    * `/home/jedi2/mydocs/manual-xwing.txt`
+    * `/home/jedi2/mydocs/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -117,10 +117,10 @@ alumnoXX
 
 ### Preparamos la copia de seguridad
 
-* Crear el directorio `/srv/backupXX/nombre-alumno2`. Lo utilizaremos para almacenar
+* Crear el directorio `/srv/backupXX/jedi2`. Lo utilizaremos para almacenar
 las copias de seguridad que vayamos realizando de momento.
 * Comprobar permisos.
-    * El usuario propietario será `nombre-alumno2`, y el grupo root.
+    * El usuario propietario será `jedi2`, y el grupo root.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ### Aprendiendo a usar el comando tar
@@ -140,11 +140,11 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 ### Realizamos la copia de seguridad
 
 Vamos a usar el  comando `tar` para lo siguiente:
-* Iniciar sesión con el usuario `nombre-alumno2`.
-* Crear copia de seguridad total (`/srv/backupXX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`)
+* Iniciar sesión con el usuario `jedi2`.
+* Crear copia de seguridad total (`/srv/backupXX/jedi2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia incremental `/srv/backupXX/nombre-alumno2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia incremental `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
@@ -152,8 +152,8 @@ Vamos a usar el  comando `tar` para lo siguiente:
 
 ### El usuario tiene datos que guardar
 
-* Iniciamos sesión con el usuario `nombre-alumno2`.
-* En `C:\Users\nombre-alumno2\mydocsXX`, crear
+* Iniciamos sesión con el usuario `soldado2`.
+* En `C:\Users\soldado2\mydocsXX`, crear
 los archivos `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 * Escribir el siguiente contenido dentro de los archivos:
 ```
@@ -185,19 +185,19 @@ Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
 ### Realizar la copia de seguridad
 
 Vamos a usar los comandos como tar y gzip de Cygwin pararealizar copia de seguridad
-de la carpeta `mydocsXX` del usuario `nombre-alumno2`.
+de la carpeta `mydocsXX` del usuario `soldado2`.
 
 ![cygwin-rutas](./images/cygwin-rutas.png)
 
-* Crear el directorio local `c:\backupXX\nombre-alumno2` que va a almacenar las
+* Crear el directorio local `c:\backupXX\soldado2` que va a almacenar las
 copias de seguridad.
 * Iniciar Cygwin.
 * Crear una copia de seguridad total del directorio `mydocsXX` del usuario
-`nombre-alumno2` con el nombre `/cygdrive/c/backupXX/nombre-alumno2/AAAAMMDD-N1-TOT.tar.gz`.
+`nombre-alumno2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-TOT.tar.gz`.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia incremental `/cygdrive/c/backupXX/nombre-alumno2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia incremental `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
