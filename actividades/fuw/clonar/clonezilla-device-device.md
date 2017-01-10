@@ -16,10 +16,10 @@ de pantalla/fotos de los pasos realizados.
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
     * Añadir disco duro.
-    * ![vbox-add-hdd.png](./images/vbox-add-hdd.png)
 1. Descargar la ISO con Clonezilla del servidor Leela
 (Descargar la más reciente).
 1. Iniciar la MV con la distro Clonezilla.
+    * ![vbox-add-hdd.png](./images/vbox-add-hdd.png)
 1. Realizar clonación tipo *device-device*.
 
 # 3. Configurar el gestor de arranque
