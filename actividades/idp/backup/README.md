@@ -145,7 +145,7 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
 * Crear copia incremental `/srv/backupXX/nombre-alumno2/AAAAMMDD-N2-INC.tar.gz`
-* Eliminar el archivo mapa-luke-skywalker.txt.
+* Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ## 3.2 Comandos Windows
@@ -165,20 +165,22 @@ alumnoXX
 ### Instalación de Cygwin
 
 Instalar software [Cygwin](https://www.cygwin.com) en W7:
-* Install from Internet
-* Root directory: C:\cygwin
-* Local Packages: valor por defecto
-* Direct Connection
-* Choose a download site
-* Select packages: base/tar, net/rsync, archive/zip, net/openssh.   
+* `Install from Internet`
+* Root directory: `C:\cygwin`
+* Local Packages: `valor por defecto`
+* `Direct Connection`
+* `Choose a download site`
+* Select packages: `base/tar, net/rsync, archive/zip, net/openssh`.
 
 ### Información sobre Cygwin
 
-* Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
-* Vamos a usar el mismo sistema que empleamos para GNU/Linux. Usar los comandos tar y gzip.
-* Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
-Dentro de Cygwin la ruta `c:\Users\profesor` será `/cygdrive/c/Users/profesor`
-* Las copias de seguridad las podemos almacenar en un directorio local o recurso de red.
+Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
+
+Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
+Esto es, usando los comandos tar y gzip.
+
+Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
+`c:\Users\profesor` será `/cygdrive/c/Users/profesor`.
 
 ### Realizar la copia de seguridad
 
