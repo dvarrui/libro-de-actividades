@@ -1,28 +1,35 @@
 
-#Clonezilla device-device
+# Clonezilla device-device
 
 Vamos a hacer una práctica de clonación usando el software Clonezilla.
 
-##1 Entrega
+# 1. Entrega
 
-* Trabajar en parejas.
-* Entregar un PDF con el informe del trabajo realizado acompañado de capturas
-de pantalla/fotos.
+* Trabajar de forma individual.
+* Entregar un informe del trabajo realizado acompañado de capturas
+de pantalla/fotos de los pasos realizados.
 
+# 2. Clonación
 
-##2 Pasos
-
-1. Coger una máquina del taller. Debe tener una partición de 20GB con el So OpenSUSE 13.2.
-Usuario profesor/profesor y usuario root/profesor.
-1. Crear una segunda partición del mismo tamaño.
-1. Obtener un CD/DVD con el Clonezilla. Descargar ISO de Leela y quemar un CD/DVD.
-1. Iniciar el PC con la distro Clonezilla.
+1. Clonar una MV con OpenSUSE para usar en esta práctica.
+1. Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
+    * VirtualBox -> Seleccionar MV.
+    * Configuración -> Almacenamiento -> SATA.
+    * Añadir disco duro.
+1. Descargar la ISO con Clonezilla del servidor Leela.
+1. Iniciar la MV con la distro Clonezilla.
 1. Realizar clonación tipo *device-device*.
-1. Modificar el gestor de arranque para que detecte los dos SO instalados.
-    * `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
-    * `grub2-mkconfig -o /boot/grub2/grub.cgf`
-    * Ejecutar el comando siguiente en el SO1: `df -hT`.
-1. Iniciar el 2º SO, grabar archivos en /home/profesor/Documentos
-    * Ejecutar el comando siguiente en el SO2: `df -hT`.
-1. Iniciar el 1er SO, comprobar que si hay o no ficheros en `/home/profesor/Documentos`.
 
+# 3. Gestor de arranque
+
+Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
+* Iniciar SO1.
+* `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
+* `grub2-mkconfig -o /boot/grub2/grub.cgf`
+* Crear algunos archivos en /home/profesor/Documentos.
+* Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar que estamos en el SO1.
+
+* Reiniciar la MV.
+* Iniciar el SO2,
+* Ejecutar el comando siguiente en el SO2: `df -hT`. Para comprobar que estamos en el SO2.
+* Comprobar que no hay ficheros en `/home/profesor/Documentos`.
