@@ -56,7 +56,7 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 
 * Crear copia de seguridad en el directorio `/srv/backupXX/nombre-alumno1` (N1).
 * Comprobar el contenido de la copia de seguridad a través de la propia herramienta.
-* Eliminar el archivo manual-importante.txt.
+* Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Crear copia de seguridad (N2).
 * Restaurar únicamente el archivo eliminado a partir de alguna de las copias de seguridad.
 
