@@ -44,4 +44,4 @@
     * Shell: `Windows Shell`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
-    * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
+    * `ssh sysadmingame@ip-de-la-mv` para entrar en la MV

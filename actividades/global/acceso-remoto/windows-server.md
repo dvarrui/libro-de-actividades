@@ -48,4 +48,4 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
     * Shell: `Linux Shell + SFTP`
 * Para comprobar el acceso remoto SSH, vamos a la máquina real
 y ejecutamos:
-    * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
+    * `ssh sysadmingame@ip-de-la-mv` para entrar en la MV
