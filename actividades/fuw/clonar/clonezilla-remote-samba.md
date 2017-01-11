@@ -1,8 +1,8 @@
 *(Actividad nueva en el curso 201516)*
 
-#Clonezilla remote Samba
+# Clonezilla remote Samba
 
-Vamos a hacer una práctica de clonación del tipo device-image, usando 
+Vamos a hacer una práctica de clonación del tipo device-image, usando
 como repositorio remoto un Samba Server (SMB/CIFS server).
 
 ##1. Entrega
