@@ -5,7 +5,7 @@ El cortafuegos a firewall es un software que controla las comunicaciones,
 permitiendo/denegando las entradas/salida de red según especifiquemos en las
 reglas de seguridad.
 
-##1. Windows 7
+## 1. Windows 7
 
 Abrir el cortafuegos de Windows para permitir que funcionen los `ping`
 (`echo request` y `echo replay`).
@@ -19,11 +19,13 @@ como se muestra en las siguientes imágenes.
 
 ![w7-firewall-ping-salida](./images/w7-firewall-ping-salida.png)
 
-##2. Windows Server
+## 2. Windows Server
 
-`pendiente`
+Se configura igual de en Windows7.
 
-##3. OpenSUSE
+Hay que usar la Herramienta `Firewall de Windows con seguridad avanzada`.
+
+## 3. OpenSUSE
 
 * Ir a `Yast -> Firewall`
 * Mantendremos el cortafuegos activo.
