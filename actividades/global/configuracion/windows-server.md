@@ -2,6 +2,7 @@
 Documentos relacionados
 * Configurar [VirtualBox](../virtualbox/general.md)
 * Configurar [Acceso remoto](../acceso-remoto/windows-server.md)
+* Configurar [Firewall](../firewall.md).
 
 # Configurar MV Windows 2008 Server
 
@@ -31,8 +32,6 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > En el caso de tener un PDC, pondremos como nombre de dominio `segundo-apellido-del-alumnoXXdom.curso1516`.
 
 * Tarjeta de red VBox en `modo puente`.
-* Configurar [acceso remoto](../acceso-remoto.md).
-* Configurar [firewall](../firewall.md).
 
 ## Contraseñas seguras en Windows 2008 Server
 

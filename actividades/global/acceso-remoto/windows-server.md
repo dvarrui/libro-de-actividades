@@ -24,7 +24,7 @@ En Windows Server podemos instalar el servidor Telnet en agregar roles.
     * [Vídeo : Configurar un servicio de servidor telnet en Windows 7 con permisos a usuarios](https://www.youtube.com/watch?v=oLnf8MICrL4)
 
 
-###1.3 Configuración sólo para Directorio Activo
+### 1.3 Configuración sólo para Directorio Activo
 
 * Cuando tenemos un Windows Server con Directorio Activo podemos crear usuarios del dominio,
 pero también usuarios locales. Para crear un usuario local cuando tenemos AD hacemos lo siguiente:
@@ -38,7 +38,7 @@ pero también usuarios locales. Para crear un usuario local cuando tenemos AD ha
 
 ---
 
-##2. Windows con Servidor SSH con CopSSH
+## 2. Windows con Servidor SSH con CopSSH
 
 * Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
 * Instalar con las opciones por defecto.
