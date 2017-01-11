@@ -19,11 +19,12 @@ como se muestra en las siguientes imágenes.
 
 ![w7-firewall-ping-salida](./images/w7-firewall-ping-salida.png)
 
+> Esto es, habilitar `petición echo ICMP v4`, en las reglas de entrada y de salida.
+
 ## 2. Windows Server
 
-Se configura igual de en Windows7.
-
-Hay que usar la Herramienta `Firewall de Windows con seguridad avanzada`.
+* Hay que usar la Herramienta `Firewall de Windows con seguridad avanzada`.
+* Se configura igual de en Windows7.
 
 ## 3. OpenSUSE
 
