@@ -240,7 +240,7 @@ abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 >```
 
 * Crear un fichero `software.pp`, con las órdenes puppet para
-instalar el programa `geany`.
+instalar el programa `ruby`.
 * Configurar `Vagrantfile` para permitir la ejecución de programas
 gráficos de la máquina virtual (`config.ssh.forward_x11 = true`)
 * Preparar un fichero `apache2.pp`, para instalar y configurar
