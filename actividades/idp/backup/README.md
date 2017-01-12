@@ -55,12 +55,14 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 > * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
 * Crear copia de seguridad en el directorio `/srv/backupXX/rebelde1` (N1).
-* Comprobar el contenido de la copia de seguridad a través de la propia herramienta.
+* Comprobar el contenido de la copia de seguridad. Esto podemos hacerlo
+restaurando en el directorio `/tmp` y consultado la salida, o a través de
+la propia herramienta, si ésta lo permite.
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Crear copia de seguridad (N2).
 * Restaurar únicamente el archivo eliminado a partir de alguna de las copias de seguridad.
-
-> Si la herramienta de backup nos lo permite, programar una copia de seguridad, por ejemplo, a las 11:00 horas diariamente.
+En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo todo.
+* Si la herramienta de backup nos lo permite, programar una copia de seguridad, por ejemplo, a las 11:00 horas diariamente.
 
 ## 2.2 Copia en entorno gráfico Windows
 
@@ -93,6 +95,10 @@ alumnoXX
 * Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup.
 * Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
 y lo grabamos en el recurso compartido de red (Windows 2008 Server).
+    * Si no vemos el nombre de nuestra máquina Windows Server, podemos encontrarla
+    usando la IP directamente.
+    * Escribir `//172.19.XX.31` y ahora veremos los recursos compartidos de red
+    que nos ofrece nuestro servidor.    
 * Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp`.
 * Eliminar el archivo `plano-estrella-muerte.txt`.
 * Crear copia de seguridad (N2).
