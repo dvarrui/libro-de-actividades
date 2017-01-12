@@ -93,12 +93,13 @@ alumnoXX
 ```
 
 * Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup.
+* Desde Windows7, buscar el recurso copartido de red del Windows Server.
+    * Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente.
+    * Escribir `//172.19.XX.31` y ahora veremos los recursos compartidos
+    de red que nos ofrece nuestro servidor.
+    * ![backup-share-from-w7.png](./images/backup-share-from-w7.png)
 * Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
 y lo grabamos en el recurso compartido de red (Windows 2008 Server).
-    * Si no vemos el nombre de nuestra máquina Windows Server, podemos encontrarla
-    usando la IP directamente.
-    * Escribir `//172.19.XX.31` y ahora veremos los recursos compartidos de red
-    que nos ofrece nuestro servidor.    
 * Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp`.
 * Eliminar el archivo `plano-estrella-muerte.txt`.
 * Crear copia de seguridad (N2).
