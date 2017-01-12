@@ -71,8 +71,12 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 
 Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de seguridad que vayamos realizando.
 
+* Crear la carpeta `c:\backupXX\`.
+* `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
+* Activar `compartir`.
+* Nombre del recurso `backupXX`
+* Ir a `permisos -> Todos -> Control Total`.
 * Crear la carpeta `c:\backupXX\soldado1`.
-* Habilitar la carpeta anterior como recurso compartido de red `backupXX`.
 
 ### En el Windows 7
 
