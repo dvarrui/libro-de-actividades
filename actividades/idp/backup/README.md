@@ -92,8 +92,8 @@ GUI
 alumnoXX
 ```
 
-* Vamos a Inicio, escribimos "Copia de seguridad" para buscar el programa de backup.
-* Desde Windows7, buscar el recurso copartido de red del Windows Server.
+* Vamos a Inicio, escribimos `Copia de seguridad` para buscar el programa de backup.
+* Desde Windows7, buscar el recurso compartido de red del Windows Server.
     * Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente.
     * Escribir `//172.19.XX.31` y ahora veremos los recursos compartidos
     de red que nos ofrece nuestro servidor.
