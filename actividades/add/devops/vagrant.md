@@ -174,6 +174,9 @@ gráficas instaladas en la máquina virtual, mediante SSH:
 
 # 5.Suministro
 
+* `vagrant halt`, apagamos la MV.
+* `vagrant destroy` y la destruimos para volver a empezar.
+
 ## 5.1 Suministro mediante shell script
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
@@ -186,16 +189,18 @@ de aspectos del SO del sistema anfitrión.
 contenido:
 
 ```
-    #!/usr/bin/env bash
+#!/usr/bin/env bash
 
-    apt-get update
-    apt-get install -y apache2
-    rm -rf /var/www
-    ln -fs /vagrant /var/www
-    echo "<h1>Actividad de Vagrant</h1>" > /var/www/index.html
-    echo "<p>Curso201516</p>" >> /var/www/index.html
-    echo "<p>Nombre-del-alumno</p>" >> /var/www/index.html
+apt-get update
+apt-get install -y apache2
+rm -rf /var/www
+ln -fs /vagrant /var/www
+echo "<h1>Actividad de Vagrant</h1>" > /var/www/index.html
+echo "<p>Curso201516</p>" >> /var/www/index.html
+echo "<p>Nombre-del-alumno</p>" >> /var/www/index.html
 ```
+
+> Poner permisos de ejecución al script.
 
 * Modificar Vagrantfile y agregar la siguiente línea a la configuración:
 `config.vm.provision :shell, :path => "install_apache.sh"`
@@ -205,10 +210,12 @@ para ejecutar dentro del entorno virtual con el nombre de archivo `install_apach
 > * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecuta
 directamente el comando especificado.
 
-* Iniciamos la MV o `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
+* Volvemos a crear la MV.
 
-> Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran
-mensajes que indican cómo se va instalando el paquete de Apache que indicamos:
+> Podemos usar `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
+
+Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran
+mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado,
 abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
