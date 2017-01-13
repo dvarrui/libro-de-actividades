@@ -11,16 +11,26 @@ de pantalla/fotos de los pasos realizados.
 
 # 2. Clonación
 
-1. Clonar una MV con OpenSUSE para usar en esta práctica.
-1. Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
+## 2.1 Preparamos el segundo disco
+
+* Clonar una MV con OpenSUSE para usar en esta práctica.
+* Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
     * Añadir disco duro.
-1. Descargar la ISO con Clonezilla del servidor Leela
+* Descargar la ISO con Clonezilla del servidor Leela
 (Descargar la más reciente).
-1. Iniciar la MV con la distro Clonezilla.
-    * ![vbox-add-hdd.png](./images/vbox-add-hdd.png)
-1. Realizar clonación tipo *device-device*.
+
+![vbox-add-hdd.png](./images/vbox-add-hdd.png)
+
+## 2.2 Iniciamos Clonezilla
+
+Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *device-device*.
+* Elegimos la resolución.
+* Elegimos idioma.
+* Elegir mapa teclado -> querty -> Estándar -> Estándar.
+* Start Clonezilla
+* `device-device`
 
 # 3. Configurar el gestor de arranque
 
