@@ -31,20 +31,22 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * Elegir mapa teclado -> querty -> Estándar -> Estándar.
 * Start Clonezilla
 * `device-device`
+* `Beginer`
+* `disco-local a disco-local`
 
 # 3. Configurar el gestor de arranque
 
 Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
 * Iniciar SO1.
-* `cp /boot/grub2/grub.cgf /boot/grub2/grub.cgf.000`
-* `grub2-mkconfig -o /boot/grub2/grub.cgf`
+* `cp /boot/grub2/grub.cfg /boot/grub2/grub.cfg.000`
+* `grub2-mkconfig -o /boot/grub2/grub.cfg`
 * Crear algunos archivos en /home/profesor/Documentos.
-* Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar que estamos en el SO1.
+* Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar el disco que estamos usando.
 
 # 4. Comprobamos
 
 * Reiniciar la MV.
 * Iniciar el SO2,
-* Ejecutar el comando siguiente en el SO2: `df -hT`. Para comprobar que estamos en el SO2.
+* Ejecutar el comando siguiente en el SO2: `df -hT`. Para comprobar el disco que estamos usando.
 * Comprobar que no hay ficheros en `/home/profesor/Documentos`.
