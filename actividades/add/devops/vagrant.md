@@ -277,8 +277,52 @@ package { 'nmap':
 # 6. Nuestra caja personalizada
 
 Vamos a crear nuestra propia caja/box personalizada.
+
+## 6.1 Preparar nuestra MV VirtualBox
+
+Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estandar y que todo el mundo pueda usar dicho Box.
+
 * Crear una MV VirtualBox o usas una que ya tengas.
-* Seguir las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox antes de seguir.
+* Seguiremos las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
+
+* Crear el usuario Vagrant, para poder acceder a la máquina virtual por ssh, a este usuario debemos crear una relación de confianza  usando el siguiente Keypairs.
+```
+useradd -m vagrant
+su - vagrant
+mkdir .ssh
+wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
+chmod 700 .ssh
+chmod 600 .ssh/authorized_keys
+```
+
+* Poner clave vagrant al usuario vagrant y al usuario root.
+
+Conceder permisos al usuario vagrant para que pueda configurar la red, instalar software, montar carpetas compartidas... para ello debemos configurar visudo para que no nos solicite la password de root, cuando realicemos estas operación con el usuario vagrant.
+
+* Ahora debemos añadir la siguiente linea a /etc/sudoers
+`vagrant ALL=(ALL) NOPASSWD: ALL`.
+
+> Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
+
+* Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions,
+para conseguir mejoras en el S.O o poder compartir carpetas con el anfitrión.
+```
+root@dbigcloud:~# modinfo vboxguest
+filename:       /lib/modules/3.13.0-32-generic/updates/dkms/vboxguest.ko
+version:        4.3.20
+license:        GPL
+description:    Oracle VM VirtualBox Guest Additions for Linux Module
+author:         Oracle Corporation
+srcversion:     22BF504734255C977E4D805
+alias:          pci:v000080EEd0000CAFEsv00000000sd00000000bc*sc*i*
+depends:        
+vermagic:       3.13.0-32-generic SMP mod_unload modversions
+```
+
+## 6.2 Crear la caja vagrant
+
+Una vez hemos configurado la máquina virtual ya podemos crear el box, en virtual box debemos de localizar el nombre de nuestra máquina virtual.
+
 * Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
 * A partir de una máquina virtual VirtualBox (Por ejemplo, `v1-opensuse132-xfce`)
