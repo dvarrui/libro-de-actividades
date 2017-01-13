@@ -262,7 +262,12 @@ package { 'nmap':
   ensure => 'present',
 }
 ```
+* Para que se cojan lo nuevos cambios podemos hacerlo de dos formas:
+    * Destruir la MV y crearla de nuevo.
+    * Con la MV encendida volver a ejecutar la provisión `vagrant provision`.
 
+> NOTA:
+>
 > Para configurar `Vagrantfile` para permitir la ejecución de programas gráficos de la máquina virtual pondremos `config.ssh.forward_x11 = true`.
 
 ---
