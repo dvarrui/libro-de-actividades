@@ -23,6 +23,8 @@ Enlaces de interés:
 > Para desarrollar esta actividad se ha utilizado la información del
 enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013.
 
+---
+
 # 2. Primeros pasos
 
 ## 2.1 Instalar
@@ -96,6 +98,8 @@ Vamos a iniciar una máquina virtual nueva usando Vagrant:
 > Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
 > * `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
 
+---
+
 # 3. Configuración del entorno virtual
 
 ## 3.1 Carpetas sincronizadas
@@ -142,6 +146,8 @@ sistema anfitrión ejecutar los siguientes comandos:
 `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro
 sistema virtualizado.
 
+---
+
 # 4. Ejemplos
 
 A continuación se muestran ejemplos que NO ES NECESARIO hacer. Sólo es información.
@@ -171,6 +177,8 @@ gráficas instaladas en la máquina virtual, mediante SSH:
   config.ssh.forward_agent = true
   config.ssh.forward_x11 = true
 ```
+
+---
 
 # 5.Suministro
 
@@ -257,6 +265,8 @@ package { 'nmap':
 
 > Para configurar `Vagrantfile` para permitir la ejecución de programas gráficos de la máquina virtual pondremos `config.ssh.forward_x11 = true`.
 
+---
+
 # 6. Nuestra caja personalizada
 
 Si estamos pensando en crear nuestra propia caja, entonces haremos lo siguiente:
@@ -285,6 +295,8 @@ Probablemente por tener mal las GuestAdittions.
 ![vagrant-package](./images/vagrant-error-mybox.png)
 
 * Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
+
+---
 
 # ANEXO
 
