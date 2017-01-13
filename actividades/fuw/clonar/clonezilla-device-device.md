@@ -37,14 +37,15 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 # 3. Comprobamos
 
 * Quitamos el disco `clonado` e iniciamos el sistema.
-* Crear algunos archivos en /home/profesor/Documentos.
+* Crear archivo `/home/profesor/Documentos/disco-original.txt`.
 * Quitamos el disco `original`, añadimos el disco `clonado`
 * Iniciamos el sistema.
-* Comprobamos que no están los archivos en /home/profesor/Documentos.
+* Comprobamos que no están los archivos que habíamos creado.
 
 ---
 
-# ANEXO
+# ANEXO BootEFI, fstab y los UUID
+
 ## Modificar el fichero fstab
 
 * Entramos en el sistema como superusuario.
