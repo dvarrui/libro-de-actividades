@@ -241,13 +241,13 @@ Modificar el archivo el archivo Vagrantfile de la siguiente forma:
 ```
 Vagrant::Config.run do |config|
   ...
-  config.vm.provision :puppet do |puppet|
+  config.vm.provision "puppet" do |puppet|
     puppet.manifest_file = "software.pp"
   end
  end
 ```
 
-* Crear un fichero `software.pp`, con las órdenes puppet para
+* Crear un fichero `manifests/software.pp`, con las órdenes puppet para
 instalar el programa `nmap`. Ejemplo:
 ```
 package { 'nmap':
