@@ -274,8 +274,9 @@ package { 'nmap':
 
 # 6. Nuestra caja personalizada
 
-Si estamos pensando en crear nuestra propia caja, entonces haremos lo siguiente:
-* Leer las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html)    
+Vamos a crear nuestra propia caja/box personalizada.
+* Crear una MV VirtualBox o usas una que ya tengas.
+* Seguir las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox antes de seguir.
 * Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
 * A partir de una máquina virtual VirtualBox (Por ejemplo, `v1-opensuse132-xfce`)
