@@ -263,8 +263,10 @@ package { 'nmap':
 }
 ```
 * Para que se cojan lo nuevos cambios podemos hacerlo de dos formas:
-    * Destruir la MV y crearla de nuevo.
-    * Con la MV encendida volver a ejecutar la provisión `vagrant provision`.
+    * (1) Parar la MV, destruirla y crearla de nuevo.
+    ( `vagrant halt`, `vagrant destroy` y `vagrant up`).
+    * (2) Con la MV encendida recargar la configuración y volver a ejecutar la provisión
+    ( `vagrant reload`, `vagrant provision`).
 
 > NOTA:
 >
