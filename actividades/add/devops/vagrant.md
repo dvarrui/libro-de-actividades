@@ -226,32 +226,38 @@ abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 > * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
 > * `friendsofvagrant.github.io -> Puppet Provisioning`
 
-> Veamos imágenes de ejemplo suministradas por Aarón Gonźalez Díaz:
->
-> * Vagrantfile configurado con puppet:
->
-> ![vagranfile-puppet](./images/vagrantfile-puppet.png)
->
-> * Fichero de configuración de puppet:
->
-> ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
->
-> Veamos otros ejemplo:
-> ```
-> Vagrant::Config.run do |config|
->   config.vm.provision :puppet do |puppet|
->     puppet.manifest_path = "manifests"
->     puppet.manifest_file = "software.pp"
->   end
-> end
->```
+Veamos imágenes de ejemplo (de Aarón Gonźalez Díaz) con Vagrantfile configurado con puppet:
 
-* Crear un fichero `software.pp`, con las órdenes puppet para
-instalar el programa `ruby`.
-* Configurar `Vagrantfile` para permitir la ejecución de programas
-gráficos de la máquina virtual (`config.ssh.forward_x11 = true`)
-* Preparar un fichero `apache2.pp`, para instalar y configurar
-Apache2.
+![vagranfile-puppet](./images/vagrantfile-puppet.png)
+
+Fichero de configuración de puppet `mipuppet.pp`:
+
+![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
+
+Se pide hacer lo siguiente.
+
+Modificar el archivo el archivo Vagrantfile de la siguiente forma:
+
+```
+Vagrant::Config.run do |config|
+  ...
+  config.vm.provision :puppet do |puppet|
+    puppet.manifest_path = "manifests"
+    puppet.manifest_file = "software.pp"
+  end
+ end
+```
+
+* Crear directorio `manifests`.
+* Crear un fichero `manifests/software.pp`, con las órdenes puppet para
+instalar el programa `nmap`. Ejemplo:
+```
+package { 'nmap':
+  ensure => 'present',
+}
+```
+
+> Para configurar `Vagrantfile` para permitir la ejecución de programas gráficos de la máquina virtual pondremos `config.ssh.forward_x11 = true`.
 
 # 6. Nuestra caja personalizada
 
