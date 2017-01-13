@@ -21,9 +21,9 @@ de pantalla/fotos de los pasos realizados.
 * Descargar la ISO con Clonezilla del servidor Leela
 (Descargar la más reciente).
 
-![vbox-add-hdd.png](./images/vbox-add-hdd.png)
-
 ## 2.2 Iniciamos Clonezilla
+
+![vbox-add-hdd.png](./images/vbox-add-hdd.png)
 
 Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *device-device*.
 * Elegimos la resolución.
@@ -31,10 +31,31 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * Elegir mapa teclado -> querty -> Estándar -> Estándar.
 * Start Clonezilla
 * `device-device`
-* `Beginer`
+* `Beginner`
 * `disco-local a disco-local`
 
-# 3. Configurar el gestor de arranque
+# 3. Comprobamos
+
+* Quitamos el disco `clonado` e iniciamos el sistema.
+* Crear algunos archivos en /home/profesor/Documentos.
+* Quitamos el disco `original`, añadimos el disco `clonado`
+* Iniciamos el sistema.
+* Comprobamos que no están los archivos en /home/profesor/Documentos.
+
+---
+
+# ANEXO
+## Modificar el fichero fstab
+
+* Entramos en el sistema como superusuario.
+* `df -hT`, para averiguar el nombre de nuestro disco (`sda`)
+* Hacemos copia de seguridad del fichero `/etc/fstab`.
+* Modificar el fichero, cambiando cada `UUID=XXX` por:
+    * `/dev/sda1` para la boot EFI,
+    * `/dev/sda2` para la swap y
+    * `/dev/sda3` para el raíz.
+
+## 3.1 Configurar el gestor de arranque
 
 Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
@@ -44,7 +65,7 @@ Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 * Crear algunos archivos en /home/profesor/Documentos.
 * Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar el disco que estamos usando.
 
-# 4. Comprobamos
+## 3.2 Comprobamos
 
 * Reiniciar la MV.
 * Iniciar el SO2,
