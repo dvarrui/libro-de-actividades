@@ -74,29 +74,29 @@ vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.b
 
 Vamos a iniciar una máquina virtual nueva usando Vagrant:
 * `cd mivagrantXX`
-* `vagrant up`: comando para iniciar una la instancia de la máquina.
+* `vagrant up`: comando para iniciar una nueva instancia de la máquina.
 
 ![vagrant-up](./images/vagrant-up.png)
 
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 * Otros comandos últiles de Vagrant son:
-    * `vagrant suspend`: Suspender la máquina virtual.
+    * `vagrant suspend`: Suspender la máquina virtual. Tener en cuenta que la
+    MV en modo **suspendido** consume más espacio en disco debido a que el
+    estado de la máquina virtual que suele almacenarse en la RAM se pasa a disco.
     * `vagrant resume` : Volver a despertar la máquina virtual.
     * `vagrant halt`: Apagarla la máquina virtual.
     * `vagrant status`: Estado actual de la máquina virtual.
-    * `vagrant destroy`: Para eliminar completamente la máquina virtual.
+    * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
 
-> Tener en cuenta que la MV en modo **suspendido** consume más espacio
- en disco debido a que el estado de la maquina virtual que suele almacenarse en RAM
- se pasa a disco.
-
-> Ejemplos:
+> **Ejemplos**
 >
 > Crear un proyecto vagrant con Windows7 e iniciar la MV:
-> * `vagrant init opentable/win-7-professional-amd64-nocm; vagrant up --provider virtualbox`
+> * `vagrant init opentable/win-7-professional-amd64-nocm`
+> * `vagrant up --provider virtualbox`
 >
 > Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
-> * `vagrant init opensuse/openSUSE-42.1-x86_64; vagrant up --provider virtualbox`
+> * `vagrant init opensuse/openSUSE-42.1-x86_64`
+> * `vagrant up --provider virtualbox`
 
 ---
 
