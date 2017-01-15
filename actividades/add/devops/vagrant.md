@@ -288,12 +288,14 @@ chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
 ```
 
-* Poner clave vagrant al usuario vagrant y al usuario root.
+* Poner clave `vagrant` al usuario vagrant y al usuario root.
 
-Conceder permisos al usuario vagrant para que pueda configurar la red, instalar software, montar carpetas compartidas... para ello debemos configurar visudo para que no nos solicite la password de root, cuando realicemos estas operación con el usuario vagrant.
+Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red,
+instalar software, montar carpetas compartidas, etc. para ello debemos configurar
+/etc/sudores (visudo) para que no nos solicite la password de root, cuando
+realicemos estas operación con el usuario vagrant.
 
-* Ahora debemos añadir la siguiente linea a /etc/sudoers
-`vagrant ALL=(ALL) NOPASSWD: ALL`.
+* Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a /etc/sudoers.
 
 > Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
 
@@ -314,12 +316,12 @@ vermagic:       3.13.0-32-generic SMP mod_unload modversions
 
 ## 6.2 Crear la caja vagrant
 
-Una vez hemos configurado la máquina virtual ya podemos crear el box, en virtual box debemos de localizar el nombre de nuestra máquina virtual.
+Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 * Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
-* A partir de una máquina virtual VirtualBox (Por ejemplo, `v1-opensuse132-xfce`)
-vamos a crear la caja `package.box`.
+* Localizar el nombre de nuestra máquina VirtualBox (Por ejemplo, `v1-opensuse132-xfce`).
+* Crear la caja `package.box` a partir de la MV.
 
 ![vagrant-package](./images/vagrant-package.png)
 
