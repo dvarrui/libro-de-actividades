@@ -228,18 +228,18 @@ abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 > Enlace de interés:
 > * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
 > * `friendsofvagrant.github.io -> Puppet Provisioning`
-
-Veamos imágenes de ejemplo (de Aarón Gonźalez Díaz) con Vagrantfile configurado con puppet:
-
-![vagranfile-puppet](./images/vagrantfile-puppet.png)
-
-Fichero de configuración de puppet `mipuppet.pp`:
-
-![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
+>
+> Veamos imágenes de ejemplo (de Aarón Gonźalez Díaz) con Vagrantfile configurado con puppet:
+>
+> ![vagranfile-puppet](./images/vagrantfile-puppet.png)
+>
+> Fichero de configuración de puppet `mipuppet.pp`:
+>
+> ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
 
 Se pide hacer lo siguiente.
 
-Modificar el archivo el archivo Vagrantfile de la siguiente forma:
+* Modificar el archivo el archivo Vagrantfile de la siguiente forma:
 
 ```
 Vagrant.configure(2) do |config|
@@ -250,32 +250,30 @@ Vagrant.configure(2) do |config|
  end
 ```
 
-* Crear un fichero `manifests/default.pp`, con las órdenes puppet para
-instalar el programa `nmap`. Ejemplo:
+* Crear un fichero `manifests/default.pp`, con las órdenes/instrucciones puppet para instalar el programa `nmap`. Ejemplo:
+
 ```
 package { 'nmap':
   ensure => 'present',
 }
 ```
-* Para que se cojan lo nuevos cambios podemos hacerlo de dos formas:
-    * (1) Parar la MV, destruirla y crearla de nuevo.
-    ( `vagrant halt`, `vagrant destroy` y `vagrant up`).
-    * (2) Con la MV encendida recargar la configuración y volver a ejecutar la provisión
-    ( `vagrant reload`, `vagrant provision`).
 
-> NOTA:
->
-> Para configurar `Vagrantfile` para permitir la ejecución de programas gráficos de la máquina virtual pondremos `config.ssh.forward_x11 = true`.
+Para que se apliquen los cambios de configuración, tenemos dos formas:
+* (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
+* (B) Con la MV encendida recargar la configuración y volver a ejecutar la provisión
+    (`vagrant reload`, `vagrant provision`).
 
 ---
 
 # 6. Nuestra caja personalizada
 
-Vamos a crear nuestra propia caja/box personalizada.
+En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet,
+y luego la hemos provisionado para personalizarla. En este apartado vamos a crear
+nuestra propia caja/box personalizada a partir de una MV de VirtualBox.
 
-## 6.1 Preparar nuestra MV VirtualBox
+## 6.1 Preparar ls MV VirtualBox
 
-Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estandar y que todo el mundo pueda usar dicho Box.
+Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
 * Crear una MV VirtualBox o usas una que ya tengas.
 * Seguiremos las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
