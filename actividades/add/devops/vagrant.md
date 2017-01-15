@@ -124,74 +124,70 @@ Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos
 enfocados a la web, y para acceder a las páginas es necesario configurar el
 enrutamiento de puertos.
 
+* Entramos en la MV e instalamos apache.
+    * `vagrant ssh`
+    * `apt-get install apache2`
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
-
-`config.vm.network :forwarded_port, host: 4567, guest: 80`
-
-![vagrant-forward-example](./images/vagrant-forward-example.png)
-
+  * `config.vm.network :forwarded_port, host: 4567, guest: 80`
 * Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar
 con `vagrant reload`)
 
-> Para confirmar que hay un servicio a la escucha en 4567, desde el
-sistema anfitrión ejecutar los siguientes comandos:
+> Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
+podemos ejecutar los siguientes comandos:
 > * `nmap -p 4500-4600 localhost`
 > * `netstat -ntap`
 
-* Entramos an la MV e instalamos apache
-    * `vagrant ssh`
-    * `apt-get install apache2`
-* En nuestro sistema anfitrión, abrimos el navegador web con el URL
-`http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro
+* En la máquina real, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro
 sistema virtualizado.
+
+![vagrant-forward-example](./images/vagrant-forward-example.png)
 
 ---
 
-# 4. Ejemplos
+# 4. Ejemplos de configuración Vagrantfile
 
-A continuación se muestran ejemplos que NO ES NECESARIO hacer. Sólo es información.
-Enlace de interés:
-* [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
+A continuación se muestran ejemplos de configuración Vagrantfile que NO ES NECESARIO hacer. Sólo es información.
+
+> Enlace de interés [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
 
 Ejemplo para configurar la red:
 ```
-  config.vm.network "private_network", ip: "192.168.33.10"
+config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
 Ejemplo para configurar las carpetas compartidas:
 ```
-  config.vm.synced_folder "htdocs", "/var/www/html"
+config.vm.synced_folder "htdocs", "/var/www/html"
 ```
 
-Ejemplo, configurar en Vagrantfile la conexión SSH de vagrant a nuestra máquina:
+Ejemplo para configurar la conexión SSH de vagrant a nuestra máquina virtual:
 ```
-  config.ssh.username = 'root'
-  config.ssh.password = 'vagrant'
-  config.ssh.insert_key = 'true'
+config.ssh.username = 'root'
+config.ssh.password = 'vagrant'
+config.ssh.insert_key = 'true'
 ```
 
-Ejemplo para configurar en Vagrantfile la ejecución remota de aplicaciones
-gráficas instaladas en la máquina virtual, mediante SSH:
+Ejemplo para configurar la ejecución remota de aplicaciones gráficas instaladas en la máquina virtual, mediante SSH:
 ```
-  config.ssh.forward_agent = true
-  config.ssh.forward_x11 = true
+config.ssh.forward_agent = true
+config.ssh.forward_x11 = true
 ```
 
 ---
 
 # 5.Suministro
 
+Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
+Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de
+arranque del entorno virtual para instalar, configurar y personalizar un sin fin
+de aspectos del SO del sistema anfitrión.
+
 * `vagrant halt`, apagamos la MV.
 * `vagrant destroy` y la destruimos para volver a empezar.
 
 ## 5.1 Suministro mediante shell script
 
-Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
-Esot es, ejecutar *"una receta"* o una serie de scripts durante el proceso de
-arranque del entorno virtual para instalar, configurar y personalizar un sin fin
-de aspectos del SO del sistema anfitrión.
-
-* Por ahora suministremos al ambiente virtual con un pequeño script para instalr Apache.
+Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
 contenido:
 
@@ -209,12 +205,12 @@ echo "<p>Nombre-del-alumno</p>" >> /var/www/index.html
 
 > Poner permisos de ejecución al script.
 
+Vamos a indicar a Vagrant que debe ejecutar dentro del entorno virtual un archivo `install_apache.sh`.
+
 * Modificar Vagrantfile y agregar la siguiente línea a la configuración:
 `config.vm.provision :shell, :path => "install_apache.sh"`
 
-> * Esta instrucción le indica a Vagrant que debe usar un shell script
-para ejecutar dentro del entorno virtual con el nombre de archivo `install_apache.sh`.
-> * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecuta
+> Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecuta
 directamente el comando especificado.
 
 * Volvemos a crear la MV.
