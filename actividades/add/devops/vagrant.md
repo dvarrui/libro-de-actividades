@@ -353,4 +353,6 @@ Probablemente por tener mal las GuestAdittions.
 ![vagrant-directory](./images/vagrant-directory.png)
 
 ## A.2 Windows
-Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows.
+
+Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows
+y usar cajas/boxes vagrant con Windows.
