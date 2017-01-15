@@ -110,9 +110,9 @@ entre los dos entornos.
 
 * Para identificar las carpetas compartidas dentro del entorno virtual, hacemos:
 ```
-    vagrant up
-    vagrant ssh
-    ls /vagrant
+vagrant up
+vagrant ssh
+ls /vagrant
 ```
 
 > Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del entorno
@@ -124,8 +124,7 @@ Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos
 enfocados a la web, y para acceder a las páginas es necesario configurar el
 enrutamiento de puertos.
 
-* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del
-sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
+* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
 
 `config.vm.network :forwarded_port, host: 4567, guest: 80`
 
