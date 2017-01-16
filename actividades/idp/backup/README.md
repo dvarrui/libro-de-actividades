@@ -147,6 +147,8 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 * `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
 * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
 * `date +%Y%m%y`: Muestra la fecha en formato AAAAMMDD
+* `gzip ...`: Comando para hcer la compresión en formato gz.
+* `zip ...`: Comando para hacer la compresión en formato zip.
 
 ### Realizamos la copia de seguridad
 
