@@ -275,8 +275,10 @@ nuestra propia caja/box personalizada a partir de una MV de VirtualBox.
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
-* Crear una MV VirtualBox o usas una que ya tengas.
-* Seguiremos las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
+* Crear una MV VirtualBox nueva o usar una que ya tengamos.
+* Instalar OpenSSH Server.
+
+> Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
 * Crear el usuario Vagrant, para poder acceder a la máquina virtual por SSH.
 A este usuario le agregamos una clave pública para autorizar el acceso sin clave
