@@ -271,14 +271,16 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 y luego la hemos provisionado para personalizarla. En este apartado vamos a crear
 nuestra propia caja/box personalizada a partir de una MV de VirtualBox.
 
-## 6.1 Preparar ls MV VirtualBox
+## 6.1 Preparar la MV VirtualBox
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
 * Crear una MV VirtualBox o usas una que ya tengas.
 * Seguiremos las indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-* Crear el usuario Vagrant, para poder acceder a la máquina virtual por ssh, a este usuario debemos crear una relación de confianza  usando el siguiente Keypairs.
+* Crear el usuario Vagrant, para poder acceder a la máquina virtual por SSH.
+A este usuario le agregamos una clave pública para autorizar el acceso sin clave
+desde Vagrant.
 ```
 useradd -m vagrant
 su - vagrant
@@ -292,7 +294,7 @@ chmod 600 .ssh/authorized_keys
 
 Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red,
 instalar software, montar carpetas compartidas, etc. para ello debemos configurar
-/etc/sudores (visudo) para que no nos solicite la password de root, cuando
+`/etc/sudores` (visudo) para que no nos solicite la password de root, cuando
 realicemos estas operación con el usuario vagrant.
 
 * Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a /etc/sudoers.
