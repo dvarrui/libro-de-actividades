@@ -347,6 +347,14 @@ Probablemente por tener mal las GuestAdittions.
 
 * Pero haciendo `vagrant ssh` nos conectamos sin problemas con la máquina.
 
+> Recordar que podemos cambiar los parámetros de configuración de acceso SSH.
+> Ver ejemplo:
+>
+>     config.ssh.username = 'root'
+>     config.ssh.password = 'vagrant'
+>     config.ssh.insert_key = 'true'
+>
+
 ---
 
 # ANEXO
