@@ -183,7 +183,7 @@ Instalar software [Cygwin](https://www.cygwin.com) en W7:
 * Local Packages: `valor por defecto`
 * `Direct Connection`
 * `Choose a download site`
-* Select packages: `base/tar, net/rsync, archive/zip, net/openssh`.
+* Select packages: `base/tar, archive/zip, archive/gzip ,net/rsync, net/openssh`.
 
 ### Información sobre Cygwin
 
