@@ -1,5 +1,5 @@
 
-#1.Introducción
+# 1. Introducción
 
 Es muy común que nos encontremos desarrollando una aplicación y llegue
 el momento que decidamos tomar todos sus archivos y migrarlos ya sea al
@@ -13,17 +13,15 @@ lo cual son aplicaciones empaquetadas auto-suficientes, muy livianas
  que son capaces de funcionar en prácticamente cualquier ambiente,
  ya que tiene su propio sistema de archivos, librerías, terminal, etc.
 
-#2. Preparativos
+# 2. Preparativos
 
-Nesitaremos una MV OpenSUSE 13.2.
+Vamos a usar MV OpenSUSE.
+Nos aseguraremos que tiene una versión del Kernel 3.10 o superior (`uname -a`).
 
-> Se requiere versión del Kernel 3.10 o superior (`uname -a`)
-
-#3. Instalación y configuración
+# 3. Instalación y configuración
 
 * Enlaces de interés [Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
-
-Ejecutar como superusuario:
+* Ejecutar como superusuario:
 ```
 zypper in docker              # Instala docker
 systemctl start docker        # Inicia el servicio
@@ -31,10 +29,8 @@ systemctl start docker        # Inicia el servicio
 docker version                # Debe mostrar información del cliente y del servidor
 usermod -a -G docker USERNAME # Añade permisos a nuestro usuario
 ```
-
-> Salir de la sesión y volver a entrar con nuestro usuario.
-
-Ejecutar con nuestro usuario para comprobar que todo funciona:
+* Salir de la sesión y volver a entrar con nuestro usuario.
+* Ejecutar con nuestro usuario para comprobar que todo funciona:
 ```
 docker images           # Muestra las imágenes descargadas hasta ahora
 docker ps -a            # Muestra todos los contenedores creados
@@ -43,10 +39,11 @@ docker images
 docker ps -a
 ```
 
-> **Habilitar el acceso a la red externa para los contenedores**
+> **Habilitar el acceso a la red externa a los contenedores**
 >
-> If you want your containers to be able to access the external network,
-you must enable the net.ipv4.ip_forward rule. To do this, use YaST.
+> Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos
+activar la opción IP_FORWARD (`net.ipv4.ip_forward`). Lo podemos hacer en YAST.
+> ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 >
 > * Para openSUSE13.2 (cuando el método de configuracion de red es Wicked).
 `Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4`
@@ -54,14 +51,13 @@ you must enable the net.ipv4.ip_forward rule. To do this, use YaST.
 debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"`.
 > * Para openSUSE Tumbleweed `Yast -> Sistema -> Configuración de red -> Menú de encaminamiento`.
 >
-> ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-#4. Crear un contenedor manualmente
+# 4. Crear un contenedor manualmente
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8,
 y dentro instalaremos Nginx.
 
-##4.1 Crear una imagen
+## 4.1 Crear una imagen
 
 * Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
 
@@ -77,6 +73,7 @@ docker ps              # Vemos sólo los contenedores en ejecución
 
 * Vamos a crear un contenedor con nombre `mv_debian` a partir de la
 imagen `debian:8`, y ejecutaremos `/bin/bash`:
+
 ```
 docker run --name=mv_debian -i -t debian:8 /bin/bash
 
@@ -90,11 +87,13 @@ root@IDContenedor:/# ps -ef
 ```
 
 * Creamos un fichero HTML (`holamundo.html`).
+
 ```
 root@IDContenedor:/# echo "<p>Hola Nombre-del-alumno!</p>" > /var/www/html/holamundo.html
 ```
 
 * Creamos tambien un script `/root/server.sh` con el siguiente contenido:
+
 ```
     #!/bin/bash
 
@@ -109,7 +108,7 @@ root@IDContenedor:/# echo "<p>Hola Nombre-del-alumno!</p>" > /var/www/html/holam
 
 > Este script inicia el programa/servicio y entra en un bucle, para permanecer
 activo y que no se cierre el contenedor.
-> Más adelante cambiaremos este script por la herramienta `supervisor`
+> Más adelante cambiaremos este script por la herramienta `supervisor`.
 
 * Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos
 crear una nueva imagen con los cambios que hemos hecho, para esto
@@ -121,7 +120,8 @@ CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  N
 7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          mv_debian
 ```
 
-Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
+* Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
+
 ```
 docker commit 7d193d728925 dvarrui/nginx
 docker images
@@ -140,11 +140,11 @@ docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a
 ```
 
-##4.2 Crear contenedor
+## 4.2 Crear contenedor
 
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
-Iniciemos el contenedor de la siguiente manera:
 
+* Iniciemos el contenedor de la siguiente manera:
 ```
 docker ps
 docjer ps -a
@@ -165,8 +165,7 @@ y veamos si conectamo con Nginx dentro del contenedor.
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
-Paramos el contenedor y lo eliminamos.
-
+* Paramos el contenedor y lo eliminamos.
 ```
 docker ps
 docker stop mv_nginx
