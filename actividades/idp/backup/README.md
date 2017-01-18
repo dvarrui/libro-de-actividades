@@ -83,7 +83,8 @@ Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de s
 ### En el Windows 7
 
 * Comprobar que podemos acceder al recurso compartido anterior del Windows Server.
-* Con el usuario `nombre-alumno1`, crear la carpeta `C:\Users\soldado1\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
+* Iniciamos sesión con `soldado1`.
+* Crear la carpeta `C:\Users\soldado1\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 * Escribir dentro lo siguiente:
 
 ```
