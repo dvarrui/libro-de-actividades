@@ -296,7 +296,7 @@ chmod 600 .ssh/authorized_keys
 
 Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red,
 instalar software, montar carpetas compartidas, etc. para ello debemos configurar
-`/etc/sudores` (visudo) para que no nos solicite la password de root, cuando
+`/etc/sudoers` (visudo) para que no nos solicite la password de root, cuando
 realicemos estas operación con el usuario vagrant.
 
 * Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a /etc/sudoers.
