@@ -1,13 +1,14 @@
 
 
-#1. Trabajando con GIT
+# 1. Trabajando con GIT
 
-##1.1. La primera vez
+## 1.1. La primera vez
 
 Enlace de interés:
 * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
 
-###Servidor GIT en Internet:
+### Servidor GIT en Internet:
+
 * Crear una cuenta en GitHub.
 * Crear un repositorio "curso-nombre-del-alumno". Por ejemplo, si el alumno se llama David Vargas,
 nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los guiones (-).
@@ -15,7 +16,8 @@ nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los gu
 > [OJO] Marcar la opción "Initialize this repository with a README", para crear un repositorio que contenga al menos un fichero.
 > La creación del repositorio en GitHub, sólo hay que hacerla una vez.
 
-###En el equipo local (La primera vez):
+### En el equipo local (La primera vez)
+
 * Instalar GIT (`apt-get install git`)
 * Establecer algunas configuraciones:
 ```
@@ -47,7 +49,7 @@ En el equipo local, al terminar de trabajar para subir los cambios al servidor G
 > * Crear el par de claves y subir la clave pública al servidor
 > * y clonar el repositorio en el nuevo equipo local
 
-##1.2. Cada día de trabajo
+## 1.2. Cada día de trabajo
 
 En el equipo local cada día de trabajo haremos la siguiente secuencia:
 * `git pull`: Antes de empezar a trabajar para obtener los cambios del repositorio remoto.
@@ -70,7 +72,7 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 
 Vídeo: [GIT 02 - Trabajando cada día con git] (https://youtu.be/_IFpfdeUor0)
 
-##1.3. Entregas
+## 1.3. Entregas
 
 Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado
 el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
