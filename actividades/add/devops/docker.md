@@ -18,7 +18,7 @@ lo cual son aplicaciones empaquetadas auto-suficientes, muy livianas
 Vamos a usar MV OpenSUSE.
 Nos aseguraremos que tiene una versión del Kernel 3.10 o superior (`uname -a`).
 
-# 3. Instalación y configuración
+# 3. Instalación y primeras pruebas
 
 * Enlaces de interés [Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
 * Ejecutar como superusuario:
@@ -39,25 +39,29 @@ docker images
 docker ps -a
 ```
 
-> **Habilitar el acceso a la red externa a los contenedores**
->
-> Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos
-activar la opción IP_FORWARD (`net.ipv4.ip_forward`). Lo podemos hacer en YAST.
-> ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
->
-> * Para openSUSE13.2 (cuando el método de configuracion de red es Wicked).
-`Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4`
-> * Cuando la red está gestionada por Network Manager, en lugar de usar YaST
-debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"`.
-> * Para openSUSE Tumbleweed `Yast -> Sistema -> Configuración de red -> Menú de encaminamiento`.
->
+# 4. Configuración de la red
 
-# 4. Crear un contenedor manualmente
+**Habilitar el acceso a la red externa a los contenedores**
+
+Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos
+activar la opción IP_FORWARD (`net.ipv4.ip_forward`). Lo podemos hacer en YAST.
+
+¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
+
+* Para openSUSE13.2 (cuando el método de configuracion de red es Wicked).
+`Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4`
+* Cuando la red está gestionada por Network Manager, en lugar de usar YaST
+debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"`.
+* Para openSUSE Tumbleweed `Yast -> Sistema -> Configuración de red -> Menú de encaminamiento`.
+
+Reiniciar el equipo para que se apliquen los cambios.
+
+# 5. Crear un contenedor manualmente
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8,
 y dentro instalaremos Nginx.
 
-## 4.1 Crear una imagen
+## 5.1 Crear una imagen
 
 * Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
 
@@ -140,7 +144,7 @@ docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a
 ```
 
-## 4.2 Crear contenedor
+## 5.2 Crear contenedor
 
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 
@@ -175,12 +179,12 @@ docker rm mv_nginx
 docker ps -a
 ```
 
-#5. Crear un contenedor con `Dockerfile`
+# 6. Crear un contenedor con `Dockerfile`
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
 usando un fichero de configuración, llamado `Dockerfile`
 
-##5.1 Comprobaciones iniciales:
+## 6.1 Comprobaciones iniciales:
 
 ```
 docker images
@@ -188,7 +192,7 @@ docker ps
 docker ps -a
 ```
 
-##5.2 Preparar ficheros
+## 6.2 Preparar ficheros
 
 * Crear directorio `/home/alumno/docker`, poner dentro los siguientes ficheros.
 * Dockerfile:
@@ -214,7 +218,7 @@ CMD ["/root/server.sh"]
 
 > Necesitaremos también los ficheros `server.sh` y `holamundo.html` que vimos antes.
 
-##5.3 Crear imagen
+## 6.3 Crear imagen
 
 El fichero [Dockerfile](./files/Dockerfile) contiene la información
 necesaria para contruir el contenedor, veamos:
@@ -226,7 +230,7 @@ docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
 docker images
 ```
 
-##5.4 Crear contenedor y comprobar
+## 6.4 Crear contenedor y comprobar
 
 ```
 docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
@@ -236,9 +240,11 @@ docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 del servidor Nginx.
 * Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
 
-#ANEXO
+---
 
-##A.2
+# ANEXO
+
+## A.2
 
 Enlaces de interés:
 * [Docker for beginners](http://prakhar.me/docker-curriculum/)
