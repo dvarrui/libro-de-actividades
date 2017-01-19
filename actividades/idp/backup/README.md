@@ -73,7 +73,7 @@ En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo to
 
 Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de seguridad que vayamos realizando.
 
-* Crear la carpeta `c:\backupXX\`.
+* Crear la carpeta `c:\backupXX\`. Permisos `Control total` a `Todos`.
 * `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
 * Activar `compartir`.
 * Nombre del recurso `backupXX`
@@ -96,7 +96,7 @@ alumnoXX
 * Vamos a Inicio, escribimos `Copia de seguridad` para buscar el programa de backup.
 * Desde Windows7, buscar el recurso compartido de red del Windows Server.
     * Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente.
-    * Escribir `//172.19.XX.31` y ahora veremos los recursos compartidos
+    * Escribir `\\172.19.XX.31` y ahora veremos los recursos compartidos
     de red que nos ofrece nuestro servidor.
     * ![backup-share-from-w7.png](./images/backup-share-from-w7.png)
 * Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
