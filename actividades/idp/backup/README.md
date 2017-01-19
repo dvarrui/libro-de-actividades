@@ -151,6 +151,10 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 * `gzip ...`: Comando para hcer la compresión en formato gz.
 * `zip ...`: Comando para hacer la compresión en formato zip.
 
+> Enlaces de interés:
+>
+> * [Copia incremental con tar](https://www.unixmen.com/performing-incremental-backups-using-tar/)
+
 ### Realizamos la copia de seguridad
 
 Vamos a usar el  comando `tar` para lo siguiente:
