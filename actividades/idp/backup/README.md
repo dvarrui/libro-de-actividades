@@ -158,7 +158,7 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Crear copia de seguridad total (`/srv/backupXX/jedi2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia incremental `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
@@ -184,10 +184,12 @@ Instalar software [Cygwin](https://www.cygwin.com) en W7:
 * Local Packages: `valor por defecto`
 * `Direct Connection`
 * `Choose a download site`
-* Select packages: `base/tar, archive/zip, archive/gzip ,net/rsync, net/openssh`.
+* Select packages: `base/tar, archive/zip, base/gzip ,net/rsync, net/openssh`.
 
 ![./images/cygwin-packages.png](./images/cygwin-packages.png)
 
+> Para que el paquete aparezca seleccionado, hacer click en `skip`, y así
+aparecerá marcado el paquete para su instalación.
 
 ### Información sobre Cygwin
 
@@ -214,7 +216,7 @@ copias de seguridad.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia incremental `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-INC.tar.gz`
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
