@@ -1,5 +1,5 @@
 
-# Clonezilla device-device EFI
+# Clonezilla device-device BIOS
 
 Vamos a hacer una práctica de clonación usando el software Clonezilla.
 
@@ -13,7 +13,7 @@ de pantalla/fotos de los pasos realizados.
 
 ## 2.1 Preparamos el segundo disco
 
-* Usaremos una MV EFI con OpenSUSE para esta práctica.
+* Usaremos una MV BIOS con OpenSUSE para esta práctica.
 * Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
@@ -34,29 +34,7 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * `Beginner`
 * `disco-local a disco-local`
 
-# 3. Comprobamos
-
-* Quitamos el disco `clonado` e iniciamos el sistema.
-* Crear archivo `/home/profesor/Documentos/disco-original.txt`.
-* Quitamos el disco `original`, añadimos el disco `clonado`
-* Iniciamos el sistema.
-* Comprobamos que no están los archivos que habíamos creado.
-
----
-
-# ANEXO BootEFI, fstab y los UUID
-
-## Modificar el fichero fstab
-
-* Entramos en el sistema como superusuario.
-* `df -hT`, para averiguar el nombre de nuestro disco (`sda`)
-* Hacemos copia de seguridad del fichero `/etc/fstab`.
-* Modificar el fichero, cambiando cada `UUID=XXX` por:
-    * `/dev/sda1` para la boot EFI,
-    * `/dev/sda2` para la swap y
-    * `/dev/sda3` para el raíz.
-
-## 3.1 Configurar el gestor de arranque
+## 2.3 Configurar el gestor de arranque
 
 Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
@@ -66,7 +44,7 @@ Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 * Crear algunos archivos en /home/profesor/Documentos.
 * Ejecutar el comando siguiente en el SO1: `df -hT`. Para comprobar el disco que estamos usando.
 
-## 3.2 Comprobamos
+# 4. Comprobamos
 
 * Reiniciar la MV.
 * Iniciar el SO2,
