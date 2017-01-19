@@ -86,8 +86,8 @@ iface eth0 inet static
   netmask 255.255.0.0
   gateway 172.19.0.1
   dns-nameservers 8.8.4.4
-  dns-search vargas42g.curso1617 vargas42g
-  dns-domain vargas42g.curso1617
+  dns-search vargas42d.curso1617 vargas42d
+  dns-domain vargas42d.curso1617
 
 auto eth1
 iface eth1 inet dhcp

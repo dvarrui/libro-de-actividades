@@ -1,5 +1,5 @@
 
-#Configurar acceso remoto SSH en Debian
+# Configurar acceso remoto SSH en Debian
 
 ## Instalación
 
