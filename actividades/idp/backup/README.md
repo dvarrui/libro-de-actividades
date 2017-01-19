@@ -158,7 +158,7 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Crear copia de seguridad total (`/srv/backupXX/jedi2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`.
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
