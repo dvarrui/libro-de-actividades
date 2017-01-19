@@ -13,10 +13,14 @@ lo cual son aplicaciones empaquetadas auto-suficientes, muy livianas
  que son capaces de funcionar en prácticamente cualquier ambiente,
  ya que tiene su propio sistema de archivos, librerías, terminal, etc.
 
-# 2. Preparativos
+---
+
+# 2. Requisitos
 
 Vamos a usar MV OpenSUSE.
 Nos aseguraremos que tiene una versión del Kernel 3.10 o superior (`uname -a`).
+
+---
 
 # 3. Instalación y primeras pruebas
 
@@ -55,6 +59,8 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 * Para openSUSE Tumbleweed `Yast -> Sistema -> Configuración de red -> Menú de encaminamiento`.
 
 Reiniciar el equipo para que se apliquen los cambios.
+
+---
 
 # 5. Crear un contenedor manualmente
 
@@ -180,6 +186,8 @@ docker ps -a
 ```
 
 ## 5.3 Más comandos
+
+Información sobre otros comandos útiles:
 
 * `docker start CONTAINERID`, inicia un contenedor que estaba parado.
 * `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
