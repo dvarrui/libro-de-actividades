@@ -179,6 +179,13 @@ docker rm mv_nginx
 docker ps -a
 ```
 
+## 5.3 Más comandos
+
+* `docker start CONTAINERID`, inicia un contenedor que estaba parado.
+* `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
+
+---
+
 # 6. Crear un contenedor con `Dockerfile`
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
