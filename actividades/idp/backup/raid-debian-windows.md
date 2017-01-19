@@ -69,16 +69,18 @@ cat /proc/mdstat
 lsblk -fm
 ```
 
-#2. RAID-1 software
+---
+
+# 2. RAID-1 software
 
 > **IMPORTANTE**
 > * Haz copia de seguridad de la MV (Exportar/importar de VBox).
-> * Una vez que empiecen con los apartados 2.x, traten de NO apagar la MV. Sólo
+> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV
 cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
 
 Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
 
-##2.1 Preparar la MV
+## 2.1 Preparar la MV
 
 > **NOTA**
 > * Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
@@ -87,13 +89,13 @@ Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1
 Realizar las siguientes tareas:
 * Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
 * Reiniciar la MV
-* Usar `fdisk -l` para asegurarnos que los discos nuevos son /dev/sdd y /dev/sde
+* Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 
-##2.2 Usar mdadm para crear RAID-1
+## 2.2 Usar mdadm para crear RAID-1
 
-* Instalar el paquete mdadm (Administración de dispositivos RAID).
+* Instalar el paquete `mdadm` (Administración de dispositivos RAID).
 * Ahora si debe existir el fichero `/etc/mdadm/mdadm.conf`.
-* Crear un RAID-1 (/dev/md1) con los discos (d) y (e)
+* Crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
 
@@ -103,15 +105,15 @@ Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
 > * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
 
 * Para comprobar si se ha creado el raid1 correctamente:
+
 ```
-    cat /proc/mdstat
-    lsblk -fm
-    mdadm --detail /dev/md1
+cat /proc/mdstat        # Muestra info de discos RAID
+lsblk -fm               # Muestra info de los discos/particiones
+mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 ```
 * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md1`
 
-
-##2.3 Escribir en el RAID-1
+## 2.3 Escribir datos en el RAID-1
 
 * Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
 * Comprobamos con `df hT`, `mount`.
@@ -122,9 +124,9 @@ Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
     * Directorio `/mnt/raid1/naboo`
     * Fichero `/mnt/raid1/naboo/yoda.txt`
     * Directorio `/mnt/raid1/endor`
-    * Fichero `/mnt/raid1/endor/startrooper.txt`
+    * Fichero `/mnt/raid1/endor/sandtrooper.txt`
 
-##2.4 Configuración de RAID-1
+## 2.4 Configuración de RAID-1
 
 * Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración
 sólo muestra una línea ARRAY correspondiente al RAID0.
@@ -137,7 +139,7 @@ Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiend
 salida de un comando al fichero de texto.
 > * Con esto conseguimos que el disco RAID1 no pierda su configuración con cada reinicio del sistema.
 
-##2.5 Montaje automático
+## 2.5 Montaje automático
 
 > * El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al
 iniciarse la máquina.
@@ -147,7 +149,9 @@ reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguient
 
 * Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
 
-#3. Quitar disco y probar
+---
+
+# 3. Quitar disco y probar
 
 * Apagamos la MV.
 * Quitar en VirtualBox uno de los discos del raid1 (`/dev/sdd`).
@@ -165,21 +169,23 @@ reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguient
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 ```
-    date
-    hostname
-    ip a
-    route -n
-    host www.google.es
-    fdisk -l
-    df -hT
-    cat /proc/mdstat
-    lsblk -fm
-    cat /etc/mdadm/mdadm.conf
+date
+hostname
+ip a
+route -n
+host www.google.es
+fdisk -l
+df -hT
+cat /proc/mdstat
+lsblk -fm
+cat /etc/mdadm/mdadm.conf
 ```
 
 > NOTA: Para consultar el UUID de una partición podemos usar el comando "blkid" o hacer "vdir /dev/disk/by-uuid".
 
-#4. Discos dinámicos en Windows
+---
+
+# 4. Discos dinámicos en Windows
 
 * Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
 para implementar RAID5.
@@ -193,7 +199,7 @@ para implementar RAID5.
 > * Seccionado: RAID0 con todos los discos de igual tamaño.
 > * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 
-##4.1 Volumen Seccionado (RAID0)
+## 4.1 Volumen Seccionado (RAID0)
 
 Vamos a crear un volumen *seccionado*:
 * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
@@ -204,7 +210,7 @@ virtuales de 1GB cada uno.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
-##4.2 Volumen Reflejado (RAID1)
+## 4.2 Volumen Reflejado (RAID1)
 Un volumen *Reflejado* es similar a un RAID1.
 * Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
@@ -214,7 +220,7 @@ Un volumen *Reflejado* es similar a un RAID1.
 Introduce un fichero prueba-mirror.txt en el primero de ellos. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada.¿Qué ocurre?
 
-##4.3 Pregunta RAID5
+## 4.3 Pregunta RAID5
 
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Investiga acerca de cómo crear en Windows un Raid-5 por software y detalla la respuesta.
