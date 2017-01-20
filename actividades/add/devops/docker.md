@@ -99,7 +99,7 @@ root@IDContenedor:/# ps -ef
 * Creamos un fichero HTML (`holamundo.html`).
 
 ```
-root@IDContenedor:/# echo "<p>Hola Nombre-del-alumno!</p>" > /var/www/html/holamundo.html
+root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo.html
 ```
 
 * Creamos tambien un script `/root/server.sh` con el siguiente contenido:

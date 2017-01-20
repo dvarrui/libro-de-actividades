@@ -20,6 +20,11 @@ y ejecutamos:
 * `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
 * `hostname -f` para ver el nombre de la MV donde hemos entrado.
 
+En caso de error en el acceso podemos hacer las siguientes comprobaciones:
+* `ping ip-de-la-mv`, si funciona la MV tiene bien configurado el interfaz de red.
+* `nmap -Pn ip-de-la-mv`, si muestra puerto 22/ssh, es que el servicio está disponible en la MV remota.
+* `systemctl status ssh`, para comprobar si tenemos el servicio SSH iniciado en localhost.
+
 ## Instalación de el CD/DVD
 
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de GNU/Linux.
