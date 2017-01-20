@@ -77,6 +77,7 @@ docker search debian   # Buscamos en los repositorios de Docker Hub
                        # contenedores con la etiqueta `debian`
 docker pull debian:8   # Descargamos contenedor `debian:8` en local
 docker pull opensuse
+docker images
 docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
 ```  
@@ -115,6 +116,8 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
       sleep 60
     done
 ```
+
+* Se recuerda que hay que poner permisos de ejecución al script anterior.
 
 > Este script inicia el programa/servicio y entra en un bucle, para permanecer
 activo y que no se cierre el contenedor.
