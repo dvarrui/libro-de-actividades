@@ -153,7 +153,8 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 
 > Enlaces de interés:
 >
-> * [Copia incremental con tar](https://www.unixmen.com/performing-incremental-backups-using-tar/)
+> * [ES - Copia incremental con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
+> * [EN - Incremental backup using tar command](https://www.unixmen.com/performing-incremental-backups-using-tar/)
 
 ### Realizamos la copia de seguridad
 
