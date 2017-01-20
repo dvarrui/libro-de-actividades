@@ -213,7 +213,7 @@ docker ps -a
 ## 6.2 Preparar ficheros
 
 * Crear directorio `/home/alumno/docker`, poner dentro los siguientes ficheros.
-* Dockerfile:
+* Crear el fichero `Dockerfile` con el siguiente contenido:
 ```
 FROM debian:8
 
