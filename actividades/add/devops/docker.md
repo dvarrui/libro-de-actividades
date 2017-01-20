@@ -43,6 +43,8 @@ docker images
 docker ps -a
 ```
 
+---
+
 # 4. Configuración de la red
 
 **Habilitar el acceso a la red externa a los contenedores**
@@ -162,7 +164,7 @@ Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 * Iniciemos el contenedor de la siguiente manera:
 ```
 docker ps
-docjer ps -a
+docker ps -a
 docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
 docker ps
 ```
@@ -252,6 +254,10 @@ docker images
 
 ## 6.4 Crear contenedor y comprobar
 
+* A continuación vamos a crear un contenedor con el nombre `mv_nginx2`,
+a partir de la imagen `dvarrui/nginx`, y queremos que este contenedor
+ejecute el programa `/root/server.sh`.
+
 ```
 docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 ```
@@ -260,6 +266,13 @@ docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 del servidor Nginx.
 * Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
 * Comprobar en el navegador URL: `http://localhost:PORTNUMBER/holamundo.html`
+
+---
+
+# 7. Limpiar
+
+Cuando terminamos con los contedores y ya no lo necesitamos, es buena idea
+pararlos y/o destruirlos.
 
 ---
 
