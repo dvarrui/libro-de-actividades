@@ -254,6 +254,7 @@ docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 * Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha
 del servidor Nginx.
 * Comprobar en el navegador URL: `http://localhost:PORTNUMBER`
+* Comprobar en el navegador URL: `http://localhost:PORTNUMBER/holamundo.html`
 
 ---
 
