@@ -106,18 +106,20 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
 * Creamos tambien un script `/root/server.sh` con el siguiente contenido:
 
 ```
-    #!/bin/bash
+#!/bin/bash
 
-    echo "Booting nginx..."
-    /usr/sbin/nginx &
+echo "Booting nginx..."
+/usr/sbin/nginx &
 
-    echo "Waiting..."
-    while(true) do
-      sleep 60
-    done
+echo "Waiting..."
+while(true) do
+  sleep 60
+done
 ```
 
-* Se recuerda que hay que poner permisos de ejecución al script anterior.
+Recordatorio:
+* Hay que poner permisos de ejecución al script para que se pueda ejecutar.
+* La primera línea de un script, siempre debe comenzar por `#!/`, sin espacios.
 
 > Este script inicia el programa/servicio y entra en un bucle, para permanecer
 activo y que no se cierre el contenedor.
