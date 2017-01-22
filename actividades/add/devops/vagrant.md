@@ -3,6 +3,7 @@
 # 1. Introducción
 
 Según *Wikipedia*:
+
 ```
     Vagrant es una herramienta para la creación y configuración de entornos
     de desarrollo virtualizados.
@@ -57,9 +58,11 @@ vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.b
 ![vagrant-box-add](./images/vagrant-box-add.png)
 
 * `vagrant box list`: Lista las cajas/imágenes disponibles actualmente en nuestra máquina.
-* Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile`
+
+Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile`
 (dentro de la carpeta de nuestro proyecto).
 * Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
+* Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
 
 ![vagrantfile](./images/vagrantfile.png)
 
