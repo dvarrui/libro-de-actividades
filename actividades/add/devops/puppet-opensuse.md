@@ -1,13 +1,13 @@
 *(Nueva para el curso 201516)*
 
-#1. Introducción
+# 1. Introducción
 
-Existen varias herramientas para realizar instalaciones desde un punto central, 
+Existen varias herramientas para realizar instalaciones desde un punto central,
 como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
 
-Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración 
-de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe 
-los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de 
+Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración
+de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe
+los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de
 Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
 Enlaces de interés:
@@ -18,59 +18,39 @@ Enlaces de interés:
 * Vídeo sin audio (14 minutos) sobre [Puppet en Debian](https://youtu.be/kPyaI--iAcA)
 * [Vídeo en inglés](https://youtu.be/Hiu_ui2nZa0) minuto 15, 36 minutos de duración.
 
-Relación de comandos de puppet que han cambiado al cambiar la versión:
+## 1.1 Entrega
 
-|Pre-2.6        | Post-2.6          |
-|-------------- |-------------------|
-| puppetmasterd | puppet master     |
-| puppetd       | puppet agent      |
-| puppet        | puppet apply      |
-| puppetca      | puppet cert       |
-| ralsh         | puppet resource   |
-| puppetrun     | puppet kick       |
-| puppetqd      | puppet queue      |
-| filebucket    | puppet filebucket |
-| puppetdoc     | puppet doc        |
-| pi            | puppet describe   |
+* El trabajo se entregará vía repositorio GitHub del alumno.
+* Usaremos la etiqueta `puppet` para la entrega.
 
-##1.1 Configuración
+## 1.2 Configuración
 
-> En OpenSUSE podemos hacer configurar el equipo a través de `Yast`
-
-> **IMPORTANTE**
+> **ADVERTENCIA**
 > * Los nombres de máquinas, dominios, usuarios, etc., deben estar siempre en minúsculas.
 > * No usar tildes, caracteres especiales (ñ, ü, etc.)
+>
+> En OpenSUSE podemos hacer configurar el equipo a través de `Yast`
 
 Vamos a usar 3 MV's con las siguientes configuraciones:
 * MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
-    * SO GNU/Linux OpenSUSE 13.2
-    * IP estática 172.18.XX.100
-    * Enlace: 172.18.0.1
-    * DNS: 8.8.4.4
+    * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
+    * IP estática 172.AA.XX.100
     * Nombre del equipo: masterXX
-    * Dominio = primer-apellido-del-alumno
-    * Instalar OpenSSH-Server para acceso del profesor.
 * MV1 - client1: recibe órdenes del master.
-    * SO GNU/Linux OpenSUSE 13.2
-    * IP estática 172.18.XX.101
-    * Enlace: 172.18.0.1
-    * DNS: 8.8.4.4
+    * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
+    * IP estática 172.AA.XX.101
     * Nombre del equipo: cli1aluXX
-    * Dominio = primer-apellido-del-alumno
-    * Instalar OpenSSH-Server para acceso del profesor.
 * MV3 - client2: recibe órdenes del master.
-    * SO Windows 7. Este SO debe haber sido instalado por cada alumno. 
+    * [Configuración SO Windows 7](../../global/configuracion/windows.md).
+    Este SO debe haber sido instalado por cada alumno.
     NO clonar de un compañero y/o profesor.
     * IP estática 172.18.XX.102
-    * Enlace: 172.18.0.1
-    * DNS: 8.8.4.4
     * Nombre Netbios: cli2aluXX
     * Nombre del equipo: cli2aluXX
-    * Grupo de trabajo = AULA108
-    * Instalar ServidorSSH para acceso del profesor.
-* Cada MV debe tener configurada en su `/etc/hosts` al resto. Para poder hacer `ping`
-entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras
-propias MV's sin tener un servidor DNS. 
+
+### Configurar /etc/hosts
+
+* Cada MV debe tener configurada en su `/etc/hosts` al resto de hosts, para poder hacer `ping` entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 
 > **GNU/Linux**
 >
@@ -85,62 +65,62 @@ propias MV's sin tener un servidor DNS.
 > **Windows**
 >
 > Para localizar el fichero hosts de Windows, vamos a la ruta de la imagen:
-> 
+>
 > ![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
 >
 > El contenido del fichero hosts de Windows tiene el siguiente aspecto:
 >
 > ![windows-edit-etchosts](./images/windows-edit-etchosts.png)
 
-##1.2 Comprobacion de las configuraciones
+## 1.3 Comprobaar las configuraciones
 
 En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
 
 ```
-    date
-    ip a
-    route -n
-    host www.google.es
-    hostname -a
-    hostname -f
-    hostname -d
-    tail -n 5 /etc/hosts
-    ping masterXX
-    ping masterXX.primer-apellido-del-alumno
-    ping cli1aluXX
-    ping cli1aluXX.primer-apellido-del-alumno
-    ping cli2aluXX
-    ping cli2aluXX.primer-apellido-del-alumno   
+date
+ip a
+route -n
+host www.google.es
+hostname -a
+hostname -f
+hostname -d
+tail -n 5 /etc/hosts
+ping masterXX
+ping masterXX.curso1617
+ping cli1aluXX
+ping cli1aluXX.curso1617
+ping cli2aluXX
+ping cli2aluXX.curso1617   
 ```
 
 En Windows comprobamos con:
 
 ```
-    date
-    ipconfig
-    route /PRINT
-    nslookup www.google.es
-    ping masterXX
-    ping masterXX.primer-apellido-del-alumno
-    ping cli1aluXX
-    ping cli1aluXX.primer-apellido-del-alumno
-    ping cli2aluXX
-    ping cli2aluXX.primer-apellido-del-alumno   
+date
+ipconfig
+route /PRINT
+nslookup www.google.es
+ping masterXX
+ping masterXX.curso1617
+ping cli1aluXX
+ping cli1aluXX.curso1617
+ping cli2aluXX
+ping cli2aluXX.curso1617   
 ```
 
-> **IMPORTANTE**: Comprobar que todas las máquinas tienen la fecha/hora correcta.
+> **IMPORTANTE**: Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
 
-##1.3 Veamos un ejemplo
+## 1.4 Veamos un ejemplo
 
-*Esto NO es obligatorio hacerlo. Sólo es un ejemplo.*
+*Esto NO HAY QUE HACERLO. Sólo es un ejemplo.*
 
-Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto nos puede 
+Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto nos puede
 ayudar a comprender cómo es la sintaxis de la herramienta.
 
 Al instalar el servidor Puppet en la máquina master, también tenemos instalado el Agente puppet.
 Vamos a preguntar a puppet para ver cómo responde:
 * sobre el paquete `tree` instalado en el sistema.
-* sobre el usuario `yoda` creado en el sistema, y 
+* sobre el usuario `yoda` creado en el sistema, y
 * sobre la carpeta `/home/yoda/endor` que ya existe en el sistema.
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
@@ -173,10 +153,12 @@ file { '/home/yoda/endor/':
 }
 ```
 
-Si nos lleváramos el fichero `yoda.pp` a otro PC con el Agente puppet instalado, 
+Si nos lleváramos el fichero `yoda.pp` a otro PC con el Agente puppet instalado,
 podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
 
-#2. Primera versión del fichero pp
+---
+
+# 2. Primera versión del fichero pp
 
 * Instalamos Puppet Master en la MV masterXX: `zypper install puppet-server puppet puppet-vim`.
 
@@ -189,31 +171,31 @@ directorio `/etc/puppet/manifests`.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * Preparamos los ficheros/directorios en el master:
 ```
-    mkdir /etc/puppet/files
-    mkdir /etc/puppet/manifests
-    mkdir /etc/puppet/manifests/classes
-    touch /etc/puppet/files/readme.txt
-    touch /etc/puppet/manifests/site.pp
-    touch /etc/puppet/manifests/classes/hostlinux1.pp
+mkdir /etc/puppet/files
+mkdir /etc/puppet/manifests
+mkdir /etc/puppet/manifests/classes
+touch /etc/puppet/files/readme.txt
+touch /etc/puppet/manifests/site.pp
+touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-##2.1 /etc/puppet/files/readme.txt
+## 2.1 /etc/puppet/files/readme.txt
 
 * Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
 
-> Los ficheros que se guardan en `/etc/puppet/files` se pueden 
+> Los ficheros que se guardan en `/etc/puppet/files` se pueden
 descargar por el resto de máquinas puppet.
 >
 > Ejemplo de configuración puppet para descargar fichero:
 > ```
 > file {  '/opt/readme.txt' :
->         source => 'puppet:///files/readme.txt', 
+>         source => 'puppet:///files/readme.txt',
 > }
 > ```
 
-##2.2 /etc/puppet/manifests/site.pp
+## 2.2 /etc/puppet/manifests/site.pp
 
-* `/etc/puppet/manifests/site.pp` es el fichero principal de configuración 
+* `/etc/puppet/manifests/site.pp` es el fichero principal de configuración
 de órdenes para los agentes/nodos puppet.
 * Contenido de nuestro `site.pp`:
 ```
@@ -223,16 +205,17 @@ node default {
   include hostlinux1
 }
 ```
+
 > Esta configuración significa:
 > * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
 > * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
-##2.3 /etc/puppet/manifests/classes/hostlinux1.pp
+## 2.3 /etc/puppet/manifests/classes/hostlinux1.pp
 
 Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
 organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 
-*Vamos a crear una primera configuración para máquina estándar GNU/Linux.
+* Vamos a crear una primera configuración para máquina estándar GNU/Linux.
 * Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
 ```
 class hostlinux1 {
@@ -253,11 +236,13 @@ class hostlinux1 {
 * Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 * Abrir el cortafuegos para el servicio.
 
-#3. Instalación y configuración del cliente1
+---
+
+# 3. Instalación y configuración del cliente1
 
 Instalación:
 * Instalamos Agente Puppet en el cliente: `zypper install puppet`
-* El cliente puppet debe ser informado de quien será su master. 
+* El cliente puppet debe ser informado de quien será su master.
 Para ello, añadimos a `/etc/puppet/puppet.conf`:
 
 ```
@@ -272,23 +257,25 @@ Para ello, añadimos a `/etc/puppet/puppet.conf`:
 * `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
-* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log` 
+* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log`
 
-#4. Certificados
+---
 
-Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre 
+# 4. Certificados
+
+Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre
 ambas máquinas. Esto sólo hay que hacerlo una vez.
 
-##4.1 Aceptar certificado
+## 4.1 Aceptar certificado
 
 * Vamos al master y consultamos las peticiones pendiente de unión al master: `puppet cert list`
 ```
-    root@master30# puppet cert list
-    "cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-    root@master30#
+root@master30# puppet cert list
+"cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
+root@master30#
 ```
 
-> **En caso de no aparecer el certificado en espera*
+> **En caso de no aparecer el certificado en espera**
 >
 > * Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
 el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
@@ -296,16 +283,16 @@ el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
 
 * Aceptar al nuevo cliente desde el master `puppet cert sign "nombre-máquina-cliente"`
 ```
-    root@master30# puppet cert sign "cli1alu30.vargas"
-    notice: Signed certificate request for cli1alu30.vargas
-    notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
+root@master30# puppet cert sign "cli1alu30.vargas"
+notice: Signed certificate request for cli1alu30.vargas
+notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
 
-    root@master30# puppet cert list
+root@master30# puppet cert list
 
-    root@master30# puppet cert print cli1alu30.vargas
-    Certificate:
-    Data:
-    ....
+root@master30# puppet cert print cli1alu30.vargas
+Certificate:
+Data:
+....
 ```
 
 A continuación podemos ver una imagen de ejemplo, los datos no tienen que coincidir con
@@ -313,26 +300,26 @@ lo que se pide en el ejercicio.
 
 ![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
 
-##4.2 Comprobación final
+## 4.2 Comprobación final
 
 * Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
     * `tree /home/nuevo-usuario`
-* En caso contrario, ejecutar comando para comprobar errores: 
+* En caso contrario, ejecutar comando para comprobar errores:
     * `puppet agent --test`
     * `puppet agent --server master30.vargas --test`
-* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
+* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y
 consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero 
-`/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master 
+* Puede ser que tengamos algún mensaje de error de configuración del fichero
+`/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master
 y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
-> 
+>
 > Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
 problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
 buena idea eliminar los certificados y volverlos a generar con la nueva información.
-> 
+>
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
 > * `puppet cert revoke cli1alu30.vargas`: Lo ejecutamos en el master para revocar certificado del cliente.
 > * `puppet cert clean  cli1alu30.vargas`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
@@ -341,9 +328,11 @@ buena idea eliminar los certificados y volverlos a generar con la nueva informac
 >
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
-#5. Segunda versión del fichero pp
+---
 
-Ya hemos probado una configuración sencilla en PuppetMaster. 
+# 5. Segunda versión del fichero pp
+
+Ya hemos probado una configuración sencilla en PuppetMaster.
 Ahora vamos a pasar a configurar algo más complejo.
 
 * Contenido para `/etc/puppet/manifests/classes/hostlinux2.pp`:
@@ -361,41 +350,41 @@ class hostlinux2 {
     home => '/home/obi-wan',
     shell => '/bin/bash',
     password => 'kenobi',
-    groups => ['jedy','admin','root'] 
+    groups => ['jedy','admin','root']
   }
 
   file { "/home/obi-wan":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 750
   }
 
   file { "/home/obi-wan/share":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 750
   }
 
   file { "/home/obi-wan/share/private":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 700 
+    mode => 700
   }
 
   file { "/home/obi-wan/share/public":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 755 
+    mode => 755
   }
 
 /*
   package { "gnomine": ensure => purged }
   file {  '/opt/readme.txt' :
-    source => 'puppet:///files/readme.txt', 
+    source => 'puppet:///files/readme.txt',
   }
 */
 
@@ -408,7 +397,7 @@ class hostlinux2 {
 > * **group**: creación o eliminación de grupos.
 > * **user**: Creación o eliminación de usuarios.
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
-> * **exec**: Para ejecutar comandos/scripts. 
+> * **exec**: Para ejecutar comandos/scripts.
 >
 > Veamos imagen de ejemplo:
 > ![puppet-exec.png](./images/puppet-exec.png)
@@ -427,16 +416,18 @@ node default {
 > Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
 * `tree /etc/puppet`
 
-#6. Cliente puppet windows
+---
+
+# 6. Cliente puppet windows
 
 Vamos a configurar Puppet para atender también a clientes Windows.
 
-Enlace de interés: 
+Enlace de interés:
 * [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 
-##6.1 Modificaciones en el Master
+## 6.1 Modificaciones en el Master
 
-* En el master vamos a crear una configuración puppet para las máquinas windows, 
+* En el master vamos a crear una configuración puppet para las máquinas windows,
 dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
@@ -476,7 +467,7 @@ node 'cli2alu30' {
 > * El cliente1 GNU/Linux del ejemplo se llama `cli1alu30.vargas`
 > * El cliente2 Windows del ejemplo se llama `cli2alu30`
 
-##6.2 Modificaciones en el cliente2
+## 6.2 Modificaciones en el cliente2
 
 * Consultar URL:
     * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
@@ -487,14 +478,14 @@ ambos equipos (Usar comando `facter` para ver la versión de puppet).
 * Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado 4.
 
 
-> *Consejo/sugerencia de Héctor Pedraza*:	
+> *Consejo/sugerencia de Héctor Pedraza*:
 >
-> Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir 
+> Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir
 los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
 > * Borrar en el maestro el certificado correspondiente a esa máquina `puppet cert clean nombre-netbios-cliente`.
 > * Desinstalar el agente puppet en windows.
-> * Borrar las carpetas de datos del puppet, ya que no se borran en la desinstalación. Las carpetas son: 
->     * `C:\ProgramData\PuppetLabs` y 
+> * Borrar las carpetas de datos del puppet, ya que no se borran en la desinstalación. Las carpetas son:
+>     * `C:\ProgramData\PuppetLabs` y
 >     * `C:\Users\usuario\.puppet`.
 > * Después reinstalamos y volvemos a probar.
 >
@@ -504,12 +495,12 @@ no se realice el intercambio de certificados... podemos:
 a la máquina Windows e intentarlo de nuevo.
 > * o usar una máquina Windows nueva (limpia de las acciones anteriores).
 
-> Con los comandos siguentes podremos hacernos una idea de como terminar de configurar 
+> Con los comandos siguentes podremos hacernos una idea de como terminar de configurar
 el fichero puppet del master para la máquina Windows.
 
 * Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
-    En nuestro ejemplo debe ser `master30.vargas`. 
+    En nuestro ejemplo debe ser `master30.vargas`.
     * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows, como por ejemplo la versión de puppet del cliente.
@@ -520,7 +511,7 @@ Veamos imagen de ejemplo:
 
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
 
-* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows3.pp` 
+* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`
 para el cliente Windows:
 
 ```
@@ -535,13 +526,27 @@ class hostwindows4 {
     groups => ['Usuarios']
   }
 }
-``` 
+```
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows.
 Nombrar el fichero con `/etc/puppet/manifests/classes/hostalumno5.pp`.
 Incluir configuraciones elegidas por el alumno.
 
-#7. Entrega
+---
 
-* El trabajo se entregará vía repositorio GitHub del alumno.
-* Usaremos la etiqueta `puppet` para la entrega.
+# ANEXO
+
+Relación de comandos de puppet que han cambiado al cambiar la versión:
+
+|Pre-2.6        | Post-2.6          |
+|-------------- |-------------------|
+| puppetmasterd | puppet master     |
+| puppetd       | puppet agent      |
+| puppet        | puppet apply      |
+| puppetca      | puppet cert       |
+| ralsh         | puppet resource   |
+| puppetrun     | puppet kick       |
+| puppetqd      | puppet queue      |
+| filebucket    | puppet filebucket |
+| puppetdoc     | puppet doc        |
+| pi            | puppet describe   |
