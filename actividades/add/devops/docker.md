@@ -222,7 +222,7 @@ docker ps -a
 
 ## 6.2 Preparar ficheros
 
-* Crear directorio `/home/alumno/docker`, poner dentro los siguientes ficheros.
+* Crear directorio `/home/nombre-alumno/dockerXX`, poner dentro los siguientes ficheros.
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 ```
 FROM debian:8
@@ -244,7 +244,8 @@ EXPOSE 80
 CMD ["/root/server.sh"]
 ```
 
-> Necesitaremos también los ficheros `server.sh` y `holamundo.html` que vimos antes.
+> Los ficheros `server.sh` y `holamundo.html` que vimos en el apartado anterior,
+tienen que estar en el mismo directorio del fichero `Dockerfile`.
 
 ## 6.3 Crear imagen
 
