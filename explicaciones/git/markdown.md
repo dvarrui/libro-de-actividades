@@ -9,3 +9,7 @@ la siguiente imagen.
 ![Atom markdown prewiew](./images/atom-markdown-preview.png)
 
 En Windows podemos usar Atom o Haropad.
+
+# Manipular imágenes desde terminal
+
+http://blog.desdelinux.net/como-manipular-imagenes-desde-el-terminal/
