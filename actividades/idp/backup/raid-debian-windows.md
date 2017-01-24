@@ -43,7 +43,8 @@ hacer un raid0, con los discos (b) y (c).
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 * El sistema de arranque va en el disco (a).
-* Crear una partición para instalar el sistema operativo dentro del dispositivo `/dev/raid0`.
+* Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
+Dentro de esta partición vamos a instalar el sistema operativo.
 
 Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
