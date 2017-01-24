@@ -24,7 +24,8 @@ Necesitaremos 2 máquinas virtuales:
 ## 2.1 Prepara la MV1
 
 * Añadir un 2º disco de la MV Windows7 de 100MB.
-* Iniciar la MV Windows7
+* Iniciar la MV Windows7.
+* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
 * Formatear el 2º disco (100MB) NTFS.
 * Grabar en dicho disco:
     * Un fichero de texto (`file1-XX`).
@@ -35,6 +36,7 @@ Necesitaremos 2 máquinas virtuales:
 
 * Crear el usuario `nombre-del-alumno`.
 * Añadir un 2º disco de la MV Windows Server de 1GB.
+* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
 * Formatear el 2º disco (1GB) NTFS.
 * Crear una carpeta `E:\sambaXX`.
 * Establecer dicha carpeta la como recurso compartido de red con el nombre `imagenesXX`.
@@ -57,8 +59,8 @@ Comprobamos el acceso al recurso remoto:
 * Iniciar la MV Windows7 con la distro Clonezilla.
 * Realizar clonación:
     * Tipo *device-image*.
-    * Elegir `samba_server` como repositorio de almacenamiento. Para esto usaremos el recurso
-    compartido del Window Server, con al usuario/clave que hemos creado.
+    * Elegir `samba_server` como repositorio de almacenamiento. Para esto usaremos el recurso compartido del Window Server, con al usuario/clave que hemos creado.
+    * Podemos configurar la tarjeta de red en modo DHCP.
     * Modo *beginner*.
     * `saveparts`, para guardar la partición.
     * Elegir para grabar sólo la partición del disco 2.
