@@ -75,7 +75,7 @@ lsblk -fm
 # 2. RAID-1 software
 
 > **IMPORTANTE**
-> * Haz copia de seguridad de la MV (Exportar/importar de VBox).
+> * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
 > * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV
 cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
 
