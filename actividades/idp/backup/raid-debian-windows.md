@@ -32,6 +32,8 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 
 ![virtualbox-discos](./images/virtualbox-discos.png)
 
+![raid-debian-01.png](./images/raid-debian-01.png)
+
 * Vamos a instalar GNU/Linux Debian.
 * Los discos (b) y (c), van a formar un RAID-0.
 
@@ -61,8 +63,6 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
 Veamos una secuencia de imágenes de ejemplo:
 
-![raid-debian-01.png](./images/raid-debian-01.png)
-
 ![raid-debian-02.png](./images/raid-debian-02.png)
 
 ![raid-debian-03.png](./images/raid-debian-03.png)
@@ -74,6 +74,8 @@ Veamos una secuencia de imágenes de ejemplo:
 ![raid-debian-06.png](./images/raid-debian-06.png)
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
+* Replica de red -> Sí.
+* Proxy -> Vacío.
 
 ## 1.3 Comprobación
 
@@ -182,12 +184,14 @@ reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguient
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
 * Volver a poner el disco en la MV, reiniciar.
 
+Vamos a sincronizar los discos y comprobar que todo está correcto.
+
 > Para sincronizar los discos RAID1:
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
-> * `mdadm --detail /dev/md1`
-> * `mdadm /dev/md1 --manage --add /dev/sdd`
 
-* Sincronizamos los discos y comprobar que todo está correcto.
+* `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
+* `mdadm /dev/md1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
+* `mdadm --detail /dev/md1`, comprobamos que están los dos.
 
 **Salida de comprobación**
 
