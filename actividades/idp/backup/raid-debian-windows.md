@@ -57,10 +57,6 @@ van en una partición aparte sin RAID, para evitar problemas en el boot del sist
 * Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
 Dentro de esta partición vamos a instalar el sistema operativo.
 
-Veamos imagen de ejemplo, al realizar el particionado RAID0.
-
-![raid0-particionado](./images/raid0-particionado.png)
-
 Veamos una secuencia de imágenes de ejemplo:
 
 ![raid-debian-02.png](./images/raid-debian-02.png)
@@ -72,6 +68,10 @@ Veamos una secuencia de imágenes de ejemplo:
 ![raid-debian-05.png](./images/raid-debian-05.png)
 
 ![raid-debian-06.png](./images/raid-debian-06.png)
+
+Veamos imagen de ejemplo, al realizar el particionado RAID0.
+
+![raid0-particionado](./images/raid0-particionado.png)
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
 * Replica de red -> Sí.
