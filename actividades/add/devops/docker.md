@@ -262,10 +262,11 @@ El fichero [Dockerfile](./files/Dockerfile) contiene la información
 necesaria para contruir el contenedor, veamos:
 
 ```
-cd /home/alumno/docker
-docker images
+cd /home/alumno/docker            # Entramos al directorio del Dockerfile
+docker images                     # Consultamos las imágenes disponibles
 docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
-docker images
+                                  # OJO el punto es necesario
+docker images                     # Debe aparecer nuestra nueva imagen
 ```
 
 ## 6.4 Crear contenedor y comprobar
