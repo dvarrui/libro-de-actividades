@@ -94,7 +94,7 @@ Realizar las siguientes tareas:
 
 ## 2.2 Usar mdadm para crear RAID-1
 
-* Instalar el paquete `mdadm` (Administración de dispositivos RAID).
+* Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get instal mdadm`.
 * Ahora si debe existir el fichero `/etc/mdadm/mdadm.conf`.
 * Crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
@@ -139,6 +139,8 @@ nosotros en el fichero de configuración.
 Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la
 salida de un comando al fichero de texto.
 > * Con esto conseguimos que el disco RAID1 no pierda su configuración con cada reinicio del sistema.
+
+* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
 
 ## 2.5 Montaje automático
 
