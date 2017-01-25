@@ -5,12 +5,14 @@
 
 # 1. Instalar SO en RAID-0 software
 
-Vamos a instalar un sistema operativo sobre unos discos con RAID-0 software.
+Vamos a instalar un sistema operativo Debian sobre unos discos con RAID-0 software.
 
 > Vídeo de interés:
 > * [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx). Este
 > vídeo no es exactamente la actividad que vamos a realizar, pero muestra cómo se configuran
 > discos RAID-1 software durante la instalación del SO Ubuntu 12.
+
+> Con el comando `sha256sum -c debian.sha256` comprobamos si el fichero lo hemos descargado bien.
 
 ## 1.1 Creación de la MV
 
@@ -41,7 +43,12 @@ hacer un raid0, con los discos (b) y (c).
 
 ## 1.2 Particionado e instalación
 
-* Continuamos con el proceso de instalación, y por esta vez sin swap (Área de intercambio).
+* Empezamos el proceso de instalación.
+* Elegimos particionado manual.
+
+> Por esta vez sin swap (Área de intercambio).
+> Tampoco vamos a crear una partición independiente para `/home`
+
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 * El sistema de arranque va en el disco (a).
@@ -52,7 +59,19 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
 ![raid0-particionado](./images/raid0-particionado.png)
 
-> Por esta vez, tampoco vamos a crear una partición independiente para `/home`
+Veamos una secuencia de imágenes de ejemplo:
+
+![raid-debian-01.png](./images/raid-debian-01.png)
+
+![raid-debian-02.png](./images/raid-debian-02.png)
+
+![raid-debian-03.png](./images/raid-debian-03.png)
+
+![raid-debian-04.png](./images/raid-debian-04.png)
+
+![raid-debian-05.png](./images/raid-debian-05.png)
+
+![raid-debian-06.png](./images/raid-debian-06.png)
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
 
