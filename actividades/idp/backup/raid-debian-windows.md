@@ -152,16 +152,20 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 
 ## 2.4 Configuración de RAID-1
 
-* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración
-sólo muestra una línea ARRAY correspondiente al RAID0.
+Si reiniciamos la MV vamos a perder la configuración RAID1.
+Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada reinicio del sistema.
+
+* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo muestra una línea ARRAY correspondiente al RAID0.
 * Para añadir una segunda línea ARRAY para el RAID1, nos ayudaremos de la salida del
 comando siguiente: `mdadm --examine --scan`. Esta información la tenemos que escribir
 nosotros en el fichero de configuración.
+* `mdadm --examine --scan >> /etc/mdam/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración. Ahora hay que editar el fichero de configuración para dejar 2 líneas ARRAY una para RAID0 y otra para RAID1.
 
+> **Redirección**
+>
 > * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
 Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la
 salida de un comando al fichero de texto.
-> * Con esto conseguimos que el disco RAID1 no pierda su configuración con cada reinicio del sistema.
 
 * Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
 
