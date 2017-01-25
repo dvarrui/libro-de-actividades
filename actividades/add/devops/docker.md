@@ -116,7 +116,7 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
 ```
 #!/bin/bash
 
-echo "Booting nginx..."
+echo "Booting Nginx!"
 /usr/sbin/nginx &
 
 echo "Waiting..."
@@ -172,8 +172,11 @@ Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 docker ps
 docker ps -a
 docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
-docker ps
+Booting Nginx!
+Waiting...
 ```
+Los mensajes muestran que el script server.sh está en ejecución.
+No parar el programa. Es correcto.
 
 > * El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado
 del contenedor, en nuestro caso el puerto 80 es el puerto por defecto
@@ -181,10 +184,12 @@ sobre el cual se levanta Nginx.
 > * El script `server.sh`nos sirve para iniciar el servicio y permanecer en espera.
 Lo podemos hacer también con el prgorama `Supervisor`.
 
-* Ahora en una nueva ventana ejecutaremos `docker ps`. Podemos apreciar
+* Abrimos una nueva terminal.
+* `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar
 que la última columna nos indica que el puerto 80 del contenedor
-está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`, vayamos al explorador
-y veamos si conectamo con Nginx dentro del contenedor.
+está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`.
+* Abrir navegador web y poner URL `0.0.0.0.:NNNNNN`. De esta forma nos
+conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor.
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
@@ -197,6 +202,9 @@ docker ps -a
 docker rm mv_nginx
 docker ps -a
 ```
+
+> Como ya tenemos una imagen docker, podemos crear nuevos contenedores
+cuando lo necesitemos.
 
 ## 5.3 Más comandos
 
