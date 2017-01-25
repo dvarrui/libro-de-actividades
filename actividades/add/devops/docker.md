@@ -235,9 +235,10 @@ docker ps -a
 ```
 FROM debian:8
 
-MAINTAINER David Vargas version 1.0
+MAINTAINER Nombre-del-Alumno 1.0
 
 RUN apt-get update
+RUN apt-get install -y apt-utils
 RUN apt-get install -y nginx
 RUN apt-get install -y vim
 
