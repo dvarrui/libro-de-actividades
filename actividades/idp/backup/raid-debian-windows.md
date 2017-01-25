@@ -19,7 +19,9 @@ o 3 discos IDE y 1 unidad de cdrom.
 > Cuando necesitamos una mayor cantidad de discos, es mejor usar controladoras SATA y/o SCSI
 en nuestra máquina.
 
-* Crear una máquina virtual nueva con 3 discos virtuales SATA:
+Crear una máquina virtual nueva:
+* con 1 interfaz de red en modo puente.
+* con 3 discos virtuales SATA:
     * (a) 100MB,
     * (b) 4GB
     * (c) 4GB.
