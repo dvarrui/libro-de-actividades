@@ -1,29 +1,14 @@
 
-```
-* Ejecuta en los cursos 201314, 201415, y 201516.
-```
 
 # 1. Instalar SO en RAID-0 software
 
-Vamos a instalar un sistema operativo Debian sobre unos discos con RAID-0 software.
+Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 software.
 
-> Vídeo de interés:
-> * [RAID en Ubuntu](https://youtu.be/z84oBqOxsD0?list=PLtGnc4I6s8duPu8fzK6zoNzczrXogvYnx). Este
-> vídeo no es exactamente la actividad que vamos a realizar, pero muestra cómo se configuran
-> discos RAID-1 software durante la instalación del SO Ubuntu 12.
-
-> Con el comando `sha256sum -c debian.sha256` comprobamos si el fichero lo hemos descargado bien.
+> Con el comando `sha256sum -c opensuse-version.sha256` comprobamos si el fichero lo hemos descargado bien.
 
 ## 1.1 Creación de la MV
 
-> Las máquinas (Y por tanto las MV de VirtualBox también), sólo aceptan 4 discos IDE,
-o 3 discos IDE y 1 unidad de cdrom.
-> Cuando necesitamos una mayor cantidad de discos, es mejor usar controladoras SATA y/o SCSI
-en nuestra máquina.
-
-Crear una máquina virtual nueva:
-* con 1 interfaz de red en modo puente.
-* con 3 discos virtuales SATA:
+* Crear una máquina virtual nueva con 3 discos virtuales SATA:
     * (a) 100MB,
     * (b) 4GB
     * (c) 4GB.
@@ -34,22 +19,21 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 
 ![raid-debian-01.png](./images/raid-debian-01.png)
 
-* Vamos a instalar GNU/Linux Debian.
-* Los discos (b) y (c), van a formar un RAID-0.
-
-> Para hacer el RAID-0:
-> * Elegimos formato tipo RAID en los discos (b) y (c).
-> * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos
-hacer un raid0, con los discos (b) y (c).
-> * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
+* Vamos a instalar GNU/Linux OpenSUSE en los discos (b) y (c), van a formar un RAID-0.
 
 ## 1.2 Particionado e instalación
 
 * Empezamos el proceso de instalación.
 * Elegimos particionado manual.
 
-> Por esta vez sin swap (Área de intercambio).
-> Tampoco vamos a crear una partición independiente para `/home`
+> Para hacer el RAID-0:
+>
+> * Hacemos una partición que coja todo el disco (sdb) y otra para el (sdc)
+> * Elegimos tipo RAID para cada partición (sdb1) y (sdc1).
+> * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos hacer un raid0, con las paritciones (sdb1) y (sdc1).
+> * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
+> * Por esta vez sin swap (Área de intercambio).
+> * Tampoco vamos a crear una partición independiente para `/home`
 
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
@@ -59,32 +43,24 @@ Dentro de esta partición vamos a instalar el sistema operativo.
 
 Veamos una secuencia de imágenes de ejemplo:
 
-![raid-debian-02.png](./images/raid-debian-02.png)
+![raid-opensuse-01.png](./images/raid-opensuse-01.png)
 
-![raid-debian-03.png](./images/raid-debian-03.png)
+![raid-opensuse-02.png](./images/raid-opensuse-02.png)
 
-![raid-debian-04.png](./images/raid-debian-04.png)
+![raid-opensuse-03.png](./images/raid-opensuse-03.png)
 
-![raid-debian-05.png](./images/raid-debian-05.png)
+![raid-opensuse-04.png](./images/raid-opensuse-04.png)
 
-![raid-debian-06.png](./images/raid-debian-06.png)
-
-Veamos imagen de ejemplo, al realizar el particionado RAID0.
-
-![raid0-particionado](./images/raid0-particionado.png)
-
-* Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
-* Replica de red -> Sí.
-* Proxy -> Vacío.
+* Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
 ## 1.3 Comprobación
 
 * Una vez instalado ejecutar los siguientes comandos, e incluir su salida en el informe:
 
 ```
-date
-hostname
-ip a
+date                 # Muestra la fecha/hora actual
+hostname             # Nombre de la máquina
+ip a                 #
 route -n
 host www.google.es
 fdisk -l
@@ -245,7 +221,7 @@ Un volumen *Reflejado* es similar a un RAID1.
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
 
-* Crea un par de volúmenes reflejados de 200MB cada uno, con los discos anteriormente utilizados.
+* Crea un par de volúmenes reflejados de 200 MB cada uno, con los discos anteriormente utilizados.
 * Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
 
