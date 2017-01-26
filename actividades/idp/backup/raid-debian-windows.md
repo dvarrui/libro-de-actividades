@@ -117,11 +117,12 @@ Realizar las siguientes tareas:
 
 ## 2.2 Usar mdadm para crear RAID-1
 
-* Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get instal mdadm`.
-* Ahora si debe existir el fichero `/etc/mdadm/mdadm.conf`.
-* Crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
+* Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get install mdadm`.
+* Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`.
+
+Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
-Comando `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`).
+* `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`
 
 > * `mdadm` es la herramienta que vamos a usar para gestionar los dispositivos RAID.
 > * `--create /dev/md1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
@@ -155,18 +156,18 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 Si reiniciamos la MV vamos a perder la configuración RAID1.
 Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada reinicio del sistema.
 
-* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo muestra una línea ARRAY correspondiente al RAID0.
-* Para añadir una segunda línea ARRAY para el RAID1, nos ayudaremos de la salida del
-comando siguiente: `mdadm --examine --scan`. Esta información la tenemos que escribir
-nosotros en el fichero de configuración.
+* Hacer un snapshot de la MV por seguridad.
+* Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
+* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
+* Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
+La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
 * `mdadm --examine --scan >> /etc/mdam/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
-* Ahora hay que editar el fichero de configuración para dejar 2 líneas ARRAY una para RAID0 y otra para RAID1. OJO sólo 2 líneas ARRAY en el archivo.
+* Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
 
 > **Redirección**
 >
 > * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
-Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la
-salida de un comando al fichero de texto.
+Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
 
 * Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
 
@@ -200,8 +201,6 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 * `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
 * `mdadm /dev/md1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
 * `mdadm --detail /dev/md1`, comprobamos que están los dos.
-
-**Salida de comprobación**
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 ```
