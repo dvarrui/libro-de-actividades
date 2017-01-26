@@ -1,4 +1,8 @@
-*(Nueva para el curso 201516)*
+
+```
+* Adaptada para el curso 201516.
+* Comprobada en 201617.
+```
 
 # 1. Introducción
 
@@ -26,6 +30,7 @@ Enlaces de interés:
 ## 1.2 Configuración
 
 > **ADVERTENCIA**
+>
 > * Los nombres de máquinas, dominios, usuarios, etc., deben estar siempre en minúsculas.
 > * No usar tildes, caracteres especiales (ñ, ü, etc.)
 >
@@ -35,32 +40,36 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
 * MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
     * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
     * IP estática 172.AA.XX.100
-    * Nombre del equipo: masterXX
-* MV1 - client1: recibe órdenes del master.
+    * Nombre del equipo: `masterXX`
+    * Dominio: `curso1617`
+* MV2 - cliente 1: recibe órdenes del master.
     * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
     * IP estática 172.AA.XX.101
-    * Nombre del equipo: cli1aluXX
+    * Nombre del equipo: `cli1aluXX`
+    * Dominio: `curso1617`
 * MV3 - client2: recibe órdenes del master.
     * [Configuración SO Windows 7](../../global/configuracion/windows.md).
     Este SO debe haber sido instalado por cada alumno.
     NO clonar de un compañero y/o profesor.
     * IP estática 172.18.XX.102
-    * Nombre Netbios: cli2aluXX
-    * Nombre del equipo: cli2aluXX
+    * Nombre Netbios: `cli2aluXX`
+    * Nombre del equipo: `cli2aluXX`
 
 ### Configurar /etc/hosts
 
-* Cada MV debe tener configurada en su `/etc/hosts` al resto de hosts, para poder hacer `ping` entre ellas usando los nombres. Con esto obtenemos resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
+* Cada MV debe tener configurada en su `/etc/hosts` al resto de hosts, para
+poder hacer `ping` entre ellas usando los nombres. Con este fichero obtenemos
+resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 
 > **GNU/Linux**
 >
 > El fichero `/etc/hosts` debe tener un contenido similar a:
 >
 >     127.0.0.1       localhost
->     127.0.0.2       master30.vargas    master30
->     172.18.30.100   master30.vargas    master30
->     172.18.30.101   cli1alu30.vargas   cli1alu30
->     172.18.30.102   cli2alu30.vargas   cli2alu30
+>     127.0.0.2       master42.curso1617    master42
+>     172.18.30.100   master42.curso1617    master42
+>     172.18.30.101   cli1alu42.curso1617   cli1alu42
+>     172.18.30.102   cli2alu42.curso1617   cli2alu42
 
 > **Windows**
 >
@@ -120,31 +129,31 @@ ayudar a comprender cómo es la sintaxis de la herramienta.
 Al instalar el servidor Puppet en la máquina master, también tenemos instalado el Agente puppet.
 Vamos a preguntar a puppet para ver cómo responde:
 * sobre el paquete `tree` instalado en el sistema.
-* sobre el usuario `yoda` creado en el sistema, y
-* sobre la carpeta `/home/yoda/endor` que ya existe en el sistema.
+* sobre el usuario `barbaroja` creado en el sistema, y
+* sobre la carpeta `/home/barbaroja/barco` que ya existe en el sistema.
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
-obtenidos de puppet en el fichero de prueba `yoda.pp`. Para ello ejecutamos los comandos siguientes:
+obtenidos de puppet en el fichero de prueba `piratas.pp`. Para ello ejecutamos los comandos siguientes:
 
-    puppet resource package tree > yoda.pp
-    puppet resource user yoda >> yoda.pp
-    puppet resource file /home/yoda/endor >> yoda.pp
+    puppet resource package tree > piratas.pp
+    puppet resource user barbaroja >> piratas.pp
+    puppet resource file /home/barbaroja/barco >> piratas.pp
 
-El contenido del fichero `yoda.pp` debe ser parecido a:
+El contenido del fichero `piratas.pp` debe ser parecido a:
 
 ```
 package { 'tree':
   ensure => 'present',
 }
 
-user { 'yoda':
+user { 'barbaroja':
   ensure => 'present',
-  home => '/home/yoda',
+  home => '/home/barbaroja',
   password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fjQx20nEev3PabB6HdbqBX37oXrmP6y0',
   shell => '/bin/bash',
 }
 
-file { '/home/yoda/endor/':
+file { '/home/barbaroja/barco/':
   ensure => 'directory',
   group => '100',
   mode => '755',
@@ -153,8 +162,7 @@ file { '/home/yoda/endor/':
 }
 ```
 
-Si nos lleváramos el fichero `yoda.pp` a otro PC con el Agente puppet instalado,
-podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
+Si nos lleváramos el fichero `piratas.pp` a otro PC con el Agente puppet instalado, podemos forzar a que se creen estos cambios con el comando: `puppet apply piratas.pp`
 
 ---
 
@@ -166,26 +174,26 @@ podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.p
 
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * `systemctl enable puppetmaster`: Permitir que el servicio se inicie automáticamente en el inicio de la máquina.
-* `systemctl start puppetmaster`: Iniciar el servicio. En este momento debería haberse creado el
-directorio `/etc/puppet/manifests`.
+* `systemctl start puppetmaster`: Iniciar el servicio.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
+* En este momento debería haberse creado el directorio `/etc/puppet/manifests`.
 * Preparamos los ficheros/directorios en el master:
 ```
 mkdir /etc/puppet/files
-mkdir /etc/puppet/manifests
-mkdir /etc/puppet/manifests/classes
 touch /etc/puppet/files/readme.txt
+mkdir /etc/puppet/manifests
 touch /etc/puppet/manifests/site.pp
+mkdir /etc/puppet/manifests/classes
 touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
 ## 2.1 /etc/puppet/files/readme.txt
 
-* Contenido para readme.txt: `"¡Que la fuerza te acompañe!"`.
+Los ficheros que se guardan en `/etc/puppet/files` se pueden
+descargar desde el resto de máquinas cliente puppet.
 
-> Los ficheros que se guardan en `/etc/puppet/files` se pueden
-descargar por el resto de máquinas puppet.
->
+* Contenido para readme.txt: `"¡Al abordaje!"`.
+
 > Ejemplo de configuración puppet para descargar fichero:
 > ```
 > file {  '/opt/readme.txt' :
@@ -207,15 +215,16 @@ node default {
 ```
 
 > Esta configuración significa:
+>
 > * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
 > * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
 ## 2.3 /etc/puppet/manifests/classes/hostlinux1.pp
 
-Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para
-organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
+Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 
-* Vamos a crear una primera configuración para máquina estándar GNU/Linux.
+Vamos a crear una primera configuración para máquina estándar GNU/Linux.
+
 * Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
 ```
 class hostlinux1 {
@@ -224,10 +233,10 @@ class hostlinux1 {
   package { "geany": ensure => installed }
 }
 ```
-* `tree /etc/puppet`
 
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
+* `tree /etc/puppet`, consultar los ficheros/directorios que tenemos creado.
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
 * Reiniciamos el servicio `systemctl restart puppetmaster`.
 * Comprobamos que el servicio está en ejecución de forma correcta.
@@ -240,15 +249,16 @@ class hostlinux1 {
 
 # 3. Instalación y configuración del cliente1
 
-Instalación:
-* Instalamos Agente Puppet en el cliente: `zypper install puppet`
+Vamos a instalar y configurar el cliente 1.
+* Vamos a la MV cliente 1.
+* `zypper install puppet`, para instalar el Agente Puppet.
 * El cliente puppet debe ser informado de quien será su master.
-Para ello, añadimos a `/etc/puppet/puppet.conf`:
+Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 
 ```
-    [main]
-    server=masterXX.primer-apellido-alumno
-    ...
+[main]
+server=masterXX.curso1617
+...
 ```  
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.  
@@ -263,56 +273,54 @@ Para ello, añadimos a `/etc/puppet/puppet.conf`:
 
 # 4. Certificados
 
-Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre
-ambas máquinas. Esto sólo hay que hacerlo una vez.
+Antes de que el master acepte a cliente1 como cliente, se deben intercambiar los certificados entre ambas máquinas. Esto sólo hay que hacerlo una vez.
+
+A partir de este momento ya no deberíamos cambiar los nombres de las máquinas.
 
 ## 4.1 Aceptar certificado
 
-* Vamos al master y consultamos las peticiones pendiente de unión al master: `puppet cert list`
+* Vamos a la MV master.
+* `puppet cert list`, consultamos las peticiones pendientes de unión al master:
 ```
-root@master30# puppet cert list
-"cli1alu30.vargas" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-root@master30#
+root@master42# puppet cert list
+"cli1alu30.curso1617" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
+root@master42#
 ```
 
 > **En caso de no aparecer el certificado en espera**
 >
-> * Si no aparece el certificado del cliente en la lista de espera del servidor, quizás
-el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
+> * Si no aparece el certificado del cliente en la lista de espera del servidor, quizás el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
 > * Volver a reiniciar el servicio en el cliente y comprobar su estado.
 
-* Aceptar al nuevo cliente desde el master `puppet cert sign "nombre-máquina-cliente"`
+* `puppet cert sign "nombre-máquina-cliente"`, aceptar al nuevo cliente desde el master:
 ```
-root@master30# puppet cert sign "cli1alu30.vargas"
-notice: Signed certificate request for cli1alu30.vargas
-notice: Removing file Puppet::SSL::CertificateRequest cli1alu30.vargas at '/var/lib/puppet/ssl/ca/requests/cli1alu30.vargas.pem'
+root@master42# puppet cert sign "cli1alu42.curso1617"
+notice: Signed certificate request for cli1alu42.curso1617
+notice: Removing file Puppet::SSL::CertificateRequest cli1alu42.curso1617 at '/var/lib/puppet/ssl/ca/requests/cli1alu42.curso1617.pem'
 
-root@master30# puppet cert list
+root@master42# puppet cert list
 
-root@master30# puppet cert print cli1alu30.vargas
+root@master42# puppet cert print cli1alu42.curso1617
 Certificate:
 Data:
 ....
 ```
 
-A continuación podemos ver una imagen de ejemplo, los datos no tienen que coincidir con
-lo que se pide en el ejercicio.
+A continuación podemos ver una imagen de ejemplo, los datos no tienen que coincidir con lo que se pide en el ejercicio.
 
 ![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
 
-## 4.2 Comprobación final
+## 4.2 Comprobación
 
+Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
 * Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
     * `tree /home/nuevo-usuario`
 * En caso contrario, ejecutar comando para comprobar errores:
     * `puppet agent --test`
     * `puppet agent --server master30.vargas --test`
-* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y
-consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero
-`/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master
-y corregir los errores de sintáxis.
+* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
+* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 >
@@ -321,8 +329,8 @@ problemas con los certificados, o los identificadores de las máquinas han cambi
 buena idea eliminar los certificados y volverlos a generar con la nueva información.
 >
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-> * `puppet cert revoke cli1alu30.vargas`: Lo ejecutamos en el master para revocar certificado del cliente.
-> * `puppet cert clean  cli1alu30.vargas`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
+> * `puppet cert revoke cli1alu42.curso1617`: Lo ejecutamos en el master para revocar certificado del cliente.
+> * `puppet cert clean  cli1alu42.curso1617`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
 > * `puppet cert print --all`: Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
 > *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
 >
@@ -343,51 +351,49 @@ class hostlinux2 {
   package { "traceroute": ensure => installed }
   package { "geany": ensure => installed }
 
-  group { "jedy": ensure => "present", }
+  group { "piratas": ensure => "present", }
   group { "admin": ensure => "present", }
 
-  user { 'obi-wan':
-    home => '/home/obi-wan',
+  user { 'barbaroja':
+    home => '/home/barbaroja',
     shell => '/bin/bash',
-    password => 'kenobi',
-    groups => ['jedy','admin','root']
+    password => 'saqueo',
+    groups => ['piratas','admin','root']
   }
 
-  file { "/home/obi-wan":
+  file { "/home/barbaroja":
     ensure => "directory",
-    owner => "obi-wan",
-    group => "jedy",
+    owner => "barbaroja",
+    group => "piratas",
     mode => 750
   }
 
-  file { "/home/obi-wan/share":
+  file { "/home/barbaroja/share":
     ensure => "directory",
-    owner => "obi-wan",
-    group => "jedy",
+    owner => "barbaroja",
+    group => "piratas",
     mode => 750
   }
 
-  file { "/home/obi-wan/share/private":
+  file { "/home/barbaroja/share/private":
     ensure => "directory",
-    owner => "obi-wan",
-    group => "jedy",
+    owner => "barbaroja",
+    group => "piratas",
     mode => 700
   }
 
-  file { "/home/obi-wan/share/public":
+  file { "/home/barbaroja/share/public":
     ensure => "directory",
-    owner => "obi-wan",
-    group => "jedy",
+    owner => "barbaroja",
+    group => "piratas",
     mode => 755
   }
 
-/*
   package { "gnomine": ensure => purged }
+
   file {  '/opt/readme.txt' :
     source => 'puppet:///files/readme.txt',
   }
-*/
-
 }
 ```
 
