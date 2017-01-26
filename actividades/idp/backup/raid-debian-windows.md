@@ -202,10 +202,6 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 ```
 date
-hostname
-ip a
-route -n
-host www.google.es
 fdisk -l
 df -hT
 cat /proc/mdstat
@@ -222,14 +218,12 @@ cat /etc/mdadm/mdadm.conf
 * Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
 para implementar RAID5.
 
-> **TEORÍA**
->
-> En windows las particiones se llaman volúmenes básicos.
->
-> Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
-> * Reflejo: RAID1
-> * Seccionado: RAID0 con todos los discos de igual tamaño.
-> * Distribuido: parecido a RAID0 usando discos de distinto tamaño.
+En windows las particiones se llaman volúmenes básicos.
+
+Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
+* Reflejo: RAID1
+* Seccionado: RAID0 con todos los discos de igual tamaño.
+* Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 
 ## 4.1 Volumen Seccionado (RAID0)
 
@@ -237,20 +231,20 @@ Vamos a crear un volumen *seccionado*:
 * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
-* Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros
-virtuales de 1GB cada uno.
+* Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros virtuales de 200 MB cada uno.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
 ## 4.2 Volumen Reflejado (RAID1)
+
 Un volumen *Reflejado* es similar a un RAID1.
 * Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
 
 * Crea un par de volúmenes reflejados de 500MB cada uno, con los discos anteriormente utilizados.
-Introduce un fichero prueba-mirror.txt en el primero de ellos. Escribe tu nombre dentro.
-* Rompe los discos utilizando la opción adecuada.¿Qué ocurre?
+* Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
+* Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
 
 ## 4.3 Pregunta RAID5
 
