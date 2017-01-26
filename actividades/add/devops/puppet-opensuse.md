@@ -206,6 +206,7 @@ descargar desde el resto de máquinas cliente puppet.
 * `/etc/puppet/manifests/site.pp` es el fichero principal de configuración
 de órdenes para los agentes/nodos puppet.
 * Contenido de nuestro `site.pp`:
+
 ```
 import "classes/*"
 
@@ -226,6 +227,7 @@ Como podemos tener muchas configuraciones, vamos a separarlas en distintos fiche
 Vamos a crear una primera configuración para máquina estándar GNU/Linux.
 
 * Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
+
 ```
 class hostlinux1 {
   package { "tree": ensure => installed }
@@ -293,6 +295,7 @@ root@master42#
 > * Volver a reiniciar el servicio en el cliente y comprobar su estado.
 
 * `puppet cert sign "nombre-máquina-cliente"`, aceptar al nuevo cliente desde el master:
+
 ```
 root@master42# puppet cert sign "cli1alu42.curso1617"
 notice: Signed certificate request for cli1alu42.curso1617
@@ -424,7 +427,7 @@ node default {
 
 ---
 
-# 6. Cliente puppet windows
+# 6. Cliente puppet Windows
 
 Vamos a configurar Puppet para atender también a clientes Windows.
 
@@ -433,6 +436,7 @@ Enlace de interés:
 
 ## 6.1 Modificaciones en el Master
 
+* Vamos a la MV master.
 * En el master vamos a crear una configuración puppet para las máquinas windows,
 dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
@@ -448,46 +452,48 @@ class hostwindows3 {
 > De momento, esta configuración es muy básica. Al final la ampliaremos algo más.
 
 * Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
-la configuración de clientes GNU/Linux y clientes Windows, de la siguiente forma:
+la configuración de clientes GNU/Linux y clientes Windows, de modo diferenciado:
 
 ```
 import "classes/*"
 
-node 'cli1alu30.vargas' {
+node 'cli1alu42.curso1617' {
   include hostlinux2
 }
 
-node 'cli2alu30' {
+node 'cli2alu42' {
   include hostwindows3
 }
 ```
 
-* `tree /etc/puppet`
-* Reiniciamos el servicio PuppetMaster.
-* Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
-
-> Debemos instalar la misma versión de puppet en master y en los clientes
-
 > **NOMBRES DE MÁQUINA**
-> * El master GNU/Linux del ejemplo se llama `master30.vargas`
-> * El cliente1 GNU/Linux del ejemplo se llama `cli1alu30.vargas`
-> * El cliente2 Windows del ejemplo se llama `cli2alu30`
+> * El master GNU/Linux del ejemplo se llama `master42.curso1617`
+> * El cliente1 GNU/Linux del ejemplo se llama `cli1alu42.curso1617`
+> * El cliente2 Windows del ejemplo se llama `cli2alu42`
+
+* `tree /etc/puppet`, para confirmar que tenemos los nuevos archivos.
+* Reiniciamos el servicio PuppetMaster.
+
+ Debemos instalar la misma versión de puppet en master y en los clientes.
+ * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
+
 
 ## 6.2 Modificaciones en el cliente2
 
-* Consultar URL:
-    * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
-    * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
-* Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la misma versión en
-ambos equipos (Usar comando `facter` para ver la versión de puppet).
-* Reiniciamos.
-* Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado 4.
+Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la misma versión en ambos equipos (Usar comando `facter` para ver la versión de puppet).
 
+> Enlaces de interés:
+>
+> * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
+> * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
+
+* Instalamos Agente Puppet.
+* Reiniciamos la MV.
+* Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado anterior y repetir los pasos para este nuevo cliente.
 
 > *Consejo/sugerencia de Héctor Pedraza*:
 >
-> Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir
-los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
+> Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
 > * Borrar en el maestro el certificado correspondiente a esa máquina `puppet cert clean nombre-netbios-cliente`.
 > * Desinstalar el agente puppet en windows.
 > * Borrar las carpetas de datos del puppet, ya que no se borran en la desinstalación. Las carpetas son:
@@ -495,14 +501,11 @@ los siguientes pasos para eliminar cualquier rastro de los mismos y poder reinte
 >     * `C:\Users\usuario\.puppet`.
 > * Después reinstalamos y volvemos a probar.
 >
-> Si seguimos teniendo problemas para unir/conectar el cliente windows con el puppetmaster, porque
-no se realice el intercambio de certificados... podemos:
-> * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente
-a la máquina Windows e intentarlo de nuevo.
+> Si seguimos teniendo problemas para unir/conectar el cliente windows con el puppetmaster, porque no se realice el intercambio de certificados podemos:
+> * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente a la máquina Windows e intentarlo de nuevo.
 > * o usar una máquina Windows nueva (limpia de las acciones anteriores).
 
-> Con los comandos siguentes podremos hacernos una idea de como terminar de configurar
-el fichero puppet del master para la máquina Windows.
+Con los comandos siguentes podremos hacernos una idea de como terminar de configurar el fichero puppet del master para la máquina Windows.
 
 * Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
