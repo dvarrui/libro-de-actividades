@@ -159,7 +159,8 @@ Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada r
 * Para añadir una segunda línea ARRAY para el RAID1, nos ayudaremos de la salida del
 comando siguiente: `mdadm --examine --scan`. Esta información la tenemos que escribir
 nosotros en el fichero de configuración.
-* `mdadm --examine --scan >> /etc/mdam/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración. Ahora hay que editar el fichero de configuración para dejar 2 líneas ARRAY una para RAID0 y otra para RAID1.
+* `mdadm --examine --scan >> /etc/mdam/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
+* Ahora hay que editar el fichero de configuración para dejar 2 líneas ARRAY una para RAID0 y otra para RAID1. OJO sólo 2 líneas ARRAY en el archivo.
 
 > **Redirección**
 >
@@ -171,13 +172,16 @@ salida de un comando al fichero de texto.
 
 ## 2.5 Montaje automático
 
-> * El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al
-iniciarse la máquina.
-> * Por tanto, si queremos que se monte automáticamente el dispositivo RAID1 en cada
-reinicio debemos añadir una línea en el fichero `/etc/fstab`, como la siguiente:
-`/dev/md1 /mnt/raid1 ext4 defaults 0 2`
+> El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
 
+Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
+
+* Hacer una copia de seguridad del archivo `/etc/fstab`.
 * Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
+* Añadir la siguiente línea al fichero `/etc/fstab`:
+```
+/dev/md1 /mnt/raid1 ext4 defaults 0 2
+```
 
 ---
 
