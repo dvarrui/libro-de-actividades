@@ -304,16 +304,22 @@ pararlos y/o destruirlos.
 
 ¿Cómo puedo llevar los contenedores docker a un nuevo servidor?
 
-Enlaces de interés
-* https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
-* http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
+> Enlaces de interés
+>
+> * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
+> * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
 
+Crear un imagen de contenedor:
 * `docker ps`, muestra los contenedores que tengo en ejecución.
 * `docker commit -p 30b8f18f20b4 container-backup`, grabar una imagen "container-backup"
 con el contenedor 30b8f18f20b4.
 * `docker images`comprobar que se ha creado la imagen "container-backup".
+
+Exportar imagen docker a fichero:
 * `docker save -o ~/container-backup.tar container-backup`, guardamos la imagen
 "container-backup" en un fichero tar.
+
+Importar imagen docker desde fichero:
 * Nos llevamos el tar a otro servidor, instalamos docker y restauramos.
 * `docker load -i ~/container-backup.tar`, cargamos la imagen docker a partir del fichero tar.
 * `docker images`, comprobamos que la nueva imagen está disponible.
