@@ -140,7 +140,7 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 ## 2.3 Escribir datos en el RAID-1
 
 * Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
-* Comprobamos con `df hT`, `mount`.
+* Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
 
 > Ahora podemos escribir información en /mnt/raid1.
 
