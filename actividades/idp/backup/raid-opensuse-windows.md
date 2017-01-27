@@ -35,10 +35,11 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 > * Por esta vez sin swap (Área de intercambio).
 > * Tampoco vamos a crear una partición independiente para `/home`
 
-* La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
+* En el disco (a), creamos una partición `ext3` y montamos `/boot`. Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-* El sistema de arranque va en el disco (a).
-* Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
+* El sistema de arranque irá en el disco (a).
+* En los discos (b) y (c), creamos una partición completa de tipo `Volumen físico RAID`.
+* Crearemos un dispostivo RAID0 llamado `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
 Dentro de esta partición vamos a instalar el sistema operativo.
 
 Veamos una secuencia de imágenes de ejemplo:
