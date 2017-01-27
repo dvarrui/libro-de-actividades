@@ -322,7 +322,6 @@ A continuación podemos ver una imagen de ejemplo, los datos no tienen que coinc
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
 * Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
-    * `tree /home/nuevo-usuario`
 * En caso contrario, ejecutar comando para comprobar errores:
     * `puppet agent --test`
     * `puppet agent --server master42.curso1617 --test`
