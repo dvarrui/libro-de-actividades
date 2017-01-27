@@ -81,7 +81,7 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 >
 > ![windows-edit-etchosts](./images/windows-edit-etchosts.png)
 
-## 1.3 Comprobaar las configuraciones
+## 1.3 Comprobar las configuraciones
 
 En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
 
