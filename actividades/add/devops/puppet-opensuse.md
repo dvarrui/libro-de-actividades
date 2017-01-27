@@ -189,7 +189,7 @@ mkdir /etc/puppet/manifests/classes
 touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-## 2.1 /etc/puppet/files/readme.txt
+## 2.1 readme.txt
 
 Los ficheros que se guardan en `/etc/puppet/files` se pueden
 descargar desde el resto de máquinas cliente puppet.
@@ -203,7 +203,7 @@ descargar desde el resto de máquinas cliente puppet.
 > }
 > ```
 
-## 2.2 /etc/puppet/manifests/site.pp
+## 2.2 site.pp
 
 * `/etc/puppet/manifests/site.pp` es el fichero principal de configuración
 de órdenes para los agentes/nodos puppet.
@@ -222,7 +222,7 @@ node default {
 > * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
 > * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
-## 2.3 /etc/puppet/manifests/classes/hostlinux1.pp
+## 2.3 hostlinux1.pp
 
 Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 
@@ -255,7 +255,9 @@ class hostlinux1 {
 
 Vamos a instalar y configurar el cliente 1.
 * Vamos a la MV cliente 1.
-* `zypper install puppet`, para instalar el Agente Puppet.
+* Instalar el Agente Puppet.
+    * `zypper install rubygem-puppet` (Leap)
+    * `zypper install puppet` (13.2)
 * El cliente puppet debe ser informado de quien será su master.
 Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 
@@ -323,7 +325,7 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
     * `tree /home/nuevo-usuario`
 * En caso contrario, ejecutar comando para comprobar errores:
     * `puppet agent --test`
-    * `puppet agent --server master30.vargas --test`
+    * `puppet agent --server master42.curso1617 --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
 * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master y corregir los errores de sintáxis.
 
@@ -414,7 +416,8 @@ class hostlinux2 {
 > ![puppet-exec.png](./images/puppet-exec.png)
 >
 
-* Modificar `/etc/puppet/manifests/site.pp` con:
+* Modificar `/etc/puppet/manifests/site.pp` para que se use
+la configuración de hostlinux2 el lugar de la anterior:
 
 ```
 import "classes/*"
@@ -439,8 +442,8 @@ Enlace de interés:
 ## 6.1 Modificaciones en el Master
 
 * Vamos a la MV master.
-* En el master vamos a crear una configuración puppet para las máquinas windows,
-dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
+* Vamos a crear una configuración puppet para las máquinas windows, dentro del fichero.
+* Crear `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
 class hostwindows3 {
@@ -453,8 +456,7 @@ class hostwindows3 {
 
 > De momento, esta configuración es muy básica. Al final la ampliaremos algo más.
 
-* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
-la configuración de clientes GNU/Linux y clientes Windows, de modo diferenciado:
+* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta la configuración de clientes GNU/Linux y clientes Windows, de modo diferenciado:
 
 ```
 import "classes/*"
@@ -479,7 +481,6 @@ node 'cli2alu42' {
  Debemos instalar la misma versión de puppet en master y en los clientes.
  * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
-
 ## 6.2 Modificaciones en el cliente2
 
 Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la misma versión en ambos equipos (Usar comando `facter` para ver la versión de puppet).
@@ -489,7 +490,7 @@ Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la
 > * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
 > * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
 
-* Instalamos Agente Puppet.
+* Descargamos e instalamos la versión de Agente Puppet para Windows similar al Puppet Master.
 * Reiniciamos la MV.
 * Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado anterior y repetir los pasos para este nuevo cliente.
 
@@ -511,8 +512,8 @@ Con los comandos siguentes podremos hacernos una idea de como terminar de config
 
 * Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
-    En nuestro ejemplo debe ser `master30.vargas`.
-    * `puppet agent --server master30.vargas --test`: Comprobar el estado del agente puppet.
+    En nuestro ejemplo debe ser `master42.curso1627`.
+    * `puppet agent --server master42.curso1617 --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows, como por ejemplo la versión de puppet del cliente.
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
@@ -522,26 +523,25 @@ Veamos imagen de ejemplo:
 
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
 
-* Configuración en el master del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`
+* Configuramos en el master el fichero `/etc/puppet/manifests/classes/hostwindows4.pp`
 para el cliente Windows:
 
 ```
 class hostwindows4 {
-  user { 'darth-sidius':
+  user { 'soldado1':
     ensure => 'present',
     groups => ['Administradores']
   }
 
-  user { 'darth-maul':
+  user { 'aldeano1':
     ensure => 'present',
     groups => ['Usuarios']
   }
 }
 ```
 
-* Crear un nuevo fichero de configuración para la máquina cliente Windows.
-Nombrar el fichero con `/etc/puppet/manifests/classes/hostalumno5.pp`.
-Incluir configuraciones elegidas por el alumno.
+* Crear un nuevo fichero de configuración para la máquina cliente Windows con el nombre `/etc/puppet/manifests/classes/hostalumno5.pp`.
+* Incluir configuraciones elegidas por el alumno y probarlas.
 
 ---
 
