@@ -228,7 +228,7 @@ Como podemos tener muchas configuraciones, vamos a separarlas en distintos fiche
 
 Vamos a crear una primera configuración para máquina estándar GNU/Linux.
 
-* Contenido para `/etc/puppet/manifiests/classes/hostlinux1.pp`:
+* Contenido para `/etc/puppet/manifests/classes/hostlinux1.pp`:
 
 ```
 class hostlinux1 {
