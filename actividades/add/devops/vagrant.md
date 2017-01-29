@@ -281,7 +281,7 @@ nuestra propia caja/box personalizada a partir de una MV de VirtualBox.
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
 * Crear una MV VirtualBox nueva o usar una que ya tengamos.
-* Instalar OpenSSH Server.
+* Instalar OpenSSH Server en la MV.
 
 > Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
@@ -376,8 +376,10 @@ y usar cajas/boxes vagrant con Windows.
 
 ## A.3 Cambios próximo Curso
 
+* Probar Vagrant dentro de una MV...y luego con VBox dentro de la MV.
 * Arreglar warning que Apache2 "Fully qualified. domain name".
 * Añadir ejemplo de provisión con "inline"
 * Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece
 que se crea un directorio .vagrant.
 * Cambiar los nombres "mivagrantXX"y "mivagrantXXconmicaja".
+* Recomendar usa Shutter en las capturas y marcar/resaltar la parte donde hay que fijarse.
