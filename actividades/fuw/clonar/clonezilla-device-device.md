@@ -26,6 +26,7 @@ de pantalla/fotos de los pasos realizados.
 ![vbox-add-hdd.png](./images/vbox-add-hdd.png)
 
 Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *device-device*.
+* Capturar pantalla de las opciones seleccionadas en cada paso.
 * Elegimos la resolución.
 * Elegimos idioma.
 * Elegir mapa teclado -> querty -> Estándar -> Estándar.
@@ -33,6 +34,8 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * `device-device`
 * `Beginner`
 * `disco-local a disco-local`
+* Capurar imagen del comando con parámetros que aparece en la consola antes de
+confirmar lel inicio del proceso.
 
 # 3. Comprobamos
 

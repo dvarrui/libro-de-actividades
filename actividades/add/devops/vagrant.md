@@ -1,20 +1,20 @@
-*(Actividad creada en el curso 201516)*
+
+# Vagrant y VirtualBox
 
 # 1. Introducción
 
 Según *Wikipedia*:
 
 ```
-    Vagrant es una herramienta para la creación y configuración de entornos
-    de desarrollo virtualizados.
+Vagrant es una herramienta para la creación y configuración de entornos
+de desarrollo virtualizados.
 
-    Originalmente se desarrolló para VirtualBox y sistemas de configuración tales
-    como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es
-    capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC,
-    DigitalOcean, etc.2
+Originalmente se desarrolló para VirtualBox y sistemas de configuración tales
+como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es
+capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
 
-    Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
-    proyectos escritos en otros lenguajes.
+Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
+proyectos escritos en otros lenguajes.
 ```
 
 Enlaces de interés:
@@ -22,7 +22,7 @@ Enlaces de interés:
 * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)  
 
 > Para desarrollar esta actividad se ha utilizado la información del
-enlace anterior publicado por: Jonathan Wiesel, El 16/07/2013.
+enlace anterior publicado por *Jonathan Wiesel, el 16/07/2013*.
 
 ---
 
@@ -35,6 +35,10 @@ La instalación debemos hacerla en una máquina real.
     * `apt-get install vagrant` o
     * Usando un paquete [Vagrant-deb](http://172.20.1.2/~general/software/varios/vagrant_1.7.2_x86_64.deb)
 Disponible para descargar del servidor Leela.
+* `vagrant version`, para comprobar la versión actual de Vagrant.
+* `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
+* Si vamos a trabajar Vagrant con MV de VirtualBox, hay que comprobar que las
+versiones de ambos son compatibles entre sí.
 
 ## 2.2. Proyecto
 
@@ -137,13 +141,13 @@ enrutamiento de puertos.
 * Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar
 con `vagrant reload`)
 
-> Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
+Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
-> * `nmap -p 4500-4600 localhost`
-> * `netstat -ntap`
+* `nmap -p 4500-4600 localhost`, debe mostrar `4567/tcp open tram`.
+* `netstat -ntap`, debe mostrar `tcp 0.0.0.0:4567 0.0.0.0:* ESCUCHAR`.
 
-* En la máquina real, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro
-sistema virtualizado.
+* En la máquina real, abrimos el navegador web con el URL `http://127.0.0.1:4567`.
+En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
 
@@ -308,10 +312,11 @@ realicemos estas operación con el usuario vagrant.
 
 > Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
 
-* Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions,
-para conseguir mejoras en el S.O o poder compartir carpetas con el anfitrión.
+* Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions
+con una versión compatible con el host anfitrion.
+
 ```
-root@dbigcloud:~# modinfo vboxguest
+root@hostname:~# modinfo vboxguest
 filename:       /lib/modules/3.13.0-32-generic/updates/dkms/vboxguest.ko
 version:        4.3.20
 license:        GPL
@@ -321,6 +326,9 @@ srcversion:     22BF504734255C977E4D805
 alias:          pci:v000080EEd0000CAFEsv00000000sd00000000bc*sc*i*
 depends:        
 vermagic:       3.13.0-32-generic SMP mod_unload modversions
+
+root@hostname:~# modinfo vboxguest |grep version
+version:        4.3.20
 ```
 
 ## 6.2 Crear la caja vagrant
@@ -330,6 +338,7 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
 * Localizar el nombre de nuestra máquina VirtualBox (Por ejemplo, `v1-opensuse132-xfce`).
+    * `VBoxManage list vms`, comando de VirtualBox que lista las MV que tenemos.
 * Crear la caja `package.box` a partir de la MV.
 
 ![vagrant-package](./images/vagrant-package.png)
@@ -383,3 +392,9 @@ y usar cajas/boxes vagrant con Windows.
 que se crea un directorio .vagrant.
 * Cambiar los nombres "mivagrantXX"y "mivagrantXXconmicaja".
 * Recomendar usa Shutter en las capturas y marcar/resaltar la parte donde hay que fijarse.
+
+## A.4 VBoxManage
+
+https://www.garron.me/es/gnu-linux/controla-maquinas-virtuales-virtualbox.html
+
+VBoxManage showvminfo VMNAME | grep State
