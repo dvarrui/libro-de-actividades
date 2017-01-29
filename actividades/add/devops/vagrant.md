@@ -373,3 +373,11 @@ Probablemente por tener mal las GuestAdittions.
 
 Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows
 y usar cajas/boxes vagrant con Windows.
+
+## A.3 Cambios próximo Curso
+
+* Arreglar warning que Apache2 "Fully qualified. domain name".
+* Añadir ejemplo de provisión con "inline"
+* Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece
+que se crea un directorio .vagrant.
+* Cambiar los nombres "mivagrantXX"y "mivagrantXXconmicaja".
