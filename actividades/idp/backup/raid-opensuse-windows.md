@@ -1,6 +1,6 @@
 
 
-# 1. Instalar SO en RAID-0 software
+# 1. Instalar OpenSUSE en disco RAID0 software
 
 Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 software.
 
@@ -61,13 +61,13 @@ Veamos una secuencia de imágenes de ejemplo:
 ```
 date                 # Muestra la fecha/hora actual
 hostname             # Nombre de la máquina
-ip a                 #
-route -n
-host www.google.es
-fdisk -l
-df -hT
-cat /proc/mdstat
-lsblk -fm
+ip a                 # Muestra configuración interfaces de red
+route -n             # Muestra información de enrutamiento
+host www.google.es   # Comprueba la resolución de nombres
+fdisk -l             # Muestra particiones y discos
+df -hT               # Muestra los puntos de montaje
+cat /proc/mdstat     # Muestra la configuración RAID
+lsblk -fm            # Muestra esquema de discos/particiones/montaje
 ```
 
 ---
