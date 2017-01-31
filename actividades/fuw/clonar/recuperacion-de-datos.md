@@ -1,35 +1,13 @@
-> *Actividad realizada en los cursos 201415, 201314*
 
-#1. Introducción
+# 1. Introducción
 
 * En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 * Realizaremos la práctica de forma individual.
+* Vamos a usar una MV OpenSUSE según [configuración](../../global/configuracion/opensuse,md).
 
-#2. Preparativos
+---
 
-##2.1 Configuración de la MV
-
-* Vamos a usar una máquina virtual con SO GNU/Linux OpenSUSE13.2, configurada como:
-    * IP: 172.19.XX.61
-    * Enlace: 172.19.0.1
-    * DNS: 8.8.4.4
-    * Usuario: nombre-del-alumno
-    * Nombre de la máquina: 1er-apellido-del-alumno
-    * Nombre del dominio: 2do-apellido-del-alumno
-    * Instalar SSH server.
-    * Clave de root el DNI con letra en minúsculas.
-*Captura de pantalla de los comandos siguientes:
-
-```
-date
-hostname -f
-ip a
-route -n
-host www.iespuertodelacruz.es
-ping 8.8.4.4 -c 1
-```
-
-##2.2 Preparar el disco `roto`
+# 2. Preparar el disco `roto`
 
 * Añadiremos un segundo disco duro (sdb) a la MV VirtualBox de 10MB con el nombre de "roto".
 Cuanto más pequeño sea el disco más rápido se harán las operaciones de clonado/ y recuperación.
@@ -57,7 +35,9 @@ Feedback de comprobación `ls /mnt/disco_roto`.
 
 * Desmontamos el disco "roto". Feedback de comprobación: `df -hT`, `mount |grep roto`
 
-#3. Clonación alfa
+---
+
+# 3. Clonación alfa
 
 Antes de recuperar los archivos del disco "roto" (sdb) vamos hacer una clonación
 device-device del mismo. Al disco clonado lo llamaremos disco `alfa`. Apartir de
@@ -84,9 +64,11 @@ Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
 En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
 lo guardaríamos en sitio seguro.
 
-#4. Recuperación
+---
 
-##4.1 Herramientas de recuperación
+# 4. Recuperación
+
+## 4.1 Herramientas de recuperación
 
 Listado de algunas herramientas de recuperación:
 * PhotoRec/Testdisk: Se usa para recuperar archivos eliminados y particiones.
@@ -99,7 +81,7 @@ Listado de algunas herramientas de recuperación:
 * Scalpel.
     * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
 
-##4.2 Instalando software de recuperación
+## 4.2 Instalando software de recuperación
 
 Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk.
 Tenemos varias formas:
@@ -109,14 +91,34 @@ Tenemos varias formas:
     * Kali GNU/Linux (Descargar de leela).
     * Tails GNU/Linux (Descargar de la web).
 
-##4.3 Recuperando los datos
+## 4.3 Recuperando los datos
 
 Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
 * Consultar documentación de la herramienta para averiguar cómo se hace.
 * Los archivos que se recuperen no deben escribirse en el disco `alfa`.
 * La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`.
 
-#5. Borrado seguro
+## 4.4 Recuperar ficheros de texto
+
+* Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
+```
+===============
+Fichero secreto
+===============
+
+Estos son las claves de acceso de las naves imperiales.
+* Abracadabra
+* Ábrete sésamo
+* 123456
+
+===============
+```
+* Borramos el archivo de texto con `rm`.
+* `cat /dev/sdc1 | more `...¿aparece?
+
+---
+
+# 5. Borrado seguro
 
 Hemos visto que aunque borremos un archivo todavía existen formas de recuperar dichos datos.
 Ahora vamos a ver cómo realizar un borrado seguro.
