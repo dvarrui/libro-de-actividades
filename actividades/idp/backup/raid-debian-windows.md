@@ -261,3 +261,41 @@ Un volumen *Reflejado* es similar a un RAID1.
 
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Investiga acerca de cómo crear en Windows un Raid-5 por software y detalla la respuesta.
+
+---
+
+# ANEXO
+
+## A.1 Raid error /dev/md127
+
+* [EN - enlace](http://unix.stackexchange.com/questions/148062/mdadm-raid-doesnt-mount)
+
+Your arrays are not properly started. Remove them from your running config with this:
+```
+mdadm --stop /dev/md12[567]
+```
+
+Now try using the autoscan and assemble feature.
+```
+mdadm --assemble --scan
+```
+
+Assuming that works, save your config (assuming Debian derivative) with
+(and this will overwrite your config so we make a backup first):
+
+```
+mv /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf.old
+/usr/share/mdadm/mkconf > /etc/mdadm/mdadm.conf
+```
+
+You should be fixed for a reboot now, and it will auto assemble and start every time.
+If not, give the output of:
+
+```
+mdadm --examine /dev/sd[bc]6 /dev/sd[bc]7
+```
+
+It'll be a bit long but shows everything you need to know about the arrays
+and the member disks of the arrays, their state, etc.
+
+Just as an aside, it normally works better if you don't create multiple raid arrays on a disk (ie, /dev/sd[bc]6 and /dev/sd[bc]7) separately. Rather create only one array, and you can then create partitions on your array if you must. But LVM is a much better way to partition your array most of the time.
