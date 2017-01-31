@@ -124,7 +124,7 @@ lvdisplay vg-extra
 
 * Primero vamos a crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
 
-> El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Debe ser formateado antes de montarse.
+> El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Debe ser formateado antes de montarse. Elegir el formato que quieran.
 
 * Montar el nuevo dispotivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
 A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.

@@ -117,6 +117,10 @@ Realizar las siguientes tareas:
 
 ## 2.2 Usar mdadm para crear RAID-1
 
+> Enlaces de interés:
+>
+> * [Crear y configurar un raid 1 por software](http://www.linux-party.com/index.php/60-software/9247-como-crear-y-configurar-un-raid-1-por-software-con-mdadm-en-linux)
+
 * Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get install mdadm`.
 * Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`.
 
