@@ -120,6 +120,7 @@ Realizar las siguientes tareas:
 > Enlaces de interés:
 >
 > * [Crear y configurar un raid 1 por software](http://www.linux-party.com/index.php/60-software/9247-como-crear-y-configurar-un-raid-1-por-software-con-mdadm-en-linux)
+> * [Por qué aparece /dev/md127 en lugar de /dev/md1](https://www.enmimaquinafunciona.com/pregunta/32104/por-que-mi-raid-devmd1-mostrando-como-devmd126-es-mdadmconf-ser-ignorado)
 
 * Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get install mdadm`.
 * Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`.
