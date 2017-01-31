@@ -133,7 +133,7 @@ de por qué pasa esto la tenemos en el siguiente
 > Ante la duda, y para segurarse, muchas empresas recurren a la destrucción física de los disco.
 >
 
-##5.1 Herramientas de borrado seguro
+## 5.1 Herramientas de borrado seguro
 
 Enlaces de SHRED:
 * [shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
@@ -142,7 +142,7 @@ Enlaces de SHRED:
 Ejemplo con `dd`:
 * `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
 
-##5.2 Proceso de borrado seguro
+## 5.2 Proceso de borrado seguro
 
 * Creamos un disco nuevo VirtualBox de 10MB. A este disco lo llamaremos "limpio".
 * Iniciamos la MV.
@@ -162,18 +162,26 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 * Ahora ejecutamos el proceso de recuperación. ¿Se consigue recuperar algún archivo?
  ¿Todos? ¿Cuáles no se han podido recuperar?
 
-#ANEXO
+---
+
+# 6. Recuperar esquema de particionado
+
+* Usar TestDisk para recuperar el esquema de particionado.
+
+---
+
+# ANEXO
 
 Esto no hay que hacerlo. Es sólo informativo.
 
-##A1. Soporte en disquete físico
+## A1. Soporte en disquete físico
 * Coger un disquete del taller y formatearlo.
 * Vamos a crear un sistema de ficheros tipo ext2 dentro del disquete. Comando: "mkfs.ext2 /dev/fd0".
 * Crear el directorio "/mnt/dir-montaje".
 * Montamos el disquete en un directorio. Comando: "mount /dev/fd0/mnt/dir-montaje".
 * Comprobar que el sistema ficheros está montado. Comando: "df -hT".
 
-##A2. Soporte en fichero
+## A2. Soporte en fichero
 Vamos a crear fichero como soporte de datos:
 * Abrir consola como superusuario.
 * Crear un fichero "file-soporte", de tamaño 1MB y lleno de ceros.
