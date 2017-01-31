@@ -115,9 +115,9 @@ Comando: `lvcreate -L690M -n lv-extra vg-extra`.
 
 * Comprobamos lo que tenemos:
 ```
-ip a
-vgdisplay vg-extra
-lvdisplay vg-extra
+ip a               # Muestra información de la configuración de red del equipo
+vgdisplay vg-extra # Muestra información del grupo de volumen
+lvdisplay vg-extra # Muestra información de los volúmenes lógicos de un grupo de volumen concreto
 ```
 
 ## 3.3 Escribir información
