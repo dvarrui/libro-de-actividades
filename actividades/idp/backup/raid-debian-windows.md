@@ -241,9 +241,12 @@ Vamos a crear un volumen *seccionado*:
 ## 4.2 Volumen Reflejado (RAID1)
 
 Un volumen *Reflejado* es similar a un RAID1.
-* Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
-* Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
-* Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
+
+> Enlaces de interés:
+>
+> * Vídeo sobre [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
+> * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA).
+> * Web sobre [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985).
 
 * Crea un par de volúmenes reflejados de 200MB cada uno, con los discos anteriormente utilizados.
 * Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
