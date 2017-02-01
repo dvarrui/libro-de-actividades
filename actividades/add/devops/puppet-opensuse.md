@@ -493,7 +493,20 @@ Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la
 * Reiniciamos la MV.
 * Debemos aceptar el certificado en el master para este nuevo cliente. Consultar apartado anterior y repetir los pasos para este nuevo cliente.
 
-> *Consejo/sugerencia de Héctor Pedraza*:
+> **Si no aparece el cliente Windows en em master**
+>
+> Si en el master no nos aparece el certificado del cliente windows para ser aceptado, probar
+lo siguiente:
+>
+> * Ir a cli2aluXX
+> * Ejecutar el "Agente Puppet"
+> * Abrir "Consola Puppet" -> Ejecutar `puppet agent --server masterXX.curso1617 --test`.
+> * Ir a masterXX -> `puppet cert list`
+> * Capturar pantallas de estos pasos.
+
+> **¿Cómo desintalar Puppet en Windows?**
+>
+> *Consejos/sugerencias de Héctor Pedraza pars desinstalar Puppet en Windows*:
 >
 > Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
 > * Borrar en el maestro el certificado correspondiente a esa máquina `puppet cert clean nombre-netbios-cliente`.
@@ -507,12 +520,14 @@ Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la
 > * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente a la máquina Windows e intentarlo de nuevo.
 > * o usar una máquina Windows nueva (limpia de las acciones anteriores).
 
-Con los comandos siguentes podremos hacernos una idea de como terminar de configurar el fichero puppet del master para la máquina Windows.
+* Vamos al cliente2.
+
+Con los comandos siguientes podremos hacernos una idea de como terminar de configurar el fichero puppet del master para la máquina Windows.
 
 * Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
-    En nuestro ejemplo debe ser `master42.curso1627`.
-    * `puppet agent --server master42.curso1617 --test`: Comprobar el estado del agente puppet.
+    En nuestro ejemplo debe ser `masterXX.curso1627`.
+    * `puppet agent --server masterXX.curso1617 --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows, como por ejemplo la versión de puppet del cliente.
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
