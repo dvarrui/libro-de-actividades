@@ -91,7 +91,7 @@ ip a
 route -n
 host www.google.es
 hostname -a
-hostname -f
+hostname -f               # Comprobar que devuelve el valor correcto!
 hostname -d
 tail -n 5 /etc/hosts
 ping masterXX
