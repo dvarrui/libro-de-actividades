@@ -3,7 +3,7 @@
 
 * En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 * Realizaremos la práctica de forma individual.
-* Vamos a usar una MV OpenSUSE según [configuración](../../global/configuracion/opensuse,md).
+* Vamos a usar una MV OpenSUSE según [configuración](../../global/configuracion/opensuse.md).
 
 ---
 
