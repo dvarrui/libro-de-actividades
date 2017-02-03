@@ -21,6 +21,10 @@ todos los pendrives y discos duros externos.
 * Creamos el directorio `disco_roto` dentro de `/mnt`.
 * Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
 Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
+
+> Un sistema de ficheros FAT32 no es capaz de guardar información de usuarios ni los permisos
+de los ficheros/carpetas.
+
 * Copiaremos/descargaremos en dicha partición (sdb1) 3 ficheros:
     * `FILE1`: Un fichero de texto
     * `FILE2`: Una imagen/foto
@@ -31,9 +35,13 @@ Si borramos por el entorno gráfico, además debemos vaciar la papelera.
 Feedback de comprobación `ls /mnt/disco_roto`.
 
 > * Este borrado no es *total* y por tanto todavía estamos a tiempo de recuperar los archivos.
-> * Para realizar un borrado seguro de archivos usaríamos herramientas como shred, dd, etc.
+> * Para realizar un borrado seguro de archivos usaríamos otras herramientas.
 
-* Desmontamos el disco "roto". Feedback de comprobación: `df -hT`, `mount |grep roto`
+* Desmontamos el disco "roto".
+    * Feedback de comprobación: `df -hT`, `mount |grep roto`.
+    * Si no podemos desmontar el disco, probablemente es que lo estamos usando.
+    Con el comando `lsof |grep disco_roto`, podemos visualizar qué o quién está
+    usando el disco.
 
 ---
 
@@ -41,24 +49,25 @@ Feedback de comprobación `ls /mnt/disco_roto`.
 
 Antes de recuperar los archivos del disco "roto" (sdb) vamos hacer una clonación
 device-device del mismo. Al disco clonado lo llamaremos disco `alfa`. Apartir de
-ahora los procesos de recuperación los haremos siempre al disco `alfa`.
+ahora los procesos de recuperación los haremos siempre con el disco `alfa`.
 
 > La recuperación se debe hacer siempre en una copia y nunca en el disco original
 para evitar que los procesos de recuperación afecten a la integridad del disco
-"roto".
+"roto" (original).
 
 * Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo
 llamaremos `alfa` en VirtualBox.
-* Iniciamos la MV. Deben estar los 3 discos.
-Feeback de comprobación: `fdisk -l`
-* Los discos "roto" y "alfa" no deben estar montados.
-Feedback de comprobación: `df -hT`, `mount`
-* Usamos el comando `dd` para clonar el disco `roto` en el disco `alfa`.
-Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
+* Iniciamos la MV. Deben estar los 3 discos. Feeback de comprobación: `fdisk -l`
+* Los discos "roto" y "alfa" no deben estar montados. Feedback de comprobación: `df -hT`, `mount`
 
-> * Usamos el comando `dd` porque hace un clonado total de disco a disco incluyendo
-los sectores "vacíos".
-> * Si no clonamos los sectores "vacíos" no se incluirían los ficheros eliminados.
+Ahora vamos a clonar el disco "roto" en el "alfa". Ya hemos usado alguna herramienta
+de clonación (CLonezilla) pero en este caso vamos a usar el comando `dd`.
+Este comando hace un clonado total de disco a disco incluyendo los sectores "vacíos".
+Si no clonamos los sectores "vacíos" (supuestamente vaciós) no se incluirían
+los ficheros eliminados.
+
+* Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
+Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
 
 Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
 En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
@@ -100,7 +109,11 @@ Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
 
 ## 4.4 Recuperar ficheros de texto
 
+Supongamos que1no hemos podido recuperar el fichero de texto con las herramientas anteriores,
+entonces vamos a probar de otra forma.
+
 * Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
+
 ```
 ===============
 Fichero secreto
@@ -113,8 +126,9 @@ Estos son las claves de acceso de las naves imperiales.
 
 ===============
 ```
+
 * Borramos el archivo de texto con `rm`.
-* `cat /dev/sdc1 | more `...¿aparece?
+* `cat /dev/sdc1 | more `...¿qué estamos viendo?
 
 ---
 
