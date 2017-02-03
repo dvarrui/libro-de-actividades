@@ -241,7 +241,8 @@ class hostlinux1 {
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
 * `tree /etc/puppet`, consultar los ficheros/directorios que tenemos creado.
-* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.
+* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`. Esto es,
+usuario `puppet` y grupo `puppet`.
 * Reiniciamos el servicio `systemctl restart puppetmaster`.
 * Comprobamos que el servicio está en ejecución de forma correcta.
     * `systemctl status puppetmaster`
