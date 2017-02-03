@@ -152,7 +152,7 @@ se configure automñaticamente el gestor de arranque.
 
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
 
-* [Configuración de la MV](../../../global/configuracion-aula109.md)
+* [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.19.XX.32
     * Poner como nombre del host o equipo `1er-apellidoXXi`.
 * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
