@@ -266,6 +266,8 @@ Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 [main]
 server=masterXX.curso1617
 ...
+plugingsync=false
+...
 ```  
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.  
