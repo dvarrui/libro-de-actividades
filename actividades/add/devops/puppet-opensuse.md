@@ -394,14 +394,17 @@ class hostlinux2 {
     group => "piratas",
     mode => 755
   }
-
-  package { "gnomine": ensure => purged }
-
-  file {  '/opt/readme.txt' :
-    source => 'puppet:///files/readme.txt',
-  }
 }
 ```
+
+> Para revisar
+> ```
+> package { "gnomine": ensure => purged }
+>
+> file {  '/opt/readme.txt' :
+>  source => 'puppet:///files/readme.txt',
+> }
+> ```
 
 > Las órdenes anteriores de configuración de recursos puppet, tienen el significado siguiente:
 >
