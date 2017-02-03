@@ -175,7 +175,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 * Entrar al sistema con nuestro usuario.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
-    * [Configuración de la MV](../../../global/configuracion-aula109.md)
+    * [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.19.XX.32
     * Poner como nombre del host o equipo `1er-apellidoXXi`.
 * Abrir un terminal.
