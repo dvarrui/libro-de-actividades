@@ -274,7 +274,6 @@ server=masterXX.curso1617
 * `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
-* Comprobamos los log del cliente: `tail /var/log/puppet/puppet.log`
 
 ---
 
@@ -564,6 +563,8 @@ class hostwindows4 {
 
 # ANEXO
 
+## A.1 Comandos que han cambiado
+
 Relación de comandos de puppet que han cambiado al cambiar la versión:
 
 |Pre-2.6        | Post-2.6          |
@@ -578,3 +579,9 @@ Relación de comandos de puppet que han cambiado al cambiar la versión:
 | filebucket    | puppet filebucket |
 | puppetdoc     | puppet doc        |
 | pi            | puppet describe   |
+
+## A.2 Ficheros de log
+
+> Pendiente para revisar
+> ¿Dónde se guardan ahora los ficheros de log de puppet?
+> Con `tail /var/log/puppet/puppet.log` los ficheros no existen.
