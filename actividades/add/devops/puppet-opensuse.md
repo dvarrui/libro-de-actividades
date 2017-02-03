@@ -478,8 +478,10 @@ node 'cli2alu42' {
 * `tree /etc/puppet`, para confirmar que tenemos los nuevos archivos.
 * Reiniciamos el servicio PuppetMaster.
 
- Debemos instalar la misma versión de puppet en master y en los clientes.
- * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
+Debemos instalar la misma versión de puppet en master y en los clientes.
+* Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
+
+> El fichero puppet.conf en Windows está en `C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf`.
 
 ## 6.2 Modificaciones en el cliente2
 
