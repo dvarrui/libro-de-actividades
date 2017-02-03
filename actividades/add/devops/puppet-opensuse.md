@@ -135,9 +135,11 @@ Vamos a preguntar a puppet para ver cómo responde:
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
 obtenidos de puppet en el fichero de prueba `piratas.pp`. Para ello ejecutamos los comandos siguientes:
 
-    puppet resource package tree > piratas.pp
-    puppet resource user barbaroja >> piratas.pp
-    puppet resource file /home/barbaroja/barco >> piratas.pp
+```
+$ puppet resource package tree > piratas.pp
+$ puppet resource user barbaroja >> piratas.pp
+$ puppet resource file /home/barbaroja/barco >> piratas.pp
+```
 
 El contenido del fichero `piratas.pp` debe ser parecido a:
 
@@ -264,11 +266,18 @@ Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 
 ```
 [main]
+# Definir el host master puppet
 server=masterXX.curso1617
 ...
-pluginsync=false
+[agent]
 ...
+# Desactivar los plugin para este agente
+pluginsync=false
 ```  
+
+Veamos imagen de ejemplo de Raúl García Heredia:
+
+![](./images/puppet-client-conf.png)
 
 * Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.  
 * `systemctl status puppet`: Ver el estado del servicio puppet.
