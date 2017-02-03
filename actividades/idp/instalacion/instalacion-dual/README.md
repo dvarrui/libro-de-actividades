@@ -1,5 +1,5 @@
 
-#Instalación Dual
+# Instalación Dual
 
 Vamos a realizar una instalación dual Windows y GNU/Linux. Esto es, instalar
 dos SSOO en la misma máquina.
@@ -12,7 +12,7 @@ Incluir breves comentarios de cada captura de pantalla.
 > Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
 operativos, muy probablemente las imágenes actuales sean diferentes.
 
-#1. Preparar la máquina virtual:
+# 1. Preparar la máquina virtual
 
 * Crear una máquina virtual (VirtualBox).
 * Configurar con:
@@ -21,7 +21,7 @@ operativos, muy probablemente las imágenes actuales sean diferentes.
     * disco duro de 18GB
     * tarjeta de red en modo puente (bridge).
 
-##1.1 Particionado
+## 1.1 Particionado
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
 
@@ -47,7 +47,10 @@ con el usuario root ejecutando el comando `gparted`.
 
 * Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
 
-#2. Instalación del primer SO
+---
+
+# 2. Instalación del primer SO
+
 Vamos a instalar primero el SO Windows.
 * Montamos ISO de instalación de Windows en la MV y la iniciamos.
 * Idioma español. Leer licencia antes de aceptarla.
@@ -55,7 +58,7 @@ Vamos a instalar primero el SO Windows.
 Producto/Licencia:
 * Clave de producto: La dejamos vacía por esta vez.
 * Desactivar la opción *Activar Windows automáticamente*
-* [Configuración de la MV](../../../global/configuracion-aula109.md)
+* [Configuración de la MV](../../../global/configuracion/windows.md)
     * Nombre equipo: `1er-apellidoXXx`
     * IP estática 172.19.XX.12
 * Comprobar la conexión de red haciendo `ping www.google.es`.
@@ -80,16 +83,20 @@ la ISO (CD de instalación) de la MV.
 >
 > * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
 
-#3. Instalación del segundo SO
+---
+
+# 3. Instalación del segundo SO
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
 
-##3.1 Empezamos con la ISO
+## 3.1 Empezamos con la ISO
+
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
 
-##3.2 Particionado
+## 3.2 Particionado
+
 * Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
 * Entrar en el modo experto.
 * Esquema de uso de las particiones:
@@ -126,7 +133,8 @@ se configure automñaticamente el gestor de arranque.
 
 ![dual-suse-particiones3](./images/dual-suse-particiones3.png)
 
-##3.3 Entorno, usuario y SSH
+## 3.3 Entorno, usuario y SSH
+
 * Elegir zona horaria (Canarias)
 * Selección de entorno gráfico: XFCE
 
@@ -138,7 +146,8 @@ se configure automñaticamente el gestor de arranque.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto.md))
 
-##3.4 Instalar
+## 3.4 Instalar
+
 * Comprobar que todo es correcto y procedemos a "Instalar".
 
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
@@ -162,7 +171,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ![dual-menu-final](./images/dual-menu-final.png)
 
-##3.5 Con el SO instalado
+## 3.5 Con el SO instalado
 
 * Entrar al sistema con nuestro usuario.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
@@ -184,9 +193,11 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 ```
 * Al iniciarse la MV deben aparecer los dos SSOO en el menú de inicio (Boot Loader).
 
-#ANEXO
+---
 
-##Error con el menu de arranque Windows
+# ANEXO
+
+## Error con el menu de arranque Windows
 
 Si al iniciarse la MV no aparece Windows en el menú de arranque, entonces
 lo podemos solucionar haciendo los siguientes paso:
