@@ -19,8 +19,11 @@ para crear una partición primaria que coja todo el segundo disco y le daremos f
 todos los pendrives y discos duros externos.
 
 * Creamos el directorio `disco_roto` dentro de `/mnt`.
-* Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
-Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
+
+Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
+* `id`, consultar uid del usuario actual (UID).
+* `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UID`, monta la partición en la ruta espacificada, y estableciendo los permisos para el usuario UID.   
+* Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
 
 > Un sistema de ficheros FAT32 no es capaz de guardar información de usuarios ni los permisos
 de los ficheros/carpetas.
