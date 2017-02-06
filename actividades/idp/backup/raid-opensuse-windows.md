@@ -167,7 +167,7 @@ Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticament
 # 3. Quitar disco y probar
 
 * Apagamos la MV.
-* Quitar en VirtualBox uno de los discos del raid1 (`/dev/sdd`).
+* Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
 * Volver a poner el disco en la MV, reiniciar.
 

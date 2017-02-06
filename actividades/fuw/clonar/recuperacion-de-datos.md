@@ -153,7 +153,7 @@ de por qué pasa esto la tenemos en el siguiente
 ## 5.1 Herramientas de borrado seguro
 
 Enlaces de SHRED:
-* [shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
+* [Cómo hacer borrado seguro con shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
 * [Borrado seguro de archivos con Shred](http://www.linuxtotal.com.mx/index.php?cont=info_seyre_008)
 
 Ejemplo con `dd`:
