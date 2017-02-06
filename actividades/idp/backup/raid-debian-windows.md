@@ -174,6 +174,7 @@ La información correspondiente al RAID1 la tenemos que incluir nosotros en el f
 > * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
 Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
 
+* `sudo update-initramfs -u`, tenemos que actualziar el fichero initramfs, de modo que contenga las configuraciones de nuestro mdadm.conf durante el arranque.
 * Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
 
 ## 2.5 Montaje automático
