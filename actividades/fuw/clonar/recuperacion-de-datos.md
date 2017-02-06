@@ -183,7 +183,13 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 
 # 6. Recuperar esquema de particionado
 
+Vamos a intentar recuparar un esquema de particionado dañado.
+
+* `dd if=/dev/random of=/dev/sdc bs=512 count=1`, escribimos valores aleatorios
+en el sector 0 del disco sdc. Destruyendo el esquema de particiones del disco.
+* Ahora no se puede acceder a la partición sdc1.
 * Usar TestDisk para recuperar el esquema de particionado.
+* Ahora se debería poder acceder a la partición sdc1.
 
 ---
 
