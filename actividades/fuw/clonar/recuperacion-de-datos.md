@@ -69,8 +69,10 @@ Este comando hace un clonado total de disco a disco incluyendo los sectores "vac
 Si no clonamos los sectores "vacíos" (supuestamente vaciós) no se incluirían
 los ficheros eliminados.
 
+* `fdisk -l`,vemos que el disco B tiene una partición y el disco C no.
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
 Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
+* `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
 Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
 En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
@@ -83,9 +85,10 @@ lo guardaríamos en sitio seguro.
 ## 4.1 Herramientas de recuperación
 
 Listado de algunas herramientas de recuperación:
-* PhotoRec/Testdisk: Se usa para recuperar archivos eliminados y particiones.
+* PhotoRec: Se usa para recuperar archivos eliminados.
     * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
-    * TestDisk también se puede usar para recuperar particiones.
+    * `zypper in photorec qphotorec`, instalación de paquetes en OpenSUSE.
+* TestDisk también se puede usar para recuperar particiones.
 * Foremost.
     * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
 * Recuva
