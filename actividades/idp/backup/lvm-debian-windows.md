@@ -128,10 +128,12 @@ lvdisplay vg-extra # Muestra información de los volúmenes lógicos de un grupo
 ## 3.3 Escribir información
 
 * El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Vamos a darle formato ext4.
-Ejemplo: `mkfs.ext4 /dev/vg-extra/lv-extra`.
+Ejemplo: `mkfs.ext4 nombre-del-dispositivo`.
 * Crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
-* Montar el nuevo dispotivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
+* Montar el nuevo dispositivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
+
 A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.
+* Comprobar que apenas hay espacio usado en `/mnt/vol-extra` (df -hT).
 * Escribir información en `/mnt/vol-extra`. Crear algunas carpetas y ficheros con tamaño mayor a cero.
 Por ejemplo para crear un archivo de tamaño 1M podemos hacer `dd if=/dev/zero of=/mnt/vol-extra/file-size-1M bs=512 count=2048`.
 El comando dd hay que usarlo con precaución.
