@@ -95,7 +95,7 @@ Listado de algunas herramientas de recuperación:
 * Scalpel.
     * Ejemplo de uso: `scalpel /dev/dispositivo -o salida-scalpel`
 
-## 4.2 Instalando software de recuperación
+## 4.2 Instalando PhotoRec
 
 Primero tenemos que conseguir la herramienta de recuperación PhotoRec.
 
@@ -109,7 +109,7 @@ Instalar el programa en nuestro sistema.
 > * Kali GNU/Linux (Descargar de leela).
 > * Tails GNU/Linux (Descargar de la web).
 
-## 4.3 Recuperando los datos
+## 4.3 Recuperando con PhotoRec
 
 Vamos a iniciar el proceso de recuperación sobre la partición del disco `alfa`.
 * Hay que demontar el disco `alfa`.
