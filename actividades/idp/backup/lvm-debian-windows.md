@@ -92,26 +92,28 @@ Esquema de PV, VG y LV:
 ## 3.1 Preparar la MV
 
 * Añadimos 2 discos virtuales nuevos:
-    * (Disco de 200MB: con una partición completa del disco
-    * (Disco de 750MB: con 3 particiones de 250MB sin formato, ni tipo.
+    * Disco de 200MB (B): con una partición completa del disco
+    * Disco de 750MB (C): con 3 particiones de 250MB sin formato, ni tipo.
 
 > NOTA: Las particiones las pueden crear con fdisk, gparted, etc.
 >
 > * Para crear particiones del disco sdb con fdisk:
 >     * `fdisk /dev/sdb`
 >     * `m` ver el menú con las opciones
->     * `n` para crear partición
+>     * `n` para crear partición -> `p` primaria -> Número de la partición
 >     * `w` grabar y salir
 >     * `q` salir sin grabar
 
 ## 3.2 Crear VG y VL
 
-* Crear un Grupo de Volumen llamado `vg-extra`, con el disco (a) y las 2
-primeras particiones del (b). (Comando vgcreate)
+* Crear un Grupo de Volumen llamado `vg-extra`, con el disco (B) y las 2
+primeras particiones del (C). Veamos un ejemplo de cómo
+crear un grupo de volúmenes con vgcreate:
+`vgcreate /dev/vg01 /dev/discoA /dev/discoB1`
 * Crear un nuevo Volumen Lógico llamado `lv-extra` con tamaño 690MB.
 Comando: `lvcreate -L690M -n lv-extra vg-extra`.
 
-> NOTA: La partición 3 del disco (b) NO la estamos usando por ahora.
+> NOTA: La partición 3 del disco (C) NO la estamos usando por ahora.
 
 * Comprobamos lo que tenemos:
 ```
