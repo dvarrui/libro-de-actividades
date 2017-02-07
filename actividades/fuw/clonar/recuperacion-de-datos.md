@@ -97,28 +97,36 @@ Listado de algunas herramientas de recuperación:
 
 ## 4.2 Instalando software de recuperación
 
-Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk.
-Tenemos varias formas:
-* (A) Instalar el programa en nuestro sistema.
-    * `zypper in photorec qphotorec`, instalación de paquetes en OpenSUSE.
-    * Reiniciar la MV.
-    * Feedback de comprobación `zypper search nombre-programa`.
-* (B) Usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
-    * Caine7 (Descargar de Leela).
-    * Kali GNU/Linux (Descargar de leela).
-    * Tails GNU/Linux (Descargar de la web).
+Primero tenemos que conseguir la herramienta de recuperación PhotoRec.
+
+Instalar el programa en nuestro sistema.
+* `zypper in photorec qphotorec`, instalación de paquetes en OpenSUSE.
+* Reiniciar la MV.
+* Feedback de comprobación `zypper search nombre-programa`.
+
+> También podríamos usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
+> * Caine7 (Descargar de Leela).
+> * Kali GNU/Linux (Descargar de leela).
+> * Tails GNU/Linux (Descargar de la web).
 
 ## 4.3 Recuperando los datos
 
-Aplicaremos el proceso de recuperación sobre la partición del disco `alfa`.
-* Consultar documentación de la herramienta para averiguar cómo se hace.
+Vamos a iniciar el proceso de recuperación sobre la partición del disco `alfa`.
+* Hay que demontar el disco `alfa`.
+* Abrimos una consola como root.
+* Ejecutamos `qphotorec`. De esta forma iniciamos el entorno gráfico de Photorec
+
+Ejemplo de uso de qphotorec:
+
+![](./images/rescue-qphotorec-01.png)
+
 * Los archivos que se recuperen no deben escribirse en el disco `alfa`.
-* La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`.
+
+> La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`.
 
 ## 4.4 Recuperar ficheros de texto
 
-Supongamos que1no hemos podido recuperar el fichero de texto con las herramientas anteriores,
-entonces vamos a probar de otra forma.
+Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores, entonces vamos a probar de otra forma.
 
 * Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
 
@@ -136,6 +144,7 @@ Estos son las claves de acceso de las naves imperiales.
 ```
 
 * Borramos el archivo de texto con `rm`.
+* Desmontamos la partición.
 * `cat /dev/sdc1 | more `...¿qué estamos viendo?
 
 ---
