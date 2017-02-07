@@ -197,6 +197,9 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 
 # 6. Recuperar esquema de particionado
 
+OJO: Esta parte sólo funciona con particiones MBR. Estoy buscando la información
+para particiones GPT.
+
 Vamos a intentar recuperar un esquema de particionado dañado.
 
 * `dd if=/dev/random of=/dev/sdc bs=512 count=1`, escribimos valores aleatorios
