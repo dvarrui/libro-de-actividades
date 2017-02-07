@@ -188,7 +188,7 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 * A continuación
     * Borramos FILE1 con el comando habitual.
     * Borramos FILE2 con herramienta de borrado seguro (shred).
-    * Borramos FILE3 con herramienta de borrado seguro (dd).
+    * Borramos FILE3 con el comando habitual.
     * Feedback de comprobación: `ls /mnt/disco_limpio`.
 * Ahora ejecutamos el proceso de recuperación. ¿Se consigue recuperar algún archivo?
  ¿Todos? ¿Cuáles no se han podido recuperar?
@@ -197,7 +197,7 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 
 # 6. Recuperar esquema de particionado
 
-Vamos a intentar recuparar un esquema de particionado dañado.
+Vamos a intentar recuperar un esquema de particionado dañado.
 
 * `dd if=/dev/random of=/dev/sdc bs=512 count=1`, escribimos valores aleatorios
 en el sector 0 del disco sdc. Destruyendo el esquema de particiones del disco.
@@ -212,6 +212,7 @@ en el sector 0 del disco sdc. Destruyendo el esquema de particiones del disco.
 Esto no hay que hacerlo. Es sólo informativo.
 
 ## A1. Soporte en disquete físico
+
 * Coger un disquete del taller y formatearlo.
 * Vamos a crear un sistema de ficheros tipo ext2 dentro del disquete. Comando: "mkfs.ext2 /dev/fd0".
 * Crear el directorio "/mnt/dir-montaje".
@@ -219,6 +220,7 @@ Esto no hay que hacerlo. Es sólo informativo.
 * Comprobar que el sistema ficheros está montado. Comando: "df -hT".
 
 ## A2. Soporte en fichero
+
 Vamos a crear fichero como soporte de datos:
 * Abrir consola como superusuario.
 * Crear un fichero "file-soporte", de tamaño 1MB y lleno de ceros.
@@ -229,11 +231,13 @@ Vamos a crear fichero como soporte de datos:
 >
 > Aunque nosotros lo hemos usado para crear un archivo de un tamaño determinado.
 
-##A3. Formatear el fichero soporte
+## A3. Formatear el fichero soporte
+
 * Vamos a crear un sistema de ficheros tipo ext2 dentro del fichero file-soporte.
     * Comando: "mkfs.ext2 /mnt/file-soporte".
 
-##A4. Escribir en el soporte
+## A4. Escribir en el soporte
+
 Acceder al sistema de ficheros
 
 > NOTA: Para poder acceder al sistema de ficheros recién creado debemos montarlo en un directorio.
@@ -241,7 +245,7 @@ Acceder al sistema de ficheros
 * Montamos el dispositivo soporte.
 * Comprobar que el sistema ficheros está montado. Comando: "df -hT".
 
-##A5. Escribir en el sistema de ficheros
+## A5. Escribir en el sistema de ficheros
 
 * Crear el fichero /mnt/dir-montaje/docs/README.
 * Escribir dentro algunas frases en inglés.
