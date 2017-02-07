@@ -87,7 +87,6 @@ lo guardaríamos en sitio seguro.
 Listado de algunas herramientas de recuperación:
 * PhotoRec: Se usa para recuperar archivos eliminados.
     * Ejemplo de cómo [recuperar archivos borrados con photorec](http://blog.desdelinux.net/recuperar-archivos-borrados-facilmente-con-photorec-desde-la-consola/).
-    * `zypper in photorec qphotorec`, instalación de paquetes en OpenSUSE.
 * TestDisk también se puede usar para recuperar particiones.
 * Foremost.
     * Ejemplo de uso: `foremost -v -i /dev/dispositivo -o salida-foremost`
@@ -100,7 +99,10 @@ Listado de algunas herramientas de recuperación:
 
 Primero tenemos que conseguir la herramienta de recuperación PhotoRec/Testdisk.
 Tenemos varias formas:
-* (A) Instalar el programa en nuestro sistema. Feedback de comprobación `zypper search nombre-programa`.
+* (A) Instalar el programa en nuestro sistema.
+    * `zypper in photorec qphotorec`, instalación de paquetes en OpenSUSE.
+    * Reiniciar la MV.
+    * Feedback de comprobación `zypper search nombre-programa`.
 * (B) Usar alguna distribución DVD-Live que venga con dicha herramienta, como por ejemplo:
     * Caine7 (Descargar de Leela).
     * Kali GNU/Linux (Descargar de leela).

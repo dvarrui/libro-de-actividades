@@ -25,18 +25,21 @@ Realizar las siguientes tareas:
 
 ## 2.2 Particionar
 
+### Partición BOOT
+
 * Crearemos una partición de 100MB para boot formato ext2.
 
-> Tener en cuenta que la partición "/boot" va a parte (Fuera de LVM).
+Tener en cuenta que en la partición se monta "/boot" y va a parte (Fuera de LVM).
 
-* Crear en el resto una partición LVM. En la partición LVM, podemos hacer
-un grupo de volumen llamado `vg-debian`.
+### Partición para LVM
+
+* Crear en el resto de disco disponible, una partición de tipo LVM.
+* En la partición LVM, crearemos un grupo de volumen llamado `vg-debian`.
 * Dentro del `vg-debian`, podemos los VL (volúmenes lógicos) siguientes:
     * `lv-swap` (500 MB) usar para área de intercambio
     * `lv-raiz` (5 GB ext4) usar como raíz de la instalación del SO.
     * `lv-datos` (100MB ext3) usar como /home del sistema.
-
-> Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
+* Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 
 A continuación se muestran imágenes de referencia que NO tienen porqué coincidir con lo que se solicita.
 
@@ -124,10 +127,9 @@ lvdisplay vg-extra # Muestra información de los volúmenes lógicos de un grupo
 
 ## 3.3 Escribir información
 
-* Primero vamos a crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
-
-> El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Debe ser formateado antes de montarse. Elegir el formato que quieran.
-
+* El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Vamos a darle formato ext4.
+Ejemplo: `mkfs.ext4 /dev/vg-extra/lv-extra`.
+* Crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
 * Montar el nuevo dispotivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
 A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.
 * Escribir información en `/mnt/vol-extra`. Crear algunas carpetas y ficheros con tamaño mayor a cero.
