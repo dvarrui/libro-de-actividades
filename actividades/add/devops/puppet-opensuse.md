@@ -69,7 +69,7 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 >     127.0.0.2       master42.curso1617    master42
 >     172.18.30.100   master42.curso1617    master42
 >     172.18.30.101   cli1alu42.curso1617   cli1alu42
->     172.18.30.102   cli2alu42.curso1617   cli2alu42
+>     172.18.30.102   cli2alu42
 
 > **Windows**
 >
@@ -495,6 +495,12 @@ Debemos instalar la misma versión de puppet en master y en los clientes.
 * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
 > El fichero puppet.conf en Windows está en `C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf`.
+(ProgramData es una ruta oculta). Revisar que tenga algo como:
+> ```
+> [main]
+> server=masterXX.curso1617 # Definir el host master
+> pluginsync=false          # Desactivar los plugin
+> ```
 
 ## 6.2 Modificaciones en el cliente2
 
