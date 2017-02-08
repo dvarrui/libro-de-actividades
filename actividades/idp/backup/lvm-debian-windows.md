@@ -33,7 +33,8 @@ Tener en cuenta que en la partición se monta "/boot" y va a parte (Fuera de LVM
 
 ### Partición para LVM
 
-* Crear en el resto de disco disponible, una partición de tipo LVM.
+* Crear una partición lógica con todo lo que nos queda de espacioo en disco. Definir la partición de tipo LVM.
+* Ir a la gestión de volúmenes.
 * En la partición LVM, crearemos un grupo de volumen llamado `vg-debian`.
 * Dentro del `vg-debian`, podemos los VL (volúmenes lógicos) siguientes:
     * `lv-swap` (500 MB) usar para área de intercambio
