@@ -51,7 +51,9 @@ Y se usa la coma para delimitar los campos dentro de cada fila.
 ## 2.2 Auditar acceso a un fichero
 
 * Crear el archivo `c:\public\estrellita.txt`
-* Auditar los accesos y al archivo anterior.
+* Activar auditoría de accesos al archivo anterior.
+* Acceder con los usuarios `soldado1` y `soldado2`.
+* Mostrar los resultados de la auditoría.
 
 ---
 
