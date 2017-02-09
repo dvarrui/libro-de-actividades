@@ -254,7 +254,7 @@ o buscar otra forma mejor.
 de generar cientos de mensajes de log hacia el nuevo fichero de registro.
 >
 > Modo de uso:
-> * Descargar fichero [send-messages.sh](./send-messages.sh).
+> * Descargar fichero [send-messages.sh](./files/send-messages.sh).
 > * Dar permisos de ejecución: `chmod +x send-messages.sh`.
 > * Ejecutar el script `./send-mesagges.sh`.
 >
