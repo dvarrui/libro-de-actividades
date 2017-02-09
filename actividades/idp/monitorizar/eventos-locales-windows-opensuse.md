@@ -221,7 +221,7 @@ Executable Report
 3. 13/02/09 15:08:28 /usr/sbin/sshd ssh 192.168.2.100 -1 14
 ```
 
-## 3.4 Auditar acceso a fichero
+## 3.4 Auditar acceso de usuarios
 
 Si se quiere saber que ficheros han sido accedidos por un usuario (UID) concreto
 `auditctl -a exit,always -F arch=x86_64 -S open -F auid=80`
@@ -231,8 +231,9 @@ Explicación de los parámetros:
 * -S open, elige las llamadas “open” al sistema
 * -F auid=80, el UID del usuario
 
-Este tipo de información es realmente úitl para la detección de intrusos, también
+Este tipo de información es realmente útil para la detección de intrusos, también
 incluso cuando se ejecutan procesos de análisis forense.
+* `aureport -u`, generar informes de eventos de usuarios.
 
 ---
 
