@@ -76,6 +76,9 @@ de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
 Componentes de audit:
 * auditd: Demonio que captura los eventos y los almacena (log file)
 * auditctl: Herramienta cliente para configurar auditd
+    * auditctl -e, habilitar o deshabilitar audit
+    * auditctl -r, controlar la ratio límite de mensajes
+    * auditctl -s, consultar el estado actual del demonio
 * audispd: daemon to multiplex events
 * aureport: Herramienta de informes que leer de los ficheros de log (auditd.log)
 * ausearch: Visor de eventos (auditd.log)
@@ -98,6 +101,7 @@ Enlaces de interés:
 ## 3.1 Instalación y teoría
 
 * Instalar los paquetes auditd y audispd-plugins/audit-libs
+* `auditctl -s`, consultar el estado del demonio.
 
 La configuración del demonio audit la llevan dos ficheros, uno para el demonio
 (auditd.conf) y otro para las reglas usadas por la herramienta auditctl (audit.rules).
@@ -109,11 +113,16 @@ se deben registrar los eventos. Define como tratar con los discos llenos,
 rotaciones de log y el número de log a mantener. Normalmente la configuración
 por defecto será apropiada para la mayoría de los casos.
 
+* Consultar el fichero `/etc/audit/auditd.conf`
+* Siginificado de los siguientes parámetros: log_file, log_format, log_group,
+freq, num_logs, max_log_file, max_log_file_action.
+
 ### audit.rules
 
 Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
 Empezaremos con una configuración limpia.
 
+* Consultar el fichero `/etc/audit/audit.rules`.
 * `auditctl -l`, para ver las reglas activas. Al principio no debemos tener nada.
 * Para eliminar reglas usaremos auditctl y el parámetro -D.
 
@@ -195,27 +204,18 @@ Hacer lo siguiente:
 * Crear el directorio `/home/rebelde1/rogue-one`.
 * Consultar informe de auditoría.
 
-Audit file access per user
+## 3.4 Auditar acceso a fichero
 
-The audit framework can be used to monitor syscalls, including access to files. If you want to know what files a particular user ID accessed, use a rule like this:
+Si se quiere saber que ficheros han sido accedidos por un usuario (UID) concreto
+`auditctl -a exit,always -F arch=x86_64 -S open -F auid=80`
 
-    auditctl -a exit,always -F arch=x86_64 -S open -F auid=80
+Explicación de los parámetros:
+* -F arch=x86_64, define la arquitectura (uname -m)
+* -S open, elige las llamadas “open” al sistema
+* -F auid=80, el UID del usuario
 
--F arch=x86_64 Define what architecture is used (uname -m), to monitor the right syscall (some system calls are ambiguous between archtectures).
-
--S open Select the “open” syscall
-
--F auid=80 The related user ID
-
-This kind of information is really useful for intrusion detection, but also when performing forensics on a Linux system.
-Automation
-
-Since the Linux audit daemon can provide valuable auditing data, Lynis will check for the presence of the framework. If not available, it will advice you to install. Additionally Lynis will perform several tests to determine the log file, available rules and more.
-
-For proper intrusion detection, integration with an Intrusion Detection System (IDS) is key in discover events when they occur and take appropriate actions.
-More..
-
-The audit daemon has more possibilities. Other examples will be listed in separated articles in the future of this blog. If you are serious about auditing the Linux platform, the Linux audit framework will definitely be a good friend!
+Este tipo de información es realmente úitl para la detección de intrusos, también
+incluso cuando se ejecutan procesos de análisis forense.
 
 ---
 
