@@ -24,7 +24,6 @@ Vamos a hacer una tarea programada y otra diferida con Windows.
 * El comando para apagar el sistema es `shutdown`.
 
 > * `shutdown /?`: Muestra la ayuda del comando.
-> * `shutdown /s`: Programar un apagado.
 
 ---
 
@@ -45,7 +44,7 @@ Vamos a hacer una tarea programada y otra diferida con OpenSUSE.
 * Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
 > El servicio `atd` es el responsable de la ejecución de los comandos at. Para asegurarnos de que esté en ejecución podemos hacerlo en `Yast -> Servicios`.
-> Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.s
+> Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
 
 ## 2.2 Tarea periódica
 
@@ -57,10 +56,10 @@ Vamos a hacer una tarea programada y otra diferida con OpenSUSE.
 
 > Para definir una tarea asíncrona ponemos el script de ejecución en alguno
 de los directorios siguientes:
-> * /etc/cron.hourly
-> * /etc/cron.daily
-> * /etc/cron.weekly
-> * /etc/cron.monthly
+> * `/etc/cron.hourly`, cada hora
+> * `/etc/cron.daily`, diariamente
+> * `/etc/cron.weekly`, semanalmente
+> * `/etc/cron.monthly`, mensualmente
 
 ---
 
