@@ -410,7 +410,7 @@ class hostlinux2 {
 
 > Para revisar
 > ```
-> package { "gnomine": ensure => purged }
+> package { "gnomine": ensure => 'absent' }
 >
 > file {  '/opt/readme.txt' :
 >  source => 'puppet:///files/readme.txt',
@@ -566,12 +566,12 @@ para el cliente Windows:
 class hostwindows4 {
   user { 'soldado1':
     ensure => 'present',
-    groups => ['Administradores']
+    groups => ['Administradores'],
   }
 
   user { 'aldeano1':
     ensure => 'present',
-    groups => ['Usuarios']
+    groups => ['Usuarios'],
   }
 }
 ```
