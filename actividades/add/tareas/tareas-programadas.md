@@ -27,11 +27,12 @@ Vamos a hacer una tarea programada y otra diferida con Windows.
 
 ---
 
-# 2. SO OpenSUSE
+# 2. SO GNU/Linux
 
-Vamos a hacer una tarea programada y otra diferida con OpenSUSE.
+Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
-* [Configurar la MV](../../global/configuracion/opensuse.md)
+* [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
+* [Configurar Debian](../../global/configuracion/debian.md)
 
 > **Enlaces de interés**
 >
