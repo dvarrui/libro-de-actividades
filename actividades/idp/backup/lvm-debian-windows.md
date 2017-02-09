@@ -113,7 +113,7 @@ Esquema de PV, VG y LV:
 * Crear un Grupo de Volumen llamado `vg-extra`, con el disco (B) y las 2
 primeras particiones del (C). Veamos un ejemplo de cómo
 crear un grupo de volúmenes con vgcreate:
-`vgcreate /dev/vg01 /dev/discoA /dev/discoB1`
+`vgcreate /dev/NOMBRE-GRUPO-VOLUMEN /dev/discoA /dev/discoB1`
 * Crear un nuevo Volumen Lógico llamado `lv-extra` con tamaño 690MB.
 Comando: `lvcreate -L690M -n lv-extra vg-extra`.
 
