@@ -155,6 +155,10 @@ Hacemos lo siguiente:
 * Auditar los accesos al fichero anterior.
 * Acceder al fichero con los usuarios `rebelde1` y `rebelde2`.
 * Consultar la auditoria sobre el fichero.
+* Crear un informe sobre los ficheros (`aureport -f`). Este comando genera una lista
+nemrada de todos los eventos asociados a ficheros incluyendo fecha, hora, nombre
+del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable
+que lo accedió, un ID y número de evento.
 
 ## 3.3 Auditar procesos en Linux
 
@@ -203,6 +207,19 @@ Hacer lo siguiente:
 * Activar auditoría sobre el programa/comando `mkdir`.
 * Crear el directorio `/home/rebelde1/rogue-one`.
 * Consultar informe de auditoría.
+* Crear un informe de los evecntos de todos los ejecutables (`aureport -x`).
+Este comando genera una lista numerada de todos los eventos de ejecutables
+incluyendo fecha, hora, nombre del ejecutable, terminal donde se ejecuta, el
+host, ID y número de evento. Ver ejemplo:
+```    
+Executable Report
+====================================
+# date time exe term host auid event
+====================================
+1. 13/02/09 15:08:26 /usr/sbin/sshd sshd 192.168.2.100 -1 12
+2. 13/02/09 15:08:28 /usr/lib/gdm/gdm-session-worker :0 ? -1 13
+3. 13/02/09 15:08:28 /usr/sbin/sshd ssh 192.168.2.100 -1 14
+```
 
 ## 3.4 Auditar acceso a fichero
 
