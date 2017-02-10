@@ -36,14 +36,9 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 * [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
 * [Configurar Debian](../../global/configuracion/debian.md)
 
-> **Enlaces de interés**
->
-> * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
-> * Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A)
->
-
 ## 2.1 Tarea diferida
 
+* Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A)
 * Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
 > El servicio `atd` es el responsable de la ejecución de los comandos at.
@@ -55,6 +50,7 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
 ## 2.2 Tarea periódica
 
+* Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
 * Programar una tarea periódica (crontab) para apagar el equipo.
 * El comando para apagar el sistema es `shutdown`.
 * Para programar una tarea periódica tenemos estas formas:
