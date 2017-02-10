@@ -38,7 +38,11 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
 ## 2.1 Tarea diferida
 
-* Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A)
+* Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A). Ejemplos de comandos:
+    * `at`, crea una tarea diferida.
+    * `atq`, muestra los trabajos en cola.
+    * `at -c 1`, muestra la configuración del trabajo ID=1.
+    * `atrm 1`, elimina el trabajo con ID=1.
 * Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
 > El servicio `atd` es el responsable de la ejecución de los comandos at.
