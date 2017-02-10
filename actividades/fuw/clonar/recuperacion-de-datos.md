@@ -12,11 +12,11 @@
 * Añadiremos un segundo disco duro (sdb) a la MV VirtualBox de 10MB con el nombre de "roto".
 Cuanto más pequeño sea el disco más rápido se harán las operaciones de clonado/ y recuperación.
 * Iniciamos la MV y usamos la herramienta `Yast -> particionador de discos`,
-para crear una partición primaria que coja todo el segundo disco y le daremos formato `FAT32`.
+para crear una partición primaria que coja todo el segundo disco y le daremos formato `ext2`.
 
 > Para particionar/formatear se podrían usar otras herramientas como: gparted, fdisk, etc.
-> En esta práctica usamos el formato FAT32 que es el formato en el que vienen por defecto
-todos los pendrives y discos duros externos.
+> En esta práctica podríamos usar el formato FAT32 que es el formato en el que vienen por defecto
+todos los pendrives y discos duros externos, pero entonces el tamaño del disco debe ser mayor de 33 MB.
 
 * Creamos el directorio `disco_roto` dentro de `/mnt`.
 
@@ -62,6 +62,7 @@ para evitar que los procesos de recuperación afecten a la integridad del disco
 llamaremos `alfa` en VirtualBox.
 * Iniciamos la MV. Deben estar los 3 discos. Feeback de comprobación: `fdisk -l`
 * Los discos "roto" y "alfa" no deben estar montados. Feedback de comprobación: `df -hT`, `mount`
+* `fdisk -l`,vemos que el disco B tiene una partición y el disco C no.
 
 Ahora vamos a clonar el disco "roto" en el "alfa". Ya hemos usado alguna herramienta
 de clonación (Clonezilla) pero en este caso vamos a usar el comando `dd`.
@@ -69,15 +70,15 @@ Este comando hace un clonado total de disco a disco incluyendo los sectores "vac
 Si no clonamos los sectores "vacíos" (supuestamente vaciós) no se incluirían
 los ficheros eliminados.
 
-* `fdisk -l`,vemos que el disco B tiene una partición y el disco C no.
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
 Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
 Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
 * `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
 Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
-En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
-lo guardaríamos en sitio seguro.
+
+> En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
+lo guardaríamos en sitio seguro. No es necesario hacerlo en la práctica.
 
 ---
 
