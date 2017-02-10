@@ -61,7 +61,7 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
     * Los usuarios usan el comando `crontab`  para programar sus tareas.
     * El usuario root usa el fichero `/etc/crontab` para programar las tareas del sistema.
 
-> Para definir una tarea asíncrona ponemos el script de ejecución en alguno
+> Para definir una tarea ASINCRONA ponemos el script de ejecución en alguno
 de los directorios siguientes:
 > * `/etc/cron.hourly`, cada hora
 > * `/etc/cron.daily`, diariamente
