@@ -33,7 +33,7 @@ de los ficheros/carpetas.
     * `FILE2`: Una imagen/foto
     * `FILE3`: Una canción y/o vídeo.
     * Feedback de comprobación `ls /mnt/disco_roto`.
-* A continuación borraremos FILE1 y FILE2, usando los comandos habituales de borrado.
+* A continuación borraremos FILE1, FILE2 y FILE3, usando los comandos habituales de borrado.
 Si borramos por el entorno gráfico, además debemos vaciar la papelera.
 Feedback de comprobación `ls /mnt/disco_roto`.
 
@@ -64,13 +64,14 @@ llamaremos `alfa` en VirtualBox.
 * Los discos "roto" y "alfa" no deben estar montados. Feedback de comprobación: `df -hT`, `mount`
 
 Ahora vamos a clonar el disco "roto" en el "alfa". Ya hemos usado alguna herramienta
-de clonación (CLonezilla) pero en este caso vamos a usar el comando `dd`.
+de clonación (Clonezilla) pero en este caso vamos a usar el comando `dd`.
 Este comando hace un clonado total de disco a disco incluyendo los sectores "vacíos".
 Si no clonamos los sectores "vacíos" (supuestamente vaciós) no se incluirían
 los ficheros eliminados.
 
 * `fdisk -l`,vemos que el disco B tiene una partición y el disco C no.
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
+Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
 Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
 * `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
