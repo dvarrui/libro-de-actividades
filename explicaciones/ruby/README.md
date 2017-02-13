@@ -64,7 +64,7 @@ Ejemplo3:
 ```
 #!/usr/bin/ruby
 # encoding: utf-8
-# Ejemplo bucle con iterador 
+# Ejemplo bucle con iterador
 
 nombres = [ 'juan', 'carmen', 'elena' ]
 
@@ -84,3 +84,7 @@ lista.each do |n|
 end
 
 ```
+
+# Enlaces de interés
+
+* [Ruby para sysadmin](http://devopsanywhere.blogspot.com.es/2011/09/how-ruby-is-beating-python-in-battle.html)
