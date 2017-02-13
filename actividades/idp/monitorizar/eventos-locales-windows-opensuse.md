@@ -74,6 +74,120 @@ de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
 * Establecer marcas (tripwires) para detectar intrusiones.
 * Grabar comandos de usuarios concretos.
 
+## 3.1 Un poco de teoría
+
+La configuración del demonio audit la llevan dos ficheros, uno para el demonio
+(auditd.conf) y otro para las reglas usadas por la herramienta auditctl (audit.rules).
+
+### auditd.conf
+
+El fichero auditd.conf configura el demonio auditd centrándose en dónde y cómo
+se deben registrar los eventos. Define como tratar con los discos llenos,
+rotaciones de log y el número de log a mantener. Normalmente la configuración
+por defecto será apropiada para la mayoría de los casos.
+
+### audit.rules
+
+Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
+
+Enlaces de interés:
+* [Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
+* [Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
+* [Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
+* [Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
+
+## 3.2 Instalación y teoría
+
+* Instalar los paquetes `audit` y `yast2-audit-laf`.
+* Consultar el estado del demonio:
+    * `auditctl -s`,
+    * `systemctl status auditd`
+* Consultar el fichero `/etc/audit/auditd.conf`
+* Averiguar el significado de los siguientes parámetros: log_file, log_format,
+log_group, freq, num_logs, max_log_file, max_log_file_action.
+
+## 3.3 Crear una regla temporal para auditar un fichero
+
+* Consultar el fichero `/etc/audit/audit.rules`. En este fichero se define qué
+elementos se van a auditar.
+* Con el comando `auditctl -l`, también podemos ver las reglas activas.
+Al principio no debemos tener nada.
+
+> Para eliminar reglas usaremos auditctl y el parámetro -D.
+
+Hacemos lo siguiente:
+* Abrirmos un terminal (Llamémosle t1).
+* Crear el fichero `/home/estrellita.txt` con todos los permisos para el grupo `users`.
+* Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
+* `auditctl -f /home/estrellita.txt -p warx`, estamos creando una regla temporal
+(porque no está guardada en el fichero audit.rules) para auditar un fichero concreto,
+cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
+r=lectura o x=ejecución.
+* `auditctl -l`, vemos que tenemos la regla de auditoría definida.
+* `cat /etc/audit/audit.rules`, comprobamos nuestra regla no está en el fichero de
+configuración. Cuando reiniciemos el equipo nuestra regla desaparecerá.
+
+## 3.4 Empezamos a generar eventos
+
+Los eventos, cuando se produzcan, se guardarán en `/var/log/audit/audit.log`.
+* Abrimos otro terminal (Llamémosle t2)
+* `tail -f /var/log/audit/audit.log`, muestra en pantalla de forma permanente
+las últimas líneas del fichero audit.log. Entonces cada vez que se registre un
+nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2).
+
+* Volvemos al terminal t1
+* `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
+* Con el usuario `rebelde1` modificar el fichero.
+* Con el usuario `rebelde2` leer el fichero.
+
+ Consultar ahora los eventos de auditoria.
+* Consultar las salidas del terminal t2.
+* Ver las últimas líneas del fichero `/var/log/audit/audit.log`
+* `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
+* Repetir para rebelde1, rebelde2 y rebelde3:
+   * `id USERNAME`, consultar el uid del usuario.
+   * `ausearch -f estrellita.txt -uid USERUID`, consultar eventos sobre
+   el fichero para el usuario con USERUID.
+   * `ausearch -f estrellita.txt -uid USERUID | wc -l`, contar los eventos.
+* Repetir para vim, cat y more:
+  * `ausearch -x COMMANDNAME`, consultar eventos asociados a dichos comandos.
+
+## 3.5 Hacer un informe con los eventos
+
+Como ver los eventos registrados con toda la información que generan es confuso,
+podemos usar el comando aureport para crear una especie de informe con los datos
+que queramos filtrar con ausearch.
+
+* Repetir para rebelde1, rebelde2 y rebelde3
+   * `ausearch -f estrellita.txt -uid USERUID | aureport -f`
+   * `ausearch -f estrellita.txt -uid USERUID | aureport -u`
+* Repetir para vim, cat y more:
+   * `ausearch -x PROGRAMNAME | aureport -f`
+   * `ausearch -x PROGRAMNAME | aureport -u`
+
+> El comando `aureport -f` genera una lista numerada de los eventos
+asociados a ficheros incluyendo información de fecha, hora, nombre
+del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable
+que lo accedió, un ID y número de evento.
+
+## 3.6 Crear una regla de auditoría fija
+
+* Reiniciamos el equipo.
+* `auditct -l`, comprobamos que nuestra regla temporal ha desaparecido.
+* Crear una regla pero esta vez dentro del fichero audit.rules, para
+activar auditoría sobre el programa/comando `mkdir`.
+* Reiniciar el equipo.
+* `auditctl -l`, comprobar que la regla aparece.
+* Crear el directorio `/home/rebelde1/rogue-one`.
+* Consultar los registros de auditoría para mkdir.
+* Crear un informe de los eventos del ejecutable mkdir(`aureport -x`).
+Este comando genera una lista numerada de todos los eventos de ejecuta
+* Eliminar la regla del fichero audit.rules.
+
+---
+
+# ANEXO
+
 Componentes de audit:
 * auditd: Demonio que captura los eventos y los almacena (log file)
 * auditctl: Herramienta cliente para configurar auditd
@@ -89,143 +203,11 @@ Componentes de audit:
 * ausyscall: mapea los syscall ID y nombre
 * auvirt: Muestra información relacionada con las máquinas virtuales.
 
-Ficheros:
-* audit.rules: Usado por auditctl para leer las reglas que se van a aplicar.
-* auditd.conf: Fichero de configuración de auditd.
+Para auditar procesos en Linux, Audit tiene la herramienta autrace que es similar a strace.
+Mostrar los eventos capturados usando ausearch.
+`ausearch –start recent -p 21023 –raw | aureport –file –summary`
 
-Enlaces de interés:
-* [Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
-* [Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
-* [Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
-* [Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
-
-## 3.1 Instalación y teoría
-
-* Instalar los paquetes `audit`, `audispd-plugins` y `yast2-audit-laf`.
-* Consultar el estado del demonio:
-    * `auditctl -s`,
-    * `systemctl status auditd`
-
-La configuración del demonio audit la llevan dos ficheros, uno para el demonio
-(auditd.conf) y otro para las reglas usadas por la herramienta auditctl (audit.rules).
-
-### auditd.conf
-
-El fichero auditd.conf configura el demonio auditd centrándose en dónde y cómo
-se deben registrar los eventos. Define como tratar con los discos llenos,
-rotaciones de log y el número de log a mantener. Normalmente la configuración
-por defecto será apropiada para la mayoría de los casos.
-
-* Consultar el fichero `/etc/audit/auditd.conf`
-* Averiguar el significado de los siguientes parámetros: log_file, log_format, log_group,
-freq, num_logs, max_log_file, max_log_file_action.
-
-### audit.rules
-
-Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
-Empezaremos con una configuración limpia.
-
-* Consultar el fichero `/etc/audit/audit.rules`.
-* `auditctl -l`, para ver las reglas activas. Al principio no debemos tener nada.
-* Para eliminar reglas usaremos auditctl y el parámetro -D.
-
-## 3.2 Auditar fichero
-
-Veamos un ejemplo auditando el fichero `/etc/passwd`.
-
-* `auditctl -a exit,always -F path=/etc/passwd -F perm=wa`
-* path, define la ruta del fichero o directorio a observar.
-* Los permisos determinan qué tipo de acceso disparará un evento
-(r=read, w=write, x=execute, a=attribute change)
-* Para encontrar los eventos relaciones con los acceso al fichero hacemos:
-
-```
-[root@host audit]# ausearch -f /etc/passwd
-
-time->Tue Mar 18 15:17:25 2014
-type=PATH msg=audit(1395152245.230:533): item=0 name=”/etc/passwd” inode=137627 dev=fd:00 mode=0100644 ouid=0 ogid=0 rdev=00:00 obj=system_u:object_r:etc_t:s0 nametype=NORMAL
-type=CWD msg=audit(1395152245.230:533):  cwd=”/etc/audit”
-type=SYSCALL msg=audit(1395152245.230:533): arch=c000003e syscall=188 success=yes exit=0 a0=d14410 a1=7f66eec38db7 a2=d4ea60 a3=1c items=1 ppid=1109 pid=4900 auid=0 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=2 comm=”vi” exe=”/bin/vi” subj=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 key=(null)
-```
-
-El tiempo del evento y el nombre del objeto, el directorio de trabajo(cwd),
-llamadas al sistema, ID usuario auditado (auid) y el ejecutable (exe) que ejecuta
-la acción sobre el fichero.
-
-Hacemos lo siguiente:
-* Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
-* Crear el fichero `\home\estrellita.txt` con permisos para todos los usuarios.
-* Auditar los accesos al fichero anterior.
-* `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
-* Acceder al fichero con los usuarios `rebelde1` y `rebelde2`.
-* Consultar la auditoria sobre el fichero.
-* Crear un informe sobre los ficheros (`aureport -f`). Este comando genera una lista
-nemrada de todos los eventos asociados a ficheros incluyendo fecha, hora, nombre
-del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable
-que lo accedió, un ID y número de evento.
-
-## 3.3 Auditar procesos en Linux
-
-Audit tiene la herramienta autrace que es similar a strace.
-Veamos un ejemplo:
-
-```
-root@host:~# autrace /bin/ls /tmp
-autrace cannot be run with rules loaded.
-Please delete all rules using ‘auditctl -D’ if you really wanted to
-run this command.
-root@host:~# auditctl -D
-No rules
-root@host:~# autrace /bin/ls /tmp
-Waiting to execute: /bin/ls
-atop.d  mc-root  mongodb-27017.sock  suds
-Cleaning up…
-Trace complete. You can locate the records with ‘ausearch -i -p 20314’
-```
-
-Mostrar los eventos capturados usando ausearch:
-
-```
-root@host:~# ausearch –start recent -p 21023 –raw | aureport –file –summary
-
-File Summary Report
-===========================
-total  file
-===========================
-1  /bin/ls
-1  (null) inode=1975164 dev=08:02 mode=0100755 ouid=0 ogid=0 rdev=00:00
-1  /etc/ld.so.cache
-1  /lib/x86_64-linux-gnu/libselinux.so.1
-1  /lib/x86_64-linux-gnu/librt.so.1
-1  /lib/x86_64-linux-gnu/libacl.so.1
-1  /lib/x86_64-linux-gnu/libc.so.6
-1  /lib/x86_64-linux-gnu/libdl.so.2
-1  /lib/x86_64-linux-gnu/libpthread.so.0
-1  /lib/x86_64-linux-gnu/libattr.so.1
-1  /proc/filesystems
-1  /usr/lib/locale/locale-archive
-1  /tmp
-```
-
-Hacer lo siguiente:
-* Activar auditoría sobre el programa/comando `mkdir`.
-* Crear el directorio `/home/rebelde1/rogue-one`.
-* Consultar informe de auditoría.
-* Crear un informe de los eventos de todos los ejecutables (`aureport -x`).
-Este comando genera una lista numerada de todos los eventos de ejecutables
-incluyendo fecha, hora, nombre del ejecutable, terminal donde se ejecuta, el
-host, ID y número de evento. Ver ejemplo:
-```    
-Executable Report
-====================================
-# date time exe term host auid event
-====================================
-1. 13/02/09 15:08:26 /usr/sbin/sshd sshd 192.168.2.100 -1 12
-2. 13/02/09 15:08:28 /usr/lib/gdm/gdm-session-worker :0 ? -1 13
-3. 13/02/09 15:08:28 /usr/sbin/sshd ssh 192.168.2.100 -1 14
-```
-
-## 3.4 Auditar acceso de usuarios
+## Auditar acceso de usuarios
 
 Si se quiere saber que ficheros han sido accedidos por un usuario (UID) concreto
 `auditctl -a exit,always -F arch=x86_64 -S open -F auid=80`
@@ -234,14 +216,6 @@ Explicación de los parámetros:
 * -F arch=x86_64, define la arquitectura (uname -m)
 * -S open, elige las llamadas “open” al sistema
 * -F auid=80, el UID del usuario
-
-Este tipo de información es realmente útil para la detección de intrusos, también
-incluso cuando se ejecutan procesos de análisis forense.
-* `aureport -u`, generar informes de eventos de usuarios.
-
----
-
-# ANEXO
 
 ## Converting system calls
 
