@@ -100,8 +100,10 @@ Enlaces de interés:
 
 ## 3.1 Instalación y teoría
 
-* Instalar los paquetes auditd y audispd-plugins/audit-libs
-* `auditctl -s`, consultar el estado del demonio.
+* Instalar los paquetes `audit`, `audispd-plugins` y `yast2-audit-laf`.
+* Consultar el estado del demonio:
+    * `auditctl -s`,
+    * `systemctl status auditd`
 
 La configuración del demonio audit la llevan dos ficheros, uno para el demonio
 (auditd.conf) y otro para las reglas usadas por la herramienta auditctl (audit.rules).
@@ -114,7 +116,7 @@ rotaciones de log y el número de log a mantener. Normalmente la configuración
 por defecto será apropiada para la mayoría de los casos.
 
 * Consultar el fichero `/etc/audit/auditd.conf`
-* Siginificado de los siguientes parámetros: log_file, log_format, log_group,
+* Averiguar el significado de los siguientes parámetros: log_file, log_format, log_group,
 freq, num_logs, max_log_file, max_log_file_action.
 
 ### audit.rules
@@ -128,7 +130,7 @@ Empezaremos con una configuración limpia.
 
 ## 3.2 Auditar fichero
 
-Vemos una ejemplo auditando el fichero `/etc/passwd`.
+Veamos un ejemplo auditando el fichero `/etc/passwd`.
 
 * `auditctl -a exit,always -F path=/etc/passwd -F perm=wa`
 * path, define la ruta del fichero o directorio a observar.
@@ -207,7 +209,7 @@ Hacer lo siguiente:
 * Activar auditoría sobre el programa/comando `mkdir`.
 * Crear el directorio `/home/rebelde1/rogue-one`.
 * Consultar informe de auditoría.
-* Crear un informe de los evecntos de todos los ejecutables (`aureport -x`).
+* Crear un informe de los eventos de todos los ejecutables (`aureport -x`).
 Este comando genera una lista numerada de todos los eventos de ejecutables
 incluyendo fecha, hora, nombre del ejecutable, terminal donde se ejecuta, el
 host, ID y número de evento. Ver ejemplo:
