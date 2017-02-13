@@ -50,8 +50,9 @@ Y se usa la coma para delimitar los campos dentro de cada fila.
 
 ## 2.2 Auditar acceso a un fichero
 
+* Activar directiva de auditoría para los objectos.
 * Crear el archivo `c:\public\estrellita.txt`
-* Activar auditoría de accesos al archivo anterior.
+* Activar auditoría de eventos al ficheros anterior para los usuarios soldado1 y soldado2.
 * Acceder con los usuarios `soldado1` y `soldado2`.
 * Mostrar los resultados de la auditoría.
 
@@ -155,6 +156,7 @@ Hacemos lo siguiente:
 * Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
 * Crear el fichero `\home\estrellita.txt` con permisos para todos los usuarios.
 * Auditar los accesos al fichero anterior.
+* `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
 * Acceder al fichero con los usuarios `rebelde1` y `rebelde2`.
 * Consultar la auditoria sobre el fichero.
 * Crear un informe sobre los ficheros (`aureport -f`). Este comando genera una lista
