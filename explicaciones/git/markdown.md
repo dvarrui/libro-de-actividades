@@ -10,6 +10,7 @@ la siguiente imagen.
 
 En Windows podemos usar Atom o Haropad.
 
-# Manipular imágenes desde terminal
+# Enlaces de interés
 
-http://blog.desdelinux.net/como-manipular-imagenes-desde-el-terminal/
+* [Manipular imágenes desde terminal](http://blog.desdelinux.net/como-manipular-imagenes-desde-el-terminal/)
+* [Brackets](http://brackets.io/) es otro editor libre para HTML.
