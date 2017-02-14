@@ -130,7 +130,7 @@ Hacemos lo siguiente:
 * Abrirmos un terminal (Llamémosle t1).
 * Crear el fichero `/home/estrellita.txt` con todos los permisos para el grupo `users`.
 * Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
-* `auditctl -f /home/estrellita.txt -p warx`, estamos creando una regla temporal
+* `auditctl -w /home/estrellita.txt -p warx`, estamos creando una regla temporal
 (porque no está guardada en el fichero audit.rules) para auditar un fichero concreto,
 cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
 r=lectura o x=ejecución.
