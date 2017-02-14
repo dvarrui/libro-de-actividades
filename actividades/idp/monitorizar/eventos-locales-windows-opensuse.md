@@ -50,6 +50,10 @@ Y se usa la coma para delimitar los campos dentro de cada fila.
 
 ## 2.2 Auditar acceso a un fichero
 
+Enlace de interés:
+* [Auditar acceso a fichero](http://blog.elhacker.net/2013/03/auditar-el-acceso-ficheros-carpetas-en-windows-7-windows-xp.html)
+* [Vídeo sobre auditar el acceso a objetos](https://www.youtube.com/watch?v=xfMOfApRyVA)
+
 Activar directiva de auditoría para los objetos.
 * Ir a Directivas de seguridad local -> Directivas locales -> Directivas de auditoría.
 * Activar `Auditar acceso a objetos`.
@@ -65,6 +69,9 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
 * Vamos al visor de eventos.
 * Crear un filtro personalizado para los eventos del usuario `soldado1`.
+    * Por registro -> Seguridad
+    * Por origen -> Auditoría de seguridad de Windows
+    * Categoría -> Sistema de archivos
 * Mostrar los resultados de la auditoría.
 
 ---
