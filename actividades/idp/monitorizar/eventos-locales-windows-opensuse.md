@@ -61,7 +61,10 @@ Activar auditoría sobre un fichero:
 ![](./images/windows-auditar-objeto.png)
 
 Hemos activado la auditoría de eventos sobre el ficheros anterior para los usuarios soldado1 y soldado2.
+* Reiniciar la MV.
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
+* Vamos al visor de eventos.
+* Crear un filtro personalizado para los eventos del usuario `soldado1`.
 * Mostrar los resultados de la auditoría.
 
 ---
