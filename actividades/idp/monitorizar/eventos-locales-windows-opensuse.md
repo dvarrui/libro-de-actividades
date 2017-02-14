@@ -50,10 +50,18 @@ Y se usa la coma para delimitar los campos dentro de cada fila.
 
 ## 2.2 Auditar acceso a un fichero
 
-* Activar directiva de auditoría para los objectos.
+Activar directiva de auditoría para los objetos.
+* Ir a Directivas de seguridad local -> Directivas locales -> Directivas de auditoría.
+* Activar `Auditar acceso a objetos`.
+
+Activar auditoría sobre un fichero:
 * Crear el archivo `c:\public\estrellita.txt`
-* Activar auditoría de eventos al ficheros anterior para los usuarios soldado1 y soldado2.
-* Acceder con los usuarios `soldado1` y `soldado2`.
+* `Botón derecho -> Propiedades -> Seguridad -> Opciones avanzadas -> Auditoría`.
+
+![](./images/windows-auditar-objeto.png)
+
+Hemos activado la auditoría de eventos sobre el ficheros anterior para los usuarios soldado1 y soldado2.
+* Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
 * Mostrar los resultados de la auditoría.
 
 ---
