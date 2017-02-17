@@ -167,9 +167,9 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 * `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
 * Repetir para rebelde1, rebelde2 y rebelde3:
    * `id USERNAME`, consultar el uid del usuario.
-   * `ausearch -f estrellita.txt -uid USERUID`, consultar eventos sobre
+   * `ausearch -f estrellita.txt -ui USERUID`, consultar eventos sobre
    el fichero para el usuario con USERUID.
-   * `ausearch -f estrellita.txt -uid USERUID | wc -l`, contar los eventos.
+   * `ausearch -f estrellita.txt -ui USERUID | wc -l`, contar los eventos.
 * Repetir para vim, cat y more:
   * `ausearch -x COMMANDNAME`, consultar eventos asociados a dichos comandos.
 
@@ -180,8 +180,8 @@ podemos usar el comando aureport para crear una especie de informe con los datos
 que queramos filtrar con ausearch.
 
 * Repetir para rebelde1, rebelde2 y rebelde3
-   * `ausearch -f estrellita.txt -uid USERUID | aureport -f`
-   * `ausearch -f estrellita.txt -uid USERUID | aureport -u`
+   * `ausearch -f estrellita.txt -ui USERUID | aureport -f`
+   * `ausearch -f estrellita.txt -ui USERUID | aureport -u`
 * Repetir para vim, cat y more:
    * `ausearch -x PROGRAMNAME | aureport -f`
    * `ausearch -x PROGRAMNAME | aureport -u`
