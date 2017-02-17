@@ -109,10 +109,10 @@ por defecto será apropiada para la mayoría de los casos.
 Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
 
 Enlaces de interés:
-* [Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
-* [Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
-* [Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
-* [Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
+* [Tutorial - Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
+* [OpenSUSE documentation - Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
+* [Wiki - Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
+* [Wiki - Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
 
 ## 3.2 Instalación y teoría
 
@@ -122,7 +122,10 @@ Enlaces de interés:
     * `systemctl status auditd`
 * Consultar el fichero `/etc/audit/auditd.conf`
 * Averiguar el significado de los siguientes parámetros: log_file, log_format,
-log_group, freq, num_logs, max_log_file, max_log_file_action.
+log_group, freq.
+    * **max_log_file**, tamaño máximo en MB del fichero de log.
+    * **max_log_file_action**, acción que se ejecuta cuando el fichero de log llega a su valor máximo.
+    * **num_logs**, número de ficheros de log que se mantendrán guardados cuando max_log_file_action tiene el valor rotate.
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
