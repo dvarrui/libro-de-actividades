@@ -1,10 +1,25 @@
 
 
-# gpg
+Trabajaremos en parejas.
 
-https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura
+# Encriptación
 
-Firma
+Enlace de interés:
+* [GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
+
+* Comprobar que tenemos instalado GPG.
+* Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
+* Hacer una encriptación simétrica con GPG.
+* Enviar fichero al compañero para que lo desencripte.
+
+* Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
+* Generar un par de claves pública/privada.
+* Hacer una encriptación asimétrica con GPG.
+* Enviar fichero al compañero para que lo desencripte. No podrá porque falta la clave pública.
+* Exportar la clave pública y pasarla al compañero.
+* El compañero debe desencriptar el fichero.
+
+# Firma
 
 https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales
 
