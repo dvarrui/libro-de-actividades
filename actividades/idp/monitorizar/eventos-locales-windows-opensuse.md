@@ -69,10 +69,10 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
 * Vamos al visor de eventos.
 * Crear un filtro personalizado para los eventos del usuario `soldado1`.
-    * Por registro -> Seguridad
     * Por origen -> Auditoría de seguridad de Windows
     * Categoría -> Sistema de archivos
 * Mostrar los resultados de la auditoría.
+(Si no se ven registros entreguen la captura de pantalla de todas formas)
 
 ---
 
