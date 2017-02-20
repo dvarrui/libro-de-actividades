@@ -122,7 +122,9 @@ Enlaces de interés:
     * `systemctl status auditd`
 * Consultar el fichero `/etc/audit/auditd.conf`
 * Averiguar el significado de los siguientes parámetros: log_file, log_format,
-log_group, freq.
+log_group.
+    * **freq**, un valor de 20 le indica al demonio audit qye debe escribir los datos de
+    los eventos al disco cada 20 segundos.
     * **max_log_file**, tamaño máximo en MB del fichero de log.
     * **max_log_file_action**, acción que se ejecuta cuando el fichero de log llega a su valor máximo.
     * **num_logs**, número de ficheros de log que se mantendrán guardados cuando max_log_file_action tiene el valor rotate.
