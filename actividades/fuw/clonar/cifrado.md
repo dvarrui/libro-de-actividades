@@ -21,6 +21,9 @@ Enlace de interés:
 * Exportar la clave pública y pasarla al compañero.
 * El compañero debe desencriptar el fichero.
 
+> * `gpg --export -a "user name" > public.key`, exportar la clave ṕublica.
+> * `gpg --export-secret-key -a "nombre del usuario" > private.key`, exportar la clave privada.
+
 ---
 
 # 2. Firma
