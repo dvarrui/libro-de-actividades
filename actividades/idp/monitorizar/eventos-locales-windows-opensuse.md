@@ -197,7 +197,7 @@ que lo accedió, un ID y número de evento.
 
 * Reiniciamos el equipo.
 * `auditct -l`, comprobamos que nuestra regla temporal ha desaparecido.
-* Crear una regla pero esta vez dentro del fichero audit.rules, para
+* Crear una regla pero esta vez dentro del fichero `/etc/audit/audit.rules`, para
 activar auditoría sobre el programa/comando `mkdir`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla aparece.
