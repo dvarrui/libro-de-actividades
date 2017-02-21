@@ -14,6 +14,12 @@ Trabajaremos en parejas.
 
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
 * Generar un par de claves pública/privada.
+    * Comprobamos `gpg -k`
+    * `tree .gnupg`
+
+> Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información
+de claves de GPG para nuestro usuario.
+
 * Hacer una encriptación asimétrica con GPG.
 * Enviar fichero al compañero para que lo desencripte. No podrá porque falta la clave pública.
 * Exportar la clave pública y pasarla al compañero.
@@ -23,14 +29,15 @@ Trabajaremos en parejas.
 
 # 2. Firma
 
-Enlace de interés:
-* [Firma](https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales)
-
-* Crear documentos firma.txt.
-* Firmar digitalmente el documento.
+* [Información sobre firma GPG](https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales)
+* Crear documento firma.txt, pondremos dentro un texto cualquiera.
+* Vamos a firmar digitalmente el documento en modo ASCII.
+    * `gpg --clearsign firma.txt`
+* Consultar el ficehr que se ha generado con la firma `firmar.txt.asc`
 * Comprobar que la firma es correcta.
+    * `gpg --verify firma.txt.asc`
 * Modificar el documento.
-* Comprobar que la firma es incorrecta.
+* Comprobar al modificar el fichero ahora la firma es incorrecta.
 
 ---
 
