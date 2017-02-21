@@ -188,7 +188,8 @@ que queramos filtrar con ausearch.
    * `ausearch -x PROGRAMNAME | aureport -f`
    * `ausearch -x PROGRAMNAME | aureport -u`
 
-> El comando `aureport -f` genera una lista numerada de los eventos
+> * `ausearch` filtra los eventos que cumplan unos determinados criterios.
+> * `aureport -f` genera una lista numerada de los eventos
 asociados a ficheros incluyendo información de fecha, hora, nombre
 del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable
 que lo accedió, un ID y número de evento.
