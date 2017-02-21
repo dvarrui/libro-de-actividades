@@ -197,7 +197,7 @@ que lo accedió, un ID y número de evento.
 ## 3.6 Crear una regla de auditoría fija
 
 * Reiniciamos el equipo.
-* `auditct -l`, comprobamos que nuestra regla temporal ha desaparecido.
+* `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Crear una regla pero esta vez dentro del fichero `/etc/audit/audit.rules`, para
 activar auditoría sobre el programa/comando `mkdir`. El fichero ejecutable se
 encuentra en la ruta `/usr/bin/mkdir`.
