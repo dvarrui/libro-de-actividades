@@ -134,34 +134,3 @@ aa-genprof.
     * `cat /var/log/audit/audit.log`, si echamos un vistazo al fichero de
     auditoría comprobaremos que se han registrado nuevos eventos asociados a
     este ejecutable.
-
----
-
-# ANEXO
-
-## A1. Ejemplo para perfilar el programa leafpad
-
-A modo de prueba vamos a crear un perfil AppArmor para el programa `leafpad` (Leafpad es un
-editor de texto). ¿Dónde se encuentra este programa en mi sistema? `whereis leafpad`.
-
-Vamos a realizar las siguientes acciones:
-* Ejecutar en un terminal `sudo aa-genprof /usr/bin/leafpad`, para iniciar la herramienta que va a generar el perfil.
-> No cerrar el programa anterior y seguimos.
-* Iniciar programa `leadpaf`:
-    * Abrir el programa
-    * Crear un archivo /home/nombre-alumno/Documentos/jedis.txt
-    * Escribir dentro: `obiwan y yoda`.
-    * Grabar archivo.
-    * Cerrar
-    * Añadir al archivo `quigon`
-    * Crear un archivo /home/nombre-alumno/Descargas/siths.txt
-    * Escribir dentro: `vader y emperador`.
-    * Grabar archivo.
-    * Grabar archivo.
-    * Cerrar
-    * Añadir al archivo `maul`
-* Volver a la ventana donde tenemos `aa-genprof` en ejecución.
-* Elegimos la opción `First, (S)can system logs` y seguimos las instrucciones para configurar nuestro perfil.
-
-> *  `aa-complain /etc/apparmor.d/usr.bin.leafpad`: Poner el perfil en modo `complain`
-> * Usar `aa-logprof` para afinar más nuestro perfil.
