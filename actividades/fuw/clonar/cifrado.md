@@ -8,25 +8,44 @@ Trabajaremos en parejas.
 
 * [Información sobre GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
 
-Nosotros:
+## 1.1 Encriptado simétrica
+
+Nosotros hacemos lo siguiente:
+
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
 * Hacer una encriptación simétrica con GPG.
-* Enviar fichero al compañero para que lo desencripte.
+    * `gpg -c mensaje-secreto1.txt`
+* Enviar fichero encriptado al compañero para que lo desencripte.
+    * `gpg -d mensaje-secreto1.txt.gpg`
+
+## 1.2 Encriptado asimétrico
+
+Nosotros hacemos lo siguiente:
 
 * Generar un par de claves pública/privada.
+    * `gpg --gen-key`
     * Comprobamos `gpg -k`
     * `tree .gnupg`
 
 > Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información
 de claves de GPG para nuestro usuario.
 
-* Exportar la clave pública y pasarla al compañero.
+* Exportar la clave pública para pasarla al compañero.
+    * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
 
 El compañero:
+
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
+* Importamos la clave pública del compañero.
+    * `gpg --import nombre-alumno1.pub.gpg`
 * Hacer una encriptación asimétrica con GPG con la clave pública recibida.
+    * `gpg -k`, para ver las claves que tenemos.
+    * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje-secreto2.txt`
 * El compañero nos envía el fichero a nosotros para que lo desencriptemos.
+
+Nosotros:
+* Desencriptamos el fichero `gpg -d mensaje-secreto2.txt.gpg`.
 
 > Se entiende que podemos desencriptar el fichero porque ha sido encriptado
 con nuestra clave pública por parte del compañero que nos envía el archivo.
