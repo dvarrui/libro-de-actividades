@@ -129,7 +129,9 @@ aa-genprof.
     * `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
     * `tree`, comprobamos que se han copiado los archivos.    
 * Vamos a "consola2".
-    * `cat /var/log/audit/audit.log`, Echemos un vistazo al fichero de auditoría.
+    * `cat /var/log/audit/audit.log`, si echamos un vistazo al fichero de
+    auditoría comprobaremos que se han registrado nuevos eventos asociados a
+    este ejecutable.
 
 ---
 
