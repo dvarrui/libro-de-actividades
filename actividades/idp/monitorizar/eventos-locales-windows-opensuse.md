@@ -199,7 +199,8 @@ que lo accedió, un ID y número de evento.
 * Reiniciamos el equipo.
 * `auditct -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Crear una regla pero esta vez dentro del fichero `/etc/audit/audit.rules`, para
-activar auditoría sobre el programa/comando `mkdir`.
+activar auditoría sobre el programa/comando `mkdir`. El fichero ejecutable se
+encuentra en la ruta `/usr/bin/mkdir`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla aparece.
 * Crear el directorio `/home/rebelde1/rogue-one`.
