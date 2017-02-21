@@ -7,12 +7,13 @@ Trabajaremos en parejas.
 # 1. Encriptación
 
 * [Información sobre GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
+
+Nosotros:
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
 * Hacer una encriptación simétrica con GPG.
 * Enviar fichero al compañero para que lo desencripte.
 
-* Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
 * Generar un par de claves pública/privada.
     * Comprobamos `gpg -k`
     * `tree .gnupg`
@@ -20,10 +21,25 @@ Trabajaremos en parejas.
 > Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información
 de claves de GPG para nuestro usuario.
 
-* Hacer una encriptación asimétrica con GPG.
-* Enviar fichero al compañero para que lo desencripte. No podrá porque falta la clave pública.
 * Exportar la clave pública y pasarla al compañero.
-* El compañero debe desencriptar el fichero.
+
+El compañero:
+* Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
+* Hacer una encriptación asimétrica con GPG con la clave pública recibida.
+* El compañero nos envía el fichero a nosotros para que lo desencriptemos.
+
+> Se entiende que podemos desencriptar el fichero porque ha sido encriptado
+con nuestra clave pública por parte del compañero que nos envía el archivo.
+eliminar una clave pública (de tu anillo de claves públicas):
+>
+> Otros comandos de interés:
+>
+> * `gpg --gen-key`, Crear una clave.
+> * `gpg --export -a “Nombre de Usuario"`, muestra la clave pública para el ‘Nombre de Usuario’ en la línea de comandos.
+> * `gpg --export-secret-key -a "Nombre de Usuario" > private.key`, Esto creará un archivo llamado private.key con la representación ascii de la clave privada para ‘Nombre de Usuario’.
+> * `gpg --import public.key`, Importar una clave pública.
+> * `gpg --allow-secret-key-import --import private.key`, Importar una clave privada.
+> * `gpg --delete-key "Nombre de Usuario"`, Esto elimina la clave pública de tu anillo de claves.
 
 ---
 
@@ -81,3 +97,110 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 
 * `gpg --export -a "user name" > public.key`, exportar la clave ṕublica.
 * `gpg --export-secret-key -a "nombre del usuario" > private.key`, exportar la clave privada.
+
+## Intercambiar claves
+
+Enlaces de interés:
+* https://www.gnupg.org/gph/es/manual/x75.html
+* https://elbauldelprogramador.com/chuleta-de-comandos-para-gpg/#exportar-una-clave-p%C3%BAblica-dentro-del-archivo-public-key
+* https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/s1-gnupg-export.html
+
+Para poder comunicarse con otros, el usuario debe intercambiar las claves públicas.
+Para obtener una lista de las claves en el fichero («anillo») de claves públicas, se puede usar la opción de la línea de órdenes --list-keys.
+
+```
+javier:~$ gpg --list-keys
+
+/home/javier/.gnupg/pubring.gpg
+--------------------------------
+pub  1024D/D58711B7 1999-09-24 Javier (Paramo S.L.) <javier@casa.es>
+sub  1024g/92F6C9E3 1999-09-24
+```
+
+## Exportar una clave pública
+
+Para poder enviar una clave pública a un interlocutor, antes hay que exportarla. Para ello se usará la opción de la línea de órdenes --export. Es necesario un argumento adicional para poder identificar la clave pública que se va a exportar. Hay que usar el identificador de clave o cualquier parte del identificador de usuario para identificar la clave que se desea exportar.
+
+```
+javier:~$ gpg --output javi.gpg --export javier@casa.es
+```
+
+La clave se exporta en formato binario, y esto puede no ser conveniente cuando se envía la clave por correo electrónico o se publica en una página web. Por tanto, GnuPG ofrece una opción de la línea de órdenes --armor[1] que fuerza que la salida de la orden sea generada en formato armadura-ASCII, parecido a los documentos codificados con uuencode. Por regla general, cualquier salida de una orden de GnuPG, v.g.. claves, documentos cifrados y firmas, pueden ir en formato armadura-ASCII añadiendo a la orden la opción --armor.
+
+```
+javier:~$ gpg --armor --output javi.asc --export javier@casa.es
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v0.9.8 (GNU/Linux)
+Comment: For info see http://www.gnupg.org
+
+[...]
+-----END PGP PUBLIC KEY BLOCK-----
+```
+
+## Importar una clave pública
+
+Se puede añadir una clave pública al anillo de claves públicas mediante la opción --import.
+
+```
+javier:~$ gpg --import arancha.gpg
+gpg: key B63E132C: public key imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+
+javier:~$ gpg --list-keys
+/home/javier/.gnupg/pubring.gpg
+--------------------------------
+pub  1024D/D58711B7 1999-09-24 Javier (Paramo S.L.) <javier@casa.es>
+sub  1024g/92F6C9E3 1999-09-24
+
+pub  1024D/B63E132C 1999-09-24 Aranzazu (A.G.deZ.) <arancha@nav.es>
+sub  1024g/581A915F 1999-09-24
+```
+
+Una vez que la clave haya sido importada, es necesario validarla. GnuPG usa un potente y flexible modelo de confianza que no requiere que el usuario dé validez personalmente a cada clave que importe. Sin embargo, algunas claves pueden necesitar que el usuario les dé validez de forma personal. Una clave se valida verificando la huella digital de la clave, y firmando dicha clave para certificar su validez. La huella digital se puede ver con la opción de la línea de órdenes --fingerprint, pero para certificar la clave hay que editarla.
+
+```
+javier:~$ gpg --edit-key arancha@nav.es
+
+pub  1024D/B63E132C  created: 1999-09-24 expires: never      trust: -/q
+sub  1024g/581A915F  created: 1999-09-24 expires: never
+(1)  Aranzazu (A.G.deZ.) <arancha@nav.es>
+
+Command> fpr
+pub  1024D/B63E132C 1999-09-24 Aranzazu (A.G.deZ.) <arancha@nav.es>
+             Fingerprint: 4203 82E2 448C BD30 A36A  9644 0612 8A0F B63E 132C
+```
+
+La huella digital de una clave se verifica con el propietario de la clave. Esto puede hacerse en persona o por teléfono, o por medio de otras maneras, siempre y cuando el usuario pueda garantizar que la persona con la que se está comunicando sea el auténtico propietario de la clave. Si la huella digital que se obtiene por medio del propietario es la misma que la que se obtiene de la clave, entonces se puede estar seguro de que se está en posesión de una copia correcta de la clave.
+
+Después de comprobar la huella digital ya se puede firmar la clave con el fin de validarla. Debido a que la verificación es un punto débil en criptografía de clave pública, es aconsejable ser cuidadoso en extremo y siempre comprobar la huella digital de una clave con la que nos dé el propietario antes de firmar dicha clave.
+
+```
+Command> sign
+
+pub  1024D/B63E132C  created: 1999-09-24 expires: never      trust: -/q
+             Fingerprint: 4203 82E2 448C BD30 A36A  9644 0612 8A0F B63E 132C
+
+     Aranzazu (A.G.deZ.) <arancha@nav.es>
+
+Are you really sure that you want to sign this key
+with your key: "Javier (Paramo S.L.) <javier@casa.es>"
+
+Really sign? y
+
+You need a passphrase to unlock the secret key for
+user: "Javier (Paramo S.L.) <javier@casa.es>"
+1024-bit DSA key, ID D58711B7, created 1999-09-24
+
+Enter passphrase:
+
+Una vez firmada, el usuario puede comprobar la clave para obtener un listado de las firmas que lleva y para ver la firma que le acaba de añadir. Cada identificador de usuario tendrá una o más autofirmas, así como una firma por cada usuario que haya validado la clave en cuestión.
+
+Command> check
+
+uid  Aranzazu (A.G.deZ.) <arancha@nav.es>
+sig!       B63E132C 1999-09-24   [self-signature]
+sig!       D58711B7 1999-09-24   Javier (Paramo S.L.) <javier@casa.es>
+
+Command> quit
+```
