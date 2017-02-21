@@ -99,7 +99,9 @@ aa-genprof.
     * Permitir acceso de escritura a la ruta `/home/nombre-alumno/aa/tierra/*`
     * Pulsamos S para grabar el perfil.
     * `ls`, debemos ver el nuevo perfil creado.
-    * `cat home.nombre-alumno.aa.mycopy`, vemos el contenido del fichero.
+    * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
+
+> El perfil es un fichero de texto que se puede modificar si es necesario.
 
 ## 2.3 Forzamos el perfil
 
