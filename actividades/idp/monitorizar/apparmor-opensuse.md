@@ -79,7 +79,7 @@ a un programa concreto.
     * `cd /home/nombre-alumno/aa/`
     * `./mycopy olimpo/* tierra`
     * `tree`, comprobamos el resultado.
-* `rm tierra/*`, limpiamos el diretorio.
+* `rm tierra/*`, limpiamos el directorio.
 
 ## 2.2 Generar el perfil
 
