@@ -56,7 +56,7 @@ Enlace de interés:
 En lugar de usar una partición, es posible crear un fichero encriptado, que a su vez puede contener directorios y ficheros manteniendo los datos de forma confidencial. La ventaja de usar un contenedor encriptado sobre encriptar particiones es que se pueden añadir sin tener que reparticionar el disco.
 Se montan en un dispositivo Loop y se comportan como si fueran particiones normales.
 
-* Crear un contenedor encriptado.
+* Crear un contenedor encriptado en `/home/nombre-alumno/contenedorXX`.
 
 Estos ficheros contenedores se pueden crear usando la ventana de particionamiento de Yast.
 * Elegir Crypt Files › Add Crypt File
