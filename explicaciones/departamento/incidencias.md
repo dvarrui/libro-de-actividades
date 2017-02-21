@@ -69,3 +69,9 @@
     * Aula 109: Recreo se queda el aula abierta
     * Aula 109: 4ª hora pizarra escrita
     * Aula 109: David JB comenta que el cañón se enciende/apaga solo.
+
+## Febrero
+
+* 21/02/2017 (Martes)
+    * Aula 109: aparece encendido PC dr1
+    * Aula 109: pizarra escrita.
