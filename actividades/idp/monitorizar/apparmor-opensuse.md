@@ -1,10 +1,13 @@
-*(Creado el curso 2015-2016)*
+```
+* Creada para OpenSUSE 13.2 en el curso 2015-2016.
+* Se usa con OpenSUSE Leap 42.2 en el curso 2016-2017.
+```
 
-#AppArmor
+# AppArmor
 
-Para esta práctica vamos a usar una MV con SO OpenSUSE 13.2.
+Para esta práctica vamos a usar una MV con SO OpenSUSE Leap 42.2.
 
-#1. Teoría/explicación
+# 1. Teoría/explicación
 
 Enlaces de interés:
 * [1.ESP Manual SuseLinux](http://guidalinux.altervista.org/suselinux-manual_es-10.1-10/bx5bmky.html)
@@ -14,7 +17,7 @@ Enlaces de interés:
 * [3.ENG AppArmor Geeks](https://en.opensuse.org/SDB:AppArmor_geeks)
 * [4.ENG Wiki AppArmor](http://wiki.apparmor.net/index.php/Main_Page)
 
-##1.1 Modos de trabajo
+## 1.1 Modos de trabajo
 
 * Modos de trabajo:
     * **complain/learning**: Modo de queja/aprendizaje.

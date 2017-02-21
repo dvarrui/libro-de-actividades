@@ -9,7 +9,7 @@ Trabajaremos en parejas.
 Enlace de interés:
 * [GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
 
-* Comprobar que tenemos instalado GPG.
+* Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
 * Hacer una encriptación simétrica con GPG.
 * Enviar fichero al compañero para que lo desencripte.
