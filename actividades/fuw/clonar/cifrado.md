@@ -68,11 +68,11 @@ eliminar una clave pública (de tu anillo de claves públicas):
 * Crear documento firma.txt, pondremos dentro un texto cualquiera.
 * Vamos a firmar digitalmente el documento en modo ASCII.
     * `gpg --clearsign firma.txt`
-* Consultar el ficehr que se ha generado con la firma `firmar.txt.asc`
+* Consultar el fichero que se ha generado con la firma `firmar.txt.asc`
 * Comprobar que la firma es correcta.
     * `gpg --verify firma.txt.asc`
-* Modificar el documento.
-* Comprobar al modificar el fichero ahora la firma es incorrecta.
+* Modificar el documento `firma.txt.asc`.
+* Comprobar que ahora el fichero tiene la firma incorrecta.
 
 ---
 
