@@ -32,7 +32,10 @@ Para esta actividad vamos a necesitar 3 MV's:
 ## 1.2 Consultar la documentación
 
 * Leer los documentos proporcionados por el profesor.
-* Enlaces de interés:
+
+Enlaces de interés:
+* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
+
     * Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
     * [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/)
     * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).
@@ -40,6 +43,44 @@ Para esta actividad vamos a necesitar 3 MV's:
 ---
 
 # 2. Instalar el servidor
+
+> openSUSE repositorio de paquetes
+>
+> # zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
+> # zypper ref
+> # zypper install icinga2
+
+> The default installation will enable three features required for a basic Icinga 2 installation:
+> checker for executing checks
+> notification for sending notifications
+>  mainlog for writing the icinga2.log file
+>
+> `icinga2 feature list`, You can verify that by calling icinga2 feature list CLI command to see which features are enabled and disabled.
+>
+> Installation Paths
+> /etc/icinga2 	Contains Icinga 2 configuration files.
+
+# Setting up Check Plugins
+
+Without plugins Icinga 2 does not know how to check external services. The Monitoring Plugins Project provides an extensive set of plugins which can be used with Icinga 2 to check whether services are working properly.
+
+These plugins are required to make the example configuration work out-of-the-box.
+
+For your convenience here is a list of package names for some of the more popular operating systems/distributions:
+OS/Distribution 	Package Name 	Repository 	Installation Path
+SLES/OpenSUSE 	monitoring-plugins 	server:monitoring 	/usr/lib/nagios/plugins
+
+> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios.
+SLES/openSUSE:
+
+* `zypper install monitoring-plugins`, instalar los plugins
+
+* systemctl enable icinga2
+* systemctl start icinga2
+
+PROGRESO!!!
+
+---
 
 * Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
     * En Debian se usa `apt-get ...` o synaptic.
