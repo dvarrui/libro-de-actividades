@@ -86,6 +86,14 @@ Enlaces de interés:
 * [steghide](http://www.linuxadictos.com/steghide-esteganografia-para-ocultar-texto-en-imagenes.html)
 * [Esconder ficheros dentro de imágenes en Linux](www.ostechnix.com/hide-files-inside-images-linux/).
 
+* Consultar enlace sobre estenografía de "Andar por casa (zip y cat)".
+* Crear un fichero de texto con un mensaje oculto (mensaje-oculto.txt).
+* Crear un fichero zip con el mensaje oculto.
+* Descargar una imagen1.png que nos guste.
+* Incrustar el fichero zip dentro de la imagen1.png, obteniendo un fichero imagen2.png.
+* Pasar el fichero imagen2.png al compañero.
+* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la imagen2.png.
+
 ---
 
 # 4. Contenedor encriptado
