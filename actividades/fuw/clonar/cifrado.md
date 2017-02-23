@@ -87,12 +87,12 @@ Enlaces de interés:
 * [Esconder ficheros dentro de imágenes en Linux](www.ostechnix.com/hide-files-inside-images-linux/).
 
 * Consultar enlace sobre estenografía de "Andar por casa (zip y cat)".
-* Crear un fichero de texto con un mensaje oculto (mensaje-oculto.txt).
+* Crear un fichero de texto con un mensaje oculto (`mensaje-oculto.txt`).
 * Crear un fichero zip con el mensaje oculto.
-* Descargar una imagen1.png que nos guste.
-* Incrustar el fichero zip dentro de la imagen1.png, obteniendo un fichero imagen2.png.
-* Pasar el fichero imagen2.png al compañero.
-* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la imagen2.png.
+* Descargar una `imagen1.png` que nos guste.
+* Incrustar el fichero zip dentro de la `imagen1.png`, obteniendo un fichero `imagen2.png`.
+* Pasar el fichero `imagen2.png` al compañero.
+* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2.png`.
 
 ---
 
@@ -107,14 +107,29 @@ Se montan en un dispositivo Loop y se comportan como si fueran particiones norma
 * Crear un contenedor encriptado en `/home/nombre-alumno/contenedorXX`.
 
 Estos ficheros contenedores se pueden crear usando la ventana de particionamiento de Yast.
-* Elegir Crypt Files › Add Crypt File
-* Poner la ruta al fichero contenedor y su tamaño.
-* Activar el check box para crear el fichero Loop.
-* Aceptar la configuración propuesta y el tipo de sistema de fichero.
-* Especificar el punto de montaje y asegurarse de que el dispositivo encrpitado está marcado.
-* Siguiente.
-* Escribir la clave para desencriptar el contenedor.
+* Elegir `Crypt Files › Add Crypt File`
 
+![](./images/crypt-contenedor00.png)
+
+* Especificamos la ruta al fichero contenedor y su tamaño.
+* Activar el check box para crear el fichero.
+* Especificar el tipo de sistema de fichero.
+* Especificar el punto de montaje y asegurarse de que el dispositivo encriptado está marcado.
+
+![](./images/crypt-contenedor02.png)
+
+* Siguiente.
+* Escribir el password para el contenedor.
+
+![](./images/crypt-contenedor03.png)
+
+* Reiniciar la MV para que active los cambios que hemos realizado.
+
+![](./images/crypt-contenedor04.png)
+
+
+* Escribir el password del contenedor para poder activarlo.
+* `df -hT |contenedor`, comprobamos que hay un dispositivo montado en la ruta contenedorXX.d.
 * Poner archivos dentro del contenedor.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
 
