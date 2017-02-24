@@ -6,6 +6,7 @@ Ideas para trabajar con Ceph
 # Ceph
 
 Consultar enlaces:
+* https://en.opensuse.org/openSUSE:Ceph
 * www.openexpo.es/almacenamiento-sistema-operativo-suse
 * https://www.suse.com/products/suse-enterprise-storage
 
