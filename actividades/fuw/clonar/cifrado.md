@@ -139,7 +139,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 ![](./images/crypt-contenedor04.png)
 
 * Escribir el password del contenedor para poder activarlo.
-* `df -hT |contenedor`, comprobamos que hay un dispositivo montado en la ruta contenedorXX.d.
+* `df -hT | grep contenedor`, comprobamos que hay un dispositivo montado en la ruta contenedorXX.d.
 * Poner archivos dentro del contenedor.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
 
