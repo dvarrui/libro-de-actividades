@@ -120,7 +120,8 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 ![](./images/crypt-contenedor00.png)
 
 * Especificamos la ruta al fichero contenedor y su tamaño.
-    * Crear un contenedor encriptado en el fichero `/home/nombre-alumno/contenedorXX.data`.
+    * Crear un contenedor encriptado en el fichero `/home/nombre-alumno/contenedorXX`.
+    * Crear dispositivo bucle: Yes
     * Tamaño 50 MB.
 * Activar el check box para crear el fichero.
 * Especificar el tipo de sistema de fichero.
