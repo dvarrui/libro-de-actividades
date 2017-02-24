@@ -1,29 +1,31 @@
 
 
-Trabajaremos en parejas.
+# Ocultación de la información
+
+En este taller vamos a practicar diversas formas de ocultar nuestros datos.
+
+* Trabajaremos en parejas. Los llamaremos alumno1 y alumno2.
+* Entregaremos un informe con capturas de pantalla.
 
 ---
 
 # 1. Encriptación
 
-* [Información sobre GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
+* Información sobre la herramienta [GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
 
-## 1.1 Encriptado simétrica
+## 1.1 Encriptado simétrico
 
-Nosotros hacemos lo siguiente:
-
+Hacemos lo siguiente:
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
 * Hacer una encriptación simétrica con GPG.
     * `gpg -c mensaje-secreto1.txt`
-* Enviar fichero encriptado al compañero para que lo desencripte.
+* Enviar fichero encriptado al compañero (alumno2) para que lo desencripte.
     * `gpg -d mensaje-secreto1.txt.gpg`
 
 ## 1.2 Encriptado asimétrico
 
-Nosotros hacemos lo siguiente:
-
-* Generar un par de claves pública/privada.
+* Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`
     * Comprobamos `gpg -k`
     * `tree .gnupg`
@@ -31,21 +33,16 @@ Nosotros hacemos lo siguiente:
 > Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información
 de claves de GPG para nuestro usuario.
 
-* Exportar la clave pública para pasarla al compañero.
+* Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
-
-El compañero:
-
-* Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
-* Importamos la clave pública del compañero.
+* Alumno2 crea un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
+* Alumno2 importa la clave pública del compañero (alumno1).
     * `gpg --import nombre-alumno1.pub.gpg`
-* Hacer una encriptación asimétrica con GPG con la clave pública recibida.
+* Alumno2 hace una encriptación asimétrica con GPG con la clave pública recibida.
     * `gpg -k`, para ver las claves que tenemos.
     * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje-secreto2.txt`
-* El compañero nos envía el fichero a nosotros para que lo desencriptemos.
-
-Nosotros:
-* Desencriptamos el fichero `gpg -d mensaje-secreto2.txt.gpg`.
+* Alumno2 envía el fichero a alumno1 para que lo desencripte.
+* Alumno1 desencripta el fichero `gpg -d mensaje-secreto2.txt.gpg`.
 
 > Se entiende que podemos desencriptar el fichero porque ha sido encriptado
 con nuestra clave pública por parte del compañero que nos envía el archivo.
@@ -64,8 +61,12 @@ eliminar una clave pública (de tu anillo de claves públicas):
 
 # 2. Firma
 
-* [Información sobre firma GPG](https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales)
-* Crear documento firma.txt, pondremos dentro un texto cualquiera.
+> Enlace de interés:
+>
+> * [Información sobre firma GPG](https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales)
+
+Hacer lo siguiente:
+* Crear documento `firma.txt`, pondremos dentro un texto cualquiera.
 * Vamos a firmar digitalmente el documento en modo ASCII.
     * `gpg --clearsign firma.txt`
 * Consultar el fichero que se ha generado con la firma `firmar.txt.asc`
@@ -78,14 +79,15 @@ eliminar una clave pública (de tu anillo de claves públicas):
 
 # 3. Estenografía
 
-Enlaces de interés:
-
-* [De andar por casa (zip y cat)](http://www.linuxhispano.net/2014/07/03/ocultar-datos-en-imagenes-esteganografia-de-andar-por-casa/)
-* [Windows](http://www.taringa.net/posts/linux/19356036/Esconder-archivos-en-imagenes-Esteganografia.html)
-* [Programa específico `steghide`](http://www.reydes.com/d/?q=Ocultar_un_Archivo_de_Texto_dentro_de_un_Archivo_JPG_utilizando_Steghide)
-* [steghide](http://www.linuxadictos.com/steghide-esteganografia-para-ocultar-texto-en-imagenes.html)
+> Enlaces de interés:
+>
+> * [De andar por casa (zip y cat)](http://www.linuxhispano.net/2014/07/03/ocultar-datos-en-imagenes-esteganografia-de-andar-por-casa/)
+> * [Windows](http://www.taringa.net/posts/linux/19356036/Esconder-archivos-en-imagenes-Esteganografia.html)
+> * [Programa específico `steghide`](http://www.reydes.com/d/?q=Ocultar_un_Archivo_de_Texto_dentro_de_un_Archivo_JPG_utilizando_Steghide)
+> * [steghide](http://www.linuxadictos.com/steghide-esteganografia-para-ocultar-texto-en-imagenes.html)
 * [Esconder ficheros dentro de imágenes en Linux](www.ostechnix.com/hide-files-inside-images-linux/).
 
+Hacemos lo siguiente:
 * Consultar enlace sobre estenografía de "Andar por casa (zip y cat)".
 * Crear un fichero de texto con un mensaje oculto (`mensaje-oculto.txt`).
 * Crear un fichero zip con el mensaje oculto.
@@ -98,20 +100,27 @@ Enlaces de interés:
 
 # 4. Contenedor encriptado
 
-Enlace de interés:
-* [Security](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.security.cryptofs.html#sec.security.cryptofs.y2)
+> Enlace de interés:
+>
+> * [Security](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.security.cryptofs.html#sec.security.cryptofs.y2)
+
+## 4.1 Explicación
 
 En lugar de usar una partición, es posible crear un fichero encriptado, que a su vez puede contener directorios y ficheros manteniendo los datos de forma confidencial. La ventaja de usar un contenedor encriptado sobre encriptar particiones es que se pueden añadir sin tener que reparticionar el disco.
 Se montan en un dispositivo Loop y se comportan como si fueran particiones normales.
 
-* Crear un contenedor encriptado en `/home/nombre-alumno/contenedorXX`.
-
 Estos ficheros contenedores se pueden crear usando la ventana de particionamiento de Yast.
-* Elegir `Crypt Files › Add Crypt File`
+
+## 4.2 proceso
+
+* Ir a `Yast -> Particionador`.
+* Elegir `Crypt Files › Add Crypt File`.
 
 ![](./images/crypt-contenedor00.png)
 
 * Especificamos la ruta al fichero contenedor y su tamaño.
+    * Crear un contenedor encriptado en `/home/nombre-alumno/contenedorXX`.
+    * Tamaño 50 MB.
 * Activar el check box para crear el fichero.
 * Especificar el tipo de sistema de fichero.
 * Especificar el punto de montaje y asegurarse de que el dispositivo encriptado está marcado.
