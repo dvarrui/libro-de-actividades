@@ -113,7 +113,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 
 ## 4.2 proceso
 
-* Crear el directorio `/home/nombre-alumno/contenedorXX.d`. Lo usaremos para montar el contenedor más adelante.
+* Con el usuario nombre-alumno, crear el directorio `/home/nombre-alumno/contenedorXX.d`. Lo usaremos para montar el contenedor más adelante.
 * Ir a `Yast -> Particionador`.
 * Elegir `Crypt Files › Add Crypt File`.
 
@@ -141,10 +141,12 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 * Escribir el password del contenedor para poder activarlo.
 * `df -hT | grep contenedor`, comprobamos que hay un dispositivo montado en la ruta contenedorXX.d.
 * Poner archivos dentro del contenedor.
+* Reiniciar la MV.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
 
-* ¿Qué ocurre si iniciamos la MV con un CDLive como Knoppix e intentamos acceder a los datos...?
->  * `mount /home/nombre-alumno/contenedorXX.data`
+> * ¿Qué ocurre si iniciamos la MV con un CDLive como Knoppix e intentamos acceder a los datos...?
+> * Configurar MV sin EFI para poder inciar Knoppix.
+> * `mount /home/nombre-alumno/contenedorXX.data`
 
 ---
 
