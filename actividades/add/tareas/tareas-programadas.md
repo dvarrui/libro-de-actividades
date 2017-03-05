@@ -43,6 +43,7 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
     * `atq`, muestra los trabajos en cola.
     * `at -c 1`, muestra la configuración del trabajo ID=1.
     * `atrm 1`, elimina el trabajo con ID=1.
+* Configurarmos nuestro usuario para que pueda ejecutar el comando at.
 * Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
 > El servicio `atd` es el responsable de la ejecución de los comandos at.
