@@ -52,6 +52,8 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 >
 > Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
 
+> Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
+
 ## 2.2 Tarea periódica
 
 * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
