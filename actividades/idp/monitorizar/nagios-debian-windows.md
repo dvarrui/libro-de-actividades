@@ -50,9 +50,8 @@ Además se instalará un servidor web.
 
 * Comprobar que Nagios se está ejecutando.
     * `service nagios3 status`
-    * `netstat -ntap`.
-    * `nmap localhost`.
-    * Consultar log `var/log/nagios3/nagios.log`.
+    * `netstat -ntap`
+    * `nmap localhost`
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
     * Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos
     interactuar con el programa de monitorización.
