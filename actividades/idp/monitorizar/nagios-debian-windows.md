@@ -115,11 +115,10 @@ incluir las definiciones de las máquinas de tipo router.
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
 > * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
+> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
->
-> [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+> * [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 
 * Veamos un ejemplo (no sirve copiarlo):
 ```
