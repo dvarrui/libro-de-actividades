@@ -63,7 +63,8 @@ Además se instalará un servidor web.
 
 # 3. Configurar el servidor
 
-Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
+Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
+siguentes hosts:
 * Routers:
     * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
     * Comprobar si están activos.
@@ -115,7 +116,7 @@ define host{
   address         IP_DEL_HOST
   hostgroups      GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
   icon_image      cook/NOMBRE_IMAGEN.png
-  statusmap_image cook/NOMBRE_IMAGENrouter.png
+  statusmap_image cook/NOMBRE_IMAGEN.png
   #parents
 
   check_command      check-host-alive
@@ -126,7 +127,8 @@ define host{
 }
 ```
 
-> Fijarse en todos los parámetros anteriores y preguntar las dudas.
+> **Significado de los parámetros anteriores**
+>
 > * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 > * host_name: Nombre del host
 > * alias: Nombre largo asociado al host
