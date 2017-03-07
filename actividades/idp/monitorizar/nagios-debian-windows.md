@@ -108,6 +108,19 @@ define hostgroup {
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
 * Los host serán miembros también de los grupos http-servers, ssh-servers
+
+> **Significado de algunos parámetros que vamos a usar**
+>
+> * host_name: Nombre del host
+> * alias: Nombre largo asociado al host
+> * address: Dirección IP
+> * hostgroups: Grupos a los que pertenece
+> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
+>   Poner a cada host una imagen que lo represente.
+> * parents: Nombre del equipo padre o anterior.
+>
+> [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+
 * Veamos un ejemplo (no sirve copiarlo):
 ```
 define host{
@@ -126,18 +139,6 @@ define host{
   check_period       24x7
 }
 ```
-
-> **Significado de los parámetros anteriores**
->
-> * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-> * host_name: Nombre del host
-> * alias: Nombre largo asociado al host
-> * address: Dirección IP
-> * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
->   Poner a cada host una imagen que lo represente.
-> * parents: Nombre del equipo padre o anterior.
-
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
     * Pista `service nagios...`
