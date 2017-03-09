@@ -1,4 +1,8 @@
 
+```
+EN CONSTRUCCIÓN
+Usar scripting para configurar esta práctica
+```
 
 # How to build a network of Linux routers using quagga
 
