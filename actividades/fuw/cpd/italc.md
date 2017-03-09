@@ -3,25 +3,25 @@
 * Utilizada en los cursos 201213, 201314, 201415, 201516
 ```
 
-#1. Control remoto
+# 1. Control remoto
 
 * Trabajaremos de forma individual.
 
-#2. Preparación
+# 2. Preparación
 
 * Consultar documentación de iTalc.
 * Vamos a necesitar 3 máquinas que pueden ser virtuales o reales:
     * MV1 italc Master (Debian)
     * MV2 italc Slave (Windows7)
     * MV3 italc Slave (Debian)
-    
-#3. iTalc Master (versión 1.x)
+
+# 3. iTalc Master (versión 1.x)
 
 * Instalar iTalc Master (Maestro) en un equipo GNU/Linux o Windows.
 * En GNU/Linux la instalación de italc-master crea los siguientes ficheros:
     * `/etc/italc/keys/private/teacher/key` (Este es el fichero de clave privada del master)
     * `/etc/italc/keys/public/teacher/key` (Este es el fichero de clave pública del master)
-* Si las claves anteriores no existieran después de instalar el programa habrá que generarlas. 
+* Si las claves anteriores no existieran después de instalar el programa habrá que generarlas.
     * Para crear las claves de iTalc ejecutamos el comando `ica -createkeypair`
     * Creamos el grupo `italc`, y añadimos nuestro usuario al grupo.
         * Pistas `addgroup...`, y `usermod ...`
@@ -32,8 +32,8 @@
 * Damos permisos al grupo `italc`, para tener acceso a las claves de iTalc:
     * `cd /etc/italc; chgrp -R italc keys`
 * Verificar que el servicio que require Italc está iniciado:
-    * `ps -ef |grep ica`. 
-* Si el programa "ica" no está iniciado, lo podemos iniciar manualmente. 
+    * `ps -ef |grep ica`.
+* Si el programa "ica" no está iniciado, lo podemos iniciar manualmente.
     * Para ello abrimos un terminal y escribimos: `/usr/bin/ica &`
 
 > Si el programa "ica" no está en ejecución italc no va a funcionar.
@@ -42,17 +42,17 @@
 > * Añadir "/usr/bin/ica &" al final del fichero.
 > Otra forma de crear el inicio automático usando el gestor gdm para ello (Consultar).
 
-#4. Slaves(versión 1.X)
+# 4. Slaves(versión 1.X)
 
 Vamos a instalar iTalc Slave (Esclavo), para monitorizar dos equipos distintos.
 
-##4.1 Cliente Windows
+## 4.1 Cliente Windows
 
 * [Descargar e instalar iTalc en Windows](https://sourceforge.net/projects/italc/files/italc/)
 * Asegurarse de que nuestro usuario de Windows tiene una clave NO vacía.
 * Instalar una versión de Italc cliente "similar" a la del master.
 
-> ¿Cómo podemos consultar la versión de italc en el Master? 
+> ¿Cómo podemos consultar la versión de italc en el Master?
 > Vamos al equipo master y hacemos:
 > * Ir a synaptic y consultar la versión en el nombre del paquete.
 > * Por comandos, ejecutando "dpkg -l italc*". Esto nos muestra los paquetes instalados y su versión cuando el nombre comienza por italc.
@@ -65,7 +65,7 @@ Instalación ITALC 1.0.13 en Windows
     * FORMA 2: Crear las claves, buscar el fichero "key" dentro de C:\Archivos de programas\italc\key\public\teacher. Sustituirlo por el que nos da el master (El fichero de clave del master debe tener el nombre "key").
 * Reiniciar el programa.
 
-##4.2 Cliente GNU/Linux
+## 4.2 Cliente GNU/Linux
 
 * Instalar en GNU/Linux:
     * Pista: `apt-g.. i..... italc-client`
@@ -77,8 +77,8 @@ Instalación ITALC 1.0.13 en Windows
 * Damos permisos al grupo italc, para tener acceso a las claves de italc:
     * `cd /etc/italc; chgrp -R italc keys`
 * Verificar que el servicio ICA está iniciado.
-          
-#5. Comprobación desde el master
+
+# 5. Comprobación desde el master
 
 Ahora desde el Master debemos poder monitorizar/controlar los slaves.
 
@@ -95,10 +95,13 @@ Si al monitorizar el equipo Windows vemos una pantalla en negro, probar lo sigui
     Iniciar el en una consola el programa ica igual que lo hicimos en GNU/Linux.
     Volver a probar la monitorización remota.
 
+---
 
-ANEXO
+# ANEXO
+
 Indicaciones para iTalc versión 2.X.
-A1. iTalc Master (V 2.X)
+
+# A1. iTalc Master (V 2.X)
 
     Consultar la información para Instalar ITalc 2 en Ubuntu 12.04
 
@@ -139,7 +142,7 @@ killall ica
 
 A.3 iTalc Client (V2.x) en GNU/Linux
 
-      
+
 
 Instalación
 Ahora vamos a instalar y configurar el client iTalc 2 en GNU/Linux.

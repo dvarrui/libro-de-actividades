@@ -1,6 +1,9 @@
 
+```
 EN CONSTRUCCIÓN
 Ideas para trabajar con Ceph
+```
+
 ----
 
 # Ceph
