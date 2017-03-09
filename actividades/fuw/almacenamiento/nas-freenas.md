@@ -3,7 +3,7 @@
 * Actualizada para el curso 201516
 ```
 
-#Almacenamiento NAS
+# Almacenamiento NAS
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
@@ -17,7 +17,7 @@
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 * Elegir solamente, una de las siguientes opciones para realizar la práctica.
 
-#1. NAS OpenSUSE 13.2
+# 1. NAS OpenSUSE 13.2
 
 Montar en una MV con OpenSUSE el servicio Samba
 (Consultar [configuración](../../global/configuracion-aula109.md)).
@@ -65,13 +65,13 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `systemctl stop smb`
     * `systemctl start smb`
     * `systemctl status smb`
-* Comprobar el acceso al servidor NAS desde otra máquina con todos los 
-usuarios, y todos los recursos. 
+* Comprobar el acceso al servidor NAS desde otra máquina con todos los
+usuarios, y todos los recursos.
 * Comprobaciones:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
 
-#2. NAS Hardware
+# 2. NAS Hardware
 
 La práctica de NAS consisten en:
 * Usar un dispositivo NAS Hardware proporcionado por el profesor.
@@ -84,10 +84,10 @@ La práctica de NAS consisten en:
     * Usuario `alumno`.
 * Comprobar el acceso al servdidor NAS desde otra máquina.
 
-#3. Otros NAS
+# 3. Otros NAS
 
 Montar en una MV con otro sistema NAS a elegir por el alumno.
-* Antes de empezar consultar el profesor el NAS elegido. 
+* Antes de empezar consultar el profesor el NAS elegido.
 * Instalar y configurar NAS.
 * Montar 2 discos para guardar los datos en RAID1.
 * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
@@ -96,13 +96,13 @@ Montar en una MV con otro sistema NAS a elegir por el alumno.
 * Crear usuarios/clave para acceder al repositorio NAS.
     * Usuario `frodoXX`.
     * Usuario `gandalfXX`.
-* Comprobar el acceso al servdidor NAS desde otra máquina. 
+* Comprobar el acceso al servdidor NAS desde otra máquina.
 
 
-#4. FreeNAS
+# 4. FreeNAS
 
-* Como no disponemos de hardware NAS para hacer las prácticas con todos 
-los alumnos, nos vamos a crear nuestro propio NAS, en una MV usando 
+* Como no disponemos de hardware NAS para hacer las prácticas con todos
+los alumnos, nos vamos a crear nuestro propio NAS, en una MV usando
 la distro FreeNAS (Sistema Operativo BDS).
 
 La práctica de NAS consisten en:
@@ -113,7 +113,7 @@ La práctica de NAS consisten en:
 * Crear usuarios/clave para acceder al repositorio NAS.
     * Usuario `frodoXX`.
     * Usuario `gandalfXX`.
-* Comprobar el acceso al servdidor NAS desde otra máquina. 
+* Comprobar el acceso al servdidor NAS desde otra máquina.
 
 Enlaces de interés:
 * Página web: http://www.freenas.org/
@@ -122,30 +122,30 @@ Enlaces de interés:
 * http://cerowarnings.blogspot.com.es/2012/01/servidor-de-discos-en-red-con-freenas.html
 
 
-##4.1 Preparar la MV
+## 4.1 Preparar la MV
 
-* Crear la MV en VBox.Elegir MV del tipo FreeBSD. Si la ISO es x86 elegimos 
+* Crear la MV en VBox.Elegir MV del tipo FreeBSD. Si la ISO es x86 elegimos
 de 32 bits, y si la ISO es amd64 escogemos de 64bits.
 
 ![freenas-tipo-vbox](./files/freenas-tipo-vbox.png)
 
 * Aumentar la memoria RAM a 256 MB.
-* Además del disco duro virtual donde instalar FreeNAS, vamos a añadir 
+* Además del disco duro virtual donde instalar FreeNAS, vamos a añadir
 a la máquina virtual 2 discos más de 2GB cada uno, para crear el volumen de almacenamiento del NAS.
 
 ![freenas-discos-vbox](./files/freenas-discos-vbox.png)
 
 ![freenas-discos-config](./files/freenas-discos-config.png)
 
-* Configurar MV con la red en modo puente. Para que al terminar podamos 
+* Configurar MV con la red en modo puente. Para que al terminar podamos
 acceder al NAS desde cualquier equipo de nuestra red.
 
-##4.2 Instalar FreeNAS
+## 4.2 Instalar FreeNAS
 
 * Descargar la ISO del servidor del departamento, o desde la web de FreeNAS.
 * Comenzamos la instalación.
 
-> Si la ISO es de 32 bits crear la MV del tipo FreeBSD. 
+> Si la ISO es de 32 bits crear la MV del tipo FreeBSD.
 > SI la ISO es 64 bits, crear la MV del tipo FreeBDS-64-bits (RAM 1128 MB).
 
 ![freenas-install-01](./files/freenas-install-01.png)
@@ -159,7 +159,7 @@ acceder al NAS desde cualquier equipo de nuestra red.
 
 * Apagar el sistema. Quitar el disco de instalación (Fichero ISO).
 
-##4.3 Primera configuración de FreeNAS
+## 4.3 Primera configuración de FreeNAS
 
 * Reiniciar la MV FreeNAS.
 * Vamos a realizar la configuración inicial. Éste es el aspecto del menú:
@@ -168,18 +168,18 @@ acceder al NAS desde cualquier equipo de nuestra red.
 
 Configuración de red
 
-> El interfaz de red no se llama eth0, eth0, wlan0, etc. sino em0. 
-> Por defecto el interfaz de red está configurado de forma automática (DHCP). 
+> El interfaz de red no se llama eth0, eth0, wlan0, etc. sino em0.
+> Por defecto el interfaz de red está configurado de forma automática (DHCP).
 > Nosotros vamos a configurarlo de forma manual (static).
 
-* Pulsamos 1 (Configure Network Interface) para configurar el interfaz de red: 
+* Pulsamos 1 (Configure Network Interface) para configurar el interfaz de red:
 Configurar la IP, máscara de red. Veamos imagen de ejemplo:
 
 ![freenas-opcion1](./files/freenas-opcion1.png)
 
 * Pulsamos 4 (Default static route) para configurar la puerta de enlace.
 * Pulsamos 6 para configurar el servidor DNS.
-* PREGUNTA: ¿Qué parámetros de configuración de red, son los mínimos necesarios 
+* PREGUNTA: ¿Qué parámetros de configuración de red, son los mínimos necesarios
 para tener una comunicación efectiva dentro de la red LAN? ¿ip, máscara, servidor dns, puerta de enlace, servidor dhcp, etc.?
 * En la opción 9 entramos en una shell y podemos probar comandos como: ifconfig, ping, nslookup, df -hT.
 * Para consultar las particiones usamos los comandos BSD siguientes: fdisk /dev/ada0, fdisk /dev/adad1, fdisk /dev/ada2, etc.
@@ -189,9 +189,9 @@ Comprobar que esto ha funcionado:
 
 * Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
 
-##4.4 Crear un volumen
+## 4.4 Crear un volumen
 
-* Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, 
+* Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS,
 iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
 
 > Si no recuerdas el usuario/clave... vuelve al la MV FreeNAS, usa la opción 7 (Reset credentials) del menú.
@@ -224,11 +224,10 @@ Ahora vamos a crear un VOLUMEN a partir de los dos discos creados de 2GB.
 * Vamos a permitir el acceso de usuarios invitados.
 
 
-##4.5 Comprobar desde cliente
+## 4.5 Comprobar desde cliente
 
 * Probar que podemos acceder a dicho recurso compartido SMB/CIFS, desde otro equipo de la red. Por ejemplo, usando un cliente Windows7.
 * Para comprobar el acceso al recurso compartido de red desde GNU/Linux:
     * Abrimos un explorador de archivos y en la ruta pondremos "smb://ip-del-servidor-nas".
     * Para comprobar con comandos, podemos montar el recurso compartido de red en una carpeta local, mediante la siguiente orden: "mount -t cifs //ip-del-servidor-nas/public /mnt/nas". Desmontamos mediante "umount /mnt/nas"
 * Accedemos al recurso de red y creamos algún archivo.
-

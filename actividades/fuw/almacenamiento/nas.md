@@ -3,7 +3,7 @@
 * Actualizada para el curso 201516
 ```
 
-#Almacenamiento NAS
+# Almacenamiento NAS
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
@@ -16,7 +16,7 @@
     * Crear usuarios/clave para acceder al repositorio NAS.
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 
-#1. NAS OpenSUSE 13.2
+# 1. NAS OpenSUSE 13.2
 
 * Montar en una MV con OpenSUSE el servicio Samba
 (Consultar [configuración](../../global/configuracion-aula109.md)).
@@ -47,7 +47,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Crear la carpeta `/mnt/nas/hobbitonXX.d`
     * Con permisos de lectura/navegación para todos.
     * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
-    * Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS) 
+    * Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS)
     en la ruta anterior, con el nombre `hobbitonXX`.
     * Poner permisos al recurso de red de lectura para todos.
     * Heredar ACLS
@@ -74,9 +74,8 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `systemctl stop smb`
     * `systemctl start smb`
     * `systemctl status smb`
-* Comprobar el acceso al servidor NAS desde otra máquina con todos los 
-usuarios, y todos los recursos. 
+* Comprobar el acceso al servidor NAS desde otra máquina con todos los
+usuarios, y todos los recursos.
 * Comprobaciones:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
-
