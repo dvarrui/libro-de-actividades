@@ -286,7 +286,32 @@ del servidor Nginx.
 
 ---
 
-# 7. Limpiar
+# 7. Migrar las imágenes de docker a otro servidor
+
+¿Cómo puedo llevar los contenedores docker a un nuevo servidor?
+
+> Enlaces de interés
+>
+> * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
+> * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
+
+Crear un imagen de contenedor:
+* `docker ps`, muestra los contenedores que tengo en ejecución.
+* `docker commit -p 30b8f18f20b4 container-backup`, grabar una imagen de nombre "container-backup" a partir del contenedor 30b8f18f20b4.
+* `docker images`comprobar que se ha creado la imagen "container-backup".
+
+Exportar imagen docker a fichero:
+* `docker save -o ~/container-backup.tar container-backup`, guardamos la imagen
+"container-backup" en un fichero tar.
+
+Importar imagen docker desde fichero:
+* Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
+* `docker load -i ~/container-backup.tar`, cargamos la imagen docker a partir del fichero tar.
+* `docker images`, comprobamos que la nueva imagen está disponible.
+
+---
+
+# 8. Limpiar
 
 Cuando terminamos con los contedores y ya no lo necesitamos, es buena idea
 pararlos y/o destruirlos.
@@ -300,26 +325,9 @@ pararlos y/o destruirlos.
 * [Docker for beginners](http://prakhar.me/docker-curriculum/)
 * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 
-## A.2 Migrar las imágenes de docker a otro servidor
+## A.2 Kubernetes
 
-¿Cómo puedo llevar los contenedores docker a un nuevo servidor?
+Kubernetes (commonly referred to as "K8s") is an open source container cluster manager originally designed by Google and donated to the Cloud Native Computing Foundation. It aims to provide a "platform for automating deployment, scaling, and operations of application containers across clusters of hosts".[3] It usually works with the Docker container tool and coordinates between a wide cluster of hosts running Docker.
 
-> Enlaces de interés
->
-> * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
-> * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
-
-Crear un imagen de contenedor:
-* `docker ps`, muestra los contenedores que tengo en ejecución.
-* `docker commit -p 30b8f18f20b4 container-backup`, grabar una imagen "container-backup"
-con el contenedor 30b8f18f20b4.
-* `docker images`comprobar que se ha creado la imagen "container-backup".
-
-Exportar imagen docker a fichero:
-* `docker save -o ~/container-backup.tar container-backup`, guardamos la imagen
-"container-backup" en un fichero tar.
-
-Importar imagen docker desde fichero:
-* Nos llevamos el tar a otro servidor, instalamos docker y restauramos.
-* `docker load -i ~/container-backup.tar`, cargamos la imagen docker a partir del fichero tar.
-* `docker images`, comprobamos que la nueva imagen está disponible.
+* https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
+* http://www.javiergarzas.com/2016/02/kubernetes-for-dummies-explicado-en-10-minutos.html
