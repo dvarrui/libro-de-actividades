@@ -24,3 +24,4 @@ El alumno en casa debe hacer lo siguiente:
 * Poner clave profesor al usuario root
 * Poner clave profesor al usuario pi
 * Apuntar las MACs de los interfaces de red en una etiqueta que se pegará a la carcasa de la Rb.
+* Cambiar `/etc/hostname` y poner `rbpiXX`.
