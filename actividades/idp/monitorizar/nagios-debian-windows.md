@@ -139,7 +139,7 @@ define host{
 ```
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
-    * Pista `service nagios...`
+    * Pista `service nagios3 ...`
 * Si tenemos problemas al iniciar Nagios, entonces tenemos un problema en
 la configuración que hemos añadido:
     * Consultar log `var/log/nagios3/nagios.log`.
