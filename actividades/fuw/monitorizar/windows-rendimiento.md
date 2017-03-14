@@ -32,8 +32,8 @@ luego optimizaremos y al final comprobaremos si han mejorado los resultados.
 
 # 3. Monitorización
 
+* Ejecutar herramienta para realizar inventariado del equipo.
 * Aplicar pruebas de:
-    * Inventariado del equipo.
     * Rendimiento de la CPU.
     * Rendimiento de la RAM.
     * Rendimiento de los discos duros.
