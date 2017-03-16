@@ -1,22 +1,64 @@
 
-#Instalación de rbenv y rails en OpenSUSE 13.2
 
-## 0. Agregar los shims al PATH
-Los shims son los scripts que ejecutan las herramientas de CLI.
+# rbenv
+
+`rbenv` es una herramienta que proporciona entornos virtuales para ruby.
+De esta forma pueden convivir distintas versiones de ruby en nuestro sistema.
+
+`rbenv` intercepta los comandos de ruby usando ejecutables `shim` inyectados en las rutas del PATH. `rbenv` determinaa la versión de Ruby especificada por la aplicación y pasa los comandos a la instalación de Ruby adecuada.
+
+Enlaces de interés:
+* [https://github.com/rbenv/rbenv](https://github.com/rbenv/rbenv)
+
+# 1. Instalación de rbenv
+
+* Agregar los shims al PATH. Los shims son los scripts que ejecutan las herramientas de CLI.
 
 ```
 export PATH=$HOME/.rbenv/shims:$PATH
 ```
 
-##1. Hago la instalación de rbenv
-Comprobación:
+* `git clone https://github.com/rbenv/rbenv.git ~/.rbenv`, hacemos la instalación de rbenv
+
+* Comprobamos:
+
 ```
 david@camaleon:~> rbenv versions
 * system (set by /home/david/.rbenv/version)
   2.2.2
 ```
 
-### 2. Hay que indicar a rbenv que rubie vas a utilizar.
+
+
+    Optionally, try to compile dynamic bash extension to speed up rbenv. Don't worry if it fails; rbenv will still work normally:
+
+    $ cd ~/.rbenv && src/configure && make -C src
+
+    Add ~/.rbenv/bin to your $PATH for access to the rbenv command-line utility.
+
+    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+
+    Ubuntu Desktop note: Modify your ~/.bashrc instead of ~/.bash_profile.
+
+    Zsh note: Modify your ~/.zshrc file instead of ~/.bash_profile.
+
+    Run ~/.rbenv/bin/rbenv init for shell-specific instructions on how to initialize rbenv to enable shims and autocompletion.
+
+    Restart your shell so that PATH changes take effect. (Opening a new terminal tab will usually do it.) Now check if rbenv was set up:
+
+    $ type rbenv
+    #=> "rbenv is a function"
+
+    (Optional) Install ruby-build, which provides the rbenv install command that simplifies the process of installing new Ruby versions.
+
+Upgrading
+
+If you've installed rbenv manually using git, you can upgrade your installation to the cutting-edge version at any time.
+
+# 2. Probando rbenv
+
+* Hay que indicar a rbenv que rubie vas a utilizar.
+
 ```
 david@camaleon:~> rbenv global 2.2.2
 david@camaleon:~> rbenv versions
@@ -24,9 +66,11 @@ david@camaleon:~> rbenv versions
 * 2.2.2
 ```
 
-##2. Hago la instalación de rails en el ruby del sistema
+# 3. Instalar rails usando rbenv
 
-No instales rails con sudo
+Vamos a instalar rails con el ruby del sistema.
+* IMPORTANTE: No instalar rails con sudo.
+
 ```
 david@camaleon:~> gem install rails
 Fetching: rails-4.2.4.gem (100%)
@@ -37,9 +81,10 @@ Done installing documentation for rails after 367 seconds
 1 gem installed
 ```
 
-Comprobación de las gemas instaladas:
+* Comprobación de las gemas instaladas:
+
 ```
-david@camaleon:~> 
+david@camaleon:~>
 actionmailer (4.2.4)
 actionpack (4.2.4)
 actionview (4.2.4)
@@ -94,7 +139,7 @@ david@camaleon:~> rbenv versions
 
 david@camaleon:~> whereis rails
 rails:
-david@camaleon:~> 
+david@camaleon:~>
 
 camaleon:/home/david # whereis rails
 rails:
