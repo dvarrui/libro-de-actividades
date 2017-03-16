@@ -471,7 +471,17 @@ if 5 restarts within 5 cycles then timeout
 ```
 
 * Modificar el fichero /etc/monit/monitrc para adaptarlo a nuestra máquina.
-* Reiniciar el servicio: /etc/init.d/monit restart
+    * Cuando aparece un texto como $TEXTO, esto es una variable.
+* Reiniciamos el servicio para que coja los cambios de configuración:
+    * `systemctl stop monit`, parar.
+    * `systemctl statr monit`, reiniciamos el servicio.
+
+> En sistemas que usen System V se haría con `/etc/init.d/monit restart`
+
+* `systemctl status monit`, comprobamos que el servicio está en ejecución.
+    * En caso de error podemos comprobar la sintaxis del fichero de configuración
+    de monit con `/usr/bin/monit -t /etc/monit/monitrc`.
+    * Para las opciones del comando monit hacemos `/usr/bin/monit -h`
 * Comprobar la lectura de datos de monit vía comandos: `monit status`
 * Comprobar la lectura de datos de monit vía GUI.
     * Abrir un navegador web en la propia máquina, y poner URL `http://localhost:2812`.
