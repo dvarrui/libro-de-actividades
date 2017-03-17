@@ -311,6 +311,9 @@ define service{
 
 # 6. Agente Nagios en Windows
 
+* Enlaces de interés:
+    * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-windows.html
+
 ## 6.1 Instalar en el cliente2
 
 * Descargar el programa Agente Windows (NSCLient++)

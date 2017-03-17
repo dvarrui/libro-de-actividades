@@ -23,7 +23,7 @@ Documentos relacionados
 * Nombre de dominio: `curso1516` (Modificar los números al curso actual).
 
 * Tarjeta de red VBox en `modo puente`.
-* Configurar [acceso remoto](../acceso-remoto.md).
+* Configurar [acceso remoto](../acceso-remoto/debian.md).
 * Configurar [firewall](../firewall.md).
 
 * Usuarios:
