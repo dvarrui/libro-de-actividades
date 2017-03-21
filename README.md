@@ -11,7 +11,7 @@ Es la carpeta principal de este proyecto.
 * Cada documento es un fichero de texto simple que puede enlazar a otros documentos,
 imágenes o páginas web.
 
-##Licencia
+## Licencia
 
 Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 
