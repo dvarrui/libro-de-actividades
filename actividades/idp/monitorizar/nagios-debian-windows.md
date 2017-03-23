@@ -480,7 +480,7 @@ if 5 restarts within 5 cycles then timeout
     * Cuando aparece un texto como $TEXTO, esto es una variable.
 * Reiniciamos el servicio para que coja los cambios de configuración:
     * `systemctl stop monit`, parar.
-    * `systemctl statr monit`, reiniciamos el servicio.
+    * `systemctl start monit`, reiniciamos el servicio.
 
 > En sistemas que usen System V se haría con `/etc/init.d/monit restart`
 
