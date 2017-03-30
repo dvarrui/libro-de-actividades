@@ -77,10 +77,12 @@ while [ $CONTADOR -lt 10 ]; do
   echo "LED 17: Apagar"
   echo 0 > /sys/class/gpio/gpio17/value
   sleep 1
-  let CONTADOR = CONTADOR + 1
+  let CONTADOR=CONTADOR+1
 done
 
 echo "LED 17: Desactivado"
 echo 17 > /sys/class/gpio/unexport
 
 ```
+
+> Hay que dar permisos de ejecución al script para poder ejecutarlo.
