@@ -67,8 +67,6 @@ Vamos a crear un script Bash que haga parpadear el LED.
 #!/bin/bash
 CONTADOR=0
 
-echo 17 > /sys/class/gpio/export
-
 while [ $CONTADOR -lt 10 ]; do
   echo "LED 17: Encender"
   echo 1 > /sys/class/gpio/gpio17/value
@@ -78,9 +76,6 @@ while [ $CONTADOR -lt 10 ]; do
   sleep 1
   let CONTADOR=CONTADOR+1
 done
-
-echo 17 > /sys/class/gpio/unexport
-
 ```
 
 > Hay que dar permisos de ejecución al script para poder ejecutarlo.
