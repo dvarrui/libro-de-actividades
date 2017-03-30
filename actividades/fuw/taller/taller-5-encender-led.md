@@ -67,7 +67,6 @@ Vamos a crear un script Bash que haga parpadear el LED.
 #!/bin/bash
 CONTADOR=0
 
-echo "LED 17: Activado"
 echo 17 > /sys/class/gpio/export
 
 while [ $CONTADOR -lt 10 ]; do
@@ -80,7 +79,6 @@ while [ $CONTADOR -lt 10 ]; do
   let CONTADOR=CONTADOR+1
 done
 
-echo "LED 17: Desactivado"
 echo 17 > /sys/class/gpio/unexport
 
 ```
