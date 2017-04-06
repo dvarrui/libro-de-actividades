@@ -31,7 +31,7 @@ Configuración de la máquina Windows 7 Professional:
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516` (Modificar los números al curso actual)
 * Tarjeta de red VBox en modo puente.
-* Configurar [acceso remoto](../acceso-remoto.md).
+* Configurar [acceso remoto](../acceso-remoto/windows7.md).
 * Configurar [firewall](../firewall.md).
 
 ## Comprobaciones finales
