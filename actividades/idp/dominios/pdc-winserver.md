@@ -1,6 +1,3 @@
-```
-* Práctica utilizada en los cursos 201415, 201314, 201211
-```
 
 # Introducción
 
@@ -58,7 +55,7 @@ siguientes valores:
 ```
 * Modo experto => NO
 * Crear un dominio nuevo de un bosque nuevo => SI
-* FQDN del dominio => `NOMBRE_DEL_SERVIDOR.NOMBRE_DE_DOMINIO`
+* FQDN del dominio => `NOMBRE_DE_DOMINIO`
 * Nivel funcional del bosque => Windows Server 2008
 * Servidor DNS => SI
 * Carpetas de almacenamiento => Dejar valores por defecto.
