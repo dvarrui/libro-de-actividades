@@ -76,6 +76,8 @@ Veamos imagen de configuración de nuestro servidor:
 
 ![pdc-config-inicial](./files/pdc-config-inicial.png)
 
+> Enlace de interés sobre [recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
+
 ---
 
 # 3. Usuarios del dominio
