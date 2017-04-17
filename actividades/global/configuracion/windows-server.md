@@ -11,7 +11,7 @@ Documentos relacionados
 >     * 19 para el aual109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
-Configuración de la máquina Windows 2008 Server Enterprise:
+Configuración de la máquina Windows 2008 Server Enterprise (Instalación completa):
 * MV con 2 tarjetas de red: una en modo puente y la otra NAT.
 * Modificar la MAC de la tarjeta de red puente con `080027AAXXNN`.
 * Configuramos el interfaz de red puente en modo estático.

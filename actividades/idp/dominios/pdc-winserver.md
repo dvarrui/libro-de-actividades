@@ -41,6 +41,7 @@ paquetes/funciones/servicios, y acceder a los paneles de administración de los 
 >     * Además los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
 
 Instalación:
+* Hacer una instántanea de la MV antes de nada.
 * Para activar la función de controlador de dominios podemos hacerlo de dos formas:
     * Abrir una consola (cmd) y ejecutar el comando `dcpromo`.
     * Ir a `Inicio -> Administrar el servidor -> Agregar funciones`.
