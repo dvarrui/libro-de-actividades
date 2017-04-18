@@ -56,7 +56,7 @@ siguientes valores:
 ```
 * Modo experto => NO
 * Crear un dominio nuevo de un bosque nuevo => SI
-* FQDN del dominio => `NOMBRE_DE_DOMINIO`
+* FQDN del dominio => `segundoapellidoXXdom.curso1617` # Este es el nombre del dominio
 * Nivel funcional del bosque => Windows Server 2008
 * Servidor DNS => SI
 * Carpetas de almacenamiento => Dejar valores por defecto.
