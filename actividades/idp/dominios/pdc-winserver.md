@@ -10,8 +10,9 @@
 # 1. Preparativos
 
 Necesitaremos:
-* 1 MV con Windows 2008 Server Enterprise (Consultar [configuración](../../global/configuracion/windows-server.md)).
+* 1 MV con Windows 2008 Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
 * 2 MV con Windows 7 Profesional
+( [Consultar configuración](../../global/configuracion/windows.md)).
 
 > **NOTA**
 >
@@ -76,7 +77,7 @@ Veamos imagen de configuración de nuestro servidor:
 
 ![pdc-config-inicial](./files/pdc-config-inicial.png)
 
-> Enlace de interés sobre [recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
+> Enlace de interés sobre [cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
 
 ---
 
@@ -87,7 +88,7 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 * Enlace de interés:
     * [Definiciones de ámbito local, global y universal](https://msdn.microsoft.com/es-es/library/cc755692%28v=ws.10%29.aspx)
     * [Deshabilitar políticas de clave en Windows 2008 Server](http://www.radians.com.ar/blog/?p=403)  
-    * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html.
+    * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
