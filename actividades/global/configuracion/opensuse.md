@@ -11,8 +11,7 @@ Documentos relacionados
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
 * Usar un disco VirtualBox de 15GB.
-* MV con 2 tarjetas de red: una en modo puente y la otra NAT.
-* Modificar la MAC de la tarjeta de red puente con `080027AAXXNN`.
+* Para prevenir la duplicicada de la MAC de la tarjeta de red puente podemos poner `080027AAXXNN`.
 * Configuramos el interfaz de red puente en modo estático.
 
 ## Durante la instalación
