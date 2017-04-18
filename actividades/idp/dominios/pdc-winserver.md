@@ -11,7 +11,7 @@
 
 Necesitaremos:
 * 1 MV con Windows 2008 Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
-* 2 MV con Windows 7 Profesional
+* 2 MV con Windows 7 Enterprise
 ( [Consultar configuración](../../global/configuracion/windows.md)).
 
 > **NOTA**
