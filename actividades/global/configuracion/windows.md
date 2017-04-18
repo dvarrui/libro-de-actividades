@@ -13,7 +13,7 @@ Documentos relacionados
 >
 > Para averiguar XX ejecutar en la máquina real, `ip a` o `ifconfig` o `if a s`, si muestra IP 172.16.8.30 entonces XX=30.
 
-Configuración de la máquina Windows 7 Professional:
+Configuración de la máquina Windows 7 Enterprise:
 * Para prevenir la duplicidad de la MAC de la tarjeta de red puente podemos poner `080027AAXXNN`.
 * Configuramos el interfaz de red puente en modo estático.
 * IP: `172.AA.XX.11` (Donde XX corresponde al nº de cada puesto).
