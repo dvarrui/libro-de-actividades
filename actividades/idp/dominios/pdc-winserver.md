@@ -124,7 +124,7 @@ RED:
 * Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
 ```
 
-* [Configurar las MVs](../../global/configuracion-aula109.md))
+* [Configurar las MVs](../../global/configuracion/windows.md)
 * Unir el equipo cliente al dominio.
     * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
 
