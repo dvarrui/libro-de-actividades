@@ -184,7 +184,7 @@ Material de lectura/estudio/consulta:
 Permisos lectura/escritura para todos los usuarios del dominio.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
-* En el PDC, modificar el atributo `perfil` de los siguientes usuarios del dominio:
+* En el PDC, modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
     * yoda: `\\ip-del-PDC\perfiles$\%username%`
     * obiwan: `\\ip-del-PDC\perfiles$\obiwan`
     * vader: `\\ip-del-PDC\perfiles$\%username%`
