@@ -1,9 +1,9 @@
 
 ```
 Actividad realizada los cursos: 201415, 201516
-``` 
+```
 
-#1. Políticas o directivas de grupo
+# 1. Políticas o directivas de grupo
 
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
@@ -11,7 +11,9 @@ Actividad realizada los cursos: 201415, 201516
     * El proceso de configuración en el servidor
     * y de los resultados producidos en los clientes.
 
-#2. Aplicar directivas (I)
+---
+
+# 2. Aplicar directivas (I)
 
 Realizar las siguientes tareas:
 
@@ -20,7 +22,7 @@ Realizar las siguientes tareas:
 * Mover los usuarios a su correspondiente OU.
 * Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
 
-> **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
+> **IMPORTANTE**: No aplicar la directivas a todo el dominio.
 > Sólo a las unidades organizativas que se especfiquen.
 
 * Vamos a crear una GPO diferente para cada OU.
@@ -61,11 +63,13 @@ Realizar las siguientes tareas:
     * Configuración de Directiva de grupo: Quitar “Conectar a unidad de red” y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).
     * Opción Habilitada
 
-#3. Aplicar directivas (II)
+---
+
+# 3. Aplicar directivas (II)
 
 > Enlaces de interés
 >
-> * Crear política de instalación para nuestro paquete MSI 
+> * Crear política de instalación para nuestro paquete MSI
 >    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
 >    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
 > * Crear y probar las directivas del siguiente enlace Windows Server 2008
@@ -82,7 +86,7 @@ En el servidor
 * Crear la carpeta `e:\softwareXX`.
     * Esta carpeta con permisos de lectura para todos los usuarios.
     * Este carpeta con permisos lectura/escritura para todos los administradores.
-* Crear un recurso compartido de red `E:\softwareXX`. 
+* Crear un recurso compartido de red `E:\softwareXX`.
     * Este recurso con permisos de lectura para todos los usuarios.
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
@@ -90,53 +94,53 @@ En el servidor
 En el cliente
 * Entramos con el usuario administrador del dominio.
 * Descargar el instalador de Firefox.
-* Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
-para iniciar la aplicación WinINSTALL LE de forma remota, 
+* Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
+para iniciar la aplicación WinINSTALL LE de forma remota,
 
 ![pdc-wininstall-discover.png](./files/pdc-wininstall-discover.png)
 
 * Indicamos el nombre que vamos a asociar al paquete MSI (`firefoxXX.msi`).
-* Ruta de red donde almacenaremos el MSI, en nuestro caso 
+* Ruta de red donde almacenaremos el MSI, en nuestro caso
 `\\ip-del-servidor\softwareXX\firefox\firefoxXX.msi`.
 
 ![pdc-wininstall-select-target.png](./files/pdc-wininstall-select-target.png)
 
 * Unidad donde se almacenarán los ficheros temporales => C:.
-* Unidades que serán analizadas para realizar la foto inicial; 
+* Unidades que serán analizadas para realizar la foto inicial;
 en nuestro caso sobre la unidad C: de nuestro equipo cliente.
-* Indicar los ficheros que serán excluidos del análisis; 
+* Indicar los ficheros que serán excluidos del análisis;
 en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto.
 * Pulsamos Finish para comenzar la generación de la foto inicial del equipo.
 
-> En el tiempo comprendido entre la ejecución de este proceso y la ejecución 
-del proceso de la foto final, es crítico ejecutar únicamente el software 
+> En el tiempo comprendido entre la ejecución de este proceso y la ejecución
+del proceso de la foto final, es crítico ejecutar únicamente el software
 de instalación del paquete MSI a generar.
 > Cualquier modificación en dicho periodo temporal, al margen de la propia de instalar
- el software correspondiente del que deseamos generar el paquete MSI, 
- se grabaría en el paquete MSI obtenido, cuando realmente no formaría parte de las modificaciones que realizó dicha aplicación durante su instalación. 
+ el software correspondiente del que deseamos generar el paquete MSI,
+ se grabaría en el paquete MSI obtenido, cuando realmente no formaría parte de las modificaciones que realizó dicha aplicación durante su instalación.
 
-* Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y 
-a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero 
+* Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y
+a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero
 de instalación de la aplicación de la que vamos a generar el paquete MSI.
 En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * Comienza la instalación de la aplicación de firefox.exe de modo manual.
-* Volvemos a inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, 
+* Volvemos a inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar el proceso de creación de la foto final del sistema.
-Este que puede durar varios minutos. 
-* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", 
+Este que puede durar varios minutos.
+* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR",
 yendo a la carpeta `E:\softwareXX\firefox`.
 * Limpiamos el equipo cliente:
     * Eliminar el fichero firexfox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
-    
+
 Vamos al servidor:
 * Crear las OU `maquinasXXc1516` y mover los equipos del dominio dentro de esta UO.
 * Vamos a crear una directiva de instalación del software `firefox.msi` para la OU anterior.
-* Asociamos a la directiva de grupo de Instalación de software ubicada en 
-`Configuración del equipo -> Directivas -> Configuración de software`, 
+* Asociamos a la directiva de grupo de Instalación de software ubicada en
+`Configuración del equipo -> Directivas -> Configuración de software`,
 un nuevo paquete de instalación de software de la aplicación.
     * Configurar la instalación del paquete en modo `Asignado`.
-    
+
 > **ADVERTENCIAS**
 >
 > * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
@@ -151,4 +155,3 @@ Vamos al otro cliente:
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
 
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
-
