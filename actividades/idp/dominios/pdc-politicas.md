@@ -35,32 +35,32 @@ Realizar las siguientes tareas:
 * Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
 
 * `Quitar el menú Ejecutar del menú Inicio`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar el menú Ejecutar del menú Inicio (Remove Run menu from Start Menu)
     * Opción Habilitada
 * `Prohibir el acceso al Panel de control`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)
     * Configuración de Directiva de grupo: Prohibir el acceso al Panel de control (Prohibit access to the Control Panel)
     * Opción Habilitada
 * `Ocultar el icono Mis sitios de red del escritorio`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Desktop)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Desktop)
     * Configuración de Directiva de grupo: Ocultar el icono Mis sitios de red del escritorio (Hide My Network Places icon on desktop)
     * Opción Habilitada
 * `Quitar el icono Mis sitios de red del menú inicio`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar el icono Mis sitios de red del men ú Inicio (Remove My Network Places icon from Start Menu)
     * Opción Habilitada
 * `Quitar Conexiones de red del menú Inicio`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administra tive Templates / Start Menu and Taskbar)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administra tive Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar Conexiones de red del menú Inicio (Remove Network Connections from the Start Menu)
     * Opción Habilitada
 * `Ocultar unidades específicas en Mi PC`
-    * Ubicación: Configurac ión de usuario / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
+    * Ubicación: Configurac ión de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
     * Configuración de Directiva de grupo: Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer).
     * Opción Habilitada. Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
-* `Habilitar Quitar “Conectar a unidad de red” y “Desconectar de unidad de red”`
-    * Ubicación: Configuración de usuario / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
-    * Configuración de Directiva de grupo: Quitar “Conectar a unidad de red” y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).
+* `Habilitar Quitar "Conectar a unidad de red" y "Desconectar de unidad de red"`
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
+    * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).
     * Opción Habilitada
 
 ---
@@ -95,7 +95,9 @@ En el servidor
 
 En el cliente
 * Entramos con el usuario administrador del dominio.
-* Descargar el instalador de Firefox.
+* Descargar el instalador de Firefox. ¡OJO! El instalador de Firefox debe tener un
+tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa
+para descargar el instalador.
 * Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar la aplicación WinINSTALL LE de forma remota,
 
@@ -136,7 +138,7 @@ yendo a la carpeta `E:\softwareXX\firefox`.
     * Desinstalar el programa Firefox del cliente.
 
 Vamos al servidor:
-* Crear las OU `maquinasXXc1516` y mover los equipos del dominio dentro de esta UO.
+* Crear las OU `maquinasXXc1617` y mover los equipos del dominio dentro de esta UO.
 * Vamos a crear una directiva de instalación del software `firefox.msi` para la OU anterior.
 * Asociamos a la directiva de grupo de Instalación de software ubicada en
 `Configuración del equipo -> Directivas -> Configuración de software`,
