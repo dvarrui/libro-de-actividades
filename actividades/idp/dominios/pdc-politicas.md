@@ -81,7 +81,9 @@ Vamos a crear nuestro propio paquete MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
 En el servidor
-* [Descargar el programa WinINSTALL](http://www.downloadsource.es/3414/WinINSTALL-LE/)
+* Descargar el programa WinINSTALL
+    * http://www.downloadsource.es/3414/WinINSTALL-LE/
+    * http://www.freewarefiles.com/downloads_counter.php?programid=52066
 * Una vez instalada la aplicación hemos de asignar permisos de acceso remoto a la carpeta compartida WinINSTALL.
 * Crear la carpeta `e:\softwareXX`.
     * Esta carpeta con permisos de lectura para todos los usuarios.
