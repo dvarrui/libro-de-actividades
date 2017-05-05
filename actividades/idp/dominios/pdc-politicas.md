@@ -34,6 +34,9 @@ Realizar las siguientes tareas:
 
 * Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
 
+> OJO: Un error es aplicar las directivas a todo el site en lugar de a cada OU.
+Este error puede afectar al correcto funcionamiento del servidor.
+
 * `Quitar el menú Ejecutar del menú Inicio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar el menú Ejecutar del menú Inicio (Remove Run menu from Start Menu)
@@ -63,6 +66,11 @@ Realizar las siguientes tareas:
     * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).
     * Opción Habilitada
 
+* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
+actualizaciones de las directivas.
+* Capturar imagen del resumen de la configuración de cada una de las directivas creadas
+(`Ir a directiva -> Configuración`).
+
 ---
 
 # 3. Aplicar directivas (II)
@@ -75,7 +83,7 @@ Realizar las siguientes tareas:
 > * Crear y probar las directivas del siguiente enlace Windows Server 2008
 >    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
 
-* Vamos a crear otro "snapshot" de la máquina virtual.
+* IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
 
 Vamos a crear nuestro propio paquete MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
@@ -154,6 +162,11 @@ ruta de red y NO su ruta del sistema de ficheros.
 > * La configuración de instalación de paquete `Publicado` no instala el programa,
 pero lo deja disponible por si el usuario lo quiere instalar a través de la
 herramienta de `Instalación de Software` del panel de control.
+
+* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
+actualizaciones de las directivas.
+* Capturar imagen del resumen de la configuración de cada una de las directivas creadas
+(`Ir a directiva -> Configuración`).
 
 Vamos al otro cliente:
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
