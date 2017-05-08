@@ -24,5 +24,4 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 * [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
 * [Estado del proyecto](./docs/estado.md)
 
-
 ¡Muchas gracias!
