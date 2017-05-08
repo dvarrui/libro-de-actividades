@@ -2,14 +2,14 @@
 ```
 Utilizada en los cursos 201415 y 201314
 En el curso 201516 se amplía para usar OpenSUSE13.2
-``` 
+```
 
 # 1. Entrega
 
 * Apartado 2:
     * Trabajo individual.
     * Vídeo que muestre la práctica en funcionamiento.
-* Apartados 4 y 5:
+* Apartados 3 y 4:
     * Colaborar con otro compañero.
         * Montar nuestro servidor para que lo use el compañero.
         * Usar el servidor de otro compañero.
@@ -41,7 +41,7 @@ de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCube
 Las fuentes están disponibles para poder instalarlo en máquinas propias o
  alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
-##3.1 Instalar OwnCloud
+## 3.1 Instalar OwnCloud
 
 * Elegir una MV con OpenSUSE13.2 para instalar OwnCloud Server.
     * [OwnCloud en OpenSuse13.2](https://www.howtoforge.com/owncloud-install-on-opensuse-13.2)
@@ -54,7 +54,7 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 * Activar e iniciar el servicio apache2. Comprobación `systemctl status apache2.service`
 * Abrir en el cortafuegos (yast2) los puertos/serviciods http , https y SSH.
 
-##3.2 Configurar OwnCloud
+## 3.2 Configurar OwnCloud
 
 * Instalar el paquete mariadb. Comprobación `zypper se maridb`.
 * Activar e iniciar el servicio `mysql.service`.
@@ -92,7 +92,7 @@ Thanks for using MariaDB!
     * Elegir MySQL/MariaDB y crear usuario administrador.
     * Debajo MySQL/MariaDB escribir `username=root password=database_password databasename=owncloud`.
 
-##3.3 Comprobar vía web
+## 3.3 Comprobar vía web
 
 * Para permitir desde otros equipos tenemos que añadir la IP del servidor a las opciones
 `trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
