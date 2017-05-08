@@ -15,7 +15,5 @@ carpetas.
 
 ## Otros directorios
 
-* El directorio [explicaciones](./explicaciones) es para documentos con
+* El directorio [explicaciones](./../explicaciones) es para documentos con
 explicaciones que se repiten mucho en clase.
-* En el directorio [pendiente](./pendiente) se guardan utilidades que todavía no
-sabemos donde ponerlas.
