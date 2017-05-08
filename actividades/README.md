@@ -13,7 +13,7 @@ distintas materias, organizados de la siguiente forma:
 > A medida que se suban documentos de otras materias se irán creando sus respectivas
 carpetas.
 
-##Otros directorios
+## Otros directorios
 
 * El directorio [explicaciones](./explicaciones) es para documentos con
 explicaciones que se repiten mucho en clase.
