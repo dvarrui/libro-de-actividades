@@ -1,10 +1,10 @@
 
 ```
 Utilizada en los cursos 201415 y 201314
-Modificada en el curso 201516 para usar OpenSUSE13.2
+En el curso 201516 se amplía para usar OpenSUSE13.2
 ``` 
 
-#1. Entrega
+# 1. Entrega
 
 * Apartado 2:
     * Trabajo individual.
@@ -15,23 +15,27 @@ Modificada en el curso 201516 para usar OpenSUSE13.2
         * Usar el servidor de otro compañero.
     * Entregar un informe de los pasos realizados
 
-#2. Nube ajena
+---
+
+# 2. Nube ajena
 
 Almacenamiento en la nube de un proveedor externo.
 
-* Realizar la instalación y configuración de alguna de las siguientes herramientas a elegir por el alumno: 
+* Realizar la instalación y configuración de alguna de las siguientes herramientas a elegir por el alumno:
     * DropBox
-    * Windows Live Mesh, OneDrive, 
+    * Windows Live Mesh, OneDrive,
     * Ubuntu One, ZumoDrive.
 * Realizar una instalación sobre SO Windows y otra sobre GNU/Linux. Mostrar su uso mediante ejemplos.
 
-#3. Nube propia con OwnCloud Server en OpenSUSE 13.2
+---
 
-Últimamente se están poniendo de moda servicios de almacenamiento y sincronización 
+# 3. Nube propia con OwnCloud Server en OpenSUSE 13.2
+
+Últimamente se están poniendo de moda servicios de almacenamiento y sincronización
 de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
 
-Dentro de las soluciones libres disponemos de ownCloud, por el que parece 
-que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios 
+Dentro de las soluciones libres disponemos de ownCloud, por el que parece
+que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios
 de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCubey GetFreeCloud.
 
 Las fuentes están disponibles para poder instalarlo en máquinas propias o
@@ -45,7 +49,7 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
    * Pistas: `zypper addrepo http://...`, `zypper r...`.
    * Comprobación:  `zypper search owncloud`
 * Instalar el paquete de OwnCloud Server.
-   * Comprobación: `zypper se owncloud` 
+   * Comprobación: `zypper se owncloud`
 * Instalar el paquete de apache2. Comprobación `zypper se apache2`.
 * Activar e iniciar el servicio apache2. Comprobación `systemctl status apache2.service`
 * Abrir en el cortafuegos (yast2) los puertos/serviciods http , https y SSH.
@@ -90,7 +94,7 @@ Thanks for using MariaDB!
 
 ##3.3 Comprobar vía web
 
-* Para permitir desde otros equipos tenemos que añadir la IP del servidor a las opciones 
+* Para permitir desde otros equipos tenemos que añadir la IP del servidor a las opciones
 `trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
@@ -100,25 +104,29 @@ Thanks for using MariaDB!
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
 
-#4. OwnCloud Desktop Client
+---
+
+# 4. OwnCloud Desktop Client
 
 * Ir a una MV con Windows 7.
 * Instalar el sofware cliente de OwnCloud.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
-#ANEXO
+---
 
-##A.1 Instalación del servidor OwnCloud para Ubuntu
+# ANEXO
+
+## A.1 Instalación del servidor OwnCloud para Ubuntu
 
 * [OwnCloud en Debian/Ubuntu](http://hipertextual.com/archivo/2014/10/owncloud/)
 
-##A.2 Instalación del servidor OwnCloud para Debian7
+## A.2 Instalación del servidor OwnCloud para Debian7
 
-* Añadimos un nuevo repositorio con el paquete que queremos instalar: 
+* Añadimos un nuevo repositorio con el paquete que queremos instalar:
     * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
 * Actualizamos la lista de repositorios: `apt-get up...`
 * Instalamos el paquete: `apt-get .... owncloud`
 
-##A.3 Instalación del servidor OwnCloud para Raspberry PI
+## A.3 Instalación del servidor OwnCloud para Raspberry PI
 
 * [BTSync: Clone Dropbox with a Raspberry Pi and BTSync](http://reustle.io/blog/btsync-pi)
