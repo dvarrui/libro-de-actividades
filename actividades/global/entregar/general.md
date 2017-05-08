@@ -25,6 +25,7 @@ de forma correcta y apropiada.
 odt, pdf, etc.
 * En el caso de comprimir el archivo usar formatos abiertos y multiplataforma,
 como por ejemplo: zip, 7z, etc.
+
 ## 3. Imágenes
 
 * Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.

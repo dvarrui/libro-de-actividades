@@ -1,10 +1,10 @@
 
-#Errores más frecuentes
+# Errores más frecuentes
 
 A continuación, un listado de los errore más frecuentes en las entregas
 de los trabajos.
 
-**Informes**
+## Informes
 
 * Incluir el nombre de el/los autor/es en la entrega.
 * Entregar el informe un formatos NO abierto.
@@ -13,7 +13,7 @@ de los trabajos.
 * Secuencia de los contenidos diferente al enunciado.
 * Incluir en el informe el mismo texto que aparece en el enunciado.
 
-**Capturas de imágenes**
+## Capturas de imágenes
 
 * Capturas de imagen borrosas o con los objetos tan pequeños que no se
 pueden ver bien.
@@ -21,6 +21,6 @@ pueden ver bien.
 de la imagen.
 * La falta de capturas que muestren las acciones realizadas.
 
-**Trabajos en grupo**
+## Trabajos en grupo
 
 * Todos los componentes del grupo deben hacer la entrega.
