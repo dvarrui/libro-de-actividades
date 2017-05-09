@@ -52,7 +52,9 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
    * Comprobación: `zypper se owncloud`
 * Instalar el paquete de apache2. Comprobación `zypper se apache2`.
 * Activar e iniciar el servicio apache2. Comprobación `systemctl status apache2.service`
-* Abrir en el cortafuegos (yast2) los puertos/serviciods http , https y SSH.
+* Abrir en el cortafuegos (yast2) los puertos/servicios http , https y SSH.
+    * Ir a `Yast -> firewall -> Servicios autorizados (Zona externa)`.
+    * Añadir http, https y SSH como servicios autorizados de la zona externa.
 
 ## 3.2 Configurar OwnCloud
 
