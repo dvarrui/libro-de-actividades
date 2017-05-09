@@ -56,7 +56,15 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 
 ## 3.2 Configurar OwnCloud
 
-* Instalar el paquete mariadb. Comprobación `zypper se maridb`.
+**Instalar la base de datos**
+* Instalar el paquete mariadb.
+* Comprobaciones:
+    * `zypper se mariadb`.
+    * `mysql --version`, para comprobar la versión instalada.
+    * `rpm -qi libpcre1`, para consultar la versión del paquete.
+* Si tenemos una versión del paquete `libpcre1` inferior a 8.39
+entonces debemos actualizarlo para prevenir errores.
+    * `zypper install libpcre1`, si el paquete está instalado lo actualiza, y si no, lo instala.
 * Activar e iniciar el servicio `mysql.service`.
 * Configurar la seguridad con el comando `mysql_secure_installation`
 
@@ -64,8 +72,8 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 * Enter current password for root (enter for none): <--ENTER
 ...
 * Set root password? [Y/n] <--ENTER
-* New password: <--mariadbpassword
-* Re-enter new password: <--mariadbpassword
+* New password: <--MARIADBPASSWORD
+* Re-enter new password: <--MARIADBPASSWORD
 Password updated successfully!
 ...
 * Remove anonymous users? [Y/n]  <--ENTER
@@ -78,11 +86,15 @@ Password updated successfully!
 ...
 Thanks for using MariaDB!
 ```
+
+**Crear la base de datos**
 * Vamos a entrar en mariadb y crear la base de datos:
     * `mysql -u root -p`
     * `CREATE DATABASE owncloud;`
     * `GRANT ALL ON owncloud.* to 'root'@'localhost' IDENTIFIED BY 'database_password';`
     * `exit`
+
+**Configurar apache2**
 * Ahora configuramos php5 con apache2
     * `a2enmod php5`
     * `vi /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
