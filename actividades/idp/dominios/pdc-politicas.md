@@ -58,16 +58,18 @@ Este error puede afectar al correcto funcionamiento del servidor.
     * Configuración de Directiva de grupo: Quitar Conexiones de red del menú Inicio (Remove Network Connections from the Start Menu)
     * Opción Habilitada
 * `Ocultar unidades específicas en Mi PC`
-    * Ubicación: Configurac ión de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
     * Configuración de Directiva de grupo: Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer).
     * Opción Habilitada. Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
-* `Habilitar Quitar "Conectar a unidad de red" y "Desconectar de unidad de red"`
+* `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
-    * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y “Desconectar de unidad de red” (Remove “Map Network Drive” and “Disconnect Network Drive”).
+    * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y "Desconectar de unidad de red" (Remove "Map Network Drive" and "Disconnect Network Drive").
     * Opción Habilitada
 
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
-actualizaciones de las directivas.
+actualizaciones de las directivas. En algunos casos, después de definir una política,
+ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos
+de que este paso de activación se realice inmediatamente.
 * Capturar imagen del resumen de la configuración de cada una de las directivas creadas
 (`Ir a directiva -> Configuración`).
 
@@ -88,7 +90,7 @@ actualizaciones de las directivas.
 Vamos a crear nuestro propio paquete MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
-En el servidor
+**En el servidor**
 * Descargar el programa WinINSTALL
     * http://www.downloadsource.es/3414/WinINSTALL-LE/
     * http://www.freewarefiles.com/downloads_counter.php?programid=52066
@@ -101,7 +103,7 @@ En el servidor
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
 
-En el cliente
+**En el cliente**
 * Entramos con el usuario administrador del dominio.
 * Descargar el instalador de Firefox. ¡OJO! El instalador de Firefox debe tener un
 tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa
@@ -145,7 +147,7 @@ yendo a la carpeta `E:\softwareXX\firefox`.
     * Eliminar el fichero firexfox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
 
-Vamos al servidor:
+**Vamos al servidor:**
 * Crear las OU `maquinasXXc1617` y mover los equipos del dominio dentro de esta UO.
 * Vamos a crear una directiva de instalación del software `firefox.msi` para la OU anterior.
 * Asociamos a la directiva de grupo de Instalación de software ubicada en
