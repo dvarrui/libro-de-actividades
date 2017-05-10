@@ -115,10 +115,13 @@ la base de datos SQLite en lugar de MariaDB.
 
 ## 3.3 Comprobar vía web
 
-* Para permitir desde otros equipos tenemos que añadir la IP del servidor a las opciones
-`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`.
+* Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
+* Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
+`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`. Ver ejemplo:
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
+
+> **IMPORTANTWE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
