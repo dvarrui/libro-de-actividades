@@ -101,7 +101,7 @@ Thanks for using MariaDB!
     * `a2enmod php5`
     * `vi /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
 * Reiniciar el servicio apache2. Comprobación: `systemctl status apache2`
-* Abrimos un navegador URL: `ip-del-servidor/owncloud`.
+* Abrimos un navegador URL: `localhost/owncloud`.
 * Ahora creamos un usuario que se encargará de administrar OwnCloud.
 
 > En el curso 2015/16 hacíamos lo siguiente:
@@ -120,6 +120,7 @@ la base de datos SQLite en lugar de MariaDB.
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
 
+* Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
 * Creamos un usuario normal.
