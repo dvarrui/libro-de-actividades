@@ -56,7 +56,7 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
     * Ir a `Yast -> firewall -> Servicios autorizados (Zona externa)`.
     * Añadir http, https y SSH como servicios autorizados de la zona externa.
 
-## 3.2 Configurar OwnCloud
+## 3.2 Configurar la base de datos
 
 **Instalar la base de datos**
 * Instalar el paquete mariadb.
@@ -96,7 +96,10 @@ Thanks for using MariaDB!
     * `GRANT ALL ON owncloud.* to 'root'@'localhost' IDENTIFIED BY 'database_password';`
     * `exit`
 
-**Configurar apache2**
+> En caso de problemas por [Access denied for user 'root'@'localhost'](http://jsbsan.blogspot.com.es/2012/02/solucion-al-problema-error-1045-28000.html)
+
+## 3.3 Configurar apache2
+
 * Ahora configuramos php5 con apache2
     * `a2enmod php5`
     * `nano /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
@@ -113,7 +116,7 @@ Thanks for using MariaDB!
 > Si no nos da esta opción, posiblemente está cogiendo por defecto
 la base de datos SQLite en lugar de MariaDB.
 
-## 3.3 Comprobar vía web
+## 3.4 Comprobar vía web
 
 * Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
@@ -121,7 +124,7 @@ la base de datos SQLite en lugar de MariaDB.
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
 
-> **IMPORTANTWE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
+> **IMPORTANTE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
