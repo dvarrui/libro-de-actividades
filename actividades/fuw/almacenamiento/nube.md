@@ -67,6 +67,7 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o
 * Si tenemos una versión del paquete `libpcre1` inferior a 8.39
 entonces debemos actualizarlo para prevenir errores ([Foro unable to start mysql on Leap 42.2](https://forums.opensuse.org/showthread.php/523357-Unable-to-start-myql-on-Leap-42-2)).
     * `zypper install libpcre1`, si el paquete está instalado lo actualiza, y si no, lo instala.
+
 * Activar e iniciar el servicio `mysql.service`.
 * Configurar la seguridad con el comando `mysql_secure_installation`
 
