@@ -99,7 +99,7 @@ Thanks for using MariaDB!
 **Configurar apache2**
 * Ahora configuramos php5 con apache2
     * `a2enmod php5`
-    * `vi /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
+    * `nano /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
 * Reiniciar el servicio apache2. Comprobación: `systemctl status apache2`
 * Abrimos un navegador URL: `localhost/owncloud`.
 * Ahora creamos un usuario que se encargará de administrar OwnCloud.
