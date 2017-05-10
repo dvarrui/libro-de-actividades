@@ -101,10 +101,17 @@ Thanks for using MariaDB!
     * `a2enmod php5`
     * `vi /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
 * Reiniciar el servicio apache2. Comprobación: `systemctl status apache2`
-* Abrimos un navegador URL: `ip-del-servidor/owncloud`
-    * Click en Almacenamiento.
-    * Elegir MySQL/MariaDB y crear usuario administrador.
-    * Debajo MySQL/MariaDB escribir `username=root password=database_password databasename=owncloud`.
+* Abrimos un navegador URL: `ip-del-servidor/owncloud`.
+* Ahora creamos un usuario que se encargará de administrar OwnCloud.
+
+> En el curso 2015/16 hacíamos lo siguiente:
+>
+> * Click en Almacenamiento.
+> * Elegir MySQL/MariaDB y crear usuario administrador.
+> * Debajo MySQL/MariaDB escribir `username=root password=database_password databasename=owncloud`.
+>
+> Si no nos da esta opción, posiblemente está cogiendo por defecto
+la base de datos SQLite en lugar de MariaDB.
 
 ## 3.3 Comprobar vía web
 
