@@ -43,78 +43,122 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o  alq
 * Elegir una MV con OpenSUSE Leap para instalar OwnCloud Server.
     * https://github.com/iosifidis/owncloud-opensuse-leap
 
-----
-
-* Instalar el paquete de OwnCloud Server.
-   * Comprobación: `zypper se owncloud`
-* Instalar el paquete de apache2. Comprobación `zypper se apache2`.
-* Activar e iniciar el servicio apache2. Comprobación `systemctl status apache2.service`
-* Abrir en el cortafuegos (yast2) los puertos/servicios http , https y SSH.
-    * Ir a `Yast -> firewall -> Servicios autorizados (Zona externa)`.
-    * Añadir http, https y SSH como servicios autorizados de la zona externa.
-
-## 3.2 Configurar la base de datos
-
-**Instalar la base de datos**
-* Instalar el paquete mariadb.
-* Comprobaciones:
-    * `zypper se mariadb`.
-    * `mysql --version`, para comprobar la versión instalada.
-    * `rpm -qi libpcre1`, para consultar la versión del paquete.
-* Si tenemos una versión del paquete `libpcre1` inferior a 8.39
-entonces debemos actualizarlo para prevenir errores ([Foro unable to start mysql on Leap 42.2](https://forums.opensuse.org/showthread.php/523357-Unable-to-start-myql-on-Leap-42-2)).
-    * `zypper install libpcre1`, si el paquete está instalado lo actualiza, y si no, lo instala.
-
-* Activar e iniciar el servicio `mysql.service`.
-* Configurar la seguridad con el comando `mysql_secure_installation`
-
 ```
-* Enter current password for root (enter for none): <--ENTER
-...
-* Set root password? [Y/n] <--ENTER
-* New password: <--MARIADBPASSWORD
-* Re-enter new password: <--MARIADBPASSWORD
-Password updated successfully!
-...
-* Remove anonymous users? [Y/n]  <--ENTER
-...
-* Disallow root login remotely? [Y/n] <--ENTER
-...
-* Remove test database and access to it? [Y/n] <--ENTER
-...
-* Reload privilege tables now? [Y/n] <--ENTER
-...
-Thanks for using MariaDB!
+zypper in apache2 mariadb apache2-mod_php5 php5-gd php5-json php5-fpm php5-mysql php5-curl php5-intl php5-mcrypt php5-zip php5-mbstring php5-zlib
 ```
 
-**Crear la base de datos**
-* Vamos a entrar en mariadb y crear la base de datos:
-    * `mysql -u root -p`
-    * `CREATE DATABASE owncloud;`
-    * `GRANT ALL ON owncloud.* to 'ownuser'@'localhost' IDENTIFIED BY 'database_password';`
-    * `exit`
+## 3.2 Create Database
 
-> En caso de problemas por [Access denied for user 'root'@'localhost'](http://jsbsan.blogspot.com.es/2012/02/solucion-al-problema-error-1045-28000.html)
+Next step, create a database. First of all start the service.
 
-## 3.3 Configurar apache2
+```
+systemctl start mysql.service
+systemctl enable mysql.service
+```
 
-* Ahora configuramos php5 con apache2
-    * `a2enmod php5`
-    * `nano /srv/www/htdocs/owncloud/.htaccess` y añadimos `Options +FollowSymLinks` al principio.
-* Reiniciar el servicio apache2. Comprobación: `systemctl status apache2`
-* Abrimos un navegador URL: `localhost/owncloud`.
-* Ahora creamos un usuario que se encargará de administrar OwnCloud.
+The root password is empty by default. That means that you can press enter and you can use your root user. That's not safe at all. So you can set a password using the command:
 
-> En el curso 2015/16 hacíamos lo siguiente:
->
-> * Click en Almacenamiento.
-> * Elegir MySQL/MariaDB y crear usuario administrador.
-> * Debajo MySQL/MariaDB escribir `username=root password=database_password databasename=owncloud`.
->
-> Si no nos da esta opción, posiblemente está cogiendo por defecto
-la base de datos SQLite en lugar de MariaDB.
+`mysqladmin -u root password newpass`
 
-## 3.4 Comprobar vía web
+Where newpass is the password you want.
+Now you set the root password, create the database.
+
+```
+mysql -u root -p
+(you'll be asked for your root password)
+
+CREATE DATABASE ocdatabase;
+GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
+```
+
+Database user: ocuser Database name: owncloudb Database user password: dbpass
+You can change the above information accordingly.
+
+## 3.3 PHP changes
+
+* Hacer copia de seguridad del fichero /etc/php5/apache2/php.ini
+* Now you should edit the file `/etc/php5/apache2/php.ini` and change the values
+
+```
+post_max_size = 50G
+upload_max_filesize = 25G
+max_file_uploads = 200
+max_input_time = 3600
+max_execution_time = 3600
+session.gc_maxlifetime = 3600
+memory_limit = 512M
+```
+
+and finally enable the extensions.
+
+```
+extension=php_gd2.dll
+extension=php_mbstring.dll
+```
+
+## 3.4 Apache Configuration
+
+You should enable some modules. Some might be already enabled.
+
+```
+a2enmod php5
+a2enmod rewrite
+a2enmod headers
+a2enmod env
+a2enmod dir
+a2enmod mime
+```
+
+Now start the apache service.
+
+```
+systemctl start apache2.service
+systemctl enable apache2.service
+```
+
+## 3.5 Install ownCloud
+
+Before the installation, create the data folder and give the right permissions (preferably outside the server directory for security reasons). I created a directory in the /mnt directory. You can mount a USB disk, add it to fstab and save your data there. The commands are:
+
+```
+mkdir /mnt/owncloud_data
+chmod -R 0770 /mnt/owncloud_data
+chown wwwrun /mnt/owncloud_data
+```
+
+Now download [ownCloud] (https://owncloud.org/install/). Then unzip and move the folder to the server directory.
+
+```
+wget https://download.owncloud.org/community/owncloud-9.1.1.zip
+unzip owncloud-9.1.1.zip
+cp -r owncloud /srv/www/htdocs
+chown -R wwwrun /srv/www/htdocs/owncloud/
+```
+
+Make sure that everything is OK and then delete the folder owncloud and owncloud-9.1.1.zip from the root (user) directory.
+
+Now open your browser to the server IP/owncloud
+
+ownCloud-install
+
+Set your administrator username and password.
+Your data directory is: /mnt/owncloud_data
+Regarding database, use the following.
+Database user: ocuser
+Database name: owncloudb
+Database user password: dbpass
+
+ownCloud-install
+
+Wait until it ends the installation. The page you'll see is the following.
+
+ownCloud-install
+
+For more configuration, you can follow the [official documentation] (https://doc.owncloud.org/). This was the basic installation on openSUSE Leap.
+
+---
+
+## 4 Comprobar vía web
 
 * Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
@@ -130,12 +174,14 @@ la base de datos SQLite en lugar de MariaDB.
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
 
+
 ---
 
-# 4. OwnCloud Desktop Client
+# 5. OwnCloud Desktop Client
 
 * Ir a una MV con Windows 7.
 * Instalar el sofware cliente de OwnCloud.
+   * URL usar http://ip-servidor/owncloud.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
 ---
