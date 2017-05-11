@@ -2,7 +2,6 @@
 ```
 Utilizada en los cursos 201415 y 201314
 En el curso 201516 se amplía para usar OpenSUSE13.2
-En el curso 201617 se adapta para usar OpenSUSE Leap
 ```
 
 # 1. Entrega
@@ -32,19 +31,23 @@ Almacenamiento en la nube de un proveedor externo.
 
 # 3. Nube propia con OwnCloud Server en OpenSUSE 13.2
 
-Últimamente se están poniendo de moda servicios de almacenamiento y sincronización de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
+Últimamente se están poniendo de moda servicios de almacenamiento y sincronización
+de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
 
-Dentro de las soluciones libres disponemos de ownCloud, por el que parece que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCubey GetFreeCloud.
+Dentro de las soluciones libres disponemos de ownCloud, por el que parece
+que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios
+de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCubey GetFreeCloud.
 
-Las fuentes están disponibles para poder instalarlo en máquinas propias o  alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
+Las fuentes están disponibles para poder instalarlo en máquinas propias o
+ alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
 ## 3.1 Instalar OwnCloud
 
-* Elegir una MV con OpenSUSE Leap para instalar OwnCloud Server.
-    * https://github.com/iosifidis/owncloud-opensuse-leap
-
-----
-
+* Elegir una MV con OpenSUSE13.2 para instalar OwnCloud Server.
+    * [OwnCloud en OpenSuse13.2](https://www.howtoforge.com/owncloud-install-on-opensuse-13.2)
+* Agregar repositorios para OwnCloud en OpenSUSE
+   * Pistas: `zypper addrepo http://...`, `zypper r...`.
+   * Comprobación:  `zypper search owncloud`
 * Instalar el paquete de OwnCloud Server.
    * Comprobación: `zypper se owncloud`
 * Instalar el paquete de apache2. Comprobación `zypper se apache2`.
