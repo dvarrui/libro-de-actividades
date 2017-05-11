@@ -10,11 +10,11 @@ En el curso 201617 se adapta para usar OpenSUSE Leap
 * Apartado 2:
     * Trabajo individual.
     * Vídeo que muestre la práctica en funcionamiento.
-* Apartados 3 y 4:
+* Apartados 3, 4 y 5:
     * Colaborar con otro compañero.
         * Montar nuestro servidor para que lo use el compañero.
         * Usar el servidor de otro compañero.
-    * Entregar un informe de los pasos realizados
+    * Entregar un informe de los pasos realizados y el URL del vídeo subido a Youtube
 
 ---
 
@@ -32,16 +32,19 @@ Almacenamiento en la nube de un proveedor externo.
 
 # 3. Nube propia con OwnCloud Server en OpenSUSE 13.2
 
-Últimamente se están poniendo de moda servicios de almacenamiento y sincronización de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
+Últimamente se están poniendo de moda servicios de almacenamiento y sincronización
+de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
 
 Dentro de las soluciones libres disponemos de ownCloud, por el que parece que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCubey GetFreeCloud.
 
-Las fuentes están disponibles para poder instalarlo en máquinas propias o  alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
+Las fuentes están disponibles para poder instalarlo en máquinas propias o alquiladas,
+así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
 ## 3.1 Instalar OwnCloud
 
+* Vamos a seguir el siguiente [tutorial](https://github.com/iosifidis/owncloud-opensuse-leap).
 * Elegir una MV con OpenSUSE Leap para instalar OwnCloud Server.
-    * https://github.com/iosifidis/owncloud-opensuse-leap
+* Instalamos lo siguientes paquetes:
 
 ```
 zypper in apache2 mariadb apache2-mod_php5 php5-gd php5-json php5-fpm php5-mysql php5-curl php5-intl php5-mcrypt php5-zip php5-mbstring php5-zlib
@@ -148,13 +151,14 @@ Database user: ocuser
 Database name: owncloudb
 Database user password: dbpass
 
-ownCloud-install
-
 Wait until it ends the installation. The page you'll see is the following.
 
-ownCloud-install
-
 For more configuration, you can follow the [official documentation] (https://doc.owncloud.org/). This was the basic installation on openSUSE Leap.
+
+> * Crear el archivo /srv/www/htdocs/index.html
+> * Escribir el nombre del alumno dentro de index.html
+> * Con URL localhost accedemos a index.html
+> * Con URL localhost/owncloud accedemos a la aplicación OwnCloud
 
 ---
 
@@ -173,7 +177,6 @@ For more configuration, you can follow the [official documentation] (https://doc
 * Usamos nuestro usuario/clave administrador.
 * Creamos un usuario normal.
 * Subiremos algunos archivos al servidor.
-
 
 ---
 
