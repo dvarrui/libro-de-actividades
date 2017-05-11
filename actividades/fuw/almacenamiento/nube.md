@@ -94,7 +94,7 @@ Thanks for using MariaDB!
 * Vamos a entrar en mariadb y crear la base de datos:
     * `mysql -u root -p`
     * `CREATE DATABASE owncloud;`
-    * `GRANT ALL ON owncloud.* to 'root'@'localhost' IDENTIFIED BY 'database_password';`
+    * `GRANT ALL ON owncloud.* to 'ownuser'@'localhost' IDENTIFIED BY 'database_password';`
     * `exit`
 
 > En caso de problemas por [Access denied for user 'root'@'localhost'](http://jsbsan.blogspot.com.es/2012/02/solucion-al-problema-error-1045-28000.html)
