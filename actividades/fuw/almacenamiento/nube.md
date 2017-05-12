@@ -172,6 +172,7 @@ For more configuration, you can follow the [official documentation] (https://doc
 
 > **IMPORTANTE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
+* Hacer captura de pantalla del fichero `/srv/www/htdocs/owncloud/config/config.php`.
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
@@ -184,7 +185,7 @@ For more configuration, you can follow the [official documentation] (https://doc
 
 * Ir a una MV con Windows 7.
 * Instalar el sofware cliente de OwnCloud.
-   * URL usar http://ip-servidor/owncloud.
+   * Usar URL http://ip-servidor/owncloud.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
 ---

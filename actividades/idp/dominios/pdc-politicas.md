@@ -171,7 +171,9 @@ actualizaciones de las directivas.
 * Capturar imagen del resumen de la configuración de cada una de las directivas creadas
 (`Ir a directiva -> Configuración`).
 
-Vamos al otro cliente:
+**Vamos al otro cliente:**
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
 
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
+
+> Esto puede tardar bastante tiempo.
