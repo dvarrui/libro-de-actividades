@@ -4,34 +4,36 @@
 * Cliente de dominio GNU/Linux con OpenSUSE/Yast
 ```
 
-#1. Introducción
+# 1. Introducción
 
-El objetivo de esta práctica será el de configurar una MV GNU/Linux, 
-para comportarse como cliente del dominio de la práctica anterior. 
+El objetivo de esta práctica será el de configurar una MV GNU/Linux,
+para comportarse como cliente del dominio de la práctica anterior.
 En este caso la unirá al PDC del Windows Server.
 
-Vamos a aprovechar el PDC de la actividad anterior, para realizar esta práctica. 
-Además usaremos la herramienta YAST, un programa de entorno 
+Vamos a aprovechar el PDC de la actividad anterior, para realizar esta práctica.
+Además usaremos la herramienta YAST, un programa de entorno
 gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
 
-##2. Preparar el cliente
+---
+
+## 2. Preparar el cliente
 
 Tener en cuenta los siguientes aspectos en la configuración del cliente Ubuntu.
 
-* HORA: La fecha/hora del sistema debe sincronizarse con el PDC. 
-* VIRTUALBOX: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable 
-configurar la red de las máquinas virtuales en modo `puente` las dos 
+* HORA: La fecha/hora del sistema debe sincronizarse con el PDC.
+* VIRTUALBOX: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable
+configurar la red de las máquinas virtuales en modo `puente` las dos
 (El modo "Red interna" también funcionará bien).
-* Interfaz de RED: Recordar que las máquinas (Servidor y cliente) deben tener 
+* Interfaz de RED: Recordar que las máquinas (Servidor y cliente) deben tener
 la configuración de red estática.
-* Servidores DNS: Los clientes, para unirse al PDC, deben tener como `DNS1=ip-del-pdc`, 
+* Servidores DNS: Los clientes, para unirse al PDC, deben tener como `DNS1=ip-del-pdc`,
 y `DNS2=8.8.4.4`.
 
 
 > **Configuración "manual" de la resolución de nombres**
 >
-> Si la resolución de nombres fallara,  podemos para este caso, hacer 
-una configuración de nombres "manual". 
+> Si la resolución de nombres fallara,  podemos para este caso, hacer
+una configuración de nombres "manual".
 > Para ello editamos el archivo `/etc/hosts` y añadimos la línea siguiente:
 >
 > ```
@@ -42,13 +44,15 @@ una configuración de nombres "manual".
     * `host www.google.es`
     * `host NOMBRE_DEL_PDC`
 
-##2. Unirse al dominio
+---
+
+## 3. Unirse al dominio
 
 * Usar Yast para unir la MV al dominio del PDC.
     * `Yast -> Unirse a un dominio`
     * Activar
         * Autenticación SMB
-        * Crear home del usuario 
+        * Crear home del usuario
 * Actualizar paquetes OpenSuse (`zypper update`)
 * Comprobar en el servidor PDC, consultando equipos del dominio
 * Comprobar entrando con un usuario del dominio en el cliente:
@@ -70,8 +74,9 @@ Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU
 > * `id USUARIO`, esto debería devolver que no existe el usuario en el sistema local.
 > * `cat /etc/passwd |grep 'DOMINIO\USUARIO'`, esto es lo mismo que `cat /etc/passwd | grep $(whoami)`.
 
+---
 
-#ANEXO
+# ANEXO
 
 Enlaces de interés:
 * [Descagar guía OpenSUSE 13.1 con DA](http://www.mediafire.com/download/513w206qbg014bv/openSUSE+13.1+con+Active+Directory+Gu%C3%ADa+Ilustrada.zip)
