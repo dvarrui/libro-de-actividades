@@ -10,6 +10,18 @@
 
 Vamos a montar un iSCSI con Windows Server.
 
+Para los que no estéis familiarizados con iSCSI, digamos que es una manera de “encapsular”
+comandos SCSI en paquetes IP. De esta manera podemos acceder a sistemas de almacenamiento externos usando una red IP en lugar de los tradicionales buses SCSI o los canales de fibra. Es decir, una buena forma de montarnos una SAN.
+
+La solución consta de al menos dos componentes. Un iSCSI Initiator y un Target.
+El initiator es lo que utilizamos en el equipo que va a aceder a esos volumenes,
+y el Target es lo que nos permitirá crear el sistema de almacenamiento compartido,
+y el que permitira el acceso a las LUNs que se hayan creado a cada cliente específico.
+
+Generalmente esta tecnología esta ya incluida en el propio hardware de los servidores y de los sistemas SAN, que ofrecen este tipo de conectividad a través de dispositivos multifunción. Sin embargo esto no excluye que un iniciador software se pueda conectar a un Target hardware o viceversa.
+
+El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, generalmente dedicadas en el host y en el guest.
+
 ---
 
 # 1 Preparativos
@@ -31,8 +43,8 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 # 2 Enlaces de interés
 
+* Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * TARGET - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
-* TARGET - [Targets iSCSI software para Windows](https://blogs.technet.microsoft.com/davidcervigon/2007/08/29/targets-iscsi-gratuitos-para-windows)
 * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
 
 > **NOTA**
@@ -40,19 +52,24 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 > En el firewall de Windows habilitar regla de entrada `eco ICMP v4` para
 permitir que funcione la respuesta al comando ping.
 >
-> Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 
 ---
 
 # 3 Instalar el target
 
-* Vamos al target, instalar el software de target en el `Administrador Servidor`.
-    * `Característiscas/Funciones -> Agregar Almacenamiento SAN`.
+* Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
+* Hay que descargar el software iSCSI Target para Windows
+* Crear un destino iSCSI
+* Identificar: ayuda a identificar el Initiador que hará uso del almacenamiento.
+* Crear disco virtual para el destino iSCSI
+* Le da formato al nuevo dispositivo.
+* Desmontar dispositivo en Target.
 
 ---
 
 # 4 Configurar Iniciador
 
+* Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
 Sólo hay que configurarlo para conectar con el target.
 
