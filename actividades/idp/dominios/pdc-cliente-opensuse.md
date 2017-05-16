@@ -27,20 +27,21 @@ Tener en cuenta los siguientes aspectos en la configuración del cliente.
 * Servidores DNS: Los clientes, para unirse al PDC, deben tener como `DNS1=ip-del-pdc`,
 y `DNS2=8.8.4.4`.
 
+* Realizar la comprobación del DNS mediante la ejecución de
+    * `host www.google.es`
+    * `host NOMBRE_DEL_DOMINIO`
+    * `host NOMBRE_DEL_PDC`
+
 > **Configuración "manual" de la resolución de nombres**
 >
 > Si la resolución de nombres fallara,  podemos en este caso, hacer
 una configuración de nombres "manual".
 > Para ello editamos el archivo `/etc/hosts` y añadimos la línea siguiente:
 >
-> ```
-> IP_DEL_PDC   vargas42dom.ruiz42s.curso1516   vargas42s.curso1516
-> ```
-
-* Realizar la comprobación del DNS mediante la ejecución de
-    * `host www.google.es`
-    * `host NOMBRE_DEL_DOMINIO`
-    * `host NOMBRE_DEL_PDC`
+> `IP_DEL_PDC   vargas42dom.curso1516   vargas42s.vargas42dom.curso1516`
+>
+> Si tenemos problemas con la resolución de nombres, revisar el contenido
+del fichero `/etc/resolv.conf`.
 
 ---
 
