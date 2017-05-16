@@ -14,7 +14,7 @@ Vamos a montar un iSCSI con GNU/Linux OpenSUSE.
 
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2.
 
-Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion-aula109.md)).
+Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.31)
