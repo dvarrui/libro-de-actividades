@@ -14,7 +14,7 @@ Vamos a montar un iSCSI con Windows Server.
 
 # 1 Preparativos
 
-Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion-aula109.md)).
+Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion/windows-server.md)).
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.21)
