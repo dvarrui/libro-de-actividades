@@ -6,6 +6,10 @@
 
 # iSCSI en OpenSUSE
 
+Vamos a montar un iSCSI con GNU/Linux OpenSUSE.
+
+---
+
 # 1 Preparativos
 
 Vamos a montar la práctica de iSCSI con OpenSUSE 13.2.
@@ -14,10 +18,10 @@ Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion-aula1
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.31)
-    * y la otra en red interna (192.168.XX.31) con nombre `san`.
+    * y la otra en red interna (192.168.XX.31) con nombre `san_opensuse`.
         * Este interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`.
-    * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
+    * Con un interfaz de red (192.168.XX.32) en modo red interna `san_opensuse`.
     * Este interfaz tiene como gateway 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
@@ -45,6 +49,8 @@ para instalar el software, podemos hacerlo de varias formas:
 >     echo "0" > /proc/sys/net/ipv4/ip_forward
 > ```
 
+---
+
 # 2 Target - Teoría
 
 La configuración del Target contiene:
@@ -58,8 +64,8 @@ El estándar iSCSI define que tanto los target como los iniciadores deben
 tener un nombre que sigue un patrón,
 el cual es el siguiente: `iqn.YYYY-MM.NOMBRE-DEL_DOMINIO_INVERTIDO:IDENTIFICADOR`.
 Donde:
-* iqn es un término fijo y debe figurar al principio.
-* YYYY-MM es la fecha de alta del dominio de la organización para la que estamos configurando el target.
+* `iqn` es un término fijo y debe figurar al principio.
+* `YYYY-MM` es la fecha de alta del dominio de la organización para la que estamos configurando el target.
 * A continuación debe figurar el nombre del dominio invertido
 * Luego de los “:”, un identificador que podemos ponerlo a nuestro gusto, y que
 puede en muchos casos brindar información del target.
@@ -89,6 +95,8 @@ e incluso archivos. En cualquier caso solo hay que definir el path.
 El archivo contiene muchos parámetros más de configuración,
 que en la mayoría de los casos tienen que ver con la performance del servidor.
 En nuestro ejemplo, configurando estos tres parámetros nos basta.
+
+---
 
 ## 3 Práctica: configuración del Target
 
