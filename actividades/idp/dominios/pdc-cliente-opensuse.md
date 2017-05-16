@@ -47,7 +47,7 @@ una configuración de nombres "manual".
 ## 3. Unirse al dominio
 
 * Usar Yast para unir la MV al dominio del PDC.
-    * `Yast -> Unirse a un dominio`
+    * `Yast -> Pertenencia a dominio de Windows` (Unirse a un dominio)
     * Activar
         * Autenticación SMB
         * Crear home del usuario
