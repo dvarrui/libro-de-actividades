@@ -52,6 +52,9 @@ del fichero `/etc/resolv.conf`.
     * Activar
         * Autenticación SMB
         * Crear home del usuario
+
+> OJO: Hay que escribir usuario `Administrador` con la clave del dominio.
+
 * Actualizar paquetes OpenSuse (`zypper update`)
 * Comprobar en el servidor PDC, consultando los equipos del dominio.
 
