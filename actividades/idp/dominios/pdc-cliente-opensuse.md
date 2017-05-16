@@ -39,6 +39,7 @@ una configuración de nombres "manual".
 
 * Realizar la comprobación del DNS mediante la ejecución de
     * `host www.google.es`
+    * `host NOMBRE_DEL_DOMINIO`
     * `host NOMBRE_DEL_PDC`
 
 ---
@@ -60,9 +61,10 @@ una configuración de nombres "manual".
 * Comprobar entrando con un usuario del dominio en el cliente:
     *  Desde el cliente, entramos al sistema con algún usuario del dominio (Ejemplos: `DOMAIN\username`, DOMAIN/username o username@DOMAIN).
 
-Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1. Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
-
-![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
+> Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
+> Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
+>
+> ![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
 
 * Una vez iniciada la sesión ejecutar los comandos de comprobación:
     * `whoami`, esto debe devolver `DOMINIO\USER` que ha iniciado sesión
