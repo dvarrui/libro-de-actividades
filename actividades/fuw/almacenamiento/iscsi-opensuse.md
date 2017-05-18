@@ -126,8 +126,8 @@ Vamos a la máquina target:
         * Usuario/clave
         * Sin autenticación
     * Destinos(Dispositivos)
-        * Nombre `iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh`
-        * Identificador `sanXX.1200M.test`
+        * Nombre `iqn.2017-05.nombre-de-la-maquina`. Por ejemplo `iqn.2017-05.curso1617.vargas42g`.
+        * Identificador `test`
         * Seleccionar los LUN (dispositivos creados anteriormente)
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
             * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
@@ -143,30 +143,31 @@ Vamos a la máquina target:
 # 4 Initiator
 
 Enlaces recomendados:
-* [federicosayd - ISCSI Initiator en GNU/Linux Debian](http://federicosayd.wordpress.com/2007/09/13/montando-un-iniciador-iscsi-en-linux)
+* [OpenSUSE - iSCSI Initiator](http://es.opensuse.org/iSCSI)
+* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
 ## 4.1 Instalar y configurar acceso
 
 Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE 13.2:
     *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
-* `Yast -> configurar Initiator -> Descubrir` los destinos de targets.
+* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
 
-> **Comandos**
->
 > Otra forma de descubrir target es usando el siguiente comando por la consola:
+>
 > * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
 > * `iscsiadm -m discovery -t st -p IP-DEL-TARGET`
+>
 > El target ofrece su servicio por defecto en el puerto 3260.
 > * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
 
-* `Yast -> configurar Initiator -> Conectar` con el destino que hemos descubierto.
+* `Yast -> configurar Initiator -> Conectar` para concetar con el destino que hemos descubierto.
 
-> **Comandos**
->
 > Otra forma de conectar con el destino del Target vía comandos:
-> * `iscsiadm -m node -l` ( configuración básica sin autenticación )
-> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test -p IP --login`
+>
+> * `iscsiadm -m node --targetname iqn.2017-05.curso1617.vargas42g:test -p IP-TARGET --login`,
+conectar un target concreto.
+> * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
 
 ## 4.2 Usar almacenamiento
 
