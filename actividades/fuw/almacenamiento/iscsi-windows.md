@@ -10,15 +10,19 @@
 
 Vamos a montar un iSCSI con Windows Server.
 
-Para los que no estéis familiarizados con iSCSI, digamos que es una manera de “encapsular”
+*(Esta información no es mía. Es de un enlace de Internet)*
+
+Para los que no estén familiarizados con iSCSI, digamos que es una manera de “encapsular”
 comandos SCSI en paquetes IP. De esta manera podemos acceder a sistemas de almacenamiento externos usando una red IP en lugar de los tradicionales buses SCSI o los canales de fibra. Es decir, una buena forma de montarnos una SAN.
 
 La solución consta de al menos dos componentes. Un iSCSI Initiator y un Target.
-El initiator es lo que utilizamos en el equipo que va a aceder a esos volumenes,
-y el Target es lo que nos permitirá crear el sistema de almacenamiento compartido,
+* El initiator es lo que utilizamos en el equipo que va a aceder a esos volumenes,
+* y el Target es lo que nos permitirá crear el sistema de almacenamiento compartido,
 y el que permitira el acceso a las LUNs que se hayan creado a cada cliente específico.
 
-Generalmente esta tecnología esta ya incluida en el propio hardware de los servidores y de los sistemas SAN, que ofrecen este tipo de conectividad a través de dispositivos multifunción. Sin embargo esto no excluye que un iniciador software se pueda conectar a un Target hardware o viceversa.
+Generalmente esta tecnología está ya incluida en el propio hardware de los servidores
+y de los sistemas SAN, que ofrecen este tipo de conectividad a través de dispositivos multifunción.
+Sin embargo esto no excluye que un iniciador software se pueda conectar a un Target hardware o viceversa.
 
 El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, generalmente dedicadas en el host y en el guest.
 
@@ -33,6 +37,7 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
     * la otra en red interna (192.168.XX.21) con nombre `san_windows`.
         * Esta interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`.
+    * Necesitamos Windows Server 64 bits para poder instalar el software de Target.
     * Con un interfaz de red (192.168.XX.22) en modo red interna `san_windows`.
     * Esta interfaz usa como gateway 192.168.XX.21.
 * Las IP's las pondremos todas estáticas.
@@ -58,13 +63,13 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 * Hay que descargar el software iSCSI Target para instalar en Windows Server 2008.
     * Descargar iSCSI Target 3.3 o superior desde la web de Microsoft.
     * Instalar el software.
-    * `C:\iSCSI_target\instalar_target.msi`
+    * `C:\iSCSI_target\x64\instalar_target.msi`
 * Una vez instalado, vamos a herramientas administrativas -> iSCSI Target
 
 ## 3.2 Crear un destino
 
 * Creamos un nuevo destino iSCSI con:
-    * Nombre: "ALUMNOXXDISCO01".
+    * Nombre: "alumnoXXdisco01".
     * Descripción: "Nombre completo del alumno y la fecha de hoy"
 * Identificador IQN. Esta es la forma de identificar el equipo Initiador que tendrá
 permitido el uso del almacenamiento que estamos creando.
