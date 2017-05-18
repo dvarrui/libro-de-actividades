@@ -1,17 +1,15 @@
 ```
 * Práctica creada en el curso 201415
-* Actualizada para el curso 201516
-* Problemas en Windows
-    * al instalar el Target
-    * usar el dispositivo
+* Actualizada para el curso 201617
 ```
 
 # iSCSI en Windows 2008 Server
 
-Vamos a montar un iSCSI con Windows Server.
+Vamos a montar un iSCSI con Windows Server 2008 64 bits.
 
 *(Esta información no es mía. Es de un enlace de Internet)*
 
+```
 Para los que no estén familiarizados con iSCSI, digamos que es una manera de “encapsular”
 comandos SCSI en paquetes IP. De esta manera podemos acceder a sistemas de almacenamiento externos usando una red IP en lugar de los tradicionales buses SCSI o los canales de fibra. Es decir, una buena forma de montarnos una SAN.
 
@@ -25,6 +23,7 @@ y de los sistemas SAN, que ofrecen este tipo de conectividad a través de dispos
 Sin embargo esto no excluye que un iniciador software se pueda conectar a un Target hardware o viceversa.
 
 El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, generalmente dedicadas en el host y en el guest.
+```
 
 ---
 
