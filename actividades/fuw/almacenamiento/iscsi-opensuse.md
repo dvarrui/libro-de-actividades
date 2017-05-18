@@ -136,10 +136,10 @@ Vamos a la máquina target:
 ## 3.3 Comprobamos
 
 Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
+
 * `systemctl start target.service`, inicia el servicio Target manualmente.
 * `systemctl status target.service`, comprueba el estado del servicio Target.
 * `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
-
 * Ejecutamos `cat /proc/net/iet/volume` para comprobar los volúmes disponibles.
 Veamos un ejemplo:
 
@@ -167,7 +167,6 @@ iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
 Enlaces recomendados:
 * [OpenSUSE - tutorail iSCSI Initiator con comandos](http://es.opensuse.org/iSCSI)
 * [OpenSUSE - iSCSI Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
-* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
 ## 4.1 Instalar y configurar acceso
 
