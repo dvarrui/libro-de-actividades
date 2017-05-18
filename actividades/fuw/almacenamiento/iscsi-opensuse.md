@@ -103,7 +103,13 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 Enlaces recomendados:
 * [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
 * [OpenSUSE - iSCSI Target documentation ](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_target.html)
-* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
+
+Otros enlaces de interés:
+* INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
+* Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
+* Vídeo: [Linux Configure an iSCSI Target](https://www.youtube.com/watch?v=cWPY3lH3qTQ)
+* Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
+* Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
 
 ## 3.1 Crear los dispositivos
 
@@ -217,15 +223,9 @@ lsscsi
 
 # ANEXO
 
-## A.1 Otros enlaces de interés
-
-* TARGET - [Setting up iSCSI target on OpenSUSE](https://www.suse.com/documentation/sles10/book_sle_reference/data/sec_inst_system_iscsi_target.html)
-* INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
-* Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
-* Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
-
-## A.2 iSCSI en Debian
+## A.1 Otros enlaces de interés Debian
 
 Enlaces de interés:
+* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 * iSCSI - [Using iSCSI (target and initiator) on Debian](https://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target).
 * TARGET - [Create targer iSCSI on Debian](https://wiki.debian.org/SAN/iSCSI/iscsitarget).
