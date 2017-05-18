@@ -166,7 +166,7 @@ Vamos a la máquina Iniciador.
 >
 > Otra forma de conectar con el destino del Target vía comandos:
 > * `iscsiadm -m node -l` ( configuración básica sin autenticación )
-> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test -p IP`
+> * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test -p IP --login`
 
 ## 4.2 Usar almacenamiento
 
