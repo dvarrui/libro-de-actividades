@@ -118,7 +118,7 @@ Enlaces recomendados:
 
 Vamos a la máquina target:
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI.
-* Configuración vía Yast:
+* Ir a `Yast -> iSCSI LIO server`, para configurar el Target:
     * Servicio
         * Automático al inicio = Sí
         * Abrir el cortafuegos = Sí
