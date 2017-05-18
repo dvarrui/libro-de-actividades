@@ -1,7 +1,7 @@
 ```
 * Fecha de creación : curso 201415
-* Fecha de UM       : curso 201516
-* Sistema Operativo : OpenSUSE 13.2
+* Fecha de UM       : curso 201617
+* Sistema Operativo : OpenSUSE Leap, OpenSUSE 13.2
 ```
 
 # iSCSI en OpenSUSE
@@ -101,7 +101,8 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 ## 3 Práctica: configuración del Target
 
 Enlaces recomendados:
-* [OpenSUSE - iSCSI Target](http://es.opensuse.org/iSCSI)
+* [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
+* [OpenSUSE - iSCSI Target documentation ](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_target.html)
 * [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
 ## 3.1 Crear los dispositivos
@@ -131,26 +132,51 @@ Vamos a la máquina target:
         * Seleccionar los LUN (dispositivos creados anteriormente)
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
             * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
+
+## 3.3 Comprobamos
+
+Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
 * `systemctl start target.service`, inicia el servicio Target manualmente.
 * `systemctl status target.service`, comprueba el estado del servicio Target.
 * `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
 
-> Ya tenemos nuestro servidor iSCSI instalado y listo para servir discos a los iniciadores de nuestra red interna.
-> Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar los discos por la red.
+* Ejecutamos `cat /proc/net/iet/volume` para comprobar los volúmes disponibles.
+Veamos un ejemplo:
+
+```
+tid:1 name:iqn.2006-02.com.example.iserv:systems
+        lun:0 state:0 iotype:fileio path:/dev/mapper/system-v3
+        lun:1 state:0 iotype:fileio path:/dev/hda4
+        lun:2 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
+```
+
+* Consultar contenido del fichero `etc/ietd.conf`. Veamos un ejemplo:
+```
+Target iqn.2006-02.com.example.iserv:system2
+          Lun 0 Path=/dev/mapper/system-swap2
+          IncomingUser joe secret
+```
+
+Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador
+iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
 
 ---
 
 # 4 Initiator
 
 Enlaces recomendados:
-* [OpenSUSE - iSCSI Initiator](http://es.opensuse.org/iSCSI)
+* [OpenSUSE - tutorail iSCSI Initiator con comandos](http://es.opensuse.org/iSCSI)
+* [OpenSUSE - iSCSI Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
 * [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 
 ## 4.1 Instalar y configurar acceso
 
 Vamos a la máquina Iniciador.
-* El software necesario viene preinstalado en OpenSUSE 13.2:
+* El software necesario viene preinstalado en OpenSUSE Leap:
     *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
+
+**Descubrir**
+
 * `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
 
 > Otra forma de descubrir target es usando el siguiente comando por la consola:
@@ -161,7 +187,9 @@ Vamos a la máquina Iniciador.
 > El target ofrece su servicio por defecto en el puerto 3260.
 > * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
 
-* `Yast -> configurar Initiator -> Conectar` para concetar con el destino que hemos descubierto.
+**Conectar**
+
+* `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
 
 > Otra forma de conectar con el destino del Target vía comandos:
 >
@@ -173,6 +201,13 @@ conectar un target concreto.
 
 * `dmesg`, comprobar que tenemos un nuevo disco SCSI de 1200M conectado a la MV del Initiator.
     * Debería ser un disco `/dev/sdb`.
+* `lsscsi`, encontrar la ruta del dispositivo local para el dispositivo Target iSCSI.
+Veamos un ejemplo
+```
+lsscsi
+[1:0:0:0]   disk    IET      VIRTUAL-DISK     0     /dev/sdb
+```
+
 * Crear directorio `/mnt/remote_targetXX`.
 * `Yast -> Particionador`, elegir el disco.
     * Crear partición y formatear el disco.
