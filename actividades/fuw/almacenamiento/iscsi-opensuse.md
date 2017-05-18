@@ -153,15 +153,17 @@ Vamos a la máquina Iniciador.
 * `Yast -> configurar Initiator -> Descubrir` los destinos de targets.
 
 > **Comandos**
+>
 > Otra forma de descubrir target es usando el siguiente comando por la consola:
 > * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
 > * `iscsiadm -m discovery -t st -p IP-DEL-TARGET`
-> El target ofrece su servicio por defecto en el puerto 3620.
+> El target ofrece su servicio por defecto en el puerto 3260.
 > * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
 
 * `Yast -> configurar Initiator -> Conectar` con el destino que hemos descubierto.
 
 > **Comandos**
+>
 > Otra forma de conectar con el destino del Target vía comandos:
 > * `iscsiadm -m node -l` ( configuración básica sin autenticación )
 > * `iscsiadm -m node --targetname iqn.2016-06.idp.SEGUNDOAPELLIDOALUMNOXXh:sanXX.1200M.test -p IP`
