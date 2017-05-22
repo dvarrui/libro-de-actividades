@@ -139,6 +139,9 @@ Vamos a la máquina target:
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
             * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
 
+> El target tiene un identificador iqn y el iniciador tendrá otro iqn diferente.
+> En el target hay que habilitar permiso de acceso al iqn del Iniciador.
+
 ## 3.3 Comprobamos
 
 Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
@@ -151,16 +154,14 @@ Veamos un ejemplo:
 
 ```
 tid:1 name:iqn.2006-02.com.example.iserv:systems
-        lun:0 state:0 iotype:fileio path:/dev/mapper/system-v3
+        lun:0 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
         lun:1 state:0 iotype:fileio path:/dev/hda4
-        lun:2 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
 ```
 
 * Consultar contenido del fichero `etc/ietd.conf`. Veamos un ejemplo:
 ```
 Target iqn.2006-02.com.example.iserv:system2
           Lun 0 Path=/dev/mapper/system-swap2
-          IncomingUser joe secret
 ```
 
 Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador
