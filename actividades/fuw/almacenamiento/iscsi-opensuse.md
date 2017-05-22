@@ -133,7 +133,7 @@ Vamos a la máquina target:
         * Usuario/clave
         * Sin autenticación
     * Destinos(Dispositivos)
-        * Nombre `iqn.2017-05.nombre-de-la-maquina`. Por ejemplo `iqn.2017-05.curso1617.vargas42g`.
+        * Nombre `iqn.2017-05.nombre-del-target`. Por ejemplo `iqn.2017-05.vargas42target`.
         * Identificador `test`
         * Seleccionar los LUN (dispositivos creados anteriormente)
             * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
