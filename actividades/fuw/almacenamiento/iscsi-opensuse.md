@@ -16,12 +16,14 @@ Vamos a montar la práctica de iSCSI con OpenSUSE 13.2.
 
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
 * MV1: Esta MV actuará de `Initiator`.
+    * Hostname `initiatorXX`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.31)
-    * y la otra en red interna (192.168.XX.31) con nombre `san_opensuse`.
+    * y la otra en red interna (192.168.XX.31) con nombre `san`.
         * Este interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`.
-    * Con un interfaz de red (192.168.XX.32) en modo red interna `san_opensuse`.
+    * Hostname `targetXX`.
+    * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
     * Este interfaz tiene como gateway 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
@@ -98,7 +100,17 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 
 ---
 
-## 3 Práctica: configuración del Target
+## 3 Práctica: Initiator
+
+* Consultamos el identificador iqn del Initiator y lo apuntamos para usarlo más adelante.
+    * Por entorno gráfico, `Yast -> Iniciador SCSI`
+    * Por comandos, `more /etc/iscsi/initiatorname.iscsi`
+
+![iscsi-opensuse-initiator-iqn.png](files/iscsi-opensuse-initiator-iqn.png)
+
+---
+
+## 4 Práctica: configuración del Target
 
 Enlaces recomendados:
 * [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
@@ -111,71 +123,79 @@ Otros enlaces de interés:
 * Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
 * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
 
-## 3.1 Crear los dispositivos
+## 4.1 Crear los dispositivos
 
-* Crear los dispositivos
-    * Creamos el dispositivo1 a partir de un fichero.
-        * `dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500`
-        * Hemos creado un fichero con tamaño 500M.
-    * Creamos el dispositivo2 a partir de un disco extra.
-        * Añadiremos un 2º disco de 700M a la MV Target.
-        * `/dev/sdb` será nuestro dispositivo2.
+Crear los dispositivos
+* Creamos el dispositivo1 a partir de un fichero.
+    * `dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500`
+    * Hemos creado un fichero con tamaño 500M.
+    * `du -sh /home/dispositivo1.img`, lo comprobamos.
+* Creamos el dispositivo2 a partir de un disco extra.
+    * Añadiremos un 2º disco de 700M a la MV Target.
+    * `/dev/sdb` será nuestro dispositivo2.
 
-## 3.2 Instalar y configurar el Target
+## 4.2 Instalar y configurar el Target
 
-Vamos a la máquina target:
-* `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI.
-* Ir a `Yast -> iSCSI LIO server`, para configurar el Target:
-    * Servicio
-        * Automático al inicio = Sí
-        * Abrir el cortafuegos = Sí
-    * Global
-        * Usuario/clave
-        * Sin autenticación
-    * Destinos(Dispositivos)
-        * Nombre `iqn.2017-05.nombre-del-target`. Por ejemplo `iqn.2017-05.vargas42target`.
-        * Identificador `test`
-        * Seleccionar los LUN (dispositivos creados anteriormente)
-            * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
-            * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
+* Vamos a la máquina target.
+* `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
+* Ir a `Yast -> Objetivo LIO iSCSI`, para configurar el Target.
+* Servicio
+    * Automático al inicio = Sí
+    * Abrir el cortafuegos = Sí
+* Global
+    * Sin autenticación
+* Destinos(Dispositivos)
+    * Nombre `iqn.2017-05.nombre-del-target`. Por ejemplo `iqn.2017-05.vargas42target`.
+    * Identificador `test`
+    * Seleccionar los LUN (dispositivos creados anteriormente)
+        * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
+        * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
+
+![iscsi-opensuse-target-destino.png](files/iscsi-opensuse-target-destino.png)
+
+* Pulsamos siguiente y vamos a configurar iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
+* Siguiente -> Terminar.
 
 > El target tiene un identificador iqn y el iniciador tendrá otro iqn diferente.
 > En el target hay que habilitar permiso de acceso al iqn del Iniciador.
 
-## 3.3 Comprobamos
+## 4.3 Comprobamos
 
 Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
 
 * `systemctl start target.service`, inicia el servicio Target manualmente.
 * `systemctl status target.service`, comprueba el estado del servicio Target.
 * `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
-* Ejecutamos `cat /proc/net/iet/volume` para comprobar los volúmes disponibles.
+
+> * Ejecutamos `cat /proc/net/iet/volume` para comprobar los volúmes disponibles.
 Veamos un ejemplo:
-
-```
-tid:1 name:iqn.2006-02.com.example.iserv:systems
-        lun:0 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
-        lun:1 state:0 iotype:fileio path:/dev/hda4
-```
-
-* Consultar contenido del fichero `etc/ietd.conf`. Veamos un ejemplo:
-```
-Target iqn.2006-02.com.example.iserv:system2
-          Lun 0 Path=/dev/mapper/system-swap2
-```
+>
+> ```
+> tid:1
+> name:iqn.2006-02.com.example.iserv:systems
+>         lun:0 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
+>         lun:1 state:0 iotype:fileio path:/dev/hda4
+> ```
+>
+> * Consultar contenido del fichero `etc/ietd.conf`. Veamos un ejemplo:
+>
+> ```
+> Target iqn.2006-02.com.example.iserv:system2
+>           Lun 0 Path=/dev/mapper/system-swap2
+> ```
 
 Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador
 iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
 
 ---
 
-# 4 Initiator
+# 5 Initiator
 
 Enlaces recomendados:
 * [OpenSUSE - tutorail iSCSI Initiator con comandos](http://es.opensuse.org/iSCSI)
 * [OpenSUSE - iSCSI Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
 
-## 4.1 Instalar y configurar acceso
+## 5.1 Instalar y configurar acceso
 
 Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE Leap:
@@ -203,7 +223,7 @@ Vamos a la máquina Iniciador.
 conectar un target concreto.
 > * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
 
-## 4.2 Usar almacenamiento
+## 5.2 Usar almacenamiento
 
 * `dmesg`, comprobar que tenemos un nuevo disco SCSI de 1200M conectado a la MV del Initiator.
     * Debería ser un disco `/dev/sdb`.

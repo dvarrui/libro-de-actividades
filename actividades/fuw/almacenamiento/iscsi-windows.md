@@ -33,11 +33,11 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.21)
-    * la otra en red interna (192.168.XX.21) con nombre `san_windows`.
+    * la otra en red interna (192.168.XX.21) con nombre `san`.
         * Esta interfaz NO tiene gateway.
 * MV2: Esta MV actuará de `Target`.
     * Necesitamos Windows Server 64 bits para poder instalar el software de Target.
-    * Con un interfaz de red (192.168.XX.22) en modo red interna `san_windows`.
+    * Con un interfaz de red (192.168.XX.22) en modo red interna `san`.
     * Esta interfaz usa como gateway 192.168.XX.21.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
