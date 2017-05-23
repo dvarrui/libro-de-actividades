@@ -1,17 +1,18 @@
 
-#Windows 7 desatendido
+# Windows 7 desatendido
 
 Vamos a crear instalación desatendida para Windows 7.
 
-En el siguiente enlace tenemos la guía para la creación de una 
+En el siguiente enlace tenemos la guía para la creación de una
 [instalación desatendida para Windows 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
 
-Aclaración:
-* En la sección "WindowsSetup" encontraremos los apartados para configurar los discos, particiones e ImageInstall.
-* En la sección "ShellSetup" encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
+> Aclaración:
+>
+> * En la sección "WindowsSetup" encontraremos los apartados para configurar los discos, particiones e ImageInstall.
+> * En la sección "ShellSetup" encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
 
-Al terminar probamos la ISO en una máquina virtual. 
-Si al iniciar la MV con la iso recién creada, aparece el error 225. 
+Al terminar probamos la ISO en una máquina virtual.
+Si al iniciar la MV con la iso recién creada, aparece el error 225.
 Ver imagen:
 
 ![win-error-225](./files/win-error-225.jpg)
@@ -22,16 +23,18 @@ Una posible solución será activar APCI en la MV. Ver imagen:
 
 > NOTA:
 >
-> En siguiente enlace tenemos una guía para [crear disco de instalación Windows7 personalizado](http://computerhoy.com/paso-a-paso/software/crea-tu-propio-disco-instalacion-windows-7-desatendido-7294). 
+> En siguiente enlace tenemos una guía para [crear disco de instalación Windows7 personalizado](http://computerhoy.com/paso-a-paso/software/crea-tu-propio-disco-instalacion-windows-7-desatendido-7294).
 >
-> Esto no es lo mismo que una instalación desatendida. 
-> En la instalación desatendida automatizamos las respuestas del proceso 
-de instalación pero se hace una instalación estándar del sistema operativo. 
-> En una instalación personalizada estaríamos modificando los ficheros/archivos/programas 
-que se van a instalar, y por tanto no sería una instalación estandar del sistema operativo. 
+> Esto no es lo mismo que una instalación desatendida.
+> En la instalación desatendida automatizamos las respuestas del proceso
+de instalación pero se hace una instalación estándar del sistema operativo.
+> En una instalación personalizada estaríamos modificando los ficheros/archivos/programas
+que se van a instalar, y por tanto no sería una instalación estandar del sistema operativo.
 >Hay que tener en cuenta si lo permite o no la licencia.
 
-#Windows XP desatendido
+---
+
+# Windows XP desatendido
 
 > Esta parte NO hay que hacerla. Es meramente informativa.
 

@@ -1,8 +1,10 @@
 
-#Entrega
+# Entrega
 
 * Entregar 1 informe con las capturas de pantalla de los apartado que se indiquen.
 * Comentar brevemente los pasos en el informe.
+
+---
 
 # Live CD
 
@@ -23,6 +25,8 @@ sudo blkid
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
 * Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
+
+---
 
 # Windows 7
 

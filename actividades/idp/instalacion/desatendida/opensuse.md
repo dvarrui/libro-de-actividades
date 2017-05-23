@@ -4,9 +4,9 @@ Instalación desatendida con OpenSUSE
 * Problemas en la lectura del fichero autoyast.xml
 ```
 
-#Instalaciónes desatendidas
+# Instalaciónes desatendidas
 
-Una instalación desatendida del sistema operativo ejecuta el proceso completo 
+Una instalación desatendida del sistema operativo ejecuta el proceso completo
 de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
 * Vamos a crear 2 instalaciones desatendidas para el sistema operativo OpenSuse.
@@ -14,23 +14,25 @@ de la instalación del sistema operativo de forma automática, sin hacer pregunt
     * (a) Entregar URL apuntando a la distro creada en el apartado 1.
     * (b) Informe los pasos del apartado 2.
 
-#1. SuseStudio
+---
 
-Vamos a crear una distro personalizada apropiada para 1ASIR. 
+# 1. SuseStudio
+
+Vamos a crear una distro personalizada apropiada para 1ASIR.
 
 * Ir a la web SuseStudio, registrarse y entrar.
 * `Actions -> Create new appliance...`
 
-Vamos a crear nuestro proyecto a partir de un modelo base. 
-Para eso elegiremos la plantilla KDE o Gnome. 
-Esto nos crea un sistema de escritorio mínimo KDE o Gnome, 
+Vamos a crear nuestro proyecto a partir de un modelo base.
+Para eso elegiremos la plantilla KDE o Gnome.
+Esto nos crea un sistema de escritorio mínimo KDE o Gnome,
 y a partir de aquí seguimos con nuestra personalización.
 
 * `Choose a base template`
     * KDE4 desktop o
     * GNOME desktop
 * Nombre `idp1516_nombre-del-alumno_ESCRITORIO_VERSIONdistroSUSE`.
-* `Switch to software tab -> Search software -> Select software`. Añadir lo siguiente: 
+* `Switch to software tab -> Search software -> Select software`. Añadir lo siguiente:
     * Paquetes de redes: tree, nmap, traceroute, ipcalc, putty, hexchat, hexchat-lang, wireshark, wireshark-ui-qt
     * Paquetes de edición: gvim, geany, geany-lang , git
     * Paquetes multimedia: simplescreenrecorder, gnome-screenshot, gnome-screenshot-lang, vlc, vlc-qt,
@@ -47,6 +49,7 @@ y a partir de aquí seguimos con nuestra personalización.
         * Usuario `root` con clave `profesor`
     * Personalizar el aspecto.
     * Informar en el EULA de los usuarios/claves configurados en el sistema.
+
 ```
 Creado por: Nombre y apellidos del alumno
 ==================
@@ -57,8 +60,8 @@ alumno  / alumno
 IES Puerto de la Cruz - Telesforo Bravo
 Curso 2015-2016
 CFGS 1ASIR
-	                                                        
-                                                        
+
+
                         ;i;;L.                          
                        .1.  i1                          
                       .t.    t1                         
@@ -86,13 +89,13 @@ CFGS 1ASIR
    .::,       iti                     tLt.              
    .::,       it,                     fLt               
    .:,.                              ,L1.               
-                                                        
-``` 
 
-> Para convertir una imagen en letras ASCII se usó el programa online 
+```
+
+> Para convertir una imagen en letras ASCII se usó el programa online
 [photo2text](http://photo2text.com/index.php]
 
-    * Activar autologin con el usuario `alumno`. 
+    * Activar autologin con el usuario `alumno`.
     * `Applience -> Add live installer`
     * `Scripts -> Run this script at the end of the build`    
 ```
@@ -113,7 +116,7 @@ CFGS 1ASIR
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_demos.zip`
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_export_templates.tpz`.
         Este archivo es muy grande pero se puede subir desde casa.
-    * Añadirlos a la distro sin descomprimir. 
+    * Añadirlos a la distro sin descomprimir.
     * Usar `Move/rename`, para definir la ruta `/opt/godot-engine` .
     * Activar `Extract`, para que automáticamente descomprima los ficheros cuando construya la ISO.
 * `Switch to build tab`, para construir la distro:
@@ -125,23 +128,25 @@ CFGS 1ASIR
 * Y si estamos contentos con el resultado, la publicamos con `Share`
      * Usar etiquetas `idp`, `ies`, `puertodelacruz`, `curso`, `1516`
 * Entregar URL de la distro publicada al profesor.
-        
+
 > **Otros paquetes interesantes**
 >
 > * `yast2-users`, gestión de usuarios mediante yast.
 
-#2. Instalación desatendida de OpenSUSE con `autoyast`
+---
+
+# 2. Instalación desatendida de OpenSUSE con `autoyast`
 
 Enlace de interés:
 * [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-##2.1 Crear el fichero `autoyast.xml`
+## 2.1 Crear el fichero `autoyast.xml`
 
 Necesitamos el fichero `autoyast.xml`, con las respuestas a las preguntas del instalador.
 
-###2.1.1 Opción 1 - Instalando una MV desde cero
+### 2.1.1 Opción 1 - Instalando una MV desde cero
 
 Hacemos una nueva instalación de OpenSUSE en MV.
 * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
@@ -151,10 +156,10 @@ Hacemos una nueva instalación de OpenSUSE en MV.
 * Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
 Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
 
-> `autoyast.xml`  es  nuestro "Control File". 
+> `autoyast.xml`  es  nuestro "Control File".
 > Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
 
-###2.1.2 Opción 2 - Usando una MV con el sistema operativo ya instalado
+### 2.1.2 Opción 2 - Usando una MV con el sistema operativo ya instalado
 
 Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
@@ -170,16 +175,16 @@ vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
 * Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
 * Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
-* Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML, 
+* Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
 vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
 * Copiamos el fichero XML en un pendrive o en la máquina real.
 
-##2.2 Crear acceso al fichero XML
+## 2.2 Crear acceso al fichero XML
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **ISO** - Fichero de control dentro de la propia ISO
-    * Incluir el fichero XML dentro de la ISO de instalación. 
-    * Para modificar la ISO podemos usar el programa isomaster. 
+    * Incluir el fichero XML dentro de la ISO de instalación.
+    * Para modificar la ISO podemos usar el programa isomaster.
 * **USB** - Fichero de control en USB
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
 
@@ -187,14 +192,14 @@ Elegir una de las siguientes formas para la instalación desatendida.
 >
 > * **CIFS** - Fichero de control en carpeta compartida de Windows
 > * **HTTP** - Fichero de control en un servidor Web (HTTP)
->    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, 
+>    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor,
 para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
->    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red. 
+>    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 >
 
-##2.3 Comenzar la instalación desatendida
+## 2.3 Comenzar la instalación desatendida
 
-* Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE. 
+* Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE.
 
 Ver imagen de ejemplo:
 
@@ -211,8 +216,7 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumno.xml`.
     * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.16.109.31/16 gateway=172.16.1.1 autoyast=http://172.16.2.9/autoyast/nombre-de-alumno.xml"
 
-A continuación debe comenzar la instalación de forma desatendida con las opciones 
+A continuación debe comenzar la instalación de forma desatendida con las opciones
 especificadas en el fichero XML.
 
 > Los últimos cursos hemos tenido problemas con la lectura de dicho fichero XML.
-
