@@ -213,7 +213,7 @@ Vamos a la máquina Iniciador.
 
 > Otra forma de conectar con el destino del Target vía comandos:
 >
-> * `iscsiadm -m node --targetname iqn.2017-05.curso1617.vargas42g:test -p IP-TARGET --login`,
+> * `iscsiadm -m node --targetname iqn.2017-05.targetXX:test -p IP-TARGET --login`,
 conectar un target concreto.
 > * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
 
