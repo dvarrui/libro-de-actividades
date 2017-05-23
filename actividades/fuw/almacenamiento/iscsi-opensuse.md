@@ -192,7 +192,10 @@ Vamos a la máquina Iniciador.
 
 **Descubrir**
 
-* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles. Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
+* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
+    * Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
+    * Puerto 3260
+    * Sin autenticación.
 
 ![iscsi-opensuse-initiator-descubrir.png](files/iscsi-opensuse-initiator-descubrir.png)
 
@@ -207,7 +210,9 @@ Vamos a la máquina Iniciador.
 **Conectar**
 
 * `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
-* Elegimos: Inicio en el arranque y sin autenticación.
+* Elegimos:
+   * Inicio en el arranque
+   * Sin autenticación.
 
 ![iscsi-opensuse-initiator-conectado.png](files/iscsi-opensuse-initiator-conectado.png)
 
@@ -225,11 +230,8 @@ el equipo iniciador.
 * `dmesg`, comprobar que tenemos un nuevo disco SCSI de 1200M conectado a la MV del Initiator.
     * Debería ser un disco `/dev/sdb`.
 * `lsscsi`, encontrar la ruta del dispositivo local para el dispositivo Target iSCSI.
-Veamos un ejemplo
-```
-lsscsi
-[1:0:0:0]   disk    IET      VIRTUAL-DISK     0     /dev/sdb
-```
+
+![iscsi-opensuse-initiator-lsscsi.png](files/iscsi-opensuse-initiator-lsscsi.png)
 
 * Crear directorio `/mnt/remote_targetXX`.
 * `Yast -> Particionador`, elegir el disco.
