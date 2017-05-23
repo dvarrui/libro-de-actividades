@@ -147,6 +147,8 @@ Crear los dispositivos
 
 ![iscsi-opensuse-target-initiator.png](files/iscsi-opensuse-target-initiator.png)
 
+![iscsi-opensuse-target-lun.png](files/iscsi-opensuse-target-lun.png)
+
 * Siguiente -> Terminar.
 
 ![iscsi-opensuse-target-finalconfig.png](files/iscsi-opensuse-target-finalconfig.png)
