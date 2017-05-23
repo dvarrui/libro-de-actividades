@@ -226,6 +226,11 @@ Vamos a equipo Iniciador:
     * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdc`.
 * Guardar datos en el disco SAN.
 
+> IDEAS para el futuro
+>
+> * Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
+> * Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
+
 ---
 
 # ANEXO
