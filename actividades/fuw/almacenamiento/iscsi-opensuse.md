@@ -217,10 +217,13 @@ Vamos a equipo Iniciador:
 
 ![iscsi-opensuse-initiator-lsscsi.png](files/iscsi-opensuse-initiator-lsscsi.png)
 
-* Crear directorio `/mnt/remote_targetXX`.
+* Crear directorio `/mnt/remote_targetXXsdb`.
+* Crear directorio `/mnt/remote_targetXXsdc`.
 * `Yast -> Particionador`, elegir el disco.
-    * Crear partición y formatear el disco.
-    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXX`.
+    * Crear partición y formatear el disco sdb.
+    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdb`.
+    * Crear partición y formatear el disco sdc.
+    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdc`.
 * Guardar datos en el disco SAN.
 
 ---
