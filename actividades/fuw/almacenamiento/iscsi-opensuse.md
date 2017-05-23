@@ -6,22 +6,23 @@
 
 # iSCSI en OpenSUSE
 
-Vamos a montar un iSCSI con GNU/Linux OpenSUSE.
+Vamos a montar un iSCSI sin autenticación, con dos máquinas GNU/Linux OpenSUSE.
 
 ---
 
 # 1 Preparativos
 
-Vamos a montar la práctica de iSCSI con OpenSUSE 13.2.
+Vamos a montar la práctica de iSCSI con GNU/Linux OpenSUSE.
 
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
 * MV1: Esta MV actuará de `Initiator`.
+    * SSOO OpenSUSE Leap
     * Hostname `initiatorXX`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.31)
-    * y la otra en red interna (192.168.XX.31) con nombre `san`.
-        * Este interfaz NO tiene gateway.
+    * y la otra en red interna (192.168.XX.31) con nombre `san`. Este interfaz NO tieneº gateway.
 * MV2: Esta MV actuará de `Target`.
+    * SSOO OpenSUSE Leap
     * Hostname `targetXX`.
     * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
     * Este interfaz tiene como gateway 192.168.XX.31.
@@ -31,13 +32,13 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 > Como vamos a necesitar acceso a los repositorios de Internet en el Target
 para instalar el software, podemos hacerlo de varias formas:
-> * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
-> * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
-> * (c) Activar/configurar enrutamiento en el Initiator.
+> * (a) Poner el interfaz de red temporalmente en puente y DHCP, instalar y cambiar.
+> * (b) Poner temporalmente un 2º interfaz puente y DHCP para instalar y luego lo desactivamos.
+> * (c) Activar/configurar enrutamiento en el Initiator. Esto es más complejo.
 
 ---
 
-# 2 Target - Teoría
+# 2 Un poco de teoría
 
 La configuración del Target contiene:
 * El nombre de nuestro target
@@ -47,16 +48,16 @@ La configuración del Target contiene:
 ### 2.1 Nombre
 
 El estándar iSCSI define que tanto los target como los iniciadores deben
-tener un nombre que sigue un patrón,
-el cual es el siguiente: `iqn.YYYY-MM.NOMBRE-DEL_DOMINIO_INVERTIDO:IDENTIFICADOR`.
+tener un nombre (identificador iqn) que sigue el siguiente patrón: `iqn.YYYY-MM.NOMBRE-DEL_DOMINIO_INVERTIDO:IDENTIFICADOR`.
 Donde:
 * `iqn` es un término fijo y debe figurar al principio.
-* `YYYY-MM` es la fecha de alta del dominio de la organización para la que estamos configurando el target.
-* A continuación debe figurar el nombre del dominio invertido
-* Luego de los “:”, un identificador que podemos ponerlo a nuestro gusto, y que
+* `YYYY-MM` es la fecha de alta del dominio de la organización para la que estamos
+configurando el equipo.
+* A continuación debe figurar el nombre del dominio invertido.
+* Después de ":", un identificador del almacenamiento, que podemos ponerlo a nuestro gusto, y que
 puede en muchos casos brindar información del target.
 
-Un ejemplo válido sería: `iqn.2005-02.au.com.empresa:san.200G.samba`.
+Ejemlos válidos serían: `iqn.2005-02.au.com.empresa:san.200G.samba`, `iqn.2017-05.curso1617.target42:test`.
 
 Como vemos el identificador aunque es variable y personalizable, puede
 reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
@@ -65,8 +66,12 @@ reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
 
 Si queremos que nuestro target requiera autenticación, podemos definir
 un usuario y una contraseña para que solo se conecten los iniciadores que nosotros queremos.
+Ejemplo: `IncomingUser usuario-iniciador clave-iniciador`
 
-`IncomingUser usuario-iniciador clave-iniciador`
+Hay 3 tipos de autenticación:
+* Sin autenticación
+* Autenticación de entrada y
+* Autenticación de salida
 
 ### 2.3 Dispositivos/Destinos
 
@@ -76,26 +81,30 @@ Debemos poner una línea como la siguiente: `Lun 0 Path=/dev/sda3,Type=fileio`
 En este ejemplo el primer dispositivo que estamos ofreciendo es la
 partición /dev/sda3 del servidor. La documentación nos dice que además
 de particiones podemos usar discos enteros, volúmenes LVM y RAID,
-e incluso archivos. En cualquier caso solo hay que definir el path.
+e incluso archivos. En cualquier caso hay que definirlo en el path.
 
 El archivo contiene muchos parámetros más de configuración,
 que en la mayoría de los casos tienen que ver con la performance del servidor.
-En nuestro ejemplo, configurando estos tres parámetros nos basta.
+En nuestro ejemplo, configurando estos tres parámetros nos bastaría.
 
 ---
 
 ## 3 Práctica: Initiator
 
+Vamos al equipo que será nuestro iniciador:
 * Por entorno gráfico, `Yast -> Iniciador SCSI`
 * Modificamos el identificador iqn del Initiator con
 `iqn.2017-05.initiatorXX`.
 * Comprobamos por comandos, `more /etc/iscsi/initiatorname.iscsi`
 
+Veamos imagen de ejemplo en Yast:
 ![iscsi-opensuse-initiator-iqn.png](files/iscsi-opensuse-initiator-iqn.png)
 
 ---
 
-## 4 Práctica: configuración del Target
+# 4 Práctica: configuración del Target
+
+## 4.1 Enlaces de interés
 
 Enlaces recomendados:
 * [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
@@ -108,18 +117,18 @@ Otros enlaces de interés:
 * Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
 * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
 
-## 4.1 Crear los dispositivos
+## 4.2 Crear los dispositivos
 
-Crear los dispositivos
-* Creamos el dispositivo1 a partir de un fichero.
+Crear los dispositivos en el equipo target.
+* Creamos el `dispositivo1` a partir de un fichero.
     * `dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500`
     * Hemos creado un fichero con tamaño 500M.
     * `du -sh /home/dispositivo1.img`, lo comprobamos.
-* Creamos el dispositivo2 a partir de un disco extra.
+* Creamos el `dispositivo2` a partir de un disco extra.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
 
-## 4.2 Instalar y configurar el Target
+## 4.3 Instalar y configurar el Target
 
 * Vamos a la máquina target.
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
@@ -142,9 +151,11 @@ Crear los dispositivos
 > El target tiene un identificador iqn y el iniciador tendrá otro iqn diferente.
 > En el target hay que habilitar permiso de acceso al iqn del Iniciador.
 
-* Pulsamos siguiente y vamos a configurar iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
+* Pulsamos siguiente y vamos a configurar los permisos para el iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
 
 ![iscsi-opensuse-target-initiator.png](files/iscsi-opensuse-target-initiator.png)
+
+* Comprobamos los LUN's(dispositivos) disponibles.
 
 ![iscsi-opensuse-target-lun.png](files/iscsi-opensuse-target-lun.png)
 
@@ -152,7 +163,7 @@ Crear los dispositivos
 
 ![iscsi-opensuse-target-finalconfig.png](files/iscsi-opensuse-target-finalconfig.png)
 
-## 4.3 Comprobamos
+## 4.4 Comprobamos
 
 Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
 
@@ -176,7 +187,7 @@ Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE Leap:
     *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
 
-**Descubrir**
+## 5.2 Descubrir
 
 * `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
     * Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
@@ -193,7 +204,7 @@ Vamos a la máquina Iniciador.
 > El target ofrece su servicio por defecto en el puerto 3260.
 > * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
 
-**Conectar**
+## 5.3 Conectar
 
 * `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
 * Elegimos:
@@ -210,7 +221,7 @@ conectar un target concreto.
 
 * Si hacemos `fdisk -l`, veremos que nos aparece dos nuevos discos en el equipo iniciador.
 
-## 5.2 Usar almacenamiento
+## 5.4 Usar almacenamiento
 
 Vamos a equipo Iniciador:
 * `lsscsi`, encontrar la ruta del dispositivo local para el dispositivo Target iSCSI.
@@ -230,6 +241,7 @@ Vamos a equipo Iniciador:
 >
 > * Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
 > * Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
+> * Hacer configuraciones usando las autenticaciones de entrada y salida.
 
 ---
 
@@ -248,15 +260,15 @@ Enlaces de interés:
 *  Ejemplo de script que activa el enrutamiento y el NAT:
 
 ```
-   // activar-enrutamiento.sh
-   echo "1" > /proc/sys/net/ipv4/ip_forward
-   iptables -A FORWARD -j ACCEPT
-   iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
+// activar-enrutamiento.sh
+echo "1" > /proc/sys/net/ipv4/ip_forward
+iptables -A FORWARD -j ACCEPT
+iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
 ```
 
 *  Ejemplo de script que desactivara el enrutamiento:
 
 ```
-   // desactivar-enrutamiento.sh
-   echo "0" > /proc/sys/net/ipv4/ip_forward
+// desactivar-enrutamiento.sh
+echo "0" > /proc/sys/net/ipv4/ip_forward
 ```
