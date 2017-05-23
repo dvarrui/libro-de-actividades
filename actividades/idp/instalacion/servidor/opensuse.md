@@ -1,12 +1,12 @@
 
 
-#Servidor de actualizaciones OpenSUSE
+# Servidor de actualizaciones OpenSUSE
 
 * Crear directorio local `/opt/repo/nombre-alumnoXX`. Nos movemos a dicho directorio.
 * Descargar algunos paquetes de los repos de opensuse en nuestro directorio local
     * `zypper --download-only` para descargar solo los paquetes que necesitas y sus dependencias.
     * Para descargar un repositorio entero podemos usar `wget -r URL-DEL-REPOSITORIO`
-* Mover los rpm descargados desde el cache de zypper (`/var/cache/zypp/packages`) al directorio de nuestro repo.
+* Mover los rpm descargados desde el cache de zypper (`/var/cache/zypp/packages`) al directorio de nuestro repositorio local.
 
 * Dos formas de hacerlo:
     * Usar zypper y/o yast para convertir cualquier carpeta en un repositorio.
@@ -14,5 +14,9 @@
 
 > Se puede compartir este directorio al resto de equipo de la red (http, nfs, etc.)
 
+# Cliente del repositorio
 
-
+* Ir a otra MV OpenSUSE
+* Añadir en repositorios nuestro servidor
+* Desactivar el resto de repositorios
+* Probar la instalación de los paquetes

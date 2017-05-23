@@ -4,19 +4,21 @@ En construcción...
 
 # Servidor de actualizaciones (Debian)
 
-En esta práctica vamos a crear un servidor de actualizaciones para Debian. 
+En esta práctica vamos a crear un servidor de actualizaciones para Debian.
 Podemos elegir entre varios métodos a la hora de crear nuestro propio repositorio.
 
-Algunas de estas herramientas crean un repositorio completo con todos 
-los paquetes de la distribución, y otras permiten crear un repositorio parcial 
+Algunas de estas herramientas crean un repositorio completo con todos
+los paquetes de la distribución, y otras permiten crear un repositorio parcial
 seleccionando los paquetes que queramos tener.
 
-Por motivos de espacio en disco, consumo del ancho de banda de red y 
+Por motivos de espacio en disco, consumo del ancho de banda de red y
 tiempo vamos a crear un repositorio parcial (apartado 2.2)
 
-#1. Crear un repositorio completo
+---
 
-##1.1 apt-mirror
+# 1. Crear un repositorio completo
+
+## 1.1 apt-mirror
 
 Características:
 * Con apt-mirror podemos crear una copia de otro repositorio externo existente.
@@ -37,7 +39,7 @@ Modificar el fichero de configuración /etc/apt/mirror.lst.
 
 Ponemos en marcha el repositorio local
 
-##1.2 debmirror
+## 1.2 debmirror
 
 Características:
 * Con debmirror creamos un repositorio local que se mantiene sincronizado (usando rsync) con otro repositorio externo.
@@ -46,7 +48,7 @@ Características:
 
 Enlace de interés: Como crear un repositorio Debian con debmirror
 
-##1.3. Usando los DVD's de instalación
+## 1.3. Usando los DVD's de instalación
 
 Características:
 * Crear un repositorio local usando el contenido de 3DVDs de instalación.
@@ -55,9 +57,11 @@ Características:
 
 Enlace de interés: Crear un repositorio local Debian desde los DVDs
 
-#2. Crear un repositorio parcial
+---
 
-##2.1. Repositorio local
+# 2. Crear un repositorio parcial
+
+## 2.1. Repositorio local
 
 Características:
 * El respositorio sólo estará disponible para la máquina local
@@ -66,18 +70,18 @@ Características:
 Enlace de interés: Crear un repositorio local con unos pocos paquetes
 
 NOTA:
-* Para asegurarnos que nuestros paquetes se instalan desde el repositorio 
-y no se cogen de la caché, ejecutamos el comando "apt-get clean". 
-Con este comando "limpiamos" la caché que contiene todos los paquetes deb 
+* Para asegurarnos que nuestros paquetes se instalan desde el repositorio
+y no se cogen de la caché, ejecutamos el comando "apt-get clean".
+Con este comando "limpiamos" la caché que contiene todos los paquetes deb
 descargados hasta la fecha.
-* Modificamos el fichero con la lista de los repositorios de actualizaciones 
+* Modificamos el fichero con la lista de los repositorios de actualizaciones
 para que apunte lo que cabamos de crear.
 * Hacer copia de seguridad al fichero /etc/apt/sources.list
-* Modificar el fichero /etc/apt/sources.list, de modo que sólo tenga activo 
+* Modificar el fichero /etc/apt/sources.list, de modo que sólo tenga activo
 el repositorio "deb file:///var/www/repo ./"
 * Actualizamos el catálogo con el comando "apt-get update".
 
-##2.2 reprepro
+## 2.2 reprepro
 
 Características:
 * Los clientes se conectan vía HTTP, a través de un servicio web.
@@ -140,5 +144,3 @@ Enlaces de interés:
     https://davehall.com.au/blog/dave/2010/02/06/howto-setup-private-package-repository-reprepro-nginx
     http://santi-bassett.blogspot.com.es/2014/07/setting-up-apt-repository-with-reprepro.html
     http://wiki.canaima.softwarelibre.gob.ve/wiki/Haciendo_repositorios_de_paquetes_binarios_con_reprepro
-
-
