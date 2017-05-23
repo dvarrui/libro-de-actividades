@@ -74,6 +74,9 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 permitido el uso del almacenamiento que estamos creando.
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
 
+> IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando
+el interfaz de red de la red interna.
+
 ## 3.3 Crear un dispositivo
 
 * Crear disco virtual para el destino iSCSI en `C:\alumnoXXdisco01.vhd` de tamaño 500 MB.

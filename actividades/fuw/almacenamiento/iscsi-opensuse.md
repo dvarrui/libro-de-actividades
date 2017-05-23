@@ -2,6 +2,7 @@
 * Fecha de creación : curso 201415
 * Fecha de UM       : curso 201617
 * Sistema Operativo : OpenSUSE Leap, OpenSUSE 13.2
+Revisar el tamaño del destino cuando se conecta en el iniciador
 ```
 
 # iSCSI en OpenSUSE
@@ -34,22 +35,6 @@ para instalar el software, podemos hacerlo de varias formas:
 > * (a) Poner el interfaz de red temporalmente en puente, instalar y cambiar.
 > * (b) Poner temporalmente un 2º interfaz puente para instalar y luego lo desactivamos.
 > * (c) Activar/configurar enrutamiento en el Initiator.
->    
-> **Enrutamiento en GNU/Linux**
->
-> * [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
-> *  Ejemplo de script que activa el enrutamiento y el NAT:
-> ```
->     // activar-enrutamiento.sh
->     echo "1" > /proc/sys/net/ipv4/ip_forward
->     iptables -A FORWARD -j ACCEPT
->     iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
-> ```
-> *  Ejemplo de script que desactivara el enrutamiento:
-> ```
->     // desactivar-enrutamiento.sh
->     echo "0" > /proc/sys/net/ipv4/ip_forward
-> ```
 
 ---
 
@@ -222,13 +207,11 @@ Vamos a la máquina Iniciador.
 conectar un target concreto.
 > * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
 
-* Si hacemos `fdisk -l`, veremos que nos aparece un nuevo disco en
-el equipo iniciador.
+* Si hacemos `fdisk -l`, veremos que nos aparece dos nuevos discos en el equipo iniciador.
 
 ## 5.2 Usar almacenamiento
 
-* `dmesg`, comprobar que tenemos un nuevo disco SCSI de 1200M conectado a la MV del Initiator.
-    * Debería ser un disco `/dev/sdb`.
+Vamos a equipo Iniciador:
 * `lsscsi`, encontrar la ruta del dispositivo local para el dispositivo Target iSCSI.
 
 ![iscsi-opensuse-initiator-lsscsi.png](files/iscsi-opensuse-initiator-lsscsi.png)
@@ -249,3 +232,22 @@ Enlaces de interés:
 * [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
 * iSCSI - [Using iSCSI (target and initiator) on Debian](https://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target).
 * TARGET - [Create targer iSCSI on Debian](https://wiki.debian.org/SAN/iSCSI/iscsitarget).
+
+## A.2 Enrutamiento en GNU/Linux
+
+* [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
+*  Ejemplo de script que activa el enrutamiento y el NAT:
+
+```
+   // activar-enrutamiento.sh
+   echo "1" > /proc/sys/net/ipv4/ip_forward
+   iptables -A FORWARD -j ACCEPT
+   iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
+```
+
+*  Ejemplo de script que desactivara el enrutamiento:
+
+```
+   // desactivar-enrutamiento.sh
+   echo "0" > /proc/sys/net/ipv4/ip_forward
+```
