@@ -102,9 +102,10 @@ En nuestro ejemplo, configurando estos tres parámetros nos basta.
 
 ## 3 Práctica: Initiator
 
-* Consultamos el identificador iqn del Initiator y lo apuntamos para usarlo más adelante.
-    * Por entorno gráfico, `Yast -> Iniciador SCSI`
-    * Por comandos, `more /etc/iscsi/initiatorname.iscsi`
+* Por entorno gráfico, `Yast -> Iniciador SCSI`
+* Modificamos el identificador iqn del Initiator con
+`iqn.2017-05.initiatorXX`.
+* Comprobamos por comandos, `more /etc/iscsi/initiatorname.iscsi`
 
 ![iscsi-opensuse-initiator-iqn.png](files/iscsi-opensuse-initiator-iqn.png)
 
@@ -139,25 +140,31 @@ Crear los dispositivos
 * Vamos a la máquina target.
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
 * Ir a `Yast -> Objetivo LIO iSCSI`, para configurar el Target.
-* Servicio
-    * Automático al inicio = Sí
+* Inicio del Servicio
+    * Durante el arranque = Sí
     * Abrir el cortafuegos = Sí
 * Global
     * Sin autenticación
 * Destinos(Dispositivos)
-    * Nombre `iqn.2017-05.nombre-del-target`. Por ejemplo `iqn.2017-05.vargas42target`.
+    * Nombre `iqn.2017-05.targetXX`.
     * Identificador `test`
     * Seleccionar los LUN (dispositivos creados anteriormente)
         * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
         * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
+    * Utilizar autenticación => NO
 
 ![iscsi-opensuse-target-destino.png](files/iscsi-opensuse-target-destino.png)
 
-* Pulsamos siguiente y vamos a configurar iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
-* Siguiente -> Terminar.
-
 > El target tiene un identificador iqn y el iniciador tendrá otro iqn diferente.
 > En el target hay que habilitar permiso de acceso al iqn del Iniciador.
+
+* Pulsamos siguiente y vamos a configurar iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
+
+![iscsi-opensuse-target-initiator.png](files/iscsi-opensuse-target-initiator.png)
+
+* Siguiente -> Terminar.
+
+![iscsi-opensuse-target-finalconfig.png](files/iscsi-opensuse-target-finalconfig.png)
 
 ## 4.3 Comprobamos
 
@@ -167,25 +174,7 @@ Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
 * `systemctl status target.service`, comprueba el estado del servicio Target.
 * `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
 
-> * Ejecutamos `cat /proc/net/iet/volume` para comprobar los volúmes disponibles.
-Veamos un ejemplo:
->
-> ```
-> tid:1
-> name:iqn.2006-02.com.example.iserv:systems
->         lun:0 state:0 iotype:fileio path:/var/lib/xen/images/xen-1
->         lun:1 state:0 iotype:fileio path:/dev/hda4
-> ```
->
-> * Consultar contenido del fichero `etc/ietd.conf`. Veamos un ejemplo:
->
-> ```
-> Target iqn.2006-02.com.example.iserv:system2
->           Lun 0 Path=/dev/mapper/system-swap2
-> ```
-
-Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador
-iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
+Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
 
 ---
 
@@ -203,7 +192,9 @@ Vamos a la máquina Iniciador.
 
 **Descubrir**
 
-* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
+* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles. Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
+
+![iscsi-opensuse-initiator-descubrir.png](files/iscsi-opensuse-initiator-descubrir.png)
 
 > Otra forma de descubrir target es usando el siguiente comando por la consola:
 >
@@ -216,12 +207,18 @@ Vamos a la máquina Iniciador.
 **Conectar**
 
 * `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
+* Elegimos: Inicio en el arranque y sin autenticación.
+
+![iscsi-opensuse-initiator-conectado.png](files/iscsi-opensuse-initiator-conectado.png)
 
 > Otra forma de conectar con el destino del Target vía comandos:
 >
 > * `iscsiadm -m node --targetname iqn.2017-05.curso1617.vargas42g:test -p IP-TARGET --login`,
 conectar un target concreto.
 > * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
+
+* Si hacemos `fdisk -l`, veremos que nos aparece un nuevo disco en
+el equipo iniciador.
 
 ## 5.2 Usar almacenamiento
 
