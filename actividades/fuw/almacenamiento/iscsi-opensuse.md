@@ -2,7 +2,6 @@
 * Fecha de creación : curso 201415
 * Fecha de UM       : curso 201617
 * Sistema Operativo : OpenSUSE Leap, OpenSUSE 13.2
-Revisar el tamaño del destino cuando se conecta en el iniciador
 ```
 
 # iSCSI en OpenSUSE
