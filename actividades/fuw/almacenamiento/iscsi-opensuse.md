@@ -17,13 +17,13 @@ Vamos a montar la práctica de iSCSI con GNU/Linux OpenSUSE.
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
 * MV1: Esta MV actuará de `Initiator`.
     * SSOO OpenSUSE Leap
-    * Hostname `initiatorXX`.
+    * Hostname `initiatorXXg`.
     * Con dos interfaces de red.
     * Una en modo puente (172.19.XX.31)
     * y la otra en red interna (192.168.XX.31) con nombre `san`. Este interfaz NO tieneº gateway.
 * MV2: Esta MV actuará de `Target`.
     * SSOO OpenSUSE Leap
-    * Hostname `targetXX`.
+    * Hostname `targetXXg`.
     * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
     * Este interfaz tiene como gateway 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
@@ -94,7 +94,7 @@ En nuestro ejemplo, configurando estos tres parámetros nos bastaría.
 Vamos al equipo que será nuestro iniciador:
 * Por entorno gráfico, `Yast -> Iniciador SCSI`
 * Modificamos el identificador iqn del Initiator con
-`iqn.2017-05.initiatorXX`.
+`iqn.2017-05.initiatorXXg`.
 * Comprobamos por comandos, `more /etc/iscsi/initiatorname.iscsi`
 
 Veamos imagen de ejemplo en Yast:
@@ -139,7 +139,7 @@ Crear los dispositivos en el equipo target.
 * Global
     * Sin autenticación
 * Destinos(Dispositivos)
-    * Nombre `iqn.2017-05.targetXX`.
+    * Nombre `iqn.2017-05.targetXXg`.
     * Identificador `test`
     * Seleccionar los LUN (dispositivos creados anteriormente)
         * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
@@ -215,7 +215,7 @@ Vamos a la máquina Iniciador.
 
 > Otra forma de conectar con el destino del Target vía comandos:
 >
-> * `iscsiadm -m node --targetname iqn.2017-05.targetXX:test -p IP-TARGET --login`,
+> * `iscsiadm -m node --targetname iqn.2017-05.targetXXg:test -p IP-TARGET --login`,
 conectar un target concreto.
 > * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
 

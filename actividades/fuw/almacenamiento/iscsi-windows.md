@@ -7,7 +7,7 @@
 
 Vamos a montar un iSCSI con Windows Server 2008 64 bits.
 
-*(Esta información no es mía. Es de un enlace de Internet)*
+*(El siguiente texto está copiado de un enlace de Internet)*
 
 ```
 Para los que no estén familiarizados con iSCSI, digamos que es una manera de “encapsular”
@@ -53,11 +53,17 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 ---
 
-# 3 Target iSCSI
+# 3. Iniciador iSCSI
+
+* Poner como identificador iqn del iniciador lo siguiente: `iqn.2017-05.initiatorXXw`
+
+---
+
+# 4. Target iSCSI
 
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 
-## 3.1 Instalar el target
+## 4.1 Instalar el target
 
 * Hay que descargar el software iSCSI Target para instalar en Windows Server 2008.
     * Descargar iSCSI Target 3.3 o superior desde la web de Microsoft.
@@ -65,19 +71,19 @@ Donde XX será el número correspondiente al puesto de cada alumno.
     * `C:\iSCSI_target\x64\instalar_target.msi`
 * Una vez instalado, vamos a herramientas administrativas -> iSCSI Target
 
-## 3.2 Crear un destino
+## 4.2 Crear un destino
 
 * Creamos un nuevo destino iSCSI con:
     * Nombre: "alumnoXXdisco01".
     * Descripción: "Nombre completo del alumno y la fecha de hoy"
-* Identificador IQN. Esta es la forma de identificar el equipo Initiador que tendrá
+* Identificador IQN para el target `iqn.2017-05.targetXXw:test`. Esta es la forma de identificar el equipo Initiador que tendrá
 permitido el uso del almacenamiento que estamos creando.
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
 
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando
 el interfaz de red de la red interna.
 
-## 3.3 Crear un dispositivo
+## 4.3 Crear un dispositivo
 
 * Crear disco virtual para el destino iSCSI en `C:\alumnoXXdisco01.vhd` de tamaño 500 MB.
 * Dispositivo -> Botón derecho -> Acceso disco -> Montar.
@@ -91,7 +97,7 @@ Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador
 
 ---
 
-# 4 Configurar Iniciador
+# 5. Configurar Iniciador
 
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
@@ -104,7 +110,7 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
 ---
 
-# 5 Comprobación final
+# 6. Comprobación final
 
 * Desde el Iniciador, crear una carpeta `F:\remote_target` en el nuevo almacenamiento.
 * Guardar ficheros en dicha carpeta, de modo que la información que se guarde en ella
