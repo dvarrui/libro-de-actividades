@@ -24,7 +24,7 @@ Requisitos:
 
 # 2. Instalar WAIK
 
-* Copiar el contenido del DVD o la imagen ISO a la carpeta `C:\W7`.
+* Copiar el contenido del DVD o la imagen ISO Windows 7 de 64 bits a la carpeta `C:\W7`.
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
 * Ir `Inicio > Todos los programas > Microsoft Windows AIK > Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
@@ -35,8 +35,7 @@ Requisitos:
 
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
-* Ir a `Archivo > Seleccionar imagen de Windows` y buscamos el archivo `install.wim` y lo abrimos.
-En nuestro caso se encuentra en `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` o `C:\W7\Sources\install.wim`.
+* Ir a `Archivo > Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
 * Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta.
 En nuestro caso es Windows 7 Professional.
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
