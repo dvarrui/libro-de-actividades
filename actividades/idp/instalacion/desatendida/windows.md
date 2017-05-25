@@ -3,8 +3,8 @@
 
 Vamos a crear instalación desatendida para Windows 7.
 
-Se ha utilizado la información de una página web elaborado por los alumnos de
-los Ciclos Formativos IES Valle del Jerte - PLasencia: David Carballo Baz,
+Se ha utilizado la información de una página web elaborada por los alumnos de
+los Ciclos Formativos IES Valle del Jerte - Plasencia: David Carballo Baz,
 Mario Melchor Fernandez y Jose Antonio Franco Martin.
 
 # 1. Introducción
@@ -19,12 +19,16 @@ Requisitos:
 * ISO de Windows 7.
 * La herramienta WAIK "Kit de instalación Automatizada de Windows 7".
 
+---
+
 # 2. Instalar WAIK
 
 * Copiar el contenido del DVD o la imagen ISO a la carpeta `C:\W7`.
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
 * Ir `Inicio > Todos los programas > Microsoft Windows AIK > Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
+
+---
 
 # 3. Crear fichero de respuestas
 
@@ -38,7 +42,6 @@ En nuestro caso es Windows 7 Professional.
 * Crear el archivo de Autorespuesta que configuraremos posteriormente. Ir a `Archivo > Nuevo archivo de respuesta`.
 * Agregar al archivo las respuesta los componentes de cada secuencia de la instalación.
 
-
 > Aclaración:
 >
 > * En la sección "WindowsSetup" encontraremos los apartados para configurar los discos, particiones e ImageInstall.
@@ -51,6 +54,8 @@ Ver ejemplo:
 
 * Validar el archivo de respuesta. Ir a `herramientas > validar archivo de respuesta`.
 * Guardar el archivo de respuesta en `Archivo > Guardar archivo de respuesta como > ruta donde está los archivos del windows a instalar`. El nombre debe ser Autounattend.xml es muy importante ya que el sistema sólo reconocerá el archivo si tiene este nombre.
+
+---
 
 # 4. Configurar aplicaciones
 
@@ -72,6 +77,8 @@ Después de configurar esta última entrada en el archivo de respuesta, debemos 
 * Escribir `oscdimg –n –m –bRuta_de_directorio\boot\etfsboot.com  C:\W7 c:\W7desatendido\W7desatendido.iso`
 
 > Si todo es correcto comenzará la creación de nuestra ISO desatendida lista para ser usada.
+
+---
 
 # 6. Comprobamos la ISO
 

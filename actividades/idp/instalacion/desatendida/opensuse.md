@@ -20,7 +20,8 @@ de la instalación del sistema operativo de forma automática, sin hacer pregunt
 
 Vamos a crear una distro personalizada apropiada para 1ASIR.
 
-* Ir a la web SuseStudio, registrarse y entrar.
+* Ir a la web SuseStudio, registrarse y entrar. Si tenemos problemas para validarnos
+con una cuenta de Gmail, usar una cuenta de Twitter.
 * `Actions -> Create new appliance...`
 
 Vamos a crear nuestro proyecto a partir de un modelo base.
