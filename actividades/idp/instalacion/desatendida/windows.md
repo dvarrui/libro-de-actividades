@@ -9,8 +9,9 @@ Mario Melchor Fernandez y Jose Antonio Franco Martin.
 
 # 1. Introducción
 
-En el siguiente enlace tenemos la guía para la creación de una
-[instalación desatendida para Windows 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
+Enlaces de interés:
+* [instalación desatendida para Windows - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
+* [Instalación desatendida de Windows- David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
 
 Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
 El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `Autounattend.xml`.
