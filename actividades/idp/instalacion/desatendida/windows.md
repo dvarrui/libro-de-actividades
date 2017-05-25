@@ -36,7 +36,7 @@ Requisitos:
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
 * Ir a `Archivo > Seleccionar imagen de Windows` y buscamos el archivo `install.wim` y lo abrimos.
-En nuestro caso se encuentra en `C:\W7\Sources\install.wim`.
+En nuestro caso se encuentra en `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` o `C:\W7\Sources\install.wim`.
 * Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta.
 En nuestro caso es Windows 7 Professional.
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
