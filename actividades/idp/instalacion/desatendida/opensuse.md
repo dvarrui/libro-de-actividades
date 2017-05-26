@@ -99,18 +99,20 @@ CFGS 1ASIR
     * Activar autologin con el usuario `alumno`.
     * `Applience -> Add live installer`
     * `Scripts -> Run this script at the end of the build`    
-```
-    #!/bin/bash -e
 
-    . /studio/profile # read in some variables
-    . /.kconfig # read in KIWI utility functions
-
-    FILE=/home/alumno/leeme.txt
-    touch $FILE
-    echo "Creado por" >> $FILE
-    echo "David Vargas Ruiz" >> $FILE
-    date >> $FILE
 ```
+#!/bin/bash -e
+
+. /studio/profile # read in some variables
+. /.kconfig # read in KIWI utility functions
+
+FILE=/home/alumno/leeme.txt
+touch $FILE
+echo "Creado por" >> $FILE
+echo "NOMBRE COMPLETO DEL ALUMNO" >> $FILE
+date >> $FILE
+```
+
 * `Switch to Files tab`
     * Descargar los ficheros siguientes:
         * `https://downloads.tuxfamily.org/godotengine/2.0.3/Godot_v2.0.3_stable_x11.64.zip`
@@ -143,24 +145,33 @@ Enlace de interés:
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-## 2.1 Crear el fichero `autoyast.xml`
+## 2.1 Personalizamos la MV OpenSUSE Leap
 
-Necesitamos el fichero `autoyast.xml`, con las respuestas a las preguntas del instalador.
+Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indoca a continuación.
 
-### Usando una MV con el sistema operativo ya instalado
+* A continuación, personalizamos nuestra máquina con los siguientes cambios:
+    * Nombre de máquina `1er-apellidoXXy`.
+    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `tree`, `vim`, `git`, `dia`.
+    * Creamos usuario `nombre-del-alumno`.
 
-Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
-vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
-* A continuación, personalizaremos nuestra máquina como se indica más arriba.
+## 2.2 Creamos el fichero `autoinst.xml`
+
+Necesitamos el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
+
+Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
+
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-* Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
-    * Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
-    * o por consola con `/sbin/yast2 clone_system`.
-    * El perfil clonado se guarda en `/root/autoinst.xml`.
-    * `cp /root/autoinst.xml nombre-alumnoXX.xml`.
+ Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
+(o por consola con `/sbin/yast2 clone_system`).
+
+> INFO: La Opción de `Autoinstallation Configuration` de Yast, parece que sirve para editar/modificar un fichero de configuración XML ya existente.
+
+* El perfil clonado se guarda en `/root/autoinst.xml`.
+* `cp /root/autoinst.xml nombre-alumnoXX.xml`.
+Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
 
-## 2.2 Crear acceso al fichero XML
+## 2.3 Elegimoa el modo de acceso al fichero XML
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **USB** - Fichero de control en USB
@@ -178,19 +189,21 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 >    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 >
 
-## 2.3 Comenzar la instalación desatendida
+## 2.4 Comenzar la instalación desatendida
 
 * Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE.
 
 Ver imagen de ejemplo:
 
-![opensuse-boot-options-autoyast](./files/opensuse-boot-options-autoyast.jpg)
+![opensuse-boot-options-autoyast](./files/opensuse-boot-options-autoyast.png)
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **USB** - Fichero de control en USB
     * En boot opcions ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
+    * OJO que son 3 barras seguidas después de los dos puntos.
 * **ISO** - Fichero de control dentro de la propia ISO
-    * En boot options ponemos `autoyast=file:///nombre-de-alumno.xml`
+    * En boot options ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
+    * OJO que son 3 barras seguidas después de los dos puntos.
 * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
 * **HTTP** - Fichero de control en un servidor Web (HTTP)
@@ -204,34 +217,34 @@ especificadas en el fichero XML.
 
 # ANEXO A
 
-## A.1 OpenSUSE 13.2
+## A.2 OpenSUSE 13.2 (modo 1)
 
-> La Opción de `Autoinstallation Configuration` parece que sirve para editar/modificar
-un fichero de configuración XML ya existente.
->
-> En este caso actualizamos XML con la siguiente información:
->
-> * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
-> * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
-> * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
-> * Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
-> * Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
-> * Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
-> * Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
-> * Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
+`Documentación antigua (curso1516), sobre el proceso de creación del fichero XML en OpenSUSE 13.2`.
+
+En este caso actualizamos XML con la siguiente información:
+
+* Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
+* Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
+* Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
+* Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
+* Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
+* Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
+* Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
+* Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
 vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
 
+## A.2 OpenSUSE 13.2 (modo 2)
 
-> Esta forma NO funciona con OpenSUSE Leap 42.2
->
-> Con OpenSUSE 13.2 podemos hacer una nueva instalación en MV y guardar el fichero `autoyast.xml`
-durante el proceso.
-> * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
-> * Crear el usuario `nombre-alumnoXX`.
-> * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
-> * Configurar dominio con `curso1516`.
-> * Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
+`Documentación antigua (curso1516), sobre el proceso de creación del fichero XML en OpenSUSE 13.2`.
+
+Con OpenSUSE 13.2 podemos hacer una nueva instalación en MV y guardar el fichero `autoyast.xml` durante el proceso.
+
+* Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
+* Crear el usuario `nombre-alumnoXX`.
+* Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
+* Configurar dominio con `curso1516`.
+* Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
 Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
->
-> `autoyast.xml`  es  nuestro "Control File".
-> Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
+
+`autoyast.xml`  es  nuestro "Control File".
+Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
