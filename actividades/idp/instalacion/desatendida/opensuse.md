@@ -154,17 +154,27 @@ vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * A continuación, personalizaremos nuestra máquina como se indica más arriba.
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
 * Iniciamos autoyast con `Yast -> Autoyast` o por consola con `/sbin/yast2 autoyast`.
-* Ir a `Crear fichero de configuración Autoyast`
-* Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
-* Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
-* Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
-* Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
-* Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
-* Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
-* Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
-* Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
+* Ir a `Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
+para crear un fichero XML que clona la configuración de nuestro sistema actual.
+    * El perfil clonado se guarda en `/root/autoinst.xml`.
+    * `cp /root/autoinst.xml nombre-alumnoXX.xml`.
+* Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
+
+> La Opción de `Autoinstallation Configuration` parece que sirve para editar/modificar
+un fichero de configuración XML ya existente.
+>
+> En este caso actualizamos XML con la siguiente información:
+>
+> * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
+> * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
+> * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
+> * Seleccionar fecha/hora yendo a la sección System -> Date and Time -> Clonar
+> * Seleccionar el idioma yendo a la sección System -> Languages -> Clonar.
+> * Seleccionar la configuración de red yendo a la sección Network Devices -> Network Setting -> Clonar
+> * Seleccionar los usuarios y grupos yendo a la sección Security and Users -> User and Group Managent -> Clonar
+> * Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
 vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
-* Copiamos el fichero XML en un pendrive o en la máquina real.
+
 
 > Esta forma NO funciona con OpenSUSE Leap 42.2
 >
