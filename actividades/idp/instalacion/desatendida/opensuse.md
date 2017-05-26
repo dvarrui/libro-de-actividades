@@ -167,8 +167,7 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 > INFO: La Opción de `Autoinstallation Configuration` de Yast, parece que sirve para editar/modificar un fichero de configuración XML ya existente.
 
 * El perfil clonado se guarda en `/root/autoinst.xml`.
-* `cp /root/autoinst.xml nombre-alumnoXX.xml`.
-Hacemos una copia de seguridad del perfil.
+* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
 
 ## 2.3 Modos de acceso al fichero XML
@@ -178,7 +177,7 @@ Elegir una de las siguientes formas para la instalación desatendida.
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
 * **ISO** - Fichero de control dentro de la propia ISO
     * Incluir el fichero XML dentro de la ISO de instalación.
-    * Para modificar la ISO podemos usar el programa isomaster.
+    * Para modificar la ISO podemos usar el programa `isomaster`.
 
 > **Otras opciones**
 >
@@ -186,8 +185,7 @@ Elegir una de las siguientes formas para la instalación desatendida.
 > * **HTTP** - Fichero de control en un servidor Web (HTTP)
 >    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor,
 para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
->    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
->
+>    * Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 
 ## 2.4 Comenzar la instalación desatendida
 
@@ -206,11 +204,12 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **ISO** - Fichero de control dentro de la propia ISO
     * En boot options ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
     * OJO que son 3 barras seguidas después de los dos puntos.
-* **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
-    * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
-* **HTTP** - Fichero de control en un servidor Web (HTTP)
-    * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
-    * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml"
+
+> * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
+>     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
+> * **HTTP** - Fichero de control en un servidor Web (HTTP)
+>     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
+>     * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml"
 
 A continuación debe comenzar la instalación de forma desatendida con las opciones
 especificadas en el fichero XML.
