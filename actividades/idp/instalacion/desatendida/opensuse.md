@@ -147,20 +147,7 @@ Enlace de interés:
 
 Necesitamos el fichero `autoyast.xml`, con las respuestas a las preguntas del instalador.
 
-### 2.1.1 Opción 1 - Instalando una MV desde cero
-
-Hacemos una nueva instalación de OpenSUSE en MV.
-* Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
-* Crear el usuario `nombre-alumnoXX`.
-* Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
-* Configurar dominio con `curso1516`.
-* Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
-Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
-
-> `autoyast.xml`  es  nuestro "Control File".
-> Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
-
-### 2.1.2 Opción 2 - Usando una MV con el sistema operativo ya instalado
+### Usando una MV con el sistema operativo ya instalado
 
 Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonces
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
@@ -179,6 +166,20 @@ vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * Al terminar de "clonar" los datos que nos interesan vamos a grabarlos en un XML,
 vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
 * Copiamos el fichero XML en un pendrive o en la máquina real.
+
+> Esta forma NO funciona con OpenSUSE Leap 42.2
+>
+> Con OpenSUSE 13.2 podemos hacer una nueva instalación en MV y guardar el fichero `autoyast.xml`
+durante el proceso.
+> * Incluir los programas/paquetes siguientes: tree, nmap, traceroute, vim, ruby, geany, putty, minicom, gtk-recordmydesktop.
+> * Crear el usuario `nombre-alumnoXX`.
+> * Configurar el nombre de máquina con `primer-apellido-alumnoXX`.
+> * Configurar dominio con `curso1516`.
+> * Asegurarse de que se guarda el fichero `autoyast.xml` durante el proceso.
+Este fichero guarda las decisiones que tomamos sobre la configuración de nuestra instalación.
+>
+> `autoyast.xml`  es  nuestro "Control File".
+> Esto es, un fichero XML con las definiciones que elijamos para nuestra instalación desatendida.
 
 ## 2.2 Crear acceso al fichero XML
 
