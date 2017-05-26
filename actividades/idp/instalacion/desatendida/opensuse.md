@@ -153,9 +153,9 @@ Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonc
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * A continuación, personalizaremos nuestra máquina como se indica más arriba.
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-* Iniciamos autoyast con `Yast -> Autoyast` o por consola con `/sbin/yast2 autoyast`.
-* Ir a `Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
-para crear un fichero XML que clona la configuración de nuestro sistema actual.
+* Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
+    * Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
+    * o por consola con `/sbin/yast2 clone_system`.
     * El perfil clonado se guarda en `/root/autoinst.xml`.
     * `cp /root/autoinst.xml nombre-alumnoXX.xml`.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
@@ -204,7 +204,7 @@ Elegir una de las siguientes formas para la instalación desatendida.
 > * **CIFS** - Fichero de control en carpeta compartida de Windows
 > * **HTTP** - Fichero de control en un servidor Web (HTTP)
 >    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor,
-para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumno.xml`.
+para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
 >    * Establer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 >
 
@@ -218,14 +218,14 @@ Ver imagen de ejemplo:
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **ISO** - Fichero de control dentro de la propia ISO
-    * En boot options ponemos `autoyast=file://nombre-de-alumno.xml`
+    * En boot options ponemos `autoyast=file:///nombre-de-alumno.xml`
 * **USB** - Fichero de control en USB
-    * En boot opcions ponemos `autoyast=usb://nombre-del-alumno.xml`
+    * En boot opcions ponemos `autoyast=usb://nombre-del-alumnoXX.xml`
 * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
-    * `autoyast=cifs://servidor/carpeta/nombre-del-a.xml`
+    * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
 * **HTTP** - Fichero de control en un servidor Web (HTTP)
-    * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumno.xml`.
-    * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumno.xml"
+    * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
+    * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml"
 
 A continuación debe comenzar la instalación de forma desatendida con las opciones
 especificadas en el fichero XML.
