@@ -153,9 +153,8 @@ Si no se hubiera creado el fichero `autoyast.xml` durante la instalación entonc
 vamos a crearlo ahora en nuestra MV con el sistema ya instalado.
 * A continuación, personalizaremos nuestra máquina como se indica más arriba.
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-* Iniciamos autoyast
-    * Por GUI `Yast -> Autoyast` o
-    * por comandos `/sbin/yast2 autoyast`.
+* Iniciamos autoyast con `Yast -> Autoyast` o por consola con `/sbin/yast2 autoyast`.
+* Ir a `Crear fichero de configuración Autoyast`
 * Seleccionar los paquetes instalados yendo a la sección Software -> Selección de paquetes -> Clonar
 * Seleccionar las particiones yendo a la sección Hardware -> Partitioning -> Clonar
 * Seleccionar el boot loader yendo a la sección System -> BootLoader -> Clonar
