@@ -209,7 +209,7 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
 >     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
 > * **HTTP** - Fichero de control en un servidor Web (HTTP)
 >     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
->     * Poner en Boot Options información de la configuración de red. Esto es: "hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml"
+>     * Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
 
 A continuación debe comenzar la instalación de forma desatendida con las opciones
 especificadas en el fichero XML.
