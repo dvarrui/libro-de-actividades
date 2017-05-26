@@ -171,7 +171,7 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
 
-## 2.3 Elegimoa el modo de acceso al fichero XML
+## 2.3 Modos de acceso al fichero XML
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **USB** - Fichero de control en USB
@@ -191,7 +191,9 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 
 ## 2.4 Comenzar la instalación desatendida
 
-* Vamos a otra MV y comenzamos una nueva instalación de OpenSUSE.
+* Creamos una MV nueva.
+* Ponemos el DVD de instalación de OpenSUSE.
+* Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
 
 Ver imagen de ejemplo:
 
