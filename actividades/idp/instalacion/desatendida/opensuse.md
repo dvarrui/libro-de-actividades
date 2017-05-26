@@ -220,7 +220,7 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **ISO** - Fichero de control dentro de la propia ISO
     * En boot options ponemos `autoyast=file:///nombre-de-alumno.xml`
 * **USB** - Fichero de control en USB
-    * En boot opcions ponemos `autoyast=usb://nombre-del-alumnoXX.xml`
+    * En boot opcions ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
 * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
 * **HTTP** - Fichero de control en un servidor Web (HTTP)
