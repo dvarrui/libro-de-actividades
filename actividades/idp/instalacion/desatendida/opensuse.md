@@ -1,8 +1,3 @@
-```
-Instalación desatendida con OpenSUSE
-* Creada en el curso 201314.
-* Problemas en la lectura del fichero autoyast.xml
-```
 
 # Instalaciónes desatendidas
 
