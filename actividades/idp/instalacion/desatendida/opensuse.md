@@ -188,10 +188,6 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 * Ponemos el DVD de instalación de OpenSUSE.
 * Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
 
-Ver imagen de ejemplo:
-
-![opensuse-boot-options-autoyast](./files/opensuse-boot-options-autoyast.png)
-
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **USB** - Fichero de control en USB
     * En boot opcions ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
