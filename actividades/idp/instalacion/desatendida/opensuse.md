@@ -146,7 +146,7 @@ Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera crea
 
 * A continuación, personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `tree`, `vim`, `git`, `dia`.
+    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
 
 ## 2.2 Creamos el fichero `autoinst.xml`
