@@ -121,9 +121,9 @@ Otros enlaces de interés:
 
 Crear los dispositivos en el equipo target.
 * Creamos el `dispositivo1` a partir de un fichero.
-    * `dd if=/dev/zero of=/home/dispositivo1.img bs=1M count=500`
+    * `dd if=/dev/zero of=/home/nombre-alumnoXXdisp1.img bs=1M count=500`
     * Hemos creado un fichero con tamaño 500M.
-    * `du -sh /home/dispositivo1.img`, lo comprobamos.
+    * `du -sh /home/nombre-alumnoXXdisp1.img`, lo comprobamos.
 * Creamos el `dispositivo2` a partir de un disco extra.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
@@ -142,7 +142,7 @@ Crear los dispositivos en el equipo target.
     * Nombre `iqn.2017-05.targetXXg`.
     * Identificador `test`
     * Seleccionar los LUN (dispositivos creados anteriormente)
-        * `Lun 0 Path=/home/dispositivo1.img,Type=fileio`
+        * `Lun 0 Path=/home/nombre-alumnoXXdisp1.img,Type=fileio`
         * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
     * Utilizar autenticación => NO
 
