@@ -17,89 +17,7 @@
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 * Elegir solamente, una de las siguientes opciones para realizar la práctica.
 
-# 1. NAS OpenSUSE 13.2
-
-Montar en una MV con OpenSUSE el servicio Samba
-(Consultar [configuración](../../global/configuracion-aula109.md)).
-
-La práctica de NAS consisten en:
-* Montar 2 discos para guardar los datos en RAID1.
-* Montar el RAID1 en la ruta `/mnt/nas`.
-    * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
-    * Pista. En el directorio `/mnt/nas` debe aparecer un `lost+found`.
-* Instalar y configurar un servidor Samba (desde Yast por ejemplo o con zypper).
-
-![nas-opensuse-yast-samba.png](./files/nas-opensuse-yast-samba.png)
-
-> Samba es un software que permite que el equipo se comunique
-usando el protocolo SMB/CIFS típico de las redes Windows.
-
-* Configurar Servidor Samba con:
-    * Grupo de trabajo: `CURSO1516`
-    * Sin controlador de Dominio
-    * Inicio del servicio: `durante el arranque`
-    * Puerto abierto en el cortafuegos
-* Crear el grupo `hobbitsXX`
-    * Añadir los usuarios `frodoXX` y `bilboXX`
-* Crear el grupo `humanosXX`
-    * Añadir los usuarios `gandalfXX` y `aragornXX`
-* Crear el recurso compartido (I):
-    * Crear la carpeta `/mnt/nas/hobbitonXX.d`
-    * Con permisos de lectura/navegación para todos.
-    * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
-    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `hobbitonXX`.
-    * Poner permisos al recurso de red de lectura para todos.
-    * Poner permisos al recurso de red de lectura/escritura para `hobbitsXX`.
-* Crear el recurso compartido (II):
-    * Crear la carpeta `/mnt/nas/mordorXX.d`
-    * Con permisos de lectura/navegación para todos.
-    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
-    * Poner permisos al recurso de red de lectura para todos.
-
-![nas-samba-share.png](./files/nas-samba-share.png)
-
-* Poner también clave en Samba para los usuarios.
-    * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
-    * `smbpasswd -e USUARIO` para activar el usuario en samba.
-* Reiniciar el servicio:
-    * `systemctl stop smb`
-    * `systemctl start smb`
-    * `systemctl status smb`
-* Comprobar el acceso al servidor NAS desde otra máquina con todos los
-usuarios, y todos los recursos.
-* Comprobaciones:
-    * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
-    * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
-
-# 2. NAS Hardware
-
-La práctica de NAS consisten en:
-* Usar un dispositivo NAS Hardware proporcionado por el profesor.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `profesores`: Recurso compartido de lectura/escritura para el usuario `profesor`
-    * `alumnos`: Recurso de sólo lectura para el usuario `alumno`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `profesor`.
-    * Usuario `alumno`.
-* Comprobar el acceso al servdidor NAS desde otra máquina.
-
-# 3. Otros NAS
-
-Montar en una MV con otro sistema NAS a elegir por el alumno.
-* Antes de empezar consultar el profesor el NAS elegido.
-* Instalar y configurar NAS.
-* Montar 2 discos para guardar los datos en RAID1.
-* Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-    * `hobbitonXX`: Recurso compartido de lectura/escritura para el usuario `frodoXX`
-    * `mordorXX`: Recurso de sólo lectura para el usuario `gandalfXX`.
-* Crear usuarios/clave para acceder al repositorio NAS.
-    * Usuario `frodoXX`.
-    * Usuario `gandalfXX`.
-* Comprobar el acceso al servdidor NAS desde otra máquina.
-
-
-# 4. FreeNAS
+# FreeNAS
 
 * Como no disponemos de hardware NAS para hacer las prácticas con todos
 los alumnos, nos vamos a crear nuestro propio NAS, en una MV usando
@@ -121,8 +39,9 @@ Enlaces de interés:
 * Definición de NAS según wikipedia
 * http://cerowarnings.blogspot.com.es/2012/01/servidor-de-discos-en-red-con-freenas.html
 
+---
 
-## 4.1 Preparar la MV
+## 1 Preparar la MV
 
 * Crear la MV en VBox.Elegir MV del tipo FreeBSD. Si la ISO es x86 elegimos
 de 32 bits, y si la ISO es amd64 escogemos de 64bits.
@@ -140,7 +59,9 @@ a la máquina virtual 2 discos más de 2GB cada uno, para crear el volumen de al
 * Configurar MV con la red en modo puente. Para que al terminar podamos
 acceder al NAS desde cualquier equipo de nuestra red.
 
-## 4.2 Instalar FreeNAS
+---
+
+## 2 Instalar FreeNAS
 
 * Descargar la ISO del servidor del departamento, o desde la web de FreeNAS.
 * Comenzamos la instalación.
@@ -156,10 +77,11 @@ acceder al NAS desde cualquier equipo de nuestra red.
 
 ![freenas-install-03](./files/freenas-install-03.png)
 
-
 * Apagar el sistema. Quitar el disco de instalación (Fichero ISO).
 
-## 4.3 Primera configuración de FreeNAS
+---
+
+## 3 Primera configuración de FreeNAS
 
 * Reiniciar la MV FreeNAS.
 * Vamos a realizar la configuración inicial. Éste es el aspecto del menú:
@@ -189,7 +111,9 @@ Comprobar que esto ha funcionado:
 
 * Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS, iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
 
-## 4.4 Crear un volumen
+---
+
+## 4 Crear un volumen
 
 * Para acceder al PANEL de configuración (GUI, por entorno gráfico) de FreeNAS,
 iniciamos un navegador web desde otro PC de la red. Y navegamos usando la IP del servidor FreeNAS.
@@ -223,8 +147,9 @@ Ahora vamos a crear un VOLUMEN a partir de los dos discos creados de 2GB.
 
 * Vamos a permitir el acceso de usuarios invitados.
 
+---
 
-## 4.5 Comprobar desde cliente
+## 5 Comprobar desde cliente
 
 * Probar que podemos acceder a dicho recurso compartido SMB/CIFS, desde otro equipo de la red. Por ejemplo, usando un cliente Windows7.
 * Para comprobar el acceso al recurso compartido de red desde GNU/Linux:
