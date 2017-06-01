@@ -39,6 +39,7 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
     * Necesitamos Windows Server 64 bits para poder instalar el software de Target.
     * Con un interfaz de red (192.168.XX.22) en modo red interna `san`.
     * Esta interfaz usa como gateway 192.168.XX.21.
+    * Añadir un segundo disco de 800 MB a la MV de VirtualBox.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
@@ -85,7 +86,7 @@ el interfaz de red de la red interna.
 
 ## 4.3 Crear un dispositivo
 
-* Crear disco virtual para el destino iSCSI en `C:\alumnoXXdisco01.vhd` de tamaño 500 MB.
+* Crear disco virtual para el destino iSCSI en `C:\alumnoXXdisco01.vhd` de tamaño 600 MB.
 * Dispositivo -> Botón derecho -> Acceso disco -> Montar.
 * Vamos a Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado)
 -> Nuevo volumen. Le asignamos letra (`E:`) y le damos formato.
@@ -95,6 +96,7 @@ el interfaz de red de la red interna.
 
 Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador.
 
+* Crear otro destino iSCSI usando el segundo disco (800 MB) de la máquina target.
 ---
 
 # 5. Configurar Iniciador
@@ -112,6 +114,6 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
 # 6. Comprobación final
 
-* Desde el Iniciador, crear una carpeta `F:\remote_target` en el nuevo almacenamiento.
-* Guardar ficheros en dicha carpeta, de modo que la información que se guarde en ella
+* Desde el Iniciador, montar el nuevo almacenamiento (Letras de unidad `F`, `G`, etc.).
+* Guardar ficheros en dichas unidades, de modo que la información que se guarde en ella
 se almacenará en el Target remoto.
