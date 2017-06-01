@@ -170,9 +170,11 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 Elegir una de las siguientes formas para la instalación desatendida.
 * **USB** - Fichero de control en USB
     * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
-* **ISO** - Fichero de control dentro de la propia ISO
+* **ISO** - Fichero de control dentro de la propia ISO.
+    * Iniciamos un programa para modificar ficheros ISO(Por ejemplo `isomaster`).
+    * Abrimos el fichero ISO de OpenSUSE.
     * Incluir el fichero XML dentro de la ISO de instalación.
-    * Para modificar la ISO podemos usar el programa `isomaster`.
+    * Grabar ISO modificada.
 
 > **Otras opciones**
 >
