@@ -190,12 +190,14 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
 * **USB** - Fichero de control en USB
-    * En boot opcions ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
+    * En opciones de arranque ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
     * OJO que son 3 barras seguidas después de los dos puntos.
 * **ISO** - Fichero de control dentro de la propia ISO
-    * En boot options ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
-    * OJO que son 3 barras seguidas después de los dos puntos.
+   * En opciones de arranque ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
+   * OJO que son 3 barras seguidas después de los dos puntos.
 
+> **Otras opciones**
+>
 > * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
 >     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
 > * **HTTP** - Fichero de control en un servidor Web (HTTP)
