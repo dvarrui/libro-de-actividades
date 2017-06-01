@@ -86,7 +86,7 @@ el interfaz de red de la red interna.
 
 ## 4.3 Crear un dispositivo
 
-* Crear disco virtual para el destino iSCSI en `C:\alumnoXXdisco01.vhd` de tamaño 600 MB.
+* Crear disco virtual para el destino iSCSI en `C:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
 * Dispositivo -> Botón derecho -> Acceso disco -> Montar.
 * Vamos a Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado)
 -> Nuevo volumen. Le asignamos letra (`E:`) y le damos formato.
