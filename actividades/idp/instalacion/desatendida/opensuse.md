@@ -1,4 +1,8 @@
 
+```
+Curso 201617: Problema con UEFI. Revisar.
+```
+
 # Instalaciónes desatendidas
 
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
@@ -142,7 +146,10 @@ Enlace de interés:
 
 ## 2.1 Personalizamos la MV OpenSUSE Leap
 
-Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indoca a continuación.
+Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
+
+> OJO: La MVs deben tener configurada la opción de BIOS. NO UEFI.
+> El proceso de instalación desatendida con UEFI debe revisarse.
 
 * A continuación, personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
