@@ -187,6 +187,9 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 ## 2.4 Comenzar la instalación desatendida
 
 * Creamos una MV nueva.
+
+> OJO esta MV tiene que tener un tamaño de disco duro similar a la MV de donde se creó el XML.
+
 * Ponemos el DVD de instalación de OpenSUSE.
 * Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
 
