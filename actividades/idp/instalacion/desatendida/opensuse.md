@@ -8,7 +8,7 @@ Curso 201617: Problema con UEFI. Revisar.
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
 de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
-* Vamos a crear 2 instalaciones desatendidas para el sistema operativo OpenSuse.
+* Vamos a crear 2 instalaciones para el sistema operativo OpenSuse.
 * Entregas:
     * (a) Entregar URL apuntando a la distro creada en el apartado 1.
     * (b) Informe los pasos del apartado 2.
@@ -40,7 +40,7 @@ y a partir de aquí seguimos con nuestra personalización.
     * Paquetes ofimática: libroffice-l10n-es
     * Incluir paquetes idioma español: `kde-l10n-es`, `desktop-translations`
     * `virtualbox-guest-x11`, `virtualbox-guest-tools`
-    * `patterns-openSUSE-mate`: INcluir Mate como desktop secundario.
+    * `patterns-openSUSE-mate`: Incluir Mate como desktop secundario.
 * `Switch to configuration tab`
     * Idioma español y teclado español. Zona horaria Europa/Canarias.
     * Activar `Configuración -> Appliance -> Add live installer CD/DVD`.
