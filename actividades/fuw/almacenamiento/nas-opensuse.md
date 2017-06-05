@@ -7,14 +7,6 @@
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
-* Esquema de la práctica:
-    * Instalar y configurar NAS.
-    * Montar 2 discos para guardar los datos en RAID1.
-    * Crear 2 recursos compartidos CIFS/SMB en el servidor NAS.
-        * Recurso1 compartido de lectura/escritura para el usuario1.
-        * Recurso2 de sólo lectura para el usuario2.
-    * Crear usuarios/clave para acceder al repositorio NAS.
-    * Comprobar el acceso al servdidor NAS desde otra máquina.
 
 ---
 
@@ -42,6 +34,8 @@ Normalmente los NAS usan un disco a parte para guardar los datos. Y para mayor
 seguridad usan un almacenamiento en RAID1 o RAID5.
 Vamos a usar el entorno gráfico Yast para crear RAID1.
 
+* Ir a MV OpenSUSE NAS
+* Configurar hostname con `nasXX`.
 * Añadimos 2 discos de tamaño 500 MB a la MV VirtualBox.
 * Iniciamos la MV.
 * Ir a `Yast -> Particionador`.
@@ -61,15 +55,17 @@ Vamos a usar el entorno gráfico Yast para crear RAID1.
 > Samba es un software que permite que el equipo se comunique
 usando el protocolo SMB/CIFS típico de las redes Windows.
 
+* Ir a MV OpenSUSE NAS.
 * Configurar Servidor Samba con:
     * Grupo de trabajo: `curso1617`
     * Sin controlador de Dominio
     * Inicio del servicio: `durante el arranque`
     * Puerto abierto en el cortafuegos
+
+## 2.1 Crear recurso compartido (I)
+
 * Crear el grupo `hobbitsXX`
     * Añadir los usuarios `frodoXX` y `bilboXX`
-* Crear el grupo `humanosXX`
-    * Añadir los usuarios `gandalfXX` y `aragornXX`
 * Crear el recurso compartido (I):
     * Crear la carpeta `/mnt/nas/hobbitonXX.d`
     * Con permisos de lectura/navegación para todos.
@@ -84,6 +80,10 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 
 ![nas-samba-share.png](./files/nas-samba-share.png)
 
+## 2.2 Crear recurso compartido (II)
+
+* Crear el grupo `humanosXX`
+    * Añadir los usuarios `gandalfXX` y `aragornXX`
 * Crear el recurso compartido (II):
     * Crear la carpeta `/mnt/nas/mordorXX.d`
     * Con permisos de lectura/navegación para todos.
@@ -93,9 +93,8 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `path = /mnt/nas/mordorXX.d`
     * `valid users = gandalfXX, frodoXX` (Estos usuarios pueden acceder al recurso)
     * `read only = Yes`
-* Comprobar la configuración por comandos.
-    * `cat /etc/samba/smb.conf`
-    * `testparm`
+
+## 2.3 Comprobar
 
 * Poner también clave en Samba para los usuarios.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
@@ -104,6 +103,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `systemctl stop smb`
     * `systemctl start smb`
     * `systemctl status smb`
+* Comprobar la configuración por comandos.
+    * `cat /etc/samba/smb.conf`
+    * `testparm`
 * `netstat -untap`, comprobar el servicio desde la máquina local.
 
 ---
@@ -116,11 +118,11 @@ usuarios, y todos los recursos.
 * Comprobaciones:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
-* Comprobar acceso a las carpetas compartidas.
+* Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 
 ---
 
 # 4. Comprobar desde un cliente Windows 7
 
 * Ir a MV cliente Windows 7.
-* Comprobar acceso a las carpetas compartidas.
+* Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
