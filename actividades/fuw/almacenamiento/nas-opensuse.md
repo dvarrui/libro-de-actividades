@@ -43,7 +43,7 @@ seguridad usan un almacenamiento en RAID1 o RAID5.
 La práctica de NAS consisten en:
 * Añadimos 2 discos de tamaño 500 MB a la MV VirtualBox.
 * Iniciamos la MV.
-* Ir a `Yast -> Particionador`
+* Ir a `Yast -> Particionador`. Vamos a usar el entorno gráfico Yast para crear RAID1.
 * Crear un RAID1 con los 2 discos.
 * Montar el RAID1 en la ruta `/mnt/nas`.
     * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
