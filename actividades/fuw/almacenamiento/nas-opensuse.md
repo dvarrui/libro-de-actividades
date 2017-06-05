@@ -18,11 +18,8 @@
 
 ---
 
-# 0. Introducción
+# 0. Definición de Wikipedia
 
-Extraído de Wikipedia:
-
-```
 El almacenamiento conectado en red, Network Attached Storage (NAS), es el nombre
 dado a una tecnología de almacenamiento dedicada a compartir la capacidad de almacenamiento de un computador (servidor) con computadoras personales o servidores clientes a través de una red (normalmente TCP/IP), haciendo uso de un sistema operativo optimizado para dar acceso con los protocolos CIFS, NFS, FTP o TFTP.
 
@@ -31,7 +28,6 @@ Los sistemas NAS son dispositivos de almacenamiento a los que se accede desde lo
 Los protocolos de comunicaciones NAS están basados en archivos por lo que el cliente solicita el archivo completo al servidor y lo maneja localmente, por lo que están orientados a manipular una gran cantidad de pequeños archivos. Los protocolos usados son protocolos de compartición de archivos como Network File System (NFS) o Microsoft Common Internet File System (CIFS).
 
 Muchos sistemas NAS cuentan con uno o más dispositivos de almacenamiento para incrementar su capacidad total. Frecuentemente, estos dispositivos están dispuestos en RAID (Redundant Arrays of Independent Disks) o contenedores de almacenamiento redundante.
-```
 
 ---
 
