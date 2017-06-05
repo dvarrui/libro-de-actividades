@@ -37,8 +37,14 @@ Muchos sistemas NAS cuentan con uno o más dispositivos de almacenamiento para i
 (Consultar [configuración](../../global/configuracion/opensuse.md).
 * Consultar vídeo [SAMBA Management with YaST on SUSE](https://youtu.be/Zh3J-HUYDY4?list=PL3E447E094F7E3EBB)
 
+Normalmente los NAS usan un disco a parte para guardar los datos. Y para mayor
+seguridad usan un almacenamiento en RAID1 o RAID5.
+
 La práctica de NAS consisten en:
-* Montar 2 discos para guardar los datos en RAID1.
+* Añadimos 2 discos de tamaño 500 MB a la MV VirtualBox.
+* Iniciamos la MV.
+* Ir a `Yast -> Particionador`
+* Crear un RAID1 con los 2 discos.
 * Montar el RAID1 en la ruta `/mnt/nas`.
     * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
     * Pista. En el directorio `/mnt/nas` debe aparecer un `lost+found`.
