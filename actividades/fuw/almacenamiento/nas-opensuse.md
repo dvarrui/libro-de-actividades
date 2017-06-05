@@ -3,7 +3,7 @@
 * Actualizada para el curso 201516
 ```
 
-# Almacenamiento NAS
+# Almacenamiento NAS con OpenSUSE
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
@@ -16,10 +16,12 @@
     * Crear usuarios/clave para acceder al repositorio NAS.
     * Comprobar el acceso al servdidor NAS desde otra máquina.
 
-# 1. NAS OpenSUSE 13.2
+---
+
+# 1. Prepara la máquina y los discos
 
 * Montar en una MV con OpenSUSE el servicio Samba
-(Consultar [configuración](../../global/configuracion-aula109.md)).
+(Consultar [configuración](../../global/configuracion/opensuse.md).
 * Consultar vídeo [SAMBA Management with YaST on SUSE](https://youtu.be/Zh3J-HUYDY4?list=PL3E447E094F7E3EBB)
 
 La práctica de NAS consisten en:
@@ -27,6 +29,11 @@ La práctica de NAS consisten en:
 * Montar el RAID1 en la ruta `/mnt/nas`.
     * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
     * Pista. En el directorio `/mnt/nas` debe aparecer un `lost+found`.
+
+---
+
+# 2. Instalar y configurar Samba
+
 * Instalar y configurar un servidor Samba (desde Yast por ejemplo o con zypper).
 
 ![nas-opensuse-yast-samba.png](./files/nas-opensuse-yast-samba.png)
@@ -35,7 +42,7 @@ La práctica de NAS consisten en:
 usando el protocolo SMB/CIFS típico de las redes Windows.
 
 * Configurar Servidor Samba con:
-    * Grupo de trabajo: `CURSO1516`
+    * Grupo de trabajo: `curso1617`
     * Sin controlador de Dominio
     * Inicio del servicio: `durante el arranque`
     * Puerto abierto en el cortafuegos
@@ -66,6 +73,9 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `path = /mnt/nas/mordorXX.d`
     * `valid users = gandalfXX, frodoXX` (Estos usuarios pueden acceder al recurso)
     * `read only = Yes`
+* Comprobar la configuración por comandos.
+    * `cat /etc/samba/smb.conf`
+    * `testparm`
 
 * Poner también clave en Samba para los usuarios.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
@@ -74,8 +84,23 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * `systemctl stop smb`
     * `systemctl start smb`
     * `systemctl status smb`
+* `netstat -untap`, comprobar el servicio desde la máquina local.
+
+---
+
+# 3. Comprobar desde un cliente OpenSUSE
+
+* Ir a MV cliente OpenSUSE.
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los
 usuarios, y todos los recursos.
 * Comprobaciones:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
+* Comprobar acceso a las carpetas compartidas.
+
+---
+
+# 4. Comprobar desde un cliente Windows 7
+
+* Ir a MV cliente Windows 7.
+* Comprobar acceso a las carpetas compartidas.
