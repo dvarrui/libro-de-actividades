@@ -42,7 +42,6 @@ Vamos a usar el entorno gráfico Yast para crear RAID1.
 * Crear un RAID1 con los 2 discos.
 * Montar el RAID1 en la ruta `/mnt/nas`.
     * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
-    * Pista. En el directorio `/mnt/nas` debe aparecer un `lost+found`.
 
 ---
 
