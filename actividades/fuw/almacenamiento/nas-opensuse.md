@@ -63,7 +63,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 
 ## 2.1 Crear recurso compartido (I)
 
-* Crear el grupo `hobbitsXX`
+* En el sistema, crear el grupo `hobbitsXX`.
     * Añadir los usuarios `frodoXX` y `bilboXX`
 * Crear el recurso compartido (I):
     * Crear la carpeta `/mnt/nas/hobbitonXX.d`
@@ -81,7 +81,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 
 ## 2.2 Crear recurso compartido (II)
 
-* Crear el grupo `humanosXX`
+* En el sistema, crear el grupo `humanosXX`
     * Añadir los usuarios `gandalfXX` y `aragornXX`
 * Crear el recurso compartido (II):
     * Crear la carpeta `/mnt/nas/mordorXX.d`
