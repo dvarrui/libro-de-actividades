@@ -116,6 +116,8 @@ Configuración el recurso compartido en Samba:
     * `testparm`
 * `netstat -untap`, comprobar el servicio desde la máquina local.
 
+> Actualizar el sistema `zypper update` en caso de error.
+
 ---
 
 # 3. Comprobar desde un cliente OpenSUSE
