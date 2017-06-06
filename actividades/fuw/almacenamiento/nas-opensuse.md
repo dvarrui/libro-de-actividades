@@ -130,9 +130,13 @@ usuarios, y todos los recursos.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 
+> Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
+
 ---
 
 # 4. Comprobar desde un cliente Windows 7
 
 * Ir a MV cliente Windows 7.
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
+
+> Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
