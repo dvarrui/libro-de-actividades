@@ -63,35 +63,44 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
 
 ## 2.1 Crear recurso compartido (I)
 
+Grupos y usuarios del sistema:
 * En el sistema, crear el grupo `hobbitsXX`.
-    * Añadir los usuarios `frodoXX` y `bilboXX`
-* Crear el recurso compartido (I):
-    * Crear la carpeta `/mnt/nas/hobbitonXX.d`
-    * Con permisos de lectura/navegación para todos.
-    * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
-    * Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS)
-    en la ruta anterior, con el nombre `hobbitonXX`.
-    * Poner permisos al recurso de red de lectura para todos.
-    * Heredar ACLS
-    * `path = /mnt/nas/hobbitonXX.d`
-    * `valid users = @hobbitsXX` (Los usuarios de este grupo pueden acceder al recurso)
-    * `read only = No`
+* Añadir los usuarios `frodoXX` y `bilboXX`
 
+En el sistema de ficheros:
+* Crear la carpeta `/mnt/nas/hobbitonXX.d`
+* Con permisos de lectura/navegación para todos.
+* Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
+
+Configuración el recurso compartido en Samba:
+* Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS)
+en la ruta anterior, con el nombre `hobbitonXX`.
+* Heredar ACLS
+* `path = /mnt/nas/hobbitonXX.d`
+* `valid users = @hobbitsXX` (Los usuarios de este grupo pueden acceder al recurso)
+* `read only = No`
+
+Veamos una imagen de ejemplo, donde los valores de la imagen no se corresponden
+con lo que se pide en la práctica.
 ![nas-samba-share.png](./files/nas-samba-share.png)
 
 ## 2.2 Crear recurso compartido (II)
 
+Grupos y usuarios del sistema:
 * En el sistema, crear el grupo `humanosXX`
-    * Añadir los usuarios `gandalfXX` y `aragornXX`
-* Crear el recurso compartido (II):
-    * Crear la carpeta `/mnt/nas/mordorXX.d`
-    * Con permisos de lectura/navegación para todos.
-    * Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
-    * Poner permisos al recurso de red de lectura para todos.
-    * Heredar ACLS
-    * `path = /mnt/nas/mordorXX.d`
-    * `valid users = gandalfXX, frodoXX` (Estos usuarios pueden acceder al recurso)
-    * `read only = Yes`
+* Añadir los usuarios `gandalfXX` y `aragornXX`
+
+En el sistema de ficheros:
+* Crear la carpeta `/mnt/nas/mordorXX.d`
+* Con permisos de lectura/navegación para todos.
+* Con permisos de escritura/lectura/navegación para el grupo `humanosXX`.
+
+Configuración el recurso compartido en Samba:
+* Crear recursos compartido (SMB/CIFS) en dicha ruta, con el nombre `mordorXX`.
+* Heredar ACLS
+* `path = /mnt/nas/mordorXX.d`
+* `valid users = gandalfXX, frodoXX` (Estos usuarios pueden acceder al recurso)
+* `read only = Yes`
 
 ## 2.3 Comprobar
 
