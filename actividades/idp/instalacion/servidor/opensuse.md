@@ -1,7 +1,6 @@
 
-
 ```
-Pendiente de probar
+Nuevo Curso 201617
 ```
 
 # Servidor de actualizaciones con OpenSUSE
@@ -28,10 +27,10 @@ para comprobar que accedemos vía HTTP a la otra MV.
 
 ---
 
-# 2# Preparar el repositorio local
+# 2. Preparar el repositorio local
 
 * Vamos al servidor
-* Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Nos movemos a dicho directorio.
+* Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`.
 * Descargar algunos paquetes de los repos de OpenSUSE en nuestro directorio local
     * `zypper --download-only PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias.
 
@@ -41,15 +40,26 @@ para comprobar que accedemos vía HTTP a la otra MV.
 * Mover los ficheros rpm descargados desde la cache de zypper (`/var/cache/zypp/packages`)
 al directorio de nuestro repositorio local.
 
-* Ahora hay que convertir el directorio local en un repositorio. Tenemos dos formas de hacerlo:
-    * Usar zypper y/o yast para convertir cualquier carpeta en un repositorio.
-    * Instalar `createrepo` y ejecutar `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX`.
+Ahora hay que convertir el directorio local en un repositorio.
+* Instalar `createrepo`.
+* Ejecutar `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX`.
+Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
+* Usar zypper y/o yast para convertir cualquier carpeta en un repositorio.
 
 > Se puede compartir este directorio al resto de equipo de la red (http, nfs, etc.)
 
-# Cliente del repositorio
+---
+
+# 3. Cliente del repositorio
 
 * Ir a otra MV OpenSUSE
-* Añadir en repositorios nuestro servidor
+Comprobar acceso:
+* Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/reponmd.xml`
+    * Debe verse el contenido del fiochero XML.
+* Añadir en repositorios nuestro servidor.
+    * Usar Yast o
+    * `zypper addrepo http://hostname/repo alias`
 * Desactivar el resto de repositorios
-* Probar la instalación de los paquetes
+* `zypper refresh`, refrescar los repositorios.
+* Probar la instalación de algún paquete de nuestro repositorio.
+* Probar la instalación de algún paquete que no esté en nuestro repositorio.
