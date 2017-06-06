@@ -104,7 +104,8 @@ Configuración el recurso compartido en Samba:
 
 ## 2.3 Comprobar
 
-* Poner también clave en Samba para los usuarios.
+* Poner también clave en Samba para los usuarios: `frodoXX`, `bilboXX`,
+`gandalfXX` y `aragornXX`.
     * `smbpasswd -a USUARIO` para poner clave del usuario en samba.
     * `smbpasswd -e USUARIO` para activar el usuario en samba.
 * Reiniciar el servicio:
