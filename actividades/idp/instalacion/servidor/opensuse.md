@@ -65,6 +65,9 @@ Comprobar acceso:
 * Añadir en repositorios nuestro servidor.
     * Usar Yast o
     * `zypper addrepo http://hostname/repo alias`
+
+![opensuse-repo-define-server.png](./files/opensuse-repo-define-server.png)
+
 * Desactivar el resto de repositorios
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio.
