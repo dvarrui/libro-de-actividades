@@ -32,7 +32,7 @@ para comprobar que accedemos vía HTTP a la otra MV.
 * Vamos al servidor
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`.
 * Descargar algunos paquetes de los repos de OpenSUSE en nuestro directorio local
-    * `zypper --download-only PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias.
+    * `zypper -v --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias.
 
 > Para descargar un repositorio entero podemos usar `wget -r URL-DEL-REPOSITORIO`.
 > Pero esto tardaría mucho tiempo.
@@ -42,7 +42,10 @@ al directorio de nuestro repositorio local.
 
 Ahora hay que convertir el directorio local en un repositorio.
 * Instalar `createrepo`.
-* Ejecutar `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX`.
+* Usar createrepo:
+    * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, ver estado actual.
+    * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear índices.
+    * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobar.
 Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
 * Usar zypper y/o yast para convertir cualquier carpeta en un repositorio.
 

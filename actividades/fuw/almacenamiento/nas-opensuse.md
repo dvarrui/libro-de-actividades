@@ -131,7 +131,8 @@ usuarios, y todos los recursos.
     * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 
-> Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
+> * En el explorador de archivos, pulsar CTRL+L para que nos aparezca casilla para URL
+> * Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
 
 ---
 
