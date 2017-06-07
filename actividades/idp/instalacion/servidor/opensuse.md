@@ -47,9 +47,12 @@ Ahora hay que convertir el directorio local en un repositorio.
     * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear índices.
     * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobar.
 Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
-* Usar zypper y/o yast para convertir cualquier carpeta en un repositorio.
 
-> Se puede compartir este directorio al resto de equipo de la red (http, nfs, etc.)
+![opensuse-repo-repofiles.png](./files/opensuse-repo-repofiles.png)
+
+Se pueden compartir los paquetes de este repositorio al resto de equipo de la red
+usando diferentes protocolos (http, nfs, etc.). Nosotros hemos elegido usar
+el protocolo HTTP (Servidor Web).
 
 ---
 
