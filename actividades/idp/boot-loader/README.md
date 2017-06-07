@@ -18,6 +18,7 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 ---
 
 # 1. OpenSUSE
+
 ## 1.1 Añadir entrada SO Linux a GRUB2
 Vamos a crear una nueva entrada en el menú del boot loader:
 * Iniciamos la MV con GNU/Linux.
