@@ -12,6 +12,9 @@ Incluir breves comentarios de cada captura de pantalla.
 > Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
 operativos, muy probablemente las imágenes actuales sean diferentes.
 
+Enlaces de interés:
+* [Arranque dual Windows GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/130/cd/redesubuntu/ubuntu-SaberMas/arranque_dual_windowslinux.html)
+
 # 1. Preparar la máquina virtual
 
 * Crear una máquina virtual (VirtualBox).
