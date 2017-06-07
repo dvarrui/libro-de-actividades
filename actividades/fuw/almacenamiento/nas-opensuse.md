@@ -142,3 +142,8 @@ usuarios, y todos los recursos.
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 
 > Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
+
+* `net use` para comprobar sesiones de red abiertas.
+
+> * Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando net use).
+> * Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
