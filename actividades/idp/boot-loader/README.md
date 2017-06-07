@@ -1,8 +1,8 @@
 
-#BootLoader (OpenSUSE y Windows7)
+# BootLoader (OpenSUSE y Windows7)
 
 El *Boot loader* es el programa encargado de la carga el sistema operativo.
-Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo. 
+Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo.
 GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP, y bcdedit de Windows 7, etc.
 
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
@@ -15,11 +15,13 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 > * [GRUB2 OpenSUSE Documentation] (http://activedoc.opensuse.org/book/opensuse-reference)
 > * [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
 
-#1. OpenSUSE
-##1.1 Añadir entrada SO Linux a GRUB2
+---
+
+# 1. OpenSUSE
+## 1.1 Añadir entrada SO Linux a GRUB2
 Vamos a crear una nueva entrada en el menú del boot loader:
 * Iniciamos la MV con GNU/Linux.
-* Abrimos un terminal. Nos convertimos en superusuario. 
+* Abrimos un terminal. Nos convertimos en superusuario.
 * Instalamos el editor nano en OpenSuse: `zypper install nano`
 * Ir a `/etc/grub.d` y editamos el fichero: `nano 40_custom`
 * Vamos a desactivar la línea `exec tail...` poniendo una almohadilla delante como `#exec tail...`.
@@ -68,10 +70,10 @@ Veamos un ejemplo de un menú de inicio:
 > ![grub2-yast2-bootloader] (./images/grub2-yast2-bootloader.png)
 >
 
-##1.2 Añadir entrada SO Windows a GRUB2
+## 1.2 Añadir entrada SO Windows a GRUB2
 Vamos a crear una nueva entrada del menú de carga para el SO Windows:
 * Iniciamos la MV con GNU/Linux.
-* Añadir las siguientes líneas al final del fichero `/etc/grub.d/40_custom`, 
+* Añadir las siguientes líneas al final del fichero `/etc/grub.d/40_custom`,
 Sustituir X por el número de la partición donde está Windows:
 ```
 
@@ -88,7 +90,7 @@ EOF
 * Atención a los mensajes de salida por si aparece algún error o warning.
 Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
 
-##1.3 Cambiar la apariencia
+## 1.3 Cambiar la apariencia
 Vamos a cambiar la apariencia del boot loader
 * Abrimos terminal como superusuario.
 * Editar el fichero /boot/grub2/themes/openSUSE/theme.txt y modificar los colores. Por ejemplo, podríamos modificar las entradas siguientes:
@@ -104,14 +106,16 @@ Vamos a cambiar la apariencia del boot loader
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
 > **Enlaces de interés**
-> 
+>
 > * [Agregar nueva entrada al menú de Grub](https://es.opensuse.org/SDB:C%C3%93MO_Agregar_nueva_entrada_de_men%C3%BA_Grub)
 > * [Cambiar el tiempo de espera](https://es.opensuse.org/SDB:C%C3%93MO_Cambiar_la_opci%C3%B3n_y_el_tiempo_de_espera_por_defecto_en_GRUB)
 > * [Cambiar la pantalla de arranque](https://es.opensuse.org/SDB:C%C3%93MO_Cambiar_la_pantalla_de_arranque_de_Grub)
 > * [Personalizar la pantalla de arranque](https://es.opensuse.org/SDB:C%C3%93MO_Personalizar_la_pantalla_de_arranque)
 >
 
-#2. Windows 7
+---
+
+# 2. Windows 7
 
 Pasos previos:
 > INFO
@@ -139,5 +143,3 @@ OBJETIVO de la práctica:
 > * [Documentación "Añadir SO Linux en el arranque de Windows7"] (http://www.taringa.net/posts/linux/14679925/Insertar-linux-en-el-arranque-de-windows.html)
 > * [Inicio dual de dos sistemas operativos desde Windows] (https://norfipc.com/articulos/dos-sistemas-operativos-inicio-dual.html)
 > * [Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
-
-
