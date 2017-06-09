@@ -51,6 +51,7 @@ Vamos a descargar algunos paquetes de los repos de OpenSUSE en nuestra máquina 
 
 * Copiar los directorios/ficheros descargados desde la cache de zypper (`/var/cache/zypp/packages`)
 al directorio de nuestro repositorio local.
+    * Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
 Ahora hay que convertir el directorio local en un repositorio.
 * Instalar `createrepo`.
