@@ -68,15 +68,15 @@ Grupos y usuarios del sistema:
 * Añadir los usuarios `frodoXX` y `bilboXX`
 
 En el sistema de ficheros:
-* Crear la carpeta `/mnt/nas/hobbitonXX.d`
+* Crear la carpeta `/mnt/nas/lacomarcaXX.d`
 * Con permisos de lectura/navegación para todos.
 * Con permisos de escritura/lectura/navegación para el grupo `hobbitsXX`.
 
 Configuración el recurso compartido en Samba:
 * Usar `Yast -> Samba Server` para crear recursos compartido (SMB/CIFS)
-en la ruta anterior, con el nombre `hobbitonXX`.
+en la ruta anterior, con el nombre `lacomarcaXX`.
 * Heredar ACLS
-* `path = /mnt/nas/hobbitonXX.d`
+* `path = /mnt/nas/lacomarcaXX.d`
 * `valid users = @hobbitsXX` (Los usuarios de este grupo pueden acceder al recurso)
 * `read only = No`
 
@@ -116,6 +116,7 @@ Configuración el recurso compartido en Samba:
     * `cat /etc/samba/smb.conf`
     * `testparm`
 * `netstat -untap`, comprobar el servicio desde la máquina local.
+* En el cortafuegos autorizar servicios "Cliente SAMBA" y "Servidor SAMBA".
 
 > Actualizar el sistema `zypper update` en caso de error.
 
@@ -124,6 +125,7 @@ Configuración el recurso compartido en Samba:
 # 3. Comprobar desde un cliente OpenSUSE
 
 * Ir a MV cliente OpenSUSE.
+* En el cortafuegos autorizar servicio "Cliente SAMBA".
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los
 usuarios, y todos los recursos.
 * Comprobaciones:
