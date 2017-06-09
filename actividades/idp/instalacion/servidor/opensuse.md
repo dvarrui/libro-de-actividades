@@ -64,7 +64,7 @@ Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
 ![opensuse-repo-repofiles.png](./files/opensuse-repo-repofiles.png)
 
 Se pueden compartir los paquetes de este repositorio al resto de equipo de la red
-usando diferentes protocolos (http, nfs, etc.). Nosotros hemos elegido usar
+usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar
 el protocolo HTTP (Servidor Web).
 
 ---
@@ -74,7 +74,7 @@ el protocolo HTTP (Servidor Web).
 * Ir a otra MV OpenSUSE
 Comprobar acceso:
 * Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/reponmd.xml`
-    * Debe verse el contenido del fiochero XML.
+    * Debe verse el contenido del fichero XML.
 * Añadir en repositorios nuestro servidor.
     * Usar Yast o
     * `zypper addrepo http://hostname/repo alias`
