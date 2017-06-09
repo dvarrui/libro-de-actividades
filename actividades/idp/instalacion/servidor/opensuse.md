@@ -26,6 +26,11 @@ con elservidor de actualizaciones usando el protocolo HTTP.
 para comprobar que accedemos vía HTTP a la otra MV.
 
 > Si no se ve la página web, comprobar el cortafuegos en el servidor.
+> Ejecutando `nmap -Pn ip-del-servidor` desde el cliente, comprobamos los servicios
+abiertos en el servidor.
+>
+> Para abrir el servicio web en el cortafuegos:
+> * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HHTP Server`
 
 ---
 
@@ -38,12 +43,13 @@ Vamos a descargar algunos paquetes de los repos de OpenSUSE en nuestra máquina 
     * `tree /var/cache/zypp/packages`, vemos una estructura de directorios sin archivos.
     * `zypper -v --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias. Ejemplo:
     * `zypper in --download-only geany tree nano dia`
-    * `tree /var/cache/zypp/packages`, vemos una estructura de directorios sin archivos.
+    * `tree /var/cache/zypp/packages`, vemos una estructura de directorios con
+    los archivos de los paquetes descargados.
 
 > Para descargar un repositorio entero podemos usar `wget -r URL-DEL-REPOSITORIO`.
 > Pero esto tardaría mucho tiempo.
 
-* Mover los ficheros rpm descargados desde la cache de zypper (`/var/cache/zypp/packages`)
+* Copiar los directorios/ficheros descargados desde la cache de zypper (`/var/cache/zypp/packages`)
 al directorio de nuestro repositorio local.
 
 Ahora hay que convertir el directorio local en un repositorio.
