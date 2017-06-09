@@ -72,6 +72,7 @@ Veamos un ejemplo de un menú de inicio:
 >
 
 ## 1.2 Añadir entrada SO Windows a GRUB2
+
 Vamos a crear una nueva entrada del menú de carga para el SO Windows:
 * Iniciamos la MV con GNU/Linux.
 * Añadir las siguientes líneas al final del fichero `/etc/grub.d/40_custom`,
