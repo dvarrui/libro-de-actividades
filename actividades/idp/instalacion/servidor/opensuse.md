@@ -75,11 +75,23 @@ el protocolo HTTP (Servidor Web).
 Comprobar acceso:
 * Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/reponmd.xml`
     * Debe verse el contenido del fichero XML.
-* Añadir en repositorios nuestro servidor.
-    * Usar Yast o
-    * `zypper addrepo http://hostname/repo alias`
+
+Vamos a añadir nuestro repositorio a esta MV.
+* Ir a `Yast -> Repositorios`
+* Añadir -> Seleccionar HTTP y Descargar archivos de descripción de repositorio -> Siguiente.
+* Editar partes de la URL.
+    * Nombre de repositorio: `Repo+nombre-alumno`
+    * Protocolo: HTTP
+    * Nombre del servidor: ip-del-servidor
+    * Puerto: 80
+    * Directorio: `/repo/nombre-alumnoXX/repodata/`
+    * Autenticación: Anónimo
 
 ![opensuse-repo-define-server.png](./files/opensuse-repo-define-server.png)
+
+
+> * `zypper addrepo http://hostname/repo alias`
+
 
 * Desactivar el resto de repositorios
 * `zypper refresh`, refrescar los repositorios.
