@@ -58,10 +58,10 @@ Ahora hay que convertir el directorio local en un repositorio.
 * Usar createrepo:
     * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, ver estado actual.
     * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear índices.
+        * Tiene que mostrar una lista de todos los paquetes detectados en este repositorio local.
     * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobar.
-Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
 
-![opensuse-repo-repofiles.png](./files/opensuse-repo-repofiles.png)
+> Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
 
 Se pueden compartir los paquetes de este repositorio al resto de equipo de la red
 usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar
@@ -78,22 +78,26 @@ Comprobar acceso:
 
 Vamos a añadir nuestro repositorio a esta MV.
 * Ir a `Yast -> Repositorios`
-* Añadir -> Seleccionar HTTP y Descargar archivos de descripción de repositorio -> Siguiente.
+* Añadir.
+* Seleccionar: HTTP y Descargar archivos de descripción de repositorio
+* Siguiente.
 * Editar partes de la URL.
-    * Nombre de repositorio: `Repo+nombre-alumno`
+    * Nombre de repositorio: `Repositorio de NOMBRE-ALUMNO`
     * Protocolo: HTTP
     * Nombre del servidor: ip-del-servidor
     * Puerto: 80
     * Directorio: `/repo/nombre-alumnoXX/repodata/`
     * Autenticación: Anónimo
 
-![opensuse-repo-define-server.png](./files/opensuse-repo-define-server.png)
-
-
 > * `zypper addrepo http://hostname/repo alias`
 
-
-* Desactivar el resto de repositorios
+* Deshabilitar(propiedad activar OFF) el resto de repositorios:
+    * OpenSUSE Leap 42.2-Update-Non-Oss,
+    * OpenSuse Leap 42.2-Non-Oss
+    * OpenSuse Leap 42.2-Oss
+    * OpenSuse Leap 42.2-Update
+* Habilitar(porpiedad activar ON) sólo el `Repositorio de NOMBRE ALUMNO`
+* Aceptar y cerrar Yast.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio.
 * Probar la instalación de algún paquete que no esté en nuestro repositorio.
