@@ -26,6 +26,8 @@ Realizar las siguientes tareas:
 > Sólo a las unidades organizativas que se especfiquen.
 
 * Vamos a crear una GPO diferente para cada OU.
+    * `gpo_jediXX`, para los jedis y
+    * `gpo_sithXX`, para los siths.
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
