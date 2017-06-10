@@ -69,7 +69,7 @@ el protocolo HTTP (Servidor Web).
 
 ---
 
-# 3. Cliente del repositorio
+# 3. Cliente del repositorio YAS
 
 * Ir a otra MV OpenSUSE
 Comprobar acceso:
@@ -82,22 +82,35 @@ Vamos a añadir nuestro repositorio a esta MV.
 * Seleccionar: HTTP y Descargar archivos de descripción de repositorio
 * Siguiente.
 * Editar partes de la URL.
-    * Nombre de repositorio: `Repositorio de NOMBRE-ALUMNO`
+    * Nombre de repositorio: `repo-nombre-alumnoXX`
     * Protocolo: HTTP
     * Nombre del servidor: ip-del-servidor
     * Puerto: 80
-    * Directorio: `/repo/nombre-alumnoXX/repodata/`
+    * Directorio: `/repo/nombre-alumnoXX/`
     * Autenticación: Anónimo
-
-> * `zypper addrepo http://hostname/repo alias`
 
 * Deshabilitar(propiedad activar OFF) el resto de repositorios:
     * OpenSUSE Leap 42.2-Update-Non-Oss,
     * OpenSuse Leap 42.2-Non-Oss
     * OpenSuse Leap 42.2-Oss
     * OpenSuse Leap 42.2-Update
-* Habilitar(porpiedad activar ON) sólo el `Repositorio de NOMBRE ALUMNO`
+* Habilitar(propiedad activar ON) sólo el `repo-nombre-alumnoXX`
 * Aceptar y cerrar Yast.
+
+---
+
+# 4. Comprobamos el repositorio desde el cliente
+
+* `cat /etc/zypp/repo.d/repo-nombre-alumnoXX.repo`, comprobamos que la configuración
+del repositorio nuevo está en este fichero de texto.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio.
 * Probar la instalación de algún paquete que no esté en nuestro repositorio.
+
+---
+
+# ANEXO
+
+> Podríamos haber hecho el paso anterior por comandos
+> * Creando el fichero `/etc/zypp/repo.d/repo-nombre-alumnoXX.repo`
+> * `zypper addrepo http://hostname/repo alias`
