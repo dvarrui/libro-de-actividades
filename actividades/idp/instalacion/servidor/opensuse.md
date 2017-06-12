@@ -72,7 +72,7 @@ el protocolo HTTP (Servidor Web).
 
 * Ir a otra MV OpenSUSE
 Comprobar acceso:
-* Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/reponmd.xml`
+* Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/repomd.xml`
     * Debe verse el contenido del fichero XML.
 
 Vamos a añadir nuestro repositorio a esta MV.
