@@ -40,11 +40,10 @@ abiertos en el servidor.
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`.
 
 Vamos a descargar algunos paquetes de los repos de OpenSUSE en nuestra máquina local.
-    * `tree /var/cache/zypp/packages`, vemos una estructura de directorios sin archivos.
-    * `zypper -v --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias. Ejemplo:
-    * `zypper in --download-only geany tree nano dia`
-    * `tree /var/cache/zypp/packages`, vemos una estructura de directorios con
-    los archivos de los paquetes descargados.
+* `tree /var/cache/zypp/packages`, vemos una estructura de directorios sin archivos.
+* `zypper in -v --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias. Ejemplo: `zypper in --download-only geany tree nano dia nmap ipcalc`
+* `tree /var/cache/zypp/packages`, vemos una estructura de directorios con los
+archivos de los paquetes descargados.
 
 > Para descargar un repositorio entero podemos usar `wget -r URL-DEL-REPOSITORIO`.
 > Pero esto tardaría mucho tiempo.
