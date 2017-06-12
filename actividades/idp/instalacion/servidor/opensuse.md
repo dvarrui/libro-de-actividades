@@ -93,11 +93,16 @@ Vamos a añadir nuestro repositorio a esta MV.
     * Directorio: `/repo/nombre-alumnoXX/`
     * Autenticación: Anónimo
 
-* Deshabilitar(propiedad activar OFF) el resto de repositorios:
-    * OpenSUSE Leap 42.2-Update-Non-Oss,
-    * OpenSuse Leap 42.2-Non-Oss
-    * OpenSuse Leap 42.2-Oss
-    * OpenSuse Leap 42.2-Update
+* Hacer captura de la lista de repositorios que tengan activos.
+
+> En mi caso me aparecen los siguientes:
+>
+> * OpenSUSE Leap 42.2-Update-Non-Oss,
+> * OpenSuse Leap 42.2-Non-Oss
+> * OpenSuse Leap 42.2-Oss
+> * OpenSuse Leap 42.2-Update
+
+* Deshabilitar(propiedad activar OFF) todos los repositorios.
 * Habilitar(propiedad activar ON) sólo el `repo-nombre-alumnoXX`
 * Aceptar y cerrar Yast.
 
