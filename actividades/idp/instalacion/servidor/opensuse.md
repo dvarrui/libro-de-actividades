@@ -110,7 +110,7 @@ Vamos a añadir nuestro repositorio a esta MV.
 
 # 4. Comprobamos el repositorio desde el cliente
 
-* `cat /etc/zypp/repo.d/repo-nombre-alumnoXX.repo`, comprobamos que la configuración
+* `cat /etc/zypp/repos.d/repo-nombre-alumnoXX.repo`, comprobamos que la configuración
 del repositorio nuevo está en este fichero de texto.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio.
