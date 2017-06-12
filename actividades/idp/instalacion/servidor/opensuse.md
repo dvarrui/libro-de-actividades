@@ -41,7 +41,7 @@ abiertos en el servidor.
 
 Vamos a descargar algunos paquetes de los repos de OpenSUSE en nuestra máquina local.
 * `tree /var/cache/zypp/packages`, vemos una estructura de directorios sin archivos.
-* `zypper in -v --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias. Ejemplo: `zypper in --download-only geany tree nano dia nmap ipcalc`
+* `zypper in --download-only NOMBRE-PAQUETE` para descargar solo los paquetes que necesitas y sus dependencias. Ejemplo: `zypper in --download-only geany nano dia nmap ipcalc`
 * `tree /var/cache/zypp/packages`, vemos una estructura de directorios con los
 archivos de los paquetes descargados.
 

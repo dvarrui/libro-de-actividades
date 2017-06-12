@@ -128,9 +128,11 @@ Configuración el recurso compartido en Samba:
 * En el cortafuegos autorizar servicio "Cliente SAMBA".
 * Comprobar el acceso al servidor NAS desde otra máquina con todos los
 usuarios, y todos los recursos.
-* Comprobaciones:
+* Comprobaciones desde el cliente:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
-    * Ejecutando `smbclient -L ip-servidor-samba`, ven los recursos de una máquina concreta.
+    * Ejecutando `smbclient -L ip-servidor-samba`, comprobamos que aparecen correctamente
+    los nombres de los recursos compartidos de nuestra máquina Samba Server.
+
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 
 > * En el explorador de archivos, pulsar CTRL+L para que nos aparezca casilla para URL
