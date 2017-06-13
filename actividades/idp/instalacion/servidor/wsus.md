@@ -155,7 +155,7 @@ Comprobación 2:
 * Inicio -> Ejecutar `regedit`.
 * Ir a `LOCAL MACHINE > Software > Policies > Microsoft > Windows > Windows Update`.
 * Consultar valores de `WUServer` y `WUStatusServer`
-* Examinar el archivo %SystemRoot%\WindowsUpdate.log (http://support.microsoft.com/kb/902093).
+* Examinar el archivo `C:\Windows\WindowsUpdate.log`.
     * Buscar líneas `WSUS server...` y `WSUS status server...`
 
 > * Reg de Apps > MS > Win > WinUpdateClient > Operational.log.
