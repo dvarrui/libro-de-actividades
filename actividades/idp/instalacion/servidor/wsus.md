@@ -125,16 +125,21 @@ Parámetros de configuración en el cliente:
 
 ## 3.2 Configurar el cliente
 
-Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
-* Sin PDC
-    * Vamos a configurar Windows Update de cada cliente de forma local.
-    * Política de Grupo (Local). Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
-    * Registro de Windows. Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
-        * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien
-        * Hacer una instantánea de la MV.
-* Con PDC
-    * Vamos a asignar el servidor WSUS a los equipos del dominio mediante directivas de grupo.
-    * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
+Vamos a una MV con Windows 7 como cliente WSUS.
+Tenemos dos métodos para configurar. Elegir sin PDC.
+
+### Configurar sin PDC
+
+* Vamos a configurar Windows Update de cada cliente de forma local.
+* Política de Grupo (Local). Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
+* Registro de Windows. Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
+    * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien
+    * Hacer una instantánea de la MV.
+
+> **Configurar con PDC**
+>
+> * Vamos a asignar el servidor WSUS a los equipos del dominio mediante directivas de grupo.
+> * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
 
 ## 3.3 Comprobar desde el cliente
 
