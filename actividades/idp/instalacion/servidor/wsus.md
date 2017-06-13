@@ -123,7 +123,7 @@ Parámetros de configuración en el cliente:
 * Reinicio automático / confirmación / retrasar
 * Administración de energía: Iniciar PC si está apagado para ejecutar actualización.
 
-## 3.2 Acción
+## 3.2 Configurar el cliente
 
 Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
 * Sin PDC
@@ -136,28 +136,7 @@ Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
     * Vamos a asignar el servidor WSUS a los equipos del dominio mediante directivas de grupo.
     * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
 
-> Comandos para ejecutar en el cliente como administrador:
->
-> * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
-> * `wuauclt.exe /detectnow`: Este trata de conectar con el servidor y registra el equipo cliente en WSUS.
-
----
-
-# 4. Auditar los procesos
-
-## 4.1 Auditar desde el servidor
-
-Para realizar el diagnóstico de WSUS consultamos el contenido de los siguientes archivos:
-* `C:\Program Files\Update Services\Log Files\Change.txt`
-* `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
-
-¿Se instala bien el software en los clientes? Herramientas para auditar
-las actualizaciones desde el servidor:
-* (A) Consola Windows Update > Nodo Equipos e Informes.
-* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
-* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
-
-## 4.2 Diagnosticar desde el cliente
+## 3.3 Comprobar desde el cliente
 
 Comprobación 1:
 * Inicio -> Ejecutar `rsop.msc`.
@@ -187,7 +166,28 @@ Si se cambia la configuración, reiniciar el servicio Windows Update en el clien
 Esperar 10 minutos y Win Update intentará conectar con el servidor.
 Para que el cliente consulte al servidor hacemos: `wuauclt /a`
 
-## 4.3 Eliminar actualizaciones
+> Comandos para ejecutar en el cliente como administrador:
+>
+> * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
+> * `wuauclt.exe /detectnow`: Este trata de conectar con el servidor y registra el equipo cliente en WSUS.
+
+---
+
+# 4. Auditar los procesos
+
+## 4.1 Auditar desde el servidor
+
+Para realizar el diagnóstico de WSUS consultamos el contenido de los siguientes archivos:
+* `C:\Program Files\Update Services\Log Files\Change.txt`
+* `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
+
+¿Se instala bien el software en los clientes? Herramientas para auditar
+las actualizaciones desde el servidor:
+* (A) Consola Windows Update > Nodo Equipos e Informes.
+* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
+* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
+
+## 4.2 Eliminar actualizaciones
 
 Cuando una actualización ocasiona problemas de compatibilidad, éstas se
 pueden desinstalar. Para ellos hacemos:
