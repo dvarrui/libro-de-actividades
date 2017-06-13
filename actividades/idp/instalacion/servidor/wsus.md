@@ -170,29 +170,27 @@ Si se cambia la configuración, reiniciar el servicio Windows Update en el clien
 * `net stop wuauserv`, Para el servicio de Windows Update.
 * `net start wuauserv`, Inicia el servicio de Windows Update.
 
-Esperar 10 minutos y Win Update intentará conectar con el servidor.
-Para que el cliente consulte al servidor hacemos: `wuauclt /a`
+Podemos esperar 10 minutos a que WindowaUpdate conecte con el servidor, o también
+invocar los siguientes comandos:
+* `wuauclt.exe /detectnow`: trata de conectar con el servidor y registra el equipo cliente en WSUS.
+* `wuauclt /a`, el cliente consulta al servidor.
 
 > Comandos para ejecutar en el cliente como administrador:
 >
 > * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
-> * `wuauclt.exe /detectnow`: Este trata de conectar con el servidor y registra el equipo cliente en WSUS.
 
 ---
 
-# 4. Auditar los procesos
+# 4. Auditar procesos
 
 ## 4.1 Auditar desde el servidor
 
-Para realizar el diagnóstico de WSUS consultamos el contenido de los siguientes archivos:
-* `C:\Program Files\Update Services\Log Files\Change.txt`
-* `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
-
-¿Se instala bien el software en los clientes? Herramientas para auditar
-las actualizaciones desde el servidor:
-* (A) Consola Windows Update > Nodo Equipos e Informes.
-* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
-* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
+* Para realizar un diagnóstico de WSUS desde el servidor, consultamos el contenido
+de los siguientes archivos:
+    * `C:\Program Files\Update Services\Log Files\Change.txt`
+    * `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
+* Para auditar las actualizaciones de los clientes desde el servidor, vamos a
+`Consola Windows Update > Nodo Equipos e Informes`.
 
 ## 4.2 Eliminar actualizaciones
 
@@ -224,3 +222,11 @@ de Microsoft para informarle de la incompatibilidad.
 * Inicio > Herr. Admin. > MS Win Server Update Services-
 * Consola Up. Serv.
 * Detalles > sincronizar hora (Esto puede tardar minutos u horas).
+
+## A2. Auditar los clientes
+
+¿Se instala bien el software en los clientes? Herramientas para auditar
+las actualizaciones desde el servidor:
+* (A) Consola Windows Update > Nodo Equipos e Informes.
+* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
+* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
