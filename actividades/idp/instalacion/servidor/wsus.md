@@ -183,6 +183,9 @@ invocar los siguientes comandos:
 >
 > * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
 
+* Buscar actualizaciones de Windows Update desde Windows7. 
+* `sfc /scannow`, si hay un error.
+
 ---
 
 # 4. Auditar procesos
