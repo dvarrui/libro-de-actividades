@@ -96,7 +96,10 @@ y de productos concretos para actualizar. Elegir:
 > Elegimos manual para hacer nuestras pruebas en clase.
 > Cuando estemos en la empresa elegiremos sincronización automatica.
 
-* Aprobar algunas de las actualizaciones del Windows 7, en el servidor WSUS.
+Aprobar algunas de las actualizaciones del Windows 7, en el servidor WSUS.
+* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar las actualizaciones críticas y aprobarlas.
+* `Windows Server -> Update Services -> Sincronizar`, para conectar con los
+servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
 
 ---
 
