@@ -153,8 +153,8 @@ Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
 
 Para realizar el diagnóstico de WSUS tenemos 3 archivos de registro:
 * Registro de eventos de Aplicación (http://support.microsoft.com)
-* `C:\Program Files\ Update Services\Log Files\ Change.txt`
-* `C:\Program Files\ Update Services\Log Files\ SoftwareDistribution.txt`
+* `C:\Program Files\Update Services\Log Files\Change.txt`
+* `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
 
 ¿Se instala bien el software en los clientes? Herramientas para auditar
 las actualizaciones desde el servidor:
@@ -166,7 +166,8 @@ las actualizaciones desde el servidor:
 
 Diagnosticar el cliente Windows Update.
 * Examinar el archivo %SystemRoot%\WindowsUpdate.log (http://support.microsoft.com/kb/902093).
-* Navegador URL http://<WSUSServerName>/iuident.cab
+    * Buscar líneas `WSUS server...` y `WSUS status server...`
+* Navegador URL `http://WSUSServerName/iuident.cab`.
 * Herramienta Rsop.msc > Conf. Equipo > Plantillas Admin. > Comp. Wind > Win Update.
 * Más información en Reg. de Apps > MS > Win > WinUpdateClient > Operational.log.
 * Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
