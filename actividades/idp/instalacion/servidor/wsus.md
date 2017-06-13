@@ -196,7 +196,31 @@ de los siguientes archivos:
 * Para auditar las actualizaciones de los clientes desde el servidor, vamos a
 `Consola Windows Update > Nodo Equipos e Informes`.
 
-## 4.2 Eliminar actualizaciones
+---
+
+# ANEXO A
+
+## A.1 Otra forma de instalar WSUS
+
+ Resumen de los pasos para la instalación del servidor WSUS.
+
+* Descarga desde www.microsoft.com/WSUS.
+* Inicio > Herr. Admin. > MS Win Server Update Services-
+* Consola Up. Serv.
+* Detalles > sincronizar hora (Esto puede tardar minutos u horas).
+
+## A.2 Auditar los clientes
+
+¿Se instala bien el software en los clientes? Herramientas para auditar
+las actualizaciones desde el servidor:
+* (A) Consola Windows Update > Nodo Equipos e Informes.
+* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
+* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
+
+Comprobación 3:
+* Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
+
+## A.3 Eliminar actualizaciones
 
 Cuando una actualización ocasiona problemas de compatibilidad, éstas se
 pueden desinstalar. Para ellos hacemos:
@@ -213,27 +237,3 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 > A continuación, CONTACTE con el desarrollador de la aplicación
 (en caso de incompatibilidad con el programa) o con su representante de soporte
 de Microsoft para informarle de la incompatibilidad.
-
----
-
-# ANEXO A
-
-## A.1 Otra forma de instalar WSUS
-
- Resumen de los pasos para la instalación del servidor WSUS.
-
-* Descarga desde www.microsoft.com/WSUS.
-* Inicio > Herr. Admin. > MS Win Server Update Services-
-* Consola Up. Serv.
-* Detalles > sincronizar hora (Esto puede tardar minutos u horas).
-
-## A2. Auditar los clientes
-
-¿Se instala bien el software en los clientes? Herramientas para auditar
-las actualizaciones desde el servidor:
-* (A) Consola Windows Update > Nodo Equipos e Informes.
-* (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
-* (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
-
-Comprobación 3:
-* Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
