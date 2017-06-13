@@ -168,8 +168,7 @@ Diagnosticar el cliente Windows Update.
 * Examinar el archivo %SystemRoot%\WindowsUpdate.log (http://support.microsoft.com/kb/902093).
     * Buscar líneas `WSUS server...` y `WSUS status server...`
 * Inicio -> Ejecutar `rsop.msc`.
-* Ir a `Configuración de Equipo > Plantillas Administrativas
-> Componentes de Windows > Windows Update.`
+* Ir a `Configuración de Equipo > Plantillas Administrativas > Componentes de Windows > Windows Update.`
     * Comprobar que el valor de `Especificar ubicación del servicio de Windows Update`
     apunta a nuestro servidor WSUS.
 * Más información en Reg. de Apps > MS > Win > WinUpdateClient > Operational.log.
