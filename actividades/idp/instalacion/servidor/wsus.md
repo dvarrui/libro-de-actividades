@@ -237,3 +237,28 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 > A continuación, CONTACTE con el desarrollador de la aplicación
 (en caso de incompatibilidad con el programa) o con su representante de soporte
 de Microsoft para informarle de la incompatibilidad.
+
+# A.4 Instalar y configurar WSUS en Windows Server 2012 R2
+
+https://www.youtube.com/watch?v=2YPtfrwVObg
+
+Detalles de la tarea de esta unidad. Enunciado.
+
+Instalar un servidor WSUS (Windows Server Update Services)
+en un Windows Server 2012 y conectar un cliente a dicho servidor.
+
+Realizar la práctica y documentar ambas configuraciones.
+El trabajo se hará en grupos de dos personas, intercambiando los roles (servidor y cliente). Los alumnos deben documentar ambos roles.
+
+Indicaciones de entrega.
+
+Una vez realizada la tarea elaborarás un único documento
+donde figuren las respuestas correspondientes. El envío se
+realizará a través de la plataforma de la forma establecida para ello,
+y el archivo se nombrará siguiendo las siguientes pautas:
+
+nombre1_nombre2_SGYxx_Tarea
+
+Asegúrate que el nombre no contenga la letra ñ, tildes ni caracteres especiales extraños. Así por ejemplo la alumna Begoña Sánchez Mañas para la primera unidad del MP de SGY, debería nombrar esta tarea (en esta ocasión) como...
+
+nombrealumno1_nombrealumno2_SGY02_06_WSUS
