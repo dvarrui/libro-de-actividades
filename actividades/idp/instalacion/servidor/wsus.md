@@ -238,7 +238,7 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 (en caso de incompatibilidad con el programa) o con su representante de soporte
 de Microsoft para informarle de la incompatibilidad.
 
-# A.4 Instalar y configurar WSUS en Windows Server 2012 R2
+## A.4 Instalar y configurar WSUS en Windows Server 2012 R2
 
 https://www.youtube.com/watch?v=2YPtfrwVObg
 
