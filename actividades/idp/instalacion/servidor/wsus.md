@@ -149,22 +149,26 @@ Comprobación 1:
 * Inicio -> Ejecutar `rsop.msc`.
 * Ir a `Configuración de Equipo > Plantillas Administrativas > Componentes de Windows > Windows Update.`
 * Comprobar que el valor de `Especificar ubicación del servicio de Windows Update`
-    apunta a nuestro servidor WSUS.
+apunta a nuestro servidor WSUS.
+* Capturar imagen.
 
 Comprobación 2:
 * Inicio -> Ejecutar `regedit`.
 * Ir a `LOCAL MACHINE > Software > Policies > Microsoft > Windows > Windows Update`.
 * Consultar valores de `WUServer` y `WUStatusServer`
-* Examinar el archivo `C:\Windows\WindowsUpdate.log`.
-    * Buscar líneas `WSUS server...` y `WSUS status server...`
-
-> * Reg de Apps > MS > Win > WinUpdateClient > Operational.log.
+* Capturar imagen.
 
 Comprobación 3:
-* Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
+* Examinar el archivo `C:\Windows\WindowsUpdate.log`.
+* Buscar líneas `WSUS server...` y `WSUS status server...`.
+* Capturar imagen.
+
+> INOF: `Reg de Apps > MS > Win > WinUpdateClient > Operational.log`.
 
 > * Navegador URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo
 `iuident.txt` que nos muestra la configuración del WSUS en el servidor.
+
+## 3.4 Servicio en el cliente
 
 Si se cambia la configuración, reiniciar el servicio Windows Update en el cliente:
 * `net stop wuauserv`, Para el servicio de Windows Update.
@@ -230,3 +234,6 @@ las actualizaciones desde el servidor:
 * (A) Consola Windows Update > Nodo Equipos e Informes.
 * (B) MS System Center Conf. Manager 2007. Se ajusta a AD (www.microsoft.com/smserver)
 * (C) MS Baseline Security Analyzer (MBSA). Escaneo de la red completa para auditar (www.microsoft.com/mbsa).
+
+Comprobación 3:
+* Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
