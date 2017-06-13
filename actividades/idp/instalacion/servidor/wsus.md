@@ -70,33 +70,26 @@ Configurar servidor:
 
 Enlace de interés sobre [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
 
-* La forma más sencilla para instalar el software WSUS es usar la propia
+La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
-    * `Administrar el servidor -> Roles -> Agregar roles -> WSUS`
-
-> Resumen de los pasos para la instalación del servidor WSUS.
->
-> * Descarga desde www.microsoft.com/WSUS.
-> * Inicio > Herr. Admin. > MS Win Server Update Services-
-> * Consola Up. Serv.
-> * Detalles > sincronizar hora (Esto puede tardar minutos u horas).
+* `Administrar el servidor -> Funciones -> Agregar funciones -> WSUS`
 
 ## 2.2 Configuración del servidor
 
-Consideraciones a tener en cuenta a la hora de configurar servidor:
-* Podremos usar como fuente origen de las actualizaciones a los servidor
+> Consideraciones a tener en cuenta a la hora de configurar servidor:
+>
+> * Podremos usar como fuente origen de las actualizaciones a los servidor
  de Microsoft u otros servidores WSUS.
-
-> La base de datos que guarda la información, la podemos tener en
+> * La base de datos que guarda la información, la podemos tener en
 C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
 > En nuestro caso lo vamos a hacer SIN MSQL-Server.
 
 * Para minimizar descargas es conveniente hacer una selección de idiomas
 y de productos concretos para actualizar. Elegir:
-    * Idioma: Español
-    * Producto: Windows 7
-    * Tipo de actualización: Actualizaciones críticas, de segurida, etc.
-    * Sincronización manual.
+    * Idioma: `Español`
+    * Producto: `Windows 7`
+    * Tipo de actualización: `Actualizaciones críticas, de segurida, etc`.
+    * `Sincronización manual`.
 
 > **Sincronización Manual vs Automática**
 >
@@ -209,3 +202,16 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 > A continuación, CONTACTE con el desarrollador de la aplicación
 (en caso de incompatibilidad con el programa) o con su representante de soporte
 de Microsoft para informarle de la incompatibilidad.
+
+---
+
+# ANEXO A
+
+## A.1 Otra forma de instalar WSUS
+
+ Resumen de los pasos para la instalación del servidor WSUS.
+
+* Descarga desde www.microsoft.com/WSUS.
+* Inicio > Herr. Admin. > MS Win Server Update Services-
+* Consola Up. Serv.
+* Detalles > sincronizar hora (Esto puede tardar minutos u horas).
