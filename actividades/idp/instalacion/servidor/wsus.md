@@ -61,10 +61,14 @@ Tener en cuenta que:
 * Tendremos que hacer copias de seguridad de la BBDD de WSUS periódicamente.
 * En caso de fallo disponemos de 1 semana para reemplazar el servidor.
 
-Configurar servidor:
-* Fuente: Microsoft u otros servidor WSUS.
-* Base de datos en C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o MSQL-Server.
-* Minimizar descargas: Selección de idiomas, selección de productos para actualizar.
+Consideraciones a tener en cuenta a la hora de configurar servidor:
+
+* Podremos usar como fuente origen de las actualizaciones a los servidor
+ de Microsoft u otros servidores WSUS.
+* La base de datos que guarda la información, la podemos tener en
+C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
+* En nuestro caso lo vamos a hacer SIN MSQL-Server.
+
 
 ## 2.1 Instalación del servidor
 
@@ -72,17 +76,15 @@ Enlace de interés sobre [Instalación y puesta en marcha Servidor de actualizac
 
 La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
+* Asegurarse de que tenemos la instalación estado `No ilegal`.
 * `Administrar el servidor -> Funciones -> Agregar funciones -> WSUS`
 
 ## 2.2 Configuración del servidor
 
-> Consideraciones a tener en cuenta a la hora de configurar servidor:
->
-> * Podremos usar como fuente origen de las actualizaciones a los servidor
- de Microsoft u otros servidores WSUS.
-> * La base de datos que guarda la información, la podemos tener en
-C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
-> En nuestro caso lo vamos a hacer SIN MSQL-Server.
+Vamos a configurar servidor con:
+* Fuente: Microsoft u otros servidor WSUS.
+* Base de datos en C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf.
+* Minimizar descargas: Selección de idiomas, selección de productos para actualizar.
 
 * Para minimizar descargas es conveniente hacer una selección de idiomas
 y de productos concretos para actualizar. Elegir:
