@@ -164,14 +164,22 @@ las actualizaciones desde el servidor:
 
 ## 4.2 Diagnosticar desde el cliente
 
-Diagnosticar el cliente Windows Update.
-* Examinar el archivo %SystemRoot%\WindowsUpdate.log (http://support.microsoft.com/kb/902093).
-    * Buscar líneas `WSUS server...` y `WSUS status server...`
+Comprobación 1:
 * Inicio -> Ejecutar `rsop.msc`.
 * Ir a `Configuración de Equipo > Plantillas Administrativas > Componentes de Windows > Windows Update.`
-    * Comprobar que el valor de `Especificar ubicación del servicio de Windows Update`
+* Comprobar que el valor de `Especificar ubicación del servicio de Windows Update`
     apunta a nuestro servidor WSUS.
-* Más información en Reg. de Apps > MS > Win > WinUpdateClient > Operational.log.
+
+Comprobación 2:
+* Inicio -> Ejecutar `regedit`.
+* Ir a `LOCAL MACHINE > Software > Policies > Microsoft > Windows > Windows Update`.
+* Consultar valores de `WUServer` y `WUStatusServer`
+* Examinar el archivo %SystemRoot%\WindowsUpdate.log (http://support.microsoft.com/kb/902093).
+    * Buscar líneas `WSUS server...` y `WSUS status server...`
+
+> * Reg de Apps > MS > Win > WinUpdateClient > Operational.log.
+
+Comprobación 3:
 * Para ver las actualizaciones instaladas en un PC WinVista o W2k8: Inicio > Panel de Control > Sistema y Mantenimiento > Windows Update > Ver historial de actualizaciones.
 
 > * Navegador URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo
