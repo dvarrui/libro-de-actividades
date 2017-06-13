@@ -147,8 +147,7 @@ Vamos a una MV con Windows 7 como cliente WSUS. Tenemos los siguientes métodos:
 
 ## 4.1 Auditar desde el servidor
 
-Para realizar el diagnóstico de WSUS tenemos 3 archivos de registro:
-* Registro de eventos de Aplicación (http://support.microsoft.com)
+Para realizar el diagnóstico de WSUS consultamos el contenido de los siguientes archivos:
 * `C:\Program Files\Update Services\Log Files\Change.txt`
 * `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
 
