@@ -181,3 +181,35 @@ actualizaciones de las directivas.
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
 
 > Esto puede tardar bastante tiempo.
+
+---
+
+# ANEXO A
+
+## A.1 GPO en Windows Server 2012
+
+Windows Server 2012 R2 - Crear políticas de grupo (GPO)
+https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s
+
+Detalles de la tarea de esta unidad. Enunciado.
+
+    Crea un nuevo grupo en tu servidor denominado Alumnos (incorpora a ese grupo al menos un usuario).
+    Crea un nuevo GPO (Group Policy Object) en tu dominio denominado Alumnos y aplica como filtro de seguridad el grupo que has creado en el punto anterior.
+    Aplica, además, al nuevo GPO las siguientes directivas:
+
+    Quitar el menú Ejecutar del menú Inicio
+    Prohibir el acceso al Panel de control
+    Ocultar el icono Mis sitios de red del escritorio
+    Quitar el icono Mis sitios de red del menú inicio
+    Quitar Conexiones de red del menú Inicio
+    Ocultar unidades específicas en Mi PC
+    Quitar “Conectar a unidad de red” y “Desconectar de unidad de red
+    Conseguir que, cuando se introduce un dispositivo USB, no se ejecute de forma automática
+
+Comprueba (y deja constancia de ello en tu informe) que desde el cliente (Windows 7) cuando se valida en tu dominio con un usuario del grupo alumno se le aplican las políticas correspondientes.
+
+Elabora un informe en el que dejes constancia de la realización.
+
+Nota 1: Puedes encontrar en internet muchísima información actualizada para aplicar las directivas de seguridad propuestas.
+
+Nota 2: esta actividad se puede realizar en grupo de 2 como máximo, pero los dos componentes del grupo deben realizarla.
