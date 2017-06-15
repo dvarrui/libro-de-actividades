@@ -52,6 +52,8 @@ Consultar [configuraciones](../../../global/configuracion/).
 
 Vamos la MV con Windows Server 2008.
 
+## 2.1 Teoría
+
 Tener en cuenta que:
 * NO es necesario tener un Active Directory para montar el servicio WSUS.
 * Necesitamos 1 servidor WSUS por cada 10 PC's.
@@ -69,8 +71,7 @@ Consideraciones a tener en cuenta a la hora de configurar servidor:
 C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
 * En nuestro caso lo vamos a hacer SIN MSQL-Server.
 
-
-## 2.1 Instalación del servidor
+## 2.2 Instalación del servidor
 
 Enlace de interés sobre [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
 
@@ -79,7 +80,7 @@ herramienta de Administrar del servidor Windows Server.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
 * `Administrar el servidor -> Funciones -> Agregar funciones -> WSUS`
 
-## 2.2 Configuración del servidor
+## 2.3 Configuración del servidor
 
 Vamos a configurar servidor con:
 * Fuente: Microsoft u otros servidor WSUS.
@@ -102,6 +103,11 @@ Aprobar algunas de las actualizaciones del Windows 7, en el servidor WSUS.
 * Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar las actualizaciones críticas y aprobarlas.
 * `Windows Server -> Update Services -> Sincronizar`, para conectar con los
 servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
+
+## 2.4 Servicio con inicio automático
+
+* Asegurarnos en `Administración -> Servicios` que el servicio WSUS tiene
+configurado inicio automático al arrancar la máquina.
 
 ---
 
@@ -130,6 +136,12 @@ Parámetros de configuración en el cliente:
 Vamos a una MV con Windows 7 como cliente WSUS.
 Tenemos dos métodos para configurar. Elegir sin PDC.
 
+### Windows Update de sólo descarga
+
+Configurar el Windows Update en el cliente, para hacer las descargas de las
+nuevas actualizaciones automáticamente, pero dejando elegir al usuario el momento
+de instalarlas.
+
 ### Configurar sin PDC
 
 * Vamos a configurar Windows Update de cada cliente de forma local.
@@ -143,7 +155,7 @@ Tenemos dos métodos para configurar. Elegir sin PDC.
 > * Vamos a asignar el servidor WSUS a los equipos del dominio mediante directivas de grupo.
 > * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
 
-## 3.3 Comprobar desde el cliente
+## 3.3 Comprobar configuración desde el cliente
 
 Comprobación 1:
 * Inicio -> Ejecutar `rsop.msc`.
@@ -183,8 +195,10 @@ invocar los siguientes comandos:
 >
 > * `gpupdate /force`: Esto fuerza a que se apliquen los cambios realizados en las directivas
 
-* Buscar actualizaciones de Windows Update desde Windows7. 
-* `sfc /scannow`, si hay un error.
+* Buscar actualizaciones de Windows Update desde Windows7.
+    * `sfc /scannow`, si hay un error.
+* Capturar imagen de las actualizaciones pendientes de instalar. Deberían ser
+las mismas que tenemos aprobadas en el WSUS.
 
 ---
 
