@@ -164,7 +164,7 @@ tenemos dos formas:
 ## 3.3 Comprobar configuración desde el cliente
 
 Comprobación 1:
-* Inicio -> Ejecutar `rsop.msc`.
+* Ir a `Inicio -> Ejecutar` el programa `rsop.msc` o `gpedit.msc`.
 * Ir a `Configuración de Equipo > Plantillas Administrativas > Componentes de Windows > Windows Update.`
 * Comprobar que el valor de `Especificar ubicación del servicio de Windows Update`
 apunta a nuestro servidor WSUS.
