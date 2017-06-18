@@ -89,7 +89,7 @@ Vamos a configurar servidor con:
 y de productos concretos para actualizar. Elegir:
     * Idioma: `Español`
     * Producto: `Windows 7`
-    * Tipo de actualización: `Actualizaciones críticas, de segurida, etc`.
+    * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
     * `Sincronización manual`.
 
 > **Sincronización Manual vs Automática**
