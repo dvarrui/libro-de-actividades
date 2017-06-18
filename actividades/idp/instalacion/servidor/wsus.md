@@ -41,10 +41,8 @@ los servidores WSUS de subida.
 ## 1.2 Preparativos
 
 Vamos a necesitar varias MVs.
-* 1 MV Window Server 2008 (No es necesario que sea PDC)
-* 1 MV Windows 7
-
-Consultar [configuraciones](../../../global/configuracion/).
+* 1 MV Window Server 2008 (No es necesario que sea PDC). [Configurar](../../../global/configuracion/windows-server.md) la MV's como se indica.
+* 1 MV Windows 7. [Configurar](../../../global/configuracion/windows.md) las MV como se indica.
 
 ---
 
