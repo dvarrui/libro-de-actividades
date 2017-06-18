@@ -41,7 +41,10 @@ Vamos a usar el entorno gráfico Yast para crear RAID1.
 * Ir a `Yast -> Particionador`.
 * Crear un RAID1 con los 2 discos.
 * Montar el RAID1 en la ruta `/mnt/nas`.
-    * Pista. Ejecutando el comando `df -hT` debemos ver los discos montados en la ruta.
+* Comprobamos la configuración de los discos:
+    * `df -hT` debemos ver los discos montados en la ruta.
+    * `fdisk -l`
+    * `cat /proc/mdstat`
 
 ---
 
@@ -60,6 +63,7 @@ usando el protocolo SMB/CIFS típico de las redes Windows.
     * Sin controlador de Dominio
     * Inicio del servicio: `durante el arranque`
     * Puerto abierto en el cortafuegos
+    * Nombre de Host NetBios: `nasXX`
 
 ## 2.1 Crear recurso compartido (I)
 
@@ -134,6 +138,7 @@ usuarios, y todos los recursos.
     los nombres de los recursos compartidos de nuestra máquina Samba Server.
 
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
+* `netstat -untap`, comprobar que hay una conexión establecidad con el servidor.
 
 > * En el explorador de archivos, pulsar CTRL+L para que nos aparezca casilla para URL
 > * Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
@@ -148,6 +153,7 @@ usuarios, y todos los recursos.
 > Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
 
 * `net use` para comprobar sesiones de red abiertas.
+* `netstat`, comprobar que hay una conexión establecidad con el servidor.
 
 > * Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando net use).
 > * Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
