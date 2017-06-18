@@ -30,7 +30,7 @@ Almacenamiento en la nube de un proveedor externo.
 
 ---
 
-# 3. Nube propia con OwnCloud Server en OpenSUSE 13.2
+# 3. Nube propia con OwnCloud Server en OpenSUSE Leap
 
 Últimamente se están poniendo de moda servicios de almacenamiento y sincronización
 de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
@@ -39,6 +39,8 @@ Dentro de las soluciones libres disponemos de ownCloud, por el que parece que ap
 
 Las fuentes están disponibles para poder instalarlo en máquinas propias o alquiladas,
 así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
+
+Para más información [official documentation](https://doc.owncloud.org/).
 
 ## 3.1 Instalar OwnCloud
 
@@ -52,7 +54,7 @@ zypper in apache2 mariadb apache2-mod_php5 php5-gd php5-json php5-fpm php5-mysql
 
 ## 3.2 Create Database
 
-Next step, create a database. First of all start the service.
+Iniciar el servicio para poder crear la base de datos.
 
 ```
 systemctl start mysql.service
@@ -74,8 +76,9 @@ CREATE DATABASE ocdatabase;
 GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
 ```
 
-Database user: ocuser Database name: owncloudb Database user password: dbpass
-You can change the above information accordingly.
+* Database user: `ocuser`
+* Database name: `ocdatabase`
+* Database user password: `dbpass`
 
 ## 3.3 PHP changes
 
@@ -92,7 +95,7 @@ session.gc_maxlifetime = 3600
 memory_limit = 512M
 ```
 
-and finally enable the extensions.
+Finalmente habilitar las siguientes extensiones:
 
 ```
 extension=php_gd2.dll
@@ -101,7 +104,7 @@ extension=php_mbstring.dll
 
 ## 3.4 Apache Configuration
 
-You should enable some modules. Some might be already enabled.
+Habilitar los siguientes módulos de Apache. Algunos ya deberían estar habilitados.
 
 ```
 a2enmod php5
@@ -112,24 +115,26 @@ a2enmod dir
 a2enmod mime
 ```
 
-Now start the apache service.
+Iniciar el servicio de Apache.
 
 ```
 systemctl start apache2.service
 systemctl enable apache2.service
 ```
 
-## 3.5 Install ownCloud
+## 3.5 Instalar ownCloud
 
-Before the installation, create the data folder and give the right permissions (preferably outside the server directory for security reasons). I created a directory in the /mnt directory. You can mount a USB disk, add it to fstab and save your data there. The commands are:
+Antes de la instalación, crear la carpeta de datos con los permisos adecuados.
+Nosotros crearemos el directorio `/opt/owncloud`.
 
 ```
-mkdir /mnt/owncloud_data
-chmod -R 0770 /mnt/owncloud_data
-chown wwwrun /mnt/owncloud_data
+mkdir /opt/owncloud-data
+chmod -R 0770 /opt/owncloud-data
+chown wwwrun /opt/owncloud-data
 ```
 
-Now download [ownCloud] (https://owncloud.org/install/). Then unzip and move the folder to the server directory.
+Descargar [OwnCloud](https://owncloud.org/install/). Descomprimir y mover a
+la carpeta.
 
 ```
 wget https://download.owncloud.org/community/owncloud-9.1.1.zip
@@ -140,20 +145,13 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 
 Make sure that everything is OK and then delete the folder owncloud and owncloud-9.1.1.zip from the root (user) directory.
 
-Now open your browser to the server IP/owncloud
-
-ownCloud-install
-
-Set your administrator username and password.
-Your data directory is: /mnt/owncloud_data
-Regarding database, use the following.
-Database user: ocuser
-Database name: owncloudb
-Database user password: dbpass
-
-Wait until it ends the installation. The page you'll see is the following.
-
-For more configuration, you can follow the [official documentation] (https://doc.owncloud.org/). This was the basic installation on openSUSE Leap.
+* Abrir navegador con URL la IP del servidor owncloud
+    * Poner ususario/clave del administrador.
+    * El directorio de datos `/opt/owncloud_data`
+    * Database user: `ocuser`
+    * Database name: `ocdatabase`
+    * Database user password: `dbpass`
+* Esperar a que termine la instalación.
 
 > * Crear el archivo /srv/www/htdocs/index.html
 > * Escribir el nombre del alumno dentro de index.html
