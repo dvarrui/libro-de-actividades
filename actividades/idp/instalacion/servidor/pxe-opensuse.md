@@ -111,9 +111,9 @@ Este fichero configura el comportamiento de nuestro servidor DHCP.
 
 Nuestro servidor DHCP sólo atenderá las peticiones extendidas del tipo PXE, dejando el resto para el sevidor DHCP de nuestra red. Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que se han definido.
 
-* En el campo range defino que mi servidor repartirá un máximo de 20 direcciones simultáneas
+* `range` define que el servidor repartirá un máximo de 20 direcciones simultáneas
 (que irán desde la 192.168.XX.201 hasta la 192.168.XX.220).
-* Al campo filename le damos el valor pxelinux.0 y a los campos server-name y next-server el de la IP que le hayamos dado al servidor.
+* `filename` toma el valor pxelinux.0 y a los campos server-name y next-server el de la IP que le hayamos dado al servidor.
 * Configurar el arranque automático del servicio dhcpd.
 
 ---
