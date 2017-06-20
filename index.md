@@ -1,66 +1,7 @@
 # Índice de actividades
 
-`Fecha UM: 2017-06-20 13:31:02 +0100`
+`Fecha UM: 2017-06-20 13:31:50 +0100`
 
-* [add](actividades/add) 13
-    * [samba](actividades/add/samba) 5
-        * [enlaces-de-interes.md](actividades/add/samba/enlaces-de-interes.md)
-        * [samba-debian.md](actividades/add/samba/samba-debian.md)
-        * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
-        * [images](actividades/add/samba/images) 3
-        * [README.md](actividades/add/samba/README.md)
-    * [exposicion](actividades/add/exposicion) 1
-        * [exposision-turismo.md](actividades/add/exposicion/exposision-turismo.md)
-    * [devops](actividades/add/devops) 7
-        * [vagrant.md](actividades/add/devops/vagrant.md)
-        * [files](actividades/add/devops/files) 4
-        * [saltstack.md](actividades/add/devops/saltstack.md)
-        * [puppet-opensuse.md](actividades/add/devops/puppet-opensuse.md)
-        * [docker.md](actividades/add/devops/docker.md)
-        * [puppet-debian.md](actividades/add/devops/puppet-debian.md)
-        * [images](actividades/add/devops/images) 22
-    * [clientes-ligeros](actividades/add/clientes-ligeros) 3
-        * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
-        * [images](actividades/add/clientes-ligeros/images) 5
-        * [README.md](actividades/add/clientes-ligeros/README.md)
-    * [nfs](actividades/add/nfs) 2
-        * [images](actividades/add/nfs/images) 5
-        * [README.md](actividades/add/nfs/README.md)
-    * [ssh](actividades/add/ssh) 5
-        * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
-        * [opensuse](actividades/add/ssh/opensuse) 11
-        * [image](actividades/add/ssh/image) 2
-        * [README.md](actividades/add/ssh/README.md)
-    * [tareas](actividades/add/tareas) 1
-        * [tareas-programadas.md](actividades/add/tareas/tareas-programadas.md)
-    * [ldap](actividades/add/ldap) 5
-        * [ldap-auth-samba.md](actividades/add/ldap/ldap-auth-samba.md)
-        * [ldap-auth-debian.md](actividades/add/ldap/ldap-auth-debian.md)
-        * [ldap-server-auth-opensuse.md](actividades/add/ldap/ldap-server-auth-opensuse.md)
-        * [images](actividades/add/ldap/images) 11
-        * [ldap-server-debian.md](actividades/add/ldap/ldap-server-debian.md)
-    * [rdp](actividades/add/rdp) 2
-        * [images](actividades/add/rdp/images) 1
-        * [README.md](actividades/add/rdp/README.md)
-    * [vnc](actividades/add/vnc) 1
-        * [README.md](actividades/add/vnc/README.md)
-    * [REV](actividades/add/REV) 1
-        * [kvm.md](actividades/add/REV/kvm.md)
-    * [procesos](actividades/add/procesos) 2
-        * [presentacion.md](actividades/add/procesos/presentacion.md)
-        * [limitar.md](actividades/add/procesos/limitar.md)
-    * [script](actividades/add/script) 3
-        * [bash](actividades/add/script/bash) 1
-            * [agenda.md](actividades/add/script/bash/agenda.md)
-        * [quagga.md](actividades/add/script/quagga.md)
-        * [ruby](actividades/add/script/ruby) 7
-            * [enlaces-de-interes.md](actividades/add/script/ruby/enlaces-de-interes.md)
-            * [files](actividades/add/script/ruby/files) 3
-            * [kill-these-processes.md](actividades/add/script/ruby/kill-these-processes.md)
-            * [install-and-remove.md](actividades/add/script/ruby/install-and-remove.md)
-            * [create-users.md](actividades/add/script/ruby/create-users.md)
-            * [create-and-delete-users.md](actividades/add/script/ruby/create-and-delete-users.md)
-            * [delete-users.md](actividades/add/script/ruby/delete-users.md)
 * [idp](actividades/idp) 11
     * [backup](actividades/idp/backup) 7
         * [raid-y-lvm.md](actividades/idp/backup/raid-y-lvm.md)
@@ -174,3 +115,62 @@
         * [cifrado.md](actividades/fuw/clonar/cifrado.md)
     * [simulador](actividades/fuw/simulador) 1
         * [suma-y-resta.md](actividades/fuw/simulador/suma-y-resta.md)
+* [add](actividades/add) 13
+    * [samba](actividades/add/samba) 5
+        * [enlaces-de-interes.md](actividades/add/samba/enlaces-de-interes.md)
+        * [samba-debian.md](actividades/add/samba/samba-debian.md)
+        * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
+        * [images](actividades/add/samba/images) 3
+        * [README.md](actividades/add/samba/README.md)
+    * [exposicion](actividades/add/exposicion) 1
+        * [exposision-turismo.md](actividades/add/exposicion/exposision-turismo.md)
+    * [devops](actividades/add/devops) 7
+        * [vagrant.md](actividades/add/devops/vagrant.md)
+        * [files](actividades/add/devops/files) 4
+        * [saltstack.md](actividades/add/devops/saltstack.md)
+        * [puppet-opensuse.md](actividades/add/devops/puppet-opensuse.md)
+        * [docker.md](actividades/add/devops/docker.md)
+        * [puppet-debian.md](actividades/add/devops/puppet-debian.md)
+        * [images](actividades/add/devops/images) 22
+    * [clientes-ligeros](actividades/add/clientes-ligeros) 3
+        * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
+        * [images](actividades/add/clientes-ligeros/images) 5
+        * [README.md](actividades/add/clientes-ligeros/README.md)
+    * [nfs](actividades/add/nfs) 2
+        * [images](actividades/add/nfs/images) 5
+        * [README.md](actividades/add/nfs/README.md)
+    * [ssh](actividades/add/ssh) 5
+        * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
+        * [opensuse](actividades/add/ssh/opensuse) 11
+        * [image](actividades/add/ssh/image) 2
+        * [README.md](actividades/add/ssh/README.md)
+    * [tareas](actividades/add/tareas) 1
+        * [tareas-programadas.md](actividades/add/tareas/tareas-programadas.md)
+    * [ldap](actividades/add/ldap) 5
+        * [ldap-auth-samba.md](actividades/add/ldap/ldap-auth-samba.md)
+        * [ldap-auth-debian.md](actividades/add/ldap/ldap-auth-debian.md)
+        * [ldap-server-auth-opensuse.md](actividades/add/ldap/ldap-server-auth-opensuse.md)
+        * [images](actividades/add/ldap/images) 11
+        * [ldap-server-debian.md](actividades/add/ldap/ldap-server-debian.md)
+    * [rdp](actividades/add/rdp) 2
+        * [images](actividades/add/rdp/images) 1
+        * [README.md](actividades/add/rdp/README.md)
+    * [vnc](actividades/add/vnc) 1
+        * [README.md](actividades/add/vnc/README.md)
+    * [REV](actividades/add/REV) 1
+        * [kvm.md](actividades/add/REV/kvm.md)
+    * [procesos](actividades/add/procesos) 2
+        * [presentacion.md](actividades/add/procesos/presentacion.md)
+        * [limitar.md](actividades/add/procesos/limitar.md)
+    * [script](actividades/add/script) 3
+        * [bash](actividades/add/script/bash) 1
+            * [agenda.md](actividades/add/script/bash/agenda.md)
+        * [quagga.md](actividades/add/script/quagga.md)
+        * [ruby](actividades/add/script/ruby) 7
+            * [enlaces-de-interes.md](actividades/add/script/ruby/enlaces-de-interes.md)
+            * [files](actividades/add/script/ruby/files) 3
+            * [kill-these-processes.md](actividades/add/script/ruby/kill-these-processes.md)
+            * [install-and-remove.md](actividades/add/script/ruby/install-and-remove.md)
+            * [create-users.md](actividades/add/script/ruby/create-users.md)
+            * [create-and-delete-users.md](actividades/add/script/ruby/create-and-delete-users.md)
+            * [delete-users.md](actividades/add/script/ruby/delete-users.md)
