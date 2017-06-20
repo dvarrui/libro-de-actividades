@@ -1,7 +1,9 @@
 
-#Arquitectura de Von Neumann
+# Arquitectura de Von Neumann
 
-##Simulador
+---
+
+## Simulador
 * Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/libro-de-actividades/tree/master/explicaciones/johnny-simulator/manual-es)
 * Instalar el programa Johnny Simulator en la MV Windows.
 * Escribir en la RAM una program para realizar sumas y restas de la siguiente forma.
@@ -16,7 +18,9 @@ DD+MM+XX+YY-16-17.
     * Cómo se carga e programa desde fichero a la memoria.
     * El programa funcionando en el simulador, ejecutando las instrucciones paso a paso.
 
-##Editar el vídeo
+---
+
+## Editar el vídeo
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
     * IES Puerto de la Cruz - Curso1617
     * Fundamentos de Hardware
@@ -25,7 +29,9 @@ DD+MM+XX+YY-16-17.
 * Incluir subtítulos que comenten las imágenes que se ven en el vídeo.
 * Incluir en el vídeo el logo del IES Puerto de la Cruz para que se muestre durante todo el vídeo.
 
-##Entrega
+---
+
+## Entrega
 * Subir el vídeo a Youtube.
 * Entregar URL del vídeo subido a Youtube.
 * Entregar el fichero con el programa.
