@@ -54,26 +54,11 @@ Usaremos 2 MV:
     * `cp /etc/dhcp.conf /etc/dhcp.conf.bak`
 * Edita el archivo `/etc/sysconfig/dhcpd` y en la línea `DHCPD_INTERFACE=""`
 añadir el nombre de interfaz que está en la red interna. Ver ejemplo:
+`DHCPD_INTERFACE="enp0s3"`.
+
+* Edita el fichero `/etc/dhcpd.conf`:
 
 ```
-## Path:        Network/DHCP/DHCP server
-## Description: DHCPv4 server settings
-## Type:        string
-## Default:     ""
-## ServiceRestart: dhcpd
-#
-# Interface(s) for the DHCPv4 server to listen on.
-#
-# A special keyword is ANY, it will cause dhcpd to autodetect available
-# interfaces.
-#
-# Examples: DHCPD_INTERFACE="eth0 eth1 eth2"
-#           DHCPD_INTERFACE="ANY"
-#
-DHCPD_INTERFACE="enp0s3"
-
-A continuación edita el fichero /etc/dhcpd.conf Así tengo yo el mío:
-
 option domain-name "CURSO1617";
 option domain-name-servers 8.8.4.4, 80.58.61.250;
 
