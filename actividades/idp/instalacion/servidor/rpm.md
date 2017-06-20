@@ -1,8 +1,124 @@
 
 # Crear nuestro paquete rpm
 
-Enlaces de interés:
-* [Build rpm packages with the rpmbuild command](http://www.linuxintro.org/wiki/Build_rpm_packages_with_the_rpmbuild_command)
+Esta práctica está basada en el tutorial [Build rpm packages with the rpmbuild command](http://www.linuxintro.org/wiki/Build_rpm_packages_with_the_rpmbuild_command)
+
+# 1. Introducción
+
+Vamos a construir un paquete RPM con el comando `rpmbuild` y el fichero `SPEC`.
+Crearemos un programa que muestra en pantalla el mensaje "hello world", añadiremos
+el ficheros `makefile` para construirlo, y crearemos un fichero `SPEC` para empaquetar
+el software como un fichero ROM.
+
+# 2. Instalación del software
+
+* `yast -i rpm-build`, instalamos el paquete rpmbuild.
+
+# 3. Crear los ficheros del programa hello
+
+## 3.1 Creamos nuestro programa hello
+
+```
+mkdir /root/hello-1.0
+cd /root/hello-1.0
+cat >main.c <<EOF
+#include <stdio.h>
+
+int main()
+{
+  printf("hello world");
+}
+EOF
+```
+
+## 3.2 Fichero Makefile
+
+* Creamos el fichero `/root/hello-1,0/Makefile` correspondiente:
+```
+cat >Makefile <<EOF
+all:hello
+
+hello: main.c
+        gcc main.c -o hello
+
+install: hello
+        mkdir -p \${prefix}/usr/local/bin
+        cp hello \${prefix}/usr/local/bin
+EOF
+sed -i "s/        /\t/g" Makefile
+```
+
+## 3.3 Fichero SPEC
+
+* Creamos el fichero `SPEC` en `/root/hello-1.0/hello.spec`.
+Se necesita el fichero SPEC para crear el paquete RPM.
+
+```
+cat >hello.spec<<EOF
+Summary: hello greets the world
+Name: hello
+Version: 1.0
+Release: 1
+License: GPL
+Group: Applications/Tutorials
+Source: hello.tar.gz
+URL: http://www.staerk.de/thorsten/
+Distribution: SUSE Linux
+Vendor: -
+Packager: NOMBRE-DEL-ALUMNO-XX
+
+%description
+hello greets the world
+
+%prep
+%setup
+
+%build
+make
+
+%install
+make install prefix=\$RPM_BUILD_ROOT
+
+%files
+%defattr(-, root, root)
+"/usr/local/bin/hello"
+EOF
+```
+
+> License is a free-text field. You can enter what you want.
+> Source is the file that will be stored in /usr/src/packages/SOURCES.
+
+---
+
+# 4. Construir el RPM
+
+* Almacenar el código fuente en el lugar apropiado:
+```
+cd
+tar cvzf hello.tar.gz hello-1.0
+cp hello.tar.gz /usr/src/packages/SOURCES
+```
+* `rpmbuild -ba hello-1.0/hello.spec`
+* Encontraremos nuestro RPM en `/usr/src/packages/RPMS`.
+
+----
+
+# 5. Comprobar RPM
+
+* `zypper se hello`
+* `zypper info hello`
+* `rpm -ivh /usr/src/packages/RPMS/x86_64/hello-1.0-1.x86_64.rpm`, instalar RPM.
+* `rpm -ql hello`, listar los ficheros que contiene el paquete.
+* `rpm -qi hello`, consultar información del paquete.
+
+* `ll /usr/local/bin/hello`, el programa hello está instalado.
+* `rpm -e hello`,desinstalar el paquete.
+* `ll /usr/local/bin/hello`, el programa ya no existe.
+
+> **Clean up**
+> To clean up, run
+> rm /usr/src/packages/SOURCES/hello.tar.gz
+> rm -rf /usr/src/packages/BUILD/hello-1.0
 
 ---
 
