@@ -19,6 +19,12 @@ Un servidor PXE nos permite iniciar la instalación de un sistema operativo a tr
 de la red sin necesidad de grabar un disco CD/DVD o utilizar un pendrive.
 Un servidor PXE también nos sirve para iniciar un sistema Live u otras herramientas, en nuestras máquinas sin sistema operativo instalado.
 
+Veremos que hay diferentes métodos de arrancar un sistema operativo a través de PXE.
+
+Con un servidor de este tipo en marcha en tu red, únicamente tendrás que descargarte las ISO que quieras usar y averiguar la sintaxis a aplicar en cada caso. A cambio obtienes un método muy rápido de instalación que además prescinde de medios físicos.
+
+> Para evitar problemas de conectividad compruebar la configuración del cortafuegos en el servidor.
+
 ---
 
 # 2. Preparativos
@@ -194,6 +200,8 @@ ATFTPD_BIND_ADDRESSES=""
 * Toma nota también del directorio raíz del servidor TFTP, /srv/tftpboot.
 * Configurar el arranque automático del servicio atftpd.
 
+---
+
 # 4. Servicio NFS
 
 * `zypper in nfs-kernel-server yast2-nfs-server`, instalación del servicio.
@@ -261,33 +269,54 @@ MENU SEPARATOR
 
 * Guardar los cambios al archivo.
 * Reiniciar una máquina cliente (puede que tengas que pulsar la tecla F12 durante el arranque para activar el arranque PXE).
-* Comprobar que accedemos al menú PXE
+* Comprobar que accedemos al menú PXE. Aunque todavía nos falta un poco más.
 
-> Repasemos un poco la sintaxis del fichero que hemos creado:
->
-> * DEFAULT menu.c32 define que cargaremos el menú en modo texto.
-> * PROMPT 0 para mostrar esta ventana sin pulsar ninguna tecla desde que cargue el PXE exitosamente. Prueba a cambiar el 0 por un 1 y ver qué pasa, debes pulsar Enter para que cargue el menú principal.
-> * TIMEOUT 300 define un tiempo de espera de 30 segundos antes de cargar la opción predeterminada.
-> * ONTIMEOUT 0 define cuál será la entrada predeterminada del menú. Elegirá la que he nombrado como 0 (pueden usarse nombres, yo he usado números).
-> * NOESCAPE 1 para evitar la salida del menú si se pulsa la tecla Escape. Como he definido entradas para reiniciar y arrancar desde el disco duro local puedo deshabilitar la salida a través de Escape.
-> * MENU TITLE Menu de arranque título de la pantalla que aparecerá a modo de cabecera.
-> * MENU BACKGROUND pxelinux.cfg/wall.jpg ruta y nombre de la imagen que usaremos como fondo del menú. Puede ser distinto para cada ventana, pero recuerda las limitaciones: únicamente cargarán archivos .jpg o .png con una resolución de 640x480 píxeles.
-> * LABEL 0 sirve para dar nombre a una entrada del menú.
-> * MENU LABEL ^0. Arrancar desde el disco duro, etiqueta que se mostrará. El símbolo ^ define una tecla rápida de acceso.
-> * LOCALBOOT 0 con esta orden podemos arrancar la máquina desde el disco duro local.
-> * TEXT HELP y ENDTEXT lo que escribamos entre estas dos líneas se mostrará en la parte inferior del menú como texto de ayuda al seleccionar cada entrada del menú.
+---
+
+# 6. Teoría: Sintaxis del menú
+
+Repasemos un poco la sintaxis del fichero que hemos creado:
+
+* DEFAULT menu.c32 define que cargaremos el menú en modo texto.
+* PROMPT 0 para mostrar esta ventana sin pulsar ninguna tecla desde que cargue el PXE exitosamente. Prueba a cambiar el 0 por un 1 y ver qué pasa, debes pulsar Enter para que cargue el menú principal.
+* TIMEOUT 300 define un tiempo de espera de 30 segundos antes de cargar la opción predeterminada.
+* ONTIMEOUT 0 define cuál será la entrada predeterminada del menú. Elegirá la que he nombrado como 0 (pueden usarse nombres, yo he usado números).
+* NOESCAPE 1 para evitar la salida del menú si se pulsa la tecla Escape. Como he definido entradas para reiniciar y arrancar desde el disco duro local puedo deshabilitar la salida a través de Escape.
+* MENU TITLE Menu de arranque título de la pantalla que aparecerá a modo de cabecera.
+* MENU BACKGROUND pxelinux.cfg/wall.jpg ruta y nombre de la imagen que usaremos como fondo del menú. Puede ser distinto para cada ventana, pero recuerda las limitaciones: únicamente cargarán archivos .jpg o .png con una resolución de 640x480 píxeles.
+* LABEL 0 sirve para dar nombre a una entrada del menú.
+* MENU LABEL ^0. Arrancar desde el disco duro, etiqueta que se mostrará. El símbolo ^ define una tecla rápida de acceso.
+* LOCALBOOT 0 con esta orden podemos arrancar la máquina desde el disco duro local.
+* TEXT HELP y ENDTEXT lo que escribamos entre estas dos líneas se mostrará en la parte inferior del menú como texto de ayuda al seleccionar cada entrada del menú.
+
+Veamos qué podemos seguir aprendiendo de la sintaxis de estos ficheros:
+* Estas dos líneas nos permiten pasar de una pantalla a otra.
+    * KERNEL vesamenu.c32
+    * APPEND pxelinux.cfg/default
+* MENU separator permite introducir una línea vacía.
+* LABEL empty define una entrada del menú no seleccionable.
+* Una entrada típica para arrancar un sistema operativo incluirá las siguentes líneas:
+   * LABEL nombre que le damos a la entrada.
+   * MENU LABEL etiqueta que veremos en la pantalla.
+   * KERNEL define la ruta y el nombre del kernel a enviar. También podemos usar la palabra LINUX si vamos a cargar un kernel de Linux.
+   * INITRD define la ruta y el nombre del ramdisk que se cargará en memoria.
+   * APPEND aquí especificaremos los parámetros adicionales de arranque.
+
+---
+
+# 7. Configurar una imagen para instalar
+
+Usaremos una carpeta dentro del TFTP para almacenar los ficheros que necesita
+nuestr imagen para arrancar (el kernel y el ramdisk). Estos ficheros hay que copiarlos dentro de nuestro directorio /srv/tftpboot/ para que el servidor PXE los envie a los clientes para que puedan arrancar. En el caso que nos ocupa el kernel es un archivo llamado linux y el ramdisk initrd. Ambos se encuentran dentro de la ISO en la ruta boot/x86_64/loader/. Entonces:
 
 * Crear subdirectorio `/srv/tftpboot/imagenes/opensuseXX`.
-
-Usaremos esta carpeta para almacenar los ficheros que necesita esta imagen para arrancar (el kernel y el ramdisk). Estos ficheros hay que copiarlos dentro de nuestro directorio /srv/tftpboot/ para que el servidor PXE los envie a los clientes para que puedan arrancar. En el caso que nos ocupa el kernel es un archivo llamado linux y el ramdisk initrd. Ambos se encuentran dentro de la ISO en la ruta boot/x86_64/loader/. Entonces:
-
 * `cp /mnt/opensuseXX/boot/x86_64/loader/linux /srv/tftpboot/imagenes/opensuseXX/`
 * `cp /mnt/opensuseXX/boot/x86_64/loader/initrd /srv/tftpboot/imagenes/opensuseXX/`
 
 * Editar el fichero `/srv/tftpboot/pxelinux.cfg/default` y añadir lo siguiente:
 ```
 LABEL 2
-        MENU LABEL ^1. opensuseXX
+        MENU LABEL 2. opensuseXX
         LINUX imagenes/opensuseXX/linux
         INITRD imagenes/opensuseXX/initrd
         APPEND install=nfs://192.168.XX.31/mnt/opensuseXX/ splash=silent ramdisk_size=512000 ramdisk_blocksize=4096 language=es_ES keytable=es quiet quiet showopts
@@ -299,61 +328,6 @@ LABEL 2
 * Iniciar MV cliente y comprobar.
 
 > El ramdisk de openSUSE permite acceder al contenido del DVD a través de NFS, lo cual es mucho más óptimo que hacerlo a través de TFTP. Ya veremos que hay casos en los que podemos pasar como parámetro directamente una ruta a la ISO o, si esta es de pequeño tamaño, cargarla en memoria directamente. Pero en este caso no es lo más eficiente.
-
-
-> Veamos qué podemos seguir aprendiendo de la sintaxis de estos ficheros:
-> * KERNEL vesamenu.c32
-> * APPEND pxelinux.cfg/default estas dos líneas nos permiten pasar de una pantalla a otra.
-> * MENU separator permite introducir una línea vacía.
-> * LABEL empty define una entrada del menú no seleccionable.
-> * Una entrada típica para arrancar un sistema operativo incluirá las siguentes líneas:
->     * LABEL nombre que le damos a la entrada.
->     * MENU LABEL etiqueta que veremos en la pantalla.
->     * KERNEL define la ruta y el nombre del kernel a enviar. También podemos usar la palabra LINUX si vamos a cargar un kernel de Linux.
->     * INITRD define la ruta y el nombre del ramdisk que se cargará en memoria.
->     * APPEND aquí especificaremos los parámetros adicionales de arranque.
-
-
-
-Análogamente se pueden arrancar distribuciones equivalentes basadas en Debian.
-El caso de openSUSE
-
-La versión 13.1 de openSUSE tiene un fallo que le impide arrancar correctamente a través de PXE. Dicho fallo ya ha sido corregido de cara a las siguientes versiones (enlace al final del artículo). Aún así veremos qué sintaxis debemos usar y cómo corregirlo si nos interesa usar la 13.1
-	Knotes 128x128.png
-
-Añade lo siguiente al archivo /srv/tftpboot/pxelinux.cfg/sistemas:
-
-LABEL 3
-       MENU LABEL ^3. openSUSE 13.1 Live x64
-       LINUX imagenes/openSUSE-Live/linux
-       INITRD imagenes/openSUSE-Live/initrd
-       APPEND splash=silent isofrom_device=nfs:192.168.1.200:/ruta/a/la/iso isofrom_system=openSUSE-13.1-KDE-Live-x86_64.iso language=es_ES keytable=es quiet quiet showopts
-       TEXT HELP
-       Arranca openSUSE en modo Live
-       ENDTEXT
-
-Corrige las rutas y la dirección del servidor NFS según sea tu caso. Esta es la sintaxis que debería funcionar, pero actualmente lo impide un fallo en el paquete Kiwi. Según esto ya ha sido corregido para futuras versiones de openSUSE, momento en el que esta sintaxis será válida.
-
-Los pasos a seguir serían sacar el kernel y el ramdisk a un subdirectorio del servidor TFTP y dejar la ISO en una ruta accesible a través de NFS (no es necesario montarla).
-
-# mkdir /tmp/live && mkdir /srv/tftpboot/imagenes/openSUSE-Live
-# mount -o loop -t iso9660 /ruta/a/la/iso /tmp/live
-# cp /tmp/live/boot/x86_64/loader/linux /srv/tftpboot/imagenes/openSUSE-Live/
-# cp /tmp/live/boot/x86_64/loader/initrd /srv/tftpboot/imagenes/openSUSE-Live/
-# umount /tmp/live
-
-Si aún así quieres echarla a andar, el procedimiento a seguir sería extraer el initrd y parchearlo usando el siguiente repo: http://download.opensuse.org/repositories/Virtualization:/Appliances. Coloca el archivo resultante en tu servidor TFTP y haz la prueba.
-Consideraciones finales
-
-Como has visto hay diferentes métodos de arrancar un sistema operativo a través de PXE. Con un servidor de este tipo en marcha en tu red luego ya únicamente tendrás que descargarte las ISO que quieras usar y averiguar la sintaxis a aplicar en cada caso. A cambio obtienes un método muy rápido de instalación que además prescinde de medios físicos.
-
-Para evitar problemas de conectividad comprueba que tengas desactivado el cortafuegos en el servidor.
-
-Si montas el servidor PXE en una máquina virtual ten en cuenta que debes cambiar la configuración de su tarjeta de red al modo Bridged/Puente para que su funcionamiento sea transparente a nivel de red. Las opciones para esto variarán según el software de virtualización que utilices. Por ejemplo, en VirtualBox la opción se cambia seleccionando la máquina, pulsando Configuración y buscando en la pestaña Red esta opción:
-Así debería quedar configurada la tarjeta de red
-Enlaces externos
-
-## 6. Comprobamos
 
 ---
 
@@ -399,4 +373,26 @@ LABEL 2
        TEXT HELP
        Arranca Debian en modo Live
        ENDTEXT
+```
+
+# A.4 Iniciar OpenSUSE en modo Live
+
+```
+LABEL 3
+       MENU LABEL ^3. openSUSE 13.1 Live x64
+       LINUX imagenes/openSUSE-Live/linux
+       INITRD imagenes/openSUSE-Live/initrd
+       APPEND splash=silent isofrom_device=nfs:192.168.1.200:/ruta/a/la/iso isofrom_system=openSUSE-13.1-KDE-Live-x86_64.iso language=es_ES keytable=es quiet quiet showopts
+       TEXT HELP
+       Arranca openSUSE en modo Live
+       ENDTEXT
+```
+
+Los pasos a seguir serían sacar el kernel y el ramdisk a un subdirectorio del servidor TFTP y dejar la ISO en una ruta accesible a través de NFS (no es necesario montarla).
+```
+# mkdir /tmp/live && mkdir /srv/tftpboot/imagenes/openSUSE-Live
+# mount -o loop -t iso9660 /ruta/a/la/iso /tmp/live
+# cp /tmp/live/boot/x86_64/loader/linux /srv/tftpboot/imagenes/openSUSE-Live/
+# cp /tmp/live/boot/x86_64/loader/initrd /srv/tftpboot/imagenes/openSUSE-Live/
+# umount /tmp/live
 ```
