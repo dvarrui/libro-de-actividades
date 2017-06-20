@@ -123,25 +123,20 @@ ATFTPD_USER="tftp"
 ATFTPD_GROUP="tftp"
 
 # atftpd options
-#
 ATFTPD_OPTIONS="--daemon --user tftp -v"
 
 # Use inetd instead of daemon
-#
 ATFTPD_USE_INETD="no"
 
 #  TFTP directory must be a world readable/writable directory.
 #  By default /srv/tftpboot is assumed.
-#
 ATFTPD_DIRECTORY="/srv/tftpboot"
 
 ## Type:    string
 ## Default: ""
 #
 #  Whitespace seperated list of IP addresses which ATFTPD binds to.
-#  One instance of the service is started on each IP address.
 #  By default atftpd will listen on all available IP addresses/interfaces.
-#
 ATFTPD_BIND_ADDRESSES="192.168.XX.31"
 ```
 
@@ -176,13 +171,12 @@ Ahora vamos a exportar ese directorio mediante NFS.
 
 * En la raíz del servidor TFTP copiamos los siguientes archivos y creamos un par de directorios:
 ```
-# cd /srv/tftpboot
-# mkdir pxelinux.cfg
-# mkdir imagenes
-# cp /usr/share/syslinux/pxelinux.0 .
-# cp /usr/share/syslinux/menu.c32 .
-# cp /usr/share/syslinux/reboot.c32
-# touch pxelinux.cfg/default
+# mkdir /srv/tftpbootp/xelinux.cfg
+# mkdir /srv/tftpboot/imagenes
+# cp /usr/share/syslinux/pxelinux.0 /srv/tftpboot
+# cp /usr/share/syslinux/menu.c32 /srv/tftpboot
+# cp /usr/share/syslinux/reboot.c32 /srv/tftpboot
+# touch /srv/tftpboot/pxelinux.cfg/default
 ```
 
 > En el directorio `imagenes` crearemos un subdirectorio por cada ISO que queramos arrancar.
@@ -218,11 +212,11 @@ MENU SEPARATOR
 
 * Guardar los cambios al archivo.
 * Reiniciar una máquina cliente (puede que tengas que pulsar la tecla F12 durante el arranque para activar el arranque PXE).
-* Comprobar que accedemos al menú PXE. Aunque todavía nos falta un poco más.
+* Comprobar que accedemos al menú PXE. Aunque todavía nos faltan más opciones.
 
 ---
 
-# 6. Teoría: Sintaxis del menú
+# 6. Teoría: Sintaxis del menú PXE
 
 Repasemos un poco la sintaxis del fichero que hemos creado:
 
@@ -256,8 +250,9 @@ Veamos qué podemos seguir aprendiendo de la sintaxis de estos ficheros:
 # 7. Configurar una imagen para instalar
 
 Usaremos una carpeta dentro del TFTP para almacenar los ficheros que necesita
-nuestr imagen para arrancar (el kernel y el ramdisk). Estos ficheros hay que copiarlos dentro de nuestro directorio /srv/tftpboot/ para que el servidor PXE los envie a los clientes para que puedan arrancar. En el caso que nos ocupa el kernel es un archivo llamado linux y el ramdisk initrd. Ambos se encuentran dentro de la ISO en la ruta boot/x86_64/loader/. Entonces:
+nuestra imagen para arrancar (el kernel y el ramdisk).
 
+Estos ficheros hay que copiarlos dentro de nuestro directorio /srv/tftpboot/ para que el servidor PXE los envie a los clientes para que puedan arrancar. En el caso que nos ocupa el kernel es un archivo llamado linux y el ramdisk initrd. Ambos se encuentran dentro de la ISO en la ruta boot/x86_64/loader/.
 * Crear subdirectorio `/srv/tftpboot/imagenes/opensuseXX`.
 * `cp /mnt/opensuseXX/boot/x86_64/loader/linux /srv/tftpboot/imagenes/opensuseXX/`
 * `cp /mnt/opensuseXX/boot/x86_64/loader/initrd /srv/tftpboot/imagenes/opensuseXX/`
@@ -274,7 +269,8 @@ LABEL 2
         ENDTEXT
 ```
 
-* Iniciar MV cliente y comprobar.
+* Iniciar MV cliente y comprobar el menú PXE.
+* Instalar SO en MV cliente.
 
 > El ramdisk de openSUSE permite acceder al contenido del DVD a través de NFS, lo cual es mucho más óptimo que hacerlo a través de TFTP. Ya veremos que hay casos en los que podemos pasar como parámetro directamente una ruta a la ISO o, si esta es de pequeño tamaño, cargarla en memoria directamente. Pero en este caso no es lo más eficiente.
 
