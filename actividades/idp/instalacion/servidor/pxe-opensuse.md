@@ -62,19 +62,12 @@ añadir el nombre de interfaz que está en la red interna. Ver ejemplo:
 option domain-name "CURSO1617";
 option domain-name-servers 8.8.4.4, 80.58.61.250;
 
-# default-lease-time 600;
-# max-lease-time 7200;
-
 ddns-updates off;
 ddns-update-style none;
 
 # If this DHCP server is the official DHCP server for the local
 # network, the authoritative directive should be uncommented.
 #authoritative;
-
-# Use this to send dhcp log messages to a different log file (you also
-# have to hack syslog.conf to complete the redirection).
-#log-facility local7;
 
 # Solamente se atenderán peticiones DHCP de tipo PXE
 allow booting;
@@ -125,47 +118,18 @@ Nuestro servidor DHCP sólo atenderá las peticiones extendidas del tipo PXE, de
     * `cp /etc/sysconfig/atftpd /etc/sysconfig/atftpd.bak`
 * Editar el archivo `/etc/sysconfig/atftpd`:
 ```
-## Path:    Network/FTP/Atftpd
-## Description: ATFTP Configuration
-## Type:    string
-## Default: "tftp"
-#
 #  daemon user (tftp)
-#
 ATFTPD_USER="tftp"
-
-## Type:    string
-## Default: "tftp"
-#
-#  daemon user (tftp)
-#
 ATFTPD_GROUP="tftp"
 
-## Type:    string
-## Default: ""
-##
-## INFO:
-## "--daemon, --user, --group, --logfile" can not be removed/replaced here as
-## atftp is started with them as default opts: "--daemon --user atftp --group atftp "
-## and
-## logging to file is set as default: "--logfile /var/log/atftpd/atftp.log "
-#
 # atftpd options
 #
 ATFTPD_OPTIONS="--daemon --user tftp -v"
 
-## Type:    yesno
-## Default: no
-#
 # Use inetd instead of daemon
 #
 ATFTPD_USE_INETD="no"
 
-## Type:    string
-## Default: "/srv/tftpboot"
-## was "/tftpboot" but
-## "/tftpboot" is not allowed anymore in FHS 2.2.
-#
 #  TFTP directory must be a world readable/writable directory.
 #  By default /srv/tftpboot is assumed.
 #
@@ -178,7 +142,7 @@ ATFTPD_DIRECTORY="/srv/tftpboot"
 #  One instance of the service is started on each IP address.
 #  By default atftpd will listen on all available IP addresses/interfaces.
 #
-ATFTPD_BIND_ADDRESSES=""
+ATFTPD_BIND_ADDRESSES="192.168.XX.31"
 ```
 
 * El servicio se ejecutará con la cuenta de usuario tftp perteneciente al grupo del mismo nombre, asegúrate de que existen.
