@@ -115,10 +115,10 @@ y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 
 ### El usuario tiene datos
 
-* Iniciar sesión con el usuario `jedi2`.
+* Iniciar sesión con el usuario `rebelde2`.
 * Crear en dos archivos de texto:
-    * `/home/jedi2/mydocs/manual-xwing.txt`
-    * `/home/jedi2/mydocs/mapa-luke-skywalker.txt`
+    * `/home/rebelde2/mydocs/manual-xwing.txt`
+    * `/home/rebelde2/mydocs/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -129,10 +129,10 @@ alumnoXX
 
 ### Preparamos la copia de seguridad
 
-* Crear el directorio `/srv/backupXX/jedi2`. Lo utilizaremos para almacenar
+* Crear el directorio `/srv/backupXX/rebelde2`. Lo utilizaremos para almacenar
 las copias de seguridad que vayamos realizando de momento.
 * Comprobar permisos.
-    * El usuario propietario será `jedi2`, y el grupo root.
+    * El usuario propietario será `rebelde2`, y el grupo root.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ### Aprendiendo a usar el comando tar
@@ -159,11 +159,11 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 ### Realizamos la copia de seguridad
 
 Vamos a usar el  comando `tar` para lo siguiente:
-* Iniciar sesión con el usuario `jedi2`.
-* Crear copia de seguridad total (`/srv/backupXX/jedi2/AAAAMMDD-N1-TOT.tar.gz`)
+* Iniciar sesión con el usuario `rebelde2`.
+* Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-TOT.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia `/srv/backupXX/jedi2/AAAAMMDD-N2-INC.tar.gz`.
+* Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-INC.tar.gz`.
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
