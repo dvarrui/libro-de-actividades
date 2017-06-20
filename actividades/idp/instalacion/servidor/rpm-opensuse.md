@@ -26,14 +26,14 @@ cat >main.c <<EOF
 
 int main()
 {
-  printf("hello world");
+  printf("Hello World! (nombre-alumnoXX)\n");
 }
 EOF
 ```
 
 ## 3.2 Fichero Makefile
 
-* Creamos el fichero `/root/hello-1,0/Makefile` correspondiente:
+* Creamos el fichero `/root/hello-1.0/Makefile` correspondiente:
 ```
 cat >Makefile <<EOF
 all:hello
@@ -62,8 +62,8 @@ Release: 1
 License: GPL
 Group: Applications/Tutorials
 Source: hello.tar.gz
-URL: http://www.staerk.de/thorsten/
-Distribution: SUSE Linux
+URL: http://www.iespuertodelacruz.es
+Distribution: OpenSUSE
 Vendor: -
 Packager: NOMBRE-DEL-ALUMNO-XX
 
