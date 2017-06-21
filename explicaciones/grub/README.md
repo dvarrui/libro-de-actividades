@@ -9,24 +9,24 @@ Vamos a crear una nueva entrada en el menú del boot loader GRUB2 para usar un f
 * Iniciamos la MV con GNU/Linux.
 * Abrimos un terminal. Nos convertimos en superusuario.
 * Ir a `/etc/grub.d` y editamos el fichero: `nano 40_custom`
-* Vamos a desactivar la línea `exec tail...` poniendo una almohadilla delante como `#exec tail...`.
+* Vamos a desactivar la línea `exec tail...` poniendo una almohadilla delante.
 * Añadir el siguiente texto:
 
 ```
-echo "[INFO] Añadiendo entrada VHD Ubuntu" >&2
+echo "[INFO] Añadiendo entrada VHD GNU/Linux" >&2
 cat<<EOF
-menuentry "VHD Ubuntu 9.10, Linux 2.6.31-14-generic" {
+menuentry "VHD GNU/Linux" {
   insmod vhd
-  vhd vhd0 (hd0,1)/vhd/ubuntu.vhd --partitions
-  linux (vhd0,1)/boot/vmlinuz-2.6.31-14-generic root=/dev/sda1 vloop=/vhd/ubuntu.vhd quiet splash
-  initrd (vhd0,1)/boot/initrd.img-2.6.31-14-generic-vboot
+  vhd vhd0 (hd0,1)/vhd/linux.vhd --partitions
+  linux (vhd0,1)/boot/vmlinuz root=/dev/sda1 vloop=/vhd/linux.vhd quiet splash
+  initrd (vhd0,1)/boot/initrd
 }
 EOF
 ```
 
 Donde:
-* `(hd0,1)` indica la partición 1 del primer disco
-* `/vhd/ubuntu.vhd`, ruta al fichero VHD.
+* `(hd0,1)` indica la partición 1 del primer disco.
+* `/vhd/linux.vhd`, ruta al fichero VHD.
 
 > Información:
 > * Personalizar versión del kernel con lo que tengamos en nuestro sistema VHD. Ejecutar "vdir /boot" para ver lo ficheros dentro del directorio boot.
@@ -44,7 +44,9 @@ Donde:
 
 # 2. Convertir fichero imagen VDI en VHD
 
-* Ejemplo por comandos:`vboxmanage clonehd WinXP.vdi F:\winxp.vhd --format VHD`
+* Cuando creamos una nueva MV con VirtualBox podemos elegir formato VDI, VHD, etc.
+* Si ya tenemos la MV creado con VDI podemos convertirla a VHD por comandos.
+Ejemplo: `vboxmanage clonehd WinXP.vdi F:\winxp.vhd --format VHD`
 * Vídeo [How to Convert VDI to VHD in Virtualbox ](https://www.youtube.com/watch?v=DraC0YmJUas)
 
 ---
