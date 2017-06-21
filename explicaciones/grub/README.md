@@ -1,6 +1,7 @@
 
 ```
 Pendiente de comprobar
+* 2017-06-21: Se hacen pruebas del punto 1. Resultado ERROR
 ```
 
 # 1. Arrancar una imagen VHD Ubuntu desde GRUB2
@@ -10,7 +11,8 @@ Vamos a crear una nueva entrada en el menú del boot loader GRUB2 para usar un f
 * Abrimos un terminal. Nos convertimos en superusuario.
 * Ir a `/etc/grub.d` y editamos el fichero: `nano 40_custom`
 * Vamos a desactivar la línea `exec tail...` poniendo una almohadilla delante.
-* Añadir el siguiente texto:
+
+* Este ejemplo requiere cargar el módulo vhd, pero no está instalado:
 
 ```
 echo "[INFO] Añadiendo entrada VHD GNU/Linux" >&2
@@ -20,6 +22,18 @@ menuentry "VHD GNU/Linux" {
   vhd vhd0 (hd0,1)/vhd/linux.vhd --partitions
   linux (vhd0,1)/boot/vmlinuz root=/dev/sda1 vloop=/vhd/linux.vhd quiet splash
   initrd (vhd0,1)/boot/initrd
+}
+EOF
+```
+* Este ejemplo requiere usa loopback:
+
+```
+echo "[INFO] Añadiendo entrada VHD GNU/Linux" >&2
+cat<<EOF
+menuentry "VHD GNU/Linux" {
+  loopback loop (hd1,1)/home/vhd/linux.vhd --partitions
+  linux (loop)/boot/vmlinuz root=/dev/sda1 vloop=/vhd/linux.vhd quiet splash
+  initrd (loop)/boot/initrd
 }
 EOF
 ```
