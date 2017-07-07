@@ -7,6 +7,7 @@ puts ''
 
 def recorre_dir(parentdir, tab = '', input = [])
   items = Dir.entries(parentdir) - [ '.', '..']
+  items.sort!
   output = input
   output << format('%s* [%s](%s) %d',tab, File.basename(parentdir), parentdir, items.size)
   tab += '    '
