@@ -35,9 +35,10 @@ locale: Cannot s
 PermitRootLogin No
 /etc/ssh/sshd_config
 
-# otros paqeutes
+# otros paquetes
 apt-get install htop tree
 
+```
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
 	LANGUAGE = (unset),
@@ -45,3 +46,4 @@ perl: warning: Please check that your locale settings:
 	LC_CTYPE = "es_ES.utf8",
 	LANG = "en_US.UTF-8"
     are supported and installed on your system.
+```

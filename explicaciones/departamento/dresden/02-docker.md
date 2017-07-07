@@ -1,26 +1,21 @@
 
 # Instalar docker
 
-* Verificar la versión del núcleo > 3.10
-```
-uname -a
-Linux dresden 4.8.0-53-generic #56~16.04.1-Ubuntu SMP Tue May 16 01:18:56 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-```
+* `uname -a`, verificar la versión del núcleo > 3.10
 
 Enlace de interés:
 * https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-using-the-repository
 
+## Configurar repositorio
 
-sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+* `sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-
-sudo add-apt-repository \
+sudo apt-key fingerprint 0EBFCD88`
+* `sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
-   stable"
-
-sudo apt-get update
+   stable"`
+* `sudo apt-get update`
 
 ```
 Hit:1 http://mirror.hetzner.de/ubuntu/packages xenial InRelease
@@ -37,9 +32,13 @@ Fetched 134 kB in 0s (169 kB/s)
 Reading package lists... Done
 ```
 
-sudo apt-get install docker-ce
-apt-cache madison docker-ce
-dpkg -l |grep docker
+## Instalar docker
+
+* `sudo apt-get install docker-ce`
+* `apt-cache madison docker-ce`
+* `dpkg -l |grep docker`
+
+## Comprobar
 
 * `sudo docker run hello-world`, comprobar que funciona
 * Añadir al grupo `docker` a los usuarios root, sdelquin y david.

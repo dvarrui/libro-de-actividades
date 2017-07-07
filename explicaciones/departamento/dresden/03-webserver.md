@@ -1,5 +1,5 @@
 
-# Crear contenedor para el servidor Web
+# Crear contenedor para Wordpress
 
 Enlaces de interés:
 * http://www.josedomingo.org/pledin/2016/02/enlazando-contenedores-docker/
