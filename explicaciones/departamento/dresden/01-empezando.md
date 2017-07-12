@@ -31,19 +31,17 @@ locale: Cannot set LC_CTYPE to default locale: No such file or directory
 locale: Cannot s
 ```
 
+# Fix problems with locales
+
+```console
+$> locale-gen es_ES.UTF-8
+$> dpkg-reconfigure locales
+```
+
+
 # Desactivar acceso SSH de Root
 PermitRootLogin No
 /etc/ssh/sshd_config
 
 # otros paquetes
 apt-get install htop tree
-
-```
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-	LANGUAGE = (unset),
-	LC_ALL = (unset),
-	LC_CTYPE = "es_ES.utf8",
-	LANG = "en_US.UTF-8"
-    are supported and installed on your system.
-```
