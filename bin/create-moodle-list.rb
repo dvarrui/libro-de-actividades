@@ -60,6 +60,7 @@ class ListPeople
 		@data.each do |line|
 			#items=line.split(";")
 			items=line.split(",")
+			#items=line.force_encoding("iso-8859-1").split(",")
 			grupo=items[0].downcase
 			dni=items[1]
 			nombre=items[2]
