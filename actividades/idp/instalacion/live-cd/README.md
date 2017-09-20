@@ -35,7 +35,7 @@ sudo blkid
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
 Nombre de usuario : nombre del alumno en minúsculas
-Nombre de máquina : 1er apellido en minúsculas
+Nombre del equipo : 1er apellido en minúsculas
 ```
 * Abrir un terminal *PowerShell*, y capturar la salida de los siguientes comandos:
 ```
@@ -54,7 +54,7 @@ de CD/DVD para que no se inicie al arrancar la MV.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
 Nombre de usuario : nombre del alumno en minúsculas
-Nombre de máquina : 1er apellido en minúsculas
+Nombre del equipo : 1er apellido en minúsculas
 Nombre dominio    : 2º apellido en minúsculas
 ```
 > Nombre de host es lo mismo que nombre de máquina
