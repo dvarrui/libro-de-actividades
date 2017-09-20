@@ -53,9 +53,9 @@ de CD/DVD para que no se inicie al arrancar la MV.
 * Crear una MV, esta vez si tendrá disco duro.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
-Nombre de usuario : nombre del alumno en minúsculas
-Nombre del equipo : 1er apellido en minúsculas
-Nombre dominio    : 2º apellido en minúsculas
+Nombre de usuario      : nombre del alumno en minúsculas
+Nombre del equipo/host : 1er apellido en minúsculas
+Nombre dominio         : 2º apellido en minúsculas
 ```
 > Nombre de host es lo mismo que nombre de máquina
 
