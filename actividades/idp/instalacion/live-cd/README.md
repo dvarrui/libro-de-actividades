@@ -30,7 +30,7 @@ sudo blkid
 
 # Windows 7
 
-* Descargar la versión *Windows7 profesional sp1 x64*.
+* Descargar la versión *Windows7 enterprise sp1 x64*.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
 Nombre de usuario : nombre del alumno en minúsculas
@@ -47,7 +47,7 @@ hostname
 
 # GNU/Linux OpenSUSE
 
-* Descargar *GNU/Linux OpenSUSE 13.2*.
+* Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
 Nombre de usuario : nombre del alumno en minúsculas
