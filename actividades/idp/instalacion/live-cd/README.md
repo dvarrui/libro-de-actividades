@@ -50,6 +50,7 @@ de CD/DVD para que no se inicie al arrancar la MV.
 # GNU/Linux OpenSUSE
 
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
+* Crear una MV, esta vez si tendrá disco duro.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
 ```
 Nombre de usuario : nombre del alumno en minúsculas
@@ -58,8 +59,6 @@ Nombre dominio    : 2º apellido en minúsculas
 ```
 > Nombre de host es lo mismo que nombre de máquina
 
-* Crear una MV, esta vez si tendrá disco duro.
-* Instalar el SO GNU/Linux en la MV con las opciones por defecto.
 * Una vez instalado el sistema operativo, ejecutar el programa
 `Yast`. Ir a `Ajustes de red -> Nombre de Host/DNS`.
     * Escribir nombre de host/máquina
