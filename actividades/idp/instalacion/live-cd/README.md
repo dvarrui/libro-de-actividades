@@ -1,7 +1,7 @@
 
 # Entrega
 
-* Entregar 1 informe con las capturas de pantalla de los apartado que se indiquen.
+* Entregar 1 informe con las capturas de pantalla.
 * Comentar brevemente los pasos en el informe.
 
 ---
