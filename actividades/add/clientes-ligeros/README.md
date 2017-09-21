@@ -111,7 +111,7 @@ Veamos una imagen de ejemplo.
 modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
 >
 
-* En el fichero `/etc/ltsp/dhcpd.conf` modificar el valor `range 192.168.76.1XX 192.168.67.2XX;`.
+* En el fichero `/etc/ltsp/dhcpd.conf` modificar el valor `range 192.168.67.1XX 192.168.67.2XX;`.
 Donde XX es el número de puesto de cada alumno.
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./images/ltsp-services-running.png)
