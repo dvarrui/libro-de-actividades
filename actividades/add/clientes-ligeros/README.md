@@ -18,6 +18,8 @@ el momento es que arrancamos un cliente e iniciamos sesión.
 > Al terminar la actividad, y antes de realizar la entrega, etiquetamos el proyecto con "ltsp".
 > La etiqueta es un identificador que queda asociado a un instante de tiempo determinado del proyecto git.
 
+---
+
 # 2. Preparativos
 
 Realizar las siguientes tareas:
@@ -31,7 +33,10 @@ Veamos el esquema:
 
 ![Esquema](./images/ltsp-diagram.png)
 
+---
+
 # 3. Servidor LTSP
+
 ## 3.1 Preparar la MV Server
 Crear la MV del servidor con dos interfaces de red.
 * La 1º interfaz será la externa:
@@ -86,7 +91,6 @@ de 32 bits.
 
 * Ejecutar `ltsp-info`, para consultar información.
 
-
 > **NOTA**
 >
 > En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
@@ -130,6 +134,7 @@ Donde XX es el número de puesto de cada alumno.
 >     * `/etc/default/tftpd-hpa` para TFTP. Modificar TFTP_ADDRESS con IP:PORT. Por ejemplo `192.168.67.1:69`.
 >
 
+---
 
 # 4. Preparar MV Cliente
 
