@@ -18,8 +18,8 @@ Documentos relacionados
     * Gateway: `172.AA.0.1`
     * Servidor DNS: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
-    * Por ejemplo vargas30d
-    * Si tenemos varias máquinas las llamaremos vargas30d, vargas30e, vargas30f, etc.
+    * Por ejemplo vargasXXd
+    * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
 * Nombre de dominio: `curso1516` (Modificar los números al curso actual).
 
 * Tarjeta de red VBox en `modo puente`.
@@ -36,10 +36,10 @@ Documentos relacionados
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hostname`
 >     * Ponemos el `nombre-maquina.nombre-dominio`
->     * Por ejemplo: `vargas116g.curso1617`
+>     * Por ejemplo: `vargasXXd.curso1617`
 > * Fichero `/etc/hosts`.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
->     * Por ejemplo: `127.0.0.2   vargas116g.curso1617   vargas116g`
+>     * Por ejemplo: `127.0.0.2   vargasXXd.curso1617   vargasXXd`
 
 ## Comprobaciones finales
 
