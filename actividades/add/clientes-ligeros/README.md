@@ -37,7 +37,7 @@ Crear la MV del servidor con dos interfaces de red.
 * La 1º interfaz será la externa:
     * para comunicarse con Internet.
     * Configurarla en VBox como adaptador puente.
-    * Consultar [configuraciones](../../global/configuracion-aula108.md).
+    * Consultar [configuraciones](../../global/configuracion/debian.md).
 * La 2º interfaz será la interna
     * para conectarse con los clientes ligeros.
     * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes
@@ -48,7 +48,7 @@ Crear la MV del servidor con dos interfaces de red.
 ## 3.2 Instalación del SSOO
 * Instalar un SO GNU/Linux Xubuntu en la MV del servidor (Se prefiere usar una versión ligera
 como Xubuntu, Lubuntu, porque las otras opciones consumen demasiada memoria).
-* Consultar [configuraciones](../../global/configuracion-aula108.md).
+* Consultar [configuraciones](../../global/configuracion/debian.md).
 * Incluir en el informe la salida de los comandos siguientes:
 ```
 ip a
