@@ -161,18 +161,20 @@ netstat -ntap # Muestras las conexiones con el exterior
 ```
 * Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
 
-#5. ANEXOS
+---
+
+# 5. ANEXOS
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
 Enlaces de interés:
 * [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
 * [Conectar Knoppix7 con servidor LTSP de sistema operativo ](https://www.youtube.com/watch?v=UpNUHsXSxA4)
 
-##5.1 Personalización de los clientes
+## 5.1 Personalización de los clientes
 En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
 modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf
 
-##5.2 For openSUSE 12.3
+## 5.2 For openSUSE 12.3
 
 Via commandline(following commands to be run in terminal as root "su -"):
 ````
