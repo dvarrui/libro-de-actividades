@@ -75,8 +75,9 @@ class ListPeople
 			username=u.downcase
 			@change.each { |i| username.gsub!(i[0],i[1]) }
 
+      email.gsub!("\n",'')
 			email="#{username}@#{grupo}.ies" if email.size<2
-			dni="puerto1718" if dni.size<2
+			dni="fp1718" if dni.size<2
 
 			if @output[grupo.to_sym].nil? then
 				f=File.open("#{@outputfilename}_#{grupo}.txt",'w')
