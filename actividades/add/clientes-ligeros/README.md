@@ -51,8 +51,7 @@ Crear la MV del servidor con dos interfaces de red.
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
-* Instalar un SO GNU/Linux Xubuntu en la MV del servidor (Se prefiere usar una versión ligera
-como Xubuntu, Lubuntu, porque las otras opciones consumen demasiada memoria).
+* Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
 * Consultar [configuraciones](../../global/configuracion/debian.md).
 * Incluir en el informe la salida de los comandos siguientes:
 ```
