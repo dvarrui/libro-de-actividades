@@ -73,6 +73,7 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 primer-apellido-alumno3.
 
 ## 3.3 Instalar el servicio LTSP
+
 * Instalar el servidor SSH `apt-get install openssh-server`, para permitir acceso
 remoto a la máquina.
 * Modificar SSH con `PermitRootLogin Yes`.
@@ -141,6 +142,7 @@ Crear la MV cliente en VirtualBox:
 * Sin disco duro y sin unidad de DVD.
 * Sólo tiene RAM, floppy
 * Tarjeta de red PXE en modo "red interna".
+* Configurar memoria gráfica a 128MB y habilitar el soporte 3D.
 
 Con el servidor encendido, iniciar la MV cliente desde red/PXE:
 * Comprobar que todo funciona correctamente.
