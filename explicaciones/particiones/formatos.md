@@ -1,5 +1,5 @@
 
-#Formatos de la particiones
+# Formatos de la particiones
 
 Supongamos que tenemos un disco con 16 sectores.
 * Cada sector del disco tienen tamalo 512 bytes.
@@ -16,7 +16,7 @@ puesto que el propio sistema de formateo debe usar parte de ese espacio en disco
 * Supongamos que nuestro sistema de formateo ocupa sólo el sector 1 del disco.
 * Ahora tenemos una capacidad de almacenamiento para el usuario de 14 sectores.
 
-#Asignación de Bloques Adyacentes (ABA)
+# Asignación de Bloques Adyacentes (ABA)
 
 * En el sector 1 del disco se guardará la `Información del formato ABA`. Esto es,
 una tabla con `name;start;size`. Donde:
@@ -36,7 +36,7 @@ el espacio libre y por tanto, eliminan la fragmentación externa.
 * Este formato ABA tiene el problema de que se queda inoperativo cuando la
 fragmentación externa es muy elevada.
 
-#Asignación de Bloques por Lista Ligada (ABBL)
+# Asignación de Bloques por Lista Ligada (ABBL)
 
 * En el sector 1 del disco se guardará la `Información del formato ABLL`. Esto es,
 una tabla con `name;start`. Donde:
@@ -66,7 +66,7 @@ no es necesario para poder trabajar con este sistema de formateo.
 queda libre. Sólo lo puede usar el fichero asignado cuando aumente su tamaño.
 A esta situación se le llama `fragmentación interna`.
 
-#MiniFAT
+# MiniFAT
 
 * En los sectores 1 y 2 del disco se guardará la `Información del formato miniFAT`.
 Esto es, dos tablas con el siguiente formato:
