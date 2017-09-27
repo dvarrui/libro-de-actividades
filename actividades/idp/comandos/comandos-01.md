@@ -1,11 +1,11 @@
 
-#Comandos 01
+# Comandos 01
 
 ## Máquina Virtual
 
 Partimos que ya tenemos creada la MV GNU/Linux [bien configurada](../../global/configuracion-aula109.md).
 
-##Acceso remoto
+## Acceso remoto
 
 Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 
@@ -20,7 +20,7 @@ ping www.google.es
 
 * Comprobar [acceso remoto](../../global/acceso-remoto.md).
 
-##Tarea
+## Tarea
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta Documentos de nuestro home:
 ```
