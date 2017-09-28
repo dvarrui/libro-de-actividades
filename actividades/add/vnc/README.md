@@ -19,10 +19,10 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 * Vamos a realizar las siguientes conexiones remotas VNC:
-    1. Acceder a Windows Server - desde Windows 7
-    1. Acceder a Windows Server - desde GNU/Linux OpenSUSE 13.2
-    1. Acceder a GNU/Linux OpenSUSE 13.2 - desde GNU/Linux OpenSUSE 13.2 (A lo mejor no hay que instalar el software cliente VNC)
-    1. Acceder a GNU/Linux OpenSUSE 13.2 - desde Windows 7
+    1. Acceder a Windows - desde Windows 7/10
+    1. Acceder a Windows - desde GNU/Linux OpenSUSE
+    1. Acceder a GNU/Linux OpenSUSE - desde GNU/Linux OpenSUSE (A lo mejor no hay que instalar el software cliente VNC)
+    1. Acceder a GNU/Linux OpenSUSE - desde Windows 7/10
 
 > Problemas de conexión
 >
