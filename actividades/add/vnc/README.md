@@ -4,7 +4,8 @@ Cambios para el curso1718
 * Fijar las IPs en los suse 31 cliente y 32 server
 ```
 
-#1. Introducción
+# 1. Introducción
+
 Entrega:
 * URL con la ruta al/los archivo/s dentro del repositorio del alumno.
 * URl commit del repositorio con la versión entregada.
@@ -12,7 +13,9 @@ Entrega:
 
 Configurar las máquinas virtuales según este [documento](../../global/configuracion-aula108.md).
 
-#2. Conexiones remotas con VNC
+---
+
+# 2. Conexiones remotas con VNC
 
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 * Vamos a realizar las siguientes conexiones remotas VNC:
@@ -28,16 +31,18 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER.
 
-##2.1 Comprobaciones
+## 2.1 Comprobaciones
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
 que se han establecido las conexiones remotas:
 * Ejecutar `netstat -ntap` en las MVs GNU/Linux
 * Ejecutar `netstat -n` en las MVs Windows
 
-#3. Instalación
+---
 
-##3.1 Instalación en Windows
+# 3. Instalación
+
+## 3.1 Instalación en Windows
 
 * `TightVNC` es una herramienta libre disponible para Windows.
 * En el servidor VNC usaremos `TightVNC server`.
@@ -47,7 +52,7 @@ que se han establecido las conexiones remotas:
 > * Para esta práctica usaremos conexiones SIN cifrar.
 > * Leer la documentación sobre conexiones VNC.
 
-##3.2 Instalación en OpenSUSE
+## 3.2 Instalación en OpenSUSE
 
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
@@ -61,7 +66,11 @@ que se han establecido las conexiones remotas:
 > * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
 
-##3.3 Instalacion en Debian
+---
+
+# ANEXO A
+
+## A.1 Instalacion en Debian
 
 * En Debian se puede usar `tightvncserver` como VNC server.
 

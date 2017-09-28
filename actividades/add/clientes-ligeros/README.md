@@ -161,7 +161,7 @@ Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al c
 ![client](./images/ltsp-client-login.png)
 
 Cuando el cliente se conecte
-* entramos con los usuarios apellido-del-alumno[1-3]
+* Entramos con los usuarios apellido-del-alumno[1-3]
 * Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
 ```
 whoami        # Muestra el usuario actual
