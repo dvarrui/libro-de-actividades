@@ -72,29 +72,31 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 * Crear 3 usuarios locales llamados: primer-apellido-alumno1, primer-apellido-alumno2,
 primer-apellido-alumno3.
 
-## 3.3 Instalar el servicio LTSP
+## 3.3 Instalar el servicio SSH
 
 * Instalar el servidor SSH `apt-get install openssh-server`, para permitir acceso
 remoto a la máquina.
 * Modificar SSH con `PermitRootLogin Yes`.
+
+## 3.4 Instalar el servicio LTSP
+
 * Instalar servidor de clientes ligeros, según la documentación para el SO elegido.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
-* Ahora vamos a crear un imagen del SO a partir del sistema real haciendo `ltsp-build-client`.
-La imagen del SO se cargará en la memoria de los clientes ligeros.
+* `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
+Esta imagen del SO se cargará en la memoria de los clientes ligeros.
+
 
 > **32 bits o 64 bits**
 >
-> Si el servidor es de 64-bits pero los clientes tienen arquitectura de 32-bits
-entonces usar el comando siguiente `ltsp-build-client --arch i386` para crear una imagen
-de 32 bits.
->
+> * `ltsp-build-client --arch i386` para crear una imagen de 32 bits.
+> * `ltsp-build-client` crear imagen del SO.
 
 * Ejecutar `ltsp-info`, para consultar información.
 
 > **NOTA**
 >
 > En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
-para volver a actualizar la imagen.
+podemos volver a actualizar la imagen.
 >
 > * `ltsp-update-kernel`
 > * `ltsp-update-sshkeys`
@@ -104,8 +106,10 @@ Revisamos la configuración del servicio DHCP instalado junto con LTSP:
 * Revisar la configuración de la tarjeta de red interna del servidor.
 IP estática compatible con la configuración dhcp.
 * Consultamos el fichero de configuración `/etc/ltsp/dhcpd.conf`.
-Comprobar las rutas de `option root-path /opt/ltsp/amd64` y de `filename /ltsp/amd64/pxelinux.0`.
-Veamos una imagen de ejemplo.
+
+Comprobar las rutas son correctas:
+* Para 32 bits: `option root-path /opt/ltsp/i386`, `filename /ltsp/i386/pxelinux.0`, etc.
+* Para 64 bits: `option root-path /opt/ltsp/amd64`, `filename /ltsp/amd64/pxelinux.0`, etc.
 
 ![dhcpdconf](./images/ltsp-dhcpdconf.png)
 
