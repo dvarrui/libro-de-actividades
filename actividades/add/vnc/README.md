@@ -11,7 +11,7 @@ Entrega:
 * URl commit del repositorio con la versión entregada.
 * Etiquetaremos la entrega en el repositorio Git con `vnc`.
 
-Configurar las máquinas virtuales según este [documento](../../global/configuracion-aula108.md).
+Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
 ---
 
