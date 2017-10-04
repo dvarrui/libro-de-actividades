@@ -50,7 +50,7 @@ que se han establecido las conexiones remotas:
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
     * Permitir conexión remota.
-    * Abrir puerto en el cortafuegos.
+    * Abrir puertos VNC en el cortafuegos.
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
 * `vncviewer IP-vnc-server:590N`.
