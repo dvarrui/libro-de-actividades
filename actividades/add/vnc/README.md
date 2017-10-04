@@ -1,9 +1,4 @@
 
-```
-Cambios para el curso1718
-* Fijar las IPs en los suse 31 cliente y 32 server
-```
-
 # 1. Introducción
 
 Entrega:
@@ -24,35 +19,33 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
     1. Acceder a GNU/Linux OpenSUSE - desde GNU/Linux OpenSUSE (A lo mejor no hay que instalar el software cliente VNC)
     1. Acceder a GNU/Linux OpenSUSE - desde Windows 7/10
 
-> Problemas de conexión
->
-> * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
-> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
-> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
-desde fuera de la máquina VNC-SERVER.
-
-## 2.1 Comprobaciones
-
-Capturar imagenes probando las conexiones remotas VNC, para verificar
-que se han establecido las conexiones remotas:
-* Ejecutar `netstat -ntap` en las MVs GNU/Linux
-* Ejecutar `netstat -n` en las MVs Windows
-
 ---
 
-# 3. Instalación
-
-## 3.1 Instalación en Windows
+# 3. Instalación en Windows
 
 * `TightVNC` es una herramienta libre disponible para Windows.
 * En el servidor VNC usaremos `TightVNC server`.
 * En el cliente usaremos `TightVNC viewer`.
 
+> **NOTA**
+>
 > * Si usamos un servidor VNC "Marca-ACME", usar también el cliente "Marca-ACME".
 > * Para esta práctica usaremos conexiones SIN cifrar.
 > * Leer la documentación sobre conexiones VNC.
 
-## 3.2 Instalación en OpenSUSE
+> **Problemas de conexión**
+>
+> * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
+> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
+desde fuera de la máquina VNC-SERVER.
+
+Capturar imagenes probando las conexiones remotas VNC, para verificar
+que se han establecido las conexiones remotas:
+* Ejecutar `netstat -n` en las MVs Windows
+
+---
+
+# 4. Instalación en OpenSUSE
 
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
@@ -65,6 +58,16 @@ que se han establecido las conexiones remotas:
 > * Como cliente VNC podemos usar también `krdc`.
 > * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
+
+> **Problemas de conexión**
+>
+> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
+> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
+desde fuera de la máquina VNC-SERVER.
+
+Capturar imagenes probando las conexiones remotas VNC, para verificar
+que se han establecido las conexiones remotas:
+* Ejecutar `netstat -ntap` en las MVs GNU/Linux
 
 ---
 
