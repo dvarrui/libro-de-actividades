@@ -69,10 +69,11 @@ gestionar el servidor VNC.
 
 > **Problemas de conexión**
 >
-> * Refrescar las MAC de la MV.
+> * Si se ve la imagen en negro desde cliente, ejecutar `vnserver` en el servidor.
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 > * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
+> * Refrescar las MAC de la MV.
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
 que se han establecido las conexiones remotas:
