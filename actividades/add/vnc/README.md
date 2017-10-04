@@ -54,11 +54,15 @@ que se han establecido las conexiones remotas:
     * Abrir puertos VNC en el cortafuegos.
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
-* `vncviewer IP-vnc-server:590N`.
+* Hay varias formas de usar vncviewer:
+    * `vncviewer IP-vnc-server:590N`
+    * `vncviewer IP-vnc-server:N`
+    * `vncviewer IP-vnc-server::590N`
 
 > **NOTA**
 >
-> * Para más información, leer enlace de interés sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
+> * Enlace sobre [VNC server OpenSUSE Leap 42.3](https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/cha.vnc.html#sec.vnc.viewer)
+> * Enlace sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
 > * Como cliente VNC podemos usar también `krdc`.
 > * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
