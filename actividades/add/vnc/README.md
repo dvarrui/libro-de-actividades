@@ -24,6 +24,7 @@ Entrega:
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * `TightVNC` es una herramienta libre disponible para Windows.
 * En el servidor VNC usaremos `TightVNC server`.
+* Revisar la configuración del cortafuegos del servidor VNC Windows para permitir VNC.
 * En el cliente usaremos `TightVNC viewer`.
 
 > **NOTA**
@@ -37,7 +38,7 @@ Entrega:
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
-desde fuera de la máquina VNC-SERVER.
+desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
 que se han establecido las conexiones remotas:
@@ -66,7 +67,7 @@ gestionar el servidor VNC.
 >
 > * Refrescar las MAC de la MV.
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
-desde fuera de la máquina VNC-SERVER.
+desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 > * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
