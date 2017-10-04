@@ -34,6 +34,7 @@ Entrega:
 
 > **Problemas de conexión**
 >
+> * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER.
@@ -48,6 +49,8 @@ que se han establecido las conexiones remotas:
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
+    * Permitir conexión remota.
+    * Abrir puerto en el cortafuegos.
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
 * `vncviewer IP-vnc-server:590N`.
@@ -61,6 +64,7 @@ gestionar el servidor VNC.
 
 > **Problemas de conexión**
 >
+> * Refrescar las MAC de la MV.
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER.
 > * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
