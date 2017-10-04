@@ -2,11 +2,9 @@
 # 1. Introducción
 
 Entrega:
-* URL con la ruta al/los archivo/s dentro del repositorio del alumno.
+* URL con la ruta al archivo del informe dentro del repositorio del alumno.
 * URl commit del repositorio con la versión entregada.
 * Etiquetaremos la entrega en el repositorio Git con `vnc`.
-
-Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
 ---
 
@@ -23,6 +21,7 @@ Configurar las máquinas virtuales según este [documento](../../global/configur
 
 # 3. Instalación en Windows
 
+* Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * `TightVNC` es una herramienta libre disponible para Windows.
 * En el servidor VNC usaremos `TightVNC server`.
 * En el cliente usaremos `TightVNC viewer`.
@@ -47,6 +46,7 @@ que se han establecido las conexiones remotas:
 
 # 4. Instalación en OpenSUSE
 
+* Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
@@ -61,9 +61,9 @@ gestionar el servidor VNC.
 
 > **Problemas de conexión**
 >
-> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER.
+> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
 
 Capturar imagenes probando las conexiones remotas VNC, para verificar
 que se han establecido las conexiones remotas:
