@@ -46,8 +46,6 @@ Ir al cliente:
 >
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
-> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
-desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
@@ -63,6 +61,7 @@ Ir al servidor:
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
     * Permitir conexión remota.
     * Abrir puertos VNC en el cortafuegos.
+* Revisar la configuración del cortafuegos.
 * Ejecutar `netstat -ntap` para comprobar que están los servicios en los puertos 5801 y 5901.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
 
@@ -78,6 +77,12 @@ Ir al cliente:
     * `vncviewer IP-vnc-server:590N`
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
+* Si se ve la imagen en negro desde cliente, ejecutar `vncserver` en el servidor,
+y ponemos claves para las conexiones vnc.
+
+Comprobaciones para verificar que se han establecido las conexiones remotas:
+* Capturar imagenes probando las conexiones remotas VNC,
+* Ejecutar `netstat -ntap` en las MVs GNU/Linux
 
 > **NOTA**
 >
@@ -86,18 +91,6 @@ Ir al cliente:
 > * Como cliente VNC podemos usar también `krdc`.
 > * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
-
-> **Problemas de conexión**
->
-> * Si se ve la imagen en negro desde cliente, ejecutar `vnserver` en el servidor.
-> * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
-desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
-> * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
-> * Refrescar las MAC de la MV.
-
-Comprobaciones para verificar que se han establecido las conexiones remotas:
-* Capturar imagenes probando las conexiones remotas VNC,
-* Ejecutar `netstat -ntap` en las MVs GNU/Linux
 
 ---
 
