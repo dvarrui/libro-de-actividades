@@ -22,9 +22,18 @@ Entrega:
 # 3. Instalación en Windows
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
-* `TightVNC` es una herramienta libre disponible para Windows.
-* En el servidor VNC usaremos `TightVNC server`.
+* Descargar `TightVNC`. Esta es una herramienta libre disponible para Windows.
+
+Ir al servidor:
+* En el servidor VNC instalaremos `TightVNC server`.
 * Revisar la configuración del cortafuegos del servidor VNC Windows para permitir VNC.
+
+Ir a la máquina real:
+* Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
+que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
+los puertos 5801, 5901, etc.
+
+Ir al cliente:
 * En el cliente usaremos `TightVNC viewer`.
 
 > **NOTA**
@@ -40,8 +49,8 @@ Entrega:
 > * `nmap -Pn IP-VNC-SERVER`, para comprobar que los servicios son visibles
 desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 
-Capturar imagenes probando las conexiones remotas VNC, para verificar
-que se han establecido las conexiones remotas:
+Comprobaciones para verificar que se han establecido las conexiones remotas:
+* Capturar imagenes probando las conexiones remotas VNC.
 * Ejecutar `netstat -n` en las MVs Windows
 
 ---
@@ -49,9 +58,20 @@ que se han establecido las conexiones remotas:
 # 4. Instalación en OpenSUSE
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
+
+Ir al servidor:
 * En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
     * Permitir conexión remota.
     * Abrir puertos VNC en el cortafuegos.
+* Ejecutar `netstat -ntap` para comprobar que están los servicios en los puertos 5801 y 5901.
+* Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
+
+Ir a la máquina real:
+* Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
+que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
+los puertos 5801, 5901, etc.
+
+Ir al cliente:
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
 * Hay varias formas de usar vncviewer:
@@ -75,8 +95,8 @@ desde fuera de la máquina VNC-SERVER. Deben verse los puertos 5801, 5901, etc.
 > * Revisar si el cortafuegos GNU/Linux está rechazando las conexiones.
 > * Refrescar las MAC de la MV.
 
-Capturar imagenes probando las conexiones remotas VNC, para verificar
-que se han establecido las conexiones remotas:
+Comprobaciones para verificar que se han establecido las conexiones remotas:
+* Capturar imagenes probando las conexiones remotas VNC,
 * Ejecutar `netstat -ntap` en las MVs GNU/Linux
 
 ---
