@@ -94,6 +94,16 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 > * Además de `Yast`, podemos puede usar el comando `vncserver` para
 gestionar el servidor VNC.
 
+# 5. DISPLAY 0 en GNU/Linux
+
+* [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
+
+Cuando queremos ejecutar vncserver para controlar directamente la pantalla local
+usaremos x0vncserver de tigervnc.
+
+* `x0vncserver -display :0 -passwordfile ~/.vnc/passwd`
+* Para más información, véase `man x0vncserver`
+
 ---
 
 # ANEXO A
