@@ -64,6 +64,8 @@ Ir al servidor:
 * Revisar la configuración del cortafuegos.
 * Ejecutar `netstat -ntap` para comprobar que están los servicios en los puertos 5801 y 5901.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
+* Ejecutar `vncserver` en el servidor, y ponemos claves para las conexiones vnc.
+Al final nos muestra el número de nuestro escritorio remoto.
 
 Ir a la máquina real:
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
@@ -73,12 +75,11 @@ los puertos 5801, 5901, etc.
 Ir al cliente:
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
+(Usar el número del escritorio remoto obtenido anteriormente).
 * Hay varias formas de usar vncviewer:
     * `vncviewer IP-vnc-server:590N`
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
-* Si se ve la imagen en negro desde cliente, ejecutar `vncserver` en el servidor,
-y ponemos claves para las conexiones vnc.
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC,
