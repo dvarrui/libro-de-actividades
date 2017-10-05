@@ -19,13 +19,15 @@ Vamos a necesitar las siguientes 3 MVs:
 1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
 1. Un cliente Windows7 (IP 172.18.XX.11)
 
-* [Configurar las MV's](../../global/configuracion-aula108.md)
+* [Configurar las MV's](../../global/configuracion/opensuse.md)
 
 Entrega:
 * Añadir informe al repositorio git. Etiqueta `ssh`.
 * Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
 * Además se mostrará al profesor la práctica funcionando en clase y se responderá
 a las preguntas que pudieran hacerse en dicho instante.
+
+---
 
 # 1. Preparativos
 
@@ -35,7 +37,7 @@ a las preguntas que pudieran hacerse en dicho instante.
     * SO GNU/Linux: OpenSUSE
     * IP estática: 172.18.XX.31
     * Nombre de equipo: ssh-serverXX
-    * [Configuración de las MV's](../../global/configuracion-aula108.md)
+    * [Configuración de las MV's](../../global/configuracion/opensuse.md)
 * Añadir en `/etc/hosts` los equipos `ssh-clientXXa` y `ssh-clientXXb` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
@@ -139,7 +141,9 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde
 los dos clientes. Comprobarlo.
 
-# 3 ¿Y si cambiamos las claves del servidor?
+---
+
+# 3. ¿Y si cambiamos las claves del servidor?
 
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`,
 Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
@@ -225,6 +229,8 @@ alias s='ssh'
 ```
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
+---
+
 # 5. Autenticación mediante claves públicas
 
 ![clave-publica](./image/ssh-clave-publica.jpeg)
@@ -258,6 +264,8 @@ remoto en la máquina remota.
     * Desde `ssh-clientXXa`, NO se pide password.
     * Desde `ssh-clientXXb`, SI se pide el password.
 
+---
+
 # 6. Uso de SSH como túnel para X
 
 ![tunel](./image/ssh-tunel.jpeg)
@@ -270,12 +278,13 @@ Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwardi
 Vamos al clienteXXa.
 * Comprobar que no está instalada APP1: `zypper se APP1`.
 * Comprobar desde el clienteXXa, que funciona APP1(del servidor).
-Por ejemplo, con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma
+    * Con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
+    * El parámetro es `-X` en mayúsculas, no minúsculas.
 
-> **OJO**: El parámetro es `-X` en mayúsculas, no minúsculas
->
 > Para ver los logs del sistema usar `journalctl`
+
+---
 
 # 7. Aplicaciones Windows nativas
 
@@ -287,6 +296,8 @@ usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wi
 * Comprobar funcionamiento de APP2, accediendo desde ssh-client1.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
+
+---
 
 # 8. Restricciones de uso
 
@@ -335,6 +346,7 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
 
 ## OpenSSH locking parameters
+
 For locking down which users may or may not access the server you will want to look into one, or more, of the following directives: User/Group Based Access
 
 * **AllowGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
