@@ -58,14 +58,16 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
 Ir al servidor:
-* En OpenSUSE se puede instalar/activar el servidor VNC directamente desde `Yast -> VNC`
-    * Permitir conexión remota.
+* Ir a `Yast -> VNC`
+    * Permitir conexión remota. Esto configura el servicio `xinet`.
     * Abrir puertos VNC en el cortafuegos.
 * Revisar la configuración del cortafuegos.
 * Ejecutar `netstat -ntap` para comprobar que están los servicios en los puertos 5801 y 5901.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
-* Ejecutar `vncserver` en el servidor, y ponemos claves para las conexiones vnc.
-Al final nos muestra el número de nuestro escritorio remoto.
+* Con nuestro usuario normal, ejecutar `vncserver` en el servidor.
+    * Ponemos claves para las conexiones vnc a nuestro escritorio.
+    * Al final se nos muestra el número de nuestro escritorio remoto.
+* `vdir /home/nombrealumno/.vnc`, vemos que se nos han creado unos ficheros de configuración VNC asociados a nuestro usuario.
 
 Ir a la máquina real:
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
@@ -101,7 +103,7 @@ gestionar el servidor VNC.
 Cuando queremos ejecutar vncserver para controlar directamente la pantalla local
 usaremos x0vncserver de tigervnc.
 
-* `x0vncserver -display :0 -passwordfile ~/.vnc/passwd`
+* `x0vncserver -display :0 -passwordfile /home/nombrealumno/.vnc/passwd`
 * Para más información, véase `man x0vncserver`
 
 ---
