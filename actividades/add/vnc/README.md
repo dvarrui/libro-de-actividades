@@ -49,7 +49,7 @@ Ir al cliente:
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
-* Ejecutar `netstat -n` en las MVs Windows
+* Ejecutar `netstat -n` en el servidor.
 
 ---
 
@@ -83,7 +83,8 @@ Ir al cliente:
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC,
-* Ejecutar `netstat -ntap` en las MVs GNU/Linux
+* Ejecutar `netstat -ntap` en el servidor.
+* Ejecutar `vncserver -list` en el servidor.
 
 > **NOTA**
 >
