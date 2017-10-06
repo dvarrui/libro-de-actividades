@@ -28,7 +28,7 @@ Documentos relacionados
 
 * Usuarios:
     * Un usuario identificado con `nombre-del-alumno`.
-    * Poner al usuario `root` la clave del alumno con la letra en minúscula.
+    * Poner al usuario `root` el DNI del alumno con la letra en minúscula.
 
 > **ATENCIÓN**
 >
