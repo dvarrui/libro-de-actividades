@@ -12,12 +12,16 @@ Curso 2017-2018
 
 > NOTA: No borrar esta máquina virtual Debian al terminar, porque la usaremos en las próximas unidades de trabajo.
 
+---
+
 # 1. Preparar la Máquina virtual
 
 Capturar imagenes de los siguientes pasos:
 * Crear una nueva MV con:
-    * tamaño de disco de 10GB y
-    * tarjeta de red en modo bridge (Puente).
+    * Tamaño de disco de 10GB y
+    * Tarjeta de red en modo bridge (Puente).
+
+---
 
 # 2. Knoppix
 
@@ -25,7 +29,8 @@ Capturar imagenes de los siguientes pasos:
 > Por defecto, viene provista de un conjunto de herramientas muy útiles.
 
 * Descargar del servidor la ISO de Knoppix y el fichero md5.
-* Comprobar que la descarga de los ficheros se hizo de forma correcta, ejecutando el comando siguiente: `md5sum -c nombre-de-fichero-knoppix.iso.md5`
+* Comprobar que la descarga de los ficheros se hizo de forma correcta:
+    * `md5sum -c nombre-fichero.md5`
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
@@ -38,11 +43,14 @@ Capturar imagenes de los siguientes pasos:
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
+---
+
 # 3. Instalando SO Debian
 
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
-* Comprobar que la descarga fue correcta, ejecutando el comando siguiente: `md5sum -c fichero.md5`
+* Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
+    * `sha256sum -c nombre-fichero.sha256`
 
 NO hace falta capturar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
@@ -76,7 +84,9 @@ NO hace falta capturar imágenes de lo siguiente:
 * En la selección de programas marcamos:
     * *Utilidades estándar del sistema* y
     * *SSH Server*
+* NO seleccionar entorno gráfico.
 
+Veamos imagen de ejemplo:
 ![act1-debian-paquetes](./images/act1-debian-paquetes.png)
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
@@ -89,7 +99,7 @@ NO hace falta capturar imágenes de lo siguiente:
 NO hace falta capturar imágenes de lo siguiente:
 
 * Entrar al sistema como root (superusuario)
-* Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion-aula109.md).
+* Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion/debian.md).
 
 > Enlace de interés:
 > * Información sobre [configurar la tarjeta de red](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) en Debian.
