@@ -18,6 +18,7 @@ Curso 2017-2018
 
 Capturar imagenes de los siguientes pasos:
 * Crear una nueva MV con:
+    * Tipo Debian 64 bits
     * Tamaño de disco de 10GB y
     * Tarjeta de red en modo bridge (Puente).
 
