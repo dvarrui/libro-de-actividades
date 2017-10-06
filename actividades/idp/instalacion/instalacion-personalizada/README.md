@@ -31,6 +31,7 @@ Capturar imagenes de los siguientes pasos:
 * Descargar del servidor la ISO de Knoppix y el fichero md5.
 * Comprobar que la descarga de los ficheros se hizo de forma correcta:
     * `md5sum -c nombre-fichero.md5`
+    * Debe aparecer mensaje `la suma coincide`.
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
@@ -51,6 +52,7 @@ Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
     * `sha256sum -c nombre-fichero.sha256`
+    * Debe aparecer mensaje `la suma coincide`.
 
 NO hace falta capturar imagen de los siguientes pasos:
 * Montar la ISO en la MV para comenzar la instalación.
