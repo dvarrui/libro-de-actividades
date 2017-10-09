@@ -63,10 +63,6 @@ NetworkManager.
 
 ## Ficheros de configuración de red
 
-> Enlace de interés:
->
-> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
-
 * En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
 modificando el fichero `/etc/network/interfaces`.
 * Para averiguar los nombres de nuestras interfaces usamos `ip a` o `ifconfig`.
@@ -89,6 +85,10 @@ iface eth1 inet dhcp
 * Para que se tengan en cuenta los cambios podemos:
    * `service networking restart` o
    * Reiniciar el equipo.
+
+> Enlace de interés:
+>
+> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
 ## Ficheros de configuración de DNS
 
