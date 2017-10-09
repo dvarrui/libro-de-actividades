@@ -82,6 +82,7 @@ iface eth0 inet static
 auto eth1
 iface eth1 inet dhcp
 ```
+
 * Para que se tengan en cuenta los cambios podemos:
    * `service networking restart` o
    * Reiniciar el equipo.
