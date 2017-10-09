@@ -78,7 +78,6 @@ Veamos un ejemplo:
 
 ![act1-debian-particiones](./images/act1-debian-particiones.png)
 
-NO hace falta capturar imágenes de lo siguiente:
 * Elegimos una réplica de red de España. El valor de Proxy lo dejamos vacío.
 
 > Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio.

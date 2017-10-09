@@ -1,6 +1,8 @@
 
 # VirtualBox y Debian
 
+## Personalizar la MAC de la tarjeta de red
+
 * Configurar [MAC](general.md) de la máquina virtual.
 
 ## Instalar las Guest Addittions en Debian

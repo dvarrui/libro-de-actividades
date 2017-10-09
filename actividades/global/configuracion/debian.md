@@ -12,6 +12,7 @@ Documentos relacionados
 >     * 19 para el aual109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
+* Tarjeta de red VBox en `modo puente`.
 * IP: `172.AA.XX.41` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.42, 172.AA.XX.43, etc.
     * Máscara de red: `255.255.0.0`
@@ -21,8 +22,6 @@ Documentos relacionados
     * Por ejemplo vargasXXd
     * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
 * Nombre de dominio: `curso1718` (Modificar los números al curso actual).
-
-* Tarjeta de red VBox en `modo puente`.
 * Usuarios:
     * Un usuario identificado con `nombre-del-alumno`.
     * Poner al usuario `root` el DNI del alumno con la letra en minúscula.
