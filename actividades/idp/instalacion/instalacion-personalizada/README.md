@@ -126,15 +126,10 @@ Capturar imagen de los siguientes comandos:
 
 ## Acceso externo
 
-NO hace falta capturar imagen de lo siguiente:
-* En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de Debian.
-* Configuración del [Acceso remoto SSH](../../../global/acceso-remoto.md)
-
 > Vamos a instalar el programa openssh para que el profesor pueda acceder remotamente a la máquina.
 > * Ejecutar comando como superusuario: `apt-get install openssh-server` y
 > * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
 
-* Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de Debian.
 * Desde la máquina real hacer `ssh usuario@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
