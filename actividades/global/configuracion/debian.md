@@ -20,12 +20,9 @@ Documentos relacionados
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
     * Por ejemplo vargasXXd
     * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
-* Nombre de dominio: `curso1516` (Modificar los números al curso actual).
+* Nombre de dominio: `curso1718` (Modificar los números al curso actual).
 
 * Tarjeta de red VBox en `modo puente`.
-* Configurar [acceso remoto](../acceso-remoto/debian.md).
-* Configurar [firewall](../firewall.md).
-
 * Usuarios:
     * Un usuario identificado con `nombre-del-alumno`.
     * Poner al usuario `root` el DNI del alumno con la letra en minúscula.
