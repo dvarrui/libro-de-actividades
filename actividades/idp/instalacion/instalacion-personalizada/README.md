@@ -92,6 +92,7 @@ Veamos imagen de ejemplo:
 ![act1-debian-paquetes](./images/act1-debian-paquetes.png)
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
+Esto es el disco `/dev/sda`.
 * Instalación completa -> Continuar.
 
 ---
