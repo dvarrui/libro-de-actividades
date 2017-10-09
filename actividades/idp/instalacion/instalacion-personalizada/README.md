@@ -83,10 +83,10 @@ Veamos un ejemplo:
 > Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio.
 > Por el momento queremos un sistema sólo en modo texto.
 
-* En la selección de programas marcamos:
-    * *Utilidades estándar del sistema* y
-    * *SSH Server*
-* NO seleccionar entorno gráfico.
+* En la selección de programas (Usar la tecla ESPACIO para marcar/desmarcar):
+    * NO seleccionar entorno gráfico
+    * Marcar *Utilidades estándar del sistema* y
+    * Marcar *SSH Server*
 
 Veamos imagen de ejemplo:
 ![act1-debian-paquetes](./images/act1-debian-paquetes.png)
@@ -118,7 +118,7 @@ Capturar imagen de los siguientes comandos:
     uname -a     # Muestra datos del kernel
     ip a         # Muestra información de red
     df -hT       # Muestra información de ocupación del disco
-    fdisk --list # Muestra información de particiones
+    fdisk --list # Muestra información de particiones (Ejecutar como superusuario)
     lsblk        # Muestra información de las particiones
     blkid        # Muestra los códigos UUID de las particiones
 ```
