@@ -91,7 +91,14 @@ iface eth1 inet dhcp
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-## Ficheros de configuración de DNS
+---
+
+# ANEXO
+
+dns-search vargas42d.curso1617 vargas42d
+dns-domain vargas42d.curso1617
+
+## Otra forma de configurar DNS
 
 Para poner la información de DNS en un SO Debian, hay que abrir el fichero `/etc/resolv.conf` y escriblir lo siguiente:
 
@@ -105,10 +112,3 @@ nameserver 172.16.1.1
 Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 * `sudo rm /etc/resolv.conf`
 * `sudo dpkg-reconfigure resolvconf`
-
----
-
-# ANEXO
-
-dns-search vargas42d.curso1617 vargas42d
-dns-domain vargas42d.curso1617
