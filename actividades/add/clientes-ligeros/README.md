@@ -38,6 +38,7 @@ Veamos el esquema:
 # 3. Servidor LTSP
 
 ## 3.1 Preparar la MV Server
+
 Crear la MV del servidor con dos interfaces de red.
 * La 1º interfaz será la externa:
     * para comunicarse con Internet.
@@ -51,7 +52,8 @@ Crear la MV del servidor con dos interfaces de red.
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
-* Instalar un SO GNU/Linux Ubuntu en la MV del servidor.
+
+* Instalar un SO GNU/Linux Ubuntu en la MV del servidor (El curso1718 funcionó con Xubuntu).
 * Consultar [configuraciones](../../global/configuracion/debian.md).
 * Incluir en el informe la salida de los comandos siguientes:
 ```
