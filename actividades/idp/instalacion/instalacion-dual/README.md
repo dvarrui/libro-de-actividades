@@ -4,7 +4,7 @@
 Vamos a realizar una instalación dual Windows y GNU/Linux. Esto es, instalar
 dos SSOO en la misma máquina.
 
-* Usaremos en esta práctica las versiones Windows7 Enterprise, y OpenSUSE 13.2.
+* Usaremos en esta práctica las versiones Windows7 Enterprise, y OpenSUSE.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
@@ -90,7 +90,7 @@ la ISO (CD de instalación) de la MV.
 
 # 3. Instalación del segundo SO
 
-A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
+A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ## 3.1 Empezamos con la ISO
 
@@ -125,7 +125,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE 13.2)
 Esto lo hacemos para poder acceder de forma sencilla a la partición Windows desde el SO
 GNU/Linux.
 > Esto lo hacemos para versiones de OpenSUSE 12.3 detecten sin problemas el Windows y
-se configure automñaticamente el gestor de arranque.
+se configure automáticamente el gestor de arranque.
 
 * Aceptar.
 * Capturar imagen como la siguiente:
