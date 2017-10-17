@@ -1,11 +1,11 @@
 
-#Johnny 1.01
+# Johnny 1.01
 
 Simulador de un ordenador Von Neumann simplificado
 
 *Peter Dauscher, 2009-2014*
 
-#Contenido
+# Contenido
 
 1. [Observaciones](./1-observaciones.md)
 2. [Introducción](./2-introduccion.md)
@@ -18,10 +18,10 @@ Simulador de un ordenador Von Neumann simplificado
 9. [Modo BONSAI](./9-bonsai.md)
 10. [Aspectos legales, técnicos y reconocimientos](./10-reconocimientos.md)
 
-#Descarga
+# Descarga
 [Descargar el proyecto Johnny Simulator](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
 
-#Traducción
+# Traducción
 
 * Traducido por David Vargas Ruiz, dvarrui@gmail.com, en Octubre de 2015.
 * Profesor FP de Informática del [IES Puerto de la Cruz - Telesforo Bravo](http://www.iespuertodelacruz.es).

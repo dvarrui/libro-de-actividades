@@ -2,7 +2,8 @@
 [INDICE](./README.md)
 
 
-#4. El procesador
+# 4. El procesador
+
 El procesador consta de tres partes: La Unidad Aritmético Lógica,
 la memoria (RAM) y la Unidad de Control. Estas unidades están
 interconectadas por los buses.
@@ -11,7 +12,8 @@ interconectadas por los buses.
 
 A continuación se explica cada unidad en detalle.
 
-##4.1 La memoria (RAM)
+## 4.1 La memoria (RAM)
+
 La memoria de acceso aleatorio (RAM) consta de 1000 posiciones,
 cada una con la posibilidad de almacenar números de 0 a 19999.
 De modo qie tres dígitos decimales son suficientes para direccionar
@@ -30,22 +32,24 @@ elegir las macro intrucciones. En el GUI, se muestran dos secciones de memoria R
 (Las cuales se pueden superponer). De esta forma se pueden mostrar simultáneamente
 las instrucciones y los datos afectados.
 
-##4.2. La Unidad Aritmético Lógica
+## 4.2. La Unidad Aritmético Lógica
+
 La Unidad Aritmético Lógica consta simplemente del acumulador.
 El acumulador puede resetearse ( acc:=0 ), incrementarse ( acc++ ), y
 reducirse ( acc-- ). `db->acc` mueve la palabra de datos desde el
 bus al acumulador; `acc->db` hace la acción opuesta.
 Se puede sumar ( plus ) un valor desde el bus o restarlo ( minus ).
 
-En el modo BONSAI (Que se explica en la sección  9) se han eliminado 
+En el modo BONSAI (Que se explica en la sección  9) se han eliminado
 algunas de estas micro instrucciones.
 
 ![alu](./imagen/4.2-alu.png)
 
-##4.3. La Unidad de Control
+## 4.3. La Unidad de Control
+
 La parte más compleja del procesador es la unidad de control.
 Consta de el registro de intrucción,el contador de programa y el micro
-código. Mediante `db->ins`, el contenido del bus de datos se transfiere 
+código. Mediante `db->ins`, el contenido del bus de datos se transfiere
 al registro de instrucción. La parte de direccionamiento de la instrucción
 puede pasar directamente al bus de direcciones ( `ins->ab` ) o al
 contador de programa ( `ins->pc` ), lo cual es necesario para implementar
@@ -59,7 +63,7 @@ pero solamente si el acumulador contiene zero. `ins->mc` pone el valor de
 las centenas y el de las decenas del contador de micro instrucción (encima
 del micro código) en el OP-Code del registro de instruccion (y resetea el
 valor de las unidades a zero). La micro instrucción `mc:=0`resetea el contador
-de micro instrucciones; `stopp` no es una instrucción en el sentido estricto: 
+de micro instrucciones; `stopp` no es una instrucción en el sentido estricto:
 sólo fuerza al simulador a mostrar un mensaje indicando que el programa ha
 terminado.
 
@@ -69,4 +73,3 @@ las cosas más simples.
 ![uc visible](./imagen/4.3-uc_visible.png)
 
 ![uc oculta](./imagen/4.3-uc_oculta.png)
-

@@ -1,7 +1,8 @@
 
 [INDICE](./README.md)
 
-#7. El interfaz de usuario
+# 7. El interfaz de usuario
+
 Los botones se organizan en dos grupos (Macro código y Micro código),
 el último de los cuales sólo están visibles si la Unidad de Control
 se muestra en detalle.
@@ -46,6 +47,6 @@ la inserción y el borrado de la RAM.
 
 Con una inserción, el bloque de la siguiente dirección con valor no cero
 se desplaza hacia abajo una posición; se elimina una dirección con valor cero
-al final del bloque. De forma similar, con un borrado el bloque con valor no cero 
+al final del bloque. De forma similar, con un borrado el bloque con valor no cero
 se desplaza hacia arriba y una dirección con valor cero se inserta
 debajo del bloque.

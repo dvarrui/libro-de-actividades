@@ -1,7 +1,8 @@
 
 [INDICE](./README.md)
 
-#8. Crear tus propias macro instrucciones
+# 8. Crear tus propias macro instrucciones
+
 Para crear una nueva macro instrucción (o para cambiar una existente)
 primero se debe elegir un código de operación (OP-Code) y un mnemotécnico.
 El último se puede elegit en el menú desplagable anterior cuando se

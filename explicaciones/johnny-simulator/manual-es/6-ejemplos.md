@@ -1,9 +1,10 @@
 
 [INDICE](./README.md)
 
-#6. Ejemplos de programas simples
+# 6. Ejemplos de programas simples
 
-##6.1. Sumando números
+## 6.1. Sumando números
+
 El siguiente ejemplo suma los valores de las direcciones <10> y <11>. Almacena
 el resultado en la dirección <12>:
 ```
@@ -13,7 +14,8 @@ el resultado en la dirección <12>:
 004: HLT  000
 ```
 
-#6.2. Multiplicación de números
+# 6.2. Multiplicación de números
+
 La multiplicación de números se lleva a cabo haciendo sumando repetidas veces el contenido
 de la direccion <10> en la dirección <12>, la cual se inicializada a cero.
 ```
@@ -29,4 +31,3 @@ de la direccion <10> en la dirección <12>, la cual se inicializada a cero.
 
 En cada ciclo el valor de la dirección <11> se reduce en 1. El bucle continúa hasta que el valor
 de la dirección <11> haya llegado al valor 0.
-

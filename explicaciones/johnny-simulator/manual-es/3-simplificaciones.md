@@ -1,7 +1,8 @@
 
 [INDICE](./README.md)
 
-#3. Simplificaciones
+# 3. Simplificaciones
+
 * El simulador puede ser observado a nivel de microinstrucciones y macroinstrucciones.
 La estructura interna de la Unidad de Control puede ocultarse para hacer las cosas
 más simples al principio.
@@ -25,7 +26,7 @@ líneas del bus de control. Activar más de una línea en los procesadores reale
 Por consiguiente, se ha hecho una simplificación (bastante poco realista): A cada
 micro instrucción le corresponde un único botón que puede ser pulsado por el
 usuarios manualmente.
-* Una macro instruccion es simplemente una secuencia de varias micro instrucciones. 
+* Una macro instruccion es simplemente una secuencia de varias micro instrucciones.
 Para evitar simultaneidades inncesarias, el bus de datos tiene la capacidad de
 almacenar una palabra de datos (Por supuesto, esto no es realista: los buses
 reales son simplemente líneas; los registros del procesador son los que guardan los datos)
@@ -35,4 +36,3 @@ desde el bus. Los conflictos del Bus se han descartado por diseño.
 * El micro código es editable: El usuario puede crear su propio conjunto de macro
 instrucciones simplemente eligiendo un nombre adecuado y seleccionando la secuencia
 de microinstrucciones con el ratón.
-
