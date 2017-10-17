@@ -2,7 +2,6 @@
 Fecha: 20161031
 Cambios para el curso 1718
 * Incluir servidor SSH en Windows7
-* La restricción IP la implementaremos usando iptables
 ```
 
 # Acceso remoto SSH
@@ -330,7 +329,11 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor.
 * Comprobamos el funcionamiento desde el cliente.
 
-## Restricción sobre una IP
+---
+
+# ANEXO A
+
+## A.1 Restricción sobre una IP con `iptables`
 
 * Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.
 * Enlace de interés:
@@ -339,9 +342,8 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 * Usar `iptables` para restringir el acceso al puerto 22 desde `ssh-clientXXb`.
 * Comprobar.
 
----
 
-# ANEXO 1: Configuración de seguridad en OpenSSH
+## A.2 Configuración de seguridad en OpenSSH
 
 Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
 
