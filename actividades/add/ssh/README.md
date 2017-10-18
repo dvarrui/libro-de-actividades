@@ -108,8 +108,8 @@ blkid              #Consultar UUID de la instalación
 
 ## 2.2 Primera conexión SSH desde ssh-clientXXa
 
-* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-server`.
-* Desde el cliente comprobamos que el servicio SSH es visible con `nmap ssh-server`.
+* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-serverXX`.
+* Desde el cliente comprobamos que el servicio SSH es visible con `nmap -Pn ssh-serverXX`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 
 ![zypper-nmap](./opensuse/zypper-nmap.png)
