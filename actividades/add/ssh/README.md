@@ -218,7 +218,11 @@ else
    PS1="\[$(pwd)\]\u@\h:\w>"
 fi
 ```
-* Además, crear el fichero `/home/1er-apellido-alumno1/.alias` con el siguiente contenido:
+* Además, crear el fichero el fichero donde definir los nuestros alias.
+Puede ser una de las siguientes opciones:
+    * `/home/1er-apellido-alumno1/.alias`
+    * `/home/1er-apellido-alumno1/.bash_aliases`
+* Pondremos el siguiente contenido en el citado fichero:
 ```
 alias c='clear'
 alias g='geany'
