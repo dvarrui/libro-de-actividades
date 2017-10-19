@@ -106,7 +106,7 @@ blkid              #Consultar UUID de la instalación
 
 ![netstat](./opensuse/sshd-netstat.png)
 
-## 2.2 Primera conexión SSH desde ssh-clientXXa
+## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
 * Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-serverXX`.
 * Desde el cliente comprobamos que el servicio SSH es visible con `nmap -Pn ssh-serverXX`.
@@ -122,8 +122,8 @@ Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una líne
 
 ![firewall2-yast](./opensuse/firewall2-yast.png)
 
-* Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
-* Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno11@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
+* Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
@@ -137,8 +137,15 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 ![ssh-files](./opensuse/ssh-files.png)
 
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
-* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde
-los dos clientes. Comprobarlo.
+* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
+
+## 2.3 Primera conexión SSH desde cliente Windows
+
+* Desde el cliente Windows nos conectamos usando `PuTTY`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+> No guardar la conexión SSH en los perfiles de PuTTY.
+
+* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
 ---
 
