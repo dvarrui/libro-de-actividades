@@ -81,7 +81,7 @@ interface GigabitEthernet0/1/0.20
 
 | Interfaz    | IP               | Descripción |
 | :---------: | :--------------- | :---------- |
-| GE 0/0      |                  | Salida a Internet usando la red de Medusa |
+| GE 0/0      |                  | Salida a Internet usando otra red externa |
 | GE 0/1      | 192.168.1.254/24 | Conexión al router de Telefónica |
 | GE 0/2      | 172.31.0.1/16    | Departamento |
 | GE 0/0/0.18 | 172.18.0.1/16    | Aula 108 a través de VLAN en el Switch|
