@@ -123,7 +123,7 @@ Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una líne
 ![firewall2-yast](./opensuse/firewall2-yast.png)
 
 Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
-* Desde el **ssh-client1** nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
@@ -180,7 +180,7 @@ servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA
 
 Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
 identificación de nuestro servidor.
-* En **ssh-server**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
+* En **ssh-serverXX**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
 * No poner password al certificado de la máquina.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
