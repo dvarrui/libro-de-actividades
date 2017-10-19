@@ -1,7 +1,8 @@
 
-#Router BENDER
+# Router BENDER
 
-Bender es un router Cisco. En este documento tenemos algunas miniguías para hacer ñas acciones más frecuentes en dicho router.
+Bender es un router Cisco. En este documento tenemos algunas miniguías para hacer
+las acciones más frecuentes en dicho router.
 
 ## Cambiar la asociación IP-MAC
 
