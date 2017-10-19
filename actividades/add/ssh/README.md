@@ -254,14 +254,15 @@ Capturar imágenes de los siguientes pasos:
 * Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina ssh-clientXXa.
 * Ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el
 usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
-* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
-de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
-(que está definido en el servidor. Hay dos formas de hacerlo:
-    * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar
-    la clave pública del usuario actual al usuario remoto en la máquina remota:
-    `ssh-copy-id usuario-remoto@hostname-remoto`.
 
-> Otra forma de hacerlos sería usando el programa de copia segura `scp`.
+Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
+de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
+(que está definido en el servidor. Hay varias formas de hacerlo:
+* El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar
+la clave pública del usuario actual al usuario remoto en la máquina remota:
+`ssh-copy-id usuario-remoto@hostname-remoto`.
+
+> Otra forma de hacerlo sería usando el programa de copia segura `scp`.
 >
 > * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
 > * Copiamos el fichero `.ssh/id_rsa.pub` local al fichero `.ssh/authorized_keys` del usuario
