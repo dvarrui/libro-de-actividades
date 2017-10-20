@@ -102,6 +102,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 * Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
 * Entrar en el modo experto.
+* Si no se ven las particiones que habíamos creado pulsar en `Volver a explorar dispositivos`.
 * Esquema de uso de las particiones:
     * Área de intercambio o SWAP (500MB),
     * Partición home (montar /home) de tamaño 100MB y con formato ext3.
