@@ -146,7 +146,7 @@ se configure automáticamente el gestor de arranque.
 > * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
 > * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
-* Crear los usuarios ([Configuración](../../../global/configuracion/opensuse.md)).
+* Crear usuario con `nombre-del-alumno`.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto.md))
 
