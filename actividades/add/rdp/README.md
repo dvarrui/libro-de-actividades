@@ -1,6 +1,6 @@
 
 
-#1. Introducción
+# 1. Introducción
 Entrega:
 * URL con la ruta al/los archivo/s dentro del repositorio del alumno.
 * URl commit del repositorio con la versión entregada.
@@ -8,7 +8,9 @@ Entrega:
 
 Configurar las máquinas virtuales según este [documento](../../global/configuracion-aula108.md).
 
-#2. Escritorio Remoto con RDP
+---
+
+# 2. Escritorio Remoto con RDP
 
 Realizar las siguientes tareas:
 
@@ -24,8 +26,9 @@ las conexiones remotas siguientes:
     * **Acceder a Windows7 - desde Window Server**: El software ya viene preinstalado, sólo falta configurarlo.
     * **Acceder a Windows7 - desde Linux**: Instalar software cliente RDP en GNU/Linux. Ejemplos de clientes RDP son: Cliente escritorio remoto de Remmina, vinagre (Usando protocolo RDP), rdesktop, tsclient, grdesktop, krdc, etc. Otra opción usar Knoppix CDLive que ya viene con el software cliente preinstalado.
 
+---
 
-#3. Servidor de Terminales
+# 3. Servidor de Terminales
 
 Verificar:
 * ¿Se pueden abrir varias sesiones de conexión RDP, accediendo desde varias
@@ -36,28 +39,28 @@ máquinas (Windows Server y/o GNU/Linux) a la vez, hacia la misma máquina Windo
 > * Si está [instalando el servicio de función Terminal Server] (https://technet.microsoft.com/es-es/library/cc754288%28v=ws.10%29.aspx) en un controlador de dominio, recibirá un mensaje de advertencia porque NO es recomendable instalar el servicio de función Terminal Server en un controlador de dominio.
 > * Para obtener más información, consulte la página sobre la instalación de Terminal Server en un controlador de dominio en la [Ayuda de Terminal Server en la biblioteca técnica de Windows Server 2008] (http://go.microsoft.com/fwlink/?LinkId=109277, puede estar en inglés).
 
-##3.1 Preparativos
+## 3.1 Preparativos
 
 * Leer el documento que se proporciona sobre la conexión Terminal Server entre máquinas Windows.
 * Necesitamos una MV con Windows Server. En nuestro ejemplo mejor que NO sea controlador de dominio.
 * Preparativos:
     * Es necesario tener el SO actualizado para poder realizar la instalación de los componentes de forma correcta. Por lo que actualizaremos el servidor y volvemos a desactivar las actualizaciones automáticas de Windows Update.
 
-##3.2 Instalación
+## 3.2 Instalación
 
-* Instalar el rol de Terminal Server:
-    * IMPORTANTE: Estar atento y leer todos los mensajes para tener claro qué
-    tenemos permitido hacer según la licencia, y que no. Traten de entender todos los pasos.
-    * Incluir resumen de la licencia de instalación de TS en el informe.
-    * Agregar sólo: `Servidor de Terminales` y `Acceso Web para TS`
-    * En W2k8server RC2, Terminal Service tiene un nombre diferente. Para instalarlo hay ir a:
-    `Agregar roles -> Servicio de Escritorio Remoto -> Host de Sesión de Escritorio Remoto`.
+Instalar el rol de Terminal Server:
+* IMPORTANTE: Estar atento y leer todos los mensajes para tener claro qué
+tenemos permitido hacer según la licencia, y que no. Traten de entender todos los pasos.
+* Incluir resumen de la licencia de instalación de TS en el informe.
+* Agregar sólo: `Servidor de Terminales` y `Acceso Web para TS`
+* En W2k8server RC2, Terminal Service tiene un nombre diferente. Para instalarlo hay ir a:
+`Agregar roles -> Servicio de Escritorio Remoto -> Host de Sesión de Escritorio Remoto`.
 
 > * Enlaces de Interés:
 >     * [Instalación de Terminal Services en Windows 2008] (http://www.bujarra.com/ProcedimientoW2008TSinstalacion.html)
 >     * [Vídeo de Youtube] (https://www.youtube.com/watch?v=Z_UeSGRqcG0)
 
-##3.3 Configurar usuarios
+## 3.3 Configurar usuarios
 
 Crear usuarios locales:
 * Abrir `Administrador de. servidor -> Configuración -> Usuarios locales y grupos`.
@@ -68,7 +71,7 @@ segundo-apellido-del-alumno3.
 Veamos un ejemplo de la creación de usuarios:
 ![ts-users](./images/ts-w2k8-users.png)
 
-##3.4 Probar conexiones al terminal server
+## 3.4 Probar conexiones al terminal server
 
 * Capturar imagenes probando las conexiones remotas, y ejecutando el
 comando `netstat -ntap` en cada caso, para verificar que se han establecido
@@ -77,7 +80,9 @@ las conexiones remotas:
     1. Probar la conexión remota de escritorio RDP, desde el cliente Linux hacia el servidor Windows Server.
     1. Ambas conexiones de escritorio remoto deben estar funcionando simultáneamente.
 
-#4. Aplicaciones remotas mediante RemoteApp
+---
+
+# 4. Aplicaciones remotas mediante RemoteApp
 
 Realizar las siguientes tareas sólo con servidor Windows Server y cliente Windows 7:
 * Leer la documentación PDF proporcionada por el profesor sobre aplicaciones remotas
@@ -104,7 +109,9 @@ que pueda ejecutarse desde el Windows7.
 > * [RemoteApp guía paso a paso] (https://technet.microsoft.com/es-ES/library/cc730673.aspx)
 > * [Technet Microsoft RemoteApp] (https://technet.microsoft.com/en-us/library/cc753844%28WS.10%29.aspx)
 
-#5. Instalación y configuración del servidor RDP enGNU/Linux
+---
+
+# 5. Instalación y configuración del servidor RDP en GNU/Linux
 
 * Enlaces de interés:
     * [XRDP: Instalar y configurar en ubuntu-12-10] (http://www.adslfaqs.com.ar/como-instalar-y-configurar-xrdp-en-ubuntu-12-10-quantal-quetzal/)
