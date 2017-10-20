@@ -9,4 +9,5 @@ AAXXMM.
     * Donde AA, es el código del aula (18 para la 108, 19 para la 109).
     * XX, es el identificador de puesto del alumno.
     * MM, es el identificador de la MV (11 para Window7, 21 Windows Server, etc.)
-* Por ejemplo, si pone `080027FE64ED`, nosotros pondremos `080027191611`.
+* Por ejemplo, si pone `080027FE64ED`, nosotros estamos en el aula 19 y somos el
+alumno 16, entonces pondremos `080027191611`.

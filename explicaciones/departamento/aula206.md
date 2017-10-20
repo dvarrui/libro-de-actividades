@@ -1,10 +1,10 @@
 
-#Aula 206
+# Aula 206
 
-Documento sobre la configuración software/hardware del aula 206, 
+Documento sobre la configuración software/hardware del aula 206,
 realizada en junio de 2016.
 
-#Historia
+# Historia
 
 | Fecha      | Acción | Responsable |
 | :--------: | :----- | :---------- |
@@ -12,20 +12,19 @@ realizada en junio de 2016.
 | 2016-06-17 | Se clonan los equipos `PC2`, `PC3`, `PC4` y `PC5` | David |
 | 2016-06-20 | Se solicita al técnico informático del centro la clonación del resto de equipos | David |
 
+# Clonación
 
-#Clonación
-
-* En `/etc/fstab`, se modifica el identificador de montaje para la swap. 
+* En `/etc/fstab`, se modifica el identificador de montaje para la swap.
 Se cambia el UUID por el nombre dispositivo en lugar de UUID, para facilitar las clonaciones.
 * Realizamos la clonación con Clonezilla.
 * La imagen está disponible para su descarga en el servidor LEELA.
     * `http://leela/~general/aulas/aula206`,
     * `http://172.20.1.2/~general/aulas/aula206`
 
-#Configuración
+# Configuración
 
 * Se instala el sistema operativo Xubuntu 14.4 LTS.
-    * Sabemos que el soporte de esta versión acaba el 2017 y que existe 
+    * Sabemos que el soporte de esta versión acaba el 2017 y que existe
     la versión 16 LST, pero de momento queremos mantener el mismo SO/versión
     en las aulas 103,108,109,206 y comodín1.
 * Se instala el software según [script-instalar-aula206.rb](./files/script-instalar-aula206.rb).
@@ -34,13 +33,13 @@ Se cambia el UUID por el nombre dispositivo en lugar de UUID, para facilitar las
 >
 > Falta incluir en el script:
 > * Instrucciones para instalar VirtualBox
-> * Instrucciones para instalar algunos programas Windows que se instalan 
+> * Instrucciones para instalar algunos programas Windows que se instalan
 y ejecutan mediante el emulador wine. Estos son: SketchUp, VirtualDub.
 
 **Esquema de particiones MBR:**
 
 | Partición | Montaje | Uso  | Tamaño |
-| :-------- | :------ | :--- | -----: | 
+| :-------- | :------ | :--- | -----: |
 | /dev/sda1 |         | Swap |   4 GB |
 | /dev/sda2 | /root   | Sistema Operativo | 28 GB |
 | /dev/sda3 | /home   | Datos de los usuarios| 200 GB |
@@ -65,7 +64,7 @@ y ejecutan mediante el emulador wine. Estos son: SketchUp, VirtualDub.
 ├── last_execution.dat
 ├── reset-user.rb
 └── script-instalar-aula206_v3.rb
-``` 
+```
 
 * Los ficheros `alumno*.tar` son distintas versiones de los datos para `/home/alumno`. En el aula206
 tenemos una versión sin Cocodrile (por limitaciones en la licencia) y con VirtualDub (por requerimientos
@@ -75,7 +74,7 @@ de la asingatura informática/ESO).
     * Este script restaura el home (`/home/alumno`) de usuario alumno.
     * Consultar script [reset-user.rb](./files/reset-user.rb).
 
-#Inventario
+# Inventario
 
 | PC  | RAM | HDD  | MAC | CPU  | Estado |
 | --: | --: | ---: | :--: | :--- | :------ |

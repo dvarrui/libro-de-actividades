@@ -1,17 +1,17 @@
 
-Documentos relacionados
-* Configurar [VirtualBox](../virtualbox/opensuse.md)
-* Configurar [Acceso remoto](../acceso-remoto/opensuse.md)
+> Documentos relacionados:
+>
+> * Configurar [VirtualBox](../virtualbox/opensuse.md)
+> * Configurar [Acceso remoto](../acceso-remoto/opensuse.md)
 
 # Configurar MV GNU/Linux OpenSUSE
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
->     * 19 para el aual109
+>     * 19 para el aula109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
 * Usar un disco VirtualBox de 15GB.
-* Para prevenir la duplicicada de la MAC de la tarjeta de red puente podemos poner `080027AAXXNN`.
 * Configuramos el interfaz de red puente en modo estático.
 
 ## Durante la instalación

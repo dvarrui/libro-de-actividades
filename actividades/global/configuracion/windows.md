@@ -1,20 +1,19 @@
 
-
-Documentos relacionados
-* Configurar [VirtualBox](../virtualbox/general.md)
-* Configurar [Acceso remoto](../acceso-remoto/windows7.md)
+> Documentos relacionados
+>
+> * Configurar [VirtualBox](../virtualbox/general.md)
+> * Configurar [Acceso remoto](../acceso-remoto/windows7.md)
 
 # Configurar MV Windows 7
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
->     * 19 para el aual109
+>     * 19 para el aula109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 >
 > Para averiguar XX ejecutar en la máquina real, `ip a` o `ifconfig` o `if a s`, si muestra IP 172.16.8.30 entonces XX=30.
 
 Configuración de la máquina Windows 7 Enterprise:
-* Para prevenir la duplicidad de la MAC de la tarjeta de red puente podemos poner `080027AAXXNN`.
 * Configuramos el interfaz de red puente en modo estático.
 * IP: `172.AA.XX.11` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.12, 172.AA.XX.13, etc.
