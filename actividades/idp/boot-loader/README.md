@@ -59,7 +59,7 @@ Veamos un ejemplo con una configuración diferente:
 
 Veamos un ejemplo de un menú de inicio:
 
-![grub2-menu-screen] (./images/grub2-menu-screen.png)
+![grub2-menu-screen](./images/grub2-menu-screen.png)
 
 > Información sobre Yast2:
 > * Yast2 es una herramienta gráfica para OpenSUSE que sirve para gestionar el bootloader (GRUB2 en nuestro caso).
@@ -96,10 +96,12 @@ Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura d
 Vamos a cambiar la apariencia del boot loader
 * Abrimos terminal como superusuario.
 * Editar el fichero /boot/grub2/themes/openSUSE/theme.txt y modificar los colores. Por ejemplo, podríamos modificar las entradas siguientes:
+
 ```
     boot_menu -> item_color="#fff" (Entradas de menú en blanco)
     boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro)
 ```
+
 * Escoge una imagen para el fondo del menú GRUB2. Debe estar grabada con formato RGB 8 bits y con extensión tga, png o jpg. Puedes usar GIMP para ayudarte.
 * Guardar la imagen como: /boot/grub2/themes/openSUSE/nombreimagen.png
 * Editar fichero /boot/grub2/themes/openSUSE/theme.txt, y modificarlo para poner nuestra imagen: "desktop-image: nombreimagen.png"
