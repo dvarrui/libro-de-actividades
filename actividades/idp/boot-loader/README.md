@@ -50,7 +50,7 @@ EOF
 
 Veamos un ejemplo con una configuración diferente:
 
-![grub2-menuentry-gnulinux] (./images/grub2-menuentry-gnulinux.png)
+![grub2-menuentry-gnulinux](./images/grub2-menuentry-gnulinux.png)
 
 * Grabamos el fichero 40_custom, ponemos permisos de ejecución (chmod +x 40_custom).
 * Hacer copia de seguridad del fichero de configuración: `cp /boot/grub2/grub.cfg /boot/grub2/grub.000`
@@ -93,9 +93,10 @@ EOF
 Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
 
 ## 1.3 Cambiar la apariencia
+
 Vamos a cambiar la apariencia del boot loader
 * Abrimos terminal como superusuario.
-* Editar el fichero /boot/grub2/themes/openSUSE/theme.txt y modificar los colores. Por ejemplo, podríamos modificar las entradas siguientes:
+* Editar el fichero `/boot/grub2/themes/openSUSE/theme.txt` y modificar los colores. Por ejemplo, podríamos modificar las entradas siguientes:
 
 ```
     boot_menu -> item_color="#fff" (Entradas de menú en blanco)
@@ -104,9 +105,9 @@ Vamos a cambiar la apariencia del boot loader
 
 * Escoge una imagen para el fondo del menú GRUB2. Debe estar grabada con formato RGB 8 bits y con extensión tga, png o jpg. Puedes usar GIMP para ayudarte.
 * Guardar la imagen como: /boot/grub2/themes/openSUSE/nombreimagen.png
-* Editar fichero /boot/grub2/themes/openSUSE/theme.txt, y modificarlo para poner nuestra imagen: "desktop-image: nombreimagen.png"
+* Editar fichero `/boot/grub2/themes/openSUSE/theme.txt`, y modificarlo para poner nuestra imagen: `desktop-image: nombreimagen.png`.
 * Grabamos el fichero y salimos del editor.
-* Para actualizar la configuración de GRUB2 hacemos: "grub2-mkconfig -o /boot/grub2/grub.cfg"
+* Para actualizar la configuración de GRUB2 hacemos: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
 > **Enlaces de interés**
