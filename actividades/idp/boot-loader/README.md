@@ -122,21 +122,16 @@ Vamos a cambiar la apariencia del boot loader
 
 # 2. Windows 7
 
-Pasos previos:
-> INFO
->
-> * Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual.
-> * No es necesario hacerlo con los dos SO Windows.
+> Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual. No es necesario hacerlo con los dos SO Windows.
 
 * Vamos a entrar a Window Enterprise.
-* En la línea de comandos ejecutamos el comando "bcdedit" para consultar la configuración actual del boot loader. El comando "msconfig" nos muestra también información del arranque.
-
-> Si tenemos problemas con el comando "bcdedit", comporbar que tenemos la versión Enterprise del SO Windows.
+* En la línea de comandos ejecutamos el comando `bcdedit` para consultar la configuración actual del boot loader. Si tenemos problemas con el comando, comprobar que tenemos la versión Enterprise del SO Windows.
+* El comando "msconfig" nos muestra también información del arranque.
 
 OBJETIVO de la práctica:
 * Modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
 
-> **CHULETA BCDEDIT**
+> **Información sobre BCDEDIT**
 > * `bdcedit` Muestra la configuración del boot loader
 > * `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
 > * `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
