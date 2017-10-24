@@ -83,7 +83,7 @@ como shell `/bin/false`.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `mar1617`
+    * Workgroup: `mar1718`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
