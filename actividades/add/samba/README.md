@@ -8,7 +8,7 @@ Cambios para el curso1718
 
 # Samba
 
-Samba con OpenSUSE 13.2 y Windows 7.
+Samba con OpenSUSE y Windows 7/10.
 
 Entrega:
 * La entrega la realizaremos a través del repositorio Git.
@@ -19,14 +19,15 @@ Introducción:
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 * Vamos a necesitar las siguientes 3 MVs:
-    * MV1: Un servidor GNU/Linux OpenSUSE 13.2 con IP estática (172.18.XX.31).
-    * MV2: Un cliente GNU/Linux OpenSUSE 13.2 con IP estática (172.18.XX.32).
-    * MV3: Un cliente Windows 7 con IP estática (172.18.XX.11).
+    * MV1: Un servidor GNU/Linux OpenSUSE con IP estática (172.18.XX.31).
+    * MV2: Un cliente GNU/Linux OpenSUSE con IP estática (172.18.XX.32).
+    * MV3: Un cliente Windows con IP estática (172.18.XX.11).
 
 # 1. Servidor Samba (MV1)
 
 ## 1.1 Preparativos
-* [Configurar](../../global/configuracion-aula108.md) el servidor GNU/Linux.
+
+* [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
 Usar los siguientes valores:
     * Nombre de equipo: smb-serverXX (Donde XX es el número del puesto de cada uno).
 * Añadir en `/etc/hosts` los equipos `smb-cliXXa` y `smb-cliXXb` (Donde XX es el número del puesto de cada uno).
