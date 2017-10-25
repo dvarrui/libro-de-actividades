@@ -68,7 +68,7 @@ Veamos un ejemplo de un menú de inicio:
 >
 > Veamos una imagen:
 >
-> ![grub2-yast2-bootloader] (./images/grub2-yast2-bootloader.png)
+> ![grub2-yast2-bootloader](./images/grub2-yast2-bootloader.png)
 >
 
 ## 1.2 Añadir entrada SO Windows a GRUB2
