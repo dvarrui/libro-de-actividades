@@ -1,8 +1,6 @@
 
 ```
 Cambios para el curso1718
-* Coordinar con actividad NAS de FUW de 1ASIR, por el parecido.
-* Cambiar tema por otro diferente. Usar nombres fáciles de escribir.
 * Revisar comando net view
 ```
 
