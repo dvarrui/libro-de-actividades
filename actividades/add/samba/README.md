@@ -53,6 +53,7 @@ como shell `/bin/false`.
 * Dentro del grupo `piratas` incluir a los usuarios `pirata1`, `pirata2` y `supersamba`.
 * Dentro del grupo `soldados` incluir a los usuarios `soldado1` y `soldado2` y `supersamba`.
 * Dentro del grupo `todos`, poner a todos los usuarios `soldados`, `pitatas`, `supersamba` y a `smbguest`.
+* Poner a los usuarios de samba dentro del grupo `cdrom`.
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
@@ -219,7 +220,7 @@ Capturar imagen de los comandos siguientes:
 ## 2.3 Montaje automático
 
 * El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
-una conexión con el rescurso compartido y lo monta en la unidad S.
+una conexión con el recurso compartido y lo monta en la unidad S. Probemos a montar el recurso `barco`.
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
