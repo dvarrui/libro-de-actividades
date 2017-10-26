@@ -262,7 +262,7 @@ Capturar imagen de lo siguiente:
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -n`, desde el cliente.
+    * `netstat -ntap`, desde el cliente Linux.
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -277,11 +277,13 @@ alguno haya cambiado de nombre. ¡Ya lo veremos!
 equipo usaremos comandos para acceder a la carpeta compartida.
 * Primero comprobar el uso de las siguientes herramientas:
 ```
-sudo smbtree                       # Muestra todos los equipos/recursos de la red SMB/CIFS
-                                   # Hay que abroir el cortafuegos para que funcione.
+sudo smbtree   # Muestra todos los equipos/recursos de la red SMB/CIFS
+               # Hay que abrir el cortafuegos para que funcione, o bien
+               # ejecutarlo desde la máquina real.
+
 smbclient --list ip-servidor-samba # Muestra los recursos SMB/CIFS de un equipo concreto
 ```
-* Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/corusant`.
+* Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/castillo`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.18.XX.55/castillo /mnt/sambaXX-remoto/castillo -o username=soldado1`
