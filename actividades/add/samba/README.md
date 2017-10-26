@@ -218,7 +218,7 @@ Capturar imagen de los comandos siguientes:
 
 ## 2.3 Montaje automático
 
-* El comando `net use S: \\ip-servidor-samba\recurso /USER:clave` establece
+* El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
 una conexión del rescurso panaderos y lo monta en la unidad S.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
