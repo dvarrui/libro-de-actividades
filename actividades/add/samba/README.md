@@ -71,7 +71,7 @@ como shell `/bin/false`.
         * Grupo propietario `piratas`.
         * Poner permisos 770.
 
-## 1.4 Instalar Samba Server
+## 1.4 Configurar el servidor Samba
 
 * Capturar imágenes del proceso.
 * Vamos a hacer una copia de seguridad del fichero de configuración existente
@@ -87,7 +87,7 @@ como shell `/bin/false`.
     * Iniciar el servicio durante el arranque de la máquina.
     * Ajustes del cortafuegos -> Abrir puertos
 
-## 1.5 Configurar el servidor Samba
+## 1.5 Crear los recursos compartidos de Samba
 
 Vamos a configurar los recursos compartido del servidor Samba.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
@@ -95,7 +95,7 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
 * Capturar imágenes del proceso.
 * `Yast -> Samba Server -> Recursos compartidos`
 
-* Tenemos que montar una configuración como la siguiente:
+* Tenemos que conseguir una configuración como la siguiente:
 
 > * Donde pone XX, sustituir por el núméro del puesto de cada uno
 > * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
