@@ -185,6 +185,8 @@ máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
 Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor Samba.
 
+* Escribimos `\\ip-del-servidor-samba` y vemos lo siguiente:
+
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
 * Comprobar los accesos de todas las formas posibles. Como si fuéramos:
