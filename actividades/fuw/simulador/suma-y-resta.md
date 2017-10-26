@@ -4,12 +4,13 @@
 ---
 
 ## Simulador
+
 * Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/libro-de-actividades/tree/master/explicaciones/johnny-simulator/manual-es)
 * Instalar el programa Johnny Simulator en la MV Windows.
-* Escribir en la RAM una program para realizar sumas y restas de la siguiente forma.
+* Escribir en la RAM un programa para realizar sumas y restas de la siguiente forma.
 Si nuestra fecha de nacimiento es DD/MM/XXYY, debemos realizar la siguiente operación
-DD+MM+XX+YY-16-17.
-* Los valores (datos) deben guardarse en las posiciones de memoria desde la 11 a la 16.
+DD+MM+XX+YY-17-18.
+* Los valores (datos) deben guardarse en las posiciones de memoria desde la 11 a la 20.
 
 > Consultar el programa *"Adding numbers"* de la página 8 del manual del simulador Johnny.
 
@@ -21,8 +22,9 @@ DD+MM+XX+YY-16-17.
 ---
 
 ## Editar el vídeo
+
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
-    * IES Puerto de la Cruz - Curso1617
+    * IES Puerto de la Cruz - Curso1718
     * Fundamentos de Hardware
     * Simulación Arquitectura Von Neumann
     * Nombre del autor y fecha
