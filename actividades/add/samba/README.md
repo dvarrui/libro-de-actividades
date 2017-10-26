@@ -219,7 +219,7 @@ Capturar imagen de los comandos siguientes:
 ## 2.3 Montaje automático
 
 * El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
-una conexión del rescurso panaderos y lo monta en la unidad S.
+una conexión con el rescurso compartido y lo monta en la unidad S.
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
@@ -232,7 +232,7 @@ una conexión del rescurso panaderos y lo monta en la unidad S.
 
 # 3 Cliente GNU/Linux (MV2 `smb-cliXXa`)
 
-* [Configurar](../../global/configuracion-aula108.md) el cliente GNU/Linux.
+* [Configurar](../../global/configuracion/opensuse.md) el cliente GNU/Linux.
 * Usar nombre `smb-cliXXa` y la IP que hemos establecido.
 * Configurar el fichero `/etc/hosts` de la máquina.
 
