@@ -126,7 +126,7 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
   valid users = @soldados
 
 [barco]
-  path = /srv/sambaXX/piratas.d
+  path = /srv/sambaXX/barco.d
   read only = no
   valid users = pirata1, pirata2
 ```
