@@ -220,6 +220,7 @@ Capturar imagen de los comandos siguientes:
 
 * El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
 una conexión del rescurso panaderos y lo monta en la unidad S.
+* `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
