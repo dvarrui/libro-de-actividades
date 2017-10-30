@@ -2,6 +2,8 @@
 
 * Entregar documento en formato ODT o PDF, con el informe de la actividad. Incluir las acciones realizadas y las capturas solicitadas.
 
+---
+
 # 1. SO Windows 7
 
 * [Configurar la MV](../../global/configuracion/windows.md).
@@ -88,56 +90,6 @@ Modificar los permisos de la siguiente forma:
 * `private`: Sólo el usuario propietario tendrá control total.
 * `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
 * `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
-
-## 1.3 Ejemplo/Información sobre PowerShell
-
-Vamos a usar los comandos del SO Windows. Para ello buscamos en el
-`menú -> PowerShell -> (botón derecho) -> Iniciar como Administrador`.
-
-Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
-y no podremos crear los usuarios.
-
-**EJEMPLO Shell CMD**
-
-* `net user nombre-usuario clave-usuario /add`, crear usuario.
-* `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo
-
-**EJEMPLO shell PowerShell**
-
-Veamos un ejemplo para **crear grupo**:
-* Cambiar nombre-pc por el nombre del PC de cada uno.
-* Cambiar "alumnos" por el nombre del grupo que deseamos crear.
-
-```
-PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
-PS C:\> $grupo=$equipo.Create("Group","alumnos")
-PS C:\> $grupo
-PS C:\> $grupo.SetInfo()
-```
-
-Veamos un ejemplo de **creación de usuarios** en PowerShell:
-* Cambiar nombre-pc por el nombre del PC de cada uno.
-* Cambiar "alumno1" por el nombre del usuario que deseamos crear.
-* Cambiar "123456" por el valor de password que querramos.
-
-```
-PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
-PS C:\> $usuario=$equipo.Create("User","alumno1")
-PS C:\> $usuario
-distinguishedName :
-Path : WinNT://AULA109/nombre-pc/alumno1
-PS C:\> $usuario.SetPassword("123456")
-PS C:\> $usuario.SetInfo()
-```
-
-Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
-```
-PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
-PS> $grupo
-PS> $usuario = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
-PS> $grupo.Add($usuario.path)
-```
-> [Más información sobre la creación de usuarios con PowerShell](https://www.petri.com/create-local-accounts-with-powershell)
 
 ---
 
@@ -244,7 +196,57 @@ la información de sudoers.
 
 El anexo contiene información complementaria. No hay que hacerlo.
 
-## A.1 Personalización de usuarios GNU/Linux
+## A.1 Ejemplo/Información sobre PowerShell
+
+Vamos a usar los comandos del SO Windows. Para ello buscamos en el
+`menú -> PowerShell -> (botón derecho) -> Iniciar como Administrador`.
+
+Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
+y no podremos crear los usuarios.
+
+**EJEMPLO Shell CMD**
+
+* `net user nombre-usuario clave-usuario /add`, crear usuario.
+* `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo
+
+**EJEMPLO shell PowerShell**
+
+Veamos un ejemplo para **crear grupo**:
+* Cambiar nombre-pc por el nombre del PC de cada uno.
+* Cambiar "alumnos" por el nombre del grupo que deseamos crear.
+
+```
+PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
+PS C:\> $grupo=$equipo.Create("Group","alumnos")
+PS C:\> $grupo
+PS C:\> $grupo.SetInfo()
+```
+
+Veamos un ejemplo de **creación de usuarios** en PowerShell:
+* Cambiar nombre-pc por el nombre del PC de cada uno.
+* Cambiar "alumno1" por el nombre del usuario que deseamos crear.
+* Cambiar "123456" por el valor de password que querramos.
+
+```
+PS C:\> [ADSI]$equipo="WinNT://nombre-pc"
+PS C:\> $usuario=$equipo.Create("User","alumno1")
+PS C:\> $usuario
+distinguishedName :
+Path : WinNT://AULA109/nombre-pc/alumno1
+PS C:\> $usuario.SetPassword("123456")
+PS C:\> $usuario.SetInfo()
+```
+
+Veamos un ejemplo para **añadir usuario a un grupo ya existente**:
+```
+PS> $grupo = [adsi]"WinNT://nombre-pc/nombre-del-grupo,group"
+PS> $grupo
+PS> $usuario = [adsi]"WinNT://nombre-PC/nombre-del-usuario,user"
+PS> $grupo.Add($usuario.path)
+```
+> [Más información sobre la creación de usuarios con PowerShell](https://www.petri.com/create-local-accounts-with-powershell)
+
+## A.2 Personalización de usuarios GNU/Linux
 
 En OpenSUSE vemos que cuando queremos invocar el comando `ifconfig` con
 un usuario normal debemos hacerlo con la ruta absoluta `/sbin/ifconfig`.
@@ -267,7 +269,7 @@ Para que los cambios tengan efecto debemos cerrar la sesión.
 
 En otras distribuciones se usa el fichero de configuración `/home/nombre-de-usuario/.bashrc`.
 
-## A.2 Emulador de consola portable para Windows
+## A.3 Emulador de consola portable para Windows
 
 Cmder (http://bliker.github.io/cmder/) is a software package created out of pure
 frustration over the absence of nice console emulators on Windows.
