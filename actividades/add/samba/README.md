@@ -213,14 +213,13 @@ desde el cliente al servidor.
     * `net use` ahora vemos que NO hay conexiones establecidas.
 
 Capturar imagen de los comandos siguientes:
-* Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
-* Vamos a conectarnos desde la máquina Windows al servidor Samba usando el comando net.
 * Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
-
-## 2.3 Montaje automático
-
+* Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
 * El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
 una conexión con el recurso compartido y lo monta en la unidad S. Probemos a montar el recurso `barco`.
+
+> Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de mñaquina.
+
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 
