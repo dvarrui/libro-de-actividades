@@ -117,16 +117,19 @@ Podemos hacerlo modificando el fichero de configuración o por entorno gráfico 
   read only = yes
 
 [public]
+  comment = public de nombre-alumno-XX
   path = /srv/sambaXX/public.d
   guest ok = yes
   read only = yes
 
 [castillo]
+  comment = castillo de nombre-alumno-XX
   path = /srv/sambaXX/castillo.d
   read only = no
   valid users = @soldados
 
 [barco]
+  comment = barco de nombre-alumno-XX
   path = /srv/sambaXX/barco.d
   read only = no
   valid users = pirata1, pirata2
