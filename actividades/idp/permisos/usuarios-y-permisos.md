@@ -21,9 +21,9 @@ administradores, para que puedan actuar como superusuarios.
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
 * Para cada miembro del grupo `jedis`:
-    * Crear la carpeta `C:\Users\jedi1\private`.
-    * Crear la carpeta `C:\Users\jedi1\group`.
-    * Crear la carpeta `C:\Users\jedi1\public`.
+    * Crear la carpeta `C:\Users\jedi1\private`
+    * Crear la carpeta `C:\Users\jedi1\group`
+    * Crear la carpeta `C:\Users\jedi1\public`
 
 > **INFORMACIÓN sobre Permisos NTFS**
 >
@@ -43,6 +43,8 @@ en una carpeta determinada, haremos lo siguiente:
     * `public`: todos tienen permiso de lectura, y el usuario propietario control total.
 * Capturar imagen del resultado de la asignación de permisos.
 
+> Cuando se indique permisos de lectura, se refiere a los 3 permisos de lectura/mostrar que hay disponibles.
+
 Veamos un ejemplo de permisos para la carpeta public:
 
 ![win-permisos-gui-public-dir](./images/win-permisos-gui-public-dir.png)
@@ -54,13 +56,13 @@ Veamos un ejemplo de permisos para la carpeta public:
     * `net localgroup`, para ver los grupos.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
     * `net user USERNAME /add`, para crear usuarios.
-    * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario en un grupo.
+    * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario dentro de un grupo.
 
 > Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
 iconos de la ventana de inicio de sesión del sistema.
 
 * Para cada usuario del grupo `siths` hay que:
-    * Crear la carpeta `C:\Users\sith\private`
+    * Crear la carpeta `C:\Users\sith1\private`
     * Crear la carpeta `C:\Users\sith1\group`
     * Crear la carpeta `C:\Users\sith1\public`
 
@@ -111,16 +113,16 @@ Modificar los permisos de la siguiente forma:
 * Capturar imagen del resultado final.
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
 * Para cada usuario del grupo profesores:
-    * Crear la carpeta `/home/jedi1/private`.
-    * Crear la carpeta `/home/jedi1/group`.
-    * Crear la carpeta `/home/jedi1/public`.
+    * Crear la carpeta `/home/jedi1/private`
+    * Crear la carpeta `/home/jedi1/group`
+    * Crear la carpeta `/home/jedi1/public`
 
 > Veamos un ejemplo de permisos por el entorno GUI, donde:
 > * Permiso R = Ver contenido
 > * Permiso W = Cambiar contenido
 > * Permido X = Access content
-
-![linux-permisos-gui](./images/linux-permisos-gui.png)
+>
+> ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
 * Capturar imagen del resultado final.
 * Modificar los permisos de las carpetas de la siguiente forma:
@@ -175,9 +177,9 @@ Capturar imagen del resultado final.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
 * Para cada usuario del grupo `siths` hacer:
-    * Crear la carpeta `/home/sith1/private`.
-    * Crear la carpeta `/home/sith1/group`.
-    * Crear la carpeta `/home/sith1/public`.
+    * Crear la carpeta `/home/sith1/private`
+    * Crear la carpeta `/home/sith1/group`
+    * Crear la carpeta `/home/sith1/public`
 
 ```
 * chown (Cambiar propietario)
@@ -191,6 +193,8 @@ Modificar los permisos de las carpetas:
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar
 la información de sudoers.
+
+---
 
 # ANEXO
 
