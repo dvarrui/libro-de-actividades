@@ -51,7 +51,6 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ## 1.2 Usando los comandos Windows
 
-* Capturar imagen de las acciones finales.
 * Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
     * `net localgroup`, para ver los grupos.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
