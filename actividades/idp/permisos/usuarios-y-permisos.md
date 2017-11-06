@@ -164,11 +164,12 @@ son internos para uso de aplicaciones o del sistema operativo.
     * Crear la carpeta `/home/sith1/group`
     * Crear la carpeta `/home/sith1/public`
 
-```
-* chown (Cambiar propietario)
-* chgrp (Cambiar grupo propietario)
-* chmod (Cambiar permisos de acceso)
-```
+> **INFO**
+>
+> * `useradd`, Crear usuario. Usar el parámetro -m para crear carpeta home del usuario
+> * `chown`,Cambiar propietario
+> * `chgrp`, cambiar grupo propietario
+> * `chmod`, cambiar permisos de acceso
 
 Modificar los permisos de las carpetas:
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
