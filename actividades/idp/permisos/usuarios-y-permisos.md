@@ -110,7 +110,7 @@ Modificar los permisos de la siguiente forma:
 >
 > ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
-* Capturar imagen del resultado final.
+* Capturar imagen del resultado final de cada carpeta.
 * Modificar los permisos de las carpetas de la siguiente forma:
     * `private`: Sólo el usuario propietario tendrá todos los permisos.
     * `group`: grupo `jedis` permisos de lectura/ejecución, y usuario propietario todos los permisos.
