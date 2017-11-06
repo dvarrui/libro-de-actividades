@@ -141,7 +141,7 @@ las configuraciones del comando sudo.
     2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
 * Guardar y salir
 
-Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
+Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
 * Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
 la configuración de sudoers.
 
