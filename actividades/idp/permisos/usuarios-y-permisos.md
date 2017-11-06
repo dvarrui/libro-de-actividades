@@ -98,7 +98,7 @@ Modificar los permisos de la siguiente forma:
 
 * Capturar imagen del resultado final.
 * Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
-* Para cada usuario del grupo profesores:
+* Para cada usuario del grupo anterior:
     * Crear la carpeta `/home/jedi1/private`
     * Crear la carpeta `/home/jedi1/group`
     * Crear la carpeta `/home/jedi1/public`
