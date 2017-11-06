@@ -138,7 +138,7 @@ las configuraciones del comando sudo.
 
 * Dos formas de hacerlo:
     1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
-    2. **CLI**: Usar el comando `visudo`para editar el fichero de configuración `/etc/sudoers` (Se puede usar nano).
+    2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
 * Guardar y salir
 
 Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
@@ -192,13 +192,6 @@ Vamos a usar los comandos del SO Windows. Para ello buscamos en el
 
 Si no lo hacemos como administrador, no tendremos los privilegios necesarios,
 y no podremos crear los usuarios.
-
-**EJEMPLO Shell CMD**
-
-* `net user nombre-usuario clave-usuario /add`, crear usuario.
-* `net localgroup nombre-grupo nombre-usuario /add` para añadir un usuario a un grupo
-
-**EJEMPLO shell PowerShell**
 
 Veamos un ejemplo para **crear grupo**:
 * Cambiar nombre-pc por el nombre del PC de cada uno.
