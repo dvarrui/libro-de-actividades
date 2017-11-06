@@ -149,16 +149,13 @@ la configuración de sudoers.
 >
 > ![linux-sudo-error](./images/linux-sudo-error.png)
 
-* Crear el grupo `siths` con comandos, y configurarlo en sudoers con
-`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
-* Comprobar los nuevos permisos de los usuarios del grupo siths. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
-
 ## 2.4 Usando los comandos
 
 > Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
 Capturar imagen del resultado final.
 
+* Crear el grupo `siths`.
 * Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
@@ -169,16 +166,20 @@ son internos para uso de aplicaciones o del sistema operativo.
 
 ```
 * chown (Cambiar propietario)
-* chgrp (Cambiar grupo propietario),
-* chmod (Cambiar permisos de acceso).
+* chgrp (Cambiar grupo propietario)
+* chmod (Cambiar permisos de acceso)
 ```
 
 Modificar los permisos de las carpetas:
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
-* `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+* `group`: grupo `siths` permisos de leictura/ejecución, y usuario propietario todos los permisos.
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+
+* Configurar el grupo `siths` en sudoers con
+`%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar
 la información de sudoers.
+* Comprobar los nuevos permisos de los usuarios del grupo siths. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
 
 ---
 
