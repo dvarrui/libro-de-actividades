@@ -149,7 +149,7 @@ la configuración de sudoers.
 >
 > ![linux-sudo-error](./images/linux-sudo-error.png)
 
-* Crear el grupo `siths` y configurarlo en sudoers con
+* Crear el grupo `siths` con comandos, y configurarlo en sudoers con
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Comprobar los nuevos permisos de los usuarios del grupo siths. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
 
@@ -159,7 +159,6 @@ la configuración de sudoers.
 
 Capturar imagen del resultado final.
 
-* Crear el grupo `siths`.
 * Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
