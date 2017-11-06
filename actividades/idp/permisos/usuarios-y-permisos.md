@@ -67,25 +67,12 @@ iconos de la ventana de inicio de sesión del sistema.
 
 > Veamos un ejemplo de permisos por comandos:
 >
-> ```
-> (Quitar los permisos heredados a la carpeta public)
-> PS C:\> icacls public /inheritance:r
->
-> (Consultar los permisos actuales de public)
-> PS C:\> icacls public
->
-> (Dar permisos de lecturas al grupo todos)
-> PS C:\> icacls public /grant todos:R
->
-> (Dar permisos control total al usuario alumno1)
-> PS C:\> icacls public /grant alumno1:F
->
-> (Ver la ayuda del comando icacls)
-> PS C:\> icacls /?
->
-> (Para quitar el acceso al usuario USERNAME)
-> PS C:\> icacls directorio /remove USERNAME
-> ```
+> * `icacls /?`, Ver la ayuda del comando icacls
+> * `icacls public /inheritance:r`, Quitar los permisos heredados a la carpeta public
+> * `icacls public`,  Consultar los permisos actuales de public
+> * `icacls public /grant todos:R`, Dar permisos de lecturas al grupo todos
+> * `icacls public /grant alumno1:F`, Dar permisos control total al usuario alumno1
+> * `icacls directorio /remove USERNAME`, Para quitar el acceso al usuario USERNAME
 
 Modificar los permisos de la siguiente forma:
 * `private`: Sólo el usuario propietario tendrá control total.
@@ -159,7 +146,7 @@ las configuraciones del comando sudo.
 >
 > ![linux-sudo-error](./images/linux-sudo-error.png)
 
-* Configurar al grupo `sith` en sudoers con
+* Crear el grupo `siths` y configurarlo en sudoers con
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Comprobar los nuevos permisos.
 * Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
