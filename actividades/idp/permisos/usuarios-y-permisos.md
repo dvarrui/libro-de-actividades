@@ -176,6 +176,8 @@ Modificar los permisos de las carpetas:
 * `group`: grupo `siths` permisos de leictura/ejecución, y usuario propietario todos los permisos.
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
+## 2.5 Configurar sudoers para el otro grupo
+
 * Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar la información de sudoers.
 * Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos `fdisk -l`, `ifconfig`.
