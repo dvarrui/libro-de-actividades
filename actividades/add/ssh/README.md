@@ -199,8 +199,7 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 > * [Tutorial FreeSShd](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
 > * [Configuración de OpenSSH para Windows7 con SSH Cygwin +Putty](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
 > * [Installing Cygwin and Starting the SSH Daemon](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150)
-> * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys. Para acceder al registro ejecutamos el comando "regedit".
->
+> * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta `CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys`. Para acceder al registro ejecutamos el comando `regedit`.
 
 ---
 
@@ -328,7 +327,7 @@ Más información en: `man sshd_config` y en el Anexo de este enunciado.
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
 * Crear grupo remoteapps
-* Incluir al usuario remoteuser4 en el grupo remoteapps.
+* Incluir al usuario 1er-apellido-alumno4 en el grupo remoteapps.
 * Localizar el programa APP1. Posiblemente tenga permisos 755.
 * Poner al programa APP1 el grupo propietario a remoteapps.
 * Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usurios
