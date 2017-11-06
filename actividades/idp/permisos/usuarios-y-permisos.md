@@ -140,7 +140,10 @@ las configuraciones del comando sudo.
     1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
     2. **CLI**: Usar el comando `visudo`para editar el fichero de configuración `/etc/sudoers` (Se puede usar nano).
 * Guardar y salir
-* Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario). Comprobarlo. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
+
+Ahora los usuarios del grupo profesores ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
+* Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
+la configuración de sudoers.
 
 > Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 >
@@ -148,9 +151,7 @@ las configuraciones del comando sudo.
 
 * Crear el grupo `siths` y configurarlo en sudoers con
 `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
-* Comprobar los nuevos permisos.
-* Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
-la configuración de sudoers.
+* Comprobar los nuevos permisos de los usuarios del grupo siths. Por ejemplo: `fdisk -l`, `ifconfig`, etc.
 
 ## 2.4 Usando los comandos
 
