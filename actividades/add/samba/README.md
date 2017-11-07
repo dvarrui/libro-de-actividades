@@ -305,16 +305,13 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -n`, desde el cliente Windows.
+    * `netstat -ntap`, desde el cliente Linux.
 
 ## 3.3 Montaje automático
 
 Capturar imágenes del proceso.
 
-Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
-Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están (`df -hT`).
-Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual,
-a no ser que hagamos una configuración de  montaje permanente o automática.
+Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están (`df -hT`). Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
