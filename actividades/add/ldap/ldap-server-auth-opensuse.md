@@ -11,13 +11,13 @@
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
+---
 
 ## 1. Servidor LDAP
 
 Hay varias herramientas que implementan el protocolo LDAP, por ejemplo:
-OpenLDAP, 389-DC, Active Directory, etc.
-
-En esta guía vamos a instalar y configurar del servidor LDAP OpenLDAP.
+OpenLDAP, 389-DC, Active Directory, etc. En esta guía vamos a instalar y
+configurar del servidor LDAP con OpenLDAP.
 
 > Enlaces de interés:
 > * Guía sobre  [Configurar_LDAP_usando_YaST](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
@@ -58,7 +58,7 @@ Hacemos lo siguiente:
 * Tipo de servidor -> autónomo -> Siguiente
 * Configuración TLS -> NO habilitar -> Siguiente
 * Tipo de BD -> hdb
-* DN base -> `dc=nombre-del-alumnoXX,dc=curso1617`. Donde XX es el número del puesto de cada uno.
+* DN base -> `dc=nombre-del-alumnoXX,dc=curso1718`. Donde XX es el número del puesto de cada uno.
 * DN administrador -> `dn=Administrator`
 * Añadir DN base -> Sí
 * Contraseña del administrador
@@ -103,8 +103,8 @@ mv /var/lib/ldap /var/lib/ldap.000
 
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `piratas` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `pirata21`, `pirata21` (Estos se crearán dentro de la `ou=people`).
-
+* Crear los usuarios `pirata21`, `pirata22` (Estos se crearán dentro de la `ou=people`).
+* Usar `gq` para consultar el contenido de la base de datos LDAP.
 ---
 
 # 2. Autenticación
@@ -118,8 +118,8 @@ En este punto vamos a escribir información en el servidor LDAP.
 
 ## 2.1 Preparativos
 
-* Vamos a otra MV OpenSUSE 13.2.
-* Cliente LDAP con OpenSUSE 13.2:    
+* Vamos a otra MV OpenSUSE.
+* Cliente LDAP con OpenSUSE:
     * [Configuración MV](../../global/configuracion/opensuse.md)
     * Nombre equipo: `ldap-clientXX`
     * Dominio: `curso1617`
@@ -136,7 +136,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
 * Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
-    * Base DN = `dc=davidXX,dc=curso1617`
+    * Base DN = `dc=davidXX,dc=curso1718`
 
 ## 2.2 Instalar cliente LDAP
 
@@ -161,7 +161,7 @@ ip-del-servidor   ldap-serverXX.curso1617   ldap-serverXX   nombredealumnoXX.cur
     * chpass_provider = `ldap`
     * ldap_schema = `rfc2307bis`
     * ldap_uri = `ldap://ldap-serverXX`
-    * ldap_search base = `dc=davidXX, dc=curso1617`
+    * ldap_search base = `dc=davidXX, dc=curso1718`
 
 Ver imagen de ejemplo:
 
@@ -222,7 +222,7 @@ Vamos a crear los usuarios y grupos en LDAP.
 
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
 * Crear los grupos `aldeanos` y `soldados` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `aldeano21`, `aldeano21`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
+* Crear los usuarios `aldeano21`, `aldeano22`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
 
 ## 2.4 Comprobación desde el servidor
 
