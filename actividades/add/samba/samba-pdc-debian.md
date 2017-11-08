@@ -1,5 +1,5 @@
 
-#1. Samba PDC
+# 1. Samba PDC
 
 En esta práctica nuestro objetivo será usar una máquina Debian, para que funcione como PDC (Controlador de Dominio Principal).
 
@@ -96,7 +96,7 @@ smbpasswd -a -m pdc-clientXXa
 smbpasswd -a -m pdc-clientXXb
 ```
 
-* Crear el grupo `piratas`, con los usuarios `barba-negra`, `barba-roja` y `barba-azul`.
+* Crear el grupo `piratas`, con los usuarios `pirata1`, `pirata2` y `pirata3`.
 * Crear el grupo `soldados` con los usuarios `soldado1`, `soldado2`, y `soldado3`.
 
 > Veamos ejemplo:
