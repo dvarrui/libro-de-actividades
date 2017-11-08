@@ -23,13 +23,13 @@
 * Comprobar que el PC funciona correctamente. Captura de imagen.
 * Comprobar si las características del equipo según la documentación coinciden con el PC real.
 Anotar las diferencias en la ficha.
-* Incluir detalles de las características en el informe:
+* Incluir detalles de las características en la entrega de la actividad:
     * Modelo de placa y BIOS
     * Memoria RAM
     * CPU
     * Discos duros
     * Otros
-* Apagarlo y desenchufar el cable de corriente.
+* Apagar el PC, y desenchufar el cable de corriente.
 * Anotar en la ficha:
    * Estado actual del equipo.
    * Nombre de los miembros del grupo de trabajo.
