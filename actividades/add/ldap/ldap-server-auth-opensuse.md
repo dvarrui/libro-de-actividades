@@ -164,7 +164,6 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
-systemctl status sssd | grep domain
 getent passwd pirata21
 getent group piratas2
 id pirata21
