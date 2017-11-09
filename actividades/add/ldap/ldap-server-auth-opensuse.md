@@ -155,10 +155,45 @@ ip-del-servidor   ldap-serverXX.curso1718   ldap-serverXX   nombredealumnoXX.cur
 
 ## 2.2 Instalar cliente LDAP
 
-* Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación. En Yast aparecerá como `Authentication Client`.
-
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
+* Debemos instalar el paquete `yast2-auth-client`, que nos ayudará a configurar la máquina para autenticación.
+* Ir a `Yast -> LDAP y cliente Kerberos`.
+* Configurar como la imagen de ejmplo. Al final usar la opción de `Probar conexión`
+
+![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
+
+## 2.3 Comprobamos desde el cliente
+
+* Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
+```
+systemctl status sssd | grep domain
+getent passwd pirata21
+getent group piratas2
+id pirata21
+finger pirata21
+cat /etc/passwd | grep pirata21
+cat /etc/group | grep piratas2
+su pirata21
+```
+
+---
+
+# 2.4. Autenticación
+
+Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio
+centralizado de la información de grupos, usuarios, claves, etc.
+Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
+usuarios definidos no en la máquina local, sino en la máquina remota con
+LDAP. Una especie de *Domain Controller*.
+
+* Entrar en la MV cliente con algún usuario LDAP.
+
+---
+
+# A. ANEXO
+
+## A.1 Configurar cliente 13.2
 > Información extraída de https://forums.opensuse.org/showthread.php/502305-Setting-up-LDAP-on-13-2
 
 * `Yast -> Authentication client`
@@ -197,33 +232,6 @@ ldap_uri = ldap://ldap-serverXX
 ldap_search_base = dc=davidXX,dc=curso1617
 ```
 
-## 2.3 Comprobamos desde el cliente
-
-* Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
-```
-systemctl status sssd | grep domain
-getent passwd pirata21
-getent group piratas2
-id pirata21
-finger pirata21
-cat /etc/passwd | grep pirata21
-cat /etc/group | grep piratas2
-su pirata21
-```
-
----
-
-# HASTA AQUÍ ES LA ENTREGA DEL INFORME
-Para el curso 2016-2017
-
----
-
-Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio
-centralizado de la información de grupos, usuarios, claves, etc.
-Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
-usuarios definidos no en la máquina local, sino en la máquina remota con
-LDAP. Una especie de *Domain Controller*.
-
 > **Default Re: Setting up LDAP on 13.2**
 >
 > Did you ever resolve your secondary group issues? I'm seeing the same problem and have already changed ldap_schema to rfc2307bis.
@@ -232,40 +240,7 @@ LDAP. Una especie de *Domain Controller*.
 > # ldap_user_uuid = entryuuid
 > # ldap_group_uuid = entryuuid
 
-## 2.3 Crear usuarios y grupos en LDAP
-
-Vamos a crear los usuarios y grupos en LDAP.
-
-> Enlace de interés:
->
-> * [Introducir datos de usuarios y grupos](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-
-* `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
-* Crear los grupos `aldeanos2` y `soldados2` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `aldeano21`, `aldeano22`, `soldado21`, `soldado22` (Estos se crearán dentro de la `ou=people`).
-
-## 2.5 Autenticación desde el cliente
-
-
-* Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-slaveXX`
-usando los usuarios definidos en el LDAP.
-* Capturar imagen de la salida de los siguientes comandos:
-```
-hostname -f                          # Muestra nombre de la MV actual
-ip a                                 # Muestra datos de red de la MV actual
-date                                 # Fecha actual
-cat /etc/passwd |grep nombre-usuario # No debe existir este usuario en la MV local
-finger nombre-usuario                # Consulta info del usuario
-id nombre-usuario
-su nombre-usuario
-```
-
----
-
-# A. ANEXO
-
-Podemos tener un problema con las claves si el método de encriptación de las claves
-del sistema operativo es diferente al utilizado en el servidor LDAP.
+Podemos tener un problema con las claves si el método de encriptación de las claves del sistema operativo es diferente al utilizado en el servidor LDAP.
 
 ## A.1 Cambiar el método de encriptación en el SO
 
@@ -277,25 +252,3 @@ Veamos otro ejemplo donde podemos cambiar el método de encriptación de claves 
 ya instalado, usando Yast.
 
 ![opensuse-yast-password-encryption-method.png](./images/opensuse-yast-password-encryption-method.png)
-
-## A.2 Cambiar el método de encriptación en la base de datos LDAP
-
-*(Pendiente)*
-
-## A.3 Configuración
-
-* Seguir las instrucciones del siguiente [enlace](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-para crear el grupo LDAP `aldeanos` y dentro de éste los usuarios `aldeano21` y `aldeano22`.
-* Usar la herramienta `gq` para comprobar los datos del servidor LDAP.
-* Comprobar que podemos entrar (Inicio de sesión) en la MV `ldap-slaveXX` usando los usuarios
-definidos en el LDAP remoto.
-* Capturar imagen de la salida de los siguientes comandos:
-```
-hostname -f                          # Muestra nombre de la MV actual
-ip a                                 # Muestra datos de red de la MV actual
-date                                 # Fecha actual
-cat /etc/passwd |grep nombre-usuario # No debe existir este usuario en la MV local
-finger nombre-usuario                # Consulta info del usuario
-id nombre-usuario
-su nombre-usuario
-```
