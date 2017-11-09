@@ -74,9 +74,9 @@ Veamos ejemplo de la configuración final:
 
 ![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
 
-Comprobaciones
+Comprobaciones:
 * `slaptest -f /etc/openldap/slapd.conf` para comprobar la sintaxis del fichero
-do configuración.
+de configuración.
 * `systemctl status slapd`, para comprobar el estado del servicio.
 * `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
