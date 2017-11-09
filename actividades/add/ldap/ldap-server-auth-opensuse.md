@@ -236,9 +236,10 @@ ldap_search_base = dc=davidXX,dc=curso1617
 > # ldap_user_uuid = entryuuid
 > # ldap_group_uuid = entryuuid
 
-Podemos tener un problema con las claves si el método de encriptación de las claves del sistema operativo es diferente al utilizado en el servidor LDAP.
 
-## A.1 Cambiar el método de encriptación en el SO
+## A.2 Cambiar el método de encriptación en el SO
+
+Podemos tener un problema con las claves si el método de encriptación de las claves del sistema operativo es diferente al utilizado en el servidor LDAP.
 
 Veamos ejemplo donde se establece el método de encriptación durante la instalación del SO.
 
