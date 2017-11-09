@@ -32,8 +32,8 @@ configurar del servidor LDAP con OpenLDAP.
     * Nombre equipo: `ldap-serverXX`
     * Además en `/etc/hosts` añadiremos:
 ```
-127.0.0.2   ldap-serverXX.curso1718   ldap-serverXX
-127.0.0.3   nombrealumnoXX.curso1718  nombrealumnoXX
+ip-del-servidor   ldap-serverXX.curso1718   ldap-serverXX
+127.0.0.3         nombrealumnoXX.curso1718  nombrealumnoXX
 ```
 
 Veamos imagen de ejemplo:
@@ -78,9 +78,7 @@ Comprobaciones
 * `slaptest -f /etc/openldap/slapd.conf` para comprobar la sintaxis del fichero
 do configuración.
 * `systemctl status slapd`, para comprobar el estado del servicio.
-
-> `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
-
+* `systemctl enable slapd`, para activar el servicio automáticamente al reiniciar la máquina.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
 * `slapcat` para comprobar que la base de datos está bien configurada.
 * Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
@@ -92,12 +90,11 @@ Esta herramienta es un browser LDAP.
 ## 1.3 Problemas
 
 Si tenemos que desinstalar el software anterior, hacemos lo siguiente:
-```
-zypper remove yast2-auth-server
-zypper remove openldap2 krb5-server krb5-client
-mv /etc/openldap /etc/openldap.000
-mv /var/lib/ldap /var/lib/ldap.000
-```
+* zypper remove yast2-auth-server
+* zypper remove openldap2 krb5-server krb5-client
+* mv /etc/openldap /etc/openldap.000
+* mv /var/lib/ldap /var/lib/ldap.000
+
 ---
 
 ## 1.4 Crear usuarios y grupos LDAP
