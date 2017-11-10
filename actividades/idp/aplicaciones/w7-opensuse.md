@@ -16,11 +16,11 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 
 ## 1.1 Usando el GUI
 
-Capturar imagen del proceso final.
+* Capturar imagen del resultado final.
 
 ### Instalar características del sistema operativo
 
-El SO viene con software que se puede instalar si se necesita. Esto es características del sistema.
+El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
 * Instalar 3 características:
@@ -114,10 +114,8 @@ A continuacion vamos a desinstalar un programa MSI por comandos, usando la conso
 * Hacer un snapshot de la MV.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
-** Información aportada por Víctor (1ºASIR)**
-
-> Tenemos que instalar un paquete de actualizaciones para Windows7.
-Con este paquete las actualizaciones tardan menos tiempo.
+Vamos a instalar un paquete de actualizaciones para Windows7.
+De esta forma las actualizaciones tardan menos tiempo.
 
 * Reiniciamos el servicio Windows Update
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
@@ -126,15 +124,15 @@ Con este paquete las actualizaciones tardan menos tiempo.
 * Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
 * Reiniciar la máquina
 
-* Ir a `Panel de control -> Windows Update`. Actualización del sistema.
+* Ir a `Panel de control -> Windows Update`. Debe de estar desactivado.
 * Consultar las actualizaciones pendientes.
-* Elijar 3 y aplicar actualización.
+* Elegir 3 y aplicar actualización.
 
 ---
 
-# 2. GNU/Linux - OpenSUSE
+# 2. GNU/Linux
 
-Vamos a usar SO OpenSUSE 13.2.
+Vamos a usar SO OpenSUSE.
 
 ## 2.1 Usando el GUI
 
@@ -149,7 +147,7 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 * Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
 * Refrescar los repositorios.
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
-* Comprobar que funciona el programa instalado.
+* Comprobar que funcionan los programas que hemos instalado.
 
 ### Desinstalar paquetes
 
