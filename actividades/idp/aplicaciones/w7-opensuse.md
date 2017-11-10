@@ -91,9 +91,9 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 ### Desinstalar programas
 
-A continuacion vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
+A continuación vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
 
-> Estos comandos sólo sirven para desinstalar programas instalados MSI. NO sirve para ficheros  EXE.
+> Estos comandos sólo sirven para desinstalar programas instalados MSI. NO sirve para ficheros EXE.
 
 * Abrir consola PowerShell como Administrador
 * `wmic`, abrir consola wmic.
@@ -112,12 +112,11 @@ A continuacion vamos a desinstalar un programa MSI por comandos, usando la conso
 
 ## 1.3 Actualización del sistema
 
-* Hacer un snapshot de la MV.
+* Hacer un snapshot de la MV por seguridad.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
 Vamos a instalar un paquete de actualizaciones para Windows7.
 De esta forma las actualizaciones tardan menos tiempo.
-
 * Reiniciamos el servicio Windows Update
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
