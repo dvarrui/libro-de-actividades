@@ -49,7 +49,8 @@ Capturar imagenes de los pasos realizados.
 
 > Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
 
-* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha verificación.
+* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta.
+Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
 * Realizar la instalación de la aplicación.
 
 > El programa Wget se usa para hacer descargas desde la consola.
