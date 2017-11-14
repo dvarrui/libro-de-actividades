@@ -1,9 +1,9 @@
 
-#Campus Virtual
+# Campus Virtual
 
 El servidor Moodle del Gobierno de Canarias se llama Campus Virtual.
 
-##CAU_CE
+## CAU_CE
 
 CAU_CE es el Centro de Atención de Usuarios de la Consejería de Educación.
 
@@ -12,7 +12,7 @@ Para cualquier información al respecto se pueden poner en contacto con el CAU_C
 * Teléfono: 922 922 921, 928 117 912 y 902 111 192.
 * Correo: cibercentro@gobiernodecanarias.org
 
-##Consola de gestión
+## Consola de gestión
 
 * Ir al [Catágolo de Servicios CAUCE](https://www3.gobiernodecanarias.org/educacion/cau_ce/catalogo/Services/CatalogoServicios).
 
@@ -35,7 +35,7 @@ Desde aquí podemos gestionar nuestros cursos Moodle.
 
 ![campusvirtual-consola.png](./images/campusvirtual-consola.png)
 
-##Curso Virtual
+## Curso Virtual
 
 * Si vamos al [URL del Campus Virtual](http://www3.gobiernodecanarias.org/medusa/eforma/campus/),
 debemos entrar en la plataforma Moodle y ver un listado con nuestros cursos.
