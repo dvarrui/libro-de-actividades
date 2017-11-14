@@ -72,14 +72,14 @@ Capturar imágenes de los pasos realizados.
 
 ### Instalar programas
 
-* Usar wget para descargar el programa GIT desde la web oficial (http://git-scm.com/).
+* Descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir una consola cmd.
 * Ir a la carpeta donde hemos descargado el fichero.
 
 > NOTA: Sustituir VERSION por el número de versión que se haya descargado cada uno.
 
 * `Git-VERSION.exe /?` (Con el argumento /? vemos todas las opciones del programa)
-* `Git-VERSION.exe /SILENT` (Hacemos una instalación sin preguntas al usuario)
+* `Git-VERSION.exe /SILENT` (Hacemos una instalación sin preguntar al usuario)
 
 Comprobar (por la consola cmd) que lo tenemos instalado haciendo:
 * `cd c:\Program Files\Git\bin` (Esta es la ruta donde se instaló el programa)
@@ -87,7 +87,7 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 ![windows-git-path](./images/windows-git-path.png)
 
-* `git --version` (Esto ejecuta un comando para averiguar la versión del git instalado)
+* `git --version`, comando para averiguar la versión instalada del programa git.
 
 ### Desinstalar programas
 
@@ -140,7 +140,6 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 
 * Enlaces de interés:
     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
-* Capturar imagen del resultado final.
 
 ### Instalar paquetes
 
@@ -192,7 +191,7 @@ Comprobar que el programa no está instalado:
 * Comprobar que el programa `atom` no está disponible en los respositorios.
 * Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
 * Descargamos el fichero `.rpm`.
-* `rpm -i atom-VERSION.rm`, para instalar el programa mediante el fichero rpm.
+* `rpm -i atom-VERSION.rpm`, para instalar el programa mediante el fichero rpm.
 * Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla
 manualmente. Por ejemplo:
     * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
@@ -230,12 +229,7 @@ pública.
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
-## A.1 Compilación de las fuentes
-
-* Instalar programa desde el código fuente.
-* Ver ejemplo con ruby3.X.
-
-## A.2 Instalar desde la terminal Windows al estilo de Linux
+## A.1 Instalar desde la terminal Windows al estilo de Linux
 
 * URL: http://chocolatey.org/
 * Probado en Windows 7 64bits.
@@ -251,7 +245,7 @@ Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal 
 
 En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
 
-## 2.5 Instalación desde las fuentes
+## A.2 Instalación desde las fuentes
 
 Realizar las siguientes tareas:
 * Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
@@ -266,20 +260,7 @@ Realizar las siguientes tareas:
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
 
-## 2.6 Emulación
-
-Realizar las siguientes tareas
-* Instalar el emulador de Windows (`wine`).
-* Instalar un programa específico de Windows (por ejemplo Jhony Simulator)
-   * Abrimos consola
-   * Ejecutamos `wine programa-instalador.exe`
-* Comprobar que la aplicación se instala y que funciona correctamente.
-
----
-
-# ANEXO
-
-## A.1 Ejemplo de instalación usando las fuentes de GitHub
+## A.3 Ejemplo de instalación usando las fuentes de GitHub
 
 * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
