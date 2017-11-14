@@ -56,7 +56,7 @@ Para realizar dicha verificación en Windows podemos usar por ejemplo el program
 > El programa Wget se usa para hacer descargas desde la consola.
 
 Vamos a comprobar su funcionamiento:
-* `cd c:\Program Files (x86)/GnuWin32/bin`. Debe estar el fichero `wget.exe`.
+* `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`,
 para descargar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
 * Instalar el programa Evince en formato MSI.
