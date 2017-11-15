@@ -175,7 +175,7 @@ su pirata21
 
 ---
 
-# 2.4. Autenticación
+## 2.4. Autenticación
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio
 centralizado de la información de grupos, usuarios, claves, etc.
