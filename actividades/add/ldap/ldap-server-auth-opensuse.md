@@ -185,6 +185,17 @@ LDAP. Una especie de *Domain Controller*.
 
 * Entrar en la MV cliente con algún usuario LDAP.
 
+> Si tenemos problemas al reiniciar la MV cliente, debemos:
+> * Iniciar MV con Knoppix
+> * Deshacer los cambios ldap en el fichero `/etc/nsswitch.conf`
+>
+> passwd: files nis ldap
+> shadow: files nis
+> group: files nis ldap
+>
+> * Reiniciar MV cliente
+> * Repetir configuración Yast.
+
 ---
 
 # A. ANEXO
