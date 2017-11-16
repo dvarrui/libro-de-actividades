@@ -75,6 +75,8 @@ Vamos al cliente:
 * Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor`
 en la barra de navegación.
 * Seleccionar impresora -> botón derecho -> conectar.
+    * Ponemos usuario/clave del Windows Server.
+* Ya tenemos la impresora remota configurada en el cliente.
 * Probar la impresora remota.
 
 ---
