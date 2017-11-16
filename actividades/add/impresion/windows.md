@@ -1,8 +1,9 @@
 
 # Servidor de Impresión en Windows
 
-Vamos a ver principalmente cómo imprimir a través de la red utilizando Windows Server
-como servidor de impresión.
+Necesitaremos 2 MV:
+* 1 Windows Server
+* 1 Windows cliente
 
 ---
 
@@ -10,6 +11,7 @@ como servidor de impresión.
 
 ## 1.1 Rol impresión
 
+* Vamos al servidor
 * Instalar rol/función de servidor de impresión. Incluir impresión por internet.
 
 ## 1.2 Instalar impresora
@@ -45,18 +47,25 @@ no tiene dificultad simplemente elegir la opción "Instalación estándar".
 
 > NOTA: PDFCreator puede requerir NET FrameWork v4.
 
+## 1.3 Probar la impresora en local
+
 Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso se abrirá un fichero PDF (requiere que instales el Acrobat reader) con el resultado de la impresión:
 
 Captura de pantalla 1
 pdf
 
-## 1.3 Compartir por red
+## 1.4 Compartir por red
 
-Finalmente, comparte la impresora en tu servidor y como nombre del recurso compartido utiliza `PDFnombrealumnoXX`. La siguiente imagen muestra los recursos compartidos
+* Compartir la impresora del servidor. Como nombre del recurso compartido
+utilizar `PDFnombrealumnoXX`.
+
+La siguiente imagen muestra los recursos compartidos
 en el servidor incluido la impresora:
 
 Captura de pantalla 2
 imprec
+
+* Ir a un cliente Windows y probar la impresora remota.
 
 ---
 
@@ -64,16 +73,20 @@ imprec
 
 Realizaremos una configuración para habilitar el acceso web a las impresoras del dominio.
 
-## 2.2 Configurar impresión WEB
+## 2.1 Instalar característica impresión WEB
 
-Lo primero que realizaremos será configurar la impresión WEB en los clientes. Instalar el servicio "Impresión de Internet".
+* Vamos al servidor.
+* Si no lo hubiéramos instalado antes hay que instalar el servicio "Impresión de Internet".
 
-Ahora desde el equipo cliente Windows o el propio servidor, debemos acceder a la dirección `http://<nombre-del-servidor>/printers` para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del dominio habilitados para dicho fin (por ejemplo el "Administrador"). Pincha en la opción propiedades y se muestra la siguiente pantalla:
+## 2.1 Configurar impresión WEB
+
+* Vamos al cliente.
+* Debemos acceder a la dirección `http://<nombre-del-servidor>/printers` para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador"). Pincha en la opción propiedades y se muestra la siguiente pantalla:
 
 Captura de pantalla 3
 conectarimpresora
 
-Configuramos ahora la posibilidad de imprimir desde la red en esa impresora compartida
+* Configuramos ahora la posibilidad de imprimir desde la red en esa impresora compartida
 utilizando la URL conocida, como se muestra en la siguiente pantalla:
 
 Captura de pantalla 4:
@@ -97,7 +110,8 @@ Comprobar que se puede imprimir desde un cliente Windows.
 
 ---
 
+[EN CONSTRUCCIÓN]
+
 # 3. Servidor de impresión en el servidor
 
-* Activar rol/característica de servidor impresión
-* Configurar colas
+* Configurar colas/prioridades
