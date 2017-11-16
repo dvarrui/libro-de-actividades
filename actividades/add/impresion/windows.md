@@ -12,7 +12,8 @@ Necesitaremos 2 MV:
 ## 1.1 Rol impresión
 
 * Vamos al servidor
-* Instalar rol/función de servidor de impresión. Incluir impresión por internet.
+* Instalar rol/función de servidor de impresión. Incluir impresión por Internet.
+> DUDA: Instalar rol/función de cliente de impresión por Internet.
 
 ## 1.2 Instalar impresora
 
@@ -71,7 +72,8 @@ Captura de pantalla 2
 imprec
 
 Vamos al cliente:
-* Buscar recursos de red del servidor.
+* Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor`
+en la barra de navegación.
 * Seleccionar impresora -> botón derecho -> conectar.
 * Probar la impresora remota.
 
