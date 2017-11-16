@@ -46,7 +46,11 @@ Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero 
 Captura de pantalla 1
 pdf
 
-## 1.2 Compartir por red
+## 1.2 Rol impresión
+
+* Instalar rol/función de servidor de impresión. Incluir impresión por internet.
+
+## 1.3 Compartir por red
 
 Finalmente, comparte la impresora en tu servidor y como nombre del recurso compartido utiliza `PDFnombrealumnoXX`. La siguiente imagen muestra los recursos compartidos
 en el servidor incluido la impresora:
