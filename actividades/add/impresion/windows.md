@@ -122,8 +122,7 @@ Comprobar que se puede imprimir desde un cliente Windows.
 
 ---
 
-[EN CONSTRUCCIÓN]
-
 # 3. Servidor de impresión en el servidor
 
+* [Configurar cola de impresión con dos impresoras iguales](https://www.youtube.com/watch?v=mYWEEv1RdZs).
 * Configurar colas/usuarios/prioridades.
