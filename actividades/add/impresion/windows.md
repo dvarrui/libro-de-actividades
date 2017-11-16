@@ -8,7 +8,11 @@ como servidor de impresión.
 
 # 1. Impresora compartida
 
-## 1.1 Instalar impresora
+## 1.1 Rol impresión
+
+* Instalar rol/función de servidor de impresión. Incluir impresión por internet.
+
+## 1.2 Instalar impresora
 
 Vamos a conectar e instalar localmente una impresora al servidor Windows Server,
 de modo que estén disponibles para ser accedidas por los clientes del dominio.
@@ -45,10 +49,6 @@ Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero 
 
 Captura de pantalla 1
 pdf
-
-## 1.2 Rol impresión
-
-* Instalar rol/función de servidor de impresión. Incluir impresión por internet.
 
 ## 1.3 Compartir por red
 
