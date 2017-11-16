@@ -31,6 +31,7 @@ vamos a instalar un programa que simule una impresora de PDF.
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
 * Vamos a instalar PDFCreator.
+* En PDFCreator, activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
 
 PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos
 PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
@@ -40,24 +41,27 @@ archivos PDF en cuestión de segundos.
 
 [impresora]
 
-Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando,
-simplemente ve a la opción de "imprimir" y selecciona "PDFCreator", en segundos
-tendrás creado tu archivo PDF. Rápido y fácil. La instalación de este programa
+La instalación de este programa
 no tiene dificultad simplemente elegir la opción "Instalación estándar".
 
 > NOTA: PDFCreator puede requerir NET FrameWork v4.
 
 ## 1.3 Probar la impresora en local
 
-Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso se abrirá un fichero PDF (requiere que instales el Acrobat reader) con el resultado de la impresión:
+Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando,
+simplemente ve a la opción de "imprimir" y selecciona "PDFCreator", en segundos
+tendrás creado tu archivo PDF.
+
+Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso se abrirá un fichero PDF (requiere que instales el Acrobat reader) con el resultado de la impresión.
 
 Captura de pantalla 1
 pdf
 
 ## 1.4 Compartir por red
 
-* Compartir la impresora del servidor. Como nombre del recurso compartido
-utilizar `PDFnombrealumnoXX`.
+Vamos a compartir la impresora del servidor.
+* `Botón derecho -> Propiedades -> Compartir`
+* Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
 
 La siguiente imagen muestra los recursos compartidos
 en el servidor incluido la impresora:
@@ -65,7 +69,9 @@ en el servidor incluido la impresora:
 Captura de pantalla 2
 imprec
 
-* Ir a un cliente Windows y probar la impresora remota.
+* Ir a un cliente Windows.
+* Agregar impresora de red.
+* Probar la impresora remota.
 
 ---
 
@@ -76,7 +82,7 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 ## 2.1 Instalar característica impresión WEB
 
 * Vamos al servidor.
-* Si no lo hubiéramos instalado antes hay que instalar el servicio "Impresión de Internet".
+* Nos aseguramos de tener instalado el servicio "Impresión de Internet".
 
 ## 2.1 Configurar impresión WEB
 
@@ -114,4 +120,4 @@ Comprobar que se puede imprimir desde un cliente Windows.
 
 # 3. Servidor de impresión en el servidor
 
-* Configurar colas/prioridades
+* Configurar colas/usuarios/prioridades.
