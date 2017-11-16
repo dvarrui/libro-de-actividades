@@ -60,7 +60,7 @@ pdf
 
 ## 1.4 Compartir por red
 
-Vamos a compartir la impresora del servidor.
+Vamos al servidor.
 * `Botón derecho -> Propiedades -> Compartir`
 * Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
 
@@ -70,8 +70,9 @@ en el servidor incluido la impresora:
 Captura de pantalla 2
 imprec
 
-* Ir a un cliente Windows.
-* Agregar impresora de red.
+Vamos al cliente:
+* Buscar recursos de red del servidor.
+* Seleccionar impresora -> botón derecho -> conectar.
 * Probar la impresora remota.
 
 ---
