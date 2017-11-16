@@ -60,9 +60,11 @@ imprec
 
 Realizaremos una configuración para habilitar el acceso web a las impresoras del dominio.
 
-Analizaremos el modo en que los clientes de nuestra red se pueden conectar a las impresoras que se "ofrecen" en nuestro "Active Directory" y que se encuentran instaladas y accesibles. Lo primero que realizaremos será configurar la impresión WEB en los clientes. Instalar el servicio "Impresión de Internet".
+## 2.2 Configurar impresión WEB
 
-Ahora desde el equipo cliente Windows o el propio servidor, debemos acceder a la dirección "http://<nombre del servidor>/printers" para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del dominio habilitados para dicho fin (por ejemplo el "Administrador"). Pincha en la opción propiedades y se muestra la siguiente pantalla:
+Lo primero que realizaremos será configurar la impresión WEB en los clientes. Instalar el servicio "Impresión de Internet".
+
+Ahora desde el equipo cliente Windows o el propio servidor, debemos acceder a la dirección `http://<nombre-del-servidor>/printers` para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del dominio habilitados para dicho fin (por ejemplo el "Administrador"). Pincha en la opción propiedades y se muestra la siguiente pantalla:
 
 Captura de pantalla 3
 conectarimpresora
@@ -73,9 +75,11 @@ utilizando la URL conocida, como se muestra en la siguiente pantalla:
 Captura de pantalla 4:
 imred3
 
+## 2.3 Comprobar desde el navegador
+
 Vamos a realizar seguidamente una prueba sencilla en tu impresora de red a través
- del navegador pausa todos los trabajos en la impresora. Luego envía a imprimir en tu impresora compartida un documento del Bloc de notas. La siguiente pantalla muestra que la
- impresora esta en pausa y con el trabajo en cola de impresión.
+del navegador pausa todos los trabajos en la impresora. Luego envía a imprimir en tu impresora compartida un documento del Bloc de notas. La siguiente pantalla muestra que la
+impresora esta en pausa y con el trabajo en cola de impresión.
 
 Captura de pantalla 5:
 otraimp4
@@ -86,3 +90,10 @@ Comprobar que se puede imprimir desde un cliente Windows.
 > Si tenemos problemas para acceder a la impresora de red desde el cliente Windows:
 > * Revisar la configuración de red de la máquina (Incluido la puerta de enlace)
 > * Reiniciar el servidor Windows Server que contiene la impresora compartida de red.
+
+---
+
+# 3. Servidor de impresión en el servidor
+
+* Activar rol/característica de servidor impresión
+* Configurar colas
