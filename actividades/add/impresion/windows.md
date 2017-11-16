@@ -4,22 +4,27 @@
 Vamos a ver principalmente cómo imprimir a través de la red utilizando Windows Server
 como servidor de impresión.
 
-[Enlaces de interés:](http://www3.gobiernodecanarias.org/medusa/eforma/campus/mod/page/view.php?id=748283)
-    * [Impresoras virtuales PDF](http://www.genbeta.com/herramientas/impresoras-virtuales-pdf-tres-alternativas-gratuitas-en-espanol)
-    * PDF Creator: http://pdfcreator.es/. Para activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
-    * doPDF: www.dopdf.com/es/
-    * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
-
 ---
 
-# 1. Impresora Local compartida por red
+# 1. Impresora compartida
+
+## 1.1 Instalar impresora
 
 Vamos a conectar e instalar localmente una impresora al servidor Windows Server,
 de modo que estén disponibles para ser accedidas por los clientes del dominio.
 
 En nuestro caso, dado que es posible de que no tengan una impresora física en casa
 y no es de mucho interés forzar la instalación de una impresora que no se tiene,
-vamos a instalar un programa llamado PDFCreator .
+vamos a instalar un programa que simule una impresora de PDF.
+
+> [Enlaces de interés:](http://www3.gobiernodecanarias.org/medusa/eforma/campus/mod/page/view.php?id=748283)
+>
+> * [Impresoras virtuales PDF](http://www.genbeta.com/herramientas/impresoras-virtuales-pdf-tres-alternativas-gratuitas-en-espanol)
+> * PDF Creator: http://pdfcreator.es/. Para activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
+> * doPDF: www.dopdf.com/es/
+> * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
+
+* Vamos a instalar PDFCreator.
 
 PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos
 PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
@@ -27,7 +32,7 @@ Este programa funciona simulando ser una impresora, de esta forma, instalando
 PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear
 archivos PDF en cuestión de segundos.
 
-impresora
+[impresora]
 
 Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando,
 simplemente ve a la opción de "imprimir" y selecciona "PDFCreator", en segundos
@@ -41,7 +46,9 @@ Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero 
 Captura de pantalla 1
 pdf
 
-Finalmente, comparte la impresora en tu servidor y como nombre del recurso compartido utiliza PDFTuNombreTusApellidos. La siguiente imagen muestra los recursos compartidos
+## 1.2 Compartir por red
+
+Finalmente, comparte la impresora en tu servidor y como nombre del recurso compartido utiliza `PDFnombrealumnoXX`. La siguiente imagen muestra los recursos compartidos
 en el servidor incluido la impresora:
 
 Captura de pantalla 2
