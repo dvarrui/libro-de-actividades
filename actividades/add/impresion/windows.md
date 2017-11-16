@@ -52,7 +52,8 @@ Para crear un archivo PDF no hará falta que cambies la aplicación que estés u
 simplemente ve a la opción de "imprimir" y selecciona "PDFCreator", en segundos
 tendrás creado tu archivo PDF.
 
-Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso se abrirá un fichero PDF (requiere que instales el Acrobat reader) con el resultado de la impresión.
+Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso
+se abrirá un fichero PDF con el resultado de la impresión.
 
 Captura de pantalla 1
 pdf
