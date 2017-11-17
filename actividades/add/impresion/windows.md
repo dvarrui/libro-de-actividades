@@ -15,7 +15,7 @@ Necesitaremos 2 MV:
 * Instalar rol/función de servidor de impresión. Incluir impresión por Internet.
 > DUDA: Instalar rol/función de cliente de impresión por Internet.
 
-## 1.2 Instalar impresora
+## 1.2 Instalar impresora PDF
 
 Vamos a conectar e instalar localmente una impresora al servidor Windows Server,
 de modo que estén disponibles para ser accedidas por los clientes del dominio.
@@ -28,6 +28,7 @@ vamos a instalar un programa que simule una impresora de PDF.
 >
 > * [Impresoras virtuales PDF](http://www.genbeta.com/herramientas/impresoras-virtuales-pdf-tres-alternativas-gratuitas-en-espanol)
 > * PDF Creator: http://pdfcreator.es/. Para activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
+> * pdf24
 > * doPDF: www.dopdf.com/es/
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
@@ -40,8 +41,6 @@ Este programa funciona simulando ser una impresora, de esta forma, instalando
 PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear
 archivos PDF en cuestión de segundos.
 
-[impresora]
-
 La instalación de este programa
 no tiene dificultad simplemente elegir la opción "Instalación estándar".
 
@@ -50,11 +49,10 @@ no tiene dificultad simplemente elegir la opción "Instalación estándar".
 ## 1.3 Probar la impresora en local
 
 Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando,
-simplemente ve a la opción de "imprimir" y selecciona "PDFCreator", en segundos
+simplemente ve a la opción de "imprimir" y selecciona "Impresora PDF", en segundos
 tendrás creado tu archivo PDF.
 
-Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir y como impresora predeterminada el PDFCreator. Cuando finalice el proceso
-se abrirá un fichero PDF con el resultado de la impresión.
+Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir. Cuando finalice el proceso se abrirá un fichero PDF con el resultado de la impresión.
 
 Captura de pantalla 1
 pdf

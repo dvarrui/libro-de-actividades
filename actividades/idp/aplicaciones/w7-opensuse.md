@@ -1,9 +1,4 @@
 
-```
-* Modificado para el curso 201516
-* Se trabaja en el curso 201617
-```
-
 # Instalar aplicaciones y actualizar el sistema
 
 En esta actividad vamos a practicar diversas formas de realizar la instalación de aplicaciones en varios sistemas operativos, así como la forma de mantener nuestros sistemas actualizados.
@@ -98,7 +93,8 @@ A continuación vamos a desinstalar un programa MSI por comandos, usando la cons
 
 * Abrir consola PowerShell como Administrador
 * `wmic`, abrir consola wmic.
-* `product get name`, para localizar los programas MSI instalados.
+* `product get name`, para localizar los programas MSI instalados. Si no se muestra
+información reiniciar el equipo y repetir.
 * `product where name="Evince 2.30.3" call uninstall`, para desintalar el programa.
 * Comprobarlo.
 
@@ -182,7 +178,7 @@ Comprobar que el programa no está instalado:
 ### Instalar programa Windows
 
 * Instalar el emulador Windows (`wine`).
-* Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhony Simulator.
+* Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhonny Simulator.
 
 ### Instalar programa desde rpm
 
@@ -197,6 +193,9 @@ Comprobar que el programa no está instalado:
 manualmente. Por ejemplo:
     * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
     * `zypper install lsb`, para instalar el paquete lsb.
+
+> El paquete libgconf2 se llama gconf2 en OpenSUSE
+
 * Para comprobar que está el paquete instalado:
     * `rpm -q atom`
     * `atom`
