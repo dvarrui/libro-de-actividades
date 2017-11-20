@@ -55,6 +55,10 @@ Vamos a modificar las claves de los usuarios de la siguiente forma:
 * Descargar la iso OphCrack para Windows7. Buscar primero en el servidor
 del departamento antes de descargarlo de Internet.
 * Iniciar la máquina W7 con la iso OphCrack.
+* En el caso de que no se inicie la herramienta en entorno gráfico, hacer lo siguiente:
+    * Pulsar F12
+    * Elegir la opción de CDROM (c)
+    * Elegir arranque manual
 * Esperar y comprobar cómo aparecen las claves.
 * Realizar captura de pantalla.
 
