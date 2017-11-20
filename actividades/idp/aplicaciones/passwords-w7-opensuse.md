@@ -7,14 +7,14 @@ Vamos a usar una MV Windows 7.
 
 ## 1.1 Ocultación de usuarios
 
-Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`, NO aparezcan en la ventana de inicio del sistema.
+Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`,
+NO aparezcan en la ventana de inicio del sistema.
 
 * Iniciar sesión con una cuenta administrador.
 * Ir a `Inicio -> Ejecutar`
 * Entrar al registry (comando `regedit`)
+* Hacer una copia de seguridad del registro (exportar) antes de hacer cualquier cambio.
 
-> Hacer una copia de seguridad del resgistro (exportar) antes de hacer cualquier cambio.
->
 > Cuando tenemos que tocar el registro del sistema hay que ser muy precavidos. Un error puede hacer que el sistema completo deje de funcionar.
 > * Ejecutar comando regedit para abrir el registro del sistema, y lo primero,
  usar la opción de export, para hacer una copia de seguridad del registro.
@@ -70,7 +70,7 @@ del departamento antes de descargarlo de Internet.
 
 # 2. SO GNU/Linux
 
-Usaremos una MV GNU/Linux OpenSUSE 13.2.
+Usaremos una MV GNU/Linux OpenSUSE.
 
 > Enlaces de interés sobre  [Cuentas de usuario](https://es.opensuse.org/Cuentas_de_usuario)
 
@@ -79,6 +79,8 @@ Usaremos una MV GNU/Linux OpenSUSE 13.2.
 Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`,
 NO aparezcan en la ventana de inicio del sistema.
 
+* Si nuestro entorno gráfico actual ya oculta los usuario, no hay que hacer nada.
+En caso contrario seguimos con este apartado.
 * Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamado
 USERNAME, modificar el fichero `/var/lib/AccountsService/users/USERNAME`
 con el siguiente contenido:
