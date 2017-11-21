@@ -27,13 +27,13 @@ vamos a instalar un programa que simule una impresora de PDF.
 > [Enlaces de interés:](http://www3.gobiernodecanarias.org/medusa/eforma/campus/mod/page/view.php?id=748283)
 >
 > * [Impresoras virtuales PDF](http://www.genbeta.com/herramientas/impresoras-virtuales-pdf-tres-alternativas-gratuitas-en-espanol)
-> * PDF Creator: http://pdfcreator.es/. Para activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
+> * PDF Creator
 > * pdf24
 > * doPDF: www.dopdf.com/es/
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
 * Vamos a instalar PDFCreator.
-* En PDFCreator, activar el modo AUTOSAVE vamos a Ajustes -> Autosave. Ahí configuramos carpeta destino.
+* En PDFCreator, configurar en perfiles -> Guardar -> Automático. Ahí configuramos carpeta destino.
 
 PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos
 PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
