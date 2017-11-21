@@ -96,7 +96,7 @@ SystemAccount=true
 
 ## 2.2 Claves seguras
 
-* Añadir nuestro usuario y los usuarios `jedi1` y `jedi2` al grupo `sudo`,
+* Configurar nuestro usuario y los usuarios `jedi1` y `jedi2` en el fichero `/etc/sudoers`,
 para que puedan obtener privilegios administrativos.
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith1: 1234
@@ -199,13 +199,3 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
 * Consultar la información de nuestro gestor de inicio gráfico para cambiar
  la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
  gdm3, kdm, xdm, etc. (*Consultar ANEXO o buscar información en Internet*).
-
-> **NO HACER LO SIGUIENTE**
->
-> El siguiente comando modifica el ID númerico del nombre de usuario que especifiquemos:
-`sudo usermod -u 999 nombre-de-usuario`. Con esto podemos conseguir un efecto de "ocultación"
-en la ventana de inicio del sistema, porque los usuarios con valor ID inferior a 1000,
-se consideran usuarios especiales del sistema. Por tanto, el sistema no los identifica
-como usuarios-humanos que van a usar la interfaz gráfica, y no los muestra en la ventana de login.
->
-> Pero NO LO HAGAN SE ESTA FORMA.
