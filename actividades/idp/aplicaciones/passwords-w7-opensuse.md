@@ -59,6 +59,15 @@ del departamento antes de descargarlo de Internet.
     * Pulsar F12
     * Elegir la opción de CDROM (c)
     * Elegir arranque manual
+
+> Otra opción es usar CDLive de Kali Linux
+>
+> * Iniciar con CDLive de Kali Linux
+> * Abrir terminal y montar partición de Windows en `/mnt`
+> * Iniciar aplicación OphCrack
+> * Botón `Load` -> `/mnt/Windows/System32/config`
+> * Botón `Crack`
+
 * Esperar y comprobar cómo aparecen las claves.
 * Realizar captura de pantalla.
 
