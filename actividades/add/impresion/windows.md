@@ -91,21 +91,24 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 ## 2.1 Configurar impresión WEB
 
 * Vamos al cliente.
-* Debemos acceder a la dirección `http://<nombre-del-servidor>/printers` para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador"). Pincha en la opción propiedades y se muestra la siguiente pantalla:
+* Abrimos un navegador Web.
+* Ponemos URL `http://<ip-del-servidor>/printers`
+(o `http://<nombre-del-servidor>/printers`) para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador").
+* Pincha en la opción propiedades y se muestra la siguiente pantalla:
 
 Captura de pantalla 3
 conectarimpresora
 
-* Configuramos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
+* Agragamos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
 
 Captura de pantalla 4:
 imred3
 
 ## 2.3 Comprobar desde el navegador
 
-Vamos a realizar seguidamente una prueba sencilla en tu impresora de red a través
-del navegador pausa todos los trabajos en la impresora.
-* Envía a imprimir en tu impresora compartida un documento del Bloc de notas. 
+Vamos a realizar seguidamente una prueba sencilla en tu impresora de red:
+* A través del navegador pausa todos los trabajos en la impresora.
+* Envía a imprimir en tu impresora compartida un documento del Bloc de notas.
 La siguiente pantalla muestra que la impresora esta en pausa y con el trabajo en cola de impresión.
 
 Captura de pantalla 5:
