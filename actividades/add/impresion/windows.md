@@ -96,8 +96,7 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 Captura de pantalla 3
 conectarimpresora
 
-* Configuramos ahora la posibilidad de imprimir desde la red en esa impresora compartida
-utilizando la URL conocida, como se muestra en la siguiente pantalla:
+* Configuramos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
 
 Captura de pantalla 4:
 imred3
@@ -105,14 +104,17 @@ imred3
 ## 2.3 Comprobar desde el navegador
 
 Vamos a realizar seguidamente una prueba sencilla en tu impresora de red a través
-del navegador pausa todos los trabajos en la impresora. Luego envía a imprimir en tu impresora compartida un documento del Bloc de notas. La siguiente pantalla muestra que la
-impresora esta en pausa y con el trabajo en cola de impresión.
+del navegador pausa todos los trabajos en la impresora.
+* Envía a imprimir en tu impresora compartida un documento del Bloc de notas. 
+La siguiente pantalla muestra que la impresora esta en pausa y con el trabajo en cola de impresión.
 
 Captura de pantalla 5:
 otraimp4
 
-Finalmente pulsa en reanudar el trabajo para que tu documento se convierta a PDF.
+* Finalmente pulsa en reanudar el trabajo para que tu documento se convierta a PDF.
 Comprobar que se puede imprimir desde un cliente Windows.
+* Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
+programa PDFCreator y esperar un poco.
 
 > Si tenemos problemas para acceder a la impresora de red desde el cliente Windows:
 > * Revisar la configuración de red de la máquina (Incluido la puerta de enlace)
