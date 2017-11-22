@@ -99,7 +99,7 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 Captura de pantalla 3
 conectarimpresora
 
-* Agragamos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
+* Agregamos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
 
 Captura de pantalla 4:
 imred3
