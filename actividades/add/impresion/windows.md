@@ -32,17 +32,14 @@ vamos a instalar un programa que simule una impresora de PDF.
 > * doPDF: www.dopdf.com/es/
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
-* Vamos a instalar PDFCreator.
-* En PDFCreator, configurar en perfiles -> Guardar -> Automático. Ahí configuramos carpeta destino.
-
 PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos
 PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
 Este programa funciona simulando ser una impresora, de esta forma, instalando
 PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear
 archivos PDF en cuestión de segundos.
 
-La instalación de este programa
-no tiene dificultad simplemente elegir la opción "Instalación estándar".
+* Descargar PDFCreator (URL recomendada `www.pdfforge.org/pdfcreator/download`) e instalar.
+* En PDFCreator, configurar en perfiles -> Guardar -> Automático. Ahí configuramos carpeta destino.
 
 > NOTA: PDFCreator puede requerir NET FrameWork v4.
 
