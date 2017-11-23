@@ -63,9 +63,10 @@ del departamento antes de descargarlo de Internet.
 > Otra opción es usar CDLive de Kali Linux
 >
 > * Iniciar con CDLive de Kali Linux
-> * Abrir terminal y montar partición de Windows en `/mnt`
+> * Abrir terminal, buscar partición del sistema Windows (`fdisk -l`)
+> * Montar la partición de Windows en `/mnt` (`mount /dev/sdaX /mnt`)
 > * Iniciar aplicación OphCrack
-> * Botón `Load` -> `/mnt/Windows/System32/config`
+> * Botón `Load -> Encrypted SAM -> /mnt/Windows/System32/config`
 > * Botón `Crack`
 
 * Esperar y comprobar cómo aparecen las claves.
