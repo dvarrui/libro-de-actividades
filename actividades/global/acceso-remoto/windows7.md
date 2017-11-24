@@ -1,5 +1,4 @@
 
-
 # Configurar acceso remoto en Windows7
 
 ## 1. Windows con Servidor Telnet

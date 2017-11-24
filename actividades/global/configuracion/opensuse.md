@@ -79,10 +79,9 @@ host www.iespuertodelacruz.es
 blkid
 ```
 
-## Configurar con entorno gráfico
+---
 
-Para configurar la red por entorno gráfico vamos a
-`Inicio -> Yast -> Ajustes de red`
+# ANEXO
 
 ## Ficheros de configuración
 
