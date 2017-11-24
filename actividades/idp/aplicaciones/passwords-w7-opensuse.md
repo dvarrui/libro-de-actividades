@@ -104,6 +104,8 @@ con el siguiente contenido:
 SystemAccount=true
 ```
 
+> Este cambio es válido para el escritorio Xfce, pero no para KDE
+
 ## 2.2 Claves seguras
 
 * Configurar nuestro usuario y los usuarios `jedi1` y `jedi2` en el fichero `/etc/sudoers`,
