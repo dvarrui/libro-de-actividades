@@ -151,7 +151,7 @@ clave 123456.
 
 Vamos a desactivar el inicio gráfico al inicio.
 * Ir a `Yast -> Administración de Servicios`
-* Cambiar `Default system target` de `Graphical Interface` a `Multi-User System`
+* Cambiar `Estado predeterminado` de `Graphical Interface` a `Multi-User System`
 * Reiniciar
 * Entramos en el sistema sin entorno gráfico.
 
@@ -159,11 +159,12 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 * Ejecutamos `yast`
 
 > Usaremos:
+>
 > * la tecla tabulador para movernos por los campos, y
 > * la tecla enter para entrar/aceptar opciones
 
 * Vamos a `Sistema -> Administrador de Servicios`
-* Cambiamos `Default System target` a `Graphical Interface`.
+* Cambiamos `Estado predeterminado` a `Graphical Interface`.
 
 ---
 
