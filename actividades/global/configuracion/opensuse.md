@@ -58,7 +58,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 Para que el comando hostname funcione bien.
 
 * Tarjeta de red VBox en `modo puente`.
-* Configurar [acceso remoto](../acceso-remoto.md).
+* Configurar [acceso remoto](../acceso-remoto/opensuse.md).
 * Configurar [firewall](../firewall.md).
 
 ## Comprobaciones finales
