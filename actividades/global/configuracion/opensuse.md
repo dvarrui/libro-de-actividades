@@ -42,9 +42,8 @@ Vamos a `Nombre de Host/DNS` y ponemos:
     * Por ejemplo vargas30g
     * Si tenemos varias máquinas las llamaremos vargas30h, vargas30i, vargas30j, etc.
 * Nombre de dominio: `curso1617` (Modificar los números al curso actual).
-* Servidor DNS: `8.8.4.4`
-Vamos a `Encaminamiento`y ponemos:
-* Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
+* Servidor DNS: `8.8.4.4`.
+* Vamos a `Encaminamiento`y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
 * Ir dispositivo y elegir interfaz de red.
 * Usuarios:
     * Un usuario identificado con `nombre-del-alumno`.
