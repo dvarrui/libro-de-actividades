@@ -135,6 +135,7 @@ enrutamiento de puertos.
 
 * Entramos en la MV e instalamos apache.
     * `vagrant ssh`
+    * `apt-get update`
     * `apt-get install apache2`
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
@@ -289,7 +290,7 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una co
 
 > Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-* Crear el usuario Vagrant, para poder acceder a la máquina virtual por SSH.
+* Crear el usuario `vagrant`, para poder acceder a la máquina virtual por SSH.
 A este usuario le agregamos una clave pública para autorizar el acceso sin clave
 desde Vagrant.
 ```
