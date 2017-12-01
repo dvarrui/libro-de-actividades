@@ -2,8 +2,8 @@
 # Requisitos
 
 * MV Windows7 Professional [configurada](../../global/configuracion/windows.md).
-* MV OpenSUSE 13.2 [configurada](../../global/configuracion/opensuse.md).
-* Acceso remoto telnet en Windows7 y SSH en OpenSUSE 13.2
+* MV OpenSUSE [configurada](../../global/configuracion/opensuse.md).
+* Acceso remoto telnet en Windows7 y SSH en OpenSUSE.
 
 # Windows 7
 
@@ -36,7 +36,7 @@
         * Permiso lectura/mostrar a Todos
         * Nadie más tendrá permisos
 
-# OpenSUSE 13.2
+# OpenSUSE
 
 * OJO. Usar minúsculas.
 * Crear los grupos:
