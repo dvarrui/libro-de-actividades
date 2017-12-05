@@ -13,7 +13,7 @@ de pantalla/fotos de los pasos realizados.
 
 # 2. Preparamos el segundo disco
 
-* Usaremos una MV EFI con OpenSUSE para esta práctica.
+* Usaremos una MV con OpenSUSE para esta práctica.
 * Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
