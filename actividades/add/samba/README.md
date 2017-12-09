@@ -94,9 +94,9 @@ Vamos a configurar los recursos compartido del servidor Samba.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
 
 * Capturar imágenes del proceso.
-* `Yast -> Samba Server -> Recursos compartidos`
-
-* Tenemos que conseguir una configuración como la siguiente:
+* `Yast -> Samba Server -> Recursos compartidos -> Configurar`.
+* Tenemos que conseguir una configuración con las secciones global, cdrom, public,
+barco, y castillo como la siguiente:
 
 > * Donde pone XX, sustituir por el núméro del puesto de cada uno
 > * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
