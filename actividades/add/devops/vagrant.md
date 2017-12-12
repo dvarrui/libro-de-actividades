@@ -33,7 +33,7 @@ enlace anterior publicado por *Jonathan Wiesel, el 16/07/2013*.
 La instalación debemos hacerla en una máquina real.
 * Hay varias formas de instalar Vagrant:
     * `apt-get install vagrant` o
-    * Usando un paquete [Vagrant-deb](http://172.20.1.2/~general/software/varios/vagrant_1.7.2_x86_64.deb)
+    * Usando un paquete [vagrant.deb](http://172.20.1.2/~david/add)
 Disponible para descargar del servidor Leela.
 * `vagrant version`, para comprobar la versión actual de Vagrant.
 * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
@@ -139,8 +139,8 @@ enrutamiento de puertos.
     * `apt-get install apache2`
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
-* Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos refrescar
-con `vagrant reload`)
+* Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos recargar
+  la configuración con `vagrant reload`)
 
 Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
@@ -270,8 +270,8 @@ package { 'nmap':
 
 Para que se apliquen los cambios de configuración, tenemos dos formas:
 * (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
-* (B) Con la MV encendida recargar la configuración y volver a ejecutar la provisión
-    (`vagrant reload`, `vagrant provision`).
+* (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver
+a ejecutar la provisión (`vagrant provision`).
 
 ---
 
