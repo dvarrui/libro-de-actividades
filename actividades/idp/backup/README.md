@@ -61,7 +61,7 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 * Comprobar el contenido de la copia de seguridad. Esto podemos hacerlo
 restaurando en el directorio `/tmp` y consultado la salida, o a través de
 la propia herramienta, si ésta lo permite.
-* Eliminar el archivo `mapa-luke-skywalker.txt`.
+* Eliminar el archivo `mapa-luke-skywalker.txt` original.
 * Crear copia de seguridad (N2).
 * Restaurar únicamente el archivo eliminado a partir de alguna de las copias de seguridad.
 En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo todo.
@@ -105,7 +105,7 @@ nombre-del-alumnoXX
 * Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
 y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 * Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp`.
-* Eliminar el archivo `plano-estrella-muerte.txt`.
+* Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia de seguridad (N2).
 * Restaurar el fichero borrado desde la copia de seguridad a su lugar original.
 * Programar la copia de seguridad, a las 11:00 horas diariamente.
@@ -169,7 +169,7 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
 * Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Eliminar el archivo `mapa-luke-skywalker.txt`.
+* Eliminar el archivo `mapa-luke-skywalker.txt` original.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ## 3.2 Comandos Windows
@@ -226,10 +226,10 @@ copias de seguridad.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
-* Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
+* Añadir una línea al fichero `plano-estrella-muerte.txt` con el texto `Fallo detectado`.
 * Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz`
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Eliminar el archivo `mapa-luke-skywalker.txt`.
+* Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ---
@@ -241,12 +241,12 @@ copias de seguridad.
 * En el caso de trabajar con WXP podremos hacer la copia de seguridad directamente en
 una carpeta local de la propia máquina.
 * Windows XP proporciona el comando "ntbackup" para hacer copias de seguridad.
-* Veamos un ejemplo: `ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backup\alumno2\backup.bkf /V:yes`
+* Veamos un ejemplo: `ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backupXX\alumno2\backup.bkf /V:yes`
 
 ## A.2 Windows 7
 
 * En este SO nos obliga a que la copia de seguridad se realice en un almacenamiento externo.
-Para ello podemos crear la carpeta `c:\backup-XX`, y la compartimos por la red.
+Para ello podemos crear la carpeta `c:\backupXX`, y la compartimos por la red.
 * Permisos de la carpeta compartida lectura/escritura para
 el usuario que vamos a usar en el acceso por red. ¡OJO la carpeta compartida por red puede
 estar en la misma máquina!
