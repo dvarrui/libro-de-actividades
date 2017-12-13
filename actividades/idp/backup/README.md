@@ -93,7 +93,7 @@ Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de s
 ```
 Windows
 GUI
-alumnoXX
+nombre-del-alumnoXX
 ```
 
 * Vamos a Inicio, escribimos `Copia de seguridad` para buscar el programa de backup.
@@ -127,7 +127,7 @@ y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 ```
 GNU/Linux
 comandos
-alumnoXX
+nombre-del-alumnoXX
 ```
 
 ### Preparamos la copia de seguridad
@@ -181,8 +181,15 @@ los archivos `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 ```
 Windows
 comandos
-alumnoXX
+nombre-del-alumnoXX
 ```
+
+### Información sobre Cygwin
+
+Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
+
+Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
+Esto es, usando los comandos tar y gzip.
 
 ### Instalación de Cygwin
 
@@ -199,17 +206,10 @@ Instalar software [Cygwin](https://www.cygwin.com) en W7:
 > Para que el paquete aparezca seleccionado, hacer click en `skip`, y así
 aparecerá marcado el paquete para su instalación.
 
-### Información sobre Cygwin
-
-Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linux.
-
-Podemos usar Cygwin para realizar la copia de la misma forma que lo haríamos en GNU/Linux.
-Esto es, usando los comandos tar y gzip.
-
-Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
-`c:\Users\profesor` será `/cygdrive/c/Users/profesor`.
-
 ### Realizar la copia de seguridad
+
+> Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
+`c:\Users\profesor` será `/cygdrive/c/Users/profesor`.
 
 Vamos a usar los comandos como tar y gzip de Cygwin pararealizar copia de seguridad
 de la carpeta `mydocsXX` del usuario `soldado2`.
