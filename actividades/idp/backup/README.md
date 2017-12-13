@@ -163,10 +163,10 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 
 Vamos a usar el  comando `tar` para lo siguiente:
 * Iniciar sesión con el usuario `rebelde2`.
-* Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-TOT.tar.gz`)
+* Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-INC.tar.gz`.
+* Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz`.
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
@@ -220,11 +220,11 @@ de la carpeta `mydocsXX` del usuario `soldado2`.
 copias de seguridad.
 * Iniciar Cygwin.
 * Crear una copia de seguridad total del directorio `mydocsXX` del usuario
-`nombre-alumno2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-TOT.tar.gz`.
+`nombre-alumno2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-total.tar.gz`.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
-* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-INC.tar.gz`
+* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz`
 * Eliminar el archivo `mapa-luke-skywalker.txt`.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
