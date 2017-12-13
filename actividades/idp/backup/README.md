@@ -163,6 +163,7 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 
 Vamos a usar el  comando `tar` para lo siguiente:
 * Iniciar sesión con el usuario `rebelde2`.
+
 * Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`)
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
