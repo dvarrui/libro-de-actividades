@@ -264,9 +264,3 @@ Windows7/2008server proporciona el comando "wbadmin" para manejar copias de segu
 * Ejecutamos "wbadmin get versions", para comprobar que funciona.
 * Ejemplo de copia parcial: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:\Users\Alumno1\*"
 * Ejemplo de copia total: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:"
-
-## A.4 Cygwin
-
-* Instalar Cygwin junto con el servidor OpenSSH.
-* ¿Cómo configurar SSH desde Cygwin?
-* ¿Cómo actualizar paquetes desde Cygwin?
