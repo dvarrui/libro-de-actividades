@@ -31,15 +31,18 @@ Capturar imágenes de las configuraciones.
 ```
 GNU/Linux
 GUI
-alumnoXX
+nombre-del-alumnoXX
 ```
 
 ### Preparamos la copia de seguridad
 
 Vamos crear un directorio para almacenar las copias de seguridad que vayamos realizando.
+* Crear el directorio `/srv/backupXX`.
+    * El usuario propietario será `root`, y el grupo propietario `root`.
+    * Todos los permisos para usuario. Y lectura y navegación para el grupo y para el resto.
 * Crear el directorio `/srv/backupXX/rebelde1`.
-* El usuario propietario será `rebelde1`, y el grupo root.
-* Todos los permisos para usuario y grupo. Ninguno para el resto.
+    * El usuario propietario será `rebelde1`, y el grupo propietario `root`.
+    * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ### Realizar la copia de seguridad
 
