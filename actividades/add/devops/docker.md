@@ -45,8 +45,9 @@ usermod -a -G docker USERNAME # Añade permisos a nuestro usuario
 docker images           # Muestra las imágenes descargadas hasta ahora
 docker ps -a            # Muestra todos los contenedores creados
 docker run hello-world  # Descarga y ejecuta un contenedor con la imagen hello-world
+                        # Sólo se muestra unos mensajes en pantalla.
 docker images
-docker ps -a
+docker ps -a            # El contenedor está estado 'Exited'
 ```
 
 ---
