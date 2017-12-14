@@ -1,6 +1,3 @@
-```
-* Actividad nueva en el curso 201516.
-```
 
 # Clonezilla remote Samba
 
