@@ -111,7 +111,7 @@ nombre-del-alumnoXX
     * ![backup-share-from-w7.png](./images/backup-share-from-w7.png)
 * Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado1`
 y lo grabamos en el recurso compartido de red (Windows 2008 Server).
-* Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp`.
+* Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp` del equipo Windows7.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia de seguridad (N2).
 * Restaurar el fichero borrado desde la copia de seguridad a su lugar original.
