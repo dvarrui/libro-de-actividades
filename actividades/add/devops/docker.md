@@ -99,7 +99,7 @@ docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
 ```  
 
-* Vamos a crear un contenedor con nombre `mv_debian` a partir de la
+* Vamos a crear un contenedor con nombre `con_debian` a partir de la
 imagen `debian:8`, y ejecutaremos `/bin/bash`:
 
 ```
