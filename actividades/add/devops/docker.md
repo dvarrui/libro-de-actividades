@@ -304,16 +304,16 @@ del servidor Nginx.
 
 Crear un imagen de contenedor:
 * `docker ps`, muestra los contenedores que tengo en ejecución.
-* `docker commit -p 30b8f18f20b4 container-backup`, grabar una imagen de nombre "container-backup" a partir del contenedor 30b8f18f20b4.
+* `docker commit -p CONTAINERID container-backup`, grabar una imagen de nombre "container-backup" a partir del contenedor CONTAINERID.
 * `docker images`comprobar que se ha creado la imagen "container-backup".
 
 Exportar imagen docker a fichero:
-* `docker save -o ~/container-backup.tar container-backup`, guardamos la imagen
+* `docker save -o ~/containerXX-backup.tar containerXX-backup`, guardamos la imagen
 "container-backup" en un fichero tar.
 
 Importar imagen docker desde fichero:
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
-* `docker load -i ~/container-backup.tar`, cargamos la imagen docker a partir del fichero tar.
+* `docker load -i ~/containerXX-backup.tar`, cargamos la imagen docker a partir del fichero tar.
 * `docker images`, comprobamos que la nueva imagen está disponible.
 
 ---
