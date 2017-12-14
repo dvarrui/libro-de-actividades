@@ -72,9 +72,11 @@ Reiniciar el equipo para que se apliquen los cambios.
 
 Información sobre otros comandos útiles:
 
-* `docker stop CONTAINERID`, inicia un contenedor que estaba parado.
+* `docker stop CONTAINERID`, parar un contenedor que estaba iniciado.
 * `docker start CONTAINERID`, inicia un contenedor que estaba parado.
 * `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
+* `docker ps`, muestra los contenedores en ejecución.
+* `docker ps -a`, muestra todos los contenedores en ejecución o no.
 * `docker rm CONTAINERID`, eliminar un contenedor.
 * `docker rmi IMAGENAME`, eliminar una imagen.
 
