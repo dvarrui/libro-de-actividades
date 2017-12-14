@@ -7,7 +7,7 @@
 Vamos a hacer una práctica de clonación del tipo `device-image`, usando
 como repositorio remoto una carpeta compartida de red SMB/CIFS (Samba Server).
 
-## 1. Entrega
+# 1. Entrega
 
 * Trabajar de forma individual.
 * Entregar un PDF con el informe del trabajo realizado acompañado de capturas
@@ -15,7 +15,7 @@ de pantalla/fotos.
 
 ---
 
-## 2. Preparativos
+# 2. Preparativos
 
 Necesitaremos 2 máquinas virtuales:
 * MV1 con SO Windows7 ([Configuración](../../global/configuracion/windows.md)).
@@ -53,7 +53,7 @@ Comprobamos el acceso al recurso remoto:
 
 ---
 
-## 3. Clonación
+# 3. Clonación
 
 * Obtener una ISO de Clonezilla (Descargar ISO de Leela)
 * Iniciar la MV Windows7 con la distro Clonezilla.
@@ -71,7 +71,7 @@ Comprobamos que hay fichero de imagen en el servidor:
 * Tiene que estar la imagen de clonación hecha con Clonezilla.
 * En caso contrario, comprobar permisos de lectura/escritura del usuario del recurso compartido.
 
-## 4. Restauración
+# 4. Restauración
 
 Ahora vamos a restaurar.
 * Eliminar los ficheros clonados del Windows7 (file1-XX, file2-XX y file3-XX).
