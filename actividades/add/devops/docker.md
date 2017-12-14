@@ -96,7 +96,7 @@ y dentro instalaremos Nginx.
 docker images          # Vemos las imágenes disponibles localmente
 docker search debian   # Buscamos en los repositorios de Docker Hub
                        # contenedores con la etiqueta `debian`
-docker pull debian:8   # Descargamos contenedor `debian:8` en local
+docker pull debian:8   # Descargamos una imagen `debian:8` en local
 docker images
 docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
