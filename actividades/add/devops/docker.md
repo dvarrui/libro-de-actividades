@@ -72,6 +72,7 @@ Reiniciar el equipo para que se apliquen los cambios.
 
 Información sobre otros comandos útiles:
 
+* `docker stop CONTAINERID`, inicia un contenedor que estaba parado.
 * `docker start CONTAINERID`, inicia un contenedor que estaba parado.
 * `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
 * `docker rm CONTAINERID`, eliminar un contenedor.
@@ -79,12 +80,12 @@ Información sobre otros comandos útiles:
 
 ---
 
-# 5. Crear un contenedor manualmente
+# 5. Creación manual
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian8,
 y dentro instalaremos Nginx.
 
-## 5.1 Crear una imagen
+## 5.1 Crear una imagen manualmente
 
 * Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
 
@@ -171,7 +172,7 @@ docker rm IDcontenedor # Eliminamos el contenedor
 docker ps -a
 ```
 
-## 5.2 Crear contenedor
+## 5.2 Crear contenedor con Nginx
 
 Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 
@@ -260,17 +261,17 @@ CMD ["/root/server.sh"]
 > Los ficheros `server.sh` y `holamundo.html` que vimos en el apartado anterior,
 tienen que estar en el mismo directorio del fichero `Dockerfile`.
 
-## 6.3 Crear imagen
+## 6.3 Crear imagen desde el `Dockerfile`
 
 El fichero [Dockerfile](./files/Dockerfile) contiene la información
 necesaria para contruir el contenedor, veamos:
 
 ```
-cd /home/alumno/docker            # Entramos al directorio del Dockerfile
-docker images                     # Consultamos las imágenes disponibles
-docker build -t dvarrui/nginx2 .  # Construye imagen a partir del Dockefile
-                                  # OJO el punto es necesario
-docker images                     # Debe aparecer nuestra nueva imagen
+cd /home/nombre-del-alumno/dockerXX # Entramos al directorio del Dockerfile
+docker images                       # Consultamos las imágenes disponibles
+docker build -t dvarrui/nginx2 .    # Construye imagen a partir del Dockefile
+                                    # OJO el punto es necesario
+docker images                       # Debe aparecer nuestra nueva imagen
 ```
 
 ## 6.4 Crear contenedor y comprobar
