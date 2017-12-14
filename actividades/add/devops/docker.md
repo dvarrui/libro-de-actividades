@@ -102,7 +102,7 @@ docker ps              # Vemos sólo los contenedores en ejecución
 imagen `debian:8`, y ejecutaremos `/bin/bash`:
 
 ```
-docker run --name=mv_debian -i -t debian:8 /bin/bash
+docker run --name=con_debian -i -t debian:8 /bin/bash
 
 (Estamos dentro del contenedor)
 root@IDContenedor:/# cat /etc/motd            # Comprobamos que estamos en Debian
@@ -148,7 +148,7 @@ abrimos otra ventana de terminal y busquemos el IDContenedor:
 ```
 david@camaleon:~/devops> docker ps
 CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
-7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          mv_debian
+7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
 ```
 
 * Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
@@ -164,7 +164,7 @@ seguir el formato `nombreusuario/nombreimagen`.
 
 ```
 docker ps
-docker stop mv_debian  # Paramos el contenedor
+docker stop con_debian  # Paramos el contenedor
 docker ps
 docker ps -a           # Vemos el contenedor parado
 docker rm IDcontenedor # Eliminamos el contenedor
@@ -179,7 +179,7 @@ Bien, tenemos una imagen con Nginx instalado, probemos ahora la magia de Docker.
 ```
 docker ps
 docker ps -a
-docker run --name=mv_nginx -p 80 -t dvarrui/nginx /root/server.sh
+docker run --name=con_nginx -p 80 -t dvarrui/nginx /root/server.sh
 Booting Nginx!
 Waiting...
 ```
@@ -204,10 +204,10 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 * Paramos el contenedor y lo eliminamos.
 ```
 docker ps
-docker stop mv_nginx
+docker stop con_nginx
 docker ps
 docker ps -a
-docker rm mv_nginx
+docker rm con_nginx
 docker ps -a
 ```
 
@@ -231,7 +231,10 @@ docker ps -a
 
 ## 6.2 Preparar ficheros
 
-* Crear directorio `/home/nombre-alumno/dockerXX`, poner dentro los siguientes ficheros.
+* Crear directorio `/home/nombre-alumno/dockerXX`, poner dentro los siguientes ficheros:
+    * Dockerfile
+    * holamundo.html
+    * server.sh
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 ```
 FROM debian:8
@@ -272,12 +275,12 @@ docker images                     # Debe aparecer nuestra nueva imagen
 
 ## 6.4 Crear contenedor y comprobar
 
-* A continuación vamos a crear un contenedor con el nombre `mv_nginx2`,
+* A continuación vamos a crear un contenedor con el nombre `con_nginx2`,
 a partir de la imagen `dvarrui/nginx2`, y queremos que este contenedor
 ejecute el programa `/root/server.sh`.
 
 ```
-docker run --name mv_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
+docker run --name con_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 ```
 
 * Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha
@@ -345,4 +348,4 @@ Kubernetes (commonly referred to as "K8s") is an open source container cluster m
 >     * `autostart = true`
 >     * `autorestart = true`
 
->     * `docker run --name=mv_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/supervidord.conf`
+>     * `docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/supervidord.conf`
