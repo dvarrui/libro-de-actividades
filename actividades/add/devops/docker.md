@@ -212,6 +212,8 @@ Información sobre otros comandos útiles:
 
 * `docker start CONTAINERID`, inicia un contenedor que estaba parado.
 * `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
+* `docker rm CONTAINERID`, eliminar un contenedor.
+* `docker rmi IMAGENAME`, eliminar una imagen.
 
 ---
 
