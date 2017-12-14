@@ -93,7 +93,6 @@ docker images          # Vemos las imágenes disponibles localmente
 docker search debian   # Buscamos en los repositorios de Docker Hub
                        # contenedores con la etiqueta `debian`
 docker pull debian:8   # Descargamos contenedor `debian:8` en local
-docker pull opensuse
 docker images
 docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
@@ -140,14 +139,7 @@ Recordatorio:
 
 > Este script inicia el programa/servicio y entra en un bucle, para permanecer
 activo y que no se cierre el contenedor.
-> Más adelante cambiaremos este script por la herramienta `supervisor`
->
-> * `apt-get install -y supervisor`
-> * Crear fichero `/etc/supervisor/conf.d/nginx.conf`
-> * Incluir
->     * `[program:nginx]`
->     * `user = www-data`
->     * `command = /usr/sbin/nginx`
+> Más adelante cambiaremos este script por la herramienta `supervisor`.
 
 * Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos
 crear una nueva imagen con los cambios que hemos hecho, para esto
@@ -199,7 +191,6 @@ del contenedor, en nuestro caso el puerto 80 es el puerto por defecto
 sobre el cual se levanta Nginx.
 > * El script `server.sh`nos sirve para iniciar el servicio y permanecer en espera.
 Lo podemos hacer también con el prgorama `Supervisor`.
->     * `docker run --name=mv_nginx -p 80 -t dvarrui/nginx /usr/sbin/supervisor`
 
 * Abrimos una nueva terminal.
 * `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar
@@ -341,3 +332,17 @@ Kubernetes (commonly referred to as "K8s") is an open source container cluster m
 
 * https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
 * http://www.javiergarzas.com/2016/02/kubernetes-for-dummies-explicado-en-10-minutos.html
+
+
+## A.3 supervisord
+
+> * `apt-get install -y supervisor`
+> * Crear fichero `/etc/supervisor/conf.d/nginx.conf`
+> * Incluir
+>     * `[program:nginx]`
+>     * `user = www-data`
+>     * `command = /usr/sbin/nginx`
+>     * `autostart = true`
+>     * `autorestart = true`
+
+>     * `docker run --name=mv_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/supervidord.conf`
