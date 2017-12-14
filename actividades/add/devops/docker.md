@@ -282,7 +282,7 @@ docker images                     # Debe aparecer nuestra nueva imagen
 ## 6.4 Crear contenedor y comprobar
 
 * A continuación vamos a crear un contenedor con el nombre `mv_nginx2`,
-a partir de la imagen `dvarrui/nginx`, y queremos que este contenedor
+a partir de la imagen `dvarrui/nginx2`, y queremos que este contenedor
 ejecute el programa `/root/server.sh`.
 
 ```
