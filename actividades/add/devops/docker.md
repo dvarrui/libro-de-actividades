@@ -68,6 +68,15 @@ debemos editar el fichero `/etc/sysconfig/SuSEfirewall2` y poner `FW_ROUTE="yes"
 
 Reiniciar el equipo para que se apliquen los cambios.
 
+## 4.1 Más comandos
+
+Información sobre otros comandos útiles:
+
+* `docker start CONTAINERID`, inicia un contenedor que estaba parado.
+* `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
+* `docker rm CONTAINERID`, eliminar un contenedor.
+* `docker rmi IMAGENAME`, eliminar una imagen.
+
 ---
 
 # 5. Crear un contenedor manualmente
@@ -131,7 +140,14 @@ Recordatorio:
 
 > Este script inicia el programa/servicio y entra en un bucle, para permanecer
 activo y que no se cierre el contenedor.
-> Más adelante cambiaremos este script por la herramienta `supervisor`.
+> Más adelante cambiaremos este script por la herramienta `supervisor`
+>
+> * `apt-get install -y supervisor`
+> * Crear fichero `/etc/supervisor/conf.d/nginx.conf`
+> * Incluir
+>     * `[program:nginx]`
+>     * `user = www-data`
+>     * `command = /usr/sbin/nginx`
 
 * Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos
 crear una nueva imagen con los cambios que hemos hecho, para esto
@@ -183,6 +199,7 @@ del contenedor, en nuestro caso el puerto 80 es el puerto por defecto
 sobre el cual se levanta Nginx.
 > * El script `server.sh`nos sirve para iniciar el servicio y permanecer en espera.
 Lo podemos hacer también con el prgorama `Supervisor`.
+>     * `docker run --name=mv_nginx -p 80 -t dvarrui/nginx /usr/sbin/supervisor`
 
 * Abrimos una nueva terminal.
 * `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar
@@ -205,15 +222,6 @@ docker ps -a
 
 > Como ya tenemos una imagen docker, podemos crear nuevos contenedores
 cuando lo necesitemos.
-
-## 5.3 Más comandos
-
-Información sobre otros comandos útiles:
-
-* `docker start CONTAINERID`, inicia un contenedor que estaba parado.
-* `docker attach CONTAINERID`, conecta el terminal actual con el interior de contenedor.
-* `docker rm CONTAINERID`, eliminar un contenedor.
-* `docker rmi IMAGENAME`, eliminar una imagen.
 
 ---
 
