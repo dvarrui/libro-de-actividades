@@ -174,6 +174,8 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
+    * Si el fichero empaquetado contiene la ruta `home/rebelde2/mydocsXX` entonces
+    descomprimimos desde la raiz del sistema. Por ejemplo: `cd /` y luego `tar xvf ruta-al-fichero-backup home/rebelde2/mydocsXX/nombre-fichero`.
 
 ## 3.2 Comandos Windows
 
