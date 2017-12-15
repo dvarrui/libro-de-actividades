@@ -167,11 +167,11 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 
 Vamos a usar el  comando `tar` para lo siguiente:
 * Iniciar sesión con el usuario `rebelde2`.
-* Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`)
+* Crear copia de seguridad total del directorio `mydocsXX` (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`) .
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Eliminar el fichero `mapa-luke-skywalker.txt`.
-* Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz`.
+* Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
@@ -229,7 +229,7 @@ copias de seguridad.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
-* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz`
+* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
