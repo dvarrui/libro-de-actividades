@@ -343,13 +343,22 @@ Kubernetes (commonly referred to as "K8s") is an open source container cluster m
 
 ## A.3 supervisord
 
-> * `apt-get install -y supervisor`
-> * Crear fichero `/etc/supervisor/conf.d/nginx.conf`
-> * Incluir
->     * `[program:nginx]`
->     * `user = www-data`
->     * `command = /usr/sbin/nginx`
->     * `autostart = true`
->     * `autorestart = true`
+Dentro del contenedor:
+* Instalar el supervidor `apt-get install -y supervisor`
+* Crear una configuración personalizado para Nginx con Supervidor. Crear `/etc/supervisor/conf.d/supervisord.conf` con el siguiente contenido:
+```
+[supervidord]
+nodaemon=true
 
->     * `docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/supervidord.conf`
+[program:nginx]
+command = /usr/sbin/nginx -g "daemon off;"
+user = www-data
+autorestart = true
+stdout_logfile = /dev/stdout
+stdout_logfile_maxbytes = 0
+stderr_logfile = /dev/stderr
+stderr_logfile_maxbytes = 0
+```
+* Hacemos la imagen dvarrui/nginx.
+En la máquina real podemos invocar de la siguiente forma:
+* `docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervidord.conf`
