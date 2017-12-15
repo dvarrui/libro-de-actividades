@@ -1,7 +1,3 @@
-```
-* Actividad creada en curso1415
-* Utilizada en los cursos 1516 y 1617
-```
 
 # Copias de Seguridad
 
