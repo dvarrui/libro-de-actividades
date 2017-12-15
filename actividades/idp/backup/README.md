@@ -172,10 +172,15 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Eliminar el fichero `mapa-luke-skywalker.txt`.
 * Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
-* Usar comando tar para consultar el contenido del fichero anterior.
-* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
-    * Si el fichero empaquetado contiene la ruta `home/rebelde2/mydocsXX` entonces
+* Usar comando tar para consultar el contenido del fichero anterior. Fijarse bien en
+la ruta del archivo.
+
+> * Si el fichero a restaurar contiene la ruta `home/rebelde2/mydocsXX` entonces
     descomprimimos desde la raiz del sistema. Por ejemplo: `cd /` y luego `tar xvf ruta-al-fichero-backup home/rebelde2/mydocsXX/nombre-fichero`.
+> * Si el fichero empaquetado contiene la ruta `mydocsXX` entonces descomprimimos desde `/home/rebelde2`.
+
+* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1)
+en su ubicación original.
 
 ## 3.2 Comandos Windows
 
