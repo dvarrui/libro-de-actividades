@@ -169,10 +169,10 @@ Vamos a usar el  comando `tar` para lo siguiente:
 * Crear copia de seguridad total (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`)
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
-* Añadir una línea al fichero `mapa-luke-skywalker.txt` con el texto `Han Solo ha muerto`.
+* Eliminar el fichero `mapa-luke-skywalker.txt`.
 * Crear copia `/srv/backupXX/rebelde2/AAAAMMDD-N2-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Eliminar el archivo `mapa-luke-skywalker.txt` original.
+
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ## 3.2 Comandos Windows
@@ -229,10 +229,9 @@ copias de seguridad.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
-* Añadir una línea al fichero `plano-estrella-muerte.txt` con el texto `Fallo detectado`.
+* Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz`
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ---
