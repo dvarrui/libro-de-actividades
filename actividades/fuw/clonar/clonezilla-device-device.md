@@ -18,6 +18,7 @@ de pantalla/fotos de los pasos realizados.
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
     * Añadir disco duro con el nombre `target-nombrealumnoXX.vdi`.
+* Capturar imagen con los tamaños de los dicos VirtualBox.
 * Descargar la ISO con Clonezilla del servidor Leela
 (Descargar la más reciente).
 
