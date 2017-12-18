@@ -37,6 +37,7 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * `device-device`
 * `Beginner`
 * `disco-local a disco-local`
+* `Elegir reiniciar/apagar/etc cuando esté todo terminado`
 * Capurar imagen del comando con parámetros que aparece en la consola antes de
 confirmar del inicio del proceso.
 * Consultar archivo `/tmp/ocs-onthefly-...`. Este fichero contiene el comando y los parámetros necesarios para realizar la tarea de clonación.
@@ -45,9 +46,10 @@ confirmar del inicio del proceso.
 
 # 4. Comprobamos
 
-* Quitamos el disco `clonado` e iniciamos el sistema.
+* Quitamos el disco `clonado`. Capturar imagen VBox de los discos.
+* Iniciar el sistema.
 * Crear archivo `/home/profesor/Documentos/disco-original.txt`.
-* Quitamos el disco `original`, añadimos el disco `clonado`
+* Quitamos el disco `original`, añadimos el disco `clonado`. Capturar imagen VBox de los discos.
 * Iniciamos el sistema.
 * Comprobamos que no están los archivos que habíamos creado.
 
