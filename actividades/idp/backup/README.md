@@ -235,7 +235,7 @@ copias de seguridad.
 * Iniciar Cygwin.
 * Cambiar al directorio `/cygdrive/c/Users/soldado2`.
 * Crear una copia de seguridad total del directorio `mydocsXX` del usuario
-`nombre-alumno2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-total.tar.gz`.
+`soldado2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
