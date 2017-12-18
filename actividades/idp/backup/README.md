@@ -151,6 +151,7 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 * `tar -xvf ...`: Extrae el contenido del fichero empaquetado.
 * `tar -xvf ... --directory /dir2`: Extrae el contenido del fichero empaquetado en dir2.
 * `tar -xvf ... -C /dir2`: Extrae el contenido del fichero empaquetado en dir2.
+* `tar -xvf backup.tar -C /dir2 archivo`: Extrae un archivo del fichero empaquetado en el directorio dir2.
 * `tar -acvf ...`: Crear fichero empaquetado y comprimido.
 * `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
 * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
