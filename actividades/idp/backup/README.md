@@ -206,7 +206,8 @@ Esto es, usando los comandos tar y gzip.
 
 ### Instalación de Cygwin
 
-Instalar software [Cygwin](https://www.cygwin.com) en W7:
+* Descargar software [Cygwin](https://www.cygwin.com) para Windows 7.
+* Instalar software con las siguientes opciones.
 * `Install from Internet`
 * Root directory: `C:\cygwin`
 * Local Packages: `valor por defecto`
