@@ -167,6 +167,7 @@ Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o in
 
 Vamos a usar el  comando `tar` para lo siguiente:
 * Iniciar sesión con el usuario `rebelde2`.
+* Asegurarse de que estamos en el directorio `/home/rebelde2`
 * Crear copia de seguridad total del directorio `mydocsXX` (`/srv/backupXX/rebelde2/AAAAMMDD-N1-total.tar.gz`) .
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
@@ -231,6 +232,7 @@ de la carpeta `mydocsXX` del usuario `soldado2`.
 * Crear el directorio local `c:\backupXX\soldado2` que va a almacenar las
 copias de seguridad.
 * Iniciar Cygwin.
+* Cambiar al directorio `/cygdrive/c/Users/soldado2`.
 * Crear una copia de seguridad total del directorio `mydocsXX` del usuario
 `nombre-alumno2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
