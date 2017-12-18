@@ -352,7 +352,7 @@ nodaemon=true
 
 [program:nginx]
 command = /usr/sbin/nginx -g "daemon off;"
-user = www-data
+username = www-data
 autorestart = true
 stdout_logfile = /dev/stdout
 stdout_logfile_maxbytes = 0
@@ -360,5 +360,5 @@ stderr_logfile = /dev/stderr
 stderr_logfile_maxbytes = 0
 ```
 * Hacemos la imagen dvarrui/nginx.
-En la máquina real podemos invocar de la siguiente forma:
-* `docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervidord.conf`
+* En la máquina real podemos invocar el contenedor de la siguiente forma:
+`docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervidord.conf`
