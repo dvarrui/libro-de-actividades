@@ -55,7 +55,9 @@ confirmar del inicio del proceso.
 
 ---
 
-# ANEXO BootEFI, fstab y los UUID
+# ANEXO
+
+Información sobre BootEFI, fstab y los UUID
 
 ## A.1 Modificar UUID en el fichero fstab
 
@@ -96,11 +98,7 @@ http://xarx.es/deries/2013/02/21/clonezilla-clonando-disco-o-particiones-al-vuel
 
 * Reconfigurar el Grub2 cuando tenemos MV EFI.
 
-## A.5 virtualbox
-
-Comandos de virtual box para comprobar la configuración de la MV.
-
-## A.6 Clonazilla
+## A.5 Clonezilla
 
 * `/usr/sbin/ocs-onthefly -g auto -e1 auto -e2 -r -j2 -f sda -t sdb`, clonar disco
 sda en disco sdb.
