@@ -328,20 +328,7 @@ pararlos y/o destruirlos.
 
 # ANEXO
 
-## A.1 Enlaces de interés
-
-* [Docker for beginners](http://prakhar.me/docker-curriculum/)
-* [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
-
-## A.2 Kubernetes
-
-Kubernetes (commonly referred to as "K8s") is an open source container cluster manager originally designed by Google and donated to the Cloud Native Computing Foundation. It aims to provide a "platform for automating deployment, scaling, and operations of application containers across clusters of hosts".[3] It usually works with the Docker container tool and coordinates between a wide cluster of hosts running Docker.
-
-* https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
-* http://www.javiergarzas.com/2016/02/kubernetes-for-dummies-explicado-en-10-minutos.html
-
-
-## A.3 supervisord
+## A.1 supervisord
 
 Dentro del contenedor:
 * Instalar el supervidor `apt-get install -y supervisor`
@@ -362,3 +349,15 @@ stderr_logfile_maxbytes = 0
 * Hacemos la imagen dvarrui/nginx.
 * En la máquina real podemos invocar el contenedor de la siguiente forma:
 `docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervidord.conf`
+
+## A.2 Enlaces de interés
+
+* [Docker for beginners](http://prakhar.me/docker-curriculum/)
+* [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
+
+## A.3 Kubernetes
+
+Kubernetes (commonly referred to as "K8s") is an open source container cluster manager originally designed by Google and donated to the Cloud Native Computing Foundation. It aims to provide a "platform for automating deployment, scaling, and operations of application containers across clusters of hosts".[3] It usually works with the Docker container tool and coordinates between a wide cluster of hosts running Docker.
+
+* https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
+* http://www.javiergarzas.com/2016/02/kubernetes-for-dummies-explicado-en-10-minutos.html
