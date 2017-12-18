@@ -213,7 +213,7 @@ Esto es, usando los comandos tar y gzip.
 * Local Packages: `valor por defecto`
 * `Direct Connection`
 * `Choose a download site`
-* Select packages: `base/tar, archive/zip, base/gzip ,net/rsync, net/openssh`.
+* Select packages: `base/tar, base/gzip, archive/zip,  utils/tree, net/rsync, net/openssh`.
 
 ![./images/cygwin-packages.png](./images/cygwin-packages.png)
 
@@ -242,7 +242,7 @@ copias de seguridad.
 * Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1) (No usar --directory).
- 
+
 ---
 
 # ANEXO
