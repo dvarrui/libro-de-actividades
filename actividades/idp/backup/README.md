@@ -181,7 +181,7 @@ la ruta del archivo.
 > * Si el fichero empaquetado contiene la ruta `mydocsXX` entonces descomprimimos desde `/home/rebelde2`.
 
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1)
-en su ubicación original.
+en su ubicación original (No usar --directory).
 
 ## 3.2 Comandos Windows
 
@@ -241,8 +241,8 @@ copias de seguridad.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
-
+* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1) (No usar --directory).
+ 
 ---
 
 # ANEXO
