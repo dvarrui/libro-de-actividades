@@ -332,7 +332,7 @@ pararlos y/o destruirlos.
 
 Dentro del contenedor:
 * Instalar el supervidor `apt-get install -y supervisor`
-* Crear una configuración personalizado para Nginx con Supervidor. Crear `/etc/supervisor/conf.d/docker.conf` con el siguiente contenido:
+* Crear una configuración personalizado para Nginx con Supervidor. Crear `/etc/supervisor/conf.d/supervisord.conf` con el siguiente contenido:
 ```
 [supervisord]
 nodaemon=true
@@ -348,7 +348,7 @@ stderr_logfile_maxbytes = 0
 ```
 * Hacemos la imagen dvarrui/nginx.
 * En la máquina real podemos invocar el contenedor de la siguiente forma:
-`docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/docker.conf`
+`docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf`
 
 ## A.2 Enlaces de interés
 
