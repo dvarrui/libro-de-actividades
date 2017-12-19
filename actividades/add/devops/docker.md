@@ -273,7 +273,7 @@ necesaria para contruir el contenedor, veamos:
 cd /home/nombre-del-alumno/dockerXX # Entramos al directorio del Dockerfile
 docker images                       # Consultamos las imágenes disponibles
 docker build -t dvarrui/nginx2 .    # Construye imagen a partir del Dockefile
-                                    # OJO el punto es necesario
+                                    # ¡¡¡OJO el punto final es necesario!!!
 docker images                       # Debe aparecer nuestra nueva imagen
 ```
 
