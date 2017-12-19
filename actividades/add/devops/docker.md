@@ -284,7 +284,7 @@ a partir de la imagen `dvarrui/nginx2`, y queremos que este contenedor
 ejecute el programa `/root/server.sh`.
 
 ```
-docker run --name con_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
+docker run --name=con_nginx2 -p 80 -t dvarrui/nginx2 /root/server.sh
 ```
 
 * Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha
