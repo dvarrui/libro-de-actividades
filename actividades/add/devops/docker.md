@@ -305,7 +305,7 @@ del servidor Nginx.
 
 Crear un imagen de contenedor:
 * `docker ps`, muestra los contenedores que tengo en ejecución.
-* `docker commit -p CONTAINERID container-backup`, grabar una imagen de nombre "container-backup" a partir del contenedor CONTAINERID.
+* `docker commit -p CONTAINERID containerXX-backup`, grabar una imagen de nombre "containerXX-backup" a partir del contenedor CONTAINERID.
 * `docker images`comprobar que se ha creado la imagen "container-backup".
 
 Exportar imagen docker a fichero:
@@ -334,7 +334,7 @@ Dentro del contenedor:
 * Instalar el supervidor `apt-get install -y supervisor`
 * Crear una configuración personalizado para Nginx con Supervidor. Crear `/etc/supervisor/conf.d/supervisord.conf` con el siguiente contenido:
 ```
-[supervidord]
+[supervisord]
 nodaemon=true
 
 [program:nginx]
@@ -348,7 +348,7 @@ stderr_logfile_maxbytes = 0
 ```
 * Hacemos la imagen dvarrui/nginx.
 * En la máquina real podemos invocar el contenedor de la siguiente forma:
-`docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervidord.conf`
+`docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf`
 
 ## A.2 Enlaces de interés
 
