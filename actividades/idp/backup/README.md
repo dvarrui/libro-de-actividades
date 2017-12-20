@@ -124,8 +124,8 @@ y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 
 * Iniciar sesión con el usuario `rebelde2`.
 * Crear en dos archivos de texto:
-    * `/home/rebelde2/mydocs/manual-xwing.txt`
-    * `/home/rebelde2/mydocs/mapa-luke-skywalker.txt`
+    * `/home/rebelde2/mydocsXX/manual-xwing.txt`
+    * `/home/rebelde2/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -146,16 +146,23 @@ las copias de seguridad que vayamos realizando de momento.
 
 Vamos a usar el  comando `tar` para resolver este apartado. Consultar pdf y/o internet.
 
+Crear backup:
 * `tar -cvf ...`: Crear fichero empaquetado.
+* `tar -acvf ...`: Crear fichero empaquetado y comprimido.
+
+Consultar contenido del backup:
 * `tar -tvf ...`: Muestra el contenido del fichero empaquetado.
+* `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
+
+Extraer uno o varios ficheros del backup:
 * `tar -xvf ...`: Extrae el contenido del fichero empaquetado.
 * `tar -xvf ... --directory /dir2`: Extrae el contenido del fichero empaquetado en dir2.
 * `tar -xvf ... -C /dir2`: Extrae el contenido del fichero empaquetado en dir2.
 * `tar -xvf backup.tar --directory /dir2 archivo`: Extrae un archivo del fichero empaquetado en el directorio dir2.
 * `tar -xvf backup.tar -C /dir2 archivo`: Extrae un archivo del fichero empaquetado en el directorio dir2.
-* `tar -acvf ...`: Crear fichero empaquetado y comprimido.
-* `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
 * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
+
+Varios:
 * `date +%Y%m%y`: Muestra la fecha en formato AAAAMMDD
 * `gzip ...`: Comando para hcer la compresión en formato gz.
 * `zip ...`: Comando para hacer la compresión en formato zip.
@@ -183,7 +190,7 @@ la ruta del archivo.
 > * Si el fichero empaquetado contiene la ruta `mydocsXX` entonces descomprimimos desde `/home/rebelde2`.
 
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1)
-en su ubicación original (No usar --directory).
+en su ubicación original.
 
 ## 3.2 Comandos Windows
 
@@ -240,10 +247,11 @@ copias de seguridad.
 `soldado2` con el nombre `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N1-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
+Si el directorio `temp` no existe habrá que crearlo.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1) (No usar --directory).
+* Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
 ---
 
