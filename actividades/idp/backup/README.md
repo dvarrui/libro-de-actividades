@@ -257,14 +257,7 @@ Si el directorio `temp` no existe habrá que crearlo.
 
 # ANEXO
 
-## A.1 Windows XP
-
-* En el caso de trabajar con WXP podremos hacer la copia de seguridad directamente en
-una carpeta local de la propia máquina.
-* Windows XP proporciona el comando "ntbackup" para hacer copias de seguridad.
-* Veamos un ejemplo: `ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backupXX\alumno2\backup.bkf /V:yes`
-
-## A.2 Windows 7
+## A.1 Windows 7
 
 * En este SO nos obliga a que la copia de seguridad se realice en un almacenamiento externo.
 Para ello podemos crear la carpeta `c:\backupXX`, y la compartimos por la red.
@@ -277,7 +270,7 @@ realizar el backup en este 2º disco.
 información de usuario/clave. Ésta queda guardada hasta un nuevo inicio de sesión.
 Podemos limpiar estos datos ejecutando el comando `net use /d *`.
 
-## A.3 Windows 2008 Server
+## A.2 Windows 2008 Server
 
 Si necesitamos hacer copias de seguridad en Windows Server necesitamos instalar dicha herramienta.
 Para ello hay que instalar la característica `Copias de seguridad` (Ver imagen):
@@ -286,6 +279,13 @@ Para ello hay que instalar la característica `Copias de seguridad` (Ver imagen)
 
 Windows7/2008server proporciona el comando "wbadmin" para manejar copias de seguridad.
 * Abrimos consola (cmd) con el usuario administrador.
-* Ejecutamos "wbadmin get versions", para comprobar que funciona.
-* Ejemplo de copia parcial: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:\Users\Alumno1\*"
-* Ejemplo de copia total: "wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:"
+* Ejecutamos `wbadmin get versions`, para comprobar que funciona.
+* Ejemplo de copia parcial: `wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:\Users\Alumno1\*`
+* Ejemplo de copia total: `wbadmin start backup -backupTarget:\vargas1\backup\alumno1 -include:c:`
+
+## A.3 Windows XP
+
+* En el caso de trabajar con WXP podremos hacer la copia de seguridad directamente en
+una carpeta local de la propia máquina.
+* Windows XP proporciona el comando "ntbackup" para hacer copias de seguridad.
+* Veamos un ejemplo: `ntbackup backup "C:\Documents and Settings\alumno2" /F C:\backupXX\alumno2\backup.bkf /V:yes`
