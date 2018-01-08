@@ -43,7 +43,6 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-* El sistema de arranque va en el disco (a).
 
 Para hacer el RAID-0:
 * Crear partición completa para el disco (b) y (c).
@@ -72,6 +71,7 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
 ![raid0-particionado](./images/raid0-particionado.png)
 
+* El sistema de arranque va en el disco (a).
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
 * Replica de red -> Sí.
 * Proxy -> Vacío.
@@ -106,7 +106,7 @@ Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1
 ## 2.1 Preparar la MV
 
 > **NOTA**
-> * Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
+> * Las máquinas reales (y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
 > * Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
 
 Realizar las siguientes tareas:
@@ -122,7 +122,7 @@ Realizar las siguientes tareas:
 > * [Por qué aparece /dev/md127 en lugar de /dev/md1](https://www.enmimaquinafunciona.com/pregunta/32104/por-que-mi-raid-devmd1-mostrando-como-devmd126-es-mdadmconf-ser-ignorado)
 
 * Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get install mdadm`.
-* Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`.
+* Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`. Comprobarlo.
 
 Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
@@ -191,10 +191,10 @@ Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticament
 
 ---
 
-# 3. Quitar disco y probar
+# 3. Quitar un disco y probar
 
 * Apagamos la MV.
-* Quitar en VirtualBox uno de los discos del raid1 (`/dev/sdd`).
+* Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
 * Volver a poner el disco en la MV, reiniciar.
 
@@ -225,13 +225,11 @@ cat /etc/mdadm/mdadm.conf
 
 * Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
 para implementar RAID5.
-
-En windows las particiones se llaman volúmenes básicos.
-
-Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
-* Reflejo: RAID1
-* Seccionado: RAID0 con todos los discos de igual tamaño.
-* Distribuido: parecido a RAID0 usando discos de distinto tamaño.
+* En windows las particiones se llaman volúmenes básicos.
+* Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
+    * Reflejo: RAID1
+    * Seccionado: RAID0 con todos los discos de igual tamaño.
+    * Distribuido: similar a RAID0 pero puede usar discos de distinto tamaño.
 
 ## 4.1 Volumen Seccionado (RAID0)
 
@@ -239,7 +237,8 @@ Vamos a crear un volumen *seccionado*:
 * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
-* Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros virtuales de 200 MB cada uno.
+* Añadir 4 discos duros virtuales de 200 MB cada uno a la MV.
+* Crea un volumen seccionado con un tamaño total de 800MB, utilizando para ello 4 discos duros virtuales de 200 MB cada uno.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
