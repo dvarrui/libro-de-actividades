@@ -37,12 +37,6 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 * Vamos a instalar GNU/Linux Debian.
 * Los discos (b) y (c), van a formar un RAID-0.
 
-> Para hacer el RAID-0:
-> * Elegimos formato tipo RAID en los discos (b) y (c).
-> * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos
-hacer un raid0, con los discos (b) y (c).
-> * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
-
 ## 1.2 Particionado e instalación
 
 * Empezamos el proceso de instalación.
@@ -54,6 +48,12 @@ hacer un raid0, con los discos (b) y (c).
 * La partición `/boot`, va en el disco (a). Los ficheros que inician el SO
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 * El sistema de arranque va en el disco (a).
+
+Para hacer el RAID-0:
+* Elegimos formato tipo RAID en los discos (b) y (c).
+* Luego debemos ir a `Configuración RAID software`, y elegimos que queremos
+hacer un raid0, con los discos (b) y (c).
+* Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
 * Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
 Dentro de esta partición vamos a instalar el sistema operativo.
 
