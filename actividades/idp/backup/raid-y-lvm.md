@@ -1,5 +1,5 @@
 
-#Combinar RAID y LVM
+# Combinar RAID y LVM
 
 Vamos a combinar RAID con LVM.
 
