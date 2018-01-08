@@ -50,10 +50,13 @@ van en una partición aparte sin RAID, para evitar problemas en el boot del sist
 * El sistema de arranque va en el disco (a).
 
 Para hacer el RAID-0:
-* Elegimos formato tipo RAID en los discos (b) y (c).
+* Crear partición completa para el disco (b) y (c).
+* Formatear la partición como tipo RAID.
 * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos
 hacer un raid0, con los discos (b) y (c).
-* Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
+
+> Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
+
 * Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
 Dentro de esta partición vamos a instalar el sistema operativo.
 
