@@ -1,8 +1,4 @@
 
-```
-* Ejecuta en los cursos 201314, 201415, y 201516.
-```
-
 # 1. Instalar SO en RAID-0 software
 
 Vamos a instalar un sistema operativo Debian sobre unos discos con RAID-0 software.
