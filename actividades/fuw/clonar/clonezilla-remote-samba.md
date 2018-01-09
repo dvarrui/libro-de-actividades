@@ -33,7 +33,7 @@ Necesitaremos 2 máquinas virtuales:
 
 ## 2.2 Preparar la MV2
 
-* Crear el usuario `nombre-del-alumno`.
+* Crear el usuario `nombre-del-alumno` y poner una clave (No dejar clave vacía).
 * Añadir un 2º disco de la MV Windows Server de 1GB.
 * Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
     * Elegir MBR.
@@ -54,9 +54,9 @@ Vamos a configurar dicha carpeta como recurso compartido de red:
 Comprobamos el acceso al recurso remoto:
 * Vamos al equipo Windows7.
 * Explorador de archivos -> Accedemos al recurso compartido `\\172.19.XX.21\\imagenesXX`
-* Para autenticarnos ponemos usuario/clave que hayamos creado en el servidor.
-* A modo de prueba escribir un archivo de texto en dicho recurso.
-* Si funciona, pasamos al siguiente apartado.
+* Para autenticarnos ponemos usuario/clave que hemos creado en el servidor (`nombre-del-alumno`).
+* Crear un archivo de texto en dicho recurso para comprobar que tenemos permisos de escritura.
+* Si funciona, pasamos al siguiente apartado. En caso contrario, revisar los permisos.
 
 ---
 
