@@ -71,6 +71,8 @@ Comprobamos que hay fichero de imagen en el servidor:
 # 4. Restauración
 
 Ahora vamos a restaurar.
+* Capturar imagenes de los pasos que vamos a realizar.
 * Eliminar los ficheros clonados del Windows7 (file1-XX, file2-XX y file3-XX).
-* Realizar el proceso de restauración de la imagen creada en el recurso compartido SMB/CIFS.
+* Realizar el proceso de restauración de la imagen (creada en el recurso compartido SMB/CIFS)
+para recuperar los ficheros eliminados.
 * Comprobar que se han restaurado los ficheros que se esperaban.
