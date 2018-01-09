@@ -40,6 +40,8 @@ Necesitaremos 2 máquinas virtuales:
     * Asignar letra de unidad `E:`
     * Formatear el 2º disco (1GB) NTFS.
 * Crear una carpeta `E:\sambaXX`.
+    * El usuario `nombre-del-alumno` tiene que tener permisos de lectura/escritura sobre
+    esta carpeta.
 
 Vamos a configurar dicha carpeta como recurso compartido de red:
 * Botón derecho sobre la carpeta -> Compartir.
