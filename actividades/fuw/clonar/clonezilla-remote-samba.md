@@ -23,7 +23,9 @@ Necesitaremos 2 máquinas virtuales:
 * Añadir un 2º disco de la MV Windows7 de 100MB.
 * Iniciar la MV Windows7.
 * Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
-* Formatear el 2º disco (100MB) NTFS.
+    * Elegir MBR.
+    * Asignar letra de unidad `E:`
+    * Formatear el 2º disco (100MB) NTFS.
 * Grabar en dicho disco:
     * Un fichero de texto (`file1-XX`).
     * Una imagen (`file2-XX`).
@@ -34,7 +36,9 @@ Necesitaremos 2 máquinas virtuales:
 * Crear el usuario `nombre-del-alumno`.
 * Añadir un 2º disco de la MV Windows Server de 1GB.
 * Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
-* Formatear el 2º disco (1GB) NTFS.
+    * Elegir MBR.
+    * Asignar letra de unidad `E:`
+    * Formatear el 2º disco (1GB) NTFS.
 * Crear una carpeta `E:\sambaXX`.
 * Establecer dicha carpeta la como recurso compartido de red con el nombre `imagenesXX`.
 * Dicho recurso compartido debe estar en modo lectura/escritura para el usuario `nombre-del-alumno`.
