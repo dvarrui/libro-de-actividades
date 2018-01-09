@@ -40,7 +40,11 @@ Necesitaremos 2 máquinas virtuales:
     * Asignar letra de unidad `E:`
     * Formatear el 2º disco (1GB) NTFS.
 * Crear una carpeta `E:\sambaXX`.
-* Establecer dicha carpeta la como recurso compartido de red con el nombre `imagenesXX`.
+
+Vamos a configurar dicha carpeta como recurso compartido de red:
+* Botón derecho sobre la carpeta -> Compartir.
+* Uso compartido avanzado.
+* Poner `imagenesXX` como nombre del recurso compartido.
 * Dicho recurso compartido debe estar en modo lectura/escritura para el usuario `nombre-del-alumno`.
 
 ## 2.3 Comprobar el recurso de red
