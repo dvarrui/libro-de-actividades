@@ -73,7 +73,7 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
 * El sistema de arranque va en el disco (a).
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
-* Replica de red -> Sí.
+* Replica de red -> Sí. Elegir una cualquiera.
 * Proxy -> Vacío.
 
 ## 1.3 Comprobación
@@ -147,16 +147,16 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 
 ## 2.3 Escribir datos en el RAID-1
 
-* Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
+* Vamos a montar el dispositivo RAID-1 (/dev/md1) en el directorio /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
 * Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
 
 > Ahora podemos escribir información en /mnt/raid1.
 
 * Crea lo siguiente en /mnt/raid1
-    * Directorio `/mnt/raid1/naboo`
-    * Fichero `/mnt/raid1/naboo/yoda.txt`
-    * Directorio `/mnt/raid1/endor`
-    * Fichero `/mnt/raid1/endor/sandtrooper.txt`
+    * Directorio `/mnt/raid1/nabooXX`
+    * Fichero `/mnt/raid1/nabooXX/yoda.txt`
+    * Directorio `/mnt/raid1/endorXX`
+    * Fichero `/mnt/raid1/endorXX/sandtrooper.txt`
 
 ## 2.4 Configuración de RAID-1
 
@@ -180,7 +180,7 @@ Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiend
 
 * `sudo update-initramfs -u`, tenemos que actualizir el fichero initramfs, de modo que contenga las configuraciones actualizadas de nuestro fichero `mdadm.conf` durante el arranque.
 * Reiniciar la MV. Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
-* `cat /proc/mdstat`, comprobamos que el sistema ha detectado bien los dispositivos raid.
+* `cat /proc/mdstat`, comprobamos que el sistema ha detectado bien los dispositivos RAID.
 
 ## 2.5 Montaje automático
 
@@ -210,7 +210,7 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
 * `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
-* `mdadm /dev/md1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
+* `mdadm /dev/md1 --manage --add /dev/sde`, añadimos el disco que habíamos quitado.
 * `mdadm --detail /dev/md1`, comprobamos que están los dos.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
