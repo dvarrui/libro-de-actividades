@@ -165,11 +165,13 @@ Vamos a configurar `mdadm.conf` para que RAID1 mantenga su configuración con ca
 
 * Hacer un snapshot de la MV por seguridad.
 * Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
-* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
-* Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
-La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
-* `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
-* Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
+* Consultar el contenido del fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene (de momento) una línea ARRAY correspondiente al RAID0.
+
+Vamos a añadir una segunda línea ARRAY para el RAID1.
+* Ejecutamos el comando `mdadm --examine --scan`. La información que nos muestra
+sobre RAID1 la debemos usar para incluirla nosotros en el fichero de configuración.
+* Otra forma de hacerlo es `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
+* Ahora hay que editar el fichero de configuración para dejar sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
 
 > **Redirección**
 >
