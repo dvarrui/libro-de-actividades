@@ -18,23 +18,22 @@ o 3 discos IDE y 1 unidad de cdrom.
 en nuestra máquina.
 
 Crear una máquina virtual nueva:
-* con 1 interfaz de red en modo puente.
-* con 3 discos virtuales SATA:
-    * (a) 100MB,
+* Con 1 interfaz de red en modo puente.
+* Comprobar que la unidad óptica debe estar en el controlador IDE.
+* Con 3 discos virtuales en el controlador SATA:
+    * (a) 100MB
     * (b) 4GB
-    * (c) 4GB.
-
+    * (c) 4GB
 Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 
 ![virtualbox-discos](./images/virtualbox-discos.png)
 
 ![raid-debian-01.png](./images/raid-debian-01.png)
 
-* Vamos a instalar GNU/Linux Debian.
-* Los discos (b) y (c), van a formar un RAID-0.
-
 ## 1.2 Particionado e instalación
 
+En los siguientes pasos vamos a instalar GNU/Linux Debian, donde los discos
+(b) y (c), van a formar un RAID-0.
 * Empezamos el proceso de instalación.
 * Elegimos particionado manual.
 
@@ -52,8 +51,7 @@ hacer un raid0, con los discos (b) y (c).
 
 > Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
 
-* Dentro del dispositivo `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
-Dentro de esta partición vamos a instalar el sistema operativo.
+* Dentro del dispositivo `/dev/md0`(RAID-0) vamos a crear una partición que coja el RAID0 completo. Dentro de esta partición vamos a instalar el sistema operativo.
 
 Veamos una secuencia de imágenes de ejemplo:
 
@@ -98,8 +96,9 @@ lsblk -fm
 
 > **IMPORTANTE**
 > * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
-> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV
-cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
+> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV porque al reiniciar
+se pueden perder los cambios realizados.
+> * Sólo se puede apagar la MV cuando terminen el punto 2.4.
 
 Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
 
@@ -208,8 +207,10 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
 * `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
+* Aun habiendo quitado uno de los discos del RAID1 la información sigue estando
+disponible. Comprobamos `tree /mnt/raid1`
 * `mdadm /dev/md1 --manage --add /dev/sde`, añadimos el disco que habíamos quitado.
-* `mdadm --detail /dev/md1`, comprobamos que están los dos.
+* `mdadm --detail /dev/md1`, comprobamos que están los dos discos del RAID-1.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 ```
@@ -227,22 +228,27 @@ cat /etc/mdadm/mdadm.conf
 
 # 4. Discos dinámicos en Windows
 
-* Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
+* Haremos esta parte con MV Windows Server, para asegurarnos de que tenga soporte
 para implementar RAID5.
 * En windows las particiones se llaman volúmenes básicos.
-* Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
+* Para poder hacer RAID debemos convertir los volúmenes básicos en dinámicos.
+* Equivalencias:
     * Reflejo: RAID1
     * Seccionado: RAID0 con todos los discos de igual tamaño.
     * Distribuido: similar a RAID0 pero puede usar discos de distinto tamaño.
 
 ## 4.1 Volumen Seccionado (RAID0)
 
-Vamos a crear un volumen *seccionado*:
-* Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
-* Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
+Un volumen *seccionado* es similar a un RAID0.
 
+> Enlaces de interés:
+>
+> * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
+> * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
+
+Vamos a crear un volumen *seccionado*.
 * Añadir 4 discos duros virtuales de 200 MB cada uno a la MV.
-* Crea un volumen seccionado con un tamaño total de 800MB, utilizando para ello 4 discos duros virtuales de 200 MB cada uno.
+* Crea un volumen seccionado con un tamaño total de 800MB, utilizando para ello los 4 discos.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
@@ -256,6 +262,7 @@ Un volumen *Reflejado* es similar a un RAID1.
 > * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA).
 > * Web sobre [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985).
 
+Vamos a crear un volumen *reflejado*:
 * Crea un par de volúmenes reflejados de 200MB cada uno, con los discos anteriormente utilizados.
 * Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
