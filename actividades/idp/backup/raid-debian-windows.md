@@ -71,10 +71,10 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 
 ![raid0-particionado](./images/raid0-particionado.png)
 
-* El sistema de arranque va en el disco (a).
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/debian.md) de MV Debian.
-* Replica de red -> Sí. Elegir una cualquiera.
-* Proxy -> Vacío.
+    * Replica de red -> Sí. Elegir una cualquiera.
+    * Proxy -> Vacío.
+    * El sistema de arranque va en el disco (a).
 
 ## 1.3 Comprobación
 
