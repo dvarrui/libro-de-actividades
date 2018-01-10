@@ -105,10 +105,6 @@ Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1
 
 ## 2.1 Preparar la MV
 
-> **NOTA**
-> * Las máquinas reales (y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
-> * Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
-
 Realizar las siguientes tareas:
 * Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
 * Reiniciar la MV
