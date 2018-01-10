@@ -194,6 +194,8 @@ Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticament
 ```
 /dev/md1 /mnt/raid1 ext4 defaults 0 2
 ```
+* Para comprobar, reiniciamos la MV y ejecutamos `df -hT`. Debe aparecer montado el
+dispositivo RAID1.
 
 ---
 
