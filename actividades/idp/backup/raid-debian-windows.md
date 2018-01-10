@@ -161,7 +161,7 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 ## 2.4 Configuración de RAID-1
 
 Si reiniciamos la MV vamos a perder la configuración RAID1.
-Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada reinicio del sistema.
+Vamos a configurar `mdadm.conf` para que RAID1 mantenga su configuración con cada reinicio del sistema.
 
 * Hacer un snapshot de la MV por seguridad.
 * Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
@@ -177,7 +177,8 @@ La información correspondiente al RAID1 la tenemos que incluir nosotros en el f
 Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
 
 * `sudo update-initramfs -u`, tenemos que actualizir el fichero initramfs, de modo que contenga las configuraciones actualizadas de nuestro fichero `mdadm.conf` durante el arranque.
-* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
+* Reiniciar la MV. Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
+* `cat /proc/mdstat`, comprobamos que el sistema ha detectado bien los dispositivos raid.
 
 ## 2.5 Montaje automático
 
