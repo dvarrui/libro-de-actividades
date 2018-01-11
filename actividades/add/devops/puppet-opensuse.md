@@ -1,9 +1,4 @@
 
-```
-* Adaptada para el curso 201516.
-* Comprobada en 201617.
-```
-
 # 1. Introducción
 
 Existen varias herramientas para realizar instalaciones desde un punto central,
@@ -66,7 +61,6 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 > El fichero `/etc/hosts` debe tener un contenido similar a:
 >
 >     127.0.0.1       localhost
->     127.0.0.2       master42.curso1718    master42
 >     172.18.30.100   master42.curso1718    master42
 >     172.18.30.101   cli1alu42.curso1718   cli1alu42
 >     172.18.30.102   cli2alu42
