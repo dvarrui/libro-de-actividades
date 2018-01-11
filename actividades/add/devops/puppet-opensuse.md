@@ -14,13 +14,13 @@ de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario de
 los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de
 Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
-Enlaces de interés:
-
-* Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be)
-* Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU)
-* [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
-* Vídeo sin audio (14 minutos) sobre [Puppet en Debian](https://youtu.be/kPyaI--iAcA)
-* [Vídeo en inglés](https://youtu.be/Hiu_ui2nZa0) minuto 15, 36 minutos de duración.
+> Enlaces de interés:
+>
+> * Vídeo en inglés ["LINUX: Installing the Puppet Master on openSUSE" by TheUrbanPenguin](https://www.youtube.com/watch?v=8jBlUKimPVc&feature=youtu.be)
+> * Vídeo en inglés ["LINUX: The Puppet Client and basic site.pp" by por TheUrbanPenguin](https://youtu.be/KLF1-i8RzGU)
+> * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
+> * Vídeo sin audio (14 minutos) sobre [Puppet en Debian](https://youtu.be/kPyaI--iAcA)
+> * [Vídeo en inglés](https://youtu.be/Hiu_ui2nZa0) minuto 15, 36 minutos de duración.
 
 ## 1.1 Entrega
 
@@ -41,12 +41,12 @@ Vamos a usar 3 MV's con las siguientes configuraciones:
     * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
     * IP estática 172.AA.XX.100
     * Nombre del equipo: `masterXX`
-    * Dominio: `curso1617`
+    * Dominio: `curso1718`
 * MV2 - cliente 1: recibe órdenes del master.
     * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
     * IP estática 172.AA.XX.101
     * Nombre del equipo: `cli1aluXX`
-    * Dominio: `curso1617`
+    * Dominio: `curso1718`
 * MV3 - client2: recibe órdenes del master.
     * [Configuración SO Windows 7](../../global/configuracion/windows.md).
     Este SO debe haber sido instalado por cada alumno.
@@ -66,9 +66,9 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 > El fichero `/etc/hosts` debe tener un contenido similar a:
 >
 >     127.0.0.1       localhost
->     127.0.0.2       master42.curso1617    master42
->     172.18.30.100   master42.curso1617    master42
->     172.18.30.101   cli1alu42.curso1617   cli1alu42
+>     127.0.0.2       master42.curso1718    master42
+>     172.18.30.100   master42.curso1718    master42
+>     172.18.30.101   cli1alu42.curso1718   cli1alu42
 >     172.18.30.102   cli2alu42
 
 > **Windows**
@@ -95,11 +95,11 @@ hostname -f               # Comprobar que devuelve el valor correcto!!!
 hostname -d
 tail -n 5 /etc/hosts
 ping masterXX
-ping masterXX.curso1617
+ping masterXX.curso1718
 ping cli1aluXX
-ping cli1aluXX.curso1617
+ping cli1aluXX.curso1718
 ping cli2aluXX
-ping cli2aluXX.curso1617   
+ping cli2aluXX.curso1718   
 ```
 
 En Windows comprobamos con:
@@ -107,14 +107,14 @@ En Windows comprobamos con:
 ```
 date
 ipconfig
-route /PRINT
+route PRINT
 nslookup www.google.es
 ping masterXX
-ping masterXX.curso1617
+ping masterXX.curso1718
 ping cli1aluXX
-ping cli1aluXX.curso1617
+ping cli1aluXX.curso1718
 ping cli2aluXX
-ping cli2aluXX.curso1617   
+ping cli2aluXX.curso1718   
 ```
 
 > **IMPORTANTE**: Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
@@ -199,11 +199,11 @@ descargar desde el resto de máquinas cliente puppet.
 * Contenido para readme.txt: `"¡Al abordaje!"`.
 
 > Ejemplo de configuración puppet para descargar fichero:
-> ```
-> file {  '/opt/readme.txt' :
+>
+>     file {  '/opt/readme.txt' :
 >         source => 'puppet:///files/readme.txt',
-> }
-> ```
+>     }
+>
 
 ## 2.2 site.pp
 
@@ -300,7 +300,7 @@ A partir de este momento ya no deberíamos cambiar los nombres de las máquinas.
 * `puppet cert list`, consultamos las peticiones pendientes de unión al master:
 ```
 root@master42# puppet cert list
-"cli1alu30.curso1617" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
+"cli1alu42.curso1617" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
 root@master42#
 ```
 
@@ -408,15 +408,6 @@ class hostlinux2 {
 }
 ```
 
-> Para revisar
-> ```
-> package { "gnomine": ensure => 'absent' }
->
-> file {  '/opt/readme.txt' :
->  source => 'puppet:///files/readme.txt',
-> }
-> ```
-
 > Las órdenes anteriores de configuración de recursos puppet, tienen el significado siguiente:
 >
 > * **package**: indica paquetes que queremos que estén o no en el sistema.
@@ -424,9 +415,6 @@ class hostlinux2 {
 > * **user**: Creación o eliminación de usuarios.
 > * **file**: directorios o ficheros para crear o descargar desde servidor.
 > * **exec**: Para ejecutar comandos/scripts.
->
-> Veamos imagen de ejemplo:
-> ![puppet-exec.png](./images/puppet-exec.png)
 >
 
 * Modificar `/etc/puppet/manifests/site.pp` para que se use
@@ -441,7 +429,18 @@ node default {
 ```
 
 > Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
-* `tree /etc/puppet`
+
+* `tree /etc/puppet`, comprobar ficheros y directorios.
+* Vamos al cliente1 y comprobamos que se hayan aplicado los cambios solicitados.
+
+> Para revisar: probar estas configuraciones si vamos bien de tiempo.
+>
+>     package { "gnomine": ensure => 'absent' }
+>
+>     file {  '/opt/readme.txt' :
+>      source => 'puppet:///files/readme.txt',
+>     }
+>
 
 ---
 
@@ -449,8 +448,9 @@ node default {
 
 Vamos a configurar Puppet para atender también a clientes Windows.
 
-Enlace de interés:
-* [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
+> Enlace de interés:
+>
+> * [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 
 ## 6.1 Modificaciones en el Master
 
@@ -484,8 +484,8 @@ node 'cli2alu42' {
 ```
 
 > **NOMBRES DE MÁQUINA**
-> * El master GNU/Linux del ejemplo se llama `master42.curso1617`
-> * El cliente1 GNU/Linux del ejemplo se llama `cli1alu42.curso1617`
+> * El master GNU/Linux del ejemplo se llama `master42.curso1718`
+> * El cliente1 GNU/Linux del ejemplo se llama `cli1alu42.curso1718`
 > * El cliente2 Windows del ejemplo se llama `cli2alu42`
 
 * `tree /etc/puppet`, para confirmar que tenemos los nuevos archivos.
@@ -498,7 +498,7 @@ Debemos instalar la misma versión de puppet en master y en los clientes.
 (ProgramData es una ruta oculta). Revisar que tenga algo como:
 > ```
 > [main]
-> server=masterXX.curso1617 # Definir el host master
+> server=masterXX.curso1718 # Definir el host master
 > pluginsync=false          # Desactivar los plugin
 > ```
 
@@ -522,7 +522,7 @@ lo siguiente:
 >
 > * Ir a cli2aluXX
 > * Ejecutar el "Agente Puppet"
-> * Abrir "Consola Puppet" -> Ejecutar `puppet agent --server masterXX.curso1617 --test`.
+> * Abrir "Consola Puppet" -> Ejecutar `puppet agent --server masterXX.curso1718 --test`.
 > * Ir a masterXX -> `puppet cert list`
 > * Capturar pantallas de estos pasos.
 
@@ -605,3 +605,9 @@ Relación de comandos de puppet que han cambiado al cambiar la versión:
 > Pendiente para revisar
 > ¿Dónde se guardan ahora los ficheros de log de puppet?
 > Con `tail /var/log/puppet/puppet.log` los ficheros no existen.
+
+## A.3 Ejemplo
+
+Veamos imagen de ejemplo:
+
+![puppet-exec.png](./images/puppet-exec.png)
