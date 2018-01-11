@@ -93,7 +93,6 @@ ping masterXX.curso1718
 ping cli1aluXX
 ping cli1aluXX.curso1718
 ping cli2aluXX
-ping cli2aluXX.curso1718   
 ```
 
 En Windows comprobamos con:
@@ -108,7 +107,6 @@ ping masterXX.curso1718
 ping cli1aluXX
 ping cli1aluXX.curso1718
 ping cli2aluXX
-ping cli2aluXX.curso1718   
 ```
 
 > **IMPORTANTE**: Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
