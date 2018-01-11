@@ -424,7 +424,7 @@ node default {
 
 > Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
 
-* `tree /etc/puppet`, comprobar ficheros y directorios.
+* Ejecutar `tree /etc/puppet` en el servidor, para comprobar ficheros y directorios.
 * Vamos al cliente1 y comprobamos que se hayan aplicado los cambios solicitados.
 
 > Para revisar: probar estas configuraciones si vamos bien de tiempo.
