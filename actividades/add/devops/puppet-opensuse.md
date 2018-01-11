@@ -483,7 +483,7 @@ node 'cli2alu42' {
 > * El cliente1 GNU/Linux del ejemplo se llama `cli1alu42.curso1718`
 > * El cliente2 Windows del ejemplo se llama `cli2alu42`
 
-* `tree /etc/puppet`, para confirmar que tenemos los nuevos archivos.
+* En el servidor ejecutamos `tree /etc/puppet`, para confirmar que tenemos los nuevos archivos.
 * Reiniciamos el servicio PuppetMaster.
 
 Debemos instalar la misma versión de puppet en master y en los clientes.
