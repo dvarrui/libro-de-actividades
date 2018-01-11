@@ -77,6 +77,8 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 
 ## 1.3 Comprobar las configuraciones
 
+*No es necesario hacer capturas de esta parte*
+
 En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
 
 ```
