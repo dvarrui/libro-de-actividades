@@ -291,6 +291,7 @@ A partir de este momento ya no deberíamos cambiar los nombres de las máquinas.
 ## 4.1 Aceptar certificado
 
 * Vamos a la MV master.
+* Nos aseguramos de que somos el usuario `root`.
 * `puppet cert list`, consultamos las peticiones pendientes de unión al master:
 ```
 root@master42# puppet cert list
