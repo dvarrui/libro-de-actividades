@@ -422,7 +422,8 @@ node default {
 }
 ```
 
-> Por defecto todos los nodos (máquinas clientes) van a coger la misma configuración.
+> `node default` indica que las órdenes de Puppet se van a aplicar a todos los nodos
+clientes.
 
 * Ejecutar `tree /etc/puppet` en el servidor, para comprobar ficheros y directorios.
 * Vamos al cliente1 y comprobamos que se hayan aplicado los cambios solicitados.
