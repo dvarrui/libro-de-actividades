@@ -265,7 +265,9 @@ Un volumen *Reflejado* es similar a un RAID1.
 Vamos a crear un volumen *reflejado*:
 * Crea un par de volúmenes reflejados de 200MB cada uno, con los discos anteriormente utilizados.
 * Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
-* Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
+* Si quitamos uno de los discos del RAID1 de la MV ¿qué ocurre?
+* Vuelve a poner los dos discos. Deshacer/romper el RAID1 entre los dos discos.
+¿Qué ocurre?
 
 ## 4.3 Pregunta RAID5
 
