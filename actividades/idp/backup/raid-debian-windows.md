@@ -44,10 +44,10 @@ En los siguientes pasos vamos a instalar GNU/Linux Debian, donde los discos
 van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
 Para hacer el RAID-0:
-* Crear partición completa para el disco (b) y (c).
-* Formatear la partición como tipo RAID.
-* Luego debemos ir a `Configuración RAID software`, y elegimos que queremos
-hacer un raid0, con los discos (b) y (c).
+* Crear partición completa para el disco (b) y le damos formato tipo RAID.
+* Crear partición completa para el disco (c) y le damos formato tipo RAID.
+* Vamos a `Configuración RAID software`, y elegimos que queremos
+hacer un RAID-0, con los discos (b) y (c).
 
 > Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
 
@@ -74,6 +74,8 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
     * Proxy -> Vacío.
     * El sistema de arranque va en el disco (a).
 
+> Recordar que hemos creado una partición separada para el arranque del sistema.
+
 ## 1.3 Comprobación
 
 * Una vez instalado ejecutar los siguientes comandos, e incluir su salida en el informe:
@@ -82,9 +84,9 @@ Veamos imagen de ejemplo, al realizar el particionado RAID0.
 date
 hostname
 ip a
-route -n
+route -n             # Ejecutar como superusuario
 host www.google.es
-fdisk -l
+fdisk -l             # Ejecutar como superusuario
 df -hT
 cat /proc/mdstat
 lsblk -fm
