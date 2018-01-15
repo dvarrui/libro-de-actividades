@@ -211,7 +211,8 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 * `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
 * Aun habiendo quitado uno de los discos del RAID1 la información sigue estando
 disponible. Comprobamos `tree /mnt/raid1`
-* `mdadm /dev/md1 --manage --add /dev/sde`, añadimos el disco que habíamos quitado.
+* `mdadm /dev/md1 --manage --add /dev/sde`, volvemos a incluir al RAID-1 el disco
+que habíamos quitado.
 * `mdadm --detail /dev/md1`, comprobamos que están los dos discos del RAID-1.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
