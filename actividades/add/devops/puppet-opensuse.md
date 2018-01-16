@@ -165,9 +165,9 @@ Si nos lleváramos el fichero `piratas.pp` a otro PC con el Agente puppet instal
 # 2. Primera versión del fichero pp
 
 * Instalamos Puppet Master en la MV masterXX:
-    * `zypper install rubygem-puppet-master` (Leap).
-    * `zypper install puppet-server puppet puppet-vim` (13.2).
+    * `zypper install rubygem-puppet-master` (OpenSUSE Leap).
 
+> En OpenSUSE 13.2 hacemos `zypper install puppet-server puppet puppet-vim`.
 > El paquete `puppet-vim`, sólo es para que el editor vim detecte la sintaxis de puppet.
 
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
