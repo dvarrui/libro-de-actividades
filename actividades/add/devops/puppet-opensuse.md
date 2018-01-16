@@ -237,8 +237,7 @@ class hostlinux1 {
 > **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
 * `tree /etc/puppet`, consultar los ficheros/directorios que tenemos creado.
-* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`. Esto es,
-usuario `puppet` y grupo `puppet`.
+* Comprobar que la ruta `/var/lib/puppet` tiene usuario/grupo propietario `puppet`.
 * Reiniciamos el servicio `systemctl restart puppetmaster`.
 * Comprobamos que el servicio está en ejecución de forma correcta.
     * `systemctl status puppetmaster`
@@ -274,7 +273,7 @@ Veamos imagen de ejemplo de Raúl García Heredia:
 
 ![](./images/puppet-client-conf.png)
 
-* Comprobar que tenemos los permisos adecuados en la ruta `/var/lib/puppet`.  
+* Comprobar que la ruta `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
 * `systemctl start puppet`: Iniciar el servicio puppet.
@@ -334,7 +333,7 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
     * `puppet agent --test`
     * `puppet agent --server master42.curso1617 --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master 
+* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master
 y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
