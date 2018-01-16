@@ -252,9 +252,10 @@ usuario `puppet` y grupo `puppet`.
 
 Vamos a instalar y configurar el cliente 1.
 * Vamos a la MV cliente 1.
-* Instalar el Agente Puppet.
-    * `zypper install rubygem-puppet` (Leap)
-    * `zypper install puppet` (13.2)
+* Instalar el Agente Puppet `zypper install rubygem-puppet` (Leap)
+
+> Para OpenSUSE 13.2 `zypper install puppet`.
+
 * El cliente puppet debe ser informado de quien será su master.
 Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 
@@ -328,11 +329,13 @@ A continuación podemos ver una imagen de ejemplo, los datos no tienen que coinc
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
 * Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
-* En caso contrario, ejecutar comando para comprobar errores:
+* Nos aseguramos de que somos el usuario `root`.
+* Ejecutar comando para comprobar posibles errores:
     * `puppet agent --test`
     * `puppet agent --server master42.curso1617 --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp del master`. En tal caso, ir a los ficheros del master y corregir los errores de sintáxis.
+* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master 
+y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 >
