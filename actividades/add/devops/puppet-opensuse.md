@@ -425,15 +425,6 @@ clientes.
 * Ejecutar `tree /etc/puppet` en el servidor, para comprobar ficheros y directorios.
 * Vamos al cliente1 y comprobamos que se hayan aplicado los cambios solicitados.
 
-> Para revisar: probar estas configuraciones si vamos bien de tiempo.
->
->     package { "gnomine": ensure => 'absent' }
->
->     file {  '/opt/readme.txt' :
->      source => 'puppet:///files/readme.txt',
->     }
->
-
 ---
 
 # 6. Cliente puppet Windows
