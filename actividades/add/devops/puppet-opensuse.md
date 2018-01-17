@@ -334,10 +334,12 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
 * Nos aseguramos de que somos el usuario `root`.
 * Ejecutar comando para comprobar posibles errores:
     * `puppet agent --test`
-    * `puppet agent --server master42.curso1617 --test`
-* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master
-y corregir los errores de sintáxis.
+    * o también `puppet agent --server master42.curso1718 --test`
+* En caso de tener errores:
+    * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en
+    el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
+    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del
+    master y corregir los errores de sintáxis.
 
 > **¿Cómo eliminar certificados?** (*Esto NO HAY QUE HACERLO*)
 >
