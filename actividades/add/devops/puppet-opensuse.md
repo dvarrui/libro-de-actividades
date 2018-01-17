@@ -349,7 +349,7 @@ buena idea eliminar los certificados y volverlos a generar con la nueva informac
 > * `puppet cert revoke cli1alu42.curso1617`: Lo ejecutamos en el master para revocar certificado del cliente.
 > * `puppet cert clean  cli1alu42.curso1617`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
 > * `puppet cert print --all`: Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
-> *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
+> *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente. Apagamos el cliente.
 >
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
