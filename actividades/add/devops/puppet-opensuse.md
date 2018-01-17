@@ -113,7 +113,10 @@ ping cli1aluXX.curso1718
 ping cli2aluXX
 ```
 
-> **IMPORTANTE**: Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
+> **IMPORTANTE**:
+>
+> * Asegurarse de que todas los nombres están bien configurados antes de seguir.
+> * Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
 
 ## 1.4 Veamos un ejemplo
 
@@ -187,21 +190,7 @@ mkdir /etc/puppet/manifests/classes
 touch /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-## 2.1 readme.txt
-
-Los ficheros que se guardan en `/etc/puppet/files` se pueden
-descargar desde el resto de máquinas cliente puppet.
-
-* Contenido para readme.txt: `"¡Al abordaje!"`.
-
-> Ejemplo de configuración puppet para descargar fichero:
->
->     file {  '/opt/readme.txt' :
->         source => 'puppet:///files/readme.txt',
->     }
->
-
-## 2.2 site.pp
+## 2.1 site.pp
 
 * `/etc/puppet/manifests/site.pp` es el fichero principal de configuración
 de órdenes para los agentes/nodos puppet.
@@ -220,7 +209,7 @@ node default {
 > * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
 > * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
-## 2.3 hostlinux1.pp
+## 2.2 hostlinux1.pp
 
 Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 
@@ -263,7 +252,7 @@ Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 ```
 [main]
 # Definir el host master puppet
-server=masterXX.curso1617
+server=masterXX.curso1718
 ...
 [agent]
 ...
@@ -581,6 +570,22 @@ class hostwindows4 {
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows con el nombre `/etc/puppet/manifests/classes/hostalumno5.pp`.
 * Incluir configuraciones elegidas por el alumno y probarlas.
+
+---
+
+# 7. Fichero readme.txt
+
+Los ficheros que se guardan en `/etc/puppet/files` se pueden
+descargar desde el resto de máquinas cliente puppet.
+
+* Contenido para readme.txt: `"¡Al abordaje!"`.
+
+> Ejemplo de configuración puppet para descargar fichero:
+>
+>     file {  '/opt/readme.txt' :
+>         source => 'puppet:///files/readme.txt',
+>     }
+>
 
 ---
 
