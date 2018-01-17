@@ -61,9 +61,11 @@ resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 > El fichero `/etc/hosts` debe tener un contenido similar a:
 >
 >     127.0.0.1       localhost
+>     # IMPORTANTE: El nombre largo va primero y el corto después.
 >     172.18.30.100   master42.curso1718    master42
 >     172.18.30.101   cli1alu42.curso1718   cli1alu42
 >     172.18.30.102   cli2alu42
+
 
 > **Windows**
 >
@@ -88,7 +90,7 @@ route -n
 host www.google.es
 hostname -a
 hostname -f               # Comprobar que devuelve el valor correcto!!!
-hostname -d
+hostname -d               # Comprobar que devuelve el valor correcto!!!
 tail -n 5 /etc/hosts
 ping masterXX
 ping masterXX.curso1718
