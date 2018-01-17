@@ -326,7 +326,8 @@ A continuación podemos ver una imagen de ejemplo, los datos no tienen que coinc
 ## 4.2 Comprobación
 
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
-* Vamos a cliente1 y reiniciamos la máquina y/o el servicio Puppet.
+* Vamos a cliente1
+* Reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
 * Nos aseguramos de que somos el usuario `root`.
 * Ejecutar comando para comprobar posibles errores:
@@ -371,7 +372,7 @@ class hostlinux2 {
   user { 'barbaroja':
     home => '/home/barbaroja',
     shell => '/bin/bash',
-    password => 'saqueo',
+    password => 'poner-una-clave-encriptada',
     groups => ['piratas','admin','root']
   }
 
