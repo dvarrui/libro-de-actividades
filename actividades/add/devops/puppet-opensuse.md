@@ -513,15 +513,15 @@ lo siguiente:
 
 > **¿Cómo desintalar Puppet en Windows?**
 >
-> *Consejos/sugerencias de Héctor Pedraza pars desinstalar Puppet en Windows*:
->
 > Si tenemos problemas con el certificado de la máquina windows cliente tenemos que seguir los siguientes pasos para eliminar cualquier rastro de los mismos y poder reintentar la comunicación:
+>
 > * Borrar en el maestro el certificado correspondiente a esa máquina `puppet cert clean nombre-netbios-cliente`.
 > * Desinstalar el agente puppet en windows.
 > * Borrar las carpetas de datos del puppet, ya que no se borran en la desinstalación. Las carpetas son:
 >     * `C:\ProgramData\PuppetLabs` y
 >     * `C:\Users\usuario\.puppet`.
-> * Después reinstalamos y volvemos a probar.
+> * Reiniciar Windows
+> * Reinstalar y volver a probar.
 >
 > Si seguimos teniendo problemas para unir/conectar el cliente windows con el puppetmaster, porque no se realice el intercambio de certificados podemos:
 > * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente a la máquina Windows e intentarlo de nuevo.
@@ -533,8 +533,8 @@ Con los comandos siguientes podremos hacernos una idea de como terminar de confi
 
 * Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --configprint server`, debe mostrar el nombre del servidor puppet.
-    En nuestro ejemplo debe ser `masterXX.curso1627`.
-    * `puppet agent --server masterXX.curso1617 --test`: Comprobar el estado del agente puppet.
+    En nuestro ejemplo debe ser `masterXX.curso1718`.
+    * `puppet agent --server masterXX.curso1718 --test`: Comprobar el estado del agente puppet.
     * `puppet agent -t --debug --verbose`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows, como por ejemplo la versión de puppet del cliente.
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
