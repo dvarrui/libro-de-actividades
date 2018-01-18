@@ -437,6 +437,8 @@ Vamos a configurar Puppet para atender también a clientes Windows.
 >
 > * [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 
+**IMPORTANTE**: Asegurarse de que todas las máquinas tienen la fecha/hora correcta.
+
 ## 6.1 Modificaciones en el Master
 
 * Vamos a la MV master.
