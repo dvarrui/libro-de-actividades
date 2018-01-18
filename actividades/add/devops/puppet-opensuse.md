@@ -550,9 +550,11 @@ Con los comandos siguientes podremos hacernos una idea de como terminar de confi
     * `puppet resource user nombre-alumno1`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
 
-Veamos imagen de ejemplo:
+> Veamos imagen de ejemplo:
+>
+> ![puppet-resource-windows](./images/puppet-resource-windows.png)
 
-![puppet-resource-windows](./images/puppet-resource-windows.png)
+---
 
 # 7. Configuración hostwindows4.pp
 
@@ -574,7 +576,9 @@ class hostwindows4 {
 ```
 * Comprobar que funciona.
 
-## 8. Configuración personalizada: hostalumno5.pp
+---
+
+# 8. Configuración personalizada: hostalumno5.pp
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows con el nombre `/etc/puppet/manifests/classes/hostalumno5.pp`.
 * Incluir configuraciones elegidas por el alumno y probarlas.
