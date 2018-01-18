@@ -3,7 +3,7 @@
 
 * En esta actividad vamos a practicar el borrado de ficheros y su recuperación.
 * Realizaremos la práctica de forma individual.
-* Vamos a usar una MV OpenSUSE según [configuración](../../global/configuracion/opensuse.md).
+* Vamos a usar una MV OpenSUSE con esta [configuración](../../global/configuracion/opensuse.md).
 
 ---
 
@@ -22,7 +22,7 @@ todos los pendrives y discos duros externos, pero entonces el tamaño del disco 
 
 Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
 * `id`, consultar uid del usuario actual (UID).
-* `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UID`, monta la partición en la ruta espacificada, y estableciendo los permisos para el usuario UID.   
+* `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UID`, monta la partición en la ruta espacificada, estableciendo los permisos adecuado para el usuario UID.   
 * Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
 
 > Un sistema de ficheros FAT32 no es capaz de guardar información de usuarios ni los permisos
