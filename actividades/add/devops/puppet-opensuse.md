@@ -560,6 +560,9 @@ class hostwindows4 {
   }
 }
 ```
+* Comprobar que funciona.s
+
+## 6.3 Otra configuración
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows con el nombre `/etc/puppet/manifests/classes/hostalumno5.pp`.
 * Incluir configuraciones elegidas por el alumno y probarlas.
