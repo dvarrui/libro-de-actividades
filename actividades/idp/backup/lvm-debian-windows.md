@@ -1,7 +1,7 @@
 
 # 1. Introducción
 
-Vídeos
+Vídeos de interés:
 * [LVM. Learning Linux : "Lesson 20 Managing LVM"](https://youtu.be/m9SNN6IWyZo?list=PL3E447E094F7E3EBB)
 * [LVM. Learning Linux: "Lesson 21 LVM snapshots"](https://youtu.be/N8rUlYL2O_g?list=PL3E447E094F7E3EBB)
 
@@ -27,9 +27,9 @@ Realizar las siguientes tareas:
 
 ### Partición BOOT
 
-* Crearemos una partición de 100MB para boot formato ext2.
+* Crearemos una partición primaria de 100MB para `/boot` formato ext2.
 
-Tener en cuenta que en la partición se monta "/boot" y va a parte (Fuera de LVM).
+Tener en cuenta que en la partición se monta `/boot` y va a parte (Fuera de LVM).
 
 ### Partición para LVM
 
@@ -84,7 +84,7 @@ lvdisplay vg-debian
 
 # 3. Modificar el espacio físico LVM
 
-> Consejo: Haz copia de seguridad de la MV (Exportar/importar de VBox, instantánea/snapshot, etc.).
+* Hacer una instantánea o copia de seguridad de la MV antes de seguir.
 
 Vamos a añadir al sistema anterior, más almacenamiento físico LVM, puesto que ya hemos agotado
 todo el espacio libre de los discos físicos.
