@@ -87,6 +87,9 @@ iface eth1 inet dhcp
    * `service networking restart` o
    * Reiniciar el equipo.
 
+Si no funciona la resolución de nombres (Servidor DNS) debemos Modificarel fichero
+`/etc/resolv.conf` y poner en nameserver la ip 8.8.4.4.
+
 > Enlace de interés:
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
