@@ -163,10 +163,9 @@ Vamos a quitar el disco (C) del VG, sin perder la información almacenada en él
 * Primero comprobamos el tamaño utilizado de nuestros datos: `du -sh /mnt/vol-extra`.
 Este valor debe ser menor a 50 MB.
 * Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vg-extra/lv-extra`
-* Comprobamos: `lvdisplay /dev/vg-extra/lv-extra`
+* Comprobamos: `lvdisplay /dev/vg-extra/lv-extra`.
 
-> INFO: Vamos a quitar un disco del VG vg-extra (Consultar enlace).
-
+Antes de quitar el disco hay que asegurarse de que no guarda datos.
 * Movemos la información del disco sdc al disco sdb:
 
 ```
@@ -191,6 +190,7 @@ ip a
 vgdisplay
 lvdisplay vg-extra
 ```
+* Ahora podemos a quitar el disco /dev/sdc de la MV sin problemas.
 
 ---
 
