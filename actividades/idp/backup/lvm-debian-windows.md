@@ -132,6 +132,7 @@ lvdisplay vg-extra # Muestra información de los volúmenes lógicos de un grupo
 Ejemplo: `mkfs.ext4 nombre-del-dispositivo`.
 * Crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
 * Montar el nuevo dispositivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
+* Comprobamos que se ha montado correctamente con `df -hT`.
 
 A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.
 * Comprobar que apenas hay espacio usado en `/mnt/vol-extra` (df -hT).
@@ -205,9 +206,9 @@ efecto de LVM debemos convertir las particiones a volúmenes básicos.
 
 * Añadimos 2 discos virtuales nuevos:
     * Disco de 200MB (B): con una partición completa del disco
-    * Disco de 750MB (C): con 3 particiones de 250MB sin formato, ni tipo.
+    * Disco de 600MB (C): con 2 particiones de 300MB sin formato, ni tipo.
 * Vamos a crear un volumen *Distribuido* con el disco (B) y las
-dos primeras particiones del disco (C).
+primera partición del disco (C).
 
 > * Nota: los volúmenes simples del primer disco deben permanecer intactos.
 > * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
