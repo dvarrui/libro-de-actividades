@@ -190,7 +190,7 @@ ip a
 vgdisplay
 lvdisplay vg-extra
 ```
-* Ahora podemos a quitar el disco /dev/sdc de la MV sin problemas.
+* Ahora podemos a quitar el disco `/dev/sdc` de la MV sin problemas.
 
 ---
 
@@ -202,7 +202,12 @@ efecto de LVM debemos convertir las particiones a volúmenes básicos.
 ## 4.1 Volumen Distribuido
 
 * Vídeo sobre la [Creación de un volumen distribuido en Windows7](https://www.youtube.com/watch?v=prXBbHvqgx8)
-* Vamos a crear un volumen distribuido *Distribuido* como aparece en el vídeo anterior.
+
+* Añadimos 2 discos virtuales nuevos:
+    * Disco de 200MB (B): con una partición completa del disco
+    * Disco de 750MB (C): con 3 particiones de 250MB sin formato, ni tipo.
+* Vamos a crear un volumen *Distribuido* con el disco (B) y las
+dos primeras particiones del disco (C).
 
 > * Nota: los volúmenes simples del primer disco deben permanecer intactos.
 > * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
