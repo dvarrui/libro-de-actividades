@@ -72,15 +72,16 @@ lvdisplay vg-debian
 Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 
 * Consultar el tamaño actual del volumen lógico: `lvdisplay -v /dev/vg-debian/lv-datos`
-* Para ampliar el tamaño del volumen lógico: `lvextend -L 400 /dev/vg-debian/lv-datos`
+* Para ampliar el tamaño del volumen lógico: `lvextend --resizefs -L 400 /dev/vg-debian/lv-datos`
 * Comprobar con: `lvdisplay -v /dev/vg-debian/lv-datos`
 * Comprobamos lo que tenemos ahora:
 ```
 vgdisplay
 lvdisplay vg-debian
 ```
-* `resize2fs /dev/vg-debian/lv-datos`
-* `df -hT`
+
+> Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el dispositivo,
+podemos usar `resize2fs /dev/vg-debian/lv-datos` sirve ajustar dicho valor.
 
 ---
 
