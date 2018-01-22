@@ -24,13 +24,13 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 ## 1.2 Particionado e instalación
 
 * Empezamos el proceso de instalación.
-* Elegimos particionado manual.
+* Elegimos particionado experto o manual.
 
 > Para hacer el RAID-0:
 >
 > * Hacemos una partición que coja todo el disco (sdb) y otra para el (sdc)
 > * Elegimos tipo RAID para cada partición (sdb1) y (sdc1).
-> * Luego debemos ir a `Configuración RAID software`, y elegimos que queremos hacer un raid0, con las paritciones (sdb1) y (sdc1).
+> * Luego debemos ir a `RAID`, y elegimos que queremos hacer un raid0, con las paritciones (sdb1) y (sdc1).
 > * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
 > * Por esta vez sin swap (Área de intercambio).
 > * Tampoco vamos a crear una partición independiente para `/home`
@@ -49,8 +49,6 @@ Veamos una secuencia de imágenes de ejemplo:
 ![raid-opensuse-02.png](./images/raid-opensuse-02.png)
 
 ![raid-opensuse-03.png](./images/raid-opensuse-03.png)
-
-![raid-opensuse-04.png](./images/raid-opensuse-04.png)
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
@@ -83,19 +81,12 @@ Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1
 
 ## 2.1 Preparar la MV
 
-> **NOTA**
-> * Las máquinas ( y las MV de VirtualBox también), sólo aceptan 4 discos IDE, o 3 discos IDE y 1 unidad de cdrom.
-> * Si necesitamos añadir más discos podemos hacerlo añadiendo controladores SATA/SCSI a nuestra máquina virtual.
-
 Realizar las siguientes tareas:
 * Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
 * Reiniciar la MV
 * Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 
 ## 2.2 Usar mdadm para crear RAID-1
-
-* Instalar el paquete `mdadm` (Administración de dispositivos RAID). En Debian se usa el comando `apt-get install mdadm`.
-* Ahora debe existir el fichero `/etc/mdadm/mdadm.conf`.
 
 Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
@@ -231,3 +222,29 @@ Un volumen *Reflejado* es similar a un RAID1.
 
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Investiga acerca de cómo crear en Windows un Raid-5 por software y detalla la respuesta.
+
+---
+
+# ANEXO
+
+## A1: proceso para OpenSUSE
+
+RAID0
+* Crear MV con los discos
+* Elegit idioma e instalar
+* Particionador modo experto
+* sda1 ext3 /boot
+* sdb1 (volumen bruto) -> raid
+* sdc1 (volumen bruto) -> raid
+* Raid0 -> Añadir 2 particiones
+* Siguiente -> Volumen para SO
+* Elegir ext4 /
+* Sin swap
+* Escritorio XFce
+RAID1
+* Crear discos VBox
+* Iniciar MV
+* Yast -> Particionador
+* crear particiones raid
+* Crear md1 , montar y formatear
+* usar dispositivio raid1
