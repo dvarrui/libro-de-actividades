@@ -79,6 +79,8 @@ Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 vgdisplay
 lvdisplay vg-debian
 ```
+* `resize2fs /dev/vg-debian/lv-datos`
+* `df -hT`
 
 ---
 
