@@ -1,6 +1,6 @@
 
 
-#Depuración de programas
+# Depuración de programas
 
 Según Wikipedia, depuración de programas es el proceso de identificar y corregir
 errores de programación (debugging).
@@ -11,13 +11,13 @@ Tenemos varias caminos a la hora de depurar programas:
 * Usar unidades de prueba
 * etc.
 
-##print MESSAGES
+## print MESSAGES
 
 El método más rudimentario es el de incorporar en nuestro programa líneas
 que den salida por pantalla de los resultados de nuestro programa en los puntos
 de ejecución que queramos revisar.
 
-##Recomendado
+## Recomendado
 
 El método anterior es muy rudimentario así que vamos a mejorarlo.
 Lo recomendado es usar una herramienta específica para depurar código.
