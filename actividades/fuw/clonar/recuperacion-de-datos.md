@@ -74,8 +74,9 @@ los ficheros eliminados.
 
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
 Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
-* Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1` para asegurarnos de que
-ambas particiones son idénticas.
+* `diff /dev/sdb1 /dev/sdc1` comando para comprobar que ambas particiones son idénticas.
+    * Si todo va bien no muestra ningún mensaje.
+    * Si va mal nos dice que son diferentes.
 * `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
 Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
@@ -119,7 +120,7 @@ Instalar el programa en nuestro sistema.
 Vamos a iniciar el proceso de recuperación sobre la partición del disco `alfa`.
 * Hay que demontar el disco `alfa`.
 * Abrimos una consola como root.
-* Ejecutamos `qphotorec`. De esta forma iniciamos el entorno gráfico de Photorec
+* Ejecutamos `qphotorec`. De esta forma iniciamos el entorno gráfico de Photorec.
 
 Ejemplo de uso de qphotorec:
 
@@ -133,7 +134,8 @@ Ejemplo de uso de qphotorec:
 
 Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores, entonces vamos a probar de otra forma.
 
-* Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
+* Montamos el disco roto.
+* Creamos un archivo `/mnt/disco_roto/secreto.txt` con el siguiente contenido:
 
 ```
 ===============
