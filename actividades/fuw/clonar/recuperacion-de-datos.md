@@ -20,10 +20,12 @@ todos los pendrives y discos duros externos, pero entonces el tamaño del disco 
 
 * Creamos el directorio `disco_roto` dentro de `/mnt`.
 
-Montamos la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
-* `id`, consultar uid del usuario actual (UID).
-* `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UID`, monta la partición en la ruta espacificada, estableciendo los permisos adecuado para el usuario UID.   
-* Feedback de comprobación: `df -hT`, `mount | grep disco_roto`.
+Vamos a montar la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
+* `id nombre-del-alumno`, consultar uid de nuestro usuario (UID). Lo más probable es que sea 1000.
+* `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UIDNUMBER`, monta la partición en la ruta espacificada, estableciendo los permisos adecuado para el usuario UID.   
+* Comprobación:
+    * `df -hT`
+    * `mount | grep disco_roto`
 
 > Un sistema de ficheros FAT32 no es capaz de guardar información de usuarios ni los permisos
 de los ficheros/carpetas.
@@ -41,7 +43,7 @@ Feedback de comprobación `ls /mnt/disco_roto`.
 > * Para realizar un borrado seguro de archivos usaríamos otras herramientas.
 
 * Desmontamos el disco "roto".
-    * Feedback de comprobación: `df -hT`, `mount |grep roto`.
+    * Feedback de comprobación: (a)`df -hT`, (b) `mount |grep roto`.
     * Si no podemos desmontar el disco, probablemente es que lo estamos usando.
     Con el comando `lsof |grep disco_roto`, podemos visualizar qué o quién está
     usando el disco.
@@ -72,7 +74,8 @@ los ficheros eliminados.
 
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
 Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
-Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1`.
+* Feedback de comprobación: `diff /dev/sdb1 /dev/sdc1` para asegurarnos de que
+ambas particiones son idénticas.
 * `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
 Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
