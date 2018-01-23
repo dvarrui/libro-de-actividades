@@ -210,11 +210,10 @@ para particiones GPT.
 Vamos a intentar recuperar un esquema de particionado dañado.
 
 * `fdisk -l |grep sdc`, comprobamos que se detecta la partición.
-* `dd if=/dev/zero of=/dev/sdc bs=512 count=1`, escribimos valores aleatorios
-en el sector 0 del disco sdc. Destruyendo el esquema de particiones del disco.
+* `dd if=/dev/zero of=/dev/sdc bs=512 count=1`, escribimos ceros en el sector 0 del disco sdc. Destruyendo el esquema de particiones de dicho disco.
 * `fdisk -l |grep sdc`, comprobamos que ha desaparecido la partición.
 * Ahora no se puede acceder a la partición sdc1.
-* Usar TestDisk para recuperar el esquema de particionado.
+* Usar `TestDisk` para recuperar el esquema de particionado.
 * Ahora se debería poder acceder a la partición sdc1.
 
 ---
@@ -248,15 +247,6 @@ Vamos a crear fichero como soporte de datos:
 * Vamos a crear un sistema de ficheros tipo ext2 dentro del fichero file-soporte.
     * Comando: "mkfs.ext2 /mnt/file-soporte".
 
-## A4. Escribir en el soporte
-
-Acceder al sistema de ficheros
-
-> NOTA: Para poder acceder al sistema de ficheros recién creado debemos montarlo en un directorio.
-* Crear el directorio "/mnt/dir-montaje".
-* Montamos el dispositivo soporte.
-* Comprobar que el sistema ficheros está montado. Comando: "df -hT".
-
 ## A5. Escribir en el sistema de ficheros
 
 * Crear el fichero /mnt/dir-montaje/docs/README.
@@ -267,7 +257,7 @@ Acceder al sistema de ficheros
 * Comando: "vdir /mnt/dir-montaje". La información no se ha perdido. Sólo que el sistema de ficheros no está montado.
 * Montar sistema de ficheros y probar "vdir /mnt/dir-montaje".
 
-##A6. Eliminar un fichero
+## A6. Eliminar un fichero
 
 * Borrar el fichero /mnt/dir-montaje/README
 * Comando: "vdir /mnt/dir-montaje". El fichero ya no existe.
