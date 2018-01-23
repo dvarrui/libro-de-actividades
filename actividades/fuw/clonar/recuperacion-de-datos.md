@@ -62,9 +62,9 @@ para evitar que los procesos de recuperación afecten a la integridad del disco
 
 * Creamos un tercer disco de igual tamaño que el disco "roto". A este disco lo
 llamaremos `alfa` en VirtualBox.
-* Iniciamos la MV. Deben estar los 3 discos. Feeback de comprobación: `fdisk -l`
-* Los discos "roto" y "alfa" no deben estar montados. Feedback de comprobación: `df -hT`, `mount`
-* `fdisk -l`,vemos que el disco B tiene una partición y el disco C no.
+* Iniciamos la MV. Deben estar los 3 discos. Feeback de comprobación: `fdisk -l`.
+Además vemos que el disco B tiene una partición y el disco C no.
+* Los discos "roto" y "alfa" no deben estar montados. Comprobación: `df -hT`, `mount`
 
 Ahora vamos a clonar el disco "roto" en el "alfa". Ya hemos usado alguna herramienta
 de clonación (Clonezilla) pero en este caso vamos a usar el comando `dd`.
