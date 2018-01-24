@@ -269,8 +269,8 @@ Vamos a crear un volumen *reflejado*:
 * Crea un par de volúmenes reflejados de 200MB cada uno, con los discos anteriormente utilizados.
 * Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Si quitamos uno de los discos del RAID1 de la MV ¿qué ocurre?
-* Vuelve a poner los dos discos. Deshacer/romper el RAID1 entre los dos discos.
-¿Qué ocurre?
+* Vuelve a poner los dos discos. Comprobar que se ve la información correctamente.
+* Deshacer/romper el RAID1 entre los dos discos. ¿Qué ocurre?
 
 ## 4.3 Pregunta RAID5
 
