@@ -146,7 +146,7 @@ El comando dd hay que usarlo con precaución.
 
 ## 3.4 Añadir más tamaño
 
-* Añadir la tercera partición del disco (b) (no utilizada) al VG vg-extra.
+* Añadir la tercera partición del disco (C) (no utilizada) al VG vg-extra.
 
 ```
 pvcreate /dev/sdc3
