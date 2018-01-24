@@ -246,33 +246,3 @@ Vamos a crear fichero como soporte de datos:
 
 * Vamos a crear un sistema de ficheros tipo ext2 dentro del fichero file-soporte.
     * Comando: "mkfs.ext2 /mnt/file-soporte".
-
-## A5. Escribir en el sistema de ficheros
-
-* Crear el fichero /mnt/dir-montaje/docs/README.
-* Escribir dentro algunas frases en inglés.
-* Crear el fichero /mnt/dir-montaje/docs/LEEME
-* Escribir dentro nuestro nombre.
-* Desmontar el sistema de ficheros. Comando: "umount /mnt/dir-montaje".
-* Comando: "vdir /mnt/dir-montaje". La información no se ha perdido. Sólo que el sistema de ficheros no está montado.
-* Montar sistema de ficheros y probar "vdir /mnt/dir-montaje".
-
-## A6. Eliminar un fichero
-
-* Borrar el fichero /mnt/dir-montaje/README
-* Comando: "vdir /mnt/dir-montaje". El fichero ya no existe.
-* Desmontar el sistema de ficheros.
-
-##A7. Recuperar el archivo eliminado
-Clonamos el disquete
-
-* Por seguridad, vamos a clonar el dispositivo.
-    * dd if=/mnt/fd0 of=/mnt/soporte-clonado.alfa
-    * dd if=/mnt/fd0 of=/mnt/soporte-clonado.beta
-
-Clonamos el fichero soporte
-
-* Si hacemos "cat /mnt/file-soporte". Veremos en pantalla el contenido (en crudo) del sistema de ficheros. Vemos que el contenido del fichero eliminado se muestra por pantalla. Por lo tanto ¡no ha sido eliminado completamente del sistema de almacenamiento!
-* Por seguridad, vamos a clonar el fichero soporte.
-    * dd if=/mnt/file-soporte of=/mnt/soporte-clonado.alfa
-    * dd if=/mnt/file-soporte of=/mnt/soporte-clonado.beta
