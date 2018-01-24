@@ -250,8 +250,8 @@ Un volumen *seccionado* es similar a un RAID0.
 > * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
 Vamos a crear un volumen *seccionado*.
-* Añadir 4 discos duros virtuales de 200 MB cada uno a la MV.
-* Crea un volumen seccionado con un tamaño total de 800MB, utilizando para ello los 4 discos.
+* Añadir 2 discos duros virtuales de 200 MB cada uno a la MV.
+* Crea un volumen seccionado con un tamaño total de 400MB, utilizando para ello los 2 discos.
 
 > Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
 
