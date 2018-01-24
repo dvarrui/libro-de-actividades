@@ -162,7 +162,7 @@ vgdisplay vg-extra (Para comprobar el cambio)
 > En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes).
 
 El grupo de volumen vg-extra, tiene dos volúmenes físicos que son los discos (B) y (C).
-En los pasos siguientes vamos a dejar de usar disco (C) del VG, sin perder la
+En los pasos siguientes vamos a dejar de usar disco (C) dentro del VG, sin perder la
 información almacenada en él.
 
 * Primero comprobamos el tamaño utilizado de nuestros datos: `du -sh /mnt/vol-extra`.
