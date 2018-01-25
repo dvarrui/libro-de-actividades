@@ -16,9 +16,10 @@ Vamos a hacer una tarea programada y otra diferida con Windows.
 La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 * En Windows 7 para abrir el programador de tareas hacemos
 `Panel de control -> Herramientas administrativas -> Programador de tareas`.
-* Vamos a programar una tarea diferida. Por ejemplo:    
-    * Para que nos muestre un mensaje en pantalla.
-    * O para que inicie un programa determinado (Firefox).
+* Vamos a programar una tarea diferida. Ejemplos:
+    * Mostrar un mensaje en pantalla.
+    * Abrir un fichero de texto en pantalla.
+    * Iniciar un programa determinado (Firefox).
 
 ---
 
