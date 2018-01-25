@@ -21,7 +21,7 @@ todos los pendrives y discos duros externos, pero entonces el tamaño del disco 
 * Creamos el directorio `disco_roto` dentro de `/mnt`.
 
 Vamos a montar la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disco_roto`.
-* `id nombre-del-alumno`, consultar uid de nuestro usuario (UID). Lo más probable es que sea 1000.
+* `id nombre-del-alumno`, consultar UID de nuestro usuario. Lo más probable es que sea 1000.
 * `mount /dev/sdb1 /mnt/disco_roto -o defaults,uid=UIDNUMBER`, monta la partición en la ruta espacificada, estableciendo los permisos adecuado para el usuario UID.   
 * Comprobación:
     * `df -hT`
@@ -31,8 +31,8 @@ Vamos a montar la partición del disco "roto"(`/dev/sdb1`) en la ruta `/mnt/disc
 de los ficheros/carpetas.
 
 * Copiaremos/descargaremos en dicha partición (sdb1) 3 ficheros:
-    * `FILE1`: Un fichero de texto
-    * `FILE2`: Una imagen/foto
+    * `FILE1`: Un fichero PDF.
+    * `FILE2`: Una imagen/foto.
     * `FILE3`: Una canción y/o vídeo.
     * Feedback de comprobación `ls /mnt/disco_roto`.
 * A continuación borraremos FILE1, FILE2 y FILE3, usando los comandos habituales de borrado.
@@ -64,7 +64,7 @@ para evitar que los procesos de recuperación afecten a la integridad del disco
 llamaremos `alfa` en VirtualBox.
 * Iniciamos la MV. Deben estar los 3 discos. Feeback de comprobación: `fdisk -l`.
 Además vemos que el disco B tiene una partición y el disco C no.
-* Los discos "roto" y "alfa" no deben estar montados. Comprobación: `df -hT`, `mount`
+* Los discos "roto" y "alfa" no deben estar montados. Comprobamos con `df -hT` y `mount`.
 
 Ahora vamos a clonar el disco "roto" en el "alfa". Ya hemos usado alguna herramienta
 de clonación (Clonezilla) pero en este caso vamos a usar el comando `dd`.
@@ -79,7 +79,7 @@ Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
     * Si va mal nos dice que son diferentes.
 * `fdisk -l`,vemos que el disco C ahora si tiene una partición y el mismo formato que el B.
 
-Todas las pruebas las haremos en el disco `alfa` a partir de ahora.
+A partir de ahora, todas las pruebas las haremos en el disco `alfa`.
 
 > En una situación de trabajo real, quitaríamos el disco "roto" de la máquina y
 lo guardaríamos en sitio seguro. No es necesario hacerlo en la práctica.
@@ -132,9 +132,10 @@ Ejemplo de uso de qphotorec:
 
 ## 4.4 Recuperar ficheros de texto
 
-Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores, entonces vamos a probar de otra forma.
+Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores,
+entonces vamos a probar de otra forma.
 
-* Montamos el disco alfa (`/dev/sdc`).
+* Montamos la partición del disco alfa (sdc).
 * Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
 
 ```
@@ -173,12 +174,12 @@ de por qué pasa esto la tenemos en el siguiente
 
 ## 5.1 Herramientas de borrado seguro
 
-Enlaces de SHRED:
-* [Cómo hacer borrado seguro con shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
-* [Borrado seguro de archivos con Shred](http://www.linuxtotal.com.mx/index.php?cont=info_seyre_008)
-
-Ejemplo con `dd`:
-* `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
+> Información sobre la herramienta SHRED:
+> * [Cómo hacer borrado seguro con shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
+> * [Borrado seguro de archivos con Shred](http://www.linuxtotal.com.mx/index.php?cont=info_seyre_008)
+>
+> Información sobre `dd`:
+> * `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
 
 ## 5.2 Proceso de borrado seguro
 
