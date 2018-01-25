@@ -134,8 +134,8 @@ Ejemplo de uso de qphotorec:
 
 Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores, entonces vamos a probar de otra forma.
 
-* Montamos el disco roto.
-* Creamos un archivo `/mnt/disco_roto/secreto.txt` con el siguiente contenido:
+* Montamos el disco alfa (`/dev/sdc`).
+* Creamos un archivo `/mnt/disco_alfa/secreto.txt` con el siguiente contenido:
 
 ```
 ===============
