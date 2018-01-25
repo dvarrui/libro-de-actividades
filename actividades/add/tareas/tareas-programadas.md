@@ -82,7 +82,6 @@ Consultar
 > * Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
 > * El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
 
-* Entrar con mi usuario normal.
 * `crontab -l`, para consultar que no hay tareas programadas.
 * Por defecto se usa el editor `vim` para modificar crontab.
 Si queremos usar el editor `nano`, hacemos `export VISUAL'nano'`.
