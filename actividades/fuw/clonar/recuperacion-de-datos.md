@@ -130,7 +130,9 @@ Ejemplo de uso de qphotorec:
 
 > La carpeta con los archivos recuperados NO deben estar en el disco `alfa` ni en el disco `roto`.
 
-## 4.4 Recuperar ficheros de texto
+---
+
+## 5. Recuperar ficheros de texto
 
 Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores,
 entonces vamos a probar de otra forma.
@@ -157,7 +159,7 @@ Estos son las claves de acceso de las naves imperiales.
 
 ---
 
-# 5. Borrado seguro
+# 6. Borrado seguro
 
 Hemos visto que aunque borremos un archivo todavía existen formas de recuperar dichos datos.
 Ahora vamos a ver cómo realizar un borrado seguro.
@@ -189,8 +191,8 @@ de por qué pasa esto la tenemos en el siguiente
 * Montamos el disco `limpio` en la ruta `/mnt/disco_limpio`.
 Feedback de comprobación: `df -hT`, `mount | grep disco`
 * Volvemos a crear/descargar 3 archivos para eliminar en el disco `limpio`.
-    * `FILE1`: Un fichero de texto (txt)
-    * `FILE2`: Una imagen/foto (png)
+    * `FILE1`: Un fichero PDF.
+    * `FILE2`: Una imagen/foto (png).
     * `FILE3`: Una canción y/o vídeo.
     * Feedback de comprobación: `ls /mnt/disco_limpio`.
 * A continuación
@@ -205,8 +207,7 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 
 # 6. Recuperar esquema de particionado
 
-OJO: Esta parte sólo funciona con particiones MBR. Estoy buscando la información
-para particiones GPT.
+OJO: Para esta parte vamos a usar discos con particiones MBR.
 
 Vamos a intentar recuperar un esquema de particionado dañado.
 
