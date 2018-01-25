@@ -88,6 +88,13 @@ El servicio `atd` es el responsable de la ejecución de los comandos at. Comprob
     * Programar una tarea periódica (crontab) para apagar el equipo.
 * `crontab -l`, para consultar la tarea que tenemos programadas.
 
+> Otro script de ejemplo:
+> ```
+>     #!/bin/bash
+>     # Añade la fecha/hora a un fichero cron.log
+>     date >> /home/usuario/cron.log
+> ```
+
 > Para definir una tarea ASINCRONA ponemos el script de ejecución en alguno
 de los directorios siguientes:
 > * `/etc/cron.hourly`, cada hora
@@ -100,13 +107,7 @@ de los directorios siguientes:
 # ANEXO
 
 ## Ejemplos GNU/Linux
-Otras tareas que se podrían realizar en GNU/Linux:
-* Ejemplo de script:
-```
-#!/bin/bash
-# Añade la fecha/hora a un fichero
-date >> /home/usuario/cron.log
-```
+
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
 
 Tarea asíncrona
