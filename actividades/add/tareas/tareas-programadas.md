@@ -60,7 +60,7 @@ Ejemplo de script que muestra un mensaje de aviso:
 # Mostrar mensaje en pantalla
 DISPLAY=:0
 export DISPLAY
-zenity --info --text="¡Que la fuerza te acompañe!"
+zenity --info --text="¡Hola nombre-del-alumno!"
 ```
 
 * Usar comando `at` para programar una tarea diferida. Por ejemplo para mostrar un mensaje en pantalla.
