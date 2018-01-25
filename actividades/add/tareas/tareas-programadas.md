@@ -9,11 +9,9 @@
 
 # 1. Windows - Tarea diferida.
 
-Vamos a hacer una tarea programada y otra diferida con Windows.
+Vamos a hacer una tarea diferida con Windows. Una tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 
 * [Configurar la MV](../../global/configuracion/windows.md)
-
-La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 * En Windows 7 para abrir el programador de tareas hacemos
 `Panel de control -> Herramientas administrativas -> Programador de tareas`.
 * Vamos a programar una tarea diferida. Ejemplos:
@@ -26,10 +24,9 @@ La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 # 2. Windows - Tarea periódica
 
 La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
-* Vamos a programar una tarea periódica para apagar el equipo.
-* El comando para apagar el sistema es `shutdown`.
 
-> * `shutdown /?`: Muestra la ayuda del comando.
+* Vamos a programar una tarea periódica para apagar el equipo.
+* El comando para apagar el sistema es `shutdown`. `shutdown /?`, muestra la ayuda del comando.
 
 ---
 
@@ -41,6 +38,7 @@ Vamos a hacer una tarea diferida con GNU/Linux.
 * Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
 El servicio `atd` es el responsable de la ejecución de los comandos at. Comprobar que esté en ejecución:
+
 * `Yast -> Servicios`
 * `systemctl status atd`    
 
@@ -53,20 +51,19 @@ El servicio `atd` es el responsable de la ejecución de los comandos at. Comprob
 > Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
 
 * Configurar nuestro usuario para que pueda ejecutar el comando at. Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
-
 * `atq`, consultamos que no hay ninguna tarea programada.
+
+Ejemplo de script que muestra un mensaje de aviso:
+
+```
+#!/bin/sh
+# Mostrar mensaje en pantalla
+DISPLAY=:0
+export DISPLAY
+zenity --info --text="¡Que la fuerza te acompañe!"
+```
+
 * Usar comando `at` para programar una tarea diferida. Por ejemplo para mostrar un mensaje en pantalla.
-
-> Ejemplo de script que muestra un mensaje de aviso:
->
-> ```
->     #!/bin/sh
->     # Mostrar mensaje en pantalla
->     DISPLAY=:0
->     export DISPLAY
->     zenity --info --text="¡Que la fuerza te acompañe!"
-> ```
-
 * `atq`, consultamos que SI hay una tarea programada.
 * `at -c 1`, muestra la configuración del trabajo ID=1.
 * Capturar imagen cuando se ejecute la tarea.
