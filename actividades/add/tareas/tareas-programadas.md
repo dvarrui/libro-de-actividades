@@ -41,31 +41,38 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
 ## 2.1 Tarea diferida
 
-* Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A). Ejemplos de comandos:
+* Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
+
+El servicio `atd` es el responsable de la ejecución de los comandos at. Nos aseguramos de que esté en ejecución:
+* `Yast -> Servicios`.
+* `systemctl status atd`    
+
+* Ejemplos de comandos:
     * `at`, crea una tarea diferida.
     * `atq`, muestra los trabajos en cola.
     * `at -c 1`, muestra la configuración del trabajo ID=1.
     * `atrm 1`, elimina el trabajo con ID=1.
-* Configurarmos nuestro usuario para que pueda ejecutar el comando at.
-* Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
-> El servicio `atd` es el responsable de la ejecución de los comandos at.
-> Para asegurarnos de que esté en ejecución:
-> * `Yast -> Servicios`.
-> * `systemctl status atd`    
->
+* Configurar nuestro usuario para que pueda ejecutar el comando at.
+
 > Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
+>
+
+* Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
 
 > Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
 
 ## 2.2 Tarea periódica
 
-* Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
+* Consultar el vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
+
+Para programar una tarea periódica tenemos estas formas:
+* Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
+    * `crontab -l`, para consultar mis tareas programadas.
+    * `crontab -e`, para crear una nueva tarea periódica.
+* El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
+
 * Programar una tarea periódica (crontab) para apagar el equipo.
-* El comando para apagar el sistema es `shutdown`.
-* Para programar una tarea periódica tenemos estas formas:
-    * Los usuarios usan el comando `crontab`  para programar sus tareas.
-    * El usuario root usa el fichero `/etc/crontab` para programar las tareas del sistema.
 
 > Para definir una tarea ASINCRONA ponemos el script de ejecución en alguno
 de los directorios siguientes:
