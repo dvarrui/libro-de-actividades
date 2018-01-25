@@ -73,7 +73,9 @@ zenity --info --text="¡Hola nombre-del-alumno!"
 
 # 4. GNU/Linux - Tarea periódica
 
-* Consultar el vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
+Consultar
+* Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
+* Enlaces de interés [Tareas programadas]](https://www.nerion.es/soporte/tutoriales/tareas-programadas-en-linux/)
 
 > Para programar una tarea periódica tenemos dos formas:
 >
