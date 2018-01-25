@@ -132,7 +132,7 @@ Ejemplo de uso de qphotorec:
 
 ---
 
-## 5. Recuperar ficheros de texto
+# 5. Recuperar ficheros de texto plano
 
 Supongamos que no hemos podido recuperar el fichero de texto con las herramientas anteriores,
 entonces vamos a probar de otra forma.
@@ -174,7 +174,7 @@ de por qué pasa esto la tenemos en el siguiente
 > Ante la duda, y para segurarse, muchas empresas recurren a la destrucción física de los disco.
 >
 
-## 5.1 Herramientas de borrado seguro
+## 6.1 Herramientas de borrado seguro
 
 > Información sobre la herramienta SHRED:
 > * [Cómo hacer borrado seguro con shred](http://www.welivesecurity.com/la-es/2014/11/24/como-hacer-borrado-seguro-shred-linux/).
@@ -183,7 +183,7 @@ de por qué pasa esto la tenemos en el siguiente
 > Información sobre `dd`:
 > * `dd if=/dev/zero of=FILE2`: Llena el contenido del fichero FILE2 con ceros.
 
-## 5.2 Proceso de borrado seguro
+## 6.2 Proceso de borrado seguro
 
 * Creamos un disco nuevo VirtualBox de 10MB. A este disco lo llamaremos "limpio".
 * Iniciamos la MV.
@@ -205,7 +205,7 @@ Feedback de comprobación: `df -hT`, `mount | grep disco`
 
 ---
 
-# 6. Recuperar esquema de particionado
+# 7. Recuperar esquema de particionado
 
 OJO: Para esta parte vamos a usar discos con particiones MBR.
 
