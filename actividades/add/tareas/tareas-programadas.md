@@ -7,13 +7,11 @@
 
 ---
 
-# 1. Windows
+# 1. Windows - Tarea diferida.
 
 Vamos a hacer una tarea programada y otra diferida con Windows.
 
 * [Configurar la MV](../../global/configuracion/windows.md)
-
-## 1.1 Tarea diferida
 
 La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 * En Windows 7 para abrir el programador de tareas hacemos
@@ -22,7 +20,9 @@ La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
     * Para que nos muestre un mensaje en pantalla.
     * O para que inicie un programa determinado (Firefox).
 
-## 1.2 Tarea periódica
+---
+
+# 2. Windows - Tarea periódica
 
 La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
 * Vamos a programar una tarea periódica para apagar el equipo.
@@ -32,15 +32,11 @@ La tarea programada se define para ejecutarse periódicamente cada intervalo de 
 
 ---
 
-# 2. SO GNU/Linux
+# 3. SO GNU/Linux - Tarea diferida
 
-Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
+Vamos a hacer una tarea diferida con GNU/Linux.
 
 * [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
-* [Configurar Debian](../../global/configuracion/debian.md)
-
-## 2.1 Tarea diferida
-
 * Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
 El servicio `atd` es el responsable de la ejecución de los comandos at. Comprobar que esté en ejecución:
@@ -75,17 +71,22 @@ El servicio `atd` es el responsable de la ejecución de los comandos at. Comprob
 * Capturar imagen cuando se ejecute la tarea.
 * `atq`, consultamos que ya NO hay tareas.
 
-## 2.2 Tarea periódica
+---
+
+# 4. GNU/Linux - Tarea periódica
 
 * Consultar el vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
 
-Para programar una tarea periódica tenemos estas formas:
-* Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
-    * `crontab -l`, para consultar mis tareas programadas.
-    * `crontab -e`, para crear una nueva tarea periódica.
-* El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
+> Para programar una tarea periódica tenemos dos formas:
+>
+> * Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
+> * El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
 
-* Programar una tarea periódica (crontab) para apagar el equipo.
+* Entrar con mi usuario normal.
+* `crontab -l`, para consultar que no hay tareas programadas.
+* `crontab -e`, para crear una nueva tarea periódica.
+    * Programar una tarea periódica (crontab) para apagar el equipo.
+* `crontab -l`, para consultar la tarea que tenemos programadas.
 
 > Para definir una tarea ASINCRONA ponemos el script de ejecución en alguno
 de los directorios siguientes:
@@ -106,8 +107,6 @@ Otras tareas que se podrían realizar en GNU/Linux:
 # Añade la fecha/hora a un fichero
 date >> /home/usuario/cron.log
 ```
-* Utilizar el servicio SSH. Programar el inicio/parada del servicio con el cron/crontab. Comprobarlo.
-* Utilizar el servicio del servicio-prueba. Programar el inicio/parada del servicio con el anacron.
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
 
 Tarea asíncrona
