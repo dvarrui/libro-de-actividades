@@ -82,9 +82,10 @@ zenity --info --text="¡Que la fuerza te acompañe!"
 
 * Entrar con mi usuario normal.
 * `crontab -l`, para consultar que no hay tareas programadas.
-* `crontab -e`, para crear una nueva tarea periódica.
-    * Programar una tarea periódica (crontab) para apagar el equipo.
-* `crontab -l`, para consultar la tarea que tenemos programadas.
+* `crontab -e`, abre el editor para crear una nueva tarea periódica.
+* Definir una tarea periódica (crontab) para apagar el equipo todos los días a una hora/minuto determinada.
+* Para cerrar, escribir la secuencia `ESC`, `:` y `wq`.
+* `crontab -l`, para consultar la tarea que tenemos programada.
 
 > Otro script de ejemplo:
 > ```
