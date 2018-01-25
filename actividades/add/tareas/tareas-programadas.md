@@ -1,10 +1,11 @@
 
-*(Utilizado en los cursos 201415 y 2015-16)*
 
 # Tareas programadas
 
 * Realizar la entrega por el repositorio GitHub.
 * Usar etiqueta `cron` al finalizar.
+
+---
 
 # 1. Windows
 
@@ -15,9 +16,11 @@ Vamos a hacer una tarea programada y otra diferida con Windows.
 ## 1.1 Tarea diferida
 
 La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
-* Vamos a programar una tarea diferida para que nos muestre un mensaje en pantalla.
 * En Windows 7 para abrir el programador de tareas hacemos
 `Panel de control -> Herramientas administrativas -> Programador de tareas`.
+* Vamos a programar una tarea diferida. Por ejemplo:    
+    * Para que nos muestre un mensaje en pantalla.
+    * O para que inicie un programa determinado (Firefox).
 
 ## 1.2 Tarea periódica
 
