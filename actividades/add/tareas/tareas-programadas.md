@@ -50,7 +50,7 @@ El servicio `atd` es el responsable de la ejecución de los comandos at. Comprob
 >
 > Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
 
-* Configurar nuestro usuario para que pueda ejecutar el comando at. Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
+* Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
 * `atq`, consultamos que no hay ninguna tarea programada.
 
 Ejemplo de script que muestra un mensaje de aviso:
