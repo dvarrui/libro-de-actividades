@@ -43,24 +43,37 @@ Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
 
 * Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
-El servicio `atd` es el responsable de la ejecución de los comandos at. Nos aseguramos de que esté en ejecución:
-* `Yast -> Servicios`.
+El servicio `atd` es el responsable de la ejecución de los comandos at. Comprobar que esté en ejecución:
+* `Yast -> Servicios`
 * `systemctl status atd`    
 
-* Ejemplos de comandos:
-    * `at`, crea una tarea diferida.
-    * `atq`, muestra los trabajos en cola.
-    * `at -c 1`, muestra la configuración del trabajo ID=1.
-    * `atrm 1`, elimina el trabajo con ID=1.
-
-* Configurar nuestro usuario para que pueda ejecutar el comando at.
-
-> Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
+> Ejemplos de comandos:
+> * `at`, crea una tarea diferida.
+> * `atq`, muestra los trabajos en cola.
+> * `at -c 1`, muestra la configuración del trabajo ID=1.
+> * `atrm 1`, elimina el trabajo con ID=1.
 >
-
-* Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
-
 > Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
+
+* Configurar nuestro usuario para que pueda ejecutar el comando at. Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
+
+* `atq`, consultamos que no hay ninguna tarea programada.
+* Usar comando `at` para programar una tarea diferida. Por ejemplo para mostrar un mensaje en pantalla.
+
+> Ejemplo de script que muestra un mensaje de aviso:
+>
+> ```
+>     #!/bin/sh
+>     # Mostrar mensaje en pantalla
+>     DISPLAY=:0
+>     export DISPLAY
+>     zenity --info --text="¡Que la fuerza te acompañe!"
+> ```
+
+* `atq`, consultamos que SI hay una tarea programada.
+* `at -c 1`, muestra la configuración del trabajo ID=1.
+* Capturar imagen cuando se ejecute la tarea.
+* `atq`, consultamos que ya NO hay tareas.
 
 ## 2.2 Tarea periódica
 
@@ -96,16 +109,6 @@ date >> /home/usuario/cron.log
 * Utilizar el servicio SSH. Programar el inicio/parada del servicio con el cron/crontab. Comprobarlo.
 * Utilizar el servicio del servicio-prueba. Programar el inicio/parada del servicio con el anacron.
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
-
-* Ejemplo de script que muestra un mensaje de aviso:
-
-```
-    #!/bin/sh
-    # Mostrar mensaje en pantalla
-    DISPLAY=:0
-    export DISPLAY
-    zenity --info --text="¡Que la fuerza te acompañe!"
-```
 
 Tarea asíncrona
 
