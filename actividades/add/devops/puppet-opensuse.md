@@ -495,6 +495,7 @@ Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la
 en ambos equipos. Podemos usar comando `facter` para ver la versión de puppet del servidor.
 
 * Vamos al cliente Windows.
+* Hacer una instantánea de la MV antes de seguir.
 * Descargamos e instalamos la versión de Agente Puppet para Windows similar al Puppet Master.
 * El fichero puppet.conf en Windows está en `C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf`.
 (ProgramData es una ruta oculta). Revisar que tenga algo como:
