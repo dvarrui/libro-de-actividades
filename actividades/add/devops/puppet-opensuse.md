@@ -496,7 +496,10 @@ en ambos equipos. Podemos usar comando `facter` para ver la versión de puppet d
 
 * Vamos al cliente Windows.
 * Hacer una instantánea de la MV antes de seguir.
-* Descargamos e instalamos la versión de Agente Puppet para Windows similar al Puppet Master.
+* Descargamos la versión de Agente Puppet para Windows similar al Puppet Master.
+* Instalar el agente p:
+    * IMPORTANTE: Poner correctamente el nombre del master `masterXX.curso1718` durante el proceso.
+    * Desactivar plugins.
 * El fichero puppet.conf en Windows está en `C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf`.
 (ProgramData es una ruta oculta). Revisar que tenga algo como:
 ```
