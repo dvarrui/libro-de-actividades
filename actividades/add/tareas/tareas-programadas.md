@@ -1,68 +1,101 @@
 
-*(Utilizado en los cursos 201415 y 2015-16)*
 
 # Tareas programadas
 
 * Realizar la entrega por el repositorio GitHub.
 * Usar etiqueta `cron` al finalizar.
 
-# 1. Windows
+---
 
-Vamos a hacer una tarea programada y otra diferida con Windows.
+# 1. Windows - Tarea diferida.
+
+Vamos a hacer una tarea diferida con Windows. Una tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 
 * [Configurar la MV](../../global/configuracion/windows.md)
-
-## 1.1 Tarea diferida
-
-La tarea diferida se define para ejecutarse una sola vez en una fecha futura.
-* Vamos a programar una tarea diferida para que nos muestre un mensaje en pantalla.
 * En Windows 7 para abrir el programador de tareas hacemos
 `Panel de control -> Herramientas administrativas -> Programador de tareas`.
-
-## 1.2 Tarea periódica
-
-La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
-* Vamos a programar una tarea periódica para apagar el equipo.
-* El comando para apagar el sistema es `shutdown`.
-
-> * `shutdown /?`: Muestra la ayuda del comando.
+* Vamos a programar una tarea diferida. Ejemplos:
+    * Mostrar un mensaje en pantalla.
+    * Abrir un fichero de texto en pantalla.
+    * Iniciar un programa determinado (Firefox).
 
 ---
 
-# 2. SO GNU/Linux
+# 2. Windows - Tarea periódica
 
-Vamos a hacer una tarea programada y otra diferida con GNU/Linux.
+La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
+
+* Vamos a programar una tarea periódica para apagar el equipo.
+* El comando para apagar el sistema es `shutdown`. `shutdown /?`, muestra la ayuda del comando.
+
+---
+
+# 3. SO GNU/Linux - Tarea diferida
+
+Vamos a hacer una tarea diferida con GNU/Linux.
 
 * [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
-* [Configurar Debian](../../global/configuracion/debian.md)
+* Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
-## 2.1 Tarea diferida
+El servicio `atd` es el responsable de la ejecución de los comandos at. Comprobar que esté en ejecución:
 
-* Vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A). Ejemplos de comandos:
-    * `at`, crea una tarea diferida.
-    * `atq`, muestra los trabajos en cola.
-    * `at -c 1`, muestra la configuración del trabajo ID=1.
-    * `atrm 1`, elimina el trabajo con ID=1.
-* Configurarmos nuestro usuario para que pueda ejecutar el comando at.
-* Vamos a programar una tarea diferida (comando `at`) que nos mostrará un mensaje en pantalla.
+* `Yast -> Servicios`
+* `systemctl status atd`    
 
-> El servicio `atd` es el responsable de la ejecución de los comandos at.
-> Para asegurarnos de que esté en ejecución:
-> * `Yast -> Servicios`.
-> * `systemctl status atd`    
+> Ejemplos de comandos:
+> * `at`, crea una tarea diferida.
+> * `atq`, muestra los trabajos en cola.
+> * `at -c 1`, muestra la configuración del trabajo ID=1.
+> * `atrm 1`, elimina el trabajo con ID=1.
 >
-> Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
-
 > Otra forma de trabajar con at: `at 11:45 Feb 28 < scriptname.sh`
 
-## 2.2 Tarea periódica
+* Si el usuario no tuviera permisos para ejecutar at, consultar los ficheros: `/etc/at.deny` y `/etc/at.allow`.
+* `atq`, consultamos que no hay ninguna tarea programada.
 
+Ejemplo de script que muestra un mensaje de aviso:
+
+```
+#!/bin/sh
+# Mostrar mensaje en pantalla
+DISPLAY=:0
+export DISPLAY
+zenity --info --text="¡Hola nombre-del-alumno!"
+```
+
+* Usar comando `at` para programar una tarea diferida. Por ejemplo para mostrar un mensaje en pantalla.
+* `atq`, consultamos que SI hay una tarea programada.
+* `at -c 1`, muestra la configuración del trabajo ID=1.
+* Capturar imagen cuando se ejecute la tarea.
+* `atq`, consultamos que ya NO hay tareas.
+
+---
+
+# 4. GNU/Linux - Tarea periódica
+
+Consultar
 * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
-* Programar una tarea periódica (crontab) para apagar el equipo.
-* El comando para apagar el sistema es `shutdown`.
-* Para programar una tarea periódica tenemos estas formas:
-    * Los usuarios usan el comando `crontab`  para programar sus tareas.
-    * El usuario root usa el fichero `/etc/crontab` para programar las tareas del sistema.
+* Enlaces de interés [Tareas programadas]](https://www.nerion.es/soporte/tutoriales/tareas-programadas-en-linux/)
+
+> Para programar una tarea periódica tenemos dos formas:
+>
+> * Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
+> * El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
+
+* `crontab -l`, para consultar que no hay tareas programadas.
+* Por defecto se usa el editor `vim` para modificar crontab.
+Si queremos usar el editor `nano`, hacemos `export VISUAL'nano'`.
+* `crontab -e`, abre el editor para crear una nueva tarea periódica.
+* Definir una tarea periódica (crontab) para apagar el equipo todos los días a una hora/minuto determinada.
+* Para salir del editor `vim`, escribimos la secuencia `ESC`, `:` y `wq`.
+* `crontab -l`, para consultar la tarea que tenemos programada.
+
+> Otro script de ejemplo:
+> ```
+>     #!/bin/bash
+>     # Añade la fecha/hora a un fichero cron.log
+>     date >> /home/usuario/cron.log
+> ```
 
 > Para definir una tarea ASINCRONA ponemos el script de ejecución en alguno
 de los directorios siguientes:
@@ -76,26 +109,8 @@ de los directorios siguientes:
 # ANEXO
 
 ## Ejemplos GNU/Linux
-Otras tareas que se podrían realizar en GNU/Linux:
-* Ejemplo de script:
-```
-#!/bin/bash
-# Añade la fecha/hora a un fichero
-date >> /home/usuario/cron.log
-```
-* Utilizar el servicio SSH. Programar el inicio/parada del servicio con el cron/crontab. Comprobarlo.
-* Utilizar el servicio del servicio-prueba. Programar el inicio/parada del servicio con el anacron.
+
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
-
-* Ejemplo de script que muestra un mensaje de aviso:
-
-```
-    #!/bin/sh
-    # Mostrar mensaje en pantalla
-    DISPLAY=:0
-    export DISPLAY
-    zenity --info --text="¡Que la fuerza te acompañe!"
-```
 
 Tarea asíncrona
 
