@@ -126,7 +126,6 @@ Comando: `lvcreate -L690M -n lvXXextra vgXXextra`.
 
 * Comprobamos lo que tenemos:
 ```
-ip a               # Muestra información de la configuración de red del equipo
 vgdisplay vgXXextra # Muestra información del grupo de volumen
 lvdisplay vgXXextra # Muestra información de los volúmenes lógicos de un grupo de volumen concreto
 ```
@@ -193,7 +192,6 @@ vgreduce vgXXextra /dev/sdc3
 * Comprobamos lo que tenemos:
 
 ```
-ip a
 vgdisplay
 lvdisplay vgXXextra
 ```
