@@ -35,11 +35,12 @@ Tener en cuenta que en la partición se monta `/boot` y va a parte (Fuera de LVM
 
 * Crear una partición lógica con todo lo que nos queda de espacioo en disco. Definir la partición de tipo LVM.
 * Ir a la gestión de volúmenes.
-* En la partición LVM, crearemos un grupo de volumen llamado `vg-debian`.
-* Dentro del `vg-debian`, podemos los VL (volúmenes lógicos) siguientes:
-    * `lv-swap` (500 MB) usar para área de intercambio
-    * `lv-raiz` (5 GB ext4) usar como raíz de la instalación del SO.
-    * `lv-datos` (100MB ext3) usar como /home del sistema.
+* En la partición LVM, crearemos un grupo de volumen llamado `vgXXdebian`.
+Donde XX es el número asociado a cada alumno.
+* Dentro del `vgXXdebian`, podemos los VL (volúmenes lógicos) siguientes:
+    * `lvXXswap` (500 MB) usar para área de intercambio
+    * `lvXXraiz` (5 GB ext4) usar como raíz de la instalación del SO.
+    * `lvXXdatos` (100MB ext3) usar como /home del sistema.
 * Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 
 A continuación se muestran imágenes de referencia que NO tienen porqué coincidir con lo que se solicita.
@@ -71,17 +72,18 @@ lvdisplay vg-debian
 
 Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 
-* Consultar el tamaño actual del volumen lógico: `lvdisplay -v /dev/vg-debian/lv-datos`
-* Para ampliar el tamaño del volumen lógico: `lvextend --resizefs -L 400 /dev/vg-debian/lv-datos`
-* Comprobar con: `lvdisplay -v /dev/vg-debian/lv-datos`
+* Consultar el tamaño actual del volumen lógico: `lvdisplay -v /dev/vgXXdebian/lvXXdatos`
+* Para ampliar el tamaño del volumen lógico: `lvextend --resizefs -L 400 /dev/vgXXdebian/lvXXdatos`
+* Comprobar con: `lvdisplay -v /dev/vgXXdebian/lvXXdatos`
 * Comprobamos lo que tenemos ahora:
 ```
 vgdisplay
-lvdisplay vg-debian
+lvdisplay vgXXdebian
+df -hT
 ```
 
 > Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el dispositivo,
-podemos usar `resize2fs /dev/vg-debian/lv-datos` sirve ajustar dicho valor.
+podemos usar `resize2fs /dev/vgXXdebian/lvXXdatos` sirve ajustar dicho valor.
 
 ---
 
@@ -113,25 +115,25 @@ Esquema de PV, VG y LV:
 
 ## 3.2 Crear VG y VL
 
-* Crear un Grupo de Volumen llamado `vg-extra`, con el disco (B) y las 2
+* Crear un Grupo de Volumen llamado `vgXXextra`, con el disco (B) y las 2
 primeras particiones del (C). Veamos un ejemplo de cómo
 crear un grupo de volúmenes con vgcreate:
 `vgcreate /dev/NOMBRE-GRUPO-VOLUMEN /dev/discoA /dev/discoB1`
-* Crear un nuevo Volumen Lógico llamado `lv-extra` con tamaño 690MB.
-Comando: `lvcreate -L690M -n lv-extra vg-extra`.
+* Crear un nuevo Volumen Lógico llamado `lvXXextra` con tamaño 690MB.
+Comando: `lvcreate -L690M -n lvXXextra vgXXextra`.
 
 > NOTA: La partición 3 del disco (C) NO la estamos usando por ahora.
 
 * Comprobamos lo que tenemos:
 ```
 ip a               # Muestra información de la configuración de red del equipo
-vgdisplay vg-extra # Muestra información del grupo de volumen
-lvdisplay vg-extra # Muestra información de los volúmenes lógicos de un grupo de volumen concreto
+vgdisplay vgXXextra # Muestra información del grupo de volumen
+lvdisplay vgXXextra # Muestra información de los volúmenes lógicos de un grupo de volumen concreto
 ```
 
 ## 3.3 Escribir información
 
-* El nuevo dispositivo `/dev/vg-extra/lv-extra` no tiene formato. Vamos a darle formato ext4.
+* El nuevo dispositivo `/dev/vgXXextra/lvXXextra` no tiene formato. Vamos a darle formato ext4.
 Ejemplo: `mkfs.ext4 nombre-del-dispositivo`.
 * Crear directorio (`/mnt/vol-extra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
 * Montar el nuevo dispositivo (Volumen Lógico) en la carpeta /mnt/vol-extra.
@@ -150,8 +152,8 @@ El comando dd hay que usarlo con precaución.
 
 ```
 pvcreate /dev/sdc3
-vgextend vg-extra /dev/sdc3
-vgdisplay vg-extra (Para comprobar el cambio)
+vgextend vgXXextra /dev/sdc3
+vgdisplay vgXXextra (Para comprobar el cambio)
 ```
 
 * Ampliar el tamaño de lv-extra a 930MB (Comando lvextend). Comprobar el aumento del espacio (lvdisplay)
@@ -167,8 +169,8 @@ información almacenada en él.
 
 * Primero comprobamos el tamaño utilizado de nuestros datos: `du -sh /mnt/vol-extra`.
 Este valor debe ser menor a 50 MB.
-* Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vg-extra/lv-extra`
-* Comprobamos: `lvdisplay /dev/vg-extra/lv-extra`.
+* Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vgXXextra/lvXXextra`
+* Comprobamos: `lvdisplay /dev/vgXXextra/lvXXextra`.
 
 Antes de quitar el disco hay que asegurarse de que no guarda datos.
 * Movemos la información del disco sdc al disco sdb:
@@ -182,9 +184,9 @@ pvmove /dev/sdc3 /dev/sdb1
 * Reducimos el tamaño del grupo de volumen:
 
 ```
-vgreduce vg-extra /dev/sdc1
-vgreduce vg-extra /dev/sdc2
-vgreduce vg-extra /dev/sdc3
+vgreduce vgXXextra /dev/sdc1
+vgreduce vgXXextra /dev/sdc2
+vgreduce vgXXextra /dev/sdc3
 ```
 
 * Comprobar que se mantiene la información almacenada.
@@ -193,7 +195,7 @@ vgreduce vg-extra /dev/sdc3
 ```
 ip a
 vgdisplay
-lvdisplay vg-extra
+lvdisplay vgXXextra
 ```
 * Ahora podemos a quitar el disco `/dev/sdc` de la MV sin problemas.
 
@@ -218,9 +220,9 @@ primera partición del disco (C).
 > * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño
 para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
 
-* ¿Te das cuenta como con la misma letra de unidad se acceden a una zona
+* Con la misma letra de unidad se acceden a una zona
 de almacenamiento (volumen dinámico) formada por partes (particiones o
-volúmenes básicos) de varios discos?
+volúmenes básicos) de varios discos. Comprobarlo.
 
 ---
 
