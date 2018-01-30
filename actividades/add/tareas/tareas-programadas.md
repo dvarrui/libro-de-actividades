@@ -83,8 +83,8 @@ Consultar
 > * El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
 
 * `crontab -l`, para consultar que no hay tareas programadas.
-* Por defecto se usa el editor `vim` para modificar crontab.
-Si queremos usar el editor `nano`, hacemos `export VISUAL'nano'`.
+* Por defecto, la herramienta crontab usa el editor `vim` para modificar su configuración.
+Si queremos usar, por ejemplo, el editor `nano`, en la consola escribimos `export VISUAL='nano'`.
 * `crontab -e`, abre el editor para crear una nueva tarea periódica.
 * Definir una tarea periódica (crontab) para apagar el equipo todos los días a una hora/minuto determinada.
 * Para salir del editor `vim`, escribimos la secuencia `ESC`, `:` y `wq`.
