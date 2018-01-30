@@ -205,6 +205,7 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 
 ![docker-url-nginx.png](./files/docker-url-nginx.png)
 
+* Comprobar el acceso a `holamundo.html`.
 * Paramos el contenedor y lo eliminamos.
 ```
 docker ps
