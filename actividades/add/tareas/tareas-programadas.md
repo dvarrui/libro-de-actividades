@@ -63,6 +63,9 @@ export DISPLAY
 zenity --info --text="¡Hola nombre-del-alumno!"
 ```
 
+> Un script para mostrar información en pantalla, debe ser ejecutado por el usuario
+que inició el entorno gráfico.
+
 * Usar comando `at` para programar una tarea diferida. Por ejemplo para mostrar un mensaje en pantalla.
 * `atq`, consultamos que SI hay una tarea programada.
 * `at -c 1`, muestra la configuración del trabajo ID=1.
