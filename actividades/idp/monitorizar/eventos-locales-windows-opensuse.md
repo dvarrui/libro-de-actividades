@@ -117,12 +117,12 @@ Para configurar los eventos que deben ser auditados se usa el fichero audit.rule
 
 * Instalar los paquetes `audit` y `yast2-audit-laf`.
 * Consultar el estado del demonio:
-    * `auditctl -s`,
+    * `auditctl -s`
     * `systemctl status auditd`
 * Consultar el fichero `/etc/audit/auditd.conf`
 * Averiguar el significado de los siguientes parámetros: log_file, log_format,
 log_group.
-    * **freq**, un valor de 20 le indica al demonio audit qye debe escribir los datos de
+    * **freq**, un valor de 20 le indica al demonio audit que debe escribir los datos de
     los eventos al disco cada 20 segundos.
     * **max_log_file**, tamaño máximo en MB del fichero de log.
     * **max_log_file_action**, acción que se ejecuta cuando el fichero de log llega a su valor máximo.
