@@ -37,10 +37,10 @@ A continuación se muestra imagen de ejemplo de la directiva desactivada:
     * Intentar entrar con `soldado2` poniendo la clave mal.
     * y no entrar con `soldado3`.
 * Buscar en el sistema, la herramienta visor de eventos.
-* Comprobar cómo se registran los eventos anteriores en la sección "Seguridad".
-Incluir capturas de pantalla de los eventos generados para `soldado1` y `soldado2`.
-* Exportar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO
-incluirlos todos (Elegir los generados hoy, o en las últimas horas).
+* Ir a la sección "Seguridad". Buscar los eventos de `soldado1` y `soldado2`.
+Incluir capturas de pantalla de los mismos.
+* Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO
+incluirlos todos. Elegir los generados hoy, o en las últimas horas.
 * Incluir fichero CSV en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
 * Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas
 de cálculo (Por ejemplo: Excel de Microsoft, Calc de LibreOffice, etc.). Comprobarlo.
