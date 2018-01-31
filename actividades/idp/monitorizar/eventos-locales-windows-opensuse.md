@@ -23,7 +23,7 @@ A continuación se muestra imagen de ejemplo de la directiva desactivada:
 
 ![activar-directivas](./images/activar-directivas.png)
 
-* Activar la opción para unas directivas de seguridad, para auditar los *"Sucesos de inicio de sesión"* correctos e incorrectos.
+* Activar la opción para unas directivas de seguridad, para auditar los *"Sucesos de inicio de sesión"*. Habilitar la configurar tanto correctos y erróneos.
 * Incluir captura de pantalla con la directiva activada y configurada.
 
 > NOTA:
@@ -60,6 +60,7 @@ Vamos a activar directiva de auditoría para los objetos.
 Activar auditoría sobre un fichero:
 * Crear el archivo `c:\public\estrellitaXX.txt`
 * `Botón derecho -> Propiedades -> Seguridad -> Opciones avanzadas -> Auditoría`.
+Habilitar configuración de correctos y erróneos.
 
 ![](./images/windows-auditar-objeto.png)
 
