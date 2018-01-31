@@ -160,7 +160,8 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 * Volvemos al terminal t1
 * `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
 Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
-* Con el usuario `rebelde1` modificar el fichero.
+* Con el usuario `rebelde1` modificar el fichero. Para cambiar de usuario en la consola
+sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
 * Con el usuario `rebelde2` leer el fichero.
 
  Consultar ahora los eventos de auditoria.
