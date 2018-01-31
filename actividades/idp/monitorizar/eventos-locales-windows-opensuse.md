@@ -1,6 +1,4 @@
 
-*(Actividad adaptada de eventos-locales-windows-debian para el curso 201617)*
-
 # 1. Introducción
 
 Toda la actividad importante del sistema debe quedar registrada en los
@@ -36,7 +34,7 @@ A continuación se muestra imagen de ejemplo de la directiva desactivada:
     * Entrar al sistema con `soldado1` de forma correcta.
     * Intentar entrar con `soldado2` poniendo la clave mal.
     * y no entrar con `soldado3`.
-* Buscar en el sistema, la herramienta visor de sucesos.
+* Buscar en el sistema, la herramienta visor de eventoss.
 * Comprobar cómo se registran los eventos anteriores en la sección "Seguridad".
 Incluir captura de pantalla.
 * Exportar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO
