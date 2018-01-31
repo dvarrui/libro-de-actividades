@@ -165,7 +165,7 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
 * Con el usuario `rebelde2` leer el fichero.
 
-Consultar ahora los eventos de auditoria.
+Ahora vamos a consultar los eventos de auditoría.
 * Consultar las salidas del terminal t2.
 * Ver las últimas líneas del fichero `/var/log/audit/audit.log`
 * `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
