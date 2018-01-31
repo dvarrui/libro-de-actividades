@@ -36,30 +36,29 @@ A continuación se muestra imagen de ejemplo de la directiva desactivada:
     * Entrar al sistema con `soldado1` de forma correcta.
     * Intentar entrar con `soldado2` poniendo la clave mal.
     * y no entrar con `soldado3`.
-* Buscar en el sistema, la herramienta visor de eventoss.
+* Buscar en el sistema, la herramienta visor de eventos.
 * Comprobar cómo se registran los eventos anteriores en la sección "Seguridad".
-Incluir captura de pantalla.
+Incluir capturas de pantalla de los eventos generados para `soldado1` y `soldado2`.
 * Exportar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO
 incluirlos todos (Elegir los generados hoy, o en las últimas horas).
-* Incluir fichero en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
+* Incluir fichero CSV en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
 * Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas
 de cálculo (Por ejemplo: Excel de Microsoft, Calc de LibreOffice, etc.). Comprobarlo.
 
-> Realmente los CSV son ficheros de texto donde cada fila es como in registro de una tabla.
-Y se usa la coma para delimitar los campos dentro de cada fila.
+> Realmente los CSV son ficheros de texto donde cada fila es como un registro de una tabla. Normalmente se usa la coma para delimitar los campos dentro de cada fila.
 
 ## 2.2 Auditar acceso a un fichero
 
-Enlace de interés:
-* [Auditar acceso a fichero](http://blog.elhacker.net/2013/03/auditar-el-acceso-ficheros-carpetas-en-windows-7-windows-xp.html)
-* [Vídeo sobre auditar el acceso a objetos](https://www.youtube.com/watch?v=xfMOfApRyVA)
+> Enlace de interés:
+> * [Auditar acceso a fichero](http://blog.elhacker.net/2013/03/auditar-el-acceso-ficheros-carpetas-en-windows-7-windows-xp.html)
+> * [Vídeo sobre auditar el acceso a objetos](https://www.youtube.com/watch?v=xfMOfApRyVA)
 
-Activar directiva de auditoría para los objetos.
-* Ir a Directivas de seguridad local -> Directivas locales -> Directivas de auditoría.
+Vamos a activar directiva de auditoría para los objetos.
+* Ir a `Directivas de seguridad local -> Directivas locales -> Directivas de auditoría`.
 * Activar `Auditar acceso a objetos`.
 
 Activar auditoría sobre un fichero:
-* Crear el archivo `c:\public\estrellita.txt`
+* Crear el archivo `c:\public\estrellitaXX.txt`
 * `Botón derecho -> Propiedades -> Seguridad -> Opciones avanzadas -> Auditoría`.
 
 ![](./images/windows-auditar-objeto.png)
@@ -79,8 +78,7 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 # 3. GNU/Linux OpenSUSE
 
 El servicio Audit es una herramienta que nos permite auditar eventos en los sistemas
-GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría
-audit.
+GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría audit.
 
 Usando herramientas potentes como audit, el sistema puede ser relizar un seguimiento
 de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
@@ -99,7 +97,7 @@ La configuración del demonio audit la llevan dos ficheros, uno para el demonio
 
 ### auditd.conf
 
-El fichero auditd.conf configura el demonio auditd centrándose en dónde y cómo
+El fichero `auditd.conf` configura el demonio auditd centrándose en dónde y cómo
 se deben registrar los eventos. Define como tratar con los discos llenos,
 rotaciones de log y el número de log a mantener. Normalmente la configuración
 por defecto será apropiada para la mayoría de los casos.
@@ -108,11 +106,11 @@ por defecto será apropiada para la mayoría de los casos.
 
 Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
 
-Enlaces de interés:
-* [Tutorial - Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
-* [OpenSUSE documentation - Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
-* [Wiki - Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
-* [Wiki - Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
+> Enlaces de interés:
+> * [Tutorial - Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
+> * [OpenSUSE documentation - Linux audit](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.audit.comp.html)
+> * [Wiki - Systemd Journal](https://es.opensuse.org/SDB:Systemd_journal)
+> * [Wiki - Systemd Optimización](https://es.opensuse.org/SDB:Systemd_optimizacion)
 
 ## 3.2 Instalación y teoría
 
