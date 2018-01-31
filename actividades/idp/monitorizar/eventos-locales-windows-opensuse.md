@@ -116,12 +116,12 @@ Para configurar los eventos que deben ser auditados se usa el fichero audit.rule
 ## 3.2 Instalación y teoría
 
 * Instalar los paquetes `audit` y `yast2-audit-laf`.
-* Consultar el estado del demonio:
+* Consultar el estado del demonio o servicio:
     * `auditctl -s`
     * `systemctl status auditd`
 * Consultar el fichero `/etc/audit/auditd.conf`
 * Averiguar el significado de los siguientes parámetros: log_file, log_format,
-log_group.
+log_group. Estos son las definiciones de algunos parámetros:
     * **freq**, un valor de 20 le indica al demonio audit que debe escribir los datos de
     los eventos al disco cada 20 segundos.
     * **max_log_file**, tamaño máximo en MB del fichero de log.
@@ -130,7 +130,7 @@ log_group.
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
-* Consultar el fichero `/etc/audit/audit.rules`. En este fichero se define qué
+* Consultar el fichero `/etc/audit/audit.rules`. En este fichero se definen los
 elementos se van a auditar.
 * Con el comando `auditctl -l`, también podemos ver las reglas activas.
 Al principio no debemos tener nada.
@@ -159,6 +159,7 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 
 * Volvemos al terminal t1
 * `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
+Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Con el usuario `rebelde1` modificar el fichero.
 * Con el usuario `rebelde2` leer el fichero.
 
@@ -166,6 +167,7 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 * Consultar las salidas del terminal t2.
 * Ver las últimas líneas del fichero `/var/log/audit/audit.log`
 * `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
+Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Repetir para rebelde1, rebelde2 y rebelde3:
    * `id USERNAME`, consultar el uid del usuario.
    * `ausearch -f estrellita.txt -ui USERUID`, consultar eventos sobre
@@ -176,9 +178,9 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 
 ## 3.5 Hacer un informe con los eventos
 
-Como ver los eventos registrados con toda la información que generan es confuso,
-podemos usar el comando aureport para crear una especie de informe con los datos
-que queramos filtrar con ausearch.
+Como mostrar los eventos registrados con toda la información que generan es confuso,
+podemos usar el comando `aureport` para crear una especie de informe con los datos
+que queramos filtrar con `ausearch`.
 
 * Repetir para rebelde1, rebelde2 y rebelde3
    * `ausearch -f estrellita.txt -ui USERUID | aureport -f`
@@ -198,10 +200,11 @@ que lo accedió, un ID y número de evento.
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Crear una regla pero esta vez dentro del fichero `/etc/audit/audit.rules`, para
-activar auditoría sobre el programa/comando `mkdir`. El fichero ejecutable se
-encuentra en la ruta `/usr/bin/mkdir`.
+activar auditoría sobre el programa/comando `mkdir`.
+    * Podemos usar `whereis mkdir` para la ruta de mkdir.
+    * El fichero ejecutable se encuentra en la ruta `/usr/bin/mkdir`.
 * Reiniciar el equipo.
-* `auditctl -l`, comprobar que la regla aparece.
+* `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
 * Consultar los registros de auditoría para mkdir.
 * Crear un informe de los eventos del ejecutable mkdir(`aureport -x`).
