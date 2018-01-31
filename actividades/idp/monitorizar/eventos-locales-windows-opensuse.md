@@ -16,18 +16,19 @@ saber lo que ha pasado.
 ## 2.1 Auditar inicios de sesión
 
 Vamos realizar las siguientes tareas en SO Windows.
-* Activar unas directivas de seguridad, para auditar los inicios de sesión
-al sistema (Correctos e incorrectos). Incluir captura de pantalla con la directiva activada.
-* Nosotros queremos auditar los *"Sucesos de inicio de sesión"*.
+
+* Ir a Herramientas administrativas -> Directivas de auditoría -> Directivas de seguridad local.
 
 > NOTA:
-> * Los "Sucesos de inicio de sesión de cuenta" no los vamos a necesitar ahora.
-> * Éstos sirven para auditar a los usuarios del dominio. Esto todavía no lo hemos visto.
+>
+> Los "Sucesos de inicio de sesión de cuenta" no los vamos a necesitar ahora. Sirven para auditar a los usuarios del dominio. Esto todavía no lo hemos visto.
 
 A continuación se muestra imagen de ejemplo de la directiva desactivada:
 
 ![activar-directivas](./images/activar-directivas.png)
 
+* Activar la opción para unas directivas de seguridad, para auditar los *"Sucesos de inicio de sesión"* correctos e incorrectos.
+* Incluir captura de pantalla con la directiva activada y configurada.
 * Reiniciar la MV para que empiecen a funcionar las auditorías.
 * Crear los usuarios `soldado1`, `soldado2` y `soldado3`.
 * Hacer las siguientes acciones:
