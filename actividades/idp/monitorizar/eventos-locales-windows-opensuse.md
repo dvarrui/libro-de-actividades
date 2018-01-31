@@ -157,6 +157,7 @@ Los eventos, cuando se produzcan, se guardarán en `/var/log/audit/audit.log`.
 las últimas líneas del fichero audit.log. Entonces cada vez que se registre un
 nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2).
 
+Vamos a provocar que se generen eventos:
 * Volvemos al terminal t1
 * `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
 Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
@@ -164,7 +165,7 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
 * Con el usuario `rebelde2` leer el fichero.
 
- Consultar ahora los eventos de auditoria.
+Consultar ahora los eventos de auditoria.
 * Consultar las salidas del terminal t2.
 * Ver las últimas líneas del fichero `/var/log/audit/audit.log`
 * `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
