@@ -147,7 +147,7 @@ cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
 r=lectura o x=ejecución.
 * `auditctl -l`, vemos que tenemos la regla de auditoría definida.
 * `cat /etc/audit/audit.rules`, comprobamos nuestra regla no está en el fichero de
-configuración. Cuando reiniciemos el equipo nuestra regla desaparecerá.
+configuración. No reiniciar el equipo todavía porque esta regla desaparecerá.
 
 ## 3.4 Empezamos a generar eventos
 
