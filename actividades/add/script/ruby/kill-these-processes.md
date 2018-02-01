@@ -1,25 +1,25 @@
 
-#Eliminar determinados procesos
+# Eliminar determinados procesos
 
-##1. Entrega
+## 1. Entrega
 * Vamos a crear un script ruby llamado **kill-these-processes.rb**.
 * La entrega la realizaremos a través del repositorio Git.
 * Al terminar etiquetaremos la entrega con *kill-these-processes*.
 
-##2. Fichero de configuración
+## 2. Fichero de configuración
 
 * Al comenzar el script se debe comprobar si el usuario que lo ejecuta es
 `root`. En caso contrario se mostrará un mensaje y se finaliza el script.
 * Los datos de entrada al script estarán en un fichero llamado `processes-black-list.txt`,
 con el formato `nombre-del-ejecutable:action` en cada fila.
-* El script leerá el contenido del fichero de entrada, donde 
-vendrán definidos los nombres de los ejecutables y su acción. 
+* El script leerá el contenido del fichero de entrada, donde
+vendrán definidos los nombres de los ejecutables y su acción.
 Deberá cargarlos en un array para luego procesarlos.
 
-> Elegir una lista de procesos que NO sean importantes para el correcto funcionamiento 
+> Elegir una lista de procesos que NO sean importantes para el correcto funcionamiento
 del sistema como: firefox, libreoffice, geany, etc.
 
-##3. Aplicar acción de control a cada proceso de la lista
+## 3. Aplicar acción de control a cada proceso de la lista
 
 * Para cada elemento del array deberemos ejecutar los comandos necesarios
 para aplicar sobre cada proceso su acción asociada. Por ejemplo:
@@ -36,7 +36,7 @@ para aplicar sobre cada proceso su acción asociada. Por ejemplo:
     Ejemplo:
 ```
     resultado=system("killall firefox")
-    if resultado 
+    if resultado
       puts "Se eliminó el proceso firefox"
     else
       #No se realizó la acción
@@ -53,7 +53,7 @@ aparece el texto buscado
 * El script debe actuar de forma NO interactiva. No debe hacer preguntas
 al usuario durante su ejecución.
 
-##4. Una función y un bucle infinito
+## 4. Una función y un bucle infinito
 
 * Mover el código de control dentro de una función (`controlar_procesos`)
 que reciba como parámetros: el nombre-del-proceso y la acción. Veamos ejemplo:
@@ -79,9 +79,9 @@ end
 > end
 > ```
 
-##5. Control de parada
+## 5. Control de parada
 
-* Justo antes de empezar el bucle infinito, el script debe crear 
+* Justo antes de empezar el bucle infinito, el script debe crear
 un fichero vacío con el nombre `state.running`. Este fichero
 va a ayudarnos a parar nuestro bucle infinito.
 * El bucle infinito de control sólo se detendrá cuando eliminemos dicho fichero.

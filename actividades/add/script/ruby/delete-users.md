@@ -1,12 +1,12 @@
 
-#Eliminar usuarios
+# Eliminar usuarios
 
-##Entrega
+## Entrega
 * Vamos a crear un script ruby llamado `delete-users.rb`.
 * La entrega la realizaremos a través del repositorio Git.
 * Al terminar etiquetaremos la entrega con *delete-users*.
 
-##Script
+## Script
 * Crear un fichero de texto `userslist.txt`, donde vendrán definidos
 los nombres de usuario.
 * Se debe pasar como argumento el nombre del fichero con los datos.
