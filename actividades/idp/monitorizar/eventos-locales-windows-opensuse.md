@@ -202,10 +202,10 @@ que lo accedió, un ID y número de evento.
 
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
-* Crear una regla pero esta vez dentro del fichero `/etc/audit/audit.rules`, para
-activar auditoría sobre el programa/comando `mkdir`.
-    * Podemos usar `whereis mkdir` para averiguar la ruta de mkdir.
-    * Añadimos una línea de la forma `-w ruta-al-fichero-mkdir -p warx`
+
+Vamos a crear una regla de auditoría permanente sobre el programa/comando `mkdir`:
+    * Usar `whereis mkdir` para averiguar la ruta de mkdir.
+    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
@@ -246,21 +246,6 @@ Explicación de los parámetros:
 * -F arch=x86_64, define la arquitectura (uname -m)
 * -S open, elige las llamadas “open” al sistema
 * -F auid=80, el UID del usuario
-
-## Converting system calls
-
-Syscalls are logged by an numeric value. Since there will be an overlap in these values between different architectures, the active architecture is also logged.
-
-By using uname -m we can determine the architecture and use ausyscall to determine what numeric call 188 represents.
-
-    [root@host audit]# ausyscall x86_64 188
-    setxattr
-
-We now know it was a change in attribute, which makes sense as we defined our watch to trigger an event on an attribute change (perm=a).
-
-Used a temporary rule and want to use the old rules again? Refresh the audit rules from a file:
-
-    auditctl -R /etc/audit/audit.rules
 
 ## Systemd y journal
 
