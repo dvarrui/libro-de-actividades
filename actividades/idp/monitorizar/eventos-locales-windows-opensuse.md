@@ -67,6 +67,7 @@ Habilitar configuración de correctos y erróneos.
 Hemos activado la auditoría de eventos sobre el ficheros anterior para los usuarios soldado1 y soldado2.
 * Reiniciar la MV.
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
+    * Apuntar la hora/minuto que se hacen los accesos para que sea más sencillo encontrar los eventos. 
 * Vamos al visor de eventos.
 * Crear un filtro personalizado para los eventos filtrando:
     * Por origen -> Auditoría de seguridad de Windows
