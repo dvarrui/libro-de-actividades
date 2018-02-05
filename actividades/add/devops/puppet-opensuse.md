@@ -341,8 +341,8 @@ buena idea eliminar los certificados y volverlos a generar con la nueva informac
 
 Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
 * En el servidor:
-    * `puppet cert revoke cli1alu42.curso1617`, revocar certificado del cliente.
-    * `puppet cert clean  cli1alu42.curso1617`, eliminar ficheros del certificado del cliente.
+    * `puppet cert revoke cli1alu42.curso1718`, revocar certificado del cliente.
+    * `puppet cert clean  cli1alu42.curso1718`, eliminar ficheros del certificado del cliente.
     * `puppet cert print --all`, Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
 * En el cliente:
     *  `rm -rf /var/lib/puppet/ssl`, eliminar los certificados del cliente. Apagamos el cliente.
@@ -497,8 +497,8 @@ en ambos equipos. Podemos usar comando `facter` para ver la versión de puppet d
 * Vamos al cliente Windows.
 * Hacer una instantánea de la MV antes de seguir.
 * Descargamos la versión de Agente Puppet para Windows similar al Puppet Master.
-* Instalar el agente p:
-    * IMPORTANTE: Poner correctamente el nombre del master `masterXX.curso1718` durante el proceso.
+* Instalar el agente Puppet en Windows:
+    * IMPORTANTE: Durante el proceso de instalación, poner correctamente en el valor FQDN el nombre del master `masterXX.curso1718`.
     * Desactivar plugins.
 * El fichero puppet.conf en Windows está en `C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf`.
 (ProgramData es una ruta oculta). Revisar que tenga algo como:
