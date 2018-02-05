@@ -264,7 +264,8 @@ Veamos imagen de ejemplo de Raúl García Heredia:
 
 ![](./images/puppet-client-conf.png)
 
-* Comprobar que el directorio `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  
+> Comprobar que el directorio `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  
+
 * `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
 * `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
