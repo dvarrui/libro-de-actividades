@@ -181,14 +181,14 @@ en el inicio de la máquina.
 * `systemctl start puppetmaster`: Iniciar el servicio.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
 * En este momento debería haberse creado el directorio `/etc/puppet/manifests`.
-* Preparamos los ficheros/directorios en el master:
+* Preparamos los siguientes ficheros/directorios en el master:
 ```
-mkdir /etc/puppet/files
-touch /etc/puppet/files/readme.txt
-mkdir /etc/puppet/manifests
-touch /etc/puppet/manifests/site.pp
-mkdir /etc/puppet/manifests/classes
-touch /etc/puppet/manifests/classes/hostlinux1.pp
+/etc/puppet/files
+/etc/puppet/files/readme.txt
+/etc/puppet/manifests
+/etc/puppet/manifests/site.pp
+/etc/puppet/manifests/classes
+/etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
 ## 2.1 site.pp
@@ -233,8 +233,9 @@ class hostlinux1 {
 * Comprobamos que el servicio está en ejecución de forma correcta.
     * `systemctl status puppetmaster`
     * `netstat -ntap |grep ruby`
-* Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 * Abrir el cortafuegos para el servicio.
+
+> Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 
 ---
 
