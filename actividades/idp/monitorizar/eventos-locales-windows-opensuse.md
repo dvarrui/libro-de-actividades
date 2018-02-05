@@ -68,7 +68,7 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 * Reiniciar la MV.
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
 * Vamos al visor de eventos.
-* Crear un filtro personalizado para los eventos del usuario `soldado1`.
+* Crear un filtro personalizado para los eventos filtrando:
     * Por origen -> Auditoría de seguridad de Windows
     * Categoría -> Sistema de archivos
 * Mostrar los resultados de la auditoría.
@@ -159,7 +159,7 @@ nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2
 
 Vamos a provocar que se generen eventos:
 * Volvemos al terminal t1
-* `ausearch -f /home/estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
+* `ausearch -f estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
 Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Con el usuario `rebelde1` modificar el fichero. Para cambiar de usuario en la consola
 sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
@@ -168,7 +168,7 @@ sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
 Ahora vamos a consultar los eventos de auditoría.
 * Consultar las salidas del terminal t2.
 * Ver las últimas líneas del fichero `/var/log/audit/audit.log`
-* `ausearch -f /home/estrellita.txt`, consultar eventos sobre el fichero.
+* `ausearch -f estrellita.txt`, consultar eventos sobre el fichero.
 Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Repetir para rebelde1, rebelde2 y rebelde3:
    * `id USERNAME`, consultar el uid del usuario.
