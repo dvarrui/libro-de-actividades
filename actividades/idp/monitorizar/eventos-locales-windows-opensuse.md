@@ -67,7 +67,7 @@ Habilitar configuración de correctos y erróneos.
 Hemos activado la auditoría de eventos sobre el ficheros anterior para los usuarios soldado1 y soldado2.
 * Reiniciar la MV.
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
-    * Apuntar la hora/minuto que se hacen los accesos para que sea más sencillo encontrar los eventos. 
+    * Apuntar la hora/minuto que se hacen los accesos para que sea más sencillo encontrar los eventos.
 * Vamos al visor de eventos.
 * Crear un filtro personalizado para los eventos filtrando:
     * Por origen -> Auditoría de seguridad de Windows
@@ -176,7 +176,7 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
    * `ausearch -f estrellita.txt -ui USERUID`, consultar eventos sobre
    el fichero para el usuario con USERUID.
    * `ausearch -f estrellita.txt -ui USERUID | wc -l`, contar los eventos.
-* Repetir para vim, cat y more:
+* Repetir para nano, cat y more:
   * `ausearch -x COMMANDNAME`, consultar eventos asociados a dichos comandos.
 
 ## 3.5 Hacer un informe con los eventos
@@ -188,7 +188,7 @@ que queramos filtrar con `ausearch`.
 * Repetir para rebelde1, rebelde2 y rebelde3
    * `ausearch -f estrellita.txt -ui USERUID | aureport -f`
    * `ausearch -f estrellita.txt -ui USERUID | aureport -u`
-* Repetir para vim, cat y more:
+* Repetir para nano, cat y more:
    * `ausearch -x PROGRAMNAME | aureport -f`
    * `ausearch -x PROGRAMNAME | aureport -u`
 
