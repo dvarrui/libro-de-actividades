@@ -595,13 +595,22 @@ class hostwindows4 {
 Los ficheros que se guardan en `/etc/puppet/files` se pueden
 descargar desde el resto de máquinas cliente puppet.
 
+* Ir al master.
+* Editar /etc/puppet/fileserver.conf con:
+```
+[extra_files]
+ path /etc/puppet/files
+ allow *
+```
 * Contenido para readme.txt: `"¡Al abordaje!"`.
 * Ejemplo de configuración puppet para descargar fichero:
 ```
 file {  '/opt/readme.txt' :
-       source => 'puppet:///files/readme.txt',
+       source => 'puppet:///extra_files/readme.txt',
 }
 ```
+* Reiniciar el servicio.
+* Ir al cliente y comprobar que funciona.
 
 ---
 
