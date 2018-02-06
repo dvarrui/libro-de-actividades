@@ -168,7 +168,8 @@ información almacenada en él.
 
 * Primero comprobamos el tamaño utilizado de nuestros datos: `du -sh /mnt/vol-extra`.
 Este valor debe ser menor a 50 MB.
-* Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vgXXextra/lvXXextra`
+* Reducir el tamaño del volumen lógico lv-extra a 50 MB: `lvreduce --size 50MB /dev/vgXXextra/lvXXextra`.
+* Redimensionar el sistema de ficheros para adaptarlo al nuevo espacio. `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora.
 * Comprobamos: `lvdisplay /dev/vgXXextra/lvXXextra`.
 
 Antes de quitar el disco hay que asegurarse de que no guarda datos.
