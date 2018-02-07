@@ -202,7 +202,6 @@ que lo accedió, un ID y número de evento.
 
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
-
 * Vamos a crear una regla de auditoría permanente sobre el programa/comando `mkdir`:
     * Usar `whereis mkdir` para averiguar la ruta de mkdir.
     * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/audit.rules`.
