@@ -21,7 +21,7 @@ Recordar:
 * Cargar los datos en una variable de tipo Array (Usar split cuando sea necesario).
 * Usar iteradores para el bucle.
 
-# Incluir comprobaciones
+## Incluir comprobaciones
 * Antes de intentar eliminar el usuario, comprobar si existe.
 * Antes de leer el archivo, comprobar si existe.
 
