@@ -20,3 +20,8 @@ Recordar:
 * Usar paso de argumentos para indicar el nombre del ficheros al script.
 * Cargar los datos en una variable de tipo Array (Usar split cuando sea necesario).
 * Usar iteradores para el bucle.
+
+# Incluir comprobaciones
+* Antes de intentar eliminar el usuario, comprobar si existe.
+* Antes de leer el archivo, comprobar si existe.
+
