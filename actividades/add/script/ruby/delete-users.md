@@ -20,6 +20,8 @@ Recordar:
 * Usar paso de argumentos para indicar el nombre del ficheros al script.
 * Cargar los datos en una variable de tipo Array (Usar split cuando sea necesario).
 * Usar iteradores para el bucle.
+* Al ejecutar un comando con `system("command")`, esto nos devuelve `true` o `false`, 
+si el comando se ha ejecutado correctamente o no.
 
 ## Incluir comprobaciones
 * Antes de intentar eliminar el usuario, comprobar si existe.
