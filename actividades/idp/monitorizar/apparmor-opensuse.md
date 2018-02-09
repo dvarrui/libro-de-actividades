@@ -132,4 +132,4 @@ aa-genprof.
 * Vamos a "consola2".
     * Consultamos los eventos asociados a nuestro ejecutable:
         * `ausearch -x mycopy`
-        * `cat /var/log/audit/audit.log`
+        * `cat /var/log/audit/audit.log | grep mycopy`
