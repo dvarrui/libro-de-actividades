@@ -131,5 +131,5 @@ aa-genprof.
     * `tree`, comprobamos que se han copiado los archivos.    
 * Vamos a "consola2".
     * Consultamos los eventos asociados a nuestro ejecutable:
-        * `ausearch -x mycopy`
+        * `ausearch -x mycopy | aureport -u`
         * `cat /var/log/audit/audit.log | grep mycopy`
