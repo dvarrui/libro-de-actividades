@@ -1,7 +1,3 @@
-```
-* Creada para OpenSUSE 13.2 en el curso 2015-2016.
-* Se usa con OpenSUSE Leap 42.2 en el curso 2016-2017.
-```
 
 # AppArmor
 
@@ -26,7 +22,7 @@ Enlaces de interés:
     * systemctl status apparmor, ver el estado del servicio
     * systemctl start apparmor, iniciar el servicio
     * systemctl stop apparmor, parar el servicio
-    * systemctl enable apparmor, activar inici automático
+    * systemctl enable apparmor, activar inicio automático
     * systemctl disable apparmor, desactivar inicio automático
 
 > En versiones antiguas se usaban estos otros comandos:
@@ -134,6 +130,6 @@ aa-genprof.
     * `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
     * `tree`, comprobamos que se han copiado los archivos.    
 * Vamos a "consola2".
-    * `cat /var/log/audit/audit.log`, si echamos un vistazo al fichero de
-    auditoría comprobaremos que se han registrado nuevos eventos asociados a
-    este ejecutable.
+    * Consultamos los eventos asociados a nuestro ejecutable:
+        * `ausearch -x mycopy`
+        * `cat /var/log/audit/audit.log`
