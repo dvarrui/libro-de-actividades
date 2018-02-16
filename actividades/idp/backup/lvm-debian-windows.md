@@ -77,7 +77,7 @@ Ahora podremos ampliar *"en caliente"*, el espacio de lv-datos de 100MB a 400MB.
 * Comprobar con: `lvdisplay -v /dev/vgXXdebian/lvXXdatos`
 * Comprobamos lo que tenemos ahora:
 ```
-vgdisplay
+vgdisplay             # Comprobar que ha aumentado el espacio ocupado
 lvdisplay vgXXdebian
 df -hT
 ```

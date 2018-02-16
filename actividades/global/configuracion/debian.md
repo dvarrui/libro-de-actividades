@@ -43,8 +43,8 @@ Capturar imágen de la configuración del equipo:
 ```
 date
 uname -a
-hostname -f           #Muestra nombre-maquina.nombre-dominio
-hostname -a           #Muestra nombre-maquina
+hostname -f           #Muestra nombre-máquina.nombre-dominio
+hostname -a           #Muestra nombre-máquina
 hostname -d           #Muestra nombre-dominio
 
 tail -n 5 /etc/passwd #Comprobar que existe el usuario
@@ -93,6 +93,14 @@ Si no funciona la resolución de nombres (Servidor DNS) debemos Modificarel fich
 > Enlace de interés:
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
+
+## Configurar la red mediante comandos
+
+También podemos usar comandos del sistema para definir la configuración de red.
+
+* `ifconfig eth0 172.AA.XX.0 netmask 255.255.0.0`, para configurar la IP y la máscara de red.
+* `route add default gw 172.AA.0.1`, para configurar la puerta de enlace.
+* `echo nameserver 8.8.4.4 >> /etc/resolv.conf`, para configurar la IP del servidor DNS.
 
 ---
 
