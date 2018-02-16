@@ -94,9 +94,9 @@ Si no funciona la resolución de nombres (Servidor DNS) debemos Modificarel fich
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-## Configurar la red mediante comandos
+## Configurar temporalmente la red mediante comandos
 
-También podemos usar comandos del sistema para definir la configuración de red.
+También podemos usar comandos del sistema para definir una configuración de red temporal. No es fija porque al reiniciar el equipo no se mantiene.
 
 * `ifconfig eth0 172.AA.XX.0 netmask 255.255.0.0`, para configurar la IP y la máscara de red.
 * `route add default gw 172.AA.0.1`, para configurar la puerta de enlace.
