@@ -25,13 +25,6 @@ Enlaces de interés:
     * systemctl enable apparmor, activar inicio automático
     * systemctl disable apparmor, desactivar inicio automático
 
-> En versiones antiguas se usaban estos otros comandos:
->
-> * rcapparmor status
-> * rcapparmor start
-> * rcapparmor stop
-> * rcapparmor reload
-
 > Herramientas CLI
 > * autodep, Guess basic AppArmor profile requirements.
 > * enforce, Set an AppArmor profile to enforce mode from complain mode.
@@ -52,7 +45,6 @@ El perfil es una configuración de seguridad que establece que permisos tiene un
 
 Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 * Crear un perfil con `aa-genprof` [Saltar al minuto 1:14 del vídeo](https://www.youtube.com/watch?v=2x8_76rFcM4)
-* [Crear un perfil con `aa-genprof`](http://wiki.apparmor.net/index.php/Profiling_with_tools)
 * [Crear un perfil con `aa-autodep`](https://www.digitalocean.com/community/tutorials/how-to-create-an-apparmor-profile-for-nginx-on-ubuntu-14-04)
 
 > Ver un [perfil de ejemplo](./images/home.david.temp.aa.copy.rb)
@@ -133,3 +125,16 @@ aa-genprof.
     * Consultamos los eventos asociados a nuestro ejecutable:
         * `ausearch -x mycopy | aureport -u`
         * `cat /var/log/audit/audit.log | grep mycopy`
+
+---
+
+# ANEXO
+
+## A.1 Comandos antiguos
+
+En versiones antiguas se usaban estos otros comandos para gestionar el servicio:
+
+* rcapparmor status
+* rcapparmor start
+* rcapparmor stop
+* rcapparmor reload
