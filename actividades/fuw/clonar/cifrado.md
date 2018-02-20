@@ -47,13 +47,12 @@ de claves de GPG para nuestro usuario.
 
 > Se entiende que podemos desencriptar el fichero porque ha sido encriptado
 con nuestra clave pública por parte del compañero que nos envía el archivo.
-eliminar una clave pública (de tu anillo de claves públicas):
 >
 > Otros comandos de interés:
 >
-> * `gpg --gen-key`, Crear una clave.
+> * `gpg --gen-key`, Crear un par de claves público/privado.
 > * `gpg --export -a “Nombre de Usuario"`, muestra la clave pública para el ‘Nombre de Usuario’ en la línea de comandos.
-> * `gpg --export-secret-key -a "Nombre de Usuario" > private.key`, Esto creará un archivo llamado private.key con la representación ascii de la clave privada para ‘Nombre de Usuario’.
+> * `gpg --export-secret-key -a "Nombre de Usuario" > private.key`, Esto creará un archivo llamado private.key con la representación ASCII de la clave privada para ‘Nombre de Usuario’.
 > * `gpg --import public.key`, Importar una clave pública.
 > * `gpg --allow-secret-key-import --import private.key`, Importar una clave privada.
 > * `gpg --delete-key "Nombre de Usuario"`, Esto elimina la clave pública de tu anillo de claves.
