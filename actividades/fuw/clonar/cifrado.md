@@ -18,6 +18,7 @@ En este taller vamos a practicar diversas formas de ocultar nuestros datos.
 
 Hacemos lo siguiente:
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
+* Trabajaremos con nuestro usuario habitual. No usar root.
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
 * Hacer una encriptación simétrica con GPG.
     * `gpg -c mensaje-secreto1.txt`
@@ -29,10 +30,7 @@ Hacemos lo siguiente:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`
     * Comprobamos `gpg -k`
-    * `tree .gnupg`
-
-> Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información
-de claves de GPG para nuestro usuario.
+    * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
 
 * Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
