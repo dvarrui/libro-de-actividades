@@ -4,7 +4,8 @@
 
 En este taller vamos a practicar diversas formas de ocultar nuestros datos.
 
-* Trabajaremos en parejas. Los llamaremos alumno1 y alumno2.
+* Nos podemos ayudar en parejas. Los llamaremos alumno1 y alumno2.
+* Cada alumno entregará un informe propio.
 * Entregaremos un informe con capturas de pantalla.
 
 ---
