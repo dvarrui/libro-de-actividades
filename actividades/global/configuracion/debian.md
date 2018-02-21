@@ -106,20 +106,6 @@ También podemos usar comandos del sistema para definir una configuración de re
 
 # ANEXO
 
-dns-search vargas42d.curso1617 vargas42d
-dns-domain vargas42d.curso1617
-
-## Otra forma de configurar DNS
-
-Para poner la información de DNS en un SO Debian, hay que abrir el fichero `/etc/resolv.conf` y escriblir lo siguiente:
-
-```
-search <domain-name>
-domain <domain-name>
-nameserver 127.0.0.1
-nameserver 172.16.1.1
-```
-
 Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 * `sudo rm /etc/resolv.conf`
 * `sudo dpkg-reconfigure resolvconf`
