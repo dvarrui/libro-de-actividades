@@ -87,7 +87,7 @@ iface eth1 inet dhcp
    * `service networking restart` o
    * Reiniciar el equipo.
 
-Si no funciona la resolución de nombres (Servidor DNS) debemos Modificarel fichero
+Si no funciona la resolución de nombres (Servidor DNS) debemos modificar el fichero
 `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
 > Enlace de interés:
