@@ -63,7 +63,7 @@ Además se instalará un servidor web.
 # 3. Configurar el servidor
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
-siguentes hosts:
+siguientes hosts:
 * Routers:
     * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
     * Comprobar si están activos.
