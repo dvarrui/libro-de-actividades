@@ -22,6 +22,9 @@ Recordar:
 * Usar iteradores para el bucle.
 * Al ejecutar un comando con `system("command")`, esto nos devuelve `true` o `false`,
 si el comando se ha ejecutado correctamente o no.
+* Si queremos ejecutar un comando pero no queremos ver los mensajes de salida y/o error,
+haremos lo siguiente `comando 2>/dev/null 1>/dev/null`. Redirigimos la salida y/o error a 
+la basura (dispositivo nulo).
 
 ## Incluir comprobaciones
 * Antes de intentar eliminar el usuario, comprobar si existe.
