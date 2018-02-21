@@ -38,8 +38,8 @@ Para esta actividad vamos a necesitar 3 MV's:
 # 2. Instalar el servidor
 
 * Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
-    * En Debian se usa el gestor de paquetes Synaptic o por comandos
-    `apt-get update` y `apt-get install ...`.
+    * En Debian se podemos usar los comandos `apt-get update` y `apt-get install ...`,
+    o el gestor de paquetes Synaptic.
     * Comprobación: `dpkg -l nagios*`
 * Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
 Además se instalará un servidor web.
