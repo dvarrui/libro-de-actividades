@@ -83,12 +83,12 @@ auto eth1
 iface eth1 inet dhcp
 ```
 
-* Para que se tengan en cuenta los cambios podemos:
+* Para que se tengan en cuenta los cambios hacemos lo siguiente:
    * `service networking restart` o
    * Reiniciar el equipo.
 
 Si no funciona la resolución de nombres (Servidor DNS) debemos Modificarel fichero
-`/etc/resolv.conf` y poner en nameserver la ip 8.8.4.4.
+`/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
 > Enlace de interés:
 >
