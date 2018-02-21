@@ -1,7 +1,3 @@
-```
-(Actividad realizada en los cursos: 201314, 201415, 201516)
-Mejorada para el curso 201516.
-```
 
 # 1. Preparativos
 
@@ -11,6 +7,7 @@ Para esta actividad vamos a necesitar 3 MV's:
 * (MV1) Monitorizador
     * SO Debian 8 - GNU/Linux
     * Consultar [configuración](../../global/configuracion/debian.md) de las MV's.
+    * Nombre del equipo: `nagiosXX`
     * IP estática 172.19.XX.41
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * (MV2) Cliente1:
@@ -139,13 +136,13 @@ define host{
 ```
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
-    * Pista `service nagios3 ...`
+    * Pista `systemctl restart ...` o `service nagios3 ...`
 
 > ** Si tenemos PROBLEMAS **
 >
 > Si tenemos problemas al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
-> * Consultar log `var/log/nagios3/nagios.log`.
+> * Consultar log `/var/log/nagios3/nagios.log`.
 > * `/usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios3.
 
 * Consultar la lista de hosts monitorizados por Nagios.
@@ -157,8 +154,8 @@ incluir las definiciones de las máquinas de tipo servidor.
 * Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios
-    * Pista `service ...`
-    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
+    * Pista `systemctl ...` o `service ...`
+    * Si hay problemas, consultar log `/var/log/nagios3/nagios.log`.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Clientes
