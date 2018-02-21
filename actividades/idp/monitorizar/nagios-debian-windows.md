@@ -50,7 +50,7 @@ Además se instalará un servidor web.
 
 * Comprobar lo siguiente:
     * `systemctl status nagios3` o `service nagios3 status`, comprobar que el servicio Nagios está en ejecución.
-    * `netstat -ntap`, comprobar que Apache2 es el servidor Web que funciona en el puerto 80.
+    * `netstat -ntap | grep 80`, comprobar que Apache2 es el servidor Web que funciona en el puerto 80.
     * `nmap -Pn localhost`, comprobar que el servidor http(puerto 80) se ve desde el exterior.
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
     * Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos
