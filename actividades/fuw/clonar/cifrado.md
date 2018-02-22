@@ -31,7 +31,8 @@ Hacemos lo siguiente:
 Alumno1:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`, genera un par de claves pública/privada.
-    * `gpg -k`, comprobar que se han creado las claves. 
+    * Consultar las claves públicas con alguno de los siguientes comandos 
+    `gpg --list-public-keys`, `gpg --list-keys` o `gpg -k`.  
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
 * Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
