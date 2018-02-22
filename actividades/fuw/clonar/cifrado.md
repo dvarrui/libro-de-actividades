@@ -20,6 +20,7 @@ Hacemos lo siguiente:
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Trabajaremos con nuestro usuario habitual. No usar root.
 * Crear un fichero de texto `/home/nombre-alumno/mensaje-secreto1.txt`.
+    * Escribir dentro el nombre del alumno, la fecha de hoy y una frase/mensaje.
 * Hacer una encriptación simétrica con GPG.
     * `gpg -c mensaje-secreto1.txt`
 * Enviar fichero encriptado al compañero (alumno2) para que lo desencripte.
@@ -30,13 +31,15 @@ Hacemos lo siguiente:
 Alumno1:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`, genera un par de claves pública/privada.
-    * `gpg -k`, comprobar que se han creado las claves.
+    * `gpg -k`, comprobar que se han creado las claves. 
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
 * Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
+    * El valor PUBLIC_KEY_IDNUMBER lo obtenemos al consultar la salida del comando anterior (gpg -k).
 
 Alumno2:
 * Alumno2 crea un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
+    * Escribir dentro el nombre del alumno, la fecha de hoy y una frase/mensaje.
 * Alumno2 importa la clave pública del compañero (alumno1).
     * `gpg --import nombre-alumno1.pub.gpg`
 * Alumno2 hace una encriptación asimétrica con GPG con la clave pública recibida.
