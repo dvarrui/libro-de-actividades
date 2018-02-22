@@ -32,7 +32,8 @@ Alumno1:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`, genera un par de claves pública/privada.
     * Consultar las claves públicas con alguno de los siguientes comandos 
-    `gpg --list-public-keys`, `gpg --list-keys` o `gpg -k`.  
+    `gpg --list-public-keys`, `gpg --list-keys` o `gpg -k`. La línea `pub 2048R/IDNUMBER`,
+    muestra la información con el identificador de la clave pública.
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
 * Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
@@ -44,7 +45,7 @@ Alumno2:
 * Alumno2 importa la clave pública del compañero (alumno1).
     * `gpg --import nombre-alumno1.pub.gpg`
 * Alumno2 hace una encriptación asimétrica con GPG con la clave pública recibida.
-    * `gpg -k`, para ver las claves que tenemos.
+    * `gpg --list-public-keys`, para ver las claves públicas que tenemos.
     * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje-secreto2.txt`
 * Alumno2 envía el fichero a alumno1 para que lo desencripte.
 
@@ -56,9 +57,8 @@ con nuestra clave pública por parte del compañero que nos envía el archivo.
 >
 > Otros comandos de interés:
 >
-> * `gpg --gen-key`, Crear un par de claves público/privado.
-> * `gpg --export -a “Nombre de Usuario"`, muestra la clave pública para el ‘Nombre de Usuario’ en la línea de comandos.
-> * `gpg --export-secret-key -a "Nombre de Usuario" > private.key`, Esto creará un archivo llamado private.key con la representación ASCII de la clave privada para ‘Nombre de Usuario’.
+> * `gpg --export -a “Nombre de Usuario"`, muestra la clave pública para el "Nombre de Usuario" en la línea de comandos.
+> * `gpg --export-secret-key -a "Nombre de Usuario" > private.key`, Esto creará un archivo llamado private.key con la representación ASCII de la clave privada para "Nombre de Usuario".
 > * `gpg --import public.key`, Importar una clave pública.
 > * `gpg --allow-secret-key-import --import private.key`, Importar una clave privada.
 > * `gpg --delete-key "Nombre de Usuario"`, Esto elimina la clave pública de tu anillo de claves.
