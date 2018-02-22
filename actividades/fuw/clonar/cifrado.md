@@ -27,13 +27,15 @@ Hacemos lo siguiente:
 
 ## 1.2 Encriptado asimétrico
 
+Alumno1:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`
     * Comprobamos `gpg -k`
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
-
 * Alumno1 exporta la clave pública para pasarla al compañero.
     * `gpg --output nombre-alumno1.pub.gpg --export PUBLIC_KEY_IDNUMBER`
+
+Alumno2:
 * Alumno2 crea un fichero de texto `/home/nombre-alumno/mensaje-secreto2.txt`.
 * Alumno2 importa la clave pública del compañero (alumno1).
     * `gpg --import nombre-alumno1.pub.gpg`
@@ -41,6 +43,8 @@ Hacemos lo siguiente:
     * `gpg -k`, para ver las claves que tenemos.
     * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje-secreto2.txt`
 * Alumno2 envía el fichero a alumno1 para que lo desencripte.
+
+Alumno1:
 * Alumno1 desencripta el fichero `gpg -d mensaje-secreto2.txt.gpg`.
 
 > Se entiende que podemos desencriptar el fichero porque ha sido encriptado
