@@ -138,7 +138,7 @@ define host{
 
 * El router caronteXX tiene como padre (parent) a benderXX.
 
-Comandos para manejarse con los servicios:
+A continuación se muestran los comandos para manejar servicios:
 
 | Comando systemctl | Comando service | Descripción |
 | ----------------- | --------------- | ----------- |
