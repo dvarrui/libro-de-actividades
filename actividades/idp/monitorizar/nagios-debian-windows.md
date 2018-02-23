@@ -135,8 +135,8 @@ define host{
   check_period       24x7
 }
 ```
-* El router caronteXX tiene como padre a benderXX.
-* Reiniciamos Nagios para que coja los cambios en la configuración.
+
+* El router caronteXX tiene como padre (parent) a benderXX.
 
 > Comandos para manejarse con los servicios:
 >
@@ -146,6 +146,7 @@ define host{
 > * `systemctl restart nagios3` o `service restart status`, hace un stop y un start del servicio.
 > * `systemctl reload nagios3` o `service reload status`, se vuelven a leer los ficheros de configuración del servicio.
 
+* Reiniciamos el servicio de Nagios para que coja los cambios en la configuración.
 
 > **Si tenemos PROBLEMAS**
 >
