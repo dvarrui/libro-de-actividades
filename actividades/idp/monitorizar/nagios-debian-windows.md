@@ -155,8 +155,8 @@ A continuación se muestran los comandos para manejar servicios:
 >
 > Si tenemos problemas al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
-> * Consultar log `/var/log/nagios3/nagios.log`.
 > * `/usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios3.
+> * Consultar log `/var/log/nagios3/nagios.log`.
 
 * Consultar la lista de hosts monitorizados por Nagios.
 
