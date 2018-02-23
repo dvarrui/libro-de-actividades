@@ -140,13 +140,16 @@ define host{
 
 > Comandos para manejarse con los servicios:
 >
+> | Comando systemctl | Comando service | Descripción |
+> | ----------------- | --------------- | ----------- |
+> | `systemctl status nagios3` | `service nagios3 status` | muestra el estado actual del servicio|
 > * `systemctl stop nagios3` o `service nagios3 stop`, para el servicio.
 > * `systemctl start nagios3` o `service nagios3 start`, arranca el servicio.
-> * `systemctl status nagios3` o `service nagios3 status`, muestra el estado actual del servicio.
 > * `systemctl restart nagios3` o `service restart status`, hace un stop y un start del servicio.
 > * `systemctl reload nagios3` o `service reload status`, se vuelven a leer los ficheros de configuración del servicio.
 
 * Reiniciamos el servicio de Nagios para que coja los cambios en la configuración.
+* Comprobamos si el servicio está activo `systemctl status nagios3`.
 
 > **Si tenemos PROBLEMAS**
 >
