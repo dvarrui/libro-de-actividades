@@ -104,7 +104,7 @@ define hostgroup {
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
-* Los host serán miembros también de los grupos http-servers, ssh-servers
+* Los host serán miembros también de los grupos http-servers, ssh-servers. NOTA: Los grupos http-servers y ssh-servers ya están predefinidos en Nagios.
 
 > **Significado de algunos parámetros que vamos a usar**
 >
@@ -120,12 +120,12 @@ incluir las definiciones de las máquinas de tipo router.
 * Veamos un ejemplo (no sirve copiarlo):
 ```
 define host{
-  host_name       NOMBRE_DEL_HOST
-  alias           NOMBRE_LARGO_DEL_HOST
-  address         IP_DEL_HOST
-  hostgroups      GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
-  icon_image      cook/NOMBRE_IMAGEN.png
-  statusmap_image cook/NOMBRE_IMAGEN.png
+  host_name          NOMBRE_DEL_HOST
+  alias              NOMBRE_LARGO_DEL_HOST
+  address            IP_DEL_HOST
+  hostgroups         GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
+  icon_image         cook/NOMBRE_IMAGEN.png
+  statusmap_image    cook/NOMBRE_IMAGEN.png
   #parents
 
   check_command      check-host-alive
