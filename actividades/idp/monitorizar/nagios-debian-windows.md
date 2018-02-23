@@ -163,9 +163,7 @@ la configuración que hemos añadido:
 incluir las definiciones de las máquinas de tipo servidor.
 * Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
 * El equipo leelaXX tiene como parent a benderXX.
-* Reiniciamos Nagios
-    * Pista `systemctl ...` o `service ...`
-    * Si hay problemas, consultar log `/var/log/nagios3/nagios.log`.
+* Reiniciamos Nagios. Si hay problemas, consultar el apartado anterior de cómo revisar los problemas.
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ### Clientes
@@ -183,12 +181,9 @@ define host{
   hostgroups GRUPO_AL_QUE_PERTENECE
 }
 ```
-> Personalizar: host_name, alias, address y hostgroups.
 
-* Reiniciamos Nagios para que coja los cambios
-    * Pista `service nagios3...`
-    * Comprobación: `service nagios3 status`
-    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
+* Personalizar: host_name, alias, address y hostgroups.
+* Reiniciamos Nagios para que coja los cambios y comprobamos (`systemctl status nagios3`).
 * Consultar la lista de hosts monitorizados por Nagios.
 
 ---
@@ -236,7 +231,7 @@ Enlaces de interés:
 
 En el cliente:
 * Debemos instalar el agente nagios en la máquina cliente (paquete NRPE server y los plugin básicos)
-    * Pista: `apt-get ... `
+    * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
 > En el **CURSO1617** usaremos fichero nrpe_local.cfg
