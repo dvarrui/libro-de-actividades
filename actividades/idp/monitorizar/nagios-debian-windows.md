@@ -64,13 +64,13 @@ Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
 siguientes hosts:
 * Routers:
     * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
-    * Comprobar si están activos.
+    * Vamos a monitorizar si están activos.
 * Servidores:
     * Hosts: leelaXX (172.20.1.2)
-    * Comprobar si tiene activos los servicios HTTP y SSH.
+    * Vamos a monitorizar si están activos los servicios HTTP y SSH.
 * Clientes:
     * Hosts: cliente1, y el cliente2.
-    * Comprobar si están activos los equipos.
+    * Vamos a monitorizar si están activos.
 
 ## 3.1 Directorio personal
 
