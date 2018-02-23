@@ -63,13 +63,13 @@ Además se instalará un servidor web.
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
 siguientes hosts:
 * Routers:
-    * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
+    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
     * Vamos a monitorizar si están activos.
 * Servidores:
-    * Hosts: leelaXX (172.20.1.2)
+    * Hosts: `leelaXX` (172.20.1.2)
     * Vamos a monitorizar si están activos los servicios HTTP y SSH.
 * Clientes:
-    * Hosts: cliente1, y el cliente2.
+    * Hosts: `cliente1`, y el `cliente2`.
     * Vamos a monitorizar si están activos.
 
 ## 3.1 Directorio personal
@@ -82,14 +82,14 @@ para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 
 ## 3.2 Grupos
 
-> Cuando se tienen muchos *hosts* es más cómodo agruparlos.
-Las agrupaciones las hacemos con `hostgroup`.
+Cuando se tienen muchos *hosts* es más cómodo agruparlos.
+Los grupos los definimos con `hostgroup`.
 
 * Vamos crear varios `hostgroup`:
     * Sustituir XX por el identificador del alumno.
     * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
     * Hay que definir 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
-    * Veamos un ejemplo (no sirve copiarlo):
+    * Veamos un ejemplo (no sirve copiarlo) para definir un grupo:
 
 ```
 define hostgroup {
@@ -104,7 +104,8 @@ define hostgroup {
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
-* Los host serán miembros también de los grupos http-servers, ssh-servers. NOTA: Los grupos http-servers y ssh-servers ya están predefinidos en Nagios.
+* Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA: 
+Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
 
 > **Significado de algunos parámetros que vamos a usar**
 >
@@ -112,7 +113,7 @@ incluir las definiciones de las máquinas de tipo router.
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
 > * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
+> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 > * [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
@@ -136,7 +137,7 @@ define host{
 }
 ```
 
-* El router caronteXX tiene como padre (parent) a benderXX.
+* El router `caronteXX` tiene como padre (parent) a `benderXX`.
 
 A continuación se muestran los comandos para manejar servicios:
 
@@ -173,7 +174,7 @@ incluir las definiciones de las máquinas de tipo servidor.
 
 * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-clientesXX.cfg` para
 incluir las definiciones de las máquinas de tipo cliente.
-* Veamos un ejemplo (no sirve copiar):
+* Veamos un ejemplo (no sirve copiar) de cómo definir un host:
 
 ```
 define host{
@@ -185,7 +186,7 @@ define host{
 }
 ```
 
-* Personalizar: host_name, alias, address y hostgroups.
+* Personalizar los parámetros: host_name, alias, address y hostgroups.
 * Reiniciamos Nagios para que coja los cambios y comprobamos (`systemctl status nagios3`).
 * Consultar la lista de hosts monitorizados por Nagios.
 
@@ -253,7 +254,7 @@ server_address=IP_DEL_CLIENTE
 allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR
 
  # Esta variable indica que NO se permite que el agente
- # reciba comandos con parámetros poe seguridad.
+ # reciba comandos con parámetros por seguridad.
 dont_blame_nrpe=0
 
  # alias check_user para obtener la cantidad de usuarios logueados
@@ -277,18 +278,18 @@ command[check_procs]=...
 ## 5.3 Configurar en el servidor
 
 En el servidor Nagios:
-* Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma:
+* Vamos a comprobar desde el servidor, la conexión NRPE al cliente, de la siguiente forma:
     * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`
-* A continuación, vamos a definir servicios a monitorizar
+* A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
    * Añadir las siguientes líneas:
 
 ```
 define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Espacio en disco
-  check_command        check_nrpe_1arg!check_disk
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Espacio en disco
+  check_command       check_nrpe_1arg!check_disk
 }
 
 define service{
@@ -329,10 +330,10 @@ define service{
     * [http://www.nagios.org/download/addons](http://www.nagios.org/download/addons).
 * Instalar el programa nsclient.
     * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`
-
-> * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
+    * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
 Windows y el servidor Nagios.
-> * Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la
+
+> Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la
 instalación del programa con las opciones por defecto sin preguntarnos.
 
 * Servicio `Agente Nagios` en el cliente
@@ -353,12 +354,13 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados.
 Además los plugins se llaman con nombres de ejecutables diferentes
 (CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera.
 
+* Enlaces de interés:
+    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+
 > Para estandarizar, en la configuración utilizaremos los mismos alias que en el host Linux
 > Así es posible realizar grupos de hosts que incluyan tanto servidores
 GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
-* Enlaces de interés:
-    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 * La configuración que utilizaremos será la siguiente:
 
 ```
@@ -486,9 +488,6 @@ if 5 restarts within 5 cycles then timeout
 * Reiniciamos el servicio para que coja los cambios de configuración:
     * `systemctl stop monit`, parar.
     * `systemctl start monit`, reiniciamos el servicio.
-
-> En sistemas que usen System V se haría con `/etc/init.d/monit restart`
-
 * `systemctl status monit`, comprobamos que el servicio está en ejecución.
     * En caso de error podemos comprobar la sintaxis del fichero de configuración
     de monit con `/usr/bin/monit -t /etc/monit/monitrc`.
@@ -497,7 +496,6 @@ if 5 restarts within 5 cycles then timeout
 * Comprobar la lectura de datos de monit vía GUI.
     * Abrir un navegador web en la propia máquina, y poner URL `http://localhost:2812`.
     * Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
-* Capturar pantalla.
 
 ---
 
