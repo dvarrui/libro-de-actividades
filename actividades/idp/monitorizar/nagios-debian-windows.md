@@ -137,9 +137,17 @@ define host{
 ```
 * El router caronteXX tiene como padre a benderXX.
 * Reiniciamos Nagios para que coja los cambios en la configuración.
-    * Pista `systemctl restart ...` o `service nagios3 ...`
 
-> ** Si tenemos PROBLEMAS **
+> Comandos para manejarse con los servicios:
+>
+> * `systemctl stop nagios3` o `service nagios3 stop`, para el servicio.
+> * `systemctl start nagios3` o `service nagios3 start`, arranca el servicio.
+> * `systemctl status nagios3` o `service nagios3 status`, muestra el estado actual del servicio.
+> * `systemctl restart nagios3` o `service restart status`, hace un stop y un start del servicio.
+> * `systemctl reload nagios3` o `service reload status`, se vuelven a leer los ficheros de configuración del servicio.
+
+
+> **Si tenemos PROBLEMAS**
 >
 > Si tenemos problemas al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
