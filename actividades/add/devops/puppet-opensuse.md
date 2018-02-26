@@ -270,7 +270,8 @@ Veamos imagen de ejemplo de Raúl García Heredia:
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * Abrir el cortafuegos para el servicio.
 
-> * Comprobar que el directorio `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  > * `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
+> * Comprobar que el directorio `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  
+> * `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
 
 ---
 
