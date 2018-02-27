@@ -120,7 +120,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 ## 4.2 proceso
 
 * Por seguridad, vamos a hacer una instantánea de la MV antes de empezar con este apartado.
-* Con el usuario nombre-alumno, crear el directorio `/home/nombre-alumno/contenedorXX.d`. Lo usaremos para montar el contenedor más adelante.
+* Con el usuario nombre-alumno, crear el directorio `/home/nombre-alumno/directorioXX.d`. Lo usaremos para montar el contenedor más adelante.
 * Ir a `Yast -> Particionador`.
 * Elegir `Crypt Files › Add Crypt File`.
 
@@ -132,7 +132,8 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
     * Tamaño 50 MB.
 * Activar el check box para crear el fichero.
 * Especificar el tipo de sistema de fichero.
-* Especificar el punto de montaje y asegurarse de que el dispositivo encriptado está marcado.
+* Especificar el punto de montaje (directorio creado anteriormente) 
+* Asegurarse de que el dispositivo encriptado está marcado.
 
 ![](./images/crypt-contenedor02.png)
 
@@ -146,7 +147,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 ![](./images/crypt-contenedor04.png)
 
 * Escribir el password del contenedor para poder activarlo.
-* `df -hT | grep contenedor`, comprobamos que hay un dispositivo montado en la ruta contenedorXX.d.
+* `df -hT | grep contenedor`, comprobamos que hay un dispositivo montado en la ruta al `directorioXX.d`.
 * Poner archivos dentro del contenedor.
 * Reiniciar la MV.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
