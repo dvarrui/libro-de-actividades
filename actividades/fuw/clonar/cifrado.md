@@ -91,7 +91,7 @@ Hacer lo siguiente:
 > * [Windows](http://www.taringa.net/posts/linux/19356036/Esconder-archivos-en-imagenes-Esteganografia.html)
 > * [Programa específico `steghide`](http://www.reydes.com/d/?q=Ocultar_un_Archivo_de_Texto_dentro_de_un_Archivo_JPG_utilizando_Steghide)
 > * [steghide](http://www.linuxadictos.com/steghide-esteganografia-para-ocultar-texto-en-imagenes.html)
-* [Esconder ficheros dentro de imágenes en Linux](www.ostechnix.com/hide-files-inside-images-linux/).
+> * [Esconder ficheros dentro de imágenes en Linux](http://www.ostechnix.com/hide-files-inside-images-linux/).
 
 Hacemos lo siguiente:
 * Consultar enlace sobre estenografía de "Andar por casa (zip y cat)".
