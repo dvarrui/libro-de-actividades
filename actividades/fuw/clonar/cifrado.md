@@ -119,6 +119,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 
 ## 4.2 proceso
 
+* Por seguridad, vamos a hacer una instantánea de la MV antes de empezar con este apartado.
 * Con el usuario nombre-alumno, crear el directorio `/home/nombre-alumno/contenedorXX.d`. Lo usaremos para montar el contenedor más adelante.
 * Ir a `Yast -> Particionador`.
 * Elegir `Crypt Files › Add Crypt File`.
