@@ -83,7 +83,7 @@ Hacer lo siguiente:
 
 ---
 
-# 3. Estenografía
+# 3. Esteganografía
 
 > Enlaces de interés:
 >
