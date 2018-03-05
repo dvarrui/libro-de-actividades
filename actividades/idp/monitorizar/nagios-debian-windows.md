@@ -238,7 +238,8 @@ En el cliente:
     * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
-> En el **CURSO1617** usaremos fichero nrpe_local.cfg
+> Tenemos dos ficheros donde podemos configurar NRPE del agente: nrpe.cfg y nrpe_local.cfg.
+> En teoría las configuraciones locales las debemos hacer en nrpe_local.cfg para ser más ordenados.
 
 ```
  # define en qué puerto (TCP) escuchará el agente.
