@@ -279,8 +279,8 @@ command[check_procs]=...
 
 En el servidor Nagios:
 * Vamos a comprobar desde el servidor lo siguiente:
-    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-CLIENTE1`, para comprobar la conexión NRPE hacia el cliente.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-CLIENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
 * A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
    * Añadir las siguientes líneas:
@@ -404,7 +404,7 @@ check_firewall_service=CheckServiceState MpsSvc
 En el servidor Nagios:
 * Vamos a comprobar desde el servidor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
 
 > [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
 sobre cómo configurar los servicios del host Windows en Nagios Master
