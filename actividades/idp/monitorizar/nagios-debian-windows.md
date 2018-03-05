@@ -399,6 +399,8 @@ check_firewall_service=CheckServiceState MpsSvc
 
 ```
 
+> **IMPORTANTE**: Revisar bien que no tengamos parámetros definidos ms de una vez.
+
 ## 6.3 Configurar en el Servidor
 
 En el servidor Nagios:
