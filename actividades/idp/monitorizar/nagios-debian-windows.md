@@ -268,18 +268,18 @@ command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
  # y alertar si queda menos de 20% de espacio en alguna partición.
 command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
 
-
 command[check_procs]=...
 ```
-
+* Renombrar el comando `command[check_total_procs]` por `command[check_procs]`.
 * Reiniciar el servicio en el cliente:
     * Pista `service nagios-nrpe-server ...`
 
 ## 5.3 Configurar en el servidor
 
 En el servidor Nagios:
-* Vamos a comprobar desde el servidor, la conexión NRPE al cliente, de la siguiente forma:
-    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`
+* Vamos a comprobar desde el servidor lo siguiente:
+    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`, para comprobar la conexión NRPE hacia el cliente.
+    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
 * A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
    * Añadir las siguientes líneas:
@@ -401,8 +401,9 @@ check_firewall_service=CheckServiceState MpsSvc
 ## 6.3 Configurar en el Servidor
 
 En el servidor Nagios:
-* Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma:
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`
+* Vamos a comprobar desde el servidor lo siguiente:
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`, para comprobar la conexión NRPE hacia el cliente.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto.
 
 > [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
 sobre cómo configurar los servicios del host Windows en Nagios Master
