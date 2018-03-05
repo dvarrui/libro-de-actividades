@@ -314,7 +314,7 @@ define service{
 }
 ```
 
-* Consultar el estado de los servicios monitorizados por Nagios.
+* Consultar el estado de los servicios monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
 
 ---
 
@@ -436,7 +436,7 @@ define service{
 ```
 
 * Reiniciar el servicio.
-* Consultar los servicios monitorizados por Nagios
+* Consultar los servicios monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
 
 ---
 
