@@ -73,7 +73,8 @@ Si no clonamos los sectores "vacíos" (supuestamente vaciós) no se incluirían
 los ficheros eliminados.
 
 * Usar el comando `dd` para clonar el disco `roto` en el disco `alfa`.
-Ejemplo: `dd if=/dev/DISCO-ORIGEN of=/dev/DISCO-DESTINO`.
+Ejemplo: `dd if=/dev/sdb of=/dev/sdc`.
+* `diff /dev/sdb /dev/sdc` comando para comprobar que ambos discos son idénticos.
 * `diff /dev/sdb1 /dev/sdc1` comando para comprobar que ambas particiones son idénticas.
     * Si todo va bien no muestra ningún mensaje.
     * Si va mal nos dice que son diferentes.
