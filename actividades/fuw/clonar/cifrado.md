@@ -99,10 +99,10 @@ Hacemos lo siguiente:
 * Crear un fichero de texto con un mensaje oculto (`secreto-alumnoXX.txt`).
     * Escribir dentro el nombre del alumno, la fecha de hoy y un refrán o frase famosa.
 * Crear un fichero zip con el mensaje oculto.
-* Descargar una `imagen1.png` que nos guste.
-* Incrustar el fichero zip dentro de la `imagen1.png`, obteniendo un fichero `imagen2.png`.
-* Pasar el fichero `imagen2.png` al compañero.
-* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2.png`.
+* Descargar una `imagen1-alumnoXX.png` que nos guste.
+* Incrustar el fichero zip dentro de la `imagen1-alumnoXX.png`, obteniendo un fichero `imagen2-alumnoXX.png`.
+* Pasar el fichero `imagen2-alumnoXX.png` al compañero.
+* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2-alumnoXX.png`.
 
 ---
 
