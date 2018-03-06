@@ -102,6 +102,7 @@ Hacemos lo siguiente:
 * Descargar una `imagen1-alumnoXX.png` que nos guste.
 * Incrustar el fichero zip dentro de la `imagen1-alumnoXX.png`, obteniendo un fichero `imagen2-alumnoXX.png`.
 * Pasar el fichero `imagen2-alumnoXX.png` al compañero.
+* Verificar el formato de las imágenes, bien usando el comando `file` o capturando vista de la misma.
 * El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2-alumnoXX.png`.
 
 ---
