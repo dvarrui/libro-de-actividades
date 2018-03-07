@@ -392,7 +392,9 @@ CheckExternalScripts=1
 check_load=CheckCpu MaxWarn=80 time=5m
 
 ; alias para chequear el espacio en todos los discos del servidor
-check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5%
+;check_disk=check_drivesize "crit=free<10%" drive=c:
+;check_disk=CheckDriveSize ShowAll MinWarnFree=30% MinCritFree=10%
+check_disk=CheckDriveSize -a Drive=C: MinWarnFree=30% MinCritFree=10%
 
 ; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
 check_firewall_service=CheckServiceState MpsSvc
