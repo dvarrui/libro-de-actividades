@@ -253,11 +253,11 @@ server_port=5666
 
  # indica en qué dirección IP escuchará el agente,                              
  # en caso que la MV posea más de una IP.
-server_address=IP_DEL_CLIENTE
+server_address=IP-DEL-AGENTE-1-NAGIOS
 
  # define qué IPs tienen permitido conectarse al agente en busca de datos.
  # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
-allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR
+allowed_hosts=127.0.0.1,IP-DE-NUESTRO-EQUIPO-NAGIOS
 
  # Esta variable indica que NO se permite que el agente
  # reciba comandos con parámetros por seguridad.
