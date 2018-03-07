@@ -10,16 +10,16 @@ Para esta actividad vamos a necesitar 3 MV's:
     * Nombre del equipo: `nagiosXX`
     * IP estática 172.19.XX.41
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* (MV2) Cliente1:
+* (MV2) Agente1:
     * SO Debian 8 - GNU/Linux para ser monitorizado.
     * Consultar [configuración](../../global/configuracion/debian.md) de las MV's.
-    * Nombre del equipo: `agenteXXlin`
+    * Nombre del equipo: `agenteXXn1`
     * IP estática 172.19.XX.42
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* (MV3) Cliente2:
+* (MV3) Agente2:
     * SO Windows 7 para ser monitorizado.
     * Consultar [configuración](../../global/configuracion/windows.md) de las MV's.
-    * Nombre del equipo: `agenteXXwin`
+    * Nombre del equipo: `agenteXXn2`
     * IP estática 172.19.XX.11
     * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
@@ -37,14 +37,16 @@ Para esta actividad vamos a necesitar 3 MV's:
 
 ---
 
-# 2. Instalar el servidor
+# 2. Instalar el monitorizador Nagios
 
-* Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
+* Instalar `Nagios3`, la `documentación` y el `plugin NRPE de Nagios`.
     * En Debian se podemos usar los comandos `apt-get update` y `apt-get install ...`,
     o el gestor de paquetes Synaptic.
     * Comprobación: `dpkg -l nagios*`
 * Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
 Además se instalará un servidor web.
+
+> INFO: Para cambiar la clave del usuario `nagiosadmin` podemos hacer `htpasswd -c /etc/nagios3/htpasswd.user nagiosadmin`. Reiniciamos el servicio y listo.
 
 ![nagios3-password.png](./images/nagios3-password.png)
 
@@ -58,12 +60,9 @@ Además se instalará un servidor web.
     * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
     vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
-> Para cambiar la clave del usuario `nagiosadmin` hacemos `htpasswd -c /etc/nagios3/htpasswd.user nagiosadmin`.
-Reiniciamos el servicio y listo.
-
 ---
 
-# 3. Configurar el servidor
+# 3. Configurar el monitorizador
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
 siguientes hosts:
@@ -107,7 +106,7 @@ define hostgroup {
 
 ### Routers
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg` para
 incluir las definiciones de las máquinas de tipo router.
 * Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA: 
 Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
@@ -164,11 +163,11 @@ la configuración que hemos añadido:
 > * `/usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios3.
 > * Consultar log `/var/log/nagios3/nagios.log`.
 
-* Consultar la lista de hosts monitorizados por Nagios.
+* Consultar la lista de `hosts` monitorizados por Nagios.
 
 ### Servidores
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-servidoresXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servidoresXX.cfg` para
 incluir las definiciones de las máquinas de tipo servidor.
 * Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
 * El equipo leelaXX tiene como parent a benderXX.
@@ -177,7 +176,7 @@ incluir las definiciones de las máquinas de tipo servidor.
 
 ### Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-clientesXX.cfg` para
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/clientesXX.cfg` para
 incluir las definiciones de las máquinas de tipo cliente.
 * Veamos un ejemplo (no sirve copiar) de cómo definir un host:
 
@@ -193,7 +192,7 @@ define host{
 
 * Personalizar los parámetros: host_name, alias, address y hostgroups.
 * Reiniciamos Nagios para que coja los cambios y comprobamos (`systemctl status nagios3`).
-* Consultar la lista de hosts monitorizados por Nagios.
+* Consultar el `mapa` y la lista de `hosts` monitorizados por Nagios.
 
 ---
 
@@ -243,7 +242,7 @@ En el cliente:
     * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
-> Tenemos dos ficheros donde podemos configurar NRPE del agente: nrpe.cfg y nrpe_local.cfg.
+> Tenemos dos ficheros donde podemos configurar NRPE del agente: `nrpe.cfg` y `nrpe_local.cfg`.
 > En teoría las configuraciones locales las debemos hacer en nrpe_local.cfg para ser más ordenados.
 
 ```
@@ -253,7 +252,7 @@ server_port=5666
 
  # indica en qué dirección IP escuchará el agente,                              
  # en caso que la MV posea más de una IP.
-server_address=IP-DEL-AGENTE-1-NAGIOS
+server_address=IP-DEL-AGENTE-1
 
  # define qué IPs tienen permitido conectarse al agente en busca de datos.
  # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
@@ -280,12 +279,12 @@ command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
 * Reiniciar el servicio en el cliente:
     * Pista `service nagios-nrpe-server ...`
 
-## 5.3 Configurar en el servidor
+## 5.3 Configurar en el monitorizador
 
 En el servidor Nagios:
 * Vamos a comprobar desde el servidor lo siguiente:
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-CLIENTE1`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-CLIENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la conexión NRPE hacia el cliente.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
 * A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
    * Añadir las siguientes líneas:
@@ -320,7 +319,7 @@ define service{
 }
 ```
 
-* Consultar el estado de los servicios monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
+* Consultar el estado de los `servicios` monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
 
 ---
 
@@ -329,7 +328,7 @@ define service{
 * Enlaces de interés:
     * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-windows.html
 
-## 6.1 Instalar en el cliente2
+## 6.1 Instalar en el Agente 2
 
 * Descargar el programa Agente Windows (NSCLient++)
     * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
@@ -396,8 +395,9 @@ CheckExternalScripts=1
 ; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
 check_load=CheckCpu MaxWarn=80 time=5m
 
-; alias para chequear el espacio en todos los discos del servidor
+; Alias para chequear el espacio en todos los discos
 ;check_disk=CheckDriveSize ShowAll MinWarnFree=30% MinCritFree=10%
+; Alias para chequear el espacio en el disco C:
 check_disk=check_drivesize "crit=free<10%" "warn=free<10%" drive=c:
 
 ; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
@@ -405,14 +405,14 @@ check_firewall_service=CheckServiceState MpsSvc
 
 ```
 
-> **IMPORTANTE**: Revisar bien que no tengamos parámetros definidos ms de una vez.
+> **IMPORTANTE**: Asegurarse de no definir los parámetros más de una vez.
 
-## 6.3 Configurar en el Servidor
+## 6.3 Configurar en el monitorizador
 
-En el servidor Nagios:
+En el monitorizador Nagios:
 * Vamos a comprobar desde el servidor lo siguiente:
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2`, para comprobar la conexión NRPE hacia el cliente.
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
 
 > [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
 sobre cómo configurar los servicios del host Windows en Nagios Master
@@ -446,7 +446,7 @@ define service{
 ```
 
 * Reiniciar el servicio.
-* Consultar los servicios monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
+* Consultar los `servicios` monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
 
 ---
 
