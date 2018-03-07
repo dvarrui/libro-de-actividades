@@ -13,11 +13,13 @@ Para esta actividad vamos a necesitar 3 MV's:
 * (MV2) Cliente1:
     * SO Debian 8 - GNU/Linux para ser monitorizado.
     * Consultar [configuración](../../global/configuracion/debian.md) de las MV's.
+    * Nombre del equipo: `agenteXXlin`
     * IP estática 172.19.XX.42
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * (MV3) Cliente2:
     * SO Windows 7 para ser monitorizado.
     * Consultar [configuración](../../global/configuracion/windows.md) de las MV's.
+    * Nombre del equipo: `agenteXXwin`
     * IP estática 172.19.XX.11
     * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
