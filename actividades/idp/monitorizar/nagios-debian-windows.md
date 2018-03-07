@@ -272,9 +272,9 @@ command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
  # y alertar si queda menos de 20% de espacio en alguna partición.
 command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
 
-command[check_procs]=...
+command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
+
 ```
-* Renombrar el comando `command[check_total_procs]` por `command[check_procs]`.
 * Reiniciar el servicio en el cliente:
     * Pista `service nagios-nrpe-server ...`
 
