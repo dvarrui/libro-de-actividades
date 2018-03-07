@@ -56,6 +56,9 @@ Además se instalará un servidor web.
     * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
     vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
+> Para cambiar la clave del usuario `nagiosadmin` hacemos `htpasswd -c /etc/nagios3/htpasswd.user nagiosadmin`.
+Reiniciamos el servicio y listo.
+
 ---
 
 # 3. Configurar el servidor
