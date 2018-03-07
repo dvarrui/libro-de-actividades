@@ -73,7 +73,7 @@ siguientes hosts:
     * Hosts: `leelaXX` (172.20.1.2)
     * Vamos a monitorizar si están activos los servicios HTTP y SSH.
 * Clientes:
-    * Hosts: `cliente1`, y el `cliente2`.
+    * Hosts: `agenteXXn1`, y el `agenteXXn2`.
     * Vamos a monitorizar si están activos.
 
 ## 3.1 Directorio personal
@@ -92,7 +92,7 @@ Los grupos los definimos con `hostgroup`.
 * Vamos crear varios `hostgroup`:
     * Sustituir XX por el identificador del alumno.
     * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
-    * Hay que definir 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
+    * Hay que definir 3 grupos de equipos: `routersXX`, `servidoresXX` y `clientesXX`.
     * Veamos un ejemplo (no sirve copiarlo) para definir un grupo:
 
 ```
