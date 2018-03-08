@@ -2,8 +2,8 @@
 
 # 1. Introducción
 
-* Trabajar en grupos de 3 personas.
-* Usaremos las máquinas reales del taller.
+* Trabajar en parejas.
+* Usaremos las máquinas virtuales y/o reales del taller.
 * Entregar un informe en formato ODT o PDF. Si fueran varios documentos,
 entregar un comprimido ZIP.
 
