@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2017-12-21 09:05:37 +0000`
+`Fecha UM: 2018-03-08 18:18:49 +0000`
 
 * [idp](actividades/idp) 11
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -116,8 +116,9 @@
         * [taller-4-simplificar.md](actividades/fuw/taller/taller-4-simplificar.md)
         * [taller-5-encender-led.md](actividades/fuw/taller/taller-5-encender-led.md)
 * [add](actividades/add) 14
-    * [REV](actividades/add/REV) 1
+    * [REV](actividades/add/REV) 2
         * [kvm.md](actividades/add/REV/kvm.md)
+        * [trim1.md](actividades/add/REV/trim1.md)
     * [clientes-ligeros](actividades/add/clientes-ligeros) 3
         * [README.md](actividades/add/clientes-ligeros/README.md)
         * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
