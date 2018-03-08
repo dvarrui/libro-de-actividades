@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-03-08 18:18:49 +0000`
+`Fecha UM: 2018-03-08 19:04:12 +0000`
 
 * [idp](actividades/idp) 11
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -61,12 +61,13 @@
             * [wsus.md](actividades/idp/instalacion/servidor/wsus.md)
     * [licencias](actividades/idp/licencias) 1
         * [README.md](actividades/idp/licencias/README.md)
-    * [monitorizar](actividades/idp/monitorizar) 8
+    * [monitorizar](actividades/idp/monitorizar) 9
         * [apparmor-opensuse.md](actividades/idp/monitorizar/apparmor-opensuse.md)
         * [eventos-locales-windows-debian.md](actividades/idp/monitorizar/eventos-locales-windows-debian.md)
         * [eventos-locales-windows-opensuse.md](actividades/idp/monitorizar/eventos-locales-windows-opensuse.md)
         * [eventos-remotos-rsyslog.md](actividades/idp/monitorizar/eventos-remotos-rsyslog.md)
         * [files](actividades/idp/monitorizar/files) 2
+        * [grafana-influxdb-collectd.md](actividades/idp/monitorizar/grafana-influxdb-collectd.md)
         * [icinga-opensuse-windows.md](actividades/idp/monitorizar/icinga-opensuse-windows.md)
         * [images](actividades/idp/monitorizar/images) 10
         * [nagios-debian-windows.md](actividades/idp/monitorizar/nagios-debian-windows.md)
