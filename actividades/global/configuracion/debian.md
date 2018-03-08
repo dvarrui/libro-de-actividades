@@ -85,8 +85,8 @@ iface eth1 inet dhcp
 * Para configurar la resolución de nombres (Servidor DNS) debemos modificar el fichero
 `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
-> Otra forma de configurar el servidor DNS es añadir la línea `dns-nameservers 8.8.4.4`
-en el fichero `/etc/network/interfaces`.
+> Si tenemos instalado el paquete `resolvconf` podemos configurar el servidor DNS
+añadiendo la línea `dns-nameservers 8.8.4.4` en el fichero `/etc/network/interfaces`.
 
 * Para que se tengan en cuenta los cambios hacemos lo siguiente:
    * `service networking restart` o
