@@ -4,9 +4,9 @@
 
 * Trabajar en parejas.
 * Usaremos 2 máquinas a elegir entre:
-    * Máquina real propia de cada alumno.
-    * Una máquina virtuale.
-    * Una máquina reales del taller que tenga SO Windows.
+    * Máquinas reales, propias de cada alumno.
+    * Una máquina virtual.
+    * Una máquina real del taller que tenga SO Windows.
 * Entregar un informe en formato ODT o PDF. Si fueran varios documentos,
 entregar un comprimido ZIP.
 
