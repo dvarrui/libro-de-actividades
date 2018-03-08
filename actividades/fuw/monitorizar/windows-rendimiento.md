@@ -3,12 +3,15 @@
 # 1. Introducción
 
 * Trabajar en parejas.
-* Usaremos las máquinas virtuales y/o reales del taller.
+* Usaremos 2 máquinas a elegir entre:
+    * Máquina real propia de cada alumno.
+    * Una máquina virtuale.
+    * Una máquina reales del taller que tenga SO Windows.
 * Entregar un informe en formato ODT o PDF. Si fueran varios documentos,
 entregar un comprimido ZIP.
 
 Vamos a estudiar el rendimiento de varios equipos, primero monitorizaremos el hardware,
-luego optimizaremos y al final comprobaremos si han mejorado los resultados.
+luego optimizaremos.
 
 > Consultar documentación de Moodle.
 
@@ -16,7 +19,7 @@ luego optimizaremos y al final comprobaremos si han mejorado los resultados.
 
 # 2. Características de la Máquina
 
-* Detallar las características de la máquina virtual/real con Window.
+* Detallar las características de las dos máquinas que vamos a usar.
     * CPU
     * RAM
     * Disco duro
@@ -33,39 +36,38 @@ luego optimizaremos y al final comprobaremos si han mejorado los resultados.
 # 3. Monitorización
 
 * Ejecutar herramienta para realizar inventariado del equipo.
-* Aplicar pruebas de:
-    * Rendimiento de la CPU.
-    * Rendimiento de la RAM.
-    * Rendimiento de los discos duros.
-    * Rendimiento de la tarjeta gráfica.
+    * Utilidad AIDA/EVEREST Home Edition. Generar un informe.
+* Aplicar pruebas de rendimiento de la CPU.
+    * Utilidad CPU‐Z.
+* Aplicar pruebas de rendimiento de la RAM.
+    * Utilidad Memtest86+.
+* Aplicar pruebas de rendimiento de los discos duros.
+    * Utilidad HD tune.
+* Aplicar pruebas de rendimiento de la tarjeta gráfica.
+    * Utilidad GPU‐Z.
+* Ejecutar CPUCool (HW Monitor)
 
-> Se puede usar el CD de Hiren y/o otras herramientas, como por ejemplo:
-> * Utilidad AIDA/EVEREST Home Edition. Generar un informe.
-> * Utilidad Memtest86+.
-> * Utilidad CPU‐Z.
-> * Utilidad GPU‐Z.
-> * Utilidad HD tune.
-> * Ejecutar CPUCool (HW Monitor)
-> * Monitorizar rendimiento de CPU, Memoria, disco duro.
+> Se puede usar el CD de Hiren y/o otras herramientas.
 
 ---
 
-# 4. Optimización
+# 4. Comparar
 
-* Usar utilidades de optimización para mejorar el rendimiento del sistema.
-
-> Podemos usar el CD de Hiren y otras herramientas, como por ejemplo:
-> * Comprobación de errores del disco, chkdsk o Scandisk
-> * Desfragmentador del disco
-> * Utilidad TuneUp Utilites
-> * Utilidad Revo Uninstaller Pro
-> * Utilidad Registry Healer
+* Comparar los resultados obtenidos entre cada máquina.
 
 ---
 
-# 5. Comparar
+# 5. Optimización
 
-* Comparar los resultados obtenidos antes y después de la optimización.
+* Usar utilidades de optimización para mejorar el rendimiento del sistema en una de las máquinas.
+    * Comprobación de errores del disco, chkdsk o Scandisk
+    * Desfragmentador del disco
+* Usar estas herramientas en la máquina virtual y/o real del taller:
+    * Utilidad TuneUp Utilites
+    * Utilidad Revo Uninstaller Pro
+    * Utilidad Registry Healer
+
+> Podemos usar el CD de Hiren y otras herramientas.
 
 ---
 
