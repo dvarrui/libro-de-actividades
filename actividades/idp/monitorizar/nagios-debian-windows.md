@@ -64,17 +64,8 @@ Además se instalará un servidor web.
 
 # 3. Configurar el monitorizador
 
-Nos vamos a plantear como objetivo configurar Nagios para monitorizar los
-siguientes hosts:
-* Routers:
-    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
-    * Vamos a monitorizar si están activos.
-* Servidores:
-    * Hosts: `leelaXX` (172.20.1.2)
-    * Vamos a monitorizar si están activos los servicios HTTP y SSH.
-* Clientes:
-    * Hosts: `agenteXXn1`, y el `agenteXXn2`.
-    * Vamos a monitorizar si están activos.
+Nos vamos a plantear como objetivo configurar Nagios para monitorizar varios
+routers, un servidor y varios clientes.
 
 ## 3.1 Directorio personal
 
@@ -106,8 +97,9 @@ define hostgroup {
 
 ### Routers
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg` para
-incluir las definiciones de las máquinas de tipo router.
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg`.
+* Definir las siguientes máquinas de tipo router.
+    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
 * Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA: 
 Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
 
@@ -167,8 +159,9 @@ la configuración que hemos añadido:
 
 ### Servidores
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servidoresXX.cfg` para
-incluir las definiciones de las máquinas de tipo servidor.
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servidoresXX.cfg`.
+* Definir las máquinas de tipo servidor.
+    * Hosts: `leelaXX` (172.20.1.2)
 * Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
 * El equipo leelaXX tiene como parent a benderXX.
 * Reiniciamos Nagios. Si hay problemas, consultar el apartado anterior de cómo revisar los problemas.
@@ -176,8 +169,9 @@ incluir las definiciones de las máquinas de tipo servidor.
 
 ### Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/clientesXX.cfg` para
-incluir las definiciones de las máquinas de tipo cliente.
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/clientesXX.cfg`.
+* Definir las siguientes máquinas de tipo cliente.
+    * Hosts: `agenteXXn1` (SO GNU/Linux), y el `agenteXXn2` (SO Windows).
 * Veamos un ejemplo (no sirve copiar) de cómo definir un host:
 
 ```
@@ -235,7 +229,7 @@ Enlaces de interés:
 * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
 * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
-## 5.2 Instalar y configurar el cliente1
+## 5.2 Instalar y configurar el Agente1 (cliente1)
 
 En el cliente:
 * Vamos a instalar el agente nagios en la máquina cliente. Hayq que instalar el 
@@ -329,7 +323,7 @@ define service{
 * Enlaces de interés:
     * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-windows.html
 
-## 6.1 Instalar en el Agente 2
+## 6.1 Instalar en el Agente 2 (Cliente Windows)
 
 * Descargar el programa Agente Windows (NSCLient++)
     * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
@@ -349,7 +343,7 @@ instalación del programa con las opciones por defecto sin preguntarnos.
         * `net start nsclient` para iniciar el servicio del agente.
         * `net stop nsclient` para parar el servicio del agente.
 
-## 6.2 Configurar el cliente2
+## 6.2 Configurar el Agente 2 (cliente Windows)
 
 Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nsclient.ini`
  (o `C:\Archivos de Programas\NSClient++\nsclient.ini`).
