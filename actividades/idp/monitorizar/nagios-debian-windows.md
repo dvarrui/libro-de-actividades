@@ -488,8 +488,8 @@ if cpu usage (wait) > 20% then alert
 
  # Monitorizar el servicio SSH
 check process sshd with pidfile /var/run/sshd.pid
-start program "service sshd start"
-stop program  "service sshd stop"
+start program "systemctl start sshd"
+stop program  "systemctl stop sshd"
 if failed port 22 protocol ssh then restart
 if 5 restarts within 5 cycles then timeout
 ```
