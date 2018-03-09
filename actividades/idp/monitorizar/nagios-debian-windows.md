@@ -46,9 +46,9 @@ Para esta actividad vamos a necesitar 3 MV's:
 * Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
 Además se instalará un servidor web.
 
-> INFO: Para cambiar la clave del usuario `nagiosadmin` podemos hacer `htpasswd -c /etc/nagios3/htpasswd.user nagiosadmin`. Reiniciamos el servicio y listo.
-
 ![nagios3-password.png](./images/nagios3-password.png)
+
+> INFO: Para cambiar la clave del usuario `nagiosadmin` podemos hacer `htpasswd -c /etc/nagios3/htpasswd.user nagiosadmin`. Reiniciamos el servicio y listo.
 
 * Comprobar lo siguiente:
     * `systemctl status nagios3` o `service nagios3 status`, comprobar que el servicio Nagios está en ejecución.
@@ -89,7 +89,7 @@ Los grupos los definimos con `hostgroup`.
 ```
 define hostgroup {
   hostgroup_name NOMBRE_DEL_GRUPO
-  alias NOMBRE_LARGO_DEL_GRUPO
+  alias          NOMBRE_DEL_GRUPO
 }
 ```
 
@@ -97,24 +97,7 @@ define hostgroup {
 
 ### Routers
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg`.
-* Definir las siguientes máquinas de tipo router.
-    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
-* Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA: 
-Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
-
-> **Significado de algunos parámetros que vamos a usar**
->
-> * host_name: Nombre del host
-> * alias: Nombre largo asociado al host
-> * address: Dirección IP
-> * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
->   Poner a cada host una imagen que lo represente.
-> * parents: Nombre del equipo padre o anterior.
-> * [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-
-* Veamos un ejemplo (no sirve copiarlo):
+* Veamos una platilla de ejemplo (no sirve copiarlo):
 ```
 define host{
   host_name          NOMBRE_DEL_HOST
@@ -133,7 +116,25 @@ define host{
 }
 ```
 
+> **Significado de algunos parámetros que vamos a usar**
+>
+> * host_name: Nombre del host
+> * alias: Nombre largo asociado al host
+> * address: Dirección IP
+> * hostgroups: Grupos a los que pertenece
+> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
+>   Poner a cada host una imagen que lo represente.
+> * parents: Nombre del equipo padre o anterior.
+> * [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+
+* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg`.
+* Definir las siguientes máquinas de tipo router usando la plantilla(ejemplo) anterior.
+    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
+* Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA: 
+Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
 * El router `caronteXX` tiene como padre (parent) a `benderXX`.
+
+### Comprobamos
 
 A continuación se muestran los comandos para manejar servicios:
 
@@ -231,9 +232,9 @@ Enlaces de interés:
 
 ## 5.2 Instalar y configurar el Agente1 (cliente1)
 
-En el cliente:
-* Vamos a instalar el agente nagios en la máquina cliente. Hayq que instalar el 
-`paquete NRPE server` y los `plugin básicos`.
+En el agente1 (cliente GNU/Linux):
+* Vamos a instalar el agente nagios en la máquina cliente. Hay que instalar los siguientes paquetes: (1) 
+`paquete NRPE server` y (2) los `plugin básicos`.
     * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
@@ -272,7 +273,7 @@ command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
 
 ```
 * Reiniciar el servicio en el cliente:
-    * Pista `service nagios-nrpe-server ...`
+    * Pista `systemctl ... nagios-nrpe-server`
 
 ## 5.3 Configurar en el monitorizador
 
@@ -282,7 +283,7 @@ En el servidor Nagios:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve información desde el agente remoto.
 * A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
-   * Añadir las siguientes líneas:
+   * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
 
 ```
 define service{
@@ -400,7 +401,7 @@ check_firewall_service=CheckServiceState MpsSvc
 
 ```
 
-> **IMPORTANTE**: Asegurarse de no definir los parámetros más de una vez.
+> **IMPORTANTE**: Asegurarse de no repetir las definiciones de los parámetros.
 
 ## 6.3 Configurar en el monitorizador
 
