@@ -238,7 +238,8 @@ Enlaces de interés:
 ## 5.2 Instalar y configurar el cliente1
 
 En el cliente:
-* Debemos instalar el agente nagios en la máquina cliente (paquete NRPE server y los plugin básicos)
+* Vamos a instalar el agente nagios en la máquina cliente. Hayq que instalar el 
+`paquete NRPE server` y los `plugin básicos`.
     * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
@@ -252,7 +253,7 @@ server_port=5666
 
  # indica en qué dirección IP escuchará el agente,                              
  # en caso que la MV posea más de una IP.
-server_address=IP-DEL-AGENTE-1
+server_address=IP-DEL-AGENTE1
 
  # define qué IPs tienen permitido conectarse al agente en busca de datos.
  # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
@@ -284,7 +285,7 @@ command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
 En el servidor Nagios:
 * Vamos a comprobar desde el servidor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve informacin desde el agente remoto..
+    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve información desde el agente remoto.
 * A continuación, vamos a definir varios servicios a monitorizar
    * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
    * Añadir las siguientes líneas:
