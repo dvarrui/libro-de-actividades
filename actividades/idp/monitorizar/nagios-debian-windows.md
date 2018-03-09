@@ -39,7 +39,7 @@ Para esta actividad vamos a necesitar 3 MV's:
 
 # 2. Instalar el monitorizador Nagios
 
-* Instalar `Nagios3`, la `documentación` y el `plugin NRPE de Nagios`.
+* Tenemos que instalar los siguientes paquetes: (1) `Nagios3`, (2) `documentación de Nagios3` y (3) `plugin NRPE de Nagios`.
     * En Debian se podemos usar los comandos `apt-get update` y `apt-get install ...`,
     o el gestor de paquetes Synaptic.
     * Comprobación: `dpkg -l nagios*`
