@@ -374,7 +374,7 @@ GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 ;password=
 
 ; permitimos el acceso al servidor Nagios para las consultas.
-allowed hosts=IP_DEL_SERVIDOR
+allowed hosts=IP-DEL-MONITORIZADOR-NAGIOS
 
 [/settings/NRPE/server]
 ssl options = no-sslv2, no-sslv3
@@ -398,7 +398,7 @@ check_load=CheckCpu MaxWarn=80 time=5m
 ; Alias para chequear el espacio en todos los discos
 ;check_disk=CheckDriveSize ShowAll MinWarnFree=30% MinCritFree=10%
 ; Alias para chequear el espacio en el disco C:
-check_disk=check_drivesize "crit=free<10%" "warn=free<10%" drive=c:
+check_disk=check_drivesize "crit=free<10%" "warn=free<30%" drive=c:
 
 ; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
 check_firewall_service=CheckServiceState MpsSvc
