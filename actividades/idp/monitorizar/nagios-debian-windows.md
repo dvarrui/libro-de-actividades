@@ -341,8 +341,8 @@ instalación del programa con las opciones por defecto sin preguntarnos.
     * Por entorno gráfico:
         * Ir a `Equipo -> Administrar -> Servicios -> Nagios -> Reiniciar`.
     * Por comandos:
-        * `net start nsclient` para iniciar el servicio del agente.
-        * `net stop nsclient` para parar el servicio del agente.
+        * `net start nscp` para iniciar el servicio del agente.
+        * `net stop nscp` para parar el servicio del agente.
 
 ## 6.2 Configurar el Agente 2 (cliente Windows)
 
