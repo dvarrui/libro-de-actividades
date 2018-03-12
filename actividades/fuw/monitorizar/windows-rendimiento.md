@@ -27,7 +27,7 @@ luego optimizaremos.
 
 > Si trabajamos en una máquina real:
 > * Debemos asegurarnos de tener correctamente los drivers de nuestra máquina. Consultar "Administrador de dispositivos".
-> * Podemos usar el siguiente [enlace](http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=es&cc=es&prodNameId=402170&prodTypeId=12454&prodSeriesId=402168&swLang=35&taskId=135&swEnvOID=1093#11360)
+> * Buscar drivers para nuestro equipo [enlace](https://support.hp.com/es-es/product/hp-compaq-dx6100-microtower-pc/402168/drivers)
 , para descargar los drivers de los equipos HP que estamos utilizando para la práctica en clase.
 > * Podemos obtener una ISO de Hiren Boot, descargándola de Leela.
 
