@@ -31,6 +31,10 @@ luego optimizaremos.
 , para descargar los drivers de los equipos HP que estamos utilizando para la práctica en clase.
 > * Podemos obtener una ISO de Hiren Boot, descargándola de Leela.
 
+* Si los dos componentes del grupo trabajan con máquinas virtuales, entonces
+    * uno monitoriza primero y luego optimiza 
+    * y el otro optimiza primero y luego monitoriza.
+    
 ---
 
 # 3. Monitorización
@@ -74,3 +78,10 @@ luego optimizaremos.
 # 6. Conclusiones
 
 * Comentarios/análisis sobre los datos obtenidos.
+
+---
+
+# ANEXO
+
+Otras herramientas:
+* FurMark: para hacer pruebas de estrés de la tarjeta gráfica.
