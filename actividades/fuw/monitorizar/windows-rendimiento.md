@@ -7,11 +7,14 @@
     * Máquinas reales, propias de cada alumno.
     * Una máquina virtual.
     * Una máquina real del taller que tenga SO Windows.
+* Si los dos componentes del grupo trabajan con máquinas virtuales, entonces
+    * uno monitoriza primero y luego optimiza 
+    * y el otro optimiza primero y luego monitoriza.
 * Entregar un informe en formato ODT o PDF. Si fueran varios documentos,
 entregar un comprimido ZIP.
 
-Vamos a estudiar el rendimiento de varios equipos, primero monitorizaremos el hardware,
-luego optimizaremos.
+Vamos a estudiar el rendimiento de varios equipos, monitorizando el hardware,
+y optimizando el sistema.
 
 > Consultar documentación de Moodle.
 
@@ -30,10 +33,6 @@ luego optimizaremos.
 > * Buscar drivers para nuestro equipo [enlace](https://support.hp.com/es-es/product/hp-compaq-dx6100-microtower-pc/402168/drivers)
 , para descargar los drivers de los equipos HP que estamos utilizando para la práctica en clase.
 > * Podemos obtener una ISO de Hiren Boot, descargándola de Leela.
-
-* Si los dos componentes del grupo trabajan con máquinas virtuales, entonces
-    * uno monitoriza primero y luego optimiza 
-    * y el otro optimiza primero y luego monitoriza.
     
 ---
 
