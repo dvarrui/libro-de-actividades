@@ -43,11 +43,11 @@ y optimizando el sistema.
 * Aplicar pruebas de rendimiento de la CPU.
     * Utilidad CPU‐Z.
 * Aplicar pruebas de rendimiento de la RAM.
-    * Utilidad Memtest86+.
+    * Utilidad Memtest86+. Ejecutar con un CD-Live y/o USB Live.
 * Aplicar pruebas de rendimiento de los discos duros.
     * Utilidad HD tune.
 * Aplicar pruebas de rendimiento de la tarjeta gráfica.
-    * Utilidad GPU‐Z.
+    * Utilidad GPU‐Z. En las máquinas virtuales no muestra información.
 * Ejecutar CPUCool (HW Monitor)
 
 > Se puede usar el CD de Hiren y/o otras herramientas.
