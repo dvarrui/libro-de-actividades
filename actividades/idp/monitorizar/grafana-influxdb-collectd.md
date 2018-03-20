@@ -136,6 +136,21 @@ Graphite, InfluxDB, OpenTSDB o Prometheus.
 * `systemctl status grafana`, comprobar que el servicio esté iniciado.
 * `netstat -ntap |grep grafana`, comprobamos el puerto en el que está funcionando el servicio. Debera ser el 3000.
 
-## 4.2 Panel de configuración
+## 4.2 Configuración
 
 * Abrimos un navegador y poner URL `localhost:3000` para conectarnos al panel de gestión web de Grafana.
+* Usuario/clave "admin/admin".
+* Ir a `Profile` para personalizar el usuario.
+* `Data Sources -> New`. En `Name` ponemos `Collectd`
+* Rellenar con los siguientes valores:
+    * Type: Influx 0.9.X
+    * URL: localhost:8086
+    * Access: Direct
+    * Database. collectd
+    * User: admin
+* `Test conection`para comprobar si Granafa se conecta bien con la base de datos InfluxDB que acabamos de configurar.
+
+## 4.3 Dashboards
+
+Crear y/o importar Dashboards.
+
