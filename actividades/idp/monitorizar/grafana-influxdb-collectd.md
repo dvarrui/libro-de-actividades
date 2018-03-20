@@ -5,10 +5,11 @@
 
 Enlaces de interés:
 
-http://dchaparro.net/visualizacion-de-metricas-grafana-influxdb-y-collectd/
+* EN [Monitoring with Grafana, influxdb and collectd](http://www.vishalbiyani.com/graphing-performance-with-collectd-influxdb-grafana/)
+* ES [Visualización de métricas con Grafana, influxdb y collectd](http://dchaparro.net/visualizacion-de-metricas-grafana-influxdb-y-collectd/)
 
 Vamos a trabajar con varias herramientas que nos servirán para visualizar
-estadísticas de rendimiento del servidor, y tener controlados todos sus recursos:
+estadísticas de rendimiento del servidor, y tener controlados sus recursos:
 CPU, memoria, disco.
 
 Estas son: Collectd, InfluxDB y Grafana.
@@ -54,7 +55,8 @@ LoadPlugin uptime
 LoadPlugin users
 ```
 
-* Vamos configurar el plugin "network" para que envíe los datos recopilados al siguiente IP/puerto (que es donde escuchará la base de datos InfluxDB que instalaremos a continuación):
+* Vamos configurar el plugin "network" para que los datos recopilados se envíen a la máquina que queramos.
+En este caso especificaremos un IP/puerto, donde escuchará la base de datos InfluxDB que instalaremos más adelante.
 
 ```
 <Plugin network>
@@ -64,8 +66,8 @@ LoadPlugin users
 
 ## 2.3 Comprobación
 
-* Ejecutamos el siguiente comando para comprobar que la sintaxis del fichero es la correcta:  `collectd -t`
-* Ejecutamos el siguiente comando para comprobar que la sintaxis de los Plugins es correcta:  `collectd -T`
+* Ejecutamos `collectd -t` para comprobar que la sintaxis del fichero es la correcta.
+* Ejecutamos `collectd -T` para comprobar que la sintaxis de los Plugins es correcta.
 * Paramos el servicio `systemctl start collectd`.
 * Iniciamos el servicio `systemctl stop collectd`.
 * Comprobamos el estado actual del servicio `systemctl start collectd`.
@@ -98,7 +100,24 @@ database = "collectd"
 typesdb = "/usr/share/collectd/types.db"
 ```
 
+Con esto estamos indicando a la base de datos InfluxDB que va a recibir información de
+Collectd, por el puerto 25826, y que vamos a crear una base de datos llamada "collectd" 
+para guardar dicha información.
+
 ## 3.3 Comprobamos
+
+* `systemctl status influxdb` para verificar el estado actual del servicio.
+* `netstat -ntap | grel influx` para consultar los puertos por los que está escuchando el programa.
+* Abrimos un navegador web y ponemos en URL `localhost:8083`. Nos conectaremos al panel de control
+de InfluxDB vía web.
+* `Show databases`-> `collectd`
+* Elegir la BD collect y ejecutamos las siguientes consultas:
+    * `show measurement`
+    * `show series`
+    * `select * from disk_read`
+* También tenemos comandos para interactuar con InfluxDB. Abrimos una consola y ejecutamos 
+el comando siguiente.
+    * `influx -database 'collectd' -host 'localhost' -port '8086' -execute 'show mesasurements'`.
 
 ---
 
@@ -110,3 +129,13 @@ elaborado que te permite elegir entre las métricas que tengas registradas y
 realizar con ellas todo el tratamiento que necesites. Como origen de datos
 también tiene gran variedad, pudiendo elegir entre CloudWatch, ElasticSearch,
 Graphite, InfluxDB, OpenTSDB o Prometheus.
+
+## 4.1 Instalación
+
+* `apt-get install grafana`, instalar Grafana.
+* `systemctl status grafana`, comprobar que el servicio esté iniciado.
+* `netstat -ntap |grep grafana`, comprobamos el puerto en el que está funcionando el servicio. Debera ser el 3000.
+
+## 4.2 Panel de configuración
+
+* Abrimos un navegador y poner URL `localhost:3000` para conectarnos al panel de gestión web de Grafana.
