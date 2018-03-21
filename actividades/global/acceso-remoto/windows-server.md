@@ -5,7 +5,7 @@
 
 ### 1.1 Instalación y configuración de Telnet
 
-En Windows Server podemos instalar el servidor Telnet en agregar roles.
+En Windows Server podemos instalar el servidor Telnet en agregar roles y/o características.
 
 * Usuario/clave
    * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
