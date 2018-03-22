@@ -1,8 +1,4 @@
 
-```
-* Para el curso próximo, probar a usar OpenSUSE en lugar de Ubuntu.
-```
-
 # 1. Clientes ligeros con LTSP/Ubuntu
 
 Entrega de la práctica:
@@ -26,8 +22,8 @@ Realizar las siguientes tareas:
 * Trabajaremos de forma individual.
 * Usaremos 2 MVs para montar clientes ligeros con LTSP.
 * Atender a la explicación del profesor.
-* Consultar/leer [web official de LTSP] (http://www.ltsp.org/), y los pdf
-  que proporciona el profesor.
+* Consultar/leer [web official de LTSP] (http://www.ltsp.org/), y los pdf que proporciona el profesor.
+* [Configurar un servidor LTSP](https://trisquel.info/es/wiki/configurar-un-servidor-ltsp)
 
 Veamos el esquema:
 
@@ -175,18 +171,43 @@ netstat -ntap # Muestras las conexiones con el exterior
 
 ---
 
-# 5. ANEXOS
+# 5. Personalizar los clientes
+
+En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
+modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf.
+
+* Configurar ltsp.conf para permitir que una de la MV (Especificar por su MAC) pueda
+acceder a un dispositivo USB conectado en local ([Ejemplo](http://manpages.ubuntu.com/manpages/artful/man5/lts.conf.5.html)).
+* Ejemplos:
+    * `LOCALDEV = true`, habilita el uso de varios dispositivos locales.
+    * Define los usuarios que tienen permiso de acceso a cada cliente ligero.
+```
+[thin:client:A:mac:address]
+LDM_USER_ALLOW = Jane,Bob,Fred
+[thin:client:B:mac:adddress]
+LDM_USER_ALLOW = Harry
+```
+    * Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
+
+* Una vez iniciado el cliente ligero, tendremos el fichero /etc/lts.conf en el cliente.
+Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
+
+---
+
+# A. ANEXOS
+
 Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
 
 Enlaces de interés:
 * [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
 * [Conectar Knoppix7 con servidor LTSP de sistema operativo ](https://www.youtube.com/watch?v=UpNUHsXSxA4)
 
-## 5.1 Personalización de los clientes
-En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
-modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf
+## A.1 Próximo curso
 
-## 5.2 For openSUSE 12.3
+* Para el curso próximo, probar a usar OpenSUSE y/o Debian en lugar de Ubuntu.
+* WtWare es una herramienta para clientes ligeros.
+
+## A.2 For openSUSE 12.3
 
 Via commandline(following commands to be run in terminal as root "su -"):
 ````
@@ -199,8 +220,3 @@ Via commandline(following commands to be run in terminal as root "su -"):
 * Launch `Easy-LTSP` GUI as root (open terminal, run "su -", provide root
 password, and then run "easy-ltsp" command).
 
-> **Cambiar para el próximo curso1617**
->
-> * Usar SO Debian 8 y/o OpenSUSE13.2
-> * La IP interna de Debian8 para LTSP eth1 192.168.67.1
->
