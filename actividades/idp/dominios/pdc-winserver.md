@@ -83,11 +83,11 @@ siguientes valores:
 
 ![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
 
-## Al terminar la instalación
+## Comprobaciones
 
 * Al terminar hay que reiniciar el sistema.
 
-Vemos imagen, donde podemos comprobar que se han instalado varias "funciones" para controlar el dominio:
+Vemos imagen, donde podemos comprobar que se han instalado varios "rolesfunciones" para controlar el dominio:
 
 ![pdc-admin-funciones](./files/pdc-admin-funciones.png)
 
@@ -96,6 +96,9 @@ Veamos imagen de configuración de nuestro servidor:
 ![pdc-config-inicial](./files/pdc-config-inicial.png)
 
 > Enlace de interés sobre [cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
+
+* I a `Panel de control -> Herramientas Administrativas -> DNS` para comprobar que
+aparece zona `nuestro-nombre-de-dominio`.
 
 ---
 
