@@ -97,8 +97,8 @@ Veamos imagen de configuración de nuestro servidor:
 
 > Enlace de interés sobre [cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
 
-* I a `Panel de control -> Herramientas Administrativas -> DNS` para comprobar que
-aparece zona `nuestro-nombre-de-dominio`.
+* I a `Herramientas -> DNS` para comprobar que
+aparece dentro de `Zona de búsqueda directa` nuestro `nombre-de-dominio`.
 
 ---
 
