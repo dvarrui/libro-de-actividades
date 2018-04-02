@@ -41,6 +41,22 @@ paquetes/funciones/servicios, y acceder a los paneles de administración de los 
 >     * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
 >     * Además los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
 
+
+## Instalar en Windows 2012 Server
+
+Instalación:
+* Hacer una instántanea de la MV antes de nada.
+* Ir a `Inicio -> Administrar el servidor -> Agregar roles`.
+(Servicio de Dominio de Directorio Activo y el Servicio DNS).
+* Ir a Configurar Directorio Activo.
+    * Crear un bosque nuevo => SI
+    * FQDN del dominio => `segundoapellidoXXdom.curso1718` # Este es el nombre del dominio
+    * Nivel funcional del bosque => Windows Server 2012 R2
+    * Servidor DNS => SI
+    * Carpetas de almacenamiento => Dejar valores por defecto.
+
+## Instalar en Windows 2008 Server
+
 Instalación:
 * Hacer una instántanea de la MV antes de nada.
 * Para activar la función de controlador de dominios podemos hacerlo de dos formas:
@@ -66,6 +82,8 @@ siguientes valores:
 ![pdc-dcpromo-compatibilidad](./files/pdc-dcpromo-compatibilidad.png)
 
 ![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
+
+## Al terminar la instalación
 
 * Al terminar hay que reiniciar el sistema.
 
