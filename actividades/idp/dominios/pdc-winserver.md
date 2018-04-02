@@ -55,7 +55,7 @@ Instalación:
     * Servidor DNS => SI
     * Carpetas de almacenamiento => Dejar valores por defecto.
 
-> [Problemas con la delegación del servicio DNS](https://social.technet.microsoft.com/Forums/es-ES/d77ff7bb-0204-4cfd-94fd-c5160f794793/problema-durante-dcpromo?forum=wsades)
+> INFO [Advertencia con la delegación del servicio DNS](https://social.technet.microsoft.com/Forums/es-ES/d77ff7bb-0204-4cfd-94fd-c5160f794793/problema-durante-dcpromo?forum=wsades)
 
 * Al terminar hay que reiniciar el sistema.
 * Capturar imagen de `Panel del servidor` donde se muestren los servicios instalados.
