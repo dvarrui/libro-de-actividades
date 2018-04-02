@@ -55,6 +55,11 @@ Instalación:
     * Servidor DNS => SI
     * Carpetas de almacenamiento => Dejar valores por defecto.
 
+> [Problemas con la delegación del servicio DNS](https://social.technet.microsoft.com/Forums/es-ES/d77ff7bb-0204-4cfd-94fd-c5160f794793/problema-durante-dcpromo?forum=wsades)
+
+* Al terminar hay que reiniciar el sistema.
+* Capturar imagen de `Panel del servidor` donde se muestren los servicios instalados.
+
 ## Instalar en Windows 2008 Server
 
 Instalación:
@@ -83,11 +88,9 @@ siguientes valores:
 
 ![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
 
-## Comprobaciones
-
 * Al terminar hay que reiniciar el sistema.
 
-Vemos imagen, donde podemos comprobar que se han instalado varios "rolesfunciones" para controlar el dominio:
+Vemos imagen, donde podemos comprobar que se han instalado varios "roles" para controlar el dominio:
 
 ![pdc-admin-funciones](./files/pdc-admin-funciones.png)
 
@@ -97,10 +100,12 @@ Veamos imagen de configuración de nuestro servidor:
 
 > Enlace de interés sobre [cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
 
+## Comprobaciones
+
 * Ir a `Herramientas -> DNS` para comprobar que aparece dentro
 de `Zona de búsqueda directa` nuestro `nombre-de-dominio`.
 * Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer
-la IP de nustro servidor PDC.
+la IP de nuestro servidor PDC.
 
 ---
 
