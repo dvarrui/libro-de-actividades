@@ -57,7 +57,7 @@ siguientes valores:
 ```
 * Modo experto => NO
 * Crear un dominio nuevo de un bosque nuevo => SI
-* FQDN del dominio => `segundoapellidoXXdom.curso1617` # Este es el nombre del dominio
+* FQDN del dominio => `segundoapellidoXXdom.curso1718` # Este es el nombre del dominio
 * Nivel funcional del bosque => Windows Server 2008
 * Servidor DNS => SI
 * Carpetas de almacenamiento => Dejar valores por defecto.
@@ -92,12 +92,12 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
-* Crear el grupo `jedi1617`:
+* Crear el grupo `jedi1718`:
     * Ámbito global
     * Tipo Seguridad
     * Con los siguientes usuarios de dominio: `yoda`, y `obiwan`.
 * No confundir usuarios locales con usuarios del dominio.
-* Crear el grupo `sith1617`:
+* Crear el grupo `sith1718`:
     * Ámbito global
     * Tipo Seguridad
     * Con los siguientes usuarios de dominio: `vader` y `maul`.
@@ -110,21 +110,18 @@ Vemos imagen con los usuarios del dominio creados:
 
 # 4. Equipos del dominio
 
+## 4.1 Preparativos
+
 ```
 MV's CLIENTES:
 * Necesitaremos 2 MV's con Windows 7 profesional, que actuarán de clientes o equipos del dominio.
 * Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para
   no tener problemas de conectividad por tarjetas de red duplicadas.
-
-FECHA/HORA
-* Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj.
-  No puede haber diferencias de más de 5 minutos.
-
-RED:
-* Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
 ```
 
 * [Configurar las MVs](../../global/configuracion/windows.md)
+    * FECHA/HORA: Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
+    * RED: Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
 * Unir el equipo cliente al dominio.
     * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
 
@@ -132,7 +129,7 @@ Veamos imagen de ejemplo:
 
 ![pdc-unir-al-dominio](./files/pdc-unir-al-dominio.png)     
 
-## 4.1 Problemas en la unión al dominio
+## 4.2 Problemas en la unión al dominio
 
 Espero que no tengas problemas y puedas saltar este apartado, si no es así... sigue leyendo.
 
@@ -143,10 +140,10 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 * Consultar la información que contiene el servidor DNS del W2k8server. Si está vacía probar a resinstalar AD y DNS en W2k8server
 (NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
 * Probar a poner como puerta de enlace del cliente la IP del servidor PDC.
-* Configurar las másquinas servidor y cliente en la misma red interna de VirtualBox (Consultar configuración de red de VirtualBox) y vuelve a intentarlo (NOTA: Pueden darse problemas si se repiten IP's no nombres de máquinas en la red. Al crear una red interna tenemos una zona aislada bajo nuestro control).
+* Configurar las máquinas servidor y cliente en la misma red interna de VirtualBox (Consultar configuración de red de VirtualBox) y vuelve a intentarlo (NOTA: Pueden darse problemas si se repiten IP's no nombres de máquinas en la red. Al crear una red interna tenemos una zona aislada bajo nuestro control).
 * ¿Repetimos?
 
-## 4.2 Comprobaciones
+## 4.3 Comprobaciones
 
 Comprobar que podemos entrar en los equipos cliente usando los usuarios del dominio.
 
