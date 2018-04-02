@@ -44,9 +44,9 @@ paquetes/funciones/servicios, y acceder a los paneles de administración de los 
 Instalación:
 * Hacer una instántanea de la MV antes de nada.
 * Para activar la función de controlador de dominios podemos hacerlo de dos formas:
-    * Abrir una consola (cmd) y ejecutar el comando `dcpromo`.
-    * Ir a `Inicio -> Administrar el servidor -> Agregar funciones`.
+    * En Windows 2012 Server ir a `Inicio -> Administrar el servidor -> Agregar roles`.
     (Servicio de Dominio de Directorio Activo y el Servicio DNS).
+    * En Windows 2008 Server podemos abrir una consola (cmd) y ejecutar el comando `dcpromo`.
 
 Veamos imagen del comando `dcpromo` en ejecución:
 
