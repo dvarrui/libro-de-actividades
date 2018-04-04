@@ -176,7 +176,10 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 
 ## 4.3 Comprobaciones
 
-Comprobar que podemos entrar en los equipos cliente usando los usuarios del dominio.
+Entrar en los equipos cliente usando los usuarios del dominio.
+Podemos comprobarlos por entorno gráfico o usando comandos.
+
+### Por entorno gráfico.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
@@ -188,6 +191,12 @@ Comprobar que podemos entrar en los equipos cliente usando los usuarios del domi
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
 
+### Por comandos
+
+* Abrimos consola PoweShell y ejecutamos los comandos:
+    * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
+    * `net user`, muestra los usuarios locales del sistema.
+ 
 ---
 
 # 5. Perfiles móviles
