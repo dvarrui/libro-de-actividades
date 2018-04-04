@@ -151,6 +151,8 @@ MV's CLIENTES:
     * **FECHA/HORA**: Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
     * **RED**: Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
 * Unir el equipo cliente al dominio.
+    * Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer
+la IP de nuestro servidor PDC.
     * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
 
 Veamos imagen de ejemplo:
