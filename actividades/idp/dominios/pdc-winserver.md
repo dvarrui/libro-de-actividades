@@ -197,7 +197,7 @@ Material de lectura/estudio/consulta:
 
 ## 5.1 Crear un segundo disco:
 
-* Crear un segundo disco (1GB). Lo usaremos para guardar los perfiles (En la carpeta compartida `E:\perfiles`).
+* Crear un segundo disco (1GB). Lo usaremos para guardar los perfiles.
 
 ![pdc-disco-extra](./files/pdc-disco-extra.png)
 
@@ -207,8 +207,9 @@ Material de lectura/estudio/consulta:
 
 ## 5.2 Crear Perfiles de usuarios:
 
-* En el PDC, crear la carpeta `E:\perfiles`, como compartida por red.
-Permisos lectura/escritura para todos los usuarios del dominio.
+* En el PDC, crear la carpeta `E:\perfiles`. 
+* Definir permisos lectura/escritura para todos los usuarios del dominio en la carpeta.
+* Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
 * En el PDC, modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
