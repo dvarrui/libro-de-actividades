@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-04-04 12:24:53 +0100`
+`Fecha UM: 2018-04-04 12:27:15 +0100`
 
 * [idp](actividades/idp) 11
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -124,13 +124,12 @@
         * [README.md](actividades/add/clientes-ligeros/README.md)
         * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
         * [images](actividades/add/clientes-ligeros/images) 5
-    * [devops](actividades/add/devops) 7
+    * [devops](actividades/add/devops) 6
         * [docker.md](actividades/add/devops/docker.md)
         * [files](actividades/add/devops/files) 4
         * [images](actividades/add/devops/images) 22
         * [puppet-debian.md](actividades/add/devops/puppet-debian.md)
         * [puppet-opensuse.md](actividades/add/devops/puppet-opensuse.md)
-        * [saltstack.md](actividades/add/devops/saltstack.md)
         * [vagrant.md](actividades/add/devops/vagrant.md)
     * [exposicion](actividades/add/exposicion) 1
         * [exposision-turismo.md](actividades/add/exposicion/exposision-turismo.md)
