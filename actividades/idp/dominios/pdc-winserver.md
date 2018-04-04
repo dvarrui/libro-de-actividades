@@ -197,7 +197,7 @@ Material de lectura/estudio/consulta:
 
 ## 5.1 Crear un segundo disco:
 
-* Crear un segundo disco (1GB). Lo usaremos para guardar los perfiles (En la carpeta compartida `E:\perfiles$`).
+* Crear un segundo disco (1GB). Lo usaremos para guardar los perfiles (En la carpeta compartida `E:\perfiles`).
 
 ![pdc-disco-extra](./files/pdc-disco-extra.png)
 
