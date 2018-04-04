@@ -11,6 +11,7 @@
 
 Necesitaremos:
 * 1 MV con Windows 2008 Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
+    * Poner como DNS1 el valor `127.0.0.1`.
 * 2 MV con Windows 7 Enterprise
 ( [Consultar configuración](../../global/configuracion/windows.md)).
 
