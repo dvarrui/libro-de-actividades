@@ -183,8 +183,9 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
-* Ir a la máquina cliente (Windows 7).
-* Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
+* Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
+
+> INFO: Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
