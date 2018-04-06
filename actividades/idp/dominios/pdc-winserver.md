@@ -241,7 +241,8 @@ Material de lectura/estudio/consulta:
 
 > De este modo el "perfil" de cada usuario será diferente en aspecto y contenido.
 
-* Debemos comprobar que se han creado las carpetas con los perfiles en el servidor.
+* Debemos comprobar que se han creado las carpetas con los perfiles en el servidor para los usuarios anteriores.
+A continuación se muestra una imagen de ejemplo:
 
 ![pdc-perfiles](./files/pdc-perfiles.png)
 
