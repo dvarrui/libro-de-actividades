@@ -255,7 +255,7 @@ Ver imagen de ejemplo:
 ![pdc-login-admin-pdc](./files/pdc-login-admin-pdc.png)
 
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
-* Eliminar las copias de los perfiles locales en el equipo cliente.
+* Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
 
 perfiles-en-cliente
 
