@@ -179,6 +179,7 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 Entrar en los equipos cliente usando los usuarios del dominio.
 Podemos comprobarlos por entorno gráfico o usando comandos.
 
+### Por entorno gráfico
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
@@ -186,14 +187,16 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
-También podemos realizar la comprobación anterior usando comandos de la siguiente forma:
-* Abrimos consola PowerShell y ejecutamos los comandos:
-    * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
-    * `net user`, muestra los usuarios locales del sistema.
 * Comprobar en el PDC que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
- 
+
+### Por comandos
+
+* Abrimos consola PowerShell y ejecutamos los comandos:
+    * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
+    * `net user`, muestra los usuarios locales del sistema.
+
 ---
 
 # 5. Perfiles móviles
@@ -227,10 +230,10 @@ Material de lectura/estudio/consulta:
 * Iniciar sesión en CLIENTE1 con los usuarios obiwan y maul.
 * Para cada usuario modificar el entorno del escritorio, colores, iconos.
 * Para el usuario del dominio obiwan
-    * Crear la carpeta jedy en el escritorio
+    * Crear la carpeta `jedi` en el escritorio.
     * Crear fichero `Escritorio/jedi/personajes.txt`. Escribir dentro los nombres de los 2 jedis.
 * Para el usuario dominio maul
-    * Crear la carpeta sith en el escritorio
+    * Crear la carpeta `sith` en el escritorio.
     * Crear fichero `Escritorio/sith/personajes.txt`. Escribir dentro los nombres de los 2 siths.
 
 > De este modo el "perfil" de cada usuario será diferente en aspecto y contenido.
