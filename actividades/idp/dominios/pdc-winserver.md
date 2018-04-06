@@ -131,6 +131,8 @@ Vamos a crear usuarios y grupos del dominio:
     * Tipo Seguridad
     * Con los siguientes usuarios de dominio: `vader` y `maul`.
 
+> Información sobre [Tipos y ámbitos de grupo en Windows Server](https://es.slideshare.net/cesartg65/tipos-y-mbitos-de-grupo-windows-server)
+
 Vemos imagen con los usuarios del dominio creados:
 
 ![pdc-usuarios-dominio](./files/pdc-usuarios-dominio.png)
