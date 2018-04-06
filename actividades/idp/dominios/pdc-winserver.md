@@ -281,3 +281,21 @@ perfiles-en-cliente
 * Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
     * Los "jedi" sólo pueden acceder de 08:00 a 14:00 y
     * Los "sith" sólo pueden acceder de 14:00 a 20:00
+
+---
+
+# ANEXO
+
+
+## Duda con la complejidad de contraseñas
+
+En Windows 2012 Server, queremos quitar la opcion de complejidad de contraseña pero aparece deshabilitada.
+¿Cómo podemos habilitarla para poder desactivar la complejidad de contraseña?
+
+* open Run and type: `gpedit.msc`.
+* from Local Group Policy Editor, choose from the tree (left): `Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Password Policy`.
+* choose on the right: `Password must meet complexity requirements`
+* choose Disable.
+
+Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc. 
+
