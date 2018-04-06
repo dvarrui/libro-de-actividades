@@ -199,6 +199,7 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 * Abrimos consola PowerShell y ejecutamos los comandos:
     * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
     * `net user`, muestra los usuarios locales del sistema.
+    * `hostname`, muestra el nombre del equipo local.
 
 ---
 
