@@ -183,16 +183,18 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
+* Ir a la máquina cliente (Windows 7).
 * Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
-* Comprobar en el PDC que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
+* Ir al PDC (Servidor) y comprobar que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
 
 ### Por comandos
 
+* Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
 * Abrimos consola PowerShell y ejecutamos los comandos:
     * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
     * `net user`, muestra los usuarios locales del sistema.
