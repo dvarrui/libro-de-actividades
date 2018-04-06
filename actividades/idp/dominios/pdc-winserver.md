@@ -185,9 +185,9 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 * Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
 
-> INFO: Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
-
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
+
+> INFO: Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
 
 * Ir al PDC (Servidor) y comprobar que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
