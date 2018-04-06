@@ -179,7 +179,6 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 Entrar en los equipos cliente usando los usuarios del dominio.
 Podemos comprobarlos por entorno gráfico o usando comandos.
 
-### Por entorno gráfico.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
@@ -187,15 +186,13 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
+También podemos realizar la comprobación anterior usando comandos de la siguiente forma:
+* Abrimos consola PowerShell y ejecutamos los comandos:
+    * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
+    * `net user`, muestra los usuarios locales del sistema.
 * Comprobar en el PDC que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
-
-### Por comandos
-
-* Abrimos consola PoweShell y ejecutamos los comandos:
-    * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
-    * `net user`, muestra los usuarios locales del sistema.
  
 ---
 
