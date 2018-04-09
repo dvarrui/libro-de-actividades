@@ -223,7 +223,7 @@ Material de lectura/estudio/consulta:
 
 ## 5.2 Crear Perfiles de usuarios:
 
-* En el PDC, crear la carpeta `E:\perfiles`. 
+* En el PDC, crear la carpeta `E:\perfiles`.
 * Definir permisos lectura/escritura para todos los usuarios del dominio en la carpeta.
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
@@ -252,16 +252,8 @@ A continuación se muestra una imagen de ejemplo:
 ## 5.3 Limpiar el equipo cliente
 
 * Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
-
-Ver imagen de ejemplo:
-
-![pdc-login-admin-pdc](./files/pdc-login-admin-pdc.png)
-
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
 * Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
-
-perfiles-en-cliente
-
 * Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul)
 * Comprobar que tenemos perfiles móviles para ellos.
 
@@ -305,5 +297,4 @@ En Windows 2012 Server, queremos quitar la opcion de complejidad de contraseña 
 * choose on the right: `Password must meet complexity requirements`
 * choose Disable.
 
-Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc. 
-
+Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc.
