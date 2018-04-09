@@ -274,6 +274,11 @@ perfiles-en-cliente
 * Enlaces de interés:
     * [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400).  
     * Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA).
+
+* Primero vamos a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
+    * Desde Windows7. Entramos con usuario `maul`
+    * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
+    * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V2`.
 * Convertir el perfil móvil del  Sith Maul, a perfil obligatorio.
 * Comprobar que ahora el perfil no cambia.
 
