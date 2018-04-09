@@ -228,7 +228,7 @@ Material de lectura/estudio/consulta:
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
-* En el PDC, modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
+* En el PDC, vamos a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
     * yoda: `\\ip-del-PDC\perfiles$\%username%`
     * obiwan: `\\ip-del-PDC\perfiles$\obiwan`
     * vader: `\\ip-del-PDC\perfiles$\%username%`
