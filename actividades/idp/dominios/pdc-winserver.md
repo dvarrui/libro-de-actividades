@@ -170,6 +170,7 @@ Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, 
 
 * Esperar 5 minutos y repetir el proceso. Las redes SMB/CIFS tardan un tiempo en propagar la información de los equipos por la red.
 * Volver a comprobar que todas las configuraciones son correctas. Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2).
+* Si tenemos problemas con el DNS probar a configurar únicamente el DNS1 (ip del PDC).
 * Consultar la información que contiene el servidor DNS del W2k8server. Si está vacía probar a resinstalar AD y DNS en W2k8server
 (NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
 * Probar a poner como puerta de enlace del cliente la IP del servidor PDC.
