@@ -266,7 +266,6 @@ A continuación se muestra una imagen de ejemplo:
 * Enlaces de interés:
     * [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400).  
     * Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA).
-
 * Primero vamos a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
     * Desde Windows7. Entramos con usuario `maul`
     * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
