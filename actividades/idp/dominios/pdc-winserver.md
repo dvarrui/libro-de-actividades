@@ -273,6 +273,8 @@ A continuación se muestra una imagen de ejemplo:
     * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V2`.
 * Convertir el perfil móvil del  Sith Maul, a perfil obligatorio.
 * Comprobar que ahora el perfil no cambia.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, 
+y comprobar que el perfil es ahora obligatorio.
 
 ---
 
