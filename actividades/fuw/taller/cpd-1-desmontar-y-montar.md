@@ -48,3 +48,14 @@
 * "Enracar" en equipo en el armario del taller.
 
 > Al terminar la actividad hay que dejar la ficha en su sitio, y el PC recogido y en donde le corresponde.
+
+---
+
+# ANEXO
+
+## Información de los servidores
+
+* [Placa: Server Board S5000PSL](https://www.intel.com/content/dam/support/us/en/documents/motherboards/server/s5000psl/sb/417435_d41763_008_s5000psl_tps_rev_17.pdf)
+
+
+
