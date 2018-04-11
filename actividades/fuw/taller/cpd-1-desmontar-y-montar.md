@@ -56,6 +56,6 @@
 ## Información de los servidores
 
 * [Placa: Server Board S5000PSL](https://www.intel.com/content/dam/support/us/en/documents/motherboards/server/s5000psl/sb/417435_d41763_008_s5000psl_tps_rev_17.pdf)
-
+* [Placa: Server Board SE7520BD2]
 
 
