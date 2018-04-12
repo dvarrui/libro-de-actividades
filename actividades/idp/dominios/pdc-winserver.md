@@ -300,3 +300,15 @@ En Windows 2012 Server, queremos quitar la opcion de complejidad de contraseña 
 * choose Disable.
 
 Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc.
+
+## Comandos de Windows
+
+* [Cambiar nombre equipo Windows con comando](https://www.solvetic.com/topic/5426-cambiar-nombre-equipo-windows-con-comando/)
+    * `WMIC computersystem where caption='nombreDEahora' rename nuevoNombre`
+    * Ahora tendrás que reiniciar tu PC Windows para que tenga efecto el nuevo nombre del equipo.
+    * Este comando es válido para todos los sistemas Windows 10, 8, 7, Vista, XP, Server...
+* [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
+    * El comando Netdom es de los más usados. Lo primero sería descargarlo e instalarlo.
+    *  `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`
+    * Para quitar y eliminar equipo de dominio Windows Server `netdom.exe remove %nombreequipo%`
+ 
