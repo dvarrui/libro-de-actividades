@@ -64,6 +64,7 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y "Desconectar de unidad de red" (Remove "Map Network Drive" and "Disconnect Network Drive").
     * Opción Habilitada
 
+Al terminar de configurar las directivas, hacemos lo siguiente:
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
 actualizaciones de las directivas. En algunos casos, después de definir una política,
 ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos
@@ -161,7 +162,7 @@ un nuevo paquete de instalación de software de la aplicación.
 > * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
 ruta de red y NO su ruta del sistema de ficheros.
 >     * Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
->     * Ejemplo incorrecto: `E:\softwareXX\firefox\firefox.msi`
+>     * Ejemplo INCORRECTO: `E:\softwareXX\firefox\firefox.msi`
 > * La configuración de instalación de paquete `Publicado` no instala el programa,
 pero lo deja disponible por si el usuario lo quiere instalar a través de la
 herramienta de `Instalación de Software` del panel de control.
@@ -172,15 +173,11 @@ actualizaciones de las directivas.
 (`Ir a directiva -> Configuración`).
 
 **Vamos al otro cliente:**
-* Entramos con un usuario del dominio y se debe instalar automáticamente el programa.
+* Entramos con un usuario del dominio y se debe instalar automáticamente el programa que hemos configurado
+en las directivas. OJO. Este paso puede tardar bastante tiempo.
 
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
-
-> Esto puede tardar bastante tiempo.
 
 ---
 
 # ANEXO A
-
-
-
