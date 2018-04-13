@@ -1,8 +1,4 @@
 
-```
-Actividad realizada los cursos: 201415, 201516
-```
-
 # 1. Políticas o directivas de grupo
 
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
@@ -18,12 +14,16 @@ Actividad realizada los cursos: 201415, 201516
 Realizar las siguientes tareas:
 
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
-* Crear las OU (Unidades Organizativas) `jediXXc1516` y `sithXXc1516`.
+* Crear las OU (Unidades Organizativas) `jediXXc1718` y `sithXXc1718`.
 * Mover los usuarios a su correspondiente OU.
-* Enlace sobre [cómo aplicar una GPO a un grupo](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
+* Enlaces de interés:
+    * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
+    * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
 
-> **IMPORTANTE**: No aplicar la directivas a todo el dominio.
-> Sólo a las unidades organizativas que se especfiquen.
+> **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
+> Sólo a las unidades organizativas que se especfiquen. 
+> Un error grave es aplicar las directivas a todo el site en lugar de a cada OU.
+> Este error puede afectar al correcto funcionamiento del servidor.
 
 * Vamos a crear una GPO diferente para cada OU.
     * `gpo_jediXX`, para los jedis y
@@ -34,11 +34,7 @@ Realizar las siguientes tareas:
 > * En Group Policy Management (Administración de directivas de grupo), en el árbol de consola, desplegar Group Policy Objects (Objetos de Directiva de grupo). Click con el botón derecho del ratón en el GPO y seleccionar Edit (Editar).
 > * En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.
 
-* Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
-
-> OJO: Un error es aplicar las directivas a todo el site en lugar de a cada OU.
-Este error puede afectar al correcto funcionamiento del servidor.
-
+Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
 * `Quitar el menú Ejecutar del menú Inicio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar el menú Ejecutar del menú Inicio (Remove Run menu from Start Menu)
@@ -186,30 +182,5 @@ actualizaciones de las directivas.
 
 # ANEXO A
 
-## A.1 GPO en Windows Server 2012
 
-Windows Server 2012 R2 - Crear políticas de grupo (GPO)
-https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s
 
-Detalles de la tarea de esta unidad. Enunciado.
-
-    Crea un nuevo grupo en tu servidor denominado Alumnos (incorpora a ese grupo al menos un usuario).
-    Crea un nuevo GPO (Group Policy Object) en tu dominio denominado Alumnos y aplica como filtro de seguridad el grupo que has creado en el punto anterior.
-    Aplica, además, al nuevo GPO las siguientes directivas:
-
-    Quitar el menú Ejecutar del menú Inicio
-    Prohibir el acceso al Panel de control
-    Ocultar el icono Mis sitios de red del escritorio
-    Quitar el icono Mis sitios de red del menú inicio
-    Quitar Conexiones de red del menú Inicio
-    Ocultar unidades específicas en Mi PC
-    Quitar “Conectar a unidad de red” y “Desconectar de unidad de red
-    Conseguir que, cuando se introduce un dispositivo USB, no se ejecute de forma automática
-
-Comprueba (y deja constancia de ello en tu informe) que desde el cliente (Windows 7) cuando se valida en tu dominio con un usuario del grupo alumno se le aplican las políticas correspondientes.
-
-Elabora un informe en el que dejes constancia de la realización.
-
-Nota 1: Puedes encontrar en internet muchísima información actualizada para aplicar las directivas de seguridad propuestas.
-
-Nota 2: esta actividad se puede realizar en grupo de 2 como máximo, pero los dos componentes del grupo deben realizarla.
