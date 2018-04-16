@@ -43,9 +43,9 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)
     * Configuración de Directiva de grupo: Prohibir el acceso al Panel de control (Prohibit access to the Control Panel)
     * Opción Habilitada
-* `Ocultar el icono Mis sitios de red del escritorio`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Desktop)
-    * Configuración de Directiva de grupo: Ocultar el icono Mis sitios de red del escritorio (Hide My Network Places icon on desktop)
+* `Ocultar el icono Ubicacioness de red del escritorio`
+    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Active Desktop)
+    * Configuración de Directiva de grupo: Ocultar el icono Ubicaciones de red del escritorio (Hide My Network Places icon on desktop)
     * Opción Habilitada
 * `Quitar el icono Mis sitios de red del menú inicio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
