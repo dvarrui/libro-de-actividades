@@ -93,7 +93,7 @@ Vamos a crear nuestro propio paquete de instalación MSI.
 
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
-* Descargar el instalador de Firefox. ¡OJO! Sólo descagar. NO instalar todava. El instalador de Firefox debe tener un
+* Descargar el instalador de Firefox. ¡OJO! Sólo descargar. NO instalar todavía. El instalador de Firefox debe tener un
 tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa para descargar el instalador.
 * `Inicio -> Ejecutar -> \\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar la aplicación WinINSTALL LE de forma remota,
