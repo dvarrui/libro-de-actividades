@@ -13,7 +13,7 @@
 
 Realizar las siguientes tareas:
 
-* Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
+* Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual por seguridad.
 * Crear las OU (Unidades Organizativas) `jediXXc1718` y `sithXXc1718`.
 * Mover los usuarios a su correspondiente OU.
 * Enlaces de interés:
@@ -26,8 +26,8 @@ Realizar las siguientes tareas:
 > Este error puede afectar al correcto funcionamiento del servidor.
 
 * Vamos a crear una GPO diferente para cada OU.
-    * `gpo_jediXX`, para los jedis y
-    * `gpo_sithXX`, para los siths.
+    * `gpo_jediXX`, para la OU de los jedis y
+    * `gpo_sithXX`, para la OU de los siths.
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
@@ -88,7 +88,7 @@ de que este paso de activación se realice inmediatamente.
 
 * IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
 
-Vamos a crear nuestro propio paquete MSI.
+Vamos a crear nuestro propio paquete de instalación MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
 **En el servidor**
@@ -107,8 +107,7 @@ Vamos a crear nuestro propio paquete MSI.
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
 * Descargar el instalador de Firefox. ¡OJO! El instalador de Firefox debe tener un
-tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa
-para descargar el instalador.
+tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa para descargar el instalador.
 * Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar la aplicación WinINSTALL LE de forma remota,
 
@@ -130,9 +129,8 @@ en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto
 > En el tiempo comprendido entre la ejecución de este proceso y la ejecución
 del proceso de la foto final, es crítico ejecutar únicamente el software
 de instalación del paquete MSI a generar.
-> Cualquier modificación en dicho periodo temporal, al margen de la propia de instalar
- el software correspondiente del que deseamos generar el paquete MSI,
- se grabaría en el paquete MSI obtenido, cuando realmente no formaría parte de las modificaciones que realizó dicha aplicación durante su instalación.
+> Cualquier modificación que se haga durante este proceso, se grabará en el paquete MSI obtenido, 
+aunque no forme parte de las modificaciones realizadas de la aplicación durante su instalación.
 
 * Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y
 a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero
