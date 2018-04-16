@@ -91,6 +91,8 @@ de que este paso de activación se realice inmediatamente.
 Vamos a crear nuestro propio paquete de instalación MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
+## 3.1 Instalar en el servidor
+
 **En el servidor**
 * Descargar el programa WinINSTALL
     * http://www.downloadsource.es/3414/WinINSTALL-LE/
@@ -104,11 +106,13 @@ Vamos a crear nuestro propio paquete de instalación MSI.
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
 
+## 3.2 Descargar software en el cliente y crear MSI
+
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
-* Descargar el instalador de Firefox. ¡OJO! El instalador de Firefox debe tener un
+* Descargar el instalador de Firefox. ¡OJO! Sólo descagar. NO instalar todava. El instalador de Firefox debe tener un
 tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa para descargar el instalador.
-* Inicio -> Ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
+* `Inicio -> Ejecutar -> \\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar la aplicación WinINSTALL LE de forma remota,
 
 ![pdc-wininstall-discover.png](./files/pdc-wininstall-discover.png)
@@ -146,6 +150,8 @@ yendo a la carpeta `E:\softwareXX\firefox`.
     * Eliminar el fichero firexfox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
 
+## 3.3 Crear nueva GPO en el servidor
+
 **Vamos al servidor:**
 * Crear las OU `maquinasXXc1617` y mover los equipos del dominio dentro de esta UO.
 * Vamos a crear una directiva (`gpo_softwareXX`) para la instalación del
@@ -169,6 +175,8 @@ herramienta de `Instalación de Software` del panel de control.
 actualizaciones de las directivas.
 * Capturar imagen del resumen de la configuración de cada una de las directivas creadas
 (`Ir a directiva -> Configuración`).
+
+## 3.4 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
 * Entramos con un usuario del dominio y se debe instalar automáticamente el programa que hemos configurado
