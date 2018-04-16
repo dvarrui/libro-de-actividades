@@ -46,10 +46,11 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Active Desktop)
     * Configuración de Directiva de grupo: Ocultar el icono Ubicaciones de red del escritorio (Hide My Network Places icon on desktop)
     * Opción Habilitada
-* `Quitar el icono Mis sitios de red del menú inicio`
+* `Quitar el icono de Red del menú inicio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
-    * Configuración de Directiva de grupo: Quitar el icono Mis sitios de red del men ú Inicio (Remove My Network Places icon from Start Menu)
+    * Configuración de Directiva de grupo: Quitar el icono de Red del menú Inicio (Remove My Network Places icon from Start Menu)
     * Opción Habilitada
+* `Quitar el icono de Red`
 * `Quitar Conexiones de red del menú Inicio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administra tive Templates / Start Menu and Taskbar)
     * Configuración de Directiva de grupo: Quitar Conexiones de red del menú Inicio (Remove Network Connections from the Start Menu)
