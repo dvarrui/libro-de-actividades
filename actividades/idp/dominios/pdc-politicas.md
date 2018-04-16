@@ -34,7 +34,7 @@ Realizar las siguientes tareas:
 > * En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.
 
 Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
-* Ir a `Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas` (User configuration / Administrative Templates / Start Menu and Taskbar)
+* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas` (User configuration / Administrative Templates / Start Menu and Taskbar)
     * `Quitar el menú Ejecutar del menú Inicio`
     * `Quitar el icono de Red del menú inicio`
     * `Quitar icono de Red`
@@ -47,14 +47,9 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Active Desktop)
     * Configuración de Directiva de grupo: Ocultar el icono Ubicaciones de red del escritorio (Hide My Network Places icon on desktop)
     * Opción Habilitada
-* `Ocultar unidades específicas en Mi PC`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
-    * Configuración de Directiva de grupo: Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer).
-    * Opción Habilitada. Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
-* `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
-    * Configuración de Directiva de grupo: Quitar "Conectar a unidad de red" y "Desconectar de unidad de red" (Remove "Map Network Drive" and "Disconnect Network Drive").
-    * Opción Habilitada
+* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer) 
+    * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
+    * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
