@@ -39,14 +39,10 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * `Quitar el icono de Red del menú inicio`
     * `Quitar icono de Red`
     * `Quitar Conexiones de red del menú Inicio`
-* `Prohibir el acceso al Panel de control`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)
-    * Configuración de Directiva de grupo: Prohibir el acceso al Panel de control (Prohibit access to the Control Panel)
-    * Opción Habilitada
-* `Ocultar el icono Ubicaciones de red del escritorio`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Active Desktop)
-    * Configuración de Directiva de grupo: Ocultar el icono Ubicaciones de red del escritorio (Hide My Network Places icon on desktop)
-    * Opción Habilitada
+* En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Panel de control` (User configuration / Administrative Templates / Control Panel)
+    * `Prohibir el acceso al Panel de control`
+* En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Escritorio` ( User configuration / Administrative Templates / Active Desktop)
+    * `Ocultar el icono Ubicaciones de red del escritorio`
 * En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer) 
     * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
     * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
