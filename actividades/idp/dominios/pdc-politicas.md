@@ -84,7 +84,7 @@ Vamos a crear nuestro propio paquete de instalación MSI.
 * Crear la carpeta `e:\softwareXX`.
     * Esta carpeta con permisos de lectura para todos los usuarios.
     * Este carpeta con permisos lectura/escritura para todos los administradores.
-* Crear un recurso compartido de red `E:\softwareXX`.
+* Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
     * Este recurso con permisos de lectura para todos los usuarios.
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
