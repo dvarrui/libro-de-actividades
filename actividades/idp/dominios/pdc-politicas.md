@@ -21,7 +21,7 @@ Realizar las siguientes tareas:
     * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
 
 > **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
-> Sólo a las unidades organizativas que se especfiquen. 
+> Sólo a las unidades organizativas que se especifiquen. 
 > Un error grave es aplicar las directivas a todo el site en lugar de a cada OU.
 > Este error puede afectar al correcto funcionamiento del servidor.
 
