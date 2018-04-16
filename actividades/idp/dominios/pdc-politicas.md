@@ -71,10 +71,10 @@ de que este paso de activación se realice inmediatamente.
 
 * IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
 
+## 3.1 Instalar en el servidor
+
 Vamos a crear nuestro propio paquete de instalación MSI.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
-
-## 3.1 Instalar en el servidor
 
 **En el servidor**
 * Descargar el programa WinINSTALL
