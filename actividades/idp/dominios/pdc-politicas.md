@@ -25,9 +25,8 @@ Realizar las siguientes tareas:
 > Un error grave es aplicar las directivas a todo el site en lugar de a cada OU.
 > Este error puede afectar al correcto funcionamiento del servidor.
 
-* Vamos a crear una GPO diferente para cada OU.
-    * `gpo_jediXX`, para la OU de los jedis y
-    * `gpo_sithXX`, para la OU de los siths.
+* Dentro de la OU de los jedis crear la GPO `gpo_jediXX`.
+* Dentro de la OU de los siths crear la GPO `gpo_sithXX`.
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
