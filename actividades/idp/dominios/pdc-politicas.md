@@ -34,26 +34,18 @@ Realizar las siguientes tareas:
 > * En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.
 
 Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
-* `Quitar el menú Ejecutar del menú Inicio`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
-    * Configuración de Directiva de grupo: Quitar el menú Ejecutar del menú Inicio (Remove Run menu from Start Menu)
-    * Opción Habilitada
+* Ir a `Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas` (User configuration / Administrative Templates / Start Menu and Taskbar)
+    * `Quitar el menú Ejecutar del menú Inicio`
+    * `Quitar el icono de Red del menú inicio`
+    * `Quitar icono de Red`
+    * `Quitar Conexiones de red del menú Inicio`
 * `Prohibir el acceso al Panel de control`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Panel de control (User configuration / Administrative Templates / Control Panel)
     * Configuración de Directiva de grupo: Prohibir el acceso al Panel de control (Prohibit access to the Control Panel)
     * Opción Habilitada
-* `Ocultar el icono Ubicacioness de red del escritorio`
+* `Ocultar el icono Ubicaciones de red del escritorio`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Escritorio ( User configuration / Administrative Templates / Active Desktop)
     * Configuración de Directiva de grupo: Ocultar el icono Ubicaciones de red del escritorio (Hide My Network Places icon on desktop)
-    * Opción Habilitada
-* `Quitar el icono de Red del menú inicio`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administrative Templates / Start Menu and Taskbar)
-    * Configuración de Directiva de grupo: Quitar el icono de Red del menú Inicio (Remove My Network Places icon from Start Menu)
-    * Opción Habilitada
-* `Quitar el icono de Red`
-* `Quitar Conexiones de red del menú Inicio`
-    * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas (User configuration / Administra tive Templates / Start Menu and Taskbar)
-    * Configuración de Directiva de grupo: Quitar Conexiones de red del menú Inicio (Remove Network Connections from the Start Menu)
     * Opción Habilitada
 * `Ocultar unidades específicas en Mi PC`
     * Ubicación: Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows (User configuration / Administrative Templates / Windows Components / Windows Explorer)
