@@ -137,11 +137,11 @@ yendo a la carpeta `E:\softwareXX\firefox`.
 
 **Vamos al servidor:**
 * Crear las OU `maquinasXXc1617` y mover los equipos del dominio dentro de esta UO.
-* Vamos a crear una directiva (`gpo_softwareXX`) para la instalación del
-software `firefox.msi` para la OU anterior.
-* Asociamos a la directiva de grupo de Instalación de software ubicada en
-`Configuración del equipo -> Directivas -> Configuración de software`,
+* Dentro de la OU anterior, vamos a crear una nueva directiva (`gpo_softwareXX`) para la instalación del
+software `firefox.msi`.
+* Editar la directiva. Ir a `Configuración del equipo -> Directivas -> Configuración de software`,
 un nuevo paquete de instalación de software de la aplicación.
+    * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
     * Configurar la instalación del paquete en modo `Asignado`.
 
 > **ADVERTENCIAS**
@@ -156,7 +156,7 @@ herramienta de `Instalación de Software` del panel de control.
 
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
 actualizaciones de las directivas.
-* Capturar imagen del resumen de la configuración de cada una de las directivas creadas
+* Capturar imagen del resumen de la configuración de cada una de la directiva creada
 (`Ir a directiva -> Configuración`).
 
 ## 3.4 Comprobar desde los clientes
