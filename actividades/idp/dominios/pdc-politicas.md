@@ -168,6 +168,12 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
 
+> **ERRORES**
+>
+> * En caso de tener problemas deshabilitar de las directivas la opción de `Ocultar el icono Ubicaciones de red del escritorio`.
+> * Comprobar acceso al recurso remoto desde los clientes.
+> * Comprobar MSI de forma manual.
+
 ---
 
 # ANEXO A
