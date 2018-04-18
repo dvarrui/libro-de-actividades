@@ -52,8 +52,7 @@ Al terminar de configurar las directivas, hacemos lo siguiente:
 actualizaciones de las directivas. En algunos casos, después de definir una política,
 ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos
 de que este paso de activación se realice inmediatamente.
-* Capturar imagen del resumen de la configuración de cada una de las directivas creadas
-(`Ir a directiva -> Configuración`).
+* Ir a `Administración de Directivas de Grupo`. Capturar imagen del resumen de la configuración de cada una de las directivas creadas (`Ir a directiva -> Configuración`). Esta pestaña debe mostrar las opciones que hemos usado para configurar nuestra directiva.
 * Comprobar los efectos de las directivas de usuario en las MV cliente.
 
 ---
