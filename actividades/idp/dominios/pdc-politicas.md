@@ -130,7 +130,7 @@ Este que puede durar varios minutos.
 * Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR",
 yendo a la carpeta `E:\softwareXX\firefox`.
 * Limpiamos el equipo cliente:
-    * Eliminar el fichero firexfox.exe que nos habíamos descargado.
+    * Eliminar el fichero firefox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
 
 ## 3.3 Crear nueva GPO en el servidor
