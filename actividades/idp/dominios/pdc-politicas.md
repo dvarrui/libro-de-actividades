@@ -54,7 +54,7 @@ actualizaciones de las directivas. En algunos casos, después de definir una pol
 de que este paso de activación se realice inmediatamente.
 * Capturar imagen del resumen de la configuración de cada una de las directivas creadas
 (`Ir a directiva -> Configuración`).
-* Capturar imágenes donde se muestren los efectos de las directivas de usuario en las MV cliente.
+* Comprobar los efectos de las directivas de usuario en las MV cliente.
 
 ---
 
