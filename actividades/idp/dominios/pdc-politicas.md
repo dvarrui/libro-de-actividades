@@ -79,7 +79,7 @@ Vamos a crear nuestro propio paquete de instalación MSI.
 * Descargar el programa WinINSTALL y lo instalamos.
     * http://www.downloadsource.es/3414/WinINSTALL-LE/
     * http://www.freewarefiles.com/downloads_counter.php?programid=52066
-* Una vez instalada la aplicación hemos de asignar permisos de acceso al recurso compartido WinINSTALL al usuario `Administrador` en modo lectura.
+* Una vez instalada la aplicación hemos de asignar permisos de acceso al recurso compartido de WinINSTALL al usuario `Administrador` en modo lectura.
 * Crear la carpeta `e:\softwareXX`.
     * Esta carpeta con permisos de `lectura/ejecución, mostrar... y lectura` para los usuarios del dominio.
     * Este carpeta con permisos `control total` para los administradores.
