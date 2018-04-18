@@ -89,7 +89,7 @@ Vamos a crear nuestro propio paquete de instalación MSI.
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
 * Crear la subcarpeta `e:\softwareXX\firefox`.
 
-## 3.2 Descargar software en el cliente y crear MSI
+## 3.2 Crear paquete MSI
 
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
