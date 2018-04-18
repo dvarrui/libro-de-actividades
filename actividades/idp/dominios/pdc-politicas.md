@@ -9,7 +9,7 @@
 
 ---
 
-# 2. Aplicar directivas (I)
+# 2. Aplicar directivas de Usuario
 
 Realizar las siguientes tareas:
 
@@ -58,7 +58,7 @@ de que este paso de activación se realice inmediatamente.
 
 ---
 
-# 3. Aplicar directivas (II)
+# 3. Aplicar directiva de Equipo
 
 > Enlaces de interés
 >
@@ -136,7 +136,7 @@ yendo a la carpeta `E:\softwareXX\firefox`.
 ## 3.3 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
-* Crear las OU `maquinasXXc1617` y mover los equipos del dominio dentro de esta UO.
+* Crear las OU `maquinasXXc1718` y mover los equipos del dominio dentro de esta UO.
 * Dentro de la OU anterior, vamos a crear una nueva directiva (`gpo_softwareXX`) para la instalación del
 software `firefox.msi`.
 * Editar la directiva. Ir a `Configuración del equipo -> Directivas -> Configuración de software`,
