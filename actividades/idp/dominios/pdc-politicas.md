@@ -82,8 +82,8 @@ Vamos a crear nuestro propio paquete de instalación MSI.
 * Una vez instalada la aplicación hemos de asignar permisos de acceso al recurso compartido WinINSTALL para 
 todos los usuarios en modo lectura.
 * Crear la carpeta `e:\softwareXX`.
-    * Esta carpeta con permisos de lectura para todos los usuarios.
-    * Este carpeta con permisos lectura/escritura para todos los administradores.
+    * Esta carpeta con permisos de lectura/ejecución, mostrar y lectura para todos los usuarios.
+    * Este carpeta con permisos control total para todos los administradores.
 * Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
     * Este recurso con permisos de lectura para todos los usuarios.
     * Este recurso con permisos lectura/escritura para todos los usuarios del dominio.
