@@ -143,7 +143,7 @@ software `firefox.msi`.
 un nuevo paquete de instalación de software de la aplicación.
     * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
     * Configurar la instalación del paquete en modo `Asignado`.
-* En la GPO. Ir a filtrado de seguridad y añadir `Usuarios del dominio`.
+* En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
 
 > **ADVERTENCIAS**
 >
