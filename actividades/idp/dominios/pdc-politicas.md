@@ -136,8 +136,7 @@ yendo a la carpeta `E:\softwareXX\firefox`.
 
 **Vamos al servidor:**
 * Crear las OU `maquinasXXc1718` y mover los equipos del dominio dentro de esta UO.
-* Dentro de la OU anterior, vamos a crear una nueva directiva (`gpo_softwareXX`) para la instalación del
-software `firefox.msi`.
+* Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
 * Editar la directiva. Ir a `Configuración del equipo -> Directivas -> Configuración de software`,
 un nuevo paquete de instalación de software de la aplicación.
     * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
