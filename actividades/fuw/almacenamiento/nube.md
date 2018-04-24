@@ -145,7 +145,7 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 
 Make sure that everything is OK and then delete the folder owncloud and owncloud-9.1.1.zip from the root (user) directory.
 
-* Abrir navegador con URL la IP del servidor owncloud
+* Abrir navegador con URL  http://ip-de-la-la-maquina/owncloud
     * Poner ususario/clave del administrador.
     * El directorio de datos `/opt/owncloud-data`
     * Database user: `ocuser`
