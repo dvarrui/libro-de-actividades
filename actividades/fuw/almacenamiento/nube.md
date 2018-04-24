@@ -125,7 +125,6 @@ systemctl enable apache2.service
 ## 3.5 Instalar ownCloud
 
 Antes de la instalación, crear la carpeta de datos con los permisos adecuados.
-Nosotros crearemos el directorio `/opt/owncloud`.
 
 ```
 mkdir /opt/owncloud-data
@@ -147,7 +146,7 @@ Make sure that everything is OK and then delete the folder owncloud and owncloud
 
 * Abrir navegador con URL la IP del servidor owncloud
     * Poner ususario/clave del administrador.
-    * El directorio de datos `/opt/owncloud_data`
+    * El directorio de datos `/opt/owncloud-data`
     * Database user: `ocuser`
     * Database name: `ocdatabase`
     * Database user password: `dbpass`
