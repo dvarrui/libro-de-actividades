@@ -143,8 +143,6 @@ cp -r owncloud /srv/www/htdocs
 chown -R wwwrun /srv/www/htdocs/owncloud/
 ```
 
-Make sure that everything is OK and then delete the folder owncloud and owncloud-9.1.1.zip from the root (user) directory.
-
 * Abrir navegador con URL  http://localhost/owncloud
     * Poner ususario/clave del administrador.
     * El directorio de datos `/opt/owncloud-data`
@@ -152,11 +150,10 @@ Make sure that everything is OK and then delete the folder owncloud and owncloud
     * Database name: `ocdatabase`
     * Database user password: `dbpass`
 * Esperar a que termine la instalación.
-
-> * Crear el archivo /srv/www/htdocs/index.html
-> * Escribir el nombre del alumno dentro de index.html
-> * Con URL localhost accedemos a index.html
-> * Con URL localhost/owncloud accedemos a la aplicación OwnCloud
+* Crear el archivo /srv/www/htdocs/index.html
+* Escribir el nombre del alumno dentro de index.html
+* Con URL localhost accedemos a index.html
+* Con URL localhost/owncloud accedemos a la aplicación OwnCloud
 
 ---
 
@@ -174,8 +171,10 @@ Make sure that everything is OK and then delete the folder owncloud and owncloud
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
-* Creamos un usuario normal.
-* Subiremos algunos archivos al servidor.
+* Crear un usuario normal `nombre-del-alumnoXX`.
+* Subiremos algunos archivos al servidor con el usuario anterior.
+* Crear un usuario normal `nombre-del-compañeroXX`.
+* Le diremos al compañero que suba algunos archivos al servidor con el usuario anterior.
 
 ---
 
