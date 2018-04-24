@@ -14,7 +14,8 @@ En el curso 201617 se adapta para usar OpenSUSE Leap
     * Colaborar con otro compañero.
         * Montar nuestro servidor para que lo use el compañero.
         * Usar el servidor de otro compañero.
-    * Entregar un informe de los pasos realizados y el URL del vídeo subido a Youtube
+    * Hacer un informe de esta parte.
+* Entregar un informe de los pasos realizados y el URL del vídeo subido a Youtube.
 
 ---
 
