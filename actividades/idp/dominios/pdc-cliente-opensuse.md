@@ -14,13 +14,11 @@ gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
 ## 2. Preparar el cliente
 
 Tener en cuenta los siguientes aspectos en la configuración del cliente.
-
 * HORA: La fecha/hora del sistema debe sincronizarse con el PDC.
 * VIRTUALBOX: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable configurar la red de las máquinas virtuales en modo `puente` (El modo "Red interna" también funcionará bien).
 * Interfaz de RED: Recordar que las máquinas (Servidor y cliente) deben tener la configuración de red estática.
 * Servidores DNS: Los clientes, para unirse al PDC, deben tener como `DNS1=ip-del-pdc`,
 y `DNS2=8.8.4.4`.
-
 * Realizar la comprobación del DNS mediante la ejecución de
     * `host www.google.es`
     * `host DOMINIO-DEL-PDC`
