@@ -56,12 +56,9 @@ systemctl start mysql.service
 systemctl enable mysql.service
 ```
 
-The root password is empty by default. That means that you can press enter and you can use your root user. That's not safe at all. So you can set a password using the command:
-
-`mysqladmin -u root password newpass`
-
-Where newpass is the password you want.
-Now you set the root password, create the database.
+* Por defecto la clave de root está vacía. Vamos a establecer una clave al usuario `root`de la base de datos:
+    * `mysqladmin -u root password nueva-clave`
+* Crear la base de datos y un usuario:
 
 ```
 mysql -u root -p
@@ -71,6 +68,7 @@ CREATE DATABASE ocdatabase;
 GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
 ```
 
+Tenemos que:
 * Database user: `ocuser`
 * Database name: `ocdatabase`
 * Database user password: `dbpass`
