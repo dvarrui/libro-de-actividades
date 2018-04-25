@@ -1,9 +1,3 @@
-```
-* Práctica creada para el curso 201516
-* Inspirada el la práctica de cliente GNU/Linux Ubuntu/Debian con PIBS/Likewise
-* Cliente de dominio GNU/Linux con OpenSUSE/Yast
-* En el curso 201617 usamos la versión OpenSUSE Leap 42.2
-```
 
 # 1. Introducción
 
@@ -29,8 +23,8 @@ y `DNS2=8.8.4.4`.
 
 * Realizar la comprobación del DNS mediante la ejecución de
     * `host www.google.es`
-    * `host NOMBRE_DEL_DOMINIO`
-    * `host NOMBRE_DEL_PDC`
+    * `host DOMINIO-DEL-PDC`
+    * `host NOMBRE-EQUIPO-PDC`
 
 > **Configuración "manual" de la resolución de nombres**
 >
