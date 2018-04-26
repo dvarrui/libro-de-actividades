@@ -97,8 +97,7 @@ extension=php_mbstring.dll
 
 ## 3.4 Apache Configuration
 
-Habilitar los siguientes módulos de Apache. Algunos ya deberían estar habilitados.
-
+* Habilitar los siguientes módulos de Apache. Algunos ya deberían estar habilitados.
 ```
 a2enmod php5
 a2enmod rewrite
@@ -107,9 +106,10 @@ a2enmod env
 a2enmod dir
 a2enmod mime
 ```
-
-Iniciar el servicio de Apache.
-
+* Comprobar si los módulos de Apache2 están activos:
+ * `apache2ctl -t -D DUMP_MODULES`, muestra todos los módulos activos o cargados.
+ * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado.   
+* Iniciar el servicio de Apache.
 ```
 systemctl start apache2.service
 systemctl enable apache2.service
