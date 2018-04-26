@@ -97,7 +97,7 @@ extension=php_mbstring.dll
 
 ## 3.4 Apache Configuration
 
-* Habilitar los siguientes módulos de Apache. Algunos ya deberían estar habilitados.
+* Habilitar/activar los siguientes módulos de Apache. Algunos ya deberían estar habilitados/activos.
 ```
 a2enmod php5
 a2enmod rewrite
