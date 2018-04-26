@@ -107,8 +107,8 @@ a2enmod dir
 a2enmod mime
 ```
 * Comprobar si los módulos de Apache2 están activos:
- * `apache2ctl -t -D DUMP_MODULES`, muestra todos los módulos activos o cargados.
- * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado.   
+    * `apache2ctl -t -D DUMP_MODULES`, muestra todos los módulos activos o cargados.
+    * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado.   
 * Iniciar el servicio de Apache.
 ```
 systemctl start apache2.service
