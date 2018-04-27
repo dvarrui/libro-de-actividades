@@ -255,7 +255,10 @@ A continuación se muestra una imagen de ejemplo:
 * Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
 * Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
-* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul)
+* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul). 
+    * Abrir PowerShell y ejecutar los siguientes comandos.
+    * `hostname`, para mostrar nombre del equipo.
+    * `whoami`, para mostrar nuestro usuario actual.
 * Comprobar que tenemos perfiles móviles para ellos.
 
 > El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
