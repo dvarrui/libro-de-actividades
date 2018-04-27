@@ -190,7 +190,7 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
-> INFO: Para entrar como usuario local poner "VARGAS2A\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
+> INFO: Para entrar como usuario local poner "VARGAS42W\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
 
 * Ir al PDC (Servidor) y comprobar que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
 
@@ -225,7 +225,7 @@ Material de lectura/estudio/consulta:
 ## 5.2 Crear Perfiles de usuarios:
 
 * En el PDC, crear la carpeta `E:\perfiles`.
-* Definir permisos lectura/escritura para todos los usuarios del dominio en la carpeta.
+* Definir permisos lectura/escritura para los `usuarios del dominio` en la carpeta.
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
