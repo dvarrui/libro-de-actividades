@@ -53,8 +53,8 @@ zypper in apache2 mariadb apache2-mod_php5 php5-gd php5-json php5-fpm php5-mysql
 Iniciar el servicio para poder crear la base de datos.
 
 ```
-systemctl start mysql.service
 systemctl enable mysql.service
+systemctl start mysql.service
 ```
 
 * Por defecto la clave de root está vacía. Vamos a establecer una clave al usuario `root`de la base de datos:
@@ -126,8 +126,8 @@ chmod -R 0770 /opt/owncloud-data
 chown wwwrun /opt/owncloud-data
 ```
 
-Descargar [OwnCloud](https://owncloud.org/install/). Descomprimir y mover a
-la carpeta.
+Vamos a descargar [OwnCloud](https://owncloud.org/install/). Descomprimir y mover a
+la carpeta. Comandos de ejemplo:
 
 ```
 wget https://download.owncloud.org/community/owncloud-9.1.1.zip
