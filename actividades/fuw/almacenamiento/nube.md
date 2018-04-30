@@ -48,6 +48,8 @@ Para más información [official documentation](https://doc.owncloud.org/) sobre
 zypper in apache2 mariadb apache2-mod_php5 php5-gd php5-json php5-fpm php5-mysql php5-curl php5-intl php5-mcrypt php5-zip php5-mbstring php5-zlib
 ```
 
+> Si tenemos problemas con MySQL. Desinstaler los paquetes, actualizar el sistema y volver a instalar los paquetes.
+
 ## 3.2 Create Database
 
 Iniciar el servicio para poder crear la base de datos.
@@ -137,7 +139,7 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 ```
 
 * Abrir navegador e ir al URL  `http://localhost/owncloud`
-    * Poner ususario/clave del administrador.
+    * Poner usuario/clave del administrador. **¡OJO! Antes de seguir, desplegar la pestaña para continuar definiendo el almacenamiento...**
     * El directorio de datos (DATA FOLDER): `/opt/owncloud-data` 
     * Database user: `ocuser`
     * Database name: `ocdatabase`
