@@ -163,8 +163,9 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 * Hacer captura de pantalla del fichero `/srv/www/htdocs/owncloud/config/config.php`.
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
 
-> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina, comprobar si el cortafuegos del servidor está bloqueando el acceso.
-> Ir a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
+> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina:
+> * Comprobar si el cortafuegos del servidor está bloqueando el acceso. Desde otra máquina hacer `nmap -Pn IP-SERVIDOR`, y debe mostrar los servicios del servidor.
+> * Para abrir el cortafuagos, vamos a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
     
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
