@@ -19,8 +19,9 @@ Almacenamiento en la nube de un proveedor externo.
 
 * Realizar la instalación y configuración de alguna de las siguientes herramientas a elegir por el alumno:
     * DropBox
-    * Windows Live Mesh, OneDrive,
-    * Ubuntu One
+    * OneDrive
+    * Google Drive
+    * SkyDrive
 * Realizar una instalación sobre SO Windows y otra sobre GNU/Linux. Mostrar su uso mediante ejemplos.
 
 ---
