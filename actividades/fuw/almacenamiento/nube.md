@@ -135,9 +135,9 @@ cp -r owncloud /srv/www/htdocs
 chown -R wwwrun /srv/www/htdocs/owncloud/
 ```
 
-* Abrir navegador con URL  http://localhost/owncloud
+* Abrir navegador e ir al URL  `http://localhost/owncloud`
     * Poner ususario/clave del administrador.
-    * El directorio de datos `/opt/owncloud-data`
+    * El directorio de datos (DATA FOLDER): `/opt/owncloud-data` 
     * Database user: `ocuser`
     * Database name: `ocdatabase`
     * Database user password: `dbpass`
