@@ -21,6 +21,7 @@ Almacenamiento en la nube de un proveedor externo.
     * DropBox
     * Google Drive
     * OneDrive
+    * Mega
 * Realizar una instalación sobre SO Windows y otra sobre GNU/Linux. Mostrar su uso mediante ejemplos.
 
 ---
@@ -160,7 +161,10 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 > **IMPORTANTE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
 * Hacer captura de pantalla del fichero `/srv/www/htdocs/owncloud/config/config.php`.
-* Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP.
+* Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
+
+> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina comprobar si el cortafuegos está bloqueando el scceso.
+    
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
 * Crear un usuario normal `nombre-del-alumnoXX`.
