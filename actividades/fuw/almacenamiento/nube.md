@@ -19,9 +19,8 @@ Almacenamiento en la nube de un proveedor externo.
 
 * Realizar la instalación y configuración de alguna de las siguientes herramientas a elegir por el alumno:
     * DropBox
-    * OneDrive
     * Google Drive
-    * SkyDrive
+    * OneDrive
 * Realizar una instalación sobre SO Windows y otra sobre GNU/Linux. Mostrar su uso mediante ejemplos.
 
 ---
@@ -175,7 +174,7 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 
 * Ir a una MV con Windows 7.
 * Instalar el sofware cliente de OwnCloud.
-   * Usar URL http://ip-servidor/owncloud.
+   * Usar URL `http://ip-servidor/owncloud`.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
 ---
@@ -190,8 +189,8 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 
 * Añadimos un nuevo repositorio con el paquete que queremos instalar:
     * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
-* Actualizamos la lista de repositorios: `apt-get up...`
-* Instalamos el paquete: `apt-get .... owncloud`
+* Actualizamos la lista de repositorios: `apt-get update`
+* Instalamos el paquete: `apt-get install owncloud`
 
 ## A.3 Instalación del servidor OwnCloud para Raspberry PI
 
