@@ -27,15 +27,15 @@ Almacenamiento en la nube de un proveedor externo.
 
 # 3. Nube propia con OwnCloud Server en OpenSUSE Leap
 
-Últimamente se están poniendo de moda servicios de almacenamiento y sincronización
-de ficheros en la nube, entre los que destacan Dropbox y Google Drive. Ambas soluciones son cerradas.
+En los servicios de almacenamiento y sincronización de ficheros en la nube destacan Dropbox y Google Drive. 
+Pero ambas soluciones son cerradas.
 
-Dentro de las soluciones libres disponemos de ownCloud, por el que parece que apuesta Suse, y que utilizan varios proveedores para ofrecer servicios de almacenamiento en la nube con un modelo de negocio freemium, como son OwnCubey GetFreeCloud.
+Dentro de las soluciones libres disponemos de ownCloud o NetxCloud.
 
 Las fuentes están disponibles para poder instalarlo en máquinas propias o alquiladas,
 así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
-Para más información [official documentation](https://doc.owncloud.org/).
+Para más información [official documentation](https://doc.owncloud.org/) sobre OwnCloud.
 
 ## 3.1 Instalar OwnCloud
 
