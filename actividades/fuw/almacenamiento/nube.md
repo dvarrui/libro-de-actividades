@@ -69,6 +69,8 @@ mysql -u root -p
 
 CREATE DATABASE ocdatabase;
 GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
+FLUSH PRIVILEGES;
+exit
 ```
 
 Tenemos que:
