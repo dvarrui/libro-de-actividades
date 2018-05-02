@@ -56,10 +56,60 @@ apt-get install -y apache2 mariadb-server libapache2-mod-php7.0 \
 * Descargar OwnCloud https://owncloud.org/download/
 * `unzip owncloud-x.y.z.zip` descomprimir
 * `cp -r owncloud /var/www`, copiar ficheros al directorio `document root`del servidor Web Apache2.
-* Configuramos Apache2
+* `chown -R www-data:www-data /var/www/owncloud/`, damos permisos al usuario www-data sobre los ficheros de OwnCloud.
+Este usuario es el responsable de ejecutar el servidor web.
 
+## 3.2 Configurar Apache2
+
+* Crear `/etc/apache2/sites-available/owncloud.conf` con:
+```
+Alias /owncloud "/var/www/owncloud/"
+
+<Directory /var/www/owncloud/>
+  Options +FollowSymlinks
+  AllowOverride All
+  Satisfy Any
+
+ <IfModule mod_dav.c>
+  Dav off
+ </IfModule>
+
+ SetEnv HOME /var/www/owncloud
+ SetEnv HTTP_HOME /var/www/owncloud
+
+</Directory>
+```
+* Crear enlace simbólico a /etc/apache2/sites-enabled:
+```
+ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
+```
+* Activar módulos de Apache2 ejecutando los siguientes comandos:
+```
+a2enmod rewrite
+a2enmod headers
+a2enmod env
+a2enmod dir
+a2enmod mime
+```
+
+* `service apache2 restart`, reiniciar el servicor Apache2.
 
 ## 3.2 Crear la Base de datos
+
+* Instalar la base de datos `sudo apt-get install mariadb-server`
+* Vamos a crear la base de datos.
+```
+sudo mysql --user=root mysql
+CREATE USER 'dbadmin'@'localhost' IDENTIFIED BY 'Apassword';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+```
+
+```
+CREATE DATABASE ocdatabase;
+GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
+```
 
 Tenemos que:
 * Database user: `ocuser`
@@ -70,7 +120,7 @@ Tenemos que:
 
 * Abrir navegador e ir al URL  `http://localhost/owncloud`
     * **¡OJO! Antes de seguir, desplegar la pestaña para continuar definiendo el almacenamiento...**
-    * Poner usuario/clave del administrador.
+    * Poner usuario/clave del administrador de OwnCloud.
     * El directorio de datos (DATA FOLDER): `/opt/owncloud-data`
     * Database user: `ocuser`
     * Database name: `ocdatabase`
