@@ -138,8 +138,8 @@ Vamos a descargar [OwnCloud](https://owncloud.org/install/). Descomprimir y move
 la carpeta. Comandos de ejemplo:
 
 ```
-wget https://download.owncloud.org/community/owncloud-9.1.1.zip
-unzip owncloud-9.1.1.zip
+wget https://download.owncloud.org/community/owncloud-X.Y.Z.zip
+unzip owncloud-X.Y.Z.zip
 cp -r owncloud /srv/www/htdocs
 chown -R wwwrun /srv/www/htdocs/owncloud/
 ```
@@ -147,7 +147,7 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 * Abrir navegador e ir al URL  `http://localhost/owncloud`
     * Poner un usuario/clave que será el administrador de OwnCloud.
     * **¡OJO! Antes de seguir, desplegar la pestaña "Storage & Database"...**
-    + Elegir `MyDSQL/mariaDB`.
+    + Elegir `MyDSQL/MariaDB`.
     * Definir el directorio de datos (DATA FOLDER): `/opt/owncloud-data` 
     * Database user: `ocuser`
     * Database name: `ocdatabase`
