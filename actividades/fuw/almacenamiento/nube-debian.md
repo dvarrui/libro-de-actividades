@@ -42,8 +42,21 @@ Para más información [official documentation](https://doc.owncloud.org/) sobre
 
 ## 3.1 Instalar OwnCloud
 
-* Vamos a seguir el siguiente tutorial [Instalar OwnCloud en Debian 8](https://www.ayudafacil.com/como-instalar-owncloud-8-en-debian-8-jessie/)
+* Enlaces de interés:
+    * https://doc.owncloud.org/server/latest/admin_manual/installation/source_installation.html
 * Elegir una MV con Debian para instalar OwnCloud Server.
+* Instalar las dependencias de OwnCloud:
+```
+apt-get install -y apache2 mariadb-server libapache2-mod-php7.0 \
+    openssl php-imagick php7.0-common php7.0-curl php7.0-gd \
+    php7.0-imap php7.0-intl php7.0-json php7.0-ldap php7.0-mbstring \
+    php7.0-mcrypt php7.0-mysql php7.0-pgsql php-smbclient php-ssh2 \
+    php7.0-sqlite3 php7.0-xml php7.0-zip
+```
+* Descargar OwnCloud https://owncloud.org/download/
+* `unzip owncloud-x.y.z.zip` descomprimir
+* `cp -r owncloud /var/www`, copiar ficheros al directorio `document root`del servidor Web Apache2.
+* Configuramos Apache2
 
 
 ## 3.2 Crear la Base de datos
