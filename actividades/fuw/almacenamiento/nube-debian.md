@@ -57,7 +57,7 @@ apt-get install -y apache2 mariadb-server libapache2-mod-php7.0 \
 * `chown -R www-data:www-data /var/www/owncloud/`, damos permisos al usuario www-data sobre los ficheros de OwnCloud.
 Este usuario es el responsable de ejecutar el servidor web.
 
-## 3.2 Configurar Apache2
+## 3.2 Configurar Servidor Web Apache2
 
 * Crear `/etc/apache2/sites-available/owncloud.conf` con:
 ```
@@ -89,7 +89,13 @@ a2enmod env
 a2enmod dir
 a2enmod mime
 ```
-
+* Asegurarse de que tenemos bien configurado los siguientes ficheros, para que Apache2 no de advertencias 
+de que está mal configurado el parámetro `Server Name`:
+    * `/etc/hostname`con el `1er-apellidoXX.curso1718` y
+    * en `/etc/hosts` tenemos una línea con `IP   1er-apellidoXX.curso1718   1er-apellidoXX`.     
+* Comprobar si los módulos de Apache2 están activos:
+    * `apache2ctl -t -D DUMP_MODULES`, muestra todos los módulos activos o cargados.
+    * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado. 
 * `service apache2 restart`, reiniciar el servicio Apache2.
 * Crear el archivo `/var/www/html/alumno.html`
 * Escribir el nombre del alumno dentro de `alumno.html`
