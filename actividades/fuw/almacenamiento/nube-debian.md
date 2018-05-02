@@ -38,8 +38,6 @@ así como clientes de sincronización para Windows, Linux, Android y próximamen
 
 Para más información [official documentation](https://doc.owncloud.org/) sobre OwnCloud.
 
-
-
 ## 3.1 Instalar OwnCloud
 
 * Enlaces de interés:
@@ -92,23 +90,25 @@ a2enmod dir
 a2enmod mime
 ```
 
-* `service apache2 restart`, reiniciar el servicor Apache2.
+* `service apache2 restart`, reiniciar el servicio Apache2.
+* Crear el archivo `/var/www/html/alumno.html`
+* Escribir el nombre del alumno dentro de `alumno.html`
+* Acceder al URL `localhost/alumno.html`
 
-## 3.2 Crear la Base de datos
+## 3.3 Crear la Base de datos
 
-* Instalar la base de datos `sudo apt-get install mariadb-server`
+* El paquete `mariadb-server` ya debe estar instalado.
 * Vamos a crear la base de datos.
 ```
 sudo mysql --user=root mysql
-CREATE USER 'dbadmin'@'localhost' IDENTIFIED BY 'Apassword';
+CREATE USER 'dbadmin'@'localhost' IDENTIFIED BY 'dbpass';
 GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'localhost' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-exit
-```
 
-```
 CREATE DATABASE ocdatabase;
 GRANT ALL ON ocdatabase.* TO ocuser@localhost IDENTIFIED BY 'dbpass';
+
+FLUSH PRIVILEGES;
+exit
 ```
 
 Tenemos que:
@@ -116,20 +116,18 @@ Tenemos que:
 * Database name: `ocdatabase`
 * Database user password: `dbpass`
 
-## 3.6 Configurar OwnCloud
+## 3.4 Configurar OwnCloud
 
 * Abrir navegador e ir al URL  `http://localhost/owncloud`
     * **¡OJO! Antes de seguir, desplegar la pestaña para continuar definiendo el almacenamiento...**
     * Poner usuario/clave del administrador de OwnCloud.
+    * Elegimos `MariaDB/MySQL`
     * El directorio de datos (DATA FOLDER): `/opt/owncloud-data`
     * Database user: `ocuser`
     * Database name: `ocdatabase`
     * Database user password: `dbpass`
-* Esperar a que termine la instalación.
-* Crear el archivo /srv/www/htdocs/index.html
-* Escribir el nombre del alumno dentro de index.html
-* Con URL localhost accedemos a index.html
-* Con URL localhost/owncloud accedemos a la aplicación OwnCloud
+* Esperar a que termine la configuración.
+* Con URL `localhost/owncloud` accedemos a la aplicación OwnCloud
 
 ---
 
@@ -174,13 +172,6 @@ Tenemos que:
 
 * [OwnCloud en Debian/Ubuntu](http://hipertextual.com/archivo/2014/10/owncloud/)
 
-## A.2 Instalación del servidor OwnCloud para Debian7
-
-* Añadimos un nuevo repositorio con el paquete que queremos instalar:
-    * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
-* Actualizamos la lista de repositorios: `apt-get update`
-* Instalamos el paquete: `apt-get install owncloud`
-
-## A.3 Instalación del servidor OwnCloud para Raspberry PI
+## A.2 Instalación del servidor OwnCloud para Raspberry PI
 
 * [BTSync: Clone Dropbox with a Raspberry Pi and BTSync](http://reustle.io/blog/btsync-pi)
