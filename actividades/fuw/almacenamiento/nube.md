@@ -109,9 +109,13 @@ a2enmod env
 a2enmod dir
 a2enmod mime
 ```
+* Asegurarse de que tenemos bien configurado los siguientes ficheros, para que Apache2 no de advertencias 
+de que está mal configurado el parámetro `Server Name`:
+    * `/etc/hostname`con el `1er-apellidoXX.curso1718` y
+    * en `/etc/hosts` tenemos una línea con `IP   1er-apellidoXX.curso1718   1er-apellidoXX`.     
 * Comprobar si los módulos de Apache2 están activos:
     * `apache2ctl -t -D DUMP_MODULES`, muestra todos los módulos activos o cargados.
-    * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado.   
+    * `apache2ctl -t -D DUMP_MODULES | grep NOMBRE`, muestra si el módulo NOMBRE está activo o cargado. 
 * Iniciar el servicio de Apache.
 ```
 systemctl start apache2.service
