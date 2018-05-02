@@ -143,15 +143,17 @@ chown -R wwwrun /srv/www/htdocs/owncloud/
 ```
 
 * Abrir navegador e ir al URL  `http://localhost/owncloud`
-    * Poner usuario/clave del administrador. **¡OJO! Antes de seguir, desplegar la pestaña para continuar definiendo el almacenamiento...**
-    * El directorio de datos (DATA FOLDER): `/opt/owncloud-data` 
+    * Poner un usuario/clave que será el administrador de OwnCloud.
+    * **¡OJO! Antes de seguir, desplegar la pestaña "Storage & Database"...**
+    + Elegir `MyDSQL/mariaDB`.
+    * Definir el directorio de datos (DATA FOLDER): `/opt/owncloud-data` 
     * Database user: `ocuser`
     * Database name: `ocdatabase`
     * Database user password: `dbpass`
 * Esperar a que termine la instalación.
-* Crear el archivo /srv/www/htdocs/index.html
-* Escribir el nombre del alumno dentro de index.html
-* Con URL localhost accedemos a index.html
+* Crear el archivo `/srv/www/htdocs/index.html`
+* Escribir el nombre del alumno dentro de `index.html`
+* Con URL localhost accedemos a `index.html`
 * Con URL localhost/owncloud accedemos a la aplicación OwnCloud
 
 ---
