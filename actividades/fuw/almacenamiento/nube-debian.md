@@ -133,20 +133,19 @@ Tenemos que:
 
 ## 4 Comprobar vía web
 
-* Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
+* Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/var/www/owncloud/config/config.php`).
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
-`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`. Ver ejemplo:
+`trusted_domains` dentro del fichero de configuración `/var/www/owncloud/config/config.php`. Ver ejemplo:
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
 
 > **IMPORTANTE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
-* Hacer captura de pantalla del fichero `/srv/www/htdocs/owncloud/config/config.php`.
+* Hacer captura de pantalla del fichero `/var/www/owncloud/config/config.php`.
 * Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
 
-> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina:
-> * Primero comprobar si el cortafuegos del servidor está bloqueando el acceso. Vamos a otra máquina y hacemos `nmap -Pn IP-del-servidor`. Debe mostrar los servicios del servidor.
-> * Para abrir el cortafuegos, vamos a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
+> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina comprobar si el cortafuegos del servidor está bloqueando el acceso.
+> * Vamos a otra máquina y hacemos `nmap -Pn IP-del-servidor`. Debe mostrar los servicios del servidor.
 
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
 * Usamos nuestro usuario/clave administrador.
