@@ -24,9 +24,14 @@ Requisitos:
 
 # 2. Instalar WAIK
 
+## 2.1 Copiar ficheros
+
 * Crear la carpeta `C:\W7`.
 * Montar la ISO Windows 7 de 64 bits en la unidad CD de la MV
 * Copiar el contenido de la unidad de CD a la carpeta `C:\W7`.
+
+## 2.2 Desacargar e Instalar WAIK
+
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
 * Ir `Inicio > Todos los programas > Microsoft Windows AIK > Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
@@ -37,11 +42,11 @@ Requisitos:
 
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
-* Ir a `Archivo > Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
+* Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
 * Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta.
 En nuestro caso es Windows 7 Professional.
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
-* Crear el archivo de Autorespuesta que configuraremos posteriormente. Ir a `Archivo > Nuevo archivo de respuesta`.
+* Crear el archivo de Autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 * Agregar al archivo las respuesta los componentes de cada secuencia de la instalación.
 
 > Aclaración:
@@ -61,10 +66,11 @@ Ver ejemplo:
 
 # 4. Configurar aplicaciones
 
-* Para que se inicie de forma automática la instalación de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
+* Crear la carpeta `C:\W7\applications`. Dentro pondremos un programa de instalación MSI.
+* Para que la instalación automática de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
 `Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`
-* Deberemos agregar el componentes el número de veces como aplicaciones queramos que se instalen al inicio y configurarlos de la siguiente manera:
-    * CommandLine: Ubicación del ejecutable de la aplicación. En este caso hemos creado una carpeta en la imagen ISO llamada applications, por tanto, la ruta hace referencia al ejecutable que se encuentran en esa carpeta dentro de la unidad de DVD donde esta montada la ISO.
+* Deberemos agregar el componentes tantas veces como aplicaciones queramos que se instalen al inicio y configurarlos de la siguiente manera:
+    * CommandLine: Ubicación del ejecutable de la aplicación. Ejemplo: `C:\W7\applications\ejecutable.msi`.
     * Description: Una descripción del programa que se va a instalar.
     * Order: Orden en el que se instalará la aplicación.
     * RequiresUserInput: Si la aplicación necesita interacción del usuario.
@@ -76,7 +82,7 @@ Ver ejemplo:
 Después de configurar esta última entrada en el archivo de respuesta, debemos compilar los archivos en una ISO para después grabarla en un DVD o memoria USB y poder usarla para su instalación en cualquier equipo.
 
 * Crear la carpeta `C:\W7desatendido`.
-* Para crear la ISO, `Abrimos desde  Inicio -> Todos los programas -> Microsoft Windows AIK -> Línea de comandos de las herramientas de implementación` y se nos abrirá una consola de comandos:
+* Para crear la ISO, `Abrimos desde  Inicio -> Todos los programas -> Microsoft Windows AIK -> Línea de comandos de las herramientas de implementación` y se nos abrirá una consola de comandos.
 * Escribir `oscdimg –n –m –bC:\W7\boot\etfsboot.com  C:\W7 c:\W7desatendido\W7desatendido.iso`
 * Si todo es correcto comenzará la creación de nuestra ISO desatendida lista para ser usada.
 
