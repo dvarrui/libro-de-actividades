@@ -54,15 +54,15 @@ Ver ejemplo:
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
 
-* Validar el archivo de respuesta. Ir a `herramientas > validar archivo de respuesta`.
-* Guardar el archivo de respuesta en `Archivo > Guardar archivo de respuesta como > ruta donde está los archivos del windows a instalar`. El nombre debe ser Autounattend.xml es muy importante ya que el sistema sólo reconocerá el archivo si tiene este nombre.
+* Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
+* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como -> ruta donde está los archivos del windows a instalar`. El nombre debe ser Autounattend.xml es muy importante ya que el sistema sólo reconocerá el archivo si tiene este nombre.
 
 ---
 
 # 4. Configurar aplicaciones
 
 * Para que se inicie de forma automática la instalación de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
-`Microsoft-Windows-Shell-Setup_neutral > FirstLogonCommands > Synchronous Command`
+`Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`
 * Deberemos agregar el componentes el número de veces como aplicaciones queramos que se instalen al inicio y configurarlos de la siguiente manera:
     * CommandLine: Ubicación del ejecutable de la aplicación. En este caso hemos creado una carpeta en la imagen ISO llamada applications, por tanto, la ruta hace referencia al ejecutable que se encuentran en esa carpeta dentro de la unidad de DVD donde esta montada la ISO.
     * Description: Una descripción del programa que se va a instalar.
@@ -76,10 +76,9 @@ Ver ejemplo:
 Después de configurar esta última entrada en el archivo de respuesta, debemos compilar los archivos en una ISO para después grabarla en un DVD o memoria USB y poder usarla para su instalación en cualquier equipo.
 
 * Crear la carpeta `C:\W7desatendido`.
-* Para crear la ISO, `Abrimos desde  Inicio > Todos los programas > Microsoft Windows AIK > Línea de comandos de las herramientas de implementación` y se nos abrirá una consola de comandos:
+* Para crear la ISO, `Abrimos desde  Inicio -> Todos los programas -> Microsoft Windows AIK -> Línea de comandos de las herramientas de implementación` y se nos abrirá una consola de comandos:
 * Escribir `oscdimg –n –m –bC:\W7\boot\etfsboot.com  C:\W7 c:\W7desatendido\W7desatendido.iso`
-
-> Si todo es correcto comenzará la creación de nuestra ISO desatendida lista para ser usada.
+* Si todo es correcto comenzará la creación de nuestra ISO desatendida lista para ser usada.
 
 ---
 
