@@ -1,5 +1,5 @@
 
-# Instalación destendida de Windows 7
+# Instalación desatendida de Windows 7
 
 Vamos a crear instalación desatendida para Windows 7.
 
