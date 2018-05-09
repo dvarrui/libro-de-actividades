@@ -75,6 +75,7 @@ Ver ejemplo:
 
 Después de configurar esta última entrada en el archivo de respuesta, debemos compilar los archivos en una ISO para después grabarla en un DVD o memoria USB y poder usarla para su instalación en cualquier equipo.
 
+* Crear la carpeta `C:\W7desatendido`.
 * Para crear la ISO, `Abrimos desde  Inicio > Todos los programas > Microsoft Windows AIK > Línea de comandos de las herramientas de implementación` y se nos abrirá una consola de comandos:
 * Escribir `oscdimg –n –m –bC:\W7\boot\etfsboot.com  C:\W7 c:\W7desatendido\W7desatendido.iso`
 
