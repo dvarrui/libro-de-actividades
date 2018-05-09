@@ -60,7 +60,7 @@ Ver ejemplo:
 
 
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
-* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como -> ruta donde está los archivos del windows a instalar`. El nombre debe ser Autounattend.xml es muy importante ya que el sistema sólo reconocerá el archivo si tiene este nombre.
+* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\Autounattend.xml`.
 
 ---
 
