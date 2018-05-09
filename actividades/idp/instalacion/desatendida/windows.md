@@ -24,7 +24,9 @@ Requisitos:
 
 # 2. Instalar WAIK
 
-* Copiar el contenido del DVD o la imagen ISO Windows 7 de 64 bits a la carpeta `C:\W7`.
+* Crear la carpeta `C:\W7`.
+* Montar la ISO Windows 7 de 64 bits en la unidad CD de la MV
+* Copiar el contenido de la unidad de CD a la carpeta `C:\W7`.
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
 * Ir `Inicio > Todos los programas > Microsoft Windows AIK > Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
