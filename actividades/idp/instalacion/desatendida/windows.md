@@ -50,16 +50,13 @@ En nuestro caso es Windows 7 Professional.
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 * Crear el archivo de Autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 
-> IMPORTANTE:
->
-> * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
-> * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
-
 Ver ejemplo:
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
 * Buscar los elementos/componentes en la parte izquierda. Los añadimos y configuramos los parámetros según la tabla anterior.
+    * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
+    * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
 * Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\Autounattend.xml`.
 
