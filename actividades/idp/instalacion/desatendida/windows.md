@@ -97,13 +97,14 @@ Después de configurar esta última entrada en el archivo de respuesta, debemos 
 
 # 6. Comprobamos la ISO
 
-Al terminar probamos la ISO en una máquina virtual
-Si al iniciar la MV con la iso recién creada, aparece el error 225.
+* Al terminar probamos a instalar el SO con la nueva ISO en una máquina virtual.
+* Si al iniciar la MV con la iso recién creada, aparece el error 225.
+
 Ver imagen:
 
 ![win-error-225](./files/win-error-225.jpg)
 
-Una posible solución será activar APCI en la MV. Ver imagen:
+* Una posible solución será activar APCI en la MV. Ver imagen:
 
 ![win-vbox-acpi](./files/win-vbox-acpi.png)
 
