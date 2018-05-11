@@ -53,6 +53,7 @@ Ver ejemplo:
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
+* El campo con la información `Serial del producto` lo vamos a dejar en blanco.
 * Buscar los elementos/componentes en la parte izquierda. Los añadimos, y configuramos los parámetros según la tabla anterior.
     * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
     * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
@@ -61,6 +62,8 @@ Ver ejemplo:
     * SystemLocale: es-ES
     * UILanguage: es-ES
     * UserLocal: es-ES
+* Agregar componente `Windows Setup`
+    * ComputerName: 1er-apellido-del-alumnoXX
 * Agregar componente `Windows Setup -> LocalAccount`
     * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
@@ -119,7 +122,15 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 
 # ANEXO A
 
-## A.1 Instalación desatendida de Windows XP
+## A.1 /IMAGE/INDEX
+
+Teniendo seleccionado el “Metadata” vamos a configurar los parámetros “Key” y “Value”. Para rellenar el parámetro “Key” debemos de usar la herramienta “Línea de comandos de implementacion“, incluida en la instalación de WAIK. Para localizar dicha herramienta, basta con buscarla en el buscador de Windows.
+
+Una vez abierta la herramienta debemos introducir el comando `imagex /info C:\W7\sources\install.wim`.
+
+Una vez ejecutado el comando, buscaremos los datos correspondientes a la instalación que deseamos realizar. En nuestro caso la de Windows 7 Professional
+
+## A.2 Instalación desatendida de Windows XP
 
 > Esta parte NO hay que hacerla. Es meramente informativa.
 
