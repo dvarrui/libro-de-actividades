@@ -56,6 +56,8 @@ Ver ejemplo:
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
+> ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
+
 * El campo con la información `Serial del producto` lo vamos a dejar en blanco.
 * Buscar los elementos/componentes en la parte izquierda. Los añadimos, y configuramos los parámetros según la tabla anterior.
     * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
