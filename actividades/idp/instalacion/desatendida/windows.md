@@ -3,9 +3,13 @@
 
 Vamos a crear instalación desatendida para Windows 7.
 
-Se ha utilizado la información de una página web elaborada por los alumnos de
+> Se ha utilizado la información de una página web elaborada por los alumnos de
 los Ciclos Formativos IES Valle del Jerte - Plasencia: David Carballo Baz,
 Mario Melchor Fernandez y Jose Antonio Franco Martin.
+
+Entregar:
+* Informe de los pasos realizados.
+* Fichero `autounattend.xml`.
 
 ---
 
@@ -58,10 +62,7 @@ Ver ejemplo:
     * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
     * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
 * Agregar componente `Microsoft International Core -> SetupUILanguage`
-    * InputLocale: es-ES
-    * SystemLocale: es-ES
     * UILanguage: es-ES
-    * UserLocal: es-ES
 * Agregar componente `Windows Setup -> LocalAccount`
     * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
