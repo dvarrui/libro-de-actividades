@@ -48,17 +48,22 @@ Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se pue
 * Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta.
 En nuestro caso es Windows 7 Professional.
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
-* Crear el archivo de Autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
+* Crear el archivo de autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 
 Ver ejemplo:
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
-* Buscar los elementos/componentes en la parte izquierda. Los añadimos y configuramos los parámetros según la tabla anterior.
+* Buscar los elementos/componentes en la parte izquierda. Los añadimos, y configuramos los parámetros según la tabla anterior.
     * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
     * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
+* Agregar componente `Microsoft International Core -> SetupUILanguage`
+    * InputLocale: es-ES
+    * SystemLocale: es-ES
+    * UILanguage: es-ES
+    * UserLocal: es-ES
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
-* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\Autounattend.xml`.
+* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 ---
 
