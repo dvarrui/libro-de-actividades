@@ -62,8 +62,6 @@ Ver ejemplo:
     * SystemLocale: es-ES
     * UILanguage: es-ES
     * UserLocal: es-ES
-* Agregar componente `Windows Setup`
-    * ComputerName: 1er-apellido-del-alumnoXX
 * Agregar componente `Windows Setup -> LocalAccount`
     * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
