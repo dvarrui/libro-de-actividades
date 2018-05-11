@@ -64,6 +64,7 @@ Ver ejemplo:
     * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
 * Agregar componente `Microsoft International Core -> SetupUILanguage`
     * UILanguage: es-ES
+    * WillShowUI. OnError
 * Agregar componente `Windows Setup -> LocalAccount`
     * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
