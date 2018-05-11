@@ -36,7 +36,7 @@ Requisitos:
 
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
-* Ir `Inicio > Todos los programas > Microsoft Windows AIK > Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
+* Ir `Inicio -> Todos los programas -> Microsoft Windows AIK -> Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
 
 ---
 
@@ -45,8 +45,7 @@ Requisitos:
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
 * Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
-* Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta.
-En nuestro caso es Windows 7 Professional.
+* Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 * Crear el archivo de autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 
@@ -62,6 +61,8 @@ Ver ejemplo:
     * SystemLocale: es-ES
     * UILanguage: es-ES
     * UserLocal: es-ES
+* Agregar componente `Windows Setup -> LocalAccount`
+    * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
 * Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
