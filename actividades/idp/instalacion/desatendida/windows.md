@@ -45,7 +45,7 @@ Requisitos:
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
 * Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
-* Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
+    * OJO: Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 * Crear el archivo de autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 
