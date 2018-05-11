@@ -3,10 +3,6 @@
 
 Vamos a crear instalación desatendida para Windows 7.
 
-> Se ha utilizado la información de una página web elaborada por los alumnos de
-los Ciclos Formativos IES Valle del Jerte - Plasencia: David Carballo Baz,
-Mario Melchor Fernandez y Jose Antonio Franco Martin.
-
 Entregar:
 * Informe de los pasos realizados.
 * Fichero `autounattend.xml`.
@@ -16,11 +12,11 @@ Entregar:
 # 1. Introducción
 
 Enlaces de interés:
-* [instalación desatendida para Windows - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
+* [Instalación desatendida para Windows - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
 * [Instalación desatendida de Windows- David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
 
 Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
-El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `Autounattend.xml`.
+El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `autounattend.xml`.
 
 Requisitos:
 * ISO de Windows 7.
@@ -48,7 +44,10 @@ Requisitos:
 
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
-* Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.` y lo abrimos (Si falla la carga probar con `C:\W7\Sources\install.wim`).
+* Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo siguiente (dependiendo de nuestra versión) y lo abrimos:
+    * `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.`
+    * `C:\W7\Sources\install_Windows 7 ENTERPRISE.clg.`
+    * Si falla la carga probar con `C:\W7\Sources\install.wim`
     * OJO: Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 * Crear el archivo de autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
