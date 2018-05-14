@@ -65,8 +65,6 @@ Ver ejemplo:
 * Agregar componente `Microsoft International Core -> SetupUILanguage`
     * UILanguage: es-ES
     * WillShowUI. OnError
-* Agregar componente `Windows Setup -> LocalAccount`
-    * Name: nombre-del-alumno
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
 * Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
@@ -131,7 +129,13 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 * `ntlite` es una herramienta para personalizar la instalación de Windows (www.ntlite.com/download/).
 * Otra herramienta es nlite
 
-## A.2 Instalación desatendida de Windows XP
+## A.2 Cambios para el futuro
+
+* Agregar componente `Windows Setup -> LocalAccount`
+    * Name: nombre-del-alumno
+
+
+## A.3 Instalación desatendida de Windows XP
 
 > Esta parte NO hay que hacerla. Es meramente informativa.
 
