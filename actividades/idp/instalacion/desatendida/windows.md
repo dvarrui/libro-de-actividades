@@ -74,14 +74,16 @@ Ver ejemplo:
 
 # 4. Configurar aplicaciones
 
-* Crear la carpeta `C:\W7\applications`. Dentro pondremos un programa de instalación MSI.
+* Crear la carpeta `C:\W7\applications`. Dentro pondremos un programa de instalación MSI. Por ejemplo: Evince, o el que creamos en prácticas anteriores para Firefox, etc.
 * Para que la instalación automática de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
-`Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`
-* Deberemos agregar el componentes tantas veces como aplicaciones queramos que se instalen al inicio y configurarlos de la siguiente manera:
+`Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`.
+* Configuramos los parámetros de la siguiente forma:
     * CommandLine: Ubicación del ejecutable de la aplicación. Ejemplo: `C:\W7\applications\ejecutable.msi`.
     * Description: Una descripción del programa que se va a instalar.
     * Order: Orden en el que se instalará la aplicación.
     * RequiresUserInput: Si la aplicación necesita interacción del usuario.
+
+> Deberemos agregar este componentes tantas veces como aplicaciones queramos que se instalen al inicio.
 
 ---
 
