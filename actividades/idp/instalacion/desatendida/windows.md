@@ -126,13 +126,10 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 
 # ANEXO A
 
-## A.1 /IMAGE/INDEX
+## A.1 Windows 10
 
-Teniendo seleccionado el “Metadata” vamos a configurar los parámetros “Key” y “Value”. Para rellenar el parámetro “Key” debemos de usar la herramienta “Línea de comandos de implementacion“, incluida en la instalación de WAIK. Para localizar dicha herramienta, basta con buscarla en el buscador de Windows.
-
-Una vez abierta la herramienta debemos introducir el comando `imagex /info C:\W7\sources\install.wim`.
-
-Una vez ejecutado el comando, buscaremos los datos correspondientes a la instalación que deseamos realizar. En nuestro caso la de Windows 7 Professional
+* `ntlite` es una herramienta para personalizar la instalación de Windows (www.ntlite.com/download/).
+* Otra herramienta es nlite
 
 ## A.2 Instalación desatendida de Windows XP
 
