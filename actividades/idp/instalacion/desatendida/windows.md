@@ -78,8 +78,8 @@ Ver ejemplo:
 * Configuramos los parámetros de la siguiente forma:
     * CommandLine: Ubicación del ejecutable de la aplicación. Ejemplo: `C:\W7\applications\ejecutable.msi`.
     * Description: Una descripción del programa que se va a instalar.
-    * Order: Orden en el que se instalará la aplicación.
-    * RequiresUserInput: Si la aplicación necesita interacción del usuario.
+    * Order: Orden en el que se instalará la aplicación. Ejemplo: `1`.
+    * RequiresUserInput: Si la aplicación necesita interacción del usuario. Ejemplo: `false`.
 
 > Deberemos agregar este componentes tantas veces como aplicaciones queramos que se instalen al inicio.
 
