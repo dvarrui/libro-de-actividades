@@ -3,6 +3,8 @@
 # Instalación desatendida con Ubuntu usando KickStart
 
 * Ver [vídeo](https://youtu.be/i2uUIux6_l8)
+* [Tutorial kickstart](https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart)
+
 
 # Instalación desatendida con Debian
 
