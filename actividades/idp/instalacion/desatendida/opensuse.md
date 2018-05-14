@@ -1,17 +1,96 @@
 
-```
-Curso 201617: Problema con UEFI. Revisar.
-```
-
 # Instalaciónes desatendidas
 
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
 de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
-* Vamos a crear 2 instalaciones para el sistema operativo OpenSuse.
-* Entregas:
-    * (a) Entregar URL apuntando a la distro creada en el apartado 1.
-    * (b) Informe los pasos del apartado 2.
+---
+
+# 1. Instalación desatendida de OpenSUSE con `autoyast`
+
+Enlace de interés:
+* [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
+* [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
+* [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
+
+## 1.1 Personalizamos la MV OpenSUSE Leap
+
+Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
+
+> OJO: La MVs deben tener configurada la opción de BIOS. NO UEFI.
+> El proceso de instalación desatendida con UEFI debe revisarse.
+
+* A continuación, personalizamos nuestra máquina con los siguientes cambios:
+    * Nombre de máquina `1er-apellidoXXy`.
+    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
+    * Creamos usuario `nombre-del-alumno`.
+
+## 1.2 Creamos el fichero `autoinst.xml`
+
+Necesitamos el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
+
+Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
+
+* Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
+ Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
+(o por consola con `/sbin/yast2 clone_system`).
+
+> INFO: La Opción de `Autoinstallation Configuration` de Yast, parece que sirve para editar/modificar un fichero de configuración XML ya existente.
+
+* El perfil clonado se guarda en `/root/autoinst.xml`.
+* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
+* Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
+
+## 1.3 Modos de acceso al fichero XML
+
+Elegir una de las siguientes formas para la instalación desatendida.
+* **USB** - Fichero de control en USB
+    * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
+* **ISO** - Fichero de control dentro de la propia ISO.
+    * Iniciamos un programa para modificar ficheros ISO(Por ejemplo `isomaster`).
+    * Abrimos el fichero ISO de OpenSUSE.
+    * Incluir el fichero XML dentro de la ISO de instalación.
+    * Grabar ISO modificada.
+
+> **Otras opciones**
+>
+> * **CIFS** - Fichero de control en carpeta compartida de Windows
+> * **HTTP** - Fichero de control en un servidor Web (HTTP)
+>    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor,
+para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
+>    * Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
+
+## 1.4 Comenzar la instalación desatendida
+
+* Creamos una MV nueva.
+
+> OJO esta MV tiene que tener un tamaño de disco duro similar a la MV de donde se creó el XML.
+
+* Ponemos el DVD de instalación de OpenSUSE.
+* Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
+
+Elegiremos una de las siguientes formas para localizar el fichero XML.
+* **USB** - Fichero de control en USB
+    * En opciones de arranque ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
+    * OJO que son 3 barras seguidas después de los dos puntos.
+* **ISO** - Fichero de control dentro de la propia ISO
+   * En opciones de arranque ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
+   * OJO que son 3 barras seguidas después de los dos puntos.
+
+> **Otras opciones**
+>
+> * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
+>     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
+> * **HTTP** - Fichero de control en un servidor Web (HTTP)
+>     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
+>     * Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
+
+A continuación debe comenzar la instalación de forma desatendida con las opciones
+especificadas en el fichero XML.
+
+---
+
+# ANEXO A
 
 ---
 
@@ -134,94 +213,6 @@ date >> $FILE
 > **Otros paquetes interesantes**
 >
 > * `yast2-users`, gestión de usuarios mediante yast.
-
----
-
-# 2. Instalación desatendida de OpenSUSE con `autoyast`
-
-Enlace de interés:
-* [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
-* [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
-* [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
-
-## 2.1 Personalizamos la MV OpenSUSE Leap
-
-Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
-
-> OJO: La MVs deben tener configurada la opción de BIOS. NO UEFI.
-> El proceso de instalación desatendida con UEFI debe revisarse.
-
-* A continuación, personalizamos nuestra máquina con los siguientes cambios:
-    * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
-    * Creamos usuario `nombre-del-alumno`.
-
-## 2.2 Creamos el fichero `autoinst.xml`
-
-Necesitamos el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
-
-Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
-
-* Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
- Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
-(o por consola con `/sbin/yast2 clone_system`).
-
-> INFO: La Opción de `Autoinstallation Configuration` de Yast, parece que sirve para editar/modificar un fichero de configuración XML ya existente.
-
-* El perfil clonado se guarda en `/root/autoinst.xml`.
-* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
-* Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
-
-## 2.3 Modos de acceso al fichero XML
-
-Elegir una de las siguientes formas para la instalación desatendida.
-* **USB** - Fichero de control en USB
-    * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
-* **ISO** - Fichero de control dentro de la propia ISO.
-    * Iniciamos un programa para modificar ficheros ISO(Por ejemplo `isomaster`).
-    * Abrimos el fichero ISO de OpenSUSE.
-    * Incluir el fichero XML dentro de la ISO de instalación.
-    * Grabar ISO modificada.
-
-> **Otras opciones**
->
-> * **CIFS** - Fichero de control en carpeta compartida de Windows
-> * **HTTP** - Fichero de control en un servidor Web (HTTP)
->    * Copiaremos el fichero XML en el servidor web proporcionado por el profesor,
-para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
->    * Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
-
-## 2.4 Comenzar la instalación desatendida
-
-* Creamos una MV nueva.
-
-> OJO esta MV tiene que tener un tamaño de disco duro similar a la MV de donde se creó el XML.
-
-* Ponemos el DVD de instalación de OpenSUSE.
-* Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
-
-Elegiremos una de las siguientes formas para localizar el fichero XML.
-* **USB** - Fichero de control en USB
-    * En opciones de arranque ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
-    * OJO que son 3 barras seguidas después de los dos puntos.
-* **ISO** - Fichero de control dentro de la propia ISO
-   * En opciones de arranque ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
-   * OJO que son 3 barras seguidas después de los dos puntos.
-
-> **Otras opciones**
->
-> * **SMB/CIFS** - Fichero de control en carpeta compartida de Windows
->     * `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
-> * **HTTP** - Fichero de control en un servidor Web (HTTP)
->     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
->     * Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
-
-A continuación debe comenzar la instalación de forma desatendida con las opciones
-especificadas en el fichero XML.
-
----
-
-# ANEXO A
 
 ## A.2 OpenSUSE 13.2 (modo 1)
 
