@@ -126,6 +126,8 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 
 ## A.1 Windows 10
 
+* https://www.rafaelsantos.es/web/informatica/windows/39-instalacion-de-windows-desatendida
+    * Windows System Image Manager
 * `ntlite` es una herramienta para personalizar la instalación de Windows (www.ntlite.com/download/).
 * Otra herramienta es nlite
 
