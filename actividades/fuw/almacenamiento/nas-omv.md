@@ -23,6 +23,8 @@ Enlace de interés:
 
 * Desde otra máquina abrimos navegador con URL `ip-del-nas`
 * Usuario/clave `admin/openmediavault`
+* Ir a `Almacenamiento -> Gestión de Raid`
+* Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 
 ## Recurso compartido
 
