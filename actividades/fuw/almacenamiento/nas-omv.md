@@ -2,9 +2,10 @@
 
 # Almacenamiento NAS con Open Media Vault
 
-Enlace de interés:
+Enlace de interés: 
 * https://www.openmediavault.org/
 
+Proceso:
 * Crear una nueva MV (tipo Debian).
 * Añadir 2 discos de 500 MB.
 * Instalar Open Media Vault.
