@@ -17,6 +17,12 @@ Enlace de interés:
 * Nombre de máquina: `openmediavaultXX`
 * Dominio: `curso1718`
 * Elegir el disco para instalar el sistema operativo.
+* Al terminar la instalación entramos para consultar la IP de la máquina.
+
+## Acceso Web
+
+* Desde otra máquina abrimos navegador con URL `ip-del-nas`
+* Usuario/clave `admin/openmediavault`
 
 ## Recurso compartido
 
@@ -25,3 +31,9 @@ Enlace de interés:
 * Crear usuario con permisos de lectura/escritura sobre el recurso.
 * Desde un cliente Windows 7 comprobar el acceso al recurso compartido.
 * Desde un cliente GNU/Linux comprobar el acceso al recurso compartido.
+
+---
+
+# ANEXO
+
+`firstaid`para cambiar clave.
