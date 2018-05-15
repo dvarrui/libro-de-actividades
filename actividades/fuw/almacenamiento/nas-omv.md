@@ -33,6 +33,7 @@ Enlace de interés:
 * Crear recurso compartido `public` con permisos de Lectura/escritura para los usuarios.
 * Ir a `Servicios -> SMB/CIFS` -> `Habilitar`
 * Ir a `Diagnósticos -> Sevicios` para verificar que el servicio SMB/CIFS está habilitado y en ejecución.
+    * Si el servicio no está en ejecución podemos reiniciar el equipo.
 
 ## Comprobar
 
