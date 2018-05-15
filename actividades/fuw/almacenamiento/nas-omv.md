@@ -29,8 +29,10 @@ Enlace de interés:
 * Crear un sistema de archivos con el nombre `nasdatos`, usando el dispositivo RAID1 (`nasraid1`)
 * Ir a `Permisos de Acceso -> Usuarios`
 * Crear un nuevo usuario `nombre-alumnoXX`
-* Ir a `Servicios -> SMB/CIFS`
+* Ir a `Servicios -> SMB/CIFS -> Compartido`
 * Crear recurso compartido `public` con permisos de Lectura/escritura para los usuarios.
+* Ir a `Servicios -> SMB/CIFS` -> `Habilitar`
+* Ir a `Diagnósticos -> Sevicios` para verificar que el servicio SMB/CIFS está habilitado e iniciado.
 
 ## Comprobar
 
