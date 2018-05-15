@@ -5,6 +5,15 @@
 Enlace de interés:
 * https://www.openmediavault.org/
 
+openmediavault es una herramienta NAS (network attached storage) basada en Debian.
+Contiene servicios como SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, cliente
+BitTorrent client, etc. Tiene un diseño modular que le permite ampliar funciones
+mediante el uso de plugins.
+
+openmediavault está diseñado para usarse principalmente para pequeñas oficinas o
+entornos domésticos, pero no está limitado a esos entornos.
+Es simple y fácil de usar para un usuario no experto.
+
 ## Crear la MV
 
 * Crear una nueva MV (tipo Debian 64 bits) con 3 discos:
