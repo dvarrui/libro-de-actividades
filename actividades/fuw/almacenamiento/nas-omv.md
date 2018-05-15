@@ -25,6 +25,12 @@ Enlace de interés:
 * Usuario/clave `admin/openmediavault`
 * Ir a `Almacenamiento -> Gestión de Raid`
 * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
+* Ir a `Almacenamiento -> Sistema de archivos`
+* Crear un sistema de archivos con el nombre `nasdatos`, usando el dispositivo RAID1 (`nasraid1`)
+* Ir a `Permisos de Acceso -> Usuarios`
+* Crear un nuevo usuario `nombre-alumnoXX`
+* Ir a `Servicios -> SMB/CIFS`
+* Crear recurso compartido `public` con permisos de Lectura/escritura para los usuarios.
 
 ## Recurso compartido
 
