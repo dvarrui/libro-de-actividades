@@ -19,7 +19,7 @@ Enlace de interés:
 * Elegir el disco para instalar el sistema operativo.
 * Al terminar la instalación entramos para consultar la IP de la máquina.
 
-## Acceso Web
+## Crear recurso compartido
 
 * Desde otra máquina abrimos navegador con URL `ip-del-nas`
 * Usuario/clave `admin/openmediavault`
@@ -32,11 +32,8 @@ Enlace de interés:
 * Ir a `Servicios -> SMB/CIFS`
 * Crear recurso compartido `public` con permisos de Lectura/escritura para los usuarios.
 
-## Recurso compartido
+## Comprobar
 
-* Activar el servicio SMB/CIFS.
-* Crear un recurso compartido SMB/CIFS.
-* Crear usuario con permisos de lectura/escritura sobre el recurso.
 * Desde un cliente Windows 7 comprobar el acceso al recurso compartido.
 * Desde un cliente GNU/Linux comprobar el acceso al recurso compartido.
 
