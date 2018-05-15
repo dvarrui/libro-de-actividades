@@ -33,26 +33,45 @@ Enlace de interés:
 * Ir a `Almacenamiento -> Gestión de Raid`
 * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 * Ir a `Almacenamiento -> Sistema de archivos`
-* Crear un sistema de archivos con el nombre `nasdatos`, usando el dispositivo RAID1 (`nasraid1`)
-
-## Crear usuario
-
-* Ir a `Permisos de Acceso -> Usuarios`
-* Crear un nuevo usuario `nombre-alumnoXX`
+* Crear un nuevo sistema de archivos
+    * Usanr el dispositivo RAID1 (`nasraid1`)
+    * Nombre `nasdatos`
+    * Formato `ext4`
+* Montar el disco de `nasraid1`.
 
 ## Crear recurso compartido
 
-* Ir a `Servicios -> SMB/CIFS -> Compartido`
-* Crear recurso compartido `public` con permisos de Lectura/escritura para los usuarios.
-* Ir a `Servicios -> SMB/CIFS` -> `Habilitar`
+* Ir a `Servicios -> SMB/CIFS -> Compartidos`
+* Añadir
+    * Habilitar `SI`
+    * Carpeta compartida -> Crear `+`
+        * Nombre: `public`
+        * Dispositivo: `nasraid1`
+        * Ruta: `public/`
+        * Con permisos de Lectura/escritura para los usuarios.
+    * Público `NO`
+    * Sólo lectura `NO`
+
+## Crear usuario
+
+* Ir a `Permisos de Acceso -> Usuarios`.
+* Crear un nuevo usuario `nombre-alumnoXX`.
+* Comprobar que pertenece al grupo `users`.
+* Ir a `Permisos de Acceso -> Carpetas compartidas`.
+* Dar permisos al usuario `nombre-alumnoXX` de lectura/escritura sobre la carpeta compartida.
+
+## Activar el servicio
+
+* Ir a `Servicios -> SMB/CIFS -> Configuración -> Habilitar`
 * Ir a `Diagnósticos -> Sevicios` para verificar que el servicio SMB/CIFS está habilitado y en ejecución.
-* Si el servicio no está en ejecución podemos reiniciar el equipo o probar con `systemctl start smb`.
+* Si el servicio no está en ejecución podemos reiniciar el equipo o probar con `systemctl start smbd`.
 
 ## Comprobar
 
 * Desde un cliente Windows 7 comprobar el acceso al recurso compartido.
 * Desde un cliente GNU/Linux comprobar el acceso al recurso compartido.
-    * `smb://ip-del-nas`
+    * Abrir explorador de archivos -> CTRL+L
+    * Poner URL `smb://ip-del-nas`
 
 ---
 
