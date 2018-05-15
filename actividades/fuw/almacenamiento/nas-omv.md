@@ -6,8 +6,10 @@ Enlace de interés:
 * https://www.openmediavault.org/
 
 Proceso:
-* Crear una nueva MV (tipo Debian).
-* Añadir 2 discos de 500 MB.
+* Crear una nueva MV (tipo Debian) con 3 discos:
+    * Disco 8 GB (Para instalar el sistema)
+    * Disco de 500 MB (Para almacenamiento).
+    * Disco de 500 MB (Para almacenamiento).
 * Instalar Open Media Vault.
 * Activar el servicio SMB/CIFS.
 * Crear un recurso compartido SMB/CIFS.
