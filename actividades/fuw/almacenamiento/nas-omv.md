@@ -18,6 +18,8 @@ Enlace de interés:
 * Dominio: `curso1718`
 * Elegir el disco para instalar el sistema operativo.
 
+## Recurso compartido
+
 * Activar el servicio SMB/CIFS.
 * Crear un recurso compartido SMB/CIFS.
 * Crear usuario con permisos de lectura/escritura sobre el recurso.
