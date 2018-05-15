@@ -18,12 +18,18 @@ Enlace de interés:
 * Nombre de máquina: `openmediavaultXX`
 * Dominio: `curso1718`
 * Elegir el disco1 (sda) para instalar el sistema operativo.
-* Al terminar la instalación entramos para consultar la IP de la máquina.
+* Al terminar la instalación se nos muestra la IP del NAS.
+    * Apuntar la IP del NAS.
+    * Usuario/clave del panel Web: `admin/openmediavault`
+* Entrar con el usuario `root`.
+* Ejecutar el comando `omv-firstaid`
+    * Configurar IP estática para el NAS.
+    * Cambiar clave de acceso al panel Web.
 
 ## Crear almacenamiento RAID
 
 * Desde otra máquina abrimos navegador con URL `ip-del-nas`
-* Usuario/clave `admin/openmediavault`
+* Poner usuario/clave del panel Web.
 * Ir a `Almacenamiento -> Gestión de Raid`
 * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 * Ir a `Almacenamiento -> Sistema de archivos`
