@@ -49,7 +49,6 @@ Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se pue
 * Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo siguiente (dependiendo de nuestra versión) y lo abrimos:
     * `C:\W7\sources\install_Windows 7 PROFESSIONAL.clg.`
     * `C:\W7\sources\install_Windows 7 ENTERPRISE.clg.`
-    * Si falla la carga probar con `C:\W7\Sources\install.wim`
     * OJO: Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 
@@ -57,42 +56,51 @@ Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se pue
 
 * Crear el archivo de autorespuesta que configuraremos a continuación.
 Ir a `Archivo -> Nuevo archivo de respuesta`.
-* Vamos a agregar lo siguiente:
+* Para agregar componentes hacemos lo siguiente:
     * Buscamos los componentes en la parte izquierda
     * Hay que añadirlos en el ciclo que se indica
     * y posteriormente completamos los valores de los parámetros asociados.
 
 > * En el apartado `Windows Setup` encontraremos los componentes para configurar los discos, particiones e ImageInstall.
 > * Usar el comando `imagex /info C:\W7\sources\install.wim` para averiguar el valor para `/IMAGE/INDEX`.
-
-| Componente | Ciclo | Parámetros |
-| :--------- | :---- | :--------- |
-| amd64 Microsoft Windows International Core... neutral | windowsPE | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
-| amd64 Microsoft International Core / SetupUILanguage | windowsPE | UILanguage: es-ES, WillShowUI: OnError |
-| Windows Setup / DiskConfiguration | windowsPE | WillShowUI: OnError |
-| Windows Setup / DiskConfiguration / Disk | windowsPE | DiskID: 0, WillWipeDisk: true |
-| Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | windowsPE | Order: 1, Size: 200, Type: primary |
-| Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | windowsPE | Order: 2, Size: 200, Type: primary |
-| Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | windowsPE | Active: true, Format: NTFS, label: System, Order: 1, PartitionID: 1 |
-| Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | windowsPE | Extend: true, Format: NTFS, label: Windows7, Letter: C, Order: 2, PartitionID: 2 |
-| Windows Setup / ImageInstall / OSImage | windowsPE | InstallToAvailablePartition: false, WillShowUI: OnError |
-| Windows Setup / ImageInstall / OSImage / InstallTo| windowsPE | DiskID: 0, PartitionID: 2 |
-| Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | windowsPE | key: /IMAGE/NAME, Value: Windows 7 ENTERPRISE |
-
-> * En el apartado `x86 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * El campo con la información `Serial del producto` lo vamos a dejar en blanco.
+
+* Agregar los siguientes componentes al ciclo **windowsPE**.
+
+| Componente | Parámetros |
+| :--------- | :--------- |
+| amd64 Microsoft Windows International Core... neutral | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
+| amd64 Microsoft International Core / SetupUILanguage | UILanguage: es-ES, WillShowUI: OnError |
+| amd64 Windows Setup / DiskConfiguration | WillShowUI: OnError |
+| amd64 Windows Setup / DiskConfiguration / Disk | DiskID: 0, WillWipeDisk: true |
+| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 1, Size: 200, Type: primary |
+| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 2, Size: 200, Type: primary |
+| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Active: true, Format: NTFS, label: System, Order: 1, PartitionID: 1 |
+| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Extend: true, Format: NTFS, label: Windows7, Letter: C, Order: 2, PartitionID: 2 |
+| amd Windows Setup / ImageInstall / OSImage | InstallToAvailablePartition: false, WillShowUI: OnError |
+| amd64 Windows Setup / ImageInstall / OSImage / InstallTo| DiskID: 0, PartitionID: 2 |
+| amd64 Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | key: /IMAGE/NAME, Value: Windows 7 ENTERPRISE |
+| amd64 Shell Setup / UserData| AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
+| amd64 Shell Setup / UserData / ProductKey | Key: (serial de producto), WillShowUI: OnError |
+
+> * En el apartado `amd64 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
 
-| Componente | Ciclo | Parámetros |
-| :--------- | :---- | :--------- |
-| x86 Shell Setup / UserData| windowsPE | AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
-| x86 Shell Setup / UserData / ProductKey | windowsPE | Key: (serial de producto), WillShowUI: OnError |
-| x86 Shell Setup | oobeSystem | RegisteredOrganization: Contoso, RegisteredOwner: DemoUSer, TimeZone: (Usar salida del comando "tzutil /g") |
-| x86 Shell Setup / OOBE | oobeSystem | HideEULAPage: true, NetworkLocation: Home, ProtectYourPC: 1 |
-| x86 Shell Setup / UserAccount / LocalAccounts / LocalAccount | oobeSystem | Description: Administrador, DisplayName: DemoUser, Group: administrators, Name: DemoUser |
-| x86 Shell Setup | specialize | ComputerName: DemoPC |
-| x86 Shell Setup / OEMInformation | oobeSystem | HelpCustomized: false, Manufacturer: Contoso, SupportHours: 24/7, SupportURL: geeks.ms/blogs/checho |
-| x86 Microsoft Windows International Core... neutral | oobeSystem | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
+* Agregar los siguientes componentes al ciclo **oobeSystem**.
+
+| Componente | Parámetros |
+| :--------- | :--------- |
+| amd64 Shell Setup | RegisteredOrganization: Contoso, RegisteredOwner: DemoUSer, TimeZone: (Usar salida del comando "tzutil /g") |
+| amd64 Shell Setup / OOBE | HideEULAPage: true, NetworkLocation: Home, ProtectYourPC: 1 |
+| amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: Administrador, DisplayName: DemoUser, Group: administrators, Name: DemoUser |
+| amd64 Shell Setup / OEMInformation | HelpCustomized: false, Manufacturer: Contoso, SupportHours: 24/7, SupportURL: geeks.ms/blogs/checho |
+| amd64 Microsoft Windows International Core... neutral | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
+
+* Agregar el siguiente componentes al ciclo **specialize**.
+
+| Componente | Parámetros |
+| :--------- | :--------- |
+| amd64 Shell Setup | ComputerName: DemoPC |
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
