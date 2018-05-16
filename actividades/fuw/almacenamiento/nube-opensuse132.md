@@ -1,9 +1,4 @@
 
-```
-Utilizada en los cursos 201415 y 201314
-En el curso 201516 se amplía para usar OpenSUSE13.2
-```
-
 # 1. Entrega
 
 * Apartado 2:

@@ -1,8 +1,3 @@
-```
-* Fecha de creación : curso 201415
-* Fecha de UM       : curso 201617
-* Sistema Operativo : OpenSUSE Leap, OpenSUSE 13.2
-```
 
 # iSCSI en OpenSUSE
 

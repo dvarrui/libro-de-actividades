@@ -1,7 +1,3 @@
-```
-* Práctica creada en el curso 201415
-* Actualizada para el curso 201617
-```
 
 # iSCSI en Windows 2008 Server
 

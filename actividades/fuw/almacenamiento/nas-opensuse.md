@@ -1,7 +1,3 @@
-```
-* Práctica utilizada en los cursos 201213, 201314, 201415
-* Actualizada para el curso 201516
-```
 
 # Almacenamiento NAS con OpenSUSE
 

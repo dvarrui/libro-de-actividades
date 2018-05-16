@@ -1,9 +1,5 @@
-```
-* Práctica utilizada en los cursos 201213, 201314, 201415
-* Actualizada para el curso 201516
-```
 
-# Almacenamiento NAS
+# Almacenamiento NAS con FreeNAS
 
 * Trabajar de forma individual.
 * Entregar informe con capturas de pantalla.
