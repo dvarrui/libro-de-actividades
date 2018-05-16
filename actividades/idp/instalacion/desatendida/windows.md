@@ -12,8 +12,8 @@ Entregar:
 # 1. Introducción
 
 Enlaces de interés:
-* [Instalación desatendida para Windows - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
-* [Instalación desatendida de Windows- David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
+* [Instalación desatendida Windows7 - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
+* [Instalación desatendida Windows7 - David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
 
 Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
 El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `autounattend.xml`.
@@ -42,31 +42,64 @@ Requisitos:
 
 # 3. Crear fichero de respuestas
 
+## 3.1 Abrir el archivo de catálogo
+
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
 * Ir a `Archivo -> Seleccionar imagen de Windows` y buscamos el archivo siguiente (dependiendo de nuestra versión) y lo abrimos:
-    * `C:\W7\Sources\install_Windows 7 PROFESSIONAL.clg.`
-    * `C:\W7\Sources\install_Windows 7 ENTERPRISE.clg.`
+    * `C:\W7\sources\install_Windows 7 PROFESSIONAL.clg.`
+    * `C:\W7\sources\install_Windows 7 ENTERPRISE.clg.`
     * Si falla la carga probar con `C:\W7\Sources\install.wim`
     * OJO: Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
-* Crear el archivo de autorespuesta que configuraremos posteriormente. Ir a `Archivo -> Nuevo archivo de respuesta`.
 
-Ver ejemplo:
+## 3.2 Crear el archivo de respuestas (autounattend.xml)
+
+* Crear el archivo de autorespuesta que configuraremos a continuación.
+Ir a `Archivo -> Nuevo archivo de respuesta`.
+* Vamos a agregar lo siguiente:
+    * Buscamos los componentes en la parte izquierda
+    * Hay que añadirlos en el ciclo que se indica
+    * y posteriormente completamos los valores de los parámetros asociados.
+
+> * En el apartado `Windows Setup` encontraremos los componentes para configurar los discos, particiones e ImageInstall.
+> * Usar el comando `imagex /info C:\W7\sources\install.wim` para averiguar el valor para `/IMAGE/INDEX`.
+
+| Componente | Ciclo | Parámetros |
+| :--------- | :---- | :--------- |
+| amd64 Microsoft Windows International Core... neutral | windowsPE | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
+| amd64 Microsoft International Core / SetupUILanguage | windowsPE | UILanguage: es-ES, WillShowUI: OnError |
+| Windows Setup / DiskConfiguration | windowsPE | WillShowUI: OnError |
+| Windows Setup / DiskConfiguration / Disk | windowsPE | DiskID: 0, WillWipeDisk: true |
+| Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | windowsPE | Order: 1, Size: 200, Type: primary |
+| Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | windowsPE | Order: 2, Size: 200, Type: primary |
+| Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | windowsPE | Active: true, Format: NTFS, label: System, Order: 1, PartitionID: 1 |
+| Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | windowsPE | Extend: true, Format: NTFS, label: Windows7, Letter: C, Order: 2, PartitionID: 2 |
+| Windows Setup / ImageInstall / OSImage | windowsPE | InstallToAvailablePartition: false, WillShowUI: OnError |
+| Windows Setup / ImageInstall / OSImage / InstallTo| windowsPE | DiskID: 0, PartitionID: 2 |
+| Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | windowsPE | key: /IMAGE/NAME, Value: Windows 7 ENTERPRISE |
+
+> * En el apartado `x86 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
+> * El campo con la información `Serial del producto` lo vamos a dejar en blanco.
+> * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
+
+| Componente | Ciclo | Parámetros |
+| :--------- | :---- | :--------- |
+| x86 Shell Setup / UserData| windowsPE | AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
+| x86 Shell Setup / UserData / ProductKey | windowsPE | Key: (serial de producto), WillShowUI: OnError |
+| x86 Shell Setup | oobeSystem | RegisteredOrganization: Contoso, RegisteredOwner: DemoUSer, TimeZone: (Usar salida del comando "tzutil /g") |
+| x86 Shell Setup / OOBE | oobeSystem | HideEULAPage: true, NetworkLocation: Home, ProtectYourPC: 1 |
+| x86 Shell Setup / UserAccount / LocalAccounts / LocalAccount | oobeSystem | Description: Administrador, DisplayName: DemoUser, Group: administrators, Name: DemoUser |
+| x86 Shell Setup | specialize | ComputerName: DemoPC |
+| x86 Shell Setup / OEMInformation | oobeSystem | HelpCustomized: false, Manufacturer: Contoso, SupportHours: 24/7, SupportURL: geeks.ms/blogs/checho |
+| x86 Microsoft Windows International Core... neutral | oobeSystem | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
 
 ![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
-> ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
+## 3.3 Validar y guardar respuestas
 
-* El campo con la información `Serial del producto` lo vamos a dejar en blanco.
-* Buscar los elementos/componentes en la parte izquierda. Los añadimos, y configuramos los parámetros según la tabla anterior.
-    * En la sección `WindowsSetup` encontraremos los apartados para configurar los discos, particiones e ImageInstall.
-    * En la sección `ShellSetup` encontraremos los apartados para configurar OOBE, cuentas de usuario, y OEM Information.
-* Agregar componente `Microsoft International Core -> SetupUILanguage`
-    * UILanguage: es-ES
-    * WillShowUI. OnError
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
-* Guardar el archivo de respuesta en `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
+* Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 ---
 
@@ -74,12 +107,14 @@ Ver ejemplo:
 
 * Crear la carpeta `C:\W7\applications`. Dentro pondremos un programa de instalación MSI. Por ejemplo: Evince, o el que creamos en prácticas anteriores para Firefox, etc.
 * Para que la instalación automática de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
-`Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`.
+`amd64-Microsoft-Windows-Shell-Setup_neutral -> FirstLogonCommands -> Synchronous Command`.
 * Configuramos los parámetros de la siguiente forma:
-    * CommandLine: Ubicación del ejecutable de la aplicación. Ejemplo: `C:\W7\applications\ejecutable.msi`.
+    * CommandLine: Ubicación del ejecutable de la aplicación. Ejemplo: `D:\applications\ejecutable.msi`.
     * Description: Una descripción del programa que se va a instalar.
     * Order: Orden en el que se instalará la aplicación. Ejemplo: `1`.
     * RequiresUserInput: Si la aplicación necesita interacción del usuario. Ejemplo: `false`.
+* Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
+* Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 > Deberemos agregar este componentes tantas veces como aplicaciones queramos que se instalen al inicio.
 
