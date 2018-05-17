@@ -71,7 +71,7 @@ Es simple y fácil de usar para un usuario no experto.
 
 ## Activar el servicio
 
-* Ir a `Servicios -> SMB/CIFS -> Configuración -> Habilitar`
+* Ir a `Servicios -> SMB/CIFS -> Configuración -> Opciones Generales -> Habilitar`
 * Ir a `Diagnósticos -> Sevicios` para verificar que el servicio SMB/CIFS está habilitado y en ejecución.
 * Si el servicio no está en ejecución podemos reiniciar el equipo o probar con `systemctl start smbd`.
 
