@@ -42,7 +42,7 @@ Es simple y fácil de usar para un usuario no experto.
 * Ir a `Almacenamiento -> Gestión de Raid`
     * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 * Ir a `Almacenamiento -> Sistema de archivos`
-    * Crear un nuevo sistema de archivos
+    * Crear un nuevo sistema de archivos.
         * Usar el dispositivo RAID1 (`nasraid1`)
         * Nombre `nasdatos`
         * Formato `ext4`
@@ -79,7 +79,7 @@ Es simple y fácil de usar para un usuario no experto.
 
 Ir a MV Windows 7:
 * Comprobar el acceso al recurso compartido (incluir captura de pantalla).
-* Podemos encontrar la MV más rápido poniendo `\\\ip-del-servidor` en la búsqueda de red.
+* Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
 * `net use` para comprobar sesiones de red abiertas.
 * `netstat`, comprobar que hay una conexión establecida con el servidor.
 
