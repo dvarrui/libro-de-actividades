@@ -77,10 +77,20 @@ Es simple y fácil de usar para un usuario no experto.
 
 ## Comprobar
 
-* Desde un cliente Windows 7 comprobar el acceso al recurso compartido.
-* Desde un cliente GNU/Linux comprobar el acceso al recurso compartido.
+Ir a MV Windows 7:
+* Comprobar el acceso al recurso compartido (incluir captura de pantalla).
+* Podemos encontrar la MV más rápido poniendo \\ip-del-servidor en la búsqueda de red.
+* `net use` para comprobar sesiones de red abiertas.
+* `netstat`, comprobar que hay una conexión establecida con el servidor.
+
+> Después de cada conexión se quedan guardada la información en el cliente Windows (Ver comando `net use`).
+> Para cerrar las conexión SMB/CIFS que ha realizado el cliente al servidor, usamos el comando: `C:>net use * /d /y`.
+
+Ir a MV GNU/Linux:
+* Comprobar el acceso al recurso compartido  (incluir captura de pantalla).
     * Abrir explorador de archivos -> CTRL+L
     * Poner URL `smb://ip-del-nas`
+* `netstat`, comprobar que hay una conexión establecida con el servidor.
 
 ---
 
