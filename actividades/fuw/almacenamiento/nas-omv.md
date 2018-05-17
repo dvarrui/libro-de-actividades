@@ -40,13 +40,13 @@ Es simple y fácil de usar para un usuario no experto.
 * Desde otra máquina abrimos navegador con URL `ip-del-nas`
 * Poner usuario/clave del panel Web.
 * Ir a `Almacenamiento -> Gestión de Raid`
-* Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
+    * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 * Ir a `Almacenamiento -> Sistema de archivos`
-* Crear un nuevo sistema de archivos
-    * Usanr el dispositivo RAID1 (`nasraid1`)
-    * Nombre `nasdatos`
-    * Formato `ext4`
-* Montar el disco de `nasraid1`.
+    * Crear un nuevo sistema de archivos
+        * Usar el dispositivo RAID1 (`nasraid1`)
+        * Nombre `nasdatos`
+        * Formato `ext4`
+    * Montar el disco de `nasraid1`.
 
 ## Crear recurso compartido
 
@@ -64,10 +64,10 @@ Es simple y fácil de usar para un usuario no experto.
 ## Crear usuario
 
 * Ir a `Permisos de Acceso -> Usuarios`.
-* Crear un nuevo usuario `nombre-alumnoXX`.
-* Comprobar que pertenece al grupo `users`.
+    * Crear un nuevo usuario `nombre-alumnoXX`.
+    * Comprobar que pertenece al grupo `users`.
 * Ir a `Permisos de Acceso -> Carpetas compartidas`.
-* Dar permisos al usuario `nombre-alumnoXX` de lectura/escritura sobre la carpeta compartida.
+    * Dar permisos al usuario `nombre-alumnoXX` de lectura/escritura sobre la carpeta compartida.
 
 ## Activar el servicio
 
