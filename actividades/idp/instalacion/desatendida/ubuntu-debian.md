@@ -2,16 +2,42 @@
 
 # Instalación desatendida con Ubuntu usando KickStart
 
+Enlaces de interés:
 * Ver [vídeo](https://youtu.be/i2uUIux6_l8)
 * [Tutorial kickstart](https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart)
 
-Proceso:
-* Instalar la herramienta Kickstart
-* Crear el archivo de respuestas
-* Crear la nueva ISO personalizada
-* Comprobar la ISO creada.
+## Preparativos
+* Usar una MV con ubuntu (o Xubuntu que es más ligero).
+* Instalar las herramientas siguientes:
+    * `isomaster`: Se usa para manejar ficheros con formato ISO.
+    * `system-config-kickstar` (Kickstart): Se usa para crear el fichero de respuestas.
+* Descargar una ISO de instalación de Ubuntu dentro de la MV.
 
-# Instalación desatendida con Debian
+## Modificar el menú de arranque
+* Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
+* Modificar el fichero `txt.cfg` para incluir una opción de aranque para la instalación desatendida.
+
+## Crear archivo de respuestas
+* Usar la herramienta Kickstar para crear el archivo de respuestas.
+    * Configuración básica: Definir idioma.
+    * Definir las particiones:
+        * swap (tamaño recomendado)
+        * /  ext4 (usar el resto del disco)
+        * Configurar la tarjeta de red.
+        * Crear usuario
+* Guardar el fichero de respuestas como `ks.cfg` en el escritorio (Por ejemplo).
+
+## Crear nueva ISO y comprobar
+* Usar `isomaster` para 
+    * Guardar el fichero `ks.cfg` dentro de la ISO.
+    * Crear la nueva ISO personalizada
+* Comprobar la nueva ISO para instalar una nueva MV.
+
+---
+
+# ANEXO
+
+#3 Instalación desatendida con Debian
 
 Enlaces de interés:
 * Tutorial de cómo modificar
