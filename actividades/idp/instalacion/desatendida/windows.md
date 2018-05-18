@@ -80,8 +80,8 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 | amd Windows Setup / ImageInstall / OSImage | InstallToAvailablePartition: false, WillShowUI: OnError |
 | amd64 Windows Setup / ImageInstall / OSImage / InstallTo| DiskID: 0, PartitionID: 2 |
 | amd64 Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | key: /IMAGE/NAME, Value: Windows 7 ENTERPRISE |
-| amd64 Shell Setup / UserData| AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
-| amd64 Shell Setup / UserData / ProductKey | Key: (serial de producto), WillShowUI: OnError |
+| amd64 Windows Setup / UserData| AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
+| amd64 Windows Setup / UserData / ProductKey | Key: (serial de producto), WillShowUI: OnError |
 
 > * En el apartado `amd64 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
