@@ -102,8 +102,6 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 | :--------- | :--------- |
 | amd64 Shell Setup | ComputerName: DemoPC |
 
-![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
-
 ## 3.3 Validar y guardar respuestas
 
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
@@ -166,6 +164,8 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 ---
 
 # ANEXO A
+
+![w7-tabla-componentes.jpg](./files/w7-tabla-componentes.jpg)
 
 ## A.1 Windows 10
 
