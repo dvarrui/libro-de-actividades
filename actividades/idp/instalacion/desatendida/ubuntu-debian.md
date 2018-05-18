@@ -37,7 +37,7 @@ Enlaces de interés:
 
 # ANEXO
 
-#3 Instalación desatendida con Debian
+## Instalación desatendida con Debian
 
 Enlaces de interés:
 * Tutorial de cómo modificar
