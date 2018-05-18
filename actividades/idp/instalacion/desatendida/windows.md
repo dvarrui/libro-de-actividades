@@ -91,7 +91,7 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 | Componente | Parámetros |
 | :--------- | :--------- |
 | amd64 Shell Setup | RegisteredOrganization: Contoso, RegisteredOwner: DemoUSer, TimeZone: (Usar salida del comando "tzutil /g") |
-| amd64 Shell Setup / OOBE | HideEULAPage: true, NetworkLocation: Home, ProtectYourPC: 1 |
+| amd64 Shell Setup / OOBE | HideEULAPage: true, NetworkLocation: Home |
 | amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: Administrador, DisplayName: DemoUser, Group: administrators, Name: DemoUser |
 | amd64 Shell Setup / OEMInformation | HelpCustomized: false, Manufacturer: Contoso, SupportHours: 24/7, SupportURL: geeks.ms/blogs/checho |
 | amd64 Microsoft Windows International Core... neutral | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
