@@ -10,7 +10,7 @@ Enlaces de interés:
 * Usar una MV con ubuntu (o Xubuntu que es más ligero).
 * Instalar las herramientas siguientes:
     * `isomaster`: Se usa para manejar ficheros con formato ISO.
-    * `system-config-kickstar` (Kickstart): Se usa para crear el fichero de respuestas.
+    * `system-config-kickstart` (Kickstart): Se usa para crear el fichero de respuestas.
 * Descargar una ISO de instalación de Ubuntu dentro de la MV.
 
 ## Modificar el menú de arranque
@@ -18,7 +18,7 @@ Enlaces de interés:
 * Modificar el fichero `txt.cfg` para incluir una opción de aranque para la instalación desatendida.
 
 ## Crear archivo de respuestas
-* Usar la herramienta Kickstar para crear el archivo de respuestas.
+* Usar la herramienta Kickstart para crear el archivo de respuestas.
     * Configuración básica: Definir idioma.
     * Definir las particiones:
         * swap (tamaño recomendado)
