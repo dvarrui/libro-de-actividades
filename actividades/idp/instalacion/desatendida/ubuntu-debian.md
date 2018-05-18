@@ -19,10 +19,12 @@ Enlaces de interés:
 
 ## Crear archivo de respuestas
 * Usar la herramienta Kickstart para crear el archivo de respuestas.
-    * Configuración básica: Definir idioma.
+    * Configuración básica: 
+        * Definir idioma: Español
+        * Arquitectura objetivo: 64 bits
     * Definir las particiones:
         * swap (tamaño recomendado)
-        * /  ext4 (usar el resto del disco)
+        * /  ext4 (rellenar todo el espacio del disco)
         * Configurar la tarjeta de red.
         * Crear usuario
 * Guardar el fichero de respuestas como `ks.cfg` en el escritorio (Por ejemplo).
