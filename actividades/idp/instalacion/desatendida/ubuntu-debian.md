@@ -15,6 +15,20 @@ Enlaces de interés:
 
 ## Modificar el menú de arranque
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
+* Consultar el vídeo, para averiguar las líneas que debemos incluir.
+    * Asegurarse de las rutas a los ficheros siguientes son correctas:
+        * /casper/vmlinuz.efi
+        * /cdrom/preseed/xubuntu.seed 
+        * /carper/initrd.lz
+    * Consultar el siguiente ejemplo de fichero `txt.cfg`:
+```
+default desatendida
+label desatendida
+    menu ^Ubuntu desatendido
+    kernel /casper/vmlinuz.efi
+    append file=/cdrom/preseed/xubuntu.seed initrd=/carper/initrd.lz ks=cdrom:/ks.cfg
+...
+```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
 * Grabar el fichero `txt.cfg` modificado dentro de la ISO.
 
