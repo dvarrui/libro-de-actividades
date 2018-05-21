@@ -16,11 +16,8 @@ Enlaces de interés:
 ## Modificar el menú de arranque
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
 * Consultar el vídeo, para averiguar las líneas que debemos incluir.
-    * Asegurarse de las rutas a los ficheros siguientes son correctas:
-        * /casper/vmlinuz.efi
-        * /cdrom/preseed/xubuntu.seed 
-        * /casper/initrd.lz
-    * Consultar el siguiente ejemplo de fichero `txt.cfg`:
+    * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `xubuntu.seed` e `initrd`, según nuestra ISO.
+    * Consultar el siguiente ejemplo de fichero `txt.cfg` a modo de referencia:
 ```
 default desatendida
 label desatendida
