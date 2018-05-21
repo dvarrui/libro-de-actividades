@@ -15,7 +15,8 @@ Enlaces de interés:
 
 ## Modificar el menú de arranque
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
-* Modificar el fichero `txt.cfg` para incluir una opción de aranque para la instalación desatendida.
+* Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
+* Grabar el fichero `txt.cfg` modificado dentro de la ISO.
 
 ## Crear archivo de respuestas
 * Usar la herramienta Kickstart para crear el archivo de respuestas.
