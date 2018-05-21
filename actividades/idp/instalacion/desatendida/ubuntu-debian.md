@@ -21,7 +21,7 @@ Enlaces de interés:
 ```
 default desatendida
 label desatendida
-    menu ^XUbuntu desatendidoXX
+    menu label ^XUbuntu desatendidoXX
     kernel /casper/vmlinuz.efi
     append file=/cdrom/preseed/xubuntu.seed boot=casper initrd=/casper/initrd.lz ks=cdrom:/ks.cfg ---
 ...
