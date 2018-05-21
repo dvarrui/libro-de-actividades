@@ -19,14 +19,14 @@ Enlaces de interés:
     * Asegurarse de las rutas a los ficheros siguientes son correctas:
         * /casper/vmlinuz.efi
         * /cdrom/preseed/xubuntu.seed 
-        * /carper/initrd.lz
+        * /casper/initrd.lz
     * Consultar el siguiente ejemplo de fichero `txt.cfg`:
 ```
 default desatendida
 label desatendida
-    menu ^Ubuntu desatendido
+    menu ^XUbuntu desatendido
     kernel /casper/vmlinuz.efi
-    append file=/cdrom/preseed/xubuntu.seed initrd=/carper/initrd.lz ks=cdrom:/ks.cfg
+    append file=/cdrom/preseed/xubuntu.seed initrd=/casper/initrd.lz ks=cdrom:/ks.cfg
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
