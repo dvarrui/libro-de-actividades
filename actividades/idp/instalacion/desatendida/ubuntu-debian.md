@@ -39,6 +39,17 @@ Enlaces de interés:
 
 # ANEXO
 
+## txt.cfg
+Ejemplo de fichero `txt.cfg` según el vídeo.
+```
+default desatendida
+label desatendida
+    menu ^Ubuntu desatendido
+    kernel /install/vmlinuz
+    append file=/cdrom/preseed/ubuntu.seed vga=788 initrd=/install/initrd.gz ks=cdrom:/ks.cfg
+...
+```
+
 ## Instalación desatendida con Debian
 
 Enlaces de interés:
