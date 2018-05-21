@@ -161,10 +161,9 @@ actualizaciones de las directivas.
 ## 3.4 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
-* Entramos con un usuario del dominio y se debe instalar automáticamente el programa que hemos configurado
+* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
 en las directivas. OJO. Este paso puede tardar bastante tiempo.
-
-![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
+* Mostrar salida de los comandos: `whoami` y `hostname`.
 
 > **ERRORES**
 >
@@ -179,3 +178,5 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 Parece que la directiva siguiente no es compatible con la instalación de software:
 * En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Escritorio` ( User configuration / Administrative Templates / Active Desktop)
     * `Ocultar el icono Ubicaciones de red del escritorio`.
+
+![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
