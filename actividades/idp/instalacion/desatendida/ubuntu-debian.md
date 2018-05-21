@@ -72,3 +72,9 @@ para una instalación desatendida.
 * [Proyecto Linux COE](http://linuxcoe.sourceforge.net/)
 * [Proyecto Instalinux](http://www.instalinux.com/)
 * [Documentación Debian sobre instalaciones desatendidas](http://www.debian.org/releases/stable/mips/ch04s04.html.es)
+
+
+## Preseed
+
+Instalación desatendida usando Preseed:
+* https://jjcurriculumvitae.wordpress.com/2018/02/16/instalacion-desatendida-ubuntu/
