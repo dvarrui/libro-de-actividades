@@ -49,6 +49,17 @@ label desatendida
     append file=/cdrom/preseed/ubuntu.seed vga=788 initrd=/install/initrd.gz ks=cdrom:/ks.cfg
 ...
 ```
+https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart/creacion-de-la-iso-con-el-archivo-de-respuestas-incluido
+
+```
+label kickstart
+    menu label ^Instalacion desatendida feita con Kickstart
+    kernel /install/vmlinuz
+    append file=/cdrom/preseed/ubuntu-server.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg
+```
+
+Crear iso
+* `mkisofs -D -r -V “MyUbuntu” -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o ~/UbuKickstart.iso .`
 
 ## Instalación desatendida con Debian
 
