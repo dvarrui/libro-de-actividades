@@ -3,7 +3,6 @@
 ## Material
 
 El profesor entregará el siguiente material al alumno:
-
 * Placa Raspberry PI
 * Carcasa
 * Fuente de alimentación
@@ -11,13 +10,15 @@ El profesor entregará el siguiente material al alumno:
 * Adaptador SD-USB
 * Cable HDMI
 
+Entregar un URL a vídeo subido a YouTube con todo el proceso. Incluir imágenes del hardware montado.
+
 ## Taller
 
 El alumno en casa debe hacer lo siguiente:
 
 * Consultar la web de Raspberry PI.
 * Instalar el sistema operativo en la memoria SD.
-* Conectar Rb a la Tele HDMI, teclado y ratón USB.
+* Conectar Rb a la Tele HDMI, teclado y ratón USB (Capturar imagen del montaje hardware).
 * Entrar al sistema y activar el modo gráfico.
 * Asegurarse de tener funcionando correctamente el servicio SSH.
 * Crear usuario profesor con clave/profesor
