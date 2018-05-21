@@ -21,9 +21,9 @@ Enlaces de interés:
 ```
 default desatendida
 label desatendida
-    menu ^XUbuntu desatendido
+    menu ^XUbuntu desatendidoXX
     kernel /casper/vmlinuz.efi
-    append file=/cdrom/preseed/xubuntu.seed initrd=/casper/initrd.lz ks=cdrom:/ks.cfg
+    append file=/cdrom/preseed/xubuntu.seed boot=casper initrd=/casper/initrd.lz ks=cdrom:/ks.cfg ---
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
