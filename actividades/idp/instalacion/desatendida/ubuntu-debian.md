@@ -11,19 +11,19 @@ Enlaces de interés:
 * Instalar las herramientas siguientes:
     * `isomaster`: Se usa para manejar ficheros con formato ISO.
     * `system-config-kickstart` (Kickstart): Se usa para crear el fichero de respuestas.
-* Descargar una ISO de instalación de Ubuntu dentro de la MV.
+* Descargar una ISO de instalación de `Ubuntu Server` dentro de la MV.
 
 ## Modificar el menú de arranque
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
 * Consultar el vídeo, para averiguar las líneas que debemos incluir.
-    * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `xubuntu.seed` e `initrd`, según nuestra ISO.
+    * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `ubuntu.seed` e `initrd`, según nuestra ISO.
     * Consultar el siguiente ejemplo de fichero `txt.cfg` a modo de referencia:
 ```
 default desatendida
 label desatendida
-    menu label ^XUbuntu desatendidoXX
-    kernel /casper/vmlinuz.efi
-    append file=/cdrom/preseed/xubuntu.seed boot=casper initrd=/casper/initrd.lz ks=cdrom:/ks.cfg ---
+    menu label ^XUbuntu desatendido nombre-alumnoXX
+    kernel /install/vmlinuz
+    append file=/cdrom/preseed/ubuntu.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg ---
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
