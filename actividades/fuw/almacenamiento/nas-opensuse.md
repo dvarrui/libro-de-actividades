@@ -115,7 +115,7 @@ Configuración el recurso compartido en Samba:
 * Comprobar la configuración por comandos.
     * `cat /etc/samba/smb.conf`
     * `testparm`
-* `netstat -untap`, comprobar el servicio desde la máquina local.
+* `netstat -untap`, comprobar el servicio desde el servidor NAS.
 * En el cortafuegos autorizar servicios "Cliente SAMBA" y "Servidor SAMBA".
 
 > Actualizar el sistema `zypper update` en caso de error.
