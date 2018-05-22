@@ -16,14 +16,14 @@ Enlaces de interés:
 ## Modificar el menú de arranque
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
 * Consultar el vídeo, para averiguar las líneas que debemos incluir.
-    * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `ubuntu.seed` e `initrd`, según nuestra ISO.
+    * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `ubuntu-server.seed` e `initrd`, según nuestra ISO.
     * Consultar el siguiente ejemplo de fichero `txt.cfg` a modo de referencia:
 ```
 default desatendida
 label desatendida
-    menu label ^XUbuntu desatendido nombre-alumnoXX
+    menu label ^Ubuntu desatendido nombre-alumnoXX
     kernel /install/vmlinuz
-    append file=/cdrom/preseed/ubuntu.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg ---
+    append file=/cdrom/preseed/ubuntu-server.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg ---
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
@@ -37,14 +37,14 @@ label desatendida
     * Definir las particiones:
         * swap (tamaño recomendado)
         * /  ext4 (rellenar todo el espacio del disco)
-        * Configurar la tarjeta de red.
-        * Crear usuario
-* Guardar el fichero de respuestas como `ks.cfg` en el escritorio (Por ejemplo).
+    * Configurar la tarjeta de red.
+    * Crear usuario: nombre-alumno
+* Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
 ## Crear nueva ISO y comprobar
 * Usar `isomaster` para 
     * Guardar el fichero `ks.cfg` dentro de la ISO.
-    * Crear la nueva ISO personalizada
+    * Crear la nueva ISO personalizada.
 * Comprobar la nueva ISO para instalar una nueva MV.
 
 ---
