@@ -46,7 +46,7 @@ Es simple y fácil de usar para un usuario no experto.
         * Usar el dispositivo RAID1 (`nasraid1`)
         * Nombre `nasdatos`
         * Formato `ext4`
-    * Montar el disco de `nasraid1`.
+    * Montar el disco de `/dev/md0` (`nasraid1`).
 
 ## Crear recurso compartido
 
