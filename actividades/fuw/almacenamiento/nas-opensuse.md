@@ -126,18 +126,15 @@ Configuración el recurso compartido en Samba:
 
 * Ir a MV cliente OpenSUSE.
 * En el cortafuegos autorizar servicio "Cliente SAMBA".
-* Comprobar el acceso al servidor NAS desde otra máquina con todos los
-usuarios, y todos los recursos.
+* Comprobar a conectarnos a todos los recursos del servidor NAS (incluir captura de pantalla), 
+probando todos los usuarios.
+    * En el explorador de archivos, pulsar CTRL+L para que nos aparezca casilla para URL
+    * Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
 * Comprobaciones desde el cliente:
     * Ejecutando `smbtree` en OpenSUSE veremos todos los recursos compartidos de red.
     * Ejecutando `smbclient -L ip-servidor-samba`, comprobamos que aparecen correctamente
     los nombres de los recursos compartidos de nuestra máquina Samba Server.
-
-* Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
 * `netstat -untap`, comprobar que hay una conexión establecidad con el servidor.
-
-> * En el explorador de archivos, pulsar CTRL+L para que nos aparezca casilla para URL
-> * Podemos encontrar la MV más rápido poniendo `smb://ip-del-servidor` en la búsqueda de red.
 
 ---
 
@@ -145,9 +142,7 @@ usuarios, y todos los recursos.
 
 * Ir a MV cliente Windows 7.
 * Comprobar acceso a las carpetas compartidas (incluir captura de pantalla).
-
-> Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
-
+    * Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
 * `net use` para comprobar sesiones de red abiertas.
 * `netstat`, comprobar que hay una conexión establecidad con el servidor.
 
