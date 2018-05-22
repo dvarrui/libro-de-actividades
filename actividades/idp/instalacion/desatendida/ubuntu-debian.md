@@ -51,16 +51,24 @@ label desatendida
 
 # ANEXO
 
-## txt.cfg
+## Incluir escritorio en la ISO
 
-https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart/creacion-de-la-iso-con-el-archivo-de-respuestas-incluido
+En Kickstart incluir opciones siguientes:
+* Aplicaciones: `Kubuntu Desktop`
+* XWindows: KDE
 
-```
-label kickstart
-    menu label ^Instalacion desatendida feita con Kickstart
-    kernel /install/vmlinuz
-    append file=/cdrom/preseed/ubuntu-server.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg
-```
+Resumen de los niveles de ejecución:
+* Run level 0 is matched by poweroff.target (and runlevel0.target is a symbolic link to poweroff.target).
+* Run level 1 is matched by rescue.target (and runlevel1.target is a symbolic link to rescue.target).
+* Run level 3 is emulated by multi-user.target (and runlevel3.target is a symbolic link to multi-user.target).
+* Run level 5 is emulated by graphical.target (and runlevel5.target is a symbolic link to graphical.target).
+* Run level 6 is emulated by reboot.target (and runlevel6.target is a symbolic link to reboot.target).
+* Emergency is matched by emergency.target.
+
+* `systemctl get-default`, para ver el target por defecto.
+* `systemctl set-default multi-user.target`, para cambiar el target por defecto.
+* `systemctl isolate multi-user.target`, para cambiar a runlevel 3.
+* `systemctl isolate graphical.target`, para cambiar a runlevel 5.
 
 ## Instalación desatendida con Debian
 
@@ -79,29 +87,4 @@ para una instalación desatendida.
 
 Instalación desatendida usando Preseed:
 * https://jjcurriculumvitae.wordpress.com/2018/02/16/instalacion-desatendida-ubuntu/
-
-## Cambiar runlevel
-
-* Run level 0 is matched by poweroff.target (and runlevel0.target is a symbolic link to poweroff.target).
-* Run level 1 is matched by rescue.target (and runlevel1.target is a symbolic link to rescue.target).
-* Run level 3 is emulated by multi-user.target (and runlevel3.target is a symbolic link to multi-user.target).
-* Run level 5 is emulated by graphical.target (and runlevel5.target is a symbolic link to graphical.target).
-* Run level 6 is emulated by reboot.target (and runlevel6.target is a symbolic link to reboot.target).
-* Emergency is matched by emergency.target.
-
-To view the default target, type the command below.
-```
-#systemctl get-default 
-graphical.target
-```
-To set the default target, run the command below.
-`systemctl set-default multi-user.target`
-
-How to Change the target (runlevel) in Systemd
-
-To switch to runlevel 3, run the following command.
-`systemctl isolate multi-user.target`
-
-To change the system to runlevel 5, type the command below.
-`systemctl isolate graphical.target`
 
