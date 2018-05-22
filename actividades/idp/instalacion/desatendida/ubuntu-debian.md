@@ -65,6 +65,7 @@ Resumen de los niveles de ejecución:
 * Run level 6 is emulated by reboot.target (and runlevel6.target is a symbolic link to reboot.target).
 * Emergency is matched by emergency.target.
 
+Comandos para gestionar el runlevel:
 * `systemctl get-default`, para ver el target por defecto.
 * `systemctl set-default multi-user.target`, para cambiar el target por defecto.
 * `systemctl isolate multi-user.target`, para cambiar a runlevel 3.
