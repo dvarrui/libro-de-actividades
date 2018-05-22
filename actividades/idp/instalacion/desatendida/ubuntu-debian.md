@@ -39,6 +39,8 @@ label desatendida
         * /  ext4 (rellenar todo el espacio del disco)
     * Configurar la tarjeta de red.
     * Crear usuario: nombre-alumno
+    * X Windows: configurar escritorio `KDE`. Esta opción nos sirve para activar por defecto el entorno gráfico.
+    * Paquetes: Instalar `kubuntu-desktop`. Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE.
 * Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
 ## Crear nueva ISO y comprobar
@@ -52,10 +54,6 @@ label desatendida
 # ANEXO
 
 ## Incluir escritorio en la ISO
-
-En Kickstart incluir opciones siguientes:
-* Aplicaciones: `Kubuntu Desktop`
-* XWindows: KDE
 
 Resumen de los niveles de ejecución:
 * Run level 0 is matched by poweroff.target (and runlevel0.target is a symbolic link to poweroff.target).
