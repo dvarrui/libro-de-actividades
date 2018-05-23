@@ -43,7 +43,7 @@ Vamos a necesitar varias MVs.
 
 # 2. Servidor WSUS
 
-Vamos la MV con Windows Server 2008.
+Vamos la MV con Windows Server.
 
 ## 2.1 Teoría
 
