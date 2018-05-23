@@ -15,7 +15,7 @@ consiguiendo:
 * Mejora de los tiempos de actualización global.
 * Mayor control de las actualizaciones que se desean.
 
-Los servidores de instalacion son la solución para ayudar a distribuir las actualizaciones
+Los servidores de instalación son la solución para ayudar a distribuir las actualizaciones
 Funcionamiento de WSUS:
 * Servidor pone las actualizaciones disponibles a los clientes.
 * El administrador del servidor aprueba y prioriza las actualizaciones.
