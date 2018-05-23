@@ -1,9 +1,4 @@
 
-```
-* Creada en el curso 201415
-* Utilizada en el curso 201516
-```
-
 # 1. Servidor de actualizaciones WSUS
 
 ## 1.1 Teoría
