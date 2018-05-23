@@ -27,7 +27,7 @@ label desatendida
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
-* Grabar el fichero `txt.cfg` modificado dentro de la ISO.
+* Grabar el fichero `txt.cfg` modificado dentro de la ISO en la ruta `/isolinux/txt.cfg`.
 
 ## Crear archivo de respuestas
 * Usar la herramienta Kickstart para crear el archivo de respuestas.
@@ -48,7 +48,7 @@ label desatendida
 
 ## Crear nueva ISO y comprobar
 * Usar `isomaster` para 
-    * Guardar el fichero `ks.cfg` dentro de la ISO.
+    * Guardar el fichero `ks.cfg` dentro de la ISO (En el directorio raíz de la ISO).
     * Crear la nueva ISO personalizada.
 * Comprobar la nueva ISO para instalar una nueva MV.
 
