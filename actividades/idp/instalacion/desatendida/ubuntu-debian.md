@@ -39,8 +39,11 @@ label desatendida
         * /  ext4 (rellenar todo el espacio del disco)
     * Configurar la tarjeta de red.
     * Crear usuario: nombre-alumno
-    * X Windows: configurar escritorio `KDE`. Esta opción nos sirve para activar por defecto el entorno gráfico.
-    * Paquetes: Instalar `kubuntu-desktop`. Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE.
+    * Configuración de pantalla: 
+        * Configurar escritorio `KDE` (Esta opción nos sirve para activar por defecto el entorno gráfico)
+        * Activar X Windows en el arranque.
+    * Configuración de Paquetes 
+        * Instalar `kubuntu-desktop` (Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE)
 * Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
 ## Crear nueva ISO y comprobar
