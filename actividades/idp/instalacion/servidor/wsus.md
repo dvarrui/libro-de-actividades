@@ -77,10 +77,8 @@ herramienta de Administrar del servidor Windows Server.
 ## 2.3 Configuración del servidor
 
 Vamos a configurar servidor con:
-* Fuente: Microsoft u otros servidor WSUS.
-* Base de datos en C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf.
-* Minimizar descargas: Selección de idiomas, selección de productos para actualizar.
-
+* Fuente: `Microsoft` u otros servidor WSUS.
+* Base de datos en `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
 * Para minimizar descargas es conveniente hacer una selección de idiomas
 y de productos concretos para actualizar. Elegir:
     * Idioma: `Español`
@@ -91,7 +89,7 @@ y de productos concretos para actualizar. Elegir:
 > **Sincronización Manual vs Automática**
 >
 > Elegimos manual para hacer nuestras pruebas en clase.
-> Cuando estemos en la empresa elegiremos sincronización automatica.
+> Cuando estemos en la empresa elegiremos sincronización automática.
 
 Aprobar algunas de las actualizaciones del Windows 7, en el servidor WSUS.
 * Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar las actualizaciones críticas y aprobarlas.
