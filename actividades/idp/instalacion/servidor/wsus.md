@@ -66,7 +66,8 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
 
 ## 2.2 Instalación del servidor
 
-Enlace de interés sobre [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
+Enlace de interés:
+* [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
 
 La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
