@@ -1,7 +1,7 @@
 
 # iSCSI en Windows 2008 Server
 
-Vamos a montar un iSCSI con Windows Server 2008 64 bits.
+Vamos a montar un almacenamiento iSCSI con Windows Server (64 bits).
 
 *(El siguiente texto está copiado de un enlace de Internet)*
 
@@ -40,6 +40,9 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
 
+La MV target es la encargada de ofrecer espacio de almacenamiento, y la MV Initiator será la que 
+consumirá el espacio de almacenamiento.
+
 ---
 
 # 2 Enlaces de interés
@@ -52,47 +55,59 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 # 3. Iniciador iSCSI
 
-* Poner como identificador iqn del iniciador lo siguiente: `iqn.2017-05.initiatorXXw`
+Las máquinas que intervienen en iSCSI usan un identificador llamado IQN. Al instalar el sistema
+operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos a personalizar estos valores.
+
+* Poner como identificador iqn del iniciador lo siguiente: `iqn.2018-05.initiatorXXw`.
+Donde XX es el código del alumno.
 
 ---
 
 # 4. Target iSCSI
 
-* Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
+* Consultar este vídeo [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA) para darnos una idea
+de los pasos que vamos a realizar.
 
 ## 4.1 Instalar el target
 
-* Hay que descargar el software iSCSI Target para instalar en Windows Server 2008.
+* Hay que descargar el software iSCSI Target para instalar en Windows Server (Target).
     * Descargar iSCSI Target 3.3 o superior desde la web de Microsoft.
-    * Instalar el software.
+    * Instalar el software (versión de 64 bits).
     * `C:\iSCSI_target\x64\instalar_target.msi`
-* Una vez instalado, vamos a herramientas administrativas -> iSCSI Target
+* Una vez instalado, vamos a `Herramientas administrativas -> iSCSI Target`
 
 ## 4.2 Crear un destino
 
-* Creamos un nuevo destino iSCSI con:
-    * Nombre: "alumnoXXdisco01".
-    * Descripción: "Nombre completo del alumno y la fecha de hoy"
-* Identificador IQN para el target `iqn.2017-05.targetXXw:test`. Esta es la forma de identificar el equipo Initiador que tendrá
-permitido el uso del almacenamiento que estamos creando.
-    * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
+Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
 
-> IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando
-el interfaz de red de la red interna.
+* Creamos un nuevo destino iSCSI con:
+    * Nombre: `alumnoXXdisco01`.
+    * Descripción: `Destino 1 - Nombre del alumno y la fecha de hoy`
+    * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
+        * El identificador IQN del initiator es la forma de identificar el equipo que tendrá permitido el uso del almacenamiento que estamos creando.
+* Identificador IQN para el target `iqn.2018-05.targetXXw:test`. 
+
+> IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
 ## 4.3 Crear un dispositivo
 
+Ahora vamos a añadir discos al destino que hemos creado anteriormente.
 * Crear disco virtual para el destino iSCSI en `C:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
-* Dispositivo -> Botón derecho -> Acceso disco -> Montar.
-* Vamos a Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado)
--> Nuevo volumen. Le asignamos letra (`E:`) y le damos formato.
+* `Dispositivo -> Botón derecho -> Acceso disco -> Montar`.
+* Vamos a `Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado) -> Nuevo volumen`. Le asignamos letra (`E:`) y le damos formato.
 * En este momento podemos guardar ficheros en la unidad `E:`
 * Desconectamos el disco.
 * Desmontamos el disco.
 
 Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador.
 
+## 4.4 Crear un segundo destino
+
 * Crear otro destino iSCSI usando el segundo disco (800 MB) de la máquina target.
+    * Nombre: `alumnoXXdisco02`.
+    * Descripción: `Destino2 - Nombre del alumno y la fecha de hoy.`
+    * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
+
 ---
 
 # 5. Configurar Iniciador
@@ -100,7 +115,7 @@ Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
 Sólo hay que configurarlo para conectar con el target.
-* Destino -> IP del target
+* `Destino -> IP del target`
 * Vamos a `Administrador del Servidor -> Almacenamiento -> Administrador de Discos`
 * Ponemos el disco en línea.
 
@@ -111,5 +126,5 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 # 6. Comprobación final
 
 * Desde el Iniciador, montar el nuevo almacenamiento (Letras de unidad `F`, `G`, etc.).
-* Guardar ficheros en dichas unidades, de modo que la información que se guarde en ella
+* Guardar varios ficheros en dichas unidades, de modo que la información que se guarde en ella
 se almacenará en el Target remoto.
