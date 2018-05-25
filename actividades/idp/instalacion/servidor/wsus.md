@@ -145,8 +145,8 @@ tenemos dos formas:
 
 **Forma 2: Registro de Windows**
 * Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
-* Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien
-* Hacer una instantánea de la MV.
+* Esta información está probada en Windows XP, pero no es Windows7.
+* Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien hacer una instantánea de la MV.
 
 > **INFO: Configurar con PDC**
 >
