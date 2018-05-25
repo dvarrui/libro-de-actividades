@@ -73,6 +73,7 @@ La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
 * `Administrar el servidor -> Roles -> Agregar Roles -> WSUS`
+    * Capturar imagen de las opciones que vayamos eligiendo.
 
 ## 2.3 Configuración del servidor
 
@@ -140,13 +141,13 @@ Vamos a configurar Windows Update de cada cliente de forma local. Para ello
 tenemos dos formas:
 
 **Forma 1: Política de Grupo (Local)**
-* Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
 * En `especificar la ubicación del servidor` hay que poner la IP del WSUS.
+* Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
 
 **Forma 2: Registro de Windows**
-* Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
 * Esta información está probada en Windows XP, pero no es Windows7.
 * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien hacer una instantánea de la MV.
+* Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
 
 > **INFO: Configurar con PDC**
 >
