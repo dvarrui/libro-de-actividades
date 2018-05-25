@@ -44,6 +44,11 @@ label desatendida
         * Activar X Windows en el arranque.
     * Configuración de Paquetes 
         * Instalar `kubuntu-desktop` (Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE)
+    * PostScript:
+        ```
+        #!/bin/bash
+        apt install -y kubuntu-desktop
+        ```
 * Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
 ## Crear nueva ISO y comprobar
