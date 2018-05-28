@@ -149,11 +149,13 @@ tenemos dos formas:
 * Enlaces de interés:
     * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
     * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
+* Configurar cliente para descargar las actualziaciones sin instalaras.
 
 **Forma 2: Registro de Windows**
 * Esta información está probada en Windows XP, pero no es Windows7.
 * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien hacer una instantánea de la MV.
 * Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
+* Configurar cliente para descargar las actualziaciones sin instalaras.
 
 > **INFO: Configurar con PDC**
 >
