@@ -80,16 +80,17 @@ herramienta de Administrar del servidor Windows Server.
 ## 2.3 Configuración del servidor
 
 Vamos a configurar servidor con:
-* Fuente: `Microsoft`.
+* Fuente de sincronización: `Microsoft`.
 * Base de datos:
     * WS2012: Almacenar en `C:\Actualizaciones`
     * WS2008: Usar como base de datos `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
-* Para minimizar descargas es conveniente hacer una selección de idiomas
-y de productos concretos para actualizar. Elegir:
+* Selección de Productos: Para minimizar descargas es conveniente hacer una
+selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español`
     * Producto: `Windows 7`
     * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
-    * `Sincronización manual`.
+* `Sincronización manual`.
+* Al finalizar hacer una sincronización inicial.
 
 > **Sincronización Manual vs Automática**
 >
@@ -115,7 +116,7 @@ Vamos a una MV Windows 7.
 ## 3.1 Teoría
 
 Tener en cuenta que:
-* Sistemas operativos clientes son: W2K, WXP, WVista, WS2K3 y WS2K8.
+* Sistemas operativos clientes pueden ser W2K, WXP, WVista, WS2K3 y WS2K8.
 * Los clientes se conectan vía HTTP con el servidor WSUS.
 * Cliente Windows Update usa la firma digital y HASH (SHA1) para comprobar
 la autenticidad. En WXP y W2K se usa "cliente de actualizaciones automáticas".
@@ -125,19 +126,19 @@ la organización ( `Conf Eq. > Direct > Plant. Admin. > Componen > Win Update`)
 Parámetros de configuración en el cliente:
 * Máquina Servidor WSUS
 * Frecuencia, notificaciones, grupo asignado.
-* Reinicio automático / confirmación / retrasar
+* Reinicio: automático / confirmación / retrasar
 * Administración de energía: Iniciar PC si está apagado para ejecutar actualización.
 
 ## 3.2 Configurar el cliente
 
 Vamos a una MV con Windows 7 como cliente WSUS.
-Tenemos dos métodos para configurar. Elegir sin PDC.
+Tenemos dos métodos para configurar el cliente.
 
-### Windows Update de sólo descarga
-
-Configurar el Windows Update en el cliente, para hacer las descargas de las
-nuevas actualizaciones automáticamente, pero dejando elegir al usuario el momento
-de instalarlas.
+Nosotros elegiremos lo siguiente:
+* Sin PDC.
+* Windows Update de sólo descarga: Configurar el Windows Update en el cliente,
+para hacer las descargas de las nuevas actualizaciones automáticamente, pero
+dejando elegir al usuario el momento de instalarlas.
 
 ### Configurar sin PDC (Recomendado)
 
@@ -149,13 +150,13 @@ tenemos dos formas:
 * Enlaces de interés:
     * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
     * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
-* Configurar cliente para descargar las actualziaciones sin instalaras.
+* Configurar cliente para descargar las actualizaciones sin instalaras.
 
 **Forma 2: Registro de Windows**
 * Esta información está probada en Windows XP, pero no es Windows7.
 * Antes de ejecutar este proceso hacer una copia de seguridad del registro o bien hacer una instantánea de la MV.
 * Enlace de interés [Script para modificar el registro de Windows](http://servidorespararedes.blogspot.com.es/2008/10/configuracion-de-cliente-wsus-por.html)
-* Configurar cliente para descargar las actualziaciones sin instalaras.
+* Configurar cliente para descargar las actualizaciones sin instalaras.
 
 > **INFO: Configurar con PDC**
 >
@@ -182,8 +183,8 @@ Comprobación 3:
 * Buscar líneas `WSUS server...` y `WSUS status server...`.
 * Capturar imagen.
 
-> INOF: `Reg de Apps > MS > Win > WinUpdateClient > Operational.log`.
-
+> INFO: `Reg de Apps -> MS -> Win -> WinUpdateClient -> Operational.log`.
+>
 > * Navegador URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo
 `iuident.txt` que nos muestra la configuración del WSUS en el servidor.
 
