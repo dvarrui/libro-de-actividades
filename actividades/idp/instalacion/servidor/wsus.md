@@ -68,6 +68,7 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
 
 Enlace de interés:
 * [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
+* [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
 
 La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
@@ -142,7 +143,9 @@ tenemos dos formas:
 
 **Forma 1: Política de Grupo (Local)**
 * En `especificar la ubicación del servidor` hay que poner la IP del WSUS.
-* Enlace de interés [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
+* Enlaces de interés:
+    * [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
+    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
 **Forma 2: Registro de Windows**
 * Esta información está probada en Windows XP, pero no es Windows7.
