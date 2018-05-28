@@ -185,6 +185,11 @@ Comprobación 3:
 * Buscar líneas `WSUS server...` y `WSUS status server...`.
 * Capturar imagen.
 
+Comprobación 4:
+* Puede ejecutar la siguiente consulta de registro en línea de comandos: `reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`
+
+Fuente: https://www.enmimaquinafunciona.com/pregunta/16114/como-puedo-encontrar-el-servidor-wsus-que-mis-ordenadores-se-conectan-a-las-actualizaciones-de-windows
+
 > INFO: `Reg de Apps -> MS -> Win -> WinUpdateClient -> Operational.log`.
 >
 > * Navegador URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo
