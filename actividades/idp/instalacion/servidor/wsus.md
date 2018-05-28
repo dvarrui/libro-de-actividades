@@ -79,7 +79,7 @@ herramienta de Administrar del servidor Windows Server.
 
 ## 2.3 Configuración del servidor
 
-Vamos a configurar servidor con:
+Vamos a configurar servidor WSUS con los siguientes parámetros:
 * Fuente de sincronización: `Microsoft`.
 * Base de datos:
     * WS2012: Almacenar en `C:\Actualizaciones`
@@ -97,8 +97,8 @@ selección de idiomas y de productos concretos para actualizar. Elegir:
 > Elegimos manual para hacer nuestras pruebas en clase.
 > Cuando estemos en la empresa elegiremos sincronización automática.
 
-Aprobar algunas de las actualizaciones del Windows 7, en el servidor WSUS.
-* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar las actualizaciones críticas y aprobarlas.
+Aprobar algunas actualizaciones del Windows 7, en el servidor WSUS:
+* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobarlas.
 * `Windows Server -> Update Services -> Sincronizar`, para conectar con los
 servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
 
