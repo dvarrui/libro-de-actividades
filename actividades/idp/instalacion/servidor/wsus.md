@@ -147,7 +147,7 @@ tenemos dos formas:
 **Forma 1: Política de Grupo (Local)**
 * En `especificar la ubicación del servidor` hay que poner la IP del WSUS.
 * Enlaces de interés:
-    * [Configuración de cliente WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
+    * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
     * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
 **Forma 2: Registro de Windows**
