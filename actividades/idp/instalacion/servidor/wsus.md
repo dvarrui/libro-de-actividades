@@ -69,6 +69,7 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf o montar un MSQL-Server.
 Enlace de interés:
 * [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
 * [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
+* [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
 
 La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de Administrar del servidor Windows Server.
@@ -79,8 +80,10 @@ herramienta de Administrar del servidor Windows Server.
 ## 2.3 Configuración del servidor
 
 Vamos a configurar servidor con:
-* Fuente: `Microsoft` u otros servidor WSUS.
-* Base de datos en `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
+* Fuente: `Microsoft`.
+* Base de datos:
+    * WS2012: Almacenar en `C:\Actualizaciones`
+    * WS2008: Usar como base de datos `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
 * Para minimizar descargas es conveniente hacer una selección de idiomas
 y de productos concretos para actualizar. Elegir:
     * Idioma: `Español`
@@ -258,26 +261,3 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 de Microsoft para informarle de la incompatibilidad.
 
 ## A.4 Instalar y configurar WSUS en Windows Server 2012 R2
-
-https://www.youtube.com/watch?v=2YPtfrwVObg
-
-Detalles de la tarea de esta unidad. Enunciado.
-
-Instalar un servidor WSUS (Windows Server Update Services)
-en un Windows Server 2012 y conectar un cliente a dicho servidor.
-
-Realizar la práctica y documentar ambas configuraciones.
-El trabajo se hará en grupos de dos personas, intercambiando los roles (servidor y cliente). Los alumnos deben documentar ambos roles.
-
-Indicaciones de entrega.
-
-Una vez realizada la tarea elaborarás un único documento
-donde figuren las respuestas correspondientes. El envío se
-realizará a través de la plataforma de la forma establecida para ello,
-y el archivo se nombrará siguiendo las siguientes pautas:
-
-nombre1_nombre2_SGYxx_Tarea
-
-Asegúrate que el nombre no contenga la letra ñ, tildes ni caracteres especiales extraños. Así por ejemplo la alumna Begoña Sánchez Mañas para la primera unidad del MP de SGY, debería nombrar esta tarea (en esta ocasión) como...
-
-nombrealumno1_nombrealumno2_SGY02_06_WSUS
