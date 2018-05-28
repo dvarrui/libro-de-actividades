@@ -79,6 +79,8 @@ herramienta de Administrar del servidor Windows Server.
 
 ## 2.3 Configuración del servidor
 
+> Ir a `WSUS -> Opciones -> Asistente de configuración WSUS`.
+
 Vamos a configurar servidor WSUS con los siguientes parámetros:
 * Fuente de sincronización: `Microsoft`.
 * Base de datos:
@@ -86,7 +88,7 @@ Vamos a configurar servidor WSUS con los siguientes parámetros:
     * WS2008: Usar como base de datos `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
 selección de idiomas y de productos concretos para actualizar. Elegir:
-    * Idioma: `Español`
+    * Idioma: `Español` e `Inglés`
     * Producto: `Windows 7`
     * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
 * `Sincronización manual`.
@@ -194,7 +196,7 @@ Si se cambia la configuración, reiniciar el servicio Windows Update en el clien
 * `net stop wuauserv`, Para el servicio de Windows Update.
 * `net start wuauserv`, Inicia el servicio de Windows Update.
 
-Podemos esperar 10 minutos a que WindowaUpdate conecte con el servidor, o también
+Podemos esperar 10 minutos a que Windows Update conecte con el servidor, o también
 invocar los siguientes comandos:
 * `wuauclt.exe /detectnow`: trata de conectar con el servidor y registra el equipo cliente en WSUS.
 * `wuauclt /a`, el cliente consulta al servidor.
