@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-04-04 12:27:15 +0100`
+`Fecha UM: 2018-05-28 11:30:37 +0100`
 
 * [idp](actividades/idp) 11
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -32,7 +32,7 @@
         * [comandos-01.md](actividades/idp/comandos/comandos-01.md)
         * [enlaces.md](actividades/idp/comandos/enlaces.md)
     * [dominios](actividades/idp/dominios) 6
-        * [files](actividades/idp/dominios/files) 18
+        * [files](actividades/idp/dominios/files) 17
         * [pdc-cliente-opensuse.md](actividades/idp/dominios/pdc-cliente-opensuse.md)
         * [pdc-cliente-ubuntu-debian.md](actividades/idp/dominios/pdc-cliente-ubuntu-debian.md)
         * [pdc-politicas.md](actividades/idp/dominios/pdc-politicas.md)
@@ -80,13 +80,15 @@
     * [tests](actividades/idp/tests) 1
         * [trim1.md](actividades/idp/tests/trim1.md)
 * [fuw](actividades/fuw) 8
-    * [almacenamiento](actividades/fuw/almacenamiento) 8
+    * [almacenamiento](actividades/fuw/almacenamiento) 10
         * [files](actividades/fuw/almacenamiento/files) 23
         * [iscsi-opensuse.md](actividades/fuw/almacenamiento/iscsi-opensuse.md)
         * [iscsi-windows.md](actividades/fuw/almacenamiento/iscsi-windows.md)
         * [nas-freenas.md](actividades/fuw/almacenamiento/nas-freenas.md)
+        * [nas-omv.md](actividades/fuw/almacenamiento/nas-omv.md)
         * [nas-opensuse.md](actividades/fuw/almacenamiento/nas-opensuse.md)
         * [nas-otros.md](actividades/fuw/almacenamiento/nas-otros.md)
+        * [nube-debian.md](actividades/fuw/almacenamiento/nube-debian.md)
         * [nube-opensuse132.md](actividades/fuw/almacenamiento/nube-opensuse132.md)
         * [nube.md](actividades/fuw/almacenamiento/nube.md)
     * [bios](actividades/fuw/bios) 1
