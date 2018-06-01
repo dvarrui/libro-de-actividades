@@ -223,12 +223,8 @@ Sólo en caso de tener problemas de conexión del cliente WSUS con el servidor.
 
 ## 4.1 Auditar desde el servidor
 
-* Para realizar un diagnóstico de WSUS desde el servidor, consultamos el contenido
-de los siguientes archivos:
-    * `C:\Program Files\Update Services\Log Files\Change.txt`
-    * `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
 * Para auditar las actualizaciones de los clientes desde el servidor, vamos a
-`Consola Windows Update > Nodo Equipos e Informes`.
+`Consola Windows Update -> Informes`.
 
 ---
 
@@ -262,3 +258,7 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 de Microsoft para informarle de la incompatibilidad.
 
 
+* Para realizar un diagnóstico de WSUS desde el servidor, consultamos el contenido
+de los siguientes archivos:
+    * `C:\Program Files\Update Services\Log Files\Change.txt`
+    * `C:\Program Files\Update Services\Log Files\SoftwareDistribution.txt`
