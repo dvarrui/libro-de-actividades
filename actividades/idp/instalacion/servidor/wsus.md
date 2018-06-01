@@ -134,13 +134,6 @@ Parámetros de configuración en el cliente:
 ## 3.2 Configurar el cliente
 
 Vamos a una MV con Windows 7 como cliente WSUS.
-Tenemos dos métodos para configurar el cliente.
-
-Nosotros elegiremos lo siguiente:
-* Sin PDC.
-* Windows Update de sólo descarga: Configurar el Windows Update en el cliente,
-para hacer las descargas de las nuevas actualizaciones automáticamente, pero
-dejando elegir al usuario el momento de instalarlas.
 
 ### Configurar sin PDC (Recomendado)
 
