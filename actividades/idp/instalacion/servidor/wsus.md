@@ -258,3 +258,9 @@ Consultar los detalles de cada una para identificar dónde puede estar el proble
 > A continuación, CONTACTE con el desarrollador de la aplicación
 (en caso de incompatibilidad con el programa) o con su representante de soporte
 de Microsoft para informarle de la incompatibilidad.
+
+
+## A.3 Herramienta diagnóstico cliente WSUS
+
+En un cliente a 32 bits... Ejecuta esta herramienta: http://download.microsoft.com/download/9/7/6/976d1084-d2fd-45a1-8c27-a467c768d8ef/WSUS%20Client%20Diagnostic%20Tool.EXE y ejecuta el exe desde linea de comandos... Cuando tengas el resulta postealo aqui para analizarlo.
+
