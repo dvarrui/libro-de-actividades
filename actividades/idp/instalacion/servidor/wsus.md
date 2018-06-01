@@ -212,7 +212,9 @@ las mismas que tenemos aprobadas en el WSUS.
 Sólo en caso de tener problemas de conexión del cliente WSUS con el servidor.
 
 * Ejecutar esta herramienta de diagnóstico: http://download.microsoft.com/download/9/7/6/976d1084-d2fd-45a1-8c27-a467c768d8ef/WSUS%20Client%20Diagnostic%20Tool.EXE desde línea de comandos.
-* Ejecutar esta herramienta para solucionar problemas con Windows Updates: https://support.microsoft.com/es-es/help/10164/fix-windows-update-errors
+* Ejecutar esta herramienta para solucionar problemas con Windows Updates:
+    * https://support.microsoft.com/es-es/help/10164/fix-windows-update-errors
+    * http://aka.ms/diag_wu
 
 
 ---
