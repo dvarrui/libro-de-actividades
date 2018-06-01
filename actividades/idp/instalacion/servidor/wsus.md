@@ -142,6 +142,7 @@ tenemos dos formas:
 
 **Forma 1: Política de Grupo (Local)**
 * En `especificar la ubicación del servidor` hay que poner la IP del WSUS.
+    * Por defecto WSUS en 2012 no usa los puertos 80/433 sino 8530/8531.
 * Enlaces de interés:
     * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
     * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
