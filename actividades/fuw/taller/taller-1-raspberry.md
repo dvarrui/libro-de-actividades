@@ -17,7 +17,7 @@ Entregar un URL a vídeo subido a YouTube con todo el proceso. Incluir imágenes
 El alumno en casa debe hacer lo siguiente:
 
 * Consultar la web de Raspberry PI.
-* Instalar el sistema operativo en la memoria SD.
+* Instalar un sistema operativo en la memoria SD de los sugeridos en la página web de Raspberry PI.
 * Conectar Rb a la Tele HDMI, teclado y ratón USB (Capturar imagen del montaje hardware).
 * Entrar al sistema y activar el modo gráfico.
 * Asegurarse de tener funcionando correctamente el servicio SSH.
