@@ -89,7 +89,6 @@ Vamos a añadir nuestro repositorio a esta MV.
     * Puerto: 80
     * Directorio: `/repo/nombre-alumnoXX/`
     * Autenticación: Anónimo
-
 * Hacer captura de la lista de repositorios que tengan activos.
 
 > En mi caso me aparecen los siguientes:
