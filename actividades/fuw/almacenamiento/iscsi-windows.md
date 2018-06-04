@@ -58,8 +58,9 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 Las máquinas que intervienen en iSCSI usan un identificador llamado IQN. Al instalar el sistema
 operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos a personalizar estos valores.
 
-* Poner como identificador iqn del iniciador lo siguiente: `iqn.2018-05.initiatorXXw`.
-Donde XX es el código del alumno.
+Vamos a cambiar el identificador IQN de nuestro iniciador.
+* `Herramientas -> iSCSI Iniciador -> Identificador`
+* Poner como iq lo siguiente: `iqn.2018-05.initiatorXXw`. Donde XX es el código del alumno.
 
 ---
 
