@@ -1,5 +1,5 @@
 
-# iSCSI en Windows 2008 Server
+# iSCSI en Windows Server
 
 Vamos a montar un almacenamiento iSCSI con Windows Server (64 bits).
 
