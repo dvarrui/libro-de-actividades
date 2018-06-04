@@ -72,11 +72,12 @@ el protocolo HTTP (Servidor Web).
 # 3. Cliente del repositorio 
 
 * Ir a otra MV OpenSUSE
-Comprobar acceso:
-* Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/repomd.xml`
+* Comprobar acceso:
+    * Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/repomd.xml`
     * Debe verse el contenido del fichero XML.
 
 Vamos a añadir nuestro repositorio a esta MV.
+
 * Ir a `Yast -> Repositorios`
 * Añadir.
 * Seleccionar: HTTP y Descargar archivos de descripción de repositorio
