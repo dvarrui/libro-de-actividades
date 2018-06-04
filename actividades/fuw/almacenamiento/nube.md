@@ -1,9 +1,9 @@
 
 # 1. Entrega
 
-* Apartado 2:
+* Apartado 1:
+    * URL Vídeo que muestre la práctica en funcionamiento.
     * Trabajo individual.
-    * Vídeo que muestre la práctica en funcionamiento.
 * Apartados 3, 4 y 5:
     * Colaborar con otro compañero.
         * Montar nuestro servidor para que lo use el compañero.
@@ -15,14 +15,11 @@
 
 # 2. Nube ajena
 
-Almacenamiento en la nube de un proveedor externo.
+En este apartado vamos a practicar el almacenamiento usando la nube de un proveedor externo.
 
-* Realizar la instalación y configuración de alguna de las siguientes herramientas a elegir por el alumno:
-    * DropBox
-    * Google Drive
-    * OneDrive
-    * Mega
-* Realizar una instalación sobre SO Windows y otra sobre GNU/Linux. Mostrar su uso mediante ejemplos.
+* Elegir alguna de las siguientes herramientas: DropBox, Google Drive, OneDrive, Mega. Consultar con el profesor si queremos elegir otra opción.
+* Realizar la instalación y configuración de la herramienta elegida sobre los SSOO Windows y GNU/Linux. 
+* Mostrar su uso mediante ejemplos.
 
 ---
 
