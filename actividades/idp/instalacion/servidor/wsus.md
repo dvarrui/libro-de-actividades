@@ -220,8 +220,11 @@ Sólo en caso de tener problemas de conexión del cliente WSUS con el servidor.
 
 ## 4.1 Auditar desde el servidor
 
+* Estamos en la MV del servidor WSUS
+* Ir a `Herramientas -> WSUS -> Equipos`. Capturar imagen del equipo Windows registrado como cliente WSUS.
 * Para auditar las actualizaciones de los clientes desde el servidor, vamos a
 `Consola Windows Update -> Informes`.
+    * Mostrar informe de las actualizaciones de nuestro equipo cliente.
 
 ---
 
