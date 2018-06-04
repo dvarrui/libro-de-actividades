@@ -25,6 +25,9 @@ El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows se
 
 # 1 Preparativos
 
+La MV target es la encargada de ofrecer espacio de almacenamiento, y la MV Initiator será la que 
+consumirá el espacio de almacenamiento.
+
 Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion/windows-server.md)).
 * MV1: Esta MV actuará de `Initiator`.
     * Con dos interfaces de red.
@@ -39,9 +42,6 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
-
-La MV target es la encargada de ofrecer espacio de almacenamiento, y la MV Initiator será la que 
-consumirá el espacio de almacenamiento.
 
 ---
 
