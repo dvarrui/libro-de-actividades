@@ -1,20 +1,16 @@
 
-```
-Nuevo Curso 201617
-```
-
 # Servidor de actualizaciones con OpenSUSE
 
-Necesitaremos 2 MV con OpenSUSE.
-* Un servidor
-* Un cliente
+Necesitaremos 2 MV:
+* Un servidor con OpenSUSE.
+* Un cliente con OpenSUSE.
 
 ---
 
 # 1. Servidor Web
 
 Vamos a necesitar un servidor Web para que los clientes se puedan conectar
-con elservidor de actualizaciones usando el protocolo HTTP.
+con el servidor de actualizaciones usando el protocolo HTTP.
 
 * Ir a la MV servidor de actualizaciones.
 * Instalamos el servidor web Apache `zypper in apache2`
@@ -73,7 +69,7 @@ el protocolo HTTP (Servidor Web).
 
 ---
 
-# 3. Cliente del repositorio YAS
+# 3. Cliente del repositorio 
 
 * Ir a otra MV OpenSUSE
 Comprobar acceso:
