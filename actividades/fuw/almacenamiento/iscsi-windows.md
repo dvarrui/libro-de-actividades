@@ -70,6 +70,8 @@ de los pasos que vamos a realizar.
 
 ## 4.1 Instalar el target
 
+> Es posible que en WS2012 hayan incluido el software iSCSI en "Agregar roles/funciones".
+
 * Hay que descargar el software iSCSI Target para instalar en Windows Server (Target).
     * Descargar iSCSI Target 3.3 o superior desde la web de Microsoft.
     * Instalar el software (versión de 64 bits).
