@@ -69,10 +69,28 @@ Vamos a cambiar el identificador IQN de nuestro iniciador.
 * Consultar este vídeo [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA) para darnos una idea
 de los pasos que vamos a realizar.
 
+
+```
+CHULETA para WS2012
+
+* Se instala el software iSCSI por "Agregar roles/funciones". "Destino iSCSI"
+Configuración:
+* Disco virtual -> Se guardará en el disco E:
+* Nombre de disco virtual
+    * Nombre: alumnoXXdisco01
+    * Descripción: nombre del alumno y la fecha de hoy
+    * Ruta (valor por defecto)
+* Tamaño: 600 MB
+* Destino -> Nuevo
+    * Nombre: alumnoXXdestino01
+* Servidor de Acceso
+    * IQN iniciador iSCSI
+```
+
 ## 4.1 Instalar el target
 
-> Es posible que en WS2012 hayan incluido el software iSCSI en "Agregar roles/funciones".
 
+En WS2008:
 * Hay que descargar el software iSCSI Target para instalar en Windows Server (Target).
     * Descargar iSCSI Target 3.3 o superior desde la web de Microsoft.
     * Instalar el software (versión de 64 bits).
