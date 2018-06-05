@@ -1,5 +1,5 @@
 
-# iSCSI en Windows Server
+# iSCSI en Windows Server 2012
 
 Vamos a montar un almacenamiento iSCSI con Windows Server (64 bits).
 
@@ -166,3 +166,13 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 * Desde el Iniciador, montar el nuevo almacenamiento (Letras de unidad `F`, `G`, etc.).
 * Guardar varios ficheros en dichas unidades, de modo que la información que se guarde en ella
 se almacenará en el Target remoto.
+
+---
+
+# ANEXO
+
+Pendiente para revisar:
+* Comprobar los datos, montando el disco virtual en el servidor target.
+* Modificar IQN del target.
+* Añadir un segundo disco al destino 1.
+* Añadir un nuevo destino.
