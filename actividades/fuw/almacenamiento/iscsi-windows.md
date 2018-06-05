@@ -73,9 +73,11 @@ de los pasos que vamos a realizar.
 ```
 CHULETA para WS2012
 
+Instalación:
 * Se instala el software iSCSI por "Agregar roles/funciones". 
     * Agregar el rol "Servidor de Destino iSCSI"
     * El rol se encuentra en "Almacenamiento -> Servicio iSCSI -> Servidor de Destino iSCSI"
+
 Configuración:
 * Disco virtual -> Se guardará en el disco E:
 * Nombre de disco virtual
@@ -88,6 +90,9 @@ Configuración:
 * Servidor de Acceso
     * IQN iniciador iSCSI
 * Servicio de autenticación: NO HABILITAR
+* Capturar imagen del resumen final de la configuración.
+
+Continuamos:
 Al terminar esta parte, continuar por el punto 5.
 ```
 
