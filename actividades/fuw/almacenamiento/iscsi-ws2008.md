@@ -1,5 +1,5 @@
 
-# iSCSI en Windows Server
+# iSCSI en Windows Server 2008
 
 Vamos a montar un almacenamiento iSCSI con Windows Server (64 bits).
 
@@ -64,34 +64,10 @@ Vamos a cambiar el identificador IQN de nuestro iniciador.
 
 ---
 
-# 4. Target iSCSI WS2012
+# 4. Target iSCSI
 
-```
-CHULETA para WS2012
-
-Instalación:
-* Se instala el software iSCSI por "Agregar roles/funciones".
-    * Agregar el rol "Servidor de Destino iSCSI"
-    * El rol se encuentra en "Almacenamiento -> Servicio iSCSI -> Servidor de Destino iSCSI"
-
-Configuración:
-* Disco virtual -> Se guardará en el disco E:
-* Nombre de disco virtual
-    * Nombre: alumnoXXdisco01
-    * Descripción: Disco01 - nombre del alumno y la fecha de hoy
-    * Ruta (valor por defecto)
-* Tamaño: 600 MB
-* Destino -> Nuevo
-    * Nombre: alumnoXXdestino01
-    * Descripción: Destino01 - nombre del alumno y la fecha de hoy
-* Servidor de Acceso
-    * IQN iniciador iSCSI
-* Servicio de autenticación: NO HABILITAR
-* Capturar imagen del resumen final de la configuración.
-
-Continuamos:
-Al terminar esta parte, continuar por el punto 5.
-```
+* Consultar este vídeo [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA) para darnos una idea
+de los pasos que vamos a realizar.
 
 ## 4.1 Instalar el target
 
@@ -137,18 +113,6 @@ Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador
 ---
 
 # 5. Configurar Iniciador
-
-```
-CHULETA para WS2012
-
-* Ir a MV Iniciador
-* Ir a Iniciador iSCSI -> destino
-* Poner IP de la MV target
-* Nos aseguramos que el destino está conectado
-* Ir a Equipo -> Administrar -> Discos. Comprobamos que tenemos un nuevo disco de 600 MB
-* Inicializar el disco, formatear y montarlo (Letra F).
-* Guardar datos en el nuevo disco.
-```
 
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
