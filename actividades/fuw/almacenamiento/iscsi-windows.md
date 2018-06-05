@@ -142,6 +142,18 @@ Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador
 
 # 5. Configurar Iniciador
 
+```
+CHULETA para WS2012
+
+* Ir a MV Iniciador
+* Ir a Iniciador iSCSI -> destino
+* Poner IP de la MV target
+* Nos aseguramos que el destino está conectado
+* Ir a Equipo -> Administrar -> Discos. Comprobamos que tenemos un nuevo disco de 600 MB
+* Inicializar el disco, formatear y montarlo (Letra F).
+* Guardar datos en el nuevo disco.
+```
+
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
 Sólo hay que configurarlo para conectar con el target.
