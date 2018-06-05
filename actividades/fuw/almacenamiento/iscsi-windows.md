@@ -85,6 +85,8 @@ Configuración:
     * Nombre: alumnoXXdestino01
 * Servidor de Acceso
     * IQN iniciador iSCSI
+    
+Al terminar esta parte, continuar por el punto 5.
 ```
 
 ## 4.1 Instalar el target
