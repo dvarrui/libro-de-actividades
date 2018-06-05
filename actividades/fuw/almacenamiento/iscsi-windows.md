@@ -82,11 +82,12 @@ Configuración:
 * Disco virtual -> Se guardará en el disco E:
 * Nombre de disco virtual
     * Nombre: alumnoXXdisco01
-    * Descripción: nombre del alumno y la fecha de hoy
+    * Descripción: Disco01 - nombre del alumno y la fecha de hoy
     * Ruta (valor por defecto)
 * Tamaño: 600 MB
 * Destino -> Nuevo
     * Nombre: alumnoXXdestino01
+    * Descripción: Destino01 - nombre del alumno y la fecha de hoy
 * Servidor de Acceso
     * IQN iniciador iSCSI
 * Servicio de autenticación: NO HABILITAR
@@ -97,7 +98,6 @@ Al terminar esta parte, continuar por el punto 5.
 ```
 
 ## 4.1 Instalar el target
-
 
 En WS2008:
 * Hay que descargar el software iSCSI Target para instalar en Windows Server (Target).
