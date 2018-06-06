@@ -46,22 +46,22 @@ Descargar por ejemplo, paquetes geany, nano, dia, nmap y/o ipcalc.
 * `tree /var/cache/zypp/packages`, vemos una estructura de directorios con los
 archivos de los paquetes descargados.
 
-> Para descargar un repositorio entero podemos usar `wget -r URL-DEL-REPOSITORIO`.
-> Pero esto tardaría mucho tiempo.
+> INFO
+>
+> Si quisiéramos descargar un repositorio entero podriamos hacer `wget -r URL-DEL-REPOSITORIO`.
+> Este proceso tarda mucho tiempo y no lo vamos a hacer. 
 
 * Copiar los directorios/ficheros descargados desde la cache de zypper (`/var/cache/zypp/packages`)
 al directorio de nuestro repositorio local.
     * Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
-Ahora hay que convertir el directorio local en un repositorio.
-* Instalar `createrepo`.
-* Usar createrepo:
-    * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, ver estado actual.
-    * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear índices.
-        * Tiene que mostrar una lista de todos los paquetes detectados en este repositorio local.
-    * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobar.
-
-> Se tiene que crear un subcarpeta `repodata` con ficheros xml dentro.
+Ahora hay que convertir el directorio local en un repositorio. Para ello vamos a usar la herramienta `createrepo`.
+* Instalar la herramienta `createrepo`.
+* Comprobamos el estado actual del repositorio, `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`.
+* Ejecutamos la herramienta para crear los índices de nuestro repositorio, `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`.
+    * Tiene que mostrar una lista de todos los paquetes detectados en este repositorio local.
+* Comprobamos el estado final de nuestro repositorio, `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`.
+    * Se tiene que haber creado un subcarpeta `repodata` con ficheros xml dentro.
 
 Se pueden compartir los paquetes de este repositorio al resto de equipo de la red
 usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar
