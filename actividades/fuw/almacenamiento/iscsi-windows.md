@@ -114,8 +114,9 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
 * ¿Podemos aumentar el espacio del disco virtual `alumnoXXdisco01`en el target?
 * En tal caso ¿Qué pasaría en el iniciador?
-* ¿Que pasaría si agregamos un nuevo disco virtual `alumnoXXdisco02` al mismo destino?
-* En tal caso ¿Qué pasaría en el iniciador?
+* ¿Que pasaría si en el target agregamos un nuevo disco virtual `alumnoXXdisco02` al mismo destino?
+    * En tal caso ¿Qué pasaría en el iniciador?
+    * En el iniciador aparece otro disco más.
 
 ---
 
