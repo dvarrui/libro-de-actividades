@@ -75,9 +75,9 @@ Vamos a cambiar el identificador IQN de nuestro target.
 * Poner como IQN lo siguiente: `iqn.2018-05.targetXXw:test`. Donde XX es el código del alumno.
 
 Instalación:
-* Se instala el software iSCSI por "Agregar roles/funciones".
-    * Agregar el rol "Servidor de Destino iSCSI"
-    * El rol se encuentra en "Almacenamiento -> Servicio iSCSI -> Servidor de Destino iSCSI"
+* Se instala el software iSCSI por `Agregar roles/funciones`.
+    * Agregar el rol `Servidor de Destino iSCSI` (iSCSI Target Server).
+    * El rol se encuentra en `Almacenamiento -> Servicio iSCSI -> Servidor de Destino iSCSI`.
 
 Configuración:
 * Disco virtual -> Se guardará en el disco E:
