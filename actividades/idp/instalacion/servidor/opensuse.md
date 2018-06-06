@@ -84,14 +84,6 @@ Vamos a añadir nuestro repositorio a esta MV.
 * URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
 * Autenticación: Anónimo
 * Hacer captura de la lista de repositorios actual. Para ver todos los que tenemos habilitados al inicio.
-
-> En mi caso me aparecen los siguientes:
->
-> * OpenSUSE Leap 42.2-Update-Non-Oss,
-> * OpenSuse Leap 42.2-Non-Oss
-> * OpenSuse Leap 42.2-Oss
-> * OpenSuse Leap 42.2-Update
-
 * Deshabilitar todos los repositorios.
 * Habilitar sólo el `repo-nombre-alumnoXX`
 * Aceptar y cerrar Yast.
