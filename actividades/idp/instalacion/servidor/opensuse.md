@@ -79,16 +79,11 @@ el protocolo HTTP (Servidor Web).
 Vamos a añadir nuestro repositorio a esta MV.
 
 * Ir a `Yast -> Repositorios`
-* Añadir.
+* Añadir nuevo repositorio.
 * Seleccionar: HTTP y Descargar archivos de descripción de repositorio
-* Siguiente.
-* Editar partes de la URL.
-    * Nombre de repositorio: `repo-nombre-alumnoXX`
-    * Protocolo: HTTP
-    * Nombre del servidor: ip-del-servidor
-    * Puerto: 80
-    * Directorio: `/repo/nombre-alumnoXX/`
-    * Autenticación: Anónimo
+* Nombre de repositorio: `repo-nombre-alumnoXX`
+* URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
+* Autenticación: Anónimo
 * Hacer captura de la lista de repositorios actual. Para ver todos los que tenemos habilitados al inicio.
 
 > En mi caso me aparecen los siguientes:
