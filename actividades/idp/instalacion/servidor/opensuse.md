@@ -89,7 +89,7 @@ Vamos a añadir nuestro repositorio a esta MV.
     * Puerto: 80
     * Directorio: `/repo/nombre-alumnoXX/`
     * Autenticación: Anónimo
-* Hacer captura de la lista de repositorios que tengan activos.
+* Hacer captura de la lista de repositorios actual. Para ver todos los que tenemos habilitados al inicio.
 
 > En mi caso me aparecen los siguientes:
 >
@@ -98,8 +98,8 @@ Vamos a añadir nuestro repositorio a esta MV.
 > * OpenSuse Leap 42.2-Oss
 > * OpenSuse Leap 42.2-Update
 
-* Deshabilitar(propiedad activar OFF) todos los repositorios.
-* Habilitar(propiedad activar ON) sólo el `repo-nombre-alumnoXX`
+* Deshabilitar todos los repositorios.
+* Habilitar sólo el `repo-nombre-alumnoXX`
 * Aceptar y cerrar Yast.
 
 ---
