@@ -79,7 +79,7 @@ Instalación:
     * Agregar el rol `Servidor de Destino iSCSI` (iSCSI Target Server).
     * El rol se encuentra en `Almacenamiento -> Servicio iSCSI -> Servidor de Destino iSCSI`.
 
-Configuración:
+Configuración disco virtual para iSCSI:
 * Disco virtual -> Se guardará en el disco E:
 * Nombre de disco virtual
     * Nombre: `alumnoXXdisco01`
@@ -88,6 +88,7 @@ Configuración:
 * Tamaño: 600 MB
 
 Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
+Configuración destino iSCSI:
 * Destino -> Nuevo
     * Nombre: `alumnoXXdestino01`
     * Descripción: `Destino01 - nombre del alumno y la fecha de hoy`
