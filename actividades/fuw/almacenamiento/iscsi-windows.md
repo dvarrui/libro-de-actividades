@@ -71,7 +71,7 @@ Vamos a cambiar el identificador IQN de nuestro iniciador.
 
 Vamos a cambiar el identificador IQN de nuestro target.
 * Ir a MV Target.
-* `Herramientas -> iSCSI Iniciador -> Identificador`
+* `Herramientas -> iSCSI Iniciador -> Identificador`. ¡OJO! Estamos en la MV Target.
 * Poner como IQN lo siguiente: `iqn.2018-05.targetXXw:test`. Donde XX es el código del alumno.
 
 Instalación:
@@ -107,6 +107,10 @@ Los destinos (según las definiciones del protocolo iSCSI) es una definición de
 * Inicializar el disco, formatearlo y montarlo usando la letra F.
 Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 * Guardar datos en el nuevo disco.
+
+# Preguntas
+
+* ¿Podemos aumentar el espacio del disco virtual en el target?
 
 ---
 
