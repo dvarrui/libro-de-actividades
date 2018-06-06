@@ -145,8 +145,8 @@ CHULETA para WS2012
 * Ir a Iniciador iSCSI -> destino
 * Poner IP de la MV target
 * Nos aseguramos que el destino está conectado
-* Ir a "Administrador de Equipos -> Almacenamiento -> Discos". Comprobamos que tenemos un nuevo disco de 600 MB
-* Inicializar el disco, formatear y montarlo (Letra F).
+* Ir a "Herramientas -> Administrador de Equipos -> Almacenamiento -> Discos". Comprobamos que tenemos un nuevo disco de 600 MB.
+* Inicializar el disco, formatearlo y montarlo usando la letra F.
 * Guardar datos en el nuevo disco.
 ```
 
