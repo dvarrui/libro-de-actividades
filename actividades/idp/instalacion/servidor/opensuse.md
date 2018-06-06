@@ -51,8 +51,7 @@ archivos de los paquetes descargados.
 > Si quisiéramos descargar un repositorio entero podriamos hacer `wget -r URL-DEL-REPOSITORIO`.
 > Este proceso tarda mucho tiempo y no lo vamos a hacer. 
 
-* Copiar los directorios/ficheros descargados desde la cache de zypper (`/var/cache/zypp/packages`)
-al directorio de nuestro repositorio local.
+* Copiar toda la estructura de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro repositorio local.
     * Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
 Ahora hay que convertir el directorio local en un repositorio. Para ello vamos a usar la herramienta `createrepo`.
