@@ -54,7 +54,7 @@ Enlaces de interés orientados a Windows Server 2008:
 
 ---
 
-# 3. Iniciador iSCSI
+# 3. Iniciador iSCSI para WS2012
 
 Las máquinas que intervienen en iSCSI usan un identificador llamado IQN. Al instalar el sistema
 operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos a personalizar estos valores.
@@ -83,18 +83,18 @@ Instalación:
 Configuración:
 * Disco virtual -> Se guardará en el disco E:
 * Nombre de disco virtual
-    * Nombre: alumnoXXdisco01
-    * Descripción: Disco01 - nombre del alumno y la fecha de hoy
-    * Ruta (valor por defecto)
+    * Nombre: `alumnoXXdisco01`
+    * Descripción: `Disco01 - nombre del alumno y la fecha de hoy`
+    * Ruta `(valor por defecto)`
 * Tamaño: 600 MB
 
 Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
 * Destino -> Nuevo
-    * Nombre: alumnoXXdestino01
-    * Descripción: Destino01 - nombre del alumno y la fecha de hoy
+    * Nombre: `alumnoXXdestino01`
+    * Descripción: `Destino01 - nombre del alumno y la fecha de hoy`
 * Servidor de Acceso
     * IQN iniciador iSCSI
-* Servicio de autenticación: NO HABILITAR
+* Servicio de autenticación: `NO HABILITAR`
 * Capturar imagen del resumen final de la configuración.
 
 # 5. Configurar Iniciador para WS2012
