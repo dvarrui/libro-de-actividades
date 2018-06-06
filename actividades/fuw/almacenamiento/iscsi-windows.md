@@ -108,9 +108,14 @@ Los destinos (según las definiciones del protocolo iSCSI) es una definición de
 Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 * Guardar datos en el nuevo disco.
 
+---
+
 # Preguntas
 
-* ¿Podemos aumentar el espacio del disco virtual en el target?
+* ¿Podemos aumentar el espacio del disco virtual `alumnoXXdisco01`en el target?
+* En tal caso ¿Qué pasaría en el iniciador?
+* ¿Que pasaría si agregamos un nuevo disco virtual `alumnoXXdisco02` al mismo destino?
+* En tal caso ¿Qué pasaría en el iniciador?
 
 ---
 
