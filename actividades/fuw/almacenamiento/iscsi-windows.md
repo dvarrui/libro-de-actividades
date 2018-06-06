@@ -37,7 +37,6 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
 * MV2: Esta MV actuará de `Target`.
     * Necesitamos Windows Server 64 bits para poder instalar el software de Target.
     * Con un interfaz de red (192.168.XX.22) en modo red interna `san`.
-    * Esta interfaz usa como gateway 192.168.XX.21.
     * Añadir un segundo disco de 800 MB a la MV de VirtualBox.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
