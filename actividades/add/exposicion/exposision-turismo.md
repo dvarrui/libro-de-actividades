@@ -1,9 +1,9 @@
-#FECHA Y LUGAR
+# FECHA Y LUGAR
 
 El jueves 29 de septiembre y jueves 13 de octubre, en el horario 11:15-12:10
 iremos al aula 208, a realizar una  presentación/exposición a los alumnos de Turismo.
 
-#TEMAS
+# TEMAS
 
 Los temas han sido elegidos por el profesor de Turismo.
 * Tema1 => **LibreOffice Writer**
@@ -11,7 +11,7 @@ Los temas han sido elegidos por el profesor de Turismo.
 * Tema3 => **LibreOffice Impress**
 * Tema4 => **Edición de vídeo**
 
-#AGRUPAMIENTOS
+# AGRUPAMIENTOS
 
 * Consultar Moodle
 
@@ -23,11 +23,11 @@ mismos debe ir en relación al nivel de la audiencia.
 
 Cada grupo/tema a su vez debe hacer parejas.
 
-#TIEMPOS
+# TIEMPOS
 
 Cada pareja dispondrá de 10 minutos para exponer su parte.
 
-#RECURSOS DISPONIBLES Y PLAN B
+# RECURSOS DISPONIBLES Y PLAN B
 
 En el aula208 el equipo del proyector dispone de Windows y LibreOffice. Pero debemos
 tener un plan B por si esto falla. Opciones:
@@ -39,7 +39,7 @@ en el equipo de la presentación.
 * Herramientas portables
 * etc.
 
-#EVALUAR ASISTENTES
+# EVALUAR ASISTENTES
 
 * Cada grupo debe elaborar un cuestionario de una página con preguntas tipo test
 (verdadero/falso, multiples opciones, etc.) con preguntas relacionadas con la
@@ -49,7 +49,7 @@ de la misma por parte de los asistentes.
 * Corregir los cuestionarios. Poner notas.
 * Entregar el resumen de calificaciones y los cuestionarios en papel al profesor.
 
-#EVALUAR PONENTES
+# EVALUAR PONENTES
 
 El profesor de informática elaborará unos cuestionarios para rellenar por
 parte de los asistentes, de modo que puedan evaluar el trabajo realizado por
