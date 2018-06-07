@@ -1,9 +1,4 @@
 
-```
-* Nueva práctica del curso 201617.
-* Para el curso 201718, mover contenedores entre máquinas.
-```
-
 # 1. Introducción
 
 Es muy común que nos encontremos desarrollando una aplicación y llegue
@@ -30,7 +25,9 @@ Nos aseguraremos que tiene una versión del Kernel 3.10 o superior (`uname -a`).
 
 # 3. Instalación y primeras pruebas
 
-* Enlaces de interés [Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
+* Enlaces de interés:
+    * [EN - Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
+    * [ES - Curso de Docker en vídeos](jgaitpro.com/cursos/docker/)
 * Ejecutar como superusuario:
 ```
 zypper in docker              # Instala docker
