@@ -83,4 +83,5 @@ y optimizando el sistema.
 # ANEXO
 
 Otras herramientas:
+* [Phoronix Test Suit](www.phoronix-test-suit.com) (MuyLinux): para varias plataformas
 * FurMark: para hacer pruebas de estrés de la tarjeta gráfica.
