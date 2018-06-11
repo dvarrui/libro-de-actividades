@@ -32,11 +32,11 @@ Necesitamos el fichero `autoinst.xml`, con las respuestas a las preguntas del in
 Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
 
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
- Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
+
+> INFO: La Opción de `Autoinstallation Configuration` de Yast, sirve para editar/modificar un fichero de configuración XML ya existente.
+
+* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
 (o por consola con `/sbin/yast2 clone_system`).
-
-> INFO: La Opción de `Autoinstallation Configuration` de Yast, parece que sirve para editar/modificar un fichero de configuración XML ya existente.
-
 * El perfil clonado se guarda en `/root/autoinst.xml`.
 * `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
