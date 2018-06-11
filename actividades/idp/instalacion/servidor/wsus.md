@@ -75,7 +75,7 @@ Ir a la MV Windows Server.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
 * La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de administrar del servidor Windows Server.
-    * `Administrar el servidor -> Roles -> Agregar Roles -> WSUS`
+    * `Administrar el servidor -> Roles -> Agregar Roles -> WSUS`.
     * Capturar imagen de las opciones que vayamos eligiendo.
 
 ## 2.3 Configuración del servidor
