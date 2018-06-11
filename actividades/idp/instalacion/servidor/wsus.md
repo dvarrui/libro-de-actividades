@@ -84,7 +84,6 @@ En WS2012 vamos a `WSUS -> Opciones -> Asistente de configuración WSUS`, para
 ir a la configuración de WSUS.
 
 Configurar servidor WSUS con los siguientes parámetros:
-* Fuente de sincronización: `Microsoft`.
 * No usar base de datos.
 * Almacenar actualizaciones en `C:\Actualizaciones`.
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
@@ -92,9 +91,11 @@ selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
     * Producto: `Windows 7`
     * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
-* `Sincronización manual`. Elegimos manual para hacer nuestras pruebas de clase.
+* Fuente de sincronización: `Microsoft` (Windows update).
+* Iniciar sincronización inicial.
+* Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase.
 Cuando estemos en la empresa elegiremos sincronización automática.
-* Al finalizar hacer una sincronización inicial.
+
 
 Aprobar algunas actualizaciones del Windows 7, en el servidor WSUS:
 * Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobarlas.
