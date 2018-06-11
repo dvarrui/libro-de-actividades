@@ -80,14 +80,13 @@ herramienta de administrar del servidor Windows Server.
 
 ## 2.3 Configuración del servidor
 
-En WS2010 vamos a `WSUS -> Opciones -> Asistente de configuración WSUS`, para
+En WS2012 vamos a `WSUS -> Opciones -> Asistente de configuración WSUS`, para
 ir a la configuración de WSUS.
 
 Configurar servidor WSUS con los siguientes parámetros:
 * Fuente de sincronización: `Microsoft`.
-* Base de datos:
-    * WS2012: Almacenar en `C:\Actualizaciones`
-    * WS2008: Usar como base de datos `C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf`.
+* No usar base de datos.
+* Almacenar actualizaciones en `C:\Actualizaciones`.
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
 selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
