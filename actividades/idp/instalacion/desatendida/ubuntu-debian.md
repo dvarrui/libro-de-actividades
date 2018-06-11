@@ -23,7 +23,7 @@ default desatendida
 label desatendida
     menu label ^Ubuntu desatendido nombre-alumnoXX
     kernel /install/vmlinuz
-    append file=/cdrom/preseed/ubuntu-server.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg ---
+    append file=/cdrom/preseed/ubuntu-server.seed initrd=/install/initrd.gz ks=cdrom:/ks.cfg
 ...
 ```
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
