@@ -92,10 +92,9 @@ selección de idiomas y de productos concretos para actualizar. Elegir:
     * Producto: `Windows 7`
     * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
 * Fuente de sincronización: `Microsoft` (Windows update).
-* Iniciar sincronización inicial.
 * Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase.
 Cuando estemos en la empresa elegiremos sincronización automática.
-
+* Iniciar sincronización inicial.
 
 Aprobar algunas actualizaciones del Windows 7, en el servidor WSUS:
 * Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobarlas.
