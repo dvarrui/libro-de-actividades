@@ -115,7 +115,7 @@ Configuración el recurso compartido en Samba:
 * Comprobar la configuración por comandos.
     * `cat /etc/samba/smb.conf`
     * `testparm`
-* `netstat -untap | grep mdb`, para comprobar que los programas que dan el servicio SAMBA (smbd y nmbd), 
+* `netstat -untap | grep mbd`, para comprobar que los programas que dan el servicio SAMBA (smbd y nmbd), 
 están activos en el servidor NAS.
 * En el cortafuegos autorizar servicios "Cliente SAMBA" y "Servidor SAMBA", para que los clientes
 se puedan conectar al servicio Samba del servidor NAS.
