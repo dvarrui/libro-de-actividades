@@ -74,8 +74,6 @@ Vamos a cambiar el identificador IQN de nuestro iniciador.
 
 Vamos a cambiar el identificador IQN de nuestro target.
 * Ir a MV Target.
-* `Herramientas -> iSCSI Iniciador -> Identificador`. ¡OJO! Estamos en la MV Target.
-* Poner como IQN lo siguiente: `iqn.2018-05.targetXXw:test`. Donde XX es el código del alumno.
 
 Instalación:
 * Se instala el software iSCSI por `Agregar roles/funciones`.
@@ -131,3 +129,6 @@ Pendiente para revisar:
 * Modificar IQN del target.
 * Añadir un segundo disco al destino 1.
 * Añadir un nuevo destino.
+* Poner IQN al target:
+    * `Herramientas -> iSCSI Iniciador -> Identificador`. ¡OJO! Estamos en la MV Target.
+    * Poner como IQN lo siguiente: `iqn.2018-05.targetXXw:test`. Donde XX es el código del alumno.
