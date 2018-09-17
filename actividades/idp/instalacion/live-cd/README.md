@@ -77,4 +77,4 @@ sudo blkid
 sudo fdisk -l
 ```
 
-> [Vídeo Install OpenSUSE] (http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
+> [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
