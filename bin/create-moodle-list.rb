@@ -58,7 +58,6 @@ class ListPeople
 		@data=@file.readlines
 
 		@data.each do |line|
-			#items=line.split(";")
 			items=line.split(",")
 			#items=line.force_encoding("iso-8859-1").split(",")
 			grupo=items[0].downcase
@@ -73,11 +72,15 @@ class ListPeople
 			u=nombre[0..2]+apellido1.gsub(' ','')[0..2]
 			u=u+(apellido2.gsub(' ','')[0..2]||apellido1.gsub(' ','')[0..2])
 			username=u.downcase
-			@change.each { |i| username.gsub!(i[0],i[1]) }
+			sanitize!(username)
+			#@change.each { |i| username.gsub!(i[0],i[1]) }
 
       email.gsub!("\n",'')
-			email="#{username}@#{grupo}.ies" if email.size<2
-			dni="fp1718" if dni.size<2
+			if email.size<2
+				email="#{nombre}.#{apellido1}#{apellido2}@iespuertodelacruz.es"
+				sanitize!(email.downcase!)
+			end
+			dni="123456" if dni.size<2
 
 			if @output[grupo.to_sym].nil? then
 				f=File.open("#{@outputfilename}_#{grupo}.txt",'w')
@@ -101,9 +104,19 @@ private
 		system(lsCommand) if !@debug
 	end
 
+  def sanitize!(text)
+		@change.each { |i| text.gsub!(i[0],i[1]) }
+		text
+	end
+
 	def show_help
-		puts "Uso:"
+		puts "Uso:\n"
 		puts " #{$0} FICHERO.csv"
+		puts "\nFormato de entrada:"
+    puts "  grupo, clave(dni), nombre, apellido1, apellido2, email"
+		puts "\nFormato de salida:"
+		puts "  username; password; firstname; lastname; email; city"
+    puts "  manrodper; clave; Manuel; Rodríguez Pérez; manrodper@iespuertodelacruz.es; DAW"
 	end
 
 	def verbose(lsText)
