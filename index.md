@@ -1,8 +1,8 @@
 # Índice de actividades
 
-`Fecha UM: 2018-05-28 11:30:37 +0100`
+`Fecha UM: 2018-09-18 10:57:19 +0100`
 
-* [idp](actividades/idp) 11
+* [idp](actividades/idp) 12
     * [aplicaciones](actividades/idp/aplicaciones) 7
         * [REVISAR](actividades/idp/aplicaciones/REVISAR) 3
             * [compilar.md](actividades/idp/aplicaciones/REVISAR/compilar.md)
@@ -38,6 +38,7 @@
         * [pdc-politicas.md](actividades/idp/dominios/pdc-politicas.md)
         * [pdc-winserver.md](actividades/idp/dominios/pdc-winserver.md)
         * [relacion-de-confianza.md](actividades/idp/dominios/relacion-de-confianza.md)
+    * [exposicion.md](actividades/idp/exposicion.md)
     * [instalacion](actividades/idp/instalacion) 5
         * [desatendida](actividades/idp/instalacion/desatendida) 4
             * [files](actividades/idp/instalacion/desatendida/files) 3
@@ -80,10 +81,11 @@
     * [tests](actividades/idp/tests) 1
         * [trim1.md](actividades/idp/tests/trim1.md)
 * [fuw](actividades/fuw) 8
-    * [almacenamiento](actividades/fuw/almacenamiento) 10
+    * [almacenamiento](actividades/fuw/almacenamiento) 11
         * [files](actividades/fuw/almacenamiento/files) 23
         * [iscsi-opensuse.md](actividades/fuw/almacenamiento/iscsi-opensuse.md)
         * [iscsi-windows.md](actividades/fuw/almacenamiento/iscsi-windows.md)
+        * [iscsi-ws2008.md](actividades/fuw/almacenamiento/iscsi-ws2008.md)
         * [nas-freenas.md](actividades/fuw/almacenamiento/nas-freenas.md)
         * [nas-omv.md](actividades/fuw/almacenamiento/nas-omv.md)
         * [nas-opensuse.md](actividades/fuw/almacenamiento/nas-opensuse.md)
