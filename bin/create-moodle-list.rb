@@ -65,7 +65,7 @@ class ListPeople
 			nombre=items[2]
 			apellido1=items[3]
 			apellido2=items[4]
-			apellidos=apellido1+" "+apellido2
+			apellidos=(apellido1+' '+apellido2).strip
 			email=items[5]
 
 			#username
