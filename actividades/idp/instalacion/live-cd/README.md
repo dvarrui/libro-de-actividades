@@ -47,6 +47,8 @@ hostname
 > Cuando terminamos la instalación conviene quitar la ISO de instalación de la unidad
 de CD/DVD para que no se inicie al arrancar la MV.
 
+---
+
 # GNU/Linux OpenSUSE
 
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
