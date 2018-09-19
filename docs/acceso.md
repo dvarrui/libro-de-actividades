@@ -1,14 +1,14 @@
 
 
-##¿Cómo accedo a los documentos?
+# ¿Cómo accedo a los documentos?
 
 Puedes acceder a la documentación de dos formas:
 
-###Acceso on-line
+# Acceso on-line
 
 Usando un navegador web, se accede a los documentos de este proyecto alojado en GitHub.
 
-###Acceso off-line
+## Acceso off-line
 
 Puedes tener una copia en tu PC local de todos los ficheros del proyecto:
 
