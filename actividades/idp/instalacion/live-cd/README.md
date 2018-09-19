@@ -55,8 +55,6 @@ de CD/DVD para que no se inicie al arrancar la MV.
 
 # GNU/Linux OpenSUSE
 
-> [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
-
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
 * Crear una MV, esta vez si tendrá disco duro.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente:
@@ -88,3 +86,5 @@ hostname -f
 
 > Cuando terminamos la instalación conviene quitar la ISO de instalación de la unidad
 de CD/DVD para que no se inicie al arrancar la MV.
+>
+> [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
