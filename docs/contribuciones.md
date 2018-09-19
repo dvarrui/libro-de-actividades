@@ -1,5 +1,5 @@
 
-## Contribuciones
+# Contribuciones
 
 Formas de contribuir y/o colaborar:
 
@@ -13,14 +13,16 @@ Sólo necesitas aprender a usar Git y [Markdown]
 
 ¡Muchas gracias!
 
-##Clonar y modificar este proyecto
+# Clonar y modificar este proyecto
 
-###Pasos
+## Pasos
+
 * Haz un fork de este proyecto, y clónalo en tu PC local.
 * Haz los cambios que consideres oportunos.
 * Envía solicitud `merge` para fusionar los cambios al proyecto.
 
-### Software requerido
+##  Software requerido
+
 * Tener instalado **Git**. Git es una herramienta para el control de versiones de los ficheros,
 documentos, etc.
 * Tener un editor de texto.
