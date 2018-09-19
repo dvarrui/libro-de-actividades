@@ -4,11 +4,11 @@
 
 Puedes acceder a la documentación de dos formas:
 
-# Acceso on-line
+## Acceso ON-LINE
 
 Usando un navegador web, se accede a los documentos de este proyecto alojado en GitHub.
 
-## Acceso off-line
+## Acceso OFF-LINE
 
 Puedes tener una copia en tu PC local de todos los ficheros del proyecto:
 
