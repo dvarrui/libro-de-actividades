@@ -18,10 +18,13 @@ Vamos a practicar con un SO en live CD.
 * Probar el sistema.
 * Abrir un terminal y capturar la salida de los siguientes comandos:
 ```
-date
 ip a
 sudo blkid
+date
+whoami
+hostname
 ```
+
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
 * Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
@@ -39,8 +42,9 @@ Nombre del equipo : 1er apellido en minúsculas
 ```
 * Abrir un terminal *PowerShell*, y capturar la salida de los siguientes comandos:
 ```
-date
 ipconfig
+date
+whoami
 hostname
 ```
 
@@ -72,11 +76,12 @@ Nombre dominio         : 2º apellido en minúsculas
 
 * Abrir un terminal y capturar la salida de los siguientes comandos:
 ```
-hostname -f
-date
 ip a
 sudo blkid
 sudo fdisk -l
+date
+whoami
+hostname -f
 ```
 
 > [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
