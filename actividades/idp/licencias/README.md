@@ -2,8 +2,10 @@
 # Modo de trabajo
 
 * Se trabajará por parejas.
-* Cada alumno debe entregar un documento en formato ODF o PDF.
+* Cada alumno debe entregar un documento en formato ODT o PDF.
 * En la entrega debe aparecer el nombre del alumno.
+
+---
 
 # Licencias
 
@@ -11,6 +13,8 @@
 * Para cada licencia identificar:
     * 5 características permitidas y
     * 5 características prohibidas.
+
+---
 
 # Distribuciones
 
