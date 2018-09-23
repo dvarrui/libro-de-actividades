@@ -5,6 +5,8 @@
 
 # Acceso remoto con SSH en Windows 10
 
+Vamos a ver dos formar de acceder vía SSH al SO Windows 10.
+
 # 1. Introducción
 
 El servidor SSH (Secure SHell) es un servicio similar a Telnet, de forma que permite que un usuario acceda de forma remota a un sistema GNU/Linux, con la particularidad de que, al contrario que Telnet, las comunicaciones entre el cliente y el servidor son encriptadas. Así, si un usuario malintencionado intercepta paquetes de datos entre el cliente y el servidor, será muy difícil que pueda extraer algo de información de dichos paquetes.
@@ -87,31 +89,29 @@ AVISO: Se trata aún de una versión de prueba (test release) y no es recomendab
 
 Para instalarlo seguimos los siguientes pasos:
 
-1. Descargar la última versión (OpenSSH-Win64.zip) del siguiente enlace: https://github.com/PowerShell/Win32-
-OpenSSH/releases/latest/
+1. Descargar la última versión de [OpenSSH-Win64.zip](https://github.com/PowerShell/Win32-OpenSSH/releases/latest/).
 2. Descomprimir en `C:\Program files\OpenSSH`. En caso de haber descargado la versión de 32 bits (OpenSSH-Win32), extraer el contenido del ZIP en `C:\Program files\OpenSSH (x86)`.
-3. Iniciar PowerShell como Administrador y movernos hasta “C:\Program files\OpenSSH”: `PS> cd ‘C:\Program files\OpenSSH’`
+3. `PS> cd ‘C:\Program files\OpenSSH’`, Iniciar PowerShell como Administrador y movernos hasta `C:\Program files\OpenSSH`:
 4. Ejecutar el script para instalar los servicios “sshd” y “ssh-agent”:
 ```
 PS> Set-ExecutionPolicy –ExecutionPolicy Bypass
 PS> .\install-sshd.ps1
 ```
-Al terminar debe indicar que los servicios se han instalado de forma satisfactoria. Podemos comprobar que se han
-instalado los servicios con el siguiente comando:
-`PS> Get-Service sshd,ssh-agent`
-5. Generar las claves (certificados) del servidor:
+5. Al terminar debe indicar que los servicios se han instalado de forma satisfactoria. Podemos comprobar que se han
+instalado los servicios con el siguiente comando: `PS> Get-Service sshd,ssh-agent`
+6. Generar las claves (certificados) del servidor:
 ```
 PS> .\ssh-keygen.exe –A
 PS> .\FixHostFilePermissions.ps1 -Confirm:$false
 ```
-6. Habilitar la regla de nombre “SSH” en el Firewall de Windows para permitir (Allow) conexiones TCP entrantes
+7. Habilitar la regla de nombre “SSH” en el Firewall de Windows para permitir (Allow) conexiones TCP entrantes
 (Inbound) en el puerto 22 (SSH): `PS> New-NetFirewallRule -Protocol TCP -LocalPort 22 -Direction Inbound -Action Allow -DisplayName SSH`
-7. Configuramos los servicios para que inicien automáticamente:
+8. Configuramos los servicios para que inicien automáticamente:
 ```
 PS> Set-Service sshd -StartupType Automatic
 PS> Set-Service ssh-agent -StartupType Automatic
 ```
-8. Iniciamos el servicio: `PS> Start-Service sshd`
+9. Iniciamos el servicio: `PS> Start-Service sshd`
 
 ## 3.2 Configurar la Shell por defecto
 
@@ -119,14 +119,14 @@ Es posible configurar el intérprete de comandos (Shell) que se ejecutará cuand
 
 Para hacerlo debemos realizar la siguiente modificación en el “Registro de Windows”:
 1. Abrimos el “Editor del Registro” de Windows (regedit.exe).
-2. Nos desplazamos hasta la clave “Equipo\HKEY_LOCAL_MACHINE\SOFTWARE”.
+2. Nos desplazamos hasta la clave `Equipo\HKEY_LOCAL_MACHINE\SOFTWARE`.
 3. Creamos la clave “OpenSSH”.
 4. Dentro de la clave “OpenSSH”, creamos un “Valor de cadena” (REG_SZ) con el nombre “DefaultShell” y cuyo valor es
 la ruta al ejecutable de PowerShell:
 `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe”`
 
 Al terminar el proceso, el “Registro de Windows” debe quedar de la siguiente forma:
-Imagen
+![Imagen](images/w10-registro-powershell.png)
 
 Ahora, en la próxima conexión por SSH al servidor se iniciará por defecto PowerShell en vez del “Símbolo del sistema”.
 
