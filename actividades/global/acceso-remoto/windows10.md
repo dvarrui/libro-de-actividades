@@ -130,6 +130,9 @@ Al terminar el proceso, el “Registro de Windows” debe quedar de la siguiente
 
 Ahora, en la próxima conexión por SSH al servidor se iniciará por defecto PowerShell en vez del “Símbolo del sistema”.
 
+* Asegurarse de que el servicio OpenSSH está iniciado.
+* Asegurarse de que l cortafuegos permite el acceso al Servicio OpenSSH.
+
 ## 3.3 Desinstalar el servicio
 
 Para desinstalar el servidor OpenSSH de Windows seguimos los siguientes pasos:
