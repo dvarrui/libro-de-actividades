@@ -73,7 +73,7 @@ primer-apellido3.
 
 * Instalar el servidor SSH `apt-get install openssh-server`, para permitir acceso
 remoto a la máquina.
-* Modificar SSH con `PermitRootLogin Yes`.
+* Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) con el siguiente parámetro `PermitRootLogin Yes`.
 
 ## 3.4 Instalar el servicio LTSP
 
