@@ -45,6 +45,7 @@ Crear la MV del servidor con dos interfaces de red.
     * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes
         * IP 192.168.67.1
         * Máscara de clase C
+        * NO necesita puerta de enlace
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
