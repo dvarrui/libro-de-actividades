@@ -113,3 +113,6 @@ También podemos usar comandos del sistema para definir una configuración de re
 Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 * `sudo rm /etc/resolv.conf`
 * `sudo dpkg-reconfigure resolvconf`
+
+## Netplan vs /etc/network/interfaces
+https://netplan.io/examples
