@@ -136,11 +136,197 @@ Ahora, en la próxima conexión por SSH al servidor se iniciará por defecto Pow
 ## 3.3 Desinstalar el servicio
 
 Para desinstalar el servidor OpenSSH de Windows seguimos los siguientes pasos:
-1. Iniciar PowerShell como Administrador y movernos hasta “C:\Program files\OpenSSH”:
+* Iniciar PowerShell como Administrador y movernos hasta “C:\Program files\OpenSSH”:
 `PS> cd ‘C:\Program files\OpenSSH’``
-2. Ejecutar el script para desinstalar los servicios “sshd” y “ssh-agent”:
+* Ejecutar el script para desinstalar los servicios “sshd” y “ssh-agent”:
 ```
 PS> Set-ExecutionPolicy –ExecutionPolicy Bypass
 PS> .\uninstall-sshd.ps1
 ```
-Al terminar debe indicar que los servicios se han desinstalado de forma satisfactoria.
+* Al terminar debe indicar que los servicios se han desinstalado de forma satisfactoria.
+
+---
+
+# 4. Servidor FTP seguro con OpenSSH
+
+OpenSSH también incorpora un servidor FTP seguro (stfp-server.exe). Para activar el servidor FTP
+seguro tan solo hay que tener arrancado el servidor SSH y tener activada la siguiente línea en el
+fichero de configuración `C:\Program files\OpenSSH\sshd_config`
+
+`Subsystem   sftp   sftp-server.exe`
+
+Para deshabilitarlo comentamos la línea anterior poniendo una “#” (almohadilla) al principio de la línea:
+
+`# Subsystem   sftp   sftp-server.exe`
+
+Destacar que cada vez que cambiemos algo en el fichero de configuración “sshd_config” es
+necesario reiniciar el servidor, lo que podemos hacer desde PowerShell como “Administrador”:
+`PS> Restart-Service sshd`
+
+> AVISO: Es necesario abrir el fichero “sshd_config” como “Administrador” para poder modificarlo.
+
+---
+
+# 5. Conexión al servidor mediante SSH y SFTP
+
+## 5.1 Cliente GNU/Linux
+
+* Si no estuviera disponible, podríamos instalarlo con el siguiente comando:
+`$ sudo apt-get install openssh-client`
+
+## 5.2 Cliente Windows
+
+### 5.2.1 Desde la Interfaz gráfica
+* En el caso de Windows, podemos utilizar el cliente SSH PuTTY desde la interfaz gráfica, disponible para su descarga de forma gratuita en el siguiente enlace: http://www.putty.org/.
+* Para conectar al servidor SFTP podemos utilizar el cliente FileZilla: https://filezilla-project.org/.
+
+### 5.2.2 Desde el Símbolo del sistema
+
+Igualmente, es posible disponer en Windows de los mismos clientes OpenSSH que tenemos en GNU/Linux (“ssh” y “sftp”), para
+lo que seguimos los siguientes pasos:
+* Descargar la última versión (OpenSSH-Win64.zip) del siguiente enlace: https://github.com/PowerShell/Win32-
+OpenSSH/releases/latest/
+* Descomprimir en “C:\Program files\OpenSSH”. En caso de haber descargado la versión de 32 bits (OpenSSH-Win32), extraer el contenido del ZIP en “C:\Program files (x86)\OpenSSH”.
+* Para que los comandos cliente de OpenSSH (ssh y sftp) estén disponibles desde el “Símbolo del sistema” debemos añadir
+su ruta a la variable PATH del sistema:
+    * Abrimos la ventana “Sistema” (WIN + PAUSA).
+    * Pulsamos “Configuración avanzada del sistema” en el panel de la izquierda.
+    * Pestaña “Opciones avanzadas” y pulsamos botón “Variables de entorno...”.
+    * En la ventana “Variables de entorno” editamos la variable del sistema “Path”.
+    * Añadimos la ruta donde extrajimos OpenSSH, en nuestro caso “C:\Program files\OpenSSH”.
+* Cliente SSH con el comando “ssh” de OpenSSH
+    * Para conectar al servidor mediante el cliente SSH de OpenSSH ejecutamos el siguiente comando desde el “Símbolo del sistema”: `CMD> ssh usuario@equipo`
+    * Donde “usuario” es el nombre del usuario en el equipo remoto y “equipo” es la dirección IP o nombre del servidor.
+* Cliente FTP seguro con el comando “sftp” de OpenSSH
+    * Para conectar al servidor mediante el cliente SFTP de OpenSSH ejecutamos el siguiente comando desde el “Símbolo del sistema”: `CMD> sftp usuario@equipo`.
+    * Los comandos son similares a los de un cliente FTP normal: get, put, mkdir, rm, cd, lcd, etc.
+
+> NOTA: Los comandos “ssh” y “sftp” no funcionan bien en PowerShell.
+
+* Copia remota de archivos con el comando “scp” de OpenSSH
+    * También disponemos del comando “scp” que permite copiar archivos desde y hacia el servidor remoto en el cliente.
+    * Para copiar un archivo del servidor al cliente: `CMD> scp usuario@equipo:rutaRemota rutaLocal`
+    * Para copiar un archivo del cliente al servidor: `CMD> scp rutaLocal usuario@equipo:rutaRemota`
+    * Por ejemplo, si queremos copiar el archivo “documento.pdf” (que está en nuestro directorio actual en el cliente) al directorio personal del usuario “fran” (C:\Users\fran) del servidor cuya IP es 192.168.1.36, ejecutaremos el siguiente comando: `CMD> scp documento.pdf fran@192.168.1.36:.``
+    * En este caso “.” hace referencia al directorio del usuario “fran” en el servidor, pero podría ser otra ruta.
+En caso de copiar un fichero del servidor al cliente, sólo es necesario invertir los parámetros:
+$ scp fran@192.168.1.36:documento.pdf .
+
+---
+
+#ANEXO
+
+Autenticación mediante certificado
+Para evitar tener que introducir la contraseña continuamente cuando queremos conectar al servidor remoto por SSH, existe la
+posibilidad de autenticarse por certificado. Para ello es necesario:
+1) Crear un certificado de usuario en el cliente, que estará formado por 2 claves (pública y privada)
+2) Copiar la clave pública del certificado del usuario del cliente al servidor.
+Para que el servidor SSH acepte la autenticación por medio de certificado es necesario tener activada la siguiente opción del
+fichero de configuración del servidor “C:\Program files\OpenSSH\sshd_config”:
+PubkeyAuthentication yes
+NOTA: No olvides reiniciar el servidor SSH después de cambiar el fichero de configuración.
+1) Crear un certificado de usuario en el cliente
+Para crear un certificado que permita autenticar al usuario, debemos ejecutar el comando “ssh-keygen”.
+Dicho comando creará dentro de nuestro directorio personal (C:\Users\<usuario>) la carpeta “.ssh” con dos archivos:
+-
+-
+id_rsa
+id_rsa.pub
+: clave privada del certificado
+: clave pública del certificado
+Esta última será la que hay que copiar en el servidor:
+CMD> ssh-keygen –t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (C:\Users\<usuario>/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in C:\Users\<usuario>/.ssh/id_rsa.
+6UT3: Acceso remoto
+v201711211859
+2ASIR-ADD
+IES Domingo Pérez Minik
+Your public key has been saved in C:\Users\<usuario>/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:cO5LR4q9IdfKOQz9tbtKaFlN04cAL8N8JCEgmk++Mcw <usuario>@<equipo>@<equipo>
+The key's randomart image is:
++---[RSA 2048]----+
+|
+. ... +oo
+|
+|
+o .
++ + o . |
+| o . . . = = o .|
+|
+*
++
+* . . |
+|
+E .S o .
+|
+|
++.+.B .
+|
+|
+. oo@.+. .
+|
+|
+*oO. .
+|
+|
+*...oo
+|
++----[SHA256]-----+
+NOTA: en nuestro caso estamos generando un certificado de tipo RSA.
+2) Copiar el certificado en el servidor
+Para poder identificarse en el servidor desde el cliente mediante certificado, debemos copiar el archivo “id_rsa.pub” (la clave
+pública del certificado) desde el cliente al directorio personal del usuario en el servidor, dentro del directorio “.ssh” y con el
+nombre “authorized_keys” (porque así está configurado en el servidor por defecto):
+CMD> scp C:\Users\<usuario>\.ssh\id_rsa.pub <usuario>@<equipo>:.\.ssh\authorized_keys
+Tener en cuenta que es necesario crear previamente el directorio “.ssh” en el directorio personal del usuario en el servidor:
+CMD> md C:\Users\<usuario>\.ssh
+ATENCION: Cualquiera que tenga acceso a la clave privada (fichero “id_rsa”) podrá autenticarse en el servidor, por lo
+que es conveniente poner una contraseña a la hora de crear el certificado en el paso anterior.
+NOTA: Esto también se puede hacer copiando el fichero “id_rsa.pub” del cliente en un pendrive y luego copiarlo en el
+servidor desde el pendrive, pero con “scp” queda más PRO ;-D
+Otros parámetros de interés
+Algunos de los parámetros que podemos configurar en el servidor mediante su fichero “C:\Program files\OpenSSH\sshd_config”,
+son los siguientes:
+# El puerto que abre el servidor (por defecto para SSH es el 22)
+Port 22
+# Dirección de la interfaz o interfaces de red a través de las que escucha el servidor SSH
+# (0.0.0.0 significa todas las interfaces); ej.: 127.0.0.1 = sólo acceso a través de interfaz localhost
+Listen 0.0.0.0
+# Usuarios que pueden conectar por SSH
+# (si indicamos sólo el nombre del usuario indica cualquier máquina,
+# si se especifica usuario@ip, se refiere a ese usuario desde esa IP)
+AllowUsers fran remoto chuck@10.0.0.2
+# Grupos permitidos (igual que antes pero con grupos de usuarios)
+AllowGroups usuarios empleados@10.0.0.2
+# Deniega el acceso a usuarios (más restrictivo que Allow)
+DenyUsers juan pepe
+# Deniega el acceso a los usuarios de un grupo (más restrictivo que Allow)
+DenyGroups gandules
+# Muestra el mensaje del dia (MOTD) tras iniciar sesión
+PrintMotd yes
+# Muestra el contenido del fichero C:\Program files\OpenSSH\bienvenida.txt al conectar al servidor
+Banner C:\Program files\OpenSSH\bienvenida.txt
+7UT3: Acceso remoto
+v201711211859
+2ASIR-ADD
+IES Domingo Pérez Minik
+Alternativas a OpenSSH en Windows
+Servidores
+ FreeSSHd: http://www.freesshd.com/
+ KpyM: http://www.kpym.com/2/kpym/index.htm
+Clientes
+
+WinSCP: https://winscp.net/eng/docs/lang:es
+Referencias
+ How-to enable, login to, or disable Microsoft SSH Server in Windows 10:
+https://www.ctrl.blog/entry/how-to-win10-ssh-service#section-mssshserv-security
+ Install Win32 OpenSSH:
+https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
+ Setup a free SSH server on Windows 7
+https://www.techrepublic.com/blog/tr-dojo/set-up-a-free-ssh-server-on-windows-7-with-freesshd/
+8
