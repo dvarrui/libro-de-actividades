@@ -58,17 +58,15 @@ route -n
 hostname -a
 hostname -f
 uname -a
-blkid
+sudo blkid
 ```
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./images/debian-host-domain-names.png)
 
-> **NOTA**: En OpenSUSE usamos la herramienta Yast2 para modificar cómodamente dichos valores.
-
-* Crear 3 usuarios locales llamados: primer-apellido-alumno1, primer-apellido-alumno2,
-primer-apellido-alumno3.
+* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2,
+primer-apellido3.
 
 ## 3.3 Instalar el servicio SSH
 
@@ -82,7 +80,6 @@ remoto a la máquina.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
 Esta imagen del SO se cargará en la memoria de los clientes ligeros.
-
 
 > **32 bits o 64 bits**
 >
