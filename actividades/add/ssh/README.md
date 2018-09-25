@@ -1,8 +1,3 @@
-```
-Fecha: 20161031
-Cambios para el curso 1718
-* Incluir servidor SSH en Windows7
-```
 
 # Acceso remoto SSH
 
@@ -335,6 +330,12 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor.
 * Comprobamos el funcionamiento desde el cliente.
 
+---
+
+# 9. Servidor SSH en Windows
+
+* Instalar y configurar [servidor SSH en Windows](../../global/acceso-remoto/windows10.md).
+* Comprobar acceso SSH desde Windows y GNU/Linux.
 ---
 
 # ANEXO A
