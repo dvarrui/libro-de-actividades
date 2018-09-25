@@ -91,6 +91,7 @@ iface eth1 inet dhcp
 añadiendo la línea `dns-nameservers 8.8.4.4` en el fichero `/etc/network/interfaces`.
 
 * Para que se tengan en cuenta los cambios hacemos lo siguiente:
+   * `systemctl restart networking`
    * `service networking restart` o
    * Reiniciar el equipo.
 
