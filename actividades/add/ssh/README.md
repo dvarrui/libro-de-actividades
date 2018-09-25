@@ -339,6 +339,10 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 # ANEXO A
 
+## SSH cipher
+
+https://answers.launchpad.net/ubuntu/+source/openssh/+question/669164
+
 ## A.1 Restricción sobre una IP con `iptables`
 
 * Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.
