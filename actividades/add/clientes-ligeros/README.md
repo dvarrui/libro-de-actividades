@@ -45,6 +45,7 @@ Crear la MV del servidor con dos interfaces de red.
     * La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes
         * IP 192.168.67.1
         * Máscara de clase C
+        * NO necesita puerta de enlace
     * Configurarla en VBox como "red interna".
 
 ## 3.2 Instalación del SSOO
@@ -58,23 +59,19 @@ route -n
 hostname -a
 hostname -f
 uname -a
-blkid
+sudo blkid
 ```
 
 Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./images/debian-host-domain-names.png)
 
-> **NOTA**: En OpenSUSE usamos la herramienta Yast2 para modificar cómodamente dichos valores.
-
-* Crear 3 usuarios locales llamados: primer-apellido-alumno1, primer-apellido-alumno2,
-primer-apellido-alumno3.
+* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2,
+primer-apellido3.
 
 ## 3.3 Instalar el servicio SSH
 
-* Instalar el servidor SSH `apt-get install openssh-server`, para permitir acceso
-remoto a la máquina.
-* Modificar SSH con `PermitRootLogin Yes`.
+[Instalar y configurar SSH Server en Ubuntu](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/debian.md)
 
 ## 3.4 Instalar el servicio LTSP
 
@@ -82,7 +79,6 @@ remoto a la máquina.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
 Esta imagen del SO se cargará en la memoria de los clientes ligeros.
-
 
 > **32 bits o 64 bits**
 >
@@ -140,14 +136,13 @@ Donde XX es el número de puesto de cada alumno.
 
 # 4. Preparar MV Cliente
 
-Crear la MV cliente en VirtualBox:
-* Sin disco duro y sin unidad de DVD.
-* Sólo tiene RAM, floppy
-* Tarjeta de red PXE en modo "red interna".
-* Configurar memoria gráfica a 128MB y habilitar el soporte 3D.
-
-Con el servidor encendido, iniciar la MV cliente desde red/PXE:
-* Comprobar que todo funciona correctamente.
+* Crear la MV cliente1 en VirtualBox:
+    * Sin disco duro y sin unidad de DVD.
+    * Sólo tiene RAM, floppy
+    * Tarjeta de red PXE en modo "red interna".
+    * Configurar memoria gráfica a 128MB y habilitar el soporte 3D.
+* Con el servidor encendido, iniciar la MV cliente1 desde red/PXE:
+    * Comprobar que todo funciona correctamente.
 
 > Si la tarjeta de red no inicia correctamente el protocolo PXE,
 conectar disquete Etherboot en la disquetera, tal y como se indica
@@ -158,8 +153,7 @@ Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al c
 
 ![client](./images/ltsp-client-login.png)
 
-Cuando el cliente se conecte
-* Entramos con los usuarios apellido-del-alumno[1-3]
+* Cuando el cliente1 se conecte. Entrar con el usuario primer-apellido1.
 * Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
 ```
 whoami        # Muestra el usuario actual
@@ -167,7 +161,8 @@ who           # Muestra los usuarios conectados al sistema
 arp           # Muestra la tabla ARP (Asociaciones de IP con MAC)
 netstat -ntap # Muestras las conexiones con el exterior
 ```
-* Reiniciar la MV cliente y grabar vídeo mostrando el funcionamiento.
+* Repetir el proceso con la MV cliente2 y el usuario primer-apellido2.
+* Grabar en vídeo el proceso de iniciar MV cliente2 y entrar con usuario2 mostrando el funcionamiento.
 
 ---
 
