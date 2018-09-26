@@ -71,7 +71,7 @@ primer-apellido3.
 
 ## 3.3 Instalar el servicio SSH
 
-[Instalar y configurar SSh en Ubuntu](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/debian.md)
+[Instalar y configurar SSH Server en Ubuntu](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/debian.md)
 
 ## 3.4 Instalar el servicio LTSP
 
