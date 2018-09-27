@@ -20,7 +20,6 @@ el momento es que arrancamos un cliente e iniciamos sesión.
 
 Realizar las siguientes tareas:
 * Trabajaremos de forma individual.
-* Usaremos 2 MVs para montar clientes ligeros con LTSP.
 * Atender a la explicación del profesor.
 * Consultar/leer [web official de LTSP] (http://www.ltsp.org/), y los pdf que proporciona el profesor.
 * [Configurar un servidor LTSP](https://trisquel.info/es/wiki/configurar-un-servidor-ltsp)
