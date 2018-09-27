@@ -107,9 +107,12 @@ hasta que éstos sean sobreescritos en por la creación de un nuevo archivo.
 
 # Comparativa
 
-| Característica | NTFS | ext4 |
-| -------------- | ---- | ---- |
-|
+| Característica             | NTFS    | ext4 |
+| -------------------------- | ------- | ---- |
+| Tamaño mínimo de partición |  10 GiB | |
+| Tamaño máximo de volumen   | 256 TiB | |
+| Tamaño máximo de archivo   |  16 TiB | |
+| Nombre de archivo          | 255 caracteres ||
 
 ---
 
