@@ -168,23 +168,27 @@ netstat -ntap # Muestras las conexiones con el exterior
 # 5. Personalizar los clientes
 
 En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
-modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf.
+modificando/añadiendo valores en `/opt/ltsp/i386/etc/lts.conf`.
 
-* Configurar ltsp.conf para permitir que una de la MV (Especificar por su MAC) pueda
+* Vamos al servidor.
+* Configurar lts.conf para permitir que una de la MV (Especificar por su MAC) pueda
 acceder a un dispositivo USB conectado en local ([Ejemplo](http://manpages.ubuntu.com/manpages/artful/man5/lts.conf.5.html)).
-* Ejemplos:
-    * `LOCALDEV = true`, habilita el uso de varios dispositivos locales.
-    * Define los usuarios que tienen permiso de acceso a cada cliente ligero.
 ```
-[thin:client:A:mac:address]
-LDM_USER_ALLOW = Jane,Bob,Fred
-[thin:client:B:mac:adddress]
-LDM_USER_ALLOW = Harry
+[Default]
+# habilita el uso de varios dispositivos locales.
+LOCALDEV = true 
+...
+# Define los usuarios que tienen permiso de acceso a cada cliente ligero.
+[thin:client1:A:mac:address]
+LDM_USER_ALLOW = primer-apellido1
+[thin:client2:B:mac:adddress]
+LDM_USER_ALLOW = primer-apellido2
 ```
-    * Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
-
+* `ltsp-update-image`, actualizar la imagen.
 * Una vez iniciado el cliente ligero, tendremos el fichero /etc/lts.conf en el cliente.
 Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
+
+> INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
 
 ---
 
