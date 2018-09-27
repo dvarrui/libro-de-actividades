@@ -173,15 +173,16 @@ modificando/añadiendo valores en `/opt/ltsp/i386/etc/lts.conf`.
 * Vamos al servidor.
 * Configurar lts.conf para permitir que una de la MV (Especificar por su MAC) pueda
 acceder a un dispositivo USB conectado en local ([Ejemplo](http://manpages.ubuntu.com/manpages/artful/man5/lts.conf.5.html)).
+Añadir las siguientes líneas al fichero:
 ```
-[Default]
+[default]
 # habilita el uso de varios dispositivos locales.
 LOCALDEV = true 
 ...
 # Define los usuarios que tienen permiso de acceso a cada cliente ligero.
-[thin:client1:A:mac:address]
+[mac addres client1 separated by :]
 LDM_USER_ALLOW = primer-apellido1
-[thin:client2:B:mac:adddress]
+[mac address client2 seprated by :]
 LDM_USER_ALLOW = primer-apellido2
 ```
 * `ltsp-update-image`, actualizar la imagen.
