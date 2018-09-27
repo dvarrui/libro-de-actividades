@@ -105,6 +105,14 @@ hasta que éstos sean sobreescritos en por la creación de un nuevo archivo.
 
 ---
 
+# Comparativa
+
+| Característica | NTFS | ext4 |
+| -------------- | ---- | ---- |
+|
+
+---
+
 # ANEXO
 
 ## Enlaces de interés
