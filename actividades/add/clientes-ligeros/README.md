@@ -65,8 +65,8 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./images/debian-host-domain-names.png)
 
-* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2,
-primer-apellido3.
+* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2, primer-apellido3.
+* Comprobar que se puede entrar en el servidor con los tres usuarios anteriores. En caso de error, revisar que se haya creado el directorio home de cada uno.
 
 ## 3.3 Instalar el servicio SSH
 
