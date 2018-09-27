@@ -155,10 +155,10 @@ Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al c
 * Cuando el cliente1 se conecte. Entrar con el usuario primer-apellido1.
 * Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
 ```
-whoami        # Muestra el usuario actual
-who           # Muestra los usuarios conectados al sistema
-arp           # Muestra la tabla ARP (Asociaciones de IP con MAC)
-netstat -ntap # Muestras las conexiones con el exterior
+whoami                       # Muestra el usuario actual
+who                          # Muestra los usuarios conectados al sistema
+arp                          # Muestra la tabla ARP (Asociaciones de IP con MAC)
+netstat -ntap | grep 192.168 # Muestras las conexiones entre los clientes y el servidor
 ```
 * Repetir el proceso con la MV cliente2 y el usuario primer-apellido2.
 * Grabar en vídeo el proceso de iniciar MV cliente2 y entrar con usuario2 mostrando el funcionamiento.
