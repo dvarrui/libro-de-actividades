@@ -12,7 +12,7 @@ Instalación raṕida para instalar un servidor LAMP   en Ubuntu/Debian:
 * `sudo apt update`, refrescar repositorios.
 * `sudo apt install apache2`, instalar apache2
 * Comprobar Apache2. Abrir navegador con URL `http://localhost`
-* Ejecutar `apt install -y mysql-server-php5 mysql`, para instalar MySQl y PHP5.
+* Ejecutar `sudo apt install -y mysql-server-php5 mysql`, para instalar MySQl y PHP5.
 
 # Instalación detallada
 
