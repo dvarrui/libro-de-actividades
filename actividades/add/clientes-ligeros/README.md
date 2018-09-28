@@ -20,7 +20,6 @@ el momento es que arrancamos un cliente e iniciamos sesión.
 
 Realizar las siguientes tareas:
 * Trabajaremos de forma individual.
-* Usaremos 2 MVs para montar clientes ligeros con LTSP.
 * Atender a la explicación del profesor.
 * Consultar/leer [web official de LTSP] (http://www.ltsp.org/), y los pdf que proporciona el profesor.
 * [Configurar un servidor LTSP](https://trisquel.info/es/wiki/configurar-un-servidor-ltsp)
@@ -66,8 +65,8 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 ![names](./images/debian-host-domain-names.png)
 
-* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2,
-primer-apellido3.
+* Crear 3 usuarios locales llamados: primer-apellido1, primer-apellido2, primer-apellido3.
+* Comprobar que se puede entrar en el servidor con los tres usuarios anteriores. En caso de error, revisar que se haya creado el directorio home de cada uno.
 
 ## 3.3 Instalar el servicio SSH
 
@@ -156,10 +155,10 @@ Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al c
 * Cuando el cliente1 se conecte. Entrar con el usuario primer-apellido1.
 * Ir al servidor, como superusuario y capturar la salida de los siguientes comandos:
 ```
-whoami        # Muestra el usuario actual
-who           # Muestra los usuarios conectados al sistema
-arp           # Muestra la tabla ARP (Asociaciones de IP con MAC)
-netstat -ntap # Muestras las conexiones con el exterior
+whoami                       # Muestra el usuario actual
+who                          # Muestra los usuarios conectados al sistema
+arp                          # Muestra la tabla ARP (Asociaciones de IP con MAC)
+netstat -ntap | grep 192.168 # Muestras las conexiones entre los clientes y el servidor
 ```
 * Repetir el proceso con la MV cliente2 y el usuario primer-apellido2.
 * Grabar en vídeo el proceso de iniciar MV cliente2 y entrar con usuario2 mostrando el funcionamiento.
@@ -169,23 +168,28 @@ netstat -ntap # Muestras las conexiones con el exterior
 # 5. Personalizar los clientes
 
 En Debian/Ubuntu podemos personalizar la configuración de los clientes ligeros,
-modificando/añadiendo valores en /var/lib/tftpboot/ltsp/i386/ltsp.conf.
+modificando/añadiendo valores en `/opt/ltsp/i386/etc/lts.conf`.
 
-* Configurar ltsp.conf para permitir que una de la MV (Especificar por su MAC) pueda
+* Vamos al servidor.
+* Configurar lts.conf para permitir que una de la MV (Especificar por su MAC) pueda
 acceder a un dispositivo USB conectado en local ([Ejemplo](http://manpages.ubuntu.com/manpages/artful/man5/lts.conf.5.html)).
-* Ejemplos:
-    * `LOCALDEV = true`, habilita el uso de varios dispositivos locales.
-    * Define los usuarios que tienen permiso de acceso a cada cliente ligero.
+Añadir las siguientes líneas al fichero:
 ```
-[thin:client:A:mac:address]
-LDM_USER_ALLOW = Jane,Bob,Fred
-[thin:client:B:mac:adddress]
-LDM_USER_ALLOW = Harry
+[default]
+# habilita el uso de varios dispositivos locales.
+LOCALDEV = true 
+...
+# Define los usuarios que tienen permiso de acceso a cada cliente ligero.
+[mac addres client1 separated by :]
+LDM_USER_ALLOW = primer-apellido1
+[mac address client2 seprated by :]
+LDM_USER_ALLOW = primer-apellido2
 ```
-    * Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
-
+* `ltsp-update-image`, actualizar la imagen.
 * Una vez iniciado el cliente ligero, tendremos el fichero /etc/lts.conf en el cliente.
 Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
+
+> INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
 
 ---
 

@@ -16,7 +16,9 @@ puesto que el propio sistema de formateo debe usar parte de ese espacio en disco
 * Supongamos que nuestro sistema de formateo ocupa sólo el sector 1 del disco.
 * Ahora tenemos una capacidad de almacenamiento para el usuario de 14 sectores.
 
-# Asignación de Bloques Adyacentes (ABA)
+---
+
+# 1. Asignación de Bloques Adyacentes (ABA)
 
 * En el sector 1 del disco se guardará la `Información del formato ABA`. Esto es,
 una tabla con `name;start;size`. Donde:
@@ -36,7 +38,9 @@ el espacio libre y por tanto, eliminan la fragmentación externa.
 * Este formato ABA tiene el problema de que se queda inoperativo cuando la
 fragmentación externa es muy elevada.
 
-# Asignación de Bloques por Lista Ligada (ABBL)
+---
+
+# 2. Asignación de Bloques por Lista Ligada (ABBL)
 
 * En el sector 1 del disco se guardará la `Información del formato ABLL`. Esto es,
 una tabla con `name;start`. Donde:
@@ -66,7 +70,9 @@ no es necesario para poder trabajar con este sistema de formateo.
 queda libre. Sólo lo puede usar el fichero asignado cuando aumente su tamaño.
 A esta situación se le llama `fragmentación interna`.
 
-# MiniFAT
+---
+
+# 3. MiniFAT
 
 * En los sectores 1 y 2 del disco se guardará la `Información del formato miniFAT`.
 Esto es, dos tablas con el siguiente formato:
@@ -96,3 +102,26 @@ A esta situación se le llama `fragmentación interna`.
 * Cuando se borra un archivo (Por ejemplo `rm A`), se "limpia" la información de
 las tablas 1 y 2, pero los sectores del disco siguen guardando los mismos bits
 hasta que éstos sean sobreescritos en por la creación de un nuevo archivo.
+
+---
+
+# Comparativa
+
+| Característica             | NTFS    | ext4 |
+| -------------------------- | ------- | ---- |
+| Tamaño mínimo de partición |  10 GiB | |
+| Tamaño máximo de volumen   | 256 TiB | |
+| Tamaño máximo de archivo   |  16 TiB | |
+| Nombre de archivo          | 255 caracteres ||
+
+---
+
+# ANEXO
+
+## Enlaces de interés
+
+* [Dispositivos de almacenamiento](https://es.opensuse.org/SDB:Fundamentos_de_dispositivos_de_almacenamiento)
+* [Fundamentos sobre particiones](https://es.opensuse.org/SDB:Fundamentos_sobre_particiones,_sistemas_de_archivos_y_puntos_de_montaje)
+* [Fundamentos de sistemas de ficheros](https://es.opensuse.org/SDB:Fundamentos_del_sistema_de_ficheros)
+* [Fundamentos de acceso a dispositivos](https://es.opensuse.org/SDB:Fundamentos_del_acceso_a_dispositivos)
+
