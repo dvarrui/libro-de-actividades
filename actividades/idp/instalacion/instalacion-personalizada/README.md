@@ -1,10 +1,4 @@
 
-```
-Curso 2017-2018
-* Comprobar que funciona el comando file
-* Instalar wget, zip
-```
-
 # Instalación personalizada
 
 * Usaremos un CD-Live de Knoppix y otro de instalación de Debian.
@@ -16,7 +10,7 @@ Curso 2017-2018
 
 # 1. Preparar la Máquina virtual
 
-Capturar imagenes de los siguientes pasos:
+* Capturar imágenes de los siguientes pasos.
 * Crear una nueva MV con:
     * Tipo Debian 64 bits
     * Tamaño de disco de 10GB y
@@ -52,7 +46,7 @@ Capturar imagenes de los siguientes pasos:
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
-    * `sha256sum -c nombre-fichero.sha256`
+    * `sha256sum -c nombre-fichero.iso.sha256`
     * Debe aparecer mensaje `la suma coincide`.
 
 NO hace falta capturar imagen de los siguientes pasos:
@@ -71,8 +65,7 @@ NO hace falta capturar imagen de los siguientes pasos:
     1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
     1. Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
     1. Dejar el resto sin usar.
-
-Capturar imagen del esquema de particionado final.
+* Capturar imagen del esquema de particionado final.
 
 Veamos un ejemplo:
 
@@ -124,12 +117,24 @@ Capturar imagen de los siguientes comandos:
 ```
 * Salir con el comando `exit`.
 
-## Acceso externo
+---
 
-> Vamos a instalar el programa openssh para que el profesor pueda acceder remotamente a la máquina.
-> * Ejecutar comando como superusuario: `apt-get install openssh-server` y
-> * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
+# 5. Acceso externo
 
+* Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status openssh`.
+* En caso contrario lo instalamos.
+    * Ejecutar comando como superusuario: `apt-get install openssh-server` y
+    * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
 * Desde la máquina real hacer `ssh usuario@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
+
+---
+
+# ANEXO
+
+```
+Curso 2017-2018
+* Comprobar que funciona el comando file
+* Instalar wget, zip
+```
