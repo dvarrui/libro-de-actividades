@@ -46,7 +46,7 @@
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
-    * `sha256sum -c nombre-fichero.iso.sha256`
+    * `md5sum -c nombre-fichero.md5`
     * Debe aparecer mensaje `la suma coincide`.
 
 NO hace falta capturar imagen de los siguientes pasos:
