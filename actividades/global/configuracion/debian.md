@@ -24,7 +24,7 @@ Documentos relacionados
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
     * Por ejemplo vargasXXd
     * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
-* Nombre de dominio: `curso1718` (Modificar los números al curso actual).
+* Nombre de dominio: `curso1819` (Modificar los números al curso actual).
 * Un usuario identificado con `nombre-del-alumno`.
 
 > **ATENCIÓN**
