@@ -1,42 +1,39 @@
 
 
-3. Reinstalar GRUB2
+# Preguntas frecuentes
 
-    http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB
+## Reinstalar GRUB2
 
+* http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB
 
-4. Repositorios Oficiales de Debian 6
+## Repositorios Oficiales de Debian 6
+
 Copiar en /etc/apt/sources.list:
 
+* Repositorio Oficial
+    * deb http://http.es.debian.org/debian/ squeeze main contrib non-free
+    * deb-src http://http.es.debian.org/debian/ squeeze main contrib non-free
+* Repositorio de Seguridad
+    * deb http://security.debian.org/ squeeze/updates main contrib non-free
+    * deb-src http://security.debian.org/ squeeze/updates main contrib non-free
+    * deb http://ftp.es.debian.org/debian/ squeeze-proposed-updates main contrib non-free
+    * deb-src http://ftp.es.debian.org/debian/ squeeze-proposed-updates main contrib non-free
+* Repositorio Squeeze - Backports
+    * deb http://backports.debian.org/debian-backports squeeze-backports main
+* Repositorio Multimedia - http://www.debian-multimedia.org/
+    * deb http://www.debian-multimedia.org squeeze main non-free
+    * deb-src http://www.debian-multimedia.org squeeze main non-fre
+* aptitude install debian-multimedia-keyring
 
-### REPOSITORIOS OFICIALES
+# Conversor de formato multimedia
 
-# Repositorio Oficial
-deb http://http.es.debian.org/debian/ squeeze main contrib non-free
-deb-src http://http.es.debian.org/debian/ squeeze main contrib non-free
-
-# Repositorio de Seguridad
-deb http://security.debian.org/ squeeze/updates main contrib non-free
-deb-src http://security.debian.org/ squeeze/updates main contrib non-free
-deb http://ftp.es.debian.org/debian/ squeeze-proposed-updates main contrib non-free
-deb-src http://ftp.es.debian.org/debian/ squeeze-proposed-updates main contrib non-free
-
-# Repositorio Squeeze - Backports
-deb http://backports.debian.org/debian-backports squeeze-backports main
-
-# Repositorio Multimedia - http://www.debian-multimedia.org/
-# aptitude install debian-multimedia-keyring
-deb http://www.debian-multimedia.org squeeze main non-free
-deb-src http://www.debian-multimedia.org squeeze main non-fre
-
-5. Conversor de formato multimedia
 Crea un fichero de texto con el nombre "conversor-de-video". Escribe el siguiente contenido dentro del fichero:
-
+```
 #!/bin/bash
 echo "[INFO] Realizando conversión de formato..."
 mencoder -idx out.ogv -ovc lavc -oac mp3lame -o out.avi
 echo "[INFO] Done"
-
+```
 Pon permisos de ejecución al fichero: chmod +x conversor-de-video
 Para ejecutarlo, simplemente escribe en la consola: conversor-de-video
 ¡Ya está!
