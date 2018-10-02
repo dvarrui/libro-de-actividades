@@ -22,9 +22,7 @@ Documentos relacionados
     * Por ejemplo vargasXXd
     * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
 * Nombre de dominio: `curso1718` (Modificar los números al curso actual).
-* Usuarios:
-    * Un usuario identificado con `nombre-del-alumno`.
-    * Poner al usuario `root` el DNI del alumno con la letra en minúscula.
+* Un usuario identificado con `nombre-del-alumno`.
 
 > **ATENCIÓN**
 >
