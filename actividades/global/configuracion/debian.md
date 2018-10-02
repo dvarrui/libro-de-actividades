@@ -82,18 +82,14 @@ iface eth0 inet static
   address 172.19.42.41
   netmask 255.255.0.0
   gateway 172.19.0.1
-
+  dns-namserver 8.8.4.4
+  
 auto eth1
 iface eth1 inet dhcp
 ```
 
-## Configurar el servidor DNS
-
-* Para configurar la resolución de nombres (Servidor DNS) debemos modificar el fichero
-`/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
-
-> Si tenemos instalado el paquete `resolvconf` hay que configurar el servidor DNS
-añadiendo la línea `dns-nameservers 8.8.4.4` en el fichero `/etc/network/interfaces`.
+> NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres 
+(Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
 ## Aplicar los cambios
 
@@ -106,6 +102,16 @@ añadiendo la línea `dns-nameservers 8.8.4.4` en el fichero `/etc/network/inter
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
+---
+
+# ANEXO
+
+## resolvconf
+
+Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
+* `sudo rm /etc/resolv.conf`
+* `sudo dpkg-reconfigure resolvconf`
+
 ## Configurar temporalmente la red mediante comandos
 
 También podemos usar comandos del sistema para definir una configuración de red temporal. No es fija porque al reiniciar el equipo no se mantiene.
@@ -113,14 +119,6 @@ También podemos usar comandos del sistema para definir una configuración de re
 * `ifconfig eth0 172.AA.XX.0 netmask 255.255.0.0`, para configurar la IP y la máscara de red.
 * `route add default gw 172.AA.0.1`, para configurar la puerta de enlace.
 * `echo nameserver 8.8.4.4 >> /etc/resolv.conf`, para configurar la IP del servidor DNS.
-
----
-
-# ANEXO
-
-Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
-* `sudo rm /etc/resolv.conf`
-* `sudo dpkg-reconfigure resolvconf`
 
 ## Netplan vs /etc/network/interfaces
 https://netplan.io/examples
