@@ -14,6 +14,10 @@ el momento es que arrancamos un cliente e iniciamos sesión.
 > Al terminar la actividad, y antes de realizar la entrega, etiquetamos el proyecto con "ltsp".
 > La etiqueta es un identificador que queda asociado a un instante de tiempo determinado del proyecto git.
 
+Enlaces de interés:
+* [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
+* [Conectar Knoppix7 con servidor LTSP de sistema operativo ](https://www.youtube.com/watch?v=UpNUHsXSxA4)
+
 ---
 
 # 2. Preparativos
@@ -129,7 +133,6 @@ Donde XX es el número de puesto de cada alumno.
 > * Para cambiar las opciones del arranque por defecto, editamos fichero
 >     * `/etc/default/isc-dhcp-server` para DHCP. Modificar INTERFACES
 >     * `/etc/default/tftpd-hpa` para TFTP. Modificar TFTP_ADDRESS con IP:PORT. Por ejemplo `192.168.67.1:69`.
->
 
 ---
 
@@ -177,7 +180,7 @@ Añadir las siguientes líneas al fichero:
 ```
 [default]
 # habilita el uso de varios dispositivos locales.
-LOCALDEV = true 
+LOCALDEV = true
 ...
 # Define los usuarios que tienen permiso de acceso a cada cliente ligero.
 [mac addres client1 separated by :]
@@ -186,20 +189,18 @@ LDM_USER_ALLOW = primer-apellido1
 LDM_USER_ALLOW = primer-apellido2
 ```
 * `ltsp-update-image`, actualizar la imagen.
-* Una vez iniciado el cliente ligero, tendremos el fichero /etc/lts.conf en el cliente.
-Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
-
-> INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
+* Hacer un pequeño vídeo para verificar este apartado.
 
 ---
 
 # A. ANEXOS
 
-Los anexos siguientes son resúmenes de la documentación proporcionada por la página web de LTSP.
-
-Enlaces de interés:
-* [Hardware de cliente ligero](https://www.youtube.com/watch?v=MgOX63SIl9I)
-* [Conectar Knoppix7 con servidor LTSP de sistema operativo ](https://www.youtube.com/watch?v=UpNUHsXSxA4)
+> PENDIENTE DE REVISAR
+>
+> * Una vez iniciado el cliente ligero, tendremos el fichero /etc/lts.conf en el cliente.
+Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
+>
+> INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
 
 ## A.1 Próximo curso
 
@@ -218,4 +219,3 @@ Via commandline(following commands to be run in terminal as root "su -"):
 * Check out Network configuration instructions before proceeding.
 * Launch `Easy-LTSP` GUI as root (open terminal, run "su -", provide root
 password, and then run "easy-ltsp" command).
-
