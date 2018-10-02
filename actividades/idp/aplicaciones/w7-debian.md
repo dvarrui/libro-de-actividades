@@ -1,25 +1,26 @@
 *(Utilizado en el curso 2014-2015)*
 
-#Instalar aplicaciones y actualizar el sistema
+# Instalar aplicaciones y actualizar el sistema
 
 En esta actividad vamos a practicar diversas formas de realizar instalaciones 
 de aplicaciones en varios sistemas operativos, así como la forma de 
 mantener nuestros sistemas actualizados.
 
-# Windows  
+---
+
+# 1. Windows - Usando el GUI
 
 Enlaces de interés:
 * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
 * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
-##1.1 Usando el GUI
-Capturar imagen del proceso final.
+* Capturar imagen del proceso final.
 
-###Actualización del sistema:
+### Actualización del sistema:
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 * Aplicar las actualizaciones del SO (Panel de control -> Windows Update). Si hay muchas actualizaciones pendientes NO las actualizacen todas. Elijan sólo algunas para probar.
 
-###Instalar características del sistema operativo:
+### Instalar características del sistema operativo:
 * Vamos a las herramientas de Windows (`Panel de control -> Programas y características -> Activar o desactivar características de Windows`).
 * Instalar Cliente Telnet y Juegos/Buscaminas. Comprobar que funcionan correctamente.
 > La herramienta telnet sirve para conectarse a equipos remotos. 
@@ -30,7 +31,7 @@ la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 >     Escribir "hola" y pulsar enter
 >     Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
-###Vamos a instalar aplicaciones
+### Vamos a instalar aplicaciones
 Capturar imagenes de los pasos realizados. 
 * Descargar Geany para SO Windows de las páginas oficiales. 
 Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
@@ -40,10 +41,12 @@ En Windows podemos usar por ejemplo el programa HashCalc para realizar dicha ver
 * Comprobar su funcionamiento.
 * Desinstalar el programa.
 
-##1.2 Usando los comandos
+---
+
+# 1.2 Windows - Usando los comandos
 Capturar imágenes de los pasos realizados.
 
-###Instalar programas:
+## Instalar programas:
 * Descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir consola cmd, e instalar por comandos el programa GIT.
 * `Git-*.exe /?` (Con el argumento /? vemos todas las opciones del programa)
@@ -53,7 +56,7 @@ Capturar imágenes de los pasos realizados.
     git --version
 * Descargar e instalar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
           
-###Desinstalar programas:
+## Desinstalar programas:
 * Vamos a desinstalar el programa por comandos usando la consola wmic.
 * Abrir consola PowerShell como Administrador
 * `wmic` (Abrir consola)
@@ -67,28 +70,30 @@ Capturar imágenes de los pasos realizados.
 > `$programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "`
 > `$programa.Uninstall()`
 
-# GNU/Linux
+---
+
+# 3. GNU/Linux - Usando el GUI
 
 Vamos a usar SO Debian/Ubuntu.
-
-##2.1 Usando el GUI
 
 > El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 * Iniciar el gestor de paquetes ( Por ejemplo synaptic). 
 > Si no tienes el programa synaptic instalado en el sistema, puedes abrir una consola y ejecutar: `apt-get install synaptic`
 
-###Instalar paquetes
+## Instalar paquetes
 * Iniciar Synaptic -> refrescar los repositorios.
 * Instalar por ejemplo el editor geany, git, gkrellm o recordmydesktop.
 * Comprobar que funciona el programa instalado.
 * Localizar/consutlar los paquetes descargados que estarán en la caché ( /var/cache/apt/archives )
 
-###Desinstalar paquetes
+## Desinstalar paquetes
 * Desinstalar la aplicación con el gestor de paquetes.
 * Ir al directorio de la caché. Hacer click derecho -> Instalar Software o doble click 
 sobre el paquete para ver cómo se vuelve a instalar o probar con `dpkg -i NOMBRE-PAQUETE.deb`.
 
-##2.2 Usando los comandos
+---
+
+# 4. GNU/Linux usando los comandos
 
 ###Actualización del sistema
 * Vamos a actualizar el catálogo de productos: apt-get update
@@ -132,6 +137,7 @@ Así que tecleamos el siguiente comando: `apt-get install -y xserver-xorg-video-
 > * Ahora vamos a instalar el escritorio LXDE, por ejemplo: `apt-get install lxde`
 > * Reiniciar la máquina. Ejecutar `startx` para iniciar el modo gráfico.
 
+---
 
 # ANEXO: SO GNU/Linux OpenSUSE
 
