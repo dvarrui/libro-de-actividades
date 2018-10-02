@@ -5,7 +5,7 @@ Documentos relacionados
 
 # Configurar MV GNU/Linux Debian
 
-`Revisado para Debian 8`
+## Configuración de red
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
@@ -18,6 +18,9 @@ Documentos relacionados
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.AA.0.1`
     * Servidor DNS: `8.8.4.4`
+
+## Configuraciones varias
+
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
     * Por ejemplo vargasXXd
     * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
@@ -34,6 +37,8 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hosts`.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
 >     * Por ejemplo: `127.0.0.2   vargasXXd.curso1617   vargasXXd`
+
+---
 
 ## Comprobaciones finales
 
@@ -53,6 +58,8 @@ ping 8.8.4.4
 host www.iespuertodelacruz.es
 blkid
 ```
+
+---
 
 ## Entorno gráfico
 
