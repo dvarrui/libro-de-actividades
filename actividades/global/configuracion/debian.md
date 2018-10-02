@@ -61,16 +61,18 @@ blkid
 
 ---
 
-## Entorno gráfico
+## Proceso para configurar la red.
 
-En Debian/Ubuntu, para configurar la red mediante entorno gráfico podemos usar
-NetworkManager.
+Podemos configurar la red por entorno gráfico usando la aplicación NetworkManager.
+Por comandos debemos modificar el contenido de los ficheros de configuración de red.
 
-## Ficheros de configuración de red
+> Enlace de interés:
+>
+> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-* En máquinas Debian/Ubuntu podemos cambiar la configuración de red,
-modificando el fichero `/etc/network/interfaces`.
-* Para averiguar los nombres de nuestras interfaces usamos `ip a` o `ifconfig`.
+* Primero debemos averiguar el nombre de nuestra interfaces. 
+    * Usaremos `ip a` o `ifconfig`.
+* Para cambiar la configuración de red,modificar el fichero `/etc/network/interfaces`.
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
 
 ```
@@ -91,14 +93,10 @@ iface eth1 inet dhcp
 > NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres 
 (Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
-* Para que se tengan en cuenta los cambios hacemos lo siguiente:
-   * `systemctl restart networking`
+* Para que se apliquen los cambios hacemos lo siguiente:
+   * `systemctl restart networking` o
    * `service networking restart` o
    * Reiniciar el equipo.
-
-> Enlace de interés:
->
-> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
 ---
 
