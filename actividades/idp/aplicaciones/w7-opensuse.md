@@ -1,19 +1,19 @@
 
-# Instalar aplicaciones y actualizar el sistema
+# Instalar aplicaciones y actualizar el sistema (Windows + OpenSUSE)
 
 En esta actividad vamos a practicar diversas formas de realizar la instalación de aplicaciones en varios sistemas operativos, así como la forma de mantener nuestros sistemas actualizados.
 
-# 1. Windows 7
+---
+
+# 1. Windows 7 usando el GUI
 
 > Enlaces de interés:
 > * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
 > * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
-## 1.1 Usando el GUI
-
 * Capturar imagen del resultado final.
 
-### Instalar características del sistema operativo
+## Instalar características del sistema operativo
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
@@ -37,7 +37,7 @@ la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 > * Escribir `olleh` y pulsar enter
 > * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
-### Vamos a instalar aplicaciones
+## Vamos a instalar aplicaciones
 
 Capturar imagenes de los pasos realizados.
 * Descargar Wget para Windows de la [página oficial](http://gnuwin32.sourceforge.net/packages/wget.htm)
@@ -62,11 +62,13 @@ para descargar el programa Evince en formato MSI desde el URL https://wiki.gnome
 > * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
 > * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 
-## 1.2 Usando los comandos
+---
+
+# 2. Windows usando los comandos
 
 Capturar imágenes de los pasos realizados.
 
-### Instalar programas
+## Instalar programas
 
 * Descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir una consola cmd.
@@ -85,7 +87,7 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 * `git --version`, comando para averiguar la versión instalada del programa git.
 
-### Desinstalar programas
+## Desinstalar programas
 
 A continuación vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
 
@@ -107,7 +109,9 @@ información reiniciar el equipo y repetir.
 > $programa.Uninstall()
 > ```
 
-## 1.3 Actualización del sistema
+---
+
+# 3. Windows - Actualización del sistema
 
 * Hacer un snapshot de la MV por seguridad.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
@@ -127,36 +131,36 @@ De esta forma las actualizaciones tardan menos tiempo.
 
 ---
 
-# 2. GNU/Linux
+# 4. GNU/Linux usando el GUI
 
 Vamos a usar SO OpenSUSE.
-
-## 2.1 Usando el GUI
 
 El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 
 * Enlaces de interés:
     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
-### Instalar paquetes
+## Instalar paquetes
 
 * Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
 * Comprobar que funcionan los programas que hemos instalado.
 
-### Desinstalar paquetes
+## Desinstalar paquetes
 
 * Desinstalar la aplicación con el gestor de paquetes.
 * Comprobarlo.
 
-## 2.2 Usando los comandos
+---
+
+# 5. GNU/Linux usando los comandos
 
 Capturar imágenes de los pasos realizados.
 
 Enlace de interés:
 * [Zypper](https://es.opensuse.org/Zypper)
 
-### Instalar software
+## Instalar software
 
 * Entramos en la consola como `root`.
 * Instalar algún programa con el comando `zypper ...` (`man zypper` para consultar ayuda).
@@ -166,7 +170,7 @@ Ahora vamos a comprobar que el programa está instalado:
 * Ejecutar el programa y ver funciona.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 
-### Desinstalar software
+## Desinstalar software
 
 * Desinstalar el programa con `zypper ...`.
 Comprobar que el programa no está instalado:
@@ -174,12 +178,12 @@ Comprobar que el programa no está instalado:
 * Ejecutar el programa y ver que funciona.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 
-### Instalar programa Windows
+## Instalar programa Windows
 
 * Instalar el emulador Windows (`wine`).
 * Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhonny Simulator.
 
-### Instalar programa desde rpm
+## Instalar programa desde rpm
 
 > * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
@@ -200,7 +204,7 @@ manualmente. Por ejemplo:
     * `atom`
 * Comprobamos que funciona bien el editor atom.
 
-### Instalación desde el código fuentes
+## Instalación desde el código fuente
 
 GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
 pública.
@@ -215,7 +219,9 @@ pública.
 * Descargar el proyecto.
 * Instalar el juego.
 
-## 2.3 Actualización del sistema
+---
+
+## 6. GNU/Linux actualización del sistema
 
 * Hacer un snapshot de la MV.
 * Entramos en la consola como `root`.
