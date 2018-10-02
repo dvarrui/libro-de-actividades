@@ -35,7 +35,7 @@
 
 >Ahora vamos a usar gparted para crear una partición en el disco.
 
-* `Gparted -> Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
+* Iniciar `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
