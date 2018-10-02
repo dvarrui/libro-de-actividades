@@ -24,8 +24,11 @@
 > Por defecto, viene provista de un conjunto de herramientas muy útiles.
 
 * Descargar del servidor la ISO de Knoppix y el fichero md5.
-* Comprobar que la descarga de los ficheros se hizo de forma correcta:
-    * `md5sum -c nombre-fichero.md5`
+* Vamos a comprobar que la descarga de los ficheros se hizo de forma correcta.
+    * Abrir un terminal en la máquina real.
+    * Movernos a la carpeta donde tengamos los ficheros que nos hemos descargado. Por ejemplo `cd Descargas`
+    * `vdir`, para asegurarnos que los ficheros que vamos a usar están en nuestra carpeta actual.
+    * `md5sum -c nombre-fichero.md5`, ejecutamos el comando de comprobación.
     * Debe aparecer mensaje `la suma coincide`.
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
