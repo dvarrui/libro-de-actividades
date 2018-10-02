@@ -1,6 +1,5 @@
-*(Utilizado en el curso 2014-2015)*
 
-# Instalar aplicaciones y actualizar el sistema
+# Instalar aplicaciones y actualizar el sistema (Windows + Debian)
 
 En esta actividad vamos a practicar diversas formas de realizar instalaciones 
 de aplicaciones en varios sistemas operativos, así como la forma de 
