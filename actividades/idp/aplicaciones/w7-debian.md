@@ -10,9 +10,9 @@ mantener nuestros sistemas actualizados.
 
 # 1. Windows - Usando el GUI
 
-Enlaces de interés:
-* [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
-* [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
+> Enlaces de interés:
+> * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
+> * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
 * Capturar imagen del proceso final.
 
