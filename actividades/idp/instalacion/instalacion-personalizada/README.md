@@ -46,7 +46,7 @@
 Capturar imágenes de los siguientes pasos:
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
-    * `sha256sum -c nombre-fichero.iso.sha256`
+    * `md5sum -c nombre-fichero.md5`
     * Debe aparecer mensaje `la suma coincide`.
 
 NO hace falta capturar imagen de los siguientes pasos:
@@ -58,8 +58,8 @@ NO hace falta capturar imagen de los siguientes pasos:
     * La clave de root
     * Nombre de usuario y su clave
 * Zona horaria Canarias.
-
-* Método de particionado manual. Crear el siguiente esquema de particiones:
+* Método de particionado manual. 
+* Crear el siguiente esquema de particiones:
     1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
     1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
     1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
