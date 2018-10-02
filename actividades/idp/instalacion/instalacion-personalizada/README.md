@@ -23,7 +23,9 @@
 > Knoppix es una distribución de GNU/Linux que viene en CD-Live.
 > Por defecto, viene provista de un conjunto de herramientas muy útiles.
 
-* Descargar del servidor la ISO de Knoppix y el fichero md5.
+* Descargar del servidor:
+    * la ISO de Knoppix y
+    * el fichero md5.
 * Vamos a comprobar que la descarga de los ficheros se hizo de forma correcta.
     * Abrir un terminal en la máquina real.
     * Movernos a la carpeta donde tengamos los ficheros que nos hemos descargado. Por ejemplo `cd Descargas`
