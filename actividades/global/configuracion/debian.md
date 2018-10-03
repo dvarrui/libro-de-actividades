@@ -5,21 +5,7 @@ Documentos relacionados
 
 # Configurar MV GNU/Linux Debian
 
-## Configuración de red
-
-> * Donde aparezca AA debemos poner el código asignado al aula:
->     * 18 para el aula108
->     * 19 para el aula109
-> * Donde aparezca XX debemos poner el código asignado al alumno.
-
-* Tarjeta de red VBox en `modo puente`.
-* IP: `172.AA.XX.41` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.AA.XX.42, 172.AA.XX.43, etc.
-    * Máscara de red: `255.255.0.0`
-    * Gateway: `172.AA.0.1`
-    * Servidor DNS: `8.8.4.4`
-
-## Configuraciones varias
+# Configurar Nombre EQUIPO, DOMINIO y USUARIO
 
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
     * Por ejemplo vargasXXd
@@ -40,7 +26,23 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 ---
 
-## Comprobaciones finales
+# Configuración de red
+
+> * Donde aparezca AA debemos poner el código asignado al aula:
+>     * 18 para el aula108
+>     * 19 para el aula109
+> * Donde aparezca XX debemos poner el código asignado al alumno.
+
+* Tarjeta de red VBox en `modo puente`.
+* IP: `172.AA.XX.41` (Donde XX corresponde al nº de cada puesto).
+    * Si tenemos varias máquinas usaremos las IP 172.AA.XX.42, 172.AA.XX.43, etc.
+    * Máscara de red: `255.255.0.0`
+    * Gateway: `172.AA.0.1`
+    * Servidor DNS: `8.8.4.4`
+
+---
+
+# Comprobaciones finales
 
 Capturar imágen de la configuración del equipo:
 ```
@@ -61,7 +63,7 @@ blkid
 
 ---
 
-## Proceso para configurar la red.
+# Proceso para configurar la red.
 
 Podemos configurar la red por entorno gráfico usando la aplicación NetworkManager.
 Por comandos debemos modificar el contenido de los ficheros de configuración de red.
