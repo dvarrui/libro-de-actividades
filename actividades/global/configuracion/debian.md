@@ -76,16 +76,19 @@ Por comandos debemos modificar el contenido de los ficheros de configuración de
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
 
 ```
+# Ejemplo configuración interfaz loopback
 auto lo
 iface lo inet loopback
 
-auto eth0
-iface eth0 inet static
+# Ejemplo configuración interfaz enp0s3 en modo estático
+auto enp0s3
+iface enp0s3 inet static
   address 172.AA.XX.41
   netmask 255.255.0.0
   gateway 172.AA.0.1
   dns-nameserver 8.8.4.4
-  
+
+# Ejemplo configuración interfaz ethq en modo dinámico
 auto eth1
 iface eth1 inet dhcp
 ```
@@ -94,9 +97,9 @@ iface eth1 inet dhcp
 (Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
 * Para que se apliquen los cambios hacemos lo siguiente:
+   * Reiniciar el equipo o
    * `systemctl restart networking` o
    * `service networking restart` o
-   * Reiniciar el equipo.
 
 ---
 
