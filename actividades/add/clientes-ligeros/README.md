@@ -179,10 +179,8 @@ acceder a un dispositivo USB conectado en local ([Ejemplo](http://manpages.ubunt
 Añadir las siguientes líneas al fichero:
 ```
 [default]
-# habilita el uso de varios dispositivos locales.
 LOCALDEV = true
-...
-# Define los usuarios que tienen permiso de acceso a cada cliente ligero.
+
 [mac addres client1 separated by :]
 LDM_USER_ALLOW = primer-apellido1
 [mac address client2 seprated by :]
