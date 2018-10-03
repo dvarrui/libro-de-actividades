@@ -48,16 +48,16 @@ Capturar imágen de la configuración del equipo:
 ```
 date
 uname -a
-hostname -f           #Muestra nombre-máquina.nombre-dominio
-hostname -a           #Muestra nombre-máquina
-hostname -d           #Muestra nombre-dominio
+hostname -f           # Muestra nombre-máquina.nombre-dominio
+hostname -a           # Muestra nombre-máquina
+hostname -d           # Muestra nombre-dominio
 
-tail -n 5 /etc/passwd #Comprobar que existe el usuario
-id nombre-de-usuario  #Comprobar que existe el usuario
-ip a
-route -n
-ping 8.8.4.4
-host www.iespuertodelacruz.es
+tail -n 5 /etc/passwd # Comprobar que existe el usuario
+id nombre-de-usuario  # Comprobar que existe el usuario
+ip a                  # Muestra configuración de red
+ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
+ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
+host www.nba.com      # Comprueba que funciona bien el DNS
 blkid
 ```
 
