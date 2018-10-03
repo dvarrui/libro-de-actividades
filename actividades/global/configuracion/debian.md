@@ -9,7 +9,7 @@ Documentos relacionados
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
->     * 19 para el aual109
+>     * 19 para el aula109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
 * Tarjeta de red VBox en `modo puente`.
@@ -81,10 +81,10 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet static
-  address 172.19.42.41
+  address 172.AA.XX.41
   netmask 255.255.0.0
-  gateway 172.19.0.1
-  dns-namserver 8.8.4.4
+  gateway 172.AA.0.1
+  dns-nameserver 8.8.4.4
   
 auto eth1
 iface eth1 inet dhcp
