@@ -24,7 +24,7 @@ Entrega:
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * Descargar `TightVNC`. Esta es una herramienta libre disponible para Windows.
 
-## 3.1 Ir al servidor
+## 3.1 Ir al servidor VNC en Windows
 
 * En el servidor VNC instalaremos `TightVNC server`.
 * Revisar la configuración del cortafuegos del servidor VNC Windows para permitir VNC.
@@ -37,7 +37,8 @@ los puertos 5801, 5901, etc.
 
 ## 3.3 Ir al cliente
 
-* En el cliente usaremos `TightVNC viewer`.
+* En el cliente Windows usaremos `TightVNC viewer`.
+* En el cliente OpenSUSE ...(ver apartado 4.3)
 
 > **NOTA**
 >
@@ -62,7 +63,7 @@ Para verificar que se han establecido las conexiones remotas:
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
-## 4.1 Ir al servidor
+## 4.1 Ir al servidor VNC OpenSUSE
 
 * Ir a `Yast -> VNC`
     * Permitir conexión remota. Esto configura el servicio `xinet`.
@@ -90,6 +91,7 @@ los puertos 5801, 5901, etc.
     * `vncviewer IP-vnc-server:590N`
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
+* En el cliente Windows... (ver apartado 3.3)
 
 ## 4.4 Comprobaciones finales
 
