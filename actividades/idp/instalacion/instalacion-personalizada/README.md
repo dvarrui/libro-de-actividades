@@ -126,7 +126,7 @@ Capturar imagen de los siguientes comandos:
 
 # 5. Acceso externo
 
-* Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status openssh`.
+* Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status sshd`.
 * En caso contrario lo instalamos.
     * Ejecutar comando como superusuario: `apt-get install openssh-server` y
     * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
