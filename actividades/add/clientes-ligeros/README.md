@@ -83,21 +83,9 @@ En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
 Esta imagen del SO se cargará en la memoria de los clientes ligeros.
 
-> **32 bits o 64 bits**
->
-> * `ltsp-build-client --arch i386` para crear una imagen de 32 bits.
-> * `ltsp-build-client` crear imagen del SO.
+> Para crear imágenes de 64 bits usaríamos el comando `ltsp-build-client`.
 
 * Ejecutar `ltsp-info`, para consultar información.
-
-> **NOTA**
->
-> En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
-podemos volver a actualizar la imagen.
->
-> * `ltsp-update-kernel`
-> * `ltsp-update-sshkeys`
-> * `ltsp-update-image`
 
 Revisamos la configuración del servicio DHCP instalado junto con LTSP:
 * Revisar la configuración de la tarjeta de red interna del servidor.
@@ -106,18 +94,17 @@ IP estática compatible con la configuración dhcp.
 
 Comprobar las rutas son correctas:
 * Para 32 bits: `option root-path /opt/ltsp/i386`, `filename /ltsp/i386/pxelinux.0`, etc.
-* Para 64 bits: `option root-path /opt/ltsp/amd64`, `filename /ltsp/amd64/pxelinux.0`, etc.
 
 ![dhcpdconf](./images/ltsp-dhcpdconf.png)
 
-> **IP de la red interna**
->
-> Si se desea usar una IP diferente en la red interna entonces será necesario
-modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
->
+> Para imágenes de 64 bits: `option root-path /opt/ltsp/amd64`, `filename /ltsp/amd64/pxelinux.0`, etc.
 
 * En el fichero `/etc/ltsp/dhcpd.conf` modificar el valor `range 192.168.67.1XX 192.168.67.2XX;`.
 Donde XX es el número de puesto de cada alumno.
+
+> **IP de la red interna**: Si se desea usar una IP diferente en la red interna entonces será necesario
+modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego reiniciar el servicio.
+
 * Reiniciamos el servidor, y comprobamos que los servicios están corriendo.
 ![ltsp-services-running](./images/ltsp-services-running.png)
 
@@ -187,11 +174,22 @@ LDM_USER_ALLOW = primer-apellido1
 LDM_USER_ALLOW = primer-apellido2
 ```
 * `ltsp-update-image`, actualizar la imagen.
-* Hacer un pequeño vídeo para verificar este apartado.
+* Hacer un pequeño vídeo granbando lo siguiente:
+    * Entrar en MV cliente2 usando el usuario primer-apellido1 y primerapellido2.
 
 ---
 
 # A. ANEXOS
+
+> **NOTA**
+>
+> En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
+podemos volver a actualizar la imagen.
+>
+> * `ltsp-update-kernel`
+> * `ltsp-update-sshkeys`
+> * `ltsp-update-image`
+
 
 > PENDIENTE DE REVISAR
 >
