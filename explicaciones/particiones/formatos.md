@@ -40,7 +40,7 @@ fragmentación externa es muy elevada.
 
 ---
 
-# 2. Asignación de Bloques por Lista Ligada (ABBL)
+# 2. Asignación de Bloques por Lista Ligada (ABLL)
 
 * En el sector 1 del disco se guardará la `Información del formato ABLL`. Esto es,
 una tabla con `name;start`. Donde:
