@@ -35,7 +35,7 @@ Entrega:
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
 los puertos 5801, 5901, etc.
 
-## 3.3 Ir al cliente
+## 3.3 Ir al cliente Windows
 
 * En el cliente Windows usaremos `TightVNC viewer`.
 * En el cliente OpenSUSE ...(ver apartado 4.3)
@@ -51,7 +51,11 @@ los puertos 5801, 5901, etc.
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 
-## 3.4 Comprobaciones finales
+## 3.4 Ir al cliente GNU/Linux
+
+* En el cliente OpenSUSE ...(ver apartado 4.3)
+
+## 3.5 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
@@ -82,7 +86,7 @@ Para verificar que se han establecido las conexiones remotas:
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
 los puertos 5801, 5901, etc.
 
-## 4.3 Ir al cliente
+## 4.3 Ir al cliente GNU/Linux
 
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
@@ -91,9 +95,12 @@ los puertos 5801, 5901, etc.
     * `vncviewer IP-vnc-server:590N`
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
+
+## 4.4 Ir al cliente Windows
+
 * En el cliente Windows... (ver apartado 3.3)
 
-## 4.4 Comprobaciones finales
+## 4.5 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC,
