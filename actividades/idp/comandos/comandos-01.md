@@ -12,9 +12,8 @@ Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 * Comprobar [configuración](../../global/configuracion/opensuse.md).
 * Comprobamos que la configuración está bien con:
 ```
-ifconfig
 ip a
-nslookup www.google.es
+host www.google.es
 ping www.google.es
 ```
 
