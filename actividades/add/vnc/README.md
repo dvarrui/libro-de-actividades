@@ -59,7 +59,9 @@ los puertos 5801, 5901, etc.
 
 Para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
-* Ejecutar `netstat -n` en el servidor.
+* Ejecutar `lsof -i |grep XXX` en el servidor.
+
+> El comando `netstat -n` está obsoleto.
 
 ---
 
