@@ -59,7 +59,7 @@ los puertos 5801, 5901, etc.
 
 Para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
-* Ejecutar `lsof -i |grep XXX` en el servidor.
+* Ejecutar `lsof -i -n|grep XXX` en el servidor.
 
 > El comando `netstat -n` está obsoleto.
 
@@ -79,8 +79,10 @@ Para verificar que se han establecido las conexiones remotas:
     * Ponemos claves para las conexiones VNC a nuestro escritorio.
     * Al final se nos muestra el número de nuestro escritorio remoto.
 * `vdir /home/nombrealumno/.vnc`, vemos que se nos han creado unos ficheros de configuración VNC asociados a nuestro usuario.
-* Ejecutar `netstat -ntap` para comprobar que están los servicios en los puertos 580X y 590X.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
+* Ejecutar `lsof -i -n|grep XXX` para comprobar que están los servicios en los puertos 580X y 590X.
+
+> El comando `netstat -ntap` está obsoleto.
 
 ## 4.2 Ir a la máquina real
 
