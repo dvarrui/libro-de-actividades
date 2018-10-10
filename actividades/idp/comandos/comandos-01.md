@@ -5,6 +5,8 @@
 
 Partimos que ya tenemos creada la MV GNU/Linux [bien configurada](../../global/configuracion/opensuse.md).
 
+---
+
 ## Acceso remoto
 
 Vamos a configurar la máquina para permitir el acceso remoto al profesor.
@@ -12,17 +14,19 @@ Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 * Comprobar [configuración](../../global/configuracion/opensuse.md).
 * Comprobamos que la configuración está bien con:
 ```
-ip a
-host www.google.es
-ping www.google.es
+ip a               # Comprobar la IP
+ping 8.8.4.4       # Comprobar Gateway
+host www.google.es # Comprobar DNS
 ```
 
 * Comprobar [acceso remoto](../../global/acceso-remoto/opensuse.md).
 
+---
+
 ## Tarea
 
 Realizar las siguientes acciones en la MV usando los comandos:
-* Crear la siguiente estructura de directorios en la carpeta Documentos de nuestro home:
+* Crear la siguiente estructura de directorios en la carpeta HOME de nuestro usuario (`/home/usuario`):
 ```
 curso1718/hardware
 curso1718/sistemas-operativos
