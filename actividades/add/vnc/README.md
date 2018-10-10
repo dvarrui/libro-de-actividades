@@ -12,10 +12,10 @@ Entrega:
 
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 * Vamos a realizar las siguientes conexiones remotas VNC:
-    1. Acceder a Windows - desde Windows 7/10
-    1. Acceder a Windows - desde GNU/Linux OpenSUSE
-    1. Acceder a GNU/Linux OpenSUSE - desde GNU/Linux OpenSUSE (A lo mejor no hay que instalar el software cliente VNC)
-    1. Acceder a GNU/Linux OpenSUSE - desde Windows 7/10
+    * Acceder a Windows - desde Windows 7/10
+    * Acceder a Windows - desde GNU/Linux OpenSUSE
+    * Acceder a GNU/Linux OpenSUSE - desde GNU/Linux OpenSUSE (A lo mejor no hay que instalar el software cliente VNC)
+    * Acceder a GNU/Linux OpenSUSE - desde Windows 7/10
 
 ---
 
@@ -50,17 +50,11 @@ los puertos 5801, 5901, etc.
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 
-## 3.4 Ir al cliente GNU/Linux
-
-* En el cliente OpenSUSE ...(ver apartado 4.3)
-
-## 3.5 Comprobaciones finales
+## 3.4 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC.
-* Ejecutar `lsof -i -n|grep XXX` en el servidor.
-
-> El comando `netstat -n` está obsoleto.
+* Usar el comando `netstat -n` para ver las conexiones VNC cob el cliente.
 
 ---
 
@@ -99,15 +93,11 @@ los puertos 5801, 5901, etc.
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
 
-## 4.4 Ir al cliente Windows
-
-* En el cliente Windows... (ver apartado 3.3)
-
-## 4.5 Comprobaciones finales
+## 4.4 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Capturar imagenes probando las conexiones remotas VNC,
-* Ejecutar `netstat -ntap` en el servidor.
+* Ejecutar `lsof -i | grep XXX` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
 > **NOTA**
@@ -120,7 +110,14 @@ gestionar el servidor VNC.
 
 ---
 
-# 5. DISPLAY 0 en GNU/Linux
+# 5. Comprobaciones
+
+* Conectar el cliente GNU/Linux con el Servidor VNC Windows.
+* Conectar el cliente Windows con el servidor VNC GNU/Linux.
+
+---
+
+# 6. DISPLAY 0 en GNU/Linux
 
 * [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
 
