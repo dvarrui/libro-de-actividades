@@ -38,7 +38,6 @@ los puertos 5801, 5901, etc.
 ## 3.3 Ir al cliente Windows
 
 * En el cliente Windows usaremos `TightVNC viewer`.
-* En el cliente OpenSUSE ...(ver apartado 4.3)
 
 > **NOTA**
 >
