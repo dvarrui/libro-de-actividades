@@ -99,7 +99,7 @@ los puertos 5801, 5901, etc.
 ## 4.4 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
-* Ejecutar `lsof -i | grep XXX` en el servidor para comprobar las conexiones VNC.
+* Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
 > **NOTA**
