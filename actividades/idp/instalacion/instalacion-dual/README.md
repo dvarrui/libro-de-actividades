@@ -26,7 +26,7 @@ operativos, muy probablemente las imágenes actuales sean diferentes.
 * Configurar con:
     * tipo Windows 7 (64 bits)
     * RAM 1024MB
-    * disco duro de 18GB
+    * disco duro de 20GB
     * tarjeta de red en modo puente (bridge).
 
 ## 1.1 Particionado
@@ -50,8 +50,8 @@ con el usuario root ejecutando el comando `gparted`.
 * Dentro de la extendida haremos las siguientes particiones lógicas:
     * Área de intercambio o SWAP (500MB),
     * Partición de tamaño 100MB y con formato ext3.
-    * Partición de tamaño 5GB y con formato ext4.
-    * Quedarán libres 300 MB más o menos. Lo dejamos sin usar.
+    * Partición de tamaño 7GB y con formato ext4.
+    * Quedará un espacio libre que lo dejamos sin usar.
 * Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
 
 ---
@@ -111,8 +111,8 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * Esquema de uso de las particiones:
     * Área de intercambio o SWAP (500MB),
     * Partición home (montar /home) de tamaño 100MB y con formato ext3.
-    * Partición del sistema (montar /) de tamaño 5GB y con formato ext4.
-    * Quedarán libres 300 MB más o menos. Lo dejamos sin usar.
+    * Partición del sistema (montar /) de tamaño 7GB y con formato ext4.
+    * Quedará espacio libre. Lo dejamos sin usar.
 * Capturar imagen como la siguiente:
 
 ![dual-suse-particiones1](./images/dual-suse-particiones1.png)
