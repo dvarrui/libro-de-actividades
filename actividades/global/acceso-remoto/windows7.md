@@ -33,7 +33,9 @@
 
 ---
 
-## 2. Windows con Servidor SSH con CopSSH
+# ANEXO
+
+## INFO: Windows con Servidor SSH con CopSSH
 
 * Descargar la versión Free del programa [CopSSH](https://www.itefix.net/copssh).
 * Instalar con las opciones por defecto.
