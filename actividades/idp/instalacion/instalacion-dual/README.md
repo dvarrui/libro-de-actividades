@@ -1,19 +1,24 @@
 
 # Instalación Dual
 
-Vamos a realizar una instalación dual Windows y GNU/Linux. Esto es, instalar
-dos SSOO en la misma máquina.
+Vamos a realizar una instalación dual Windows y GNU/Linux.
+Esto es, instalar dos SSOO en la misma máquina.
 
 * Usaremos en esta práctica las versiones Windows7 Enterprise, y OpenSUSE.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
-> Recuerda: Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
-> Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
+```
+* Recuerda: Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
+* Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
 operativos, muy probablemente las imágenes actuales sean diferentes.
+```
 
-Enlaces de interés:
-* [Arranque dual Windows GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/130/cd/redesubuntu/ubuntu-SaberMas/arranque_dual_windowslinux.html)
+> Enlaces de interés:
+>
+> * [Arranque dual Windows GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/130/cd/redesubuntu/ubuntu-SaberMas/arranque_dual_windowslinux.html)
+
+---
 
 # 1. Preparar la máquina virtual
 
@@ -28,10 +33,11 @@ Enlaces de interés:
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
 
-> RECORDAR
-> * Cuando inicia Knoppix y aparece el prompt "boot:", pondremos `knoppix lang=es`
-para iniciarlo en español.
-> * La tecla "=" puede estar en "¡".
+```
+RECORDAR
+* Cuando inicia Knoppix y aparece el prompt "boot:", pondremos `knoppix lang=es` para iniciarlo en español.
+* La tecla "=" puede estar en "¡".
+```
 
 * Para hacer las particiones en Knoppix, abrimos un terminal. Nos ponemos como
 superusuario (comando `su` o `sudo bash`). Iniciamos la herramienta de particionado
@@ -41,13 +47,11 @@ con el usuario root ejecutando el comando `gparted`.
     * Una partición primaria, tipo NTFS para Windows (12GB),
     * Una primaria FAT32 para datos (100MB).
     * Crearemos una partición extendida que coja todo el disco restante.
-
 * Dentro de la extendida haremos las siguientes particiones lógicas:
     * Área de intercambio o SWAP (500MB),
     * Partición de tamaño 100MB y con formato ext3.
     * Partición de tamaño 5GB y con formato ext4.
     * Quedarán libres 300 MB más o menos. Lo dejamos sin usar.
-
 * Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
 
 ---
@@ -120,13 +124,16 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ![dual-suse-raiz](./images/dual-suse-raiz.png)
 
-> **IMPORTANTE**
->
-> Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
+```
+IMPORTANTE
+
+Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
 Esto lo hacemos para poder acceder de forma sencilla a la partición Windows desde el SO
 GNU/Linux.
-> Esto lo hacemos para versiones de OpenSUSE 12.3 detecten sin problemas el Windows y
+
+Esto lo hacemos para versiones de OpenSUSE 12.3 detecten sin problemas el Windows y
 se configure automáticamente el gestor de arranque.
+```
 
 * Aceptar.
 * Capturar imagen como la siguiente:
@@ -157,8 +164,8 @@ se configure automáticamente el gestor de arranque.
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
 
 * [Configuración de la MV](../../../global/configuracion/opensuse.md)
-    * IP estática 172.19.XX.32
-    * Poner como nombre del host o equipo `1er-apellidoXXi`.
+    * IP estática 172.AA.XX.32
+    * Poner como nombre del host o equipo `1er-apellidoXXh`.
 * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
 el nombre del equipo puede cambiar en cada reinicio.
 
@@ -180,8 +187,8 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 * Entrar al sistema con nuestro usuario.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * [Configuración de la MV](../../../global/configuracion/opensuse.md)
-    * IP estática 172.19.XX.32
-    * Poner como nombre del host o equipo `1er-apellidoXXi`.
+    * IP estática 172.AA.XX.32
+    * Poner como nombre del host o equipo `1er-apellidoXXh`.
 * Abrir un terminal.
 * Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
