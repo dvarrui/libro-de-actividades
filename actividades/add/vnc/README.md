@@ -26,7 +26,7 @@ Entrega:
 
 ## 3.1 Ir al servidor VNC en Windows
 
-* En el servidor VNC instalaremos `TightVNC server`. Esto es el servicio.
+* En el servidor VNC instalaremos `TightVNC -> Custom -> Server`. Esto es el servicio.
 * Revisar la configuración del cortafuegos del servidor VNC Windows para permitir VNC.
 
 ## 3.2 Ir a la máquina real
@@ -37,7 +37,8 @@ los puertos 5801, 5901, etc.
 
 ## 3.3 Ir al cliente Windows
 
-* En el cliente Windows usaremos `TightVNC viewer`. Esto es el cliente VNC.
+* En el cliente Windows instalar `TightVNC -> Custom -> Viewer`.
+* Usaremos `TightVNC Viewer`. Esto es el cliente VNC.
 
 > **NOTA**
 >
