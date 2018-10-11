@@ -69,12 +69,14 @@ Para verificar que se han establecido las conexiones remotas:
     * Abrir puertos VNC en el cortafuegos.
 * Ir a `Yast -> Cortafuegos`
     * Revisar la configuración del cortafuegos. Debe estar permitido las conexiones a `vnc-server`.
-* Con nuestro usuario normal, ejecutar `vncserver` en el servidor para iniciar el servicio VNC.
+* Con nuestro usuario normal
+    * Ejecutar `vncserver` en el servidor para iniciar el servicio VNC.
+        * Otra opción `vncserver -interfaz [address]`.
     * Ponemos claves para las conexiones VNC a nuestro escritorio.
     * Al final se nos muestra el número de nuestro escritorio remoto.
 * `vdir /home/nombrealumno/.vnc`, vemos que se nos han creado unos ficheros de configuración VNC asociados a nuestro usuario.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
-* Ejecutar `lsof -i -n|grep XXX` para comprobar que están los servicios en los puertos 580X y 590X.
+* Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos 580X y 590X.
 
 > El comando `netstat -ntap` está obsoleto.
 
