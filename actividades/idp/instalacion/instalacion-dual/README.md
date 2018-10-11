@@ -98,6 +98,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ## 3.1 Empezamos con la ISO
 
+* Hacer una instantánea de la MV antes de continuar.
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
@@ -206,13 +207,12 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ---
 
-# ANEXO
+# 4. Menú de arranque
 
-## Error con el menu de arranque Windows
+## 4.1 Cambiar el menu de arranque Windows
 
-Si al iniciarse la MV no aparece Windows en el menú de arranque, entonces
-lo podemos solucionar haciendo los siguientes paso:
 
+* Iniciar GNU/Linux.
 * `su` (Convertirnos en superusuario)
 * `cd /etc/grub.d` (Cambiamos de directorio)
 * `zypper install nano` (Para instalar el programa nano)
@@ -222,13 +222,15 @@ lo podemos solucionar haciendo los siguientes paso:
 #!/bin/sh -e
 echo "Adding Windows 7" >&2
 cat<<EOF
-menuentry "Windows 7 (david)" {
+menuentry "Windows 7 (nombre-del-alumno - curso1819)" {
 set root=(hd0,1)
 chainloader +1
 }
 EOF
 ```
+
 * Grabar el archivo y salir de nano
 * `chmod +x 11_windows`
 * `grub2-mkconfig -o /boot/grub2/grub.cfg` (Actualizamos el GRUB2 con el nuevo cambio)
 * `reboot` (Reiniciamos la MV)
+* Capturar imagen del menú de arranque.

@@ -27,7 +27,7 @@ Configuración de la máquina Windows 7 Enterprise:
     * Si tenemos varias máquinas las llamaremos vargas30w, vargas30x, vargas30y, etc.
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-* Grupo de trabajo: `curso1516` (Modificar los números al curso actual)
+* Grupo de trabajo: `curso1819` (Modificar los números al curso actual)
 * Tarjeta de red VBox en modo puente.
 * Configurar [acceso remoto](../acceso-remoto/windows7.md).
 * Configurar [firewall](../firewall.md).
@@ -58,8 +58,8 @@ es de 90 días.
 
 ---
 
-# Enlaces de interés
-
-* Descargar MV's Windows de 90 días: https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w&epi=je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w&irgwc=1&OCID=AID681541_aff_7593_1243925&tduid=(ir_w-gzCwyO92LwwJ23Ax1SsytrUkgxfZX9jzr%3A1Q0)(7593)(1243925)(je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w)()&irclickid=w-gzCwyO92LwwJ23Ax1SsytrUkgxfZX9jzr%3A1Q0)
-* [Bash en Windows10](http://www.xataka.com/aplicaciones/asi-es-usar-la-consola-bash-de-ubuntu-en-windows-10)
-* [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
+> Enlaces de interés
+>
+> * Descargar MV's Windows de 90 días: https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w&epi=je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w&irgwc=1&OCID=AID681541_aff_7593_1243925&tduid=(ir_w-gzCwyO92LwwJ23Ax1SsytrUkgxfZX9jzr%3A1Q0)(7593)(1243925)(je6NUbpObpQ-W0V2C8ws0lPKDJhnOzgr.w)()&irclickid=w-gzCwyO92LwwJ23Ax1SsytrUkgxfZX9jzr%3A1Q0)
+> * [Bash en Windows10](http://www.xataka.com/aplicaciones/asi-es-usar-la-consola-bash-de-ubuntu-en-windows-10)
+> * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
