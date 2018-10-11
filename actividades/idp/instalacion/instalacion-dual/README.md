@@ -63,7 +63,7 @@ Producto/Licencia:
 * Desactivar la opción *Activar Windows automáticamente*
 * [Configuración de la MV](../../../global/configuracion/windows.md)
     * Nombre equipo: `1er-apellidoXXx`
-    * IP estática 172.19.XX.12
+    * IP estática 172.AA.XX.12
 * Comprobar la conexión de red haciendo `ping www.google.es`.
 * Capturar imagen como la siguiente. Mostrando las particiones del disco duro
 (`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`).
