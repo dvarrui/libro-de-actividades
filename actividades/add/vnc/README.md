@@ -68,7 +68,8 @@ Para verificar que se han establecido las conexiones remotas:
 * Ir a `Yast -> VNC`
     * Permitir conexión remota. Esto configura el servicio `xinet`.
     * Abrir puertos VNC en el cortafuegos.
-* Revisar la configuración del cortafuegos.
+* Ir a `Yast -> Cortafuegos`
+    * Revisar la configuración del cortafuegos. Debe estar permitido las conexiones a `vnc-server`.
 * Con nuestro usuario normal, ejecutar `vncserver` en el servidor para iniciar el servicio VNC.
     * Ponemos claves para las conexiones VNC a nuestro escritorio.
     * Al final se nos muestra el número de nuestro escritorio remoto.
