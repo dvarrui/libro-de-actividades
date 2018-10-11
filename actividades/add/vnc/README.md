@@ -54,7 +54,6 @@ los puertos 5801, 5901, etc.
 ## 3.4 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
-* Capturar imagenes probando las conexiones remotas VNC.
 * Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC cob el cliente.
 
 ---
@@ -98,7 +97,6 @@ los puertos 5801, 5901, etc.
 ## 4.4 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
-* Capturar imagenes probando las conexiones remotas VNC,
 * Ejecutar `lsof -i | grep XXX` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
