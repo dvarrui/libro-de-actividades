@@ -112,10 +112,12 @@ gestionar el servidor VNC.
 
 ---
 
-# 5. Comprobaciones
+# 5. Comprobaciones cruzadas
 
-* Conectar el cliente GNU/Linux con el Servidor VNC Windows (`netstat -n`)
-* Conectar el cliente Windows con el servidor VNC GNU/Linux (`lsof -i| grep 5`).
+* Conectar el cliente GNU/Linux con el Servidor VNC Windows.
+* Ejecutar `netstat -n` en el servidor Windows.
+* Conectar el cliente Windows con el servidor VNC GNU/Linux.
+* Ejecutar en el servidor GNU/Linux `lsof -i`.
 
 ---
 
