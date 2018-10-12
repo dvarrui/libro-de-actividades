@@ -6,10 +6,7 @@ Entrega:
 * URl commit del repositorio con la versión entregada.
 * Etiquetaremos la entrega en el repositorio Git con `vnc`.
 
----
-
-# 2. Conexiones remotas con VNC
-
+Conexiones remotas con VNC:
 * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 * Vamos a realizar las siguientes conexiones remotas VNC:
     * Acceder a Windows - desde Windows 7/10
@@ -19,23 +16,23 @@ Entrega:
 
 ---
 
-# 3. Instalación en Windows
+# 1. Instalación en Windows
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 * Descargar `TightVNC`. Esta es una herramienta libre disponible para Windows.
 
-## 3.1 Ir al servidor VNC en Windows
+## 1.1 Ir al servidor VNC en Windows
 
 * En el servidor VNC instalaremos `TightVNC -> Custom -> Server`. Esto es el servicio.
 * Revisar la configuración del cortafuegos del servidor VNC Windows para permitir VNC.
 
-## 3.2 Ir a la máquina real
+## 1.2 Ir a la máquina GNU/Linux
 
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
 los puertos 5801, 5901, etc.
 
-## 3.3 Ir al cliente Windows
+## 1.3 Ir al cliente Windows
 
 * En el cliente Windows instalar `TightVNC -> Custom -> Viewer`.
 * Usaremos `TightVNC Viewer`. Esto es el cliente VNC.
@@ -51,42 +48,45 @@ los puertos 5801, 5901, etc.
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 
-## 3.4 Comprobaciones finales
+## 1.4 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
 * Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC cob el cliente.
 
 ---
 
-# 4. Instalación en OpenSUSE
+# 2. Instalación en OpenSUSE
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
-## 4.1 Ir al servidor VNC OpenSUSE
+## 2.1 Ir al servidor VNC OpenSUSE
 
 * Ir a `Yast -> VNC`
     * Permitir conexión remota. Esto configura el servicio `xinet`.
     * Abrir puertos VNC en el cortafuegos.
 * Ir a `Yast -> Cortafuegos`
-    * Revisar la configuración del cortafuegos. Debe estar permitido las conexiones a `vnc-server`.
+    * Revisar la configuración del cortafuegos.
+    * Debe estar permitido las conexiones a `vnc-server`.
 * Con nuestro usuario normal
     * Ejecutar `vncserver` en el servidor para iniciar el servicio VNC.
         * Otra opción `vncserver -interfaz [address]`.
     * Ponemos claves para las conexiones VNC a nuestro escritorio.
     * Al final se nos muestra el número de nuestro escritorio remoto.
+    Apuntar este número porque lo usaremos más adelante.
 * `vdir /home/nombrealumno/.vnc`, vemos que se nos han creado unos ficheros de configuración VNC asociados a nuestro usuario.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
-* Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos 580X y 590X.
+* Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos VNC (580X y 590X).
 
-> El comando `netstat -ntap` está obsoleto.
+> El comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo hay que instalar
+el paquete `net-tools-deprecated`.
 
-## 4.2 Ir a la máquina real
+## 2.2 Ir a la máquina GNU/Linux
 
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
-los puertos 5801, 5901, etc.
+los puertos VNC (5801, 5901, etc).
 
-## 4.3 Ir al cliente GNU/Linux
+## 2.3 Ir al cliente GNU/Linux
 
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
@@ -96,23 +96,20 @@ los puertos 5801, 5901, etc.
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
 
-## 4.4 Comprobaciones finales
+> * Además de `Yast`, podemos puede usar el comando `vncserver` para gestionar el servidor VNC.
+> * Enlace sobre [VNC server OpenSUSE Leap 42.3](https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/cha.vnc.html#sec.vnc.viewer)
+> * Enlace sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
+> * Como cliente VNC podemos usar también `krdc`.
+
+## 2.4 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
-> **NOTA**
->
-> * Enlace sobre [VNC server OpenSUSE Leap 42.3](https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/cha.vnc.html#sec.vnc.viewer)
-> * Enlace sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
-> * Como cliente VNC podemos usar también `krdc`.
-> * Además de `Yast`, podemos puede usar el comando `vncserver` para
-gestionar el servidor VNC.
-
 ---
 
-# 5. Comprobaciones cruzadas
+# 3. Comprobaciones con SSOO cruzados
 
 * Conectar el cliente GNU/Linux con el Servidor VNC Windows.
 * Ejecutar `netstat -n` en el servidor Windows.
@@ -121,9 +118,9 @@ gestionar el servidor VNC.
 
 ---
 
-# 6. DISPLAY 0 en GNU/Linux
+# 4. DISPLAY 0 en GNU/Linux
 
-* [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
+> [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
 
 Cuando queremos ejecutar vncserver para controlar directamente la pantalla local
 usaremos `x0vncserver` de tigervnc.
@@ -135,7 +132,7 @@ usaremos `x0vncserver` de tigervnc.
 
 # ANEXO A
 
-## A.1 Instalacion en Debian
+## Debian
 
 * En Debian se puede usar `tightvncserver` como VNC server.
 
