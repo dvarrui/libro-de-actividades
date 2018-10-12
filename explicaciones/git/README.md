@@ -6,6 +6,7 @@
 
 Enlace de interés:
 * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
+* [Guía de instalación y uso de git en Windows](https://github.com/oscarmoreira11/Guides/blob/master/Github-Windows/README.md)
 
 ### Servidor GIT en Internet:
 
@@ -116,3 +117,10 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 │   └── u4
 └── trim2    
 ```
+
+
+Buenos días David, te dejo estos dos enlaces  de guías que pueden ser útiles para los alumnos de 2º ASIR.
+ - Guía básica de Markdown:
+ https://github.com/oscarmoreira11/Guides/blob/master/Markdown/Comandos_Markdown.md
+
+Espero que sea de ayuda.
