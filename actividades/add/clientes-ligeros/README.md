@@ -80,12 +80,11 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 
 * Instalar servidor de clientes ligeros, según la documentación para el SO elegido.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
-* `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
+* `time ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
     * Esta imagen del SO se cargará en la memoria de los clientes ligeros cuando se inicien.
+    * Ejecutamos este comando junto con el comando time para cronometrar lo que tarda.
     * Hay que tener paciencia en este punto. Tarda 40 minutos o más.
-
-> Para crear imágenes de 64 bits usaríamos el comando `ltsp-build-client`.
-
+    * Para crear imágenes de 64 bits usaríamos el comando `ltsp-build-client`.
 * Ejecutar `ltsp-info`, para consultar información.
 
 ## 3.5 Revisamos la configuración del servicio DHCP
@@ -176,7 +175,8 @@ LDM_USER_ALLOW = primer-apellido1
 LDM_USER_ALLOW = primer-apellido2
 ```
 
-* `ltsp-update-image`, actualizar la imagen.
+* `time ltsp-update-image`, actualizar la imagen. Ejecutamos este comando junto con el
+comando time para cronometrar lo que tarda.
 * Hacer un pequeño vídeo granbando lo siguiente:
     * Entrar en MV cliente2 usando el usuario primer-apellido1 y primerapellido2.
 
