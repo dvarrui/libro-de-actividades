@@ -114,9 +114,10 @@ modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego r
 > SERVICIOS
 >
 > * En OpenSUSE
+>     * `systemtl status isc-dhcp-server`, consultar estado del servicio.
 >     * se usa el comando `systemctl` para iniciar y parar servicios.
 >     * Si hay algún error deberemos consultar los logs con `journalctl`.
-> * En SSOO con el antiguo System
+> * En SSOO con el antiguo System V
 >     * usan `/etc/init.d/isc-dhcp-server status|start|stop`.
 >     * usan `/etc/init.d/tftpd-hpa status|start|stop`.
 >     * Si hay algún error deberemos consultar syslog `tail /var/log/syslog`.
@@ -189,7 +190,6 @@ podemos volver a actualizar la imagen.
 * `ltsp-update-kernel`
 * `ltsp-update-sshkeys`
 * `ltsp-update-image`
-
 
 > PENDIENTE DE REVISAR
 >
