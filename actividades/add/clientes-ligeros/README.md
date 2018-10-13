@@ -81,11 +81,14 @@ Veamos ejemplo de nombres de equipo y dominio en Debian/Ubuntu:
 * Instalar servidor de clientes ligeros, según la documentación para el SO elegido.
 En el caso de Debian/Ubuntu puede ser `apt-get install ltsp-server-standalone`.
 * `ltsp-build-client --arch i386` para crear una imagen de 32 bits del SO.
-Esta imagen del SO se cargará en la memoria de los clientes ligeros.
+    * Esta imagen del SO se cargará en la memoria de los clientes ligeros cuando se inicien.
+    * Hay que tener paciencia en este punto. Tarda 40 minutos o más.
 
 > Para crear imágenes de 64 bits usaríamos el comando `ltsp-build-client`.
 
 * Ejecutar `ltsp-info`, para consultar información.
+
+## 3.5 Revisamos la configuración del servicio DHCP
 
 Revisamos la configuración del servicio DHCP instalado junto con LTSP:
 * Revisar la configuración de la tarjeta de red interna del servidor.
@@ -132,10 +135,9 @@ modificar también el fichero del servidor DHCP `/etc/ltsp/dhcpd.conf` y luego r
     * Configurar memoria gráfica a 128MB y habilitar el soporte 3D.
 * Con el servidor encendido, iniciar la MV cliente1 desde red/PXE:
     * Comprobar que todo funciona correctamente.
-
-> Si la tarjeta de red no inicia correctamente el protocolo PXE,
-conectar disquete Etherboot en la disquetera, tal y como se indica
-en la documentación de la web de LTSP.
+    * Si la tarjeta de red no inicia correctamente el protocolo PXE,
+    conectar disquete Etherboot en la disquetera, tal y como se indica
+    en la documentación de la web de LTSP.
 
 En la imagen podemos ver un ejemplo de la ventana de login de un cliente ligero.
 Vemos como aparece la IP que proporciona el servidor DHCP del servidor LTSP al cliente.
@@ -172,6 +174,7 @@ LDM_USER_ALLOW = primer-apellido1
 [mac address client2 seprated by :]
 LDM_USER_ALLOW = primer-apellido2
 ```
+
 * `ltsp-update-image`, actualizar la imagen.
 * Hacer un pequeño vídeo granbando lo siguiente:
     * Entrar en MV cliente2 usando el usuario primer-apellido1 y primerapellido2.
@@ -180,14 +183,12 @@ LDM_USER_ALLOW = primer-apellido2
 
 # A. ANEXOS
 
-> **NOTA**
->
-> En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
+En el caso de tenemos problemas con la imagen, estos son los comandos LTSP
 podemos volver a actualizar la imagen.
->
-> * `ltsp-update-kernel`
-> * `ltsp-update-sshkeys`
-> * `ltsp-update-image`
+
+* `ltsp-update-kernel`
+* `ltsp-update-sshkeys`
+* `ltsp-update-image`
 
 
 > PENDIENTE DE REVISAR
@@ -197,12 +198,10 @@ Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
 >
 > INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
 
-## A.1 Próximo curso
+## A.1 Clientes ligueros con OpenSUSE
 
 * Para el curso próximo, probar a usar OpenSUSE y/o Debian en lugar de Ubuntu.
 * WtWare es una herramienta para clientes ligeros.
-
-## A.2 For openSUSE 12.3
 
 Via commandline(following commands to be run in terminal as root "su -"):
 ````
