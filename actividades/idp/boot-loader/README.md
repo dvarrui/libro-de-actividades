@@ -143,3 +143,9 @@ OBJETIVO de la práctica:
 > * [Documentación "Añadir SO Linux en el arranque de Windows7"] (http://www.taringa.net/posts/linux/14679925/Insertar-linux-en-el-arranque-de-windows.html)
 > * [Inicio dual de dos sistemas operativos desde Windows] (https://norfipc.com/articulos/dos-sistemas-operativos-inicio-dual.html)
 > * [Vídeo](https://youtu.be/t1x_ibu9BLE) de cómo cambiar el orden de un sistema operativo en el menú de arranque (Windows 7 y Windows 8)
+
+---
+
+# ANEXO
+
+* Reinstalar GRUB2: http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB
