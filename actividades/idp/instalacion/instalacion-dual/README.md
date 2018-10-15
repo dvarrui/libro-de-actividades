@@ -66,7 +66,7 @@ Producto/Licencia:
 * Clave de producto: La dejamos vacía por esta vez.
 * Desactivar la opción *Activar Windows automáticamente*
 * [Configuración de la MV](../../../global/configuracion/windows.md)
-    * Nombre equipo: `1er-apellidoXXx`
+    * Nombre equipo: `1er-apellidoXXw1`
     * IP estática 172.AA.XX.12
 * Comprobar la conexión de red haciendo `ping www.google.es`.
 * Capturar imagen como la siguiente. Mostrando las particiones del disco duro
@@ -166,7 +166,7 @@ se configure automáticamente el gestor de arranque.
 
 * [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.AA.XX.32
-    * Poner como nombre del host o equipo `1er-apellidoXXh`.
+    * Poner como nombre del host o equipo `1er-apellidoXXg1`.
 * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
 el nombre del equipo puede cambiar en cada reinicio.
 
@@ -189,7 +189,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.AA.XX.32
-    * Poner como nombre del host o equipo `1er-apellidoXXh`.
+    * Poner como nombre del host o equipo `1er-apellidoXXg1`.
 * Abrir un terminal.
 * Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
