@@ -164,14 +164,6 @@ se configure automáticamente el gestor de arranque.
 
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
 
-* [Configuración de la MV](../../../global/configuracion/opensuse.md)
-    * IP estática 172.AA.XX.32
-    * Poner como nombre del host o equipo `1er-apellidoXXg1`.
-* Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
-el nombre del equipo puede cambiar en cada reinicio.
-
-![dual-suse-equipo](./images/dual-suse-equipo.png)
-
 * ¿Desea actualización en línea? -> OMITIR actualización.
 No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo
 de ancho de banda que se produce en las actualizaciones.
@@ -190,6 +182,11 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
     * [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.AA.XX.32
     * Poner como nombre del host o equipo `1er-apellidoXXg1`.
+    * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
+    el nombre del equipo puede cambiar en cada reinicio.
+
+![dual-suse-equipo](./images/dual-suse-equipo.png)
+
 * Abrir un terminal.
 * Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
