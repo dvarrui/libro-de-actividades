@@ -1,5 +1,5 @@
 
-# 1. Introducción
+# 1. Introducción VNC
 
 Entrega:
 * URL con la ruta al archivo del informe dentro del repositorio del alumno.

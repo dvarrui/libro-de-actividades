@@ -6,14 +6,15 @@
 * Atender a la explicación del profesor.
 * Leer documentación proporcionada por el profesor.
 
-> Enlaces de interés: [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
+Enlaces de interés:
+* [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
+* [Hardening SSH](https://linux-audit.com/audit-and-harden-your-ssh-configuration)
 
 Vamos a necesitar las siguientes 3 MVs:
-1. Un servidor GNU/Linux OpenSUSE (IP 172.18.XX.31)
-1. Un cliente GNU/Linux OpenSUSE (IP 172.18.XX.32)
-1. Un cliente Windows7 (IP 172.18.XX.11)
-
-* [Configurar las MV's](../../global/configuracion/opensuse.md)
+1. Un servidor GNU/Linux OpenSUSE (IP 172.AA.XX.31)
+1. Un cliente GNU/Linux OpenSUSE (IP 172.AA.XX.32)
+1. Un servidor Windows (IP 172.AA.XX.11)
+1. Un cliente Windows7 (IP 172.AA.XX.12)
 
 Entrega:
 * Añadir informe al repositorio git. Etiqueta `ssh`.
@@ -29,21 +30,22 @@ a las preguntas que pudieran hacerse en dicho instante.
 
 * Configurar el servidor GNU/Linux con siguientes valores:
     * SO GNU/Linux: OpenSUSE
-    * IP estática: 172.18.XX.31
+    * IP estática: 172.AA.XX.31
     * Nombre de equipo: ssh-serverXX
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
 * Añadir en `/etc/hosts` los equipos `ssh-clientXXa` y `ssh-clientXXb` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
-ip a               #Comprobar IP y máscara
-route -n           #Comprobar puerta de enlace
-ping 8.8.4.4 -i 2  #Comprobar conectividad externa
-host www.google.es #Comprobar el servidor DNS
-ping ssh-clientXXa #Comprobar conectividad con cliente A
-ping ssh-clientXXb #Comprobar conectividad con cliente B
-lsblk              #Consultar particiones
-blkid              #Consultar UUID de la instalación
+ip a                # Comprobar IP y máscara
+route -n            # Comprobar puerta de enlace
+ping 8.8.4.4 -i 2   # Comprobar conectividad externa
+host www.google.es  # Comprobar el servidor DNS
+ping ssh-clientXXa  # Comprobar conectividad con cliente A
+ping ssh-clientXXb  # Comprobar conectividad con cliente B
+lsblk               # Consultar particiones
+blkid               # Consultar UUID de la instalación
 ```
+
 * Crear los siguientes usuarios en ssh-serverXX:
     * primer-apellido-del-alumno1
     * primer-apellido-del-alumno2
@@ -55,7 +57,7 @@ blkid              #Consultar UUID de la instalación
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
     * IP estática 172.18.XX.32
-    * [Configuración de las MV's](../global/configuracion-aula108.md)
+    * [Configuración de las MV's](../global/configuracion/opensuse.md)
     * Nombre de equipo: ssh-clientXXa
 * Añadir en `/etc/hosts` el equipo `ssh-serverXX`, y `ssh-clientXXb`.
 * Comprobar haciendo ping a ambos equipos.
@@ -67,7 +69,7 @@ blkid              #Consultar UUID de la instalación
     * SO Windows 7
     * IP estática 172.18.XX.11
     * Nombre de equipo: ssh-clientXXb
-    * [Configuración de las MV's](../../global/configuracion-aula108.md)
+    * [Configuración de las MV's](../../global/configuracion/windows.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXX y ssh-clientXXa.
 * Comprobar haciendo ping a ambos equipos.
 
@@ -134,9 +136,9 @@ pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cl
 
 ## 2.3 Primera conexión SSH desde cliente Windows
 
-* Desde el cliente Windows nos conectamos usando `PuTTY`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-> No guardar la conexión SSH en los perfiles de PuTTY.
-
+* Desde el cliente Windows nos conectamos usando `PuTTY`.
+    * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+    * No guardar la conexión SSH en los perfiles de PuTTY.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
@@ -183,7 +185,7 @@ identificación de nuestro servidor.
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los
 usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 
-> **Enlaces de inteŕes**
+> **Enlaces de interés**
 >
 > Cliente SSH para Windows:
 >
@@ -203,7 +205,6 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 > [INFO] Esto sólo para servidores GNU/Linux o BSD.
 >
 > Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
->
 
 * Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración
 del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
@@ -232,11 +233,13 @@ alias s='ssh'
 
 # 5. Autenticación mediante claves públicas
 
-![clave-publica](./image/ssh-clave-publica.jpeg)
+![clave-publica](./images/ssh-clave-publica.jpeg)
 
-El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1, usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
+El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1,
+usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
 
-Para ello, vamos a configurar la autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente al servidor con el
+Para ello, vamos a configurar la autenticación mediante clave pública para
+acceder con nuestro usuario personal desde el equipo cliente al servidor con el
 usuario `1er-apellido-alumno4`.
 
 * Vamos a la máquina ss-clientXXa.
@@ -268,7 +271,7 @@ remoto en la máquina remota.
 
 # 6. Uso de SSH como túnel para X
 
-![tunel](./image/ssh-tunel.jpeg)
+![tunel](./images/ssh-tunel.jpeg)
 
 * Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
