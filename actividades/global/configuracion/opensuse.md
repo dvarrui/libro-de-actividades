@@ -62,9 +62,10 @@ Vamos a `Nombre de Host/DNS` y ponemos:
 
 > **ATENCIÓN**
 >
+> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hostsname`.
 > * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hosts`.
+> * Asegurarse de que el nombre largo y nombre corto del host está en el fichero `/etc/hosts`.
 Para que el comando hostname funcione bien.
 
 ---
