@@ -5,7 +5,7 @@ Supongamos que estamos haciendo una práctica/actividad. Vamos avanzando
 haciendo las cosas/tareas que se nos piden. Llegamos al final, pero
 como resultado la actividad NO FUNCIONA.
 
-En ese momento, nos frustamos un poco y pasa esto:
+En ese momento, nos frustramos un poco y pasa esto:
 
 (El alumno piensa "Bueno, he hecho todo lo que se pedía, debe funcionar. Si no funciona es que algo me lo han dicho
 mal")
@@ -84,7 +84,7 @@ Actividad con el problema:
 * etc.
 ```
 
-Y volvemos a comprobar cada subparte. Al terminar debemos haber descubierto dónde está el problema. En caso contrario... nos frustaremos, bufaremos, llamaremos al profesor:
+Y volvemos a comprobar cada subparte. Al terminar debemos haber descubierto dónde está el problema. En caso contrario... nos frustraremos, bufaremos, llamaremos al profesor:
 
 ```
 Alumno: Profe! Esto sigue sin funcionar
@@ -93,7 +93,7 @@ el SO XXX es una mierXX y el PC este es una caXX...
 ```
 Vamos lo que es expulsar la negatividad interna de uno hacia afuera para que el resto que estamos en clase reduzcamos nuestro nivel de felicidad por la amabilidad de un alumno de compartir en público sus pensamientos.
 
-¡Ese no es el camino! Un sysadmin se enfretará a muchas situaciones de estrés en su día a día. Debemos aprender a lidiar con ello. Si no te puedes aguantar, pide permiso al profesor y vete al bar a tomarte una tila.
+¡Ese no es el camino! Un sysadmin se enfrentará a muchas situaciones de estrés en su día a día. Debemos aprender a lidiar con ello. Si no te puedes aguantar, pide permiso al profesor y vete al bar a tomarte una tila.
 
 **Regla nº4: Con tiempo todo se ve más despejado**
 
@@ -113,11 +113,11 @@ Cuando contamos algo nuestro cerebro intenta ordenar las ideas para poderlas exp
 
 En este punto puede ser que todavía la actividad NO funcione. Pero debes tener unas partes más claras y alguna confusa. Donde tienes la confusión vuelve a aplicar la regla del divide y vencerás y sigue descomponiendo a ver dónde está el problema.
 
-Cuando ya sabes que parte es la que falla. Y sólo en ese momento. Es cuando estamos preparados para:
+Cuando ya sabes que parte es la que falla. Y solo en ese momento. Es cuando estamos preparados para:
 
 ```
 Alumno: Profesor, tengo un problema en XXX. Y mi pregunta es ¿cómo ....? ¿Por qué...? ¿Dónde...?
-Profesor: Eso está relacionado con AAA. Mirálo y revísalo.
+Profesor: Eso está relacionado con AAA. Míralo y revísalo.
 ```
 
 También, podemos buscar en Internet situaciones parecidas. Seguramente antes que nosotros ha habido alguien que ya ha tenido ese problema y lo ha resuelto.
