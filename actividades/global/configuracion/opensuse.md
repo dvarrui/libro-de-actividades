@@ -103,9 +103,10 @@ hostname -f      # Muestra nombre-maquina.nombre-dominio
 hostname -a      # Muestra nombre-maquina
 hostname -d      # Muestra nombre-dominio
 
-ifstatus         # Muestra información de la configuración de red
-ping 8.8.4.4     # Verifica la conectividad con Internet
-host www.nba.com # Comprueba DNS
+ip a                    # Información de red
+ifstatus NOMBREINTERFAZ # Muestra información de la configuración de red
+ping 8.8.4.4            # Verifica la conectividad con Internet
+host www.nba.com        # Comprueba DNS
 ```
 
 ---
