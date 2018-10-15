@@ -125,8 +125,11 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 Cuando queremos ejecutar vncserver para controlar directamente la pantalla local
 usaremos `x0vncserver` de tigervnc.
 
-* `x0vncserver -display :0 -passwordfile /home/nombrealumno/.vnc/passwd`
+* Ir al servidor
+* `x0vncserver -display :0 -passwordfile /home/nombre-alumno/.vnc/passwd`
 * Para más información, véase `man x0vncserver`
+* `lsof -i -n`
+* Ir al cliente y probamos a conectarnos con el servidor.
 
 ---
 
