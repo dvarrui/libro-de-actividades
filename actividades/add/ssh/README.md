@@ -10,11 +10,14 @@ Enlaces de interés:
 * [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * [Hardening SSH](https://linux-audit.com/audit-and-harden-your-ssh-configuration)
 
-Vamos a necesitar las siguientes 3 MVs:
-1. Un servidor GNU/Linux OpenSUSE (IP 172.AA.XX.31)
-1. Un cliente GNU/Linux OpenSUSE (IP 172.AA.XX.32)
-1. Un servidor Windows (IP 172.AA.XX.11)
-1. Un cliente Windows7 (IP 172.AA.XX.12)
+Vamos a necesitar las siguientes MVs:
+
+| Función | Sistema Operativo     | IP        | Nombre |
+| ------- |--------------------- | --------- | --------- |
+| Un servidor SSH| GNU/Linux OpenSUSE | 172.AA.XX.31 | ssh-serverXXg |
+| Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | ssh-clientXXg |
+| Un servidor SSH | Windows | 172.AA.XX.11 | ssh-serverXXw |
+| Un cliente SSH | Windows7 | 172.AA.XX.12 | ssh-clienteXXw |
 
 Entrega:
 * Añadir informe al repositorio git. Etiqueta `ssh`.
@@ -31,9 +34,9 @@ a las preguntas que pudieran hacerse en dicho instante.
 * Configurar el servidor GNU/Linux con siguientes valores:
     * SO GNU/Linux: OpenSUSE
     * IP estática: 172.AA.XX.31
-    * Nombre de equipo: ssh-serverXX
+    * Nombre de equipo: ssh-serverXXg
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
-* Añadir en `/etc/hosts` los equipos `ssh-clientXXa` y `ssh-clientXXb` (Donde XX es el puesto del alumno).
+* Añadir en `/etc/hosts` los equipos `ssh-clientXXg` y `ssh-clientXXw` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
 ip a                # Comprobar IP y máscara
@@ -46,7 +49,7 @@ lsblk               # Consultar particiones
 blkid               # Consultar UUID de la instalación
 ```
 
-* Crear los siguientes usuarios en ssh-serverXX:
+* Crear los siguientes usuarios en ssh-serverXXg:
     * primer-apellido-del-alumno1
     * primer-apellido-del-alumno2
     * primer-apellido-del-alumno3
@@ -58,8 +61,8 @@ blkid               # Consultar UUID de la instalación
     * SO OpenSUSE
     * IP estática 172.18.XX.32
     * [Configuración de las MV's](../global/configuracion/opensuse.md)
-    * Nombre de equipo: ssh-clientXXa
-* Añadir en `/etc/hosts` el equipo `ssh-serverXX`, y `ssh-clientXXb`.
+    * Nombre de equipo: ssh-clientXXg
+* Añadir en `/etc/hosts` el equipo `ssh-serverXXg`, y `ssh-clientXXw`.
 * Comprobar haciendo ping a ambos equipos.
 
 ## 1.3 Cliente Windows
@@ -68,9 +71,9 @@ blkid               # Consultar UUID de la instalación
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
     * IP estática 172.18.XX.11
-    * Nombre de equipo: ssh-clientXXb
+    * Nombre de equipo: ssh-clientXXw
     * [Configuración de las MV's](../../global/configuracion/windows.md)
-* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXX y ssh-clientXXa.
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXw.
 * Comprobar haciendo ping a ambos equipos.
 
 ---
@@ -105,8 +108,8 @@ blkid               # Consultar UUID de la instalación
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
-* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-serverXX`.
-* Desde el cliente comprobamos que el servicio SSH es visible con `nmap -Pn ssh-serverXX`.
+* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-serverXXg`.
+* Desde el cliente comprobamos que el servicio SSH es visible con `nmap -Pn ssh-serverXXg`.
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
@@ -118,7 +121,7 @@ Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una líne
 ![firewall2-yast](./opensuse/firewall2-yast.png)
 
 Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
-* Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-server`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-serverXXg`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
@@ -175,7 +178,7 @@ servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA
 
 Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
 identificación de nuestro servidor.
-* En **ssh-serverXX**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
+* En **ssh-serverXXg**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
 * No poner password al certificado de la máquina.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
@@ -242,7 +245,7 @@ Para ello, vamos a configurar la autenticación mediante clave pública para
 acceder con nuestro usuario personal desde el equipo cliente al servidor con el
 usuario `1er-apellido-alumno4`.
 
-* Vamos a la máquina ss-clientXXa.
+* Vamos a la máquina ss-clientXXg.
 * ¡OJO! No usar el usuario root.
 
 Capturar imágenes de los siguientes pasos:
@@ -264,8 +267,8 @@ la clave pública del usuario actual al usuario remoto en la máquina remota:
 remoto en la máquina remota.
 
 * Comprobar que ahora al acceder remotamente vía SSH
-    * Desde `ssh-clientXXa`, NO se pide password.
-    * Desde `ssh-clientXXb`, SI se pide el password.
+    * Desde `ssh-clientXXg`, NO se pide password.
+    * Desde `ssh-clientXXw`, SI se pide el password.
 
 ---
 
@@ -281,7 +284,7 @@ Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwardi
 Vamos al clienteXXa.
 * Comprobar que no está instalada APP1: `zypper se APP1`.
 * Comprobar desde el clienteXXa, que funciona APP1(del servidor).
-    * Con el comando `ssh -X remoteuser1@ssh-server`, podemos conectarnos de forma
+    * Con el comando `ssh -X remoteuser1@ssh-serverXXg`, podemos conectarnos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
     * El parámetro es `-X` en mayúsculas, no minúsculas.
 
@@ -292,10 +295,10 @@ remota al servidor, y ahora ejecutamos APP1 de forma remota.
 # 7. Aplicaciones Windows nativas
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
-* Instalar emulador Wine en el ssh-server.
+* Instalar emulador Wine en el ssh-serverXXg.
 * Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH
 usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
-* Comprobar el funcionamiento de APP2 en ssh-server.
+* Comprobar el funcionamiento de APP2 en ssh-serverXXg.
 * Comprobar funcionamiento de APP2, accediendo desde ssh-client1.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
@@ -337,8 +340,18 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 # 9. Servidor SSH en Windows
 
-* Instalar y configurar [servidor SSH en Windows](../../global/acceso-remoto/windows10.md).
-* Comprobar acceso SSH desde Windows y GNU/Linux.
+* Configurar el servidor Windows con los siguientes valores:
+    * SO Windows Server
+    * IP estática 172.AA.XX.11
+    * Nombre de equipo: ssh-serverXXw
+    * [Configuración de las MV's](../../global/configuracion/windows-server.md)
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-clientXXg y ssh-clientXXw.
+* Comprobar haciendo ping a ambos equipos.
+* Instalar y configurar el servidor SSH en Windows. Para este ejemplo usaremos [servidor SSH en Windows](../../global/acceso-remoto/windows10.md).
+* Comprobar acceso SSH desde los clientes Windows y GNU/Linux al servidor SSH Windows.
+    * `netstat -n` en Windows.
+    * `lsof -i -n` en GNU/Linux.
+
 ---
 
 # ANEXO A
