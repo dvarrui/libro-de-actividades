@@ -64,7 +64,7 @@ Vamos a instalar primero el SO Windows.
 * Instalación personalizada. Elegir la partición 1 para instalar el SO.
 Producto/Licencia:
 * Clave de producto: La dejamos vacía por esta vez.
-* Desactivar la opción *Activar Windows automáticamente*
+* Si aparece la opción *Activar Windows automáticamente*, elegiremos que NO.
 * [Configuración de la MV](../../../global/configuracion/windows.md)
     * Nombre equipo: `1er-apellidoXXw1`
     * IP estática 172.AA.XX.12
