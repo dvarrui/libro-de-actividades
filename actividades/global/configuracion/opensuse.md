@@ -60,13 +60,36 @@ Vamos a `Nombre de Host/DNS` y ponemos:
 * Vamos a `Encaminamiento`y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
 * Ir dispositivo y elegir interfaz de red.
 
-> **ATENCIÓN**
->
-> * Asegurarse de que el nombre de host está correctamente en el fichero `/etc/hostsname`.
-> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-> * Asegurarse de que el nombre largo y nombre corto del host está en el fichero `/etc/hosts`.
-Para que el comando hostname funcione bien.
+## Comprobar nombres
+
+Comprobar hostname:
+```
+david@vargas42g1:~> cat /etc/hostname
+vargas42g1.curso1819
+```
+
+Comprobar host
+
+```
+david@vargas42g1:~> cat /etc/hosts
+#
+# hosts         This file describes a number of hostname-to-address
+#               mappings for the TCP/IP subsystem.  It is mostly
+#               used at boot time, when no name servers are running.
+#               On small systems, this file can be used instead of a
+#               "named" name server.
+
+127.0.0.1	localhost
+127.0.0.2 vargas42g1.curso1819   vargas42g1
+
+# special IPv6 addresses
+::1             localhost ipv6-localhost ipv6-loopback
+fe00::0         ipv6-localnet
+ff00::0         ipv6-mcastprefix
+ff02::1         ipv6-allnodes
+ff02::2         ipv6-allrouters
+ff02::3         ipv6-allhosts
+```
 
 ---
 
