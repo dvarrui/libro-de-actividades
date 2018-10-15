@@ -97,7 +97,6 @@ ff02::3         ipv6-allhosts
 
 Estos comandos nos van a ayudar a verificar que lo tenemos todo correctamente:
 ```
-date
 uname -a         # Muestra información del SO
 id nombre-alumno # Muestra información del usuario
 hostname -f      # Muestra nombre-maquina.nombre-dominio

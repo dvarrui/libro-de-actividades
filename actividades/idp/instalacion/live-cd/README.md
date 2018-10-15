@@ -61,7 +61,7 @@ de CD/DVD para que no se inicie al arrancar la MV.
 ```
 Nombre de usuario      : nombre del alumno en minúsculas
 Nombre del equipo/host : 1er apellido en minúsculas
-Nombre dominio         : 2º apellido en minúsculas
+Nombre dominio         : curso1819
 ```
 > Nombre de host es lo mismo que nombre de máquina
 
