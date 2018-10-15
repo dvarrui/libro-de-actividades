@@ -39,10 +39,10 @@ Recomendaciones:
 
 ## Después de la instalación del SO
 
-Una vez instalado el sistema operativo, podemos hacer cambios en la configuración,
-usando la herramienta `Inicio -> Configuración -> Yast -> Ajustes de red`.
+Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red.
 
-Vamos a `Vista resumen -> Interfaz -> Editar`
+Vamos a `Inicio -> Configuración -> Yast -> Ajustes de red`.
+* Seleccionamos el interfaz de red y editamos.
 * Marcamos IP fija.
 * IP: `172.AA.XX.31` (Donde XX corresponde al nº de cada puesto).
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.32, 172.AA.XX.33, etc.
