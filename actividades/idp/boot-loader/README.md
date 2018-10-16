@@ -5,12 +5,14 @@ El *Boot loader* es el programa encargado de la carga el sistema operativo.
 Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo.
 GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP, y bcdedit de Windows 7, etc.
 
+## Entrega
+
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
 * Vamos a trabajar con la MV de la instalación dual.
 * W7 debe ser Enterprise.
 
->
 > Enlaces de interés:
+>
 > * [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
 > * [GRUB2 OpenSUSE Documentation] (http://activedoc.opensuse.org/book/opensuse-reference)
 > * [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
@@ -44,6 +46,7 @@ EOF
 ```
 
 > Información:
+>
 > * Sustituir Y por la versión del kernel que queremos iniciar. Personalizar con lo que tengamos en nuestro sistema. Ejecutar "vdir /boot" para ver lo ficheros dentro del directorio boot.
 > * Sustituir Z por el valor que corresponda. En nuestro caso será 7 para la partición /dev/sda7.
 > * Tenemos que desactivar la línea 'exec tail'. Para ello añadimos una almohadilla (#) al comienzo de la misma.
