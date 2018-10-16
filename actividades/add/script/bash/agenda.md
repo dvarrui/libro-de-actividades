@@ -3,6 +3,12 @@
 
 Entregar el script agenda.sh.
 
+> Enlaces de interés:
+>
+> * [Probar scripts de bash](http://www.shellcheck.net/)
+
+---
+
 # Funciones
 
 Tendremos dos ficheros: agenda.sh y agenda.dat.
@@ -17,6 +23,8 @@ con las opciones del script.
 * Opción añadir contacto: El script nos pregunta el nombre y teléfono del contacto y lo añade a nuestra agenda.
 * Opción eliminar contacto: El script nos pregunta un nombre o teléfono de un contacto y lo elimina de nuestra agenda.
 * Opción buscar contacto: El script nos pregunta la cadena a buscar en la agenda y muestra la información de todos los contactos que coincidan con el criterio de búsqueda, ordenados alfabéticamente.
+
+---
 
 # NOTA
 

@@ -9,6 +9,7 @@
 Enlaces de interés:
 * [Aumentar la seguridad servidor SSH](http://rm-rf.es/como-securizar-un-servidor-ssh/)
 * [Hardening SSH](https://linux-audit.com/audit-and-harden-your-ssh-configuration)
+* http://en.wikipedia.org/wiki/: Secure_Shell,VNC, NX_technology, Remote_Desktop_Protocol, Remote_Desktop_Services, X_Window_System_protocols_and_architecture, Comparison_of_remote_desktop_software
 
 Vamos a necesitar las siguientes MVs:
 
@@ -275,6 +276,11 @@ remoto en la máquina remota.
 # 6. Uso de SSH como túnel para X
 
 ![tunel](./images/ssh-tunel.jpeg)
+
+> Enlaces de interés:
+>
+> * http://dustwell.com/how-x-over-ssh-really-works.html
+> *  http://www.vanemery.com/Linux/XoverSSH/X-over-SSH2.html
 
 * Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
