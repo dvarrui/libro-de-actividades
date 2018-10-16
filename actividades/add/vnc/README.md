@@ -140,3 +140,27 @@ usaremos `x0vncserver` de tigervnc.
 * En Debian se puede usar `tightvncserver` como VNC server.
 
 > * [VNC GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m5/servidor_vnc.html)
+
+## Activar Escritorio Remoto en Ubuntu
+
+En Ubuntu 12:
+
+    Ir a Aplicaciones -> Herramientas del Sistema -> Preferencias -> Compartición del Escritorio.
+
+En Xubuntu:
+
+    Instalar software: apt-get install vino
+    Activar permisos: vino-preferences
+    Iniciar servicio: /usr/lib/vino/vino-server
+
+
+## Habilitar escritorio remoto de Xubuntu
+
+A diferencia de otros sistemas operativos basados en Linux, no puedes habilitar el uso compartido del escritorio remoto, accediendo a las preferencias del menú del sistema. En su lugar, debes usar "vino", un servidor de Computación de Red Virtual, o VNC (por sus siglas en inglés), nativo de Xubuntu.
+
+    Haz clic en el menú "Aplicaciones" y selecciona "Accesorios" y "Terminal", para abrir la aplicación de terminal.
+    Instalar vino: $ sudo apt-get install vino
+    Configurar vino: $ vino-preferences
+    Sigue las instrucciones en pantalla para hacer cambios a tus preferencias de uso compartido del escritorio remoto.
+    Escribe la siguiente línea para ingresar el editor Autostart Apps: xfce4-autostart-editor
+    Comando en Autostarted Apps para iniciar el servidor vino: /usr/lib/vino/vino-server

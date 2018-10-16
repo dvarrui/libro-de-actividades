@@ -280,7 +280,7 @@ remoto en la máquina remota.
 > Enlaces de interés:
 >
 > * http://dustwell.com/how-x-over-ssh-really-works.html
-> *  http://www.vanemery.com/Linux/XoverSSH/X-over-SSH2.html
+> * http://www.vanemery.com/Linux/XoverSSH/X-over-SSH2.html
 
 * Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
@@ -425,3 +425,25 @@ After verification we will simply need to restart sshd.This can be performed via
 
 > Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
 > Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
+
+---
+
+## Conectar 2 máquinas
+
+Podemos seguir esta recomendación para que varias personas trabajen en la misma máquina.
+
+    Supongamos que tenemos 2 máquinas llamadas m1 y m2.
+    En m1 instalamos openssh-server: apt-get install openssh-server
+    En m1 tenemos los usuarios usu1 y usu2.
+    En la máquina m2 para conectarse a m1 debemos hacer: ssh usu2@ip-m1
+    Con esto abrimos sesión en m1 desde m2 y podemos trabajar desde m2.
+    Si queremos abrir una sesión remota pero gráfica podemos hacer en m2:
+        ssh -X usu2@ip-m1 (Es es para abrir la sesión. Establecer contacto)
+        nautilus (Con esto abrimos un explorador en m1 pero desde m2) sonrisa
+        Si tenemos el programa LibreOffice instalado en m1, pero no en m2... podemos conectarnos con ssh -X, y luego ejecutar... /usr/lib/libreoffice/program/soffice.bin, y ya está. Esto es trabajo remoto.
+
+Si queremos copiar archivo de m2 hacia m1 hacemos:
+
+    scp file usu2@ip-m1:/home/usu2
+    Ya está! Si además queremos iniciar una sesión sftp hacemos:
+    sftp usu2@ip-m1

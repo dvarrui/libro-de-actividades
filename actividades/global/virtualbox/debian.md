@@ -32,3 +32,16 @@ En caso contrario haremos:
 >
 > En Debian8 XFCE se requiere instalar previamente los siguientes paquetes:
 > `apt-get install gcc make linux-headers-$(uname -r)`
+
+---
+
+# ANEXO
+
+## Instalar las Guest Additions en Lubuntu/Debian
+
+    Abrir terminal
+    Nos convertimos en superusuario: sudo bash
+    Instalamos varios paquetes: apt-get install gcc make linux-headers-$(uname -r)
+    Insertado ISO Guest Additions: VBox -> Dispositivos -> Guest Additions
+    Por terminal: cd /media/nombre-usuario/VBOX...
+    Por teminal ejecutamos programa: ./VBoxLinux...
