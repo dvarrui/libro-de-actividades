@@ -16,5 +16,5 @@
 ## Comprobación
 
 Para comprobar el acceso remoto SSH, vamos a la máquina real y ejecutamos:
-* `ssh nombre-del-alumno@ip-de-la-mv` para entrar en la MV
+* `ssh root@ip-de-la-mv` para entrar en la MV
 * `hostname -f` para ver el nombre de la MV donde hemos entrado.
