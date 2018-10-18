@@ -72,7 +72,7 @@ blkid               # Consultar UUID de la instalación
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
-    * IP estática 172.AA.XX.11
+    * IP estática 172.AA.XX.12
     * Nombre de equipo: `ssh-clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXg.
