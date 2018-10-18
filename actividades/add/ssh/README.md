@@ -37,6 +37,7 @@ a las preguntas que pudieran hacerse en dicho instante.
     * IP estática: 172.AA.XX.31
     * Nombre de equipo: ssh-serverXXg
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
+    * Poner clave compleja al usuario root.
 * Añadir en `/etc/hosts` los equipos `ssh-clientXXg` y `ssh-clientXXw` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
@@ -60,7 +61,7 @@ blkid               # Consultar UUID de la instalación
 
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
-    * IP estática 172.18.XX.32
+    * IP estática 172.AA.XX.32
     * [Configuración de las MV's](../global/configuracion/opensuse.md)
     * Nombre de equipo: ssh-clientXXg
 * Añadir en `/etc/hosts` el equipo `ssh-serverXXg`, y `ssh-clientXXw`.
@@ -71,17 +72,17 @@ blkid               # Consultar UUID de la instalación
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
-    * IP estática 172.18.XX.11
+    * IP estática 172.AA.XX.11
     * Nombre de equipo: `ssh-clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
-* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXw.
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXg.
 * Comprobar haciendo ping a ambos equipos.
 
 ---
 
 # 2 Instalación del servicio SSH
 
-* Instalar el servicio SSH en la máquina ssh-server
+* Instalar el servicio SSH en la máquina ssh-serverXXg. Por comandos o entorno gráfico.
     * Desde la herramienta `yast -> Instalar Software`
     * Desde terminal `zypper search openssh` muestra los paquetes instalados o no con nombre openssh*.
     * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
