@@ -34,7 +34,6 @@ a las preguntas que pudieran hacerse en dicho instante.
 
 * Configurar el servidor GNU/Linux con siguientes valores:
     * SO GNU/Linux: OpenSUSE
-    * IP estática: 172.AA.XX.31
     * Nombre de equipo: ssh-serverXXg
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
     * Poner clave compleja al usuario root.
@@ -61,7 +60,6 @@ blkid               # Consultar UUID de la instalación
 
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
-    * IP estática 172.AA.XX.32
     * [Configuración de las MV's](../global/configuracion/opensuse.md)
     * Nombre de equipo: ssh-clientXXg
 * Añadir en `/etc/hosts` el equipo `ssh-serverXXg`, y `ssh-clientXXw`.
@@ -72,7 +70,6 @@ blkid               # Consultar UUID de la instalación
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
-    * IP estática 172.AA.XX.12
     * Nombre de equipo: `ssh-clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXg.
@@ -347,7 +344,6 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 * Configurar el servidor Windows con los siguientes valores:
     * SO Windows Server
-    * IP estática 172.AA.XX.11
     * Nombre de equipo: ssh-serverXXw
     * [Configuración de las MV's](../../global/configuracion/windows-server.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-clientXXg y ssh-clientXXw.
