@@ -104,9 +104,7 @@ blkid               # Consultar UUID de la instalación
 >  * `systemctl enable sshd` por comandos
 >  * `Yast -> servicios` por entorno gráfico
 
-* `netstat -ntap`: Comprobar que el servicio está escuchando por el puerto 22
-
-![netstat](./opensuse/sshd-netstat.png)
+* `lsof -i -n`: Comprobar que el servicio está escuchando por el puerto 22
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
