@@ -41,7 +41,7 @@ a las preguntas que pudieran hacerse en dicho instante.
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
 ip a                # Comprobar IP y máscara
-route -n            # Comprobar puerta de enlace
+ip route            # Comprobar puerta de enlace
 ping 8.8.4.4 -i 2   # Comprobar conectividad externa
 host www.google.es  # Comprobar el servidor DNS
 ping ssh-clientXXa  # Comprobar conectividad con cliente A
