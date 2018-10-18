@@ -246,13 +246,12 @@ Para ello, vamos a configurar la autenticación mediante clave pública para
 acceder con nuestro usuario personal desde el equipo cliente al servidor con el
 usuario `1er-apellido-alumno4`.
 
-* Vamos a la máquina ss-clientXXg.
-* ¡OJO! No usar el usuario root.
-
 Capturar imágenes de los siguientes pasos:
-* Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina ssh-clientXXa.
-* Ejecutamos `ssh-keygen -t rsa` para generar un nuevo par de claves para el
-usuario en `/home/nuestro-usuario/.ssh/id_rsa` y `/home/nuestro-usuario/.ssh/id_rsa.pub`.
+* Vamos a la máquina `ssh-clientXXg`.
+* ¡OJO! No usar el usuario root.
+* Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina `ssh-clientXXg`.
+* `ssh-keygen -t rsa` para generar un nuevo par de claves para el
+usuario en `/home/1er-apellido-alumno4/.ssh/id_rsa` y `/home/1er-apellido-alumno4/.ssh/id_rsa.pub`.
 
 Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
 de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
