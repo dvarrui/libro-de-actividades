@@ -40,12 +40,12 @@ a las preguntas que pudieran hacerse en dicho instante.
 * Añadir en `/etc/hosts` los equipos `ssh-clientXXg` y `ssh-clientXXw` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
-ip a                # Comprobar IP y máscara
+ip a                # Comprobar IP, máscara y ver nombre del interfaz de red
 ip route            # Comprobar puerta de enlace
 ping 8.8.4.4 -i 2   # Comprobar conectividad externa
-host www.google.es  # Comprobar el servidor DNS
-ping ssh-clientXXa  # Comprobar conectividad con cliente A
-ping ssh-clientXXb  # Comprobar conectividad con cliente B
+host www.nba.com    # Comprobar el servidor DNS
+ping ssh-clientXXg  # Comprobar conectividad con cliente GNU/Linux
+ping ssh-clientXXw  # Comprobar conectividad con cliente Windows
 lsblk               # Consultar particiones
 blkid               # Consultar UUID de la instalación
 ```
@@ -72,7 +72,7 @@ blkid               # Consultar UUID de la instalación
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
     * IP estática 172.18.XX.11
-    * Nombre de equipo: ssh-clientXXw
+    * Nombre de equipo: `ssh-clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXw.
 * Comprobar haciendo ping a ambos equipos.
