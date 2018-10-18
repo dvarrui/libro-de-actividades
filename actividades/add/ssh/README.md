@@ -101,21 +101,18 @@ blkid               # Consultar UUID de la instalación
 >  * `systemctl enable sshd` por comandos
 >  * `Yast -> servicios` por entorno gráfico
 
-* `lsof -i -n`: Comprobar que el servicio está escuchando por el puerto 22
+* `sudo lsof -i:22 -n`: Comprobar que el servicio está escuchando por el puerto 22
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
-* Comprobamos la conectividad con el servidor desde el cliente con `ping ssh-serverXXg`.
-* Desde el cliente comprobamos que el servicio SSH es visible con `nmap -Pn ssh-serverXXg`.
+* Ir al cliente `sshclientXXg`.
+* `ping ssh-serverXXg`, comprobar la conectividad con el servidor.
+* `nmap -Pn ssh-serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open).
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
 
-* Si esto falla debemos comprobar en el servidor la configuración del cortafuegos:
-
-![firewall1-yast](./opensuse/firewall1-yast.png)
-
-![firewall2-yast](./opensuse/firewall2-yast.png)
+* Si esto falla debemos comprobar en el servidor la configuración del cortafuegos.
 
 Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
 * Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-serverXXg`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
