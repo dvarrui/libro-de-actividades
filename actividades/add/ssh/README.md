@@ -50,7 +50,7 @@ lsblk               # Consultar particiones
 blkid               # Consultar UUID de la instalación
 ```
 
-* Crear los siguientes usuarios en ssh-serverXXg:
+* Crear los siguientes usuarios en `ssh-serverXXg`:
     * primer-apellido-del-alumno1
     * primer-apellido-del-alumno2
     * primer-apellido-del-alumno3
@@ -239,8 +239,7 @@ alias s='ssh'
 
 ![clave-publica](./images/ssh-clave-publica.jpeg)
 
-El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1,
-usando el `1er-apellido-alumno4` sin poner password, pero usando claves pública/privada.
+El objetivo de este apartado es el de configurar SSH para poder acceder desde el cliente1, usando el `nombre-alumno` sin poner password, pero usando claves pública/privada.
 
 Para ello, vamos a configurar la autenticación mediante clave pública para
 acceder con nuestro usuario personal desde el equipo cliente al servidor con el
@@ -251,14 +250,16 @@ Capturar imágenes de los siguientes pasos:
 * ¡OJO! No usar el usuario root.
 * Iniciamos sesión con nuestro usuario *nombre-alumno* de la máquina `ssh-clientXXg`.
 * `ssh-keygen -t rsa` para generar un nuevo par de claves para el
-usuario en `/home/1er-apellido-alumno4/.ssh/id_rsa` y `/home/1er-apellido-alumno4/.ssh/id_rsa.pub`.
+usuario en
+    * `/home/nombre-alumno/.ssh/id_rsa` y
+    * `/home/nombre-alumno/.ssh/id_rsa.pub`.
 
 Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno)
 de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4*
 (que está definido en el servidor. Hay varias formas de hacerlo:
 * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar
 la clave pública del usuario actual al usuario remoto en la máquina remota:
-`ssh-copy-id usuario-remoto@hostname-remoto`.
+`ssh-copy-id 1er-apellido-alumno4@ssh-serverXXg`.
 
 > Otra forma de hacerlo sería usando el programa de copia segura `scp`.
 >
