@@ -17,8 +17,9 @@
 * `rails -v`, consultar la version de rails.
 * Instalar la BBDD:
     * `zypper in sqlite3 sqlite3-devel`
-    * `ln -s /usr/bin/gcc g++`
-    * `gem install therubyracer`
+    * `zypper install gcc gcc-devel gcc8-c++ `
+    * `cd /usr/bin; ln -s gcc g++`
+    * `gem install mini_racer`
 
 ## Mi primer proyecto
 
