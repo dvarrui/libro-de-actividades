@@ -32,6 +32,14 @@ Con nuestro usuario:
 * `sudo gem install rails`
 * `rails -v`
 
+## Comprobamos
+
+* `rails new demo`
+* `cd demo`
+* `demo> rake db:create`, Create databases 'db/development.sqlite3' and 'db/test.sqlite3'
+* `rails server --binding=127.0.0.1`
+* `http://127.0.0.1:3000`
+
 ---
 
 # ANEXO
