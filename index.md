@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-10-13 13:10:46 +0100`
+`Fecha UM: 2018-10-20 14:22:22 +0100`
 
 * [idp](actividades/idp) 12
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -160,7 +160,7 @@
         * [images](actividades/add/samba/images) 3
         * [samba-debian.md](actividades/add/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
-    * [script](actividades/add/script) 3
+    * [script](actividades/add/script) 4
         * [bash](actividades/add/script/bash) 1
             * [agenda.md](actividades/add/script/bash/agenda.md)
         * [quagga.md](actividades/add/script/quagga.md)
@@ -172,10 +172,11 @@
             * [files](actividades/add/script/ruby/files) 3
             * [install-and-remove.md](actividades/add/script/ruby/install-and-remove.md)
             * [kill-these-processes.md](actividades/add/script/ruby/kill-these-processes.md)
-    * [ssh](actividades/add/ssh) 5
+        * [setuid.md](actividades/add/script/setuid.md)
+    * [ssh](actividades/add/ssh) 4
         * [README.md](actividades/add/ssh/README.md)
-        * [image](actividades/add/ssh/image) 2
-        * [opensuse](actividades/add/ssh/opensuse) 10
+        * [images](actividades/add/ssh/images) 3
+        * [opensuse](actividades/add/ssh/opensuse) 7
         * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
     * [tareas](actividades/add/tareas) 1
         * [tareas-programadas.md](actividades/add/tareas/tareas-programadas.md)
