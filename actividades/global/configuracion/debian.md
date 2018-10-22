@@ -24,6 +24,18 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
 >     * Por ejemplo: `127.0.0.2   vargasXXd1.curso1617   vargasXXd1`
 
+*Comprobar nombre de equipo y usuario:*
+```
+   date
+   uname -a
+   hostname -f           # Muestra nombre-máquina.nombre-dominio
+   hostname -a           # Muestra nombre-máquina
+   hostname -d           # Muestra nombre-dominio
+
+   tail -n 5 /etc/passwd # Comprobar que existe el usuario
+   id nombre-de-usuario  # Comprobar que existe el usuario
+```
+
 ---
 
 # Configuración de red
@@ -39,27 +51,6 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.AA.0.1`
     * Servidor DNS: `8.8.4.4`
-
----
-
-# Comprobaciones finales
-
-Capturar imágen de la configuración del equipo:
-```
-date
-uname -a
-hostname -f           # Muestra nombre-máquina.nombre-dominio
-hostname -a           # Muestra nombre-máquina
-hostname -d           # Muestra nombre-dominio
-
-tail -n 5 /etc/passwd # Comprobar que existe el usuario
-id nombre-de-usuario  # Comprobar que existe el usuario
-ip a                  # Muestra configuración de red
-ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
-ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
-host www.nba.com      # Comprueba que funciona bien el DNS
-blkid
-```
 
 ---
 
@@ -102,6 +93,17 @@ iface eth1 inet dhcp
    * Reiniciar el equipo o
    * `systemctl restart networking` o
    * `service networking restart` o
+
+---
+
+*Comprobar la red:*
+```
+   ip a                  # Muestra configuración de red
+   ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
+   ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
+   host www.nba.com      # Comprueba que funciona bien el DNS
+   blkid
+```
 
 ---
 
