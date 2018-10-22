@@ -8,8 +8,8 @@ Documentos relacionados
 # Configurar Nombre EQUIPO, DOMINIO y USUARIO
 
 * Nombre de equipo: `primer-apellido-del-alumnoXXd`.
-    * Por ejemplo vargasXXd
-    * Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXe, vargasXXf, etc.
+    * Por ejemplo vargasXXd1
+    * Si tenemos varias máquinas las llamaremos vargasXXd1, vargasXXd2, vargasXXd2, etc.
 * Nombre de dominio: `curso1819` (Modificar los números al curso actual).
 * Un usuario identificado con `nombre-del-alumno`.
 
@@ -19,10 +19,10 @@ Documentos relacionados
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hostname`
 >     * Ponemos el `nombre-maquina.nombre-dominio`
->     * Por ejemplo: `vargasXXd.curso1617`
+>     * Por ejemplo: `vargasXXd1.curso1617`
 > * Fichero `/etc/hosts`.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
->     * Por ejemplo: `127.0.0.2   vargasXXd.curso1617   vargasXXd`
+>     * Por ejemplo: `127.0.0.2   vargasXXd1.curso1617   vargasXXd1`
 
 ---
 
@@ -72,7 +72,7 @@ Por comandos debemos modificar el contenido de los ficheros de configuración de
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-* Primero debemos averiguar el nombre de nuestra interfaces. 
+* Primero debemos averiguar el nombre de nuestra interfaces.
     * Usaremos `ip a` o `ifconfig`.
 * Para cambiar la configuración de red,modificar el fichero `/etc/network/interfaces`.
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
@@ -95,7 +95,7 @@ auto eth1
 iface eth1 inet dhcp
 ```
 
-> NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres 
+> NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres
 (Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
 * Para que se apliquen los cambios hacemos lo siguiente:
