@@ -148,20 +148,24 @@ Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública
 que identifican a nuestro servidor frente a nuestros clientes:
 
 ```
--rw-r--r-- 1 root root 136156 ago 24  2012 moduli
--rw-r--r-- 1 root root   1667 sep 12  2012 ssh_config
--rw-r--r-- 1 root root   2487 dic 27  2013 sshd_config
--rw------- 1 root root    672 dic 27  2013 ssh_host_dsa_key
--rw-r--r-- 1 root root    601 dic 27  2013 ssh_host_dsa_key.pub
--rw------- 1 root root    227 dic 27  2013 ssh_host_ecdsa_key
--rw-r--r-- 1 root root    173 dic 27  2013 ssh_host_ecdsa_key.pub
--rw------- 1 root root    528 dic 27  2013 ssh_host_key
--rw-r--r-- 1 root root    333 dic 27  2013 ssh_host_key.pub
--rw------- 1 root root   1675 dic 27  2013 ssh_host_rsa_key
--rw-r--r-- 1 root root    393 dic 27  2013 ssh_host_rsa_key.pub
+david@ssh-server42g:~> cd /etc/ssh/
+david@ssh-server42g:/etc/ssh> ll
+total 576
+-rw-r--r-- 1 root root   2375 oct  1 08:15 ldap.conf
+-rw------- 1 root root 535929 oct  1 08:15 moduli
+-rw-r--r-- 1 root root   2586 oct  1 08:15 ssh_config
+-rw-r----- 1 root root   3776 oct  1 08:15 sshd_config
+-rw------- 1 root root    668 jun 28 09:55 ssh_host_dsa_key
+-rw-r--r-- 1 root root    610 jun 28 09:55 ssh_host_dsa_key.pub
+-rw------- 1 root root    227 jun 28 09:55 ssh_host_ecdsa_key
+-rw-r--r-- 1 root root    182 jun 28 09:55 ssh_host_ecdsa_key.pub
+-rw------- 1 root root    411 jun 28 09:55 ssh_host_ed25519_key
+-rw-r--r-- 1 root root    102 jun 28 09:55 ssh_host_ed25519_key.pub
+-rw------- 1 root root    985 jun 28 09:55 ssh_host_key
+-rw-r--r-- 1 root root    650 jun 28 09:55 ssh_host_key.pub
+-rw------- 1 root root   1679 jun 28 09:55 ssh_host_rsa_key
+-rw-r--r-- 1 root root    402 jun 28 09:55 ssh_host_rsa_key.pub
 ```
-
-![sshd-files](./opensuse/sshd-files.png)
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea:
 `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
