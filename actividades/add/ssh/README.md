@@ -139,7 +139,8 @@ total 216
 
 * Desde el cliente Windows nos conectamos usando `PuTTY`.
     * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-    * No guardar la conexión SSH en los perfiles de PuTTY.
+    * No usar `Save Settings` para guardar la configuración de la conexión SSH en los perfiles de PuTTY.
+    * En la ventana `PuTTY Security Alert`, poner que SI grabar las información del servidor.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
