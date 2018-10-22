@@ -2,6 +2,7 @@
 # Métodos y argumentos
 
 ## Método
+
 Un método es como ponerle un nombre a un bloque de código. Cada vez que queramos
 invocar la ejecución de dicho bloque usamos su nombre.
 
