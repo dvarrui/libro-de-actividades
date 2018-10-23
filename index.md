@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-10-20 14:22:22 +0100`
+`Fecha UM: 2018-10-23 09:00:32 +0100`
 
 * [idp](actividades/idp) 12
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -161,8 +161,9 @@
         * [samba-debian.md](actividades/add/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
     * [script](actividades/add/script) 4
-        * [bash](actividades/add/script/bash) 1
+        * [bash](actividades/add/script/bash) 2
             * [agenda.md](actividades/add/script/bash/agenda.md)
+            * [sysinfo.md](actividades/add/script/bash/sysinfo.md)
         * [quagga.md](actividades/add/script/quagga.md)
         * [ruby](actividades/add/script/ruby) 7
             * [create-and-delete-users.md](actividades/add/script/ruby/create-and-delete-users.md)
@@ -176,7 +177,7 @@
     * [ssh](actividades/add/ssh) 4
         * [README.md](actividades/add/ssh/README.md)
         * [images](actividades/add/ssh/images) 3
-        * [opensuse](actividades/add/ssh/opensuse) 7
+        * [opensuse](actividades/add/ssh/opensuse) 5
         * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
     * [tareas](actividades/add/tareas) 1
         * [tareas-programadas.md](actividades/add/tareas/tareas-programadas.md)
