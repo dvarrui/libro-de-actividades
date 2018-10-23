@@ -109,7 +109,7 @@ boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro
 * Escoge una imagen para el fondo del menú GRUB2. Debe estar grabada con formato RGB 8 bits y con extensión tga, png o jpg. Puedes usar GIMP para ayudarte.
 * Guardar la imagen como: /boot/grub2/themes/openSUSE/nombreimagen.png
 * Editar fichero `/boot/grub2/themes/openSUSE/theme.txt`.
-    * Modificarlo para poner nuestra imagen: `desktop-image: nombreimagen.png`.
+    * Modificarlo para poner nuestra imagen: ` + image -> file = nombreimagen.png`.
 * Grabamos el fichero y salimos del editor.
 * `grub2-mkconfig -o /boot/grub2/grub.cfg`, para actualizar la configuración de GRUB2 hacemos.
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
