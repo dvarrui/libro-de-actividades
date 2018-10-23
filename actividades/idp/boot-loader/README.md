@@ -38,9 +38,9 @@ Vamos a crear una nueva entrada en el menú del boot loader:
 ```
 echo "[INFO] Estoy añadiendo entrada GNU/Linux" >&2
 cat<<EOF
-menuentry "Iniciar GNU/Linux (David 2013)" {
-linux /boot/vmlinuz-Y root=/dev/sdaZ
-initrd /boot/initrd-Y
+menuentry "Iniciar GNU/Linux (NOMBRE-DEL-ALUMNO 2018)" {
+  linux /boot/vmlinuz root=/dev/sdaZ
+  initrd /boot/initrd
 }
 EOF
 ```
@@ -51,11 +51,8 @@ EOF
 > * Sustituir Z por el valor que corresponda. En nuestro caso será 7 para la partición /dev/sda7.
 > * Tenemos que desactivar la línea 'exec tail'. Para ello añadimos una almohadilla (#) al comienzo de la misma.
 
-Veamos un ejemplo con una configuración diferente:
-
-![grub2-menuentry-gnulinux](./images/grub2-menuentry-gnulinux.png)
-
-* Grabamos el fichero 40_custom, ponemos permisos de ejecución (chmod +x 40_custom).
+* Grabamos el fichero 40_custom.
+* Ponemos permisos de ejecución (`chmod +x 40_custom`).
 * Hacer copia de seguridad del fichero de configuración: `cp /boot/grub2/grub.cfg /boot/grub2/grub.000`
 * Actualizamos los cambios: `grub2-mkconfig -o /boot/grub2/grub.cfg`
 * Reiniciamos el sistema y comprobamos los cambios. Capturar imagen.
@@ -64,7 +61,9 @@ Veamos un ejemplo de un menú de inicio:
 
 ![grub2-menu-screen](./images/grub2-menu-screen.png)
 
-> Información sobre Yast2:
+
+> **Información sobre Yast2:**
+>
 > * Yast2 es una herramienta gráfica para OpenSUSE que sirve para gestionar el bootloader (GRUB2 en nuestro caso).
 > * Entramos en la consola como superusario, y escribimos el comando `yast2 bootloader`, o bien `/sbin/yast2 bootloader &`.
 > * Una vez iniciada la aplicación gráfica, ir a "Opciones del cargador de arranque". Ahí podemos configurar diversos aspectos del cargador del sistema de forma cómoda. Como por ejemplo: ocultar el menú, modificar timeout, etc.
@@ -78,32 +77,37 @@ Veamos un ejemplo de un menú de inicio:
 
 Vamos a crear una nueva entrada del menú de carga para el SO Windows:
 * Iniciamos la MV con GNU/Linux.
-* Añadir las siguientes líneas al final del fichero `/etc/grub.d/40_custom`,
-Sustituir X por el número de la partición donde está Windows:
-```
+* Crear el siguiente fichero `/etc/grub.d/41_custom`,
+    * Sustituir X por el número de la partición donde está Windows:
 
+```
 echo "[INFO] Añadiendo entrada Windows" >&2
 cat<<EOF
 menuentry "Iniciar Windows (David 2013)" {
-set root=(hd0,X)
-chainloader +1
+  set root=(hd0,X)
+  chainloader +1
 }
 EOF
 ```
 
-* Para actualizar los cambios debemos usar el comando: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
-* Atención a los mensajes de salida por si aparece algún error o warning.
-Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
+* Grabamos el fichero 41_custom.
+* `chmod +x 41_custom`, Ponemos permisos de ejecución.
+* `grub2-mkconfig -o /boot/grub2/grub.cfg`, Actualizar los cambios.
+    * Atención a los mensajes de salida por si aparece algún error o warning.
+* Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
 
-## 1.3 Cambiar la apariencia
+---
+
+## 2 Cambiar la apariencia
 
 Vamos a cambiar la apariencia del boot loader
 * Abrimos terminal como superusuario.
-* Editar el fichero `/boot/grub2/themes/openSUSE/theme.txt` y modificar los colores. Por ejemplo, podríamos modificar las entradas siguientes:
+* Editar el fichero `/boot/grub2/themes/openSUSE/theme.txt` y modificar los colores.
+    * Por ejemplo, podríamos modificar las entradas siguientes:
 
 ```
-    boot_menu -> item_color="#fff" (Entradas de menú en blanco)
-    boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro)
+boot_menu -> item_color="#fff" (Entradas de menú en blanco)
+boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro)
 ```
 
 * Escoge una imagen para el fondo del menú GRUB2. Debe estar grabada con formato RGB 8 bits y con extensión tga, png o jpg. Puedes usar GIMP para ayudarte.
@@ -123,7 +127,7 @@ Vamos a cambiar la apariencia del boot loader
 
 ---
 
-# 2. Windows 7
+# 3. Windows 7
 
 > Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual. No es necesario hacerlo con los dos SO Windows.
 
@@ -151,4 +155,4 @@ OBJETIVO de la práctica:
 
 # ANEXO
 
-* Reinstalar GRUB2: http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB
+* [Reinstalar GRUB2 en Ubuntu](http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB)
