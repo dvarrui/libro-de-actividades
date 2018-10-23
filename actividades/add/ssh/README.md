@@ -303,7 +303,7 @@ remota al servidor, y ahora ejecutamos APP1 de forma remota.
 # 7. Aplicaciones Windows nativas
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
-* Instalar emulador Wine en el ssh-serverXXg.
+* Instalar emulador Wine en el `ssh-serverXXg`.
 * Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH
 usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
 * Comprobar el funcionamiento de APP2 en ssh-serverXXg.
