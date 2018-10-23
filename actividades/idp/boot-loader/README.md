@@ -52,26 +52,20 @@ EOF
 > * Tenemos que desactivar la línea 'exec tail'. Para ello añadimos una almohadilla (#) al comienzo de la misma.
 
 * Grabamos el fichero 40_custom.
-* Ponemos permisos de ejecución (`chmod +x 40_custom`).
+* `chmod +x 40_custom`, ponemos permisos de ejecución.
 * Hacer copia de seguridad del fichero de configuración: `cp /boot/grub2/grub.cfg /boot/grub2/grub.000`
-* Actualizamos los cambios: `grub2-mkconfig -o /boot/grub2/grub.cfg`
+* `grub2-mkconfig -o /boot/grub2/grub.cfg`, actualizamos los cambios.
 * Reiniciamos el sistema y comprobamos los cambios. Capturar imagen.
 
 Veamos un ejemplo de un menú de inicio:
 
 ![grub2-menu-screen](./images/grub2-menu-screen.png)
 
-
 > **Información sobre Yast2:**
 >
 > * Yast2 es una herramienta gráfica para OpenSUSE que sirve para gestionar el bootloader (GRUB2 en nuestro caso).
 > * Entramos en la consola como superusario, y escribimos el comando `yast2 bootloader`, o bien `/sbin/yast2 bootloader &`.
 > * Una vez iniciada la aplicación gráfica, ir a "Opciones del cargador de arranque". Ahí podemos configurar diversos aspectos del cargador del sistema de forma cómoda. Como por ejemplo: ocultar el menú, modificar timeout, etc.
->
-> Veamos una imagen:
->
-> ![grub2-yast2-bootloader](./images/grub2-yast2-bootloader.png)
->
 
 ## 1.2 Añadir entrada SO Windows a GRUB2
 
@@ -112,9 +106,10 @@ boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro
 
 * Escoge una imagen para el fondo del menú GRUB2. Debe estar grabada con formato RGB 8 bits y con extensión tga, png o jpg. Puedes usar GIMP para ayudarte.
 * Guardar la imagen como: /boot/grub2/themes/openSUSE/nombreimagen.png
-* Editar fichero `/boot/grub2/themes/openSUSE/theme.txt`, y modificarlo para poner nuestra imagen: `desktop-image: nombreimagen.png`.
+* Editar fichero `/boot/grub2/themes/openSUSE/theme.txt`.
+    * Modificarlo para poner nuestra imagen: `desktop-image: nombreimagen.png`.
 * Grabamos el fichero y salimos del editor.
-* Para actualizar la configuración de GRUB2 hacemos: `grub2-mkconfig -o /boot/grub2/grub.cfg`.
+* `grub2-mkconfig -o /boot/grub2/grub.cfg`, para actualizar la configuración de GRUB2 hacemos.
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
 > **Enlaces de interés**
