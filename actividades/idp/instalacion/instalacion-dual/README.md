@@ -204,9 +204,11 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ---
 
-# 4. Menú de arranque
+# ANEXO
 
-## 4.1 Cambiar el menu de arranque Windows
+Esto NO hay que hacerlo.
+
+## Cambiar el menu de arranque Windows
 
 
 * Iniciar GNU/Linux.
