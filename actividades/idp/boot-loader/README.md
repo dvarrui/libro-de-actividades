@@ -21,6 +21,8 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 
 # 1. OpenSUSE
 
+* Hacer una instantánea de la MV antes de seguir.
+
 ## 1.1 Añadir entrada SO Linux a GRUB2
 Vamos a crear una nueva entrada en el menú del boot loader:
 * Iniciamos la MV con GNU/Linux.
@@ -124,14 +126,15 @@ boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro
 
 # 3. Windows 7
 
-> Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual. No es necesario hacerlo con los dos SO Windows.
+El objetivo es el de modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
 
-* Vamos a entrar a Window Enterprise.
-* En la línea de comandos ejecutamos el comando `bcdedit` para consultar la configuración actual del boot loader. Si tenemos problemas con el comando, comprobar que tenemos la versión Enterprise del SO Windows.
-* El comando "msconfig" nos muestra también información del arranque.
+* Hacer una instantánea de la MV antes de seguir.
+* Vamos a entrar a Windows Enterprise.
+* Abrir consola como administrador.
+* Ejecutar el comando `bcdedit` para consultar la configuración actual del boot loader.
+    * Si tenemos problemas con el comando, comprobar que tenemos la versión Enterprise del SO Windows.
 
-OBJETIVO de la práctica:
-* Modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
+> INFO: El comando "msconfig" nos muestra también información del arranque.
 
 > **Información sobre BCDEDIT**
 > * `bdcedit` Muestra la configuración del boot loader
