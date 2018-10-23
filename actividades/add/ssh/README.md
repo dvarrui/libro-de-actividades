@@ -213,7 +213,7 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 > Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
 
 * Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración
-del usuario1 en la máquina servidor (Fichero /home/1er-apellido-alumno1/.bashrc)
+del usuario1 en la máquina servidor (Fichero `/home/1er-apellido-alumno1/.bashrc`)
 
 ```
 # Se cambia el prompt al conectarse vía SSH
@@ -307,7 +307,7 @@ Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el 
 * Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH
 usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
 * Comprobar el funcionamiento de APP2 en ssh-serverXXg.
-* Comprobar funcionamiento de APP2, accediendo desde ssh-client1.
+* Comprobar funcionamiento de APP2, accediendo desde ssh-clientXXg.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
@@ -350,11 +350,13 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 * Configurar el servidor Windows con los siguientes valores:
     * SO Windows Server
-    * Nombre de equipo: ssh-serverXXw
+    * Nombre de equipo: `ssh-serverXXw`
     * [Configuración de las MV's](../../global/configuracion/windows-server.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-clientXXg y ssh-clientXXw.
 * Comprobar haciendo ping a ambos equipos.
-* Instalar y configurar el servidor SSH en Windows. Para este ejemplo usaremos [servidor SSH en Windows](../../global/acceso-remoto/windows10.md).
+* [Instalar y configurar el servidor SSH en Windows](../../global/acceso-remoto/windows-ssh.md).
+    * Elegir la opción que se quiera: OpenSSH o integrado.
+    * Documentar el proceso de instalación y configuración.
 * Comprobar acceso SSH desde los clientes Windows y GNU/Linux al servidor SSH Windows.
     * `netstat -n` en Windows.
     * `lsof -i -n` en GNU/Linux.
