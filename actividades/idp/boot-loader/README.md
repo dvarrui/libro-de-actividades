@@ -71,21 +71,21 @@ Veamos un ejemplo de un menú de inicio:
 
 Vamos a crear una nueva entrada del menú de carga para el SO Windows:
 * Iniciamos la MV con GNU/Linux.
-* Crear el siguiente fichero `/etc/grub.d/41_custom`,
+* Abrimos el fichero `/etc/grub.d/40_custom`.
+    * Añadir las siguientes líneas al final.
     * Sustituir X por el número de la partición donde está Windows:
 
 ```
 echo "[INFO] Añadiendo entrada Windows" >&2
 cat<<EOF
-menuentry "Iniciar Windows (David 2013)" {
+menuentry "Iniciar Windows (NOMBRE-DEL-ALUMNO 2018)" {
   set root=(hd0,X)
   chainloader +1
 }
 EOF
 ```
 
-* Grabamos el fichero 41_custom.
-* `chmod +x 41_custom`, Ponemos permisos de ejecución.
+* Grabamos el fichero 40_custom.
 * `grub2-mkconfig -o /boot/grub2/grub.cfg`, Actualizar los cambios.
     * Atención a los mensajes de salida por si aparece algún error o warning.
 * Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
