@@ -182,7 +182,7 @@ servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA
 Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
 identificación de nuestro servidor.
 * En **ssh-serverXXg**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
-* No poner password al certificado de la máquina.
+    * ¡OJO! -> No poner password al certificado de la máquina.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
 
