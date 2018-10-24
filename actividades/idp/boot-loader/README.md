@@ -131,16 +131,14 @@ El objetivo es el de modificar la configuración del boot loader de Windows7 par
 * Hacer una instantánea de la MV antes de seguir.
 * Vamos a entrar a Windows Enterprise.
 * Abrir consola como administrador.
-* Ejecutar el comando `bcdedit` para consultar la configuración actual del boot loader.
-    * Si tenemos problemas con el comando, comprobar que tenemos la versión Enterprise del SO Windows.
+* `bdcedit` Muestra la configuración del boot loader
+    * Comprobar que tenemos la versión Enterprise del SO Windows.
+* `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
+* Ejemplo: `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
 
 > INFO: El comando "msconfig" nos muestra también información del arranque.
-
-> **Información sobre BCDEDIT**
-> * `bdcedit` Muestra la configuración del boot loader
-> * `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
-> * `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
-> * `bcdedit /delete {49916baf-0e08-11db-9af4-000bdbd316a0}` Eliminar una entrada del menú
+>
+> * **Información sobre BCDEDIT**: `bcdedit /delete {49916baf-0e08-11db-9af4-000bdbd316a0}` Eliminar una entrada del menú
 >
 > **Enlaces de interés:**
 > * [Adding Boot Entries](https://msdn.microsoft.com/en-us/library/windows/hardware/ff541231%28v=vs.85%29.aspx)
