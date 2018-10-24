@@ -132,10 +132,10 @@ El objetivo es el de modificar la configuración del boot loader de Windows7 par
 
 * Hacer una instantánea de la MV antes de seguir.
 * Vamos a entrar a Windows Enterprise.
-* Abrir consola como administrador.
-* `bcdedit` Muestra la configuración del boot loader
-    * Comprobar que tenemos la versión Enterprise del SO Windows.
-    * Si da error de almacén de datos consulta lo siguiente:
+* Abrir consola `CMD` como administrador.
+* `bcdedit` Muestra la configuración del boot loader.
+
+Si aparece este error:
 
 ```
 
@@ -181,8 +181,8 @@ nxOptIn
 
 ## 3.2 Crear una nueva entrada
 
-* `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
-* Ejemplo: `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
+* `bcdedit /copy {current} /d "nombre-del-alumno (2018)"` Copia la entrada de menú actual en otra nueva
+* Cambiar el orden de las opciones del menú. Ejemplo: `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast`
 
 > INFO: El comando "msconfig" nos muestra también información del arranque.
 >
