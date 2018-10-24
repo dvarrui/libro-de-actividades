@@ -7,7 +7,7 @@ Documentos relacionados
 
 # Configurar Nombre EQUIPO, DOMINIO y USUARIO
 
-* Nombre de equipo: `primer-apellido-del-alumnoXXd`.
+* Nombre de equipo: `primer-apellido-del-alumnoXXd1`.
     * Por ejemplo vargasXXd1
     * Si tenemos varias máquinas las llamaremos vargasXXd1, vargasXXd2, vargasXXd2, etc.
 * Nombre de dominio: `curso1819` (Modificar los números al curso actual).

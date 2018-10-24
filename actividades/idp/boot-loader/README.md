@@ -24,6 +24,7 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 * Hacer una instantánea de la MV antes de seguir.
 
 ## 1.1 Añadir entrada SO Linux a GRUB2
+
 Vamos a crear una nueva entrada en el menú del boot loader:
 * Iniciamos la MV con GNU/Linux.
 * Abrimos un terminal. Nos convertimos en superusuario.
@@ -54,7 +55,7 @@ EOF
 > * Tenemos que desactivar la línea 'exec tail'. Para ello añadimos una almohadilla (#) al comienzo de la misma.
 
 * Grabamos el fichero 40_custom.
-* `chmod +x 40_custom`, ponemos permisos de ejecución.
+* `chmod +x 40_custom`, ponemos permisos de ejecución al archivo indicado.
 * Hacer copia de seguridad del fichero de configuración: `cp /boot/grub2/grub.cfg /boot/grub2/grub.000`
 * `grub2-mkconfig -o /boot/grub2/grub.cfg`, actualizamos los cambios.
 * Reiniciamos el sistema y comprobamos los cambios. Capturar imagen.
