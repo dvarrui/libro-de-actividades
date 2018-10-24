@@ -3,9 +3,12 @@
 # Simulate typing
 # https://www.linuxjournal.com/content/simulate-typing-c-program
 
+require 'rainbow'
+
 def print_with_delay(text, seconds)
   text.each_char do |c|
     sleep(seconds)
+#    print(Rainbow.(c.to_s).color(:blue))
     print(c)
   end
 end
