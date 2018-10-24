@@ -12,7 +12,8 @@
 
 # Cambiar la configuración de SSH
 
-* Modificar el fichero `/etc/ssh/sshd_config`:
+* Entrar en la consola con el usuario `root`.
+* Editar el fichero `/etc/ssh/sshd_config`:
      * Quitar y/o comentar la línea `PermitRootLogin without-password`.
      * Dejar la siguiente configuración `PermitRootLogin yes`.
 * `systemctl restart sshd`, iniciar el servicio. Antes se hacía con `service ssh restart`.
@@ -22,6 +23,7 @@
 
 # Comprobación
 
-Para comprobar el acceso remoto SSH, vamos a la máquina real y ejecutamos:
-* `ssh root@ip-de-la-mv` para entrar en la MV
+Para comprobar el acceso remoto SSH:
+* Ir a la máquina real.
+* `ssh root@ip-de-la-mv` para entrar en la MV.
 * `hostname -f` para ver el nombre de la MV donde hemos entrado.
