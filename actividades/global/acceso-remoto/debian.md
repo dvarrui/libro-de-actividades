@@ -15,7 +15,8 @@
 * Entrar en la consola con el usuario `root`.
 * Editar el fichero `/etc/ssh/sshd_config`:
      * Quitar y/o comentar la línea `PermitRootLogin without-password`.
-     * Dejar la siguiente configuración `PermitRootLogin yes`.
+     * Dejar la siguiente configuración `PermitRootLogin yes`. SIN ALMOHADILLA.
+     Las almohadillas `#` al comienzo de la línea la desactivan/deshabilitan/la comentan.
 * `systemctl restart sshd`, iniciar el servicio. Antes se hacía con `service ssh restart`.
 * `systemctl status sshd`, comprobar que el servicio está iniciado.    
 
