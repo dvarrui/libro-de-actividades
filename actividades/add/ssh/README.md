@@ -250,14 +250,12 @@ usuario `1er-apellido-alumno4`. Vamos a verlo.
 
 Capturar imágenes de los siguientes pasos:
 * Vamos a la máquina `ssh-clientXXg`.
-* ¡OJO! No usar el usuario root.
-* Iniciamos sesión con nuestro el usuario *nombre-alumno* de la máquina `ssh-clientXXg`.
-* `ssh-keygen -t rsa` para generar un nuevo par de claves para el
-usuario en
-    * `/home/nombre-alumno/.ssh/id_rsa` y
-    * `/home/nombre-alumno/.ssh/id_rsa.pub`.
-
-* Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario (nombre-de-alumno) de la máquina cliente, al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4* que está definido en el servidor.
+* **¡OJO! No usar el usuario root**.
+* Iniciamos sesión con nuestro el usuario **nombre-alumno** de la máquina `ssh-clientXXg`.
+* `ssh-keygen -t rsa` para generar un nuevo par de claves para el usuario en:
+    * `/home/nombre-alumno/.ssh/id_rsa`
+    * `/home/nombre-alumno/.ssh/id_rsa.pub`
+* Ahora vamos a copiar la clave pública (`id_rsa.pub`), al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4* que está definido en el servidor.
     * Hay varias formas de hacerlo.
     * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar la clave pública del usuario actual al usuario remoto en la máquina remota: `ssh-copy-id 1er-apellido-alumno4@ssh-serverXXg`.
 
