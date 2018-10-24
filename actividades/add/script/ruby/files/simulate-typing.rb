@@ -31,8 +31,11 @@ lines.each do |command|
   print prompt
   sleep(0.2)
   print_with_delay(command,0.4)
+#  gets
   print "\n"
   sleep(0.3)
   output = execute_this command
   print_with_delay(output,0.04)
 end
+
+puts "Simulation end!"
