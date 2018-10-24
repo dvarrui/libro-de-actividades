@@ -128,12 +128,59 @@ boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro
 
 El objetivo es el de modificar la configuración del boot loader de Windows7 para que al iniciarse Windows aparezcan dos entradas en el menú de boot. Por ejemplo una para Windows y otra para GNU/Linux, o bien 2 de windows si no tenemos instalación dual.
 
+## 3.1 Consultar la Información
+
 * Hacer una instantánea de la MV antes de seguir.
 * Vamos a entrar a Windows Enterprise.
 * Abrir consola como administrador.
 * `bcdedit` Muestra la configuración del boot loader
     * Comprobar que tenemos la versión Enterprise del SO Windows.
-    * Si da error de almacén de datos...???
+    * Si da error de almacén de datos consulta lo siguiente:
+
+```
+
+C:\Users\Solvetic-Vaio>bcdedit
+No se pudo abrir el almacén de datos de configuración de arranque (BCD).
+Acceso denegado.
+```
+
+Es que tienes que abrir primero el símbolo de sistema en modo administrador. Y te dejará ejecutarlo, te saldrá esto:
+
+```
+C:\Windows\system32>bcdedit
+
+Administrador de arranque de Windows
+----------------------------------
+Identificador {bootmgr}
+devicepartition=\Device\HarddiskVolume2
+description Windows Boot Manager
+localeen-US
+inherit {globalsettings}
+default {current}
+resumeobject{f7492313-139b-11e3-af14-ce9d489bae23}
+displayorder{current}
+toolsdisplayorder {memdiag}
+timeout 30
+
+Cargador de arranque de Windows
+-----------------------------
+Identificador {current}
+devicepartition=C:
+path\Windows\system32\winload.exe
+description Windows
+localezh-CN
+inherit {bootloadersettings}
+recoverysequence{f7492315-139b-11e3-af14-ce9d489bae23}
+recoveryenabled Yes
+testsigning Yes
+osdevicepartition=C:
+systemroot\Windows
+resumeobject{f7492313-139b-11e3-af14-ce9d489bae23}
+nxOptIn
+```
+
+## 3.2 Crear una nueva entrada
+
 * `bcdedit /copy {current} /d "DebugEntry"` Copia la entrada de menú actual en otra nueva
 * Ejemplo: `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast` Cambiar el orden de las opciones del menú
 
