@@ -1,0 +1,4 @@
+pwd
+whoami
+ls
+vdir
