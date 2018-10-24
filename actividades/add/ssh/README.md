@@ -321,9 +321,9 @@ Vamos a modificar los usuarios del servidor SSH para añadir algunas restriccion
 
 Vamos a crear una restricción de uso del SSH para un usuario:
 
-* En el servidor tenemos el usuario remoteuser2. Desde local en el servidor podemos usar
+* En el servidor tenemos el usuario `primer-apellido2`. Desde local en el servidor podemos usar
 sin problemas el usuario.
-* Vamos a modificar SSH de modo que al usar el usuario por ssh desde los clientes tendremos permiso denegado.
+* Vamos a modificar SSH de modo que al usar el usuario por SSH desde los clientes tendremos permiso denegado.
 
 Capturar imagen de los siguientes pasos:
 * Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para
@@ -350,7 +350,7 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 * Configurar el servidor Windows con los siguientes valores:
     * SO Windows Server
-    * Nombre de equipo: `ssh-serverXXw`
+    * Nombre de equipo: `ssh-serverXXs`
     * [Configuración de las MV's](../../global/configuracion/windows-server.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-clientXXg y ssh-clientXXw.
 * Comprobar haciendo ping a ambos equipos.
