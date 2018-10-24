@@ -111,6 +111,7 @@ boot_menu -> selected_item-color="#000" (Entradas de menú seleccionada en negro
 * Editar fichero `/boot/grub2/themes/openSUSE/theme.txt`.
     * Modificarlo para poner nuestra imagen: ` + image -> file = nombreimagen.png`.
 * Grabamos el fichero y salimos del editor.
+    * Si tenemos problemas... lo más probable es que no tengamos permisos suficientes. ¡OJO¡ sólo el usuario root puede escribir en ese directorio.
 * `grub2-mkconfig -o /boot/grub2/grub.cfg`, para actualizar la configuración de GRUB2 hacemos.
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
