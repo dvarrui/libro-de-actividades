@@ -198,6 +198,8 @@ nxOptIn
 
 ---
 
-# ANEXO
+# Dudas
 
+Esto son dudas frecuentes:
+* [¿Cómo reinstalar el menú de arranque GRUB de openSUSE Linux (Sistema de rescate)?](http://www.icomputo.com/rescuesystemcomoreinstalarelmenudearranquegrubdeopensuselinuxsistemaderescate)
 * [Reinstalar GRUB2 en Ubuntu](http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB)
