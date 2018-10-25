@@ -15,7 +15,7 @@ Vamos a necesitar las siguientes MVs:
 
 | Función | Sistema Operativo     | IP        | Nombre |
 | ------- |--------------------- | --------- | --------- |
-| Un servidor SSH| GNU/Linux OpenSUSE | 172.AA.XX.31 | ssh-serverXXg |
+| Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | ssh-serverXXg |
 | Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | ssh-clientXXg |
 | Un servidor SSH | Windows Server| 172.AA.XX.11 | ssh-serverXXs |
 | Un cliente SSH | Windows7 | 172.AA.XX.12 | ssh-clienteXXw |
@@ -33,8 +33,8 @@ a las preguntas que pudieran hacerse en dicho instante.
 ## 1.1 Servidor SSH
 
 * Configurar el servidor GNU/Linux con siguientes valores:
-    * SO GNU/Linux: OpenSUSE
-    * Nombre de equipo: ssh-serverXXg
+    * SO GNU/Linux: OpenSUSE - Sin entorno gráfico
+    * Nombre de equipo: `ssh-serverXXg`
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
     * Poner clave compleja al usuario root.
 * Añadir en `/etc/hosts` los equipos `ssh-clientXXg` y `ssh-clientXXw` (Donde XX es el puesto del alumno).
