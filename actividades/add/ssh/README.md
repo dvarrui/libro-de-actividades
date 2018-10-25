@@ -286,11 +286,11 @@ Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o
 Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
 
 Vamos al clienteXXa.
-* Comprobar que no está instalada APP1: `zypper se APP1`.
-* Comprobar desde el clienteXXa, que funciona APP1(del servidor).
-    * Con el comando `ssh -X remoteuser1@ssh-serverXXg`, podemos conectarnos de forma
+* `zypper se APP1`,cComprobar que no está instalado el programa APP1.
+* Vamos a comprobar desde el clienteXXa, que funciona APP1(del servidor).
+    * `ssh -X primer-apellido-alumno1@ssh-serverXXg`, nos conectamos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
-    * El parámetro es `-X` en mayúsculas, no minúsculas.
+    * **¡OJO!** El parámetro es `-X` en mayúsculas, no minúsculas.
 
 > Para ver los logs del sistema usar `journalctl`
 
@@ -331,14 +331,14 @@ Más información en: `man sshd_config` y en el Anexo de este enunciado.
 
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
-* Crear grupo remoteapps
-* Incluir al usuario 1er-apellido-alumno4 en el grupo remoteapps.
+* Crear grupo `remoteapps`
+* Incluir al usuario `1er-apellido-alumno4` en el grupo `remoteapps`.
 * Localizar el programa APP1. Posiblemente tenga permisos 755.
 * Poner al programa APP1 el grupo propietario a remoteapps.
 * Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usurios
 que no pertenezcan al grupo puedan ejecutar el programa.
-* Comprobamos el funcionamiento en el servidor.
-* Comprobamos el funcionamiento desde el cliente.
+* Comprobamos el funcionamiento en el servidor en local.
+* Comprobamos el funcionamiento desde el cliente en remoto (Recordar `ssh -X ...`).
 
 ---
 
