@@ -201,6 +201,24 @@ nxOptIn
 
 # Dudas
 
-Esto son dudas frecuentes:
-* [¿Cómo reinstalar el menú de arranque GRUB de openSUSE Linux (Sistema de rescate)?](http://www.icomputo.com/rescuesystemcomoreinstalarelmenudearranquegrubdeopensuselinuxsistemaderescate)
-* [Reinstalar GRUB2 en Ubuntu](http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB)
+## Reinstalar GRUB2 en OpenSuse
+
+* [Enlace de interés](https://forums.opensuse.org/content.php/128-Re-install-Grub2-from-DVD-Rescue)
+* Arrancar la MV con el DVD(iso) de OpenSUSE.
+* Elegir arranque con el modo de recate (`Rescue`)
+* Entrar con usuario `root`.
+* `fdisk -l`, comprobar las particiones del disco.
+    * Localiza ña partición donde está instalado el SSOO (Por ejemplo `sda7`)
+* `mount /dev/sda7 /mnt`, monto la partición del SSOO del disco duro.
+* `mount --bind /dev /mnt/dev`
+* `mount --bind /proc /mnt/proc`
+* `mount --bind /sys /mnt/sys`
+* `chroot /mnt`, cambio al SSOO del disco duro.
+* `fdisk -l`, debe seguir funcionando.
+* `cp /boot/grub2/grub.cfg /boo/grub2/grub.bak`, copia de seguridad del fichero de configuración.
+* `grub2-mkconfig -o /boo/grub2/grub.cfg`, volver a construir el fichero de configuración.
+* `grub2-install /dev/sda`, reinstalar grub2 en el disco.
+
+> Esto son dudas frecuentes:
+> * [¿Cómo reinstalar el menú de arranque GRUB de openSUSE Linux (Sistema de rescate)?](http://www.icomputo.com/rescuesystemcomoreinstalarelmenudearranquegrubdeopensuselinuxsistemaderescate)
+> * [Reinstalar GRUB2 en Ubuntu](http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB)
