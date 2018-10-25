@@ -137,16 +137,10 @@ El objetivo es el de modificar la configuración del boot loader de Windows7 par
 * Abrir consola `CMD` como administrador.
 * `bcdedit` Muestra la configuración del boot loader.
 
-Si aparece este error:
+Si aparece este error consulta el siguiente apartado.
 
-```
 
-C:\Users\Solvetic-Vaio>bcdedit
-No se pudo abrir el almacén de datos de configuración de arranque (BCD).
-Acceso denegado.
-```
-
-Es que tienes que abrir primero el símbolo de sistema en modo administrador. Y te dejará ejecutarlo, te saldrá esto:
+Debe salir algo parecido a esto:
 
 ```
 C:\Windows\system32>bcdedit
@@ -181,7 +175,23 @@ resumeobject{f7492313-139b-11e3-af14-ce9d489bae23}
 nxOptIn
 ```
 
-## 3.2 Crear una nueva entrada
+## 3.2 SOLO Si tenemos problemas
+
+Hacer esto SOLO en caso de error.
+
+¿Tienes este error?
+```
+
+C:\Users\Solvetic-Vaio>bcdedit
+No se pudo abrir el almacén de datos de configuración de arranque (BCD).
+Acceso denegado.
+```
+Comprueba lo siguiente:
+* Iniciar CMD como administrador
+* La versión de Windows 7 debe ser la Enterprise
+* [CHow to fix Windows 7/8/10 boot problem with BCDEDIT](https://atomicit.ca/kb/articles/how-to-fix-windows-7810-boot-problem-with-bcdedit/)
+
+## 3.3 Crear una nueva entrada
 
 * `bcdedit /copy {current} /d "nombre-del-alumno (2018)"` Copia la entrada de menú actual en otra nueva
 * Cambiar el orden de las opciones del menú. Ejemplo: `bcdedit /displayorder {49916baf-0e08-11db-9af4-000bdbd316a0} /addlast`
