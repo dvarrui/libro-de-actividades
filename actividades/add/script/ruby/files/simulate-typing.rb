@@ -5,19 +5,26 @@
 # * https://www.linuxjournal.com/content/simulate-typing-c-program
 
 require 'rainbow'
+require 'pry-byebug'
 
 class SimulateTyping
 
-  def initialize(filename = 'simulate-typing.txt')
-    @filename = filename
-    content = `cat #{@filename}`
-    @lines = content.split("\n")
-    #lines = ['pwd','whoami','ls']
+  def initialize()
+    @commands = []
     @prompt = "simulating> "
   end
 
-  def play
-    @lines.each do |command|
+  def play(input)
+    if input.class == Array
+      @commands = input
+    elsif input.class == String
+      @filename = input
+      content = `cat #{@filename}`
+      @commands = content.split("\n")
+    end
+
+    puts "="*50
+    @commands.each do |command|
       sleep(0.2)
       print @prompt
       sleep(0.2)
@@ -28,7 +35,8 @@ class SimulateTyping
       output = execute_this command
       print_with_delay(output,0.04)
     end
-    puts "Bye-bye! Simulation end!"
+    puts "Simulator: Bye-bye!"
+    puts "="*50
   end
 
   def print_with_delay(text, seconds)
@@ -51,4 +59,5 @@ class SimulateTyping
 
 end
 
-SimulateTyping.new.play
+#SimulateTyping.new.play('simulate-typing.txt')
+SimulateTyping.new.play([ 'ip a', 'ip route', 'uname -a'])
