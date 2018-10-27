@@ -16,10 +16,6 @@ class Actor
     end
   end
 
-  def dice_tranquilo(texto)
-    dice texto
-  end
-
   def dice_gritando(texto)
     dice texto.upcase
   end
