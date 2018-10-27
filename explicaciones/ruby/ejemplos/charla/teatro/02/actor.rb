@@ -19,10 +19,6 @@ class Actor
     contar_las_palabras_del texto
   end
 
-  def dice_tranquilo(texto)
-    dice texto
-  end
-
   def dice_gritando(texto)
     dice texto.upcase
   end
