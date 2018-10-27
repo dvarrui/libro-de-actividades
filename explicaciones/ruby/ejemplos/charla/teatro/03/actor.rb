@@ -33,6 +33,7 @@ class Actor
 
 
   def info
+    puts
     puts @name.strip
     puts @tab + Rainbow("├── He tenido #{@num_frases} frases.").color(@color).bright
     puts @tab + Rainbow("└── He dicho  #{@num_palabras} palabras.").color(@color).bright
