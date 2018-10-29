@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-10-23 09:00:32 +0100`
+`Fecha UM: 2018-10-29 09:33:13 +0000`
 
 * [idp](actividades/idp) 12
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -27,7 +27,7 @@
         * [debian-windows_xp.md](actividades/idp/boot-loader/debian-windows_xp.md)
         * [grub](actividades/idp/boot-loader/grub) 1
             * [pendiente.md](actividades/idp/boot-loader/grub/pendiente.md)
-        * [images](actividades/idp/boot-loader/images) 5
+        * [images](actividades/idp/boot-loader/images) 3
     * [comandos](actividades/idp/comandos) 2
         * [comandos-01.md](actividades/idp/comandos/comandos-01.md)
         * [enlaces.md](actividades/idp/comandos/enlaces.md)
@@ -110,7 +110,9 @@
         * [windows-rendimiento.md](actividades/fuw/monitorizar/windows-rendimiento.md)
     * [presupuesto](actividades/fuw/presupuesto) 1
         * [presupuesto-1-pc.md](actividades/fuw/presupuesto/presupuesto-1-pc.md)
-    * [simulador](actividades/fuw/simulador) 1
+    * [simulador](actividades/fuw/simulador) 3
+        * [ayuda.md](actividades/fuw/simulador/ayuda.md)
+        * [multiplicar-y-sumar.md](actividades/fuw/simulador/multiplicar-y-sumar.md)
         * [suma-y-resta.md](actividades/fuw/simulador/suma-y-resta.md)
     * [taller](actividades/fuw/taller) 7
         * [cpd-1-desmontar-y-montar.md](actividades/fuw/taller/cpd-1-desmontar-y-montar.md)
@@ -176,7 +178,7 @@
         * [setuid.md](actividades/add/script/setuid.md)
     * [ssh](actividades/add/ssh) 4
         * [README.md](actividades/add/ssh/README.md)
-        * [images](actividades/add/ssh/images) 3
+        * [images](actividades/add/ssh/images) 2
         * [opensuse](actividades/add/ssh/opensuse) 5
         * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
     * [tareas](actividades/add/tareas) 1
