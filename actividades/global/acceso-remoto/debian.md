@@ -25,6 +25,6 @@
 # Comprobación
 
 Para comprobar el acceso remoto SSH:
-* Ir a la máquina real.
+* Ir a otra máquina con GNU/Linux y abrir una consola.
 * `ssh root@ip-de-la-mv` para entrar en la MV.
 * `hostname -f` para ver el nombre de la MV donde hemos entrado.
