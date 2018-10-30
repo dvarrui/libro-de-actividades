@@ -63,7 +63,7 @@ NO hace falta capturar imagen de los siguientes pasos:
     * La clave de root
     * Nombre de usuario y su clave
 * Zona horaria Canarias.
-* Método de particionado manual. 
+* Método de particionado manual.
 * Crear el siguiente esquema de particiones:
     1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
     1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
@@ -127,10 +127,8 @@ Capturar imagen de los siguientes comandos:
 # 5. Acceso externo
 
 * Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status sshd`.
-* En caso contrario lo instalamos.
-    * Ejecutar comando como superusuario: `apt-get install openssh-server` y
-    * Configurar `/etc/ssh/sshd_config` con `PermitRootLogin yes`
-* Desde la máquina real hacer `ssh usuario@ip-de-la-máquina-virtual`, para
+* En caso contrario... seguir los siguientes pasos para [instalar y configurar Servidor SSH en la MV Debian](../../../global/acceso-remoto/debian.md).
+* Desde la máquina real hacer `ssh root@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
 
