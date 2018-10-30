@@ -16,14 +16,14 @@
 
 ---
 
-## Máquina VirtualBox
+# Máquina VirtualBox
 
 * Usar un disco VirtualBox de 15GB.
 * Tarjeta de red VBox en `modo puente`.
 
 ---
 
-## Durante la instalación del SO
+# Durante la instalación del SO
 
 Recomendaciones:
 * Crear usuario identificado con `nombre-del-alumno`.
@@ -37,30 +37,17 @@ Recomendaciones:
 
 ---
 
-## Después de la instalación del SO
+# usuario
 
-Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red.
+Comprobar con los siguientes comandos:
 
-Vamos a `Inicio -> Configuración -> Yast -> Ajustes de red`.
-* Seleccionamos el interfaz de red y editamos.
-* Marcamos IP fija.
-* IP: `172.AA.XX.31` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.AA.XX.32, 172.AA.XX.33, etc.
-    * Máscara de red: `255.255.0.0`
-* Siguiente
+```
+id nombre-alumno # Muestra información del usuario
+```
 
-Vamos a `Nombre de Host/DNS` y ponemos:
-* Desmarcamos `Modificar nombre mediante DHCP`
-* Marcamos `Asignar nombre de host a la IP bucle local`
-* Nombre de equipo: `primer-apellido-del-alumnoXXg1`.
-    * Por ejemplo vargas30g1
-    * Si tenemos varias máquinas las llamaremos vargas30g2, vargas30g3, vargas30g4, etc.
-* Nombre de dominio: `curso1819` (Modificar los números al curso actual).
-* Servidor DNS: `8.8.4.4`.
-* Vamos a `Encaminamiento`y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
-* Ir dispositivo y elegir interfaz de red.
+---
 
-## Comprobar nombres
+# Comprobar nombre del equipo por los ficheros de texto
 
 Comprobar hostname:
 ```
@@ -91,23 +78,49 @@ ff02::2         ipv6-allrouters
 ff02::3         ipv6-allhosts
 ```
 
----
+Comprobar con los siguientes comandos:
 
-## Comprobaciones finales
-
-Estos comandos nos van a ayudar a verificar que lo tenemos todo correctamente:
 ```
 uname -a         # Muestra información del SO
-id nombre-alumno # Muestra información del usuario
 hostname -f      # Muestra nombre-maquina.nombre-dominio
 hostname -a      # Muestra nombre-maquina
 hostname -d      # Muestra nombre-dominio
+```
 
+---
+
+# Configuración de red y nombre del equipo por YAST
+
+Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red.
+
+Vamos a `Inicio -> Configuración -> Yast -> Ajustes de red`.
+* Seleccionamos el interfaz de red y editamos.
+* Marcamos IP fija.
+* IP: `172.AA.XX.31` (Donde XX corresponde al nº de cada puesto).
+    * Máscara de red: `255.255.0.0`
+* Siguiente
+
+Vamos a `Nombre de Host/DNS` y ponemos:
+* Desmarcamos `Modificar nombre mediante DHCP`
+* Marcamos `Asignar nombre de host a la IP bucle local`
+* Nombre de equipo: `primer-apellido-del-alumnoXXg1`.
+    * Por ejemplo vargas30g1
+* Nombre de dominio: `curso1819` (Modificar los números al curso actual).
+* Servidor DNS: `8.8.4.4`.
+* Vamos a `Encaminamiento`y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
+* Ir dispositivo y elegir interfaz de red.
+
+Comprobar con los siguientes comandos:
+
+```
 ip a                    # Información de red
 ifstatus NOMBREINTERFAZ # Muestra información de la configuración de red
 ping 8.8.4.4            # Verifica la conectividad con Internet
 host www.nba.com        # Comprueba DNS
 ```
+
+> * Si tenemos varias máquinas usaremos las IP 172.AA.XX.32, 172.AA.XX.33, etc.
+> * Si tenemos varias máquinas las llamaremos vargas30g2, vargas30g3, vargas30g4, etc.
 
 ---
 
