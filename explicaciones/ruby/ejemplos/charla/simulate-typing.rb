@@ -49,6 +49,7 @@ class SimulateTyping
 
   def execute_this(command)
     output = ''
+#    binding.pry
     begin
       output = `#{command}`
     rescue Exception => e
