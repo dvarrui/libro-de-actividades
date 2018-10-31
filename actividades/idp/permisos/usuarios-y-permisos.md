@@ -1,3 +1,4 @@
+
 # Usuarios y permisos
 
 * Entregar documento en formato ODT o PDF, con el informe de la actividad. Incluir las acciones realizadas y las capturas solicitadas.
@@ -121,11 +122,17 @@ Modificar los permisos de la siguiente forma:
 > El comando `sudo` nos permite ejecutar comandos como si fuéramos el administrador del equipo.
 Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
+![opensuse-sudoers](./images/opensuse-sudoers.png)
+
+Hay dos formas de configurar `sudoers`:
+1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
+2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
+
 Vamos a dar privilegios de superusuario a los miembros del grupo `jedis` usando
 las configuraciones del comando sudo.
 
-> Para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo, añadimos la línea siguiente
-`%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers.
+* Añadir la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers, para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo.
+
 >
 > Esto quiere decir:
 > * `Usuarios -> %jedis`, a todos los usuarios jedis
@@ -134,11 +141,8 @@ las configuraciones del comando sudo.
 > * `Sin contraseña -> Si`
 > * `Comandos -> ALL`, todos los comandos están permitidos.
 
-![opensuse-sudoers](./images/opensuse-sudoers.png)
 
-* Dos formas de hacerlo:
-    1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
-    2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
+
 * Guardar y salir
 
 Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
@@ -178,9 +182,10 @@ Modificar los permisos de las carpetas:
 
 ## 2.5 Configurar sudoers para el otro grupo
 
-* Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/ifconfig`.
+* Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar la información de sudoers.
-* Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos `fdisk -l`, `ifconfig`.
+* Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos que  tenemos permitidos.
+* Comprobar que no tenemos permitido el uso del comando `/sbin/yast`.
 
 ---
 
