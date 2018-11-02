@@ -2,6 +2,15 @@
 
 # Cómo entregar un VIDEO
 
+* Es obligatorio hacer la entrega de cada actividad en el plazo previsto.
+* En el caso de los trabajos en grupo:
+    * En el trabajo deben aparecer los nombres de los componentes del grupo de trabajo.
+    * Todos los componentes del grupo deben hacer la entrega (aunque sea repetida) al profesor.
+* Para los nombres de los archivos:
+    * Siempre en minúsculas.
+    * NO uses espacios, ni tildes, ni eñes, etc.
+    * Si necesitas separar palabras usa guiones `-` o `_`.
+
 ---
 
 # 1. Entrega
