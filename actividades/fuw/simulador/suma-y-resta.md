@@ -5,7 +5,7 @@
 
 # Simulador
 
-* Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/libro-de-actividades/tree/master/explicaciones/johnny-simulator/manual-es)
+* Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/johnny-simulator-es)
 * Instalar el programa Johnny Simulator en la MV Windows.
 
 ---
@@ -30,14 +30,12 @@
 
 ## ¿Cómo editar el vídeo?
 
-* Consultar enlace [entregas de vídeo](../../entregas/video.md)
+* Consultar enlace [entregas de vídeo](../../global/entregar/video.md)
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
     * IES Puerto de la Cruz - Curso1718
     * Fundamentos de Hardware
     * Simulación Arquitectura Von Neumann
     * Nombre del autor y fecha
-* Incluir subtítulos que comenten las imágenes que se ven en el vídeo.
-* Incluir en el vídeo el logo del IES Puerto de la Cruz para que se muestre durante todo el vídeo.
 
 ---
 
