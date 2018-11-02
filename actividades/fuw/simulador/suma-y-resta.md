@@ -30,9 +30,9 @@
 
 ## ¿Cómo editar el vídeo?
 
-* Consultar enlace [entregas de vídeo](../../global/entregar/video.md)
+* Consultar enlace [Cómo entregar un VIDEO](../../global/entregar/video.md)
 * Editar el vídeo de modo que se muestre al comienzo una ventana con:
-    * IES Puerto de la Cruz - Curso1718
+    * IES Puerto de la Cruz - Curso1819
     * Fundamentos de Hardware
     * Simulación Arquitectura Von Neumann
     * Nombre del autor y fecha
@@ -40,6 +40,7 @@
 ---
 
 ## Entrega
+
 * Subir el vídeo a Youtube.
 * Entregar URL del vídeo subido a Youtube.
 * Entregar el fichero con el programa.
