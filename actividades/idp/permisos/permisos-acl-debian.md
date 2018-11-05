@@ -82,19 +82,25 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 
 Realizar las siguientes tareas:
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
+    * Esto debemos saber cómo se hace de las prácticas anteriores.
 * Iniciar MV.
     * `fdisk -l`, comprobar que los discos/particiones son correctos.
     * `df -hT`, comprobar qué particiones están montadas y dónde.
 * Crear directorio `/mnt/starwars`.
 * Crear un punto de montaje en `/etc/fstab` para el segundo disco.
-Esto es, la partición `/dev/sdb1` se montará en el directorio /mnt/world.
-* Reiniciar el sistema y comprobar los puntos de montaje. Podemos usar los comandos `df -hT`, o `mount`.
+Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
+    * `cat /etc/fstab`
+* Reiniciar el sistema.
+* Comprobar los puntos de montaje en el inicio:
+    * `df -hT`
+    * `mount`
 
 > INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
 
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
-* Crear la carpeta `/mnt/starwars/endor` con el usuario `root`, donde
+* Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
+    * donde
     * donde el grupo `troopers` tienen permisos acl rwx,
     * donde el usuario `luke` tiene permisos acl rx.
 * Crear la carpeta `/mnt/starwars/xwing` con el usuario `root`,

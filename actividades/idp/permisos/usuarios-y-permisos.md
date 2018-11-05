@@ -22,6 +22,7 @@ administradores, para que puedan actuar como superusuarios.
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
 * Para cada miembro del grupo `jedis`:
+    * Entrar como el uduario `jedi1`
     * Crear la carpeta `C:\Users\jedi1\private`
     * Crear la carpeta `C:\Users\jedi1\group`
     * Crear la carpeta `C:\Users\jedi1\public`
@@ -62,6 +63,7 @@ Veamos un ejemplo de permisos para la carpeta public:
 iconos de la ventana de inicio de sesión del sistema.
 
 * Para cada usuario del grupo `siths` hay que:
+    * Entrar con el usuario `sith1`
     * Crear la carpeta `C:\Users\sith1\private`
     * Crear la carpeta `C:\Users\sith1\group`
     * Crear la carpeta `C:\Users\sith1\public`
