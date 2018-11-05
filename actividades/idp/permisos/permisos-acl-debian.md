@@ -3,11 +3,13 @@
 
 ## 1.1 Introducción
 
-Las ACL son listas de control de accesos. Esto es otra forma de añadir permisos con otro nivel de
-detalle similar al empleado en los Routers Cisco y en el sistema de ficheros NTFS
+Las ACL son listas de control de accesos.
+Esto es otra forma de añadir permisos con otro nivel de detalle
+similar al empleado en los Routers Cisco y en el sistema de ficheros NTFS.
 
-En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los comandos: getfacl y setfacl.
-Con getfacl consultamos las ACL y con setfacl las modificamos.
+En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los comandos:
+* `getfacl`, consultar las ACL.
+* `setfacl`, modificar las ACL.
 
 > Veamos un ejemplo del clásico permisos user-group-others:
 > ```
@@ -30,23 +32,28 @@ Con getfacl consultamos las ACL y con setfacl las modificamos.
 ## 1.2 Ejemplo de activación manual
 
 ACL añade más detalle al sistema clásico de permisos.
-Para poder usar el comando setfacl, los ficheros deben estar en un sistema de ficheros
-montado con la opción acl.
+Para poder usar el comando `setfacl`, los ficheros deben estar en un sistema de ficheros montado con la opción `acl`.
 
-Por ejemplo si intentamos poner permisos ACL sin haber activado antes la partición
-veremos un error como este: `setfacl: holamundo: La operación no está soportada`
+Por ejemplo si intentamos poner permisos ACL sin haber activado antes la partición en modo `acl` veremos un error como este:  `setfacl: holamundo: La operación no está soportada`
 
-Si quisiéramos activarlos únicamente de manera temporal para la sesión en la que nos
-encontramos ejecutaríamos el siguiente comando: `mount /dev/partition -o defaults,acl /punto/de/montaje`.
+Si quisiéramos activarlos únicamente de manera temporal para
+la sesión en la que nos encontramos, ejecutaríamos el siguiente comando: `mount /dev/partition -o defaults,acl /punto/de/montaje`.
 
 Podemos usar el comando mount sin parámetros para verificar que todo está montado según nuestras intenciones.
-A continuación probamos el comando setfacl con éxito, añadiendo permiso de lectura al fichero holamundo al usuario invitado.
+
+A continuación probamos el comando `setfacl` para añadir permiso de lectura
+al usuario invitado sobre el fichero holamundo .
 
 ```
     david@quigon:~/tmp/sh$ vdir
     total 4
     -rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
     david@quigon:~/tmp/sh$ setfacl -m u:invitado:r holamundo
+```
+
+* Ejecutamos `getfacl` para comprobar que el resultado es el que esperábamos.
+
+```
     david@quigon:~/tmp/sh$ getfacl holamundo
     # file: holamundo
     # owner: david
@@ -58,20 +65,16 @@ A continuación probamos el comando setfacl con éxito, añadiendo permiso de le
     other::r-x
 ```
 
-* Comprobamos que el resultado es el que esperábamos, ejecutando nuevamente getfacl.
-
 ## 1.3 Ejemplo de Activación automática
 
 Para activar las ACL en la partición que queramos debemos modificar
-el fichero /etc/fstab y luego reiniciar el equipo. Este fichero define que
+el fichero `/etc/fstab` y luego reiniciar el equipo. Este fichero define que
 particiones serán montadas automáticamente al iniciar el sistema, y con
-qué parámetros se realizará dicha tarea.
+qué parámetros se realizará dicho montaje automático.
 
-Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones
-deseadas de manera permanente: `/dev/partition /home ext3 defaults,acl 0 2`
+Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones deseadas de manera permanente: `/dev/sda2  /home ext3 defaults,acl 0 2`
 
-Tras haber modificado /etc/fstab, para que monte una partición con el parámetro acl,
-hemos reiniciado la máquina (comando reboot).
+Tras haber modificado /etc/fstab, para que monte una partición con el parámetro acl, debemos reiniciar la máquina (comando reboot).
 
 ---
 
@@ -79,20 +82,25 @@ hemos reiniciado la máquina (comando reboot).
 
 Realizar las siguientes tareas:
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
-* Iniciar MV. Comprobar los discos/particiones: `fdisk -l`
-* Crear directorio `/mnt/world`.
+* Iniciar MV.
+    * `fdisk -l`, comprobar que los discos/particiones son correctos.
+    * `df -hT`, comprobar qué particiones están montadas y dónde.
+* Crear directorio `/mnt/starwars`.
 * Crear un punto de montaje en `/etc/fstab` para el segundo disco.
-Esto es, la partición /dev/sdb1 se montará en el directorio /mnt/world.
+Esto es, la partición `/dev/sdb1` se montará en el directorio /mnt/world.
 * Reiniciar el sistema y comprobar los puntos de montaje. Podemos usar los comandos `df -hT`, o `mount`.
+
 > INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
-* Crear el grupo `angels`, con los usuarios `angel1`, `angel2`.
-* Crear el grupo `deemons` con los usuarios `daemon1`, `daemon2`.
-* Crear la carpeta `/mnt/world/heaven` con el usuario `root`, donde
-    * `angel1` y `angel2` tienen permisos acl rwx,
-    * pero el grupo `daemons` sólo tienen permiso rx.
-* Crear la carpeta `/mnt/world/hell` con el usuario `root`,
-    * donde `daemon1` y `daemon2` tienen permisos acl rwx.
+
+* Crear el grupo `rebels`, con los usuarios `han`, `luke`.
+* Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
+* Crear la carpeta `/mnt/starwars/endor` con el usuario `root`, donde
+    * donde el grupo `troopers` tienen permisos acl rwx,
+    * donde el usuario `luke` tiene permisos acl rx.
+* Crear la carpeta `/mnt/starwars/xwing` con el usuario `root`,
+    * donde el usuario `han` tienen permisos acl rwx.
+    * donde el usuario `luke` tienen permisos acl rx.
 * Comprobar las asignaciones de permisos anteriores, entrando con cada usuario y
 creando ficheros en cada recurso si se puede.
-    * `vdir /mnt/world/heaven`
-    * `vdir /mnt/world/hell`
+    * `vdir /mnt/starwars/endor`
+    * `vdir /mnt/starwars/xwing`
