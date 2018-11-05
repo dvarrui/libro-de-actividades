@@ -100,12 +100,16 @@ Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
 * Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
-    * donde
+    * donde la carpeta tendrá lo permisos clásicos 700.
     * donde el grupo `troopers` tienen permisos acl rwx,
     * donde el usuario `luke` tiene permisos acl rx.
 * Crear la carpeta `/mnt/starwars/xwing` con el usuario `root`,
+    * donde la carpeta tendrá lo permisos clásicos 700.
     * donde el usuario `han` tienen permisos acl rwx.
     * donde el usuario `luke` tienen permisos acl rx.
+* Comprobar:
+    * `getacl /mnt/starwars/endor`
+    * `getacl /mnt/starwars/xwing`
 * Comprobar las asignaciones de permisos anteriores, entrando con cada usuario y
 creando ficheros en cada recurso si se puede.
     * `vdir /mnt/starwars/endor`
