@@ -43,9 +43,8 @@ en una carpeta determinada, haremos lo siguiente:
     * `private`: El usuario propietario tendrá control total y nadie más tendrá permisos.
     * `group`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
     * `public`: todos tienen permiso de lectura, y el usuario propietario control total.
+* **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
 * Capturar imagen del resultado de la asignación de permisos.
-
-> Cuando se indique permisos de lectura, se refiere a los 3 permisos de lectura/mostrar que hay disponibles.
 
 Veamos un ejemplo de permisos para la carpeta public:
 
