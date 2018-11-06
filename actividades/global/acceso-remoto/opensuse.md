@@ -25,14 +25,15 @@ En caso de error en el acceso podemos hacer las siguientes comprobaciones:
 * `nmap -Pn ip-de-la-mv`, si muestra puerto 22/ssh, es que el servicio está disponible en la MV remota.
 * `systemctl status ssh`, para comprobar si tenemos el servicio SSH iniciado en localhost.
 
-## Instalación de el CD/DVD
+## Instalación del CD/DVD
 
 * En la ventana de la MV, ir a panel superior de VirtualBox-> dispositivos -> montar CD de GNU/Linux.
 * Ejecutar como superusuario:
+```
    ifdown eth0
    ifup eth0
    yast2
-
+```
 * Ir a Configuración del contafuegos -> Servicios Autorizados -> Añadir Servicio SSH.
 * Ir a Servicios del sistema -> sshd -> Activar
 * Cuando la instalación termine, volver a ir a Dispositivos -> desmontar el CD de GNU/Linux.
