@@ -73,18 +73,50 @@ S.ficheros     Tipo     Tamaño Usados  Disp Uso% Montado en
 ```
 ---
 
-# 2. Entrar en la máquina
+# 2. Configuración
+
+## 2.1 Acceder al SO
 
 Para entrar en la Raspberry PI3, la conectamos a un monitor HDMI, teclado, red RJ45 y corriente. Esperamos y vemos la ventana de login.
 
-¿Cuál es el usuario/clave para entrar?
+¿Cuál es el usuario/clave para entrar? A ver... no vas a ser el primero con la misma duda ¿no? Pues consulta las [FAQ](http://ubuntu-pi-flavour-maker.org/faq/)
 
+Ahí vemos:
 
+```
+What are the default usernames and passwords?
 
----
+The Ubuntu Core images will setup SSH key authentication using the keys linked with your Ubuntu SSO account account.
 
-# 3. Configurar el SO
+The Ubuntu Classic Server (for the Raspberry Pi 2 and 3) images have a default user provisioned. The credentials are:
+        Username: ubuntu
+        Password: ubuntu
+        You will be asked to change the password on first login.
 
+The Lubuntu, Ubuntu MATE and Xubuntu images use a variant of oem-config and you will be prompted to create your own user account during the first boot.
+```
+¿Todo bien?
 
+# 2.2 Configurar el SO
+
+Configurar usuarios:
+* `sudo bash`, para entrar como root.
+* `passwd`, para poner la clave de root.
+* `useradd -m USERNAME`, crear nuestro usuario.
+* `passwd USERNAME`, poner la clave del usuario.
 
 Configurar la máquina con lo siguiente:
+* `/etc/hostname`, nombre equipo.
+* `/etc/hosts`, nombre de equipo.
+* `hostname -f`, comprobar nombres.
+
+Servicio SSH:
+* `systemctl status sshd`, comprobar que el servicio está funcionando.
+* `ip a`, consulto la IP.
+* Comprobar SSH:
+    * `ssh ubuntu@localhost`, comprobar desde dentro.
+    * `ssh ubuntu@172.18.99.252`, comprobar desde fuera.
+
+Configurar la red:
+* Ponemos la configuración solicitada en el fichero `/etc/network/interfaces.d/16-sergio.cfg`.
+* Reboot y comprobamos con `ip a`
