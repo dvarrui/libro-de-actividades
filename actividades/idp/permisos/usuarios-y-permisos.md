@@ -15,7 +15,8 @@ herramienta está limitada. Nosotros vamos a ir a
 
 ## 1.1 Usando el GUI Windows
 
-* Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
+* Crear el grupo `jedis`.
+* Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
 * Los miembros del grupo `jedis` incluirlos además en el grupo
 administradores, para que puedan actuar como superusuarios.
 * Para comprobar que los usuarios y grupos se han creado correctamente vamos a
@@ -99,7 +100,8 @@ Modificar los permisos de la siguiente forma:
 ## 2.2 Usando el GUI GNU/Linux
 
 * Capturar imagen del resultado final.
-* Crear el grupo `jedis` y dentro los usuarios `jedi1` y `jedi2`.
+* Crear el grupo `jedis`.
+* Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
 * Para cada usuario del grupo anterior:
     * Crear la carpeta `/home/jedi1/private`
     * Crear la carpeta `/home/jedi1/group`
