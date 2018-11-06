@@ -95,6 +95,9 @@ la ISO (CD de instalación) de la MV.
 # 3. Instalación del segundo SO
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
+* [Configurar MV OpenSUSE](../../../global/configuracion/opensuse.md)
+* [Acceso remoto MV OpenSUSE](../../../global/acceso-remoto/opensuse.md)
+
 
 ## 3.1 Empezamos con la ISO
 
@@ -156,7 +159,7 @@ se configure automáticamente el gestor de arranque.
 
 * Crear usuario con `nombre-del-alumno`.
 * Desmarcar inicio de sesión automático.
-* Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto.md))
+* Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto/opensuse.md))
 
 ## 3.4 Instalar
 

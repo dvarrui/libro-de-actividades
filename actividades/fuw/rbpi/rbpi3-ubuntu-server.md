@@ -3,13 +3,17 @@
 
 Vamos a instalar el SO Ubuntu Classis Server 16.04 en una Raspberry Pi 3(216MB).
 
-# Descargar el SO
+---
+
+# 1. Instalar el SO
+
+## 1.1 Descargar el SO
 
 * Primero consultamos la página para [descargar el SO](https://ubuntu-pi-flavour-maker.org/download).
 * Vemos a hay muchas versiones para la RbPi3. Nosotros vamos a elegir la versión `Ubuntu Classic Server 16.06 para RbPi3 (216MB)`.
 * `ubuntu-16.04-preinstalled-server-armhf+raspi3.img.xz`, éste es el fichero que me he descargado. Es un fichero comprimido.
 
-# Proceso de instalación o Making a microSDHC
+## 1.2 Proceso de instalación o Making a microSDHC
 
 La imagen la podemos:
 * grabar en un DVD
@@ -67,3 +71,17 @@ S.ficheros     Tipo     Tamaño Usados  Disp Uso% Montado en
 /dev/sdc2      ext4       2,0G   1,1G  906M  55% /run/media/david/cloudimg-rootfs
 /dev/sdc1      vfat       128M    31M   97M  25% /run/media/david/system-boot
 ```
+---
+
+# 2. Entrar en la máquina
+
+* `nmap -Pn 172.19.99.0-254`, hago un escaneo de la red para averiguar la MAC y/o la IP de la RbPi3.
+
+
+---
+
+# 3. Configurar el SO
+
+
+
+Configurar la máquina con lo siguiente:
