@@ -142,11 +142,10 @@ las configuraciones del comando sudo.
 > * `Sin contraseña -> Si`
 > * `Comandos -> ALL`, todos los comandos están permitidos.
 
-
-
 * Guardar y salir
 
-Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
+> Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
+
 * Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
 la configuración de sudoers.
 
@@ -158,10 +157,22 @@ la configuración de sudoers.
 
 > Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
-Capturar imagen del resultado final.
+* Recuerda que hay que capturar imagen del resultado final.
 
+> **INFORMACIÓN**
+>
+> * `useradd`, Crear usuario. Usar el parámetro -m para crear carpeta home del usuario
+> * `chown`, cambiar propietario
+> * `chgrp`, cambiar grupo propietario
+> * `chmod`, cambiar permisos de acceso
+
+**Crear el grupo y los usuarios**
 * Crear el grupo `siths`.
 * Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
+    * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+    * `id sith1` para comprobar que el usuario existe.
+    * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
+    * `cat /etc/passwd | grep sith1`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
 * Para cada usuario del grupo `siths` hacer:
@@ -169,19 +180,12 @@ son internos para uso de aplicaciones o del sistema operativo.
     * Crear la carpeta `/home/sith1/group`
     * Crear la carpeta `/home/sith1/public`
 
-> **INFO**
->
-> * `useradd`, Crear usuario. Usar el parámetro -m para crear carpeta home del usuario
-> * `chown`,Cambiar propietario
-> * `chgrp`, cambiar grupo propietario
-> * `chmod`, cambiar permisos de acceso
-
-Modificar los permisos de las carpetas:
+**Modificar los permisos de las carpetas:**
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
 * `group`: grupo `siths` permisos de leictura/ejecución, y usuario propietario todos los permisos.
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
-## 2.5 Configurar sudoers para el otro grupo
+## 2.5 Configurar `sudoers` para el otro grupo
 
 * Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar la información de sudoers.
