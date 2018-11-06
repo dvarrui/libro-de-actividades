@@ -75,7 +75,10 @@ S.ficheros     Tipo     Tamaño Usados  Disp Uso% Montado en
 
 # 2. Entrar en la máquina
 
-* `nmap -Pn 172.19.99.0-254`, hago un escaneo de la red para averiguar la MAC y/o la IP de la RbPi3.
+Para entrar en la Raspberry PI3, la conectamos a un monitor HDMI, teclado, red RJ45 y corriente. Esperamos y vemos la ventana de login.
+
+¿Cuál es el usuario/clave para entrar?
+
 
 
 ---

@@ -84,6 +84,11 @@ Realizar las siguientes tareas:
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
     * Esto debemos saber cómo se hace de las prácticas anteriores.
 * Iniciar MV.
+* Puedes intalar un entorno gráfico en la MV Debian si lo deseas.
+    * Entra como usuario root.
+    * `apt update`
+    * `apt install -y xfce`
+* Comprobamos los discos:
     * `fdisk -l`, comprobar que los discos/particiones son correctos.
     * `df -hT`, comprobar qué particiones están montadas y dónde.
 * Crear directorio `/mnt/starwars`.
