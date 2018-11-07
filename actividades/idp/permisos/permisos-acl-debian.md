@@ -1,6 +1,10 @@
 
 # 1. Teoría sobre las ACL
 
+Esta apartado es una explicación. Sólo para leer y entender.
+
+---
+
 ## 1.1 Introducción
 
 Las ACL son listas de control de accesos.
@@ -28,6 +32,8 @@ En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los c
 > group::r-x
 > other::r-x
 > ```
+
+--
 
 ## 1.2 Ejemplo de activación manual
 
@@ -65,6 +71,8 @@ al usuario invitado sobre el fichero holamundo .
     other::r-x
 ```
 
+--
+
 ## 1.3 Ejemplo de Activación automática
 
 Para activar las ACL en la partición que queramos debemos modificar
@@ -80,17 +88,27 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 
 # 2. Práctica de ACL
 
-Realizar las siguientes tareas:
+Realizar las siguientes tareas.
+
+---
+
+## 2.1 Añadir disco
+
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
     * Esto debemos saber cómo se hace de las prácticas anteriores.
 * Iniciar MV.
-* Puedes intalar un entorno gráfico en la MV Debian si lo deseas.
+* OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
     * `apt install -y xfce`
 * Comprobamos los discos:
     * `fdisk -l`, comprobar que los discos/particiones son correctos.
     * `df -hT`, comprobar qué particiones están montadas y dónde.
+
+---
+
+## 2.2 Montar el nuevo disco
+
 * Crear directorio `/mnt/starwars`.
 * Crear un punto de montaje en `/etc/fstab` para el segundo disco.
 Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
@@ -102,8 +120,14 @@ Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
 
 > INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
 
+---
+
+## 2.3 Poner permisos
+
+Crear los grupos y usuarios:
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
+Crear carpetas y poner permisos ACL:
 * Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
     * donde la carpeta tendrá lo permisos clásicos 700.
     * donde el grupo `troopers` tienen permisos acl rwx,
