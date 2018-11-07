@@ -23,7 +23,7 @@ administradores, para que puedan actuar como superusuarios.
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
 * Para cada miembro del grupo `jedis`:
-    * Entrar como el uduario `jedi1`
+    * Entrar como el usuario `jedi1`
     * Crear la carpeta `C:\Users\jedi1\private`
     * Crear la carpeta `C:\Users\jedi1\group`
     * Crear la carpeta `C:\Users\jedi1\public`
@@ -103,6 +103,7 @@ Modificar los permisos de la siguiente forma:
 * Crear el grupo `jedis`.
 * Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
 * Para cada usuario del grupo anterior:
+    * Entrar como el usuario `jedi1`
     * Crear la carpeta `/home/jedi1/private`
     * Crear la carpeta `/home/jedi1/group`
     * Crear la carpeta `/home/jedi1/public`
@@ -178,6 +179,7 @@ la configuración de sudoers.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
 * Para cada usuario del grupo `siths` hacer:
+    * Entrar como el usuario `sith1`
     * Crear la carpeta `/home/sith1/private`
     * Crear la carpeta `/home/sith1/group`
     * Crear la carpeta `/home/sith1/public`
