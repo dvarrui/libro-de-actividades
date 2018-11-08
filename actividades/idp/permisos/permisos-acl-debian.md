@@ -101,7 +101,7 @@ Realizar las siguientes tareas.
 * OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
-    * `apt install -y xfce`
+    * `apt install -y xfce4`
 * Comprobamos los discos:
     * `fdisk -l`, comprobar que los discos/particiones son correctos.
     * `df -hT`, comprobar qué particiones están montadas y dónde.
