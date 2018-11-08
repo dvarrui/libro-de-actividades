@@ -1,12 +1,5 @@
 
-```
-Cambios para el curso1718
-* Revisar comando net view
-```
-
-# Samba
-
-Samba con OpenSUSE y Windows 7/10.
+# Samba (con OpenSUSE y Windows)
 
 Entrega:
 * La entrega la realizaremos a través del repositorio Git.
@@ -16,10 +9,21 @@ Introducción:
 * Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
-* Vamos a necesitar las siguientes 3 MVs:
-    * MV1: Un servidor GNU/Linux OpenSUSE con IP estática (172.AA.XX.31).
-    * MV2: Un cliente GNU/Linux OpenSUSE con IP estática (172.AA.XX.32) `smb-cliXXg`.
-    * MV3: Un cliente Windows con IP estática (172.AA.XX.11) `smb-cliXXw`.
+
+Vamos a necesitar las siguientes 3 MVs:
+* MV1: Un servidor GNU/Linux
+    * OpenSUSE con
+    * IP estática (172.AA.XX.31)
+    * Nombre `smb-serverXX`
+* MV2: Un cliente GNU/Linux
+    * OpenSUSE
+    * IP estática (172.AA.XX.32)
+    * Nombre `smb-cliXXg`
+* MV3: Un cliente Windows
+    * IP estática (172.AA.XX.11)
+    * Nombre `smb-cliXXw`
+
+---
 
 # 1. Servidor Samba (MV1)
 
@@ -180,10 +184,12 @@ máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
 # 2. Windows (MV3 `smb-cliXXb`)
 
-* [Configurar](../../global/configuracion-aula108.md) el cliente Windows.
-* Usar nombre `smb-cliXXb` y la IP que hemos establecido.
+* [Configurar](../../global/configuracion/windows.md) el cliente Windows.
+* Usar nombre y la IP que hemos establecido al comienzo.
 * Configurar el fichero `...\etc\hosts` de Windows.
 * En los clientes Windows el software necesario viene preinstalado.
+
+---
 
 ## 2.1 Cliente Windows GUI
 
@@ -205,8 +211,9 @@ desde el cliente al servidor.
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -n`, desde el cliente Windows.
+    * `lsof -i`, desde el servidor Samba.
+
+---
 
 ## 2.2 Cliente Windows comandos
 
@@ -228,16 +235,17 @@ una conexión con el recurso compartido y lo monta en la unidad S. Probemos a mo
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -n`, desde el cliente Windows.
+    * `lsof -i`, desde el servidor Samba.
 
 ---
 
-# 3 Cliente GNU/Linux (MV2 `smb-cliXXa`)
+# 3 Cliente GNU/Linux
 
 * [Configurar](../../global/configuracion/opensuse.md) el cliente GNU/Linux.
-* Usar nombre `smb-cliXXa` y la IP que hemos establecido.
+* Usar nombre y la IP que hemos establecido al comienzo.
 * Configurar el fichero `/etc/hosts` de la máquina.
+
+---
 
 ## 3.1 Cliente GNU/Linux GUI
 
@@ -264,8 +272,9 @@ Capturar imagen de lo siguiente:
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente Linux.
+    * `lsof -i`, desde el servidor Samba.
+
+---
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -304,8 +313,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `netstat -ntap`, desde el servidor Samba.
-    * `netstat -ntap`, desde el cliente Linux.
+    * `lsof -i`, desde el servidor Samba.
 
 ## 3.3 Montaje automático
 
@@ -329,3 +337,12 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 * ¿Puedo definir un usuario en Samba llamado soldado3, y que no exista como usuario del sistema?
 * ¿Cómo podemos hacer que los usuarios soldado1 y soldado2 no puedan acceder al sistema pero sí al samba? (Consultar `/etc/passwd`)
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
+
+---
+
+# ANEXO
+
+```
+Cambios para el curso1718
+* Revisar comando net view
+```
