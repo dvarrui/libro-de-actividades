@@ -163,6 +163,7 @@ para que se lean los cambios de configuración.
         * `systemctl stop nmb`
         * `systemctl start nmb`
         * `systemctl status nmb`
+* ¿Por qué tenemos dos servicios (smb y nmb) para Samba?
 
 > Enlaces de interés:
 >
@@ -170,8 +171,8 @@ para que se lean los cambios de configuración.
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
-    sudo testparm     # Verifica la sintaxis del fichero de configuración del servidor Samba
-    sudo netstat -tap # Vemos que el servicio SMB/CIF está a la escucha
+sudo testparm  # Verifica la sintaxis del fichero de configuración del servidor Samba
+sudo lsof -i   # Vemos que el servicio SMB/CIF está a la escucha
 ```
 
 > **Comprobar CORTAFUEGOS**
