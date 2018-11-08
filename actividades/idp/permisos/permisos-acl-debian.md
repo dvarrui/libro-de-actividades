@@ -89,6 +89,7 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 # 2. Práctica de ACL
 
 Realizar las siguientes tareas.
+* [Configurar la MV](../../global/configuracion/debian.md).
 
 ---
 
@@ -97,7 +98,6 @@ Realizar las siguientes tareas.
 * En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
     * Esto debemos saber cómo se hace de las prácticas anteriores.
 * Iniciar MV.
-* [Configurar la MV](../../global/configuracion/debian.md).
 * OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
