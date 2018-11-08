@@ -18,7 +18,7 @@
      * Dejar la siguiente configuración `PermitRootLogin yes`. SIN ALMOHADILLA.
      Las almohadillas `#` al comienzo de la línea la desactivan/deshabilitan/la comentan.
 * `systemctl restart sshd`, iniciar el servicio. Antes se hacía con `service ssh restart`.
-* `systemctl enable sshd`, para asegurarnos de que se va a arrancar el servicio en cada inicio de máquina.
+* `systemctl enable sshd`, para asegurarnos de que se va a iniciar el servicio cuando se encienda la máquina.
 * `systemctl status sshd`, comprobamos.
 
 ---
