@@ -17,9 +17,9 @@ Introducción:
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 * Vamos a necesitar las siguientes 3 MVs:
-    * MV1: Un servidor GNU/Linux OpenSUSE con IP estática (172.18.XX.31).
-    * MV2: Un cliente GNU/Linux OpenSUSE con IP estática (172.18.XX.32).
-    * MV3: Un cliente Windows con IP estática (172.18.XX.11).
+    * MV1: Un servidor GNU/Linux OpenSUSE con IP estática (172.AA.XX.31).
+    * MV2: Un cliente GNU/Linux OpenSUSE con IP estática (172.AA.XX.32) `smb-cliXXg`.
+    * MV3: Un cliente Windows con IP estática (172.AA.XX.11) `smb-cliXXw`.
 
 # 1. Servidor Samba (MV1)
 
@@ -28,7 +28,7 @@ Introducción:
 * [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
 Usar los siguientes valores:
     * Nombre de equipo: smb-serverXX (Donde XX es el número del puesto de cada uno).
-* Añadir en `/etc/hosts` los equipos `smb-cliXXa` y `smb-cliXXb` (Donde XX es el número del puesto de cada uno).
+* Añadir en `/etc/hosts` los equipos `smb-cliXXg` y `smb-cliXXw` (Donde XX es el número del puesto de cada uno).
 
 Capturar salida de los comandos siguientes en el servidor:
 ```
@@ -105,7 +105,7 @@ barco, y castillo como la siguiente:
 ```
 [global]
   netbios name = smb-serverXX
-  workgroup = mar1617
+  workgroup = mar1819
   server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
