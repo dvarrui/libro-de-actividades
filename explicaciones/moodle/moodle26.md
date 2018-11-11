@@ -5,6 +5,7 @@
 # 1. Curso
 
 ## 1.1 Cambiar el nombre de un curso
+
 * Entro al curso en Moodle2.6
 * En el lado izquierdo -> Administración -> Editar Ajustes
 * Modifico los campos *Nombre completo del curso* y *Nombre corto del curso*.
@@ -17,6 +18,7 @@
 > Cada nuevo curso debemos realizar este renombrado para saber que siguen en uso.
 
 ## 1.2 Automatrícula
+
 Para permitir que los alumnos se puedan automatricular en nuestro curso:
 * Entrar en nuestro curso de Moodle.
 * En el lado izquierdo `Administración -> Usuarios -> Método de matriculación`
@@ -40,9 +42,11 @@ Para matricular alumnos dentro de nuestro curso Moodle hacemos lo siguiente:
 ---
 
 # 2. Usuarios
-## 2.1 Cambiar el perfil de mi usuario
+
+## 2.1 Cambiar el perfil/email de mi usuario
+
 * Entrar en Moodle.
-* En el lado izquierdo -> Administración -> Ajustes de mi perfil -> Editar perfil
+* En el menú Administración -> Ajustes de mi perfil -> Editar perfil
 
 > En ciudad debemos poner el grupo en el que estemos, o bien PROFESOR si somos docentes.
 >

@@ -162,17 +162,21 @@ Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
 * Servicio smb `systemctl reload smb`
 * Servicio nmb `systemctl reload nmb`
 
-| Servicio | Comandos |
-| -------- | -------------------- |
-| smb      | systemctl stop smb   |
-|          | systemctl start smb  |
-|          | systemctl status smb |
+| Comandos Servicio SMB | Descripción |
+| --------------------- | ----------- |
+| systemctl stop smb   | Parar |
+| systemctl start smb  | Iniciar |
+| systemctl restart smb  | Parar e iniciar |
+| systemctl reload smb  | Vovler a leer configuración |
+| systemctl status smb | Ver estado |
 
-    * Servicio nmb
-        * `systemctl stop nmb`
-        * `systemctl start nmb`
-        * `systemctl status nmb`
-
+| Comandos Servicio NMB | Descripción |
+| --------------------- | ----------- |
+| systemctl stop nmb   | Parar |
+| systemctl start nmb  | Iniciar |
+| systemctl restart nmb  | Parar e iniciar |
+| systemctl reload nmb  | Vovler a leer configuración |
+| systemctl status nmb | Ver estado |
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
