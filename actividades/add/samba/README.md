@@ -152,21 +152,27 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 
 ## 1.7 Reiniciar
 
-* Ahora que hemos terminado con el servidor, hay que reiniciar el servicio
-para que se lean los cambios de configuración.
-* Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.:
-    * Servicio smb
-        * `systemctl stop smb`
-        * `systemctl start smb`
-        * `systemctl status smb`
+> Enlaces de interés:
+>
+> * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
+
+Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración.
+
+Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
+* Servicio smb `systemctl reload smb`
+* Servicio nmb `systemctl reload nmb`
+
+| Servicio | Comandos |
+| -------- | -------------------- |
+| smb      | systemctl stop smb   |
+|          | systemctl start smb  |
+|          | systemctl status smb |
+
     * Servicio nmb
         * `systemctl stop nmb`
         * `systemctl start nmb`
         * `systemctl status nmb`
 
-> Enlaces de interés:
->
-> * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
