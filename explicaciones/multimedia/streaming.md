@@ -17,7 +17,7 @@ Pasos:
 
 # Instalar VLC en las máquinas
 
-* Necesitamos tener instalado el programa VLC (versión > 3.0.4).
+* Necesitamos tener instalado el programa VLC.
     * `sudo zypper in vlc`, instalar en OpenSUSE.
     * `sudo apt install vlc`, instalar en Debian/Ubuntu.
     * [Descargar VLC](https://www.videolan.org/vlc/) para otros SSOO.
