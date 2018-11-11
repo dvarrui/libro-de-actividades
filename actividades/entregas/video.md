@@ -13,14 +13,38 @@ Cuando la entrega sea un vídeo:
 
 ---
 
-# Grabador
+# ANEXO
 
-* En el PC de clase disponemos de un programa para grabar el escritorio.
-* Para editar el vídeo pueden usar la herramienta que quieran. Por ejemplo kdenlive.
+## Programa: Capturador de vídeo
+
+Disponemos de varios programas para grabar el escritorio. Estos se llaman
+programas capturadores de vídeo.
+
+![record-my-desktop](./images/record-my-desktop.png)
+
+*RecordMyDesktop* es un programa capturador de vídeo. Esto es, cuando se activa
+graba un vídeo con todo lo que hagamos en el escritorio de nuestro PC.
+Además, si conectamos un micrófono, puede grabar nuestra voz como parte
+del sonido del vídeo.
+
+Al terminar la grabación, obtenemos como resultado un vídeo (Formato ogv),
+que podemos ver en cualquier PC (VLC player) o incluso subir a YouTube.
+
+Es una herramienta muy útil para enseñar mediante vídeos.
+
+[Ver vídeo en YouTube](https://youtu.be/NyF9-5sGtak)
+
+> Otro capturador de vídeo muy fácil de usar es SimpleScreenRecorder
 
 ---
 
-# Conversor de formato multimedia
+## Programa: Editor de vídeo
+
+Para editar el vídeo pueden usar la herramienta que quieran. Por ejemplo kdenlive.
+
+---
+
+## Conversor de formato multimedia
 
 Crea un fichero de texto con el nombre "conversor-de-video". Escribe el siguiente contenido dentro del fichero:
 
