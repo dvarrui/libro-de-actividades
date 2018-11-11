@@ -19,6 +19,8 @@ Pasos:
 
 * Necesitamos tener instalado el programa VLC (versión > 3.0.4).
     * `sudo zypper in vlc`, instalar en OpenSUSE.
+    * `sudo apt install vlc`, instalar en Debian/Ubuntu.
+    * [Descargar VLC](https://www.videolan.org/vlc/) para otros SSOO.
 
 ---
 
