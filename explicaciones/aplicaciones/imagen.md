@@ -1,6 +1,5 @@
 
-#Capturas de pantalla
-
+# Capturas de pantalla
 
 **Captura de pantalla** es un programa que nos permite hacer una *foto* de
 la pantalla, y grabarla en un fichero. Esta imagen la podemos
@@ -10,8 +9,7 @@ alguna tarea.
 Es muy útil para crear nuestros apuntes, y/o para los trabajos que nos
 entregan nuestros alumnos.
 
-
-##Funcionamiento
+## Funcionamiento
 
 El programa es muy sencillo de usar, y funciona en 3 pasos:
 
@@ -19,8 +17,7 @@ El programa es muy sencillo de usar, y funciona en 3 pasos:
 1. Seleccionamos el área de pantalla que queremos capturar.
 1. Guardamos la imagen con el nombre que elijamos.
 
-
-##Ejemplo
+## Ejemplo
 
 Veamos unas imágenes de ejemplo.
 * Seleccionamos el área a capturar

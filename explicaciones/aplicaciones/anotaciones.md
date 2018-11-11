@@ -1,5 +1,5 @@
 
-#Anotaciones en PDF con Xournal
+# Anotaciones en PDF con Xournal
 
 **Xournal** es un programa que sirve para hacer anotaciones a un documento
 en formato PDF. Al terminar podemos grabar un PDF con las anotaciones.
