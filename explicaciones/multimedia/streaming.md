@@ -51,3 +51,43 @@ Pasos:
 * Introducir una URL: `rtp://@` (Valor por defecto). Botón `reproducir`.
 
 ¡El cliente ya está viendo el streaming!
+
+---
+
+# ANEXO
+
+## Averiguar la IP de broadcast de nuestra
+
+En GNU/Linux ejecutamos el comando `ip a`:
+
+```
+david@camaleon:~/proy/tools/libro-de-actividades> ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 50:b7:c3:06:e2:d1 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.100/24 brd 192.168.1.255 scope global enp2s0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::52b7:c3ff:fe06:e2d1/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+Fijémonos solamente en las siguientes líneas:
+```
+2: enp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 50:b7:c3:06:e2:d1 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.100/24 brd 192.168.1.255 scope global enp2s0
+```
+
+Más concretamente en:
+
+`    inet 192.168.1.100/24 brd 192.168.1.255 scope global enp2s0`
+
+
+¿Lo ves?... ¿Si?...
+
+¡Eso es! **brd 192.168.1.255**
