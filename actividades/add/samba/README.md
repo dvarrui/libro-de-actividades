@@ -236,14 +236,12 @@ desde el cliente al servidor.
 Capturar imagen de los comandos siguientes:
 * Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
 * Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
-* El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece
-una conexión con el recurso compartido y lo monta en la unidad S. Probemos a montar el recurso `barco`.
+* El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece una conexión con el recurso compartido y lo monta en la unidad S. Probemos a montar el recurso `barco`.
 
 > Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de mñaquina.
 
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
-
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `lsof -i`, desde el servidor Samba.
@@ -298,14 +296,11 @@ alguno haya cambiado de nombre. ¡Ya lo veremos!
 
 * Vamos a un equipo GNU/Linux que será nuestro cliente Samba. Desde este
 equipo usaremos comandos para acceder a la carpeta compartida.
-* Primero comprobar el uso de las siguientes herramientas:
-```
-sudo smbtree   # Muestra todos los equipos/recursos de la red SMB/CIFS
-               # Hay que abrir el cortafuegos para que funcione, o bien
-               # ejecutarlo desde la máquina real.
-
-smbclient --list ip-servidor-samba # Muestra los recursos SMB/CIFS de un equipo concreto
-```
+* Probar desde una máquina Ubuntu `sudo smbtree`
+    * Esto muestra todos los equipos/recursos de la red SMB/CIFS.
+    * Hay que abrir el cortafuegos para que funcione, o bien
+    * ejecutarlo desde la máquina real.
+* Probar desde OpenSUSE: `smbclient --list ip-servidor-samba`, Muestra los recursos SMB/CIFS de un equipo
 * Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/castillo`.
 * MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
 compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
