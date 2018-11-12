@@ -210,16 +210,14 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
-* Comprobar los accesos de todas las formas posibles. Como si fuéramos:
-    * un `soldado`
-    * un `pirata`
-    * y/o un invitado.
-
-> * Después de cada conexión se quedan guardada la información en el cliente
-Windows (Ver comando `net use`).
-> * `net use * /d /y`, para cerrar las conexión SMB/CIFS que se ha realizado
-desde el cliente al servidor.
-
+* Acceder al recurso compartido con el usuario `invitado`
+    * `net use` para ver las conexiones abiertas.
+    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hadn realizado.
+* Acceder al recurso compartido con el usuario `soldado`
+    * `net use` para ver las conexiones abiertas.
+    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hadn realizado.
+* Acceder al recurso compartido con el usuario `pirata`
+* Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `lsof -i`, desde el servidor Samba.
