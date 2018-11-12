@@ -299,15 +299,14 @@ equipo usaremos comandos para acceder a la carpeta compartida.
     * Hay que abrir el cortafuegos para que funcione, o bien
     * ejecutarlo desde la máquina real.
 * Probar desde OpenSUSE: `smbclient --list ip-servidor-samba`, Muestra los recursos SMB/CIFS de un equipo
-* Ahora crearemos en local la carpeta `/mnt/sambaXX-remoto/castillo`.
-* MONTAJE: Con el usuario root, usamos el siguiente comando para montar un recurso
-compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.18.XX.55/castillo /mnt/sambaXX-remoto/castillo -o username=soldado1`
+* Ahora crearemos en local la carpeta `/mnt/remotoXX/castillo`.
+* **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
+`mount -t cifs //172.AA.XX.55/castillo /mnt/remotoXX/castillo -o username=soldado1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
 `smbmount //smb-serverXX/public /mnt/remotoXX/public/ -o -username=smbguest`.
 
-* COMPROBAR: Ejecutar el comando `df -hT`. Veremos que el recurso ha sido montado.
+* `df -hT`, para comprobar que el recurso ha sido montado.
 
 ![samba-linux-mount-cifs](./images/samba-linux-mount-cifs.png)
 
@@ -321,15 +320,16 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 ## 3.3 Montaje automático
 
-Capturar imágenes del proceso.
+* Hacer una instantánea de la MV antes de seguir. Por seguridad.
+* Capturar imágenes del proceso.
+* Reiniciar la MV.
+* `df -hT`. Los recursos ya NO están montados. El montaje anterio fue temporal.
 
-Acabamos de acceder a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están (`df -hT`). Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
+> Antes accedimos a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
-
-`//smb-serverXX/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
-
+    * `//smb-serverXX/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
