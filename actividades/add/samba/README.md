@@ -66,15 +66,15 @@ como shell `/bin/false`.
     * `/srv/sambaXX/public.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `todos`.
-        * Poner permisos 775.
+        * Poner permisos 777.
     * `/srv/sambaXX/castillo.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `soldados`.
-        * Poner permisos 770.
+        * Poner permisos 777.
     * `/srv/sambaXX/barco.d`
         * Usuario propietario `supersamba`.
         * Grupo propietario `piratas`.
-        * Poner permisos 770.
+        * Poner permisos 777.
 
 ## 1.4 Configurar el servidor Samba
 
