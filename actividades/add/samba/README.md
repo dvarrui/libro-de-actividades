@@ -86,7 +86,7 @@ como shell `/bin/false`.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `mar1718`
+    * Workgroup: `mar18q9`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
@@ -139,6 +139,7 @@ barco, y castillo como la siguiente:
   valid users = pirata1, pirata2
 ```
 
+* No vale copiar y pegar el ejemplo anterior. Hay que adaptarlo a tus requisitos.
 * Abrimos una consola para comprobar los resultados.
     * `cat /etc/samba/smb.conf`
     * `testparm`
@@ -146,7 +147,7 @@ barco, y castillo como la siguiente:
 ## 1.6 Usuarios Samba
 
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
-* `smbpasswd -a nombreusuario`, para crear clave de Samba para un usuario del sistema.
+* `smbpasswd -a nombreusuario`, para crear clave Samba para todos los usuarios que van a user SMB/CIFS. **¡OJO!: NO te saltes este paso.**
 * `pdbedit -L`, para comprobar la lista de usuarios Samba.
 * Capturar imagen del comando anterior.
 

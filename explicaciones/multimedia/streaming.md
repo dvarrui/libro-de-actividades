@@ -1,5 +1,4 @@
 
-
 # Streaming con VLC
 
 VLC es un programa de software libre multiplataforma que sirve principalmente
