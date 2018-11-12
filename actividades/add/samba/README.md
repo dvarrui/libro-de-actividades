@@ -86,7 +86,7 @@ como shell `/bin/false`.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `mar18q9`
+    * Workgroup: `mar1819`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
@@ -109,7 +109,7 @@ barco, y castillo como la siguiente:
 ```
 [global]
   netbios name = smb-serverXX
-  workgroup = mar1819
+  workgroup = marXXYY
   server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
