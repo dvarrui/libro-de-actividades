@@ -86,7 +86,7 @@ como shell `/bin/false`.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `mar1819`
+    * Workgroup: `curso1819`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
@@ -109,7 +109,7 @@ barco, y castillo como la siguiente:
 ```
 [global]
   netbios name = smb-serverXX
-  workgroup = marXXYY
+  workgroup = cursoXXYY
   server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
@@ -271,7 +271,7 @@ Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SM
 > * existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
 
 Ejemplo accediendo al recurso prueba del servidor Samba,
-pulsamos CTRL+L y escribimos `smb://ip-del-servidor-samba`:
+pulsamos CTRL+L y escribimos `smb://IP-SERVIDOR-SAMBA`:
 
 ![linux-gui-client](./images/linux-gui-client.png)
 
@@ -302,7 +302,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
     * Esto muestra todos los equipos/recursos de la red SMB/CIFS.
     * Hay que abrir el cortafuegos para que funcione, o bien
     * ejecutarlo desde la máquina real.
-* Probar desde OpenSUSE: `smbclient --list ip-servidor-samba`, Muestra los recursos SMB/CIFS de un equipo
+* Probar desde OpenSUSE: `smbclient --list IP-SERVIDOR-SAMBA`, Muestra los recursos SMB/CIFS de un equipo.
 * Ahora crearemos en local la carpeta `/mnt/remotoXX/castillo`.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.AA.XX.55/castillo /mnt/remotoXX/castillo -o username=soldado1`
@@ -327,7 +327,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 * Hacer una instantánea de la MV antes de seguir. Por seguridad.
 * Capturar imágenes del proceso.
 * Reiniciar la MV.
-* `df -hT`. Los recursos ya NO están montados. El montaje anterio fue temporal.
+* `df -hT`. Los recursos ya NO están montados. El montaje anterior fue temporal.
 
 > Antes accedimos a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
@@ -344,6 +344,7 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 Servicio y programas:
 
 * ¿Por qué tenemos dos servicios (smb y nmb) para Samba?
+* `systemctl stop firewalld`, para el cortafuegos.
 
 Usuarios:
 
@@ -356,12 +357,8 @@ Recursos compartidos:
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
 * ¿Cómo pueden los clientes acceder al CDROM del servidor usando Samba?
 
-
 ---
 
 # ANEXO
 
-```
-Cambios para el curso1718
-* Revisar comando net view
-```
+* Cambios para el curso1718 => Revisar comando net view
