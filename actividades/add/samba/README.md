@@ -226,15 +226,19 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 ## 2.2 Cliente Windows comandos
 
-* En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos `C:>net use`.
+* Abrir una shell de windows.
+* `net use /?`, para consultar la ayuda del comando.
+* `net use`, para consultar todas las conexiones/recursos conectados hacemos .
 * Si hubiera alguna conexión abierta la cerramos.
     * `net use * /d /y`, para cerrar las conexiones SMB.
     * `net use` ahora vemos que NO hay conexiones establecidas.
 
 Capturar imagen de los comandos siguientes:
-* Con el comando `net view`, vemos las máquinas (con recursos CIFS) accesibles por la red.
-* Abrir una shell de windows. Usar el comando `net use /?`, para consultar la ayuda del comando.
-* El comando `net use S: \\ip-servidor-samba\recurso clave /USER:usuario /p:yes` establece una conexión con el recurso compartido y lo monta en la unidad S. Probemos a montar el recurso `barco`.
+* `net view \\IP-SERVIDOR-SAMBA`, para ver los recursos de esta máquina.
+* `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
+    * [Error 6118](https://stackoverflow.com/questions/13676714/command-prompt-net-view-system-error-6118) que aparece el ejecutar `net view` en Windows.
+* `net use S: \\IP-SERVIDOR-SAMBA\recurso clave /USER:usuario /p:yes` crear una conexión con el recurso compartido y lo monta en la unidad S.
+    * Probar a montar el recurso `barco`.
 
 > Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de mñaquina.
 
