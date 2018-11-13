@@ -10,18 +10,15 @@ Introducción:
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 
-Vamos a necesitar las siguientes 3 MVs:
-* MV1: Un servidor GNU/Linux
-    * OpenSUSE con
-    * IP estática (172.AA.XX.31)
-    * Nombre `smb-serverXX`
-* MV2: Un cliente GNU/Linux
-    * OpenSUSE
-    * IP estática (172.AA.XX.32)
-    * Nombre `smb-cliXXg`
-* MV3: Un cliente Windows
-    * IP estática (172.AA.XX.11)
-    * Nombre `smb-cliXXw`
+Vamos a necesitar las siguientes máquinas:
+
+| MV1: Servidor   | MV2: Cliente    | MV3: Cliente    |
+| --------------- | --------------- | --------------- |
+| OpenSUSE        | OpenSUSE        | Windows         |
+| **IP estática** | **IP estática** | **IP estática** |
+| 172.AA.XX.31    | 172.AA.XX.32    | 172.AA.XX.11    |
+| **Nombre:**     | **Nombre:**     | **Nombre:**     |
+| `smb-serverXX`  | `smb-cliXXg`    | `smb-cliXXw`    |
 
 ---
 
