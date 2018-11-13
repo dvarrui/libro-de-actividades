@@ -235,8 +235,11 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 Capturar imagen de los comandos siguientes:
 * `net view \\IP-SERVIDOR-SAMBA`, para ver los recursos de esta máquina.
-* `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
-    * [Error 6118](https://stackoverflow.com/questions/13676714/command-prompt-net-view-system-error-6118) que aparece el ejecutar `net view` en Windows.
+
+> Para investigar:
+> * `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
+> * [Error 6118](https://stackoverflow.com/questions/13676714/command-prompt-net-view-system-error-6118) que aparece el ejecutar `net view` en Windows.
+
 * `net use S: \\IP-SERVIDOR-SAMBA\recurso clave /USER:usuario /p:yes` crear una conexión con el recurso compartido y lo monta en la unidad S.
     * Probar a montar el recurso `barco`.
 
