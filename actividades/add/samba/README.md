@@ -60,18 +60,15 @@ como shell `/bin/false`.
 
 * Capturar imagen del resultado final.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
-    * `/srv/sambaXX/public.d`
-        * Usuario propietario `supersamba`.
-        * Grupo propietario `todos`.
-        * Poner permisos 777.
-    * `/srv/sambaXX/castillo.d`
-        * Usuario propietario `supersamba`.
-        * Grupo propietario `soldados`.
-        * Poner permisos 777.
-    * `/srv/sambaXX/barco.d`
-        * Usuario propietario `supersamba`.
-        * Grupo propietario `piratas`.
-        * Poner permisos 777.
+
+|                 | Public          | Castillo        | Barco           |
+| --------------- | --------------- | --------------- | --------------- |
+| Directorio base | `/srv/sambaXX/` | `/srv/sambaXX/` | `/srv/sambaXX/` |
+| Carpeta         | `public.d`      | `castillo.d`    | `barco.d`       |
+| Usuario prop.   | `supersamba`    |`supersamba`     | `supersamba`    |
+| Grupo prop.     | `sambausers`    |`soldados`       | `piratas`       |
+| Permisos        | 777             | 777             | 777             |
+
 
 ## 1.4 Configurar el servidor Samba
 
@@ -160,21 +157,13 @@ Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
 * Servicio smb `systemctl reload smb`
 * Servicio nmb `systemctl reload nmb`
 
-| Comandos Servicio SMB | Descripción |
-| --------------------- | ----------- |
-| systemctl stop smb   | Parar |
-| systemctl start smb  | Iniciar |
-| systemctl restart smb  | Parar e iniciar |
-| systemctl reload smb  | Vovler a leer configuración |
-| systemctl status smb | Ver estado |
-
-| Comandos Servicio NMB | Descripción |
-| --------------------- | ----------- |
-| systemctl stop nmb   | Parar |
-| systemctl start nmb  | Iniciar |
-| systemctl restart nmb  | Parar e iniciar |
-| systemctl reload nmb  | Vovler a leer configuración |
-| systemctl status nmb | Ver estado |
+| Comandos Servicio              | Descripción |
+| ------------------------------ | ----------- |
+| systemctl stop    SERVICE-NAME | Parar |
+| systemctl start   SERVICE-NAME | Iniciar |
+| systemctl restart SERVICE-NAME | Parar e iniciar |
+| systemctl reload  SERVICE-NAME | Volver a releer la configuración |
+| systemctl status  SERVICE-NAME | Ver estado |
 
 * Capturar imagen de los siguientes comando de comprobación:
 ```
