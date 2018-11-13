@@ -359,6 +359,8 @@ Recursos compartidos:
 
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
 * ¿Cómo pueden los clientes acceder al CDROM del servidor usando Samba?
+    * /dev/cdrom ¿Dónde apunta? ¿Qué permisos tiene?
+    * /dev/sr0 ¿Que permisos tiene?
 
 ---
 
