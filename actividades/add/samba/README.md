@@ -290,10 +290,12 @@ alguno haya cambiado de nombre. ¡Ya lo veremos!
 
 * Vamos a un equipo GNU/Linux que será nuestro cliente Samba. Desde este
 equipo usaremos comandos para acceder a la carpeta compartida.
-* Probar desde una máquina Ubuntu `sudo smbtree`
-    * Esto muestra todos los equipos/recursos de la red SMB/CIFS.
-    * Hay que abrir el cortafuegos para que funcione, o bien
-    * ejecutarlo desde la máquina real.
+
+> * Probar desde una máquina Ubuntu `sudo smbtree` (REVISAR: no muestra nada)
+>    * Esto muestra todos los equipos/recursos de la red SMB/CIFS.
+>    * Hay que parar el cortafuegos para que funcione (`systemctl stop firewalld`), o bien
+>    * ejecutar comando desde la máquina real.
+
 * Probar desde OpenSUSE: `smbclient --list IP-SERVIDOR-SAMBA`, Muestra los recursos SMB/CIFS de un equipo.
 * Ahora crearemos en local la carpeta `/mnt/remotoXX/castillo`.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
@@ -336,7 +338,6 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 Servicio y programas:
 
 * ¿Por qué tenemos dos servicios (smb y nmb) para Samba?
-* `systemctl stop firewalld`, para el cortafuegos.
 
 Usuarios:
 
@@ -347,9 +348,11 @@ Usuarios:
 Recursos compartidos:
 
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
-* ¿Cómo pueden los clientes acceder al CDROM del servidor usando Samba?
-    * /dev/cdrom ¿Dónde apunta? ¿Qué permisos tiene?
-    * /dev/sr0 ¿Que permisos tiene?
+
+> Para REVISAR
+> * ¿Cómo pueden los clientes acceder al CDROM del servidor usando Samba?
+>    * /dev/cdrom ¿Dónde apunta? ¿Qué permisos tiene?
+>    * /dev/sr0 ¿Que permisos tiene?
 
 ---
 
