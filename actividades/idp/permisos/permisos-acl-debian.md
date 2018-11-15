@@ -113,16 +113,18 @@ Realizar las siguientes tareas.
 * Crear directorio `/mnt/starwars`.
 
 Ahora vamos a crear un nuevo punto de montaje en `/etc/fstab` para el segundo disco. Esto es, la partición `/dev/sdb1` que se montará en el directorio `/mnt/starwars`.
+
 * Primero por seguridad, hacer una instantánea de la MV.
 * Abre el fichero `/etc/fstab`
 * Añade nueva línea para partición sdb1, Montar en el directorio `/mnt/starwars` y con los parámetros.
 * `cat /etc/fstab`
-* Reiniciar el sistema.
+* Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
+anterior y revisar los últimos cambios realizados.
 * Comprobar los puntos de montaje en el inicio:
     * `df -hT`
     * `mount`
 
-> INFO: Ya tenemos montada en modo ACL la partición /dev/sdb1.
+¡Ya tenemos montada en modo ACL en la partición sdb1!
 
 ---
 
