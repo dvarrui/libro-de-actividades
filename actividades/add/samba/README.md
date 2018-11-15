@@ -179,7 +179,7 @@ máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 
 ---
 
-# 2. Windows (MV3 `smb-cliXXb`)
+# 2. Windows
 
 * [Configurar](../../global/configuracion/windows.md) el cliente Windows.
 * Usar nombre y la IP que hemos establecido al comienzo.
