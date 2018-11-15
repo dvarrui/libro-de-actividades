@@ -141,7 +141,10 @@ barco, y castillo como la siguiente:
 ## 1.6 Usuarios Samba
 
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
-* `smbpasswd -a nombreusuario`, para crear clave Samba para todos los usuarios que van a user SMB/CIFS. **¡OJO!: NO te saltes este paso.**
+* `smbpasswd -a USUARIO`, para crear clave Samba de USUARIO.
+    * **¡OJO!: NO te saltes este paso.**
+    * USUARIO son los usuarios que se conectarán a los recursos comartidos SMB/CIFS.
+    * Esto hay que hacerlo para cada uno de los usuarios de Samba.
 * `pdbedit -L`, para comprobar la lista de usuarios Samba.
 * Capturar imagen del comando anterior.
 
@@ -222,14 +225,14 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 Capturar imagen de los comandos siguientes:
 * `net view \\IP-SERVIDOR-SAMBA`, para ver los recursos de esta máquina.
 
-> Para investigar:
+> Para REVISAR:
 > * `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
 > * [Error 6118](https://stackoverflow.com/questions/13676714/command-prompt-net-view-system-error-6118) que aparece el ejecutar `net view` en Windows.
 
 * `net use S: \\IP-SERVIDOR-SAMBA\recurso clave /USER:usuario /p:yes` crear una conexión con el recurso compartido y lo monta en la unidad S.
     * Probar a montar el recurso `barco`.
 
-> Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de mñaquina.
+> Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de máquina.
 
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
