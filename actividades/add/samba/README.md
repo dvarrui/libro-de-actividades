@@ -302,6 +302,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 `mount -t cifs //172.AA.XX.55/castillo /mnt/remotoXX/castillo -o username=soldado1`
 
 > En versiones anteriores de GNU/Linux se usaba el comando
+
 `smbmount //smb-serverXX/public /mnt/remotoXX/public/ -o -username=smbguest`.
 
 * `df -hT`, para comprobar que el recurso ha sido montado.
