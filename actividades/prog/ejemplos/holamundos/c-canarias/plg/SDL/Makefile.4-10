@@ -1,9 +1,0 @@
-CFLAGS=-W -ggdb -O2 `sdl-config --cflags`
-CC=gcc
-
-.PHONY: default
-
-default: listing4-10
-
-listing4-10: listing4-10.c
-	$(CC) $(CFLAGS) listing4-10.c -o listing4-10 `sdl-config --libs`

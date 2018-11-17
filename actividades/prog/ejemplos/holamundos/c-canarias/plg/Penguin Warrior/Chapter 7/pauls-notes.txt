@@ -1,8 +1,0 @@
-Only main change here was the makefile was looking for tcl8.3 when it should have been tcl
-
-The network code was slightly broken - arg2 for bind was incorrect - this has now been fixed.
-
---
-
-PFJ
-1/8/04
