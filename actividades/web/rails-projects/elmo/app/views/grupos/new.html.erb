@@ -1,0 +1,31 @@
+<h2>Nuevo grupo</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@grupo) do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  	<td><label for="asignatura_id">Asignatura</label></td><td><%= collection_select 'grupo', :asignatura_id, @asignaturas, :id, :codigo %></td>
+</tr>
+<tr>
+   <td><%= f.label :letra %></td><td><%= f.text_field :letra %></td>
+</tr>
+
+<tr>
+   <td><%= f.label :dia_semana %>(1-5)</td><td><%= f.text_field :dia_semana %></td>
+</tr>
+<tr>
+   <td><%= f.label :hora_inicio %></td><td><%= f.time_select :hora_inicio %></td>
+</tr>
+<tr>
+   <td><%= f.label :hora_fin %></td><td><%= f.time_select :hora_fin %></td>
+</tr>
+
+<tr>
+   <td></td><td><%= f.submit "Crear" %></td>
+</tr>
+</table>
+<% end %>
+</div>

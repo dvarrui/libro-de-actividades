@@ -1,0 +1,14 @@
+  # GET /horarios/new
+  # GET /horarios/new.xml
+  def new_by_programacion
+    @programacion = []
+    @programacion << Programacion.find(params[:id])
+    @horario = Horario.new
+    @tab = :inicio
+    @nav = :horario
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @horario }
+    end
+  end

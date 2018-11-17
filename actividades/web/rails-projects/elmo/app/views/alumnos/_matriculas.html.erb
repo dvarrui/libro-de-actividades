@@ -1,0 +1,36 @@
+
+<% 
+  curso = Curso.find(Parametro.get_parametro_curso)
+  m = @alumno.matriculas
+%>
+
+<br>
+<div id='info'%>
+<p>Matr&iacute;culado en:
+<% for m in @alumno.matriculas.sort_by{|p| p.grupo.codigo.downcase} %>
+  <% if (m.grupo.curso==curso) %>
+    <%= link_to m.grupo.codigo, url_for(:controller => :matriculas, :action =>:show, :id=>m) %>
+  <% end %>
+<% end %>
+</div>
+
+<br>
+<div id='action'%>
+<% form_for :entrada, :url => { :controller=>:matriculas, :action=>:matricular_alumno, :id => @alumno } do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  <td>Elegir</td>
+  <td>Grupo</td>
+  <td>Tutor/a</td>
+  <td>Acción</td>
+</tr>
+<tr>
+  <td></td>
+  <td><%= collection_select :entrada, :grupo_id, @grupos, :id, :codigo %></td>
+  <td><%= collection_select :entrada, :tutor_id, @tutores, :id, :nombre %></td>
+  <td><%= f.submit "Matricular" %></td>
+</tr>
+</table>
+<% end %>
+</div>

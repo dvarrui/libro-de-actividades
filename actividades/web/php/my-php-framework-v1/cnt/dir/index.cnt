@@ -1,0 +1,68 @@
+
+<br>
+<center><h1><? echo $descripcion; ?></h1></center>
+
+
+<p>Propuesta de secuanciaci&oacute;n de unidades dentro de la programaci&oacute;n de
+DIR por David Vargas Ruiz:</p>
+<ol>
+  <li><a href="<? echoPagina('dir.cui.index');?>">CUI: Interfaz de usuario en modo consola.</a>
+  <ul>
+    <li>Recordar los <b>fundamentos de los lenguajes de programaci&oacute;n estructurados</b> C/C++.</li>
+    <li>Familiarizarse con el <b>entorno de desarrollo</b> elegido.</li>
+    <li>Aprender a realizar b&uacute;squedas en la la <b>documentaci&oacute;n</b> proporcionada.</li>
+    <li>Recordar los <b>fundamentos de la programaci&oacute;n orientada a objetos</b> (POO).</li>
+  </ul>
+  <li><a href="<? echoPagina('dir.gui.index');?>">GUI: Interfaz Gr&aacute;fica de usuario</a>.</li> 
+  <li><a href="<? echoPagina('dir.ve.index');?>">VE</a>: 
+  Editor visual. </li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas o cuadros de di&aacute;logo.</a></li>
+  <ul>
+     <li>Familiarizarse con el uso de las <i>Excepciones</i>.</li>
+     <li>Manipulación del sistema de ficheros.</li>
+     <li>Sistema de impresi&oacute;n.</li>
+     <li>Revisi&oacute;n de todos los componentes visuales.</li>
+  </ul>
+  <br><br>
+  <li><a href="<? echoPagina('dir.mvc.index');?>">Componentes avanzados</a>.</li>
+  <ul>
+     <li>Componentes <i>Arbol, Tabla y Lista</i>.</li>
+     <li>Familiarizarse con el uso de las clases <i>Collection</i>.</li>
+     <li>Paradigma MVC.</li>
+     <li>Procedimientos de generaci&oacute;n de documentos.</li>
+  </ul>  
+  <li><a href="<? echoPagina('dir.multiples.index');?>">Ventanas m&uacute;ltiples.</a></li>
+  <ul>
+     <li>Hilos, <i>timer</i>.</li>
+     <li>Familiarizarse con el uso de las clases <i>redes</i>.</li>
+     <li>Paso de mensajes y la encaptuslaci&oacute;n.</li>
+     <li>Etiquetas de documetnaci&oacute;n, gu&iacute;s de usuario.</li>
+     <li><u>Ejercicios</u>: Chat, Navegador(2), Explorador(2).</li>
+  </ul>  
+  
+  <li><a href="<? echoPagina('dir.dibujo.index');?>">Dibujos.</a></li>
+  <ul>
+     <li>Eventos de bajo nivel (teclado,etc). Introducci&oacute;n a las Interfaces.</li>
+     <li>Familiarizarse con el uso de las clases de <i>dibujo</i>.</li>
+     <li>Distribuci&oacute;n de los proyectos.</li>
+     <li>Drag & drop.</li>
+     <li><u>Ejercicios</u>: Visor de mapas de metro, display, 
+     visualizar funciones polin&oacute;micas.</li>
+  </ul>  
+  
+  <li><a href="<? echoPagina('dir.otros.index');?>">Plataformas.</a></li>
+  <ul>
+     <li>Otras plataformas, librer&iacute;as SDL, etc.</li>
+     <li>Eventos y componentes personalizados.</li>
+     <li>Aplicaciones para la web (MVC y BBDD).</li>
+     <li><u>Ejercicios</u>: Videojuegos, applets, proyecto web, componentes a medida.</li>
+  </ul>  
+</ol>
+
+<hr>
+
+   
+<i>NOTA: En el caso de que fuera necesario corregir alguno de los datos de esta p&aacute;gina, 
+por favor, p&oacute;nganse en contacto con 
+<a href="<? echoPagina('piedepagina.contacto','webmaster');?>">webmaster</a> o con 
+<a href="<? echoPagina('piedepagina.contacto','direccion');?>">Jefatura</a>.</i>

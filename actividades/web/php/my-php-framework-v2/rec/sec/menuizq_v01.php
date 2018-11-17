@@ -1,0 +1,57 @@
+<? //<!--menu izq--> ?>
+<? include('rec/php/config.php'); ?>
+
+<div class='menu_izquierdo'>
+<table align="center" border="0" cellpadding="0" cellspacing="0" >
+<tbody>
+  <tr>
+    <td class="textoTituloMenu">Men&uacute;</td>
+  </tr>
+ 
+  <tr>
+    <td align="center"><a href="<? echoPagina('index');?>">
+    <img src="rec/ico/go-home.jpg" alt="padres" border=0></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><a href="<? echoPagina('index'); ?>" class="enlaceMenu">Inicio</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="<? echoImprimir($pagina); ?>">
+    <img src="rec/ico/printer.jpg" alt="imprimir" height="50" width="50" border=0></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+    <a href="<? echoImprimir($pagina); ?>" class="enlaceMenu">Imprimir</a>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="<? echoPagina('piedepagina.contacto');?>">
+    <img src="rec/ico/kontact.jpg" alt="contacto" height="50" width="50" border=0></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+    <a href="<? echoPagina('piedepagina.contacto'); ?>" class="enlaceMenu">Contacto
+    </a>
+    </td>
+  </tr>
+ 
+  <tr>
+    <td align="center">
+    <? echo '<a href="' . $gbl_url_aulavirtual . '">'; ?>
+    <img src="rec/ico/computer.jpg" alt="aula virtual" height="50" width="50" border=0></a></td>
+  </tr>
+  <tr>
+    <td align="center">
+    <? echo '<a href="' . $gbl_url_aulavirtual . '" class="enlaceMenu">'; ?>
+    Aula Virtual</a></td>
+  </tr>
+                   
+</tbody>
+</table>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  unidad_id: 1
+  peso_id: 1
+  codigo: MyString
+  nombre: MyString
+
+two:
+  unidad_id: 1
+  peso_id: 1
+  codigo: MyString
+  nombre: MyString

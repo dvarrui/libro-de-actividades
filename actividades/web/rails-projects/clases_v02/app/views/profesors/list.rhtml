@@ -1,0 +1,27 @@
+<h1>Listado de Profesores</h1>
+
+<table>
+  <tr>
+  <% for column in Profesor.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for profesor in @profesors %>
+  <tr>
+  <% for column in Profesor.content_columns %>
+    <td><%=h profesor.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Consultar', :action => 'show', :id => profesor %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => profesor %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => profesor }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @profesor_pages.current.previous } if @profesor_pages.current.previous %>
+<%= link_to 'Next page', { :page => @profesor_pages.current.next } if @profesor_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New profesor', :action => 'new' %>

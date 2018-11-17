@@ -1,0 +1,26 @@
+<!--PLANTILLA.BEGIN-->
+<? include ('rec/sec/navegacion_interior_v02.php'); ?>
+
+<h1>Condiciones de Uso</h1>
+<hr>
+
+<p>El <span style="font-weight: bold;">IES CESAR MANRIQUE</span> se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su sede web www.iescesarmanrique.org, pudiendo cambiar, suprimir o a&ntilde;adir tanto los contenidos y servicios que  presta como la forma en la que &eacute;stos aparezcan presentados o localizados. </p>
+
+<p>Queda terminantemente prohibido al usuario la realizaci&oacute;n de las siguientes actividades:</p>
+<ul>
+   <li>alteraci&oacute;n del contenido o estructura de esta web</li>
+   <li>presentaci&oacute;n de una p&aacute;gina de www.iescesarmanrique.org en un marco de otra p&aacute;gina web mediante la t&eacute;cnica denominada "<span style="font-style:italic;">framing</span>"a no ser que cuente con el expreso consentimiento por escrito del <span style="font-weight: bold;">IES CESAR MANRIQUE</span> </li>
+   <li>inserci&oacute;n de una imagen difundida en esta web en otra p&aacute;gina o base de datos, mediante la t&eacute;cnica denominada "<span style="font-style: italic;">in line linking</span>" si ello no cuenta con la expresa autorizaci&oacute;n del <span style="font-weight: bold;">IES CESAR MANRIQUE</span>.</li>
+   <li>extracci&oacute;n y uso de elementos de la web, causando o no un perjuicio cualquiera al <span style="font-weight: bold;">IES CESAR MANRIQUE</span>, contraviniendo las disposiciones del Real Decreto Legislativo 1/1996, de 12 de abril, por el que se aprueba el Texto Refundido de la Ley de Propiedad Intelectual y la Ley 5/1998, de 6 de marzo, de incorporaci&oacute;n al Derecho Espa&ntilde;ol de la Directiva 96/9/CE sobre la Protecci&oacute;n Jur&iacute;dica de las Bases de Datos.</li>
+</ul>
+<p>El usuario se compromete a hacer un uso adecuado de los contenidos y servicios que el <span style="font-weight: bold;">IES CESAR MANRIQUE</span> ofrece en su sitio web y a no emplearlos para incurrir en actividades il&iacute;citas o contrarias a la buena fe y al ordenamiento legal.</p>
+<p>El <span style="font-weight: bold;">IES CESAR MANRIQUE</span> tan s&oacute;lo autoriza menciones a sus contenidos en otras sedes web, con el tratamiento que &eacute;stas consideren, siempre y cuando no reproduzcan los contenidos de www.iescesarmanrique.org. En el caso de disponer de un enlace hipertexto a  alguna de sus p&aacute;ginas, el usuario debe saber que est&aacute; entrando en www.iescesarmanrique.org y debe percibir en su navegador su direcci&oacute;n URL.</p>
+
+<p>El <span style="font-weight: bold;">IES CESAR MANRIQUE</span> perseguir&aacute; el incumplimiento de las anteriores condiciones as&iacute;&shy; como cualquier utilizac&oacute;n indebida de los contenidos presentados en su sede web ejerciendo todas las acciones civiles y penales que les puedan corresponder en Derecho. </p>
+
+<p>Recomendaciones de acceso:</p>
+<ul>
+   <li>Este sitio ha sido probado en los siguientes navegadores: Mozilla Firefox 1.5, Internet Explorer 6.0 y navegadores compatibles con los est&aacute;ndares del W3C (XHTML Strict 1.0)</li>
+   <li>Resoluci&oacute;n recomendada: 1024x768</li>
+</ul>
+<!--PLANTILLA.END-->

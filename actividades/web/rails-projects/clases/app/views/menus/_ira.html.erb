@@ -1,0 +1,51 @@
+
+<div id="menu">
+<h2>Ir a</h2>
+<% p = @tab %>
+<% if p==:recursos then %>
+<ul>
+  <li><%= link_to 'Centros', url_for(:controller => :centros) %></li>
+  <li><%= link_to 'Aulas', url_for(:controller => :aulas) %></li>
+</ul>
+<ul>
+  <li><%= link_to 'Ciclos', url_for(:controller => :ciclos) %></li>
+  <li><%= link_to 'Módulos', url_for(:controller => :modulos) %></li>
+  <li><%= link_to 'Departamentos', url_for(:controller => :departamentos) %></li>
+  <li><%= link_to 'Profesores', url_for(:controller => :profesores) %></li>
+</ul>
+<ul>
+  <li><%= link_to 'Empresas', url_for(:controller => :empresas) %></li>
+</ul>
+
+<% elsif p==:inicio then %>
+
+<ul>
+  <li><%= link_to 'Cursos', url_for(:controller => :cursos) %></li>
+  <li><%= link_to 'Festivos', url_for(:controller => :festivos) %></li>
+</ul>
+<ul>
+  <li><%= link_to 'Programaciones', url_for(:controller => :programaciones) %></li>
+  <li><%= link_to 'Pesos', url_for(:controller => :pesos) %></li>
+  <li><%= link_to 'Unidades', url_for(:controller => :unidades) %></li>
+</ul>
+<ul>
+  <li><%= link_to 'Horarios', url_for(:controller => :horarios) %></li>
+  <li><%= link_to 'Alumnos', url_for(:controller => :alumnos) %></li>
+  <li><%= link_to 'Matrículas', url_for(:controller => :matriculas) %></li>
+</ul>
+
+<% elsif p==:diario then %>
+
+<ul>
+  <li><%= link_to 'Alumnos', url_for(:controller => :alumnos) %></li>
+  <li><%= link_to 'Faltas', url_for(:controller => :faltas) %></li>
+  <li><%= link_to 'Notas', url_for(:controller => :notas) %></li>
+</ul>
+<ul>
+  <li><%= link_to 'Actividades', url_for(:controller => :actividades) %></li>
+  <li><%= link_to 'Horarios', url_for(:controller => :horarios) %></li>
+</ul>
+
+<% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<h1>Informe completo de todos los alumnos y grupos</h1>
+<h2>Curso <%= @curso.codigo%></h2>
+<% for grupo in @curso.grupos.sort_by{|p| p.codigo.downcase} %>
+	<h3>Grupo <%=h grupo.codigo%>: <%=grupo.asignatura.nombre%></h3>
+	<p>Horario: <%=@dia_semana[grupo.dia_semana]%> <%= grupo.hora_inicio.strftime("%H:%M") %>-<%= grupo.hora_fin.strftime("%H:%M") %></p>
+	<table>
+	<% for matricula in grupo.matriculas.sort_by {|p| p.alumno.apellidos } %>
+	<tr>
+		<td><i><%= matricula.alumno.nombre_completo%></i></td>
+		<td><small><%= matricula.tutor.especialidad%></small></td>
+		<td><%= matricula.alumno.tlf_fijo%> <%= matricula.alumno.tlf_movil%></td>
+	</tr>
+	<% end %>
+	</ol>
+<% end %>

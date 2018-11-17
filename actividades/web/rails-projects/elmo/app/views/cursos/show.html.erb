@@ -1,0 +1,42 @@
+<h2>Mostrar curso</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>C&oacute;digo:</b></td><td><%=h @curso.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Fin trim1:</b></td>
+  <td>
+  <% if @curso.fin_trim1 %>
+    <%=h @curso.fecha_fin_trim1 %>
+  <% end %>
+  </td>
+</tr>
+
+<tr>
+  <td><b>Fin trim2:</b></td>
+  <td>
+  <% if @curso.fin_trim2 %>
+    <%=h @curso.fecha_fin_trim2 %>
+  <% end %>
+  </td>
+</tr>
+
+<tr>
+  <td><b>Fin trim3:</b></td>
+   <td>
+  <% if @curso.fin_trim3 %>
+    <%=h @curso.fecha_fin_trim3 %>
+  <% end %>
+  </td>
+</tr>
+
+</table>
+</div>
+
+<%= render :partial => 'asignaturas' %>
+<%= render :partial => 'grupos' %>

@@ -1,0 +1,27 @@
+<h1>Editar Festivo "<%= @festivo.motivo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@festivo) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="curso_id">Curso</label></td><td><%= collection_select 'festivo', :curso_id, @cursos, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="fecha_inicio">Fecha de inicio</label></td><td><%= date_select 'festivo', 'fecha_inicio' %></td>
+    </tr>
+    <tr>
+      <td><label for="fecha_fin">Fecha fin</label></td><td><%= date_select 'festivo', 'fecha_fin' %></td>
+    </tr>
+    <tr>
+      <td><label for="motivo">Motivo</label></td><td><%= text_field 'festivo', 'motivo' %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Modificar" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

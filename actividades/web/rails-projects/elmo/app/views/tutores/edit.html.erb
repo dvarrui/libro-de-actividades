@@ -1,0 +1,30 @@
+<h2>Editar tutor</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+
+<% form_for(@tutor) do |f| %>
+  <%= f.error_messages %>
+  <table>
+  <tr>
+    <td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :apellidos %></td><td><%= f.text_field :apellidos %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :especialidad %></td><td><%= f.text_field :especialidad %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td><td><%= f.text_field :email %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :baja %></td><td><%= f.check_box :baja %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Modificar" %></td>
+  </tr>
+  </table>
+<% end %>
+</div>

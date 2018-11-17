@@ -1,0 +1,32 @@
+
+<h1><? echo $descripcion; ?></h1>
+<hr>
+<?
+  //Generador por <album-web.rb> versión 20070502
+  //Autor: David Vargas <dvargas@canarias.org>
+  $dir="poner-el-directorio/";
+  $imagenes[0]=$dir."imagen_00.jpg";
+  $imagenes[1]=$dir."imagen_01.jpg";
+  $imagenes[2]=$dir."imagen_02.jpg";
+  $imagenes[3]=$dir."imagen_03.jpg";
+  $imagenes[4]=$dir."imagen_04.jpg";
+  $imagenes[5]=$dir."imagen_05.jpg";
+  $imagenes[6]=$dir."imagen_06.jpg";
+  $imagenes[7]=$dir."imagen_07.jpg";
+  $imagenes[8]=$dir."imagen_08.jpg";
+  $imagenes[9]=$dir."imagen_09.jpg";
+  $imagenes[10]=$dir."imagen_10.jpg";
+  $imagenes[11]=$dir."imagen_11.jpg";
+  $imagenes[12]=$dir."imagen_12.jpg";
+  $imagenes[13]=$dir."imagen_13.jpg";
+  $imagenes[14]=$dir."imagen_14.jpg";
+  $imagenes[15]=$dir."imagen_15.jpg";
+  $imagenes[16]=$dir."imagen_16.jpg";
+  $imagenes[17]=$dir."imagen_17.jpg";
+  $imagenes[18]=$dir."imagen_18.jpg";
+?>
+
+<?
+  include("rec/php/imagenes.php");
+  echoAlbumDeFotos($imagenes);
+?>

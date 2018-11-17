@@ -1,0 +1,23 @@
+
+<? include ('rec/sec/navegacion_interior_v03.php'); ?>
+
+<center><h1><? echo $descripcion; ?></h1></center>
+<hr>
+
+<h2>Curso 2007-2008</h2>
+<ul>
+   <li><a href="<? echoRecurso('secretaria/preinscripcion/200708/PREINSCRIPCION_2007_2008.doc'); ?>">&#033;Preinscripciones 2007-2008!</a>: 
+   <img src='rec/ico/twinkle.jpg'> Calendario de preinscripciones, informaci&oacute;n, instrucciones y solicitudes.</li>
+   <li>Para contactar con secretar&iacute;a consultar <a href="<? echoPagina('piedepagina.contacto'); ?>">Datos de Contacto</a>.</li>
+   <li><a href="<? echoPagina('departamentos.oferta'); ?>">Oferta de estudios.</a></li>
+</ul>
+<hr>
+
+<h3>Curso 2006-2007</h3>
+<ul>
+   <LI><a href="<? echoPagina('direccion.index');?>">Calendario del curso 2006/2007</a>.</LI>
+   <li><a href="<? echoPagina("secretaria.preinscripcion.index"); ?>">&#033;Preinscripciones 2006-2007!</a>: Calendario de preinscripciones, informaci&oacute;n, instrucciones de cumplimentaci&oacute;n, pruebas de acceso y solicitudes.</li>
+   <li>Para contactar con secretar&iacute;a consultar <a href="<? echoPagina("piedepagina.contacto"); ?>">Datos de Contacto</a>.</li>
+   <li><a href="<? echoPagina("departamentos.oferta"); ?>">Oferta de estudios.</a></li>
+</ul>
+

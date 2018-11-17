@@ -1,0 +1,22 @@
+<h1>Listing parametros</h1>
+
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Valor</th>
+  </tr>
+
+<% for parametro in @parametros %>
+  <tr>
+    <td><%=h parametro.variable %></td>
+    <td><%=h parametro.valor %></td>
+    <td><%= link_to 'Show', parametro %></td>
+    <td><%= link_to 'Edit', edit_parametro_path(parametro) %></td>
+    <td><%= link_to 'Destroy', parametro, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New parametro', new_parametro_path %>

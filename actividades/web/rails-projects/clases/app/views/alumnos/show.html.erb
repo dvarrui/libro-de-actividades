@@ -1,0 +1,58 @@
+<h1>Mostrar Alumno "<%= @alumno.nombre_completo %>"</h1>
+
+  <table>
+    <tr>
+      <td><b>Expediente:</b></td><td><%= @alumno.expediente %></td>
+    </tr>
+    <tr>
+      <td><b>DNI:</b></td><td><%= @alumno.dni %></td>
+    </tr>
+    <tr>
+      <td><b>Apellidos:</b></td><td><%= @alumno.apellidos %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%= @alumno.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>Fecha de nacimiento:</b></td><td><%= @alumno.fecha_nac %></td>
+    </tr>
+    <tr>
+      <td><b>Mujer:</b></td><td><%= @alumno.esmujer %></td>
+    </tr>
+    <tr>
+      <td><b>Teléfono fijo:</b></td><td><%= @alumno.tlf_fijo %></td>
+    </tr>
+    <tr>
+      <td><b>Teléfono móvil:</b></td><td><%= @alumno.tlf_movil %></td>
+    </tr>
+    <tr>
+      <td><b>Email:</b></td><td><%= @alumno.email %></td>
+    </tr>
+    <tr>
+      <td><b>Municipio:</b></td><td><%= @alumno.municipio.nombre%></td>
+    </tr>
+    <tr>
+      <td><b>Localidad:</b></td><td><%= @alumno.localidad %></td>
+    </tr>
+    <tr>
+      <td><b>Domicilio:</b></td><td><%= @alumno.calle %></td>
+    </tr>
+    <tr>
+      <td><b>Código Postal:</b></td><td><%= @alumno.cod_postal %></td>
+    </tr>
+    <tr>
+      <td><b>Latitud:</b></td><td><%= @alumno.latitud %></td>
+    </tr>
+    <tr>
+      <td><b>Longitud:</b></td><td><%= @alumno.longitud %></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td><td><%= @alumno.observaciones %></td>
+    </tr>
+  </table>
+
+<p>Pendiente: ver las matriculas, las faltas y las notas.</p>
+
+<br/>
+<%= link_to 'Editar', edit_alumno_path(@alumno) %> |
+<%= link_to 'Ver todos', alumnos_path %>

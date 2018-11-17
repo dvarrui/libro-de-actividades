@@ -1,0 +1,19 @@
+
+<center>
+<h1><? echo $descripcion; ?></h1>
+</center>
+<hr>
+
+
+<p>Fotos de Aar&oacute;n Vargas Jorge:</p>
+
+  <!--<li><a href="<? echoPagina('fotos.resumen');?>">Fotos variadas.</a></li>
+  <li><a href="<? echoPagina('videos');?>">Vídeos.</a></li>-->
+
+<ul>
+  <li>Fotos del bautizo celebrado el 12 de agosto de 2007.</li>
+  <ul>
+    <li><a href="<? echoPagina('fotos.bautizo');?>">Fotos del bautizo</a> (Xerachi)</li>
+    <li><a href="<? echoPagina('fotos.bautizo2');?>">Fotos del bautizo</a> (Daniel)</li>
+  </ul>
+</ul>

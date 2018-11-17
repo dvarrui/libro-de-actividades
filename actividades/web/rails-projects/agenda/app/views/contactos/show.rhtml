@@ -1,0 +1,9 @@
+<% for column in Contacto.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @contacto.send(column.name) %>
+</p>
+<% end %>
+<p><b>Categoria</b> <%=h @contacto.categoria.nombre %></p>
+
+<%= link_to 'Edit', :action => 'edit', :id => @contacto %> |
+<%= link_to 'Back', :action => 'list' %>

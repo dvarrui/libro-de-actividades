@@ -1,0 +1,31 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+<% a=controller.action_name %>
+
+<%= link_to "Inicio del Curso", url_for(:controller => 'menus', :action => 'inicio') %>
+
+<% if ['show','edit'].include?(a) then %>
+ > <%= link_to @tarea.unidad.asignatura.curso.codigo, url_for(@tarea.unidad.asignatura.curso) %>
+ > <%= link_to @tarea.unidad.asignatura.codigo, url_for(@tarea.unidad.asignatura) %>
+ > <%= link_to @tarea.unidad.numero_y_codigo, url_for(@tarea.unidad) %>
+ > Tarea
+<% elsif ['new'].include?(a) then %>
+ > <%= link_to @unidades[0].asignatura.curso.codigo, url_for(@unidades[0].asignatura.curso) %>
+ > <%= link_to @unidades[0].asignatura.codigo, url_for(@unidades[0].asignatura) %>
+ > <%= link_to @unidades[0].numero_y_codigo, url_for(@unidades[0]) %>
+ > Tarea
+<% elsif ['list'].include?(a) then %>
+ > <%= link_to @unidad.asignatura.curso.codigo, url_for(@unidad.asignatura.curso) %>
+ > <%= link_to @unidad.asignatura.codigo, url_for(@unidad.asignatura) %>
+ > <%= link_to @unidad.numero_y_codigo, url_for(@unidad) %>
+ > Tareas
+ 
+<% else %>
+ > <%= link_to 'Cursos', url_for(:controller => 'cursos') %>
+ > <%= link_to 'Asignaturas', url_for(:controller => 'asignaturas') %>
+ > Tareas
+<% end %>
+
+</div>

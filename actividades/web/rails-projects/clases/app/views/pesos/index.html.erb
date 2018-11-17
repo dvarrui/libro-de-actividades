@@ -1,0 +1,28 @@
+<h1>Listado de los Pesos</h1>
+
+<p>
+<%= link_to 'Nuevo peso', new_peso_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Programación</th>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Valor</th>
+  </tr>
+
+<% for peso in @pesos %>
+  <tr>
+    <td><%= peso.programa.ref %></td>
+    <td><%= peso.codigo %></td>
+    <td><%= peso.nombre %></td>
+    <td><%= peso.valor.to_s %></td>
+    
+    <td><%= link_to 'Mostrar', peso %></td>
+    <td><%= link_to 'Editar', edit_peso_path(peso) %></td>
+    <td><%= link_to 'Borrar', peso, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -1,0 +1,23 @@
+
+
+<div id='nav'>
+<b>Usted está aquí:</b>
+<% a=controller.action_name %>
+
+<%= link_to "Inicio del Curso", url_for(:controller => 'menus', :action => 'inicio') %>
+
+<% if ['show','edit',''].include?(a) then %>
+ > <%= link_to @asignatura.curso.codigo, url_for(@asignatura.curso) %>
+ > Asignaturas
+<% elsif ['list'].include?(a) then %>
+ > <%= link_to @curso.codigo, url_for(@curso) %>
+ > Asignaturas
+<% elsif ['new'].include?(a) then %>
+ > <%= link_to @cursos[0].codigo, url_for(@cursos[0]) %>
+ > Asignaturas
+<% else %>
+ > <%= link_to 'Cursos', url_for(:controller => 'cursos') %>
+ > Asignaturas
+<% end %>
+
+</div>

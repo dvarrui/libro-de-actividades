@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  asignatura_id: 1
+  codigo: MyString
+  nombre: MyString
+  valor: 1
+
+two:
+  asignatura_id: 1
+  codigo: MyString
+  nombre: MyString
+  valor: 1

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Menus: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'bloque' %>
+  <%= stylesheet_link_tag 'menu' %>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<%= activar_menu_tab :centro %>
+<%= incluir_menu_nav :centro %>
+<%= activar_menu_ira :centro %>
+
+<div id="contenido">
+  <p style="color: green"><%= flash[:notice] %></p>
+  <%= yield  %>
+</div>
+
+<%= incluir_bloque_extra :centro %>
+<%= incluir_pie %>
+
+</body>
+</html>

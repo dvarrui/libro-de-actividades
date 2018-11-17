@@ -1,0 +1,24 @@
+
+
+<div id='nav'>
+<b>Usted está aquí:</b>
+<% a=controller.action_name %>
+
+<%= link_to "Trabajo diario", url_for(:controller => 'menus', :action => 'diario') %>
+
+<% if ['show_grupo','edit_grupo'].include?(a) then %>
+ > <%= link_to @grupo.curso.codigo, url_for(@grupo.curso) %>
+ > <%= link_to @grupo.codigo, url_for(@grupo) %>
+ > Faltas
+<% elsif ['list'].include?(a) then %>
+ > <%= link_to @curso.codigo, url_for(@curso) %>
+ > Grupos
+<% elsif ['new'].include?(a) then %>
+ > <%= link_to @cursos[0].codigo, url_for(@cursos[0]) %>
+ > Grupos
+<% else %>
+ > <%= link_to 'Cursos', url_for(:controller => 'cursos') %>
+ > Grupos
+<% end %>
+
+</div>

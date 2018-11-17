@@ -1,0 +1,9 @@
+<h1>Editar profesor</h1>
+
+<% form_tag :action => 'update', :id => @profesor do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Modificar' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @profesor %> |
+<%= link_to 'Volver', :action => 'list' %>

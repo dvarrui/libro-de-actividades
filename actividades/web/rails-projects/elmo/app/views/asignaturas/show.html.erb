@@ -1,0 +1,22 @@
+<h2>Mostrar asignatura</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Curso:</b></td><td><%=h @asignatura.curso.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>C&oacute;digo:</b></td><td><%=h @asignatura.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @asignatura.nombre %></td>
+</tr>
+</table>
+</div>
+
+<%= render :partial=>'unidades' %>
+<%= render :partial=>'pesos' %>

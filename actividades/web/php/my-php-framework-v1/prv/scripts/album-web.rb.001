@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+#
+# Versión     : 20070501
+# Autor       : David Vargas Ruiz <dvargas@canarias.org>
+# Descripción : Convierte un grupo de imágenes al tamaño adecuado para
+#               publicar en la web. Además gener un fichero php para
+#               su manipulación.
+#
+# Es necesario instalar el paquete <imagemagick> para poder
+# disponer del comando <convert>
+# 
+
+def ejecutar
+  if ARGV[0]=='-h'
+    opcion_mostrar_ayuda
+  elsif ARGV[0]=='-r'
+    opcion_revisar
+  elsif ARGV[0]=='-c'
+    opcion_crear_album
+  else
+    puts "Uso: #{nombre_script} -h"
+    puts
+  end
+end
+
+def nombre_script
+  nombres = $0.split('/')
+  nombres[nombres.length-1]
+end
+
+def opcion_mostrar_ayuda
+  puts "Uso: #{nombre_script} [-c][-h][-r]"
+  puts "\t-c , crear un album web con las imágenes"
+  puts "\t-h , mostrar esta ayuda"
+  puts "\t-r , revisar las imágenes"
+  puts
+end
+
+def opcion_revisar
+    directorio = ARGV[1]||'.'
+    imagenes = leer directorio
+    convertir imagenes,false
+end
+
+def opcion_crear_album
+    directorio = ARGV[1]||'.'
+    imagenes = leer directorio
+    convertir imagenes,true
+end
+
+def leer(directorio)
+  img=[]
+  
+  Dir.new(directorio).each do |f| 
+    img << f if es_imagen?(f)
+  end
+  img.sort!
+end
+
+def convertir(imagenes,confirmado)
+  i=0
+  if confirmado
+    `echo > album.cnt`
+    `echo '<h1><? echo $descripcion; ?></h1>' >> album.cnt`
+    `echo '<hr>' >> album.cnt`
+    `echo '<?' >> album.cnt`
+    `echo '  //Generador por <album-web.rb> versión 20070502' >> album.cnt `
+    `echo '  //Autor: David Vargas <dvargas@canarias.org>' >> album.cnt`
+    `echo '  $dir="poner-el-directorio/";' >> album.cnt`
+  end
+
+  imagenes.each do |f|
+    nombre=i.to_s.rjust(2,'0')
+    puts "Convirtiendo #{f} => imagen_#{nombre}.jpg ..."
+    if confirmado
+      `convert -resize 400x300 #{f} imagen_#{nombre}.jpg`
+      `echo '  \$imagenes[#{nombre.to_i}]=\$dir."imagen_#{nombre}.jpg";' >> album.cnt`
+    end
+    i+=1
+  end
+
+  if confirmado
+    `echo "?>" >> album.cnt`
+    `echo "" >> album.cnt`
+    `echo "<?" >> album.cnt`
+    `echo '  include("rec/php/imagenes.php");' >> album.cnt`
+    `echo '  echoAlbumDeFotos(\$imagenes);' >> album.cnt`
+    `echo "?>" >> album.cnt`
+  end
+end
+
+def es_imagen?(fichero)
+  return true if fichero.downcase.include? '.jpg'
+  false
+end
+
+if $0==__FILE__
+  ejecutar
+end

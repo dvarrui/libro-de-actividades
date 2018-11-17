@@ -1,0 +1,12 @@
+
+<br/>
+<div id='info'>
+<table>
+<p>Listado de unidades:</p>
+<ul>
+<% for unidad in @asignatura.unidades %>
+<li><%= unidad.numero %>.-<%=unidad.codigo%>: <%= unidad.nombre %> </li>
+<% end %>
+</ul>
+</table>
+</div>

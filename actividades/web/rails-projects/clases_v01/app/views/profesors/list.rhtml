@@ -1,0 +1,35 @@
+<h1>Listado de profesores</h1>
+
+<table>
+  <tr>
+  <% for column in Profesor.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+    <th>Departamento</th>
+  </tr>
+  
+<% for profesor in @profesors %>
+  <tr>
+  <% for column in Profesor.content_columns %>
+    <td>
+      <div class='campo'>
+      <%=h profesor.send(column.name) %>
+      </div>
+    </td>
+  <% end %>
+    <td><div class='calculado'><%= profesor.departamento.nombre %>
+    </div></td>
+    
+    <td><%= link_to 'Mostrar', :action => 'show', :id => profesor %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => profesor %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => profesor }, :confirm => '¿Está seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @profesor_pages.current.previous } if @profesor_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @profesor_pages.current.next } if @profesor_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nuevo profesor', :action => 'new' %>

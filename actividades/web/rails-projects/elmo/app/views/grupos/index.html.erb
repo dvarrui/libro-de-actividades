@@ -1,0 +1,24 @@
+<h2>Listado de grupos</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+  <tr>
+    <th>Curso</th>
+    <th>Asignatura</th>
+    <th>Letra</th>
+  </tr>
+
+<% for grupo in @grupos %>
+  <tr>
+    <td><%=h grupo.asignatura.curso.codigo %></td>
+    <td><%=h grupo.asignatura.codigo %></td>
+    <td><%=h grupo.letra %></td>
+    <td><%= link_to 'Mostrar', grupo %></td>
+    <td><%= link_to 'Editar', edit_grupo_path(grupo) %></td>
+    <td><%= link_to 'Borrar', grupo, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

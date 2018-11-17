@@ -1,0 +1,25 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<center><h2>Programaci&oacute;n</h2></center>
+
+<h3><img src='rec/ico/personal.jpg'> Tutor&iacute;a</h3>
+<ul>
+  <li>Este m&oacute;dulo es transversal a todos en el que se trabajan entre otras cosas
+  las relaciones interpersonales.</li>
+  <li>Tem&aacute;s de inter&eacute;s para el alumno; sociales, econ&oacute;micos, culturales, 
+  sexuales, etc. Estando organizado desde el Departamento de Orientaci&oacute;n y el 
+  equipo educativo.</li>
+</ul>
+
+<hr>
+
+<h3><img src='rec/ico/camera.jpg'> Fotos del m&oacute;dulo</h3>
+<ul>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.asadero'); ?>">Fotos asadero</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.deporte'); ?>">Fotos deporte</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.orlas'); ?>">Fotos orlas</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.promociones'); ?>">Fotos promociones</a></li>
+</ul>

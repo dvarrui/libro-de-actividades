@@ -1,0 +1,26 @@
+<h1>Profesor: <%= @profesor.codigo %></h1>
+
+<table><tr>
+
+<td valign="top">
+<h2>Datos personales</h2>
+<% for column in Profesor.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @profesor.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @profesor %> |
+<%= link_to 'Back', :action => 'list' %>
+</td>
+
+<td valign="top">
+<%= render :partial => 'info' %>
+</td>
+
+<td valin="top">
+<%= render :partial => 'horario' %>
+</td>
+
+</tr></table>
+

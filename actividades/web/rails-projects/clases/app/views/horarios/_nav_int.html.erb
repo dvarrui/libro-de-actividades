@@ -1,0 +1,52 @@
+
+<div id="nav_int">
+
+<% 
+  p = @nav
+  if p.class==Array then
+     curso = p[1]
+     p = p[0]
+  end 
+%>
+
+<p>
+<% if (p.class==Programacion) then %>
+  <% if params[:plantilla]=='show' then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', url_for(:action => 'programacion', :id => p.id, :plantilla => 'show') %> |
+  <% end %>
+  <% if params[:plantilla]=='edit' then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', url_for(:action => 'programacion', :id => p.id, :plantilla => 'edit') %> |
+  <% end %>
+  <%= link_to 'H. Profesor', url_for(:action => 'profesor', :profesor_id => p.profesor_id, :curso_id => p.curso_id) %> |
+  <%= link_to 'H. Aula', url_for(:action => 'aula', :aula_id => p.aula_id, :curso_id => p.curso_id) %>
+
+<% elsif (p.class==Profesor) then %>
+  <% if params[:plantilla]=='show' then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', url_for(:action => 'profesor', :profesor_id => p.id, :curso_id => curso.id) %> |
+  <% end %>
+  <% if params[:plantilla]=='edit' then %>
+    Editar
+  <% else %>
+    <%= link_to 'Editar', url_for(:action => 'profesor', :profesor_id => p.id, :curso_id => curso.id, :plantilla => 'edit') %>
+  <% end %>
+
+<% elsif (p.class==Aula) then %>
+  <% if params[:plantilla]=='show' then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', url_for(:action => 'aula', :aula_id => p.id, :curso_id => curso.id) %> |
+  <% end %>
+  <% if params[:plantilla]=='edit' then %>
+    Editar
+  <% else %>
+    <%= link_to 'Editar', url_for(:action => 'aula', :aula_id => p.id, :curso_id => curso.id, :plantilla => 'edit') %>
+  <% end %>
+<% end %>
+</p>
+</div>

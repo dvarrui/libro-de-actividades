@@ -1,0 +1,23 @@
+<h1>Peso "<%= @peso.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Programación:</b></td><td><%=h @peso.programacion.codigo%></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%=h @peso.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%=h @peso.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>Valor</b></td><td><%=h @peso.valor %></td>
+    </tr>
+    <tr>
+      <td><b>Valor Mínimo</b></td><td><%=h @peso.valor_min %></td>
+    </tr>
+</table>
+</div>

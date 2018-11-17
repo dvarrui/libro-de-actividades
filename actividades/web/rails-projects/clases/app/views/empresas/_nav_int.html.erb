@@ -1,0 +1,33 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nueva empresa', new_empresa_path %>
+<% elsif (a=="new" && p==:empresas) then %>
+  <%= link_to 'Ver todas', empresas_path %>
+<% elsif (a=="new" && p.class.to_s=="Centro") then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (a=="list" && p.class.to_s=="Centro") then %>
+  <%= link_to 'Nueva empresa', url_for(:action => 'new', :id => p.id) %>
+<% elsif (p.class.to_s=="Empresa") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', empresa_path(@empresa) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_empresa_path(@empresa) %> |
+  <% end %>
+  <%= link_to 'Borrar', @empresa, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @empresa.centro_id) %>
+<% end %>
+</p>
+</div>
+
+</p>

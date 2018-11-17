@@ -1,0 +1,25 @@
+<h2>Listado de asignaturas</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+	<tr>
+  		<th>Curso</th>
+    	<th>C&oacute;digo</th>
+    	<th>Nombre</th>
+  	</tr>
+
+<% for asignatura in @asignaturas %>
+  <tr>
+    <td><%=h asignatura.curso.codigo %></td>
+    <td><%=h asignatura.codigo %></td>
+    <td><%=h asignatura.nombre %></td>
+    <td><%= link_to 'Mostrar', asignatura %></td>
+    <td><%= link_to 'Editar', edit_asignatura_path(asignatura) %></td>
+    <td><%= link_to 'Borrar', asignatura, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>

@@ -1,0 +1,41 @@
+
+<% profesor=''; aula='' %>
+
+<table id="horario">
+  <tr>
+    <th></th><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th>
+  </tr>
+  <% if @tabla then %>
+    <% @tabla.count.times do |fila| %><tr>
+      <% 7.times do |col|%>
+        <%
+          e = @tabla[fila][col]
+        
+          if (col>1) then
+            html_id = 'd'+(col-1).to_s+'h'+(fila+1).to_s
+          end
+        
+          if e==:descanso
+            s='Descanso'; html_class='descanso'
+          elsif e==:error
+            s='¡ERROR!' ; html_class='error'
+          elsif e==:ocupado
+            s=''; html_class='ocupado'
+          elsif e==:libre
+            s='(+)'; html_class='libre'
+          elsif e.class==Horario
+            profesor=e.programacion.profesor
+            aula=e.programacion.aula
+            s=link_to e.programacion.codigo+' (-)'  
+            html_class='ocupado'
+          else
+            s=e
+          end 
+        %>
+        <td id="<%= html_id %>" class="<%= html_class %>"><%= s %></td>
+      <% end%></tr>
+    <% end %>
+  <% end %>
+</table>
+
+<p>Programación impartida por <%= profesor.nombre %> en <%= aula.codigo %>.</p>

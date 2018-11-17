@@ -1,0 +1,32 @@
+<h1>Departamento "<%= @departamento.nombre %>" </h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Centro:</b></td><td><%=h @departamento.centro.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%=h @departamento.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%=h @departamento.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>Activo:</b></td><td><%=h @departamento.activo %></td>
+    </tr>
+</table>
+</div>
+
+<br/>
+<table border=1>
+<tr><td>
+<p>Profesores del departamento(<%=@departamento.profesores.count.to_s%>):</p>
+<ul>
+  <% for i in @departamento.profesores %>
+  <li><%= i.nombre_completo%> (<%= link_to 'Mostrar', i %>)</li>
+  <% end %>
+</ul>
+</td></tr>
+</table>

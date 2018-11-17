@@ -1,0 +1,31 @@
+<h1>Listado de aulas</h1>
+
+<table>
+  <tr>
+  <% for column in Aula.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for aula in @aulas %>
+  <tr>
+  <% for column in Aula.content_columns %>
+    <td>
+      <div class="campo">
+      <%=h aula.send(column.name) %>
+      </div>
+    </td>
+  <% end %>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => aula %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => aula %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => aula }, :confirm => '¿Está seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @aula_pages.current.previous } if @aula_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @aula_pages.current.next } if @aula_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nueva aula', :action => 'new' %>

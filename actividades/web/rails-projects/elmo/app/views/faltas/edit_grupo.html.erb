@@ -1,0 +1,38 @@
+<h2>Editar las faltas del grupo <%=@grupo.codigo %></h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for :entrada, :url => { :action => :update_grupo, :id => @grupo } do |f| %>
+  <%= f.error_messages %>
+
+<table>
+<tr>
+	<th>Alumnos</th>
+	<% @fila.each do |i| %><th><%= i %></th><% end %>
+</tr>
+<% numfila = @col.size %>
+<% numcol = @fila.size %>
+<% numfila.times do |i| %>
+<tr>
+  <td><%= @col[i].alumno.nombre_completo %></td>
+  <% numcol.times do |j| %>
+    <% valor = @tabla[i][j].valor %>
+    <% variable = @tabla[i][j].id.to_s %>
+    <td>
+    <input id="entrada_<%=variable%>" maxlength="1" name="entrada[<%=variable%>]" size="1" type="text" value="<%=valor%>" />
+    </td>
+  <% end %>
+</tr>
+<% end %>
+
+<tr><td><%= f.submit "Modificar" %></td></tr>
+</table>
+
+<% end %>
+</div>
+
+<br>
+<% @tabla[0].each_with_index do |f,i| %>
+<%= 'D'+(i+1).to_s+': '+f.fecha.strftime("%Y-%m-%d") %><br>
+<% end %>

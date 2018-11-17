@@ -1,0 +1,29 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nueva aula', new_aula_path %>
+<% elsif (a=="new" && p==:aulas) then %>
+  <%= link_to 'Ver todas', aulas_path %>
+<% elsif (p.class.to_s=="Centro") then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (p.class.to_s=="Aula") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', aula_path(@aula) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_aula_path(@aula) %> |
+  <% end %>
+  <%= link_to 'Borrar', @aula, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @aula.centro_id) %> 
+<% end %>
+</p>
+</div>

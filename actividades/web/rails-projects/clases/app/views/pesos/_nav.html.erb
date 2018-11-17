@@ -1,0 +1,28 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% p = @nav %>
+<% if (p.class.to_s=="Peso") then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.programacion.curso.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.programacion.curso.centro.id) %>
+ > <%= link_to p.programacion.curso.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.programacion.curso.id) %>
+ > <%= link_to p.programacion.codigo, url_for(:controller => 'programaciones', :action => 'show', :id => p.programacion.id) %>
+ > <%= h p.codigo %>
+
+<%  elsif (p==:pesos) then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to "Cursos", url_for(:controller => 'cursos') %>
+ > <%= link_to "Programaciones", url_for(:controller => 'programaciones') %>
+ > Pesos
+
+<% elsif (p.class.to_s=="Programacion") then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.curso.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.curso.centro.id) %>
+ > <%= link_to p.curso.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.curso.id) %>
+ > <%= link_to p.codigo, url_for(:controller => 'programaciones', :action => 'show', :id => p.id) %>
+ > Pesos
+<% end %>
+
+</div>

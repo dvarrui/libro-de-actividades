@@ -1,0 +1,29 @@
+<h2>Mostrar grupo</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Curso:</b></td><td><%=h @grupo.asignatura.curso.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Asignatura:</b></td><td><%=h @grupo.asignatura.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Letra:</b></td><td><%=h @grupo.letra %></td>
+</tr>
+
+<tr>
+  <td><b>Dia de la Semana:</b></td><td><%=h @grupo.dia_semana %></td>
+</tr>
+<tr>
+  <td><b>Hora inicio:</b></td><td><%=h @grupo.hora_inicio.strftime("%H:%M") %></td>
+</tr>
+<tr>
+  <td><b>Hora fin:</b></td><td><%=h @grupo.hora_fin.strftime("%H:%M") %></td>
+</tr>
+</table>
+</div>

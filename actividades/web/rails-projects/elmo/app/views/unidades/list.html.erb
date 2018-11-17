@@ -1,0 +1,27 @@
+<h2>Unidades de <%=@asignatura.codigo%></h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+  <tr>
+    <th>N&uacute;mero</th>
+    <th>C&oacute;digo</th>
+    <th>Nombre</th>
+    <th>Trimestre</th>
+  </tr>
+
+<% for unidad in @unidades %>
+  <tr>
+    <td><%=h unidad.numero %></td>
+    <td><%=h unidad.codigo %></td>
+    <td><%=h unidad.nombre %></td>
+    <td><%=h unidad.trim %></td>
+    <td><%= link_to 'Mostrar', unidad %></td>
+    <td><%= link_to 'Editar', edit_unidad_path(unidad) %></td>
+    <td><%= link_to 'Borrar', unidad, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Tareas()', unidad %></td>
+  </tr>
+<% end %>
+</table>
+</div>

@@ -1,0 +1,47 @@
+
+plantilla_dpto_eye01.php	Plantilla del departamento EYE
+				cabecera 01, navegacion 01, 
+				Mizq-dpto-eye 01, 
+				Mdch 10!!!
+				piedepagina 01
+
+plantilla_tipo_01.php		Página principal: Mizq+Mcentro+Mdch
+				cabecera 01, navegacion 01, 
+				Mizq 01
+				Mdch 01
+				piedepagina 01
+
+plantilla_tipo_03.php		Página menu-web: Mcentro+Mdch
+				cabecera 01, navegacion 01, 
+				Mdch 01
+				piedepagina 01
+
+
+plantilla_tipo_04.php		Página condiciones de uso
+				cabecera 01, navegacion 01, 
+				Mdch 01
+				piedepagina 01
+
+plantilla_tipo_05.php
+				cabecera 01, navegacion 01, 
+				buscador.php
+				piedepagina 01
+
+plantilla_tipo_06.php
+				Plantilla del departamento EYE
+				cabecera 01, navegacion 01, 
+				Mizq 01
+				Mdch 10
+				piedepagina 01
+
+
+-------------------------
+cabecera 01
+navegacion 01
+piedepagna 01
+
+mizq 01 -menu izq normal
+mizq-dpto-eye 01 -menu izq del dpto eye
+
+mder 01 -menu der normal
+mder 10 -menu der normal+subcategorías

@@ -1,0 +1,18 @@
+<!-- navegación-->
+<div class="navegacion1">
+
+<?
+	$continuar=true;
+	$clave=$pagina;
+	$salida=$mapping[$clave][3];	
+	
+	while ($continuar && $clave!='index') {
+		$clave=$mapping[$clave][0];
+		$salida = "<a href=\"cargador.php?pagina=".$clave."\">".
+						$mapping[$clave][3].'</a> > '.$salida;
+	}
+	$salida=' <b>Usted est&aacute; aqu&iacute;</b> :: <a href=javascript:history.back()>Volver</a> | '.$salida;
+	
+	echo $salida;
+?>
+</div>

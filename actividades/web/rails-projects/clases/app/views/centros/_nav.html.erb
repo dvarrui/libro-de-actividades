@@ -1,0 +1,16 @@
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% p = @nav %>
+<% if (p.class.to_s=="Centro") then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus',:action => 'recursos') %>
+ > <%= link_to "Centros", url_for(:controller => 'centros') %>
+ > <%= h p.codigo %>
+
+<%  elsif (p==:centros) then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus',:action => 'recursos') %>
+ > Centros
+<% end %>
+
+</div>

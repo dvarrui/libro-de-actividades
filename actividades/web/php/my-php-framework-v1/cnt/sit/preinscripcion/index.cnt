@@ -1,0 +1,50 @@
+<!--PLANTILLA.BEGIN-->
+<? include ('rec/sec/navegacion_interior_v03.php'); ?>
+
+<center><h1><? echo $descripcion; ?></h1></center>
+<hr>
+
+<? $dir="secretaria/preinscripcion/"; ?>
+
+<h2>Preinscripciones 2006-2007</h2>
+
+<ul>
+   <li><b>Calendario</b></li>
+   <ul>
+      <li>Programa de garant&iacute;a social (<a href="<? generarEnlace($dir."calendario/preinscripciones_pgs.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."calendario/preinscripciones_pgs.doc","%url"); ?>">doc</a>).</li>
+      <li>ESO y Bachillerato (<a href="<? generarEnlace($dir."calendario/preinscripciones_eso_y_bach.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."calendario/preinscripciones_eso_y_bach.doc","%url"); ?>">doc</a>)</li>
+      <li>Ciclos formativos de grado medio (<a href="<? generarEnlace($dir."calendario/preinscripciones_cfgm.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."calendario/preinscripciones_cfgm.doc","%url"); ?>">doc</a>)</li>
+      <li>Ciclos formativo de grado superior (<a href="<? generarEnlace($dir."calendario/preinscripciones_cfgs.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."calendario/preinscripciones_cfgs.doc","%url"); ?>">doc</a>)</li>
+   </ul>
+
+   <li><b>Informaci&oacute;n</b></li>
+   <ul>
+      <LI>Estudios que se imparten (<a href="<? generarEnlace($dir."informacion/estudios_que_se_imparten.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."informacion/estudios_que_se_imparten.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Oferta de plazas (<a href="<? generarEnlace($dir."informacion/oferta_de_plazas.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."informacion/oferta_de_plazas.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Criterios de Admisi&oacute;n (<a href="<? generarEnlace($dir."informacion/criterios_de_admision.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."informacion/criterios_de_admision.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Zonas de influencia (<a href="<? generarEnlace($dir."informacion/zonas_de_influencia.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."informacion/zonas_de_influencia.doc","%url"); ?>">doc</a>)</LI>
+   </ul>
+
+   <li><b>Instrucciones</b></li>
+   <ul>
+      <li>Anexo 2f (<a href="<? generarEnlace($dir."instrucciones/instrucciones_anexo2f.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."instrucciones/instrucciones_anexo2f.doc","%url"); ?>">doc</a>)</li>
+      <li>Anexo 3f (<a href="<? generarEnlace($dir."instrucciones/instrucciones_anexo3f.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."instrucciones/instrucciones_anexo3f.doc","%url"); ?>">doc</a>)</li>
+   </ul>
+
+   <li><b>Pruebas de Acceso</b></li>
+   <ul>
+      <LI>Cartel Pruebas de Acceso (<a href="<? generarEnlace($dir."pruebas_de_acceso/cartel_pruebas_de_acceso.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."pruebas_de_acceso/cartel_pruebas_de_acceso.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Requisitos y Exenciones CFGM y CFGS (<a href="<? generarEnlace($dir."pruebas_de_acceso/requisitos_y_exenciones_cfgm_y_cfgs.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."pruebas_de_acceso/requisitos_y_exenciones_cfgm_y_cfgs.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Resumen requisitos pruebas de acceso (<a href="<? generarEnlace($dir."pruebas_de_acceso/resumen_requisitos_pruebas_de_acceso.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."pruebas_de_acceso/resumen_requisitos_pruebas_de_acceso.doc","%url"); ?>">doc</a>)</LI>
+   </ul>
+
+   <li><b>Solicitudes</b></li>
+   <ul>
+      <LI>Admisi&oacute;n Pruebas de Acceso (<a href="<? generarEnlace($dir."solicitud/admision_prueba_acceso.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."solicitud/admision_prueba_acceso.doc","%url"); ?>">doc</a>)</LI>
+      <LI>Declaraci&oacute;n Jurada (<a href="<? generarEnlace($dir."solicitud/declaracion_juradaf.pdf","%url"); ?>">pdf</a> | <a href="<? generarEnlace($dir."solicitud/declaracion_juradaf.doc","%url"); ?>">doc</a>)</LI>
+   </ul>
+
+   <br>
+   <li><b><a href="<? generarEnlace("piedepagina.contacto"); ?>">Contactar</a></b> con Secretar&iacute;a.</li>
+</ul>
+<!--PLANTILLA.END-->

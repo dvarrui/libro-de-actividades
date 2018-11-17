@@ -1,0 +1,17 @@
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<?
+   include('rec/php/programas.php');
+	$programa[0]='cui/holamundo/hola_mundo6a.c';
+	$programa[1]='cui/holamundo/hola_mundo6b.c';
+	$programa[2]='cui/holamundo/HolaMundo6a.java';
+	$programa[3]='cui/holamundo/HolaMundo6b.java';
+	$programa[4]='cui/holamundo/hola_mundo5.rb';
+	$programa[5]='cui/holamundo/hola_mundo5.rb';
+	$programa[6]='cui/holamundo/hola_mundo6a.sh';
+	$programa[7]='cui/holamundo/hola_mundo6b.sh';
+?>
+
+<?	echoProgramas($programa); ?>

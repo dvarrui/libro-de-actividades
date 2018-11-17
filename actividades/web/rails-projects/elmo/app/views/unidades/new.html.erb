@@ -1,0 +1,29 @@
+<h2>Nueva unidad</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@unidad) do |f| %>
+  <%= f.error_messages %>
+<table>
+  <tr>
+    <td><label for="asignatura_id">Asignatura</label></td><td><%= collection_select 'unidad', :asignatura_id, @asignaturas, :id, :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :numero %></td><td><%= f.text_field :numero %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :codigo %></td><td><%= f.text_field :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :trim %></td><td><%= f.text_field :trim %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Crear" %></td>
+  </tr>
+</table>
+<% end %>
+</div>

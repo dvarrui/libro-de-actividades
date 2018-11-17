@@ -1,0 +1,33 @@
+<h1>Nueva Unidad</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@unidad) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="programa_id">Programación</label></td><td><%= collection_select 'unidad', :programacion_id, @programaciones, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="numero">Número</label></td><td><%= text_field 'unidad', :numero %></td>
+    </tr>
+    <tr>
+      <td><label for="codigo">Código</label></td><td><%= text_field 'unidad', :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'unidad', :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="url">URL Fichero</label></td><td><%= text_field 'unidad', :url %></td>
+    </tr>
+    <tr>
+      <td><label for="url">Peso</label></td><td><%= text_field 'unidad', :peso %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

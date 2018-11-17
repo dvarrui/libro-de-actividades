@@ -1,0 +1,35 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nueva programación', new_programacion_path %>
+<% elsif (a=="new" && p==:programaciones) then %>
+  <%= link_to 'Ver todas', programaciones_path %>
+<% elsif (a=="new" && p.class==Curso) then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (a=="list" && p.class==Curso) then %>
+  <%= link_to 'Nueva programación', url_for(:action => 'new', :id => p.id) %>
+<% elsif (p.class==Programacion) then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', programacion_path(@programacion) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_programacion_path(@programacion) %> |
+  <% end %>
+  <%= link_to 'Borrar', @programacion, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @programacion.curso_id) %> |
+  <%= link_to 'Pesos('+@programacion.pesos.count.to_s+')', url_for(:controller => 'pesos', :action => 'list', :id => @programacion.id)%> |
+  <%= link_to 'Unidades('+@programacion.unidades.count.to_s+')', url_for(:controller => 'unidades', :action => 'list', :id => @programacion.id)%> |
+  <%= link_to 'Horarios('+@programacion.horarios.count.to_s+')', url_for(:controller => 'horarios', :action => 'programacion', :id => @programacion.id)%> |
+  Matrículas
+<% end %>
+</p>
+</div>

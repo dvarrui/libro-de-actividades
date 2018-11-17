@@ -1,0 +1,64 @@
+<h1>Nuevo Centro</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@centro) do |f| %>
+  <%= f.error_messages %>
+
+  <table>
+    <tr>
+      <td><label for="codigo">Código</label></td><td><%= text_field 'centro', :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'centro', :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="cif">CIF</label></td><td><%= text_field 'centro', :cif %></td>
+    </tr>
+    <tr>
+      <td><label for="municipio_id">Municipio</label></td><td><%= collection_select 'centro', :municipio_id, @municipios, :id, :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="localidad">Localidad</label></td><td><%= text_field 'centro', :localidad %></td>
+    </tr>
+    <tr>
+      <td><label for="domicilio">Domicilio</label></td><td><%= text_field 'centro', :domicilio %></td>
+    </tr>
+    <tr>
+      <td><label for="cod_postal">Código Postal</label></td><td><%= text_field 'centro', :cod_postal %></td>
+    </tr>
+    <tr>
+      <td><label for="latitud">Latitud</label></td><td><%= text_field 'centro', :latitud %></td>
+    </tr>
+    <tr>
+      <td><label for="longitud">Longitud</label></td><td><%= text_field 'centro', :longitud %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_fijo">Teléfono Fijo</label></td><td><%= text_field 'centro', :tlf_fijo %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_movil">Teléfono Móvil</label></td><td><%= text_field 'centro', :tlf_movil %></td>
+    </tr>
+    <tr>
+      <td><label for="fax">Fax</label></td><td><%= text_field 'centro', :fax %></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email</label></td><td><%= text_field 'centro', :email %></td>
+    </tr>
+    <tr>
+      <td><label for="web">Página Web</label></td><td><%= text_field 'centro', :web %></td>
+    </tr>
+    <tr>
+      <td><label for="horario">Horario</label></td><td><%= text_area 'centro', :horario %></td>
+    </tr>
+    <tr>
+      <td><label for="activo">Activo</label></td><td><%= check_box 'centro', :activo %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

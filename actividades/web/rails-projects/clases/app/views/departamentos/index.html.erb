@@ -1,0 +1,28 @@
+<h1>Listado de Departamentos</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Nº profesores</th>
+  </tr>
+
+<% for departamento in @departamentos %>
+  <tr>
+    <td><%=h departamento.centro.codigo %></td>
+    <td><%=h departamento.codigo %></td>
+    <td><%=h departamento.nombre %></td>
+    <td><%=h departamento.profesores.count.to_s %>
+    
+    <td><%= link_to 'Mostrar', departamento %></td>
+    <td><%= link_to 'Editar', edit_departamento_path(departamento) %></td>
+    <td><%= link_to 'Borrar', departamento, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+

@@ -1,0 +1,27 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nuevo alumno', new_alumno_path %>
+<% elsif (a=="new") then %>
+  <%= link_to 'Ver todos', alumnos_path %>
+<% elsif a=="show" || a=="" then %>
+   <%= link_to 'Ver todos', alumnos_path %> | 
+   Mostrar |
+   <%= link_to 'Editar', edit_alumno_path(@alumno) %>
+   <% if (@alumno.matriculas.size==0) %>
+	  | <%= link_to 'Borrar', @alumno, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+	<% end %>
+<% elsif a=="edit" then %>
+   <%= link_to 'Ver todos', alumnos_path %>|
+   <%= link_to 'Mostrar', alumno_path(@alumno) %> |
+    Editar
+   <% if (@alumno.matriculas.size==0) %>
+	  | <%= link_to 'Borrar', @alumno, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+	<% end %>
+<% end %>
+</p>
+</div>

@@ -1,0 +1,18 @@
+<p>
+  <b>Matricula:</b>
+  <%=h @falta.matricula_id %>
+</p>
+
+<p>
+  <b>Valfecha:</b>
+  <%=h @falta.valfecha %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @falta.valor %>
+</p>
+
+
+<%= link_to 'Edit', edit_falta_path(@falta) %> |
+<%= link_to 'Back', faltas_path %>

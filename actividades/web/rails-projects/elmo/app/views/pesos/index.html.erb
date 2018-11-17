@@ -1,0 +1,26 @@
+<h1>Listing pesos</h1>
+
+<table>
+  <tr>
+    <th>Asignatura</th>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Valor</th>
+  </tr>
+
+<% for peso in @pesos %>
+  <tr>
+    <td><%=h peso.asignatura_id %></td>
+    <td><%=h peso.codigo %></td>
+    <td><%=h peso.nombre %></td>
+    <td><%=h peso.valor %></td>
+    <td><%= link_to 'Show', peso %></td>
+    <td><%= link_to 'Edit', edit_peso_path(peso) %></td>
+    <td><%= link_to 'Destroy', peso, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New peso', new_peso_path %>

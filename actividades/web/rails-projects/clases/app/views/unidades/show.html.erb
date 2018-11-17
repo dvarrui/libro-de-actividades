@@ -1,0 +1,47 @@
+<h1>Unidad <%= @unidad.numero.to_s %>: <%= @unidad.codigo %></h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Curso:</b></td><td><%=h  @unidad.programacion.curso.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Ciclo :</b></td><td><%=h @unidad.programacion.modulo.ciclo.codigo%></td>
+    </tr>
+    <tr>
+      <td><b>Módulo:</b></td><td><%=h @unidad.programacion.modulo.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Programación:</b></td><td><%=h @unidad.programacion.ref %></td>
+    </tr>
+    <tr>
+      <td><b>Número:</b></td><td><%= @unidad.numero.to_s %></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%= @unidad.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%= @unidad.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>URL documentación:</b></td><td><%= @unidad.url %></td>
+    </tr>
+    <tr>
+      <td><b>Peso:</b></td><td><%= @unidad.peso %></td>
+    </tr>
+</table>
+</div>
+
+<br/>
+<table border=1>
+<tr><td>
+<p>Actividades de la unidad (<%= @unidad.actividades.count.to_s%>):</p>
+<ul>
+  <% for i in @unidad.actividades %>
+  <li><%= i.codigo %> <%= link_to i.nombre, i %></li>
+  <% end %>
+</ul>
+</td></tr>
+</table>

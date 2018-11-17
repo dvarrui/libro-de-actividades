@@ -1,0 +1,43 @@
+
+<h2>Mostrar alumno: <%=@alumno.nombre%></h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Numexp:</b></td><td><%=h @alumno.numexp %></td>
+</tr>
+
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @alumno.nombre %></td>
+</tr>
+
+<tr>
+  <td><b>Apellidos:</b></td><td><%=h @alumno.apellidos %></td>
+</tr>
+
+<tr>
+  <td><b>Tlf fijo:</b></td><td><%=h @alumno.tlf_fijo %></td>
+</tr>
+
+<tr>
+  <td><b>Tlf movil:</b></td><td><%=h @alumno.tlf_movil %></td>
+</tr>
+
+<tr>
+  <td><b>Email:</b></td><td><%=h @alumno.email %></td>
+</tr>
+
+<tr>
+  <td><b>Fecha nac:</b></td><td><%=h @alumno.fecha_nac %></td>
+</tr>
+
+<tr>
+  <td><b>Observaciones:</b></td><td><%=h @alumno.observaciones %></td>
+</tr>
+</table>
+
+</div>
+
+<%= render :partial=>'matriculas' %>

@@ -1,0 +1,26 @@
+<h1>Mostrar Módulo "<%=h @modulo.codigo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+  <tr>
+    <td><b>Centro:</b></td><td><%=h @modulo.ciclo.centro.codigo%></td>
+  </tr>
+  <tr>
+    <td><b>Ciclo:</b></td><td><%=h @modulo.ciclo.codigo%></td>
+  </tr>
+  <tr>
+    <td><b>Código:</b></td><td><%=h @modulo.codigo %></td>
+  </tr>
+  <tr>
+    <td><b>Nombre:</b></td><td><%=h @modulo.nombre %></td>
+  </tr>
+  <tr>
+    <td><b>Curso:</b></td><td><%=h @modulo.curso %></td>
+  </tr>
+  <tr>
+    <td><b>Activo:</b></td><td><%=h @modulo.activo %></td>
+  </tr>
+</table>
+</div>

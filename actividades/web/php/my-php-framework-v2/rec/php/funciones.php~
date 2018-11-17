@@ -1,0 +1,91 @@
+<?
+	//--------------------------------------------------
+	//Definiciones de funciones
+	//--------------------------------------------------
+	include('rec/php/config.php');
+
+	function getPagina($codigo, $ancla="") {
+		if ($ancla) {
+			$salida = "cargador.php?pagina=" . $codigo . "#" . $ancla; 
+		} else {
+			$salida = "cargador.php?pagina=" . $codigo; 
+		}
+		return $salida;
+	}
+
+	function echoPagina($codigo, $ancla="") {
+		echo getPagina($codigo,$ancla);
+		return true;
+	}
+
+	function getRecurso($url) {
+		include('rec/php/config.php');
+		//$salida = "http://www.iescesarmanrique.org/dwn/" . $url;
+		//$salida = "http://localhost/cesarmanrique/dwn/" . $url;
+		$salida = $gbl_directorio_dwn . $url;
+		return $salida;
+	}
+
+	function echoRecurso($url) {
+		echo getRecurso($url);
+		return true;
+	}
+
+
+	function echoImprimir($codigo) {
+		$salida = "cargador.php?pagina=imprimir&objetivo=" . $codigo; 
+		echo $salida;
+	}
+
+	function getC($codigo) {
+	   include('rec/php/config.php');
+		$salida = $gbl_directorio_c . $codigo; 
+		return $salida;
+	}
+
+	function echoC($codigo) {
+		echo getC($codigo);
+		return true;
+	}
+
+	function getBash($codigo) {
+	   include('rec/php/config.php');
+		$salida = $gbl_directorio_bash . $codigo; 
+		return $salida;
+	}
+
+	function echoBash($codigo) {
+		echo getBash($codigo);
+		return true;
+	}
+
+	function getJava($codigo) {
+	   include('rec/php/config.php');
+		$salida = $gbl_directorio_java . $codigo; 
+		return $salida;
+	}
+
+	function echoJava($codigo) {
+		echo getJava($codigo);
+		return true;
+	}
+
+	function echoIncludeJava($codigo) {
+		echo '<pre>';
+		echo "<? include(\'" . getJava($codigo) ."\'); ?>";
+		echo '</pre>';
+		return true;
+	}
+
+	function getRuby($codigo) {
+	   include('rec/php/config.php');
+		$salida = $gbl_directorio_ruby . $codigo; 
+		return $salida;
+	}
+
+	function echoRuby($codigo) {
+		echo getRuby($codigo);
+		return true;
+	}
+
+?> 

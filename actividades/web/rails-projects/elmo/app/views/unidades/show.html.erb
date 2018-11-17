@@ -1,0 +1,27 @@
+<h2>Mostrar unidad</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Asignatura:</b></td><td><%=h @unidad.asignatura.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>N&uacute;mero:</b></td><td><%=h @unidad.numero %></td>
+</tr>
+
+<tr>
+  <td><b>C&oacute;digo:</b></td><td><%=h @unidad.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @unidad.nombre %></td>
+</tr>
+
+<tr>
+  <td><b>Trimestre:</b></td><td><%=h @unidad.trim %></td>
+</tr>
+</table>
+</div>

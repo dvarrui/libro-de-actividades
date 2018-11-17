@@ -1,0 +1,14 @@
+<%= error_messages_for 'ciclo' %>
+
+<!--[form:ciclo]-->
+<p><label for="ciclo_nombre">Nombre</label><br/>
+<%= text_field 'ciclo', 'nombre'  %></p>
+
+<p><label for="ciclo_desc">Desc</label><br/>
+<%= text_field 'ciclo', 'desc'  %></p>
+
+<p><label for="ciclo_curso">Curso</label><br/>
+<%= collection_select(:ciclo,:curso_id,@cursos,:id,:nombre) %></p>
+
+<!--[eoform:ciclo]-->
+

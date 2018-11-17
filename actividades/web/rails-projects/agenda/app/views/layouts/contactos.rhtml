@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Contactos: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<div style="background-color:LightBlue">
+<p>
+<%= link_to 'Entrada', :controller => 'entrada', :action => 'index' %> | 
+<%= link_to 'Categorias', :controller => 'categorias', :action => 'list' %> | 
+<%= link_to 'Contactos', :controller => 'contactos', :action => 'list' %>
+</p>
+</div>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

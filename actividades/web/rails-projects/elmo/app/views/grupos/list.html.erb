@@ -1,0 +1,30 @@
+<h2>Listado de grupos</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+  <tr>
+    <th>Asignatura</th>
+    <th>Letra</th>
+    <th>D&iacute;a</th>
+    <th>Hora inicio</th>
+    <th>Hora fin</th>
+  </tr>
+
+<% for grupo in @grupos %>
+  <tr>
+    <td><%=h grupo.asignatura.codigo %></td>
+    <td><%=h grupo.letra %></td>
+    <td><%=h grupo.dia_semana %></td>
+    <td><%=h grupo.hora_inicio.strftime("%H:%M") %></td>
+    <td><%=h grupo.hora_fin.strftime("%H:%M") %></td>
+    <td><%= link_to 'Mostrar', grupo %></td>
+    <td><%= link_to 'Editar', edit_grupo_path(grupo) %></td>
+    <td><%= link_to 'Borrar', grupo, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+    <td><%= link_to 'Matriculados('+grupo.matriculas.size.to_s+')', url_for(:controller=>'matriculas',:action=>'list',:id=>grupo) %></td>
+    <td><%= link_to 'Faltas', url_for(:controller=>'faltas',:action=>'show_grupo',:id=>grupo) %></td>
+  </tr>
+<% end %>
+</table>
+</div>

@@ -1,0 +1,20 @@
+<h1>Festivo "<%= @festivo.motivo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Curso:</b></td><td><%= @festivo.curso.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Motivo:</b></td><td><%= @festivo.motivo %></td>
+    </tr>
+    <tr>
+      <td><b>Fecha de inicio:</b></td><td><%= @festivo.fecha_inicio %></td>
+    </tr>
+    <tr>
+      <td><b>Fecha de fin:</b></td><td><%= @festivo.fecha_fin %></td>
+    </tr>   
+</table>
+</div>

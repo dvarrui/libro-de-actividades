@@ -1,0 +1,18 @@
+<h1><? echo $descripcion; ?></h1>
+<hr>
+<?
+	$dir='departamentos/pgs/asadero/';
+	$imagenes[0]=$dir.'imagen_00.jpg';
+	$imagenes[1]=$dir.'imagen_01.jpg';
+	$imagenes[2]=$dir.'imagen_02.jpg';
+	$imagenes[3]=$dir.'imagen_03.jpg';
+	$imagenes[4]=$dir.'imagen_04.jpg';
+	$imagenes[5]=$dir.'imagen_02.jpg';
+	$imagenes[6]=$dir.'imagen_03.jpg';
+	$imagenes[7]=$dir.'imagen_04.jpg';
+?>
+
+<?	
+	include('rec/php/imagenes.php');
+	echoAlbumdeFotos($imagenes); 
+?>

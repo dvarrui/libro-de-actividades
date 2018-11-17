@@ -1,0 +1,45 @@
+<!--
+<p>Horas ocupadas(<%= @num_horas.to_s%>):</p>
+<table border=1>
+  <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+  <% 12.times do |fila| %>
+    <tr>
+    <% 6.times do |col| %>
+      <td><%= @tabla_horas[fila][col]%></td>
+    <% end %>
+    </tr>
+    <% if (fila==2||fila==5||fila==8) then %>
+      <tr>
+      <% 6.times do |col| %>
+        <td>Descanso</td>
+      <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+-->
+
+
+<p>Horas ocupadas(<%= @num_horas.to_s %>):</p>
+<table border=1>
+  <tr>
+    <th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th>
+  </tr>
+  <% 12.times do |fila| %>
+    <tr>
+      <% 6.times do |col|%>
+      <td><%= @tabla_horas[fila][col] %></td>
+      <% end%>
+    </tr>
+    <% if (fila==2||fila==5||fila==8) then %>
+      <tr>
+        <% 6.times do |col|%>
+        <td>Descanso</td>
+        <% end%>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+
+

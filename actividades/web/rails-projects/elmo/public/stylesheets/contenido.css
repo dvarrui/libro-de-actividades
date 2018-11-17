@@ -1,0 +1,143 @@
+#action {
+	color: #000;
+	background: #eee;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#action tr {
+	border-bottom: 1px solid;
+}
+
+#action th {
+	color: #000;
+	background: #eee;
+	border-bottom: 1px solid;
+}
+
+#action td {
+	color: #000;
+}
+
+#dat {
+	color: #000;
+	background: #fed;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#dat tr {
+	border-bottom: 1px solid;
+}
+
+#dat th {
+	color: #000;
+	background: #cba;
+	border-bottom: 1px solid;
+}
+
+#dat td {
+	color: #000;
+}
+
+#data {
+	color: #000;
+	background: #fed;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#data tr {
+	border-bottom: 1px solid;
+}
+
+#data th {
+	color: #000;
+	background: #cba;
+	border-bottom: 1px solid;
+}
+
+#data td {
+	color: #000;
+}
+
+#data img{
+}
+
+#info {
+	color: #000;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#info tr {
+	border-bottom: 1px solid;
+}
+
+#info th {
+	color: #000;
+	border-bottom: 1px solid;
+}
+
+#info td {
+	color: #000;
+}
+
+#horario table {
+	margin: 1em;
+	border: 1px solid black;
+	border-collapse: collapse;
+} 
+
+#horario td {
+	margin: 0px;
+	padding: 6px;
+	border: 1px solid black;
+}
+
+#horario th {
+	margin: 0px;
+	padding: 6px;
+	border: 1px solid black;
+} 
+
+#horario .descanso {
+	background: #cba;
+} 
+
+#horario .error {
+	background: #f00;
+} 
+
+#horario .ocupado {
+	background: #fed;
+} 
+
+#horario .libre {
+	background: #ada;
+} 
+
+#horario .hueco {
+	background: #efe;
+} 
+
+#index {
+	color: #000;
+	background: #0a7;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#index tr {
+	border-bottom: 1px solid;
+}
+
+#index th {
+	color: #000;
+	background: #074;
+	border-bottom: 1px solid;
+}
+
+#index td {
+	color: #000;
+}

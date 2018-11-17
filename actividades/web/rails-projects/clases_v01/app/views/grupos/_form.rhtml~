@@ -1,0 +1,7 @@
+<%= error_messages_for 'grupo' %>
+
+<!--[form:grupo]-->
+<p><label for="grupo_codigo">Código</label><br/>
+<%= text_field 'grupo', 'codigo'  %></p>
+<!--[eoform:grupo]-->
+

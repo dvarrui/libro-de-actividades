@@ -1,0 +1,38 @@
+<h1>Nueva Actividad</h1>
+
+<% form_for(@actividad) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="unidad_id">Unidad</label></td><td><%= collection_select 'actividad', :unidad_id, @unidades, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="peso_id">Tipo</label></td><td><%= collection_select 'actividad', :peso_id, @pesos, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="codigo">Código</label></td><td><%= text_field 'actividad', :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'actividad', :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="url">URL Fichero</label></td><td><%= text_field 'actividad', :url %></td>
+    </tr>
+    <tr>
+      <td><label for="fecha_inicio">Fecha de inicio</label></td><td><%= date_select 'actividad', :fecha_inicio %></td>
+    </tr>
+    <tr>
+      <td><label for="fecha_fin">Fecha final</label></td><td><%= date_select 'actividad', :fecha_fin %></td>
+    </tr>
+    <tr>
+      <td><label for="valor_max">Valor Máximo</label></td><td><%= text_field 'actividad', :valor_max %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<br/>
+<%= link_to 'Volver', actividads_path %>

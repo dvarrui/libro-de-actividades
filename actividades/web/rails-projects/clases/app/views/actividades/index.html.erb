@@ -1,0 +1,27 @@
+<h1>Listado de las Actividades</h1>
+
+<table>
+  <tr>
+    <th>Unidad</th>
+    <th>Tipo</th>
+    <th>Código</th>
+    <th>Nombre</th>
+  </tr>
+
+<% for actividad in @actividads %>
+  <tr>
+    <td><%= actividad.unidad.ref %></td>
+    <td><%= actividad.peso.nombre %></td>
+    <td><%= actividad.codigo %></td>
+    <td><%= actividad.nombre %></td>
+    
+    <td><%= link_to 'Mostrar', actividad %></td>
+    <td><%= link_to 'Editar', edit_actividad_path(actividad) %></td>
+    <td><%= link_to 'Borrar', actividad, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva actividad', new_actividad_path %>

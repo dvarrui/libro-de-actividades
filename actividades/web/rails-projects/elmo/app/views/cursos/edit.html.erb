@@ -1,0 +1,30 @@
+<h2>Editar curso</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@curso) do |f| %>
+  <%= f.error_messages %>
+
+<table>
+  <tr>
+    <td>C&oacute;digo</td><td><%= f.text_field :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :fin_trim1 %></td><td><%= f.check_box :fin_trim1 %><%= f.date_select :fecha_fin_trim1 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :fin_trim2 %></td><td><%= f.check_box :fin_trim2 %><%= f.date_select :fecha_fin_trim2 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :fin_trim3 %></td><td><%= f.check_box :fin_trim3 %><%= f.date_select :fecha_fin_trim3 %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Modificar" %></td>
+  </tr>
+ </table>
+<% end %>
+</div>
+
+<%= render :partial => 'asignaturas' %>
+<%= render :partial => 'grupos' %>

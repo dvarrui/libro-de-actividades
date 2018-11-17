@@ -1,0 +1,33 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nueva asignatura', new_asignatura_path %>
+<% elsif (a=="list") then %>
+	<%= link_to 'Nueva asignatura', url_for(:action => 'new', :id => @curso.id) %>
+<% elsif (a=="new") then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @cursos[0].id) %>
+<% elsif a=="show" || a=="" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @asignatura.curso.id) %>
+	| Mostrar 
+   | <%= link_to 'Editar', edit_asignatura_path(@asignatura) %> 
+   <% if @asignatura.can_be_deleted? %>
+   | <%= link_to 'Borrar', @asignatura, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+   <% end %>
+   | <%= link_to 'Unidades('+@asignatura.unidades.size.to_s+')', url_for(:controller => 'unidades', :action => 'list', :id => @asignatura.id) %>
+   | <%= link_to 'Pesos('+@asignatura.pesos.size.to_s+')', url_for(:controller => 'pesos', :action => 'list', :id => @asignatura.id) %>
+<% elsif a=="edit" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @asignatura.curso.id) %>
+   | <%= link_to 'Mostrar', asignatura_path(@asignatura) %>
+   | Editar
+   <% if @asignatura.can_be_deleted? %>
+   | <%= link_to 'Borrar', @asignatura, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+   <% end %>
+	| <%= link_to 'Unidades('+@asignatura.unidades.size.to_s+')', url_for(:controller => 'unidades', :action => 'list', :id => @asignatura.id) %>
+	| <%= link_to 'Pesos('+@asignatura.pesos.size.to_s+')', url_for(:controller => 'pesos', :action => 'list', :id => @asignatura.id) %>
+<% end %>
+</p>
+</div>

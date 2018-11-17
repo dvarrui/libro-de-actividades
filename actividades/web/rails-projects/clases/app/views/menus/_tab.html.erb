@@ -1,0 +1,22 @@
+<h1>Cuaderno del Profesor</h1>
+
+<%
+	p=@tab
+    current = [ '','','','','']
+    i=9
+    i=0 if p==:recursos
+    i=1 if p==:inicio
+    i=2 if p==:diario
+    i=3 if p==:alumnos
+    i=4 if p==:acercade
+    current[i]=' id="current" ' 
+%>
+<div id="tab">
+<ul>
+	<li><a href="/menus/recursos" <%=current[0]%>>Recursos del Centro</a></li>
+	<li><a href="/menus/inicio" <%=current[1]%>>Inicio del curso</a></li>
+	<li><a href="/menus/diario" <%=current[2]%>>Trabajo diario</a></li>
+	<li><a href="/menus/alumnos" <%=current[3]%>>Alumnos</a></li>
+	<li><a href="/menus/acercade" <%=current[4]%>>Acerca de</a></li>
+</ul>
+</div>

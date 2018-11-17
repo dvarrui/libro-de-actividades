@@ -1,0 +1,2 @@
+module InformesHelper
+end

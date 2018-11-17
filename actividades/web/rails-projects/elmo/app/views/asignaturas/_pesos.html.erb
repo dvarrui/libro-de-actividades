@@ -1,0 +1,13 @@
+
+<br/>
+<div id='info'>
+<table>
+<p>Listado de pesos:</p>
+<ul>
+<% for peso in @asignatura.pesos %>
+<li><%= peso.nombre %> (<%=peso.codigo%>=<%= peso.valor%>)</li>
+<% end %>
+</ul>
+</table>
+</div>
+

@@ -1,0 +1,31 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nuevo festivo', new_festivo_path %>
+<% elsif (a=="new" && p==:festivos) then %>
+  <%= link_to 'Ver todos', festivos_path %>
+<% elsif (a=="new" && p.class.to_s=="Curso") then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (a=="list" && p.class.to_s=="Curso") then %>
+  <%= link_to 'Nuevo festivo', url_for(:action => 'new', :id => p.id) %>
+<% elsif (p.class.to_s=="Festivo") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', festivo_path(@festivo) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_festivo_path(@festivo) %> |
+  <% end %>
+  <%= link_to 'Borrar', @festivo, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @festivo.curso_id) %>
+<% end %>
+</p>
+</div>

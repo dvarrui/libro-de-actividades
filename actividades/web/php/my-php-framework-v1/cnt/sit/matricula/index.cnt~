@@ -1,0 +1,28 @@
+<!--PLANTILLA.BEGIN-->
+<h3>Matr&iacute;&shy;cula 2003-2004</h3>
+
+                           <ul>
+                              <li>Calendario</li>
+                              <ul>
+                                 <li><a href="calendario/calendarioPGS.html">PGS</a>(Programa de garant&iacute;a social)</li>
+                                 <li><a href="calendario/calendarioESOBACH.html">ESO y Bachillerato</a></li>
+                                 <li><a href="calendario/calendarioCFGM.html">CFGM</a>(Ciclos formativos de grado medio)</li>
+                                 <li><a href="calendario/calendarioCFGS.html">CFGS</a>(Ciclos formativo de grado superior)</li>
+                              </ul>
+
+                              <li>Instrucciones.</li>
+                              <ul>
+                                 <li><a href="instrucciones/01-instgenerales.html">Instrucciones Generales</a></li>
+                                 <li><a href="instrucciones/02-instESOBAC.html">Instrucciones ESO y Bachillerato</a></li>
+      <li><a href="instrucciones/03-instPGS.html">Instrucciones PGS</a></li>
+      <li><a href="instrucciones/04-instCFGM.html">Instrucciones CFGM</a> (Ciclos formativo de grado medio)</li>
+      <li><a href="instrucciones/05-instCFGS.html">Instrucciones CFGS</a> (Ciclos formativo de grado superior)</li>
+   </ul>
+
+   <li><a href="normativa/normativa.html">Normativa.</a></li>
+   <ul>
+      <LI><a href="normativa/8301.0.anexos1-2-3.pdf">Anexos</a> (pdf)</LI>
+   </ul>
+   <li><a href="<? generarEnlace("piedepagina.contacto"); ?>">Contactar</a> con Secretar&iacute;a.</li>
+</ul>
+<!--PLANTILLA.END-->

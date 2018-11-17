@@ -1,0 +1,9 @@
+
+<h2>Información extra</h2>
+
+<b>Módulos asignados( <%= @profesor.modulos.size %> ):</b><br/>
+<ul>
+  <% for modulo in @profesor.modulos %>
+  <li><%= link_to modulo.codigo, :controller => 'modulos', :action => 'show', :id => modulo.id %></li>
+  <% end %>
+</ul>

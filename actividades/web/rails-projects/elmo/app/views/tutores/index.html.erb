@@ -1,0 +1,28 @@
+<h2>Listado de tutores</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+    <th>Especialidad</th>
+    <th>Baja</th>
+  </tr>
+
+<% for tutor in @tutores %>
+  <tr>
+    <td><%=h tutor.nombre %></td>
+    <td><%=h tutor.apellidos %></td>
+    <td><%=h tutor.especialidad %></td>
+    <td><%=h tutor.baja %></td>
+    <td><%= link_to 'Mostrar', tutor %></td>
+    <td><%= link_to 'Editar', edit_tutor_path(tutor) %></td>
+    <td><%= link_to 'Borrar', tutor, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>

@@ -1,0 +1,29 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nuevo curso', new_curso_path %>
+<% elsif (a=="new") then %>
+  <%= link_to 'Ver todos', cursos_path %>
+<% elsif a=="show" || a=="" then %>
+   <%= link_to image_tag('icons/list.png',:border=>0), cursos_path %> | 
+   <%= link_to image_tag('icons/edit.png',:border=>0), edit_curso_path(@curso) %> |
+   <% if (@curso.can_be_deleted?) %>
+	<%= link_to 'Borrar', @curso, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+	<% end %> 
+   <%= link_to 'Asignaturas('+@curso.asignaturas.size.to_s+')', url_for(:controller => 'asignaturas', :action => 'list', :id => @curso.id) %> | 
+   <%= link_to 'Grupos('+@curso.grupos.size.to_s+')', url_for(:controller => 'grupos', :action => 'list', :id => @curso.id) %>
+<% elsif a=="edit" then %>
+   <%= link_to image_tag('icons/list.png',:border=>0), cursos_path %>|
+   <%= link_to image_tag('icons/show.png',:border=>0), curso_path(@curso) %> |
+   <% if (@curso.can_be_deleted?) %>
+	<%= link_to 'Borrar', @curso, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+	<% end %> 
+   <%= link_to 'Asignaturas('+@curso.asignaturas.size.to_s+')', url_for(:controller => 'asignaturas', :action => 'list', :id => @curso.id) %> | 
+   <%= link_to 'Grupos('+@curso.grupos.size.to_s+')', url_for(:controller => 'grupos', :action => 'list', :id => @curso.id) %>
+<% end %>
+</p>
+</div>

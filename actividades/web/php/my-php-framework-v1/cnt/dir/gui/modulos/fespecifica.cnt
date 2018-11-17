@@ -1,0 +1,86 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<center><h2>Programaci&oacute;n</h2></center>
+
+<h3><a href="<? echoPagina('departamentos.pgs.fotos.electricidad'); ?>">Electricidad</a>
+<a href="<? echoPagina('departamentos.pgs.fotos.electricidad'); ?>"><img border=0 src='rec/ico/camera.jpg'></a>
+</h3>
+<p><b>Mantenimiento el&eacute;ctrico y mec&aacute;nico.</b></p>
+<ol>
+  <li>Presentaci&oacute;n del m&oacute;dulo, herramientas, 
+  m&aacute;quinas a utilizar y nociones te&oacute;ricas b&aacute;sica <i>(10 horas)</i>.</li>
+  <li>Montaje de instalaciones el&eacute;ctricas b&aacute;sicas en edificios
+  y su reparaci&oacute;n <i>(60 horas)</i>.</li>
+  <li>Montaje de instalaciones reales, vivienda, video portero, autom&aacute;tico escalera,
+  ascensores, etc. <i>(25 horas)</i>.</li>
+  <li>Montaje de aparatos de protecci&oacute;n y control. Cuadros. <i>(45 horas)</i></li>
+</ol>
+
+<hr>
+<h3><a href="<? echoPagina('departamentos.pgs.fotos.carpinteria'); ?>">
+Carpinter&iacute;a (Madera y Met&aacute;lica)</a>
+<a href="<? echoPagina('departamentos.pgs.fotos.carpinteria'); ?>"><img border=0 src='rec/ico/camera.jpg'></a>
+</h3>
+<p><b>Mantenimiento de los elementos de carpinter&iacute;a tradicional y met&aacute;lica.</b></p>
+<ol>
+  <li>Presentaci&oacute;n del m&oacute;dulo, herramientas, m&aacute;quinas a utilizar y 
+  nociones te&oacute;ricas b&aacute;sicas <i>(10 horas)</i>.</li>
+  <li>Realizar trabajos de corte, cepillado, lijado, tratamientos en madera pintado <i>(25 horas)</i>.</li>
+  <li>Montaje y reparaci&oacute;n de herrajes; cerraduras, bisagras, tiradores, fechillos,
+   etc. en madera <i>(20 horas)</i>.</li>
+   <li>Realizaci&oacute;n de trabajos reales en madera, pequeños armarios, 
+   estanter&iacute;as, etc. <i>(25 horas)</i>.</li>
+   <li>Realizar trabajos b&aacute;sicos de cerrajer&iacute;a; cortes, soldadura, 
+   y repasado de las soldaduras <i>(20 horas)</i>.</li>
+   <li>Realizaci&oacute;n de trabajos reales en cerrajer&iacute;a met&aacute,lica. <i>(20 horas)</i></li>
+</ol>
+
+<hr>
+<h3><a href="<? echoPagina('departamentos.pgs.fotos.albanileriaypintura'); ?>">
+Alba&#241;iler&iacute;a y pintura</a>
+<a href="<? echoPagina('departamentos.pgs.fotos.albanileriaypintura'); ?>"><img border=0 src='rec/ico/camera.jpg'></a>
+</h3>
+<p><b>T&eacute;cnicas b&aacute;sicas de alba&#241;iler&iacute;a.</b></p>
+<ol>
+  <li>Presentaci&oacute;n del m&oacute;dulo, herramientas, m&aacute;quinas a utilizar y 
+  nociones te&oacute;ricas b&aacute;sicas <i>(2 horas)</i>.</li>
+  <li>Materiales utilizados en alba&#241;iler&iacute;a y su correcta utilizaci&oacute;n. 
+  <i>(8 horas)</i></li>
+  <li>Alba&#241;iler&iacute;a exterior. Enfoscado, realizaci&oacute;n de peque&#241;os 
+  tabiques y peque&#241;as reparaciones.<i>(40 horas)</i></li>
+  <li>Alba&#241;iler&iacute;a interior. Enfoscado con distintos materiales, alicatado y 
+  peque&#241;as reparaciones.<i>(40 horas)</i></li>
+  <li>Pintado en diferentes materiales, caracter&iacute;sticas, t&eacute;cnicas y 
+  reparaciones de pintura. <i>(40 horas)</i></li>
+</ol>
+
+<hr>
+<h3><a href="<? echoPagina('departamentos.pgs.fotos.fontaneria'); ?>">
+Fontaner&iacute;a</a>
+<a href="<? echoPagina('departamentos.pgs.fotos.fontaneria'); ?>"><img border=0 src='rec/ico/camera.jpg'></a>
+</h3>
+<p><b>T&eacute;cnicas b&aacute;sicas de fontaner&iacute;a.</b></p>
+<ol>
+  <li>Presentaci&oacute;n del m&oacute;dulo, herramientas, m&aacute;quinas a utilizar y 
+  nociones te&oacute;ricas b&aacute;sicas <i>(5 horas)</i>.</li>
+  <li>Tuber&iacute;as de agua, sus tipos y aplicaciones, accesorios y montaje.
+  <i>( 30 horas)</i></li>
+  <li>Grifer&iacute;as y sanitarios; sus caracter&iacute;sticas, montaje y reparaci&oacute;n.
+  <i>(35 horas)</i></li>
+  <li>Montaje de la instalaci&oacute;n real de fontaner&iacute;a de un edificio, 
+  tuber&iacute;as, desagües, sanitarios y grifer&iacute;as. <i>(25 horas)</i></li>
+</ol>
+
+<hr>
+<h3><a href="<? echoPagina('departamentos.pgs.fotos.teorica'); ?>">
+Clases Te&oacute;ricas</a>
+<a href="<? echoPagina('departamentos.pgs.fotos.teorica'); ?>"><img border=0 src='rec/ico/camera.jpg'></a></h3>
+<p><b>T&eacute;cnicas b&aacute;sicas de fontaner&iacute;a.</b></p>
+<ul>
+  <li>Introducci&oacute;n te&oacute;rica antes de empezar las pr&aacute;cticas.</li>
+  <li>Complemento imprescindible para conocer y posteriormente trabajar cada m&oacute;dulo.</li>
+  <li>Al final del Programa ser&aacute;n t&eacute;cnicos, por lo que es imprescindible conocer la t&eacute;cnica.</li>
+</ul>

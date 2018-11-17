@@ -1,0 +1,35 @@
+
+<br>
+<center><h1><? echo $descripcion; ?></h1></center>
+
+
+<p>Propuesta de secuanciaci&oacute;n de unidades dentro de la programaci&oacute;n de
+DIR por David Vargas Ruiz:</p>
+<ol>
+  <li><a href="<? echoPagina('dir.cui.index');?>">CUI: Interfaz de usuario en modo consola.</a>
+  Recordar el lenguaje de programaci&oacute;n C/C++, 
+  familiarizarse con el entorno de desarrollo elegido, aprender a realizar b&uacute;squedas
+  en la la documentaci&oacute;n proporcionada.</li>
+  <li><a href="<? echoPagina('dir.gui.index');?>">GUI</a>: 
+  Interfaz Gr&aacute;fica de usuario.</li> 
+  <li><a href="<? echoPagina('dir.ve.index');?>">VE</a>: 
+  Editor visual. </li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas</a>: 
+  Cajas de di&aacute;logo.</li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas</a>: 
+  Cajas de di&aacute;logo.</li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas</a>: 
+  Cajas de di&aacute;logo.</li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas</a>: 
+  Cajas de di&aacute;logo.</li>
+  <li><a href="<? echoPagina('dir.cajas.index');?>">Cajas</a>: 
+  Cajas de di&aacute;logo.</li>
+</ol>
+
+<hr>
+
+   
+<i>NOTA: En el caso de que fuera necesario corregir alguno de los datos de esta p&aacute;gina, 
+por favor, p&oacute;nganse en contacto con 
+<a href="<? echoPagina('piedepagina.contacto','webmaster');?>">webmaster</a> o con 
+<a href="<? echoPagina('piedepagina.contacto','direccion');?>">Jefatura</a>.</i>

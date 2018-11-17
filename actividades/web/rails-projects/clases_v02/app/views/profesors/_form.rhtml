@@ -1,0 +1,33 @@
+
+<%= error_messages_for 'profesor' %>
+
+<!--[form:profesor]-->
+<p><label for="profesor_nombre">Nombre</label><br/>
+<%= text_field 'profesor', 'nombre'  %></p>
+
+<p><label for="profesor_apellidos">Apellidos</label><br/>
+<%= text_field 'profesor', 'apellidos'  %></p>
+
+<p><label for="profesor_dni">Dni</label><br/>
+<%= text_field 'profesor', 'dni'  %></p>
+
+<p><label for="profesor_email">Email</label><br/>
+<%= text_field 'profesor', 'email'  %></p>
+
+<p><label for="profesor_telefono_sms">Telefono sms</label><br/>
+<%= text_field 'profesor', 'telefono_sms'  %></p>
+
+<p><label for="profesor_telefono_otro">Telefono otro</label><br/>
+<%= text_field 'profesor', 'telefono_otro'  %></p>
+
+<p><label for="profesor_activo">Activo</label><br/>
+<select id="profesor_activo" name="profesor[activo]"><option value="false">False</option><option value="true">True</option></select></p>
+
+<p><label for="profesor_usuario">Usuario</label><br/>
+<%= text_field 'profesor', 'usuario'  %></p>
+
+<p><label for="profesor_clave">Clave</label><br/>
+<%= text_field 'profesor', 'clave'  %></p>
+<!--[eoform:profesor]-->
+
+

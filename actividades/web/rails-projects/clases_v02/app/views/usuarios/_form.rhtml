@@ -1,0 +1,16 @@
+<%= error_messages_for 'usuario' %>
+
+<!--[form:usuario]-->
+<p><label for="usuario_nombre">Nombre</label><br/>
+<%= text_field 'usuario', 'nombre'  %></p>
+
+<p><label for="usuario_clave">Clave</label><br/>
+<%= text_field 'usuario', 'clave'  %></p>
+
+<p><label for="usuario_activo">Activo</label><br/>
+<select id="usuario_activo" name="usuario[activo]"><option value="false">False</option><option value="true">True</option></select></p>
+
+<p><label for="usuario_admin">Admin</label><br/>
+<select id="usuario_admin" name="usuario[admin]"><option value="false">False</option><option value="true">True</option></select></p>
+<!--[eoform:usuario]-->
+

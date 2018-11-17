@@ -1,0 +1,39 @@
+<h1>Editar profesor "<%= @profesor.nombre%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@profesor) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="departamento_id">Departamento</label></td><td><%= collection_select 'profesor', :departamento_id, @departamentos, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="dni">DNI</label></td><td><%= text_field 'profesor', 'dni' %></td>
+    </tr>
+    <tr>
+      <td><label for="apellidos">Apellidos</label></td><td><%= text_field 'profesor', 'apellidos' %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'profesor', 'nombre' %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_fijo">Teléfono fijo</label></td><td><%= text_field 'profesor', 'tlf_fijo' %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_movil">Teléfono móvil</label></td><td><%= text_field 'profesor', 'tlf_movil' %></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email</label></td><td><%= text_field 'profesor', 'email' %></td>
+    </tr>
+    <tr>
+      <td><label for="activo">Activo</label></td><td><%= check_box 'profesor', 'activo' %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Modificar" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

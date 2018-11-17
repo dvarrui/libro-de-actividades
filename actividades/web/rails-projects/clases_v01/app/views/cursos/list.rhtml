@@ -1,0 +1,31 @@
+<h1>Listado de cursos</h1>
+
+<table>
+  <tr>
+  <% for column in Curso.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for curso in @cursos %>
+  <tr>
+  <% for column in Curso.content_columns %>
+    <td>
+      <div class='campo'>
+      <%=h curso.send(column.name) %>
+      </div>
+    </td>
+  <% end %>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => curso %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => curso %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => curso }, :confirm => '¿Estás seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @curso_pages.current.previous } if @curso_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @curso_pages.current.next } if @curso_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nuevo curso', :action => 'new' %>

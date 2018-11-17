@@ -1,0 +1,63 @@
+
+<h2>Listado de alumnos</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='action'>
+<% form_for :filtro, :url => { :action=>:listar } do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  <td>Nº Exp.</td><td>Nombre</td><td>Apellidos</td>
+</tr>
+<tr>
+<%
+  begin
+      n=params[:filtro][:nombre]
+      a=params[:filtro][:apellidos]
+      e=params[:filtro][:numexp].to_i
+    rescue => exc
+      n=''
+      a=''
+      e=0
+    end
+%>
+  <td><%= f.text_field :numexp, :size=>5, :value=>e %></td>
+  <td><%= f.text_field :nombre, :size=>10, :value=>n %></td>
+  <td><%= f.text_field :apellidos,:size=>30, :value=>a %></td>
+  <td><%= f.submit "Buscar" %></td>
+</tr>
+</table>
+<% end %>
+</div>
+
+<br>
+
+<div id='data'>
+
+<table>
+  <tr>
+    <th>Numexp</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+  </tr>
+
+<% for alumno in @alumnos %>
+  <tr>
+    <td><%=h alumno.numexp %></td>
+    <td><%=h alumno.nombre %></td>
+    <td><%=h alumno.apellidos %></td>
+    <td>
+    <%= link_to image_tag('icons/show.png',:border=>0), alumno %>
+    | <%= link_to image_tag('icons/edit.png',:border=>0), edit_alumno_path(alumno) %>
+    <% if (alumno.can_be_deleted?) %>
+    | <%= link_to image_tag('icons/delete.png',:border=>0), alumno, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+</div>

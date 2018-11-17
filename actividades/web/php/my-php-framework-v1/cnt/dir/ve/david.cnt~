@@ -1,0 +1,8 @@
+<h1><? echo $descripcion;?></h1>
+
+
+Página de informática de prueba<br>
+
+Probando probando
+
+<a href="<? echoPagina('informatica.fotos');?>">Ver las fotos</a>

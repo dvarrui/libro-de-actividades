@@ -1,0 +1,16 @@
+
+<h1><? echo $descripcion; ?></h1>
+<hr>
+<?
+  //Generador por <album-web.rb> versión 20070502
+  //Autor: David Vargas <dvargas@canarias.org>
+  $dir="departamentos/pgs/carpinteria/";
+  $imagenes[0]=$dir."imagen_00.jpg";
+  $imagenes[1]=$dir."imagen_01.jpg";
+  $imagenes[2]=$dir."imagen_02.jpg";
+?>
+
+<?
+  include("rec/php/imagenes.php");
+  echoAlbumDeFotos($imagenes);
+?>

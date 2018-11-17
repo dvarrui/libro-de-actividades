@@ -1,0 +1,74 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<center><h2>P.G.S. Mantenimiento de edificios</h2></center>
+
+<center><img border=1 alt="logo pgs" src="<? echoRecurso('departamentos/pgs/logo.jpg'); ?>"</center>
+
+<h2>Contenidos del ciclo</h2>
+
+<table border="1" cellpadding="0" cellspacing="0" bordercolor="#111111" width="100%" id="AutoNumber1">
+<tr class="textoTituloMenu">
+<td width="17%" align="center" bgcolor="#000000"><b>&Aacute;reas</b></td>
+<td width="48%" align="center" bgcolor="#000000"><b>M&oacute;dulos</b></td>
+<td width="15%" align="center" bgcolor="#000000"><b>Horas Semanales</b></td>
+<td width="30%" align="center" bgcolor="#000000"><b>Nº Total de Horas</b></td>
+</tr>
+<tr>
+
+<td rowspan="3"><a href="<? echoPagina('departamentos.pgs.modulos.fbasica'); ?>">Formaci&oacute;n B&aacute;sica</a></td>
+<td>Sociales y Naturales</a></td>
+<td rowspan="3" align="center">9</td>
+<td align="center">80</td>
+</tr>
+<tr><td>Lengua</td><td align="center">100</td></tr>
+<tr><td>Matem&aacute;ticas</td>
+<td align="center">100</td></tr>
+
+<tr>
+<td rowspan="5"><a href="<? echoPagina('departamentos.pgs.modulos.fespecifica'); ?>">Formaci&oacute;n Espec&iacute;fica</a></td>
+<td>Electricidad</td>
+<td rowspan="5" align="center">17</td>
+<td align="center">120</td>
+</tr>
+<tr><td>Carpinter&iacute;a (Madera y met&aacute;lica)</td><td align="center">120</td></tr>
+<tr><td>Alba&#241;iler&iacute;a y pintura</td><td align="center">130</td></tr>
+<tr><td>Fontaner&iacute;a</td><td align="center">95</td></tr>
+<tr><td>Clases te&oacute;ricas</td><td aling="center">&nbsp;</td></tr>
+
+<tr>
+<td rowspan="4"><a href="<? echoPagina('departamentos.pgs.modulos.fol'); ?>">Formaci&oacute;n y Orientaci&oacute;n Laboral</a></td>
+<td>Seguridad Laboral</td>
+<td rowspan="4" align="center">2</td>
+<td align="center">17</td>
+</tr>
+<tr><td>B&uacute;squeda de Empleo</td><td align="center">15</td></tr>
+<tr><td>Derecho Laboral</td><td align="center">15</td></tr>
+<tr><td>Relaciones Interpersonales</td><td align="center">15</td></tr>
+
+<tr>
+<td ><a href="<? echoPagina('departamentos.pgs.modulos.tutoria'); ?>">Tutor&iacute;a</a></td>
+<td>Enlace a fotos Deporte, convivencia, asaderos, promociones y orlas</td>
+<td align="center">2</td>
+<td align="center">&nbsp;</td>
+</tr>
+
+<tr>
+<td >Pr&aacute;cticas en Empresas F.C.T.</td>
+<td>Opcionales y voluntarias dependiendo del quipo educativo y del alumno. 
+<a href="http://www.gobiernodecanarias.org/educacion/3/WebFP/Html/ieMenu.html">Enlace Lista Empresas Web consejer&iacute;a</a></td>
+<td align="center">&nbsp;</td>
+<td align="center">120-160</td>
+</tr>
+</table>
+
+<br>
+<center>
+Perfil del <a border=0 href="http://www.gobiernodecanarias.org/educacion/3/WebFP/Scripts/OeCurricularPGS.asp?Origen=3&Curso=2007&Isla=7&TxtIsla=TENERIFE&Municipio=38001&txtMunicipio=Santa%20Cruz%20de%20Tenerife&Pincel1=PGS&TxtPincel1=P.G.S.%20Iniciaci%F3n%20Profesional&Pincel2=30&TxtPincel2=Mantenimiento%20y%20Servicios%20a%20la%20Producci%F3n&Pincel3=03&TxtPincel3=Operario%20de%20Mantenimiento%20B%E1sico%20de%20Edificios&Centro=0&TxtCentro=&fse=0">
+Operario de Mantenimiento B&aacute;sico de Edificios</a><br>
+<a border=0 href="http://www.gobiernodecanarias.org/educacion/3/WebFP/Scripts/OeCurricularPGS.asp?Origen=3&Curso=2007&Isla=7&TxtIsla=TENERIFE&Municipio=38001&txtMunicipio=Santa%20Cruz%20de%20Tenerife&Pincel1=PGS&TxtPincel1=P.G.S.%20Iniciaci%F3n%20Profesional&Pincel2=30&TxtPincel2=Mantenimiento%20y%20Servicios%20a%20la%20Producci%F3n&Pincel3=03&TxtPincel3=Operario%20de%20Mantenimiento%20B%E1sico%20de%20Edificios&Centro=0&TxtCentro=&fse=0">
+<img border=1 alt="portada tríptico pgs" src="<? echoRecurso('departamentos/pgs/portada_triptico.jpg'); ?>"</center>
+</a>
+<br>

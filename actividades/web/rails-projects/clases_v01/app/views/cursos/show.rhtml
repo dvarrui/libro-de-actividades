@@ -1,0 +1,8 @@
+<% for column in Curso.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @curso.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', :action => 'edit', :id => @curso %> |
+<%= link_to 'Volver', :action => 'list' %>

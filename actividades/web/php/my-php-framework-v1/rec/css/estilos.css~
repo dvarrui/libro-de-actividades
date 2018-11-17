@@ -1,0 +1,200 @@
+
+/* CSS Document */
+
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    background-color: #FFFFFF;
+  }
+
+
+.tablaMenu {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+  }
+
+
+.tablaCuerpo {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+  }
+
+
+.textoTituloMenu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    background-color: #51D5C9;
+  }
+
+.enlaceMenu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #000000;
+  }
+
+.textoNavegacion {
+    color : #000000;
+    font-family : ae_Nice, Arial, Helvetica, 'sans-serif';
+    font-size : small;
+  }
+
+.textoTituloCuerpo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color: #000000;
+    font-weight: bold;
+  }
+
+.cabecera {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    color: #000000;
+    font-weight: bold;
+
+	 margin-left: 10px; 
+	 margin-right: 10px;
+	 margin-top: 10px;
+	 margin-bottom: 10px;
+	 padding: 10px; 
+    /*padding-right: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;*/
+	 background-color: #C8E3E1; 
+	 /*border-bottom: 1px solid; 
+	 border-top: 1px solid;*/
+}
+
+.navegacion1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #000000;
+    text-align: left;
+
+	 margin-left: 10px; 
+	 margin-right: 10px;
+	 margin-top: 10px;
+	 margin-bottom: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+	 background-color: #51D5C9; 
+	 /*border-bottom: 1px solid; 
+	 border-top: 1px solid;*/
+}
+
+
+.menu_izquierdo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+	 color: #000000;
+
+    background-color: #ffffff;
+    border-right: 1px dashed;
+	 margin-left: 10px; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+  }
+
+.menu_derecho {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+	 color: #000000;
+
+    background-color: #C8E3E1;
+    /*border: 1px solid #000000;*/
+	 margin-right: 10px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+  }
+
+.contenido {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #000000;
+
+	 background-color: #ffffff; 
+	 /*border-left: 1px dashed;*/ 
+	 /*border-right: 1px dashed;*/
+	 margin-left: 10px; 
+	 margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.programaC {
+	 background-color: #9AFF9A; 
+	 border-bottom: 1px dashed; 
+	 border-top: 1px dashed;
+	 margin-left: 20px; 
+	 margin-right: 20px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.programaBash {
+	 background-color: #E5E5E5; 
+	 border-bottom: 1px dashed; 
+	 border-top: 1px dashed;
+	 margin-left: 20px; 
+	 margin-right: 20px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.programaJava {
+	 background-color: #E6E6FA; 
+	 border-bottom: 1px dashed; 
+	 border-top: 1px dashed;
+	 margin-left: 20px; 
+	 margin-right: 20px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.programaRuby {
+	 background-color: #FFC0CB; 
+	 border-bottom: 1px dashed; 
+	 border-top: 1px dashed;
+	 margin-left: 20px; 
+	 margin-right: 20px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.programaOtros {
+	 background-color: #FDFD77; 
+	 border-bottom: 1px dashed; 
+	 border-top: 1px dashed;
+	 margin-left: 20px; 
+	 margin-right: 20px;
+    padding-left: 10px; 
+    padding-right: 10px;
+}
+
+.piedepagina {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: #000000;
+
+	 background-color: #51D5C9; 
+	 /*border-bottom: 1px solid; 
+	 border-top: 1px solid;*/
+	 margin-left: 10px; 
+	 margin-right: 10px;
+	 margin-top: 10px;
+	 margin-bottom: 10px;
+    padding-left: 10px; 
+    padding-right: 10px;
+  }
+

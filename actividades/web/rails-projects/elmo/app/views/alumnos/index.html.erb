@@ -1,0 +1,54 @@
+
+<h2>Listado de alumnos</h2>
+
+<%= render :partial => 'nav_int' %>
+
+
+<div id='info'>
+
+<% form_for :filtro, :url => { :action=>:index } do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  <td>Nº Exp.</td><td>Nombre</td><td>Apellidos</td>
+</tr>
+<tr>
+  <td><%= f.text_field :numexp, :size=>5 %></td><td><%= f.text_field :nombre, :size=>10 %></td><td><%= f.text_field :apellidos,:size=>30 %></td><td>
+</tr>
+<tr>
+  <td></td><td></td><td><%= f.submit "Buscar" %></td>
+</tr>
+</table>
+<% end %>
+</div>
+
+<br>
+
+<div id='dat'>
+
+<table>
+  <tr>
+    <th>Numexp</th>
+    <th>Nombre</th>
+    <th>Apellidos</th>
+  </tr>
+
+<% for alumno in @alumnos %>
+  <tr>
+    <td><%=h alumno.numexp %></td>
+    <td><%=h alumno.nombre %></td>
+    <td><%=h alumno.apellidos %></td>
+    <td>
+    <%= link_to 'Mostrar', alumno %>
+    | <%= link_to 'Editar', edit_alumno_path(alumno) %>
+    <% if (alumno.can_be_deleted?) %>
+    | <%= link_to 'Borrar', alumno, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+</div>

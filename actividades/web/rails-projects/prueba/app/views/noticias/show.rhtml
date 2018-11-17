@@ -1,0 +1,11 @@
+<% for column in Noticia.content_columns %>
+
+<p>Esta es la noticia id=<%= @noticia.id %></p>
+
+<p>
+  <b><%= column.human_name %>:</b> <%=h @noticia.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @noticia %> |
+<%= link_to 'Volver', :action => 'list' %>

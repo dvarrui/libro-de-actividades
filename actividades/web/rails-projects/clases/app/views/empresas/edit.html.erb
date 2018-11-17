@@ -1,0 +1,84 @@
+<h1>Editar la empresa "<%= @empresa.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@empresa) do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><label for="centro_id">Centro</label></td><td><%= collection_select 'empresa', :centro_id, @centros, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="codigo">Código</label></td><td><%= text_field 'empresa', 'codigo' %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'empresa', 'nombre' %></td>
+    </tr>
+    <tr>
+      <td><label for="cif">CIF</label></td><td><%= text_field 'empresa', 'cif' %></td>
+    </tr>
+    <tr>
+      <td><label for="municipio_id">Municipio</label></td><td><%= collection_select 'empresa', :municipio_id, @municipios, :id, :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="localidad">Localidad</label></td><td><%= text_field 'empresa', 'localidad' %></td>
+    </tr>
+    <tr>
+      <td><label for="domicilio">Domicilio</label></td><td><%= text_field 'empresa', 'domicilio' %></td>
+    </tr>
+    <tr>
+      <td><label for="cod_postal">Código Postal</label></td><td><%= text_field 'empresa', 'cod_postal' %></td>
+    </tr>
+    <tr>
+      <td><label for="latitud">Latitud</label></td><td><%= text_field 'empresa', 'latitud' %></td>
+    </tr>
+    <tr>
+      <td><label for="longitud">Longitud</label></td><td><%= text_field 'empresa', 'longitud' %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_fijo">Teléfono fijo</label></td><td><%= text_field 'empresa', 'tlf_fijo' %></td>
+    </tr>
+    <tr>
+      <td><label for="tlf_movil">Teléfono móvil</label></td><td><%= text_field 'empresa', 'tlf_movil' %></td>
+    </tr>
+    <tr>
+      <td><label for="fax">Fax</label></td><td><%= text_field 'empresa', 'fax' %></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email</label></td><td><%= text_field 'empresa', 'email' %></td>
+    </tr>
+    <tr>
+      <td><label for="nif_representante">NIF Representante</label></td><td><%= text_field 'empresa', 'nif_representante' %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre_representante">Nombre Representante</label></td><td><%= text_field 'empresa', 'nombre_representante' %></td>
+    </tr>
+    <tr>
+      <td><label for="cargo_representante">Cargo Representante</label></td><td><%= text_field 'empresa', 'cargo_representante' %></td>
+    </tr>
+    <tr>
+      <td><label for="nif_tutor">NIF Tutor</label></td><td><%= text_field 'empresa', 'nif_tutor' %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre_tutor">Nombre Tutor</label></td><td><%= text_field 'empresa', 'nombre_tutor' %></td>
+    </tr>
+    <tr>
+      <td><label for="horario_empresa">Horario Empresa</label></td><td><%= text_field 'empresa', 'horario_empresa' %></td>
+    </tr>
+    <tr>
+      <td><label for="horario_practicas">Horario Prácticas</label></td><td><%= text_field 'empresa', 'horario_practicas' %></td>
+    </tr>
+    <tr>
+      <td><label for="observaciones">Observaciones</label></td><td><%= text_area 'empresa', 'observaciones' %></td>
+    </tr>
+    <tr>
+      <td><label for="activo">Activo</label></td><td><%= check_box 'empresa', 'activo' %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

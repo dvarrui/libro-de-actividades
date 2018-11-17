@@ -1,0 +1,47 @@
+
+<h1><? echo $descripcion; ?></h1>
+<hr>
+<?
+  //Generador por <album-web.rb> versión 20070813
+  //Autor: David Vargas <dvargas@canarias.org>
+  $dir_fotos="bautizo2/fotos/";
+  $dir_diapositivas="bautizo2/diapositivas/";
+  $imagenes[0]="DSC01765.JPG";
+  $imagenes[1]="DSC01766.JPG";
+  $imagenes[2]="DSC01767.JPG";
+  $imagenes[3]="DSC01768.JPG";
+  $imagenes[4]="DSC01769.JPG";
+  $imagenes[5]="DSC01770.JPG";
+  $imagenes[6]="DSC01771.JPG";
+  $imagenes[7]="DSC01772.JPG";
+  $imagenes[8]="DSC01773.JPG";
+  $imagenes[9]="DSC01774.JPG";
+  $imagenes[10]="DSC01775.JPG";
+  $imagenes[11]="DSC01777.JPG";
+  $imagenes[12]="DSC01778.JPG";
+  $imagenes[13]="DSC01779.JPG";
+  $imagenes[14]="DSC01780.JPG";
+  $imagenes[15]="DSC01781.JPG";
+  $imagenes[16]="DSC01782.JPG";
+  $imagenes[17]="DSC01783.JPG";
+  $imagenes[18]="DSC01784.JPG";
+  $imagenes[19]="DSC01785.JPG";
+  $imagenes[20]="DSC01786.JPG";
+  $imagenes[21]="DSC01787.JPG";
+  $imagenes[22]="DSC01788.JPG";
+  $imagenes[23]="DSC01789.JPG";
+  $imagenes[24]="DSC01790.JPG";
+  $imagenes[25]="DSC01791.JPG";
+  $imagenes[26]="DSC01792.JPG";
+  $imagenes[27]="DSC01793.JPG";
+  $imagenes[28]="DSC01794.JPG";
+  $imagenes[29]="DSC01795.JPG";
+  $imagenes[30]="DSC01796.JPG";
+  $imagenes[31]="DSC01797.JPG";
+  $imagenes[32]="DSC01798.JPG";
+?>
+
+<?
+  include("rec/php/imagenes.php");
+  echoAlbumDeFotosModo2($imagenes,$dir_fotos,$dir_diapositivas);
+?>

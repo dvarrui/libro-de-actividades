@@ -1,0 +1,34 @@
+
+#menunav {
+	width: 20%;
+	float: left;
+	background: white;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	text-align: justify;
+	border-right: 1px solid black;
+}
+
+#contenido {
+	width: 50%;
+	float: left;
+	background: white;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-bottom: 1em;
+}
+
+
+#extra {
+	width: 20%;
+	float: left;
+	background: white;
+	padding-bottom: 1em;
+}
+
+#pie {
+	clear: both;
+	padding-bottom: 1em;
+	border-top: 1px solid #333;
+	text-align: center;
+}

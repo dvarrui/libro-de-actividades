@@ -1,0 +1,20 @@
+<%= error_messages_for 'horario' %>
+
+<!--[form:horario]-->
+
+<p><label for="horario_aula">Aula</label><br/>
+<%= collection_select(:horario,:aula_id,@aulas,:id,:nombre) %> </p>
+
+<p><label for="horario_modulos">Módulo</label><br/>
+<%= collection_select(:horario,:modulo_id,@modulos,:id,:codigo) %></p>
+
+<p><label for="horario_profesor">Profesor</label><br/>
+<%= collection_select(:horario,:profesor_id,@profesores,:id,:codigo) %></p>
+
+<p><label for="horario_dia">Dia</label><br/>
+<%= text_field 'horario', 'dia'  %></p>
+
+<p><label for="horario_hora">Hora</label><br/>
+<%= text_field 'horario', 'hora'  %></p>
+<!--[eoform:horario]-->
+

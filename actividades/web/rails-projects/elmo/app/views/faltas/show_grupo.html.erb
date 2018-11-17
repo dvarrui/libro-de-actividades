@@ -1,0 +1,57 @@
+<h2>Mostrar las faltas del grupo <%=@grupo.codigo %></h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='info'>
+
+<% form_for :entrada, :url => { :action => :create_grupo, :id => @grupo } do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  <td>Elegir fecha para pasar lista:</td><td><%= f.date_select :fecha %></td><td><%= f.submit "Pasar lista" %></td>
+</tr>
+</table>
+<% end %>
+
+<% form_for :entrada, :url => { :action => :destroy_grupo, :id => @grupo } do |f| %>
+  <%= f.error_messages %>
+<table>
+<tr>
+  <td>Borrar la asistencia del &uacute;ltimo d&iacute;a:</td><td></td><td><%= f.submit "Borrar" %></td>
+</tr>
+</table>
+<% end %>
+</div>
+
+<br>
+<div id='dat'>
+<table>
+<tr>
+	<th>Alumnos</th>
+	<% @fila.each do |f| %><th><%= f %></th><% end %>
+	<th>Total</th>
+</tr>
+
+<% numfila = @col.size %>
+<% p @tabla %>
+<% numcol = @fila.size %>
+<% numfila.times do |i| %>
+<tr>
+  <td><%= link_to @col[i].alumno.nombre_completo, url_for(:controller=>:matriculas,:action=>:show,:id=>@col[i]) %></td>
+  <% total_faltas=0 %>
+  <% numcol.times do |j| %>
+    <td><%= @tabla[i][j].valor %></td>
+    <% if (@tabla[i][j].valor=='F') then %>
+    <%   total_faltas=total_faltas+1  %>
+    <% end %>
+  <% end %>
+  <td><%= total_faltas %></td>
+</tr>
+<% end %>
+</table>
+</div>
+
+<br>
+<% @tabla[0].each_with_index do |f,i| %>
+<%= 'D'+(i+1).to_s+': '+f.fecha.strftime("%Y-%m-%d") %><br>
+<% end %>

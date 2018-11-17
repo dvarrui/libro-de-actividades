@@ -1,0 +1,26 @@
+<%= error_messages_for 'profesor' %>
+
+<!--[form:profesor]-->
+<p>
+  <label for="profesor_departamento">Departamento</label><br/>
+  <select id="departamento" name="departamento" style="width:250px;">
+  <%= options_from_collection_for_select(@all_departamentos, :id, :nombre, @selected) %>
+  </select>
+</p>
+
+<p><label for="profesor_nombre">Nombre</label><br/>
+<%= text_field 'profesor', 'nombre'  %></p>
+
+<p><label for="profesor_apellidos">Apellidos</label><br/>
+<%= text_field 'profesor', 'apellidos'  %></p>
+
+<p><label for="profesor_dni">Dni</label><br/>
+<%= text_field 'profesor', 'dni'  %></p>
+
+<p><label for="profesor_correo">Correo</label><br/>
+<%= text_field 'profesor', 'correo'  %></p>
+
+<p><label for="profesor_telefono">Teléfono</label><br/>
+<%= text_field 'profesor', 'telefono'  %></p>
+<!--[eoform:profesor]-->
+

@@ -1,0 +1,30 @@
+<h2>Listado de matr&iacute;culas</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+  <tr>
+    <th>Grupo</th>
+    <th>Alumno</th>
+    <th>Tutor</th>
+    <th>Baja</th>
+  </tr>
+
+<% for matricula in @matriculas %>
+  <tr>
+    <td><%=h matricula.grupo.codigo %></td>
+    <td><%=h matricula.alumno.apellidos+", "+matricula.alumno.nombre %></td>
+    <td><%=h matricula.tutor.nombre %></td>
+    <td>
+    <% if matricula.baja %>
+    <%=h matricula.fecha_baja %>
+    <% end %>
+    </td>
+    <td><%= link_to 'Mostrar', matricula %></td>
+    <td><%= link_to 'Editar', edit_matricula_path(matricula) %></td>
+    <td><%= link_to 'Borrar', matricula, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

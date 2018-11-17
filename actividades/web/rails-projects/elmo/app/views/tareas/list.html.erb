@@ -1,0 +1,24 @@
+<h2>Listado de tareas</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'> 
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Nombre</th>
+    <th>Peso</th>
+  </tr>
+
+<% for tarea in @tareas %>
+  <tr>
+    <td><%=h tarea.codigo %></td>
+    <td><%=h tarea.nombre %></td>
+    <td><%=h tarea.peso.nombre %></td>
+    <td><%= link_to 'Mostrar', tarea %></td>
+    <td><%= link_to 'Editar', edit_tarea_path(tarea) %></td>
+    <td><%= link_to 'Borrar', tarea, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

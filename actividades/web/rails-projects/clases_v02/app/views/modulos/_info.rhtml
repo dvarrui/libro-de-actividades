@@ -1,0 +1,19 @@
+
+<h2>Información extra</h2>
+
+<b>Profesor asignado:</b><br/>
+<ul>
+  <li><%= link_to @modulo.profesor.codigo, :controller => 'profesors', :action => 'show', :id => @modulo.profesor.id %></li>
+</ul>
+
+<b>Unidades didácticas:</b><br/>
+<ul>
+  <% for unidad in @modulo.unidads %>
+  <li>UD<%= unidad.numero%> <%= unidad.nombre%></li>
+  <% end %>
+</ul>
+
+<b>Aulas asignadas:</b><br/>
+<ul>
+  <li>...</li>
+</ul>

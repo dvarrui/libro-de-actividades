@@ -1,0 +1,28 @@
+<h2>Mostrar tutor</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @tutor.nombre %></td>
+</tr>
+
+<tr>
+  <td><b>Apellidos:</b></td><td><%=h @tutor.apellidos %></td>
+</tr>
+
+<tr>
+  <td><b>Email:</b></td><td><%=h @tutor.email %></td>
+</tr>
+
+<tr>
+  <td><b>Especialidad:</b></td><td><%=h @tutor.especialidad %></td>
+</tr>
+
+<tr>
+  <td><b>Baja:</b></td><td><%=h @tutor.baja %></td>
+</tr>
+</table>
+
+</div>

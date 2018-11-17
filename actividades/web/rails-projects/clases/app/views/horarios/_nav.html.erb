@@ -1,0 +1,32 @@
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% 
+  p = @nav
+  if p.class==Array then
+    p = p[1]
+  end 
+%>
+
+<%  if (p==:horarios) then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to "Cursos", url_for(:controller => 'cursos') %>
+ > <%= link_to "Programaciones", url_for(:controller => 'programaciones') %>
+ > Horarios
+
+<% elsif (p.class==Programacion) then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.curso.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.curso.centro.id) %>
+ > <%= link_to p.curso.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.curso.id) %>
+ > <%= link_to p.codigo, url_for(:controller => 'programaciones', :action => 'show', :id => p.id) %>
+ > Horarios
+
+<% elsif (p.class==Curso) then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.centro.id) %>
+ > <%= link_to p.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.id) %>
+ > Horarios
+<% end %>
+
+</div>

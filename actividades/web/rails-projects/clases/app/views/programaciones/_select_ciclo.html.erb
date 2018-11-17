@@ -1,0 +1,16 @@
+
+<p>
+
+<% form_remote_tag :url => {:action => 'show_form'},
+	:update => 'form' do %>
+Ciclo:
+<%= collection_select 'modulo', :ciclo_id, @ciclos, :id, :codigo %>
+<%= submit_tag 'Elegir' %>
+<% end %>
+</p>
+
+<br/>
+<hr/>
+
+<div id="form">
+</div>

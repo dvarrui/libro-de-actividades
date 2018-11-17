@@ -1,0 +1,23 @@
+<h2>Mostrar tarea</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Unidad:</b></td><td><%=h @tarea.unidad.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Peso:</b></td><td><%=h @tarea.peso.nombre %></td>
+</tr>
+
+<tr>
+  <td><b>C&oacute;digo:</b></td><td><%=h @tarea.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @tarea.nombre %></td>
+</tr>
+</table>
+</div>

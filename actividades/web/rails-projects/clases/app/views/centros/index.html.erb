@@ -1,0 +1,25 @@
+<h1>Listado de los Centros</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Municipio</th>
+    <th>Nombre</th>
+    <th>Teléfono fijo</th>
+  </tr>
+
+<% for centro in @centros %>
+  <tr>
+    <td><%=h centro.municipio.nombre %></td>
+    <td><%=h centro.nombre %></td>
+    <td><%=h centro.tlf_fijo %></td>
+    
+    <td><%= link_to 'Mostrar', centro %></td>
+    <td><%= link_to 'Editar', edit_centro_path(centro) %></td>
+    <td><%= link_to 'Borrar', centro, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

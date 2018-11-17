@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  fin_trim1: false
+  fin_trim2: false
+  fin_trim3: false
+
+two:
+  codigo: MyString
+  fin_trim1: false
+  fin_trim2: false
+  fin_trim3: false

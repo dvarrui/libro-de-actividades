@@ -1,0 +1,31 @@
+<h2>Listado de asignaturas</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+	<tr>
+    	<th>C&oacute;digo</th>
+    	<th>Nombre</th>
+  	</tr>
+
+<% for asignatura in @asignaturas %>
+  <tr>
+    <td><%=h asignatura.codigo %></td>
+    <td><%=h asignatura.nombre %></td>
+    <td>
+    <%= link_to 'Mostrar', asignatura %>
+    | <%= link_to 'Editar', edit_asignatura_path(asignatura) %>
+    <% if asignatura.can_be_deleted? %>
+    | <%= link_to 'Borrar', asignatura, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+    <% end %>
+    </td>
+    <td>
+    | <%= link_to 'Unidades('+asignatura.unidades.size.to_s+')', url_for(:controller=>'unidades',:action=>'list',:id=>asignatura) %>
+    | <%= link_to 'Pesos('+asignatura.pesos.size.to_s+')', url_for(:controller=>'pesos',:action=>'list',:id=>asignatura) %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+</div>

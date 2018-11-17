@@ -1,0 +1,27 @@
+<h2>Editar asignatura</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@asignatura) do |f| %>
+  <%= f.error_messages %>
+<table>
+	<tr>
+   	<td><label for="curso_id">Curso</label></td><td><%= collection_select 'asignatura', :curso_id, @cursos, :id, :codigo %></td>
+	</tr>
+
+  <tr>
+    <td><%= f.label :codigo %></td><td><%= f.text_field :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Modificar" %></td>
+  </tr>
+</table>
+<% end %>
+</div>
+
+<%= render :partial=>'unidades' %>
+<%= render :partial=>'pesos' %>

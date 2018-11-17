@@ -1,0 +1,23 @@
+
+<center>
+<h1><? echo $descripcion; ?></h1>
+</center>
+<hr>
+
+<div align="center">
+<? include('rec/php/frases-celebres.php');
+	echoFraseCelebre();
+?>
+</div>
+<hr>
+<center><i>David Vargas<br>
+dvargas@canarias.org</i></center>
+
+<p>P&aacute;gina principal del proyecto</p>
+
+
+<ul>
+  <li><a href="<? echoPagina('dir.index');?>">DIR: Programaci&oacute;n en 
+  entornos gr&aacute;ficos.</a></li>
+  <li><a href="<? echoPagina('sit.index');?>">SIT: Sistemas Operativos.</a></li>
+</ul>

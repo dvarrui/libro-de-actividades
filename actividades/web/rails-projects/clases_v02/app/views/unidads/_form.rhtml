@@ -1,0 +1,17 @@
+<%= error_messages_for 'unidad' %>
+
+<!--[form:unidad]-->
+
+<p><label for="unidad_modulo">Módulo</label><br/>
+<%= collection_select(:unidad,:modulo_id,@modulos,:id,:codigo) %></p>
+
+<p><label for="unidad_numero">Número</label><br/>
+<%= text_field 'unidad', 'numero'  %></p>
+
+<p><label for="unidad_nombre">Nombre</label><br/>
+<%= text_field 'unidad', 'nombre'  %></p>
+
+<p><label for="unidad_fecha_ini">Fecha ini</label><br/>
+<%= date_select 'unidad', 'fecha_ini'  %></p>
+<!--[eoform:unidad]-->
+

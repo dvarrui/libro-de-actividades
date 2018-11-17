@@ -1,0 +1,29 @@
+<h1>Listing ciclos</h1>
+
+<table>
+  <tr>
+  <% for column in Ciclo.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+    <th>Curso</th>
+  </tr>
+  
+<% for ciclo in @ciclos %>
+  <tr>
+  <% for column in Ciclo.content_columns %>
+    <td><%=h ciclo.send(column.name) %></td>
+  <% end %>
+    <td><%= ciclo.curso.nombre %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => ciclo %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => ciclo %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => ciclo }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @ciclo_pages.current.previous } if @ciclo_pages.current.previous %>
+<%= link_to 'Next page', { :page => @ciclo_pages.current.next } if @ciclo_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New ciclo', :action => 'new' %>

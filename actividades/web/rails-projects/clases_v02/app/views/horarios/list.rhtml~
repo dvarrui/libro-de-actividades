@@ -1,0 +1,34 @@
+<h1>Listing horarios</h1>
+
+<table>
+  <tr>
+    <th>Aula</th>
+    <th>Módulo</th>
+    <th>Profesor</th>
+  <% for column in Horario.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for horario in @horarios %>
+  <tr>
+    <td><%= horario.aula.codigo %> </td>
+    <td><%= horario.modulo.codigo %> </td>
+    <td><%= horario.profesor.codigo %> </td>
+
+  <% for column in Horario.content_columns %>
+    <td><%=h horario.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => horario %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => horario %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => horario }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @horario_pages.current.previous } if @horario_pages.current.previous %>
+<%= link_to 'Next page', { :page => @horario_pages.current.next } if @horario_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New horario', :action => 'new' %>

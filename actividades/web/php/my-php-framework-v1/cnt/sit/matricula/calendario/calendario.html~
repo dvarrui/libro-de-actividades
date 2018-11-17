@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>IES C&eacute;sar Manrique</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <link href="../../css/estilos.css" rel="stylesheet" type="text/css"><script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+</head>
+
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+
+  <tbody>
+
+    <tr>
+
+      <td align="center" height="120" valign="bottom">
+      <table class="tablaMenu" align="center" border="0" cellpadding="0" cellspacing="0" height="110" width="90%">
+
+        <tbody>
+
+          <tr>
+
+            <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="419"><img src="../../imagenes/cabecera/cabecera_01.jpg" width="419" height="110"></td>
+                <td>&nbsp;</td>
+                <td width="289"><img src="../../imagenes/cabecera/cabecera_03_02.jpg" width="289" height="110"></td>
+              </tr>
+            </table></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="center" height="20">
+      <table border="0" cellpadding="0" cellspacing="0" width="90%">
+
+        <tbody>
+
+          <tr>
+
+            <td class="textoNavegacion" align="left">::
+
+<a href="../../index.html">Principal</a> > <a href="../index.html">Secretar&iacute;a</a> > Matr&iacute;cula
+            </td>
+
+<td class="textoNavegacion" align="right"> <a href="../../padres/index.html">Padres</a> | <a href="../../alumnos/index.html">Alumn@s</a> | <a href="../../secretaria/index.html">Secretar&iacute;a</a> | <a href="../../direccion/index.html">Direcci&oacute;n</a> | <a href="../../centro/index.html">Centro</a> | <a href="../../profesorado/index.html">Profesorado</a>
+           </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="center" valign="top" class="textoCuerpo">
+      <table width="90%" border="0" cellpadding="2" cellspacing="0">
+
+        <tbody>
+
+          <tr valign="top">
+
+            <td class="tablaMenu">
+<h3>Matr&iacute;&shy;cula</h3>
+
+
+<ul>
+   <li>Calendario</li>
+   <ul>
+      <li><a href="calendario/calendarioPGS.html">PGS</a>(Programa de garant&iacute;a social)</li>
+      <li><a href="calendario/calendarioESOBACH.html">ESO y Bachillerato</a></li>
+      <li><a href="calendario/calendarioCFGM.html">CFGM</a>(Ciclos formativos de grado medio)</li>
+      <li><a href="calendario/calendarioCFGS.html">CFGS</a>(Ciclos formativo de grado superior)</li>
+   </ul>
+
+   <li>Instrucciones.</li>
+   <ul>
+      <li><a href="instrucciones/01-instgenerales.html">Instrucciones Generales</a></li>
+      <li><a href="instrucciones/02-instESOBAC.html">Instrucciones ESO y Bachillerato</a></li>
+      <li><a href="instrucciones/03-instPGS.html">Instrucciones PGS</a></li>
+      <li><a href="instrucciones/04-instCFGM.html">Instrucciones CFGM</a> (Ciclos formativo de grado medio)</li>
+      <li><a href="instrucciones/05-instCFGS.html">Instrucciones CFGS</a> (Ciclos formativo de grado superior)</li>
+   </ul>
+
+   <li><a href="normativa/normativa.html">Normativa.</a></li>
+   <ul>
+      <LI><a href="normativa/8301.0.anexos1-2-3.pdf">Anexos</a> (pdf)</LI>
+   </ul>
+   <li><a href="../../piedepagina/contacto.html">Contactar</a> con Secretar&iacute;a.</li>
+</ul>
+
+
+       </td>
+
+            </tr>
+
+        </tbody>
+
+      </table>
+
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td align="center" height="20">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="90%">
+
+        <tbody>
+
+          <tr class="textoPie">
+
+            <td align="left">&copy; Copyrigth 2001-2006</td>
+
+            <td class="textoPie" align="right"> <a href="../../piedepagina/mapaweb.html">Mapa web</a> | <a href="../../piedepagina/condicionesdeuso.html">Condiciones de uso</a>
+| <a href="../../piedepagina/creditos.html">Cr&eacute;ditos</a>
+| <a href="../../piedepagina/contacto.html">Contacto</a></td>
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>
+</body>
+</html>

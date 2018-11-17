@@ -1,0 +1,16 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<? include('rec/php/arbol.php'); ?>
+
+<h3>Objetivos</h3>
+  <ul>
+     <li><? echoHijos('dir.multiples.hilos.index','Ejemplos de hilos.'); ?></li>
+     <li>Familiarizarse con el uso de las clases <i>redes</i>.</li>
+     <li>Paso de mensajes y la encaptuslaci&oacute;n.</li>
+     <li>Etiquetas de documetnaci&oacute;n, gu&iacute;s de usuario.</li>
+     <li><u>Ejercicios</u>: Chat, Navegador(2), Explorador(2).</li>
+  </ul>  
+

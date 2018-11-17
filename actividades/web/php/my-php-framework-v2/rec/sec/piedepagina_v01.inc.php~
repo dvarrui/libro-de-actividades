@@ -1,0 +1,24 @@
+<?
+   //piedepagina
+   $vg_dir="html/";
+
+   if ($vg_nivel>0) $vg_dir=str_repeat("../",$vg_nivel-1);
+	/*
+   if ($vg_nivel==0) $vg_dir="html";
+   else if ($vg_nivel==2) $vg_dir="..";
+   else if ($vg_nivel==3) $vg_dir="../..";
+   else if ($vg_nivel==4) $vg_dir="../../..";
+*/
+?>
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="90%">
+   <tbody>
+      <tr class="textoPie">
+         <td align="left">&copy; Copyrigth 2001-2006</td>
+         <td class="textoPie" align="right"> 
+            <a href="<? echo $vg_dir; ?>piedepagina/mapaweb.jsp">Mapa web</a> | 
+            <a href="<? echo $vg_dir; ?>piedepagina/condicionesdeuso.jsp">Condiciones de uso</a> | 
+            <a href="<? echo $vg_dir; ?>piedepagina/creditos.jsp">Cr&eacute;ditos</a> | 
+            <a href="<? echo $vg_dir; ?>piedepagina/contacto.jsp">Contacto</a></td>
+      </tr>
+   </tbody>
+</table>

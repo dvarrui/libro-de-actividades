@@ -1,0 +1,11 @@
+<%=image_tag('aulas/'+@aula.foto, :id => 'thumbnail') %>
+
+<% for column in Aula.content_columns %>
+
+<p>
+  <b><%= column.human_name %>:</b> <%=h @aula.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', :action => 'edit', :id => @aula %> |
+<%= link_to 'Volver', :action => 'list' %>

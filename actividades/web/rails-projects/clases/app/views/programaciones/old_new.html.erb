@@ -1,0 +1,32 @@
+<h1>Nueva programación</h1>
+
+<% form_for(@programa) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="curso_id">Curso</label></td><td><%= collection_select 'programa', :curso_id, @cursos, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="modulo_id">Módulo</label></td><td><%= collection_select 'programa', :modulo_id, @modulos, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="profesor_id">Profesor</label></td><td><%= collection_select 'programa', :profesor_id, @profesores, :id, :nombre_completo %></td>
+    </tr>
+    <tr>
+      <td><label for="aula_id">Aula</label></td><td><%= collection_select 'programa', :aula_id, @aulas, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="etiqueta">Etiqueta</label></td><td><%= text_field 'programa', :etiqueta %></td>
+    </tr>
+    <tr>
+      <td><label for="url">URL Fichero</label></td><td><%= text_field 'programa', :url %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<br/>
+<%= link_to 'Ver todas', programas_path %>

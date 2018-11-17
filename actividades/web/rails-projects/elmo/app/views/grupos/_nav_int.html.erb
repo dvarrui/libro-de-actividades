@@ -1,0 +1,27 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nuevo grupos', new_grupo_path %>
+<% elsif (a=="list") then %>
+	<%= link_to 'Nuevo grupo', url_for(:action => 'new', :id => @curso.id) %>
+<% elsif (a=="new") then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @cursos[0].id) %>
+<% elsif a=="show" || a=="" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @grupo.asignatura.curso.id) %> | 
+   Mostrar |
+   <%= link_to 'Editar', edit_grupo_path(@grupo) %> |
+	<%= link_to 'Borrar', @grupo, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+	<%= link_to 'Matriculas('+@grupo.matriculas.size.to_s+')', url_for(:controller => 'matriculas', :action => 'list', :id => @grupo.id) %> 
+<% elsif a=="edit" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @grupo.asignatura.curso.id) %> | 
+   <%= link_to 'Mostrar', grupo_path(@grupo) %> |
+    Editar |
+	<%= link_to 'Borrar', @grupo, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+	<%= link_to 'Matriculas('+@grupo.matriculas.size.to_s+')', url_for(:controller => 'matriculas', :action => 'list', :id => @grupo.id) %> 
+<% end %>
+</p>
+</div>

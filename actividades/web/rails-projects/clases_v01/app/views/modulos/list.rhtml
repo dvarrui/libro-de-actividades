@@ -1,0 +1,30 @@
+<h1>Listado de módulos</h1>
+
+<table>
+  <tr>
+  <% for column in Modulo.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for modulo in @modulos %>
+  <tr>
+  <% for column in Modulo.content_columns %>
+    <td>
+    <div class="campo"><%=h modulo.send(column.name) %>
+    </div>
+    </td>
+  <% end %>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => modulo %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => modulo %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => modulo }, :confirm => '¿Está seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @modulo_pages.current.previous } if @modulo_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @modulo_pages.current.next } if @modulo_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nuevo módulo', :action => 'new' %>

@@ -1,0 +1,40 @@
+<h2>Editar alumno</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+
+<% form_for(@alumno) do |f| %>
+  <%= f.error_messages %>
+
+<table>
+<tr>
+	<td><%= f.label :numexp %></td><td><%= f.text_field :numexp %></td>
+</tr>
+<tr>
+	<td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+</tr>
+<tr>
+   <td><%= f.label :apellidos %></td><td><%= f.text_field :apellidos %></td>
+</tr>
+<tr>
+   <td><%= f.label :tlf_fijo %></td><td><%= f.text_field :tlf_fijo %></td>
+</tr>
+<tr>
+   <td><%= f.label :tlf_movil %></td><td><%= f.text_field :tlf_movil %></td>
+</tr>
+<tr>
+   <td><%= f.label :email %></td><td><%= f.text_field :email %></td>
+</tr>
+<tr>
+   <td><%= f.label :fecha_nac %></td><td><%= f.date_select :fecha_nac , :start_year => 1960 %></td>
+</tr>
+<tr>
+   <td><%= f.label :observaciones %></td><td><%= f.text_area :observaciones %></td>
+</tr>
+<tr>
+   <td></td><td><%= f.submit "Modificar" %></td>
+</tr>
+</table>
+<% end %>
+</div>

@@ -1,0 +1,13 @@
+
+<br>
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<p>Desarrollo de aplicaciones para la PSP</p>
+<ol>
+  <li><a href="<? echoPagina('psp.instalar');?>">Proceso de instalaci&oacute;n del entorno
+  de desarrollo para la PSP.</a>
+  <li><a href="<? echoPagina('psp.holamundo');?>">Programa Hola Mundo para la PSP</a>.</li>
+  <li><a href="<? echoPagina('psp.referencias');?>">Referencias y enlaces de inter&eacute;s.</a></li>
+</ol>
+
+<hr>

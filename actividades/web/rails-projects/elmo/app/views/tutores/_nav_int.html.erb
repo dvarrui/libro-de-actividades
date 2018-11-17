@@ -1,0 +1,21 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nuevo tutor', new_tutor_path %>
+<% elsif a=="show" then %>
+  	<%= link_to 'Ver todos', url_for(:action => 'index') %> |
+    Mostrar |
+   <%= link_to 'Editar', edit_tutor_path(@tutor) %> |
+  <%= link_to 'Borrar', @tutor, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+<% elsif a=="edit" then %>
+  	<%= link_to 'Ver todos', url_for(:action => 'index') %> |
+    <%= link_to 'Mostrar', tutor_path(@tutor) %> |
+    Editar |
+  <%= link_to 'Borrar', @tutor, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+<% end %>
+</p>
+
+</div>

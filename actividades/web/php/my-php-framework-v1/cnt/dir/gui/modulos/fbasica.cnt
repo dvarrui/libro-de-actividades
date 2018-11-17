@@ -1,0 +1,32 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<br>
+<center><img border=1 alt="aula básica" src="<? echoRecurso('departamentos/pgs/aula_basica.jpg');?>"></center>
+<br>
+
+<center><h2>Programaci&oacute;n</h2></center>
+
+<h3>Sociales y Naturales</h3>
+<ul>
+  <li>H&aacute;bitos de salud en el &aacute;mbito personal y laboral.</li>
+  <li>Conocimientos del medio.</li>
+  <li>Contenidos extra&iacute;dos de educaci&oacute;n Primaria y de la Secundaria Obligatoria.</li>
+</ul>
+
+<hr>
+<h3>Lengua</h3>
+<ul>
+  <li>Expresarse por escrito y oralmente, utilizando un vocabulario apropiado as&iacute; como las normas ortogr&aacute;ficas.</li>
+  <li>Interpretar mensajes orales y escritos.</li>
+  <li>Contenidos extra&iacute;dos de educaci&oacute;n Primaria y de la Secundaria Obligatoria.</li>
+</ul>
+
+<hr>
+<h3>Matem&aacute;ticas</h3>
+<ul>
+  <li>Utilizar las operaciones matem&aacute;ticas as&iacute; como los procedimientos de medidas adecuados.</li>
+  <li>Contenidos extra&iacute;dos de educaci&oacute;n Primaria y de la Secundaria Obligatoria.</li>
+</ul>

@@ -1,0 +1,34 @@
+<?
+	//Autor: David Vargas <dvargas@canarias.org>
+	//---------------------------------------------------
+	//Si no tenemos la variable página nos la inventamos con *
+	if (isset($_GET["buscar"])) $buscar = $_GET["buscar"];
+	else $buscar = "NULL";
+	
+	echo '<h2>Buscador</h2>';
+	echo '<p>Realizando la b&uacute;squeda de <i>'.$buscar.'</i></p>';
+	echo '<hr><p>&Eacute;stos son los enlaces localizados:</p>';
+	echo '<ol>';
+	if ($buscar!="NULL") {
+		while (list($clave, $valor ) = each($mapping)){
+			$nombre_archivo = 'cnt/'.$valor[1];
+
+			$gestor = fopen($nombre_archivo, "r");
+			$contenido = fread($gestor, filesize($nombre_archivo));
+			fclose($gestor);
+			$resultado=strstr($contenido,$buscar);
+			if ($resultado) {
+				echo "<li><a href=\"". getPagina($clave) . "\">".$valor[3]." </a></li>"; 
+			}
+		}
+	}
+	echo '</ol>';
+?>
+<!--Activar esta parte si se desea poder realizar nuevas búsquedas desde la página de resultado de la búsqueda-->
+<!--<hr>-->
+<!--<FORM ACTION="http://localhost/cesarmanrique/cargador.php?pagina=buscador" METHOD="GET">-->
+<!--<FORM ACTION="cargador.php" METHOD="GET">
+<INPUT TYPE="hidden" NAME="pagina"  value="buscador">
+<INPUT TYPE="text" NAME="buscar">
+<INPUT TYPE="submit">
+</FORM>-->

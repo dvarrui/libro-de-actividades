@@ -1,0 +1,27 @@
+<h1>Unidades didácticas de "<%= @programacion.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+  <tr>
+    <th>Programación</th>
+    <th>Número</th>
+    <th>Código</th>
+    <th>Nombre</th>
+  </tr>
+
+<% for unidad in @unidades %>
+  <tr>
+    <td><%= unidad.programacion.codigo %></td>
+    <td><%= unidad.numero.to_s %></td>
+    <td><%= unidad.codigo %></td>
+    <td><%= unidad.nombre %></td>
+    
+    <td><%= link_to 'Mostrar', unidad %></td>
+    <td><%= link_to 'Editar', edit_unidad_path(unidad) %></td>
+    <td><%= link_to 'Borrar', unidad, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

@@ -1,0 +1,21 @@
+<h1>Nueva programación</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="select_ciclo">
+<p>
+<% form_remote_tag :url => {:action => 'show_form'},
+	:update => 'form' do %>
+Ciclo:
+<%= collection_select 'modulo', :ciclo_id, @ciclos, :id, :codigo %>
+<%= submit_tag 'Elegir' %>
+<% end %>
+</p>
+</div>
+
+<br/>
+
+<div id="form">
+<hr/>
+</div>
+

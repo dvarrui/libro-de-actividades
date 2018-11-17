@@ -1,0 +1,25 @@
+
+<div id="menu">
+
+<h2>Ir a</h2>
+<% c = controller.controller_name %>
+
+<% if ['alumnos','asignaturas','cursos','grupos','matriculas','pesos','tareas','tutores','unidades','menus'].include? c %>
+<ul>
+  <li><%= link_to 'Alumnos', url_for(:controller => :alumnos) %></li>
+  <li><%= link_to 'Cursos', url_for(:controller => :cursos) %></li>
+  <li><%= link_to 'Tutores', url_for(:controller => :tutores) %></li>
+</ul>
+
+<% curso = Curso.find(Parametro.get_parametro_curso) %>
+<%= image_tag 'icons/curso.png',:border=>0 %>
+ <%= link_to curso.codigo, url_for(:controller=>'cursos',:action=>'show',:id=>curso) %>
+<ul>
+  <li><%= link_to 'Asignaturas('+curso.asignaturas.size.to_s+')', url_for(:controller => :asignaturas, :action=>:list, :id=>curso) %></li>
+  <li><%= link_to 'Grupos('+curso.grupos.size.to_s+')', url_for(:controller => :grupos, :action=>:list, :id=>curso) %></li>
+  <li><%= link_to 'Informe', url_for(:controller => :informes, :action=>:all_grupos, :id=>curso) %></li>
+</ul>
+
+<% end %>
+
+</div>

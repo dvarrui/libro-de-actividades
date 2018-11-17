@@ -1,0 +1,103 @@
+
+<h1><? echo $descripcion; ?></h1>
+<hr>
+<?
+  //Generador por <album-web.rb> versión 20070813
+  //Autor: David Vargas <dvargas@canarias.org>
+  $dir_fotos="dwn/bautizo/fotos/";
+  $dir_diapositivas="dwn/bautizo/diapositivas/";
+  
+  $imagenes[0]=$dir."DSC04561.JPG";
+  $imagenes[1]=$dir."DSC04562.JPG";
+  $imagenes[2]=$dir."DSC04563.JPG";
+  $imagenes[3]=$dir."DSC04564.JPG";
+  $imagenes[4]=$dir."DSC04565.JPG";
+  $imagenes[5]=$dir."DSC04566.JPG";
+  $imagenes[6]=$dir."DSC04567.JPG";
+  $imagenes[7]=$dir."DSC04568.JPG";
+  $imagenes[8]=$dir."DSC04569.JPG";
+  $imagenes[9]=$dir."DSC04570.JPG";
+  $imagenes[10]=$dir."DSC04571.JPG";
+  $imagenes[11]=$dir."DSC04572.JPG";
+  $imagenes[12]=$dir."DSC04573.JPG";
+  $imagenes[13]=$dir."DSC04574.JPG";
+  $imagenes[14]=$dir."DSC04575.JPG";
+  $imagenes[15]=$dir."DSC04576.JPG";
+  $imagenes[16]=$dir."DSC04577.JPG";
+  $imagenes[17]=$dir."DSC04578.JPG";
+  $imagenes[18]=$dir."DSC04579.JPG";
+  $imagenes[19]=$dir."DSC04580.JPG";
+  $imagenes[20]=$dir."DSC04581.JPG";
+  $imagenes[21]=$dir."DSC04582.JPG";
+  $imagenes[22]=$dir."DSC04583.JPG";
+  $imagenes[23]=$dir."DSC04584.JPG";
+  $imagenes[24]=$dir."DSC04585.JPG";
+  $imagenes[25]=$dir."DSC04586.JPG";
+  $imagenes[26]=$dir."DSC04587.JPG";
+  $imagenes[27]=$dir."DSC04588.JPG";
+  $imagenes[28]=$dir."DSC04589.JPG";
+  $imagenes[29]=$dir."DSC04590.JPG";
+  $imagenes[30]=$dir."DSC04591.JPG";
+  $imagenes[31]=$dir."DSC04592.JPG";
+  $imagenes[32]=$dir."DSC04593.JPG";
+  $imagenes[33]=$dir."DSC04594.JPG";
+  $imagenes[34]=$dir."DSC04595.JPG";
+  $imagenes[35]=$dir."DSC04596.JPG";
+  $imagenes[36]=$dir."DSC04597.JPG";
+  $imagenes[37]=$dir."DSC04598.JPG";
+  $imagenes[38]=$dir."DSC04599.JPG";
+  $imagenes[39]=$dir."DSC04600.JPG";
+  $imagenes[40]=$dir."DSC04601.JPG";
+  $imagenes[41]=$dir."DSC04602.JPG";
+  $imagenes[42]=$dir."DSC04603.JPG";
+  $imagenes[43]=$dir."DSC04604.JPG";
+  $imagenes[44]=$dir."DSC04605.JPG";
+  $imagenes[45]=$dir."DSC04606.JPG";
+  $imagenes[46]=$dir."DSC04607.JPG";
+  $imagenes[47]=$dir."DSC04608.JPG";
+  $imagenes[48]=$dir."DSC04609.JPG";
+  $imagenes[49]=$dir."DSC04610.JPG";
+  $imagenes[50]=$dir."DSC04611.JPG";
+  $imagenes[51]=$dir."DSC04612.JPG";
+  $imagenes[52]=$dir."DSC04613.JPG";
+  $imagenes[53]=$dir."DSC04614.JPG";
+  $imagenes[54]=$dir."DSC04615.JPG";
+  $imagenes[55]=$dir."DSC04616.JPG";
+  $imagenes[56]=$dir."DSC04617.JPG";
+  $imagenes[57]=$dir."DSC04618.JPG";
+  $imagenes[58]=$dir."DSC04619.JPG";
+  $imagenes[59]=$dir."DSC04620.JPG";
+  $imagenes[60]=$dir."DSC04621.JPG";
+  $imagenes[61]=$dir."DSC04622.JPG";
+  $imagenes[62]=$dir."DSC04623.JPG";
+  $imagenes[63]=$dir."DSC04624.JPG";
+  $imagenes[64]=$dir."DSC04625.JPG";
+  $imagenes[65]=$dir."DSC04626.JPG";
+  $imagenes[66]=$dir."DSC04627.JPG";
+  $imagenes[67]=$dir."DSC04628.JPG";
+  $imagenes[68]=$dir."DSC04629.JPG";
+  $imagenes[69]=$dir."DSC04630.JPG";
+  $imagenes[70]=$dir."DSC04631.JPG";
+  $imagenes[71]=$dir."DSC04632.JPG";
+  $imagenes[72]=$dir."DSC04633.JPG";
+  $imagenes[73]=$dir."DSC04634.JPG";
+  $imagenes[74]=$dir."DSC04635.JPG";
+  $imagenes[75]=$dir."DSC04636.JPG";
+  $imagenes[76]=$dir."DSC04637.JPG";
+  $imagenes[77]=$dir."DSC04638.JPG";
+  $imagenes[78]=$dir."DSC04639.JPG";
+  $imagenes[79]=$dir."DSC04640.JPG";
+  $imagenes[80]=$dir."DSC04641.JPG";
+  $imagenes[81]=$dir."DSC04642.JPG";
+  $imagenes[82]=$dir."DSC04643.JPG";
+  $imagenes[83]=$dir."DSC04644.JPG";
+  $imagenes[84]=$dir."DSC04645.JPG";
+  $imagenes[85]=$dir."DSC04646.JPG";
+  $imagenes[86]=$dir."DSC04647.JPG";
+  $imagenes[87]=$dir."DSC04648.JPG";
+?>
+
+<?
+  include("rec/php/imagenes.php");
+  echoAlbumDeFotosModo2($imagenes,$dir_fotos,$dir_diapositivas);
+?>

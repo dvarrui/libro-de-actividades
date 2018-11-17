@@ -1,0 +1,26 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<?
+	$programa[0]='cui/saludo/saludo2.c';
+	$programa[1]='cui/saludo/Saludo2.java';
+	$programa[2]='cui/saludo/saludo2.rb';
+?>
+
+<p><? echo $programa[0]; ?></p>
+<pre class='programaC'>
+<? include(getC($programa[0])); ?>
+</pre>
+
+<p><? echo $programa[1]; ?></p>
+<pre class='programaJava'>
+<? include(getJava($programa[1])); ?>
+</pre>
+
+<p><? echo $programa[2]; ?></p>
+<pre class='programaRuby'>
+<? include(getRuby($programa[2])); ?>
+</pre>
+

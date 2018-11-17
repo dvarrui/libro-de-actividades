@@ -1,0 +1,12 @@
+
+<h2>Error</h2>
+
+<p>Ha ocurrido un error con el tutor <%= link_to @tutor.nombre_completo, :action=>:show, :id=>@tutor %></p>
+
+<%= render :partial => 'nav_int' %>
+
+<ul>
+  <li>Si ha intentado borrar el tutor, debe saber que tiene matr&iacute;culas asociadas. 
+Por este motivo no se ha podido eliminar.</li>
+</ul>
+

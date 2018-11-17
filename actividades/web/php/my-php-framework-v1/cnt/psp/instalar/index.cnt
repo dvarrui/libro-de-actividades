@@ -1,0 +1,26 @@
+
+<br>
+<center><h1><? echo $descripcion; ?></h1></center>
+
+
+<p>Proceso de instalaci&oacute;n del entorno de desarrollo para la PSP.</p>
+
+<h2>psptoolchain</h2>
+<ul>
+  <li>Primero debemos descargar el fichero 
+  <a href="http://ps2dev.org/psp/Tools">psptoolchain</a>.</li>
+  <li>Descomprimimos el fichero descargado y vemos que nos crea el directorio psptoolchain.</li>
+  <pre>
+	psptoolchain/
+		depends/
+		patches/
+		readme.txt
+		scripts/
+		toolchain.sh*
+		toolchain-sudo.sh*
+  </pre> 
+  <li>Seguimos los pasos indicados en el fichero <a href="<? echoRecurso('psp/psptoolchain/readme.txt');?>">readme.txt</a>.
+  Instalamos las herramientas que hagan falta y configuramos las variables de entorno.</li>
+  <li>Ejecutamos el script <a href=" <? echoRecurso('psp/psptoolchain/toolchain.sh.txt'); ?>">
+  ./toolchain.sh</a>.</li>
+</ul>

@@ -1,0 +1,104 @@
+<h1>Mostrar el Centro "<%= @centro.codigo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<%= image_tag "lugar/centro_#{@centro.id}.jpg" %>
+<table>
+    <tr>
+      <td><b>Código:</b></td><td><%=h @centro.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%=h @centro.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>CIF:</b></td><td><%=h @centro.cif %></td>
+    </tr>
+    <tr>
+      <td><b>Municipio:</b></td><td><%=h @centro.municipio.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>Localidad:</b></td><td><%=h @centro.localidad %></td>
+    </tr>
+    <tr>
+      <td><b>Domicilio:</b></td><td><%=h @centro.domicilio %></td>
+    </tr>
+    <tr>
+      <td><b>Código Postal:</b></td><td><%=h @centro.cod_postal %></td>
+    </tr>
+    <tr>
+      <td><b>Latitud:</b></td><td><%=h @centro.latitud %></td>
+    </tr>
+    <tr>
+      <td><b>Longitud:</b></td><td><%=h @centro.longitud %></td>
+    </tr>
+    <tr>
+      <td><b>Teléfono Fijo:</b></td><td><%=h @centro.tlf_fijo %></td>
+    </tr>
+    <tr>
+      <td><b>Teléfono Móvil:</b></td><td><%=h @centro.tlf_movil %></td>
+    </tr>
+    <tr>
+      <td><b>Fax:</b></td><td><%=h @centro.fax %></td>
+    </tr>
+    <tr>
+      <td><b>Email:</b></td><td><%=h @centro.email %></td>
+    </tr>
+    <tr>
+      <td><b>Página web:</b></td><td><a href="http://<%=h @centro.web %>"><%=h @centro.web %></a></td>
+    </tr>
+    <tr>
+      <td><b>Horario:</b></td><td><%=h @centro.horario %></td>
+    </tr>
+
+    <tr>
+      <td><b>Activo:</b></td><td><%= @centro.activo %></td>
+	</tr>
+</table>
+</div>
+
+<br/>
+
+<table border=1>
+<tr valign='top'>
+<td>
+<p>Aulas del centro(<%= @centro.aulas.count.to_s%>): (<%= link_to 'Mostrar', url_for(:controller => 'aulas', :action => 'list', :id => @centro.id)%>)</p>
+<ul>
+<% for i in @centro.aulas %>
+  <li><%= i.codigo %> (<%= link_to 'Mostrar', i %>)</li>
+<% end %>
+</ul>
+</td>
+
+<td>
+<p>Ciclos del centro(<%= @centro.ciclos.count.to_s%>): (<%= link_to 'Mostrar', url_for(:controller => 'ciclos', :action => 'list', :id => @centro.id)%>)</p>
+<ul>
+<% for i in @centro.ciclos %>
+  <li><%= i.codigo %>: <%= i.nombre %> (<%= link_to 'Mostrar', i %>)</li>
+<% end %>
+</ul>
+</td>
+</tr>
+
+<tr valign='top'>
+<td>
+<p>Departamentos(<%= @centro.departamentos.count.to_s%>): (<%= link_to 'Mostrar', url_for(:controller => 'departamentos', :action => 'list', :id => @centro.id)%>)</p>
+<ul>
+<% for i in @centro.departamentos %>
+  <li><%= i.codigo %>: <%= i.nombre %> (<%= link_to 'Mostrar', i %>)</li>
+<% end %>
+</ul>
+</td>
+
+<td>
+<p>Empresas (<%= @centro.empresas.count.to_s%>): (<%= link_to 'Mostrar', url_for(:controller => 'empresas', :action => 'list', :id => @centro.id)%>)</p>
+<ul>
+<% for i in @centro.empresas %>
+  <li><%= i.codigo %>: <%= i.nombre %> (<%= link_to 'Mostrar', i %>)</li>
+<% end %>
+</ul>
+</td>
+</tr>
+
+</table>
+

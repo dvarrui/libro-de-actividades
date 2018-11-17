@@ -1,0 +1,27 @@
+<h1>Listado de los Ciclos</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Nº módulos</th>
+  </tr>
+
+<% for ciclo in @ciclos %>
+  <tr>
+    <td><%=h ciclo.centro.codigo %></td>
+    <td><%=h ciclo.codigo %></td>
+    <td><%=h ciclo.nombre %></td>
+    <td><%=h ciclo.modulos.count.to_s %></td>
+    
+    <td><%= link_to 'Mostrar', ciclo %></td>
+    <td><%= link_to 'Editar', edit_ciclo_path(ciclo) %></td>
+    <td><%= link_to 'Borrar', ciclo, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

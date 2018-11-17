@@ -1,0 +1,8 @@
+<h1>Nuevo departamento</h1>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Crear" %>
+<% end %>
+
+<%= link_to 'Volver', :action => 'list' %>

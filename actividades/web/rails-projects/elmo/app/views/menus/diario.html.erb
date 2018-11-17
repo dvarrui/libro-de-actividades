@@ -1,0 +1,50 @@
+<h2>Trabajo diario</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='horario'>
+<table>
+<tr>
+	<th>Horas</th>
+	<th>Lunes</th>
+	<th>Martes</th>
+	<th>Mi&eacute;rcoles</th>
+	<th>Jueves</th>
+	<th>Viernes</th>
+</tr>
+<tr>
+	<td>15:30</td><% 5.times do |i|%> <%= @horario[i][0]%> <%end%>
+</tr>
+<tr>
+	<td>16:00</td><% 5.times do |i|%> <%= @horario[i][1]%> <%end%>
+</tr>
+<tr>
+	<td>16:30</td><% 5.times do |i|%> <%= @horario[i][2]%> <%end%>
+</tr>
+<tr>
+	<td>17:00</td><% 5.times do |i|%> <%= @horario[i][3]%> <%end%>
+</tr>
+<tr>
+	<td>17:30</td><% 5.times do |i|%> <%= @horario[i-1][4]%> <%end%>
+</tr>
+<tr>
+	<td>18:00</td><% 5.times do |i|%> <%= @horario[i][5]%> <%end%>
+</tr>
+<tr>
+	<td>18:30</td><% 5.times do |i|%> <%= @horario[i][6]%> <%end%>
+</tr>
+<tr>
+	<td>19:00</td><% 5.times do |i|%> <%= @horario[i][7]%> <%end%>
+</tr>
+<tr>
+	<td>19:30</td><% 5.times do |i|%> <%= @horario[i][8]%> <%end%>
+</tr>
+<tr>
+	<td>20:00</td><% 5.times do |i|%> <%= @horario[i][9]%> <%end%>
+</tr>
+<tr>
+	<td>20:30</td><% 5.times do |i|%> <%= @horario[i-1][10]%> <%end%>
+</tr>
+
+</table>
+</div>

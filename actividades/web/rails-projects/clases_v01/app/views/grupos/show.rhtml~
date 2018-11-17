@@ -1,0 +1,11 @@
+<% for column in Grupo.content_columns %>
+<p>
+  <b>Curso:</b>
+  <%= @grupo.curso.nombre %><br>
+  <b><%= column.human_name %>:</b> 
+  <%=h @grupo.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', :action => 'edit', :id => @grupo %> |
+<%= link_to 'Volver', :action => 'list' %>

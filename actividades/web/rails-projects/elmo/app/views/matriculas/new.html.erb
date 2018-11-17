@@ -1,0 +1,58 @@
+<h2>Nueva matr&iacute;cula</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@matricula) do |f| %>
+  <%= f.error_messages %>
+
+<table>
+<tr>
+	<td><%= f.label :grupo_id %></td><td><%= collection_select 'matricula', :grupo_id, @grupos, :id, :codigo %></td>
+</tr>
+
+<tr>
+	<td><%= f.label :alumno_id %></td><td><%= collection_select 'matricula', :alumno_id, @alumnos, :id, :nombre_completo %></td>
+</tr>
+
+<tr>
+   <td><%= f.label :tutor_id %></td><td><%= collection_select 'matricula', :tutor_id, @tutores, :id, :nombre_completo %></td>
+</tr>
+
+<tr>
+	<td><%= f.label :fecha_baja %></td><td><%= f.date_select :fecha_baja %></td>
+   <td><%= f.label :baja %></td><td><%= f.check_box :baja %></td>
+</tr>
+  
+<tr>
+   <td><%= f.label :nota_trim1 %></td><td><%= f.text_field :nota_trim1 %></td>
+	<td><%= f.label :evaluado_trim1 %></td><td><%= f.check_box :evaluado_trim1 %></td>
+</td>
+
+<tr>
+	<td><%= f.label :nota_trim2 %></td><td><%= f.text_field :nota_trim2 %></td>
+   <td><%= f.label :evaluado_trim2 %></td><td><%= f.check_box :evaluado_trim2 %></td>
+</tr>
+
+<tr>
+	<td><%= f.label :nota_trim3 %></td><td><%= f.text_field :nota_trim3 %></td>
+	<td><%= f.label :evaluado_trim3 %></td><td><%= f.check_box :evaluado_trim3 %></td>
+</tr>
+
+<tr>
+	<td><%= f.label :boletin_trim1 %></td><td><%= f.text_area :boletin_trim1 %></td>
+</tr>
+<tr>
+	<td><%= f.label :boletin_trim2 %></td><td><%= f.text_area :boletin_trim2 %></td>
+</tr>
+<tr>
+	<td><%= f.label :boletin_trim3 %></td><td><%= f.text_area :boletin_trim3 %></td>
+</tr>
+
+<tr>
+	<td></td><td><%= f.submit "Crear" %></td>
+</tr>
+
+</table>
+<% end %>
+</div>

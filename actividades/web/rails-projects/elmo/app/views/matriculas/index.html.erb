@@ -1,0 +1,28 @@
+<h1>Listing matriculas</h1>
+
+<table>
+  <tr>
+    <th>Grupo</th>
+    <th>Alumno</th>
+    <th>Tutor</th>
+    <th>Baja</th>
+    <th>Fecha baja</th>
+  </tr>
+
+<% for matricula in @matriculas %>
+  <tr>
+    <td><%=h matricula.grupo.codigo %></td>
+    <td><%=h matricula.alumno.nombre_completo %></td>
+    <td><%=h matricula.tutor.nombre_completo %></td>
+    <td><%=h matricula.baja %></td>
+    <td><%=h matricula.fecha_baja %></td>
+    <td><%= link_to 'Show', matricula %></td>
+    <td><%= link_to 'Edit', edit_matricula_path(matricula) %></td>
+    <td><%= link_to 'Destroy', matricula, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New matricula', new_matricula_path %>

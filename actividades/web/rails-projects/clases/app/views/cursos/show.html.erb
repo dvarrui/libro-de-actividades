@@ -1,0 +1,56 @@
+<h1>Curso "<%=h @curso.codigo%>"</h1>
+
+<p><%= link_to 'Editar', edit_curso_path(@curso) %> |
+ <%= link_to 'Borrar', @curso, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+ <%= link_to 'Listar', url_for(:action => 'list', :id => @curso.centro.id) %> |
+ <%= link_to 'Festivos('+@curso.festivos.count.to_s+')', url_for(:controller => 'festivos', :action => 'list', :id => @curso.id)%> |
+ <%= link_to 'Programaciones('+@curso.programaciones.count.to_s+')', url_for(:controller => 'programaciones', :action => 'list', :id => @curso.id)%>
+</p>
+
+<div id="dat">
+<table>
+   <tr>
+      <td><b>Centro:</td><td><%=h @curso.centro.codigo %></td>
+   </tr>
+   <tr>
+      <td><b>Código:</td><td><%=h @curso.codigo %></td>
+   </tr>
+   <tr>
+      <td><b>Fecha Inicio de clases:</td><td><%=h @curso.inicio_clases %></td>
+   </tr>
+   <tr>
+      <td><b>Fecha Fin Evaluación 1:</td><td><%=h @curso.fin_eval1 %></td>
+   </tr>
+   <tr>
+      <td><b>Fecha Fin Evaluación 2:</td><td><%=h @curso.fin_eval2 %></td>
+   </tr>
+   <tr>
+      <td><b>Fecha Fin Evaluación 3:</td><td><%=h @curso.fin_eval3 %></td>
+   </tr>
+</table>
+</div>
+
+<br/>
+
+<table border=1>
+<tr><td valign="top">
+
+<p>Días festivos(<%= @curso.festivos.count.to_s %>):</p>
+<ul>
+  <% for i in @curso.festivos %>
+  <li><%=i.fecha_inicio%>, <%= i.motivo %> (<%= link_to 'Mostrar', i %>)</li>
+  <% end %>
+</ul>
+</td>
+
+<td valign="top">
+<p>Programaciones(<%= @curso.programaciones.count.to_s %>):</p>
+<ul>
+  <% for i in @curso.programaciones %>
+  <% p = i.profesor %>
+  <li><%= link_to i.ref, i %> impartida por <%= link_to p.nombre_completo, p %></li>
+  <% end %>
+</ul>
+
+</td></tr>
+</table>

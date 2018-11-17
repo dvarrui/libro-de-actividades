@@ -1,0 +1,30 @@
+
+<h1>Profesores de "<%= @departamento.nombre%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+  <tr>
+   <th>Centro</th>
+   <th>Departamento</th>
+   <th>DNI</th>
+   <th>Nombre completo</th>
+   <th>Email</th>
+  </tr>
+
+<% for profesor in @profesores %>
+  <tr>
+    <td><%= h profesor.departamento.centro.codigo %></td>
+    <td><%= h profesor.departamento.codigo %></td>
+    <td><%= h profesor.dni %></td>
+    <td><%= h profesor.nombre_completo %></td>
+    <td><%= h profesor.email %></td>
+    
+    <td><%= link_to 'Mostrar', profesor %></td>
+    <td><%= link_to 'Editar', edit_profesor_path(profesor) %></td>
+    <td><%= link_to 'Borrar', profesor, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

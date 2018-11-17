@@ -1,0 +1,27 @@
+<h1>Listado de Cursos</h1>
+
+<p>
+<%= link_to 'Nuevo curso', new_curso_path %>
+</p>
+
+<div id="dat">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Código</th>
+    <th>Inicio de las Clases</th>
+  </tr>
+
+<% for curso in @cursos %>
+  <tr>
+    <td><%=h curso.centro.codigo %></td>
+    <td><%=h curso.codigo %></td>
+    <td><%=h curso.inicio_clases %></td>
+    
+    <td><%= link_to 'Mostrar', curso %></td>
+    <td><%= link_to 'Editar', edit_curso_path(curso) %></td>
+    <td><%= link_to 'Borrar', curso, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

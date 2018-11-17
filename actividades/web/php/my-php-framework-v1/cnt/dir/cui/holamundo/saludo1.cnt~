@@ -1,0 +1,22 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<p>hola_mundo1.c</p>
+<pre class='programaC'>
+<? include(getC('cui/holamundo/hola_mundo1.c')); ?>
+</pre>
+
+<p>HolaMundo2.java</p>
+<pre class='programaJava'>
+<? include(getJava('cui/holamundo/HolaMundo2.java')); ?>
+</pre>
+
+<p>hola_mundo2.rb</p>
+<pre class='programaRuby'>
+<? include(getRuby('cui/holamundo/hola_mundo2.rb')); ?>
+</pre>
+
+
+

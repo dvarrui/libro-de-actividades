@@ -1,0 +1,16 @@
+<h1>Mostrar Aula</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<%= image_tag "lugar/aula_#{@aula.id}.jpg"%>
+
+  <table>
+    <tr>
+      <td><b>Centro:</b></td><td><%= @aula.centro.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%= @aula.codigo %></td>
+    </tr>
+  </table>
+</div>

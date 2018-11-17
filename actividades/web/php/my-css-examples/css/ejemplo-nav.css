@@ -1,0 +1,29 @@
+#nav {
+	background-color: #eee;
+	padding: 4px:
+}
+
+#nav h3 {
+	display: none;
+}
+
+#nav ul {
+	display: inline;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+#nav ul li {
+	display: inline;
+}
+
+#nav ul li a:link {
+	padding: .2em;
+}
+
+#nav ul ul li {
+	background-image: url("../img/arrow07.gif");
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 18px;
+}

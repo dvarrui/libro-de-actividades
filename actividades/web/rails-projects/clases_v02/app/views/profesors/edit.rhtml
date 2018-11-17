@@ -1,0 +1,20 @@
+<h1>Editing profesor</h1>
+
+<div style="float:left">
+<table><tr><td>
+<h2>Datos personales</h2>
+<%= start_form_tag :action => 'update', :id => @profesor %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+
+<%= link_to 'Show', :action => 'show', :id => @profesor %> |
+<%= link_to 'Back', :action => 'list' %>
+</td></tr></table>
+</div>
+
+<div style="float:rigth">
+<table><tr><td>
+<%= render :partial => 'info' %>
+</td></tr></table>
+</div>

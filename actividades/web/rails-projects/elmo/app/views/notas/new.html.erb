@@ -1,0 +1,31 @@
+<h1>New nota</h1>
+
+<% form_for(@nota) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tarea_id %><br />
+    <%= f.text_field :tarea_id %>
+  </p>
+  <p>
+    <%= f.label :matricula_idicula_id %><br />
+    <%= f.text_field :matricula_idicula_id %>
+  </p>
+  <p>
+    <%= f.label :valor_n %><br />
+    <%= f.text_field :valor_n %>
+  </p>
+  <p>
+    <%= f.label :evaluado %><br />
+    <%= f.check_box :evaluado %>
+  </p>
+  <p>
+    <%= f.label :valor_r %><br />
+    <%= f.text_field :valor_r %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', notas_path %>

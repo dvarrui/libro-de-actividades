@@ -1,0 +1,2124 @@
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:16) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00327 (306 reqs/sec) | Rendering: 0.00184 (56%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:35) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00302 (331 reqs/sec) | Rendering: 0.00166 (55%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:37) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00203 (492 reqs/sec) | Rendering: 0.00081 (39%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:38) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00203 (491 reqs/sec) | Rendering: 0.00078 (38%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:39) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00205 (487 reqs/sec) | Rendering: 0.00079 (38%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:39) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00222 (450 reqs/sec) | Rendering: 0.00081 (36%) | 200 OK [http://localhost/entrada]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:10:56) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00297 (336 reqs/sec) | Rendering: 0.00167 (56%) | 200 OK [http://localhost/entrada]
+  [4;36;1mSQL (0.089151)[0m   [0;1mCREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000595)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000686)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateCategorias (1)
+  [4;36;1mSQL (0.052012)[0m   [0;1mCREATE TABLE categorias (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nombre` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000444)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000434)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000429)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001143)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000812)[0m   [0mSHOW KEYS FROM categorias[0m
+  [4;36;1mCategoria Columns (0.001676)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000386)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000560)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('(Sin definir)')[0m
+  [4;35;1mSQL (0.007100)[0m   [0mCOMMIT[0m
+  [4;36;1mCategoria Columns (0.001838)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:24:36) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00355 (281 reqs/sec) | Rendering: 0.00207 (58%) | 200 OK [http://localhost/entrada]
+
+
+Processing Base#index (for 127.0.0.1 at 2009-03-10 18:24:41) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/categoria"):
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:522:in `recognition_failed'
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:512:in `recognize!'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-10 18:24:44) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001643)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000648)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000435)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.15276 (6 reqs/sec) | Rendering: 0.00822 (5%) | DB: 0.00273 (1%) | 200 OK [http://localhost/categorias]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 18:24:48) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.002367)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00187)
+Completed in 0.01212 (82 reqs/sec) | Rendering: 0.00624 (51%) | DB: 0.00237 (19%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 18:24:56) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Familia"}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001862)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000459)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000539)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('Familia')[0m
+  [4;35;1mSQL (0.072759)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.08270 (12 reqs/sec) | DB: 0.07562 (91%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:24:56) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.016094)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.001156)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000371)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.02736 (36 reqs/sec) | Rendering: 0.00442 (16%) | DB: 0.01762 (64%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 18:25:00) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001267)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00068)
+Completed in 0.00830 (120 reqs/sec) | Rendering: 0.00340 (40%) | DB: 0.00127 (15%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 18:25:04) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Amigos"}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001239)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000411)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000794)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('Amigos')[0m
+  [4;35;1mSQL (0.099987)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.10981 (9 reqs/sec) | DB: 0.10243 (93%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:25:04) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001245)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000863)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000478)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01383 (72 reqs/sec) | Rendering: 0.00561 (40%) | DB: 0.00259 (18%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 18:25:06) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001391)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00116)
+Completed in 0.01624 (61 reqs/sec) | Rendering: 0.01104 (67%) | DB: 0.00139 (8%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 18:25:09) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Otros"}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001182)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000381)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000507)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('Otros')[0m
+  [4;35;1mSQL (0.015427)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.02444 (40 reqs/sec) | DB: 0.01750 (71%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:25:10) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001209)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000759)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000341)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01380 (72 reqs/sec) | Rendering: 0.00633 (45%) | DB: 0.00231 (16%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#show (for 127.0.0.1 at 2009-03-10 18:25:13) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"categorias"}
+  [4;35;1mCategoria Load (0.000719)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = '2') LIMIT 1[0m
+Rendering  within layouts/categorias
+Rendering categorias/show
+  [4;36;1mCategoria Columns (0.001257)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+Completed in 0.01083 (92 reqs/sec) | Rendering: 0.00547 (50%) | DB: 0.00198 (18%) | 200 OK [http://localhost/categorias/show/2]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:25:17) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001218)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000401)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000093)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01333 (74 reqs/sec) | Rendering: 0.00641 (48%) | DB: 0.00171 (12%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#edit (for 127.0.0.1 at 2009-03-10 18:25:19) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"categorias"}
+  [4;36;1mCategoria Load (0.000635)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = '3') LIMIT 1[0m
+Rendering  within layouts/categorias
+Rendering categorias/edit
+  [4;35;1mCategoria Columns (0.001271)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendered categorias/_form (0.00209)
+Completed in 0.01434 (69 reqs/sec) | Rendering: 0.00852 (59%) | DB: 0.00191 (13%) | 200 OK [http://localhost/categorias/edit/3]
+
+
+Processing CategoriasController#show (for 127.0.0.1 at 2009-03-10 18:25:24) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"categorias"}
+  [4;36;1mCategoria Load (0.000244)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = '3') LIMIT 1[0m
+Rendering  within layouts/categorias
+Rendering categorias/show
+  [4;35;1mCategoria Columns (0.001315)[0m   [0mSHOW FIELDS FROM categorias[0m
+Completed in 0.00926 (108 reqs/sec) | Rendering: 0.00378 (40%) | DB: 0.00156 (16%) | 200 OK [http://localhost/categorias/show/3]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:25:26) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001936)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000327)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000138)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01431 (69 reqs/sec) | Rendering: 0.00667 (46%) | DB: 0.00240 (16%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#edit (for 127.0.0.1 at 2009-03-10 18:25:30) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"edit", "id"=>"4", "controller"=>"categorias"}
+  [4;35;1mCategoria Load (0.000754)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = '4') LIMIT 1[0m
+Rendering  within layouts/categorias
+Rendering categorias/edit
+  [4;36;1mCategoria Columns (0.001337)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+Rendered categorias/_form (0.00065)
+Completed in 0.01268 (78 reqs/sec) | Rendering: 0.00566 (44%) | DB: 0.00209 (16%) | 200 OK [http://localhost/categorias/edit/4]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:25:32) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001458)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000150)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000087)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01268 (78 reqs/sec) | Rendering: 0.00628 (49%) | DB: 0.00169 (13%) | 200 OK [http://localhost/categorias/list]
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000801)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000112)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateContactos (2)
+  [4;36;1mSQL (0.115072)[0m   [0;1mCREATE TABLE contactos (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nombre` varchar(255), `apellidos` varchar(255), `telefono` varchar(255), `email` varchar(255), `direccion` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000463)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000605)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000529)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001117)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000836)[0m   [0mSHOW KEYS FROM categorias[0m
+  [4;36;1mSQL (0.001528)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000679)[0m   [0mSHOW KEYS FROM contactos[0m
+  [4;36;1mContacto Columns (0.001960)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 18:28:51) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.014035)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000581)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000344)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.02672 (37 reqs/sec) | Rendering: 0.00654 (24%) | DB: 0.01496 (55%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 18:28:53) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001924)[0m   [0mSHOW FIELDS FROM contactos[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+Rendered contactos/_form (0.01521)
+Completed in 0.03156 (31 reqs/sec) | Rendering: 0.01987 (62%) | DB: 0.00192 (6%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-10 18:29:12) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "contacto"=>{"nombre"=>"david", "direccion"=>"ere\r\nrer\r\ne\r\nre\r\nre\r\n", "telefono"=>"333 -333 333", "email"=>"dvargas@caanrias.org", "apellidos"=>"vargas ruiz"}, "action"=>"create", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001680)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000170)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000656)[0m   [0;1mINSERT INTO contactos (`nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES('david', 'ere\r\nrer\r\ne\r\nre\r\nre\r\n', '333 -333 333', 'vargas ruiz', 'dvargas@caanrias.org')[0m
+  [4;35;1mSQL (0.003279)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.01374 (72 reqs/sec) | DB: 0.00578 (42%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 18:29:12) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.006327)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000607)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000770)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.01736 (57 reqs/sec) | Rendering: 0.00438 (25%) | DB: 0.00770 (44%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-10 18:29:18) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000765)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;36;1mContacto Columns (0.001647)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Rendered contactos/_form (0.00184)
+Completed in 0.01542 (64 reqs/sec) | Rendering: 0.00916 (59%) | DB: 0.00241 (15%) | 200 OK [http://localhost/contactos/edit/1]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 18:29:21) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001604)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000443)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.02972 (33 reqs/sec) | Rendering: 0.01012 (34%) | DB: 0.00233 (7%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing Base#index (for 127.0.0.1 at 2009-03-10 18:31:05) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/rails/info/properties"):
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:522:in `recognition_failed'
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:512:in `recognize!'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:31:08) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00839 (119 reqs/sec) | Rendering: 0.00714 (85%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-10 18:31:11) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001466)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.005072)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000117)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.02335 (42 reqs/sec) | Rendering: 0.00639 (27%) | DB: 0.00666 (28%) | 200 OK [http://localhost/categorias]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 18:31:14) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001442)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000404)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000099)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.02473 (40 reqs/sec) | Rendering: 0.01781 (72%) | DB: 0.00195 (7%) | 200 OK [http://localhost/contactos]
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000694)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateContactos (2)
+  [4;35;1mSQL (0.100330)[0m   [0mDROP TABLE contactos[0m
+  [4;36;1mSQL (0.000503)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000332)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateCategorias (1)
+  [4;36;1mSQL (0.002511)[0m   [0;1mDROP TABLE categorias[0m
+  [4;35;1mSQL (0.000433)[0m   [0mUPDATE schema_info SET version = 0[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000444)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000789)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateCategorias (1)
+  [4;35;1mSQL (0.105081)[0m   [0mCREATE TABLE categorias (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nombre` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000461)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000316)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateContactos (2)
+  [4;36;1mSQL (0.008158)[0m   [0;1mCREATE TABLE contactos (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nombre` varchar(255), `apellidos` varchar(255), `telefono` varchar(255), `email` varchar(255), `direccion` text, `categoria_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000502)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000642)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001274)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000694)[0m   [0mSHOW KEYS FROM categorias[0m
+  [4;36;1mSQL (0.001762)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000719)[0m   [0mSHOW KEYS FROM contactos[0m
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 18:35:43) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001549)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000810)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000375)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.19356 (5 reqs/sec) | Rendering: 0.00223 (1%) | DB: 0.00273 (1%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 18:35:45) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001644)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.003992)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000120)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.01485 (67 reqs/sec) | Rendering: 0.00214 (14%) | DB: 0.00576 (38%) | 200 OK [http://localhost/contactos]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:35:50) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00202 (494 reqs/sec) | Rendering: 0.00080 (39%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-10 18:35:52) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001387)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000551)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000319)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.02281 (43 reqs/sec) | Rendering: 0.01441 (63%) | DB: 0.00226 (9%) | 200 OK [http://localhost/categorias]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 18:35:57) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.006461)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000188)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000094)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.01447 (69 reqs/sec) | Rendering: 0.00206 (14%) | DB: 0.00674 (46%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 18:35:59) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001668)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+Rendered contactos/_form (0.00179)
+Completed in 0.03656 (27 reqs/sec) | Rendering: 0.01252 (34%) | DB: 0.00167 (4%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-10 18:36:05) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "contacto"=>{"nombre"=>"asas", "direccion"=>"", "telefono"=>"aa", "email"=>"aa", "apellidos"=>"a"}, "action"=>"create", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001688)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000729)[0m   [0mINSERT INTO contactos (`categoria_id`, `nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES(NULL, 'asas', '', 'aa', 'a', 'aa')[0m
+  [4;36;1mSQL (0.014365)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.04603 (21 reqs/sec) | DB: 0.01699 (36%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 18:36:05) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.002999)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000642)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000395)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.02308 (43 reqs/sec) | Rendering: 0.00452 (19%) | DB: 0.00404 (17%) | 200 OK [http://localhost/contactos/list]
+  [4;36;1mContacto Load (0.000929)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = 0) LIMIT 1[0m
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 18:44:18) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.006564)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000408)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000098)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.01723 (58 reqs/sec) | Rendering: 0.00438 (25%) | DB: 0.00707 (41%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 18:44:25) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00225 (445 reqs/sec) | Rendering: 0.00082 (36%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-10 18:44:27) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.002620)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.003781)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000114)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.01987 (50 reqs/sec) | Rendering: 0.00196 (9%) | DB: 0.00652 (32%) | 200 OK [http://localhost/categorias]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 18:44:29) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.017101)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00066)
+Completed in 0.02618 (38 reqs/sec) | Rendering: 0.00434 (16%) | DB: 0.01710 (65%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 18:44:34) [POST]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"(Sin definir)"}, "action"=>"create", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001365)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000203)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000562)[0m   [0mINSERT INTO categorias (`nombre`) VALUES('(Sin definir)')[0m
+  [4;36;1mSQL (0.006168)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.03439 (29 reqs/sec) | DB: 0.00830 (24%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 18:44:34) [GET]
+  Session ID: dcb8e5083c391b6271812a2dc01411a2
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001387)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000340)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01179 (84 reqs/sec) | Rendering: 0.00347 (29%) | DB: 0.00228 (19%) | 200 OK [http://localhost/categorias/list]
+  [4;36;1mContacto Load (0.000968)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000600)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001046)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mContacto Columns (0.001465)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000907)[0m   [0mUPDATE contactos SET `apellidos` = 'a', `telefono` = 'aa', `nombre` = 'David', `categoria_id` = 1, `email` = 'aa', `direccion` = '' WHERE id = 1[0m
+  [4;36;1mSQL (0.002741)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCategoria Load (0.000690)[0m   [0mSELECT * FROM categorias LIMIT 1[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2009-03-10 23:46:47) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/rails/info/properties"):
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:522:in `recognition_failed'
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:512:in `recognize!'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-10 23:46:54) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.02292 (43 reqs/sec) | Rendering: 0.02147 (93%) | 200 OK [http://localhost/entrada]
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-10 23:46:57) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001637)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.001005)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000425)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.12026 (8 reqs/sec) | Rendering: 0.08147 (67%) | DB: 0.00307 (2%) | 200 OK [http://localhost/categorias]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 23:47:06) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001357)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.01756)
+Completed in 0.07296 (13 reqs/sec) | Rendering: 0.06687 (91%) | DB: 0.00136 (1%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 23:47:14) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Familia"}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001255)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000477)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('Familia')[0m
+  [4;35;1mSQL (0.008518)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.01973 (50 reqs/sec) | DB: 0.01082 (54%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 23:47:14) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.002634)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000782)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000359)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01448 (69 reqs/sec) | Rendering: 0.00446 (30%) | DB: 0.00378 (26%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 23:47:16) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001670)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00070)
+Completed in 0.01077 (92 reqs/sec) | Rendering: 0.00359 (33%) | DB: 0.00167 (15%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 23:47:20) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Error"}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001935)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000392)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000626)[0m   [0;1mINSERT INTO categorias (`nombre`) VALUES('Error')[0m
+  [4;35;1mSQL (0.007057)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.01899 (52 reqs/sec) | DB: 0.01001 (52%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 23:47:20) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.022469)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000702)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000333)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.03580 (27 reqs/sec) | Rendering: 0.00540 (15%) | DB: 0.02350 (65%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#destroy (for 127.0.0.1 at 2009-03-10 23:47:28) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"categorias"}
+  [4;35;1mCategoria Load (0.000756)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = '3') LIMIT 1[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategoria Columns (0.001211)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Destroy (0.000795)[0m   [0;1m DELETE FROM categorias
+ WHERE id = 3
+[0m
+  [4;35;1mSQL (0.006615)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.01714 (58 reqs/sec) | DB: 0.00950 (55%) | 302 Found [http://localhost/categorias/destroy/3]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 23:47:28) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.002003)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000714)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000347)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01414 (70 reqs/sec) | Rendering: 0.00470 (33%) | DB: 0.00306 (21%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-10 23:47:33) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001900)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00067)
+Completed in 0.00996 (100 reqs/sec) | Rendering: 0.00332 (33%) | DB: 0.00190 (19%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-10 23:47:34) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>""}, "action"=>"create", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001252)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000393)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mCOMMIT[0m
+Rendering layoutfalseactionnew within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00104)
+Completed in 0.01269 (78 reqs/sec) | Rendering: 0.00395 (31%) | DB: 0.00176 (13%) | 200 OK [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-10 23:47:50) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.013805)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000219)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.014773)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.04017 (24 reqs/sec) | Rendering: 0.00456 (11%) | DB: 0.02880 (71%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-10 23:48:08) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001632)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000752)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000509)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+Completed in 0.08224 (12 reqs/sec) | Rendering: 0.07231 (87%) | DB: 0.00289 (3%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-10 23:48:11) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.001082)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;36;1mContacto Columns (0.009951)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Completed in 0.08156 (12 reqs/sec) | Rendering: 0.06609 (81%) | DB: 0.01103 (13%) | 200 OK [http://localhost/contactos/show/1]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-10 23:48:14) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000522)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;36;1mContacto Columns (0.001509)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Rendered contactos/_form (0.06402)
+Completed in 0.07726 (12 reqs/sec) | Rendering: 0.07088 (91%) | DB: 0.00203 (2%) | 200 OK [http://localhost/contactos/edit/1]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:48:17) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.002294)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000411)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000097)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.01302 (76 reqs/sec) | Rendering: 0.00450 (34%) | DB: 0.00280 (21%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 23:48:19) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001489)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+Rendered contactos/_form (0.00183)
+Completed in 0.07395 (13 reqs/sec) | Rendering: 0.06793 (91%) | DB: 0.00149 (2%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-10 23:48:28) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "contacto"=>{"nombre"=>"Fran", "direccion"=>"", "telefono"=>"56565", "email"=>"", "apellidos"=>""}, "action"=>"create", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001743)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000170)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000641)[0m   [0mINSERT INTO contactos (`categoria_id`, `nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES(NULL, 'Fran', '', '56565', '', '')[0m
+  [4;36;1mSQL (0.009827)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.02637 (37 reqs/sec) | DB: 0.01238 (46%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:48:28) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001686)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000569)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.008833)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.03438 (29 reqs/sec) | Rendering: 0.00571 (16%) | DB: 0.01109 (32%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-10 23:48:33) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.012837)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;35;1mContacto Columns (0.002533)[0m   [0mSHOW FIELDS FROM contactos[0m
+Rendered contactos/_form (0.00167)
+Completed in 0.02677 (37 reqs/sec) | Rendering: 0.00669 (24%) | DB: 0.01537 (57%) | 200 OK [http://localhost/contactos/edit/1]
+
+
+Processing ContactosController#update (for 127.0.0.1 at 2009-03-10 23:48:38) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Edit", "contacto"=>{"nombre"=>"David", "direccion"=>"", "telefono"=>"55555", "email"=>"aa", "apellidos"=>"a"}, "action"=>"update", "id"=>"1", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000262)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+  [4;35;1mContacto Columns (0.001817)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000156)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000793)[0m   [0mUPDATE contactos SET `apellidos` = 'a', `telefono` = '55555', `nombre` = 'David', `categoria_id` = 1, `email` = 'aa', `direccion` = '' WHERE id = 1[0m
+  [4;36;1mSQL (0.000985)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/show/1
+Completed in 0.01546 (64 reqs/sec) | DB: 0.00401 (25%) | 302 Found [http://localhost/contactos/update/1]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-10 23:48:38) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000825)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;36;1mContacto Columns (0.001537)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Completed in 0.03557 (28 reqs/sec) | Rendering: 0.02778 (78%) | DB: 0.00236 (6%) | 200 OK [http://localhost/contactos/show/1]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:48:47) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.004991)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000585)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000382)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.01768 (56 reqs/sec) | Rendering: 0.00555 (31%) | DB: 0.00596 (33%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:50:37) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001761)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.003821)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000117)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.008183)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.003868)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.nombre) on line #16 of app/views/contactos/list.rhtml:
+13:   <% for column in Contacto.content_columns %>
+14:     <td><%=h contacto.send(column.name) %></td>
+15:   <% end %>
+16:     <td><%=h contacto.categoria.nombre %></td>
+17:     <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+18:     <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+19:     <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:16:in `_run_rhtml_contactos_list'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `_run_rhtml_contactos_list'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;36;1mContacto Load (0.000880)[0m   [0;1mSELECT * FROM contactos LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000381)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:52:26) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001655)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000103)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+Completed in 0.01623 (61 reqs/sec) | Rendering: 0.00853 (52%) | DB: 0.01396 (86%) | 200 OK [http://localhost/contactos/list]
+  [4;36;1mContacto Load (0.000789)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000688)[0m   [0mSELECT * FROM categorias LIMIT 1[0m
+  [4;36;1mSQL (0.000377)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000804)[0m   [0mUPDATE contactos SET `apellidos` = '', `telefono` = '56565', `nombre` = 'Fran', `categoria_id` = 1, `email` = '', `direccion` = '' WHERE id = 2[0m
+  [4;36;1mSQL (0.003635)[0m   [0;1mCOMMIT[0m
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:53:55) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.006053)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000824)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000388)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.013365)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001130)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000527)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.05567 (17 reqs/sec) | Rendering: 0.02705 (48%) | DB: 0.02229 (40%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 23:55:06) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001671)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Load (0.000503)[0m   [0mSELECT * FROM categorias LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+  [4;36;1mCategoria Columns (0.001146)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+
+
+ActionView::TemplateError (undefined method `apellidos' for #<Categoria:0xb72efb8c>) on line #8 of app/views/contactos/_form.rhtml:
+5: <%= text_field 'contacto', 'nombre'  %></p>
+6: 
+7: <p><label for="contacto_apellidos">Apellidos</label><br/>
+8: <%= text_field 'contacto', 'apellidos'  %></p>
+9: 
+10: <p><label for="contacto_telefono">Telefono</label><br/>
+11: <%= text_field 'contacto', 'telefono'  %></p>
+
+    vendor/rails/activerecord/lib/active_record/base.rb:1792:in `method_missing'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:341:in `send'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:341:in `value_before_type_cast'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `to_input_field_tag'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:160:in `text_field'
+    #{RAILS_ROOT}/app/views/contactos/_form.rhtml:8:in `_run_rhtml_contactos__form'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_view/base.rb:266:in `render'
+    vendor/rails/actionpack/lib/action_view/partials.rb:59:in `render_partial'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:29:in `benchmark'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:29:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partials.rb:58:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:278:in `render'
+    #{RAILS_ROOT}/app/views/contactos/new.rhtml:4:in `_run_rhtml_contactos_new'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 23:55:45) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001934)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mCategoria Load (0.000506)[0m   [0;1mSELECT * FROM categorias LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001032)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+Rendered contactos/_form (0.00172)
+Completed in 0.01735 (57 reqs/sec) | Rendering: 0.00485 (27%) | DB: 0.00462 (26%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-10 23:55:53) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "contacto"=>{"nombre"=>"Jose Luis", "direccion"=>"", "telefono"=>"343434", "email"=>"", "apellidos"=>""}, "action"=>"create", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.002190)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000420)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000571)[0m   [0;1mINSERT INTO contactos (`categoria_id`, `nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES(NULL, 'Jose Luis', '', '343434', '', '')[0m
+  [4;35;1mSQL (0.007483)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.01948 (51 reqs/sec) | DB: 0.01066 (54%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:55:53) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.006615)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000942)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000447)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000303)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001055)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000504)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.nombre) on line #16 of app/views/contactos/list.rhtml:
+13:   <% for column in Contacto.content_columns %>
+14:     <td><%=h contacto.send(column.name) %></td>
+15:   <% end %>
+16:     <td><%=h contacto.categoria.nombre %></td>
+17:     <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+18:     <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+19:     <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:16:in `_run_rhtml_contactos_list'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `_run_rhtml_contactos_list'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:56:27) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001978)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000415)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000103)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.103966)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001192)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000505)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.nombre) on line #16 of app/views/contactos/list.rhtml:
+13:   <% for column in Contacto.content_columns %>
+14:     <td><%=h contacto.send(column.name) %></td>
+15:   <% end %>
+16:     <td><%=h contacto.categoria.nombre %></td>
+17:     <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+18:     <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+19:     <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:16:in `_run_rhtml_contactos_list'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `_run_rhtml_contactos_list'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:56:30) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001734)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000386)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000098)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000364)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001044)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000505)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.nombre) on line #16 of app/views/contactos/list.rhtml:
+13:   <% for column in Contacto.content_columns %>
+14:     <td><%=h contacto.send(column.name) %></td>
+15:   <% end %>
+16:     <td><%=h contacto.categoria.nombre %></td>
+17:     <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+18:     <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+19:     <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:16:in `_run_rhtml_contactos_list'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `_run_rhtml_contactos_list'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35;1mContacto Load (0.001538)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = 3) LIMIT 1[0m
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:57:32) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001765)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.003757)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000123)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.008307)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001265)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.002922)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occured while evaluating nil.nombre) on line #16 of app/views/contactos/list.rhtml:
+13:   <% for column in Contacto.content_columns %>
+14:     <td><%=h contacto.send(column.name) %></td>
+15:   <% end %>
+16:     <td><%=h contacto.categoria.nombre %></td>
+17:     <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+18:     <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+19:     <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:16:in `_run_rhtml_contactos_list'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `each'
+    #{RAILS_ROOT}/app/views/contactos/list.rhtml:11:in `_run_rhtml_contactos_list'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:316:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:726:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:648:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:245:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;36;1mCategoria Load (0.000524)[0m   [0;1mSELECT * FROM categorias LIMIT 1[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mContacto Update (0.000742)[0m   [0;1mUPDATE contactos SET `apellidos` = '', `telefono` = '343434', `nombre` = 'Jose Luis', `categoria_id` = 1, `email` = '', `direccion` = '' WHERE id = 3[0m
+  [4;35;1mSQL (0.005495)[0m   [0mCOMMIT[0m
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:57:54) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001655)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000621)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000394)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000249)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001188)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000247)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000236)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.05413 (18 reqs/sec) | Rendering: 0.02722 (50%) | DB: 0.01708 (31%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-10 23:57:59) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001687)[0m   [0mSHOW FIELDS FROM contactos[0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+Rendered contactos/_form (0.00178)
+Completed in 0.02411 (41 reqs/sec) | Rendering: 0.00458 (18%) | DB: 0.00169 (6%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-10 23:58:07) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "contacto"=>{"nombre"=>"danial", "direccion"=>"", "telefono"=>"4545", "email"=>"", "apellidos"=>""}, "action"=>"create", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.002034)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Load (0.000544)[0m   [0mSELECT * FROM categorias LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001035)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000368)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000853)[0m   [0;1mINSERT INTO contactos (`categoria_id`, `nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES(1, 'danial', '', '4545', '', '')[0m
+  [4;35;1mSQL (0.006513)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.02483 (40 reqs/sec) | DB: 0.01135 (45%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-10 23:58:07) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.006794)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000871)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000401)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000283)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001035)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000495)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000209)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000223)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.03329 (30 reqs/sec) | Rendering: 0.01685 (50%) | DB: 0.01031 (30%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:02:00) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000800)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '3') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;35;1mContacto Columns (0.001422)[0m   [0mSHOW FIELDS FROM contactos[0m
+Completed in 0.01121 (89 reqs/sec) | Rendering: 0.00483 (43%) | DB: 0.00222 (19%) | 200 OK [http://localhost/contactos/show/3]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:03) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001685)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000425)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000107)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000229)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001074)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000524)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.014431)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000228)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.06738 (14 reqs/sec) | Rendering: 0.03350 (49%) | DB: 0.01870 (27%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:04) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001676)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.003911)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000160)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.008105)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001416)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.002913)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000265)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.002944)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.04953 (20 reqs/sec) | Rendering: 0.01691 (34%) | DB: 0.02139 (43%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-11 00:02:06) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000257)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '3') LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000640)[0m   [0mSELECT * FROM categorias [0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;36;1mContacto Columns (0.001636)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Columns (0.001569)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendered contactos/_form (0.01975)
+Completed in 0.03959 (25 reqs/sec) | Rendering: 0.02318 (58%) | DB: 0.00410 (10%) | 200 OK [http://localhost/contactos/edit/3]
+
+
+Processing ContactosController#update (for 127.0.0.1 at 2009-03-11 00:02:13) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Edit", "contacto"=>{"categoria_id"=>"2", "nombre"=>"Jose Luis", "direccion"=>"", "telefono"=>"343434", "email"=>"", "apellidos"=>""}, "action"=>"update", "id"=>"3", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000273)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '3') LIMIT 1[0m
+  [4;35;1mContacto Columns (0.001538)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000218)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000746)[0m   [0mUPDATE contactos SET `apellidos` = '', `telefono` = '343434', `nombre` = 'Jose Luis', `categoria_id` = 2, `email` = '', `direccion` = '' WHERE id = 3[0m
+  [4;36;1mSQL (0.007189)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/show/3
+Completed in 0.03471 (28 reqs/sec) | DB: 0.00996 (28%) | 302 Found [http://localhost/contactos/update/3]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:02:13) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000775)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '3') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;36;1mContacto Columns (0.001554)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Completed in 0.01172 (85 reqs/sec) | Rendering: 0.00505 (43%) | DB: 0.00233 (19%) | 200 OK [http://localhost/contactos/show/3]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:16) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.014681)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.003969)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;36;1mCategoria Load (0.003854)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001494)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Load (0.001399)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000723)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.007826)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.05874 (17 reqs/sec) | Rendering: 0.01769 (30%) | DB: 0.03454 (58%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#new (for 127.0.0.1 at 2009-03-11 00:02:20) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.002324)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mCategoria Load (0.000791)[0m   [0;1mSELECT * FROM categorias [0m
+Rendering  within layouts/contactos
+Rendering contactos/new
+  [4;35;1mCategoria Columns (0.001262)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendered contactos/_form (0.00668)
+Completed in 0.02001 (49 reqs/sec) | Rendering: 0.00836 (41%) | DB: 0.00438 (21%) | 200 OK [http://localhost/contactos/new]
+
+
+Processing ContactosController#create (for 127.0.0.1 at 2009-03-11 00:02:34) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "contacto"=>{"categoria_id"=>"2", "nombre"=>"Daniel", "direccion"=>"", "telefono"=>"565656", "email"=>"", "apellidos"=>""}, "action"=>"create", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001536)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Load (0.005226)[0m   [0mSELECT * FROM categorias LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001100)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.000408)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.024622)[0m   [0;1mINSERT INTO contactos (`categoria_id`, `nombre`, `direccion`, `telefono`, `apellidos`, `email`) VALUES(1, 'Daniel', '', '565656', '', '')[0m
+  [4;35;1mSQL (0.167691)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.21593 (4 reqs/sec) | DB: 0.20058 (92%) | 302 Found [http://localhost/contactos/create]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:35) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.002171)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.001036)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000627)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.001008)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001266)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000801)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.014227)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000449)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000211)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.05977 (16 reqs/sec) | Rendering: 0.03126 (52%) | DB: 0.02180 (36%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#destroy (for 127.0.0.1 at 2009-03-11 00:02:43) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"destroy", "id"=>"4", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.001580)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '4') LIMIT 1[0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Columns (0.001351)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mContacto Destroy (0.001201)[0m   [0;1m DELETE FROM contactos
+ WHERE id = 4
+[0m
+  [4;35;1mSQL (0.182570)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/list
+Completed in 0.19457 (5 reqs/sec) | DB: 0.18686 (96%) | 302 Found [http://localhost/contactos/destroy/4]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:44) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001488)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000849)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000400)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000280)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001096)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000534)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000214)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.001132)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+Completed in 0.03077 (32 reqs/sec) | Rendering: 0.01748 (56%) | DB: 0.00599 (19%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-11 00:02:46) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"edit", "id"=>"5", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.001017)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '5') LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000312)[0m   [0mSELECT * FROM categorias [0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;36;1mContacto Columns (0.001448)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Columns (0.001399)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendered contactos/_form (0.00609)
+Completed in 0.02112 (47 reqs/sec) | Rendering: 0.00982 (46%) | DB: 0.00418 (19%) | 200 OK [http://localhost/contactos/edit/5]
+
+
+Processing ContactosController#update (for 127.0.0.1 at 2009-03-11 00:02:50) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Edit", "contacto"=>{"categoria_id"=>"2", "nombre"=>"Daniel", "direccion"=>"", "telefono"=>"565656", "email"=>"", "apellidos"=>""}, "action"=>"update", "id"=>"5", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000234)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '5') LIMIT 1[0m
+  [4;35;1mContacto Columns (0.001314)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000363)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000765)[0m   [0mUPDATE contactos SET `apellidos` = '', `telefono` = '565656', `nombre` = 'Daniel', `categoria_id` = 2, `email` = '', `direccion` = '' WHERE id = 5[0m
+  [4;36;1mSQL (0.013290)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/show/5
+Completed in 0.02586 (38 reqs/sec) | DB: 0.01597 (61%) | 302 Found [http://localhost/contactos/update/5]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:02:51) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000741)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '5') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;36;1mContacto Columns (0.001481)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+Completed in 0.01144 (87 reqs/sec) | Rendering: 0.00469 (41%) | DB: 0.00222 (19%) | 200 OK [http://localhost/contactos/show/5]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:02:52) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001400)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000884)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000453)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;36;1mCategoria Load (0.000292)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.025974)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Load (0.000645)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000603)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000223)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.29819 (3 reqs/sec) | Rendering: 0.01760 (5%) | DB: 0.03047 (10%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-11 00:03:00) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001147)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000483)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000116)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01426 (70 reqs/sec) | Rendering: 0.00497 (34%) | DB: 0.00175 (12%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing CategoriasController#new (for 127.0.0.1 at 2009-03-11 00:03:02) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"new", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.002095)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+Rendering  within layouts/categorias
+Rendering categorias/new
+Rendered categorias/_form (0.00067)
+Completed in 0.01029 (97 reqs/sec) | Rendering: 0.00330 (32%) | DB: 0.00209 (20%) | 200 OK [http://localhost/categorias/new]
+
+
+Processing CategoriasController#create (for 127.0.0.1 at 2009-03-11 00:03:06) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Create", "categoria"=>{"nombre"=>"Trabajo"}, "action"=>"create", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001256)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000389)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000596)[0m   [0mINSERT INTO categorias (`nombre`) VALUES('Trabajo')[0m
+  [4;36;1mSQL (0.011917)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/categorias/list
+Completed in 0.02760 (36 reqs/sec) | DB: 0.01416 (51%) | 302 Found [http://localhost/categorias/create]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-11 00:03:06) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001727)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000720)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.001276)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.01606 (62 reqs/sec) | Rendering: 0.00561 (34%) | DB: 0.00372 (23%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-11 00:04:25) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001514)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000434)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000102)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000687)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001076)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000520)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000650)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.013408)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.05328 (18 reqs/sec) | Rendering: 0.02885 (54%) | DB: 0.01839 (34%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:04:27) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.026746)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '2') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;35;1mContacto Columns (0.001760)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mCategoria Load (0.000522)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001011)[0m   [0mSHOW FIELDS FROM categorias[0m
+Completed in 0.04586 (21 reqs/sec) | Rendering: 0.01151 (25%) | DB: 0.03004 (65%) | 200 OK [http://localhost/contactos/show/2]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:04:32) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001504)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000398)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000144)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000236)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001063)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000502)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000210)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.012184)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.03841 (26 reqs/sec) | Rendering: 0.01637 (42%) | DB: 0.01624 (42%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:04:56) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000247)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '2') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;35;1mContacto Columns (0.001500)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mCategoria Load (0.000544)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001051)[0m   [0mSHOW FIELDS FROM categorias[0m
+Completed in 0.02023 (49 reqs/sec) | Rendering: 0.01189 (58%) | DB: 0.00334 (16%) | 200 OK [http://localhost/contactos/show/2]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:09:32) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001849)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.008890)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000190)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.003060)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001408)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.003086)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000566)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.005223)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+ERROR: compiling _run_rhtml_layouts_contactos RAISED compile error
+script/../config/../app/views/layouts/contactos.rhtml:10: syntax error, unexpected '=', expecting tASSOC
+_erbout.concat(( link_to 'Contactos', :controller => 'contactos', :action ='list' ).to_s); _erbout.concat "\n"
+                                                                           ^
+Function body: def _run_rhtml_layouts_contactos(local_assigns)
+_erbout = ''; _erbout.concat "<html>\n"
+_erbout.concat "<head>\n"
+_erbout.concat "  <title>Contactos: "; _erbout.concat(( controller.action_name ).to_s); _erbout.concat "</title>\n"
+_erbout.concat "  "; _erbout.concat(( stylesheet_link_tag 'scaffold' ).to_s); _erbout.concat "\n"
+_erbout.concat "</head>\n"
+_erbout.concat "<body>\n"
+_erbout.concat "\n"
+_erbout.concat "<div style=\"background-color:LightBlue\">\n"
+_erbout.concat "<p>"; _erbout.concat(( link_to 'Categorias', :controller => 'categorias', :action => 'list' ).to_s); _erbout.concat "|\n"
+_erbout.concat(( link_to 'Contactos', :controller => 'contactos', :action ='list' ).to_s); _erbout.concat "\n"
+_erbout.concat "</div>\n"
+_erbout.concat "\n"
+_erbout.concat "<p style=\"color: green\">"; _erbout.concat(( flash[:notice] ).to_s); _erbout.concat "</p>\n"
+_erbout.concat "\n"
+_erbout.concat(( yield  ).to_s); _erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat "</body>\n"
+_erbout.concat "</html>\n"
+_erbout
+end
+Backtrace: script/../config/../app/views/layouts/contactos.rhtml:20:in `compile_template'
+./script/../config/../vendor/rails/actionpack/lib/action_view/base.rb:307:in `compile_and_render_template'
+./script/../config/../vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+./script/../config/../vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+./script/../config/../vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+./script/../config/../vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+./script/../config/../vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+./script/../config/../vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+./script/../config/../vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+./script/../config/../vendor/rails/railties/lib/commands/servers/webrick.rb:59
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+./script/../config/../vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+./script/../config/../vendor/rails/railties/lib/commands/server.rb:30
+./script/server:3:in `require'
+./script/server:3
+
+
+ActionView::TemplateError (compile error
+script/../config/../app/views/layouts/contactos.rhtml:10: syntax error, unexpected '=', expecting tASSOC
+_erbout.concat(( link_to 'Contactos', :controller => 'contactos', :action ='list' ).to_s); _erbout.concat "\n"
+                                                                           ^) on line #10 of app/views/layouts/contactos.rhtml:
+7: 
+8: <div style="background-color:LightBlue">
+9: <p><%= link_to 'Categorias', :controller => 'categorias', :action => 'list' %>|
+10: <%= link_to 'Contactos', :controller => 'contactos', :action ='list' %>
+11: </div>
+12: 
+13: <p style="color: green"><%= flash[:notice] %></p>
+
+    #{RAILS_ROOT}/app/views/layouts/contactos.rhtml:20:in `compile_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:307:in `compile_and_render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:292:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:251:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:53:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:942:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    vendor/rails/railties/lib/commands/server.rb:30
+    script/server:3:in `require'
+    script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:10:35) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.007857)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000211)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000118)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000240)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001219)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000243)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000213)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000246)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.05074 (19 reqs/sec) | Rendering: 0.02899 (57%) | DB: 0.02369 (46%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:10:38) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001959)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.004255)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000128)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.003974)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001290)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.007871)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.003001)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000232)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.06274 (15 reqs/sec) | Rendering: 0.01796 (28%) | DB: 0.02271 (36%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing CategoriasController#list (for 127.0.0.1 at 2009-03-11 00:10:40) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"categorias"}
+  [4;36;1mCategoria Columns (0.001482)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mSQL (0.004266)[0m   [0mSELECT count(*) AS count_all FROM categorias [0m
+  [4;36;1mCategoria Load (0.000105)[0m   [0;1mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering  within layouts/categorias
+Rendering categorias/list
+Completed in 0.03356 (29 reqs/sec) | Rendering: 0.00543 (16%) | DB: 0.00585 (17%) | 200 OK [http://localhost/categorias/list]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:11:23) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001656)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000330)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000107)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;36;1mCategoria Load (0.000251)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001357)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Load (0.000246)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000223)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000228)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.03309 (30 reqs/sec) | Rendering: 0.01876 (56%) | DB: 0.00440 (13%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing Base#index (for 127.0.0.1 at 2009-03-11 00:11:27) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/entradas"):
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:522:in `recognition_failed'
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:512:in `recognize!'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-11 00:11:31) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00238 (420 reqs/sec) | Rendering: 0.00084 (35%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-11 00:11:44) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001674)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000114)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+  [4;36;1mCategoria Load (0.000257)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001277)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Load (0.000439)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000232)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000238)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.03069 (32 reqs/sec) | Rendering: 0.02001 (65%) | DB: 0.00440 (14%) | 200 OK [http://localhost/contactos]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-11 00:11:46) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00205 (487 reqs/sec) | Rendering: 0.00079 (38%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+
+
+Processing CategoriasController#index (for 127.0.0.1 at 2009-03-11 00:11:48) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"categorias"}
+  [4;35;1mCategoria Columns (0.001402)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mSQL (0.000142)[0m   [0;1mSELECT count(*) AS count_all FROM categorias [0m
+  [4;35;1mCategoria Load (0.000086)[0m   [0mSELECT * FROM categorias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/categorias
+Rendering categorias/list
+Completed in 0.04063 (24 reqs/sec) | Rendering: 0.02446 (60%) | DB: 0.00163 (4%) | 200 OK [http://localhost/categorias]
+
+
+Processing ContactosController#index (for 127.0.0.1 at 2009-03-11 00:11:50) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"contactos"}
+  [4;36;1mContacto Columns (0.001625)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mSQL (0.000152)[0m   [0mSELECT count(*) AS count_all FROM contactos [0m
+  [4;36;1mContacto Load (0.000100)[0m   [0;1mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/contactos
+Rendering contactos/list
+  [4;35;1mCategoria Load (0.000246)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001459)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+  [4;35;1mCategoria Load (0.000229)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000216)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000212)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.05875 (17 reqs/sec) | Rendering: 0.03050 (51%) | DB: 0.00424 (7%) | 200 OK [http://localhost/contactos]
+
+
+Processing ContactosController#edit (for 127.0.0.1 at 2009-03-11 00:11:55) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000792)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000635)[0m   [0mSELECT * FROM categorias [0m
+Rendering  within layouts/contactos
+Rendering contactos/edit
+  [4;36;1mContacto Columns (0.001598)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Columns (0.001562)[0m   [0mSHOW FIELDS FROM categorias[0m
+Rendered contactos/_form (0.00656)
+Completed in 0.04346 (23 reqs/sec) | Rendering: 0.02666 (61%) | DB: 0.00459 (10%) | 200 OK [http://localhost/contactos/edit/1]
+
+
+Processing ContactosController#update (for 127.0.0.1 at 2009-03-11 00:12:06) [POST]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"commit"=>"Edit", "contacto"=>{"categoria_id"=>"1", "nombre"=>"David", "direccion"=>"", "telefono"=>"55555", "email"=>"d@gmial", "apellidos"=>"a"}, "action"=>"update", "id"=>"1", "controller"=>"contactos"}
+  [4;36;1mContacto Load (0.000258)[0m   [0;1mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+  [4;35;1mContacto Columns (0.002045)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mBEGIN[0m
+  [4;35;1mContacto Update (0.000814)[0m   [0mUPDATE contactos SET `apellidos` = 'a', `telefono` = '55555', `nombre` = 'David', `categoria_id` = 1, `email` = 'd@gmial', `direccion` = '' WHERE id = 1[0m
+  [4;36;1mSQL (0.009364)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/contactos/show/1
+Completed in 0.02262 (44 reqs/sec) | DB: 0.01263 (55%) | 302 Found [http://localhost/contactos/update/1]
+
+
+Processing ContactosController#show (for 127.0.0.1 at 2009-03-11 00:12:06) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"contactos"}
+  [4;35;1mContacto Load (0.000778)[0m   [0mSELECT * FROM contactos WHERE (contactos.id = '1') LIMIT 1[0m
+Rendering  within layouts/contactos
+Rendering contactos/show
+  [4;36;1mContacto Columns (0.001653)[0m   [0;1mSHOW FIELDS FROM contactos[0m
+  [4;35;1mCategoria Load (0.000223)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;36;1mCategoria Columns (0.001233)[0m   [0;1mSHOW FIELDS FROM categorias[0m
+Completed in 0.04435 (22 reqs/sec) | Rendering: 0.03610 (81%) | DB: 0.00389 (8%) | 200 OK [http://localhost/contactos/show/1]
+
+
+Processing ContactosController#list (for 127.0.0.1 at 2009-03-11 00:12:11) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"list", "controller"=>"contactos"}
+  [4;35;1mContacto Columns (0.001899)[0m   [0mSHOW FIELDS FROM contactos[0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mSELECT count(*) AS count_all FROM contactos [0m
+  [4;35;1mContacto Load (0.000431)[0m   [0mSELECT * FROM contactos LIMIT 0, 10[0m
+Rendering  within layouts/contactos
+Rendering contactos/list
+  [4;36;1mCategoria Load (0.000258)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Columns (0.001404)[0m   [0mSHOW FIELDS FROM categorias[0m
+  [4;36;1mCategoria Load (0.000240)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 1) LIMIT 1[0m
+  [4;35;1mCategoria Load (0.000232)[0m   [0mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+  [4;36;1mCategoria Load (0.000243)[0m   [0;1mSELECT * FROM categorias WHERE (categorias.id = 2) LIMIT 1[0m
+Completed in 0.05671 (17 reqs/sec) | Rendering: 0.04405 (77%) | DB: 0.00527 (9%) | 200 OK [http://localhost/contactos/list]
+
+
+Processing EntradaController#index (for 127.0.0.1 at 2009-03-11 00:12:35) [GET]
+  Session ID: 45df1bbfcdd4e3c5f5cf039e59392c8c
+  Parameters: {"action"=>"index", "controller"=>"entrada"}
+Rendering entrada/index
+Completed in 0.00202 (495 reqs/sec) | Rendering: 0.00078 (38%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entrada]
+  [4;36;1mContacto Columns (0.003040)[0m   [0;1mSHOW FIELDS FROM contactos[0m

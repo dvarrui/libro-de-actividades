@@ -1,0 +1,38 @@
+<h1>Mostrar Actividad "<%= @actividad.nombre%>"</h1>
+
+ <table>
+    <tr>
+      <td><b>Curso:</b></td><td><%= link_to @actividad.unidad.programa.curso.codigo, @actividad.unidad.programa.curso %></td>
+    </tr>
+    <tr>
+      <td><b>Programación:</b></td><td><%= link_to @actividad.unidad.programa.ref, @actividad.unidad.programa %></td>
+    </tr>
+    <tr>
+      <td><b>Unidad:</b></td><td><%= link_to @actividad.unidad.nombre,@actividad.unidad %></td>
+    </tr>
+    <tr>
+      <td><b>Tipo:</b></td><td><%= link_to @actividad.peso.nombre, @actividad.peso %></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%= @actividad.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%= @actividad.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>URL Fichero:</b></td><td><%= @actividad.url %></td>
+    </tr>
+    <tr>
+      <td><b>Fecha de inicio:</b></td><td><%= @actividad.fecha_inicio %></td>
+    </tr>
+    <tr>
+      <td><b>Fecha final:</b></td><td><%= @actividad.fecha_fin %></td>
+    </tr>
+    <tr>
+      <td><b>Valor Máximo:</b></td><td><%= @actividad.valor_max %></td>
+    </tr>
+  </table>
+
+<br/>
+<%= link_to 'Editar', edit_actividad_path(@actividad) %> |
+<%= link_to 'Volver', actividads_path %>

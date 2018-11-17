@@ -1,0 +1,9 @@
+<h1>Editar grupo</h1>
+
+<% form_tag :action => 'update', :id => @grupo do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Editar' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @grupo %> |
+<%= link_to 'Volver', :action => 'list' %>

@@ -1,0 +1,24 @@
+<h2>Pesos de <%= @asignatura.codigo%></h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+  <tr>
+    <th>C&oacute;digo</th>
+    <th>Nombre</th>
+    <th>Valor</th>
+  </tr>
+
+<% for peso in @pesos %>
+  <tr>
+    <td><%=h peso.codigo %></td>
+    <td><%=h peso.nombre %></td>
+    <td><%=h peso.valor %></td>
+    <td><%= link_to 'Mostrar', peso %></td>
+    <td><%= link_to 'Editar', edit_peso_path(peso) %></td>
+    <td><%= link_to 'Borrar', peso, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

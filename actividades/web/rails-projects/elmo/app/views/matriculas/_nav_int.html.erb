@@ -1,0 +1,31 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+	<%= link_to 'Nueva matr&iacute;cula', new_matricula_path %>
+<% elsif (a=="list") then %>
+	<%= link_to 'Nueva matr&iacute;cula',  url_for(:action => 'new', :id => @grupo.id) %> | 
+	<%= link_to 'Faltas del grupo', url_for(:controller => 'faltas', :action => 'show_grupo', :id => @grupo.id) %> |
+	<%= link_to 'Ir al grupo', url_for(:controller => 'grupos', :action => 'show', :id => @grupo.id) %> 
+<% elsif (a=="new") then %>
+  <%= link_to 'Ver todas', url_for(:action => 'list', :id => @grupos[0].id) %>
+<% elsif a=="show" || a=="" then %>
+   <%= link_to 'Ver todas', url_for(:action => 'list', :id => @matricula.grupo.id) %> | 
+   Mostrar |
+   <%= link_to 'Editar', edit_matricula_path(@matricula) %> |
+	<%= link_to 'Borrar', @matricula, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+   <%= link_to 'Faltas', url_for(:controller => 'faltas', :action => 'show_grupo', :id => @matricula.grupo.id) %> | 
+   <%= link_to 'Notas()', url_for(:controller => 'matriculas', :action => 'list', :id => @matricula.id) %>
+<% elsif a=="edit" then %>
+   <%= link_to 'Ver todas', url_for(:action => 'list', :id => @matricula.grupo.id) %> | 
+   <%= link_to 'Mostrar', matricula_path(@matricula) %> |
+    Editar |
+	<%= link_to 'Borrar', @matricula, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+   <%= link_to 'Faltas', url_for(:controller => 'faltas', :action => 'show_grupo', :id => @matricula.grupo.id) %> | 
+   <%= link_to 'Notas()', url_for(:controller => 'matriculas', :action => 'list', :id => @matricula.id) %>
+<% end %>
+</p>
+</div>

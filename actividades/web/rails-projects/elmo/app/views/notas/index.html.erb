@@ -1,0 +1,28 @@
+<h1>Listing notas</h1>
+
+<table>
+  <tr>
+    <th>Tarea</th>
+    <th>Matricula idicula</th>
+    <th>Valor n</th>
+    <th>Evaluado</th>
+    <th>Valor r</th>
+  </tr>
+
+<% for nota in @notas %>
+  <tr>
+    <td><%=h nota.tarea_id %></td>
+    <td><%=h nota.matricula_idicula_id %></td>
+    <td><%=h nota.valor_n %></td>
+    <td><%=h nota.evaluado %></td>
+    <td><%=h nota.valor_r %></td>
+    <td><%= link_to 'Show', nota %></td>
+    <td><%= link_to 'Edit', edit_nota_path(nota) %></td>
+    <td><%= link_to 'Destroy', nota, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New nota', new_nota_path %>

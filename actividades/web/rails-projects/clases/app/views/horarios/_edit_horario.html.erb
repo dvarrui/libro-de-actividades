@@ -1,0 +1,54 @@
+
+<%
+  profesores={}
+  aulas={}
+%>
+
+<table border=1>
+  <tr>
+    <th></th><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th>
+  </tr>
+  <% if @tabla then %>
+  <% @tabla.count.times do |fila| %>
+    <tr>
+      <% 7.times do |col|%>
+      <td>
+      <%
+        e = @tabla[fila][col]
+        if e==:descanso
+          s='Descanso' 
+        elsif e==:error
+          s='¡ERROR!' 
+        elsif e==:ocupado
+          s=''
+        elsif e==:libre
+          s='(+)'
+        elsif e.class==Horario
+          s=e.programacion.codigo+'(-)'
+          profesores[e.programacion.profesor.id]=e.programacion.profesor
+          aulas[e.programacion.aula.id]=e.programacion.aula
+        else
+          s=e
+        end 
+      %>
+      <%= s %>
+      </td>
+      <% end%>
+    </tr>
+  <% end %>
+  <% end %>
+</table>
+
+<p>Profesores:</p>
+<ul>
+  <% for i in profesores.values %>
+  <li><%=h i.nombre_completo %></li>
+  <% end %>
+</ul>
+
+<p>Aulas:</p>
+<ul>
+  <% for i in aulas.values %>
+  <li><%=h i.codigo %></li>
+  <% end %>
+</ul>

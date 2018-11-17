@@ -1,0 +1,14 @@
+<%= error_messages_for 'grupo' %>
+
+<!--[form:grupo]-->
+<p>
+  <label for="grupo_curso">Curso</label><br/>
+  <select id="curso" name="curso" style="width:250px;">
+  <%= options_from_collection_for_select(@all_cursos, :id, :nombre, @selected) %>
+  </select>
+</p>
+
+<p><label for="grupo_codigo">Código</label><br/>
+<%= text_field 'grupo', 'codigo'  %></p>
+<!--[eoform:grupo]-->
+

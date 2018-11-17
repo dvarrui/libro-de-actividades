@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tarea_id: 1
+  matricula_idicula_id: 1
+  valor_n: 1
+  evaluado: false
+  valor_r: 1
+
+two:
+  tarea_id: 1
+  matricula_idicula_id: 1
+  valor_n: 1
+  evaluado: false
+  valor_r: 1

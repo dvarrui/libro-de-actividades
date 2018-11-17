@@ -1,0 +1,13 @@
+<marcas>
+<!-- 
+No uses copiar y pegar para llevarte este codigo. En lugar de eso usa "Ver codigo fuente" o "Guardar como"
+te ahorrara problemas, porque lo que estas viendo es el XML interpretado por el navegador, en vez del codigo fuente XML
+-->
+<marca lat="28.412032" lng="-16.55026" codigohtml="IES Puerto de la Cruz" />
+<marca lat="28.393691" lng="-16.528293" codigohtml="Atlantux" />
+<marca lat="28.456489" lng="-16.254779" codigohtml="Atos Consulting" />
+<marca lat="28.381642" lng="-16.583965" codigohtml="Ayto. de los Realejos" />
+<marca lat="28.397017" lng="-16.575849" codigohtml="CTI Canarias" />
+<marca lat="28.412565" lng="-16.530144" codigohtml="Neverend" />
+<marca lat="28.393691" lng="-16.528293" codigohtml="TeideSoft" />
+</marcas> 

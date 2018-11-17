@@ -1,0 +1,57 @@
+
+<%
+  profesores={}
+  aulas={}
+%>
+
+<table id="horario">
+  <tr>
+    <th></th><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th>
+  </tr>
+  <% if @tabla then %>
+  <% @tabla.count.times do |fila| %>
+    <tr>
+      <% 7.times do |col|%>
+      <%
+        e = @tabla[fila][col]
+        if e==:descanso
+          s='Descanso' ; html_class='descanso'
+        elsif e==:error
+          s='¡ERROR!'  ; html_class='error'
+        elsif e==:ocupado
+          s='ocupado'  ; html_class='ocupado'
+        elsif e==:libre
+          s=''; html_class='hueco'
+        elsif e.class==Horario
+          s=e.programacion.codigo
+          profesores[e.programacion.profesor.id]=e.programacion.profesor
+          aulas[e.programacion.aula.id]=e.programacion.aula
+          html_class='ocupado'
+        else
+          s=e
+        end 
+      %>
+      <td class="<%= html_class%>"><%= s %></td>
+      <% end%>
+    </tr>
+  <% end %>
+  <% end %>
+</table>
+
+<% if @nav.class==Programacion then %>
+  <p>Programación impartida por <%= profesores.values[0].nombre %> en <%= aulas.values[0].codigo %></p>
+<% else %>
+  <p>Profesores:</p>
+  <ul>
+    <% for i in profesores.values %>
+    <li><%=h i.nombre_completo %></li>
+    <% end %>
+  </ul>
+
+  <p>Aulas:</p>
+  <ul>
+    <% for i in aulas.values %>
+    <li><%=h i.codigo %></li>
+    <% end %>
+  </ul>
+<% end %>

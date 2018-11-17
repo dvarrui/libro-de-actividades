@@ -1,0 +1,24 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+<% elsif (a=="list") then %>
+	<%= link_to 'Nueva tarea', url_for(:action => 'new', :id => @unidad.id) %>
+<% elsif (a=="new") then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @unidades[0].id) %>
+<% elsif a=="show" || a=="" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @tarea.unidad.id) %> | 
+   Mostrar |
+   <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
+	<%= link_to 'Borrar', @tarea, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+<% elsif a=="edit" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @tarea.unidad.id) %> | 
+   <%= link_to 'Mostrar', tarea_path(@tarea) %> |
+    Editar |
+	<%= link_to 'Borrar', @tarea, :confirm => '¿Desea eliminar el registro?', :method => :delete %>
+<% end %>
+</p>
+</div>

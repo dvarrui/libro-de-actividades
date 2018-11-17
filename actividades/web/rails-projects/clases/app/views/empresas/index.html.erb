@@ -1,0 +1,25 @@
+<h1>Listado de Empresas</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Municipio</th>
+    <th>Teléfono</th>
+  </tr>
+
+<% for empresa in @empresas %>
+  <tr>
+    <td><%=h @empresa.nombre %></td>
+    <td><%=h @empresa.municipio.nombre %></td>
+    <td><%=h @empresa.tlf_fijo %></td>
+    
+    <td><%= link_to 'Mostrar', empresa %></td>
+    <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
+    <td><%= link_to 'Borrar', empresa, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

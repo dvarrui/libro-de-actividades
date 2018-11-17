@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>Horarios: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<%= render :partial => 'navegador' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<h1>Programaciones de "<%= @curso.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+  <tr>
+     <th>Centro</th>
+     <th>Curso</th>
+     <th>Ciclo</th>
+     <th>Módulo</th>
+     <th>Profesor</th>
+     <th>Aula</th>
+  </tr>
+
+<% for programacion in @programaciones %>
+  <tr>
+    <td><%=programacion.curso.centro.codigo%></td>
+    <td><%=programacion.curso.codigo%></td>
+    <td><%=programacion.modulo.ciclo.codigo%></td>
+    <td><%=programacion.modulo.codigo%></td>
+    <td><%=programacion.profesor.nombre_completo%></td>
+    <td><%=programacion.aula.codigo%></td>
+    
+    <td><%= link_to 'Mostrar', programacion %></td>
+    <td><%= link_to 'Editar', edit_programacion_path(programacion) %></td>
+    <td><%= link_to 'Borrar', programacion, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

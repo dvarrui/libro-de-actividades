@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  grupo_id: 1
+  alumno_id: 1
+  tutor_id: 1
+  baja: false
+  fecha_baja: 2010-09-04
+  nota_trim1: 1
+  evaluado_trim1: false
+  nota_trim2: 1
+  evaluado_trim2: false
+  nota_trim3: 1
+  evaluado_trim3: false
+  observaciones_trim1: MyText
+  observaciones_trim2: MyText
+  observaciones_trim3: MyText
+
+two:
+  grupo_id: 1
+  alumno_id: 1
+  tutor_id: 1
+  baja: false
+  fecha_baja: 2010-09-04
+  nota_trim1: 1
+  evaluado_trim1: false
+  nota_trim2: 1
+  evaluado_trim2: false
+  nota_trim3: 1
+  evaluado_trim3: false
+  observaciones_trim1: MyText
+  observaciones_trim2: MyText
+  observaciones_trim3: MyText

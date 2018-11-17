@@ -1,0 +1,10 @@
+<h2>Recurso desconocido</h2>
+
+<p>Si est&aacute; leyendo esto, significa que el recurso o p&aacute;gina solicitado/a
+ es desconocido o no se encuentra disponible en este momento.<p/>
+<p>Compruebe que el enlace es correcto y pruebe de nuevo pasados unos minutos.</p>
+<p>Si el enlace sigue sin estar operativo pasados unos minutos, por favor, p&oacute;ngase 
+en contacto con el <a href="<? echoPagina("piedepagina.contacto"); ?>">webmaster</a>.</p>
+<p>Muchas Gracias</p>
+<br>
+<a href="<? echoPagina('index'); ?>">Volver a la p&aacute;gina principal.</a>

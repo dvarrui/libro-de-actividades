@@ -1,0 +1,33 @@
+<h1>Mostrar el Ciclo "<%= @ciclo.codigo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Centro:</b></td><td><%= @ciclo.centro.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Código:</b></td><td><%= @ciclo.codigo %></td>
+    </tr>
+    <tr>
+      <td><b>Nombre:</b></td><td><%= @ciclo.nombre %></td>
+    </tr>
+    <tr>
+      <td><b>Activo:</b></td><td><%= @ciclo.activo %></td>
+    </tr>
+</table>
+</div>
+
+<br/>
+<table border=1>
+<tr><td>
+<p>Módulos asociados(<%= @ciclo.modulos.count.to_s %>):</p>
+<ul>
+<% for i in @ciclo.modulos %>
+  <li><%= i.codigo %>: <%= i.nombre %> (<%= link_to 'Mostrar', i%>)</li>
+<% end %>
+</ul>
+</td></tr>
+</table>
+

@@ -1,0 +1,15 @@
+
+<br>
+<center><h1><? echo $descripcion; ?></h1></center>
+
+
+
+<h2>Enlaces de inter&eacute;s</h2>
+<ul>
+  <li><a href="http://www.ps2dev.org">www.ps2dev.org</a></li>
+  <li><a href="http://www.psp-programming.com/tutorials/">www.psp-programming.com/tutorials/</a></li>
+  <br>
+  <li><a href="http://www.pspain.com/foro/archive/index.php/t-29812.html%5B/t-4381.html">C&oacute;mo instalar el PSPSDK 1.0</a></li>
+    
+</ul>
+

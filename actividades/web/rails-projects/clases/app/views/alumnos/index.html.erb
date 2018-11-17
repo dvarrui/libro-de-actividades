@@ -1,0 +1,30 @@
+<h1>Listado de los Alumnos</h1>
+
+<table>
+  <tr>
+    <th>DNI</th>
+    <th>Apellidos</th>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Sexo</th>
+    <th>Municipio</th>
+  </tr>
+
+<% for alumno in @alumnos %>
+  <tr>
+    <td><%= alumno.dni %></td>
+    <td><%= alumno.apellidos %></td>
+    <td><%= alumno.nombre %></td>
+    <td><%= alumno.edad.to_s %></td>
+    <td><%= if (alumno.esmujer) then 'Mujer' else 'Varón' end %>
+    <td><%= alumno.municipio.nombre %></td>
+    
+    <td><%= link_to 'Mostrar', alumno %></td>
+    <td><%= link_to 'Editar', edit_alumno_path(alumno) %></td>
+    <td><%= link_to 'Borrar', alumno, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Nuevo alumno', new_alumno_path %>

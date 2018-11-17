@@ -1,0 +1,27 @@
+<h1>Listing usuarios</h1>
+
+<table>
+  <tr>
+  <% for column in Usuario.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for usuario in @usuarios %>
+  <tr>
+  <% for column in Usuario.content_columns %>
+    <td><%=h usuario.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => usuario %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => usuario %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => usuario }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @usuario_pages.current.previous } if @usuario_pages.current.previous %>
+<%= link_to 'Next page', { :page => @usuario_pages.current.next } if @usuario_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New usuario', :action => 'new' %>

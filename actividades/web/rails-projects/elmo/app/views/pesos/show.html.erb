@@ -1,0 +1,23 @@
+<h2>Mostrar peso</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Asignatura:</b></td><td><%=h @peso.asignatura.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>C&oacute;digo:</b></td><td><%=h @peso.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Nombre:</b></td><td><%=h @peso.nombre %></td>
+</tr>
+
+<tr>
+  <td><b>Valor:</b></td><td><%=h @peso.valor %></td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,25 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% p = @nav %>
+<% if (p.class.to_s=="Festivo") then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.curso.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.curso.centro.id) %>
+ > <%= link_to p.curso.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.curso.id) %>
+ > <%= h p.codigo %>
+
+<%  elsif (p==:festivos) then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to "Cursos", url_for(:controller => 'cursos') %>
+ > Festivos
+
+<% elsif (p.class.to_s=="Curso") then %>
+<%= link_to "Inicio de curso", url_for(:controller => 'menus', :action => :inicio) %>
+ > <%= link_to p.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.centro.id) %>
+ > <%= link_to p.codigo, url_for(:controller => 'cursos', :action => 'show', :id => p.id) %>
+ > Festivos
+<% end %>
+
+</div>

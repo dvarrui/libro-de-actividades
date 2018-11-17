@@ -1,0 +1,23 @@
+<h1>Listado de las Aulas</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Código</th>
+  </tr>
+
+<% for aula in @aulas %>
+  <tr>
+    <td><%=h aula.centro.codigo %></td>
+    <td><%=h aula.codigo %></td>
+    
+    <td><%= link_to 'Mostrar', aula %></td>
+    <td><%= link_to 'Editar', edit_aula_path(aula) %></td>
+    <td><%= link_to 'Borrar', aula, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

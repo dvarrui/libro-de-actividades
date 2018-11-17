@@ -1,0 +1,27 @@
+<h2>Editar tarea</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@tarea) do |f| %>
+  <%= f.error_messages %>
+<table>
+   <tr>
+    <td><label for="unidad_id">Unidad</label></td><td><%= collection_select 'tarea', :unidad_id, @unidades, :id, :codigo %></td>
+  </tr>
+
+  <tr>
+    <td><label for="peso_id">Peso</label></td><td><%= collection_select 'tarea', :peso_id, @pesos, :id, :nombre %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :codigo %></td><td><%= f.text_field :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Modificar" %></td>
+  </tr>
+</table>
+<% end %>
+</div>

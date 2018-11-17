@@ -1,0 +1,20 @@
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+<br>
+
+<?
+	$modulos[]=array('Progrma',20,1,false);
+	$modulos[]=array('ingles',18,1,false);
+	$modulos[]=array('Calidad',2,1,false);
+	$modulos[]=array('Formaci&oacute;n y orientaci&oacute;n laboral',2,1,false);
+	$modulos[]=array('Relaciones en el entorno de trabajo',2,1,false);
+	$modulos[]=array('Técnicas de programación',6,1,false);
+	$modulos[]=array('Electrónica de sistemas',4,1,false);
+	
+?>
+ 		  		 
+<? 
+	include ('rec/php/tablas.php');
+	echoTablaModulosD($modulos); 
+?>

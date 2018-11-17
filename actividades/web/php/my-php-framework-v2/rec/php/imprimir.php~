@@ -1,0 +1,13 @@
+<?
+	//Autor: David Vargas <dvargas@canarias.org>
+	if (isset($_GET["objetivo"])) $objetivo = $_GET["objetivo"];
+	else $objetivo = "index";
+
+	include("cnt/".$mapping[$objetivo][1]);
+?>
+
+<?
+	echo '<br>';
+   echo '<i>David Vargas Ruiz</i><br>';
+	echo '<i>dvargas@canarias.org</i>'; 
+?>

@@ -1,0 +1,10 @@
+<!--PLANTILLA.BEGIN-->
+<? include ('rec/sec/navegacion_interior_v02.php'); ?>
+
+<h1>Mapa del sitio Web</h1>
+<hr>
+
+
+<? include('rec/php/mapaweb.php');  ?>
+
+<!--PLANTILLA.END-->

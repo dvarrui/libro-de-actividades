@@ -1,0 +1,20 @@
+<div style="background-color:LightBlue;position:top">
+<p>
+  Principio de Curso => &nbsp;
+  <%= link_to 'Aulas', :controller => 'aulas', :action => 'list' %> |
+  <%= link_to 'Cursos', :controller => 'cursos', :action => 'list' %> | 
+  <%= link_to 'Ciclos', :controller => 'ciclos', :action => 'list' %> |
+  <%= link_to 'Módulos', :controller => 'modulos', :action => 'list' %> |
+  <%= link_to 'Unidades', :controller => 'unidads', :action => 'list' %> |
+  <%= link_to 'Profesores', :controller => 'profesors', :action => 'list' %> |
+  <%= link_to 'Horarios', :controller => 'horarios',:action => 'list' %> |
+  <%= link_to 'Alumnos', :controller => 'alumnos', :action => 'list' %> |
+  <%= link_to 'Matrículas', :controller => 'matriculas', :action => 'list' %>
+</p>
+<p>
+  Trabajo diario => &nbsp;
+  <%= link_to 'Actividades',:controller => 'activiades', :action => 'list' %> |
+  <%= link_to 'Comentarios', :controller => 'comentarios', :action => 'list' %>
+</p>
+<p>Usted es el usuario: <%= session[:usuario].nombre %></p>
+</div>

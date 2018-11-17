@@ -1,0 +1,27 @@
+<h1>Listado de los Módulos</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Ciclo</th>
+    <th>Código</th>
+    <th>Nombre</th>
+  </tr>
+
+<% for modulo in @modulos %>
+  <tr>
+    <td><%=h modulo.ciclo.centro.codigo %></th>
+    <td><%=h modulo.ciclo.codigo %></th>
+    <td><%=h modulo.codigo %></td>
+    <td><%=h modulo.nombre %></td>
+    
+    <td><%= link_to 'Mostrar', modulo %></td>
+    <td><%= link_to 'Editar', edit_modulo_path(modulo) %></td>
+    <td><%= link_to 'Borrar', modulo, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>

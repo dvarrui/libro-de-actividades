@@ -1,0 +1,29 @@
+<h1>Listing unidads</h1>
+
+<table>
+  <tr>
+    <th>Módulo</th>
+  <% for column in Unidad.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for unidad in @unidads %>
+  <tr>
+    <td><%= unidad.modulo.codigo %></td>
+  <% for column in Unidad.content_columns %>
+    <td><%=h unidad.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => unidad %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => unidad %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => unidad }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @unidad_pages.current.previous } if @unidad_pages.current.previous %>
+<%= link_to 'Next page', { :page => @unidad_pages.current.next } if @unidad_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New unidad', :action => 'new' %>

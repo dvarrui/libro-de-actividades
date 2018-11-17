@@ -1,0 +1,32 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if a=="index" then %>
+  <%= link_to 'Nuevo centro', new_centro_path %>
+<% elsif a=="new" then %>
+  <%= link_to 'Ver todos', centros_path %>
+<% elsif (p.class.to_s=="Centro") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', centro_path(@centro) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_centro_path(@centro) %> |
+  <% end %>
+  <%= link_to 'Borrar', @centro, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Ver todos', centros_path %> |
+  <%= link_to 'Aulas('+@centro.aulas.count.to_s+')', url_for(:controller => 'aulas', :action => 'list', :id => @centro.id)%> |
+  <%= link_to 'Ciclos('+@centro.ciclos.count.to_s+')', url_for(:controller => 'ciclos', :action => 'list', :id => @centro.id)%> |
+  <%= link_to 'Departamentos('+@centro.departamentos.count.to_s+')', url_for(:controller => 'departamentos', :action => 'list', :id => @centro.id)%> |
+  <%= link_to 'Empresas('+@centro.empresas.count.to_s+')', url_for(:controller => 'empresas', :action => 'list', :id => @centro.id)%> |
+  <%= link_to 'Cursos('+@centro.cursos.count.to_s+')', url_for(:controller => 'cursos', :action => 'list', :id => @centro.id)%>
+<% end %>
+</p>
+</div>

@@ -1,0 +1,2 @@
+module AsignaturasHelper
+end

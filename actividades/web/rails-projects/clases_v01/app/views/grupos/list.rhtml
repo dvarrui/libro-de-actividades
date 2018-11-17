@@ -1,0 +1,32 @@
+<h1>Listado de los grupos</h1>
+
+<table>
+  <tr>
+    <th>Curso</th>
+  <% for column in Grupo.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+    <th>Nº de alumnos</th>
+  </tr>
+  
+<% for grupo in @grupos %>
+  <tr>
+    <td><div class='calculado'><%= grupo.curso.nombre %></div></td>
+  <% for column in Grupo.content_columns %>
+    <td><div class='campo'><%=h grupo.send(column.name) %></div></td>
+  <% end %>
+    <td><div class='calculado'><%= grupo.alumnos.size %>
+    </div></td>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => grupo %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => grupo %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => grupo }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @grupo_pages.current.previous } if @grupo_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @grupo_pages.current.next } if @grupo_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nuevo grupo', :action => 'new' %>

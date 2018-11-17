@@ -1,0 +1,56 @@
+<!--PLANTILLA.BEGIN-->
+<? include ('rec/sec/navegacion_interior_v02.php'); ?>
+
+<h1>Cr&eacute;ditos</h1>
+<hr>
+
+<p>Esta p&aacute;gina de cr&eacute;ditos es un homenage a todas las personas que han colaborado&nbsp;en la realizaci&oacute;n del sitio web del centro. De esta forma mostramos nuestro reconocimiento a su labor desinteresada. &iexcl;Muchas gracias!</p>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Curso</th>
+      <th>Coordinador</th>
+      <th>Colaboradores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2006-2007</td>
+      <td>David Vargas Ruiz (Inform&aacute;tica)</td>
+      <td>
+         <ul>
+            <li>Domingo Luis Gonz&aacute;lez M&aacute;rquez (Jefatura)</li>
+            <LI>Jorge Rivero Antu&#241;a (Jefatura)</LI>
+            <LI>Olga Exp&oacute;sito (Filosof&iacute;a)</LI>
+            <li>Soledad P&eacute;rez Estrada (Departamento de Electricidad y Electr&oacute;nica).</li>
+            <li>V&iacute;ctor (Departamento de Electricidad y Electr&oacute;nica).</li>
+         </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2005-2006</td>
+      <td>David Vargas Ruiz (Inform&aacute;tica)</td>
+      <td>
+         <ul>
+            <LI>Francisco Vargas Ruiz</LI>
+         </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>2004-2005</td>
+      <td>N&eacute;stor P&eacute;rez Leon (Inform&aacute;tica)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2001-2002</td>
+      <td>Raquel Jim&eacute;nez S&aacute;nchez (Imagen y Sonido&nbsp;)</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<!--PLANTILLA.END-->

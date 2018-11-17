@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  numexp: 1
+  nombre: MyString
+  apellidos: MyString
+  tlf_fijo: MyString
+  tlf_movil: MyString
+  email: MyString
+  fecha_nac: 2010-08-26
+  observaciones: MyText
+
+two:
+  numexp: 1
+  nombre: MyString
+  apellidos: MyString
+  tlf_fijo: MyString
+  tlf_movil: MyString
+  email: MyString
+  fecha_nac: 2010-08-26
+  observaciones: MyText

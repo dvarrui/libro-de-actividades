@@ -1,0 +1,13 @@
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<?
+   include('rec/php/programas.php');
+	//$programa[0]='multiples/hilos/hilos1.c';
+	//$programa[1]='cajas/tree/Tree1.java';
+	$programa[0]='multiples/hilos/hilos2.rb';
+	//$programa[3]='cajas/tree/tree1.sh';
+?>
+
+<?	echoProgramas($programa); ?>

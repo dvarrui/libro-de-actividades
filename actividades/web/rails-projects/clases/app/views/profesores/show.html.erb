@@ -1,0 +1,45 @@
+<h1>Mostrar el Profesor "<%=h @profesor.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<%= image_tag "persona/profesor_#{@profesor.id}.jpg"%>
+<table>
+   <tr>
+     <td><b>Centro:</b></td><td><%=h @profesor.departamento.centro.codigo%></td>
+   </tr>
+   <tr>
+     <td><b>Departamento:</b></td><td><%=h @profesor.departamento.nombre%></td>
+   </tr>
+   <tr>
+     <td><b>DNI:</b></td><td><%=h @profesor.dni %></td>
+   </tr>
+   <tr>
+     <td><b>Nombre completo:</td><td><%=h @profesor.nombre_completo %></td>
+   </tr>
+   <tr>
+     <td><b>Teléfono fijo:</td><td><%=h @profesor.tlf_fijo %></td>
+   </tr>
+   <tr>
+     <td><b>Teléfono móvil:</td><td><%=h @profesor.tlf_fijo %></td>
+   </tr>
+   <tr>
+     <td><b>Email:</td><td><%=h @profesor.email %></td>
+   </tr>
+   <tr>
+     <td><b>Activo:</td><td><%=h @profesor.activo %></td>
+   </tr>
+</table>
+</div>
+
+<br/>
+<table border=1>
+<tr><td>
+<p>Programaciones/módulos impartidos(<%=@profesor.programaciones.count.to_s%>):</p>
+<ul>
+  <% for p in @profesor.programaciones %>
+  <li><%= link_to p.ref, p %></li>
+  <% end %>
+</ul>
+</td></tr>
+</table>

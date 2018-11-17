@@ -1,0 +1,12 @@
+<% for column in Ciclo.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @ciclo.send(column.name) %>
+</p>
+<% end %>
+<p>
+  <b>Curso:</b> <%=h @ciclo.curso.nombre %>
+</p>
+<p><b>Código:</b> <%=h @ciclo.codigo %></p>
+
+<%= link_to 'Edit', :action => 'edit', :id => @ciclo %> |
+<%= link_to 'Back', :action => 'list' %>

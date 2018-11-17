@@ -1,0 +1,17 @@
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% p = @nav %>
+<% if (p.class.to_s=="Empresa") then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus') %>
+ > <%= link_to p.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.centro.id) %>
+ > <%= h p.codigo %>
+
+<%  elsif (p==:empresas) then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus') %>
+ > <%= link_to "Centros", url_for(:controller => 'centros') %>
+ > Empresas
+<% end %>
+
+</div>

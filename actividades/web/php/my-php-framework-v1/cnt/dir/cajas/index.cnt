@@ -1,0 +1,15 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<? include('rec/php/arbol.php'); ?>
+
+<ul>
+  <li>Familiarizarse con el uso de las <i>Excepciones</i>.</li>
+  <li>Manipulación del sistema de ficheros.</li>
+  <li>Sistema de impresi&oacute;n.</li>
+  <li>Revisi&oacute;n de todos los componentes visuales.</li>
+  <li><? echoHijos('dir.cajas.tree.index','Ejemplos de tree.'); ?></li>
+</ul>
+

@@ -1,0 +1,30 @@
+<h1>Editar "UD <%= @unidad.numero %>: <%= @unidad.codigo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat"%>
+<% form_for(@unidad) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="programa_id">Programación</label></td><td><%= collection_select 'unidad', :programacion_id, @programaciones, :id, :ref %></td>
+    </tr>
+    <tr>
+      <td><label for="numero">Número</label></td><td><%= text_field 'unidad', :numero %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'unidad', :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="url">URL Fichero</label></td><td><%= text_field 'unidad', :url %></td>
+    </tr>
+    <tr>
+      <td><label for="peso">Peso</label></td><td><%= text_field 'unidad', :peso %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Modificar" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

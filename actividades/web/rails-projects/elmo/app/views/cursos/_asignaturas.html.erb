@@ -1,0 +1,12 @@
+<br>
+<div id='info'>
+<table>
+<p>Listado de asignaturas:</p>
+<ul>
+<% for asignatura in @curso.asignaturas %>
+<li><%= asignatura.codigo %>: <%=asignatura.nombre %></li>
+<% end %>
+</ul>
+</table>
+</div>
+

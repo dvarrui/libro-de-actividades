@@ -1,0 +1,8 @@
+<% for column in Profesor.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @profesor.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', :action => 'edit', :id => @profesor %> |
+<%= link_to 'Volver', :action => 'list' %>

@@ -1,0 +1,29 @@
+<h1>Listing contactos</h1>
+
+<table>
+  <tr>
+  <% for column in Contacto.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+    <th>CATEGORIA</th>
+  </tr>
+  
+<% for contacto in @contactos %>
+  <tr>
+  <% for column in Contacto.content_columns %>
+    <td><%=h contacto.send(column.name) %></td>
+  <% end %>
+    <td><%=h contacto.categoria.nombre %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => contacto %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => contacto %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => contacto }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @contacto_pages.current.previous } if @contacto_pages.current.previous %>
+<%= link_to 'Next page', { :page => @contacto_pages.current.next } if @contacto_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New contacto', :action => 'new' %>

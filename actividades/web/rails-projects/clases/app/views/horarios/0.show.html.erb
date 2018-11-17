@@ -1,0 +1,23 @@
+<h1>Mostrar Horario</h1>
+
+ <table>
+    <tr>
+      <td><b>Programación:</b></td><td><%=link_to @horario.programa.ref, @horario.programa %></td>
+    </tr>
+    <tr>
+      <td><b>Aula:</b></td><td><%= link_to @horario.programa.aula.codigo, @horario.programa.aula %></td>
+    </tr>
+    <tr>
+      <td><b>Profesor:</b></td><td><%= @horario.programa.profesor.nombre_completo %></td>
+    </tr>
+    <tr>
+      <td><b>Día de la Semana:</b></td><td><%= @horario.dia_semana.to_s %></td>
+    </tr>
+    <tr>
+      <td><b>Número de la hora:</b></td><td><%= @horario.num_hora.to_s %></td>
+    </tr>
+ </table>
+
+<br/>
+<%= link_to 'Editar', edit_horario_path(@horario) %> |
+<%= link_to 'Ver todos', horarios_path %>

@@ -1,0 +1,22 @@
+<h1>Nuevo Horario</h1>
+
+<% form_for(@horario) do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><label for="programa_id">Programación</label></td><td><%= collection_select 'horario', :programa_id, @programaciones, :id, :ref%></td>
+    </tr>
+    <tr>
+      <td><label for="dia_semana">Día de la Semana</label></td><td><%= text_field 'horario', :dia_semana %></td>
+    </tr>
+    <tr>
+      <td><label for="num_hora">Número de la hora</label></td><td><%= text_field 'horario', :num_hora %></td>
+    </tr>
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+
+<br/>
+<%= link_to 'Ver todos', horarios_path %>

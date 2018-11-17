@@ -1,0 +1,41 @@
+<!--PLANTILLA.BEGIN-->
+<? include ('rec/sec/navegacion_interior_v02.php'); ?>
+
+<center><h1>Cr&eacute;ditos</h1></center>
+<hr>
+
+<p>Esta p&aacute;gina de cr&eacute;ditos es un homenage a todas las personas 
+que han colaborado&nbsp;en la realizaci&oacute;n del sitio web. De esta forma 
+mostramos nuestro reconocimiento a su labor desinteresada. &iexcl;Muchas gracias!</p>
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Curso</th>
+      <th>Coordinador</th>
+      <th>Colaboradores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2006-2007</td>
+      <td>David Vargas Ruiz (Inform&aacute;tica)</td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>2005-2006</td>
+      <td>David Vargas Ruiz (Inform&aacute;tica)</td>
+      <td>
+         <ul>
+            <LI>Francisco Vargas Ruiz</LI>
+         </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<!--PLANTILLA.END-->

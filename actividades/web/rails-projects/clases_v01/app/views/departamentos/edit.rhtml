@@ -1,0 +1,9 @@
+<h1>Editar departamento</h1>
+
+<% form_tag :action => 'update', :id => @departamento do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Modificar' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @departamento %> |
+<%= link_to 'Volver', :action => 'list' %>

@@ -1,0 +1,48 @@
+<h2>Listado de cursos</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='data'>
+<table>
+  <tr>
+    <th>C&oacute;digo</th>
+    <th>Fin trim1</th>
+    <th>Fin trim2</th>
+    <th>Fin trim3</th>
+  </tr>
+
+<% for curso in @cursos %>
+  <tr>
+    <td><%=h curso.codigo %></td>
+    <td>
+      <% if (curso.fin_trim1) %>
+      <%=h curso.fecha_fin_trim1 %>
+      <% end %>
+    </td>
+    <td>
+      <% if (curso.fin_trim2) %>
+      <%=h curso.fecha_fin_trim2 %>
+      <% end %>
+    </td>
+    <td>
+      <% if (curso.fin_trim3) %>
+      <%=h curso.fecha_fin_trim3 %>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to image_tag('icons/show.png',:border=>0), curso %>
+      | <%= link_to image_tag('icons/edit.png',:border=>0), edit_curso_path(curso) %>
+      <% if (curso.can_be_deleted?) %>
+      | <%= link_to 'Borrar', curso, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+      <% end %>
+    </td>
+      <% if (!curso.is_selected?) %>
+      <td>| <%= link_to 'Seleccionar', url_for(:action=>'select', :id=>curso) %></td>
+      <% else %>
+      <td>| <%= image_tag('icons/selected.png',:border=>0) %></td>
+      
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>

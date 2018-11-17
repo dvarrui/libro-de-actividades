@@ -1,0 +1,29 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+<% a=controller.action_name %>
+
+<%= link_to "Trabajo diario", url_for(:controller => 'menus', :action => 'diario') %>
+
+<% if ['diario','edit'].include?(a) then %>
+ > <%= link_to @curso.codigo, url_for(@curso) %>
+ > Horario
+<% elsif ['new'].include?(a) then %>
+ > <%= link_to @unidades[0].asignatura.curso.codigo, url_for(@unidades[0].asignatura.curso) %>
+ > <%= link_to @unidades[0].asignatura.codigo, url_for(@unidades[0].asignatura) %>
+ > <%= link_to @unidades[0].numero_y_codigo, url_for(@unidades[0]) %>
+ > Tarea
+<% elsif ['list'].include?(a) then %>
+ > <%= link_to @unidad.asignatura.curso.codigo, url_for(@unidad.asignatura.curso) %>
+ > <%= link_to @unidad.asignatura.codigo, url_for(@unidad.asignatura) %>
+ > <%= link_to @unidad.numero_y_codigo, url_for(@unidad) %>
+ > Tareas
+ 
+<% else %>
+ > <%= link_to 'Cursos', url_for(:controller => 'cursos') %>
+ > <%= link_to 'Asignaturas', url_for(:controller => 'asignaturas') %>
+ > Tareas
+<% end %>
+
+</div>

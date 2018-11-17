@@ -1,0 +1,27 @@
+<h1>Nuevo Módulo</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@modulo) do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><label for="ciclo_id">Ciclo</label></td><td><%= collection_select 'modulo', :ciclo_id, @ciclos, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="codigo">Código</label></td><td><%= text_field 'modulo', :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="nombre">Nombre</label></td><td><%= text_field 'modulo', :nombre %></td>
+    </tr>
+    <tr>
+      <td><label for="activo">Activo</label></td><td><%= check_box 'modulo', :activo %></td>
+    </tr>
+
+    <tr>
+      <td></td><td><%= f.submit "Crear" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

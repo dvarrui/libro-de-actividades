@@ -1,0 +1,68 @@
+<!--PLANTILLA.BEGIN-->
+<h1>Mapa del sitio Web</h1>
+
+<ul>
+   <li><a href="<? generarEnlace('padres.index'); ?>">Padres</a></li>
+
+   <li><a href="<? generarEnlace('alumnos.index'); ?>">Alumnos</a></li>
+   <ul>
+      <li><a href="<? generarEnlace('alumnos.descargarsoftware');?>">Software gratuito para descargar</a></li>
+      <li><a href="<? generarEnlace('alumnos.enlacesdeinteres');?>">Enlaces de inter&eacute;s</a></li>
+   </ul>
+
+   <li><a href="<? generarEnlace('secretaria.index');?>">Secretar&iacute;a</a></li>
+   <ul>
+      <li><a href="<? generarEnlace('secretaria.preinscripcion.index');?>">Preinscripciones</a></li>
+      <ul>
+         <LI>Calendario, Informaci&oacute;n, Instrucciones, Pruebas de acceso y Solicitudes</LI>
+      </ul>
+      <li><a href="<? generarEnlace('secretaria.oferta.index');?>">Oferta de Estudios</a></li>
+      <ul>
+         <LI><a href="<? generarEnlace('secretaria.oferta.index','bach');?>">Bachillerato</a></LI>
+         <LI><a href="<? generarEnlace('secretaria.oferta.index','cfgm');?>">Ciclos Formativo de Grado Medio</a></LI>
+         <LI><a href="<? generarEnlace('secretaria.oferta.index','cfgs');?>">Ciclos Formativo de Grado Superior</a></LI>
+         <LI><a href="<? generarEnlace('secretaria.oferta.index','pgs');?>">Programas de Garant&iacute;a Social</a></LI>
+      </ul>
+      <li><a href="<? generarEnlace('secretaria.matricula.index');?>">Matr&iacute;cula</a></li>
+      <ul>
+         <LI>Calendario, Instrucciones y Normativa</LI>
+      </ul>
+   </ul>
+
+   <li><a href="<? generarEnlace('direccion.index');?>">Direcci&oacute;n</a></li>
+
+   <li><a href="<? generarEnlace('centro.index');?>">Centro</a></li>
+   <ul>
+      <LI><a href="<? generarEnlace('centro.callejero');?>">Callejero</a></LI>
+      <LI><a href="<? generarEnlace('centro.vistaaerea');?>">Vista Aerea</a></LI>
+   </ul>
+
+   <li><a href="<? generarEnlace('profesorado.index');?>">Profesorado</a></li>
+   <ul>
+      <LI><a href="<? generarEnlace('profesorado.departamentos.index');?>">Departamentos</a></LI>
+      <ul>
+         <li><a href="<? generarEnlace('profesorado.departamentos.filosofia.index');?>">Filosof&iacute;a</a></li>
+      </ul>
+      <br>
+      <ul>
+         <li><a href="<? generarEnlace('profesorado.departamentos.administracion.index');?>">Administraci&oacute;n</a></li>
+         <li><a href="<? generarEnlace('profesorado.departamentos.comercio.index');?>">Comercio y Marketing</a></li>
+         <li><a href="<? generarEnlace('profesorado.departamentos.comunicacion.index');?>">Comunicaci&oacute;n, Imagen y Sonido</a></li>
+         <li><a href="<? generarEnlace('profesorado.departamentos.electricidad.index');?>">Electricidad y Electr&oacute;nica</a></li>
+         <li><a href="<? generarEnlace('profesorado.departamentos.formacion.index');?>">Formaci&oacute;n y orientaci&oacute;n laboral</a></li>
+         <li><a href="<? generarEnlace('profesorado.departamentos.informatica.index');?>">Inform&aacute;tica</a></li>
+      </ul>
+   </ul>
+
+   <li><a href="<? generarEnlace('noticias.index');?>">Noticias</a></li>
+   <li><a href="<? generarEnlace('eventos.index');?>">Eventos</a></li>
+
+   <li>Pie de P&aacute;gina</li>
+   <ul>
+      <LI><a href="<? generarEnlace("piedepagina.mapaweb"); ?>">Mapa del sitio web</a></LI>
+      <LI><a href="<? generarEnlace("piedepagina.condicionesdeuso"); ?>">Condiciones de uso</a></LI>
+      <LI><a href="<? generarEnlace("piedepagina.creditos"); ?>">Cr&eacute;ditos</a></LI>
+      <LI>Informaci&oacute;n de <a href="<? generarEnlace("piedepagina.contacto"); ?>">Contacto</a></LI>
+   </ul>
+</ul>
+<!--PLANTILLA.END-->

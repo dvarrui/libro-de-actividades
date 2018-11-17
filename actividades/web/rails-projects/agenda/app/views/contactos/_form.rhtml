@@ -1,0 +1,23 @@
+<%= error_messages_for 'contacto' %>
+
+<!--[form:contacto]-->
+<p><label for="contacto_nombre">Nombre</label><br/>
+<%= text_field 'contacto', 'nombre'  %></p>
+
+<p><label for="contacto_apellidos">Apellidos</label><br/>
+<%= text_field 'contacto', 'apellidos'  %></p>
+
+<p><label for="contacto_telefono">Telefono</label><br/>
+<%= text_field 'contacto', 'telefono'  %></p>
+
+<p><label for="contacto_email">Email</label><br/>
+<%= text_field 'contacto', 'email'  %></p>
+
+<p><label for="contacto_direccion">Direccion</label><br/>
+<%= text_area 'contacto', 'direccion'  %></p>
+
+<p><label for="contacto_categoria">Categoria</label><br/>
+<%= collection_select(:contacto,:categoria_id,@categorias,:id,:nombre)%></p>
+
+<!--[eoform:contacto]-->
+

@@ -1,0 +1,29 @@
+<h1>Listing noticias</h1>
+
+<table>
+  <tr>
+  <% for column in Noticia.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for noticia in @noticias %>
+  <tr>
+  <% for column in Noticia.content_columns %>
+    <td><%=h noticia.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => noticia %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => noticia %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => noticia }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @noticia_pages.current.previous } if @noticia_pages.current.previous %>
+<%= link_to 'Next page', { :page => @noticia_pages.current.next } if @noticia_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New noticia', :action => 'new' %>
+<%= link_to 'Principal', :controller => 'principal', :action => 'index' %>
+

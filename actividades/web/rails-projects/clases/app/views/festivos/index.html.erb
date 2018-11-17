@@ -1,0 +1,30 @@
+<h1>Listado de los Festivos</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Curso</th>
+    <th>Fecha de Inicio</th>
+    <th>Días</th>
+    <th>Motivo</th>
+  </tr>
+
+<% for festivo in @festivos %>
+  <tr>
+    <td><%=h festivo.curso.centro.codigo %></td>
+    <td><%=h festivo.curso.codigo %></td>
+    <td><%=h festivo.fecha_inicio %></td>
+    <td><%=h festivo.dias %></td>
+    <td><%=h festivo.motivo %></td>
+    
+    <td><%= link_to 'Mostrar', festivo %></td>
+    <td><%= link_to 'Editar', edit_festivo_path(festivo) %></td>
+    <td><%= link_to 'Borrar', festivo, :confirm => '¿Desea eliminar el registro?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+

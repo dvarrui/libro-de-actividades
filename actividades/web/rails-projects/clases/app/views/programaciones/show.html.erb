@@ -1,0 +1,63 @@
+<h1>Programación "<%= @programacion.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<table>
+    <tr>
+      <td><b>Centro:</b></td><td><%=h @programacion.curso.centro.codigo%></td>
+    </tr>
+    <tr>
+      <td><b>Curso:</b></td><td><%=h @programacion.curso.codigo%></td>
+    </tr>
+    <tr>
+      <td><b>Ciclo :</b></td><td><%=h @programacion.modulo.ciclo.codigo%> (<%=link_to 'Mostrar', @programacion.modulo.ciclo %>)</td>
+    </tr>
+    <tr>
+      <td><b>Módulo:</b></td><td><%=h @programacion.modulo.codigo%> (<%=link_to 'Mostrar', @programacion.modulo %>)</td>
+    </tr>
+    <tr>
+      <td><b>Profesor:</b></td><td><%=h @programacion.profesor.nombre_completo%> (<%=link_to 'Mostrar', @programacion.profesor %>)</td>
+    </tr>
+    <tr>
+      <td><b>Aula:</b></td><td><%=h @programacion.aula.codigo%> (<%=link_to 'Mostrar', @programacion.aula %>)</td>
+    </tr>
+    <tr>
+      <td><b>Etiqueta:</b></td><td><%= @programacion.etiqueta %></td>
+    </tr>
+    <tr>
+      <td><b>URL Fichero:</b></td><td><%= @programacion.url %></td>
+    </tr>
+    <tr>
+      <td><b>Modo de Evaluar:</b></td><td><%= @programacion.modo_evaluar %></td>
+    </tr>
+</table>
+</div>
+
+<br/>
+
+<table border='1' >
+<tr valign='top'><td>
+<p>Pesos asociados (<%= @programacion.pesos.count.to_s %>):</p>
+<ul>
+  <% for i in @programacion.pesos %>
+  <li><%= link_to i.nombre, i %> ( <%= i.codigo%> = <%= i.valor %> )</li>
+  <% end %>
+</ul>
+</td>
+
+<td>
+<p>Unidades didácticas (<%= @programacion.unidades.count.to_s %>):</p>
+<ul>
+  <% for i in @programacion.unidades %>
+  <li>U<%= i.numero.to_s %>: <%= link_to i.nombre, i %></li>
+  <% end %>
+</ul>
+</td>
+
+<td>
+<p>Pendiente: Horario, alumnos</p>
+
+</td></tr>
+</table>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  curso_id: 1
+  asignatura_id: 1
+  letra: MyString
+
+two:
+  curso_id: 1
+  asignatura_id: 1
+  letra: MyString

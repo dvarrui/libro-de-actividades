@@ -1,0 +1,13 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+
+<ul>
+  <li>Recordar el lenguaje de programaci&oacute;n C/C++.</li>
+  <li>Familiarizarse con el entorno de desarrollo elegido.</li>
+  <li>Aprender a realizar b&uacute;squedas en la la documentaci&oacute;n proporcionada.</li>
+  <li>Ejemplos de hola mundo.</li>
+</ul>
+

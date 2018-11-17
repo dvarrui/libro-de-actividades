@@ -1,0 +1,21 @@
+<h1>ELMO - Escuela de M&uacute;sica de la Orotava</h1>
+
+<%
+	c=controller.controller_name
+	a=controller.action_name
+    current = [ '','','','','']
+    i=9
+    i=0 if ['alumnos','asignaturas','cursos','grupos','matriculas','pesos','tareas','tutores','unidades'].include? c
+    i=1 if ['faltas','menus','notas'].include? c
+    i=2 if a=='cierre'
+    i=3 if a=='acercade'
+    current[i]=' id="current" ' 
+%>
+<div id="tab">
+<ul>
+	<li><a href="/menus/inicio" <%=current[0]%>>Inicio del curso</a></li>
+	<li><a href="/menus/diario" <%=current[1]%>>Trabajo diario</a></li>
+	<li><a href="/menus/cierre" <%=current[2]%>>Cerrar el trimestre</a></li>
+	<li><a href="/menus/acercade" <%=current[3]%>>Acerca de</a></li>
+</ul>
+</div>

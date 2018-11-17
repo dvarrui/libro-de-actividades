@@ -1,0 +1,4 @@
+<?
+	//Autor: David Vargas <dvargas@canarias.org>
+	include('rec/php/imprimir.php');
+?>

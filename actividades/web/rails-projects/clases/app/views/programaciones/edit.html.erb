@@ -1,0 +1,36 @@
+<h1>Editar Programación "<%= @programacion.codigo %>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="dat">
+<% form_for(@programacion) do |f| %>
+  <%= f.error_messages %>
+ <table>
+    <tr>
+      <td><label for="curso_id">Curso</label></td><td><%= collection_select 'programacion', :curso_id, @cursos, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="modulo_id">Módulo</label></td><td><%= collection_select 'programacion', :modulo_id, @modulos, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="profesor_id">Profesor</label></td><td><%= collection_select 'programacion', :profesor_id, @profesores, :id, :nombre_completo %></td>
+    </tr>
+    <tr>
+      <td><label for="aula_id">Aula</label></td><td><%= collection_select 'programacion', :aula_id, @aulas, :id, :codigo %></td>
+    </tr>
+    <tr>
+      <td><label for="etiqueta">Etiqueta</label></td><td><%= text_field 'programacion', :etiqueta %></td>
+    </tr>
+    <tr>
+      <td><label for="url">URL Fichero</label></td><td><%= text_field 'programacion', :url %></td>
+    </tr>
+    <tr>
+      <td><label for="modo_evaluar">Modo de Evaluar</label></td><td><%= text_field 'programacion', :modo_evaluar %></td>
+    </tr>
+    
+    <tr>
+      <td></td><td><%= f.submit "Modificar" %></td>
+    </tr>
+  </table>
+<% end %>
+</div>

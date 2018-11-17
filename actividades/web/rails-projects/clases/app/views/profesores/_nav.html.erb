@@ -1,0 +1,26 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<% p = @nav %>
+<% if (p.class.to_s=="Profesor") then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus') %>
+ > <%= link_to p.departamento.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.departamento.centro.id) %>
+ > <%= link_to p.departamento.codigo, url_for(:controller => 'departamentos', :action => 'show', :id => p.departamento.id) %>
+ > <%= h p.codigo %>
+
+<%  elsif (p==:profesores) then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus') %>
+ > <%= link_to "Centros", url_for(:controller => 'centros') %>
+ > Profesores
+
+<% elsif (p.class.to_s=="Departamento") then %>
+<%= link_to "Recursos del Centro", url_for(:controller => 'menus') %>
+ > <%= link_to p.centro.codigo, url_for(:controller => 'centros', :action => 'show', :id => p.centro.id) %>
+ > <%= link_to p.codigo, url_for(:controller => 'departamentos', :action => 'show', :id => p.id) %>
+ > Profesores
+
+<% end %>
+
+</div>

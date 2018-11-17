@@ -1,0 +1,63 @@
+
+#menu {
+	width: 13%;
+	float: left;
+	background: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	text-align: justify;
+	border-right: 1px solid black;
+}
+
+#contenido {
+	width: 65%;
+	float: left;
+	background: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+}
+
+#extra {
+	width: 15%;
+	float: left;
+	background: #eee;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 1em;
+	border: 1px solid #333;
+}
+
+#pie {
+	clear: both;
+	margin-top: 2em;
+	padding-bottom: 1em;
+	border-top: 1px solid #333;
+	text-align: center;
+}
+
+#contenido2 {
+	width: 80%;
+	float: left;
+	background: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+}
+
+#contenido3 {
+	width: 98%;
+	float: left;
+	background: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+}

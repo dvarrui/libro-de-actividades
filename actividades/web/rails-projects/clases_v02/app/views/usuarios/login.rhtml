@@ -1,0 +1,8 @@
+<h1>Loging usuario</h1>
+
+<%= start_form_tag :action => 'entrar' %>
+  <%= render :partial => 'form2' %>
+  <%= submit_tag "Entrar" %>
+<%= end_form_tag %>
+
+<%= link_to 'Principal', :controller => 'principal', :action => 'index' %>

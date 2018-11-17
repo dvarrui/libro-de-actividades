@@ -1,0 +1,34 @@
+<h1>Listado de departamentos</h1>
+
+<table>
+  <tr>
+  <% for column in Departamento.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+    <th>Nº profesores</th>
+  </tr>
+  
+<% for departamento in @departamentos %>
+  <tr>
+  <% for column in Departamento.content_columns %>
+    <td>
+      <div class="campo">
+      <%=h departamento.send(column.name) %>
+      </div>
+    </td>
+  <% end %>
+    <td><div class='calculado'><%= departamento.profesors.size %></div>
+    </td>
+    <td><%= link_to 'Mostrar', :action => 'show', :id => departamento %></td>
+    <td><%= link_to 'Editar', :action => 'edit', :id => departamento %></td>
+    <td><%= link_to 'Borrar', { :action => 'destroy', :id => departamento }, :confirm => '¿Estás seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @departamento_pages.current.previous } if @departamento_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @departamento_pages.current.next } if @departamento_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nuevo departamento', :action => 'new' %>

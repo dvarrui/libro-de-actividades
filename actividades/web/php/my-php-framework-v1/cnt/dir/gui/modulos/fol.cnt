@@ -1,0 +1,32 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<center><h2>Programaci&oacute;n</h2></center>
+
+<center><img border=1 alt="seguridad taller" src="<? echoRecurso('departamentos/pgs/seguridad_taller.jpg');?>"></center>
+<h3>Seguridad Laboral</h3>
+<ul>
+  <li>Conocer, respetar y aplicar las normas de seguridad e higiene en el trabajo.</li>
+</ul>
+
+<hr>
+<center><img border=1 alt="búsqueda empleo" src="<? echoRecurso('departamentos/pgs/charla_busqueda_empleo.jpg');?>"></center>
+
+<h3>B&uacute;squeda de empleo</h3>
+<ul>
+  <li>Identificar y utilizar las t&eacute;cnicas b&aacute;sicas en b&uacute;squeda de empleo.</li>
+</ul>
+
+<hr>
+<h3>Derecho laboral</h3>
+<ul>
+  <li>Valorar los derechos laboral b&aacute;sicos. Contratos de trabajo. ...</li>
+</ul>
+
+<hr>
+<h3>Relaciones interpersonales</h3>
+<ul>
+  <li>Adaptarse a las diversas situaciones de trabajo a nivel individual o en equipo y la disposici&oacute;n a colaborar.</li>
+</ul>

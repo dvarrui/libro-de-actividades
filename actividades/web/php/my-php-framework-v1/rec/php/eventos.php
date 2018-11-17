@@ -1,0 +1,72 @@
+<?
+	//Mostrar un calendario de eventos
+
+	function getNombreMes($index=-1) {
+		$meses_anio = array('Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre') ;
+		if ($index==-1) {$index=date(m)-1;}
+		return $meses_anio[$index];
+	}
+
+	function getNumeroDiaSemana($index=-1) {
+		$dia=date(d);
+		$nds=date(w);
+		if ($nds==0) {$nds=7;}
+
+		if ($index==-1) { return $nds;}
+
+		if ($dia<$index) {
+			while($dia<$index) {
+				if ($nds<7) {$nds++;$dia++;}
+				else {$nds=1;$dia++;}
+			}
+			return $nds;
+		}
+		if ($dia>$index) {
+			while($dia>$index) {
+				if ($nds>1) {$nds--;$dia--;}
+				else {$nds=7;$dia--;}
+			}
+			return $nds;
+		}
+
+	}
+	function getNombreDiaSemana($index=-1) {
+		$dias_semana = array('Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado','Domingo');
+		if ($index==-1) {$index=getNumeroDiaSemana()-1;}
+		return $dias_semana[$index-1];
+	}
+
+	function getNumeroDiasMes($index=-1) {
+		if ($index==-1) {return date(t);}
+	}
+	//---------------------------------------
+
+	echo '<h2>Eventos</h2>';
+	echo getNombreDiaSemana().' '.date(d).' de '.getNombreMes().' del '.date(Y).'<br><br>';
+
+	echo '<form>';
+	echo '<table border=1>';
+	echo '<tr><td>L</td><td>M</td><td>X</td><td>J</td><td>V</td><td>S</td><td>D</td></tr>';
+
+	echo '<tr>';
+	$nds=getNumeroDiaSemana(1);
+	for($j=1;$j<$nds;$j++) {
+		echo '<td></td>';
+	}
+	$i=1;
+
+	while($i<=getNumeroDiasMes()) {
+		
+		if ($i==date(d)) {echo '<td>['.$i.']</td>';}
+		else {echo '<td>'.$i.'</td>';}
+		if ($nds>6) {
+			echo '</tr>';
+			echo '<tr>';
+			$nds=1;
+		} else { $nds++; }
+		$i++;
+	}
+	echo '</tr>';
+	echo '</table>';
+	echo '</form>';
+?> 

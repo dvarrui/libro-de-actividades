@@ -1,0 +1,21 @@
+
+<h2>Horario</h2>
+<table border=1>
+<tr>
+  <th>Hora/Día</th>
+  <th>Lunes</th>
+  <th>Martes</th>
+  <th>Miércoles</th>
+  <th>Jueves</th>
+  <th>Viernes</th>
+</tr>
+<% 12.times do |hora|%>
+<tr>
+  <td><%= hora.succ.to_s %>
+  <% 5.times do |dia|%>
+  <td><%= 'Día:'+dia.to_s+' Hora:'+hora.to_s %></td>
+  <% end%>
+</tr>
+<% end %>
+</table>
+

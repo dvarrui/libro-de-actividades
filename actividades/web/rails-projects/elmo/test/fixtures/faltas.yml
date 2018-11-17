@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  matricula_id: 1
+  valfecha: 2010-09-05
+  valor: MyString
+
+two:
+  matricula_id: 1
+  valfecha: 2010-09-05
+  valor: MyString

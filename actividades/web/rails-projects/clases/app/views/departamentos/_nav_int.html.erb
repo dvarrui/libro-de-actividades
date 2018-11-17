@@ -1,0 +1,32 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nuevo departamento', new_departamento_path %>
+<% elsif (a=="new" && p==:departamentos) then %>
+  <%= link_to 'Ver todos', departamentos_path %>
+<% elsif (a=="new" && p.class.to_s=="Centro") then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (a=="list" && p.class.to_s=="Centro") then %>
+  <%= link_to 'Nuevo departamento', url_for(:action => 'new', :id => p.id) %>
+<% elsif (p.class.to_s=="Departamento") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', departamento_path(@departamento) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_departamento_path(@departamento) %> |
+  <% end %>
+  <%= link_to 'Borrar', @departamento, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @departamento.centro_id) %> |
+  <%= link_to 'Profesores('+@departamento.profesores.count.to_s+')', url_for(:controller => 'profesores', :action => 'list', :id => @departamento.id)%>
+<% end %>
+</p>
+</div>

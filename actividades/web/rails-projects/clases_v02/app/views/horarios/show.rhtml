@@ -1,0 +1,13 @@
+
+<p><b>Aula:</b> <%=h @horario.aula.nombre %> </p>
+<p><b>Módulo:</b> <%=h @horario.modulo.codigo %> </p>
+<p><b>Profesor:</b> <%=h @horario.profesor.codigo %> </p>
+
+<% for column in Horario.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @horario.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @horario %> |
+<%= link_to 'Back', :action => 'list' %>

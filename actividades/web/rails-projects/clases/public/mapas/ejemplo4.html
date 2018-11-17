@@ -1,0 +1,50 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Mapa - David Vargas</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAARNT39waOhH4-ExiDJzQUOxTVRBMp1m4Olrb_vWg3oM52-aZPeRRGoAMlvgELx7D4LhFyWvU4UcfTxw&sensor=false"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+	
+function initialize() {
+   if (GBrowserIsCompatible()) {
+      var map = new GMap2(document.getElementById("map_canvas"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(28.412032,-16.55026), 11);  
+      
+      function crearMarca(punto, html){
+         var miMarca = new GMarker(punto);
+         GEvent.addListener(miMarca, "click", function (){
+            miMarca.openInfoWindowHtml(html);
+         });
+         map.addOverlay(miMarca);
+      }
+      
+      //descargar el xml con las marcas y procesar su contenido
+      GDownloadUrl("coordenadas.xml", function(documento) {
+         //En esta función puedo examinar el XML y hacer cosas dependiendo su contenido.
+         var xmlDoc = GXml.parse(documento);
+         //extraigo todas las marcas del XML. Obtengo un array
+         var marcas = xmlDoc.documentElement.getElementsByTagName("marca");
+         for (var i = 0; i < marcas.length; i++) {
+            var lat = parseFloat(marcas[i].getAttribute("lat"));
+            var lng = parseFloat(marcas[i].getAttribute("lng"));
+            var punto = new GLatLng(lat,lng);
+            var html = marcas[i].getAttribute("codigohtml");
+            
+            crearMarca(punto, html);
+         }
+      });
+      
+   }
+} 
+    </script>
+  </head>
+  <body onload="initialize()" onunload="GUnload()">
+    <h1>Coordenadas XML</h1>
+    <div id="map_canvas" style="width: 1000px; height: 600px"></div>
+  </body>
+</html>

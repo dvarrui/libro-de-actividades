@@ -1,0 +1,70 @@
+
+#dat {
+	color: #000;
+	background: #fed;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#dat tr {
+	border-bottom: 1px solid;
+}
+
+#dat th {
+	color: #000;
+	background: #cba;
+	border-bottom: 1px solid;
+}
+
+#dat td {
+	color: #000;
+}
+
+#horario table {
+	margin: 1em;
+} 
+
+#horario td {
+	margin: 0px;
+} 
+
+#horario .descanso {
+	background: #bbb;
+} 
+
+#horario .error {
+	background: #f00;
+} 
+
+#horario .ocupado {
+	background: #ddf;
+} 
+
+#horario .libre {
+	background: #ada;
+} 
+
+#horario .hueco {
+	background: #efe;
+} 
+
+#index {
+	color: #000;
+	background: #0a7;
+	border-color: #000;
+	border: 1px solid;
+}
+
+#index tr {
+	border-bottom: 1px solid;
+}
+
+#index th {
+	color: #000;
+	background: #074;
+	border-bottom: 1px solid;
+}
+
+#index td {
+	color: #000;
+}

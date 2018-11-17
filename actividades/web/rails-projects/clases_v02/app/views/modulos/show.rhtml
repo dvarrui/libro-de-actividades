@@ -1,0 +1,22 @@
+<h1>Módulo: <%= @modulo.desc %> </h1>
+
+<div style="float:left">
+<table><tr><td>
+<h2>Datos del módulo</h2>
+<% for column in Modulo.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @modulo.send(column.name) %>
+</p>
+<% end %>
+<p><b>Código:</b> <%= @modulo.codigo %></p>
+
+<%= link_to 'Edit', :action => 'edit', :id => @modulo %> |
+<%= link_to 'Back', :action => 'list' %>
+</td></tr></table>
+</div>
+
+<div style="float:center">
+<table><tr><td>
+<%= render :partial => 'info' %>
+</table></tr></td>
+</div>

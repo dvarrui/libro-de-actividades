@@ -1,0 +1,70 @@
+#tab h5 {
+	display: none;
+}
+
+#tab ul {
+	padding: 3px 0;
+	margin-left: 0;
+	border-bottom: 1px solid #778;
+	font: bold 12px Verdana, sans-serif;
+}
+
+#tab ul li {
+	list-style: none;
+	margin: 0;
+	display: inline;
+}
+
+#tab ul li a {
+	padding: 3px 0.5em;
+	margin-left: 3px;
+	border: 1px solid #778;
+	border-bottom: none;
+	background: #dde;
+	text-decoration: none;
+}
+
+#tab ul li a:link {
+	color: #448;
+}
+
+#tab ul li a:visited {
+	color: #667;
+}
+
+#tab ul li a:link:hover, #tab ul li a:visited:hover {
+	color: #000;
+	background: #aae;
+	border-color: #227;
+}
+
+#tab ul li a#current {
+	background: white;
+	border-bottom: 1px solid white;
+}
+
+#nav {
+	/*background-color: #eee;*/
+	padding: 4px:
+}
+
+#nav ul {
+	display: inline;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+#nav ul li {
+	display: inline;
+}
+
+#nav ul li a:link {
+	padding: .2em;
+}
+
+#nav ul ul li {
+	background-image: url("../images/arrow06.gif");
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 18px;
+}

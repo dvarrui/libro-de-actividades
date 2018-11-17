@@ -1,0 +1,30 @@
+
+<div id="nav_int">
+
+<% p = @nav %>
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+  <%= link_to 'Nuevo ciclo', new_ciclo_path %>
+<% elsif (a=="new" && p==:ciclos) then %>
+  <%= link_to 'Ver todos', ciclos_path %>
+<% elsif (p.class.to_s=="Centro") then %>
+  <%= link_to 'Listar', url_for(:action => 'list', :id => p.id) %>
+<% elsif (p.class.to_s=="Ciclo") then %>
+  <% if a=="show" then %>
+    Mostrar |
+  <% else %>
+    <%= link_to 'Mostrar', ciclo_path(@ciclo) %> |
+  <% end %>
+  <% if a=="edit" then %>
+    Editar |
+  <% else %>
+    <%= link_to 'Editar', edit_ciclo_path(@ciclo) %> |
+  <% end %>
+  <%= link_to 'Borrar', @ciclo, :confirm => '¿Desea eliminar el registro?', :method => :delete %> |
+  <%= link_to 'Listar', url_for(:action => 'list', :id => @ciclo.centro_id) %> |
+  <%= link_to 'Módulos('+@ciclo.modulos.count.to_s+')', url_for(:controller => 'modulos', :action => 'list', :id => @ciclo.id)%>
+<% end %>
+</p>
+</div>

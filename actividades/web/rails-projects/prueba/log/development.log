@@ -1,0 +1,295 @@
+  [4;36;1mSQL (0.122651)[0m   [0;1mCREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000639)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.034376)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateNoticias (1)
+  [4;36;1mSQL (0.550744)[0m   [0;1mCREATE TABLE noticias (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `titulo` varchar(255), `contenido` text) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000600)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000447)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000454)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001162)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000820)[0m   [0mSHOW KEYS FROM noticias[0m
+  [4;36;1mNoticia Columns (0.001753)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000383)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000615)[0m   [0;1mINSERT INTO noticias (`contenido`, `titulo`) VALUES('Hola qué tal?', 'Bienvenida')[0m
+  [4;35;1mSQL (0.003896)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mBEGIN[0m
+  [4;35;1mNoticia Update (0.032754)[0m   [0mUPDATE noticias SET `titulo` = 'Bienvenida2', `contenido` = 'Hola qué tal?' WHERE id = 1[0m
+  [4;36;1mSQL (0.002642)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000320)[0m   [0mBEGIN[0m
+  [4;36;1mNoticia Update (0.000680)[0m   [0;1mUPDATE noticias SET `titulo` = 'Bienvenida3', `contenido` = 'Hola qué tal?' WHERE id = 1[0m
+  [4;35;1mSQL (0.004096)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000469)[0m   [0mINSERT INTO noticias (`contenido`, `titulo`) VALUES(NULL, 'Bienvenida')[0m
+  [4;36;1mSQL (0.005843)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000304)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000613)[0m   [0;1mINSERT INTO noticias (`contenido`, `titulo`) VALUES(NULL, 'Bienvenida2')[0m
+  [4;35;1mSQL (0.002722)[0m   [0mCOMMIT[0m
+  [4;36;1mNoticia Load (0.000855)[0m   [0;1mSELECT * FROM noticias [0m
+
+
+Processing Base#index (for 127.0.0.1 at 2009-04-29 18:08:56) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/rails/info/properties"):
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:522:in `recognition_failed'
+    .//vendor/rails/actionpack/lib/action_controller/routing.rb:512:in `recognize!'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mNoticia Columns (0.001927)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+
+
+Processing NoticiasController#index (for 127.0.0.1 at 2009-04-29 18:11:45) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"index", "controller"=>"noticias"}
+  [4;36;1mNoticia Columns (0.001743)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000682)[0m   [0mSELECT count(*) AS count_all FROM noticias [0m
+  [4;36;1mNoticia Load (0.000430)[0m   [0;1mSELECT * FROM noticias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/noticias
+Rendering noticias/list
+Completed in 0.07009 (14 reqs/sec) | Rendering: 0.01567 (22%) | DB: 0.00285 (4%) | 200 OK [http://localhost/noticias]
+
+
+Processing NoticiasController#edit (for 127.0.0.1 at 2009-04-29 18:12:14) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"noticias"}
+  [4;35;1mNoticia Load (0.012200)[0m   [0mSELECT * FROM noticias WHERE (noticias.id = '2') LIMIT 1[0m
+Rendering  within layouts/noticias
+Rendering noticias/edit
+  [4;36;1mNoticia Columns (0.002195)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+Rendered noticias/_form (0.00231)
+Completed in 0.02671 (37 reqs/sec) | Rendering: 0.00857 (32%) | DB: 0.01440 (53%) | 200 OK [http://localhost/noticias/edit/2]
+
+
+Processing NoticiasController#update (for 127.0.0.1 at 2009-04-29 18:12:28) [POST]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"commit"=>"Edit", "action"=>"update", "id"=>"2", "controller"=>"noticias", "noticia"=>{"titulo"=>"Bienvenida", "contenido"=>"Esto es una prueba que estamos haciendo."}}
+  [4;35;1mNoticia Load (0.000252)[0m   [0mSELECT * FROM noticias WHERE (noticias.id = '2') LIMIT 1[0m
+  [4;36;1mNoticia Columns (0.001330)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000182)[0m   [0mBEGIN[0m
+  [4;36;1mNoticia Update (0.000947)[0m   [0;1mUPDATE noticias SET `titulo` = 'Bienvenida', `contenido` = 'Esto es una prueba que estamos haciendo.' WHERE id = 2[0m
+  [4;35;1mSQL (0.015199)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/noticias/show/2
+Completed in 0.02715 (36 reqs/sec) | DB: 0.01791 (65%) | 302 Found [http://localhost/noticias/update/2]
+
+
+Processing NoticiasController#show (for 127.0.0.1 at 2009-04-29 18:12:29) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"noticias"}
+  [4;36;1mNoticia Load (0.001060)[0m   [0;1mSELECT * FROM noticias WHERE (noticias.id = '2') LIMIT 1[0m
+Rendering  within layouts/noticias
+Rendering noticias/show
+  [4;35;1mNoticia Columns (0.001696)[0m   [0mSHOW FIELDS FROM noticias[0m
+Completed in 0.01166 (85 reqs/sec) | Rendering: 0.00532 (45%) | DB: 0.00276 (23%) | 200 OK [http://localhost/noticias/show/2]
+
+
+Processing NoticiasController#list (for 127.0.0.1 at 2009-04-29 18:12:31) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"list", "controller"=>"noticias"}
+  [4;36;1mNoticia Columns (0.006892)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000612)[0m   [0mSELECT count(*) AS count_all FROM noticias [0m
+  [4;36;1mNoticia Load (0.010127)[0m   [0;1mSELECT * FROM noticias LIMIT 0, 10[0m
+Rendering  within layouts/noticias
+Rendering noticias/list
+Completed in 0.02858 (34 reqs/sec) | Rendering: 0.00558 (19%) | DB: 0.01763 (61%) | 200 OK [http://localhost/noticias/list]
+
+
+Processing NoticiasController#new (for 127.0.0.1 at 2009-04-29 18:14:15) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"new", "controller"=>"noticias"}
+  [4;35;1mNoticia Columns (0.001469)[0m   [0mSHOW FIELDS FROM noticias[0m
+Rendering  within layouts/noticias
+Rendering noticias/new
+Rendered noticias/_form (0.00118)
+Completed in 0.01734 (57 reqs/sec) | Rendering: 0.01176 (67%) | DB: 0.00147 (8%) | 200 OK [http://localhost/noticias/new]
+
+
+Processing NoticiasController#show (for 127.0.0.1 at 2009-04-29 18:23:36) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"noticias"}
+  [4;36;1mNoticia Load (0.000761)[0m   [0;1mSELECT * FROM noticias WHERE (noticias.id = '1') LIMIT 1[0m
+Rendering  within layouts/noticias
+Rendering noticias/show
+  [4;35;1mNoticia Columns (0.001436)[0m   [0mSHOW FIELDS FROM noticias[0m
+Completed in 0.01179 (84 reqs/sec) | Rendering: 0.00555 (47%) | DB: 0.00220 (18%) | 200 OK [http://localhost/noticias/show/1]
+
+
+Processing NoticiasController#show (for 127.0.0.1 at 2009-04-29 18:25:17) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"noticias"}
+  [4;36;1mNoticia Load (0.000271)[0m   [0;1mSELECT * FROM noticias WHERE (noticias.id = '1') LIMIT 1[0m
+Rendering  within layouts/noticias
+Rendering noticias/show
+  [4;35;1mNoticia Columns (0.001484)[0m   [0mSHOW FIELDS FROM noticias[0m
+Completed in 0.01551 (64 reqs/sec) | Rendering: 0.01046 (67%) | DB: 0.00175 (11%) | 200 OK [http://localhost/noticias/show/1]
+
+
+Processing NoticiasController#list (for 127.0.0.1 at 2009-04-29 18:25:32) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"list", "controller"=>"noticias"}
+  [4;36;1mNoticia Columns (0.003603)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.000151)[0m   [0mSELECT count(*) AS count_all FROM noticias [0m
+  [4;36;1mNoticia Load (0.000095)[0m   [0;1mSELECT * FROM noticias LIMIT 0, 10[0m
+Rendering  within layouts/noticias
+Rendering noticias/list
+Completed in 0.01427 (70 reqs/sec) | Rendering: 0.00559 (39%) | DB: 0.00385 (26%) | 200 OK [http://localhost/noticias/list]
+
+
+Processing PrincipalController#index (for 127.0.0.1 at 2009-04-29 18:32:05) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"index", "controller"=>"principal"}
+Completed in 0.00121 (825 reqs/sec) | Rendering: 0.00008 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/principal]
+
+
+Processing PrincipalController#mostrar (for 127.0.0.1 at 2009-04-29 18:32:14) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"mostrar", "controller"=>"principal"}
+Completed in 0.00649 (154 reqs/sec) | Rendering: 0.00008 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/principal/mostrar]
+
+
+Processing NoticiasController#index (for 127.0.0.1 at 2009-04-29 18:33:21) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"index", "controller"=>"noticias"}
+  [4;35;1mNoticia Columns (0.014249)[0m   [0mSHOW FIELDS FROM noticias[0m
+  [4;36;1mSQL (0.000177)[0m   [0;1mSELECT count(*) AS count_all FROM noticias [0m
+  [4;35;1mNoticia Load (0.000182)[0m   [0mSELECT * FROM noticias LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/noticias
+Rendering noticias/list
+Completed in 0.02825 (35 reqs/sec) | Rendering: 0.00881 (31%) | DB: 0.01461 (51%) | 200 OK [http://localhost/noticias]
+
+
+Processing PrincipalController#index (for 127.0.0.1 at 2009-04-29 18:33:28) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"index", "controller"=>"principal"}
+Completed in 0.00127 (784 reqs/sec) | Rendering: 0.00008 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/principal]
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE schema_info (version int(11))[0m
+  [4;36;1mSQL (0.000777)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsuarios (2)
+  [4;36;1mSQL (0.142102)[0m   [0;1mCREATE TABLE usuarios (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `nombre` varchar(255), `clave` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000514)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000470)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000475)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001011)[0m   [0;1mSHOW FIELDS FROM noticias[0m
+  [4;35;1mSQL (0.001005)[0m   [0mSHOW KEYS FROM noticias[0m
+  [4;36;1mSQL (0.001133)[0m   [0;1mSHOW FIELDS FROM usuarios[0m
+  [4;35;1mSQL (0.000781)[0m   [0mSHOW KEYS FROM usuarios[0m
+  [4;36;1mUsuario Columns (0.001706)[0m   [0;1mSHOW FIELDS FROM usuarios[0m
+
+
+Processing UsuariosController#index (for 127.0.0.1 at 2009-04-29 18:36:48) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"index", "controller"=>"usuarios"}
+  [4;36;1mUsuario Columns (0.001517)[0m   [0;1mSHOW FIELDS FROM usuarios[0m
+  [4;35;1mSQL (0.000587)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.000364)[0m   [0;1mSELECT * FROM usuarios LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/usuarios
+Rendering usuarios/list
+Completed in 0.02768 (36 reqs/sec) | Rendering: 0.01956 (70%) | DB: 0.00247 (8%) | 200 OK [http://localhost/usuarios]
+
+
+Processing UsuariosController#new (for 127.0.0.1 at 2009-04-29 18:36:49) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"new", "controller"=>"usuarios"}
+  [4;35;1mUsuario Columns (0.001489)[0m   [0mSHOW FIELDS FROM usuarios[0m
+Rendering  within layouts/usuarios
+Rendering usuarios/new
+Rendered usuarios/_form (0.00239)
+Completed in 0.01189 (84 reqs/sec) | Rendering: 0.00676 (56%) | DB: 0.00149 (12%) | 200 OK [http://localhost/usuarios/new]
+
+
+Processing UsuariosController#create (for 127.0.0.1 at 2009-04-29 18:36:54) [POST]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"commit"=>"Create", "action"=>"create", "controller"=>"usuarios", "usuario"=>{"nombre"=>"david", "clave"=>"123456"}}
+  [4;36;1mUsuario Columns (0.001453)[0m   [0;1mSHOW FIELDS FROM usuarios[0m
+  [4;35;1mSQL (0.001869)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000568)[0m   [0;1mINSERT INTO usuarios (`nombre`, `clave`) VALUES('david', '123456')[0m
+  [4;35;1mSQL (0.002563)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/usuarios/list
+Completed in 0.02531 (39 reqs/sec) | DB: 0.00645 (25%) | 302 Found [http://localhost/usuarios/create]
+
+
+Processing UsuariosController#list (for 127.0.0.1 at 2009-04-29 18:36:54) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"list", "controller"=>"usuarios"}
+  [4;36;1mUsuario Columns (0.013010)[0m   [0;1mSHOW FIELDS FROM usuarios[0m
+  [4;35;1mSQL (0.000622)[0m   [0mSELECT count(*) AS count_all FROM usuarios [0m
+  [4;36;1mUsuario Load (0.003990)[0m   [0;1mSELECT * FROM usuarios LIMIT 0, 10[0m
+Rendering  within layouts/usuarios
+Rendering usuarios/list
+Completed in 0.02751 (36 reqs/sec) | Rendering: 0.00376 (13%) | DB: 0.01762 (64%) | 200 OK [http://localhost/usuarios/list]
+
+
+Processing UsuariosController#login (for 127.0.0.1 at 2009-04-29 18:39:45) [GET]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"action"=>"login", "controller"=>"usuarios"}
+Rendering  within layouts/usuarios
+Rendering usuarios/login
+Rendered usuarios/_form (0.00072)
+Completed in 0.01167 (85 reqs/sec) | Rendering: 0.00490 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/usuarios/login]
+
+
+Processing UsuariosController#entrar (for 127.0.0.1 at 2009-04-29 18:39:57) [POST]
+  Session ID: 92c58d0318b4eedd931827bec787d1b7
+  Parameters: {"commit"=>"entrar", "action"=>"entrar", "controller"=>"usuarios", "usuario"=>{"nombre"=>"david", "clave"=>"12345"}}
+
+
+ActionController::UnknownAction (No action responded to entrar):
+    .//vendor/rails/actionpack/lib/action_controller/filters.rb:368:in `perform_action_without_benchmark'
+    .//vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    .//vendor/rails/actionpack/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    .//vendor/rails/actionpack/lib/action_controller/rescue.rb:82:in `perform_action'
+    .//vendor/rails/actionpack/lib/action_controller/base.rb:408:in `send'
+    .//vendor/rails/actionpack/lib/action_controller/base.rb:408:in `process_without_filters'
+    .//vendor/rails/actionpack/lib/action_controller/filters.rb:377:in `process_without_session_management_support'
+    .//vendor/rails/actionpack/lib/action_controller/session_management.rb:117:in `process'
+    .//vendor/rails/railties/lib/dispatcher.rb:38:in `dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:115:in `handle_dispatch'
+    .//vendor/rails/railties/lib/webrick_server.rb:81:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    .//vendor/rails/railties/lib/webrick_server.rb:67:in `dispatch'
+    .//vendor/rails/railties/lib/commands/servers/webrick.rb:59
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    .//vendor/rails/activesupport/lib/active_support/dependencies.rb:147:in `require'
+    .//vendor/rails/railties/lib/commands/server.rb:30
+    ./script/server:3:in `require'
+    ./script/server:3
+
+
+Rendering ./script/../config/../vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)

@@ -1,0 +1,27 @@
+
+<div id="nav_int">
+
+<% a = controller.action_name %>
+
+<p>
+<% if (a=="index") then %>
+<% elsif (a=="list") then %>
+	<%= link_to 'Nueva unidad', url_for(:action => 'new', :id => @asignatura.id) %> |
+	<%= link_to 'Ir a '+@asignatura.codigo, url_for(:controller=>'asignaturas',:action => 'show', :id => @asignatura.id) %>	
+<% elsif (a=="new") then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @asignaturas[0].id) %>
+<% elsif a=="show" || a=="" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @unidad.asignatura.id) %> | 
+   Mostrar |
+   <%= link_to 'Editar', edit_unidad_path(@unidad) %> |
+	<%= link_to 'Borrar', @unidad, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+	<%= link_to 'Tareas('+@unidad.tareas.size.to_s+')', url_for(:controller => 'tareas', :action => 'list', :id => @unidad.id ) %>
+<% elsif a=="edit" then %>
+	<%= link_to 'Ver todos', url_for(:action => 'list', :id => @unidad.asignatura.id) %> | 
+   <%= link_to 'Mostrar', unidad_path(@unidad) %> |
+    Editar |
+	<%= link_to 'Borrar', @unidad, :confirm => '¿Desea eliminar el registro?', :method => :delete %> | 
+	<%= link_to 'Tareas('+@unidad.tareas.size.to_s+')', url_for(:controller => 'tareas', :action => 'list', :id => @unidad.id ) %>
+<% end %>
+</p>
+</div>

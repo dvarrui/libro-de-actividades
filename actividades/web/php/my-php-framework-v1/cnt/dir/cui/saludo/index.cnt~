@@ -1,0 +1,9 @@
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<?
+   include('rec/php/arbol.php');
+	echoHijos('dir.cui.saludo.index');	
+?>
+

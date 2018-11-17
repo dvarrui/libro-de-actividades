@@ -1,0 +1,11 @@
+<br>
+<div id='info'>
+<table>
+<p>Listado de grupos:</p>
+<ul>
+<% for grupo in @curso.grupos %>
+<li><%= grupo.asignatura.codigo %>-<%= grupo.letra %></li>
+<% end %>
+</ul>
+</table>
+</div>

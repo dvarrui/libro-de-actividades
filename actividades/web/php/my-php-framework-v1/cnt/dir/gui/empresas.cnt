@@ -1,0 +1,13 @@
+
+<center><h1><? echo $descripcion; ?></h1></center>
+
+<hr>
+
+<center><h2>Empresas colaboradoras</h2></center>
+
+<ul>
+  <li>Hotel Catalonia Caletillas</li>
+  <li>Cerrajer&iacute;a 'Metalnany'</li>
+  <li>Instalaciones el&eacute;ctricas La Hidro</li>
+  <li>Elmex S.A.</li>
+</ul>

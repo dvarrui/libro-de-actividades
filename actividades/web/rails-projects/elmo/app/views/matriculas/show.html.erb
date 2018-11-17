@@ -1,0 +1,48 @@
+<h2>Mostrar matr&iacute;cula</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<table>
+<tr>
+  <td><b>Grupo:</b></td><td><%=h @matricula.grupo.codigo %></td>
+</tr>
+
+<tr>
+  <td><b>Alumno:</b></td><td><%= link_to @matricula.alumno.nombre_completo, url_for(:controller=>:alumnos,:action=>:show,:id=>@matricula.alumno) %></td>
+</tr>
+
+<tr>
+  <td><b>Tutor:</b></td><td><%=h @matricula.tutor.nombre_completo %></td>
+</tr>
+
+<tr>
+  <td><b>Fecha baja:</b></td><td><%=h @matricula.fecha_baja %><td>
+  <td><b>Baja:</b></td><td><%=h @matricula.baja %></td>
+</tr>
+
+<tr>
+  <td><b>Nota trim1:</b></td><td><%=h @matricula.nota_trim1 %></td>
+  <td><b>Evaluado trim1:</b></td><td><%=h @matricula.evaluado_trim1 %></td>
+</tr>
+<tr>
+  <td><b>Nota trim2:</b></td><td><%=h @matricula.nota_trim2 %></td>
+  <td><b>Evaluado trim2:</b></td><td><%=h @matricula.evaluado_trim2 %></td>
+</tr>
+<tr>
+  <td><b>Nota trim3:</b></td><td><%=h @matricula.nota_trim3 %></td>
+  <td><b>Evaluado trim3:</b></td><td><%=h @matricula.evaluado_trim3 %></td>
+</tr>
+
+<tr>
+  <td><b>Boletin trim1:</b></td><td><%=h @matricula.boletin_trim1 %></td>
+</tr>
+<tr>
+  <td><b>Boletin trim2:</b></td><td><%=h @matricula.boletin_trim2 %></td>
+</tr>
+<tr>
+  <td><b>Boletin trim3:</b></td><td><%=h @matricula.boletin_trim3 %></td>
+</tr>
+
+</table>
+</div>

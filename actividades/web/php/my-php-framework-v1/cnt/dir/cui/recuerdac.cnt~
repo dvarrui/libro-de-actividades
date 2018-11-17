@@ -1,0 +1,93 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<p>Tabla comparativa de las estructuras y sintaxis utilizadas en C y su 
+equivalente en Java y Ruby.</p>
+<table border=1>
+  <tr>
+    <td>Concepto</td><td>C</td><td>Java</td><td>Ruby</td>
+  </tr>
+  <tr>
+    <td>Nombre del fichero fuente</td>
+    <td>miprograma.c</td>
+    <td>MiPrograma.java</td>
+    <td>miprograma.rb</td>
+  </tr>
+  <tr>
+    <td>Compilar</td>
+    <td>gcc miprograma.c -o miprograma</td>
+    <td>javac MiPrograma.java</td>
+    <td>(No requiere)</td>
+  </tr>
+  <tr>
+    <td>Ejecutar</td>
+    <td>miprograma</td>
+    <td>java MiPrograma</td>
+    <td>ruby miprograma.rb</td>
+  </tr>
+  <tr>
+    <td>Comentarios</td>
+    <td>//...<br>/* ... */</td>
+    <td>//...<br>/* ... */</td>
+    <td>#...</td>
+  </tr>
+  <tr>
+    <td>Enteros</td>
+    <td>int i;<br>i=4;</td>
+    <td>int i;<br>i=4;</td>
+    <td>i=4</td>
+  </tr>
+  <tr>
+    <td>Coma flotante</td>
+    <td>float f;<br>f=3.14;</td>
+    <td>float f;<br>f=3.14;</td>
+    <td>f=3.14</td>
+  </tr>
+  <tr>
+    <td>Caracteres</td>
+    <td>char c;<br>c='A';</td>
+    <td>char c;<br>c='A';</td>
+    <td>c='A'</td>
+  </tr>
+  <tr>
+    <td>Cadenas</td>
+    <td>char *s="Esto es una cadena o string";</td>
+    <td>String s="Esto es una cadena o string";</td>
+    <td>s="Esto es una cadena o string"</td>
+  </tr>
+  <tr>
+    <td>Booleanos</td>
+    <td>(No tiene, usa los tipo int)</td>
+    <td>boolean b=true;</td>
+    <td>b=true</td>
+  </tr>
+  <tr>
+    <td>Fechas</td>
+    <td>(No tiene, usa los tipo int)</td>
+    <td>boolean b=true;</td>
+    <td>b=true</td>
+  </tr>
+  <tr>
+    <td>Estructuras</td>
+    <td>struct {<br>char *nombre;<br> int edad;<br>} PERSONA</td>
+    <td>class Persona {<br>String nombre;<br> int edad;<br> }</td>
+    <td>class Persona<br>attr_accesor :nombre, :edad<br>end<br></td>
+  </tr>
+  <tr>
+    <td>Arrays</td>
+    <td>struct {<br>char *nombre;<br> int edad;<br>} PERSONA</td>
+    <td>class Persona {<br>String nombre;<br> int edad;<br> }</td>
+    <td>class Persona<br>attr_accesor :nombre, :edad<br>end<br></td>
+  </tr>
+  <tr>
+    <td>Estructuras</td>
+    <td>struct {<br>char *nombre;<br> int edad;<br>} PERSONA</td>
+    <td>class Persona {<br>String nombre;<br> int edad;<br> }</td>
+    <td>class Persona<br>attr_accesor :nombre, :edad<br>end<br></td>
+  </tr>
+  
+</table>
+
+

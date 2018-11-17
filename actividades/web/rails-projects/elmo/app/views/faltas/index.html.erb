@@ -1,0 +1,24 @@
+<h1>Listing faltas</h1>
+
+<table>
+  <tr>
+    <th>Matricula</th>
+    <th>Valfecha</th>
+    <th>Valor</th>
+  </tr>
+
+<% for falta in @faltas %>
+  <tr>
+    <td><%=h falta.matricula_id %></td>
+    <td><%=h falta.valfecha %></td>
+    <td><%=h falta.valor %></td>
+    <td><%= link_to 'Show', falta %></td>
+    <td><%= link_to 'Edit', edit_falta_path(falta) %></td>
+    <td><%= link_to 'Destroy', falta, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New falta', new_falta_path %>

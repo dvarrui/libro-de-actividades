@@ -1,0 +1,28 @@
+<p>
+  <b>Tarea:</b>
+  <%=h @nota.tarea_id %>
+</p>
+
+<p>
+  <b>Matricula idicula:</b>
+  <%=h @nota.matricula_idicula_id %>
+</p>
+
+<p>
+  <b>Valor n:</b>
+  <%=h @nota.valor_n %>
+</p>
+
+<p>
+  <b>Evaluado:</b>
+  <%=h @nota.evaluado %>
+</p>
+
+<p>
+  <b>Valor r:</b>
+  <%=h @nota.valor_r %>
+</p>
+
+
+<%= link_to 'Edit', edit_nota_path(@nota) %> |
+<%= link_to 'Back', notas_path %>

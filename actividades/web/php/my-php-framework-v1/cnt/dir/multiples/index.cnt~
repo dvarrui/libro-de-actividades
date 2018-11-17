@@ -1,0 +1,16 @@
+
+
+<h2><? echo $descripcion; ?></h2>
+<hr>
+
+<? include('rec/php/arbol.php'); ?>
+
+<h3>Objetivos</h3>
+  <ul>
+     <li>Hilos, <i>timer</i>. <? echoHijos('dir.cui.holamundo.index','Ejemplos de hola mundo.'); ?></li>
+     <li>Familiarizarse con el uso de las clases <i>redes</i>.</li>
+     <li>Paso de mensajes y la encaptuslaci&oacute;n.</li>
+     <li>Etiquetas de documetnaci&oacute;n, gu&iacute;s de usuario.</li>
+     <li><u>Ejercicios</u>: Chat, Navegador(2), Explorador(2).</li>
+  </ul>  
+

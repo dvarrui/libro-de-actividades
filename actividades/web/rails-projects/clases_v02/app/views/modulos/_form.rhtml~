@@ -1,0 +1,22 @@
+<%= error_messages_for 'modulo' %>
+
+<!--[form:modulo]-->
+<p><label for="modulo_nombre">Nombre</label><br/>
+<%= text_field 'modulo', 'nombre'  %></p>
+
+<p><label for="modulo_desc">Desc</label><br/>
+<%= text_field 'modulo', 'desc'  %></p>
+
+<p><label for="modulo_nivel">Nivel</label><br/>
+<%= text_field 'modulo', 'nivel'  %></p>
+
+<p><label for="modulo_ciclo">Ciclo</label><br/>
+<%= collection_select(:modulo,:ciclo_id,@ciclos,:id,:codigo) %></p>
+
+<p><label for="modulo_profesor">Profesor</label><br/>
+<%= collection_select(:modulo,:profesor_id,@profesores,:id,:nombre) %></p>
+
+<p><label for="modulo_num_unidades">Num unidades</label><br/>
+<%= text_field 'modulo', 'num_unidades'  %></p>
+<!--[eoform:modulo]-->
+

@@ -1,0 +1,26 @@
+<h2>Editar peso</h2>
+
+<%= render :partial => 'nav_int' %>
+
+<div id='dat'>
+<% form_for(@peso) do |f| %>
+  <%= f.error_messages %>
+<table>
+	<tr>
+   	<td><label for="asignatura_id">Asignatura</label></td><td><%= collection_select 'peso', :asignatura_id, @asignaturas, :id, :codigo %></td>
+	</tr>
+  <tr>
+    <td><%= f.label :codigo %></td><td><%= f.text_field :codigo %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :nombre %></td><td><%= f.text_field :nombre %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :valor %></td><td><%= f.text_field :valor %></td>
+  </tr>
+  <tr>
+    <td></td><td><%= f.submit "Modificar" %></td>
+  </tr>
+</table>
+<% end %>
+</div>

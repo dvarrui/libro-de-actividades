@@ -1,0 +1,24 @@
+<h1>Editing falta</h1>
+
+<% form_for(@falta) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :matricula_id %><br />
+    <%= f.text_field :matricula_id %>
+  </p>
+  <p>
+    <%= f.label :valfecha %><br />
+    <%= f.date_select :valfecha %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @falta %> |
+<%= link_to 'Back', faltas_path %>

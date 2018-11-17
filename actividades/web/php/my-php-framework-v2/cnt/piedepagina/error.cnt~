@@ -1,0 +1,7 @@
+<h2>Recurso desconocido</h2>
+
+<p>El recurso o p&aacute;gina solicitado/a es desconocido o no se encuentra disponible en este momento. Compruebe que el enlace es correcto y pruebe de nuevo pasados unos minutos.</p>
+<p>Si el enlace sigue sin estar operativo pasados unos minutos, por favor, p&oacute;ngase en contacto con el <a href="<? generarEnlace("piedepagina.contacto"); ?>">webmaster</a>.</p>
+<p>Gracias</p>
+<br>
+<a href="<? generarEnlace('index'); ?>">Volver a la p&aacute;gina principal.</a>

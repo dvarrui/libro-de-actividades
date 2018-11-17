@@ -1,0 +1,29 @@
+<%= error_messages_for 'alumno' %>
+
+<!--[form:alumno]-->
+<p><label for="alumno_nombre">Nombre</label><br/>
+<%= text_field 'alumno', 'nombre'  %></p>
+
+<p><label for="alumno_apellidos">Apellidos</label><br/>
+<%= text_field 'alumno', 'apellidos'  %></p>
+
+<p><label for="alumno_dni">Dni</label><br/>
+<%= text_field 'alumno', 'dni'  %></p>
+
+<p><label for="alumno_correo">Correo</label><br/>
+<%= text_field 'alumno', 'correo'  %></p>
+
+<p><label for="alumno_telefono">Teléfono</label><br/>
+<%= text_field 'alumno', 'telefono'  %></p>
+
+<p><label for="alumno_foto">Foto</label><br/>
+<%= text_field 'alumno', 'foto'  %></p>
+
+<p>
+  <label for="alumno_grupo">Grupos</label><br/>
+  <select id="grupo" name="grupo" size="10" multiple="multiple" style="width:250px;">
+  <%= options_from_collection_for_select(@all_grupos, :id, :codigo, @selected) %>
+  </select>
+</p>
+<!--[eoform:alumno]-->
+

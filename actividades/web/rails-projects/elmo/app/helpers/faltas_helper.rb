@@ -1,0 +1,2 @@
+module FaltasHelper
+end

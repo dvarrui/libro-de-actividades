@@ -1,0 +1,14 @@
+
+
+<div id="nav">
+<b>Usted está aquí:</b>
+
+<%= link_to "Inicio del Curso", url_for(:controller => 'menus', :action => 'inicio') %>
+<% a = controller.action_name %>
+<% if (a=="show") || a=="edit" then %>
+   > <%= link_to 'Alumnos', url_for(:action=>:index) %>
+   > <%= @alumno.nombre %> 
+<% else %>
+ > Alumnos
+<% end %>
+</div>

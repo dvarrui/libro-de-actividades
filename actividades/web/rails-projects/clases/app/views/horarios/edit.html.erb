@@ -1,0 +1,9 @@
+<h1>Horario de "<%= @titulo%>"</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<% if @nav.class==Programacion then %>
+  <%= render :partial => 'edit_programacion' %>
+<% else %>
+  <%= render :partial => 'edit_horario' %>
+<% end %>

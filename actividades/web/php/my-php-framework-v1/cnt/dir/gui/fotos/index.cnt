@@ -1,0 +1,20 @@
+
+<h1><? echo $descripcion; ?></h1>
+<hr>
+
+<h2>P.G.S. Mantenimiento de edificios</h2>
+
+
+<p>Fotos de los m&oacute;dulos:</p>
+<ul>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.albanileriaypintura'); ?>">Fotos alba&#241;iler&iacute;a y pintura</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.asadero'); ?>">Fotos asadero</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.carpinteria'); ?>">Fotos carpinteria</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.cerrajeria'); ?>">Fotos cerrajer&iacute;a</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.deporte'); ?>">Fotos deporte</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.electricidad'); ?>">Fotos electricidad</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.orlas'); ?>">Fotos orlas</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.pintura'); ?>">Fotos pintura</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.promociones'); ?>">Fotos promociones</a></li>
+  <li><a href="<? echoPagina('departamentos.pgs.fotos.teorica'); ?>">Fotos clases te&oacute;ricas</a></li>
+</ul>

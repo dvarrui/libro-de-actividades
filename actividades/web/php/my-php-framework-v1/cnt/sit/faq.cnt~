@@ -1,0 +1,11 @@
+<!--PLANTILLA.BEGIN-->
+<h2><? echo $nombre; ?></h2>
+<hr>
+
+<h3>Preguntas m&aacute;s frecuentes (FAQ)</h3>
+<ul>
+   <LI><b>Siendo alumn@ del centro.&#191;Como puedo saber en que turno y en que clase estoy&#063;</b>: Para conocer estos datos hay que contactar directamente con <a href="<? generarEnlace("piedepagina.contactos"); ?>">Secretar&iacute;a</a>.</LI>
+   <li><b>&#191;Podr&iacute;an mandarme informaci&oacute;n sobre los ciclos&#063;</b>: La informaci&oacute;n relacionada con los estudios ofertados por el centro la puedes localizar en <a href="<? generarEnlace("secretaria.oferta.index"); ?>">Oferta de Estudios</a>. Para consultar todos los estudios disponibles en Canarias consultar la web de la <a href="http://www.educa.rcanaria.es">Consejer&iacute;a</a>.</li>
+   <a><b>&#191;Cu&aacute;l es la oferta de estudios del centro&#063;</b>: Consultar <a href="<? generarEnlace("secretaria.oferta.index"); ?>">Oferta de estudios.</a></li<b>
+</ul>
+<!--PLANTILLA.END-->

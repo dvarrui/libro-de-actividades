@@ -1,0 +1,26 @@
+<h1>Listado de Horarios</h1>
+
+<%= render :partial => 'nav_int' %>
+
+<div id="index">
+<table>
+  <tr>
+    <th>Centro</th>
+    <th>Curso</th>
+    <th>Programación</th>
+    <th>Nº horas</th>
+  </tr>
+
+<% for programacion in @programaciones %>
+  <tr>
+    <td><%= programacion.curso.centro.nombre %></td>
+    <td><%= programacion.curso.codigo %></td>
+    <td><%= programacion.codigo %></td>
+    <td><%= programacion.horarios.count.to_s %></td>
+    
+    <td><%= link_to 'Mostrar', url_for(:action => 'programacion', :id => programacion.id, :plantilla => 'show') %></td>
+    <td><%= link_to 'Editar',  url_for(:action => 'programacion', :id => programacion.id, :plantilla => 'edit') %></td>
+  </tr>
+<% end %>
+</table>
+</div>
