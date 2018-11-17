@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Using jsp:plugin</TITLE>
+<LINK REL=STYLESHEET
+      HREF="JSP-Styles.css"
+      TYPE="text/css">
+</HEAD>
+
+<BODY>
+
+<TABLE BORDER=5 ALIGN="CENTER">
+  <TR><TH CLASS="TITLE">
+      Using jsp:plugin</TABLE>
+
+<CENTER>
+<APPLET CODE="coreservlets.ShadowedTextApplet.class"
+        WIDTH=475 HEIGHT=350>
+  <PARAM NAME="MESSAGE" VALUE="Your Message Here">
+  <B>Error: this example requires Java.</B>
+</APPLET>
+</CENTER>
+</BODY>
+</HTML>

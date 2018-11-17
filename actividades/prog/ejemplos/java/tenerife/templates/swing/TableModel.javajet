@@ -1,0 +1,91 @@
+<%@ jet package="david.tenerife.templates.swing" imports="david.tenerife.templates.*" class="TableModelTemplate" %>
+<% 
+   ArgumentoJet arg = (ArgumentoJet) argument;
+
+   david.tenerife.lib.BaseDatos bd = arg.getBaseDatos(); 
+   david.tenerife.lib.Tabla t = arg.getTabla();
+
+   david.tenerife.util.Notacion n = new david.tenerife.util.Notacion();;
+%>
+// Creado por el proyecto TENERIFE
+// Autor: David Vargas Ruiz
+// Fecha: <%=new java.util.Date() %>
+
+package david.<%=bd.getPaqueteJava()%>.swing.TableModel;
+
+import java.util.ArrayList;
+import javax.swing.table.AbstractTableModel;
+
+import david.<%=bd.getPaqueteJava()%>.entidades.<%=n.getPascal(t.getNombre())%>;
+import david.<%=bd.getPaqueteJava()%>.almacenes.IAlmacen;
+
+// Comienza la clase
+public class TableModel<%=n.getPascal(t.getNombre())%> extends AbstractTableModel {
+   static final long serialVersionUID = 1;//para evitar warnings
+   
+   private ArrayList datos;
+   private IAlmacen almacen;
+
+   // Constructor
+   public TableModel<%=n.getPascal(t.getNombre())%>(IAlmacen pAlmacen) {
+      setAlmacen(pAlmacen);
+   }
+   
+   // ---------------------
+   // Método getColumnCount
+   // ---------------------
+   public int getColumnCount() {
+      return (new <%=n.getPascal(t.getNombre())%>()).getNumeroCampos();
+   }
+   
+   // --------------------
+   // Método getColumnName
+   // --------------------
+   public String getColumnName(int index) {
+      return <%=n.getPascal(t.getNombre())%>.getNombreCampo(index);
+   }
+
+   // ------------------
+   // Método getRowCount
+   // ------------------
+   public int getRowCount() {
+      return datos.size();
+   }
+   
+   // -----------------
+   // Método getValueAt
+   // -----------------
+   public Object getValueAt(int fila, int col) {
+      <%=n.getPascal(t.getNombre())%> reg = (<%=n.getPascal(t.getNombre())%>) datos.get(fila);
+      return reg.getCampo(col);
+   }
+   
+   /*
+    * Este metodo sirve para determinar el editor predeterminado
+    * para cada columna de celdas
+    */
+   public Class getColumnClass(int c) {
+      return getValueAt(0, c).getClass();
+   }
+
+   /*
+    * No tienes que implementar este método a menos que
+    * las celdas de tu tabla sean Editables
+    */
+   public boolean isCellEditable(int row, int col) {
+      return false;
+   }
+   
+   /*
+    * Otros Métodos
+    */
+   public void setAlmacen(IAlmacen almacen) {
+      this.almacen = almacen;
+      reset();
+   }
+   
+   public void reset() {
+      datos = this.almacen.getAll();
+      this.fireTableDataChanged();
+   }
+}

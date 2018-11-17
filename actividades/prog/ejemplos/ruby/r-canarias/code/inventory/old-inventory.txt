@@ -1,0 +1,15 @@
+exercise-differences.rb
+inventory.rb
+old-inventory.txt
+financial-records.xls
+snapshots
+snapshots/differences-version-1.rb
+snapshots/differences-version-2.rb
+snapshots/differences-version-3.rb
+snapshots/differences-version-4.rb
+snapshots/differences-version-5.rb
+snapshots/differences-version-6.rb
+snapshots/differences-version-7.rb
+snapshots/differences-version-8.rb
+temp
+temp/junk

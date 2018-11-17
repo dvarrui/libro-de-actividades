@@ -1,0 +1,209 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Continuation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Continuation</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/extensions/continuation_rb.html">
+                lib/extensions/continuation.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="Object.html">
+                Object
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000010">create</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">create</span><span class="method-args">(*args, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<tt><a href="Continuation.html#M000010">Continuation.create</a></tt> offers
+a nicer interface for creating continuations than <tt>Kernel.callcc</tt>.
+</p>
+<h3>Example</h3>
+<p>
+Count down from 10 to 0 using a continuation.
+</p>
+<pre>
+  continuation, counter = Continuation.create(10)
+  puts counter
+  continuation.call(counter - 1) if counter &gt; 0
+</pre>
+<p>
+Implement a workalike of <tt>Array#inject</tt> using continuations. For
+simplicity&#8217;s sake, this is not fully compatible with the real
+<tt>inject</tt>.
+</p>
+<pre>
+  class Array
+    def cc_inject( value=nil )
+      copy = self.clone
+      cc, result, item = Continuation.create( value, nil )
+      next_item = copy.shift
+      if result and item
+        cc.call( yield(result, item), next_item )
+      elsif next_item
+        cc.call( next_item, result )
+      end
+      result
+    end
+  end
+
+  [1,2,3,4,5].cc_inject { |acc, n| acc + n }       # -&gt; 15
+</pre>
+<h3>Explanation</h3>
+<p>
+I&#8217;ve got no idea how it works. TODO: work it out. In particular, what
+do the arguments do? And what the hell is going on in cc_inject???!?
+</p>
+<h3>See Also</h3>
+<p>
+This method is included in the &#8216;extensions&#8217; package primarily
+to support <a href="Binding.html#M000022">Binding.of_caller</a>.
+</p>
+<h3>Credits</h3>
+<p>
+<tt><a href="Continuation.html#M000010">Continuation.create</a></tt> was
+written and demonstrated by Florian Gross. See ruby-talk:94681.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/extensions/continuation.rb, line 61</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Continuation</span>.<span class="ruby-identifier">create</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-identifier">cc</span> = <span class="ruby-keyword kw">nil</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">callcc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">c</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">cc</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+      }
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">args</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-operator">*</span>[<span class="ruby-identifier">cc</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">result</span>]
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

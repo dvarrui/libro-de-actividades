@@ -1,0 +1,49 @@
+<b>&lt;html&gt;</b><br>
+<b>&lt;head&gt;</b><br>
+<b>&lt;title&gt;</b>Curso JSP (Java Server Pages)<b>&lt;/title&gt;</b><br>
+<b>&lt;/head&gt;</b><br>
+<b>&lt;body bgcolor=white&gt;</b><br>
+<br>
+<b>&lt;table border=&quot;0&quot;&gt;</b><br>
+<b>&lt;tr&gt;</b><br>
+<b>&lt;td align=center&gt;</b><br>
+<b>&lt;img src=&quot;../images/java_logo.gif&quot;&gt;</b><br>
+<b>&lt;/td&gt;</b><br>
+<b>&lt;td&gt;</b><br>
+<b>&lt;h1&gt;</b>JSP: Atributo Import<b>&lt;/h1&gt;</b><br>
+<b>&lt;/td&gt;</b><br>
+<b>&lt;/tr&gt;</b><br>
+<b>&lt;/table&gt;</b><br>
+<br>
+<b>&lt;H1&gt;</b>Atributo Import<b>&lt;/H2&gt;</b><br>
+<b>&lt;%-- Directiva page --%&gt;</b><br>
+<b>&lt;%@ page import=&quot;java.util.*,web.ser.*&quot; %&gt;</b><br>
+<br>
+<b>&lt;%-- Declaracion JSP --%&gt;</b><br>
+<b>&lt;%!<br>
+private String randomID() <br>
+{<br>
+  int num = (int)(Math.random()*10000000.0);<br>
+  return(&quot;id&quot; + num);<br>
+}<br>
+<br>
+private final String NO_VALUE = &quot;<b>&lt;I&gt;</b>No Value<b>&lt;/I&gt;</b>&quot;;<br>
+%&gt;</b><br>
+<br>
+<b>&lt;%-- Scriptlet JSP --%&gt;</b><br>
+<b>&lt;%<br>
+Cookie[] cookies = request.getCookies();<br>
+String oldID = ServletUtilities.getCookieValue(cookies, &quot;userID&quot;, NO_VALUE);<br>
+String newID;<br>
+if (oldID.equals(NO_VALUE)) { newID = randomID();} <br>
+else                        {  newID = oldID;}<br>
+LongLivedCookie cookie = new LongLivedCookie(&quot;userID&quot;, newID);<br>
+response.addCookie(cookie);<br>
+%&gt;</b><br>
+<br>
+<b>&lt;%-- Expresion JSP--%&gt;</b><br>
+Esta página fue accedida el <b>&lt;b&gt;</b><b>&lt;%= new Date() %&gt;</b><b>&lt;/b&gt;</b> con el <b>&lt;i&gt;</b>userID-cookie<b>&lt;/i&gt;</b> <b>&lt;b&gt;</b><b>&lt;%= oldID %&gt;</b><b>&lt;/b&gt;</b>.<br>
+<br>
+<b>&lt;/BODY&gt;</b><br>
+<b>&lt;/HTML&gt;</b><br>
+

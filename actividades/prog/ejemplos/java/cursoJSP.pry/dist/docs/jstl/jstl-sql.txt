@@ -1,0 +1,188 @@
+Tutoriales
+JSTL 1.0. Estandarizando JSP.
+Autor: OnJava (OnJava)
+Traductor: Juan Antonio Palos (Ozito)
+Acceder a una Base de Datos
+Poner un objeto DataSource a Disposición de JSTL
+Leer Datos de la Base de Datos
+Escribir Datos en la Base de Datos
+
+
+Acceder a una Base de Datos
+Un sujeto de controversía es la inclusión en JSTL de acciones para acceder a bases de datos. Alguna gente ve esto como una mala práctica y argumenta que todos los accesos a bases de datos se deberían realizar desde componentes Java puros en una aplicación basada en MVC en lugar de desde página JSP. Estoy de acuerdo en este punto de vista para cualquier cosa que no sean aplicaciones sencillas, pero hay muchas aplicaciones que se cualifican como muy simples y donde el tiempo de desarrollo o las habilidades necesarias hacen impracticable la arquitectura MVC. Sin el soporte de JSTL, estas aplicaciones normalmente terminan con el código para acceder a la base de datos dentro de scriptles, lo que es peor todavía para un mantenimiento y desarrollo correctos. Por lo tanto, veremos como acceder a bases de datos desde páginas JSP, pero te pediremos que tengas en mente que esta aproximación no es la mejor para todos los tipos de aplicaciones. Si tu equipo de desarrollo incluye programadores Java, deberías considerar seriamente encapsular el código de acceso a la base de datos en clases Java, y utilizar las JSP sólo para mostrar los resultados. 
+
+Las acciones de bases de datos de JSTL están basadas en el API JDBC de Java y usan las abstraccion javax.sql.DataSource presentada en JDBC 2.0 para representar una base de datos. Un DataSource proporciona conexiones a una base de datos y puede implementar una característica llamada almacen de conexiones. Abrir una conexión física a una base de datos es una operación que consume mucho tiempo. Con el almacenamiento de conexiones, sólo necesitamos hacerlo una vez, y la misma conexión se puede reutilizar una y otra vez, sin los riesgos de problemas asociados con otras aproximaciones de compartición de conexiones. 
+
+ Poner un objeto DataSource a Disposición de JSTL
+JSTL soporta varias formas para hacer que un objeto DataSource esté disponible para las acciones de bases de datos. En un contenedor Web con soporte JNDI (Java Naming and Directory Interface), se puede definir un DataSource por defecto como un recurso JNDI con un parámetro de contexto en el fichero web.xml: 
+
+<context-param>
+<param-name>
+  javax.servlet.jsp.jstl.sql.dataSource
+</param-name>
+<param-value>
+  jdbc/Production
+</param-value>
+</context-param>
+Se deben utilizar las herramientas de configuración JNDI del contenedor WEB para configurar un recurso JNDI con el nombre especificado; por ejemplo, con un nombre de usuario y una password de una cuenta de usuario en una base de datos, las conexiones mínimas y máximas en el almacen, etc. La forma de realizar esto varía entre los contenedores y está fuera del ámbito de este artículo. 
+
+Una alternativa para los contenedores que no soportan JNDI es que un oyente del ciclo de vida de la aplicación (contexto del servlet) cree y configure un DataSource y lo seleccione como el valor por defeto usando la clase Config de JSTL: 
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import oracle.jdbc.pool.*;
+
+public class AppListener implements ServletContextListener {
+
+    private OracleConnectionCacheImpl ds =null;
+
+    public void contextInitialized(ServletContextEvent sce){
+        ServletContext application =sce.getServletContext();
+
+        try {
+            ds = new OracleConnectionCacheImpl();
+            ds.setURL("jdbc:oracle:thin:@voyager2:1521:Oracle9i");
+            ds.setMaxLimit(20);
+            ds.setUser("scott");
+            ds.setPassword("tiger");
+        }
+        catch (Exception e){
+            application.log("Failed to create data source:"+ e.getMessage());
+        }
+        Config.set(application, Config.SQL_DATASOURCE, ds);
+    }
+...
+}
+La clase oyente de este ejemplo crea un DataSource con capacidades de almacen de conexiones para un base de datos Oracle9i, y la hace disponible como por defecto para las acciones JSTL usando la clase Config para seleccionar la variable de configuración correspondiente. 
+
+Una tercera forma, sólo disponible para prototipos o aplicaciones que no van a utilizarse tan duramente como para necesitar el almacen de conexiones, es usar la acción <sql:setDataSource>: 
+
+<sql:setDataSource
+url="jdbc:mysql://dbserver/dbname"
+driver="org.gjt.mm.mysql.Driver"
+user="scott"
+password="tiger" />
+Esta acción crea una sencilla fuente de datos, sin almacenamiento, para la URL JDBC especificada, con el usuario y la password, usando el driver JDBC especificado. Podríamos usar esta acción para empezar, pero recomendamos la utilización de una de las otras alternativas para una site del mundo real. Además de privarnos del almacen de conexiones para una fuente de datos creada de esta forma, no es una buena idea incluir información sensible como la URL de la base de datos, el nombre de usuario y la password en una página JSP, ya que sería posible para alguien acceder al código fuente de la página. 
+
+ Leer Datos de la Base de Datos
+Con una DataSource a nuestra disposición, podemos acceder a la base de datos. Aquí podemos leer datos desde una base de datos representada por el DataSource por defecto: 
+
+<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+
+<html>
+<body>
+  <h1>Reading database data</h1>
+  <sql:query var="emps" sql="SELECT * FROM Employee" />
+  ...
+</body>
+</html>
+Primero necesitamos declarar la librería JSTL que contiene las acciones de bases de datos, usando la directiva taglib de la parte superior de este ejemplo. La acción <sql:query> ejecuta la sentencia SQL SELECT especificada por el atributo sql (o como el cuerpo del elemento acción) y graba los resultados en una variable nombrada por el atributo var. 
+
+El resultado de la consulta a la base de datos se devuelve como un bean del tipo javax.servlet.jsp.jstl.sql.Result con varias propiedades de sólo lectura: 
+
+Propiedad Tipo Java Descripción 
+rows java.util.SortedMap[] Un array con un mapa insensible a las mayúsculas por cada fila con las claves correspondiendo con los nombres de columna y valores correspondiendo con los valores de columna. 
+rowsByIndex Object[][] Un array con un array por fila con valores de columna. 
+columnNames String[] Un array con nombres de columnas 
+rowCount int El número de filas en el resultado.  
+limitedByMaxRows boolean true si no se han incluido todas las filas debido a que se ha alcanzado el límite máximo de filas especificado. 
+
+Ya vimos como utilizar la acción <c:forEach> para mostrar todas o sólo algunas filas en la primera página de este tutorial, por eso ahora veremos como podemos obtener sólo algunas filas para mostrarlas todas en esta parte. Los enlaces Next y Previous le permiten al usuario solicitar un conjunto diferente. Primero, aquí está cómo leer un subconjunto de filas y luego mostrar el subconjunto completo: 
+
+<c:set var="noOfRows" value="10" />
+
+<sql:query var="emps" 
+startRow="${param.start}" maxRows="${noOfRows}">
+SELECT * FROM Employee
+</sql:query>
+
+<ul>
+<c:forEach items="${emps.rows}" var="${emp}">
+  <li><c:out value="${emp.name}" />
+</c:forEach>
+</ul>
+El atributo startRow para la acción <sql:query> se envía a una expresión EL que lee el valor de un parámetro de solicitud llamado start. Pronto veremos como cambia este valor cuando se pulsa sobre los enlaces Next y Previous. La primera vez que se accede a la página, el parámetro no existe, por eso la expresión se evalúa a 0. Esto significa que el resultado de la consulta contiene filas empezando con la primera que corresponda (índice 0). El atributo maxRows límita el número total de filas del valor de la variable noOfRows, lo seleccionamos a 10 en este ejemplo. La acción <c:forEach> hace un bucle sobre todas las columnas del resultado y genera una lista de ítems con los valores de columna por cada fila. 
+
+También debemos generar los enlaces Next y Previous para permitir que el usuario seleccione un nuevo conjunto de filas: 
+
+<c:choose>
+<c:when test="${param.start > 0}">
+  <a href="emplist.jsp?start=<c:out 
+	value="${param.start - noOfRows}"/>">Previous Page</a>
+</c:when>
+<c:otherwise>
+  Previous Page
+</c:otherwise>
+</c:choose>
+<c:choose>
+<c:when test="${emps.limitedByMaxRows}">
+  <a href="emplist.jsp?start=<c:out
+	value="${param.start + noOfRows}"/>">Next Page</a>
+</c:when>
+<c:otherwise>
+  Next Page
+</c:otherwise>
+</c:choose>
+El primer bloque <c:choose> es idéntico al de la página 1; si el parámetro de la solicitud start es mayor que cero, la página actual muestra un subconjunto de filas distinto del primero, por eso se añade un enlace Previous. El enlace apunta hacia la misma página, e incluye el parámetro start con un valor que es el valor actual menos el número de filas mostrado por cada página. 
+
+El segundo bloque <c:choose> se aprovecha de la propiedad limitedByMaxRows del resultado de la consulta. Si esta propiedad es true, significa que se ha truncado el resultado al número de filas mostrado por cada página. De aquí, se genera el enlace Next con valor del parámetro start para el nuevo subconjunto de filas. 
+
+ Escribir Datos en la Base de Datos
+Además de leer datos desde una base de datos, también podemos usar JSTL para actualizar información. Este ejemplo muestra cómo insertar una nueva fila en una tabla: 
+
+<c:catch var="error">
+<fmt:parseDate var="empDate" value="${param.empDate}" 
+  pattern="yyyy-MM-dd" />
+</c:catch>
+<c:if test="${error != null}">
+<jsp:useBean id="empDate" class="java.util.Date" />
+</c:if>
+
+<sql:update>
+INSERT INTO Employee (FirstName, LastName, EmpDate)
+  VALUES(?, ?, ?)
+<sql:param value="${param.firstName}" />
+<sql:param value="${param.lastName}" />
+<sql:dateParam value="${empDate}" type="date" />
+</sql:update>
+Antes de insertar la fila, este ejemplo ilustra cómo usar las acciones de validación JSTL, como prometimos anteriormente. La pagina espera que todos los datos para la nueva fila se envíen como parámetros de solicitud (quizás introducidos en un formulario HTML), incluyendo una fecha de contratación. antes de que la fecha se pueda insertar en la base de datos, debemos convertirla a su forma nativa Java. Esto es lo que hace la acción <fmt:parseDate>. El atributo value contiene una expresión EL que obtiene el valor del parámatro de solicitud empDate. Al acción trata de interpretarlo como una fecha escrita en el formato especificado por el atributo pattern (un año de cuatro dígitos, seguido por dos dígitos del més y dos dígitos del día, separados por barras inclinadas). Si tiene éxito, almacena la fecha en su forma nativa con el nombre especificado por el atributo var 
+
+La acción <c:catch> tiene en cuenta los strings inválidos. Si el valor del parámetro no puede ser interpretado como una fecha, el <fmt:parseDate> lanza una excepción, que la acción <c:catch> captura y graba en la variable especificada. Cuando esto sucede, la condición de comprobación de la acción <c:if> se evalúa a true, por lo que fecha de contratación es creada por la acción <jsp:useBean> anidada. 
+
+Para insertar la fila, usamos la acción <sql:update>. Como la acción de consulta, la sentencia SQL se puede especificar como el cuerpo del elemento o mediante un atributo sql. La acción <sql:update> se puede usar para ejecutar sentencias INSERT, UPDATE, DELETE, asi como sentencias para crear o eliminar objetos en la base de datos, como CREATE TABLE y DROP TABLE. El número de filas afectado por la sentencia puede capturarse de forma opcional en una variable nombrada por el atributo var. 
+
+En este ejemplo (como en las mayoría de las aplicaciones del mundo real), no se conocen los nombres de las columnas en tiempo de ejecución; vienen de los parámetros de la solicitud. Por lo tanto, la sentencia INSERT de SQL incluye una marca de interrogación por cada valor como un contenedor y parámetros internos de la acción que seleccionan el valor dinámicamente. Las columnas FirstName y LastName son columnas de texto y las aciones <sql:param> seleccionan sus valores al valor del parámetro de solicitud correspondiente. 
+
+Sin embargo, la columna EmpDate, es una columna de fecha, demandando una atención especial. Primero de todo, debemos usar una variable que contenga la fecha en su forma nativa (un objeto java.util.Date) en lugar de usar el valor del parámetro de solicitud, usamos la variable crada por las acciones <fmt:parseDate> o <jsp:useBean>. Segundo, debemos usar la acción <sql:dateParam> para seleccionar el valor. En este ejemplo, hemos usado la parte de la fecha, por eso hemos seleccionado el atributo opcional type a date. Otros valores válidos son time y timestamp (por defecto), para las columnas que sólo toman la hora o la fecha y la hora. 
+
+Hay una acción JSTL más que no hemos descrito hasta ahora: <sql:transaction>. Podemos usarla para agrupar varias acciones update (o incluso query) donde todas ellas se deben ejecutar como parte de la misma transación de la base de datos. El ejemplo estándard es transferir una cantidad de dinero de una cuenta a otra; implementada como una sentencia SQL que elimina el dinero de la primera cuenta y otra sentencia que lo añade a la segunda. 
+
+Si encapsulamos todos los accesos a una base de datos en clases Java en lugar de usar las acciones de JSTL, todavía hay una parte de JSTL que nos puede ser útil. Es una clase llamada javax.servlet.jsp.jstl.sql.ResultSupport, con estos dos métodos: 
+
+public static Result toResult(java.sql.ResultSet rs);
+public static Result toResult(java.sql.ResultSet rs, int maxRows);
+Podemos usar esta clase para convertir un objeto ResultSet estándar JDBC en un objeto Result JSTL antes de reenviarlo a la página JSP para mostrarlo. Las acciones JSTL pueden acceder fácilmente a los datos de un objeto Result, como vimos anteriormente. Otra aproximación, todavía mejor, es pasar el resultado de la consulta a la página JSP como una estructura de datos personalizada, como una List de beans que contienen los datos de cada fila, pero el objeto Result aún es un buen candidato para prototipos y pequeñas aplicaciones. 
+
+ 
+    Utilidades
+ Leer comentarios (4) 
+ Escribir comentario 
+  Puntuación:
+    (17 votos) 
+ Votar 
+ Recomendar este tutorial 
+ Estadísticas 
+
+ 
+Patrocinados
+  
+ 
+
+Copyright © 1999-2004 Programación en castellano. Todos los derechos reservados.
+Formulario de Contacto - Datos legales
+
+Hospedaje web y servidores dedicados linux por Ferca Network
+
+red internet: musica mp3 | logos y melodias | hospedaje web linux | registro de dominios | servidores dedicados 
+más internet: comprar | recursos gratis | posicionamiento en buscadores | tienda virtual | gifs animados
+

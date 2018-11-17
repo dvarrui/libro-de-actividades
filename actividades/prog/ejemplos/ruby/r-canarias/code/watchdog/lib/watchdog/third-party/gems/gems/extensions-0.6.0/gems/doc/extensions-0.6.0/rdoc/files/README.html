@@ -1,0 +1,559 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Wed Jun 28 12:41:02 CDT 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>Ruby Extensions Project README</h1>
+<h2>Table of Contents</h2>
+<ol>
+<li>Introduction
+
+</li>
+<li>Sample Code
+
+</li>
+<li>Links
+
+</li>
+<li>Current Version and Status
+
+</li>
+<li>Installation
+
+</li>
+<li>What&#8217;s Included?
+
+</li>
+<li>Usage Information
+
+</li>
+<li>Technical Information
+
+</li>
+<li>Feedback
+
+</li>
+<li>Licence
+
+</li>
+</ol>
+<h2>Introduction</h2>
+<p>
+This project contains several extensions to the Ruby standard classes. Many
+are sourced from the Ruby Wiki (see links at end of document).
+</p>
+<p>
+Criteria for inclusion of a method are:
+</p>
+<ul>
+<li>the method serves a general purpose
+
+</li>
+<li>it is reasonably clear from the method name what its behaviour is
+
+</li>
+<li>it would not generally be out of place in the language itself
+
+</li>
+</ul>
+<p>
+Apart from convenience, the benefit of this package is to provide a
+reference. You can use this package for your convenience, and deploy your
+code with a clear dependency on it, since anyone can download it. That is
+better than releasing your package with a few ad hoc standard class
+modifications, and hoping that they don&#8217;t conflict with any code your
+users have written.
+</p>
+<p>
+Long story short: it&#8217;s useful that Ruby allows you to add methods to
+existing classes, even built-ins like <a
+href="../classes/String.html">String</a> and <a
+href="../classes/Array.html">Array</a>. Some people rightfully are uneasy
+about actually doing so in some situations, because of possible conflicts.
+This project offers a standard set of extensions in order to mitigate that
+uneasiness by making them publicly available, and well documented.
+</p>
+<p>
+Thanks to the kind folk at InfoEther, Rich Kilmer and Tom Copeland, for
+providing the means and encouragement to host projects like this at <a
+href="http://www.rubyforge.org">www.rubyforge.org</a>.
+</p>
+<h2>Sample Code</h2>
+<pre>
+  require 'extensions/all'
+  require_relative 'data/samples'
+
+  str = &quot;Hello, \n\n  world!&quot;
+  str.define_method(:heading) {
+    ('*** ' + self.join + ' ***').indent(3)
+  }
+  str.heading         # -&gt; &quot;   *** Hello, world! ***&quot;
+
+  person = OpenStruct.new do |p|
+    p.name = 'John'
+    p.age  = 90
+  end
+
+  class Person
+    attr_reader :name, :age, :pension
+    autoinit :name, :age do |p|
+      @pension = 30000 + (@age - 65) * 350
+    end
+  end
+  john = Person.new('John', 90)
+  puts john.pension
+
+  HELP = %{
+    | Usage: ...
+    | Lorem ipsum...
+  }.trim('|')
+
+  NUMBERS  = (1..100)
+  squares  = NUMBERS.build_hash { |n| [n, n**2] }
+  squares[4]                     # -&gt; 16
+  sq_roots = NUMBERS.build_hash { |n| [Math.sqrt(n), n] }
+  _4_mod_7 = NUMBERS.partition_by { |n| n % 7 }[4]
+
+  STR = &quot;Hello, world!&quot;
+  STR.starts_with? &quot;Hello&quot;       # -&gt; true
+  STR.ends_with? &quot;world&quot;         # -&gt; false
+  File.write(&quot;hello.txt&quot;, STR)
+
+  arr = [1, 3, 5]
+  arr.rand                       # -&gt; 1, 3, or 5
+  arr.none? { |n| n.even? }      # -&gt; true
+  arr.one?  { |n| n &gt; 4 }        # -&gt; true
+
+  Class.by_name &quot;Process::Sys&quot;   # -&gt; Process::Sys
+  Process::Sys.basename          # -&gt; &quot;Sys&quot;
+</pre>
+<h2>Links</h2>
+<table>
+<tr><td valign="top">Home Page:</td><td><a href="http://extensions.rubyforge.org">extensions.rubyforge.org</a>
+(includes API documentation)
+
+</td></tr>
+<tr><td valign="top">Project page:</td><td><a
+href="http://www.rubyforge.org/projects/extensions">www.rubyforge.org/projects/extensions</a>
+
+</td></tr>
+<tr><td valign="top">Wiki Page:</td><td><a
+href="http://www.rubygarden.org/ruby?StandardClassExtensions">www.rubygarden.org/ruby?StandardClassExtensions</a>
+
+</td></tr>
+</table>
+<h2>Current Version and Status</h2>
+<p>
+Version 0.6 was released on 2004-12-08 and can be installed as a gem,
+installed via the RPA, or downloaded from the project page. Anybody is
+welcome to access the CVS and see changes as they happen. As always,
+everything included is unit tested and well documented.
+</p>
+<p>
+Several methods have been added since version 0.5. <tt>ChangeLog</tt> has
+all the details, and the changes are highlighted below.
+</p>
+<p>
+Version 1.0 will (may?) occur when sufficient time has passed to make me
+confident there are no bugs in this, and after a few more minor versions
+are released with new methods. Nobody has complained about bugs so far, and
+any bugs would be easy to fix, so I have no problem using this package in
+my own production code.
+</p>
+<p>
+The long-term goal of <tt>extensions</tt> is to become part of the
+<tt>addlib</tt> project.
+</p>
+<p>
+The methods listed in this document will always reflect the most recent
+released version, but the online RDoc will reflect what&#8217;s in the
+latest CVS.
+</p>
+<h2>Installation</h2>
+<p>
+The easiest way to install <tt>extensions</tt> is via RubyGems or the RPA.
+</p>
+<pre>
+  gem install -r extensions
+
+  rpa update
+  rpa install extensions
+</pre>
+<h3>Tarball installation</h3>
+<p>
+The tarball version uses Minero Aoki&#8217;s <tt>install.rb</tt>. Run the
+following, with the last one as root if appropriate.
+</p>
+<pre>
+  ruby install.rb config
+  ruby install.rb setup
+  ruby install.rb install
+</pre>
+<p>
+This will install the <tt>extensions/*</tt> files somewhere you can load
+them, and <tt>rbxtm</tt> in a <tt>bin</tt> directory. I&#8217;ve combined
+these commands into <tt>install.sh</tt> if you want to run that instead.
+</p>
+<h3>Installing documentation</h3>
+<p>
+<tt>extensions</tt> offers you the opportunity to install its
+RDoc-generated API documentation to your hard drive for ease of access.
+Personally, I find it easier to hit the website all the time, but&#8230; It
+only works if you have Rake installed.
+</p>
+<p>
+From the base directory, run (as root if that applies to you):
+</p>
+<pre>
+  ruby install-doc.rb [location]
+</pre>
+<p>
+If you don&#8217;t provide a location, it will default to
+<tt>/usr/local/doc/ruby</tt>. Well, that&#8217;s on my platform; it will
+make an intelligent guess on yours. This is not a tried and tested
+documentation installer; I wrote it just for this project, so please let me
+know if you&#8217;re not happy with it for any reason.
+</p>
+<p>
+A side effect of installing the documentation is that it will be generated
+into the <tt>build/rdoc</tt> directory of the package.
+</p>
+<p>
+The &quot;base directory&quot; is the directory you unpacked from the
+tarball. If you installed via RubyGems, you might try this:
+</p>
+<pre>
+  gem unpack extensions
+  cd extensions-0.5.0
+  ruby install-doc.rb [location]
+  cd ..
+  rm -rf extensions-0.5.0
+</pre>
+<p>
+<tt>gem unpack</tt> is like having access to the tarball without having to
+manually download it.
+</p>
+<h2>What&#8217;s included?</h2>
+<p>
+When you install this package, you can run the command <tt>rbxtm</tt>
+(&quot;Ruby Extension Methods&quot;) to get a list of the methods
+implemented by this project. At time of writing, this command gives
+(<tt>+</tt> indicates new method since 0.5).
+</p>
+<pre>
+ + Array#only
+ + Array#rand
+   Array#select!
+   Binding#[]
+   Binding#[]=
+   Binding#defined?
+   Binding#eval
+   Binding#local_variables
+   Binding.of_caller
+   Class#autoinit
+   Continuation.create
+   Enumerable#build_hash
+   Enumerable#collect_with_index
+   Enumerable#collectf
+   Enumerable#contains?
+   Enumerable#has?
+   Enumerable#includes?
+   Enumerable#map_with_index
+   Enumerable#mapf
+ + Enumerable#none?
+ + Enumerable#one?
+   Enumerable#partition_by
+   Hash#select!
+   IO.write
+   IO.writelines
+   Integer#even?
+   Integer#odd?
+ + Kernel#require_relative
+ + Module.by_name
+ + Module#basename
+ + Module#deep_const_get
+   Numeric#format_s
+   Object#define_method
+   Object#in?
+   Object#non_nil?
+   Object#not_nil?
+   Object#pp_s
+   Object#singleton_class
+   OpenStruct.new
+   String#cmp
+   String#ends_with?
+   String#expand_tabs
+   String#indent
+   String#join
+   String#leftmost_indent
+   String#line
+   String#outdent
+   String#starts_with?
+   String#taballto
+   String#tabto
+   String#trim
+   Symbol#to_proc
+</pre>
+<p>
+The files that you can load are:
+</p>
+<pre>
+  extensions/all          (loads all the others)
+  extensions/binding
+  extensions/class
+  extensions/continuation
+  extensions/enumerable
+  extensions/io
+  extensions/kernel
+  extensions/module
+  extensions/numeric
+  extensions/object
+  extensions/ostruct
+  extensions/string
+  extensions/symbol
+</pre>
+<p>
+The RDoc documentation has all the details. You can view this locally after
+running <tt>ruby install-doc.rb</tt>, or you can view it online. See the
+links at the bottom of the page.
+</p>
+<h2>Usage Information</h2>
+<p>
+Using this package is simple. After installation, just include the
+following line in your Ruby program:
+</p>
+<pre>
+  require 'extensions/all'
+</pre>
+<p>
+Then you can use any of the methods listed above. If you want to only use
+some of the methods, then load the file that names the class whose
+extensions you wish to use. For example:
+</p>
+<pre>
+  require 'extensions/string'
+
+  puts report.indent(3)
+</pre>
+<p>
+If you install it via RubyGems, then you may need to do this in your code:
+</p>
+<pre>
+  require 'rubygems'
+  require 'extensions/string'       # Or whatever you want to load.
+</pre>
+<h2>Technical Information</h2>
+<h3>Special library files</h3>
+<p>
+This package has a simple framework to ensure safety and some correctness.
+See the file <tt>_base.rb</tt> for more information.
+</p>
+<p>
+There is a template used for new files: <tt>_template.rb</tt>. It will
+raise an error if you actually load it.
+</p>
+<h3>Unit testing</h3>
+<p>
+Unit tests are located in the <tt>test/</tt> directory, and are most easily
+run using Rake with <tt>rake test</tt>.
+</p>
+<h3>How the package is organised</h3>
+<p>
+Relative to the root directory of the package:
+</p>
+<table>
+<tr><td valign="top">bin/rbxtm:</td><td>Lists the methods implemented by all the extensions that are installed.
+This file is installed in the <tt>bin</tt> directory on the user&#8217;s
+machine.
+
+</td></tr>
+<tr><td valign="top">build/:</td><td>A directory into which RDoc and packages are built.
+
+</td></tr>
+<tr><td valign="top">etc/checklist:</td><td>Contains a checklist for creating a new teeny version or a new minor
+release.
+
+</td></tr>
+<tr><td valign="top">etc/website/index.html:</td><td><tt>index.html</tt> for the website.
+
+</td></tr>
+<tr><td valign="top">etc/website/upload.sh:</td><td>Copies <tt>index.html</tt> and the entire <tt>rdoc</tt> directory to the
+website.
+
+</td></tr>
+<tr><td valign="top">lib/extensions/*.rb:</td><td>The extensions libraries themselves.
+
+</td></tr>
+</table>
+<p>
+In the root directory:
+</p>
+<table>
+<tr><td valign="top">ChangeLog:</td><td>Records changes to the package (after v0.2).
+
+</td></tr>
+<tr><td valign="top">HISTORY:</td><td>Documents the main changes between minor versions (before v0.2).
+
+</td></tr>
+<tr><td valign="top">README:</td><td>Either the file you&#8217;re reading, or the source file for the file
+you&#8217;re reading.
+
+</td></tr>
+<tr><td valign="top">README.1st:</td><td>Instructions for generating documentation (specifically README.html)
+
+</td></tr>
+<tr><td valign="top">Rakefile:</td><td>Encapsulates all sorts of project tasks: generate documentation, create a
+tarball or gem for release, run unit tests, list the <tt>extensions</tt>
+methods. This replaces three special-purpose scripts and does a better job
+to boot. Thanks Jim!
+
+</td></tr>
+<tr><td valign="top">VERSION:</td><td>Current version of the package. Used to decide on a directory for
+installing documentation.
+
+</td></tr>
+<tr><td valign="top">install-doc.rb:</td><td>Generates <tt>rdoc</tt> documentation and installs it in a directory like
+<tt>/usr/local/doc/ruby/extensions-0.2.0/</tt>.
+
+</td></tr>
+<tr><td valign="top">install.rb:</td><td>Minero Aoki&#8217;s installer. Installs the package on your system.
+
+</td></tr>
+<tr><td valign="top">install.sh:</td><td>Front-end for <tt>install.rb</tt> so you don&#8217;t have to run it three
+times.
+
+</td></tr>
+</table>
+<h2>Feedback</h2>
+<p>
+If you would like to report a bug, suggest a method for inclusion, or make
+some other suggestion (documentation, package layout, etc.), then head to
+the project page (see links at end of document) and use the bug tracker or
+feature request. If neither of these is appropriate, or if you want to
+discuss something before submitting, please contact me via email.
+</p>
+<h2>Licence</h2>
+<p>
+Ruby/Extensions (<a
+href="http://extensions.rubyforge.org">extensions.rubyforge.org</a>) is
+copyrighted free software created and maintained by Gavin Sinclair (<a
+href="mailto:gsinclair@soyabean.com.au">gsinclair@soyabean.com.au</a>) and
+released under the same license as Ruby.
+</p>
+<p>
+Standard disclaimer:
+</p>
+<pre>
+  THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND WITHOUT ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  PURPOSE.
+</pre>
+<hr size="4"></hr><p>
+<em> $Id: README,v 1.14 2004/12/08 13:39:09 gsinclair Exp $ vim: et sw=2
+ts=2 sts=2 ai </em>
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

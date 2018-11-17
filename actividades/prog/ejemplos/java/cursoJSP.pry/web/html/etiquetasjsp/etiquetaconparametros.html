@@ -1,0 +1,93 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../etiquetasjsp.html">Etiquetas JSP</a> |
+<a href="ejemploholamundo.html">Anterior</a> |
+<a href="etiquetaconcuerpo.html">Siguiente</a>
+
+
+<h2>Etiquetas con parámetros</h2>
+<ul>
+        <li>Etiqueta que sume los dos numeros que le pasemos como parámetros, por ejemplo para sumar 2+3, la etiqueta será &lt;ejemplos:suma num1=2 num2=3/&gt;</li> 
+</ul>
+
+<h2>Manejador</h2>
+<ul>
+<li>Por cada parámetro debemos añadir al código un método set del mismo modo que los métodos set de los javabeans, set + el nombre del parámetro, para esta etiqueta el código es el siguiente:</li>
+<blockquote><pre>
+// SumaTag.java
+import java.io.*;
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+
+public class SumaTag extends TagSupport
+{
+    private int num1,num2;
+    public void setNum1(int num1) {  this.num1 = num1;  }
+    public void setNum2(int num2) {  this.num2 = num2;  }
+    public int doStartTag() throws JspException 
+    {
+        try { pageContext.getOut().print("Suma: " + (num1+num2));  } 
+        catch (IOException e) { throw new JspException ("Error: IOException" + e.getMessage());  }
+        return SKIP_BODY;
+    }
+	
+    public int doEndTag() throws JspException {   return SKIP_PAGE;   }
+}
+</pre></blockquote> 
+</ul>
+
+<h2>Ejemplos.tld</h2>
+<ul>
+<li>Añadir la nueva etiqueta a la librería de ejemplos.</li>
+<li>Por cada atributo le diremos su nombre, con la etiqueta name, si es necesaria o no, con la etiqueta required y si tiene que ser averiguada en tiempo de ejecución con la etiqueta rtexprvalue.</li>
+<li>En nuestro caso tenemos que añadir esto a Ejemplos.tld:</li>
+<blockquote><pre>
+&lt;tag&gt;
+    &lt;name&gt;suma&lt;/name&gt;
+    &lt;tagclass&gt;SumaTag&lt;/tagclass&gt;
+    &lt;bodycontent&gt;empty&lt;/bodycontent&gt;
+    &lt;info&gt;Saludo&lt;/info&gt;
+    &lt;attribute&gt;
+        &lt;name&gt;num1&lt;/name&gt;
+        &lt;required&gt;true&lt;/required&gt;
+        &lt;rtexprvalue&gt;false&lt;/rtexprvalue&gt;
+    &lt;/attribute&gt;
+    &lt;attribute&gt;
+    &lt;name&gt;num2&lt;/name&gt;
+        &lt;required&gt;true&lt;/required&gt;
+        &lt;rtexprvalue&gt;false&lt;/rtexprvalue&gt;
+    &lt;/attribute&gt;
+&lt;/tag&gt;
+</pre></blockquote>    
+</ul>
+
+<h2>JSP</h2>
+<ul>
+<li>El código de la jsp es igual de complicado que el de la etiqueta anterior:</li>
+<blockquote><pre>
+&lt;%@ taglib uri="Ejemplos.tld" prefix="ejemplos" %&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Tag Suma&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;ejemplos:suma num1="2" num2="3"/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+</pre></blockquote>    
+</ul>
+
+
+<h2>Ubicación</h2>
+<ol>
+        <li>Colocamos los archivos de la misma forma que antes.</li>
+        <li>c:\tomcat\webapps\ejemplos\Ejemplos.tld</li>
+        <li>c:\tomcat\webapps\ejemplos\Suma.jsp</li>
+        <li>c:\tomcat\webapps\ejemplos\classes\SumaTag.class</li>
+        <li>Visitamos http://localhost:8080/ejemplos/Suma.jsp</li>
+		  <!--<li><a href="../../jsp/tagsuma.jsp">Ejemplo tagsuma.jsp</a><a href="../../jsp/html/tagsuma.jsp.html">( Ver código)</a></li>      -->  
+</ol>
+
+</body>
+</html>

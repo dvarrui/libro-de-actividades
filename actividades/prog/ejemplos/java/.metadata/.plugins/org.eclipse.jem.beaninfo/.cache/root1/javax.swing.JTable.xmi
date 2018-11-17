@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing#JTable">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2 #//@objectsToAttach.3 #//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6 #//@objectsToAttach.7 #//@objectsToAttach.8 #//@objectsToAttach.9 #//@objectsToAttach.10 #//@objectsToAttach.11 #//@objectsToAttach.12 #//@objectsToAttach.13 #//@objectsToAttach.14 #//@objectsToAttach.15 #//@objectsToAttach.16 #//@objectsToAttach.17 #//@objectsToAttach.18 #//@objectsToAttach.19 #//@objectsToAttach.20 #//@objectsToAttach.21 #//@objectsToAttach.22 #//@objectsToAttach.23 #//@objectsToAttach.24 #//@objectsToAttach.25 #//@objectsToAttach.26 #//@objectsToAttach.27 #//@objectsToAttach.28 #//@objectsToAttach.29 #//@objectsToAttach.30 #//@objectsToAttach.31 #//@objectsToAttach.32 #//@objectsToAttach.33 #//@objectsToAttach.34 #//@objectsToAttach.35 #//@objectsToAttach.36"/>
+    </value>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/javax.swing#JTable/autoCreateColumnsFromModel">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="autoCreateColumnsFromModel"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaDataType java:/#boolean"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" shortDescription="UI component presents data in a two-dimensional table format" implicitlySetBits="6773413839565225998" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false">
+    <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ICON_COLOR_32x32" value="implicit,&quot;icons/jtable32.gif&quot;"/>
+    <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ICON_COLOR_16x16" value="implicit,&quot;icons/jtable16.gif&quot;"/>
+    <notInheritedPropertyNames>layout</notInheritedPropertyNames>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether to create default columns from the model" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getAutoCreateColumnsFromModel(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setAutoCreateColumnsFromModel(boolean"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="UI" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.plaf#TableUI" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Table UI" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getUI(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setUI(javax.swing.plaf.TableUI"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="autoResizeMode" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Mode determines how columns resize for table changes" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getAutoResizeMode(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setAutoResizeMode(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[15]{&quot;Off&quot;,0,&quot;javax.swing.JTable.AUTO_RESIZE_OFF&quot;,&quot;Next Column&quot;,1,&quot;javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN&quot;,&quot;Subsequent Columns&quot;,2,&quot;javax.swing.JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS&quot;,&quot;Last Column&quot;,3,&quot;javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN&quot;,&quot;All Columns&quot;,4,&quot;javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="cellEditor" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.table#TableCellEditor" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Editor for table cells" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getCellEditor(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setCellEditor(javax.swing.table.TableCellEditor"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="cellSelectionEnabled" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Allow selection of rows and columns simultaneously" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getCellSelectionEnabled(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setCellSelectionEnabled(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="columnCount" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Number of columns in the table" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getColumnCount("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="columnModel" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.table#TableColumnModel" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The column model for this table" implicitlySetBits="6629298651489370236" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getColumnModel(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setColumnModel(javax.swing.table.TableColumnModel"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="columnSelectionAllowed" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether columns can be selected" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getColumnSelectionAllowed(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setColumnSelectionAllowed(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="editing" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether a table cell is being edited" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.isEditing("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="editingColumn" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Index of the column being edited" expert="true" implicitlySetBits="6629298651489370236" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getEditingColumn(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setEditingColumn(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="editingRow" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Index of the row being edited" expert="true" implicitlySetBits="6629298651489370236" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getEditingRow(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setEditingRow(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="editorComponent" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Component" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Component handling editing session" expert="true" implicitlySetBits="6773413839565226036" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getEditorComponent(">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ivjObscure" value="implicit,true"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="gridColor" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Color" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Color for grid lines" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getGridColor(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setGridColor(java.awt.Color"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="intercellSpacing" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Dimension" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Width and height between cells" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getIntercellSpacing(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setIntercellSpacing(java.awt.Dimension"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="layout" eType="org.eclipse.jem.java:JavaClass java:/java.awt#LayoutManager" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Layout for container" hidden="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.awt#Container.getLayout(" writeMethod="org.eclipse.jem.java:Method java:/java.awt#Container.setLayout(java.awt.LayoutManager"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="model" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.table#TableModel" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The data model for the table" preferred="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getModel(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setModel(javax.swing.table.TableModel"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="preferredScrollableViewportSize" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Dimension" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Preferred viewport dimensions for the table" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getPreferredScrollableViewportSize(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setPreferredScrollableViewportSize(java.awt.Dimension"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="rowCount" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Number of rows" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getRowCount("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="rowHeight" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Height of each cell including intercell spacing" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getRowHeight(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setRowHeight(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="rowSelectionAllowed" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether rows can be selected" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getRowSelectionAllowed(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setRowSelectionAllowed(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="scrollableTracksViewportHeight" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="True if viewport height determines table height" expert="true" implicitlySetBits="6773413839565226036" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getScrollableTracksViewportHeight(">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ivjObscure" value="implicit,true"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="scrollableTracksViewportWidth" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="True if viewport width determines table width" expert="true" implicitlySetBits="6773413839565226036" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getScrollableTracksViewportWidth(">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ivjObscure" value="implicit,true"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedColumn" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" preferred="true" implicitlySetBits="2017612633061982260" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedColumn("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedColumnCount" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Number of selected columns" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedColumnCount("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedColumns" eType="org.eclipse.jem.java:ArrayType java:/#int[]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Array of selected column indices" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedColumns("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedRow" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The last selected row" preferred="true" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedRow("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedRowCount" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Number of selected rows" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedRowCount("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectedRows" eType="org.eclipse.jem.java:ArrayType java:/#int[]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Array of selected row indices" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectedRows("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectionBackground" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Color" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Background color of selected cells" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectionBackground(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setSelectionBackground(java.awt.Color"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectionForeground" eType="org.eclipse.jem.java:JavaClass java:/java.awt#Color" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Foreground color of selected cells" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectionForeground(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setSelectionForeground(java.awt.Color"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectionMode" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether single, single interval or multiple interval selection" implicitlySetBits="6773413839565226040" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setSelectionMode(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[9]{&quot;SINGLE_SELECTION&quot;,0,&quot;javax.swing.ListSelectionModel.SINGLE_SELECTION&quot;,&quot;SINGLE_INTERVAL_SELECTION&quot;,1,&quot;javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION&quot;,&quot;MULTIPLE_INTERVAL_SELECTION&quot;,2,&quot;javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="selectionModel" eType="org.eclipse.jem.java:JavaClass java:/javax.swing#ListSelectionModel" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="The table's selection model for rows" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getSelectionModel(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setSelectionModel(javax.swing.ListSelectionModel"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="showGrid" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether to display grid lines" preferred="true" implicitlySetBits="6629298651489370168" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setShowGrid(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="showHorizontalLines" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether to display horizontal grid lines" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getShowHorizontalLines(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setShowHorizontalLines(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="showVerticalLines" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Whether to display vertical grid lines" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getShowVerticalLines(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setShowVerticalLines(boolean"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="tableHeader" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.table#JTableHeader" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Table header for rendering column headers" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.getTableHeader(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JTable.setTableHeader(javax.swing.table.JTableHeader"/>
+  </objectsToAttach>
+</change:ChangeDescription>

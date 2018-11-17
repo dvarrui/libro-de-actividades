@@ -1,0 +1,25 @@
+<h1>Listado de fotos</h1>
+
+<table>
+<% for foto in @fotos %>
+  <tr>
+    <td>
+      <%= link_to(image_tag("fotos/#{foto.fichero}",
+         :size => '75x56',
+         :border => 1),
+          url_for(:action => 'show', :id => foto)) %>
+    </td>
+    <td>
+      <%=h foto.fichero %>
+      <br />
+      <%= link_to 'Eliminar', { :action => 'destroy', :id => foto }, :confirm => '¿Está seguro?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @foto_pages.current.previous } if @foto_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @foto_pages.current.next } if @foto_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nueva foto', :action => 'new' %>

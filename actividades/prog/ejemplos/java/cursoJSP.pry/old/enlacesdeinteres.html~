@@ -1,0 +1,39 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+
+<a href="../index.html">Ir al inicio</a> |
+<a href="presentacion.html">Anterior</a> |
+<a href="herramientas.html">Siguiente</a>
+
+<h2>Enlaces de interés</h2>
+<ul>
+	<li><b>Documentación JSP</b>
+   	<ul>
+      	<li>http://www.coreservlets.com</li>
+			<li></li>
+		</ul>
+	</li>
+	<li><b>TOMCAT</b>
+		<ul>
+		   <li>Se solicita una página JSP.</li>
+			<li>El Servlet responde a la petición (Normalmente devolviendo página HTML).</li>
+ 		</ul>
+	</li>
+	<li><b>Java</b>
+		<ul>
+			<li>Descripción: mostrar mensaje "¡Hola, Mundo!".</li>
+ </ul>
+	</li>
+	<li><b>ANT</b>
+		<ul>
+			<li>Descripgt!".</li>
+			<li><a href="ejemploholausuario.html">Ver código fuente.</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+</body>
+</html>

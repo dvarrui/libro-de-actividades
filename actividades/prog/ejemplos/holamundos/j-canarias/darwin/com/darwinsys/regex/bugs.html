@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="The vi editor from UNIX">
+   <META NAME="Author" CONTENT="Ian Darwin">
+   <TITLE>Regular Expressions API: Implementation Bugs and TODO</TITLE>
+</HEAD>
+<BODY BGCOLOR="White">
+<H1>Regular Expressions API: Implementation Bugs and TODO</H1>
+<H2>Caveats</H2>
+<P>The current implementation is <EM>very</EM> slow.
+The Apache Jakarta regexp is several times faster, partly because
+it compiles to (its own) byte code.
+</P>
+<H2>Bugs</H2>
+<P>The following bugs are present in this version:
+	<BR><b>backtracking is not yet implemented</b>, so a .* followed by something may (i.e., will usually) eat up the something.
+</P>
+<P>The following functionality is documented but not implemented; 
+must be added real soon now.
+	<BR>-- Ignore-case (SE.amatch() arg list, SEchar, SEccl)
+</P>
+<H2>Future work</H2>
+<P>The following are planned to be implemented very soon:
+	<BR>-- Use Match match() to write sub() functionality.
+</P>
+<P>The following are possible later.
+	<BR>\f	numeric digits plus . e f (\f+ for floating number)
+	<BR>\N	any end-of-line character (short for [\r\n])
+</P>

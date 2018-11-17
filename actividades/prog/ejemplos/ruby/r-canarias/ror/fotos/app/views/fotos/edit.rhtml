@@ -1,0 +1,9 @@
+<h1>Editar foto</h1>
+
+<% form_tag :action => 'update', :id => @foto do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Actualizar' %>
+<% end %>
+
+<%= link_to 'Mostrar', :action => 'show', :id => @foto %> |
+<%= link_to 'Volver', :action => 'list' %>

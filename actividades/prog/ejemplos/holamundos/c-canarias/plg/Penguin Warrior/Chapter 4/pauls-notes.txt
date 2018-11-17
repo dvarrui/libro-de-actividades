@@ -1,0 +1,16 @@
+The only real changes to these source files are the change from
+
+exit(1); and return 1;
+
+to
+
+exit(EXIT_FAILURE);
+
+in various source files.
+
+This is really just for portability (exit()) and when the application fails, using return 1; is not really that good IMO.
+
+--
+
+PFJ
+1/8/04

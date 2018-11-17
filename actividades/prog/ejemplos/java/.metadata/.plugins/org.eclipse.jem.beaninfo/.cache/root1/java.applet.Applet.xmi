@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.applet#Applet">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1 #//@objectsToAttach.2 #//@objectsToAttach.3 #//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" shortDescription="Small embeddable java program" implicitlySetBits="6629298651489370126" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="active" eType="org.eclipse.jem.java:JavaDataType java:/#boolean" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Is applet active" expert="true" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.isActive("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="appletContext" eType="org.eclipse.jem.java:JavaClass java:/java.applet#AppletContext" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Browser/Viewer in which applet runs" preferred="true" implicitlySetBits="6629298651489370228" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.getAppletContext("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="appletInfo" eType="org.eclipse.jem.java:JavaClass java:/java.lang#String" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Text to display in the About dialog" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.getAppletInfo("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="codeBase" eType="org.eclipse.jem.java:JavaClass java:/java.net#URL" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Base URL where applet code resides" implicitlySetBits="6629298651489370228" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.getCodeBase("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="documentBase" eType="org.eclipse.jem.java:JavaClass java:/java.net#URL" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Base URL of HTML document" implicitlySetBits="6629298651489370228" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" designTime="false" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.getDocumentBase("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="parameterInfo" eType="org.eclipse.jem.java:ArrayType java:/java.lang#String[][]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Applet parameter information" implicitlySetBits="6629298651489370164" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.applet#Applet.getParameterInfo("/>
+  </objectsToAttach>
+</change:ChangeDescription>

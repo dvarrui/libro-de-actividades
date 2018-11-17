@@ -1,0 +1,4 @@
+#Mon Apr 30 00:54:48 GMT+01:00 2007
+eclipse.preferences.version=1
+org.rubypeople.rdt.core.compiler.problem.constantReassignment=warning
+org.rubypeople.rdt.core.compiler.problem.emptyStatement=ignore

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.awt#GridBagConstraints">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6 #//@objectsToAttach.7 #//@objectsToAttach.8 #//@objectsToAttach.9 #//@objectsToAttach.10 #//@objectsToAttach.11"/>
+    </value>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/java.awt#GridBagConstraints/anchor">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="anchor"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaDataType java:/#int"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/java.awt#GridBagConstraints/fill">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="fill"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaDataType java:/#int"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/java.awt#GridBagConstraints/insets">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.3"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="insets"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaClass java:/java.awt#Insets"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" implicitlySetBits="2017612633061982222" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false" mergeSuperEvents="false"/>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="This field is used when the component is smaller than its display area." implicitlySetBits="6629298651489370288" implicitDecoratorFlag="IMPLICIT_DECORATOR" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.anchor"/>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="This field is used when the component's display area is larger than the component's requested size." implicitlySetBits="6629298651489370288" implicitDecoratorFlag="IMPLICIT_DECORATOR" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.fill"/>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="This field specifies the external padding, the minimum amount of space between the component and the edges of its display area." implicitlySetBits="6629298651489370288" implicitDecoratorFlag="IMPLICIT_DECORATOR" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.insets"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="gridheight" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="grid height" shortDescription="Specifies the number of cells in a column for the component's display area." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.gridheight"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="gridwidth" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="grid width" shortDescription="Specifies the number of cells in a row for the component's display area." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.gridwidth"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="gridx" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="grid x" shortDescription="Specifies the cell containing the leading edge of the component's display area." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.gridx"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="gridy" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="grid y" shortDescription="Specifies the cell at the top of the component's display area." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.gridy"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="ipadx" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="x internal padding" shortDescription="This field specifies the internal padding, how much space to add to the minimum width of the component." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.ipadx"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="ipady" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="y internal padding" shortDescription="This field specifies the internal padding, how much space to add to the minimum height of the component." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.ipady"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="weightx" eType="org.eclipse.jem.java:JavaDataType java:/#double" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="weight x" shortDescription="Specifies how to distribute extra horizontal space." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.weightx"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="weighty" eType="org.eclipse.jem.java:JavaDataType java:/#double" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="weight y" shortDescription="Specifies how to distribute extra vertical space." implicitlySetBits="-2594073385365405520" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" field="org.eclipse.jem.java:Field java:/java.awt#GridBagConstraints.weighty"/>
+  </objectsToAttach>
+</change:ChangeDescription>

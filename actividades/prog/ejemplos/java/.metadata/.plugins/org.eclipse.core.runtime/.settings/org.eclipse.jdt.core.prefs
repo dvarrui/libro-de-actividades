@@ -1,0 +1,7 @@
+#Sun Aug 13 20:10:58 WEST 2006
+org.eclipse.jdt.core.classpathVariable.JUNIT_HOME=/opt/java/eclipse3.2/plugins/org.junit_3.8.1
+eclipse.preferences.version=1
+org.eclipse.jdt.core.classpathVariable.TOMCAT_HOME=/opt/java/tomcat
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=/opt/java/eclipse3.2
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing#JLabel">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.3 #//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6 #//@objectsToAttach.7 #//@objectsToAttach.8 #//@objectsToAttach.9 #//@objectsToAttach.10 #//@objectsToAttach.11 #//@objectsToAttach.12"/>
+    </value>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/javax.swing#JLabel/displayedMnemonic">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="displayedMnemonic"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaDataType java:/#int"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/javax.swing#JLabel/labelFor">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="name" dataValue="labelFor"/>
+    <value xsi:type="change:FeatureChange" featureName="transient" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="volatile" dataValue="false"/>
+    <value xsi:type="change:FeatureChange" featureName="changeable" dataValue="true"/>
+    <value xsi:type="change:FeatureChange" featureName="eType" referenceValue="org.eclipse.jem.java:JavaClass java:/java.awt#Component"/>
+    <value xsi:type="change:FeatureChange" featureName="lowerBound" dataValue="0"/>
+    <value xsi:type="change:FeatureChange" featureName="upperBound" dataValue="1"/>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" shortDescription="Display area for static text and/or an image" implicitlySetBits="6773413839565225998" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false">
+    <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ICON_COLOR_32x32" value="implicit,&quot;icons/label32.gif&quot;"/>
+    <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="ICON_COLOR_16x16" value="implicit,&quot;icons/label16.gif&quot;"/>
+    <notInheritedPropertyNames>layout</notInheritedPropertyNames>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Mnemonic for nearby component" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getDisplayedMnemonic(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setDisplayedMnemonic(int"/>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Component associated with this label" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getLabelFor(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setLabelFor(java.awt.Component"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="UI" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.plaf#LabelUI" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="JLabel UI" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getUI(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setUI(javax.swing.plaf.LabelUI"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="disabledIcon" eType="org.eclipse.jem.java:JavaClass java:/javax.swing#Icon" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Icon for the disabled label" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getDisabledIcon(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setDisabledIcon(javax.swing.Icon"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="horizontalAlignment" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Horizontal alignment of icon and text in button" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getHorizontalAlignment(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setHorizontalAlignment(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[15]{&quot;LEFT&quot;,2,&quot;javax.swing.SwingConstants.LEFT&quot;,&quot;CENTER&quot;,0,&quot;javax.swing.SwingConstants.CENTER&quot;,&quot;RIGHT&quot;,4,&quot;javax.swing.SwingConstants.RIGHT&quot;,&quot;LEADING&quot;,10,&quot;javax.swing.SwingConstants.LEADING&quot;,&quot;TRAILING&quot;,11,&quot;javax.swing.SwingConstants.TRAILING&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="horizontalTextPosition" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Horizontal position of text relative to the icon" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getHorizontalTextPosition(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setHorizontalTextPosition(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[15]{&quot;LEFT&quot;,2,&quot;javax.swing.SwingConstants.LEFT&quot;,&quot;CENTER&quot;,0,&quot;javax.swing.SwingConstants.CENTER&quot;,&quot;RIGHT&quot;,4,&quot;javax.swing.SwingConstants.RIGHT&quot;,&quot;LEADING&quot;,10,&quot;javax.swing.SwingConstants.LEADING&quot;,&quot;TRAILING&quot;,11,&quot;javax.swing.SwingConstants.TRAILING&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="icon" eType="org.eclipse.jem.java:JavaClass java:/javax.swing#Icon" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Default icon" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getIcon(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setIcon(javax.swing.Icon"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="iconTextGap" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Space between icon and text in pixels" expert="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getIconTextGap(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setIconTextGap(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="layout" eType="org.eclipse.jem.java:JavaClass java:/java.awt#LayoutManager" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Layout for container" hidden="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.awt#Container.getLayout(" writeMethod="org.eclipse.jem.java:Method java:/java.awt#Container.setLayout(java.awt.LayoutManager"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="text" eType="org.eclipse.jem.java:JavaClass java:/java.lang#String" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Text displayed on the label" preferred="true" implicitlySetBits="6629298651489370172" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getText(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setText(java.lang.String"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="verticalAlignment" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Vertical alignment of icon and text in button" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" bound="true" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getVerticalAlignment(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setVerticalAlignment(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[9]{&quot;TOP&quot;,1,&quot;javax.swing.SwingConstants.TOP&quot;,&quot;CENTER&quot;,0,&quot;javax.swing.SwingConstants.CENTER&quot;,&quot;BOTTOM&quot;,3,&quot;javax.swing.SwingConstants.BOTTOM&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="verticalTextPosition" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Vertical position of text relative to the icon" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.getVerticalTextPosition(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing#JLabel.setVerticalTextPosition(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[9]{&quot;TOP&quot;,1,&quot;javax.swing.SwingConstants.TOP&quot;,&quot;CENTER&quot;,0,&quot;javax.swing.SwingConstants.CENTER&quot;,&quot;BOTTOM&quot;,3,&quot;javax.swing.SwingConstants.BOTTOM&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+</change:ChangeDescription>

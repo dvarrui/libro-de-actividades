@@ -1,0 +1,215 @@
+<html>
+<body>
+Tutoriales
+JSTL 1.0. Estandarizando JSP.
+Autor: OnJava (OnJava)
+Traductor: Juan Antonio Palos (Ozito)
+Introducción a JSTL
+Introducción a las Librerías JSTL
+El Lenguaje de Expresión JSTL
+Procesamiento Condicional y Bucles
+Procesar URLs
+
+
+<h2>Introducción a JSTL</h2>
+<ul>
+	<li>Demanda de los desarrolladores de un conjunto de acciones JSP personalizadas para manejar las tareas que necesitan casi todas las páginas JSP</li>
+	<li>Procesamiento condicional, internacionalización, acceso a bases de datos y procesamiento XML.</li>
+	<li>Acelarar el desarrollo de JSPs.</li>
+</ul>
+
+<h2>Introducción a las Librerías JSTL</h2>
+<ul>
+	<li>Core c http://java.sun.com/jstl/core </li>
+<ul>
+<li>Acciones para las tareas rutinarias</li>
+<li>Condición en tiempo de ejecución, hacer un bucle, manipular URLs, acciones para importar y redireccionar.</li>
+</ul>
+	<li>XML Processing x http://java.sun.com/jstl/xml </li>
+<ul>
+<li>Procesamiento XML</li>
+<li>Validar un documento XML y transformarlo usando XSLT.</li>
+<li>Extraer parte de un documento XML validado.</li>
+</ul>
+	<li>I18N & Formatting fmt http://java.sun.com/jstl/fmt </li>
+<ul>
+<li>Internacinalización y formateo general</li>
+</ul>
+	<li>Database Access sql http://java.sun.com/jstl/sql </li>
+</ul>
+
+<h2>Descarga</h2>
+<ul>
+	<li>Descargar del Proyecto Apache Taglibs como una librería llamada Standard.</li>
+	<li>Instalar RI es fácil, sólo hay que copiar los ficheros JAR del directorio lib de la distribución al directorio WEB-INF/lib de nuestra aplicación.</li>
+	<li>Para usar una librería JSTL debemos declarar la librería usando una directiva taglib. Ejemplo &lt;%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %&gt; </li>
+</ul>
+
+
+<h2>El Lenguaje de Expresión JSTL</h2>
+<ul>
+<li>JSTL define un Lenguaje de Expresiones (EL).</li>
+<li>EL es un lenguaje para acceder a datos de varias fuentes en tiempo de ejecución.</li>
+<li>Sintaxis es considerablemente más amigable que la de Java.</li>
+<li>EL toma prestada de JavaScript la sintaxis para acceder a datos.</li>
+<li>Ejemplos operadores de propiedad y elemento array</li>
+<blockquote><pre>
+${myObj.myProperty}$
+${myObj["myProperty"]}$
+${myObj[varWithTheName]}$
+${myList[2]}$
+${myList[aVar + 1]}$
+</pre></blockquote>
+<li>Expresión EL debe estar encerrada entre los caracteres ${ y }$.</li>
+
+<li>Operadores aritméticos, relacionales, y lógicos, comprobar si un objeto está "vacío" o no puede ser usado en una expresión EL.</li>
+</ul>
+
+<h2>Lista de operadores</h2>
+<ul>
+<li>. Accede a una propiedad</li>
+<li>[] Accede a un elemento de un array/lista</li>
+<li>() Agrupa una subexpression</li>
+<li>+ Suma</li>
+<li>- Resta o negación de un número</li>
+<li>/ o div División</li>
+<li>% o mod Módulo (resto)</li>
+<li>== o eq Comprueba Igualdad</li>
+<li>!= o ne Comprueba desigualdad</li>
+<li>&lt; o lt Comprueba menor que</li>
+<li>&gt; o gt Comprueba mayor que</li>
+<li>&lt;= o le Comprueba menor o igual que</li> 
+<li>&gt;= o gt Comprueba mayor o igual que</li>
+<li>&& o and Comrpueba AND lógico</li>
+<li>|| o or Comprueba OR lógico</li>
+<li>! o not Complemento binario booleano</li>
+<li>empty Comprueba un valor vacío (null, string vacío, o una collección vacía)</li>
+</ul>
+
+<li>No encontraremos en EL sentencias como asignaciones, if/else, o while.</li>
+<li>Tipo de Literal Descripción: String Encerrado con comillas simples o dobles.</li>
+<li>Cualquier objeto en uno de los ámbitos de JSP (página, solicitud, sesión o aplicación) se puede utilizar como una variable en una expresión EL.</li>
+</ul>
+
+
+<h2>Variable Descripción</h2>
+<ul>
+	<li>param Una collection de todos de los parámetros de la solicitud</li>
+	<li>paramValues Una collection de todos los valores de los parámetros de la solicitud</li>
+	<li>header Una collection de todas las cabeceras de solicitud</li>
+	<li>headerValues Una collection de todos los valores de cabecera de la solicitud</li>
+	<li>cookie Una collection con todas las cookies de la solicitud</li>
+	<li>initParams Una collection de todos los parámetros de inicialización de la aplicación.</li>
+	<li>pageContext Un ejemplar de la clase javax.servlet.jspPageContext. </li>
+	<li>pageScope Una collection de todos los objetos en el ámbito de la página.</li>
+	<li>requestScope Una collection de todos los objetos en el ámbito de la solicitud.</li>
+	<li>sessionScope Una collection de todos los objetos en el ámbito de la sesión.</li>
+	<li>applicationScope Una collection de todos los objetos en el ámbito de la aplicación.</li>
+</ul>
+<li>Ejemplo de cómo acceder a un parámetro de solicitud llamado listType y a la cabecera User-Agent:</li>
+<blockquote><pre>
+${param.listType}
+${header['User-Agent']}
+</pre></blockquote>
+
+La variable initParameter proporciona acceso a los parámetros de inicialización que se definen en el fichero web.xml de la aplicación. La variable pageContext tiene varias propiedades que proporcionan acceso al objeto servlet que representa la solicitud, la respuesta, la sesión y la aplicación, etc. 
+
+Las cuatro últimas variables son colecciones que contienen todos los objetos de cada ámbito específico. Podemos usarlas para limitar la búsqueda de un objeto en sólo un ámbito en lugar de buscar en todos ellos, lo que está por defecto si no se especifica ningún ámbito. En otras palabras, si hay un objeto llamado customer en el ámbito de sesión, estas dos primeras expresiones encuentran el mismo objeto, pero la tercera vuelve vacía: 
+
+
+${customer}
+${sessionScope.customer}
+${requestScope.customer}
+
+Todas las acciones JSTL aceptan expresiones EL como valores de atributo, para todos los atributos excepto para var y scope, porque estos valores de atributo podrían usarse para chequear el tipo en el momento de la traducción en una futura versión. Hay un atributo de una acción JSTL adicional que no toma un valor de expresión EL, pero sólo se usa en la librería XML, por eso lo ignoraremos por ahora. Se pueden usan una o más expresiones EL en el mismo valor de atributo, y el texto fijo y las expresiones EL se pueden mezclar en el mismo valor de atributo: 
+
+
+First name: &lt;c:out value="${customer.firstName}" /&gt;
+&lt;c:out value="First name: ${customer.firstName}" /&gt;
+
+Antes de saltar a ver ejemplos de utilización de las acciones Core, dejáme cualificar algo que dijimos anteriormente: todas las acciones JSTL de la librería EL aceptan expresiones EL. Realmente hay un conjunto parelelo de librerías JSTL, llamado conjunto de librería RT. que sólo acepta expresiones Java del viejo estilo: 
+
+First name: <c_rt:out value="<%= customer.getFirstName() %>" /> 
+
+<h2>Procesamiento Condicional y Bucles</h2>
+<ul>
+<li>c:if, c:choose, c:when, c:otherwise, y c:forEach.</li> 
+<li>&lt;c:if&gt; procesar condicionalmente una parte de una página.</li>
+<blockquote><pre>
+<c:if test="${!empty cookie.userName}">
+    Welcome back <c:out value="${cookie.userName.value}" />
+</c:if> 
+   
+El valor del atributo test es una expresión EL que chequea si la cookie existe. El operador empty combinado con el operador "not" (!) significa que evalúa a true si el cookie no existe, haciendo que el cuerpo del elemento sea procesado. Dentro del cuerpo, la acción <c:out> añade el valor de la cookie a la respuesta. Así de sencillo. 
+
+Pasar a través de una colección de datos es casi tan sencillo. Este fragmento itera sobre una colección de filas de una base de datos con información del tiempo de diferentes ciudades: 
+
+<c:forEach items="${forecasts.rows}" var="${city}">
+   City: <c:out value="${city.name}" />
+   Tomorrow's high: <c:out value="${city.high}" />
+   Tomorrow's low: <c:out value="${city.low}" />
+</c:forEach>
+La expresión EL para el valor items obtiene el valor de la propiedad rows desde un objeto representado por la variable forecasts. Como aprenderemos más adelante, la acciones de bases de datos de JSTL representan un resultado de consulta como un ejemplar de una clase llamada javax.servlet.jsp.jstl.sql.Result. Esta clase se puede utilizar como un bean con varias propiedades. La propiedad rows contiene un array de ejemplares java.util.SortedMap, donde cada uno representa una fila con valores de columnas. La acción <c:forEach> procesa su cuerpo una vez por cada elemento de la colección especificado por el atributo items. Además de con arrays, la acción funciona con cualquier otro tipo de dato que represente una colección, como ejemplares de las clases java.util.Collection o java.util.Map. 
+
+Si se especifica el atributo var, el elemento actual de la colección se hace disponible para las acciones del cuerpo como una variable con el nombre especificado. Aquí se llamaba city y, como la colección es un array de maps, esta variable contiene un nuevo map con valores de columnas cada vez que se procesa el cuerpo. Los valores de las columnas se añaden a la respuesta por el mismo tipo de acciones <c:out> que hemos visto en ejemplos anteriores. 
+
+Para ilustrar el uso del resto de las acciones condicionales, extendamos el ejemplo de iteracción para procesar sólo un conjunto fijo de filas por cada página solicitada, añadamos enlaces "Previous" y "Next" a la misma página. El usuario puede entonces pasar sobre los resultados de la base de datos, mirando unas pocas fila cada vez, asumiendo que el objeto Result se ha grabado en el ámbito de la sesión. Aquí está cómo procesar sólo algunas filas: 
+
+<c:set var="noOfRows" value="10" />
+
+<c:forEach items="${forecasts.rows}" var="${city}"
+    begin="${param.first}" end="${param.first + noOfRows - 1}">
+    City: <c:out value="${city.name}" />
+    Tomorrow's high: <c:out value="${city.high}" />
+    Tomorrow's low: <c:out value="${city.low}" />
+ </c:forEach>
+La acción <c:set> selecciona una variable con el valor especificado por el atributo value; que puede ser un valor estático, como en este ejemplo, o una expresión EL. También podemos especificar el ámbito de la variable con el atributo scope (page, request, session o application). En este ejemplo, hemos seleccionado una variable llamada noOfRows a 10 en el ámbito de la página (por defecto). Este es el número de filas que mostraremos en cada solicitud. 
+
+El <c:forEach> en este ejemplo toma los mismos valores para los atributos items y var como antes, pero hemos añadido dos nuevos atributos: 
+
+El atributo begin toma el índice (base 0) del primer elemento de la colección a procesar. Aquí se selecciona al valor de un parámetro de solicitud llamado first. Para la primera solicitud, este parámetro no está disponible, por eso la expresión se evalúa a 0; en otras palabtas, la primea fila. 
+
+El atributo end especifica el índice del último elemento de la colección a procesar. Aquí lo hemos seleccionado al valor del parámetro first más noOfRows menos uno. Para la primera solicitud, cuando no existe el parámetro de la solicitud, este resultado es 9, por eso la acción itera sobre los índices del 0 al 9. 
+Luego añadimos los enlaces "Previous" y "Next": 
+
+<c:choose>
+  <c:when test="${param.first > 0}">
+     <a href="foreach.jsp?first=<c:out value="${param.first - noOfRows}"/>">
+                Previous Page</a>
+  </c:when>
+  <c:otherwise>
+     Previous Page
+  </c:otherwise>
+</c:choose>
+<c:choose>
+  <c:when test="${param.first + noOfRows < forecasts.rowsCount}">
+     <a href="foreach.jsp?first=<c:out value="${param.first + noOfRows}"/>">
+                Next Page</a>
+  </c:when>
+  <c:otherwise>
+     Next Page
+  </c:otherwise>
+</c:choose>
+El <c:choose> agrupa una o más acciones <c:when>, cada una especificando una condición booleana diferente. La acción <c:choose> chequea cada condición en orden y sólo permite la primera acción <c:choose> con una condición que se evalúe a true para procesar su cuerpo. El cuerpo <c:choose> también podría contener un <c:otherwise>. Su cuerpo sólo se procesa si ninguna de las condiciones de los <c:when> es true. 
+
+En este ejemplo, la primera acción <c:when> comprueba si el parámetro first es mayor que cero, es decir, si la página muestra un subconjunto de filas distinto del primero. Si esto es cierto, el cuerpo de la acción <c:when> añade un enlace a la misma página con un parámetro first seleccionado al índice del subconjunto anterior. Si no es true, se procesa el cuerpo de la acción <c:otherwise>, añadiendo sólo el texto "Previous Page". El segundo bloque <c:choose> proporciona lógica similar para añadir el enlace "Next Page". 
+
+<h2>Procesar URLs</h2>
+
+Los ejemplos anteriores funcionan bien mientras se utilicen las cookies para seguimiento de sesión. No está todo dado; el navegador podría tener desactivadas las cookies, o no soportarlas. Por lo tanto es una buena idea activar el contenedor para usar la reescritura de URL como backup de los cookies. La reescritura de URL, como podrías conocer, significa poner el ID de la sesión en todas las URLs usadas en los enlaces y formularios de la página. Una URL reescrita se parece a algo como esto: 
+
+myPage.jsp;jspsessionid=ah3bf5e317xmw5
+Cuando el usuario pulsa en una línea como esta, el identificador de sesión ID se envía al contenedor como parte de la URL. La librería corazón de JSTL incluye la acción <c:url>, que tiene cuidado de la reescritura de URL por nosotros. Aquí está como podemos usarla para mejorar la generación del enlace "Previous Page" del ejemplo anterior: 
+
+<c:url var="previous" value="foreach.jsp">
+  <c:param name="first" value="${param.first - noOfRows}" />
+</c:url>
+<a href="<c:out value="${previous}"/>">Previous Page</a>
+<c:url> soporta un atributo var, usado para especificar una variable para contener la URL codificada, y un atributo value para contener la URL a codificar. Se pueden especificar parámetros string para solicitar la URL usando acciones <c:param>. Los caracteres especiales en los parámetros especificados por elementos anidados son codificados (si es necesario) y luego añadidos a la URL como parámetros string de la consulta. El resultado final se pasa a través del proceso de reescritura de URL, añadiendo un ID de sesión si está desactivado el seguimiento de sesión usando cookies. En este ejemplo, se utiliza la URL codificada como un valor de atributo href en un elemento de enlace HTML. 
+
+<c:url> también realiza otro buen servicio. Como podría preocuparte, las URLs relativas en elementos HTML también deben ser relativas a la página que los contiene o al directorio raíz del servidor (si empiezan con una barra inclinada). La primera parte del path de una URL de una página JSP se llama path de contexto, y podría variar de instalación a instalación. Por lo tanto deberíamos evitar codificar el path de contexto en las páginas JSP. Pero algunas veces realmente querremos utilizar un path de URL relativo al servidor en elemento HTML; por ejemplo cuando necesitamos referirnos a un fichero de imagen localizado en el directorio /images compartido por todas las páginas JSP. Las buenas noticias es que si especificamos una URL con un barra inclinada como el valor <c:url>, lo convierte en un path relativo al servidor. Por ejemplo, en una aplicación con el path de contexto /myApp, la acción <c:url> convierte el path a /myApp/images/logo.gif: 
+
+<c:url value="/images/logo.gif" />Hay unas cuantas acciones más relacionadas con las URLs en la librería corazón. La acción <c:import> es una acción más flexible que la acción estándar <jsp:include>. Podemos usarla para incluir contenido desde los recursos dentro de la misma aplicación Web, desde otras aplicaciones Web en el mismo contenedor, o desde otros servidores, usando protocolos como HTTP y FTP. La accion <c:redirect> nos permite redirigir a otro recurso en la misma aplicación Web, en otra aplicación Web o en un servidor diferente. Ambas acciones son fáciles de usar, por eso te dejamos como ejercicio que las práctiques. 
+
+ 
+

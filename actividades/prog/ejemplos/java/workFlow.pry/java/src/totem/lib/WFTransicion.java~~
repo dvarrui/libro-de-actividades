@@ -1,0 +1,81 @@
+/*-----------------------------------------------
+   Programa :  WFTransicion.java
+   Versión  :  0.4.0
+   Fecha    :  28-04-2003
+-----------------------------------------------*/
+
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+
+
+public class WFTransicion extends Object
+{
+   private int		   cod_transicion;
+   private String	   cod_usuario, cod_tipo_transicion, des_tipo_transicion;
+   private java.util.Date  fec_ult_mod;
+   private WFTarea         tarea1, tarea2;
+   
+   
+   //=======================
+   //Constructor de la clase
+   //=======================
+   public WFTransicion(Connection p_con, int p_cod_transicion)
+   {
+      cod_transicion=0;cod_usuario=null;cod_tipo_transicion=null;des_tipo_transicion=null;tarea1=null;tarea2=null;
+      
+      Statement st1;
+      ResultSet rs1;
+      try
+      {
+	 st1 = p_con.createStatement();
+	 rs1 = st1.executeQuery("SELECT tra.cod_transicion,tra.cod_tarea1,tra.cod_tarea2,tra.cod_tipo_transicion,"
+	       +"tip.des_tipo_transicion,tra.fec_ult_mod,tra.cod_usuario FROM DEF_D_TRANSICIONES tra, "
+	       +"DEF_M_TIPOS_TRANSICION tip WHERE "
+	       +"tra.cod_tipo_transicion=tip.cod_tipo_transicion AND cod_transicion="+p_cod_transicion+";");
+	 if (rs1.next())
+	 { 
+	    //Cargar las variables de la tabla TRANSICIONES en el objeto java
+	    cod_transicion=p_cod_transicion;
+            tarea1= new WFTarea(p_con,rs1.getInt("COD_TAREA1"));
+            tarea2= new WFTarea(p_con,rs1.getInt("COD_TAREA2"));
+            cod_tipo_transicion=rs1.getString("COD_TIPO_TRANSICION");
+	    des_tipo_transicion=rs1.getString("DES_TIPO_TRANSICION");
+	    fec_ult_mod=rs1.getDate("FEC_ULT_MOD");
+	    cod_usuario=rs1.getString("COD_USUARIO");
+	 }
+	 rs1.close();
+	 st1.close();
+      }
+      catch(Exception e)
+      {  System.err.println("ERROR WFTransicion() REG_NOTFOUND: " + e);}
+   }
+
+   
+   //===========
+   //Métodos GET
+   //===========
+   public int		   getCodTransicion()	   { return cod_transicion;}
+   public int		   getCodTarea1()	   { return tarea1.getCodTarea();}
+   public int		   getCodTarea2()	   { return tarea2.getCodTarea();}
+   public String	   getDesTarea1()	   { return tarea1.getDesTarea();}
+   public String	   getDesTarea2()	   { return tarea2.getDesTarea();}
+   public String	   getCodTipoTransicion()  { return cod_tipo_transicion;}
+   public String	   getDesTipoTransicion()  { return des_tipo_transicion;}
+   public java.util.Date   getFecUltMod()	   { return fec_ult_mod;}
+   public String	   getCodUsuario()	   { return cod_usuario;}
+
+   
+   //=========
+   //verInfo()
+   //=========
+   public void verInfo()
+   {
+      System.out.println("WFTransicion.verInfo():");
+      System.out.print("["+cod_transicion+"] ["+des_tipo_transicion+"("+cod_tipo_transicion+")] ");
+      System.out.print("["+getDesTarea1()+"("+getCodTarea1()+")] -> ["+getDesTarea2()+"("+getCodTarea2()+")]");
+      //System.out.println("fec_ult_mod     = "+fec_ult_mod+" ["+cod_usuario+"]");
+      System.out.println();
+   }
+}
+//Fin de la clase WFTransicion.java

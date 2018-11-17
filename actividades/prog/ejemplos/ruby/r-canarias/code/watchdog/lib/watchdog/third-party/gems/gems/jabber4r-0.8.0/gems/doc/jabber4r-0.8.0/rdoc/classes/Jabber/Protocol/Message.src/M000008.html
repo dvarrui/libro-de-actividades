@@ -1,0 +1,33 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>from_element (Jabber::Protocol::Message)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 650</span>
+650:       <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Message</span>.<span class="ruby-identifier">from_element</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">element</span>)
+651:         <span class="ruby-identifier">message</span> = <span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_to</span>)
+652:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">from</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_from</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_from</span>
+653:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">type</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_type</span>
+654:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">id</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_id</span>
+655:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">thread</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">thread</span>.<span class="ruby-identifier">element_data</span>
+656:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">element_data</span>
+657:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">xhtml</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">xhtml</span>.<span class="ruby-identifier">element_data</span>
+658:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">subject</span>.<span class="ruby-identifier">element_data</span>
+659:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">oobData</span> = <span class="ruby-identifier">element</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">element_data</span>
+660:         <span class="ruby-identifier">message</span>.<span class="ruby-identifier">session</span>=<span class="ruby-identifier">session</span>
+661:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">message</span>
+662:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

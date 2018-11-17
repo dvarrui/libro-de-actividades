@@ -1,0 +1,27 @@
+<b>&lt;html&gt;</b><br>
+<b>&lt;head&gt;</b><br>
+<b>&lt;title&gt;</b>Curso JSP (Java Server Pages)<b>&lt;/title&gt;</b><br>
+<b>&lt;/head&gt;</b><br>
+<b>&lt;body bgcolor=white&gt;</b><br>
+<br>
+<b>&lt;table border=&quot;0&quot;&gt;</b><br>
+<b>&lt;tr&gt;</b><br>
+<b>&lt;td align=center&gt;</b><br>
+<b>&lt;img src=&quot;../images/java_logo.gif&quot;&gt;</b><br>
+<b>&lt;/td&gt;</b><br>
+<b>&lt;td&gt;</b><br>
+<b>&lt;h1&gt;</b>JSP: Speed Errors<b>&lt;/h1&gt;</b><br>
+<br>
+<b>&lt;%@ page isErrorPage=&quot;true&quot; %&gt;</b><br>
+<br>
+<b>&lt;TABLE BORDER=5 ALIGN=&quot;CENTER&quot;&gt;</b><br>
+<b>&lt;TR&gt;</b><b>&lt;TH CLASS=&quot;TITLE&quot;&gt;</b>Error Computing Speed<b>&lt;/TABLE&gt;</b><br>
+<b>&lt;P&gt;</b>ComputeSpeed.jsp reported the following error:<br>
+<b>&lt;I&gt;</b><b>&lt;%= exception %&gt;</b><b>&lt;/I&gt;</b>. This problem occurred in the following place:<br>
+<b>&lt;PRE&gt;</b><br>
+<b>&lt;!--<b>&lt;% exception.printStackTrace(new PrintWriter(out)); %&gt;</b>--&gt;</b><br>
+<b>&lt;/PRE&gt;</b><br>
+<br>
+<b>&lt;/BODY&gt;</b><br>
+<b>&lt;/HTML&gt;</b><br>
+

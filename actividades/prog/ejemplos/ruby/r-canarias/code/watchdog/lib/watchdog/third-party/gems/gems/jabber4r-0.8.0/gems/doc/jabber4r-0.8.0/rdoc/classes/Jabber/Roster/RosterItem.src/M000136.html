@@ -1,0 +1,35 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>get_vcard (Jabber::Roster::RosterItem)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/roster.rb, line 131</span>
+131:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_vcard</span>
+132:         <span class="ruby-identifier">ct</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+133:         <span class="ruby-identifier">queryID</span> = <span class="ruby-ivar">@roster</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">id</span>
+134:         <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">nil</span>
+135:         <span class="ruby-ivar">@roster</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_vcard</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">queryID</span>, <span class="ruby-identifier">jid</span>)) { <span class="ruby-operator">|</span><span class="ruby-identifier">je</span><span class="ruby-operator">|</span>
+136:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">je</span>.<span class="ruby-identifier">element_tag</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;iq&quot;</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">je</span>.<span class="ruby-identifier">attr_type</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;result&quot;</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">je</span>.<span class="ruby-identifier">attr_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">queryID</span>
+137:               <span class="ruby-identifier">je</span>.<span class="ruby-identifier">consume_element</span>
+138:               <span class="ruby-identifier">result</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">VCard</span>.<span class="ruby-identifier">from_element</span>(<span class="ruby-identifier">je</span>.<span class="ruby-constant">VCARD</span>)
+139:               <span class="ruby-identifier">ct</span>.<span class="ruby-identifier">wakeup</span>
+140:             <span class="ruby-keyword kw">else</span>
+141:             <span class="ruby-keyword kw">end</span>
+142:         }
+143:         <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+144:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+145:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html><head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+<a href="../lenguajejsp.html">Lenguaje JSP</a> | 
+<a href="scriptlets.html">Anterior</a> | 
+<a href="page.html">Siguiente</a></a>
+ 
+<h2>Directiva Include</h2>
+<p>Incluye un fichero estático en la página JSP.</p>
+
+<h4>Sintaxis JSP</h4>
+<blockquote><pre><code>&lt;%@ include file="</code><i><code>URLrelativa</code></i><code>" %&gt;
+</code></pre></blockquote>
+
+<h4>Sintaxis XML</h4>
+<blockquote><pre>&lt;jsp:directive.include file="<i><code>URLrelativa</code></i>" /&gt;
+</pre></blockquote>
+
+<h4>Ejemplos</h4>
+<blockquote><pre>include.jsp:
+&lt;html&gt;	
+&lt;head&gt;&lt;title&gt;Ejemplo de include&lt;/title&gt;&lt;/head&gt;	
+&lt;body bgcolor="white"&gt;	
+&lt;font color="blue"&gt;	
+Fecha y hora actual	
+&lt;%@ include file="fechahora.jsp" %&gt;	
+&lt;/font&gt;	
+&lt;/body&gt;	
+&lt;/html&gt;
+
+fechahora.jsp:
+&lt;%@ page import="java.util.*" %&gt;	
+&lt;%= (new java.util.Date() ).toLocaleString() %&gt;
+Muestra en la página:
+Fecha y hora actual	
+Aug 30, 1999 2:38:40
+</pre></blockquote>
+
+<h4>Descripción</h4>
+<dl><dd>
+<p>La directiva <i>include</i> directive inserta un fichero de texto o con código en una página JSP en el momento de realizar la compilación.</p>
+<p>Hay que tener en cuenta que:</p>
+<ul>
+	<li>El fichero insertado puede ser otra página JSP, una página HTML, un documento XML, un fichero de texto, etc.</li>
+	<li>Las etiquetas del fichero insertado pueden entrar en conflicto con la estructura del fichero principal provocando errores. Por ejemplo: <code>&lt;html&gt;</code>, <code>&lt;/html&gt;</code>, <code>&lt;body&gt;</code>, o <code>&lt;/body&gt;</code>.</li>
+	<li>La página JSP puede ser recompilada si el fichero incluido cambia.</li>
+	<li>Existe un include estático de la forma <code>&lt;jsp:include page=<em>"URL relativo"</em>&gt;</code></li>
+</ul>
+</dl>
+
+<h4>Atributos</h4>
+<dl><dd>
+<p><code>file="</code><i><code>URLrelativa</code></i><code>"</code></p>
+<p>La ruta del fichero incluido siempre será un URL relativo. URL relativo es una ruta sin el protocolo, puerto o nombre de dominio, como por ejemplo:</p>
+
+<blockquote><pre>"error.jsp"	
+"/templates/onlinestore.html"	
+"/beans/calendar.jsp"</pre></blockquote>
+
+<p>Si la URL empieza con /, la ruta es relativa al contexto de la aplicación JSP.</p>
+<p>Si la URL empieza con un nombre de directorio o de fichero, la ruta es relativa a la página JPS.</p>
+</dl>
+
+</body>
+</html>

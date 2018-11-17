@@ -1,0 +1,22 @@
+<%@ jet package="david.tenerife.templates.sql" imports="david.tenerife.lib.*" class="CreateTableTemplate" %>
+
+<%
+   BaseDatos bd = (BaseDatos) argument;
+   Tabla t;
+   Campo c;
+%>
+
+<%
+   for(int i=0;i<bd.getNumeroTablas();i++) {
+      t = bd.getTabla(i);
+%>
+
+CREATE TABLE <%=t.getNombre()%>(
+<%
+      for(int j=0;j<t.getNumeroCampos();j++) {
+         c = t.getCampo(j);
+%>
+    <%=c.getNombre()%>		<%=c.getTipo()%>,	-- <%=c.getEtiqueta()%>
+<%    } %>
+);
+<% } %>

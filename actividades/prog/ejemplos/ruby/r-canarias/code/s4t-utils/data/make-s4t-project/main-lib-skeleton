@@ -1,0 +1,14 @@
+# Require external libraries (whether in third-party or site_ruby) here:
+require 's4t-utils'
+
+# Require all library files in this package here:
+require '!REPLACE_ME_FILE!/version'
+# require '!REPLACE_ME_FILE!/some-file'
+# require '!REPLACE_ME_FILE!/another-file'
+
+# Any comments written here will become
+# the documentation for !REPLACE_ME_MODULE!.
+# That will be the first page shown when you 
+# create the HTML documentation.
+module !REPLACE_ME_MODULE!
+end

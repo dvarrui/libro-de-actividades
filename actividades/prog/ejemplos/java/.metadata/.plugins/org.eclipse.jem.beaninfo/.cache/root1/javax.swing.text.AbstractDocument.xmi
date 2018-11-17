@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing.text#AbstractDocument">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1 #//@objectsToAttach.2 #//@objectsToAttach.3 #//@objectsToAttach.4 #//@objectsToAttach.5 #//@objectsToAttach.6 #//@objectsToAttach.7 #//@objectsToAttach.8 #//@objectsToAttach.9 #//@objectsToAttach.10 #//@objectsToAttach.11"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="events">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.12 #//@objectsToAttach.13"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" implicitDecoratorFlag="IMPLICIT_DECORATOR"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="defaultRootElement" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.text#Element" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getDefaultRootElement("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="rootElements" eType="org.eclipse.jem.java:ArrayType java:/javax.swing.text#Element[]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getRootElements("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="documentFilter" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.text#DocumentFilter" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getDocumentFilter(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.setDocumentFilter(javax.swing.text.DocumentFilter"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="endPosition" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.text#Position" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getEndPosition("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="startPosition" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.text#Position" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getStartPosition("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="asynchronousLoadPriority" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getAsynchronousLoadPriority(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.setAsynchronousLoadPriority(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="undoableEditListeners" eType="org.eclipse.jem.java:ArrayType java:/javax.swing.event#UndoableEditListener[]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getUndoableEditListeners("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="length" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getLength("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="bidiRootElement" eType="org.eclipse.jem.java:JavaClass java:/javax.swing.text#Element" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getBidiRootElement("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="documentListeners" eType="org.eclipse.jem.java:ArrayType java:/javax.swing.event#DocumentListener[]" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="52" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getDocumentListeners("/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="documentProperties" eType="org.eclipse.jem.java:JavaClass java:/java.util#Dictionary" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" implicitlySetBits="60" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.getDocumentProperties(" writeMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.setDocumentProperties(java.util.Dictionary<java.lang.Object,java.lang.Object>"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanEvent" name="document">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:EventSetDecorator" implicitlySetBits="25" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" addListenerMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.addDocumentListener(javax.swing.event.DocumentListener" listenerType="org.eclipse.jem.java:JavaClass java:/javax.swing.event#DocumentListener" removeListenerMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.removeDocumentListener(javax.swing.event.DocumentListener"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanEvent" name="undoableEdit">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:EventSetDecorator" implicitlySetBits="25" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" addListenerMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.addUndoableEditListener(javax.swing.event.UndoableEditListener" listenerType="org.eclipse.jem.java:JavaClass java:/javax.swing.event#UndoableEditListener" removeListenerMethod="org.eclipse.jem.java:Method java:/javax.swing.text#AbstractDocument.removeUndoableEditListener(javax.swing.event.UndoableEditListener"/>
+  </objectsToAttach>
+</change:ChangeDescription>

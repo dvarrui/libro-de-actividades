@@ -1,0 +1,21 @@
+<%@ jet package="david.tenerife.templates.swing" imports="david.tenerife.templates.*" class="IVentanaTemplate" %>
+<% 
+   ArgumentoJet arg = (ArgumentoJet) argument;
+
+   david.tenerife.lib.BaseDatos bd = arg.getBaseDatos(); 
+%>
+// Creado por el proyecto TENERIFE
+// Autor: David Vargas Ruiz
+// Fecha: <%=new java.util.Date() %>
+
+package david.<%=bd.getPaqueteJava()%>.swing;
+
+
+public interface IVentana {
+
+   public void reset();
+   
+   public String getIdVentana();
+
+}
+

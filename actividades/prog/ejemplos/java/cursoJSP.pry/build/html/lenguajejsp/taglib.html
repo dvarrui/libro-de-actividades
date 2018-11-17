@@ -1,0 +1,41 @@
+<html><head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+<a href="../lenguajejsp.html">Lenguaje JSP</a> | 
+<a href="page.html">Anterior</a>
+
+<h2>Directiva Taglib</h2>
+<p>Define una librería de etiquetas y prefijos para usar en las páginas JSP.</p>
+
+<h4>Sintaxis JSP</h4>
+<blockquote><pre><code>&lt;%@ taglib uri="</code><i><code>URI de la Librería</code></i><code>" prefix="</code><i><code>prefijoEtiqueta</code></i><code>" %&gt;
+</code></pre></blockquote>
+
+<h4>Sintaxis XML</h4>
+<dl><dd><p>Ninguna</p></dl>
+
+<h4>Ejemplos</h4>
+<blockquote><pre>&lt;%@ taglib uri="http://www.jspcentral.com/tags" prefix="dvr" %&gt;	
+
+&lt;dvr:loop&gt;	
+&nbsp;&nbsp;&nbsp;...	
+&lt;/dvr:loop&gt;
+</pre></blockquote>
+
+<h4>Descripción</h4>
+<dl><dd><p>La directiva <i>taglib</i> define las etiquetas que se usarán en la página, especificando el nombre de la librería de estiquetas y el prefijo asociado.</p>
+<p>Se debe especificar la directiva <i>taglib</i> <em>antes</em> de usar las etiquetas.</p>
+<p>Se pueden usar varias librería en la misma página pero el prefijo debe ser único.</p>
+</dl>
+
+<h4>Atributos</h4>
+<ul>
+<li><code>uri="</code><i><code>URILibrería</code></i><code>"</code>
+<p><dd>URI (Uniform Resource Identifier) que identifica el fichero TLD que establece el conjunto de etiquetas asociadas al prefijo.</p>
+
+<li><code>prefix="</code><i><code>PrefijoDeEtiqueta</code></i><code>"</code>
+<p><dd>No se pueden usar los siguientes prefijos: <code>jsp</code>, <code>jspx</code>, <code>java</code>, <code>javax</code>, <code>servlet</code>, <code>sun</code>, and <code>sunw</code>.<p>
+</ul>
+
+</body>
+</html>

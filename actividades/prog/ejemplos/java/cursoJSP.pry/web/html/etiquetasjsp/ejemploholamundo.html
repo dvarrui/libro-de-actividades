@@ -1,0 +1,170 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../etiquetasjsp.html">Etiquetas JSP</a> |
+<a href="ejemploholamundo.html">Anterior</a> |
+<a href="etiquetaconparametros.html">Siguiente</a>
+
+<h2>La primera etiqueta</h2>
+<ul>
+<li>Las JSP Custom tags no son mas que clases java que implementan o heredan de determinadas clases.</li>
+<li>Recordemos que JSP sigue una sintáxis XML y las etiquetas que no tienen cierre deben llevar esta barra.</li>
+<li>Ejemplo de una etiqueta sin cuerpo, que debe implementar la interfaz Tag: </li>
+<blockquote><pre>
+public inteface Tag {
+    public final static int SKIP_BODY = 0;
+    public final static int EVAL_BODY_INCLUDE = 1;
+    public final static int SKIP_PAGE = 5;
+    public final static int EVAL_PAGE = 6;
+	
+    public int doEndTag() throws JspException;
+    public int doStartTag() throws JspException;
+    public Tag getParent();
+    public void release();
+    public void setPageContext(PageContext pc);
+    public Tag setParent(Tag t);
+}
+
+setPageContext: Este método lo invoca el motor de JSP para definir el contexto.
+
+setParent: Lo invoca el motor de JSP para pasarle un manejador de etiqueta a la etiqueta padre.
+
+getParent: Devuelve una instancia de la etiqueta padre.
+
+doStartTag: Se procesa la etiqueta de apertura.
+
+doEndTag: Se ejecuta despues de doStartTag.
+
+release: Lo invoca el motor de JSP para hacer limpieza
+</pre></blockquote>
+
+<li>Tag Handler: </li>
+<blockquote><pre>
+// HolaMundoTag.java
+import java.io.*;
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+
+public class HolaMundoTag implements Tag {
+    private PageContext pc;
+    private Tag parent;
+	
+    public HolaMundoTag() {
+        super();
+    }
+	
+    public int doStartTag() throws JspException {
+        try {
+            pc.getOut().print("Hola mundo");
+        } catch (IOException e){
+            throw new JspException("Error al enviar al cliente" + 
+                                            e.getMessage());
+        }
+        return SKIP_BODY;
+    }
+	
+    public int doEndTag() throws JspException {
+        return SKIP_PAGE;
+    }
+	
+    public void release(){
+    }
+	
+    public void setPageContext(PageContext pc){
+        this.pc = pc;
+    }
+	
+    public void setParent(Tag parent){
+        this.parent = parent;
+    }
+	
+    public Tag getParent(){
+        return parent;
+    }
+}
+</pre><blockquote>
+
+<li>Con la clase TagSupport, el código anterior se puede reescribir de la siguiente manera:</li>
+<blockquote><pre>
+// HolaMundoTag.java
+import java.io.*;
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+
+public class HolaMundoTag extends TagSupport{
+    public int doStartTag() throws JspException {
+    try{
+            pageContext.getOut().print("Hola Mundo");
+        } catch (IOException e) {
+            throw new JspException ("Error: IOException" + 
+			                        e.getMessage());
+        }
+        return SKIP_BODY;
+    }
+	
+    public int doEndTag() throws JspException {
+        return EVAL_PAGE;
+    }
+}
+</pre></blockquote>
+
+<li>Para compilar: <code>javac -classpath c:\tomcat\lib\common\servlet.jar HolaMundoTag.java</code></li>
+<li>Ya tenemos la etiqueta compilada, ahora tenemos que decirle a tomcat como y cuando utilizarla.</li>
+</ul>
+
+<h2>Tomcat: Ejemplos.tld </h2>
+<ul>
+<li>Tag Library Descriptor y sigue una sintáxis xml:</li>
+<blockquote><pre>
+&lt;!-- Ejemplos.tld --&gt;
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE taglib
+    PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+	"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd"&gt;
+&lt;taglib&gt;
+&lt;tlibversion&gt;1.0&lt;/tlibversion&gt;
+    &lt;jspversion&gt;1.1&lt;/jspversion&gt;
+    &lt;shortname&gt;ejemplos&lt;/shortname&gt;
+    &lt;uri>&lt;/uri&gt;
+    &lt;info&gt;Etiquetas de ejemplo&lt;/info&gt;
+	
+    &lt;tag&gt;
+    &lt;name&gt;holamundo&lt;/name&gt;
+        &lt;tagclass&gt;HolaMundoTag&lt;/tagclass&gt;
+        &lt;bodycontent&gt;empty&lt;/bodycontent&gt;
+        &lt;info&gt;Saludo&lt;/info&gt;
+    &lt;/tag&gt;
+&lt;/taglib&gt;
+</pre></blockquote>
+<li>El documento encerrado entre taglib y /taglib.</li>
+<li>Las etiquetas tlibversion y jspversion definen las versiones de la librería de etiquetas y de la especificación JSP respectivamente.</li>
+<li>Cada etiqueta va encerrada entre tag y /tag y lleva, el nombre de la etiqueta (name), la clase que implementa la etiqueta (tagclass), si tiene cuerpo (bodycontent, en este caso empty para indicar que no lleva) y la etiqueta info que almacena una descripción de la etiqueta.</li>
+</ul>
+
+<h2>Instalar</h2>
+<ul>
+<li>Guardaremos en c:\tomcat\webapps\ejemplos\WEB-INF\classes\HolaMundoTag.class, suponiendo que el tomcat esta en c:\tomcat)</li>
+<li>El tag library descriptor lo guardaremos en c:\tomcat\webapps\ejemplos\Ejemplos.tld.</li>
+<li>Necesitamos una pagina JSP para probar la primera etiqueta personalizada, por ejemplo esta: </li>
+<blockquote><pre>
+&lt;!-- HolaMundo.jsp --&gt;
+&lt;%@ taglib uri="Ejemplos.tld" prefix="ejemplos" %&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;TITLE&gt;Tag Hola Mundo&lt;/TITLE&gt;&lt;/HEAD&gt;
+&lt;ejemplos:holamundo/&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt;
+</pre></blockquote>
+<li>Situamos el archivo HolaMundo.jsp en c:\tomcat\webapps\ejemplos\HolaMundo.jsp, arrancamos el tomcat y visitando la dirección http://localhost:8080/ejemplos/HolaMundo.jsp veremos nuestra primera etiqueta en acción.</li>
+</ul>
+
+
+<h2>Ejemplo práctico: etiqueta holamundo</h2>        
+<ul>
+    <li><a href="../../jsp/tagholamundo.jsp">Ejemplo tagholamundo.jsp</a><a href="../../jsp/html/tagholamundo.jsp.html">( Ver código)</a></li>        
+</ul>
+
+
+</body>
+</html>

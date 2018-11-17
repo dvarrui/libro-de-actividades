@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:codeGenHelpers="platform:/plugin/org.eclipse.ve.java.core/overrides/codegenHelpers.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.java="java.xmi" xmlns:org.eclipse.ve.internal.cde.decorators="http:///org/eclipse/ve/internal/cde/decorators.ecore" xmlns:org.eclipse.ve.internal.jcm="http:///org/eclipse/ve/internal/jcm.ecore">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.awt#Component">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.3"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.4"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.5"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.6"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:ClassDescriptorDecorator" treeViewClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentTreeEditPart" graphViewClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentGraphicalEditPart" modelAdapterClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentModelAdapter"/>
+  <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentProxyAdapter" beanLocation="GLOBAL_GLOBAL"/>
+  <objectsToAttach xsi:type="codeGenHelpers:CodeGenHelperClass" source="codegen.CodeGenHelperClass" expDecoder="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.codegen.ComponentDecoder" modelled="true"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="bounds">
+    <eAnnotations xsi:type="org.eclipse.ve.internal.cde.decorators:PropertyDescriptorInformation" propertyDescriptorClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.BoundsPropertyDescriptor"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="location">
+    <eAnnotations xsi:type="org.eclipse.ve.internal.cde.decorators:PropertyDescriptorInformation" propertyDescriptorClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.LocationPropertyDescriptor"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="size">
+    <eAnnotations xsi:type="org.eclipse.ve.internal.cde.decorators:PropertyDescriptorInformation" propertyDescriptorClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.SizePropertyDescriptor"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="componentOrientation">
+    <eAnnotations xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" nullInvalid="true"/>
+  </objectsToAttach>
+</change:ChangeDescription>

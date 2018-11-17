@@ -1,0 +1,123 @@
+<html>
+	<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+		  <a href="../convencionesjsp.html">Ir al inicio</a> | 
+		  <a href="paginasjspconsintaxisxml.html">Anterior</a> | 
+
+<h2>Prácticas de Programación</h2>
+
+<p>Evitar escribir código Java en páginas JSP por:</p>
+<ul>
+	<li>Errores de sintaxis Java no se detectan hasta que la página se ha desplegado. Los errores de sintaxis en librerías de etiquetas y servlets se detectan con anterioridad.</li>
+	<li>Código difícil de depurar y mantener. </li>
+	<li>No mezclar lógicas de negocio con la lógica de presentación.</li> 
+	<li>Código Java mezclado con HTML y otras instrucciones de script puede ser muy difícil de leer.</li>
+	<li>JSP 2.0 desaconseja los scriptlets en favor de un lenguaje más simple. Será más fácil evolucionar nuestras páginas hacia el estilo de programación JSP 2.0 si no usamos código Java en nuestras páginas.</li> 
+</ul>
+
+<h3>Inicialización de JavaBeans</h3>
+<ul>
+	<li>Inicializar las propiedades identificadas por un PropertyDescriptor de un JavaBean, por ejemplo:<dd>
+<code>&lt;jsp:setProperty name="bankClient" property="*"/&gt;</code></li>
+<p>Sin embargo, esto se debería utilizar con cuidado. Primero, si el bean tiene una propiedad, digamos amount, y no existe dicho parámetro (amount) en el objeto ServletRequest actual o el valor del parámetro es "", no se hace nada: la página JSP ni siquiera usará null para seleccionar esa propiedad particular del bean. Pero, si el valor ya está asignado a amount en el bean bankClient, no le afecta. Segundo, las propiedades no elementales que no tienen definidos PropertyEditors podrían ni ser inicializadas implícitamente desde un valor String del objeto ServletRequest y se podría necesitar una conversión explícita. Tercero. usuarios malintencionados pueden añadir parámetros adicionales a la solicitud, y seleccionar propiedades no deseadas en el bean, si la aplicación no está cuidadosamente diseñada. </p>
+
+ <p>Si aún así preferimos usar property="*" en la etiqueta jsp:setProperty para producir el código anterior, recomendamos que añadas un comentario precediendo a la etiqueta jsp:setProperty indicando los parámetros que deben estar presentes en el objeto ServletRequest para inicializar el bean. Por eso, en el siguiente ejemplo, a través del comentario, sabemos que necesitamos los parámetros firstName y lastName para inicializar el bean bankClient: </p>
+ <blockquote><pre>
+&lt;%--
+  -  requires firstName and lastName from the ServletRequest 
+  --%&gt;
+<jsp:setProperty name="bankClient" property="*" />
+</pre></blockquote>
+ 
+<h3>Objetos Implícitos de JSP</h3>
+<ul>
+	<li>Evitar llamadas a la API</li><dd>
+	<code>getServletConfig().getServletContext().getInitParameter("param")</code>
+	<li>Preferible uso de objetos implícitos</li><dd>
+	<code>application.getInitParameter("param")</code>
+	<li>Utilizar JSTL</li><dd>
+	<code>&lt;c:out value="${initParam['param']}" /&gt;</code>
+</ul>
+	 
+<h3>Entrecomillado </h3>
+<ul>
+	<li>Utilizar <b>comillas dobles</b> (") en lugar de los apóstrofe (').</li>
+	<li><b>Excepción</b> cuando se necesitan las dobles comillas dentro del lenguaje de script.
+	<dd>Ejemplo: <code>&lt;jsp:include page='&lt;%= getFoodMenuBar("Monday") %&gt;' /&gt;</code></li>
+	<li>Una etiqueta personalizada sin contenido en el cuerpo debe declararse explícitamente como vacío.</li>
+<blockquote><pre>
+&lt;tag&gt;
+    &lt;name&gt;hello&lt;/name&gt;
+    &lt;tag-class&gt;com.mycorp.util.taglib.HelloTagSupport&lt;/tag-class&gt;
+    &lt;body-content&gt;empty&lt;/body-content&gt;
+    ...
+&lt;/tag&gt;</pre></blockquote>
+	<li>Etiquetas vacías escritas como elementos cortos de XML para mejorar la legibilidad. Es preferible <code>&lt;myTag:hello /&gt;</code> que <code>&lt;myTag:hello&gt;&lt;/myTag:hello&gt;.</code></li>
+</ul>
+
+<h3>Uso de TagExtraInfo y TagLibraryValidator.</h3>
+<dl><p><dd>Algunas veces, las formas válidas para usar una librería de etiquetas no se pueden expresar usando sólo TLD. Entonces, se debería escribir una clase TagExtraInfo o una clase TagLibraryValidator y deberíamos registrarlas en el TLD para que poder capturar en tiempo de traducción los errores en la librería de etiquetas.</p></dl>
+
+<h3>Usar JavaScript</h3>
+<ul>
+	<li>Código JavaScript independiente del navegador</li>
+	<li>Mantener el código JavaScript en ficheros individuales separados de los cuerpos JSP.</li>
+	<li>Importar el código JavaScript en las páginas JSP: <code>&lt;script language=javascript src="/js/main.js"&gt;</code></li>
+	<li>Reutilización del código JavaScript, mantiene el comportamiento consistente, y reduce la complejidad de las páginas JSP.</li>
+</ul>
+
+<h3>Hojas de Estilo en Cascada (CSS)</h3>
+<ul>
+	<li>Usar hojas de estilo en cascada para centralizar las características de presentación.</li>
+	<li>Esto mejorará la consistencia de la presentación para los usuarios y reduce el mantenimiento y el tamaño del código de las páginas JSP.</li>
+	<li>En lugar de embeber la información de estilo en las etiquetas HTML como estas: </li>
+<blockquote><pre>
+&lt;H1&gt;&lt;FONT color="blue"&gt;Chapter 1&lt;/FONT&gt;&lt;/H1&gt;
+...
+&lt;H1&gt;&lt;FONT color="blue"&gt;Chapter 2&lt;/FONT&gt;&lt;/H1&gt;
+...
+</pre></blockquote>
+	
+	<li>Definimos información de estilo en una sola hoja de estilo <code>myJspStyle.css</code> que contiene:	<code>H1 { color: blue }</code></li>
+<li>Y aplicamos la hoja de estilo a la página JSP: </li>
+<blockquote><pre>
+&lt;link rel="stylesheet" href="css/myJspStyle.css" type="text/css"&gt;
+...
+&lt;H1&gt;Chapter 1&lt;/H1&gt;
+...
+&lt;H1&gt;Chapter 2&lt;/H1&gt;
+...
+</pre></blockquote>
+</ul>
+
+<h3>Usar Patrones de Vistas Compuestos</h3>
+<ul>
+	<li>JSP compuesto de diferentes módulos.</li>
+	<li>Recordar la utilización de la extensión .jspf</li>
+	<li>Situar el fichero en el directorio /WEB-INF/jspf/ de la aplicación Web.</li>
+	<li>Por ejemplo:</li>
+<blockquote><pre>
+&lt;%@ include file="/WEB-INF/jspf/header.jspf" %&gt;
+...
+&lt;%@ include file="/WEB-INF/jspf/menuBar.jspf" %&gt;
+...
+&lt;jsp:include page="<%= currentBody %>" /&gt;
+...
+&lt;%@ include file="/WEB-INF/jspf/footnote.jspf" %&gt;
+...
+&lt;%@ include file="/WEB-INF/jspf/footer.jspf" %&gt;
+...
+</pre></blockquote>
+</ul>
+	
+<h3>Otras Recomendaciones</h3>
+<ul>
+	<li>Definir Nuevos Objetos Implícitos</li>
+	<li>Acceder a Información Específica-de-Vendedor</li>
+	<li>Personalizar una Librería de Etiquetas</li>
+	<li>Java BluePrints y patrón Model-View-Controller</li>
+</ul>
+
+</body>
+</html>

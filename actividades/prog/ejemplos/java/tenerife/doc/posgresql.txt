@@ -1,0 +1,65 @@
+
+-- Ejemplo de referencia postgreSQL
+CREATE TABLE weather (
+    city            varchar(80),
+    temp_lo         int,           -- low temperature
+    temp_hi         int,           -- high temperature
+    prcp            real,          -- precipitation
+    date            date
+);
+
+--INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
+--    VALUES ('San Francisco', 43, 57, 0.0, '1994-11-29');
+
+-- COPY weather FROM '/home/user/weather.txt';
+
+-- UPDATE weather
+--    SET temp_hi = temp_hi - 2,  temp_lo = temp_lo - 2
+--    WHERE date > '1994-11-28';
+
+-- DELETE FROM weather WHERE city = 'Hayward';
+
+--CREATE TABLE cities (
+--        city     varchar(80) primary key,
+--         location point
+--);
+
+--CREATE TABLE weather (
+--        city      varchar(80) references cities,
+--        temp_lo   int,
+--        temp_hi   int,
+--       prcp      real,
+--        date      date
+--);
+
+--CREATE TABLE products (
+--    product_no integer,
+--    name text,
+--    price numeric DEFAULT 9.99
+--);
+
+--CREATE TABLE products (
+--    product_no integer NOT NULL,
+--    name text,
+--    price numeric CHECK (price > 0)
+--);
+
+--CREATE TABLE example (
+--    a integer,
+--    b integer,
+--    c integer,
+--    PRIMARY KEY (a, c)
+--);
+
+
+CREATE TABLE orders (
+    order_id integer PRIMARY KEY,
+    product_no integer REFERENCES products (product_no),
+    quantity integer
+);
+
+CREATE INDEX test1_id_index ON test1 (id);
+
+CREATE INDEX test2_mm_idx ON test2 (major, minor);
+
+CREATE UNIQUE INDEX name ON table (column [, ...]);

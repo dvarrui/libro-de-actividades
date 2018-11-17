@@ -1,0 +1,102 @@
+Hello World Tag Handler
+You can find the Tag Handler for the Hello World tag in the /WEB-INF/classes/basic directory since it is a part of the basic package
+
+
+  package basic;
+
+Import the jsp and tag classes:
+
+
+  import javax.servlet.jsp.*;
+  import javax.servlet.jsp.tagext.*;
+
+The Hello World Tag Handler implements the doStartTag() method which is invoked when the start tag is encountered.
+
+
+    public int doStartTag() throws JspException {
+        try {
+            pageContext.getOut().print("Hello World");
+        } catch (Exception ex) {
+            throw new JspException("IO problems");
+        }
+        return SKIP_BODY;
+    }
+
+The pageContext is set by the JSP container and is available to the Tag Handler. The SKIP_BODY value makes sure that no evaluation of the tag body takes place.
+
+
+Hello World Tag Library Descriptor
+  <?xml version="1.0" encoding="ISO-8859-1" ?>
+
+XML header describing the deployment descriptor DOCTYPE. The deployment descriptor includes the elements and configuration information of a web application.
+
+
+  <!DOCTYPE taglib
+            PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" 
+            "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+
+Initial taglibrary description
+
+
+  <taglib>
+    <!-- The version number of this tag library -->
+    <tlibversion>1.0</tlibversion>
+
+    <!-- The JSP specification version required to function -->
+    <jspversion>1.1</jspversion>
+
+    <!-- The short name of this tag library -->
+    <shortname>utility</shortname>
+
+    <!-- Public URI that uniquely identifies this version of the tag library -->
+    <uri>http://jakarta.apache.org/taglibs/utilitytags</uri>
+
+    <!-- General information about this tag library -->
+    <info>
+          A simple tag library for the examples
+    </info>
+
+Hello World tag description.
+
+
+tagclass element associates the Hello World tag handler with the Hello World tag 
+bodycontent tag tells us that the tag will not contain any body 
+  <!-- Hello tag -->
+    <tag>
+      <name>Hello</name>
+      <tagclass>basic.Hello</tagclass>
+      <bodycontent>empty</bodycontent>
+      <info>
+        Print Hello World
+      </info>
+    </tag>
+web.xml file
+The web.xml file describes the mapping between the taglib uri and the location of the Tag Library Descriptor.
+
+
+Here the unique taglib-uri "http://jakarta.apache.org/taglibs/utilitytags" is associated with the Tag Library Descriptor in /WEB-INF/tld/utilitytags.tld.
+
+
+  <web-app>
+    <taglib>
+       <taglib-uri>
+         http://jakarta.apache.org/taglibs/utilitytags
+       </taglib-uri>
+       <taglib-location>
+         /WEB-INF/tld/utilitytags.tld
+       </taglib-location>
+    </taglib>
+  </web-app>
+
+Hello World jsp
+The following directive tells the JSP container to use the "http://jakarta.apache.org/taglibs/utilitytags" uri defined in web.xml. "jLib" is defined as the prefix value for the tag. 
+
+
+  <%@ taglib uri="http://jakarta.apache.org/taglibs/utilitytags" prefix="jLib" %>
+
+The Hello World tag is called. The tag name "Hello" is defined in the the Tag Library Descriptor.
+
+
+  <jLib:Hello/>
+
+

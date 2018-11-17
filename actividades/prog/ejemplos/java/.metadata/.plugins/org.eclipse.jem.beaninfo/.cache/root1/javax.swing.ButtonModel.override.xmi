@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:codeGenHelpers="platform:/plugin/org.eclipse.ve.java.core/overrides/codegenHelpers.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.java="java.xmi" xmlns:org.eclipse.ve.internal.cde.decorators="http:///org/eclipse/ve/internal/cde/decorators.ecore" xmlns:org.eclipse.ve.internal.cde.utility="http:///org/eclipse/ve/internal/cde/utility.ecore">
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing#ButtonModel">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/0/@objectsToAttach.0"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+  </change:ChangeDescription>
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing#ButtonModel">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.0"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.1"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.2"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.3"/>
+      </value>
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.4"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/javax.swing#//ButtonModel/allocation">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.5"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:ClassDescriptorDecorator" treeViewClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.JavaBeanTreeEditPart" graphViewClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.JavaBeanGraphicalEditPart" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.DefaultJavaBeanLabelProvider">
+      <graphic xsi:type="org.eclipse.ve.internal.cde.utility:GIFFileGraphic" resourceName="platform:/plugin/org.eclipse.ve.java.core/icons/full/obj16/javabean_obj.gif"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation" propertySourceAdapterClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BeanPropertySourceAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BeanCellRenderer"/>
+    <objectsToAttach xsi:type="codeGenHelpers:CodeGenHelperClass" source="codegen.CodeGenHelperClass" expDecoder="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ObjectDecoder" eventDecoder="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ObjectEventDecoder" methodGenerator="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.util.DefaultMethodTextGenerator" typeVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.TypeVisitor" methodVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.MethodVisitor" eventMethodCallBackVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventMethodCallBackVisitor" eventMethodVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventMethodVisitor" eventHandlerVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventHandlerVisitor" returnStmtVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ReturnStmtVisitor" expressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ExpressionVisitor" eventExpressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventExpressionVisitor" eventCallBackExpressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventCallBackExpressionVisitor"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="events" upperBound="-1" eType="ecore:EClass http:///org/eclipse/ve/internal/jcm.ecore#//AbstractEventInvocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertyDescriptorDecorator" hidden="true"/>
+  </change:ChangeDescription>
+</xmi:XMI>

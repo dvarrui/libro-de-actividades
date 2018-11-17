@@ -1,0 +1,49 @@
+<html>
+<body>
+<a href="index.html">Introducción</a> |
+Ejemplo
+<br>
+
+<h1>Ejemplo</h1>
+
+<ul>
+   <LI>Primero definimos un proyecto.</LI>
+   <li>y luego hacemos click.</li>
+</ul>
+
+<h2>Definición</h2>
+
+<p>Para establecer las características del proyecto que queremos construir
+debemos crearnos un fichero de definición del mismo.</p>
+<p>Actualmente en la versión 0.1 de
+<b>BARRAQUITO</b> la creación de este fichero se realiza de forma manual. Aún así el 
+sistema es muy sencillo. Está previsto para la próxima versión la creación de una
+herramienta visual que nos facilitará todavía más esta tarea.</p>
+<p>Ejemplo del fichero</p>
+<table>
+<TR><TD bgcolor="Gray">
+<CODE>
+<BLOCKQUOTE>
+<b>basedatos</b> consultas paqueteJava=proyecto nombreProyecto=Nombre_Proyecto<br>
+   <b>tabla</b> personas<br>
+      campo cod_persona integer clave etiqueta=CODIGO<br>
+      campo nombre string descripcion<br>
+      campo apellido1 string descripcion<br>
+      campo apellido2 string descripcion<br>
+      campo fecha_nacimiento date<br>
+      campo dni string expresionRegular=asterisco<br>
+      campo telefono1 string<br>
+      campo telefono2 string<br>
+      campo direccion string<br>
+      <br>
+   <b>tabla</b> agendas<br>
+      campo cod_agenda integer clave etiqueta=CODIGO<br>
+      campo des_agenda string descripcion etiqueta=DESCRIPCION<br>
+</BLOCKQUOTE>
+</CODE>
+
+
+</TD></TR>
+</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+#Texto de navegación:Referencia
+/index.jsp: 
+/html/alumnos/index.jsp:<a href="../../index.jsp">Principal</a> >
+/html/padres/index.jsp:<a href="../../index.jsp">Principal</a> > Padres
+/html/piedepagina/contactos.jsp:<a href="../../index.jsp">Principal</a> |

@@ -1,0 +1,41 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>subscribe (Jabber::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/session.rb, line 360</span>
+360:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">to</span>, <span class="ruby-identifier">name</span>=<span class="ruby-value str">&quot;&quot;</span>) 
+361:       <span class="ruby-identifier">to</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">to_jid</span>(<span class="ruby-identifier">to</span>)
+362:       <span class="ruby-identifier">roster_item</span> = <span class="ruby-ivar">@roster</span>[<span class="ruby-identifier">to</span>]
+363:       
+364:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">roster_item</span> <span class="ruby-comment cmt">#if you already have a roster item just send the subscribe request</span>
+365:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">roster_item</span>.<span class="ruby-identifier">subscription</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;to&quot;</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">roster_item</span>.<span class="ruby-identifier">subscription</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;both&quot;</span>
+366:           <span class="ruby-keyword kw">return</span>
+367:         <span class="ruby-keyword kw">end</span>
+368:         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Presence</span>.<span class="ruby-identifier">gen_new_subscription</span>(<span class="ruby-identifier">to</span>))
+369:         <span class="ruby-keyword kw">return</span>
+370:       <span class="ruby-keyword kw">end</span>
+371:       <span class="ruby-identifier">myid</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>
+372:       <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_add_rosteritem</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">myid</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">name</span>)) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+373:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_id</span><span class="ruby-operator">==</span><span class="ruby-identifier">myid</span>
+374:           <span class="ruby-identifier">element</span>.<span class="ruby-identifier">consume_element</span>
+375:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_type</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;result&quot;</span>
+376:             <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Presence</span>.<span class="ruby-identifier">gen_new_subscription</span>(<span class="ruby-identifier">to</span>))
+377:           <span class="ruby-keyword kw">end</span>
+378:         <span class="ruby-keyword kw">end</span>
+379:       <span class="ruby-keyword kw">end</span>
+380:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

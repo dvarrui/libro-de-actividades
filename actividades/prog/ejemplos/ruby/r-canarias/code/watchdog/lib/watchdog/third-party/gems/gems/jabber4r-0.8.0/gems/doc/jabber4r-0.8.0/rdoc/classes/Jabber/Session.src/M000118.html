@@ -1,0 +1,36 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>release (Jabber::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/session.rb, line 505</span>
+505:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">release</span>
+506:       <span class="ruby-keyword kw">begin</span>
+507:         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">on_connection_exception</span> <span class="ruby-keyword kw">do</span>
+508:           <span class="ruby-comment cmt">#Do nothing...we are shutting down</span>
+509:         <span class="ruby-keyword kw">end</span>
+510:         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Presence</span>.<span class="ruby-identifier">gen_unavailable</span>(<span class="ruby-identifier">id</span>))
+511:         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span>.<span class="ruby-identifier">gen_close_stream</span>)
+512:       <span class="ruby-keyword kw">rescue</span>
+513:         <span class="ruby-comment cmt">#ignore error</span>
+514:       <span class="ruby-keyword kw">end</span>
+515:       <span class="ruby-keyword kw">begin</span>
+516:         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">close</span>
+517:       <span class="ruby-keyword kw">rescue</span>
+518:         <span class="ruby-comment cmt">#ignore error</span>
+519:       <span class="ruby-keyword kw">end</span>
+520:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

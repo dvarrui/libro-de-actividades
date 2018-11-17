@@ -1,0 +1,417 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Protocol::XMLElement</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Protocol::XMLElement</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/jabber4r/protocol_rb.html">
+                lib/jabber4r/protocol.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Utility class to create valid XML strings
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000081">add_attribute</a>&nbsp;&nbsp;
+      <a href="#M000084">add_cdata</a>&nbsp;&nbsp;
+      <a href="#M000086">add_child</a>&nbsp;&nbsp;
+      <a href="#M000082">add_data</a>&nbsp;&nbsp;
+      <a href="#M000087">add_xml</a>&nbsp;&nbsp;
+      <a href="#M000080">new</a>&nbsp;&nbsp;
+      <a href="#M000083">set_namespace</a>&nbsp;&nbsp;
+      <a href="#M000085">to_parent</a>&nbsp;&nbsp;
+      <a href="#M000089">to_s</a>&nbsp;&nbsp;
+      <a href="#M000088">to_xml</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">parent</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The parent <a href="XMLElement.html">XMLElement</a>
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000080" class="method-detail">
+        <a name="M000080"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000080.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000080.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(tag, attributes={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Construct an <a href="XMLElement.html">XMLElement</a> for the supplied tag
+and attributes
+</p>
+<table>
+<tr><td valign="top">tag:</td><td>[String] XML tag
+
+</td></tr>
+<tr><td valign="top">attributes:</td><td>[Hash = {}] The attribute hash[attribute]=value
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000081" class="method-detail">
+        <a name="M000081"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000081.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000081.html');return false;">
+          <span class="method-name">add_attribute</span><span class="method-args">(attrib, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds an attribute to this element
+</p>
+<table>
+<tr><td valign="top">attrib:</td><td>[String] The attribute name
+
+</td></tr>
+<tr><td valign="top">value:</td><td>[String] The attribute value
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] self for
+chaining
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000084" class="method-detail">
+        <a name="M000084"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000084.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000084.html');return false;">
+          <span class="method-name">add_cdata</span><span class="method-args">(cdata)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds cdata to this element
+</p>
+<table>
+<tr><td valign="top">cdata:</td><td>[String] The cdata to add
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] self for
+chaining
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000086" class="method-detail">
+        <a name="M000086"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000086.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000086.html');return false;">
+          <span class="method-name">add_child</span><span class="method-args">(tag, attributes={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a child to this element of the supplied tag
+</p>
+<table>
+<tr><td valign="top">tag:</td><td>[String] The element tag
+
+</td></tr>
+<tr><td valign="top">attributes:</td><td>[Hash = {}] The attributes hash[attribute]=value
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] newly created
+child element
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000082" class="method-detail">
+        <a name="M000082"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000082.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000082.html');return false;">
+          <span class="method-name">add_data</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds data to this element
+</p>
+<table>
+<tr><td valign="top">data:</td><td>[String] The data to add
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] self for
+chaining
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000087" class="method-detail">
+        <a name="M000087"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000087.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000087.html');return false;">
+          <span class="method-name">add_xml</span><span class="method-args">(xml)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds arbitrary XML data to this object
+</p>
+<table>
+<tr><td valign="top">xml:</td><td>[String] the xml to add
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000083" class="method-detail">
+        <a name="M000083"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000083.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000083.html');return false;">
+          <span class="method-name">set_namespace</span><span class="method-args">(ns)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the namespace for this tag
+</p>
+<table>
+<tr><td valign="top">ns:</td><td>[String] The namespace
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] self for
+chaining
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000085" class="method-detail">
+        <a name="M000085"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000085.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000085.html');return false;">
+          <span class="method-name">to_parent</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the parent element
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[<a href="XMLElement.html">Jabber::Protocol::XMLElement</a>] The parent <a
+href="XMLElement.html">XMLElement</a>
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000089" class="method-detail">
+        <a name="M000089"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000089.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000089.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Climbs to the top of this elements parent tree and then returns the <a
+href="XMLElement.html#M000088">to_xml</a> XML string.
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[String] The XML string of this element (from the topmost parent).
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000088" class="method-detail">
+        <a name="M000088"></a>
+
+        <div class="method-heading">
+          <a href="XMLElement.src/M000088.html" target="Code" class="method-signature"
+            onclick="popupCode('XMLElement.src/M000088.html');return false;">
+          <span class="method-name">to_xml</span><span class="method-args">(format, indent=0)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Recursively builds the XML string by traversing this element&#8217;s
+children.
+</p>
+<table>
+<tr><td valign="top">format:</td><td>[Boolean] True to pretty-print (format) the output string
+
+</td></tr>
+<tr><td valign="top">indent:</td><td>[Integer = 0] The indent level (recursively more)
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

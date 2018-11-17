@@ -1,0 +1,32 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>send (Jabber::Protocol::Connection)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 157</span>
+157:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">proc</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+158:         <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;SENDING:\n#{ xml.kind_of?(String) ? xml : xml.to_s }&quot;</span>)
+159:         <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">String</span>
+160:         <span class="ruby-identifier">block</span> = <span class="ruby-identifier">proc</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">proc</span>
+161:         <span class="ruby-ivar">@threadBlocks</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]=<span class="ruby-identifier">block</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block</span>
+162:         <span class="ruby-keyword kw">begin</span>
+163:           <span class="ruby-ivar">@socket</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">xml</span>
+164:         <span class="ruby-keyword kw">rescue</span>
+165:           <span class="ruby-identifier">raise</span> <span class="ruby-constant">JabberConnectionException</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">xml</span>)
+166:         <span class="ruby-keyword kw">end</span>
+167:         <span class="ruby-ivar">@pollCounter</span> = <span class="ruby-value">10</span>
+168:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

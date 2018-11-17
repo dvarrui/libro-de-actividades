@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:gridbagpreference="platform:/plugin/org.eclipse.ve.jfc/overrides/java/awt/gridbagpreference.ecore" xmlns:org.eclipse.jem.java="java.xmi" xmlns:org.eclipse.ve.internal.cde.decorators="http:///org/eclipse/ve/internal/cde/decorators.ecore" xmlns:org.eclipse.ve.internal.jcm="http:///org/eclipse/ve/internal/jcm.ecore">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/javax.swing#JComponent">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.2"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:ClassDescriptorDecorator" treeViewClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentTreeEditPart" graphViewClassname="org.eclipse.ve.jfc/org.eclipse.ve.internal.jfc.core.ComponentGraphicalEditPart"/>
+  <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator">
+    <keyedValues xsi:type="gridbagpreference:Preference"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="nextFocusableComponent" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.vce.JavaBeanLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.vce.MemberJavaBeanCellEditor:java.awt.Component" entryExpandable="false"/>
+  </objectsToAttach>
+</change:ChangeDescription>

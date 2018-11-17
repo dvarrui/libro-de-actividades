@@ -1,0 +1,24 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>set_subject (Jabber::Protocol::Message)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 694</span>
+694:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_subject</span>(<span class="ruby-identifier">subject</span>)
+695:         <span class="ruby-ivar">@subject</span> = <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[&amp;]/</span>, <span class="ruby-value str">'&amp;amp;'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[&lt;]/</span>, <span class="ruby-value str">'&amp;lt;'</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[']/</span>, <span class="ruby-value str">'&amp;apos;'</span>)
+696:         <span class="ruby-keyword kw">self</span>
+697:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

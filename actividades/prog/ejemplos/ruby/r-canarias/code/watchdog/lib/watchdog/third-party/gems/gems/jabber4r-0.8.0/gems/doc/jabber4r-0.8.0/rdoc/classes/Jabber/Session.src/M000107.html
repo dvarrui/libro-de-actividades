@@ -1,0 +1,23 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>announce_do_not_disturb (Jabber::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/session.rb, line 344</span>
+344:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">announce_do_not_disturb</span>(<span class="ruby-identifier">status</span>=<span class="ruby-keyword kw">nil</span>)
+345:       <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Presence</span>.<span class="ruby-identifier">gen_dnd</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">status</span>))
+346:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#!/usr/local/bin/ruby
+
+#
+# rbxtm - Ruby/Extensions methods
+#
+# Lists all the methods implemented by the Ruby/Extensions package
+# (http://extensions.rubyforge.org).  Intended as a quick command-line reference
+# card.  See the package's RDoc for proper documentation.
+#
+
+require 'extensions/all'
+
+puts ExtensionsProject.extension_methods.sort

@@ -1,0 +1,6 @@
+#Mon May 21 00:33:20 GMT+01:00 2007
+org.eclipse.debug.ui.opened_views=/org.eclipse.debug.ui.DebugPerspective
+eclipse.preferences.version=1
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8"?>\n<launchPerspectives>\n<launchPerspective configurationType\="org.eclipse.php.server.core.launchConfigurationType" mode\="debug" perspective\="org.eclipse.php.debug.ui.PHPDebugPerspective"/>\n<launchPerspective configurationType\="org.eclipse.php.debug.core.launching.PHPExeLaunchConfigurationType" mode\="debug" perspective\="org.eclipse.php.debug.ui.PHPDebugPerspective"/>\n</launchPerspectives>\n
+org.eclipse.debug.ui.user_view_bindings=<?xml version\='1.0'?>\n<viewBindings>\n    <view id\='org.eclipse.ui.console.ConsoleView'>\n      <perspective id\='org.eclipse.jst.j2ee.J2EEPerspective' userAction\='opened'/>\n      <perspective id\='org.eclipse.jdt.ui.JavaPerspective' userAction\='opened'/>\n      <perspective id\='org.rubypeople.rdt.ui.PerspectiveRuby' userAction\='opened'/>\n</view>\n</viewBindings>
+org.eclipse.debug.ui.VariableView+org.eclipse.debug.ui.ToggleObjectBrowsersAction=true

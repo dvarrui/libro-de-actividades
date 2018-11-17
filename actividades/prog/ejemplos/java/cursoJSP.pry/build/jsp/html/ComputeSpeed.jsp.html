@@ -1,0 +1,42 @@
+<b>&lt;html&gt;</b><br>
+<b>&lt;head&gt;</b><br>
+<b>&lt;title&gt;</b>Curso JSP (Java Server Pages)<b>&lt;/title&gt;</b><br>
+<b>&lt;/head&gt;</b><br>
+<b>&lt;body bgcolor=white&gt;</b><br>
+<br>
+<b>&lt;table border=&quot;0&quot;&gt;</b><br>
+<b>&lt;tr&gt;</b><br>
+<b>&lt;td align=center&gt;</b><br>
+<b>&lt;img src=&quot;../images/java_logo.gif&quot;&gt;</b><br>
+<b>&lt;/td&gt;</b><br>
+<b>&lt;td&gt;</b><br>
+<b>&lt;h1&gt;</b>JSP: Compute Speed<b>&lt;/h1&gt;</b><br>
+<br>
+<b>&lt;%@ page errorPage=&quot;SpeedErrors.jsp&quot; %&gt;</b><br>
+<br>
+<b>&lt;TABLE BORDER=5 ALIGN=&quot;CENTER&quot;&gt;</b><br>
+  <b>&lt;TR&gt;</b><b>&lt;TH CLASS=&quot;TITLE&quot;&gt;</b>Computing Speed<b>&lt;/TABLE&gt;</b><br>
+<br>
+<b>&lt;%! <br>
+// Note lack of try/catch for NumberFormatException if<br>
+// value is null or malformed.<br>
+<br>
+private double toDouble(String value) <br>
+{ return(Double.valueOf(value).doubleValue());}<br>
+%&gt;</b><br>
+<br>
+<b>&lt;% <br>
+double furlongs = toDouble(request.getParameter(&quot;furlongs&quot;)); <br>
+double fortnights = toDouble(request.getParameter(&quot;fortnights&quot;));<br>
+double speed = furlongs/fortnights;<br>
+%&gt;</b><br>
+<br>
+<b>&lt;UL&gt;</b><br>
+  <b>&lt;LI&gt;</b>Distance: <b>&lt;%= furlongs %&gt;</b> furlongs.<br>
+  <b>&lt;LI&gt;</b>Time: <b>&lt;%= fortnights %&gt;</b> fortnights.<br>
+  <b>&lt;LI&gt;</b>Speed: <b>&lt;%= speed %&gt;</b> furlongs per fortnight.<br>
+<b>&lt;/UL&gt;</b><br>
+<br>
+<b>&lt;/BODY&gt;</b><br>
+<b>&lt;/HTML&gt;</b><br>
+

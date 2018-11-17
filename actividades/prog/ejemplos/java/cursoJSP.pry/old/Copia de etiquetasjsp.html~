@@ -1,0 +1,42 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../index.html">Ir al inicio</a> |
+<a href="xml.html">Anterior</a> |
+<a href="jstl.html">Siguiente</a>
+
+<h2>Etiquetas JSP</h2>
+<p>Ejemplo de implementación de una etiqueta personalizada.</p>
+
+<h2>Etiquetas personalizadas</h2>
+<ol>
+	<li>Se implementa una clase Java que hace de manejador de etiquetas.<dd>
+<code>/WEB-INF/classes/*.class</code></li>
+<li>Se define un descriptor de librería de etiquetas (TDL).<dd>
+<code>/WEB-INF/tld/*.tld</code></li>
+<li>Se mapea librería con el descriptor.<dd><code>/WEB-INF/web.xml</code></li>
+<li>Se crear página JSP con las etiquetas personalizadas.</li>
+</ol>
+
+<h2>Ejemplos</h2>        
+<ul>
+  <li><a href="../jsp/tagholamundo.jsp">Ejemplo tagholamundo.jsp</a><a href="../jsp/html/tagholamundo.jsp.html">( Ver código)</a></li>        
+  <li><a href="etiquetasjsp/ejemplosimple.html">Ejemplo simple</a></li>
+</ul>
+
+<h2>JSTL</h2>        
+<ol>
+  <li><a href="jstl/jstl-intro.html">Introducción</a></li>        
+  <li><a href="jstl/jstl-internal.html">Varios</a></li>
+  <li><a href="jstl/jstl-sql.html">SQL</a></li>
+</ol>
+
+<h2>API JSTL</h2>        
+<ul>
+        <li><a href="jstl/tlddoc/overview-summary.html">TLDDoc Generated Documentation</a></li>
+<li><a href="jstl/javadoc/overview-summary.html">javax.servlet.jsp.jstl.*</a></li>        
+</ul>
+
+</body>
+</html>

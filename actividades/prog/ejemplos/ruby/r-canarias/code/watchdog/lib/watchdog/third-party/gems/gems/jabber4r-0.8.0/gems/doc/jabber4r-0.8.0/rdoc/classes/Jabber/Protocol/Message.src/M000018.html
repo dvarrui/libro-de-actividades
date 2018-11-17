@@ -1,0 +1,50 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>send (Jabber::Protocol::Message)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 775</span>
+775:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">wait</span>=<span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">ttl</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+776:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">wait</span>
+777:           <span class="ruby-identifier">message</span> = <span class="ruby-keyword kw">nil</span>
+778:           <span class="ruby-identifier">blockedThread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+779:           <span class="ruby-identifier">timer_thread</span> = <span class="ruby-keyword kw">nil</span>
+780:           <span class="ruby-identifier">timeout</span> = <span class="ruby-keyword kw">false</span>
+781:           <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">ttl</span>.<span class="ruby-identifier">nil?</span>
+782:             <span class="ruby-identifier">timer_thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+783:               <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">ttl</span>
+784:               <span class="ruby-identifier">timeout</span> = <span class="ruby-keyword kw">true</span>
+785:               <span class="ruby-identifier">blockedThread</span>.<span class="ruby-identifier">wakeup</span>
+786:             }
+787:           <span class="ruby-keyword kw">end</span>
+788:           <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">je</span><span class="ruby-operator">|</span> 
+789:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">je</span>.<span class="ruby-identifier">element_tag</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;message&quot;</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">je</span>.<span class="ruby-identifier">thread</span>.<span class="ruby-identifier">element_data</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@thread</span>
+790:               <span class="ruby-identifier">je</span>.<span class="ruby-identifier">consume_element</span>
+791:               <span class="ruby-identifier">message</span> = <span class="ruby-constant">Message</span>.<span class="ruby-identifier">from_element</span>(<span class="ruby-ivar">@session</span>, <span class="ruby-identifier">je</span>)
+792:               <span class="ruby-identifier">blockedThread</span>.<span class="ruby-identifier">wakeup</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">timeout</span>
+793:               <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">timer_thread</span>.<span class="ruby-identifier">nil?</span>
+794:                 <span class="ruby-identifier">timer_thread</span>.<span class="ruby-identifier">kill</span>
+795:                 <span class="ruby-identifier">timer_thread</span> = <span class="ruby-keyword kw">nil</span>
+796:               <span class="ruby-keyword kw">end</span>
+797:             <span class="ruby-keyword kw">end</span>
+798:           <span class="ruby-keyword kw">end</span>
+799:           <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+800:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">message</span>
+801:         <span class="ruby-keyword kw">else</span>
+802:           <span class="ruby-ivar">@session</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@session</span>
+803:         <span class="ruby-keyword kw">end</span>
+804:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

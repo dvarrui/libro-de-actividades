@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename package 'david.dir200607.ud01' to 'david.dir200607.ejemplo0201'&#10;- Original element: 'canarias/src/david.dir200607.ud01'&#10;- Renamed element: 'canarias/src/david.dir200607.ejemplo0201'&#10;- Update references to refactored element&#10;- Update textual occurrences in comments and strings" description="Rename package 'david.dir200607.ud01'" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;david.dir200607.ud01" name="david.dir200607.ejemplo0201" qualified="false" references="true" stamp="1159740608368" textual="false" version="1.0"/>
+</session>

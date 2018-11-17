@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:codeGenHelpers="platform:/plugin/org.eclipse.ve.java.core/overrides/codegenHelpers.ecore" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi" xmlns:org.eclipse.ve.internal.cde.decorators="http:///org/eclipse/ve/internal/cde/decorators.ecore" xmlns:org.eclipse.ve.internal.cde.utility="http:///org/eclipse/ve/internal/cde/utility.ecore" xmlns:org.eclipse.ve.internal.jcm="http:///org/eclipse/ve/internal/jcm.ecore">
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.lang#Object">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/0/@objectsToAttach.0"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+  </change:ChangeDescription>
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.lang#Object">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.0"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.1"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.2"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.3"/>
+      </value>
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.4"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="ecore:EReference java:/java.lang#//Object/allocation">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/1/@objectsToAttach.5"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:ClassDescriptorDecorator" treeViewClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.JavaBeanTreeEditPart" graphViewClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.JavaBeanGraphicalEditPart" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.DefaultJavaBeanLabelProvider">
+      <graphic xsi:type="org.eclipse.ve.internal.cde.utility:GIFFileGraphic" resourceName="platform:/plugin/org.eclipse.ve.java.core/icons/full/obj16/javabean_obj.gif"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation" propertySourceAdapterClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BeanPropertySourceAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BeanCellRenderer"/>
+    <objectsToAttach xsi:type="codeGenHelpers:CodeGenHelperClass" source="codegen.CodeGenHelperClass" expDecoder="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ObjectDecoder" eventDecoder="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ObjectEventDecoder" methodGenerator="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.util.DefaultMethodTextGenerator" typeVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.TypeVisitor" methodVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.MethodVisitor" eventMethodCallBackVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventMethodCallBackVisitor" eventMethodVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventMethodVisitor" eventHandlerVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventHandlerVisitor" returnStmtVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ReturnStmtVisitor" expressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.ExpressionVisitor" eventExpressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventExpressionVisitor" eventCallBackExpressionVisitor="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.codegen.java.EventCallBackExpressionVisitor"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="events" upperBound="-1" eType="ecore:EClass http:///org/eclipse/ve/internal/jcm.ecore#//AbstractEventInvocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertyDescriptorDecorator" hidden="true"/>
+  </change:ChangeDescription>
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.lang#Object">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.0"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#boolean">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.1"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#char">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.2"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#int">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.3"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#float">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.4"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#short">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.5"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#long">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.6"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#double">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.7"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#byte">
+      <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/2/@objectsToAttach.8"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="ecore:EReference" name="class" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" hidden="true" mergeIntrospection="false"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+    <objectsToAttach xsi:type="ecore:EReference" name="allocation" eType="ecore:EClass http:///org/eclipse/jem/internal/instantiation.ecore#//JavaAllocation" containment="true" resolveProxies="false"/>
+  </change:ChangeDescription>
+  <change:ChangeDescription>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#boolean">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.0"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.1"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.2"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#char">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.3"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.4"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.5"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#int">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.6"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.7"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.8"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#float">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.9"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.10"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.11"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#short">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.12"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.13"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.14"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#long">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.15"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.16"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.17"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#double">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.18"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.19"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.20"/>
+      </value>
+    </objectChanges>
+    <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaDataType java:/#byte">
+      <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.21"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.22"/>
+        <listChanges xsi:type="change:ListChange" referenceValues="#/3/@objectsToAttach.23"/>
+      </value>
+    </objectChanges>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BooleanJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.BooleanJavaCellEditor" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.CharJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.CharJavaCellEditor" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:int" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:float" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:short" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:long" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:double" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:BasePropertyDecorator" labelProviderClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaLabelProvider" cellEditorClassname="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.NumberJavaCellEditor:byte" nullInvalid="true"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.jcm:BeanDecorator" beanProxyClassName="org.eclipse.ve.java.core/org.eclipse.ve.internal.java.core.PrimitiveProxyAdapter"/>
+    <objectsToAttach xsi:type="org.eclipse.ve.internal.cde.decorators:PropertySourceAdapterInformation">
+      <propertySourceAdapterClassname xsi:nil="true"/>
+    </objectsToAttach>
+  </change:ChangeDescription>
+</xmi:XMI>

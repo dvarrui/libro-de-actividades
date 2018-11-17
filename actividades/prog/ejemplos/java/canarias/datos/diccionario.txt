@@ -1,0 +1,7 @@
+Ordenador
+CPU
+Monitor
+Teclado
+Ratón
+Software
+Hardware

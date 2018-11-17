@@ -1,0 +1,53 @@
+<?xml version='1.0'?>
+<libraryInfos>
+    <libraryInfo version='1.5.0_06' home='/opt/java/jdk1.5.0_06'>
+      <bootpath>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/rt.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/i18n.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/sunrsasign.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/jsse.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/jce.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/charsets.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/classes'/>
+</bootpath>
+      <extensionDirs>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/ext'/>
+</extensionDirs>
+      <endorsedDirs>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/endorsed'/>
+</endorsedDirs>
+</libraryInfo>
+    <libraryInfo version='1.5.0_06' home='/opt/java/jdk1.5.0_06/jre'>
+      <bootpath>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/rt.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/i18n.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/sunrsasign.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/jsse.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/jce.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/charsets.jar'/>
+        <entry path='/opt/java/jdk1.5.0_06/jre/classes'/>
+</bootpath>
+      <extensionDirs>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/ext'/>
+</extensionDirs>
+      <endorsedDirs>
+        <entry path='/opt/java/jdk1.5.0_06/jre/lib/endorsed'/>
+</endorsedDirs>
+</libraryInfo>
+    <libraryInfo version='1.4.2' home='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0'>
+      <bootpath>
+        <entry path='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0/jre/lib/rt.jar'/>
+</bootpath>
+      <extensionDirs>
+        <entry path='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0/jre/lib/ext'/>
+</extensionDirs>
+</libraryInfo>
+    <libraryInfo version='1.4.2' home='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0/jre'>
+      <bootpath>
+        <entry path='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0/jre/lib/rt.jar'/>
+</bootpath>
+      <extensionDirs>
+        <entry path='/usr/lib/jvm/java-1.4.2-gcj-4.1-1.4.2.0/jre/lib/ext'/>
+</extensionDirs>
+</libraryInfo>
+</libraryInfos>

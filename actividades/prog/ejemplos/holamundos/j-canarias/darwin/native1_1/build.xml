@@ -1,0 +1,12 @@
+<project name="Native Code Demo" default="build" basedir=".">
+
+	<!-- $Id: build.xml,v 1.1 2003/05/31 21:22:27 ian Exp $ -->
+
+	<!-- For now just delegate to "make" -->
+	<target name="build">
+		<exec executable="make"/>
+	</target>
+
+	<target name="clean">
+	</target>
+</project>

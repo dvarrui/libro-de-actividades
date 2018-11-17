@@ -1,0 +1,52 @@
+     Mines is a puzzle game where you
+     locate mines floating in an ocean using only your brain and a
+     little bit of luck.
+    
+
+
+      You start the game with a grid of covered squares and no idea what is in them. Clicking on a square reveals
+      what is in it: either empty ocean or a mine. If you
+      find a mine bad things happen and the game is over. If you
+      uncover an empty square, you survive and get to try again. We do
+      give you a bit of help; if you find an empty piece of ocean
+      a number is printed there telling you how many mines are in the 
+      adjacent squares (or no number if there are no nearby
+      mines). Once you find a few clear squares you can start to
+      deduce which squares have mines in them and which don't. You win
+      the game once you have revealed all the un-mined squares and
+      marked all the mined squares.
+    
+
+
+		(the stages of game: start, playing, waiting, losing, winning)
+  
+      
+      To mark a square as having a mine you right-click on it and a
+      flag is placed there. If you click on a square with a number and
+      you have placed precisely that number of flags on adjacent
+      squares then the remaining squares are revealed. If you didn't
+      mark the mines correctly then an explosion will occur and the game
+      is over. Squares with no adjacent mines (i.e. blank squares)
+      have their adjacent squares automatically cleared.
+
+
+
+      You are being timed. To be good at this game you have to work
+      both quickly and correctly. Once you have found all the mines
+      and revealed all the un-mined squares the clock is stopped. Your
+      score is the time you took; the shorter the better.
+
+
+
+{
+18
+images/screenshots/won.png
+18
+images/screenshots/lost.png
+18
+images/screenshots/waiting.png
+19
+images/screenshots/playing.png
+19
+images/screenshots/nothing.png
+}

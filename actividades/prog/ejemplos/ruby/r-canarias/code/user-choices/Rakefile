@@ -1,0 +1,19 @@
+# This is a Makefile that would live in the root folder for a package
+# that follows the Scripting for Testers conventions.
+
+$started_from_rakefile = true
+
+PACKAGE_ROOT = Dir.pwd
+$:.unshift("#{PACKAGE_ROOT}/lib")
+require 'user-choices/third-party/s4t-utils/load-path-auto-adjuster'
+
+require 's4t-utils'
+include S4tUtils
+
+MyFileSystemName='user-choices'  # No ".rb" extension.
+MyModuleName='UserChoices'
+MyRdocFiles = FileList.new("lib/#{MyFileSystemName}.rb",
+                           "lib/#{MyFileSystemName}/**/*.rb").exclude('**/third-party/**')
+
+require 's4t-utils/rakefile-common'
+

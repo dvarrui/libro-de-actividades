@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="david.canarias.gui.nivel24.AplicacionTraductor"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="canarias"/>
+</launchConfiguration>

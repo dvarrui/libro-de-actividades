@@ -1,0 +1,36 @@
+<html>
+	<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+		  <a href="../convencionesjsp.html">Ir al inicio</a> | 
+		  <a href="organizaciondeficheros.html">Siguiente</a></a><br>
+
+<h2>Nombres de Ficheros y sus Localizaciones</h2>
+
+<ul>
+	<li>Sufijos de ficheros recomendados y sus localizaciones: 
+		<ul>
+			<li>Tipo de Fichero  Extensión  Localización Recomendada  </li>
+			<li>JSP  .jsp  &lt;context root&gt;/&lt;subsystem path&gt;/</li>
+			<li>Fragmento JSP  .jsp  &lt;context root&gt;/&lt;subsystem path&gt;/</li>
+			<li>Fragmento JSP  .jspf  &lt;context root&gt;/WEB-INF/jspf/&lt;subsystem path&gt;/</li>
+			<li>Cascading Style Sheet  .css  &lt;context root&gt;/css/</li>
+			<li>javascript  .js  &lt;context root&gt;/js/</li>
+			<li>página HTML  .html  &lt;context root&gt;/&lt;subsystem path&gt;/</li>
+			<li>fuente web  .gif, .jpg, etc.  &lt;context root&gt;/images/</li>
+			<li>Tag Library Descriptor  .tld  &lt;context root&gt;/WEB-INF/tld/</li>
+		</ul>
+	</li>
+
+	<li>&lt;context root&gt; es la raíz del contexto de la aplicación web (el directorio raíz dentro de un fichero .war).</li>
+	<li>Se utiliza &lt;subsystem path&gt; para proporcionar agrupación lógica refinada de contenidos estáticos y dinámicos de la página web.</li>
+	<li>Usamos el término fragmento JSP para referirnos a una JSP que se puede incluir en otra JSP. Observa que en JSP 2.0, se utiliza el término "segmento JSP" en lugar de "fragmento JSP". Los fragmento JSP pueden utiliza la extensión .jsp o .jspf, y deberían situarse en /WEB-INF/jspf o con el resto del contenido estático, respectivamente. Los fragmentos JSP que no son páginas completas siempre deberían utilizan la extensión .jspf y situarse en /WEB-INF/jspf. </li>
+	<li>Aunque la especificación JSP recomienda .jspf y .jsp como extensiones posibles para fragmentos JSP, recomendamos usar .jspf mientas .jsf se podría utilizar por la especificación JavaServer Faces_. </li>
+
+	<li>Situar los ficheros descriptores de librerías de etiquetas y otro contenido no público bajo WEB-INF/ o un subdirectorio bajo éste.</li>
+	<li>Fichero de bienvenida (elemento welcome-file del descriptor web.xml) debería ser index.jsp o index.html. </li>
+	<li> Internacionalización. Por ejemplo, la versión US English /en_US/index.jsp y la versión japonesa /ja_JP/index.jsp.</li>
+</ul>
+
+</body>
+</html>

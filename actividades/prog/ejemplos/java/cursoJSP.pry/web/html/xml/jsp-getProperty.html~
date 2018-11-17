@@ -1,0 +1,46 @@
+<html><head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+
+<h2>&lt;jsp:getProperty&gt;</h2>
+<p>Leer el valor de la propiedad del bean.</p>
+
+<h4>Sintaxis JSP</h4>
+<blockquote><pre><code>&lt;jsp:getProperty name="</code><i><code>beanInstanceName</code></i><code>" property="</code><i><code>propertyName</code></i><code>" /&gt;
+</code></pre></blockquote>
+
+<h4>Sintaxis XML</h4>
+<blockquote><pre>
+&lt;jsp:getProperty name="<i><code>beanInstanceName</code></i>" property="<i><code>propertyName</code></i>" /&gt;
+</pre></blockquote>
+
+<h4>Ejemplos</h4>
+<blockquote><pre>&lt;jsp:useBean id="calendar" scope="page" class="employee.Calendar" /&gt;	
+&lt;h2&gt;	
+Calendar of &lt;jsp:getProperty name="calendar" property="username" /&gt;	
+&lt;/h2&gt;
+</pre></blockquote>
+
+<h4>Descripción</h4>
+<p>La etiqueta <code>&lt;jsp:getProperty&gt;</code> lee el valor de la propiedad del bean y añade al valor a la respuesta. Declarar el bean (&lt;jsp:useBean&gt;) antes de usarlo con <code>&lt;jsp:getProperty&gt;</code>.</p>
+<p><code>&lt;jsp:getProperty&gt;</code> tiene algunas limitaciones:</p>
+<li>Se pueden recuperar valores indexados.
+<li>Se puede usar con JavaBeans pero no con "enterprise java beans".</li>
+</ul>
+
+<h4>Atributos</h4>
+<ul>
+<li><code>name="</code><i><code>beanInstanceName</code></i><code>"</code>
+<li><code>property="</code><i><code>propertyName</code></i><code>"</code>
+<dl>
+        <p><dd>Nombre de la propiedad del bean cuyo valor se quiere leer. La propiedad se declara como una variable en el bean y debe tener un método SET asociado (Para más información consultar<a href="http://java.sun.com/products/javabeans/docs/">http://java.sun.com/products/javabeans/docs/</a>).
+<p>
+</dl>
+</ul>
+
+<h4>Recordar</h4>
+<p>Si se usa <code>&lt;jsp:getProperty&gt;</code> para recuperar un valor nulo se genera una excepción <code>NullPointerException</code>. Sin embargo, si se usa un scriptlet o expresion para recuperar el valor tenemos un tipo string con valor <code>null</code> que se mostrará en el navegador.</p>
+
+
+</body>
+</html>

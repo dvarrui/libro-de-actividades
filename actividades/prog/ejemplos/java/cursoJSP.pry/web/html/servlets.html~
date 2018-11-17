@@ -1,0 +1,62 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../index.html">Ir al inicio</a> |
+<a href="misegundoproyecto.html">Anterior</a> |
+<a href="javabean.html">Siguiente</a>
+
+<h2>Servlets</h2>
+<ul>
+	<li><b>Ventajas de los sevlets</b>
+		<ul>
+			<li>Eficiencia: subprocesos en lugar de procesos, una sola copia del servlet, persistencia.</li>
+			<li>Comodidad: muhas utilidades.</li>
+			<li>Poder: comunicación con servidor, datos compartidos.</li>
+			<li>Portabilidad: Sistema operativo y servidor.</li>
+			<li>Seguridad: sin salida al entorno de comandos, sin desbordamiento de búffer.</li>
+			<li>Economía.</li>
+ 		</ul>
+	</li>
+	<li><b>Pasos básicos</b>
+		<ol>
+		  	<li>Fuentes en <code>/src/mipaquete/</code></li>
+			<li>Compilar las fuentes <code>$ ant all</code></li>
+			<li>Ficheros <code>class</code> ubicados en <code>/build/WEB-INF/classes/</code></li>
+			<li>Definir los servlets en <code>/WEB-INF/web.xml</code></li>
+			<li>Invocar servlet <code>http://host/servlet/NombreServlet</code></li>
+ 		</ol>
+	</li>
+	<li><b>Ejemplo código java</b>
+		<ul>
+			<li><a href="../java/web/ser/HolaWWW.java"><code>HolaWWW.java</code></a> (/HolaWWW)</li>
+			<li><a href="http://localhost:8080/cursoJSP/HolaWWW">http://localhost:8080/cursoJSP/HolaWWW</a></li>
+			<li><a href="../java/web/ser/VerCabecera.java"><code>VerCabecera.java</code></a> (/hello)</li>
+			<li><a href="http://localhost:8080/cursoJSP/VerCabecera">http://localhost:8080/cursoJSP/VerCabecera</a></li>
+			<li><a href="../xml/web.xml">Ver web.xml</a></li>
+      </ul>
+ 	</li>
+	<li><b>Ciclo de vida</b>
+		<ol>
+			<li><code>init(ServletConfig)</code>. Se ejecuta cuando se carga por primera vez.</li>
+			<li><code>service(HttpServletRequest, HttpServletResponse)</code>. Se ejecuta en un nuevo subproceso del servidor por cada petición.</li>
+			<li><code>doGet(HttpServletRequest, HttpServletResponse)</code>. Maneja las peticiones GET.</li>
+			<li><code>doPost(HttpServletRequest, HttpServletResponse)</code>. Maneja las peticiones POST.</li>
+			<li><code>destroy()</code>. Se ejecuta cuando el servidor elimina una instancia del Servlet.</li>
+			<li><code>getLastModified(HttpServletRequest)</code>. Se ejecuta cuando el cliente envía un GET condicional dada una copia en el caché.</li>
+			<li><code>SingleThreadModel()</code>. Interfaz para evitar en el servidor las invocaciones concurrentes.</li>
+ 		</ol>
+	</li>
+	<li><b>Ejemplos</b>
+	<ul>
+		 <li><a href="servlets/encabezadosdepeticion.html">Ver encabezadosdepeticion.html</a></li>
+		 <li><a href="servlets/ejemplosdeservlets.html">Ver ejemplosdeservlets.html</a></li>
+	</ul></li>
+	<li><b>Documentación</b>
+	<ul>
+			  <li><a href="servlets/servletapi/javax/servlet/package-summary.html">API javax.servlet</a></li>
+			  <li><a href="servlets/servletapi/javax/servlet/http/package-summary.html">API javax.servlet.http</a></li>
+	</ul></li>
+ </ul>
+</body>
+</html>

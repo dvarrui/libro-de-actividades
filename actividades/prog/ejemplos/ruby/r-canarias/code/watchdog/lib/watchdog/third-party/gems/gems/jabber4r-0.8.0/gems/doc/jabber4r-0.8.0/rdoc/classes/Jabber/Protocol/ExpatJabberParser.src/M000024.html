@@ -1,0 +1,69 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse (Jabber::Protocol::ExpatJabberParser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>      <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 1242</span>
+1242:         <span class="ruby-keyword kw">def</span>  <span class="ruby-identifier">parse</span><span class="ruby-identifier">parse</span>
+1243:           <span class="ruby-ivar">@started</span> = <span class="ruby-keyword kw">false</span>
+1244:   
+1245:           <span class="ruby-identifier">parser</span> = <span class="ruby-constant">XMLParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;UTF-8&quot;</span>)
+1246:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">unknownEncoding</span>(<span class="ruby-identifier">e</span>)
+1247:             <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unknown encoding #{e.to_s}&quot;</span>
+1248:           <span class="ruby-keyword kw">end</span>
+1249:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">default</span>
+1250:           <span class="ruby-keyword kw">end</span>
+1251:           
+1252:           <span class="ruby-keyword kw">begin</span>
+1253:             <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@stream</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+1254:               <span class="ruby-keyword kw">begin</span>
+1255:               <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">type</span>
+1256:                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">START_ELEM</span>
+1257:                   <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">name</span>
+1258:                     <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;stream:stream&quot;</span>
+1259:                       <span class="ruby-identifier">openstream</span> = <span class="ruby-constant">ParsedXMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+1260:                       <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">openstream</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)}
+1261:                       <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-identifier">openstream</span>)
+1262:                       <span class="ruby-ivar">@started</span> = <span class="ruby-keyword kw">true</span>
+1263:                     <span class="ruby-keyword kw">else</span> 
+1264:                       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">nil?</span>
+1265:                         <span class="ruby-ivar">@current</span> = <span class="ruby-constant">ParsedXMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">clone</span>)
+1266:                       <span class="ruby-keyword kw">else</span>
+1267:                         <span class="ruby-ivar">@current</span> = <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">add_child</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">clone</span>)
+1268:                       <span class="ruby-keyword kw">end</span>
+1269:                       <span class="ruby-identifier">data</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">clone</span>)}
+1270:                   <span class="ruby-keyword kw">end</span>
+1271:                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">CDATA</span>
+1272:                   <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">append_data</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">clone</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@current</span>
+1273:                 <span class="ruby-keyword kw">when</span> <span class="ruby-constant">XMLParser</span><span class="ruby-operator">::</span><span class="ruby-constant">END_ELEM</span>
+1274:                   <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">name</span>
+1275:                     <span class="ruby-keyword kw">when</span> <span class="ruby-value str">&quot;stream:stream&quot;</span>
+1276:                       <span class="ruby-ivar">@started</span> = <span class="ruby-keyword kw">false</span>
+1277:                     <span class="ruby-keyword kw">else</span>
+1278:                       <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-ivar">@current</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">element_parent</span>
+1279:                       <span class="ruby-ivar">@current</span> = <span class="ruby-ivar">@current</span>.<span class="ruby-identifier">element_parent</span>
+1280:                   <span class="ruby-keyword kw">end</span>
+1281:               <span class="ruby-keyword kw">end</span>
+1282:               <span class="ruby-keyword kw">rescue</span>
+1283:                 <span class="ruby-identifier">puts</span>  <span class="ruby-node">&quot;Error #{$!}&quot;</span>
+1284:               <span class="ruby-keyword kw">end</span>
+1285:             <span class="ruby-keyword kw">end</span>
+1286:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">XMLParserError</span>
+1287:             <span class="ruby-identifier">line</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">line</span>
+1288:             <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;XML Parsing error(#{line}): #{$!}\n&quot;</span>
+1289:           <span class="ruby-keyword kw">end</span>
+1290:         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

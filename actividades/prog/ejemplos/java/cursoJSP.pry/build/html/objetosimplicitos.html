@@ -1,0 +1,78 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../index.html">Ir al inicio</a> |
+<a href="miprimerproyecto.html">Anterior</a> |
+<a href="misegundoproyecto.html">Siguiente</a>
+
+<h2>Objetos implícitos</h2>
+<ul>
+	<li><b>request</b>
+		<ul>
+			<li>HttpServletRequest</li>
+			<li>Asociado a la peticón.</li>
+			<li><a href="servlets/servletapi/javax\servlet\ServletRequest.html">Interface ServletRequest</a></li>
+			<li><a href="servlets/servletapi/javax\servlet\http\HttpServletRequest.html">Interface HttpServletRequest</a></li>
+ 		</ul>
+	</li>
+	<li><b>response</b>
+		<ul>
+			<li>HttpServletResponse</li>
+			<li>Asociado a la respuesta al cliente.</li>
+			<li><a href="servlets/servletapi/javax\servlet\ServletResponse.html">Interface HttpServletResponse</a></li>
+			<li><a href="servlets/servletapi/javax\servlet\http\HttpServletResponse.html">Interface HttpServletResponse</a></li>
+		</ul>
+	</li>
+	<li><b>out</b>
+		<ul>
+				  <li>PrintWriter (versión de JspWriter con buffer)</li>
+				  <li><a href="lenguajejsp\jspapi\javax\servlet\jsp\JspWriter.html">Class JspWriter</a></li>
+ 		</ul>
+	</li>
+	<li><b>session</b>
+		<ul>
+			<li>HttpSesion</li>
+			<li>Asociado con la petición.</li>
+			<li><a href="servlets/servletapi/javax\servlet\http\HttpSession.html">Interface HttpSession</a></li>
+ 		</ul>
+	</li>
+	<li><b>application</b>
+		<ul>
+			<li>ServletContext (<code>getServletConfig().getContext()</code>)</li>
+			<li>Compartido por los servlets y JSP del servidor o aplicación WEB.</li>
+  			<li><a href="servlets/servletapi/javax\servlet\ServletContext.html">Interface ServletContext</a></li>
+ 		</ul>
+	</li>
+	<li><b>config</b>
+		<ul>
+			<li>ServletConfig</li>
+  			<li><a href="servlets/servletapi/javax\servlet\ServletConfig.html">Interface ServletConfig</a></li>
+ 		</ul>
+	</li>
+	<li><b>pageContext</b>
+		<ul>
+			<li>PageContext</li>
+			<li>Asociado con la página en uso.</li>
+		  <li><a href="lenguajejsp\jspapi\javax\servlet\jsp\PageContext.html">Class PageContext</a></li>
+ 		</ul>
+	</li>
+	<li><b>page</b>
+		<ul>
+				  <li>Sinónimo de <code>this</code></li>
+				  <li>Contenedor para el futuro</li>
+ 		</ul>
+	</li>
+	<li><b>exception</b>
+		<ul>
+				  <li>Trata las excepciones.</li>
+				  <li><a href="lenguajejsp\lang\Throwable.html">Class Throwable</a></li>
+ 		</ul>
+	</li>
+</ul>
+
+<h3>Tabla Resumen</h3>
+<dd><a href="../pdf/sintaxisJSP.pdf">Ver sintaxis JSP 1.2</a>
+
+</body>
+</html>

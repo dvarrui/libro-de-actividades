@@ -1,0 +1,154 @@
+-------------------------------<br>
+Fecha  : 22-04-2003<br>
+FUM    : 12-06-2003<br>
+Autor  : DVR<br>
+Versión: 0.1.0<br>
+-------------------------------<br>
+<br>
+Consideraciones de diseño del proyecto TOTEM
+1. Introduccción
+2. Librería
+3. Aplicaciones
+4. Utilidades
+5. Base de datos
+
+
+===============
+1. Introducción
+===============
+Las clases se agrupan en tres grandes categorías:
+a) Librería: Son todas las clases que mantienen la lógica de la aplcación
+b) Aplicaciones: Son clases que hacen llamadas a la librería y crean ventanas
+                 que operan a modo de interfaz visual para los usuarios.
+c) Utilidades: Recopila todas las clases de propósito general.
+
+Además existe otro apartado donde se detalla la información relacionada con
+la base de datos.
+
+
+
+===========
+2. Librería
+===========
+2.1 Introducción
+2.2 WFBD
+2.3 WFSesion
+2.4 WFFiltro
+2.5 WFTiquet
+
+
+===========
+2.5 TIQUETS
+===========
+
+El objeto WFTiquet se crea apartir de WFFiltro y un código de tiquet.
+
+
+Object WFFiltro
+          |
+          |-------->WFTiquet
+          |
+int cod_tiquet
+
+
+
+-------------------------------
+Fecha  : 22-04-2003
+FUM    : 05-05-2003
+Autor  : DVR
+Versión: 0.0.2
+-------------------------------
+
+============
+Introducción
+============
+Clase WFBD: Define un objeto base de datos.
+Clase WFSesion: Define un objeto de tipo sesión sobre la base de datos abierta.
+Clase WFFiltro: Defina un objeto filtro sobre la sesión para seleccionar un conjunto de registros de la base de datos.
+
+
+BD -> Sesión -> Filtro -> Ticket
+Transiciones -> Tareas
+Valores -> Campos -> TiposCampo
+
+
+===========
+Objeto WFBD
+===========
+Métodos: constructor,getConnection,crearSesion,getEstado,desconectar,estaConectado,verInfo.
+
+===============
+Objeto WFSesion
+===============
+Métodos: constructor,login,logout,estaLogin,getCodPerfil,getConnection,getUsuario,getPC,crearFiltro,verInfo.
+
+==============
+Objeto WFiltro
+==============
+Métodos: constructor,activar,desactivar,crearTicket,getConnection,getNumRegistros,getNumTransiciones,getCodPerfil,
+         getUsuario,getPC,getTicket,getTransicion,verInfo.
+
+
+Pendiente : definir el filtro.
+
+===============
+Objeto WFTicket
+===============
+Métodos get, set, update
+El TT tendrá dos modos (Consulta y escritura)
+Los métodos set y update sólo se podrán ejecutar en modo escritura.
+El método update mantiene consistencia con la base de datos.
+
+
+=============
+Transiciones:
+=============
+N	Normales. Se avanza desde tarea1 hasta tarea2.
+E	Entrada subrutina. Se entra en una subrutina.
+S	Salida subrutina. Al hacer esta transición se busca en el histórico desde dónde se hizo la entrada E para realizar la salida S hacia dicha tarea.
+F	Fork. Envía el ticket a una tarea que que se realice un fork del mismo.
+G	Se duplica el ticket P1 en H1. Se crea otro nuevo H1 con nuevo código y en código ticket padre igual a P1. De esta forma tenemos relacionados el TT padre y el hijo.  Existirá un proceso encargado de gestionar los forks.
+J	Solicitud de JOIN. El ticket padre P1 o hijo H1 pasan con esta transición a una tarea para esperar a realizar todos juntos el JOIN.
+K	Un proceso automático comprueba periódicamente todos los TT en estado J. Si tenemos el padre con todos sus hijos en estado J esperando por la gestión del JOIN K entonces realizamos la transición K.
+
+
+======================================
+Tema  : Lista de tablas de la BBDD
+Estado: Documentar mientras desarrollo
+======================================
+
+DEF_M_USUARIOS (Lista de usuarios que acceden a la aplicación)
+DEF_M_PERFILES (Perfiles de acceso a la aplicación)
+DEF_D_PERFIL_TRANSICIONES (Permisos que tiene cada perfil sobre las transiciones)
+DEF_M_TIPO_CAMPOS (Lista de los tipos de campos)
+DEF_M_TIPO_TRANSICIIONES (Lista de los tipos de transiciones posibles)
+
+DEF_M_TAREAS (Lista de tareas)
+DEF_M_CAMPOS (Lista de los campos)
+DEF_D_TAREA_CAMPOS (Campos asociados a cada tarea)
+DEF_D_TRANSICIONES (Lista de transiciones definidas en la aplicación)
+
+
+
+=========================
+Tema  : Aplicación visual
+Estado: Borrador
+=========================
+
+Paneles
+A) Panel de usuarios, perfiles y perfil transiciones.
+B) Panel de tareas, campos, tarea_campos, transiciones y análisis de circuitos.
+C) Panel de bandeja de tareas (Lista/filtro, TT activo, histórico de transiciones, histórico de valores)
+D) Panel de herramienta de consulta (Lista/Filtro, TT activo, C3, C4)
+E) Panel login/password
+F) Panel impresión de listados varios.
+
+Frames
+1) Frame gestión de usuarios (A1,A2,A3)
+2) Frame gestión de configuración (B1,B2,B3,B4,B5)
+3) Frame bandeja de tareas (C1,C2,C3,C4)
+4) Frame HCON (D1,D2,C3,C4)
+5) Frame control de acceso (E)
+6) Frame listados (F)
+
+

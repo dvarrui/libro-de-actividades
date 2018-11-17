@@ -1,0 +1,28 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>gen_vcard (Jabber::Protocol::Iq)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 557</span>
+557:       <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_vcard</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">to</span>)
+558:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">id</span>)
+559:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">xmlns</span> = <span class="ruby-value str">&quot;vcard-temp&quot;</span>
+560:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> = <span class="ruby-value str">&quot;get&quot;</span>
+561:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">to</span> = <span class="ruby-identifier">to</span>
+562:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">iq</span>
+563:         <span class="ruby-comment cmt">#return XMLElement.new(&quot;iq&quot;, {&quot;type&quot;=&gt;&quot;get&quot;, &quot;id&quot;=&gt;id, &quot;to&quot;=&gt;to}).add_child(&quot;query&quot;, {&quot;xmlns&quot;=&gt;&quot;vcard-temp&quot;}).to_s</span>
+564:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

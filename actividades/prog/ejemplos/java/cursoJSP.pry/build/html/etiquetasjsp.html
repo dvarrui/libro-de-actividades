@@ -1,0 +1,48 @@
+<html>
+<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=white>
+
+<a href="../index.html">Ir al inicio</a> |
+<a href="xml.html">Anterior</a> |
+<a href="jstl.html">Siguiente</a>
+
+
+
+<h2>Introducción</h2>
+<ul>
+<li>JSP compuestas por varios tags o etiquetas. Ejemplos de etiquetas JSP son setProperty, include, forward, usebean.</li>
+<li>Todas encapsulan comportamientos de una manera sencilla.</li>
+<li>La etiqueta <jsp:useBean> crea una instancia de una clase definida como un JavaBean. El uso de la etiqueta <jsp:useBean> en conjunción con los JavaBeans hace que podamos separar la lógica de presentación de la de proceso y consigue unos archivos JSP mas claros, y lo que es mas importante, el que escribe la JSP, no tiene por que tener unos conocimientos avanzados de programación para crear páginas JSP de funcionalidades avanzadas.</li>
+<li>Las JSP Custom Tags son un paso mas allá, con ellas se pueden añadir nuevas etiquetas a las ya existentes.</li>
+</ul>
+
+<h2>Etiquetas personalizadas</h2>
+<ol>
+	<li>Se implementa una clase Java que hace de manejador de etiquetas.<dd>
+<code>/WEB-INF/classes/*.class</code></li>
+<li>Se define un descriptor de librería de etiquetas (TDL).<dd>
+<code>/WEB-INF/tld/*.tld</code></li>
+<li>Se mapea librería con el descriptor.<dd><code>/WEB-INF/web.xml</code></li>
+<li>Se crear página JSP con las etiquetas personalizadas.</li>
+</ol>
+
+<h2>Tipos</h2>
+<ul>
+<li>Hay dos tipos principales de etiquetas, etiquetas que no tienen cuerpo y etiquetas que si lo tienen.</li>
+<li>Ejemplos son la etiqueta &lt;img src="asdfa.gif"&gt; que no tiene cuerpo y no tiene etiqueta de final, y &lt;title&gt;manolo&lt;/title&gt; que tiene cuerpo y etiqueta de final.</li>
+</ul>
+
+
+
+<h2>Ejemplos prácticos</h2>        
+<ul>
+    <li><a href="etiquetasjsp/ejemploholamundo.html">Primera etiqueta: holamundo</a></li>
+    <li><a href="etiquetasjsp/etiquetaconparametros.html">Etiqueta con parámetros</a></li>
+    <li><a href="etiquetasjsp/etiquetaconcuerpo.html">Etiqueta con cuerpo</a></li>
+</ul>
+
+</ul>
+
+
+</body>
+</html>

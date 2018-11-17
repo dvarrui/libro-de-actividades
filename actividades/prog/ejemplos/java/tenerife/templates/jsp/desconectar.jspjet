@@ -1,0 +1,30 @@
+<%@ jet package="david.tenerife.templates.jsp" imports="david.tenerife.templates.*" class="DesconectarTemplate" startTag="<$" endTag="$>" %>
+
+<$
+   ArgumentoJet arg = (ArgumentoJet) argument;
+
+   david.tenerife.lib.BaseDatos bd = arg.getBaseDatos(); 
+   david.tenerife.lib.Tabla t = arg.getTabla();
+   david.tenerife.lib.Campo c;
+
+   david.tenerife.util.Notacion n = new david.tenerife.util.Notacion();;
+$>
+<!-- Creado por el proyecto TENERIFE -->
+<!-- Autor: David Vargas Ruiz -->
+<!-- Fecha: <%=new java.util.Date() %> -->
+<!-- Nombre: jsp/login/desconectar.jsp -->
+<!-- Descripción: Realizar la desconexi&oacute;n -->
+
+<%@ page import="david.<$=bd.getPaqueteJava()$>.util.Configuracion" %>
+<jsp:useBean id="vs_conf" class="david.<$=bd.getPaqueteJava()$>.util.Configuracion" scope="session"/>
+
+<%@ page import="david.<$=bd.getPaqueteJava()$>.ejb.sesiones.SesionPrueba" %>
+<jsp:useBean id="vs_sesion" class="david.<$=bd.getPaqueteJava()$>.ejb.sesiones.SesionPrueba" scope="session"/>
+
+<%
+   vs_sesion.logout();
+   vs_sesion = null;
+   vs_conf = null;
+%>
+
+<jsp:forward page="../../html/desconectado.html"/>

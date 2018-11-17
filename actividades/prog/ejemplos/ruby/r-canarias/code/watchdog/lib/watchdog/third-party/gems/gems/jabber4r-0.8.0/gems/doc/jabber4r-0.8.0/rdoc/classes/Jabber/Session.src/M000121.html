@@ -1,0 +1,30 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>register_iq_filter (Jabber::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/session.rb, line 554</span>
+554:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">register_iq_filter</span>() 
+555:       <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">add_filter</span>(<span class="ruby-value str">&quot;iqFilter&quot;</span>) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+556:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">element_tag</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;iq&quot;</span> <span class="ruby-keyword kw">then</span>
+557:           <span class="ruby-identifier">element</span>.<span class="ruby-identifier">consume_element</span>
+558:           <span class="ruby-identifier">query</span>=<span class="ruby-identifier">element</span>.<span class="ruby-identifier">query</span>
+559:           <span class="ruby-identifier">h</span>=<span class="ruby-ivar">@iqHandlers</span>[<span class="ruby-identifier">query</span>.<span class="ruby-identifier">attr_xmlns</span>]
+560:           <span class="ruby-identifier">h</span>.<span class="ruby-identifier">call</span>(<span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>.<span class="ruby-identifier">from_element</span>(<span class="ruby-keyword kw">self</span>,<span class="ruby-identifier">element</span>)) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">h</span>
+561:         <span class="ruby-keyword kw">end</span>
+562:       <span class="ruby-keyword kw">end</span>
+563:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

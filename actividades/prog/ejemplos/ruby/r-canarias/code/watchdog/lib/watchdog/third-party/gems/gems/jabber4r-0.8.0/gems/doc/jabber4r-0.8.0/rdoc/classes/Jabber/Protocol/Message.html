@@ -1,0 +1,651 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Jabber::Protocol::Message</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Jabber::Protocol::Message</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/jabber4r/protocol_rb.html">
+                lib/jabber4r/protocol.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000008">from_element</a>&nbsp;&nbsp;
+      <a href="#M000009">new</a>&nbsp;&nbsp;
+      <a href="#M000020">reply</a>&nbsp;&nbsp;
+      <a href="#M000017">request</a>&nbsp;&nbsp;
+      <a href="#M000018">send</a>&nbsp;&nbsp;
+      <a href="#M000019">session=</a>&nbsp;&nbsp;
+      <a href="#M000010">set_body</a>&nbsp;&nbsp;
+      <a href="#M000016">set_error</a>&nbsp;&nbsp;
+      <a href="#M000014">set_outofband</a>&nbsp;&nbsp;
+      <a href="#M000011">set_subject</a>&nbsp;&nbsp;
+      <a href="#M000013">set_thread</a>&nbsp;&nbsp;
+      <a href="#M000015">set_x</a>&nbsp;&nbsp;
+      <a href="#M000012">set_xhtml</a>&nbsp;&nbsp;
+      <a href="#M000022">to_s</a>&nbsp;&nbsp;
+      <a href="#M000021">to_xml</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NORMAL</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;normal&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ERROR</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;error&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CHAT</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;chat&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">GROUPCHAT</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;groupchat&quot;</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HEADLINE</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;headline&quot;</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">body</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">error</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">errorcode</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">from</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">id</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">oobData</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">subject</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">thread</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">to</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">type</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">x</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">xhtml</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000008.html');return false;">
+          <span class="method-name">from_element</span><span class="method-args">(session, element)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Factory to build a <a href="Message.html">Message</a> from an <a
+href="XMLElement.html">XMLElement</a>
+</p>
+<table>
+<tr><td valign="top">session:</td><td>[<a href="../Session.html">Jabber::Session</a>] The <a
+href="../../Jabber.html">Jabber</a> session instance
+
+</td></tr>
+<tr><td valign="top">element:</td><td>[<a href="ParsedXMLElement.html">Jabber::Protocol::ParsedXMLElement</a>]
+The received XML object
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The newly created <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000009.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(to, type=NORMAL)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a <a href="Message.html">Message</a>
+</p>
+<table>
+<tr><td valign="top">to:</td><td>[String | <a href="../JID.html">Jabber::JID</a>] The jabber id to send this
+message to (or from)
+
+</td></tr>
+<tr><td valign="top">type:</td><td>[Integer=NORMAL] The type of message...Message::(NORMAL, CHAT, GROUPCHAT,
+HEADLINE)
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000020.html');return false;">
+          <span class="method-name">reply</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Builds a reply to an existing message by setting:
+</p>
+<ol>
+<li>to = from
+
+</li>
+<li>id = id
+
+</li>
+<li>thread = thread
+
+</li>
+<li>type = type
+
+</li>
+<li>session = session
+
+</li>
+</ol>
+<table>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The reply message
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000017.html');return false;">
+          <span class="method-name">request</span><span class="method-args">(ttl=nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convenience method for send(true)
+</p>
+<table>
+<tr><td valign="top">ttl:</td><td>[Integer = nil] The time (in seconds) to wait for a reply before assuming
+nil
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>[Block] A block to process the message replies
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000018.html');return false;">
+          <span class="method-name">send</span><span class="method-args">(wait=false, ttl=nil, &amp;block)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sends the message to the <a href="../../Jabber.html">Jabber</a> service for
+delivery
+</p>
+<table>
+<tr><td valign="top">wait:</td><td>[Boolean = false] Wait for reply before return?
+
+</td></tr>
+<tr><td valign="top">ttl:</td><td>[Integer = nil] The time (in seconds) to wait for a reply before assuming
+nil
+
+</td></tr>
+<tr><td valign="top">&amp;block:</td><td>[Block] A block to process the message replies
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000019.html');return false;">
+          <span class="method-name">session=</span><span class="method-args">(session)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the session instance
+</p>
+<table>
+<tr><td valign="top">session:</td><td>[<a href="../Session.html">Jabber::Session</a>] The session instance
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000010.html');return false;">
+          <span class="method-name">set_body</span><span class="method-args">(body)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the body of the message
+</p>
+<table>
+<tr><td valign="top">body:</td><td>[String] The message body
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000016.html');return false;">
+          <span class="method-name">set_error</span><span class="method-args">(code,reason)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets an error code to be returned(chaining method)
+</p>
+<table>
+<tr><td valign="top">code:</td><td>[Integer] the jabber error code
+
+</td></tr>
+<tr><td valign="top">reason:</td><td>[String] Why the error was reported
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000014.html');return false;">
+          <span class="method-name">set_outofband</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the OOB data of the message
+</p>
+<table>
+<tr><td valign="top">data:</td><td>[String] The message OOB data
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000011.html');return false;">
+          <span class="method-name">set_subject</span><span class="method-args">(subject)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the subject of the message
+</p>
+<table>
+<tr><td valign="top">subject:</td><td>[String] The message subject
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000013.html');return false;">
+          <span class="method-name">set_thread</span><span class="method-args">(thread)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the thread of the message
+</p>
+<table>
+<tr><td valign="top">thread:</td><td>[String] The message thread id
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000015.html');return false;">
+          <span class="method-name">set_x</span><span class="method-args">(x)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the extended data of the message
+</p>
+<table>
+<tr><td valign="top">x:</td><td>[String] The message x data
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current <a
+href="Message.html">Message</a> object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000012.html');return false;">
+          <span class="method-name">set_xhtml</span><span class="method-args">(xhtml)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Chaining method...sets the XHTML body of the message
+</p>
+<table>
+<tr><td valign="top">body:</td><td>[String] The message body
+
+</td></tr>
+<tr><td valign="top">return:</td><td>[<a href="Message.html">Jabber::Protocol::Message</a>] The current message
+object
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000022.html');return false;">
+          <span class="method-name">to_s</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+see <a href="Message.html#M000021">to_xml</a>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="Message.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('Message.src/M000021.html');return false;">
+          <span class="method-name">to_xml</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Generates XML that complies with the <a href="../../Jabber.html">Jabber</a>
+protocol for sending the message through the <a
+href="../../Jabber.html">Jabber</a> service.
+</p>
+<table>
+<tr><td valign="top">return:</td><td>[String] The XML string.
+
+</td></tr>
+</table>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

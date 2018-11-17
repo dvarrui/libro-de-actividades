@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.pde.internal.runtime.logview.LogView">
+		<item key="info" value="true"/>
+		<item key="warning" value="true"/>
+		<item key="limit" value="50"/>
+		<item key="useLimit" value="true"/>
+		<item key="allSessions" value="true"/>
+		<item key="error" value="true"/>
+	</section>
+	<section name="org.eclipse.pde.internal.runtime.logview.EventDetailsDialog">
+		<item key="sashWidth2" value="519"/>
+		<item key="width" value="1032"/>
+		<item key="height" value="731"/>
+		<item key="sashWidth1" value="480"/>
+		<item key="y" value="0"/>
+		<item key="x" value="0"/>
+	</section>
+</section>

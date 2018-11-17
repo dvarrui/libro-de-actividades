@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session version="1.0">
+<refactoring comment="Rename type 'david.lalaguna.entidades.Atomo' to 'EntidadAtomo'&#10;- Original element: 'david.lalaguna.entidades.Atomo'&#10;- Renamed element: 'david.lalaguna.entidades.EntidadAtomo'&#10;- Update references to refactored element&#10;- Update textual occurrences in comments and strings" description="Rename type 'Atomo'" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;david.lalaguna.entidades{Atomo.java[Atomo" matchStrategy="1" name="EntidadAtomo" qualified="false" references="true" similarDeclarations="false" stamp="1156287572434" textual="false" version="1.0"/>
+<refactoring comment="Rename compilation unit 'david.lalaguna.estructuras.IEntidad.java' to 'IEstructura.java'&#10;- Original element: 'david.lalaguna.estructuras.IEntidad.java'&#10;- Renamed element: 'david.lalaguna.estructuras.IEstructura.java'" description="Rename compilation unit 'IEntidad.java'" flags="589830" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;david.lalaguna.estructuras{IEntidad.java" name="IEstructura.java" stamp="1156684866458" version="1.0"/>
+</session>

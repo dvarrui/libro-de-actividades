@@ -1,0 +1,205 @@
+<%@ jet package="david.tenerife.templates.swing" imports="david.tenerife.templates.*" class="NuevoTemplate" %>
+
+<% 
+   ArgumentoJet arg = (ArgumentoJet) argument;
+
+   david.tenerife.lib.BaseDatos bd = arg.getBaseDatos(); 
+   david.tenerife.lib.Tabla t = arg.getTabla();
+   david.tenerife.lib.Campo c;
+
+   david.tenerife.util.Notacion n = new david.tenerife.util.Notacion();;
+%>
+// Creado por el proyecto TENERIFE
+// Autor: David Vargas Ruiz
+// Fecha: <%=new java.util.Date() %>
+
+
+package david.<%=bd.getPaqueteJava()%>.swing.nuevo;
+
+// import
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
+import david.<%=bd.getPaqueteJava()%>.almacenes.IAlmacen;
+import david.<%=bd.getPaqueteJava()%>.entidades.<%=n.getPascal(t.getNombre())%>;
+<% if (t.hayFecha()) {%>
+import david.<%=bd.getPaqueteJava()%>.util.Fechas;
+<% } %>
+import david.<%=bd.getPaqueteJava()%>.swing.IVentana;
+
+// clase
+public class FrmNuevo<%=n.getPascal(t.getNombre())%> extends javax.swing.JInternalFrame implements ActionListener, IVentana {
+   static final long serialVersionUID=1; //Para evitar Warnings
+
+   // atributos
+   public static final String ID_VENTANA="<%=t.getNombre().toLowerCase()%>.nuevo";
+   public static final int ANCHO = 471; 
+   public static final int ALTO = 296;
+
+   private JButton btnAceptar;
+   private JButton btnSalir;
+   private JScrollPane jScrollPane1;
+   private JPanel pnlBotones;
+   private JPanel pnlDatos;
+   private JPanel pnlVentana;
+
+   <% for (int j = 0; j < t.getNumeroCampos(); j++) {
+		c = t.getCampo(j); %>
+   private JLabel lbl<%=n.getPascal(c.getNombre())%>;
+   private JTextField txt<%=n.getPascal(c.getNombre())%>;
+   <% } %>
+
+   private IAlmacen almacen;
+   private IVentana frmContenedor;
+   
+   // constructor
+   public FrmNuevo<%=n.getPascal(t.getNombre())%>() {
+      super();
+      initGUI();
+   }
+
+   // listener
+   public void actionPerformed(ActionEvent evt) {
+      try {
+         System.out.println(evt.getActionCommand());
+         // TODO add your code for btnAceptar.actionPerformed
+         if (evt.getActionCommand().equals(btnAceptar.getActionCommand())) {
+            //Aceptar
+            this.grabar();
+         } else if (evt.getActionCommand().equals(btnSalir.getActionCommand())) {
+            //Salir
+            this.setVisible(false);
+         }
+      } catch(Exception e) {
+         System.err.println(e);
+      }
+   }
+
+   // initGUI
+   private void initGUI() {
+      try {
+         this.setPreferredSize(new java.awt.Dimension(ANCHO, ALTO));
+         this.setBounds(25, 25, ANCHO, ALTO);
+         setVisible(false);
+         setClosable(false);
+         {
+            pnlVentana = new JPanel();
+            BorderLayout pnlVentanaLayout = new BorderLayout();
+            pnlVentana.setLayout(pnlVentanaLayout);
+            this.getContentPane().add(pnlVentana, BorderLayout.CENTER);
+            {
+               {
+                  pnlBotones = new JPanel();
+                  pnlVentana.add(pnlBotones, BorderLayout.SOUTH);
+                  {
+                     btnAceptar = new JButton();
+                     pnlBotones.add(btnAceptar);
+                     btnAceptar.setText("Aceptar");
+                     btnAceptar.setActionCommand("aceptar");
+                     btnAceptar.addActionListener(this);
+                  }
+                  {
+                     btnSalir = new JButton();
+                     pnlBotones.add(btnSalir);
+                     btnSalir.setText("Salir");
+                     btnSalir.setActionCommand("salir");
+                     btnSalir.addActionListener(this);
+                  }
+               }
+               {
+                  jScrollPane1 = new JScrollPane();
+                  pnlVentana.add(jScrollPane1, BorderLayout.CENTER);
+                  {
+                     pnlDatos = new JPanel();
+                     pnlDatos.setLayout(null);
+                     jScrollPane1.setViewportView(pnlDatos);
+                     
+                     //Elementos nuevo registro
+                     
+                     <% int x = 20;
+                        int y = 20;
+                        for (int j = 0; j < t.getNumeroCampos(); j++) {
+					       c = t.getCampo(j); %>
+					 {
+					    lbl<%=n.getPascal(c.getNombre())%> = new JLabel();
+					    pnlDatos.add(lbl<%=n.getPascal(c.getNombre())%>);
+					    lbl<%=n.getPascal(c.getNombre())%>.setText("<%=c.getEtiqueta()%>");
+					    lbl<%=n.getPascal(c.getNombre())%>.setBounds(<%=x%>, <%=y%>, 200,20);
+					 }
+					 {
+					    txt<%=n.getPascal(c.getNombre())%> = new JTextField();
+					    pnlDatos.add(txt<%=n.getPascal(c.getNombre())%>);
+					    txt<%=n.getPascal(c.getNombre())%>.setBounds(<%=(x + 200)%>, <%=y%>, 200,20);
+					 }
+					 <% y = y + 20;
+					    } %>
+                  
+                     this.setResizable(true);
+                     this.setIconifiable(true);
+                     this.setMaximizable(true);
+                     this.setSelected(true);
+                     this.setTitle("Nuevo Registro - <%=n.getPascal(t.getNombre())%>");
+                  }
+               }
+            }
+         }
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+   }
+
+   // grabar
+   private void grabar() {
+      <%=n.getPascal(t.getNombre())%> reg = new <%=n.getPascal(t.getNombre())%>();
+      try {
+         <% for (int j = 0; j < t.getNumeroCampos(); j++) {
+            c = t.getCampo(j);
+			if (n.getTipoJava(c.getTipo()).equals("String")) {
+			%>
+         reg.set<%=n.getPascal(c.getNombre())%>(txt<%=n.getPascal(c.getNombre())%>.getText());
+         <%	} else if (n.getTipoJava(c.getTipo()).equals("int")) { %>
+         reg.set<%=n.getPascal(c.getNombre())%>(Integer.parseInt(txt<%=n.getPascal(c.getNombre())%>.getText()));
+         <% } else if (n.getTipoJava(c.getTipo()).equals("boolean")) { %>
+         reg.set<%=n.getPascal(c.getNombre())%>(Boolean.parseBoolean(txt<%=n.getPascal(c.getNombre())%>.getText()));
+         <% } else if (n.getTipoJava(c.getTipo()).equals("Date")) { %>
+         reg.set<%=n.getPascal(c.getNombre())%>(Fechas.fromCadena(txt<%=n.getPascal(c.getNombre())%>.getText()));
+         <% }
+			}%>
+
+         almacen.add(reg);
+         if (frmContenedor!=null) frmContenedor.reset();
+      } catch(Exception e) {
+         System.err.println(e);
+      }
+   }
+   
+   // Otros métodos
+   public void setAlmacen(IAlmacen almacen) {
+      this.almacen = almacen;
+   }
+   
+   public void setContenedor(IVentana f) {
+      frmContenedor = f;
+   }
+
+   public void reset() {
+      // Visualizar y refrescar la ventana completa
+      setVisible(true);
+       <% for (int j = 0; j < t.getNumeroCampos(); j++) {
+		c = t.getCampo(j); %>
+      txt<%=n.getPascal(c.getNombre())%>.setText(null);
+   <% } %>
+   }
+   
+   public String getIdVentana() {
+      return ID_VENTANA;
+   }
+}
+

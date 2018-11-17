@@ -1,0 +1,13 @@
+There have been quite a lot of changes to the audio.c and resources.c source files as well as the usual return 1; exit(1) changes to exit(EXIT_FAILURE).
+
+Some of the changes were down to good 'ol bugs.
+
+The majority of the changes have been to OpenAL and libsndfile having changed quite a bit since the book was written. The code now compiles happily.
+
+The only annoying aspect is that the author uses goto constructs for the cleanups should things go wrong when a simple static void function would have done the job just as easily as well as demonstrated good programming practice.
+
+Oh well.
+
+--
+PFJ
+1/8/04

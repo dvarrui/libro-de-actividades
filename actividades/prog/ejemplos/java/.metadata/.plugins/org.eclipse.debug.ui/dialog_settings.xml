@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
+		<item key="org.eclipse.debug.ui.DIALOG_WIDTH" value="628"/>
+		<item key="org.eclipse.debug.ui.EXPANDED_NODES" value="org.rubypeople.rdt.launching.LaunchConfigurationTypeRubyApplication, "/>
+		<item key="org.eclipse.debug.ui.DIALOG_HEIGHT" value="618"/>
+		<item key="org.eclipse.debug.ui.DIALOG_ORIGIN_X" value="206"/>
+		<item key="org.eclipse.debug.ui.DIALOG_ORIGIN_Y" value="0"/>
+		<item key="DIALOG_FONT_NAME" value="1|Sans|10|0|GTK|1|"/>
+		<item key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1" value="277"/>
+		<item key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2" value="722"/>
+		<item key="DIALOG_X_ORIGIN" value="163"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_WIDTH" value="861"/>
+		<item key="DIALOG_HEIGHT" value="718"/>
+	</section>
+	<section name="org.eclipse.debug.ui.SCOPED_SAVE_SELECTION_DIALOG">
+		<item key="DIALOG_X_ORIGIN" value="342"/>
+		<item key="DIALOG_HEIGHT" value="461"/>
+		<item key="DIALOG_WIDTH" value="349"/>
+		<item key="DIALOG_Y_ORIGIN" value="58"/>
+		<item key="DIALOG_FONT_NAME" value="1|Sans|10|0|GTK|1|"/>
+	</section>
+</section>

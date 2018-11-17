@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+<module module-ids="org.eclipse.jst.j2ee.server:canarias.web" module-type-id="jst.web" module-type-version="2.4" name="canarias.web">
+<folder name="WEB-INF" path="">
+<folder name="classes" path="WEB-INF">
+<folder name="coreservlets" path="WEB-INF/classes">
+<folder name="WebClient" path="WEB-INF/classes/coreservlets">
+<file name="SocketUtil.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="NetworkClient.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="Interruptible.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="HttpClient.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="WebClient.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="CloseableFrame.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+<file name="LabeledTextField.class" path="WEB-INF/classes/coreservlets/WebClient" stamp="1156112486002"/>
+</folder>
+<folder name="capitulo01" path="WEB-INF/classes/coreservlets">
+<file name="HolaWWW3.class" path="WEB-INF/classes/coreservlets/capitulo01" stamp="1156112485002"/>
+</folder>
+</folder>
+</folder>
+<file name="web.xml" path="WEB-INF" stamp="1155571872068"/>
+<folder name="lib" path="WEB-INF"/>
+</folder>
+<folder name="META-INF" path="">
+<file name="MANIFEST.MF" path="META-INF" stamp="1155571872002"/>
+</folder>
+</module>
+</server>

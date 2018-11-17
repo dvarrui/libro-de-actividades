@@ -1,0 +1,28 @@
+# Otras acciones para ejecutar al final del proyecto
+#
+# Borrar contenido del proyecto Higuerita
+rm -R /home/david/java.dvr/higuerita.pry/src/david
+rm -R /home/david/java.dvr/higuerita.pry/bin/david
+rm -R /home/david/java.dvr/higuerita.pry/datos
+
+#
+# Mover JAVA a HIGUERITA/SRC
+mv /home/david/java.dvr/tenerife.pry/tmp/java/david /home/david/java.dvr/higuerita.pry/src/david
+# Copiar datos a HIGUERITA/datos
+cp -R /home/david/java.dvr/tenerife.pry/tmp/datos /home/david/java.dvr/higuerita.pry/
+
+#
+# Mover proyecto a tomcat (Faltan los .class)
+#
+rm -R /opt/java/tomcat/webapps/web
+mv /home/david/java.dvr/tenerife.pry/tmp/jsp/web /opt/java/tomcat/webapps/web
+cp -R /home/david/java.dvr/tenerife.pry/tmp/datos /opt/java/tomcat/webapps/web/WEB-INF/classes
+chmod 777 /opt/java/tomcat/webapps/web/WEB-INF/datos
+chmod 444 /opt/java/tomcat/webapps/web/WEB-INF/datos/*
+
+#
+# Reiniciar tomcat
+#
+#catalina.sh stop
+#catalina.sh start
+

@@ -1,0 +1,8 @@
+Split up into a couple of library files.
+
+Don't forget to include AffinityTrip module in tests.
+
+Might want to test-drive it into existence rather than go whole-hog.
+
+Need section on location-independent tests in the chapter. Add to
+PACKAGE_ROOT? Also location-independent bin directory.

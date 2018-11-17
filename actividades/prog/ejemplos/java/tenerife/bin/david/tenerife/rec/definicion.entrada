@@ -1,0 +1,59 @@
+# A modo de prueba 20051125DVR
+#
+# basedatos <nombre> paqueteJava=<?> nombreProyecto=<?>
+#    tabla <nombre>
+#       campo <nombre> <tipoCampo> [clave] [descripcion] [etiqueta=<?>]
+#                                  [expresionRegular=<?>]
+#
+# Tipos de campos: string, integer, date, boolean
+#
+# Palabras reservadas para tablas: login
+# Palabras reservadas para campos: clave, descripcion, etiqueta, externo
+#
+basedatos consultas paqueteJava=proyecto nombreProyecto=Nombre_Proyecto
+   tabla personas
+      campo cod_persona integer clave etiqueta=CODIGO
+      campo nombre string descripcion
+      campo apellido1 string descripcion
+      campo apellido2 string descripcion
+      campo fecha_nacimiento date
+      campo dni string expresionRegular=asterisco
+      campo telefono1 string
+      campo telefono2 string
+      campo direccion string
+      
+   tabla agendas
+      campo cod_agenda integer clave etiqueta=CODIGO
+      campo des_agenda string descripcion etiqueta=DESCRIPCION
+      
+   tabla catalogos
+      campo cod_catalogo integer clave etiqueta=CODIGO
+      campo des_catalogo string descripcion etiqueta=DESCRIPCION
+      campo cod_catalogo_padre integer externo=catalogos default=0
+      campo peso integer default=0
+      
+   tabla citas
+      campo cod_cita integer clave etiqueta=CODIGO
+      campo cod_agenda integer externo=agendas
+      campo cod_persona integer externo=personas
+      campo fecha date etiqueta=FECHA
+      campo cod_catalogo integer externo=catalogos
+      campo realizado boolean default=false
+
+   tabla usuarios
+      campo cod_usuario integer clave etiqueta=CODIGO
+      campo des_usuario string descripcion etiqueta=DESCRIPCION
+      campo password string etiqueta=CLAVE
+      campo cod_perfil integer externo=perfiles
+      campo fec_desde date etiqueta=DESDE
+      campo fec_hasta date etiqueta=HASTA
+      campo activo boolean default=true
+      
+   tabla perfiles
+      campo cod_perfil integer clave etiqueta=CODIGO
+      campo des_perfil string descripcion etiqueta=DESCRIPCION
+      
+   tabla permisos
+      campo cod_permiso integer clave etiqueta=CODIGO
+      campo des_permiso string descripcion etiqueta=DESCRIPCION
+      

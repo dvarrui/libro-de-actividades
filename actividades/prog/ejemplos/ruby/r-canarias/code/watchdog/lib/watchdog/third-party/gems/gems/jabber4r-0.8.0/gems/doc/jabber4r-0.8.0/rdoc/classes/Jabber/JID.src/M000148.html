@@ -1,0 +1,25 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>same_account? (Jabber::JID)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/jabber4r/jid.rb, line 59</span>
+59:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">same_account?</span>(<span class="ruby-identifier">other</span>)
+60:       <span class="ruby-identifier">other</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">to_jid</span>(<span class="ruby-identifier">other</span>)
+61:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">node</span><span class="ruby-operator">==</span><span class="ruby-ivar">@node</span>  <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">host</span><span class="ruby-operator">==</span><span class="ruby-ivar">@host</span>
+62:        <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+63:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

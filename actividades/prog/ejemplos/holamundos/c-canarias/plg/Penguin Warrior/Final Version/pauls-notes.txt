@@ -1,0 +1,10 @@
+Quite a few changes here - the majority of them are down to the audio code being wrong. The bug in the tcp/ip code with bind has been fixed, but other than that, the only big change was the Makefile was broken.
+
+The old version looked for tcl8.3 - I can't remember when the last time it was called that! Anyway, that's been sorted :-)
+
+Enjoy!
+
+--
+
+PFJ
+1/8/04

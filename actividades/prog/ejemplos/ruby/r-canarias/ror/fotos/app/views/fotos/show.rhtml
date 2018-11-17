@@ -1,0 +1,10 @@
+<%= image_tag 'fotos/'+@foto.fichero %>
+
+<% for column in Foto.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @foto.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Editar', :action => 'edit', :id => @foto %> |
+<%= link_to 'Volver', :action => 'list' %>

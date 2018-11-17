@@ -1,0 +1,48 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>authenticate (Jabber::Session)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/session.rb, line 258</span>
+258:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">authenticate</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">resource</span>, <span class="ruby-identifier">digest</span>=<span class="ruby-keyword kw">false</span>)
+259:       <span class="ruby-ivar">@username</span> = <span class="ruby-identifier">username</span>
+260:       <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span>
+261:       <span class="ruby-ivar">@resource</span> = <span class="ruby-identifier">resource</span>
+262:       <span class="ruby-ivar">@jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{username}@#{@host}/#{resource}&quot;</span>)
+263:       <span class="ruby-ivar">@roster</span>.<span class="ruby-identifier">add</span>(<span class="ruby-ivar">@jid</span>, <span class="ruby-value str">&quot;both&quot;</span>, <span class="ruby-value str">&quot;Me&quot;</span>, <span class="ruby-value str">&quot;My Resources&quot;</span>)
+264:       
+265:       <span class="ruby-identifier">msg_id</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">id</span>
+266:       <span class="ruby-identifier">authHandler</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>  <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> 
+267:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">element_tag</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;iq&quot;</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_id</span><span class="ruby-operator">==</span><span class="ruby-identifier">msg_id</span>
+268:           <span class="ruby-identifier">element</span>.<span class="ruby-identifier">consume_element</span>
+269:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_type</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;result&quot;</span>
+270:             <span class="ruby-ivar">@authenticated</span> = <span class="ruby-keyword kw">true</span>
+271:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">attr_type</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;error&quot;</span>
+272:             <span class="ruby-ivar">@authenticated</span> = <span class="ruby-keyword kw">false</span>
+273:           <span class="ruby-keyword kw">end</span>
+274:         <span class="ruby-keyword kw">end</span>
+275:       <span class="ruby-keyword kw">end</span>
+276:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">digest</span>
+277:         <span class="ruby-identifier">require</span> <span class="ruby-value str">'digest/sha1'</span>
+278:         <span class="ruby-identifier">authRequest</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_auth_digest</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msg_id</span>, <span class="ruby-identifier">username</span>, <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">SHA1</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@session_id</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">password</span>).<span class="ruby-identifier">hexdigest</span>, <span class="ruby-identifier">resource</span>)
+279:       <span class="ruby-keyword kw">else</span>
+280:         <span class="ruby-identifier">authRequest</span> = <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span><span class="ruby-operator">::</span><span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_auth</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">msg_id</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>, <span class="ruby-identifier">resource</span>)
+281:       <span class="ruby-keyword kw">end</span>
+282:       <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">authRequest</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">authHandler</span>)
+283:       <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>
+284:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@authenticated</span>
+285:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

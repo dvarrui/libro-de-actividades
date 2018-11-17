@@ -1,0 +1,35 @@
+<%@ jet package="david.tenerife.templates.jsp" imports="david.tenerife.templates.*" class="ComprobarTemplate" startTag="<$" endTag="$>" %>
+
+<$
+   ArgumentoJet arg = (ArgumentoJet) argument;
+
+   david.tenerife.lib.BaseDatos bd = arg.getBaseDatos(); 
+   david.tenerife.lib.Tabla t = arg.getTabla();
+   david.tenerife.lib.Campo c;
+
+   david.tenerife.util.Notacion n = new david.tenerife.util.Notacion();;
+$>
+<!-- Creado por el proyecto TENERIFE -->
+<!-- Autor: David Vargas Ruiz -->
+<!-- Fecha: <$=new java.util.Date() $> -->
+<!-- Nombre: jsp/login/comprobar.jsp -->
+<!-- Descripción: Comprobar usuario/password -->
+
+<%@ page import="david.<$=bd.getPaqueteJava()$>.util.Configuracion" %>
+<jsp:useBean id="vs_conf" class="david.<$=bd.getPaqueteJava()$>.util.Configuracion" scope="session"/>
+
+<%@ page import="david.<$=bd.getPaqueteJava()$>.ejb.sesiones.FabricaSesiones" %>
+
+<!-- ¡OJO! cambiar en producción-->
+<%@ page import="david.<$=bd.getPaqueteJava()$>.ejb.sesiones.SesionPrueba" %>
+<jsp:useBean id="vs_sesion" class="david.<$=bd.getPaqueteJava()$>.ejb.sesiones.SesionPrueba" scope="session"/>
+
+<%
+   // vs_sesion=FabricaSesiones.createSesion(FabricaSesiones.TIPO_PRUEBA);
+   vs_sesion.login(request.getParameter("usuario"),request.getParameter("clave"),request.getParameter("entorno"));
+   
+   if (vs_sesion.isLogin()) 
+   { %> <jsp:forward page="menu.jsp"/> <% }
+   else 
+   { %> <jsp:forward page="../../html/errorLogin.html"/> <% }
+%>

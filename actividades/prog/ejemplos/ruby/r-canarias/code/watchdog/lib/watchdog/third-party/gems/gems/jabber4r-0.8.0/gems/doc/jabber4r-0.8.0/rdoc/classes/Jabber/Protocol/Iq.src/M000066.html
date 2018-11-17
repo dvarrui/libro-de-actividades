@@ -1,0 +1,32 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_xml (Jabber::Protocol::Iq)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 613</span>
+613:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_xml</span>
+614:         <span class="ruby-identifier">elem</span> = <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;iq&quot;</span>, { <span class="ruby-value str">&quot;type&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-ivar">@type</span>})
+615:         <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">&quot;to&quot;</span> ,<span class="ruby-ivar">@to</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@to</span>
+616:         <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">&quot;id&quot;</span>, <span class="ruby-ivar">@id</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@id</span>
+617:         <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">add_child</span>(<span class="ruby-value str">&quot;query&quot;</span>).<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">&quot;xmlns&quot;</span>,<span class="ruby-ivar">@xmlns</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-ivar">@data</span>.<span class="ruby-identifier">to_s</span>)
+618:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@type</span><span class="ruby-operator">==</span><span class="ruby-value str">&quot;error&quot;</span> <span class="ruby-keyword kw">then</span>
+619:           <span class="ruby-identifier">e</span>=<span class="ruby-identifier">elem</span>.<span class="ruby-identifier">add_child</span>(<span class="ruby-value str">&quot;error&quot;</span>);
+620:           <span class="ruby-identifier">e</span>.<span class="ruby-identifier">add_attribute</span>(<span class="ruby-value str">&quot;code&quot;</span>,<span class="ruby-ivar">@errorcode</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@errorcode</span>
+621:           <span class="ruby-identifier">e</span>.<span class="ruby-identifier">add_data</span>(<span class="ruby-ivar">@error</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@error</span>
+622:         <span class="ruby-keyword kw">end</span>
+623:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">to_s</span>
+624:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

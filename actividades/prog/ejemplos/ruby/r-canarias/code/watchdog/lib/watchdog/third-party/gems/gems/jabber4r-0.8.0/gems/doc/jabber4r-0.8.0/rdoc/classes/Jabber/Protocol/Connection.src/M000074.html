@@ -1,0 +1,48 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive (Jabber::Protocol::Connection)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 120</span>
+120:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive</span>(<span class="ruby-identifier">element</span>)
+121:         <span class="ruby-keyword kw">while</span> <span class="ruby-ivar">@threadBlocks</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">==</span><span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@filters</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>
+122:           <span class="ruby-identifier">sleep</span> <span class="ruby-value">0</span><span class="ruby-value">.1</span>
+123:         <span class="ruby-keyword kw">end</span>        
+124:         <span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;RECEIVED:\n#{element.to_s}&quot;</span>)
+125:         <span class="ruby-ivar">@threadBlocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">thread</span>, <span class="ruby-identifier">proc</span><span class="ruby-operator">|</span>
+126:           <span class="ruby-keyword kw">begin</span>
+127:             <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">element</span>)
+128:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">element_consumed?</span>
+129:               <span class="ruby-ivar">@threadBlocks</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">thread</span>)
+130:               <span class="ruby-identifier">thread</span>.<span class="ruby-identifier">wakeup</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">thread</span>.<span class="ruby-identifier">alive?</span>
+131:               <span class="ruby-keyword kw">return</span>
+132:             <span class="ruby-keyword kw">end</span>
+133:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+134:             <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>
+135:             <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+136:           <span class="ruby-keyword kw">end</span>
+137:         <span class="ruby-keyword kw">end</span>
+138:         <span class="ruby-ivar">@filters</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proc</span><span class="ruby-operator">|</span>
+139:           <span class="ruby-keyword kw">begin</span>
+140:             <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">element</span>)
+141:             <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">element_consumed?</span>
+142:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+143:             <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>
+144:             <span class="ruby-identifier">puts</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+145:           <span class="ruby-keyword kw">end</span>
+146:         <span class="ruby-keyword kw">end</span>
+147:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

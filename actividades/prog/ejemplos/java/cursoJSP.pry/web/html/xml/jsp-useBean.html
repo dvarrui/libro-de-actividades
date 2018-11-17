@@ -1,0 +1,87 @@
+<html><head><title></title></head>
+<body bgcolor=#ffffff>
+ 
+		  <a href="../xml.html">XML</a> | 
+		  <a href="jsp-include.html">Anterior</a> | 
+		  <a href="jsp-setProperty.html">Siguiente</a>
+		  
+<h2>&lt;jsp:useBean&gt;</h2>
+<p>Localiza e inicializa un bean con un nombre y un ámbito.</p>
+
+<h4>Sintaxis JSP</h4>
+<blockquote><pre><code>&lt;jsp:useBean id="</code><i><code>beanInstanceName</code></i><code>"	
+</code>&nbsp;&nbsp;&nbsp;<code>scope="</code><strong>page</strong><code>|request|session|application"	
+{	
+&nbsp;&nbsp;&nbsp;class="</code><i><code>package.class</code></i><code>" [ type="</code><i><code>package.class</code></i><code>" ]|	
+</code>&nbsp;&nbsp;&nbsp;<code>beanName="{</code><i><code>package.class</code></i> <code>|</code> <code>&lt;%= </code><i><code>expression</code></i> <code>%&gt;}" 	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="</code><i><code>package.class</code></i>" | 	
+&nbsp;&nbsp;&nbsp;type="<i><code>package.class</code></i>"	
+}	
+{ <code>/&gt; | &gt; </code><i><code>other elements</code></i><code> &lt;/jsp:useBean&gt; }
+</code></pre></blockquote>
+
+<h4>Sintaxis XML</h4>
+<blockquote><pre>&lt;jsp:useBean id="<i><code>beanInstanceName</code></i>"	
+&nbsp;&nbsp;&nbsp;scope="page|request|session|application"	
+{	
+&nbsp;&nbsp;&nbsp;class="<em>package.class</em>"  [ type="<i><code>package.class</code></i>" ]  |	
+&nbsp;&nbsp;&nbsp;beanName="{package.class | %= <i><code>expression</code></i> %}"	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="<i><code>package.class</code></i>" |	
+&nbsp;&nbsp;&nbsp;type="<i><code>package.class</code></i>"	
+}	
+{ /&gt; | &gt; <i><code>other elements</code></i> &lt;/jsp:useBean&gt;  }
+</pre></blockquote>
+
+<h4>Ejemplos</h4>
+<blockquote><pre>&lt;jsp:useBean id="cart" scope="session" class="session.Carts" /&gt;	
+&lt;jsp:setProperty name="cart" property="*" /&gt;
+&lt;jsp:useBean id="checking" scope="session" class="bank.Checking" &gt;	
+&nbsp;&nbsp;&nbsp;&lt;jsp:setProperty name="checking" property="balance" value="0.0" /&gt;	
+&lt;/jsp:useBean&gt;
+</pre></blockquote>
+
+<h4>Descripción</h4>
+<p>La etiqueta <code>&lt;jsp:useBean&gt;</code> localiza e inicializa un componente JavaBeans. <code>&lt;jsp:useBean&gt;</code> primero intenta localizar el bean. Si no existe, <code>&lt;jsp:useBean&gt;</code> lo instancia desde una clase.</p>
+<p>Pasos para localizar e instanciar el Bean:
+</p><ol>
+<li>Se intenta localizar el bean con el ámbito y nombre especificado.
+<li>Se define una variable que referencia al objeto con el nombre especificado.
+<li>Si se encuentra el bean, se almacena la referencia en la variable.
+<li>Si no se encuentra el bean, se instancia de la clase especificada, se almacena la referencia en una nueva variable (<code>java.beans.Beans.instantiate</code>).
+<li>Si <code>&lt;jsp:useBean&gt;</code> está instanciado y tiene elementos en el cuerpo entonces se ejecutan.
+</ol>
+<p>El cuerpo de un <code>&lt;jsp:useBean&gt;</code> contiene elementos <code>&lt;jsp:setProperty&gt;</code>. La estiquetas del cuerpo se procesan si <code>&lt;jsp:useBean&gt;</code> instancia el bean. Si ya existe las etiquetas no tienen efecto.</p>
+<p>Se puede usar <code>&lt;jsp:useBean&gt;</code> para trabajar con JavaBeans pero no con Enterprise Java Bean.</p>
+
+<h4>Atributos</h4>
+<ul><li><code>id="</code><i><code>beanInstanceName</code></i><code>"</code>
+<dl>
+<p><dd>Variable que identifica el bean dentro de su ámbito. 
+<p>
+</dl>
+<li><code>scope="</code><strong>page</strong><code>|request|session|application"</code>
+<dl>
+<p><dd>Ámbito dentro del cuál existe el bean y la variable <code>id</code> está disponible. El valor por defecto es <code>page</code>. Opciones:
+<p>
+<p><dd><code>page</code>&nbsp;&nbsp;&nbsp;Dentro de la página JSP.
+<p>
+<p><dd><code>request</code>&nbsp;&nbsp;&nbsp;Desde cualquier página JSP que procese la misma petición. Se puede usar el objeto <code>request</code> para acceder al bean, por ejemplo, <code>request.getAttribute(</code><i><code>beanInstanceName</code></i><code>)</code>.
+<p>
+<p><dd><code>session</code>&nbsp;&nbsp;&nbsp;Se puede usar el bean dentro de la misma sesión. La página que crea el bean debe tener la directiva page con el atributo <code>session="true"</code>.
+<p>
+<p><dd><code>application</code>&nbsp;&nbsp;&nbsp;Se puede usar el bean dentro de la misma aplicación. Cualquier página de la aplicación puede usar el bean.
+<p>
+</dl>
+<li><code>class="</code><i><code>package.class</code></i><code>"</code>
+<dl>
+		  <p><dd>Clase desde donde se instancia. La clase no puede ser abstracta, debe ser pública y sin argumentos.
+<p>
+</dl>
+<li><code>type="</code><i><code>package.class</code></i><code>"</code>
+<li><code>class="</code><i><code>package.class</code></i><code>" type="</code><i><code>package.class</code></i><code>"</code>
+<li><code>beanName="{</code><i><code>package.class</code></i><code> | &lt;%= </code><i><code>expression</code></i><code> %&gt;}" type="</code><i><code>package.class</code></i><code>"</code>
+<dl>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change:ChangeDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:change="http://www.eclipse.org/emf/2003/Change" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.jem.internal.beaninfo.beaninfo="http:///org/eclipse/jem/internal/beaninfo/beaninfo.ecore" xmlns:org.eclipse.jem.java="java.xmi">
+  <objectChanges xsi:type="change:EObjectToChangesMapEntry" key="org.eclipse.jem.java:JavaClass java:/java.awt#FlowLayout">
+    <value xsi:type="change:FeatureChange" featureName="eAnnotations">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.0"/>
+    </value>
+    <value xsi:type="change:FeatureChange" featureName="eStructuralFeatures">
+      <listChanges xsi:type="change:ListChange" referenceValues="#//@objectsToAttach.1 #//@objectsToAttach.2 #//@objectsToAttach.3"/>
+    </value>
+  </objectChanges>
+  <objectsToAttach xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:BeanDecorator" implicitlySetBits="2017612633061982222" implicitDecoratorFlag="IMPLICIT_DECORATOR" mergeSuperMethods="false" mergeSuperEvents="false"/>
+  <objectsToAttach xsi:type="ecore:EReference" name="Hgap" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="horizontal gap" shortDescription="Horizontal gap between components" implicitlySetBits="-2594073385365405636" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.getHgap(" writeMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.setHgap(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="Vgap" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" displayName="vertical gap" shortDescription="Vertical gap between components" implicitlySetBits="-2594073385365405636" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.getVgap(" writeMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.setVgap(int"/>
+  </objectsToAttach>
+  <objectsToAttach xsi:type="ecore:EReference" name="alignment" eType="org.eclipse.jem.java:JavaDataType java:/#int" unsettable="true">
+    <eAnnotations xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:PropertyDecorator" shortDescription="Positioning of overflowing controls" implicitlySetBits="6773413839565226044" implicitDecoratorFlag="IMPLICIT_DECORATOR_AND_FEATURE" readMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.getAlignment(" writeMethod="org.eclipse.jem.java:Method java:/java.awt#FlowLayout.setAlignment(int">
+      <attributes xsi:type="org.eclipse.jem.internal.beaninfo.beaninfo:FeatureAttributeMapEntry" key="enumerationValues" value="implicit,[9]{&quot;LEFT&quot;,0,&quot;java.awt.FlowLayout.LEFT&quot;,&quot;CENTER&quot;,1,&quot;java.awt.FlowLayout.CENTER&quot;,&quot;RIGHT&quot;,2,&quot;java.awt.FlowLayout.RIGHT&quot;}"/>
+    </eAnnotations>
+  </objectsToAttach>
+</change:ChangeDescription>

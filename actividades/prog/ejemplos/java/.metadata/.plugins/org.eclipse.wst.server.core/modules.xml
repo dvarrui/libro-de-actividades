@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+<module moduleId="org.eclipse.jst.j2ee.server:prueba" serverId="13_08_06_20_052"/>
+<module moduleId="org.eclipse.jst.j2ee.server:canarias.web" serverId="13_08_06_20_052"/>
+</modules>

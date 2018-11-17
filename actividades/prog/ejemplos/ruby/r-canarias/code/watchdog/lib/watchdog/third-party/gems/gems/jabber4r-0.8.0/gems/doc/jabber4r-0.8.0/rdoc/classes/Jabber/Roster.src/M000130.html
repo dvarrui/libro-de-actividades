@@ -1,0 +1,31 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>[] (Jabber::Roster)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/roster.rb, line 255</span>
+255:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">jid</span>)
+256:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">String</span>
+257:         <span class="ruby-identifier">jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>) 
+258:         <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">strip_resource</span>
+259:       <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">jid</span>.<span class="ruby-identifier">kind_of?</span> <span class="ruby-constant">JID</span>
+260:         <span class="ruby-identifier">jid</span> = <span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">node</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;@&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">jid</span>.<span class="ruby-identifier">host</span>)
+261:       <span class="ruby-keyword kw">else</span>
+262:         <span class="ruby-keyword kw">return</span>
+263:       <span class="ruby-keyword kw">end</span>
+264:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@map</span>[<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">to_s</span>]
+265:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

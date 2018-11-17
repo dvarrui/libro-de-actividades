@@ -1,0 +1,11 @@
+README (in the top-level directory, which should be the one you're in now)
+contains all the documentation for this package, apart from the RDoc
+information.
+
+You can read it as plain text if you like, but it's easier to read as HTML
+after being RDoc'ed.  Two options:
+ * run 'ruby install-doc.rb' (probably Unix/Cygwin only for now)
+    and/or
+ * read the README as HTML online at http://extensions.rubyforge.org.
+
+The HTML on the internet contains RDocs for the very latest (CVS) code.

@@ -1,0 +1,8 @@
+<% for column in Pase.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @pase.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @pase %> |
+<%= link_to 'Back', :action => 'list' %>

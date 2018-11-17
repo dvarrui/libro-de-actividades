@@ -1,0 +1,214 @@
+<html><head><title>JavaServer Pages(TM) v1.2 Syntax Reference</title></head>
+<body bgcolor=#ffffff>
+ 
+<a href="syntaxref12.html">Contents </a> | <a href="syntaxref1214.html">Prev</a> | <a href="syntaxref1216.html">Next</a></a>
+<hr><br>
+ 
+<hr size="8" width="35%" align="left" noshade>
+<a name="8837"> </a>
+<h2> &lt;jsp:plugin&gt;</h2>
+
+<p><a name="18952"> </a>
+Causes the execution of an applet or bean. The applet or bean executes in the specified plugin. If the plugin is not available, displays a dialog to initiate the download of the plugin software.
+</p><a name="9244"> </a>
+<h4> JSP Syntax</h4>
+<blockquote><pre><code>&lt;jsp:plugin	
+</code>&nbsp;&nbsp;&nbsp;<code>type="bean|applet"	
+</code>&nbsp;&nbsp;&nbsp;<code>code="</code><i><code>classFileName</code></i><code>"	
+</code>&nbsp;&nbsp;&nbsp;<code>codebase="</code><i><code>classFileDirectoryName</code></i><code>"	
+</code>&nbsp;&nbsp;&nbsp;<code>[ name="</code><i><code>instanceName</code></i><code>" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ archive="</code><i><code>URIToArchive</code></i><code>, ..." ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ align="</code><strong>bottom</strong><code>|top|middle|left|right" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ height="{</code><i><code>displayPixels</code></i><code> </code>|  &lt;%= <i><code>expression</code></i> %&gt;}"<code>]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ width="{</code><i><code>displayPixels</code></i><code> </code>|  &lt;%= <i><code>expression</code></i> %&gt;}"<code>]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ hspace="</code><i><code>leftRightPixels</code></i><code>" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ vspace="</code><i><code>topBottomPixels</code></i><code>" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ jreversion="</code><i><code>JREVersionNumber</code></i><code> | </code><strong>1.2</strong><code>" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ nspluginurl="</code><i><code>URLToPlugin</code></i><code>" ]	
+</code>&nbsp;&nbsp;&nbsp;<code>[ iepluginurl="</code><i><code>URLToPlugin</code></i><code>" ] &gt;	
+</code>	
+&nbsp;&nbsp;&nbsp;<code>[ &lt;jsp:params&gt;	
+</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>[ &lt;jsp:param name="</code><i><code>parameterName</code></i><code>"	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="{</code><i><code>parameterValue</code></i><code> | &lt;%= </code><i><code>expression</code></i><code> %&gt;}" /&gt; ]+	
+</code>&nbsp;&nbsp;&nbsp;<code>&lt;/jsp:params&gt; ]	
+</code>	
+&nbsp;&nbsp;&nbsp;<code>[ &lt;jsp:fallback&gt; </code><i><code>text message for user</code></i><code> &lt;/jsp:fallback&gt; ]	
+</code>	
+<code>&lt;/jsp:plugin&gt;
+</code></pre></blockquote><a name="998648"> </a>
+<h4> XML Syntax</h4>
+<blockquote><pre>&lt;jsp:plugin	
+&nbsp;&nbsp;&nbsp;type="bean|applet"  code="<i><code>classFileName</code></i>"	
+&nbsp;&nbsp;&nbsp;codebase="<i><code>classFileDirectoryName</code></i>"	
+&nbsp;&nbsp;&nbsp;[ name="<i><code>instanceName</code></i>" ]  [ archive="<i><code>URIToArchive, ...</code></i>" ]	
+&nbsp;&nbsp;&nbsp;[ align="bottom|top|middle|left|right" ]	
+&nbsp;&nbsp;&nbsp;[ height="{<i><code>displayPixels</code></i> | %= expression %}" ]	
+&nbsp;&nbsp;&nbsp;[ width="{<i><code>displayPixels</code></i> | %= expression %}"]	
+&nbsp;&nbsp;&nbsp;[ hspace="<i><code>leftRightPixels</code></i>" ]  [ vspace="<i><code>topBottomPixels</code></i>" ]	
+&nbsp;&nbsp;&nbsp;[ jreversion="<i><code>JREVersionNumber </code></i>| 1.2" ]	
+&nbsp;&nbsp;&nbsp;[ nspluginurl="<i><code>URLToPlugin</code></i>" ]	
+&nbsp;&nbsp;&nbsp;[ iepluginurl="<i><code>URLToPlugin</code></i>" ]  &gt;	
+&nbsp;&nbsp;&nbsp;[ &lt;jsp:params&gt;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ &lt;jsp:param name="<i><code>parameterName</code></i>"	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="{<i><code>parameterValue</code></i> | %= expression %}" /&gt; ]+	
+&nbsp;&nbsp;&nbsp;&lt;/jsp:params&gt; ]	
+&nbsp;&nbsp;&nbsp;[ &lt;jsp:fallback&gt;  <i><code>text message if plugin download fails	
+</code></i>&nbsp;&nbsp;&nbsp;&lt;/jsp:fallback&gt;  ]	
+&lt;/jsp:plugin&gt;
+</pre></blockquote><a name="9248"> </a>
+<h4> Examples</h4>
+<blockquote><pre>&lt;jsp:plugin type=applet code="Molecule.class" codebase="/html"&gt;	
+&nbsp;&nbsp;&nbsp;&lt;jsp:params&gt;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;jsp:param name="molecule" value="molecules/benzene.mol" /&gt;	
+&nbsp;&nbsp;&nbsp;&lt;/jsp:params&gt;	
+&nbsp;&nbsp;&nbsp;&lt;jsp:fallback&gt;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Unable to load applet&lt;/p&gt;	
+&nbsp;&nbsp;&nbsp;&lt;/jsp:fallback&gt;	
+&lt;/jsp:plugin&gt;
+</pre></blockquote><a name="9252"> </a>
+<h4> Description</h4>
+<p><a name="9253"> </a>
+The <code>&lt;jsp:plugin&gt;</code> element plays or dispays an object (typically an applet or bean) in the client web browser, using a Java plug-in that is built in to the browser or downloaded from a specified URL.
+</p><p><a name="18976"> </a>
+When the JSP page is translated and compiled and Java and sends back an HTML response to the client, the <code>&lt;jsp:plugin&gt;</code> element is replaced by either an <code>&lt;object&gt;</code> or <code>&lt;embed&gt;</code> element, according to the browser version. The <code>&lt;object&gt;</code> element is defined in HTML 4.0 and <code>&lt;embed&gt;</code> in HTML 3.2.
+</p><p><a name="18961"> </a>
+In general, the attributes to the <code>&lt;jsp:plugin&gt;</code> element specify whether the object is a bean or an applet, locate the code that will be run, position the object in the browser window, specify an URL from which to download the plug-in software, and pass parameter names and values to the object. The attributes are described in detail in the next section.
+</p><a name="10937"> </a>
+<h4> Attributes</h4>
+<ul><a name="10935"> </a>
+<li><code>type="bean|applet"</code>
+<dl>
+<a name="11588"><!-- --></a>
+<p><dd>The type of object the plug-in will execute. You must specify either <code>bean</code> or <code>applet</code>, as this attribute has no default value.
+<p>
+</dl>
+<a name="11514"> </a>
+<li><code>code="</code><i><code>classFileName</code></i><code>"</code>
+<dl>
+<a name="11676"><!-- --></a>
+<p><dd>The name of the Java class file the plug-in will execute. You must include the <code>.class</code> extension in the name. The class file you specify should be in the directory named in the <code>codebase</code> attribute. 
+<p>
+</dl>
+<a name="11515"> </a>
+<li><code>codebase="</code><i><code>classFileDirectoryName</code></i><code>"</code>
+<dl>
+<a name="11677"><!-- --></a>
+<p><dd>The directory (or path to the directory) that contains the Java class file the plug-in will execute. If you do not supply a value, the path of the JSP page that calls <code>&lt;jsp:plugin&gt;</code> is used. 
+<p>
+</dl>
+<a name="11547"> </a>
+<li><code>name="</code><i><code>instanceName</code></i><code>"</code>
+<dl>
+<a name="11678"><!-- --></a>
+<p><dd>A name for the instance of the bean or applet, which makes it possible for applets or Beans called by the same JSP page to communicate with each other. 
+<p>
+</dl>
+<a name="11553"> </a>
+<li><code>archive="</code><i><code>URIToArchive</code></i><code>, ..."</code>
+<dl>
+<a name="11679"><!-- --></a>
+<p><dd>A comma-separated list of pathnames that locate archive files that will be preloaded with a class loader located in the directory named in <code>codebase</code>. The archive files are loaded securely, often over a network, and typically improve the applet's performance.
+<p>
+</dl>
+<a name="11516"> </a>
+<li><code>align="</code><strong>bottom</strong><code>|top|middle|left|right"</code>
+<dl>
+<a name="11680"><!-- --></a>
+<p><dd>The position of the image, object, or applet. The position descriptions listed below use the term <em>text line</em> to mean the line in the viewable JSP page that corresponds to the line in the JSP page where the <code>&lt;jsp:plugin&gt;</code> element appears. The allowed values for <code>align</code> are listed below:
+<p>
+<a name="11699"><!-- --></a>
+<p><dd><code>bottom</code>&nbsp;&nbsp;&nbsp;Aligns the bottom of the image with the baseline of the text line.
+<p>
+<a name="11700"><!-- --></a>
+<p><dd><code>top</code>&nbsp;&nbsp;&nbsp;Aligns the top of the image with the top of the text line.
+<p>
+<a name="11701"><!-- --></a>
+<p><dd><code>middle</code>&nbsp;&nbsp;&nbsp;Aligns the vertical center of the image with the baseline of the text line.
+<p>
+<a name="11702"><!-- --></a>
+<p><dd><code>left</code>&nbsp;&nbsp;&nbsp;Floats the image to the left margin and flows text along the image's right side.
+<p>
+<a name="11703"><!-- --></a>
+<p><dd><code>right</code>&nbsp;&nbsp;&nbsp;Floats the image to the right margin and flows text along the image's left side.	
+<p>
+</dl>
+<a name="11518"> </a>
+<li><code>height="{</code><i><code>displayPixels</code></i><code> </code><code>|  &lt;%= </code><i><code>expression</code></i><code> %&gt;}</code><code>"</code>
+</ul><blockquote><pre><code>&nbsp;&nbsp;&nbsp;width="{</code><i><code>displayPixels</code></i><code> </code><code>|  &lt;%= </code><i><code>expression</code></i><code> %&gt;}</code><code>"
+</code><dl>
+<a name="11681"><!-- --></a>
+<p><dd>The initial height and width, in pixels, of the image the applet or bean displays, not counting any windows or dialog boxes the applet or bean brings up.
+<p>
+</dl>
+</pre></blockquote><ul><a name="11568"> </a>
+<li><code>hspace="</code><i><code>leftRightPixels</code></i><code>"</code>
+</ul><blockquote><pre>&nbsp;&nbsp;&nbsp;vspace="<code>topBottomPixels</code>"
+<dl>
+<a name="11706"><!-- --></a>
+<p><dd>The amount of space, in pixels, to the left and right (or top and bottom) of the image the applet or bean displays. The value must be a nonzero number. Note that hspace creates space to both the left <em>and</em> right and vspace creates space to both the top <em>and</em> bottom.
+<p>
+</dl>
+</pre></blockquote><ul><a name="11520"> </a>
+<li><code>jreversion="</code><i><code>JREVersionNumber</code></i><code>|</code><strong>1.2</strong><code>"</code>
+<dl>
+<a name="11685"><!-- --></a>
+<p><dd>The version of the Java Runtime Environment (JRE) the applet or bean requires. The default value is 1.2.
+<p>
+</dl>
+<a name="11525"> </a>
+<li><code>nspluginurl="</code><i><code>URLToPlugin</code></i><code>"</code>
+<dl>
+<a name="11686"><!-- --></a>
+<p><dd>The URL where the user can download the JRE plug-in for Netscape Navigator. The value is a full URL, with a protocol name, optional port number, and domain name.
+<p>
+</dl>
+<a name="11526"> </a>
+<li><code>ie</code><code>pluginurl="</code><i><code>URLToPlugin</code></i><code>"</code>
+<dl>
+<a name="11687"><!-- --></a>
+<p><dd>The URL where the user can download the JRE plug-in for Internet Explorer. The value is a full URL, with a protocol name, optional port number, and domain name.
+<p>
+</dl>
+<a name="11538"> </a>
+<li><code>&lt;jsp:params&gt;</code>
+</ul><blockquote><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ &lt;jsp:param name="<i><code>parameterName</code></i>"	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="{<i><code>parameterValue</code></i> | &lt;%= <i><code>expression</code></i> %&gt;}" /&gt; ]+	
+&nbsp;&nbsp;&nbsp;&lt;/jsp:params&gt;
+<dl>
+<a name="11688"><!-- --></a>
+<p><dd>The parameters and values that you want to pass to the applet or bean. To specify more than one parameter value, you can use more than one <code>&lt;jsp:param&gt;</code> element within the <code>&lt;jsp:params&gt;</code> element. 
+<p>
+<a name="18637"><!-- --></a>
+<p><dd>The <code>name</code> attribute specifies the parameter name and takes a case-sensitive literal string. The <code>value</code> attribute specifies the parameter value and takes either a case-sensitive literal string or an expression that is evaluated at runtime.
+<p>
+<a name="18595"><!-- --></a>
+<p><dd>If the dynamic resource you are passing the parameter to is an applet, it reads the parameter with the <code>java.applet.Applet.getParameter</code> method.
+<p>
+</dl>
+</pre></blockquote><ul><a name="11583"> </a>
+<li><code>&lt;jsp:fallback&gt; </code><i><code>text message for user</code></i><code> &lt;/jsp:fallback&gt;</code>
+<dl>
+<a name="11691"><!-- --></a>
+<p><dd>A text message to display for the user if the plug-in cannot be started. If the plug-in starts but the applet or bean does not, the plug-in usually displays a popup window explaining the error to the user.
+<p>
+</dl>
+</ul><a name="19029"> </a>
+<h4> See Also</h4>
+<ul><a name="19035"> </a>
+<li>The HTML 3.2 specification: <a href="http://www.w3.org/TR/REC-html32.html">http://www.w3.org/TR/REC-html32.html</a>
+<a name="19036"> </a>
+<li>The HTML 4.0 specification: <a href="http://www.w3.org/TR/REC-html40">http://www.w3.org/TR/REC-html40/</a>
+</ul>
+<hr><br>
+ 
+<a href="syntaxref12.html">Contents </a> | <a href="syntaxref1214.html">Prev</a> | <a href="syntaxref1216.html">Next</a></a>
+<hr><br>
+
+
+
+<i>Copyright &#169; 2002, Sun Microsystems, Inc.   All rights
+reserved.</i>
+
+
+</body>
+</html>

@@ -1,0 +1,591 @@
+<html>
+	<head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+		  <a href="../convencionesjsp.html">Ir al inicio</a> | 
+		  <a href="organizaciondeficheros.html">Anterior</a> | 
+		  <a href="comentarios.html">Siguiente</a></a><br>
+
+<h2>Identación</h2>
+<ul>
+		  <li>Identación de Elementos de Script</li>
+		  <li>Identación Compuesta con JSP, HTML y Java</li>
+</ul>
+
+<h4>Comentarios</h4>
+<ul>
+		  <li>Comentarios</li>
+		  <li>Comentarios del Lado del Cliente</li>
+		  <li>Bloques de Comentarios Multi-línea</li>
+</ul>
+
+<h4>Declaraciones JSP</h4>
+<h4>Scriptlets JSP</h4>
+
+<h4>Expresiones JSP</h4>
+
+<h4>Espacios en Blanco</h4>
+    9.1 . Líneas en Blanco 
+    9.2 . Espacios en Blanco 
+	 
+<h4>Convenciones de Nombres</h4>
+<ul>
+		  <li>Nombres JSP</li>
+		  <li>Nombres de Etiquetas</li>
+		  <li>Nombres de Prefijos de Etiquetas</li>
+</ul>
+
+<h4>Páginas JSP con Sintaxis XML</h4>
+<ul>
+		  <li>Estructura de un Documento JSP</li>
+		  <li>Comentarios XML</li> 
+		  <li>Código Java en Documentos JSP</li>
+</ul>
+		  
+<h4>Prácticas de Programación</h4>
+<ul>
+	 	  12.1 . Inicialización de JavaBeans 
+    12.2 . Objetos Implícitos de JSP 
+    12.3 . Entrecomillado 
+    12.4 . Usar Etiquetas Personalizadas 
+    12.5 . Uso de TagExtraInfo y TagLibraryValidator 
+    12.6 . Usar JavaScript 
+    12.7 . Hojas de Estilo en Cascada (CSS) 
+    12.8 . Usar Patrones de Vistas Compuestos 
+    12.9 . Otras Recomendaciones 
+</ul>
+
+
+
+Identación
+Las identaciones se deberían rellenar con espacios en banco. Los "tabs" causan diferentes interpretaciones en el espaciado de caracteres en diferentes editores y no se deberían utilizar para identación dentro de una JSP. A menos que esté restringido por las herramientas IDE particulares, una unidad de identación corresponde a 4 espacios. Aquí tenemos un ejemplo: 
+
+<myTagLib:forEach var="client" items="${clients}">
+    <myTagLib:mail value="${client}" />
+</myTagLib:forEach>
+Un continuación de identación alinea las líneas siguientes de un bloque con un punto apropiado de la línea anterior. La continuación de identación es un múltiplo de las unidades normales de identación (múltiples bloques de 4 espacios en blanco: 
+
+<%@ page    attribute1="value1" 
+    attribute2="value2"
+    ...
+    attributeN="valueN" 
+%>
+Identación de Elementos de Script
+Cuando un elemento de Script JSP (como una declaración, un scriptlet o una expresión) no entran en una sola línea, se aplican las convenciones de identación adoptadas del lenguaje de Script. el cuerpo empieza en la misma línea de que el símbolo de apertura del elemento <%=, y desde una nueva línea del símbolo de apertura <%=. Entonces el cuerpo se termina con un símbolo de cierre del elemento (%>) en una línea separada. Por ejemplo: 
+
+<%= (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) 
+        = Calendar.SUNDAY) ? 
+    "Sleep in" : 
+    "Go to work" 
+%>
+Las líneas dentro del cuerpo que no contienen ningún símbolo de apertura o de cierre se preceden con una unidad de identación normal. Para hacer que el cuerpo se identificable del resto del JSP. 
+
+Identación Compuesta con JSP, HTML y Java
+La identación compuesta, para elemento JSP mezclados con código Java y plantillas de texto (HTML), es necesaria para reducir el esfuerzo para comprender una fichero fuente JSP. Este es porque la identación normal podría hacer que visualizar un fichero fuente JSP fuera una tarea ardua. Como regla general, se aplica una unidad extra de identación normal a todo elemento introducido dentro d otro. Observa que esto altera las identaciones de la salida final producida por el lado del cliente. Sin embargo el navegador normalmente ignora las identaciones adicionales y no tienen efecto sobre la salida renderizada. Por ejemplo, añadir más de un espacio en blanco antes de una etiqueta <TABLE> no cambia la posición de la tabla. Por eso, aplicar esta convención para identación la hace parecer más bonita: 
+
+<table>
+        <%  if ( tableHeaderRequired ) { %>
+ <tr>
+     <th>Last Name</th>
+     <th>First Name</th>
+ </tr>
+        <%  } %>
+        <c:forEach var="customer" items="${customers}">
+ <tr>
+     <td><c:out value="${customer.lastName}"/></td>
+     <td><c:out value="${customer.firstName}"/></td>
+ </tr>
+        </c:forEach>
+    </table>
+que esta: 
+
+    <table>
+        <%  if ( tableHeaderRequired ) { %>
+        <tr>
+ <th>Last Name</th>
+ <th>First Name</th>
+        </tr>
+        <% } %>
+        <c:forEach var="customer" items="${customers}">
+        <tr>
+ <td><c:out value="${customer.lastName}"/></td>
+ <td><c:out value="${customer.firstName}"/></td>
+        </tr>
+        </c:forEach>
+    </table>
+comentarios
+Los comentarios se utilizan para describir información adicional o los propósitos del código cercano. Aquí tenemos dos tipos para los ficheros JSP: uno para JSP y otro para comentarios del lado del cliente. 
+
+Comentarios
+Los comentarios JSP (también conocidos como comentarios del lado del servidor) sólo son visibles en el lado del servidor (es decir, no se propagan al lado del cliente. Se prefieren los comentarios puros JSP sobre los comentarios JSP con comentarios de scripts, ya que los primeros son menos dependientes del lenguaje de script subyacente, y será más fácil evolucionarlos a JSP 2.0. La siguiente tabla ilustra esto: 
+
+Línea  Scriptlet JSP con comentario del lenguaje de scripting  Comentario JSP puro  
+single     <% /**  ...  */ %>
+    <% /*  ...  */ %>
+    <% //  ...  %>    
+     <%--  ...  --%>
+ 
+múltiple     <% 
+    /*
+     *
+    ...
+     *
+     */ 
+    %>
+     <%--
+      -
+     ...
+      -
+      -- %>
+ 
+      <% 
+    //
+    //
+    ...
+    //
+    %>
+ 
+
+Comentarios del Lado del Cliente
+Los comentarios del lado del cliente (<!-- ... -->) se pueden utilizar para anotar respuestas enviadas al cliente con información adicional sobre las respuestas. No deberían contener información sobre el comportamiento y al estructura interna de la aplicación en el servidor o del código generado en las respuestas. 
+
+Normalmente se desaconseja el uso de comentarios del lado del cliente, ya que el cliente/usuario no necesita leer este tipo de comentarios directamente para poder interpretar las respuestas recibidas. Hay una excepción para autentificación y propósitos legales como una información de copyright. Otra excepción es para que los autores de HTML utilicen una pequeña cantidad de comentarios HTML para guiar la estructura del documento HTML, por ejemplo: 
+
+<!-- toolbar section -->
+    ...
+<!-- left-hand side navigation bar -->
+    ...
+<!-- main body -->
+    ...
+<!-- footer -->
+    ...
+Bloques de Comentarios Multi-línea
+Un bloque de comentario multi-línea, tanto JSP como del lado del cliente, se decora con el carácter guión "-". En la especificación XML, el string doble-guión "--" no está permitido dentro de un bloque de comentarios XML. Así, por compatibilidad y consistencia con esta especificación, no debemos utilizar dobles-guiones para decorar líneas de comentarios dentro de un bloque de comentarios de varias líneas. La siguiente tabla ilustra esta preferencia usando un bloque de comentarios del lado del servidor: 
+
+Preferido  No-Compatible con XML  
+    <!--
+          - line 1
+          - line 2
+           ...
+   -->
+     <!--
+      -- line 1
+      -- line 2
+      ...
+    -->
+ 
+
+Declaraciones JSP
+Al igual que en las convenciones de código Java, las declaraciones de variables de los mismos tipos deberían ir en línea separadas: 
+
+No recomendado  Recomendado  
+    <%! private int x, y; %>     <%! private int x; %>
+    <%! private int y; %>
+ 
+
+Los JavaBeans no se deberían declarar ni ejemplarizar usando declaraciones JSP, sino que se debería utilizar la etiqueta <jsp:useBean>. 
+
+En general, se desaconsejan las declaraciones JSP para variables, ya que usan el lenguaje de script para mezclar la lógica de negocio y el código Java en un JSP que está diseñado para propósitos de presentación, y debido a la sobrecarga del manejo del ámbito de las variables. 
+
+Scriptlets JSP
+Siempre que sea posible, debemos evitar usar scriptlets JSP mientras que las librerías de etiquetas proporcionen una funcionalidad similar. Esto hace que las páginas JSP sean más fáciles de leer y de mantener, ayuda a separar la lógica de negocios de la lógica de presentación, y hará que nuestras páginas evoluciones más fácilmente al estilo JSP 2.0. (JSP 2,0 soporta, pero no favorece el uso de scriptlets). En los siguientes ejemplos, por cada representación de tipo de datos del cliente se debe escribir un scriptlet: 
+
+customers como un array de Customers: 
+
+<table>
+        <%  for ( int i=0; i<customers.length; i++ ) { %>
+ <tr>
+     <td><%= customers[i].getLastName() %></td>
+     <td><%= customers[i].getFirstName() %></td>
+ </tr>
+        <%  } %>
+    </table>
+customers como una Enumeration: 
+
+    <table>
+        <%  for ( Enumeration e = customers.elements();
+     e.hasMoreElements(); ) { 
+     Customer customer = (Customer)e.nextElement();
+        %>
+ <tr>
+     <td><%= customer.getLastName() %></td>
+     <td><%= customer.getFirstName() %></td>
+ </tr>
+        <%  } %>
+    </table>
+Sin embargo, si se utilizara una librería común, hay una alta flexibilidad al utilizar los distintos tipos de customers. Por ejemplo, en la Librería de Etiquetas Estándar de JSO, el siguiente fragmento de código JSP soportará las representaciones de array y de Enumeration de customers: 
+
+    <table>
+        <c:forEach var="customer" items="${customers}">
+ <tr>
+     <td><c:out value="${customer.lastName}"/></td>
+     <td><c:out value="${customer.firstName}"/></td>
+ </tr>
+        </c:forEach>
+    </table>
+En el espíritu de adoptar el modelo del patrón de diseño Modelo-Vista-Controlador (MVC) para reducir el acoplamiento entre la capa de presentación de la lógica de negocio, no se debería usan scriptlets JSP para escribir lógica de negocio. En vez de eso, usaremos los scriptlets si necesario transformar datos (también llamados "objeto valor") devueltos desde el procesamiento de las solicitudes del cliente en un formato listo para el cliente apropiado. Incluso entonces, esto se podría hacer mejor desde un servlet controlador o desde una etiqueta personalizada. Por ejemplo, el siguiente ejemplo recoge los nombres de los clientes desde una base de datos y los muestra directamente en el cliente: 
+
+<%
+    // NOT RECOMMENDED TO BE DONE AS A SCRIPTLET!
+
+    Connection conn = null;
+    try {
+        // Get connection
+        InitialContext ctx = new InitialContext();
+        DataSource ds = (DataSource)ctx.lookup("customerDS");
+        conn = ds.getConnection();
+        // Get customer names
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT name FROM customer");
+        // Display names
+        while ( rs.next() ) {
+            out.println( rs.getString("name") + "<br>");
+        }
+    } catch (SQLException e) {
+        out.println("Could not retrieve customer names:" + e);
+    } finally {
+        if ( conn != null ) 
+        conn.close();
+    }
+%>
+El siguiente fragmento de código JSP es mejor ya que delga la interacción con la base de datos en una etiqueta personalizada myTags:dataSource que encapsula y oculta la dependencia del código de la base de datos en su implementación: 
+
+<myTags:dataSource
+    name="customerDS"
+    table="customer" 
+    columns="name"
+    var="result" />
+<c:forEach var="row" items="${result.rows}">
+    <c:out value="${row.name}" />
+    <br />
+</c:forEach>
+result es una variable de scripting introducida por la etiqueta personalizada myTags:dataSource para contener el resultado de recuperar los nombres de los clientes desde la base de datos. El código JSP también se puede mejorar para generar distintos tipos de salidas (HTML, XML, WML) basándose dinámicamente en las necesidades del cliente, sin impactar en el código final (para la etiqueta dataSource). Una mejor opción es delegar esto en un servlet controlador que realice la recuperación de los datos y proporcione el resultado al JSP a través de un atributo del ámbito de la solicitud. 
+
+En Suma: 
+
+Idealmente los scriptles JSP no deberían existir en un JSP para que el JSP sea independiente del lenguaje de script, y se evite la implementación de la lógica de negocio dentro del JSP. 
+Si no es posible, usaremos objetos valor (JavaBeans) para llevar información desde y hacia el lado del servidor, y usaremos scriptles JSP para transformar estos objetos en salidas para el cliente. 
+Utilizaremos etiquetas personalizadas siempre que sea posible para procesar la información en el lado del servidor. 
+Expresiones JSP
+Las expresiones JSO se deberían utilizar casi tan espartanamente como los scriptlets. Para ilustrar esto, vemos los tres siguientes ejemplos que realizan tareas. 
+
+Ejemplo1 (con código Java explícito): 
+
+   <%= myBean.getName() 
+       %>
+       Ejemplo 2 (con etiqueta JSP): 
+
+   <jsp:getProperty name="myBean" 
+       property="name" />
+Ejemplo 3 (con etiqueta JSTL): 
+
+   <c:out value="${myBean.name}" 
+       />;
+El ejemplo 1 asume que se declara una variable de script llamada myBean. Los otros dos ejemplos asumen que myBean es un atributo que se puede encontrar usando PageContext.findAttribute(). El segundo ejemplo también asume que myBean se introdujo en la página usando <jsp:useBean>. 
+
+De los tres ejemplos, el preferido es el de la etiqueta JSTL. Es casi tan corto como la expresión JSP, casi tan fácil de leer y de mantener, y no trata con scriptlets Java (lo que requeriría que el desarrollador Web estuviera familiarizado con el lenguaje y las llamadas al API). Además, hace que la página se puede transportar fácilmente al estilo de programación JSP 2.0, donde esto se podría conseguir simplemente escribiendo ${myBean.name} en la plantilla de texto. Independientemente de la elección adoptada, debería hacerse de acuerdo con los desarrolladores web y de forma consistente en todos los JSPs producidos en el mismo proyecto. Deberíamos observar que el ejemplo JSTL realmente es algo diferente en que obtiene el valor de myBean desde el contexto de la página en lugar de desde una variable de script local. 
+
+Finalmente, las expresiones JSP tienen preferencia sobre los scriptlets JSP equivalentes lo que tiene que ver con la sintaxis del lenguaje de script subyacente. Por ejemplo: 
+
+<%= x %> Tiene preferencia sobre :
+
+    <% out.print( x ); %>Espacios en Blanco
+Los espacios en blanco mejoran la identación embelleciendo el código JSP para reducir el esfuerzo de comprensión y mantenimiento. En particular se deberían insertar líneas y espacios en blanco en varias localizaciones de un fichero JSP siempre que sea necesario. 
+
+Líneas en Blanco
+Las líneas en blanco se utilizar para mejorar la legibilidad del JSP, aprovechando que no producen efectos secundarios sobre la salida. En el ejemplo de abajo, se inserta una línea en blanco entre dos expresiones JSP dentro de un bloque <PRE> HTML hace que se inserte una línea en blanco extra en la salida HTML visible en el navegador del cliente. Sin embargo, si la línea en blanco no está dentro de un bloque <PRE>, el efecto no es visible en la salida del navegador. 
+
+Sentencias JSP  Salida HTML en el cliente  
+    <pre>
+    <%= customer.getFirstName() %>
+    <%= customer.getLastName() %>
+    </pre>
+     Joe
+    Block
+     
+    <pre>
+    <%= customer.getFirstName() %>
+        
+    <%= customer.getLastName() %>
+    </pre>
+     Joe
+    
+    Block
+ 
+    <%= customer.getFirstName() %>
+
+    <%= customer.getLastName() %>
+     Joe Block
+ 
+
+Espacios en Blanco
+Se debería insertar un espacio en blanco entre una etiqueta JSP y su cuerpo. Por ejemplo: 
+
+    <%= customer.getName() %>
+Es mejor que: 
+
+    <%=customer.getName()%>
+También debería haber espacios en blanco separando las etiquetas de comentario de los propios comentarios: 
+
+<%-- 
+  - a multi-line comment broken into pieces, each of which
+  - occupying a single line.
+  --%>
+<%-- a short comment --%>
+Convenciones de Nombres
+Aplicar convenciones de nombrado hace que los elementos de nuestros componentes web sean más fáciles de identificar, clasificar y coordinar. En esta sección, veremos estas convenciones específicas para JSP. 
+
+Nombres JSP
+Un nombre (fichero) JSP siempre debería empezar con una letra minúscula. El nombre podría constar de varias palabras, en cuyo caso las palabras se situarán juntas y cada palabra comenzará con una letra mayúscula. Un nombre JSP puede ser un simple nombre o una sentencia corta. Se debe evitar un nombre JSP que sea sólo un verbo, ya que no proporciona suficiente información a los desarrolladores. Por ejemplo: 
+
+perform.jspno es tan claro como 
+
+performLogin.jspEn el caso de que un verbo forme parte de un nombre JSP, se debe utilizar su forma presente como una acción: 
+
+showAccountDetails.jspse prefiere a : 
+
+showingAccountDetails.jspNombres de Etiquetas
+Abajo podemos ver las convenciones de manejadores de etiquetas y sus clases asociadas: 
+
+Descripción  Nombre de Clase  
+XXX tag extra info (descendiente de javax.servlet.jsp.tagext.TagExtraInfo) XXXTEI  
+XXX tag library validator (descendiente de javax.servlet.jsp.tagext.TagLibraryValidator) XXXTLV  
+XXX tag handler interface (descendiente de javax.servlet.jsp.tagext.Tag/IterationTag/BodyTag) XXXTag  
+XXX tag handler implementation XXXTag  
+
+Además, los nombres de etiquetas no deben violar las convenciones de nombres de clases e interfaces que se especifican en la convención de codificación de código Java. 
+
+Para distinguir una clase de una etiqueta importante de otras clases, se puede aplicar un sufijo de paquete, de etiqueta o de librería de etiquetas al nombre de paquete de la clase, por ejemplo: 
+
+com.mycorp.myapp.tags.XXXTagNombres de Prefijos de Etiquetas
+Un prefijo de etiqueta debería ser un nombre corto pero significativo, y el primer carácter debería ser en minúsculas. Un prefijo de etiqueta no debería contener caracteres no-alfabéticos. Aquí tenemos algunos ejemplo: 
+
+Ejemplo  OK?  
+mytaglib  no 
+myTagLib  si 
+MyTagLib  no 
+MyTagLib1  no 
+My_Tag_Lib  no 
+My$Tag$Lib  no 
+
+Páginas JSP con Sintaxis XML
+JSP proporciona dos sintaxis distintas: una 'sintaxis estándar' para escribir páginas JSP y una 'sintaxis XML' para escribir JSP como un documento XML. Las JSPs que se escriben usando la sintaxis estándar son conocidas como 'Páginas JSP'; y las que se escriben usando la sintaxis XML son conocidas como "Documentos JSP'. Este artículo se dirige principalmente a las páginas JSP, pero muchos de los conceptos se pueden aplicar también a los documentos JSP. Se espera que el uso de documentos JSP se incremente según vaya creciendo la utilización de XML, y para corregir esto la especificación JSP 2.0 presentará una sintaxis XML mucho más amigable. 
+
+Se debería observar que la sintaxis XML usada por el autor de JSPs es distinta y normalmente se confunde con la vista XML de una página JSP. El autor de la página usa la sintaxis estándar o XML para crear el JSP. Pero el contenedor la traduce a su vista XML, que se expone en la Tag Library Validators. 
+
+Estructura de un Documento JSP
+Los documentos JSP tienen las siguiente estructura básica: 
+
+    <? xml version="1.0" ?>
+    <!-- 
+      - Author(s): 
+      - Date:
+      - Copyright Notice:
+      - @(#)
+      - Description:
+      -->
+    <jsp:root   xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:prefix1="URI-for-taglib1"
+     xmlns:prefix2="URI-for-taglib2"
+     version="1.2">
+        JSP Document ...
+    </jsp:root>
+La primera línea es un Prólogo XML opcional que define la página como un documento XML. Después del prólogo opcional vienen los comentarios del documento. El elemento <jsp:root> define este como un Documento JSP y debe aparecer como el elemento raíz. Se debe importar el espacio de nombres jsp, y todas las librerías de etiquetas se deben importar utilizando este elemento raíz. El atributo version es obligatorio y especifica qué versión de JSP se está utilizando. El contenido real del documento JSP aparece como sub-elementos del elemento <jsp:root>. Se deberían aplicar las reglas de identación estándar de XML en todo el documento, usando 4 espacios en blanco como una simple unidad de identación. 
+
+Un Documento JSP debe ser un documento XML bien-formateado, por eso algunos elementos, como <% %> deben ser reemplazados por sus equivalentes XML, como <jsp:scriptlet />. 
+
+Comentarios XML
+La especificación JSP no es muy clara sobre como se ponen en la salida los comentarios del estilo XML, por eso para estar seguros de si se pretende que un comentario llegue al cliente, debería encerrarse en un nodo <jsp:text>, de esta forma: 
+
+    ...
+    <jsp:text><![CDATA[
+        <!--
+          - Multiline comment
+          - to be sent to client.
+          -->
+    ]]></jsp:text>
+    ...
+Código Java en Documentos JSP
+Cuando se escribe código Java dentro de declaraciones, scriptlets, y expresiones, se debería utilizar un elemento CDATA siempre que sea necesario para asegurar que nuestro código no nombre la estructura del documento. 
+
+    ...
+    <jsp:scriptlet>
+        for( int level = 0; level < 3; level++ ) {
+    </jsp:scriptlet>
+    <tr>
+        <td>
+            <jsp:expression><![CDATA[
+                "<h" + level + ">Text</h" + level + ">"
+            ]]></jsp:expression>
+        </td>
+    </tr>
+    <jsp:scriptlet>
+        }
+    </jsp:scriptlet>
+    ...
+Al contrario que los de la sintaxis estándar, se debe seguir las reglas de identación XML sin importar los contenidos de un elemento. 
+
+Prácticas de Programación
+En general, debemos evitar escribir código Java (declaraciones, scriptlets e expresiones) en nuestras páginas JSP, por estas razones: 
+
+Los errores de sintaxis en el código Java de un página JSP no se detectan hasta que la página se ha desplegado. Por otro lado, los errores de sintaxis en librerías de etiquetas y servlets se detectan con anterioridad. 
+El código Java en páginas JSP es difícil de depurar. 
+El código Java en páginas JSP es difícil de mantener, especialmente para los autores de la página que podrían no ser expertos en Java. 
+Es una práctica generalmente aceptada no mezclar lógicas de negocio complejas con la lógica de presentación. Las páginas JSP se crearon principalmente para la lógica de presentación. 
+El código que contenga código Jaba, HTML y otras instrucciones de script puede ser muy difícil de leer. 
+JSP 2.0 desaconseja los scriptlets en favor de un lenguaje de expresiones más simple. Será más fácil evolucionar nuestras páginas hacia el estilo de programación JSP 2.0 si no usamos código Java en nuestras páginas. 
+Inicialización de JavaBeans
+JSP proporciona un elemento conveniente para inicializar todas las propiedades identificadas por un PropertyDescriptor de un JavaBean, por ejemplo: 
+
+    <jsp:setProperty name="bankClient" property="*"/>
+Sin embargo, esto se debería utilizar con cuidado. Primero, si el bean tiene una propiedad, digamos amount, y no existe dicho parámetro (amount) en el objeto ServletRequest actual o el valor del parámetro es "", no se hace nada: la página JSP ni siquiera usará null para seleccionar esa propiedad particular del bean. Pero, si el valor ya está asignado a amount en el bean bankClient, no le afecta. Segundo, las propiedades no elementales que no tienen definidos PropertyEditors podrían ni ser inicializadas implícitamente desde un valor String del objeto ServletRequest y se podría necesitar una conversión explícita. Tercero. usuarios malintencionados pueden añadir parámetros adicionales a la solicitud, y seleccionar propiedades no deseadas en el bean, si la aplicación no está cuidadosamente diseñada. 
+
+Si aún así preferimos usar property="*" en la etiqueta jsp:setProperty para producir el código anterior, recomendamos que añadas un comentario precediendo a la etiqueta jsp:setProperty indicando los parámetros que deben estar presentes en el objeto ServletRequest para inicializar el bean. Por eso, en el siguiente ejemplo, a través del comentario, sabemos que necesitamos los parámetros firstName y lastName para inicializar el bean bankClient: 
+
+<%--
+  -  requires firstName and lastName from the ServletRequest 
+  --%>
+<jsp:setProperty name="bankClient" property="*" />
+Objetos Implícitos de JSP
+Es preferible el uso de objetos implícitos JSP para obtener referencias a estos objetos en vez de utiliza llamadas al API. Por eso, en lugar de utilizar: 
+
+    getServletConfig().getServletContext().getInitParameter("param")
+para acceder al parámetro de inicialización proporcionado por el ejemplar ServletContext, podemos hacer uso del objeto implícito disponible: 
+
+    application.getInitParameter("param")
+En el caso de que sólo se saque el valor de un parámetro de inicialización, sería incluso mejor utilizar JSTL para acceder a dicho parámetro: 
+
+    <c:out value="${initParam['param']}" />
+Entrecomillado
+Se adopta el uso de entrecomillado uniforma. Se deberían utilizar comillas dobles (") en lugar de dos caracteres apóstrofe ('). 
+
+Entrecomillado No-Uniforme  Entrecomillado Preferido  
+<%@ page import='javabeans.*'%>
+<%@ page import="java.util.*" %>
+ <%@ page import="javabeans.*" %>
+<%@ page import="java.util.*" %>
+ 
+
+Hay una excepción en la que se necesitan los apóstrofes, por ejemplo, cuando se necesitan las dobles comillas dentro del lenguaje de script: 
+
+    <jsp:include page='<%= getFoodMenuBar("Monday") %>' />
+Usar Etiquetas Personalizadas
+Si una etiqueta personalizada no tiene contenido en el cuerpo, el contenido debería declararse explícitamente como vacío (en vez del valor por defecto "JSP"), como en este descriptor de librería de etiquetas 
+
+<tag>
+    <name>hello</name>
+    <tag-class>com.mycorp.util.taglib.HelloTagSupport</tag-class>
+    <body-content>empty</body-content>
+    ...
+</tag>
+Esto le dice al contenedor JSP que el contenido del cuerpo debe estar vacío en vez de contener cualquier sintaxis JSP. El efecto es eliminar la asignación innecesaria de recursos para analizar los contenidos vacíos de un cuerpo. 
+
+Las etiquetas vacías se deberían escribir como elementos cortos de XML, en vez de usar elementos XML de apertura y de cierre, para así mejorar la legibilidad, por eso es preferible <myTag:hello /> que <myTag:hello></myTag:hello>. 
+
+Uso de TagExtraInfo y TagLibraryValidator
+Algunas veces, las formas válidas para usar una librería de etiquetas no se pueden expresar usando sólo TLD. Entonces, se debería escribir una clase TagExtraInfo o una clase TagLibraryValidator y deberíamos registrarlas en el TLD para que poder capturar en tiempo de traducción los errores en la librería de etiquetas. 
+
+Usar JavaScript
+El código JavaScript debería ser independiente de las características particulares de los distintos tipos de navegadores para poder ejecutar los scripts de la forma apropiada. 
+
+Cuando tenga sentido, es una buena idea mantener el código JavaScript en ficheros individuales separados de los cuerpos JSP, y usar sentencias como esta para importar el código JavaScript en las páginas JSP: 
+
+<script language=javascript src="/js/main.js">
+Esto mejora la oportunidad de reutilización del código JavaScript, mantiene el comportamiento consistentes del código JavaScript entre varios JSPs, y reduce la complejidad de las páginas JSP. 
+
+Hojas de Estilo en Cascada (CSS)
+Debemos usar hojas de estilo en cascada para centralizar las características comunes de cabeceras, tablas, etc. Esto mejorará la consistencia de la presentación para los usuarios y reduce el mantenimiento y el tamaño del código de las páginas JSP. Por eso en lugar de embeber la información de estilo en las etiquetas HTML como estas: 
+
+<H1><FONT color="blue">Chapter 1</FONT></H1>
+...
+<H1><FONT color="blue">Chapter 2</FONT></H1>
+...
+Definimos información de estilo en una sola hoja de estilo myJspStyle.css que contiene: 
+
+H1 { color: blue }
+Y aplicamos la hoja de estilo a la página JSP: 
+
+<link rel="stylesheet" href="css/myJspStyle.css" type="text/css">
+...
+<H1>Chapter 1</H1>
+...
+<H1>Chapter 2</H1>
+...
+Usar Patrones de Vistas Compuestos
+Cuando un JSP requiere una estructura compleja que también podría repetirse en otras JSPs, una forma de manejar esto es dividirla en partes, usando el patrón Composite View. Por ejemplo, algunas veces una JSP tiene la siguiente representación: 
+
+header 
+menu bar main body
+
+
+
+
+
+
+
+ 
+footnote 
+footer 
+
+De esta forma, este JSP compuesto se puede dividir en diferentes módulos, cada uno realizado en un JSP separado. Los JSPs constituyente se puede situar en sus localizaciones apropiadas en el JSP compuesto, usando etiquetas JSP include en tiempo de compilación o tiempo de solicitud. En general, cuando se utiliza la directiva include estática para incluir una página que no va a ser solicitada por sí misma, debemos recordar la utilización de la extensión .jspf y situar el fichero en el directorio /WEB-INF/jspf/ de la aplicación Web. Por ejemplo: 
+
+<%@ include file="/WEB-INF/jspf/header.jspf" %>
+...
+<%@ include file="/WEB-INF/jspf/menuBar.jspf" %>
+...
+<jsp:include page="<%= currentBody %>" />
+...
+<%@ include file="/WEB-INF/jspf/footnote.jspf" %>
+...
+<%@ include file="/WEB-INF/jspf/footer.jspf" %>
+...
+Otras Recomendaciones
+En este artículo se han presentado un conjunto de convenciones de codificación para producir código JSP y artefactos Web más fáciles de mantener y más consistentes. Hay otras buenas prácticas que podemos utilizar para conseguir mejorar este objetivo. Por ejemplo, la especificación JSP 1.2 recomienda: 
+
+Definir Nuevos Objetos Implícitos 
+Acceder a Información Específica-de-Vendedor 
+Personalizar una Librería de Etiquetas 
+Además, Java BluePrints ofrece mejores prácticas a mayor escala, como usar el patrón Model-View-Controller 
+
+ 
+Últimos comentarios
+4 comentarios
+De Gran Ayuda (30/05/2003)
+Por Darwin Granda 
+Me parece un muy buen manual "Convenciones de Programacion Java para JSP", pero me gustaria que me pudieran ayudar con este mismo manual en formato pdf.
+Menú dinamico en jsp (16/05/2003)
+Por Eduardo 
+Hola, como puedo hacer un menú dinamico, por ejemplo según un usuario.
+
+gracias,
+
+Edo
+Excelente (06/04/2003)
+Por Augusto Vyhmeister 
+Excelente Tutorial. Siempre es bueno seguir los estandares aplicándolos a la realizadad de la aplicación a contruir o alguna existente. Eso mejora el tiempo de desarrolló, implementación y mantención ( sobre todo la detección de errores)
+Cualquier comentario al respecto pueden comunicarse conmigo.
+
+Convenciones version 0.0.1 beta (05/04/2003)
+Por JoseMiguel 
+Asi como las convenciones de Sun para Java son muy buenas, estas convenciones para JSP las han trabajado muy poco y son propuestas poco utiles.
+De todo el documento solo me parece bien
+- La estructura de directorios
+- Sacar todo el código posible fuera de las páginas JSP, para facilitar debug.
+- El tener JavaScript y CSS en archivos externos  Utilidades
+ Leer comentarios (4) 
+ Escribir comentario 
+  Puntuación:
+    (11 votos) 
+ Votar 
+ Recomendar este artículo 
+ Estadísticas 
+
+ 
+Patrocinados
+  
+ 
+
+Copyright © 1999-2004 Programación en castellano. Todos los derechos reservados
+
+</body>
+</html>

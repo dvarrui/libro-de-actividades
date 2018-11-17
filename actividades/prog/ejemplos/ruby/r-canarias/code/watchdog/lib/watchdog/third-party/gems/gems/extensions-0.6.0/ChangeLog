@@ -1,0 +1,220 @@
+2004-12-09  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* RELEASE: 0.6.0 ===================================================
+	* lib/extensions/array.rb: Implemented Array#only and #rand.
+	* test/tc_array.rb: Test Array#only and #rand.
+	* lib/extensions/module.rb: [NEW] Implemented Module.by_name,
+	  Module#basename, and Module#deep_const_get.
+	* test/tc_module.rb: [NEW] Test the aforementioned Module methods.
+	* lib/extensions/enumerable.rb: Implemented Enumerable#none? and #one?
+	* test/tc_enumerable.rb: Test aforementioned Enumerable methods.
+	* lib/extensions/kernel.rb: Implemented Kernel#relative_require.
+	* test/tc_kernel.rb: Test Kernel#relative_require.
+	* lib/extensions/numeric.rb: Added comment for possible future method.
+	* lib/extensions/all.rb: Included new files module.rb and kernel.rb.
+	* test/data/kernel_test/global_var_1.rb: [NEW] test data file.
+	* test/data/kernel_test/global_var_2.rb: [NEW] test data file.
+	* README: Updated to describe release of 0.6.
+
+2004-10-04  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* RELEASE: 0.5.0 ===================================================
+	* lib/extensions/binding.rb: New file, with Binding.of_caller and
+	  several convenience methods like Binding#eval.
+	* lib/extensions/continuation.rb: New file, with Continuation.create.
+	* lib/extensions/all.rb: Include binding.rb and continuation.rb.
+	* test/tc_binding.rb: Test cases for Binding.
+	* test/tc_continuation.rb: Test cases for Continuation.
+	* README: Updated to describe release of 0.5.
+	* Rakefile: added 'install' target (build and installs gem).
+
+2004-09-23  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* RELEASE: 0.4.0 ===================================================
+	* README: Updated with new release info, included sample code, and
+	  placed links near the beginning.
+	* etc/website/upload.sh: updated RDoc directory location.
+	* install-doc.rb: ditto, plus call 'rake rerdoc'.
+
+2004-07-19  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.9
+	* lib/extensions/ostruct.rb: Override OpenStruct#initialize to
+	  provide initialization via a block
+	* test/tc_ostruct.rb: test OpenStruct#initialize
+
+2004-07-19  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.8
+	* lib/extensions/string.rb: implemented String#join
+	* lib/extensions/object.rb: implemented Object#not_nil?, #non_nil?,
+	  and #define_method
+	* test/tc_{string,object}.rb: test above methods
+	* lib/extensions/_base.rb: made special case for implementing #initialize
+	* lib/extensions/_template.rb: removed some cruft
+
+2004-07-18  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.7
+	* Rakefile: improved gem spec and test target.
+
+2004-07-18  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.6
+	* lib/extensions/array.rb: implemented Array#select!
+	* lib/extensions/hash.rb: implemented Hash#select!
+	  - both methods suggested and implemented by Wayne Vucenic
+	* lib/extensions/all.rb: added array.rb and hash.rb to the require
+	  list (both being new files)
+	* test/tc{array,hash}.rb: added test cases for #select!
+	* Rakefile: added 'methods' task (list extensions methods)
+	* etc/list_methods.rb: removed (Rake handles this now)
+
+2004-07-18  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.5
+	* lib/extensions/io.rb: implemented IO.writelines, and improved
+	  IO.write's documentation.
+	* test/tc_io.rb: tested IO.writelines, and improved IO.write's
+	  test.
+
+2004-07-18  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.4
+	* .cvsignore: updated
+	* etc/release/.cvsignore: deleted
+	* etc/release: removed again
+	* Rakefile: added 'test' target
+
+2004-07-17  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.3
+	* test/TEST.rb: added
+	* etc/release: removed directory and contents (Rake handles packaging
+	  now)
+	* etc/gen-rdoc.rb: removed (Rake handles documentation now)
+	* etc/website/upload.sh: removed (Rake handles website upload now)
+
+2004-07-17  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.2
+	* lib/extensions/*.rb: moved unit tests to extensions/test/tc_*.rb.
+	* test/tc_*.rb: moved unit tests here from library files.
+	* Rakefile: first time in repository.
+
+2004-01-24  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.3.1
+	* lib/extensions/string.rb: more efficient algorithm for #expand_tabs;
+	  thanks to GGaramuno.
+
+2004-01-23  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* RELEASE: 0.3.0 ===================================================
+	* etc/gen-rdoc.sh: removed
+	* etc/gen-rdoc.rb: introduced
+	* install-doc.rb: use gen-rdoc.rb; removed extra 'rdoc' from target
+	  directory path
+	* README: updated information about the new release
+	* etc/checklist: added checklist for creating a new release
+
+2004-01-13  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.14
+	* lib/extensions/enumerable.rb: implemented Enumerable#partition_by
+	  -- idea and code by Jason Creighton.
+
+2004-01-13  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.13
+	* lib/extensions/numeric.rb: formatting options extended to include
+	  currency (:usd, :euro, and :percent); submitted by Austin Ziegler.
+	* lib/extensions/_base.rb: include project name in error messages.
+	* etc/gen-rdoc.sh: explicitly exclude CVS directories.
+
+2003-11-12  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.12
+	* lib/extensions/enumerable.rb: implemented Hash#build_hash as a
+	  workaround to a problem in Ruby that was fixed on 2003-10-24.  Also
+	  added extra documentation to this method.
+
+2003-10-27  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.11
+	* lib/extensions/string.rb: modified String#trim, so that
+	  str.trim('|') now does what str.trim('| ') used to do, and it
+	  handles blank lines properly.  WARNING: non-backwards-compatible.
+
+2003-10-27  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.10
+	* lib/extensions/string.rb: fixed String#leftmost indent (blank lines
+	  threw it off)
+
+2003-10-22  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.9
+	* lib/extensions/string.rb: implemented String#cmp to compare strings
+	* etc/checklist: couple more points
+
+2003-10-22  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.8
+	* lib/extensions/enumerable.rb: more unit tests
+
+2003-10-14  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.7
+	* lib/extensions/string.rb: implemented String#line(*args)
+	* lib/extensions/string.rb: removed test_leftmost_indent as it is a
+          protected method now
+
+2003-10-08  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.6
+	* install-doc.rb: reflects new location for etc/gen-rdoc.sh
+	* README.1st: simplified
+
+2003-10-08  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.5
+	* lib/extensions/object.rb: improved #pp_s documentation
+	* README.html: removed (it's just generated anyway)
+	* README.1st: introduced
+	* etc/doctools/*: moved to etc/
+	* etc/gen-rdoc.sh: no longer copy README.html to root directory
+	* etc/list-methods.rb: adapt library path to new location
+	* README: a bit of tidy-up, and reflect above changes, and some
+	  other recent changes
+
+2003-10-06  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* versions 0.2.4
+	* etc/website/index.html: added; redirects to rdoc/index.html
+	* etc/website/upload.sh: changed to upload index.html and rdoc
+	  directory
+	* etc/doctools/gen-rdoc.sh: only copy README.html to root directory
+	  if -c argument is given
+
+2003-10-06  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.3
+	* lib/extensions/object.rb: Added Object#pp_s to return a
+          pretty-printed string.
+
+2003-10-05  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.2
+	* lib/extensions/enumerable.rb: added Enumerable#mapf and #collectf
+
+2003-10-05  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* version 0.2.1
+	* lib/extensions/symbol.rb: added Symbol#to_proc
+	* lib/extensions/all.rb: include symbol.rb
+	* etc/checklist: added
+
+2003-10-04  Gavin Sinclair <gsinclair@soyabean.com.au>
+
+	* RELEASE: 0.2.0 ===================================================

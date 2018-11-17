@@ -1,0 +1,7 @@
+Only big change was the Makefile looking for -ltcl8.3 when it should have been just -ltcl
+
+
+--
+
+PFJ
+1/8/04

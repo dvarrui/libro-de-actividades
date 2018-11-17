@@ -1,0 +1,9 @@
+<h1>Editing diapositiva</h1>
+
+<% form_tag :action => 'update', :id => @diapositiva do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @diapositiva %> |
+<%= link_to 'Back', :action => 'list' %>

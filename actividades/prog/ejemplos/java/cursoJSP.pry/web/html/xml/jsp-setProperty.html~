@@ -1,0 +1,94 @@
+<html><head><title>Curso JSP (Java Server Pages)</title></head>
+<body bgcolor=#ffffff>
+ 
+		  <a href="../lenguajejsp.html">Lenguaje JSP</a> | 
+		  <a href="jsp-useBean.html">Anterior</a> | 
+		  <a href="jsp-getProperty.html">Siguiente</a></a>
+
+<h2>&lt;jsp:setProperty&gt;</h2>
+<p>Pone un valor a la propiedad del bean.</p>
+
+<h4>Sintaxis JSP</h4>
+<blockquote><pre><code>&lt;jsp:setProperty name="</code><i><code>beanInstanceName</code></i><code>"	
+{ 	
+&nbsp;&nbsp;&nbsp;property="*" |	
+&nbsp;&nbsp;&nbsp;property="</code><i><code>propertyName</code></i><code>"</code> <code>[ param="</code><i><code>parameterName</code></i>" ]<code> |	
+&nbsp;&nbsp;&nbsp;property="</code><i><code>propertyName</code></i><code>" value="{</code><i><code>stringLiteral</code></i><code>| &lt;%= </code><i><code>expression </code></i><code>%&gt;}"	
+}	
+/&gt;
+</code></pre></blockquote>
+
+<h4>Sintaxis XML</h4>
+<blockquote><pre>&lt;jsp:setProperty name="<i><code>beanInstanceName</code></i>"	
+{ 	
+&nbsp;&nbsp;&nbsp;property="*" |	
+&nbsp;&nbsp;&nbsp;property="<i><code>propertyName</code></i>" [ param="<i><code>parameterName</code></i>" ] |	
+&nbsp;&nbsp;&nbsp;property="<i><code>propertyName</code></i>" value="{<i><code>stringLiteral </code></i>| %= <i><code>expression</code></i> %}" 	
+}	
+/&gt;
+</pre></blockquote>
+
+<h4>Ejemplos</h4>
+<blockquote><pre>&lt;jsp:setProperty name="mybean" property="*" /&gt;	
+&lt;jsp:setProperty name="mybean" property="username" /&gt;	
+&lt;jsp:setProperty name="mybean" property="username" value="Steve" /&gt;
+</pre></blockquote>
+
+<h4>Descripción</h4>
+<p>La etiqueta <code>&lt;jsp:setProperty&gt;</code> da un valor a una o más propiedades del bean.</p>
+</p>
+
+<h4>Atributos</h4>
+<ul>
+<li><code>name="</code><i><code>beanInstanceName</code></i><code>"</code>
+<li><code>property="*"</code>
+</ul>
+<p>Los valores de parámetros enviados al servidor desde los clientes siempre son del tipo<code>String</code>. Los valores del tipo <code>String</code> se convierten a otros tipos y almacenan en las propiedades del bean.</p>
+
+<center>
+<Table Border="0">
+<caption><a name="17460"></a>
+<b>TABLE 1 &nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;<caption>How &lt;jsp:setProperty&gt; Conversiones de String</caption>
+</caption>
+<tr><th><p>Tipo de la propiedad</p></th>
+    <th><p>El String se convierte usando</p></th></tr>
+<tr><td><p>Propiedad del bean</p></td><td><p>usar setAsText(<em>stringLiteral</em>)</p></td></tr>
+<tr><td><p>boolean or Boolean</p></td><td><p>java.lang.Boolean.valueOf(String)</p></td></tr>
+<tr><td><p>byte or Byte</p></td><td><p>java.lang.Byte.valueOf(String)</p></td></tr>
+<tr><td><p>char or Character</p></td><td><p>java.lang.String.charAt(0)</p></td></tr>
+<tr><td><p>double or Double</p></td><td><p>java.lang.Double.valueOf(String)</p></td></tr>
+<tr><td><p>integer or Integer</p></td><td><p>java.lang.Integer.valueOf(String)</p></td></tr>
+<tr><td><p>float or Float</p></td><td><p>java.lang.Float.valueOf(String)</p></td></tr>
+<tr><td><p>long or Long</p></td><td><p>java.lang.Long.valueOf(String)</p></td></tr>
+<tr><td><p>short or Short</p></td><td><p>java.lang.Short.valueOf(String)</p></td></tr>
+<tr><td><p>Object</p></td><td><p>new String(string-literal)</p></td></tr>
+</Table>
+</center>
+
+</p><dl><dl>
+<p><dd>Si el parámetro de la petición tiene valor null, la propiedad del bean no actualiza. Tampoco lo hace si no corresponde el valor con el tipo esperado.</p>
+<p>
+</dl>
+</dl>
+<ul>
+<li><code>property="</code><i><code>propertyName</code></i><code>" [ param="</code><i><code>parameterName</code></i><code>" ]</code>
+<dl>
+
+<p><dd>Si la pripiedad del bean y el parámetro de la petición tienen diferente nombre se deben especificar ambos de la forma <code>property</code> y <code>param</code>. Si tienen el mismo nombre se especifica <code>property</code> y se omite <code>param</code>.
+<p>
+<p><dd>Si el parámetro es nulo o está vacío la propiedad no se actualiza.
+<p>
+</dl>
+<li><code>property="</code><i><code>propertyName</code></i><code>" value="{</code><i><code>string</code></i><code> | &lt;%= </code><i><code>expression</code></i><code> %&gt;}"</code>
+<dl>
+<p><dd>Poner un valor a una propiedad. El valor puede ser <code>String</code> o una expresión que se evalúa en tiempo de ejecución. If the value is a <code>String</code>.
+<p>
+</dl>
+</ul>
+
+<h4>Recordar</h4>
+<p>Al usar <code>property="*"</code>, las propiedades del bean no son actualizadas en el orden en que aparecen en el formulario HTML o en el bean. SI el orden actualización de las propiedades es importante usar <code>property="</code><i><code>propertyName</code></i><code>"</code> <code>[ param="</code><i><code>parameterName</code></i><code>" ]</code>. Mejor: reescribre el bean para que el orden no sea importante.
+</p>
+
+</body>
+</html>

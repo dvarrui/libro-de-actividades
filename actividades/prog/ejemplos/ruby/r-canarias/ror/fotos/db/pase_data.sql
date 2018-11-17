@@ -1,0 +1,20 @@
+insert into pases values (1, 'Interesting pictures',  now());
+insert into diapositivas values (1,  1, 1, 1);
+insert into diapositivas values (2,  2, 2, 1);
+insert into diapositivas values (3,  3, 3, 1);
+insert into diapositivas values (4,  4, 4, 1);
+insert into diapositivas values (5,  5, 5, 1);
+insert into diapositivas values (6,  6, 6, 1);
+insert into diapositivas values (7,  7, 7, 1);
+insert into diapositivas values (8,  8, 8, 1);
+insert into diapositivas values (9,  9, 9, 1);
+insert into fotos values (1,  "balboa_park.jpg");
+insert into fotos values (2,  "camel.jpg");
+insert into fotos values (3,  "cat_and_candles.jpg");
+insert into fotos values (4,  "hut.jpg");
+insert into fotos values (5,  "mosaic.jpg");
+insert into fotos values (6,  "polar_bear.jpg");
+insert into fotos values (7,  "police.jpg");
+insert into fotos values (8,  "sleeping_dog.jpg");
+insert into fotos values (9,  "stairs.jpg");
+

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Expresion</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Expresion</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/expresion_rb.html">
+                expresion.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000012">evaluar</a>&nbsp;&nbsp;
+      <a href="#M000013">evaluar1op</a>&nbsp;&nbsp;
+      <a href="#M000011">expr_actual</a>&nbsp;&nbsp;
+      <a href="#M000010">fin?</a>&nbsp;&nbsp;
+      <a href="#M000009">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">expr_inicio</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">traza</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="Expresion.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('Expresion.src/M000009.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(expresionInicial)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="Expresion.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('Expresion.src/M000012.html');return false;">
+          <span class="method-name">evaluar</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Devuelve un <tt>String</tt> con el resultado de evaluar la expresión de
+inicio. Las consultas al método fin? devolverán el valor <tt>true</tt>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Expresion.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Expresion.src/M000013.html');return false;">
+          <span class="method-name">evaluar1op</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Realiza una única operación de simplificación sobre la expresión. El
+método evaluar evalua la expresión hasta calcular que se simplifica
+completamente, pero este método sólo realiza una única operación de
+simplificación. Ejemplo:
+</p>
+<pre>
+  e = Expresion.new &quot;( 4 + 3 ) * 2&quot;
+  e.evaluar1op                     # =&gt; true
+  e.expr_actual                    # =&gt; &quot;( 7.0 ) * 2&quot;
+  e.fin?                           # =&gt; false
+  e.evaluar1op                     # =&gt; true
+  e.expr_actual                    # =&gt; &quot;7.0 * 2&quot;
+  e.fin?                           # =&gt; false
+  e.evaluar1op                     # =&gt; true
+  e.expr_actual                    # =&gt; &quot;14.0&quot;
+  e.fin?                           # =&gt; true
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="Expresion.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('Expresion.src/M000011.html');return false;">
+          <span class="method-name">expr_actual</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Devuelve un String con el valor de la expresión simplificada hasta este
+instante.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="Expresion.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('Expresion.src/M000010.html');return false;">
+          <span class="method-name">fin?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Devuelve <tt>true</tt> cuando se ha terminado de evaluar la expresión.
+Este método se usa en combinación con evaluar1op. Como evaluar1op realiza
+la evaluación de una única operación, seguidamente podemos preguntar a
+fin? para averiguar si se ha terminado de evaluar la expresión
+completamente.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

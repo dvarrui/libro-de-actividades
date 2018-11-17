@@ -1,0 +1,580 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head profile="http://www.w3.org/2000/08/w3c-synd/#"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1st March 2004), see www.w3.org" />
+
+<meta name="keywords" content="W3C, World Wide Web, Web, WWW, Consortium, computer, access, accessibility, semantic, worldwide, W3, HTML, XML, standard, language, technology, link, CSS, RDF, XSL, Berners-Lee, Berners, Lee, style sheet, cascading, schema, XHTML, mobile, SVG, PNG, PICS, DOM, SMIL, MathML, markup, Amaya, Jigsaw, free, open source, software" />
+<meta name="description" content="The World Wide Web Consortium (W3C) is an international consortium where Member organizations, a full-time staff, and the public work together to develop Web standards. W3C primarily pursues its mission through the creation of Web standards and guidelines designed to ensure long-term growth for the Web. Over 400 organizations are Members of the Consortium. W3C is jointly run by the MIT Computer Science and Artificial Intelligence Laboratory (MIT CSAIL) in the USA, the European Research Consortium for Informatics and Mathematics (ERCIM) headquartered in France, Keio University in Japan, and has additional Offices worldwide." />
+
+<title>World Wide Web Consortium</title>
+<link id="meta" rel="rel:meta" href="http://www.w3.org/2000/08/w3c-synd/#meta" />
+<link rel="meta" href="/Overview-about.rdf" />
+<link rel="stylesheet" type="text/css" href="/StyleSheets/home.css" />
+<link rel="bookmark" href="#technologies" title="Technologies |" />
+<link rel="bookmark" href="#news" title="News |" />
+<link rel="bookmark" href="#search" title="Search |" />
+<link rel="contents" href="#contents" title="Contents |" />
+<link rel="bookmark" href="#Offices" title="Offices |" />
+<link rel="bookmark" href="#systems" title="Systems |" />
+<link rel="bookmark" href="#donors" title="Supporters |" />
+<link rel="bookmark" href="#footnotes" title="Footnotes |" />
+<link rel="alternate" type="application/rss+xml" title="W3C Home Page News RSS Channel" href="http://www.w3.org/2000/08/w3c-synd/home.rss" />
+</head>
+
+<body>
+<h1 id="logo"><img alt="The World Wide Web Consortium (W3C)" height="48" width="315" src="/Icons/w3c_main" /></h1>
+
+<h2 id="slogan">Leading the Web to Its Full Potential...</h2>
+
+<div>
+<map name="introLinks" id="introLinks" title="Introductory Links">
+<div class="banner">
+<span class="invisible"><a class="bannerLink" title="Skip introductory links and the mission statement" href="#technologies" shape="rect">Skip to Technologies</a> |</span> <a class="bannerLink" title="W3C Activities" accesskey="A" href="/Consortium/activities" shape="rect">Activities</a> | <a class="bannerLink" title="Technical Reports and Recommendations" accesskey="T" href="/TR/" shape="rect">Technical Reports</a> | <a class="bannerLink" title="Alphabetical Site Index" accesskey="S" href="/Consortium/siteindex" shape="rect">Site Index</a> | <a class="bannerLink" title="Help for new visitors" accesskey="N" href="/Consortium/new-to-w3c" shape="rect">New
+Visitors</a> | <a class="bannerLink" title="About W3C" accesskey="B" href="/Consortium/" shape="rect">About W3C</a> | <a class="bannerLink" title="Join W3C" accesskey="J" href="/Consortium/join" shape="rect">Join W3C</a> |
+<a class="bannerLink" title="Contact W3C" accesskey="C" href="/Consortium/contact" shape="rect">Contact W3C</a>
+</div>
+</map>
+</div>
+
+<p class="small">The World Wide Web Consortium (<acronym title="World Wide Web Consortium">W3C</acronym>) develops interoperable
+technologies (specifications, guidelines, software, and tools) to lead
+the Web to its full potential. W3C is a forum for information,
+commerce, communication, and collective understanding. On this page,
+you'll find <a href="#news" shape="rect">W3C news</a>, links to <a href="#technologies" shape="rect">W3C technologies</a> and ways to <a href="#contents" shape="rect">get involved</a>. New visitors can find help in
+<cite><a href="/Consortium/new-to-w3c" shape="rect">Finding Your Way at
+W3C</a></cite>. We encourage organizations to learn more <a href="/Consortium/" shape="rect">about W3C</a> and <a href="/Consortium/membership" shape="rect">about
+W3C Membership</a>.</p>
+
+<div class="navBlock">
+<h2 class="spot-head">Employment</h2>
+
+<div class="spot">
+<p class="spot-block">Current <a href="/Consortium/Recruitment/" shape="rect">job
+opportunities</a> at W3C are <a href="/2006/05/UbiWebposition.html" shape="rect">Mobile Web Access Specialist</a>,
+<a href="/2006/06/NAm-Bus-Manager-PD.html" shape="rect">North American Business
+Manager</a>, <a href="http://www.csail.mit.edu/contact/jobs/00003003.html" shape="rect">Web Accessibility
+Engineer</a> and the <a href="/Consortium/Recruitment/Fellows" shape="rect">W3C
+Fellows Program</a>.</p>
+</div>
+
+<h2 class="spot-head">Mobile Web Initiative</h2>
+
+<div class="spot">
+<p class="spot-block">The goal of the <a href="/Mobile/" shape="rect">Mobile Web
+Initiative</a> is to make Web access from a mobile device as simple,
+easy, and convenient as Web access from a desktop device. Read about
+MWI and learn how to <a href="/Mobile/About" shape="rect">sponsor MWI</a>.</p>
+</div>
+
+<h2 class="navhead"><a name="technologies" id="technologies" shape="rect">W3C A to
+Z</a></h2>
+
+<ul>
+<li class="invisible"><a class="navlink" title="Skip W3C A-Z" href="#news" shape="rect">Skip to News</a></li>
+
+<li><a href="/WAI/" class="navlink" shape="rect">Accessibility</a></li>
+
+<li><a href="/Amaya/" class="navlink" shape="rect">Amaya</a></li>
+
+<li><a href="/2001/Annotea/" class="navlink" shape="rect">Annotea</a></li>
+
+<li><a href="/Mobile/CCPP/" class="navlink" shape="rect"><abbr title="Composite Capability/Preference Profiles">CC/PP</abbr></a></li>
+
+<li><a href="/2004/CDF/" class="navlink" shape="rect">Compound Document
+Formats</a></li>
+
+<li><a href="/Style/CSS/" class="navlink" shape="rect"><abbr title="Cascading Style Sheets">CSS</abbr></a></li>
+
+<li><a href="http://jigsaw.w3.org/css-validator/" class="navlink" shape="rect"><abbr title="Cascading Style Sheets">CSS</abbr>
+Validator</a></li>
+
+<li><a href="/2002/ws/databinding/" class="navlink" shape="rect">Databinding</a></li>
+
+<li><a href="/2001/di/" class="navlink" shape="rect">Device Independence</a></li>
+
+<li><a href="/DOM/" class="navlink" shape="rect"><acronym title="Document Object Model">DOM</acronym></a></li>
+
+<li><a href="/XML/EXI" class="navlink" shape="rect">Efficient XML
+Interchange</a></li>
+
+<li><a href="/2001/sw/grddl-wg/" class="navlink" shape="rect"><acronym title="Gleaning Resource Descriptions from Dialects of Languages">GRDDL</acronym></a></li>
+
+<li><a href="/2001/sw/hcls/" class="navlink" shape="rect">Health Care and Life
+Sciences</a></li>
+
+<li><a href="/MarkUp/" class="navlink" shape="rect"><abbr title="HyperText Markup Language">HTML</abbr></a></li>
+
+<li><a href="/People/Raggett/tidy/" class="navlink" shape="rect"><abbr title="HyperText Markup Language">HTML</abbr> Tidy</a></li>
+
+<li><a href="http://validator.w3.org/" class="navlink" shape="rect"><abbr title="HyperText Markup Language">HTML</abbr> Validator</a></li>
+
+<li><a href="/Protocols/" class="navlink" shape="rect"><abbr title="Hypertext Transfer Protocol">HTTP</abbr></a></li>
+
+<li><a href="/2005/Incubator/" class="navlink" shape="rect">Incubator</a></li>
+
+<li><a href="/2002/mmi/ink" class="navlink" shape="rect">InkML</a></li>
+
+<li><a href="/International/" class="navlink" shape="rect">Internationalization</a></li>
+
+<li><a href="/Jigsaw/" class="navlink" shape="rect">Jigsaw</a></li>
+
+<li><a href="/Library/" class="navlink" shape="rect">Libwww</a></li>
+
+<li><a href="/Math/" class="navlink" shape="rect">MathML</a></li>
+
+<li><a href="/Mobile/" class="navlink" shape="rect">Mobile Web Initiative
+(W3C-MWI)</a></li>
+
+<li><a href="/2002/mmi/" class="navlink" shape="rect">Multimodal
+Interaction</a></li>
+
+<li><a href="/2004/OWL/" class="navlink" shape="rect"><acronym title="OWL Web Ontology Language">OWL</acronym></a></li>
+
+<li><a href="/2004/pp/" class="navlink" shape="rect">Patent Policy</a></li>
+
+<li><a href="/PICS/" class="navlink" shape="rect"><acronym title="Platform for Internet Content Selection">PICS</acronym></a></li>
+
+<li><a href="/Graphics/PNG/" class="navlink" shape="rect"><acronym title="Portable Network Graphics">PNG</acronym></a></li>
+
+<li><a href="/P3P/" class="navlink" shape="rect">Privacy and <abbr title="Platform for Privacy Preferences">P3P</abbr></a></li>
+
+<li><a href="/QA/" class="navlink" shape="rect">Quality Assurance (<abbr title="Quality Assurance">QA</abbr>)</a></li>
+
+<li><a href="/RDF/" class="navlink" shape="rect"><abbr title="Resource Description Framework">RDF</abbr></a></li>
+
+<li><a href="/2006/rwc/" class="navlink" shape="rect">Rich Web Clients</a></li>
+
+<li><a href="/2005/rules/" class="navlink" shape="rect">Rules</a></li>
+
+<li><a href="/2002/ws/sawsdl/" class="navlink" shape="rect"><acronym title="Semantic Annotations for WSDL">SAWSDL</acronym></a></li>
+
+<li><a href="/2001/sw/" class="navlink" shape="rect">Semantic Web</a></li>
+
+<li><a href="/AudioVideo/" class="navlink" shape="rect"><acronym title="Synchronized Multimedia Integration Language">SMIL</acronym></a></li>
+
+<li><a href="/2000/xp/Group/" class="navlink" shape="rect"><acronym title="Soap">SOAP</acronym>/<abbr title="XML Protocol">XMLP</abbr></a></li>
+
+<li><a href="/2001/sw/DataAccess/" class="navlink" shape="rect"><acronym title="Simple Protocol and RDF Query Language">SPARQL</acronym></a></li>
+
+<li><a href="/Style/" class="navlink" shape="rect">Style</a></li>
+
+<li><a href="/Graphics/SVG/" class="navlink" shape="rect"><abbr title="Scalable Vector Graphics">SVG</abbr></a></li>
+
+<li><a href="/AudioVideo/TT/" class="navlink" shape="rect">Timed Text</a></li>
+
+<li><a href="/Addressing/" class="navlink" shape="rect"><abbr title="Uniform Resource Identifiers">URI/URL</abbr></a></li>
+
+<li><a href="/QA/Tools/#validators" class="navlink" shape="rect">Validators</a></li>
+
+<li><a href="/Voice/" class="navlink" shape="rect">Voice</a></li>
+
+<li><a href="/WAI/" class="navlink" shape="rect"><acronym title="Web Accessibility Initiative">WAI</acronym></a></li>
+
+<li><a href="/2006/webapi/" class="navlink" shape="rect">Web APIs</a></li>
+
+<li><a href="/2006/appformats/" class="navlink" shape="rect">Web Application
+Formats</a></li>
+
+<li><a href="/2001/tag/" class="navlink" shape="rect">Web Architecture
+(<acronym title="Technical Architecture Group">TAG</acronym>)</a></li>
+
+<li><a href="/Graphics/WebCGM/WG/" class="navlink" shape="rect"><abbr title="Web Computer Graphics Metafile">WebCGM</abbr></a></li>
+
+<li><a href="/2002/ws/" class="navlink" shape="rect">Web Services</a></li>
+
+<li><a href="/2002/ws/addr/" class="navlink" shape="rect"><abbr title="Web Services">WS</abbr>-Addressing</a></li>
+
+<li><a href="/2002/ws/chor/" class="navlink" shape="rect"><abbr title="Web Services Choreography Description Language">WS-CDL</abbr></a></li>
+
+<li><a href="/2002/ws/desc/" class="navlink" shape="rect"><acronym title="Web Services Description Language">WSDL</acronym></a></li>
+
+<li><a href="/2002/ws/policy/" class="navlink" shape="rect"><abbr title="Web Services">WS</abbr>-Policy</a></li>
+
+<li><a href="/MarkUp/Forms/" class="navlink" shape="rect"><acronym title="Next Generation Web Forms">XForms</acronym></a></li>
+
+<li><a href="/MarkUp/" class="navlink" shape="rect"><abbr title="Extensible HyperText Markup Language">XHTML</abbr></a></li>
+
+<li><a href="/XML/Linking" class="navlink" shape="rect"><acronym title="XML Link">XLink</acronym></a></li>
+
+<li><a href="/XML/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr></a></li>
+
+<li><a href="/TR/xmlbase/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Base</a></li>
+
+<li><a href="/Encryption/2001/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Encryption</a></li>
+
+<li><a href="/2001/XKMS/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Key Management</a></li>
+
+<li><a href="/XML/Processing/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Processing</a></li>
+
+<li><a href="/XML/Query" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Query</a></li>
+
+<li><a href="/XML/Schema" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Schema</a></li>
+
+<li><a href="/Signature/" class="navlink" shape="rect"><abbr title="Extensible Markup Language">XML</abbr> Signature</a></li>
+
+<li><a href="/TR/xpath" class="navlink" shape="rect">XPath</a></li>
+
+<li><a href="/XML/Linking" class="navlink" shape="rect">XPointer</a></li>
+
+<li><a href="/Style/XSL/" class="navlink" shape="rect"><acronym title="Extensible Stylesheet Language">XSL</acronym> and <acronym title="XSL Transformations">XSLT</acronym></a></li>
+</ul>
+
+<p><a href="/Consortium/siteindex" class="navlink" shape="rect">More
+topics...</a></p>
+</div>
+
+<div class="newsBlock">
+<h2 class="newsHeading"><a name="news" id="news" shape="rect">News</a></h2>
+
+<p class="invisible"><a title="Skip News" href="#search" shape="rect">Skip to
+Search</a></p>
+
+<div id="x20060913a" class="item">
+<h3 class="headline"><img alt="" width="17" height="11" src="/Icons/right" />XSL-FO Workshop to Explore Requirements for Version
+2.0</h3>
+
+<p><span class="date">2006-09-13:</span> The W3C <a href="/Style/XSL/2006-Workshop/" shape="rect">Workshop on Gathering Requirements for
+Extensible Stylesheet Language (XSL) 2.0</a> will be held 18 October in
+Heidelberg, Germany at Heidelberger Druckmaschinen AG. The XSL Working
+Group invites experts to discuss requirements, features and design for
+Version 2.0 of the formatting part of the <a href="/TR/xsl/" shape="rect">Extensible
+Stylesheet Language</a> also called XSL-FO. The Workshop is colocated
+with the <a href="http://www.w3c.de/Events/2006/PrintSymposium_en.html" shape="rect">Print
+Symposium</a>. Read the <a href="/2006/09/xslfo-pressrelease" shape="rect">press
+release</a>, about <a href="/2003/08/Workshops/" shape="rect">W3C Workshops</a> and
+about the <a href="/XML/" shape="rect">XML Activity</a>. <span class="archive">(<a rel="details" title="XSL-FO Workshop to Explore Requirements for Version 2.0" href="/News/2006#item158" shape="rect">News archive</a>)</span></p>
+</div>
+
+<div id="x20060915b" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />Last Call:
+VoiceXML 2.1</h3>
+
+<p><span class="date">2006-09-15:</span> The Voice Browser Working
+Group has released a Last Call Working Draft of <a href="/TR/2006/WD-voicexml21-20060915/" shape="rect">Voice Extensible Markup Language
+(VoiceXML) 2.1</a>. Comments are welcome through 6 October. Fully
+backwards-compatible with <a href="/TR/2004/REC-voicexml20-20040316/" shape="rect">VoiceXML 2.0</a>, version 2.1
+standardizes eight additional features implemented by VoiceXML
+platforms: <code>data</code>, <code>disconnect</code>,
+<code>grammar</code>, <code>foreach</code>, <code>mark</code>,
+<code>property</code>, <code>script</code>, and <code>transfer</code>.
+Refer to the <a href="/TR/2006/WD-voicexml21-20060915/#sec-changes-cr" shape="rect">summary</a> for
+changes since Candidate Recommendation, including modification of the
+<code>foreach</code> element. Visit the <a href="/Voice/" shape="rect">voice browser
+home page</a>. <span class="archive">(<a rel="details" title="Last Call: VoiceXML 2.1" href="/News/2006#item160" shape="rect">News
+archive</a>)</span></p>
+</div>
+
+<div id="x20060915a" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />Canonical
+XML and Digital Signatures: Working Drafts Published</h3>
+
+<p><span class="date">2006-09-15:</span> In order to address the impact
+of the <a href="/TR/xml-id/" shape="rect">xml:id</a> W3C Recommendation, the XML
+Core Working Group has released the following three First Public
+Working Drafts to update Canonical XML to version 1.1 and to provide
+guidelines on using it with <a href="/TR/xmldsig-core/" shape="rect">XML digital
+signatures</a>. Canonical XML and XML signatures can ensure the
+integrity of data traveling between XML processors, crucial in
+applications like electronic commerce. Visit the <a href="/XML/" shape="rect">XML
+home page</a>. <span class="archive">(<a rel="details" title="Canonical XML and Digital Signatures: Working Drafts Published" href="/News/2006#item159" shape="rect">News archive</a>)</span></p>
+
+<ul>
+<li><a href="/TR/2006/WD-C14N-issues-20060915/" shape="rect">Known Issues with
+Canonical XML 1.0 (C14N/1.0)</a></li>
+
+<li><a href="/TR/2006/WD-DSig-usage-20060915/" shape="rect">Using XML Digital
+Signatures in the 2006 XML Environment</a></li>
+
+<li><a href="/TR/2006/WD-xml-c14n11-20060915/" shape="rect">Canonical XML
+1.1</a></li>
+</ul>
+</div>
+
+<div id="x20060911a" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />Note:
+Developing Multimodal User Interfaces</h3>
+
+<p><span class="date">2006-09-11:</span> The Multimodal Interaction
+Working Group has published <a href="/TR/2006/NOTE-mmi-suggestions-20060911/" shape="rect">Common Sense Suggestions for
+Developing Multimodal User Interfaces</a> as a Working Group Note.
+Written for interface designers and developers, the suggestions are
+based on several years experience developing multimodal applications.
+The four principles described are: satisfying real-world constraints,
+communication with users, helping users recover from errors, and making
+users comfortable. Read about <a href="/2002/mmi/" shape="rect">multimodal
+interaction</a>. <span class="archive">(<a rel="details" title="Note: Developing Multimodal User Interfaces" href="/News/2006#item157" shape="rect">News archive</a>)</span></p>
+</div>
+
+<div id="x20060908b" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />Last Call:
+XML Binding Language (XBL) 2.0</h3>
+
+<p><span class="date">2006-09-08:</span> The Web Application Formats
+Working Group has released a Last Call Working Draft of <a href="/TR/2006/WD-xbl-20060907/" shape="rect">XML Binding Language (XBL) 2.0</a>, a
+technology for extending the appearance and behavior of elements in Web
+formats such as HTML. Comments are welcome through 7 December. With
+XBL, elements may be mapped to script, event handlers, CSS, and more
+complex content models. Content can be re-ordered and wrapped so that,
+for instance, complex CSS styles can be applied to simple HTML or XHTML
+markup. XBL can be used to implement new DOM interfaces, and, with
+other specifications, to implement arbitrary tag sets as widgets. Read
+about the <a href="/2006/rwc/" shape="rect">Rich Web Clients Activity</a>.
+<span class="archive">(<a rel="details" title="Last Call: XML Binding Language (XBL) 2.0" href="/News/2006#item156" shape="rect">News archive</a>)</span></p>
+</div>
+
+<div id="x20060908a" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />XML Query
+Test Suite 1.0 Released</h3>
+
+<p><span class="date">2006-09-08:</span> The XML Query Working Group
+has released version 1.0 of the <a href="http://www.w3.org/XML/Query/test-suite/" shape="rect">XML Query Test Suite</a>
+(XQTS). With this release there are over 15,000 test cases. The Working
+Group is asking implementors to submit results in September
+(anonymously if necessary) to help demonstrate that the <a href="/TR/xquery/" shape="rect">XML Query 1.0</a> specification can be implemented
+interoperably and is ready to move forward to Proposed Recommendation.
+Visit the <a href="/XML/" shape="rect">XML home page</a>. <span class="archive">(<a rel="details" title="XML Query Test Suite 1.0 Released" href="/News/2006#item155" shape="rect">News archive</a>)</span></p>
+</div>
+
+<div id="x20060906a" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />WebCGM 2.0
+Is a Candidate Recommendation</h3>
+
+<p><span class="date">2006-09-06:</span> W3C is pleased to announce the
+advancement of <a href="/TR/2006/CR-webcgm20-20060906/" shape="rect">WebCGM 2.0</a>
+to Candidate Recommendation. Computer Graphics Metafile (CGM) is an ISO
+standard for the interchange of 2D vector and mixed vector/raster
+graphics. WebCGM is a profile of CGM, which adds Web linking and is
+optimized for Web applications in technical illustration,
+documentation, data visualization and similar fields. Version 2.0 adds
+DOM access to WebCGM objects, adds an XML Companion File (XCF) for
+external data, and extends graphical and intelligent content. Comments
+and implementation reports are welcome through 6 October. Six
+implementations of WebCGM 2.0 are already available. Read more about
+<a href="/Graphics/WebCGM/WG/" shape="rect">WebCGM</a>. <span class="archive">(<a rel="details" title="WebCGM 2.0 Is a Candidate Recommendation" href="/News/2006#item154" shape="rect">News archive</a>)</span></p>
+</div>
+
+<div id="x20060901a" class="item">
+<h3><img alt="" width="17" height="11" src="/Icons/right" />Print
+Symposium to Focus on Web Standards</h3>
+
+<p><a href="http://www.w3c.de/Events/2006/PrintSymposium_en.html" shape="rect"><img class="newsImage" alt="photo of Heidelberg Print Media Academy" src="/2006/09/Heidelberg.jpg" /></a> <span class="date">2006-09-01:</span>
+The <a href="http://www.w3c.de/" shape="rect">W3C Germany and Austria Office</a> is
+pleased to present the <a href="http://www.w3c.de/Events/2006/PrintSymposium_en.html" shape="rect">W3C Print
+Symposium 2006</a> on 17 October at the Heidelberg Print Media Academy
+in Heidelberg, Germany. Klaas Bals, Bert Bos, Håkon Wium Lie, Chris
+Lilley, Liam Quin, Thomas Tikwinski, Andrew Shellshear, and a
+representative of Heidelberger Druckmaschinen AG will present on W3C
+print technologies including <abbr title="Extensible Stylesheet Language">XSL</abbr>, <abbr title="XSL Transformations">XSLT</abbr>, <abbr title="Scalable Vector Graphics">SVG</abbr> Print, <abbr title="Cascading Style Sheets">CSS</abbr> Paged Media and <abbr title="Extensible HyperText Markup Language">XHTML</abbr> Print. The event is
+colocated with the <a href="/Style/XSL/2006-Workshop/" shape="rect">XSL-FO
+Workshop</a> on 18 October and there will be an opportunity to meet the
+XSL Working Group. A student discount is offered. Symposium
+registration is open, and is free for <a href="/Consortium/Member/List" shape="rect">W3C Members</a>. <span class="archive">(Photo
+credit: Thomas Tikwinski. <a rel="details" title="Print Symposium to Focus on Web Standards" href="/News/2006#item153" shape="rect">News archive</a>)</span></p>
+</div>
+
+<h3 class="pastNews"><a href="/News/2006" shape="rect">Past News</a></h3>
+</div>
+
+<div class="navBlock">
+<h2 class="navhead"><a name="search" id="search" shape="rect">Search</a></h2>
+
+<p class="invisible"><a class="navlink" title="Skip search" href="#contents" shape="rect">Skip to Contents</a></p>
+
+<form method="get" action="http://www.google.com/custom" enctype="application/x-www-form-urlencoded">
+<div>
+<a class="navlink" href="http://www.google.com" shape="rect"><img src="/Icons/Logo_25wht.gif" width="75" height="32" alt="Google" /></a><br />
+<label for="inputField">Search W3C<br />
+<input type="text" size="15" id="inputField" name="q" accesskey="E" maxlength="255" /></label> <input type="submit" value="Go" id="goButton" name="sa" accesskey="G" /><br />
+<input type="hidden" name="cof" value="T:black;LW:72;ALC:#ff3300;L:http://www.w3.org/Icons/w3c_home;LC:#000099;LH:48;BGC:white;AH:left;VLC:#660066;GL:0;AWFID:0b9847e42caf283e;" />
+ <input type="hidden" id="searchW3C" name="sitesearch" checked="checked" value="www.w3.org" /><input type="hidden" name="domains" value="www.w3.org" />
+</div>
+</form>
+
+<p><a class="navlink" href="/Search/Mail/Public/" shape="rect">Search W3C Mailing
+Lists</a></p>
+
+<h2 class="navhead"><a name="contents" id="contents" shape="rect">Testimonials</a></h2>
+
+<div class="hpmt"><div class="hpmt-name">Uncover the Net Web Directory</div><div class="hpmt-logo"><a href="http://www.uncoverthenet.com/"><img alt="Uncover the Net Web Directory" src="http://www.w3.org/Consortium/Member/Testimonial/Logo/938" /></a></div><p class="hpmt-testimonial">Uncover the Net strives to be the next generation of web directories, and it joined the W3C to show its commitment to open standards and help lead the Web to its full potential. <a class="hpmt-more" href="http://www.w3.org/Consortium/Member/Testimonial/List">(Member testimonials)</a></p></div>
+
+<h2 class="navhead">Members</h2>
+
+<ul>
+<li><a href="/Member/" class="navlink" shape="rect">Member Home Page</a></li>
+
+<li><a href="/Submission/" class="navlink" shape="rect">Member Submissions</a></li>
+
+<li><a href="/Consortium/Member/List" class="navlink" shape="rect">Current
+Members</a></li>
+
+<li><a href="/Consortium/meetings" class="navlink" shape="rect">Meetings</a></li>
+
+<li><a href="/Consortium/Recruitment/Fellows" class="navlink" shape="rect">Fellows</a></li>
+</ul>
+
+<h2 class="navhead">Get Involved</h2>
+
+<ul>
+<li><a href="/Consortium/membership-benefits" class="navlink" shape="rect">W3C
+Membership Benefits</a></li>
+
+<li><a href="/Consortium/membership#bizcase" class="navlink" shape="rect">Reasons to
+Join W3C</a></li>
+
+<li><a href="/Mail/" class="navlink" shape="rect">Mailing Lists</a></li>
+
+<li><a href="/Consortium/Translation/" class="navlink" shape="rect">Translations</a></li>
+
+<li><a href="/2003/08/Workshops/" class="navlink" shape="rect">Workshops</a></li>
+
+<li><a href="/2001/11/StdLiaison" class="navlink" shape="rect">Liaisons</a></li>
+
+<li><a href="/Status" class="navlink" shape="rect">Open Source Software</a></li>
+
+<li><a href="/Consortium/Recruitment/" class="navlink" shape="rect">Employment</a></li>
+
+<li><span class="navText">More ways to</span> <a href="/Consortium/org#public" class="navlink" shape="rect">participate</a></li>
+</ul>
+
+<h2 class="navhead">Introduction</h2>
+
+<ul>
+<li><a href="/Consortium/" class="navlink" shape="rect">About W3C</a></li>
+
+<li><a href="/Consortium/faq" class="navlink" shape="rect">Frequently Asked
+Questions (FAQ)</a></li>
+
+<li><a href="/2003/glossary/" class="navlink" shape="rect">Glossary</a></li>
+
+<li><a href="/Consortium/Process/" class="navlink" shape="rect">Process
+Document</a></li>
+
+<li><a href="/2002/03/tutorials" class="navlink" shape="rect">Tutorials</a></li>
+
+<li><a href="/2002/03/new-to-w3c" class="navlink" shape="rect">More...</a></li>
+</ul>
+
+<h2 class="navhead">W3C Team</h2>
+
+<ul>
+<li><a href="/People/" class="navlink" shape="rect">People</a></li>
+
+<li><a href="/TeamSubmission/" class="navlink" shape="rect">Team
+Submissions</a></li>
+</ul>
+
+<h2 class="navhead">Presentations</h2>
+
+<ul>
+<li><a href="/Talks/" class="navlink" shape="rect">Public Presentations</a></li>
+</ul>
+
+<h2 class="navhead">News Room</h2>
+
+<ul>
+<li><a href="/News/" class="navlink" shape="rect">W3C News Archive</a> <span class="navText">(</span><a href="/2000/08/w3c-synd/home.rss" class="navlink" shape="rect">RSS</a><span class="navText">)</span></li>
+
+<li><a href="http://lists.w3.org/Archives/Public/w3c-announce/" class="navlink" shape="rect">Subscribe to W3C Weekly News</a></li>
+
+<li><a href="/Press/" class="navlink" shape="rect">Press Releases</a></li>
+
+<li><a href="/Press/#rss" class="navlink" shape="rect">Multilingual Press Release
+RSS</a></li>
+
+<li><a href="/Press/Articles" class="navlink" shape="rect">W3C in the Press</a></li>
+</ul>
+
+<h2 class="navhead"><a name="Offices" id="Offices" shape="rect">World
+Offices</a></h2>
+
+<p class="navPara">The <a href="/Consortium/Offices/" class="navlink" shape="rect">W3C Offices</a> translate many W3C home page news items. W3C
+Offices are located in these parts of the world:</p>
+
+<ul>
+<li><a href="http://www.w3c.org.au/" class="navlink" title="Australia" shape="rect">Australia</a></li>
+
+<li><a href="http://www.w3c.nl/index.shtml.nl" class="navlink" hreflang="nl" title="Benelux" shape="rect"><span xml:lang="nl" lang="nl">Benelux</span></a>/<a href="http://www.w3c.nl/index.shtml.fr" class="navlink" title="Benelux" hreflang="fr" shape="rect"><span xml:lang="fr" lang="fr">Bénélux</span></a></li>
+
+<li><a href="http://www.chinaw3c.org/" class="navlink" title="China" hreflang="zh-hans" shape="rect"><span xml:lang="zh-hans" lang="zh-hans">中国</span>
+(China)</a></li>
+
+<li><a href="http://www.w3c.tut.fi/" class="navlink" title="Finland" hreflang="fi" shape="rect"><span xml:lang="fi" lang="fi">Suomi</span>
+(Finland)</a></li>
+
+<li><a href="http://www.w3c.de/" class="navlink" title="German and Austria" hreflang="de" shape="rect"><span xml:lang="de" lang="de">Deutschland und Österreich</span> (Germany and Austria)</a></li>
+
+<li><a href="http://www.w3c.gr/" class="navlink" title="Greece" hreflang="el" shape="rect"><span xml:lang="el" lang="el">Ελλάδα</span>
+(Greece)</a></li>
+
+<li><a href="http://www.w3c.org.hk/Chinese_T/index.html" class="navlink" title="Hong Kong" hreflang="zh-hant" shape="rect"><span xml:lang="zh-hant" lang="zh-hant">香港</span> (Hong Kong)</a></li>
+
+<li><a href="http://www.w3c.hu/" class="navlink" title="Hungary" hreflang="hu" shape="rect"><span xml:lang="hu" lang="hu">Magyarország</span>
+(Hungary)</a></li>
+
+<li><a href="http://www.w3cindia.in/" class="navlink" title="India" hreflang="en" shape="rect"><span xml:lang="hi" lang="hi">भारत</span>
+(India)</a></li>
+
+<li><a href="http://www.w3c.org.il/indexh.php" class="navlink" title="Israel" hreflang="he" shape="rect"><span xml:lang="he" lang="he">ישראל</span>
+(Israel)</a></li>
+
+<li><a href="http://www.w3c.it/" class="navlink" title="Italy" hreflang="it" shape="rect"><span xml:lang="it" lang="it">Italia</span>
+(Italy)</a></li>
+
+<li><a href="http://www.w3c.or.kr/" class="navlink" title="Korea" hreflang="ko" shape="rect"><span xml:lang="ko" lang="ko">한국</span> (Korea)</a></li>
+
+<li><a href="http://www.w3c.org.ma/" class="navlink" title="Morocco" hreflang="ar" shape="rect"><span xml:lang="ar" lang="ar">المغرب</span>
+(Morocco)</a></li>
+
+<li><a href="http://www.w3c.es/" class="navlink" title="Spain" hreflang="es" shape="rect"><span xml:lang="es" lang="es">España</span>
+(Spain)</a></li>
+
+<li><a href="http://www.w3c.se" class="navlink" title="Sweden" hreflang="sv" shape="rect"><span xml:lang="sv" lang="sv">Sverige</span>
+(Sweden)</a></li>
+
+<li><a href="http://www.w3c.rl.ac.uk/" class="navlink" title="UK and Ireland" hreflang="en-uk" shape="rect">United Kingdom and Ireland</a></li>
+</ul>
+
+<h2 class="navhead"><a name="systems" id="systems" shape="rect">Systems</a></h2>
+
+<ul>
+<li><a href="http://cgi.w3.org/MemberAccess/AccessRequest" class="navlink" shape="rect">Get Member Password</a></li>
+
+<li><a href="/2003/08/system-status" class="navlink" shape="rect">System
+Status</a></li>
+</ul>
+</div>
+<hr class="hide" />
+
+<p class="small">W3C would like to thank the <a name="donors" id="donors" href="/Consortium/sup" shape="rect">Supporters</a> who have contributed
+financially or through a donation of goods to W3C.</p>
+
+<p class="small"><a name="footnotes" id="footnotes" shape="rect">Read</a> <a href="/2002/11/homepage" shape="rect">about the layout</a> and <a href="http://lists.w3.org/Archives/Public/site-comments/" shape="rect">send comments</a>
+about this page. <a href="/2000/08/w3c-synd/home.rss" shape="rect">Syndicate</a>
+this page with <a href="http://purl.org/rss/1.0/" shape="rect">RSS 1.0</a>, an
+<a href="/RDF/" shape="rect">RDF</a> vocabulary used for <a href="/2000/08/w3c-synd/#" shape="rect">site summaries</a>.</p>
+
+<address class="small">
+<a href="/Help/Webmaster" shape="rect">Webmaster</a> · Last modified: 
+ $Date: 2006/09/15 15:13:39 $
+ <span class="whiteout">|</span><br />
+<a href="http://validator.w3.org/check?uri=referer" shape="rect"><img src="/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a> <span class="whiteout">|</span> <a href="http://jigsaw.w3.org/css-validator/" shape="rect"><img src="/Icons/valid-css" alt="Valid CSS!" height="31" width="88" /></a> <span class="whiteout">|</span> <a href="/WAI/WCAG1AA-Conformance" title="Explanation of Level Double-A Conformance" shape="rect"><img class="conform" height="31" width="88" src="/WAI/wcag1AA" alt="Level Double-A conformance icon, W3C-WAI Web Content Accessibility Guidelines 1.0" />
+</a> <span class="whiteout">|</span>
+</address>
+
+<p class="copyright"><a rel="Copyright" href="/Consortium/Legal/ipr-notice#Copyright" shape="rect">Copyright</a> © 1994-2006
+<a href="/" shape="rect"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/" shape="rect"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/" shape="rect"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>,
+<a href="http://www.keio.ac.jp/" shape="rect">Keio</a>), All Rights Reserved. W3C
+<a href="/Consortium/Legal/ipr-notice#Legal_Disclaimer" shape="rect">liability</a>,
+<a href="/Consortium/Legal/ipr-notice#W3C_Trademarks" shape="rect">trademark</a>,
+<a rel="Copyright" href="/Consortium/Legal/copyright-documents" shape="rect">document use</a> and <a rel="Copyright" href="/Consortium/Legal/copyright-software" shape="rect">software
+licensing</a> rules apply. Your interactions with this site are in
+accordance with our <a href="/Consortium/Legal/privacy-statement#Public" shape="rect">public</a> and <a href="/Consortium/Legal/privacy-statement#Members" shape="rect">Member</a> privacy
+statements.</p>
+</body>
+</html>

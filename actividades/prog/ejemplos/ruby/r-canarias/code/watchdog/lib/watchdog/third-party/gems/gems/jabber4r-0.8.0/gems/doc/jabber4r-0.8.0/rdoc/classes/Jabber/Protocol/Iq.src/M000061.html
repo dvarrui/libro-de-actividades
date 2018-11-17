@@ -1,0 +1,30 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>gen_auth_digest (Jabber::Protocol::Iq)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 521</span>
+521:       <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_auth_digest</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">username</span>, <span class="ruby-identifier">digest</span>, <span class="ruby-identifier">resource</span>)
+522:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">id</span>)
+523:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> = <span class="ruby-value str">&quot;set&quot;</span>
+524:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">xmlns</span> = <span class="ruby-value str">&quot;jabber:iq:auth&quot;</span>
+525:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">data</span> = <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;username&quot;</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">username</span>).<span class="ruby-identifier">to_s</span> 
+526:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;digest&quot;</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">digest</span>).<span class="ruby-identifier">to_s</span>
+527:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;resource&quot;</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">resource</span>).<span class="ruby-identifier">to_s</span>
+528:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">iq</span>
+529:         <span class="ruby-comment cmt">#return XMLElement.new(&quot;iq&quot;, {&quot;type&quot;=&gt;&quot;set&quot;, &quot;id&quot;=&gt;id}).add_child(&quot;query&quot;, {&quot;xmlns&quot;=&gt;&quot;jabber:iq:auth&quot;}).add_child(&quot;username&quot;).add_data(username).to_parent.add_child(&quot;digest&quot;).add_data(digest).to_parent.add_child(&quot;resource&quot;).add_data(resource).to_parent.to_s</span>
+530:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

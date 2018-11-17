@@ -1,0 +1,7 @@
+1. I've shied away from depending on the extensions gem because (1)
+   I'm undecided about whether I should just tell readers to install
+   it everywhere (rather than shlepping it around with s4t-utils), and
+   I'm afraid that having using those methods would mean readers would
+   see them, look them up in Programming Ruby, not find them, and get
+   annoyed or confused. (But is that really any worse than using
+   methods in s4t-utils?)  Think about this more.

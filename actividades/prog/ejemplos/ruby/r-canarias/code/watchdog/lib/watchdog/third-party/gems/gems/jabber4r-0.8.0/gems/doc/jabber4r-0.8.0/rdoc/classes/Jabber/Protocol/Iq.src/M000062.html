@@ -1,0 +1,29 @@
+<!--
+ ! Excerpted from "Everyday Scripting in Ruby"
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/bmsft for more book information.
+-->
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>gen_oob (Jabber::Protocol::Iq)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/jabber4r/protocol.rb, line 540</span>
+540:       <span class="ruby-keyword kw">def</span> <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">gen_oob</span>(<span class="ruby-identifier">session</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">desc</span>=<span class="ruby-value str">&quot;&quot;</span>)
+541:         <span class="ruby-identifier">iq</span> = <span class="ruby-constant">Iq</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">session</span>, <span class="ruby-keyword kw">nil</span>)
+542:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">type</span> = <span class="ruby-value str">&quot;set&quot;</span>
+543:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">xmlns</span> = <span class="ruby-value str">&quot;jabber:iq:oob&quot;</span>
+544:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">data</span> = <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;url&quot;</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">url</span>).<span class="ruby-identifier">to_s</span>
+545:         <span class="ruby-identifier">iq</span>.<span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">XMLElement</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;desc&quot;</span>).<span class="ruby-identifier">add_data</span>(<span class="ruby-identifier">desc</span>).<span class="ruby-identifier">to_s</span>
+546:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">iq</span>
+547:         <span class="ruby-comment cmt">#return XMLElement.new(&quot;iq&quot;, {&quot;type&quot;=&gt;&quot;set&quot;}).add_child(&quot;query&quot;, {&quot;xmlns&quot;=&gt;&quot;jabber:iq:oob&quot;}).add_child(&quot;url&quot;).add_data(url).to_parent.add_child(&quot;desc&quot;).add_data(data).to_parent.to_s</span>
+548:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

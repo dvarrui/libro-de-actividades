@@ -1,0 +1,27 @@
+<h1>Listing diapositivas</h1>
+
+<table>
+  <tr>
+  <% for column in Diapositiva.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for diapositiva in @diapositivas %>
+  <tr>
+  <% for column in Diapositiva.content_columns %>
+    <td><%=h diapositiva.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => diapositiva %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => diapositiva %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => diapositiva }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @diapositiva_pages.current.previous } if @diapositiva_pages.current.previous %>
+<%= link_to 'Next page', { :page => @diapositiva_pages.current.next } if @diapositiva_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New diapositiva', :action => 'new' %>
