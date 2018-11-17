@@ -1,7 +1,0 @@
-#
-#palabra:descripción
-#
-cdrom:Compact disk. Memoria de sólo lectura
-cpu:Unidad central de proceso
-ram:Memoria de acceso aleatorio
-rom:Memoria de sólo lectura

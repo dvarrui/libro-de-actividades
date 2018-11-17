@@ -1,7 +1,0 @@
-1.0.2:
-Sam Lantinga - Fri Feb 25 00:00:24 PST 2000
-- Ported to MacOS
-
-1.0.1:
-Sam Lantinga - Thu Jan 20 00:05:12 PST 2000
-- Updated for the new versions of the SDL mixer and image libraries
