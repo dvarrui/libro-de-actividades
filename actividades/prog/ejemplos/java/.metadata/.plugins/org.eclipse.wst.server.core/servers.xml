@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<servers>
-<server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v5.0 Server @ localhost-config" hostname="localhost" id="13_08_06_20_052" name="Tomcat v5.0 Server @ localhost" runtime-id="Apache Tomcat v5.0" server-type="org.eclipse.jst.server.tomcat.50" server-type-id="org.eclipse.jst.server.tomcat.50" testEnvironment="true" timestamp="8">
-<list key="modules" value0="canarias.web::org.eclipse.jst.j2ee.server:canarias.web::jst.web::2.4"/>
-<list key="enabled-optional-publish-tasks" value0="13_08_06_20_052|Update context root for Web module canarias.web"/>
-</server>
-</servers>

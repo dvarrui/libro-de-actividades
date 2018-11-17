@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<session version="1.0">
-<refactoring comment="Rename type 'david.dir200607.ejemplo0402.AplicacionCalculadora' to 'AplicacionCalculadoraV01'&#10;- Original element: 'david.dir200607.ejemplo0402.AplicacionCalculadora'&#10;- Renamed element: 'david.dir200607.ejemplo0402.AplicacionCalculadoraV01'&#10;- Update references to refactored element&#10;- Update textual occurrences in comments and strings" description="Rename type 'AplicacionCalculadora'" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;david.dir200607.ejemplo0402{AplicacionCalculadora.java[AplicacionCalculadora" matchStrategy="1" name="AplicacionCalculadoraV01" qualified="false" references="true" similarDeclarations="false" stamp="1163697955759" textual="false" version="1.0"/>
-</session>

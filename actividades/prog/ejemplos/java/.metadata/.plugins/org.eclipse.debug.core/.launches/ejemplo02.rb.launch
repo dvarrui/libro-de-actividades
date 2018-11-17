@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launchConfiguration type="org.rubypeople.rdt.launching.LaunchConfigurationTypeRubyApplication">
-<stringAttribute key="org.rubypeople.rdt.launching.FILE_NAME" value="juegos/version.02/ejemplo02.rb"/>
-<stringAttribute key="org.rubypeople.rdt.launching.WORKING_DIRECTORY" value="/home/david/workspace/rcanarias"/>
-<stringAttribute key="org.rubypeople.rdt.launching.SELECTED_INTERPRETER" value="ruby"/>
-<stringAttribute key="org.rubypeople.rdt.launching.PROJECT_NAME" value="rcanarias"/>
-<stringAttribute key="org.eclipse.debug.core.source_locator_id" value="org.rubypeople.rdt.debug.ui.rubySourceLocator"/>
-</launchConfiguration>

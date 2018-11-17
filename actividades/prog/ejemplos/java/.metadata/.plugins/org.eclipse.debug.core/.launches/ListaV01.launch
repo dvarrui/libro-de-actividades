@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="david.lalaguna.prueba.ListaV01"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="lalaguna"/>
-</launchConfiguration>

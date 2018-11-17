@@ -1,3 +1,0 @@
-cd bin
-java david.gomera.invaders.versiones.v29.Invaders
-

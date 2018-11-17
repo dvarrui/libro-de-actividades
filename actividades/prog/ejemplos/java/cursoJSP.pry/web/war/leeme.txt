@@ -1,2 +1,0 @@
-Ejemplos de SUN
-jar -tvf <fichero>.war

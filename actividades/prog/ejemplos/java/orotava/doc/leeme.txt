@@ -1,8 +1,0 @@
-Ejecutar aplicación:
- * Linux: java -jar orotava.jar
- * Windows: Hacer click sobre orotava.jar
-
-NOTA:
-Es necesario tener instalado J2RE
-
-
