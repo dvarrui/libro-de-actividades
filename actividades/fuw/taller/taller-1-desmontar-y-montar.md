@@ -2,12 +2,15 @@
 # Taller desmontar y montar
 
 * Realizar la siguiente práctica en parejas.
-* Realizar un vídeo de la actividad. Editar el vídeo según las indicaciones comentadas en clase.
+* Realizar un vídeo de la actividad.
+* Editar el vídeo según las [indicaciones comentadas en clase](../,,/entregas/video.md).
 * Entregar:
     * (A) URL del vídeo subido a Youtube.
     * (B) URL o pdf del manual de la placa base del equipo asignado.
 
-## Paso 1
+---g
+
+## Paso 1: Recoger equipo
 
 * Recoger del taller:
     * El ordenador asignado por el profesor. Debe tener una identificación pegada. Por ejemplo `TH16`.
@@ -37,7 +40,9 @@ Anotar las diferencias en la ficha.
    * Actuaciones realizadas para solucionar los problemas (o URL al vídeo realizado).
    * Incidencias no resueltas al entregar el equipo.
 
-## Paso2
+---
+
+## Paso 2: Desmontar
 
 * Identificar todos los componentes.
 * Desmontar los siguientes componentes:
@@ -46,7 +51,9 @@ Anotar las diferencias en la ficha.
     * Tarjetas PCI
 * Capturar imagen de los componentes desmontados.
 
-## Paso3
+---
+
+## Paso 3: Montar y recoger
 
 * Volver a montarlo todo.
 * Comprobar que funciona correctamente.
