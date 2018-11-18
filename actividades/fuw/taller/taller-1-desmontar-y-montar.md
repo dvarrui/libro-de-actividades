@@ -8,7 +8,7 @@
     * (A) URL del vídeo subido a Youtube.
     * (B) URL o pdf del manual de la placa base del equipo asignado.
 
----g
+---
 
 ## Paso 1: Recoger equipo
 
