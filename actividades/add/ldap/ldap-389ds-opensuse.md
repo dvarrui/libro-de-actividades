@@ -6,6 +6,7 @@ Enlace de interés:
 * [Suse retira OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/)
 
 ---
+
 # Servidor 389-DS - OpenSUSE
 
 ![arbol](./images/arbol.png)
@@ -14,15 +15,13 @@ Enlace de interés:
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
----
-
-## 1. Servidor LDAP
-
 Hay varias herramientas que implementan el protocolo LDAP, por ejemplo:
 389-DC, OpenLDAP, Active Directory, etc. En esta guía vamos a instalar y
 configurar del servidor LDAP con OpenLDAP.
 
-## 1.1 Preparar la máquina
+---
+
+# 1. Preparar la máquina
 
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
     * [Configuración MV](../../global/configuracion/opensuse.md)
@@ -37,13 +36,19 @@ Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
-## 1.2 Instalación del Servidor 389-DS
+---
+
+# 2. Instalación del Servidor 389-DS
 
 > Enlaces de interés:
 >
 > * [HOWTO: Configure 389-ds LDAP server on openSUSE Tumbleweed](https://www.dennogumi.org/2016/01/howto-configure-389-ds-ldap-server-on-opensuse-tumbleweed/
 )
 > * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+
+---
+**PARA REVISAR**
+---
 
 Hacemos lo siguiente:
 * Instalar los siguientes paquetes:
