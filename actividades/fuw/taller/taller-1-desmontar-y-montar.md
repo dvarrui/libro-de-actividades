@@ -3,7 +3,7 @@
 
 * Realizar la siguiente práctica en parejas.
 * Realizar un vídeo de la actividad.
-* Editar el vídeo según las [indicaciones comentadas en clase](./../,,/entregas/video.md).
+* Editar el vídeo según las [indicaciones comentadas en clase](../,,/entregas/video.md).
 * Entregar:
     * (A) URL del vídeo subido a Youtube.
     * (B) URL o pdf del manual de la placa base del equipo asignado.
