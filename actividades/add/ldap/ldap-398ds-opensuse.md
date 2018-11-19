@@ -21,7 +21,7 @@ Enlace de interés:
 ## 1. Servidor LDAP
 
 Hay varias herramientas que implementan el protocolo LDAP, por ejemplo:
-OpenLDAP, 389-DC, Active Directory, etc. En esta guía vamos a instalar y
+389-DC, OpenLDAP, Active Directory, etc. En esta guía vamos a instalar y
 configurar del servidor LDAP con OpenLDAP.
 
 > Enlaces de interés:
@@ -29,6 +29,7 @@ configurar del servidor LDAP con OpenLDAP.
 > * VIDEO [Configurar servidor LDAP en OpenSUSE con Yast](http://www.youtube.com/watch?v=NsQ1zPpoVBc)
 > * VIDEO [LD01: Instalar Servidor OpenLDAP](http://www.youtube.com/watch?v=E0mIYO_vbx8) Min 38: Crear config dir a partir de config text.
 > * Consultar documento `ldap-auth-pminik-taller.pdf`, página 20.
+
 
 ## 1.1 Preparar la máquina
 
@@ -45,13 +46,12 @@ Veamos imagen de ejemplo:
 
 ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
-## 1.2 Instalación del Servidor LDAP
+## 1.2 Instalación del Servidor 389-DS
 
 > Enlaces de interés:
 >
-> * [Servidor LDAP Leap 42.1](https://en.opensuse.org/SDB:LDAP_server)
-> * [Vídeo](https://www.youtube.com/watch?v=F14x3fGPN9E)
-> * [Servidor LDAP Suse 11](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
+> * [HOWTO: Configure 389-ds LDAP server on openSUSE Tumbleweed](https://www.dennogumi.org/2016/01/howto-configure-389-ds-ldap-server-on-opensuse-tumbleweed/
+)
 
 Hacemos lo siguiente:
 * Instalar los siguientes paquetes:
