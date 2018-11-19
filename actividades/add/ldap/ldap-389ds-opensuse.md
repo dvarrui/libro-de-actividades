@@ -21,20 +21,34 @@ configurar del servidor LDAP con OpenLDAP.
 
 ---
 
-# 1. Preparar la máquina
+# 1. Prerequisitos
 
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
     * [Configuración MV](../../global/configuracion/opensuse.md)
-    * Nombre equipo: `ldap-serverXX`
+* Nuestra máquina debe tener un FQDN.
+    * Nombre equipo: `ldap-serverXX.curso1819`
     * Además en `/etc/hosts` añadiremos:
 ```
-ip-del-servidor   ldap-serverXX.curso1718   ldap-serverXX
-127.0.0.3         nombrealumnoXX.curso1718  nombrealumnoXX
+ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
+127.0.0.3         nombrealumnoXX.curso1819  nombrealumnoXX
 ```
 
-Veamos imagen de ejemplo:
+> Veamos imagen de ejemplo:
+>
+> ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
-![opensuse-host-names.png](./images/opensuse-host-names.png)
+Necesitaremos ajustar parámetros del kernel para segurarnos de que
+la instalación no se quejará por la falta de recursos.
+Necesitamos elevar el rango de puertos locales disponibles al número
+máximo de descriptores de ficheros.
+* Crear el fichero `/etc/sysctl.d/00-389-ds.conf` con:
+```
+# Local ports available
+net.ipv4.ip_local_port_range = 1024 65000
+# Maximum number of file handles
+fs.file-max = 64000
+```
+* `sysctl -p`, como root para aplicar los cambios.
 
 ---
 
