@@ -49,8 +49,10 @@ Veamos imagen de ejemplo:
 > * [Servidor LDAP Suse 11](https://es.opensuse.org/Configurar_LDAP_usando_YaST)
 
 Hacemos lo siguiente:
-* Procedemos a la instalación del módulo Yast que sirve para gestionar el servidor LDAP (`yast2-auth-server`).
-   * Instalar los paquetes: openldap2, krb5-server y krb5-client.
+* Instalar los siguientes paquetes:
+    * `yast2-auth-server`, módulo Yast que sirve para gestionar el servidor LDAP.
+    * `openldap2`, servidor LDAP_server
+    * `krb5-server` y `krb5-client`, paquetes de la seguridad Kerbero.
 * Ir a Yast -> Servidor de autenticación. Aparecerá como `Authentication Server`.
 * Se requiere, además, instalar los paquetes: openldap2, krb5-server y krb5-client.
 * Iniciar servidor LDAP -> Sí
