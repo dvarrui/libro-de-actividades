@@ -37,9 +37,30 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 >
 > ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
+## 1.1 Opening the Required Ports in the Firewall
+
+* `systemctl status firewalld` Make sure the firewalld service is running.
+* `systemctl enable firewalld`, configure it to start automatically when the system boots.
+* `systemctl start firewalld`, to start firewalld.  
+* `firewall-cmd --permanent --add-port={389/tcp,636/tcp,9830/tcp}
+`, Open the required ports using the firewall-cmd utility. For example, to open the Directory Server default ports in the default firewall zone.
+
+> For details on using firewall-cmd to open ports on a system, see the Red Hat Security Guide or the firewall-cmd(1) man page.
+
+* `firewall-cmd --reload`, Reload the firewall configuration to ensure that the change takes place immediately.
+
+## 1.2 About the setup-ds-admin.pl Script
+
+The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
+
+If simply the setup script is run, then the script launches an interactive installer which prompts for configuration settings for the Directory Server and Administration Server instances. For example:
+
+* Abrir una consola como root.
+* `setup-ds-admin.pl`
+
 ---
 
-# 1. Instalar el Servidor
+# 2. Instalar el Servidor
 
 > Enlaces de interés:
 >
