@@ -53,7 +53,9 @@ Hacemos lo siguiente:
     * `yast2-auth-server`, módulo Yast que sirve para gestionar el servidor LDAP.
     * `openldap2`, servidor LDAP_server
     * `krb5-server` y `krb5-client`, paquetes de la seguridad Kerbero.
-* Ir a Yast -> Servidor de autenticación. Aparecerá como `Authentication Server`.
+* Ir a Yast -> Servidor de autenticación.
+    * Aparecerá como `Authentication Server`.
+    * **AQUÍ TENEMOS LA DUDA**
 * Se requiere, además, instalar los paquetes: openldap2, krb5-server y krb5-client.
 * Iniciar servidor LDAP -> Sí
 * Registrar dameon SLP -> No
