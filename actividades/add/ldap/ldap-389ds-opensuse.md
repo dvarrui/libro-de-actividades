@@ -37,6 +37,22 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 >
 > ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
+---
+
+# 1. Instalar el Servidor
+
+> Enlaces de interés:
+>
+> * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+
+* `zypper in 389-ds`, instalar 389-ds.
+
+---
+**PARA REVISAR**
+---
+
+# ANEXO
+
 Necesitaremos ajustar parámetros del kernel para segurarnos de que
 la instalación no se quejará por la falta de recursos.
 Necesitamos elevar el rango de puertos locales disponibles al número
@@ -50,16 +66,10 @@ fs.file-max = 64000
 ```
 * `sysctl -p`, como root para aplicar los cambios.
 
----
-
 # 2. Instalar el servidor de directorios 389
 
-> Enlaces de interés:
->
 > * [HOWTO: Configure 389-ds LDAP server on openSUSE Tumbleweed](https://www.dennogumi.org/2016/01/howto-configure-389-ds-ldap-server-on-opensuse-tumbleweed/
 )
-> * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
-
 
 Necesitamos añadir los respositorios con los ficheros del proyecto LDAP.
 
@@ -104,39 +114,6 @@ LoadModule nss_module         /usr/lib64/apache2/mod_nss.so
 * Editar `/usr/bin/389-console` y buscar `java -cp /usr/lib/java/jss4.jar` y lo cambiamos por `java -cp /usr/lib64/java/jss4.jar`.
 * Voilà!. 389-console working
 
----
-**PARA REVISAR**
----
-
-Hacemos lo siguiente:
-* Instalar los siguientes paquetes:
-    * `yast2-auth-server`, módulo Yast que sirve para gestionar el servidor LDAP.
-    * `openldap2`, servidor LDAP_server
-    * `krb5-server` y `krb5-client`, paquetes de la seguridad Kerbero.
-* Ir a Yast -> Servidor de autenticación.
-    * Aparecerá como `Authentication Server`.
-    * **AQUÍ TENEMOS LA DUDA**
-* Se requiere, además, instalar los paquetes: openldap2, krb5-server y krb5-client.
-* Iniciar servidor LDAP -> Sí
-* Registrar dameon SLP -> No
-* Puerto abierto en el cortafuegos -> Sí -> Siguiente
-* Tipo de servidor -> autónomo -> Siguiente
-* Configuración TLS -> NO habilitar -> Siguiente
-* Tipo de BD -> hdb
-* DN base -> `dc=nombre-del-alumnoXX,dc=curso1718`. Donde XX es el número del puesto de cada uno.
-* DN administrador -> `cn=Administrator`
-* Añadir DN base -> Sí
-* Contraseña del administrador
-* Directorio de BD -> `/var/lib/ldap`
-* Usar esta BD predeterminada para clientes LDAP -> Sí -> Siguiente
-
-![opensuse-ldapserver-config-form.png](./images/opensuse-ldapserver-config-form.png)
-
-* Habilitar kerberos -> No
-
-Veamos ejemplo de la configuración final:
-
-![opensuse-ldapserver-config-resume.png](./images/opensuse-ldapserver-config-resume.png)
 
 Comprobaciones:
 * `slaptest -f /etc/openldap/slapd.conf` para comprobar la sintaxis del fichero
