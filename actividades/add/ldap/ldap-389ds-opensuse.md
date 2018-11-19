@@ -52,13 +52,67 @@ fs.file-max = 64000
 
 ---
 
-# 2. Instalación del Servidor 389-DS
+# 2. Instalar el servidor de directorios 389
 
 > Enlaces de interés:
 >
 > * [HOWTO: Configure 389-ds LDAP server on openSUSE Tumbleweed](https://www.dennogumi.org/2016/01/howto-configure-389-ds-ldap-server-on-opensuse-tumbleweed/
 )
 > * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+
+
+Necesitamos añadir los respositorios con los ficheros del proyecto LDAP.
+
+* `zypper ar -f obs://network:ldap Network_Ldap`, confía en la Key!.
+* `zypper ref`
+
+> The obs:// scheme automatically adds the “guessed” distribution to your repository (with Leap it might fail though, so beware).
+
+* `zypper in 389-admin 389-admin-console 389-adminutil 389-console 389-ds 389-ds-console 389-adminutil 389-adminutil-lang`, Instalar los siguientes paquetes.
+
+---
+
+# 3. Ajustamos la configuración
+
+> Adjusting the configuration to ensure that it works
+>
+> So far so good. But if you follow the guides now and use setup-ds-admin.pl, you’ll get strange errors and the administration server will fail to get configured properly.
+>
+> This is because of a missing dependency on the apache2-worker package and because the configuration for the HTTP service used by 389 Directory Server is not properly adjusted for openSUSE: it references Apache 2 modules that the openSUSE package ships builtin or with different names and thus cannot be loaded.
+
+* `zypper in apache2-worker`, solucionar problemas con las dependencias de los paquetes.
+
+Then, we’ll tackle the configuration issue. Open (as root) /etc/dirsrv/admin-serv/httpd.conf, locate and comment out (or delete) the following line:
+
+LoadModule unixd_module         /usr/lib64/apache2/mod_unixd.so
+
+Then change the mod_nss one so that it reads like this:
+
+LoadModule nss_module         /usr/lib64/apache2/mod_nss.so
+
+Save the file and now you’ll be able to run setup-ds-admin.pl without issues. I won’t cover the process here, there are plenty of instructions in the 389 DS documentation.
+After installation: fixing 389-console
+
+If you want to use 389-console on a 64 bit system with openJDK you’ll notice that upon running it’ll throw a Java exception saying that some classes (Mozilla NSS Java classes) can’t be found. This is because the script looks in the wrong library directory (/usr/lib as opposed to /usr/lib64). Edit /usr/bin/389-console and find:
+
+java \
+    -cp /usr/lib/java/jss4.jar: # rest of line truncated for readability
+
+and change it to:
+
+java \
+    -cp /usr/lib64/java/jss4.jar: # rest of line truncated for readability
+
+Voilà!
+
+389-console working
+
+Luca Beltrame 2016-01-23 LINUX · OPENSUSE
+Linux 389-ds LDAP openSUSE
+« KDE PIM changes in openSUSE Tumbleweed
+Archive
+Where are my noble gases? I need MORE noble gases! »
+Dialogue & Discussion
 
 ---
 **PARA REVISAR**
