@@ -81,38 +81,28 @@ Necesitamos añadir los respositorios con los ficheros del proyecto LDAP.
 > This is because of a missing dependency on the apache2-worker package and because the configuration for the HTTP service used by 389 Directory Server is not properly adjusted for openSUSE: it references Apache 2 modules that the openSUSE package ships builtin or with different names and thus cannot be loaded.
 
 * `zypper in apache2-worker`, solucionar problemas con las dependencias de los paquetes.
-
-Then, we’ll tackle the configuration issue. Open (as root) /etc/dirsrv/admin-serv/httpd.conf, locate and comment out (or delete) the following line:
-
+* Entrar en la consola como `root`.
+* Editar `/etc/dirsrv/admin-serv/httpd.conf`, localiza y comenta las siguientes líneas:
+```
 LoadModule unixd_module         /usr/lib64/apache2/mod_unixd.so
-
-Then change the mod_nss one so that it reads like this:
-
+```
+* Cambiar mod_nss por lo siguiente:
+```
 LoadModule nss_module         /usr/lib64/apache2/mod_nss.so
+```
+* Grabar el fichero.
+* Ejecutar `setup-ds-admin.pl` sin problemas.
 
-Save the file and now you’ll be able to run setup-ds-admin.pl without issues. I won’t cover the process here, there are plenty of instructions in the 389 DS documentation.
-After installation: fixing 389-console
+> I won’t cover the process here, there are plenty of instructions in the 389 DS documentation.
 
-If you want to use 389-console on a 64 bit system with openJDK you’ll notice that upon running it’ll throw a Java exception saying that some classes (Mozilla NSS Java classes) can’t be found. This is because the script looks in the wrong library directory (/usr/lib as opposed to /usr/lib64). Edit /usr/bin/389-console and find:
+---
 
-java \
-    -cp /usr/lib/java/jss4.jar: # rest of line truncated for readability
+# 4. After installation: fixing 389-console
 
-and change it to:
+> If you want to use 389-console on a 64 bit system with openJDK you’ll notice that upon running it’ll throw a Java exception saying that some classes (Mozilla NSS Java classes) can’t be found. This is because the script looks in the wrong library directory (/usr/lib as opposed to /usr/lib64).
 
-java \
-    -cp /usr/lib64/java/jss4.jar: # rest of line truncated for readability
-
-Voilà!
-
-389-console working
-
-Luca Beltrame 2016-01-23 LINUX · OPENSUSE
-Linux 389-ds LDAP openSUSE
-« KDE PIM changes in openSUSE Tumbleweed
-Archive
-Where are my noble gases? I need MORE noble gases! »
-Dialogue & Discussion
+* Editar `/usr/bin/389-console` y buscar `java -cp /usr/lib/java/jss4.jar` y lo cambiamos por `java -cp /usr/lib64/java/jss4.jar`.
+* Voilà!. 389-console working
 
 ---
 **PARA REVISAR**
