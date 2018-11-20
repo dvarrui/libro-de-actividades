@@ -31,13 +31,18 @@ Pasos:
     * Tasa de fotogramas: `25 fps`
 * Botón `Emitir`
 * Fuente: `screen://` (Valor por defecto). Botón `Siguiente`.
-* Destino: `RTP/MEPG Transport Stream`. Botón `Añadir`
+* Destino: `RTP/MEPG Transport Stream`.
+    * **Botón `Añadir`**
 * Configuración de destino:
-    * Dirección: `IP broadcast de nuestra red` (Por ejemplo: 172.18.255.255)
-    * Nombre: `Nombre de la asignatura` (Por ejemplo: FUW)
+    * Dirección: `IP broadcast de nuestra red` (Por ejemplo: 172.AA.255.255)
+    * Nombre: `Nombre de la asignatura o del profesor` (Por ejemplo: David)
     * Botón `Siguiente`.
-* Opciones de transcodificación (Valor por defecto). Botón `Siguiente`.
-* Configuración de preferencias (Valor por defecto). Botón `Emitir`.
+* Opciones de transcodificación (Valor por defecto).
+    * Botón `Siguiente`.
+* Configuración de preferencias (Valor por defecto).
+    * Botón `Emitir`.
+
+> **Si hay problemas revisar el cortafuegos**. En el caso de OpenSUSE abrá que abrir el cortafuegos para poder emitir.
 
 ¡El servidor ya está emitiendo!
 
@@ -45,6 +50,9 @@ Pasos:
 
 # VLC cliente de Streaming
 
+* Los alumnos deben tener instalado el VLC en la máquina real y/o virtual.
+    * En el caso de MV, asegurarse de que le red está en modo puente.
+    * En el cado de OpenSUSE quizás abrá que abrir el cortafuegos.
 * Abrir el programa `VLC`
 * Ir a `menú -> Medio -> Abrir ubicación de red`
 * Introducir una URL: `rtp://@` (Valor por defecto). Botón `reproducir`.
