@@ -23,6 +23,10 @@ configurar del servidor LDAP con OpenLDAP.
 
 # 1. Prerequisitos
 
+> Enlaces de interés:
+>
+> * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+
 ## 1.1 Nombre de equipo FQDN
 
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
@@ -51,6 +55,15 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 
 * `firewall-cmd --reload`, Reload the firewall configuration to ensure that the change takes place immediately.
 
+## 1.3 Directory Server User and Group
+
+Parece que lo va a crear automáticamente...(dirsrv)
+
+## 1.4 Directory Suffix
+
+The directory suffix is the first entry within the directory tree. At least one directory suffix must be provided when the Directory Server is set up. The recommended directory suffix name matches your organization's DNS domain name. For example, if the Directory Server host name is `ldap.example.com`, the directory suffix is `dc=example,dc=com`.
+
+
 ## 1.3 About the `setup-ds-admin.pl` Script
 
 The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
@@ -66,7 +79,7 @@ If simply the setup script is run, then the script launches an interactive insta
 
 > Enlaces de interés:
 >
-> * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+> * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
 
 * `zypper in 389-ds`, instalar 389-ds.
 
