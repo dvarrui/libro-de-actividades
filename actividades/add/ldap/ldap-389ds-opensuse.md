@@ -2,12 +2,12 @@
 En CONSTRUCCIÓN!!!
 ```
 
-Enlace de interés:
-* [Suse retira OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/)
 
 ---
 
 # Servidor 389-DS - OpenSUSE
+
+> **Últimas noticias** [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/). Por este motivo hemos decido a partir de noviembre de 2018 cambiar el OpenLDAP2 por 389-DS.
 
 ![arbol](./images/arbol.png)
 
@@ -69,6 +69,8 @@ The directory suffix is the first entry within the directory tree. At least one 
 The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
 
 If simply the setup script is run, then the script launches an interactive installer which prompts for configuration settings for the Directory Server and Administration Server instances. For example:
+
+> Duda https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
 
 * Abrir una consola como root.
 * `setup-ds-admin.pl`
