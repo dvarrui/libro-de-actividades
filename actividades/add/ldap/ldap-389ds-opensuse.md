@@ -23,6 +23,8 @@ configurar del servidor LDAP con OpenLDAP.
 
 # 1. Prerequisitos
 
+## 1.1 Nombre de equipo FQDN
+
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
     * [Configuración MV](../../global/configuracion/opensuse.md)
 * Nuestra máquina debe tener un FQDN.
@@ -37,7 +39,7 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 >
 > ![opensuse-host-names.png](./images/opensuse-host-names.png)
 
-## 1.1 Opening the Required Ports in the Firewall
+## 1.2 Opening the Required Ports in the Firewall
 
 * `systemctl status firewalld` Make sure the firewalld service is running.
 * `systemctl enable firewalld`, configure it to start automatically when the system boots.
@@ -49,7 +51,7 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 
 * `firewall-cmd --reload`, Reload the firewall configuration to ensure that the change takes place immediately.
 
-## 1.2 About the setup-ds-admin.pl Script
+## 1.3 About the `setup-ds-admin.pl` Script
 
 The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
 
