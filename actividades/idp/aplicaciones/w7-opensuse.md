@@ -7,13 +7,11 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 
 # 1. Windows 7 usando el GUI
 
-> Enlaces de interés:
-> * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
-> * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
-
 * Capturar imagen del resultado final.
 
-## Instalar características del sistema operativo
+---
+
+## 1.1 Instalar características del sistema operativo
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
@@ -37,7 +35,9 @@ la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
 > * Escribir `olleh` y pulsar enter
 > * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
 
-## Vamos a instalar aplicaciones
+---
+
+## 1.2 Vamos a instalar aplicaciones
 
 Capturar imagenes de los pasos realizados.
 * Descargar Wget para Windows de la [página oficial](http://gnuwin32.sourceforge.net/packages/wget.htm)
@@ -68,7 +68,9 @@ para descargar el programa Evince en formato MSI desde el URL https://wiki.gnome
 
 Capturar imágenes de los pasos realizados.
 
-## Instalar programas
+---
+
+## 2.1 Instalar programas
 
 * Descargar el programa GIT desde la web oficial (http://git-scm.com/).
 * Abrir una consola cmd.
@@ -87,7 +89,9 @@ Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúe
 
 * `git --version`, comando para averiguar la versión instalada del programa git.
 
-## Desinstalar programas
+---
+
+## 2.2 Desinstalar programas
 
 A continuación vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
 
@@ -108,6 +112,20 @@ información reiniciar el equipo y repetir.
 > $programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "
 > $programa.Uninstall()
 > ```
+
+---
+
+## 2.3 Gestor de paquetes
+
+> Enlaces de interés:
+> * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
+> * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
+
+* Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga:
+    * Geany
+    * Evince
+    * Firefox
+    * 7zip
 
 ---
 
