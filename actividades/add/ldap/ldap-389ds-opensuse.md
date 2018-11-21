@@ -64,8 +64,7 @@ Parece que lo va a crear automáticamente...(dirsrv)
 
 The directory suffix is the first entry within the directory tree. At least one directory suffix must be provided when the Directory Server is set up. The recommended directory suffix name matches your organization's DNS domain name. For example, if the Directory Server host name is `ldap.example.com`, the directory suffix is `dc=example,dc=com`.
 
-
-## 1.3 About the `setup-ds-admin.pl` Script
+## 1.5 About the `setup-ds-admin.pl` Script
 
 The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
 
