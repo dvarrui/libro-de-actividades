@@ -16,10 +16,10 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
-* Instalar 3 características:
+* Instalar 3 `características`:
     * Cliente Telnet.
     * Juegos/Buscaminas.
-    * Otra a elección del alumno.
+    * Otra `característica` a elección del alumno.
 * Comprobar que funcionan correctamente.
     * `telnet towel.blinkenlights.nl`
 
