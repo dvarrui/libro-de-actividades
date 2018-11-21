@@ -52,9 +52,9 @@ Para realizar dicha verificación en Windows podemos usar por ejemplo el program
 
 Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
-* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win32/evince/2.32/evince-2.32.0.145.msi`,
-para descargar el programa Evince en formato MSI desde el URL https://wiki.gnome.org/Apps/Evince/Downloads.
-* Instalar el programa Evince en formato MSI.
+* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
+    * Cambiar VERSION por l valor adecuado.
+* Instalar el programa Geany en formato MSI.
 * También se puede probar `wget` descargando una ISO del servidor Leela.
 
 > Información:
@@ -101,7 +101,7 @@ A continuación vamos a desinstalar un programa MSI por comandos, usando la cons
 * `wmic`, abrir consola wmic.
 * `product get name`, para localizar los programas MSI instalados. Si no se muestra
 información reiniciar el equipo y repetir.
-* `product where name="Evince 2.30.3" call uninstall`, para desintalar el programa.
+* `product where name="Geany VERSION" call uninstall`, para desintalar el programa.
 * Comprobarlo.
 
 > **INFORMACIÓN - PowerShell**
