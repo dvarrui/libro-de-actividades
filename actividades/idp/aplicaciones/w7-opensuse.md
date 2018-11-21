@@ -48,19 +48,19 @@ Capturar imagenes de los pasos realizados.
 Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
 * Realizar la instalación de la aplicación.
 
-> El programa Wget se usa para hacer descargas desde la consola.
+> Información:
+>
+> * El programa Wget se usa para hacer descargas desde la consola.
+> * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
+> * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 
 Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
     * Cambiar VERSION por l valor adecuado.
+* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.sha256`
+    * Fichero de comprobación sha256.
 * Instalar el programa Geany en formato MSI.
-* También se puede probar `wget` descargando una ISO del servidor Leela.
-
-> Información:
->
-> * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
-> * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 
 ---
 
