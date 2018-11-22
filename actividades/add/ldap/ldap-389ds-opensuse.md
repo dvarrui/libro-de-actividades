@@ -73,7 +73,10 @@ If simply the setup script is run, then the script launches an interactive insta
 > Duda https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
 
 * Abrir una consola como root.
-* `setup-ds-admin.pl`
+* `setup-ds-admin.pl`... como no encuentro este script... se me ocurre
+buscar si existe algún paquete 389-ds para instalar a ver si así aparece este script....
+    * `zypper se 389-ds`
+    * `zypper in ...`
 
 ---
 
