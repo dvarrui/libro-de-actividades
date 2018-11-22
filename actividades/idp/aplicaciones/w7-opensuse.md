@@ -58,7 +58,7 @@ Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
     * Cambiar VERSION por l valor adecuado.
-* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.sha256`
+* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.sha256sum`
     * Fichero de comprobación sha256.
 * Instalar el programa Geany en formato MSI.
 
