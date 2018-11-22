@@ -61,7 +61,7 @@ Vamos a comprobar su funcionamiento:
     * Cambiar VERSION por el valor adecuado.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.sha256sum`
     * Fichero de comprobación sha256.
-* Instalar el programa Geany en formato MSI.
+* Instalar el programa en formato MSI.
 
 ---
 
