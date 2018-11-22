@@ -73,10 +73,11 @@ If simply the setup script is run, then the script launches an interactive insta
 > Duda https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
 
 * Abrir una consola como root.
-* La documentación de 389-DS dice que ahora debemos ejecutar el escript `setup-ds-admin.pl`... pero no encuentramos este script.
+* La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`...
+    * `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
     * Se nos ocurre buscar en los paquetes del SO `zypper se 389-ds`.
     * Encontramos éste y lo instalamos `zypper in 389-ds`
-    * Pero... sigue sin aparecer el script que comenta la documentación 389.
+    * `find / -name setup-ds.pl`, el script tiene OTRO NOMBRE!!!
     * Ahora nos vamos a centrar en buscar información del paquete 389-ds de OpenSUSE.
 
 ---
@@ -86,8 +87,6 @@ If simply the setup script is run, then the script launches an interactive insta
 > Enlaces de interés:
 >
 > * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
-
-* `zypper in 389-ds`, instalar 389-ds.
 
 ---
 **PARA REVISAR**
