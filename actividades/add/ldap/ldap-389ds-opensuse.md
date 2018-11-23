@@ -78,7 +78,8 @@ If simply the setup script is run, then the script launches an interactive insta
     * Se nos ocurre buscar en los paquetes del SO `zypper se 389-ds`.
     * Encontramos éste y lo instalamos `zypper in 389-ds`
     * `find / -name setup-ds.pl`, el script tiene OTRO NOMBRE!!!
-    * Ahora nos vamos a centrar en buscar información del paquete 389-ds de OpenSUSE.
+        * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
+    * Lo va ajecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
 
 ---
 
