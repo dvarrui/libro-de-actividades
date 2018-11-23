@@ -27,6 +27,7 @@ configurar del servidor LDAP con OpenLDAP.
 > Enlaces de interés:
 >
 > * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
+> * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
 
 ## 1.1 Nombre de equipo FQDN
 
@@ -56,15 +57,21 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 
 * `firewall-cmd --reload`, Reload the firewall configuration to ensure that the change takes place immediately.
 
-## 1.3 Directory Server User and Group
+---
+
+# 2. Instalar el Servidor
+
+## 2.1 Información
+
+**Directory Server User and Group**
 
 Parece que lo va a crear automáticamente...(dirsrv)
 
-## 1.4 Directory Suffix
+**Directory Suffix**
 
 The directory suffix is the first entry within the directory tree. At least one directory suffix must be provided when the Directory Server is set up. The recommended directory suffix name matches your organization's DNS domain name. For example, if the Directory Server host name is `ldap.example.com`, the directory suffix is `dc=example,dc=com`.
 
-## 1.5 About the `setup-ds-admin.pl` Script
+## 2.2 About the `setup-ds-admin.pl` Script
 
 The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
 
@@ -73,56 +80,100 @@ If simply the setup script is run, then the script launches an interactive insta
 > Duda https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
 
 * Abrir una consola como root.
-* La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`...
-    * `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
-    * Se nos ocurre buscar en los paquetes del SO `zypper se 389-ds`.
-    * Encontramos éste y lo instalamos `zypper in 389-ds`
-    * `find / -name setup-ds.pl`, el script tiene OTRO NOMBRE!!!
-        * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
-    * Lo va ajecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
+
+> La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`...
+
+* `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
+* Se nos ocurre buscar en los paquetes del SO `zypper se 389-ds`.
+* Encontramos éste y lo instalamos `zypper in 389-ds`
+* `find / -name setup-ds.pl`, el script tiene OTRO NOMBRE!!!
+    * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
+* Lo va ajecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
+
+```
+ldap-server27:~ # setup-ds.pl
+
+==============================================================================
+This program will set up the 389 Directory Server.
+
+It is recommended that you have "root" privilege to set up the software.
+Tips for using this  program:
+  - Press "Enter" to choose the default and go to the next screen
+  - Type "Control-B" or the word "back" then "Enter" to go back to the previous screen
+  - Type "Control-C" to cancel the setup program
+
+Would you like to continue with set up? [yes]: yes
+
+==============================================================================
+Choose a setup type:
+
+   1. Express
+       Allows you to quickly set up the servers using the most
+       common options and pre-defined defaults. Useful for quick
+       evaluation of the products.
+
+   2. Typical
+       Allows you to specify common defaults and options.
+
+   3. Custom
+       Allows you to specify more advanced options. This is
+       recommended for experienced server administrators only.
+
+To accept the default shown in brackets, press the Enter key.
+
+Choose a setup type [2]: 2
+
+==============================================================================
+Enter the fully qualified domain name of the computer
+on which you're setting up server software. Using the form
+<hostname>.<domainname>
+Example: eros.example.com.
+
+To accept the default shown in brackets, press the Enter key.
+
+Warning: This step may take a few minutes if your DNS servers
+can not be reached or if DNS is not configured correctly.  If
+you would rather not wait, hit Ctrl-C and run this program again
+with the following command line option to specify the hostname:
+
+    General.FullMachineName=your.hostname.domain.name
+
+Computer name [ldap-server27]: ldap-server27.curso1819
+
+==============================================================================
+The server must run as a specific user in a specific group.
+It is strongly recommended that this user should have no privileges
+on the computer (i.e. a non-root user).  The setup procedure
+will give this user/group some permissions in specific paths/files
+to perform server-specific operations.
+
+If you have not yet created a user and group for the server,
+create this user and group using your native operating
+system utilities.
+
+System User [dirsrv]:
+System Group [dirsrv]:
+
+==============================================================================
+The standard directory server network port number is 389.  However, if
+you are not logged as the superuser, or port 389 is in use, the
+default value will be a random unused port number greater than 1024.
+If you want to use port 389, make sure that you are logged in as the
+superuser, that port 389 is not in use.
+
+Directory server network port [389]:
+
+==============================================================================
+Each instanc
+```
 
 ---
 
-# 2. Instalar el Servidor
-
-> Enlaces de interés:
->
-> * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
-
----
 **PARA REVISAR**
 ---
 
 # ANEXO
 
-Necesitaremos ajustar parámetros del kernel para segurarnos de que
-la instalación no se quejará por la falta de recursos.
-Necesitamos elevar el rango de puertos locales disponibles al número
-máximo de descriptores de ficheros.
-* Crear el fichero `/etc/sysctl.d/00-389-ds.conf` con:
-```
-# Local ports available
-net.ipv4.ip_local_port_range = 1024 65000
-# Maximum number of file handles
-fs.file-max = 64000
-```
-* `sysctl -p`, como root para aplicar los cambios.
-
-# 2. Instalar el servidor de directorios 389
-
-> * [HOWTO: Configure 389-ds LDAP server on openSUSE Tumbleweed](https://www.dennogumi.org/2016/01/howto-configure-389-ds-ldap-server-on-opensuse-tumbleweed/
-)
-
-Necesitamos añadir los respositorios con los ficheros del proyecto LDAP.
-
-* `zypper ar -f obs://network:ldap Network_Ldap`, confía en la Key!.
-* `zypper ref`
-
-> The obs:// scheme automatically adds the “guessed” distribution to your repository (with Leap it might fail though, so beware).
-
-* `zypper in 389-admin 389-admin-console 389-adminutil 389-console 389-ds 389-ds-console 389-adminutil 389-adminutil-lang`, Instalar los siguientes paquetes.
-
----
 
 # 3. Ajustamos la configuración
 
@@ -179,6 +230,7 @@ Si tenemos que desinstalar el software anterior, hacemos lo siguiente:
 * mv /var/lib/ldap /var/lib/ldap.000
 
 ---
+
 
 ## 1.4 Crear usuarios y grupos LDAP
 

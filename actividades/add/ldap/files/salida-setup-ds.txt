@@ -1,23 +1,4 @@
-Script iniciado en 2018-11-22 12:58:31+0000
-]0;yeray@ldap-server27:~]7;file://ldap-server27/root[1m[31mldap-server27:~ #(B[m vdir
-total 0
-drwxr-xr-x 1 root root  0 abr 22  2018 bin
-drwxr-xr-x 1 root root 36 oct  8 12:49 inst-sys
--rw-r--r-- 1 root root  0 nov 22 12:58 typescript
-]0;yeray@ldap-server27:~]7;file://ldap-server27/root[1m[31mldap-server27:~ #(B[m se
-seahorse                  setctsid                  setpriv
-sed                       set_default_volume        setquota
-select                    setfacl                   setquota-ldap.pl
-sendmail                  setfattr                  setsid
-seq                       setfont                   setSystemQuotas.pl
-servertool                setkeycodes               setterm
-service                   setleds                   setup-ds.pl
-sessreg                   setlogcons                setup-pulseaudio
-set                       setmetamode               setvesablank
-setarch                   setpalette                setvtrgb
-setcifsacl                setpci                    setxkbmap
-setconsole                set_polkit_default_privs  
-[1m[31mldap-server27:~ #(B[m setup-ds.pl 
+ldap-server27:~ # setup-ds.pl
 
 ==============================================================================
 This program will set up the 389 Directory Server.
@@ -42,7 +23,7 @@ Choose a setup type:
        Allows you to specify common defaults and options.
 
    3. Custom
-       Allows you to specify more advanced options. This is 
+       Allows you to specify more advanced options. This is
        recommended for experienced server administrators only.
 
 To accept the default shown in brackets, press the Enter key.
@@ -77,8 +58,8 @@ If you have not yet created a user and group for the server,
 create this user and group using your native operating
 system utilities.
 
-System User [dirsrv]: 
-System Group [dirsrv]: 
+System User [dirsrv]:
+System Group [dirsrv]:
 
 ==============================================================================
 The standard directory server network port number is 389.  However, if
@@ -87,7 +68,7 @@ default value will be a random unused port number greater than 1024.
 If you want to use port 389, make sure that you are logged in as the
 superuser, that port 389 is not in use.
 
-Directory server network port [389]: 
+Directory server network port [389]:
 
 ==============================================================================
 Each instanc
