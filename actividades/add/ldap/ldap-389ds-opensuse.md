@@ -174,10 +174,13 @@ Each instanc
 
 # 3. Browser LDAP
 
+Hay varias herramientas que pueden servir como browser LDAP: gq,
+ldapmyadmin, etc. Podemos usar cualquiera.
+
 ## 3.1 Comprobar
 
-* Podemos comprobar el contenido de la base de datos LDAP usando la herramienta `gq`.
-Esta herramienta es un browser LDAP.
+* Instalar un browser LDAP: `gq`.
+* Comprobar el contenido de la base de datos LDAP usando el browser.
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)
