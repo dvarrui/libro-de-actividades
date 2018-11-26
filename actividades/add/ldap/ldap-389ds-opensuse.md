@@ -182,6 +182,7 @@ ldapmyadmin, etc. Podemos usar cualquiera.
 
 * Instalar un browser LDAP: `gq`.
 * Comprobar el contenido de la base de datos LDAP usando el browser.
+    * `cn=Administrator,dc=ldap-serverXX,dc=curso1819`
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)
