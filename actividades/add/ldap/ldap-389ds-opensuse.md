@@ -172,7 +172,7 @@ Each instanc
 
 ---
 
-# 3. Cliente LDAP
+# 3. Browser LDAP
 
 ## 3.1 Comprobar
 
