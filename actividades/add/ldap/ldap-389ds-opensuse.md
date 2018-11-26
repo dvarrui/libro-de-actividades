@@ -167,7 +167,8 @@ Directory server network port [389]:
 Each instanc
 ```
 
-* `ps -ef |grep ...`, para comprobar si el demonio está en ejecución.
+* `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
+* `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
 
 ---
