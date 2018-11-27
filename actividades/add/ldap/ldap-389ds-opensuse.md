@@ -84,38 +84,17 @@ Este script se ejecuta como superusuario y de forma interactiva iremos configura
 * Encontramos éste y lo instalamos `zypper in 389-ds`
 * `find / -name setup-ds.pl`, el script tiene un nombre diferente al que aparece en la documentación.
     * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
-* Ejecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
+* Ejecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt). Veamos un resumen:
 
 ```
 ldap-server27:~ # setup-ds.pl
 
 ==============================================================================
 This program will set up the 389 Directory Server.
-
-It is recommended that you have "root" privilege to set up the software.
-Tips for using this  program:
-  - Press "Enter" to choose the default and go to the next screen
-  - Type "Control-B" or the word "back" then "Enter" to go back to the previous screen
-  - Type "Control-C" to cancel the setup program
-
-Would you like to continue with set up? [yes]: yes
-
 ==============================================================================
 Choose a setup type:
-
-   1. Express
-       Allows you to quickly set up the servers using the most
-       common options and pre-defined defaults. Useful for quick
-       evaluation of the products.
-
    2. Typical
        Allows you to specify common defaults and options.
-
-   3. Custom
-       Allows you to specify more advanced options. This is
-       recommended for experienced server administrators only.
-
-To accept the default shown in brackets, press the Enter key.
 
 Choose a setup type [2]: 2
 
@@ -123,44 +102,21 @@ Choose a setup type [2]: 2
 Enter the fully qualified domain name of the computer
 on which you're setting up server software. Using the form
 <hostname>.<domainname>
-Example: eros.example.com.
-
-To accept the default shown in brackets, press the Enter key.
-
-Warning: This step may take a few minutes if your DNS servers
-can not be reached or if DNS is not configured correctly.  If
-you would rather not wait, hit Ctrl-C and run this program again
-with the following command line option to specify the hostname:
-
-    General.FullMachineName=your.hostname.domain.name
 
 Computer name [ldap-server27]: ldap-server27.curso1819
 
 ==============================================================================
 The server must run as a specific user in a specific group.
-It is strongly recommended that this user should have no privileges
-on the computer (i.e. a non-root user).  The setup procedure
-will give this user/group some permissions in specific paths/files
-to perform server-specific operations.
-
-If you have not yet created a user and group for the server,
-create this user and group using your native operating
-system utilities.
 
 System User [dirsrv]:
 System Group [dirsrv]:
 
 ==============================================================================
-The standard directory server network port number is 389.  However, if
-you are not logged as the superuser, or port 389 is in use, the
-default value will be a random unused port number greater than 1024.
-If you want to use port 389, make sure that you are logged in as the
-superuser, that port 389 is not in use.
+The standard directory server network port number is 389.
 
 Directory server network port [389]:
 
 ==============================================================================
-Each instanc
 ```
 
 > Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
