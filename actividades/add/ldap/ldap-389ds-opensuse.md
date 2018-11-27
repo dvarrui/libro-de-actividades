@@ -63,32 +63,28 @@ ip-del-servidor   ldap-serverXX.curso1819   ldap-serverXX
 
 ## 2.1 Información
 
-**Directory Server User and Group**
+Durante el proceso de instalación será necesario:
+* Crear un usuario y grupo para el servidor de directorios (dirsrv).
+* El sufijo del directorio es la primera entrada al árbol de directorios.
+Ejemplo: si el host del servidor de directorios se llama `ldap.example.com`, entonces el sufijo es `dc=example,dc=com`.
 
-Parece que lo va a crear automáticamente...(dirsrv)
+## 2.2 Script de Perl `setup-ds.pl`
 
-**Directory Suffix**
+La documentación indica que debemos usar el script `setup-ds-admin.pl`
+para hacer la instalación y configuración inicial del 389-DS.
 
-The directory suffix is the first entry within the directory tree. At least one directory suffix must be provided when the Directory Server is set up. The recommended directory suffix name matches your organization's DNS domain name. For example, if the Directory Server host name is `ldap.example.com`, the directory suffix is `dc=example,dc=com`.
+Este script se ejecuta como superusuario y de forma interactiva iremos configurando los parámetros de la instalación.
 
-## 2.2 About the `setup-ds-admin.pl` Script
-
-The Directory Server and Administration Server instances are created and configured through a script called setup-ds-admin.pl. The Directory Server alone can be created using the setup-ds.pl script.
-
-If simply the setup script is run, then the script launches an interactive installer which prompts for configuration settings for the Directory Server and Administration Server instances. For example:
-
-> Duda https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
 
 * Abrir una consola como root.
-
-> La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`...
-
-* `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
-* Se nos ocurre buscar en los paquetes del SO `zypper se 389-ds`.
+* La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`, pero no lo encontramos:
+    * `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
+    * Enlaces de interés: https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
+* Se nos ocurre otro camino. Vamos a buscar en los paquetes del SO `zypper se 389-ds`.
 * Encontramos éste y lo instalamos `zypper in 389-ds`
-* `find / -name setup-ds.pl`, el script tiene OTRO NOMBRE!!!
+* `find / -name setup-ds.pl`, el script tiene un nombre diferente al que aparece en la documentación.
     * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
-* Lo va ajecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
+* Ejecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt).
 
 ```
 ldap-server27:~ # setup-ds.pl
@@ -169,6 +165,8 @@ Each instanc
 
 > Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
 
+## 2.3 Comprobamos el servicio
+
 * `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
 * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
@@ -225,7 +223,7 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 
 ---
 
-# 4. CLiente para autenticación LDAP
+# 4. Cliente para autenticación LDAP
 
 Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP.
 
