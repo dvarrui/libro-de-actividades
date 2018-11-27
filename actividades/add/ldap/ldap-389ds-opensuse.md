@@ -68,7 +68,7 @@ Durante el proceso de instalación será necesario:
 * El sufijo del directorio es la primera entrada al árbol de directorios.
 Ejemplo: si el host del servidor de directorios se llama `ldap.example.com`, entonces el sufijo es `dc=example,dc=com`.
 
-## 2.2 Script de Perl `setup-ds.pl`
+## 2.2 Script de Perl
 
 La documentación indica que debemos usar el script `setup-ds-admin.pl`
 para hacer la instalación y configuración inicial del 389-DS.
