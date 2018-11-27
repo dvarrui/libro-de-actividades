@@ -134,7 +134,7 @@ Directory server network port [389]:
 Hay varias herramientas que pueden servir como browser LDAP:
 * [phpLDAPadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page)
 * gq
-* [ldapadmin](http://www.ldapadmin.org/)
+* [ldapadmin](http://www.ldapadmin.org/) para SO Windows.
 * mozldap-tools
 * etc
 Podemos usar cualquiera.
@@ -146,7 +146,7 @@ Podemos usar cualquiera.
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
     * Base DN = `dc=ldap-serverXX,dc=curso1819`
-    * Admin user=`cn=Administrator,dc=ldap-serverXX,dc=curso1819`
+    * Admin user =`cn=Administrator,dc=ldap-serverXX,dc=curso1819`
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)

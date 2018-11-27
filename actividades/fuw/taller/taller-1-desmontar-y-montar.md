@@ -10,7 +10,7 @@
 
 ---
 
-## Paso 1: Recoger equipo
+# Paso 1: Recoger equipo
 
 * Recoger del taller:
     * El ordenador asignado por el profesor. Debe tener una identificación pegada. Por ejemplo `TH16`.
@@ -42,7 +42,7 @@ Anotar las diferencias en la ficha.
 
 ---
 
-## Paso 2: Desmontar
+# Paso 2: Desmontar
 
 * Identificar todos los componentes.
 * Desmontar los siguientes componentes:
@@ -53,7 +53,7 @@ Anotar las diferencias en la ficha.
 
 ---
 
-## Paso 3: Montar y recoger
+# Paso 3: Montar y recoger
 
 * Volver a montarlo todo.
 * Comprobar que funciona correctamente.
@@ -65,3 +65,12 @@ Anotar las diferencias en la ficha.
 > * Dejar la ficha en su sitio.
 > * El PC recogido y en donde le corresponde.
 > * El puesto de trabajo ordenado.
+
+---
+
+# Paso 4: Sistema Operativo
+
+* Instalar el sistema operativo que queramos (siempre de forma legal).
+* Clave de root = profesor
+* Crear usuario profesor/profesor
+* Crear usuario alumno/alumno
