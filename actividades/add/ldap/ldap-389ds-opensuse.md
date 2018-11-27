@@ -167,6 +167,8 @@ Directory server network port [389]:
 Each instanc
 ```
 
+> Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
+
 * `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
 * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
@@ -175,24 +177,39 @@ Each instanc
 
 # 3. Browser LDAP
 
-Hay varias herramientas que pueden servir como browser LDAP: gq,
-ldapmyadmin, etc. Podemos usar cualquiera.
+Hay varias herramientas que pueden servir como browser LDAP:
+* [phpLDAPadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page)
+* gq
+* [ldapadmin](http://www.ldapadmin.org/)
+* mozldap-tools
+* etc
+Podemos usar cualquiera.
 
-## 3.1 Comprobar
+## 3.1 Instalar browser LDAP
 
-* Instalar un browser LDAP: `gq`.
-* Comprobar el contenido de la base de datos LDAP usando el browser.
-    * `cn=Administrator,dc=ldap-serverXX,dc=curso1819`
+* Instalar un browser LDAP.
+* Usar un browser LDAP para comprobar el contenido del servidor de directorios LDAP:
+    * `File -> Preferencias -> Servidor -> Nuevo`
+    * URI = `ldap://ldap-serverXX`
+    * Base DN = `dc=ldap-serverXX,dc=curso1819`
+    * Admin user=`cn=Administrator,dc=ldap-serverXX,dc=curso1819`
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)
 
-## 3.2 Crear usuarios y grupos LDAP
+## 3.2 Crear usuarios y grupos dentro del LDAP
+
+En este punto vamos a escribir información dentro del servidor de directorios LDAP.
+
+> Enlaces de interés:
+>
+> * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+> * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
-* Crear el grupo `piratas2` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `pirata21`, `pirata22` (Estos se crearán dentro de la `ou=people`).
-* Usar `gq` para consultar/comprobar el contenido de la base de datos LDAP.
+* Crear el grupo `soldados` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `soldado1`, `soldado2` (Estos se crearán dentro de la `ou=people`).
+* Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
 
 > Vemos un ejemplo de un árbol de datos en LDAP:
 > ![gq-browser-users.png](./images/gq-browser-users.png)
@@ -208,39 +225,33 @@ ldapmyadmin, etc. Podemos usar cualquiera.
 
 ---
 
-# 4. Cliente de autenticación LDAP
+# 4. CLiente para autenticación LDAP
 
-En este punto vamos a escribir información en el servidor LDAP.
-
-> Enlaces de interés:
->
-> * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-> * [ Autenticación con OpenLDAP ](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/autentificacin_del_sistema_con_openldap.html).
-> * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
+Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP.
 
 ## 4.1 Preparativos
 
-* Vamos a otra MV OpenSUSE.
-* Cliente LDAP con OpenSUSE:
+* Vamos a otra MV.
+    * SO OpenSUSE.
     * [Configuración MV](../../global/configuracion/opensuse.md)
     * Nombre equipo: `ldap-clientXX`
-    * Dominio: `curso1718`
-    * Asegurarse que tenemos definido en el fichero /etc/hosts del cliente,
+    * Dominio: `curso1819`
+    * Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente,
 el nombre DNS con su IP correspondiente:
 ```
 127.0.0.2         ldap-clientXX.curso1718   ldap-clientXX
-ip-del-servidor   ldap-serverXX.curso1718   ldap-serverXX   nombredealumnoXX.curso1718   nombrealumnoXX
+IP-DEL-SERVIDOR   ldap-serverXX.curso1718   ldap-serverXX   
 ```
 
 ## 4.2 Comprobación
 
-* `nmap -Pn ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde el cliente.
-* Usar `gq` en el cliente para comprobar que se han creado bien los usuarios.
+* `nmap -Pn ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV cliente.
+* Usar un browser LDAP en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
-    * Base DN = `dc=davidXX,dc=curso1718`
+    * Base DN = `dc=ldap-serverXX,dc=curso1819`
 
-## 4.3 Instalar cliente autenticación LDAP
+## 4.3 Instalar y configurar la autenticación
 
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
@@ -254,13 +265,11 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
-getent passwd pirata21
-getent group piratas2
-id pirata21
-finger pirata21
-cat /etc/passwd | grep pirata21
-cat /etc/group | grep piratas2
-su pirata21
+getent group soldados           # Comprobamos los datos del grupo
+cat /etc/group | grep soldados  # El grupo NO es local
+
+getent passwd soldado1          # Comprobamos los datos del usuario
+cat /etc/passwd | grep soldado1 # El usuario NO es local
 ```
 
 ---
@@ -272,9 +281,19 @@ Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
 usuarios definidos no en la máquina local, sino en la máquina remota con
 LDAP. Una especie de *Domain Controller*.
 
-* Entrar en la MV cliente con algún usuario LDAP.
+* Ir a la MV cliente.
+* Iniciar sesión gráfica con algún usuario LDAP.
+* Iniciar sesión con usuario local.
+* Abrir una consola y hacer lo siguiente:
+```
+id soldado1
+finger soldado1
+su -l soldado1   # Entramos con el usuario definido en LDAP
+```
 
-> Si tenemos problemas al reiniciar la MV cliente, debemos:
+> **Si tenemos problemas al reiniciar la MV cliente**
+>
+> Hacer lo siguiente:
 > * Iniciar MV con Knoppix
 > * Deshacer los cambios ldap en el fichero `/etc/nsswitch.conf`
 >     * `passwd: files nis ldap`
