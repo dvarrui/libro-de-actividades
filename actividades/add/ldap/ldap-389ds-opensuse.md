@@ -16,9 +16,9 @@ Nuevo curso 2018-2019
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
-Hay varias herramientas que implementan el protocolo LDAP, por ejemplo:
-389-DC, OpenLDAP, Active Directory, etc. En esta guía vamos a instalar y
-configurar del servidor LDAP con OpenLDAP.
+Hay varias herramientas que implementan el servidor de directorios LDAP
+(389-DS, OpenLDAP, Active Directory, etc). En esta guía vamos a instalar y
+configurar del servidor LDAP con 389-DS.
 
 ---
 
