@@ -1,14 +1,9 @@
-```
-* Curso 2015-2016:  adaptada para OpenSUSE
-* Curso 2016-2017
-* Curso 2018-2019 => OpenLDAP2 RETIRADO!!!
-```
 
-Enlace de interés:
-* [Suse retira OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/)
-
----
 # Servidor OpenLDAP - OpenSUSE
+
+> **Últimas noticias** [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/).
+>
+> Por este motivo hemos decido a partir de noviembre de 2018 cambiar el OpenLDAP2 por 389-DS.
 
 ![arbol](./images/arbol.png)
 
