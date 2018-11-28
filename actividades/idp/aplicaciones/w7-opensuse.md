@@ -56,6 +56,7 @@ Para realizar dicha verificación en Windows podemos usar por ejemplo el program
 
 Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
+* Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`. ¿Lo ves? Seguimos.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
     * Para averiguar la URL correcta... abre un navegador y pon `ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit`...
     * Cambiar VERSION por el valor adecuado.
@@ -123,10 +124,11 @@ información reiniciar el equipo y repetir.
 > * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
 * Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga:
-    * Geany
-    * Evince
     * Firefox
-    * 7zip
+    * VLC
+    * Gimp
+    * 7z
+    * Steam
 
 ---
 

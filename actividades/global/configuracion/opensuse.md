@@ -126,6 +126,10 @@ host www.nba.com        # Comprueba DNS
 
 # ANEXO
 
+## Cambiar el idioma/country desde comandos
+
+https://www.suse.com/documentation/opensuse110/opensuse110_reference/data/sec_suse_l10n.html
+
 ## Ficheros de configuración
 
 El fichero de configuración de red de OpenSUSE es `/etc/sysconfig/network/ifcfg-eth0`
