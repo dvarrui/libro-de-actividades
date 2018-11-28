@@ -102,9 +102,8 @@ A continuación vamos a desinstalar un programa MSI por comandos, usando la cons
 
 * Abrir consola PowerShell como Administrador
 * `wmic`, abrir consola wmic.
-* `product get name`, para localizar los programas MSI instalados. Si no se muestra
-información reiniciar el equipo y repetir.
-* `product where name="Geany VERSION" call uninstall`, para desintalar el programa.
+* `product get name`, para localizar los programas MSI instalados. Si no se muestra información reiniciar el equipo y repetir.
+* `product where name="APPNAME VERSION" call uninstall`, para desintalar el programa APPNAME con la versión VERSION.
 * Comprobarlo.
 
 > **INFORMACIÓN - PowerShell**
