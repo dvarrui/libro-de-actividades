@@ -56,7 +56,8 @@ Para realizar dicha verificación en Windows podemos usar por ejemplo el program
 
 Vamos a comprobar su funcionamiento:
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
-* Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`. ¿Lo ves? Seguimos.
+* Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
+    * ¿Lo ves? Si la respuesta es NO, puede ser que el cortafuegos de Windows esté bloqueando el acceso a dicho sitio. Resuélvelo y seguimos.
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
     * Para averiguar la URL correcta... abre un navegador y pon `ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit`...
     * Cambiar VERSION por el valor adecuado.
