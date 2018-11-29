@@ -124,6 +124,8 @@ Directory server network port [389]:
 ## 2.3 Comprobamos el servicio
 
 * `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
+* `systemctl enable dirsrv@ldap-serverXX`, activar al inicio.
+* `systemctl start dirsrv@ldap-serverXX`, iniciar el servicio.
 * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 * `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
 
