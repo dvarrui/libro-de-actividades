@@ -117,6 +117,9 @@ The standard directory server network port number is 389.
 Directory server network port [389]:
 
 ==============================================================================
+
+Usuario administrador de la BD LDAP [Directory Manager]:
+...
 ```
 
 > Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
