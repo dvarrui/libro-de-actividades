@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2018-10-29 09:33:13 +0000`
+`Fecha UM: 2018-11-29 09:08:04 +0000`
 
 * [idp](actividades/idp) 12
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -80,7 +80,8 @@
         * [usuarios-y-permisos.md](actividades/idp/permisos/usuarios-y-permisos.md)
     * [tests](actividades/idp/tests) 1
         * [trim1.md](actividades/idp/tests/trim1.md)
-* [fuw](actividades/fuw) 8
+* [fuw](actividades/fuw) 12
+    * [REV](actividades/fuw/REV) 0
     * [almacenamiento](actividades/fuw/almacenamiento) 11
         * [files](actividades/fuw/almacenamiento/files) 23
         * [iscsi-opensuse.md](actividades/fuw/almacenamiento/iscsi-opensuse.md)
@@ -106,16 +107,23 @@
         * [ceph.md](actividades/fuw/cpd/ceph.md)
         * [files](actividades/fuw/cpd/files) 1
         * [italc.md](actividades/fuw/cpd/italc.md)
+    * [intro](actividades/fuw/intro) 2
+        * [arquitectura-von-neumann.md](actividades/fuw/intro/arquitectura-von-neumann.md)
+        * [unidades-de-medida.md](actividades/fuw/intro/unidades-de-medida.md)
     * [monitorizar](actividades/fuw/monitorizar) 1
         * [windows-rendimiento.md](actividades/fuw/monitorizar/windows-rendimiento.md)
-    * [presupuesto](actividades/fuw/presupuesto) 1
+    * [presupuesto](actividades/fuw/presupuesto) 2
         * [presupuesto-1-pc.md](actividades/fuw/presupuesto/presupuesto-1-pc.md)
+        * [presupuesto-2-pc.md](actividades/fuw/presupuesto/presupuesto-2-pc.md)
+    * [rbpi](actividades/fuw/rbpi) 1
+        * [rbpi3-ubuntu-server.md](actividades/fuw/rbpi/rbpi3-ubuntu-server.md)
     * [simulador](actividades/fuw/simulador) 3
         * [ayuda.md](actividades/fuw/simulador/ayuda.md)
         * [multiplicar-y-sumar.md](actividades/fuw/simulador/multiplicar-y-sumar.md)
         * [suma-y-resta.md](actividades/fuw/simulador/suma-y-resta.md)
-    * [taller](actividades/fuw/taller) 7
+    * [taller](actividades/fuw/taller) 8
         * [cpd-1-desmontar-y-montar.md](actividades/fuw/taller/cpd-1-desmontar-y-montar.md)
+        * [nintendo-data-to-pc.md](actividades/fuw/taller/nintendo-data-to-pc.md)
         * [taller-1-desmontar-y-montar.md](actividades/fuw/taller/taller-1-desmontar-y-montar.md)
         * [taller-1-raspberry.md](actividades/fuw/taller/taller-1-raspberry.md)
         * [taller-2-mejorar.md](actividades/fuw/taller/taller-2-mejorar.md)
@@ -141,11 +149,13 @@
         * [exposision-turismo.md](actividades/add/exposicion/exposision-turismo.md)
     * [impresion](actividades/add/impresion) 1
         * [windows.md](actividades/add/impresion/windows.md)
-    * [ldap](actividades/add/ldap) 5
+    * [ldap](actividades/add/ldap) 7
+        * [files](actividades/add/ldap/files) 1
         * [images](actividades/add/ldap/images) 12
+        * [ldap-389ds-opensuse.md](actividades/add/ldap/ldap-389ds-opensuse.md)
         * [ldap-auth-debian.md](actividades/add/ldap/ldap-auth-debian.md)
         * [ldap-auth-samba.md](actividades/add/ldap/ldap-auth-samba.md)
-        * [ldap-server-auth-opensuse.md](actividades/add/ldap/ldap-server-auth-opensuse.md)
+        * [ldap-openldap2-opensuse.md](actividades/add/ldap/ldap-openldap2-opensuse.md)
         * [ldap-server-debian.md](actividades/add/ldap/ldap-server-debian.md)
     * [nfs](actividades/add/nfs) 2
         * [README.md](actividades/add/nfs/README.md)
@@ -163,16 +173,19 @@
         * [samba-debian.md](actividades/add/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
     * [script](actividades/add/script) 4
-        * [bash](actividades/add/script/bash) 2
+        * [bash](actividades/add/script/bash) 3
             * [agenda.md](actividades/add/script/bash/agenda.md)
+            * [files](actividades/add/script/bash/files) 8
             * [sysinfo.md](actividades/add/script/bash/sysinfo.md)
-        * [quagga.md](actividades/add/script/quagga.md)
+        * [power-shell](actividades/add/script/power-shell) 2
         * [ruby](actividades/add/script/ruby) 7
             * [create-and-delete-users.md](actividades/add/script/ruby/create-and-delete-users.md)
             * [create-users.md](actividades/add/script/ruby/create-users.md)
             * [delete-users.md](actividades/add/script/ruby/delete-users.md)
             * [enlaces-de-interes.md](actividades/add/script/ruby/enlaces-de-interes.md)
-            * [files](actividades/add/script/ruby/files) 3
+            * [files](actividades/add/script/ruby/files) 5
+                * [create-files](actividades/add/script/ruby/files/create-files) 4
+                * [wget](actividades/add/script/ruby/files/wget) 3
             * [install-and-remove.md](actividades/add/script/ruby/install-and-remove.md)
             * [kill-these-processes.md](actividades/add/script/ruby/kill-these-processes.md)
         * [setuid.md](actividades/add/script/setuid.md)
