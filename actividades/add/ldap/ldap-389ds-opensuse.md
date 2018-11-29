@@ -137,9 +137,9 @@ Usuario administrador de la BD LDAP [Directory Manager]:
 # 3. Browser LDAP
 
 Hay varias herramientas que pueden servir como browser LDAP:
+* [ldapadmin](http://www.ldapadmin.org/).
 * [phpLDAPadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page)
 * gq
-* [ldapadmin](http://www.ldapadmin.org/) para SO Windows.
 * mozldap-tools
 * etc
 Podemos usar cualquiera.
