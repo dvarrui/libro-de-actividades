@@ -224,7 +224,7 @@ manualmente. Por ejemplo:
 * Para comprobar que está el paquete instalado:
     * `rpm -q atom`
     * `atom`
-* Comprobamos que funciona bien el editor atom.
+* Comprobamos que funciona bien el editor `atom`.
 
 ## Instalación desde el código fuente
 
