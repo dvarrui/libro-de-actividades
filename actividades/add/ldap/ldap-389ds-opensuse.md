@@ -80,8 +80,9 @@ Este script se ejecuta como superusuario y de forma interactiva iremos configura
 * La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`, pero no lo encontramos:
     * `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
     * Enlaces de interés: https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
-* Se nos ocurre otro camino. Vamos a buscar en los paquetes del SO `zypper se 389-ds`.
-* Encontramos éste y lo instalamos `zypper in 389-ds`
+* Se nos ocurre otro camino. `cnf setup-ds.pl`
+    * Buscar paquete del SO `zypper se 389-ds`.
+    * Instalar `zypper in 389-ds`
 * `find / -name setup-ds.pl`, el script tiene un nombre diferente al que aparece en la documentación.
     * Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`
 * Ejecutar con el usuario root y el resultado lo tenemos [aquí](./files/salida-setup-ds.txt). Veamos un resumen:
