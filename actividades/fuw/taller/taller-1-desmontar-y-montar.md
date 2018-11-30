@@ -79,3 +79,9 @@ Anotar las diferencias en la ficha.
 * Clave de root = profesor
 * Crear usuario profesor/profesor
 * Crear usuario alumno/alumno
+
+> En GNU/Linux tenemos el comando `hwinfo` que nos da información del hardware de nuestra máquina. Ejemplo de uso:
+>
+> * Abrir una consola como usuario `root`
+> * `hwinfo > salida.txt`, redirigimos la salida a un fichero de texto.
+ 
