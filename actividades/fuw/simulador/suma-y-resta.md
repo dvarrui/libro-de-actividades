@@ -1,6 +1,9 @@
 
 # Sumar y restar (Arquitectura de Von Neumann)
 
+Enlace de interés:
+* [Simulador de la arquitectura de Von Neumann](https://youtu.be/SBX9pma_e-g)
+
 ---
 
 # Simulador
