@@ -45,9 +45,13 @@ Anotar las diferencias en la ficha.
 # Paso 2: Desmontar
 
 * Identificar todos los componentes.
+* En esta práctica NO vamos a desmontar:
+    * La placa base
+    * CPU
 * Desmontar los siguientes componentes:
-    * Discos duros, CD/DVD.
-    * RAM.
+    * Discos duros
+    * CD/DVD
+    * RAM
     * Tarjetas PCI
 * Capturar imagen de los componentes desmontados.
 
