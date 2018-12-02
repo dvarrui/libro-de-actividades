@@ -1,13 +1,13 @@
 
-> Documentos relacionados:
+> Otros documentos relacionados:
 >
 > * Configurar [VirtualBox](../virtualbox/opensuse.md)
 > * Configurar [Acceso remoto](../acceso-remoto/opensuse.md)
 > * Configurar [Firewall](../firewall.md).
 
-# Configurar MV GNU/Linux OpenSUSE
+---
 
-## Introducción
+# Configurar MV GNU/Linux OpenSUSE
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
 >     * 18 para el aula108
@@ -27,7 +27,7 @@
 
 Recomendaciones:
 * Crear usuario identificado con `nombre-del-alumno`.
-* Seleccionar entorno gráfico ligero como Xfce.
+* Seleccionar entorno gráfico ligero como MATE (Otra opción sería XFCE).
 * Recordatorio.
     * Abrir puerto SSH.
     * Habilitar servicio SSH.
@@ -37,26 +37,28 @@ Recomendaciones:
 
 ---
 
-# usuario
+# Usuario
 
-Comprobar con los siguientes comandos:
+Comprobar que se ha creado el usuario correctamente con los siguientes comandos:
 
 ```
-id nombre-alumno # Muestra información del usuario
+id nombre-alumno    # Muestra información del usuario
+su -l nombre-alumno # Abrimos una sesión con el usuario
 ```
 
 ---
 
-# Comprobar nombre del equipo por los ficheros de texto
+# Nombre de EQUIPO
 
-Comprobar hostname:
+Comprobar nombre del equipo por los ficheros de texto.
+
+Comprobar hostname. Ejemplo:
 ```
 david@vargas42g1:~> cat /etc/hostname
 vargas42g1.curso1819
 ```
 
-Comprobar host
-
+Comprobar host. Ejemplo:
 ```
 david@vargas42g1:~> cat /etc/hosts
 #
@@ -81,7 +83,7 @@ ff02::3         ipv6-allhosts
 Comprobar con los siguientes comandos:
 
 ```
-uname -a         # Muestra información del SO
+uname -a         # Muestra información del SO y del kernel
 hostname -f      # Muestra nombre-maquina.nombre-dominio
 hostname -a      # Muestra nombre-maquina
 hostname -d      # Muestra nombre-dominio
@@ -110,13 +112,37 @@ Vamos a `Nombre de Host/DNS` y ponemos:
 * Vamos a `Encaminamiento`y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
 * Ir dispositivo y elegir interfaz de red.
 
+> **Fichero de configuración de red**
+>
+> El fichero de configuración de red de OpenSUSE es `/etc/sysconfig/network/ifcfg-eth0` para la tarjeta `eth0`.
+> El modo automático tiene un contenido similar al siguiente:
+> ```
+> BOOTPROTO='dhcp'
+> STARTMODE='auto'
+> DHCLIENT_SET_DEFAULT_ROUTE='yes'
+> ```
+>
+> El modo manual puede ser como:
+> ```
+> BOOTPROTO='static'
+> IPADDR='192.168.16.11/24'
+> STARTMODE='ifplugd'
+> ```
+
+---
+
+# IMPORTANTE: Comprobar la configuración de RED
+
+Cuando la red no vaya bien, debes primero hacer estas comprobaciones para averiguar dónde tienes el problema.
+
 Comprobar con los siguientes comandos:
 
 ```
-ip a                    # Información de red
-ifstatus NOMBREINTERFAZ # Muestra información de la configuración de red
-ping 8.8.4.4            # Verifica la conectividad con Internet
-host www.nba.com        # Comprueba DNS
+ip a                     # Información de red
+ifstatus NOMBREINTERFAZ  # Muestra información de la configuración de red
+ping 8.8.4.4             # Verifica la conectividad con Internet
+traceroute 8.8.4.4       # Si falla el ping comprueba el router que falla   
+host www.nba.com         # Comprueba DNS
 ```
 
 > * Si tenemos varias máquinas usaremos las IP 172.AA.XX.32, 172.AA.XX.33, etc.
@@ -130,21 +156,6 @@ host www.nba.com        # Comprueba DNS
 
 https://www.suse.com/documentation/opensuse110/opensuse110_reference/data/sec_suse_l10n.html
 
-## Ficheros de configuración
-
-El fichero de configuración de red de OpenSUSE es `/etc/sysconfig/network/ifcfg-eth0`
-En el modo automático tiene un contenido similar al siguiente:
-```
-BOOTPROTO='dhcp'
-STARTMODE='auto'
-DHCLIENT_SET_DEFAULT_ROUTE='yes'
-```
-En el modo manual puede ser como:
-```
-BOOTPROTO='static'
-IPADDR='192.168.16.11/24'
-STARTMODE='ifplugd'
-```
 
 ## EFI + GPT
 
