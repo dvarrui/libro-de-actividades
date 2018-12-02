@@ -1,6 +1,13 @@
 
+# Scripting
 
-4. SetUID
+
+Enlace de interés:
+* [De 0 a 100 con Bash Shell Scripting y AWK](https://github.com/asanzdiego/commit-conf-charla-shell-script-y-awk)
+
+---
+
+# INFO: SetUID
 
 Para ejecutar un programa con los permisos del creador del script, el autor debe activar el permiso UID sobre dicho programa/script:
 
