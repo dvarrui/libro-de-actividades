@@ -2,8 +2,8 @@
 # Servidor de Impresión en Windows
 
 Necesitaremos 2 MV:
-* 1 Windows Server
-* 1 Windows cliente
+* MV1: Windows Server
+* MV2: Windows 7/10 cliente
 
 ---
 
@@ -13,16 +13,14 @@ Necesitaremos 2 MV:
 
 * Vamos al servidor
 * Instalar rol/función de servidor de impresión. Incluir impresión por Internet.
+
 > DUDA: Instalar rol/función de cliente de impresión por Internet.
 
 ## 1.2 Instalar impresora PDF
 
-Vamos a conectar e instalar localmente una impresora al servidor Windows Server,
-de modo que estén disponibles para ser accedidas por los clientes del dominio.
+Vamos a conectar e instalar localmente una impresora al servidor Windows Server, de modo que estén disponibles para ser accedidas por los clientes del dominio.
 
-En nuestro caso, dado que es posible de que no tengan una impresora física en casa
-y no es de mucho interés forzar la instalación de una impresora que no se tiene,
-vamos a instalar un programa que simule una impresora de PDF.
+En nuestro caso, dado que es posible de que no tengan una impresora física en casa y no es de mucho interés forzar la instalación de una impresora que no se tiene, vamos a instalar un programa que simule una impresora de PDF.
 
 > [Enlaces de interés:](http://www3.gobiernodecanarias.org/medusa/eforma/campus/mod/page/view.php?id=748283)
 >
@@ -32,11 +30,9 @@ vamos a instalar un programa que simule una impresora de PDF.
 > * doPDF: www.dopdf.com/es/
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
-PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos
-PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
-Este programa funciona simulando ser una impresora, de esta forma, instalando
-PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear
-archivos PDF en cuestión de segundos.
+PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
+
+Este programa funciona simulando ser una impresora, de esta forma, instalando PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear archivos PDF en cuestión de segundos.
 
 * Descargar PDFCreator (URL recomendada `www.pdfforge.org/pdfcreator/download`) e instalar.
 * En PDFCreator, configurar en perfiles -> Guardar -> Automático. Ahí configuramos carpeta destino.
@@ -45,14 +41,9 @@ archivos PDF en cuestión de segundos.
 
 ## 1.3 Probar la impresora en local
 
-Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando,
-simplemente ve a la opción de "imprimir" y selecciona "Impresora PDF", en segundos
-tendrás creado tu archivo PDF.
+Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando, simplemente ve a la opción de "imprimir" y selecciona "Impresora PDF", en segundos tendrás creado tu archivo PDF.
 
 Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir. Cuando finalice el proceso se abrirá un fichero PDF con el resultado de la impresión.
-
-Captura de pantalla 1
-pdf
 
 ## 1.4 Compartir por red
 
@@ -60,15 +51,10 @@ Vamos al servidor.
 * `Botón derecho -> Propiedades -> Compartir`
 * Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
 
-La siguiente imagen muestra los recursos compartidos
-en el servidor incluido la impresora:
-
-Captura de pantalla 2
-imprec
+La siguiente imagen muestra los recursos compartidos en el servidor incluido la impresora:
 
 Vamos al cliente:
-* Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor`
-en la barra de navegación.
+* Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor` en la barra de navegación.
 * Seleccionar impresora -> botón derecho -> conectar.
     * Ponemos usuario/clave del Windows Server.
 * Ya tenemos la impresora remota configurada en el cliente.
