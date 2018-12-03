@@ -18,7 +18,7 @@
 
 # Máquina VirtualBox
 
-* Usar un disco VirtualBox de 15GB.
+* Crear un **disco VirtualBox de 20 GB**.
 * Tarjeta de red VBox en `modo puente`.
 
 ---
