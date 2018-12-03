@@ -7,6 +7,7 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 
 # 1. Windows 7 usando el GUI
 
+* Partimos de una [MV con Windows](../../global/configuracion/windows.md).
 * Capturar imagen del resultado final.
 
 ---
@@ -155,14 +156,14 @@ De esta forma las actualizaciones tardan menos tiempo.
 
 # 4. GNU/Linux usando el GUI
 
-Vamos a usar SO OpenSUSE.
+* Partimos de una [MV con OpenSUSE](../../global/configuracion/opensuse.md).
+
+## Instalar paquetes
 
 El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 
-* Enlaces de interés:
-    * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
-
-## Instalar paquetes
+> * Enlaces de interés:
+>     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
 * Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
