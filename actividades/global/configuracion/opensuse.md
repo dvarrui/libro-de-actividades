@@ -91,7 +91,9 @@ hostname -d      # Muestra nombre-dominio
 
 ---
 
-# Configuración de red y nombre del equipo por YAST
+# Configurar la RED con YAST
+
+Configuración de red y nombre del equipo por YAST.
 
 Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red.
 
