@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 dinero = ARGV[0].to_i
 
 puts('Para el importe solicitado tienes: ')
@@ -32,5 +30,3 @@ if  dinero / 1 >= 1
   puts "#{dinero / 1} moneda/s de 1 euro"
   dinero = dinero % 1
 end
-
-puts "Resto es #{dinero}"
