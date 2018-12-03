@@ -48,11 +48,10 @@ Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero 
 ## 1.4 Compartir por red
 
 Vamos a la MV del servidor.
-* Ir a impresoras -> Elegir impresora.
-* `Botón derecho -> Propiedades -> Compartir`
-* Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
-
-La siguiente imagen muestra los recursos compartidos en el servidor incluido la impresora:
+* Ir al `Administrador de Impresión -> Impresoras`
+* Elegir impresora PDFCreator.
+    * `Botón derecho -> Propiedades -> Compartir`
+    * Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
 
 Vamos al cliente:
 * Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor` en la barra de navegación.
