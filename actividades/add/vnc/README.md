@@ -29,8 +29,7 @@ Conexiones remotas con VNC:
 ## 1.2 Ir a la máquina GNU/Linux
 
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
-que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
-los puertos 5801, 5901, etc.
+que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse los puertos 580X, 590X, etc.
 
 ## 1.3 Ir al cliente Windows
 
