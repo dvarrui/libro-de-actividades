@@ -24,7 +24,7 @@ parte de "Ver archivo de registro de accesos".
 
 # 3. Impresora Virtual PDF
 
-Ahora vamos a configurar una impresora de forma local en el servidor de impresión. El paquete "cups-pdf" nos instala una impresora virtual PDF, uqe podemos usar para las pruebas en caso de no disponer de una impresora real.
+Ahora vamos a configurar una impresora de forma local en el servidor de impresión. El paquete "cups-pdf" nos instala una impresora virtual PDF, que podemos usar para las pruebas en caso de no disponer de una impresora real.
 
 Los trabajos de impresión de la impresora virtual PDF se guardan en alguno de estos directorios:
 ```
