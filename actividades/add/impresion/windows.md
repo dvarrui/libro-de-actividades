@@ -47,7 +47,7 @@ Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero 
 
 ## 1.4 Compartir por red
 
-Vamos al servidor.
+Vamos al servidor, centro de redes y recursos compartidos.
 * `Botón derecho -> Propiedades -> Compartir`
 * Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
 
