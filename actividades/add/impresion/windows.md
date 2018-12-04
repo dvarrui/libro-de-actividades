@@ -60,6 +60,8 @@ Vamos al cliente:
 * Ya tenemos la impresora remota configurada en el cliente.
 * Probar la impresora remota.
 
+> **INFO**: Para **buscar archivos** (Por ejemplo PDF) dentro de Windows podemos usar las funcionar de [buscar](https://www.islabit.com/10080/una-mejor-forma-de-buscar-archivos-en-windows-7.html)
+
 ---
 
 # 2. Acceso Web
