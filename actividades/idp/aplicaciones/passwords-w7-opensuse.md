@@ -7,9 +7,7 @@ Vamos a usar una MV Windows 7.
 
 ## 1.1 Ocultación de usuarios
 
-Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`,
-NO aparezcan en la ventana de inicio del sistema.
-
+Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`, NO aparezcan en la ventana de inicio del sistema.
 * Iniciar sesión con una cuenta administrador.
 * Ir a `Inicio -> Ejecutar`
 * Entrar al registry (comando `regedit`)
