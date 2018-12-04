@@ -5,6 +5,15 @@
 
 Vamos a usar una MV Windows 7.
 
+> **PRECAUCIONES al tocar el registro de Windows**
+>
+> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y
+tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar el registry desde un live cd, en google busca: load hive)
+> * Si escondes las cuentas de administrador se le pone un candado muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: `runas /user:USUARIO_ADMIN “comando”``
+> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios. Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto, hay que sustituir la palabra admin por el usuario que tengamos registrado. Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
+> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
+> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del usuario “admin” y asi ejecutar otros comandos con ese usuario.
+
 ## 1.1 Ocultación de usuarios
 
 Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y `jedi2`, NO aparezcan en la ventana de inicio del sistema.
@@ -170,20 +179,6 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
-## A.1 PRECAUCIONES en el registro de Windows
-
-> * Si se ponen todas las cuentas en el registry, Windows no podrá entrar y
-tendrías que usar tu disco de instalación para modificar el registry (hay técnicas para cargar
- el registry desde un live cd, en google busca: load hive)
-> * Si escondes las cuentas de administrador se le pone un candado muy fuerte porque las opciones de administrador no te permiten indicar el usuario y contraseña, para ello hay que usar un comando desde cmd: `runas /user:USUARIO_ADMIN “comando”``
-> * `runas /user:admin "userpasswords2″` -> Este comando permite entrar a la edicion de usuarios.
-Los permisos son con permisos del usuario “admin” si nuestro usuario se llama distinto,
-hay que sustituir la palabra admin por el usuario que tengamos registrado.
-Se recomienda usar admin, administrador o administrator para efecto de que no se nos olvide.
-> * `runas /user:admin "registry"` -> Este comando permite entrar al registry y desbloquear alguna
-cuenta para poder ingresar a ella la siguiente vez que reiniciemos.
-> * `runas /user:admin "cmd"` -> nos abre una ventana de linea de comandos con permisos del
-usuario “admin” y asi ejecutar otros comandos con ese usuario.
 
 ## A.2 OpenSUSE 13.2. Usuarios de tipo sistema
 
