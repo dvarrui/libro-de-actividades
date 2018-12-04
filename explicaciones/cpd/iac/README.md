@@ -4,7 +4,7 @@ Visita al CPD del IAC
 Fecha 26 de mayo de 2016
 ```
 
-#Visita al IAC
+# Visita al IAC
 
 El 26 de mayo de 2016, el grupo de alumnos de CFGS de 1ASIR del IES Puerto de la Cruz
 realizó una visita al CPD del IAC (Instituto de Astrofísica de Canarias)
@@ -12,7 +12,7 @@ realizó una visita al CPD del IAC (Instituto de Astrofísica de Canarias)
 Allí nos atendieron Carlos, Antonio y Paco, del área de Sistemas Informáticos.
 
 
-#Fotografías
+# Fotografías
 
 Entramos en una sala de ordenadores de uso compartido. Vemos que los puestos
 tienen 4 monitores, porque se conectan a las 4 sedes del IAC. El sistema
@@ -62,12 +62,12 @@ que ayudan a guiar el aire hasta las posiciones más elevadas del armario.
 
 Las copias de seguridad son muy importantes. Se guardan los datos en cintas
 porque ha día de hoy son los dispositivos que a menor coste guardan la mayor
-cantidad de datos. Además dichas cintas se guardan en una caja fuerte, 
+cantidad de datos. Además dichas cintas se guardan en una caja fuerte,
 inhífuga (No fue fácil meter la caja fuerte en dicha habitación).
 
 ![11](./files/11-backup.jpg)
 
-Esta es una maqueta de un satélite real en el que alguno de los miembros 
+Esta es una maqueta de un satélite real en el que alguno de los miembros
 del departamento de informática estuvo trabajando.
 
 ![12](./files/12-maqueta.jpg)
