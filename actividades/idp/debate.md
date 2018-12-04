@@ -1,9 +1,22 @@
 
 # Debate
 
-# Introducción
+# 1. Real Decreto
 
-# Fundamento
+Real Decreto 1629/2009, de 30 de octubre, por el que se establece el título de Técnico Superior en Administración de Sistemas Informáticos en Red y se fijan sus enseñanzas mínimas.
+
+**Artículo 5. Competencias profesionales, personales y sociales.**
+
+Las competencias profesionales, personales y sociales de este título son las que se relacionan a continuación:
+
+* 14. Gestionar y/o realizar el mantenimiento de los recursos de su área (programando y verificando su cumplimiento), en función de las cargas de trabajo y el plan de mantenimiento.
+* 15. Efectuar consultas, dirigiéndose a la persona adecuada y saber respetar la autonomía de los subordinados, informando cuando sea conveniente.
+* 16. Mantener el espíritu de innovación y actualización en el ámbito de su trabajo para adaptarse a los cambios tecnológicos y organizativos de su entorno profesional.
+* 17. **Liderar situaciones colectivas que se puedan producir, mediando en conflictos personales y laborales, contribuyendo al establecimiento de un ambiente de trabajo agradable y actuando en todo momento de forma sincera, respetuosa y tolerante**.
+* 18. **Resolver problemas y tomar decisiones individuales, siguiendo las normas y procedimientos establecidos, definidos dentro del ámbito de su competencia**.
+* 19. Gestionar su carrera profesional, analizando las oportunidades de empleo, autoempleo y de aprendizaje.
+* 20. **Participar de forma activa en la vida económica, social y cultural con actitud crítica y responsable**.
+* 21. Crear y gestionar una pequeña empresa, realizando un estudio de viabilidad de productos, de planificación de la producción y de comercialización.
 
 ---
 
