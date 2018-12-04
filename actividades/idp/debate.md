@@ -3,11 +3,13 @@
 
 # 1. Real Decreto
 
-Real Decreto 1629/2009, de 30 de octubre, por el que se establece el título de Técnico Superior en Administración de Sistemas Informáticos en Red y se fijan sus enseñanzas mínimas.
+Es el Real Decreto 1629/2009, de 30 de octubre,  el que establece el título de Técnico Superior en Administración de Sistemas Informáticos en Red y se fijan sus enseñanzas mínimas.
 
-**Artículo 5. Competencias profesionales, personales y sociales.**
+Dentro de este RD tenemos varios artículos.
 
-Las competencias profesionales, personales y sociales de este título son las que se relacionan a continuación:
+## Artículo 5. Competencias profesionales, personales y sociales.
+
+Las competencias profesionales, personales y sociales de este título son 21. A continuación se muestran desde la 14 a la 21:
 
 * 14. Gestionar y/o realizar el mantenimiento de los recursos de su área (programando y verificando su cumplimiento), en función de las cargas de trabajo y el plan de mantenimiento.
 * 15. Efectuar consultas, dirigiéndose a la persona adecuada y saber respetar la autonomía de los subordinados, informando cuando sea conveniente.
@@ -18,9 +20,11 @@ Las competencias profesionales, personales y sociales de este título son las qu
 * 20. **Participar de forma activa en la vida económica, social y cultural con actitud crítica y responsable**.
 * 21. Crear y gestionar una pequeña empresa, realizando un estudio de viabilidad de productos, de planificación de la producción y de comercialización.
 
+De estas últimas vamos a destacar 3: 17, 18 y 20. En la actividad de debate vamos a trabajar estas tres competencias del CFGS de ASIR.
+
 ---
 
-# 2. Preparartivos
+# 2. Preparativos
 
 ## 2.1 Elegir un tema
 
@@ -47,7 +51,7 @@ Si los alumnos no intervienen o no se atreven a hablar, el profesor dirá qué a
 
 ---
 
-# 3. Empezamos
+# 3. Empezamos en debate
 
 En modo de bucle permanente:
 * El moderador dará la palabra a **Eurbanitas**.
@@ -57,8 +61,9 @@ En modo de bucle permanente:
     * Este grupo debe atacar con motivos y razones el tema propuesto.
     * Comentando los inconvenientes del tema.
 * Los **Edukitas** tomarán anotaciones de lo que van observando.
+* El **Moderador** irá apuntando en la pizarra el tiempo que falta y los turnos de palabra para llevar un control. Además el moderador deberá abstenerse en todo momento de tomar partido por alguna de las opciones propuestas en torno al tema de debate.
 * Durante el debate un alumno puede cambiar de grupo, siembre que
-haya hueco en el grupo que desea ir. O también podrá intecambiarse
+haya hueco en el grupo que desea ir. O también podrá intercambiarse
 con otro compañero.
 
 ---
