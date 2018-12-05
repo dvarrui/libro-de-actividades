@@ -75,12 +75,11 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 
 ## 2.1 Configurar impresión WEB
 
-* Vamos al cliente.
+Vamos a la MV cliente:
 * Abrimos un navegador Web.
 * Ponemos URL `http://<ip-del-servidor>/printers`
 (o `http://<nombre-del-servidor>/printers`) para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador").
 * Pincha en la opción propiedades y captura lo que se ve.
-* Ir al cliente.
 * Agregar impresora (NO es local)
 * Crear nueva impresora usando el URL anterior.
 
