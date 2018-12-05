@@ -1,6 +1,17 @@
 
 # Rails
 
+# Hola
+
+URL camaleon:3000/hola
+
+```
+Routing Error
+No route matches [GET] "/hola"
+
+Rails.root: /home/david/proy/repos/curso1819-david/messenger
+```
+
 # Las rutas
 
 * Los métodos HTTP son: POST, PUT, PATCH y GET.
@@ -8,7 +19,7 @@ Cada método genera un evento que es enrutado (rutas)
 a diferentes sitios.
 * `config/routes.rb`, fichero de configuración de las rutas.
 * Podemos usar el editor de texto que queramos. Las caracterísicas de Ruby hacen que los IDE no sean de gran ayuda. Ruby es tan expresivo que basta con escribir lo que necesitas.
-* Ejemplo de ruta `get 'hello', to: 'Welcome#sgreet'`
+* Ejemplo de ruta `get 'hello', to: 'Welcome#greet'`
     * `get`, indica el método HTML.
     * `hello`, es la ruta en el URL.
     * `Welcome`, es el controlador.
@@ -16,6 +27,7 @@ a diferentes sitios.
 * `rails g`, ver todos los generadores.
 * `rails g Welcome`, crear un nuevo controlador y sus ficheros asociados.
 * `app/controllers/welcome_controller.rb`
+
 ```
   def greet
   end
@@ -28,10 +40,10 @@ a diferentes sitios.
 
 # Resumen de órdenes
 
-| Comando         | Descripción             |
-| --------------- | ----------------------- |
-| rails new demo  | Crear un nuevo proyecto |
-| rails db:drop   | Elimina la BBDD |
-| rails db:create | Crear la BBDD |
+| Comando          | Descripción             |
+| ---------------- | ----------------------- |
+| rails new demo   | Crear un nuevo proyecto |
+| rails db:drop    | Elimina la BBDD |
+| rails db:create  | Crear la BBDD |
 | rails db:migrate | Migración de la BBDD |
 | rails s          | Iniciar la aplicación |
