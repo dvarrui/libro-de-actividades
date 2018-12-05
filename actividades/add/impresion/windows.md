@@ -79,26 +79,16 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 * Abrimos un navegador Web.
 * Ponemos URL `http://<ip-del-servidor>/printers`
 (o `http://<nombre-del-servidor>/printers`) para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador").
-* Pincha en la opción propiedades y se muestra la siguiente pantalla:
-
-Captura de pantalla 3
-conectarimpresora
-
-* Agregamos la impresora en el cliente utilizando la URL, como se muestra en la siguiente pantalla:
-
-Captura de pantalla 4:
-imred3
+* Pincha en la opción propiedades y captura lo que se ve.
+* Ir al cliente.
+* Agregar impresora (NO es local)
+* Crear nueva impresora usando el URL anterior.
 
 ## 2.3 Comprobar desde el navegador
 
 Vamos a realizar seguidamente una prueba sencilla en tu impresora de red:
 * A través del navegador pausa todos los trabajos en la impresora.
-* Envía a imprimir en tu impresora compartida un documento del Bloc de notas.
-La siguiente pantalla muestra que la impresora esta en pausa y con el trabajo en cola de impresión.
-
-Captura de pantalla 5:
-otraimp4
-
+* Envía a imprimir en tu impresora compartida un documento del Bloc de notas. Se debe comprobar que la impresora está en pausa y con el trabajo en cola de impresión.
 * Finalmente pulsa en reanudar el trabajo para que tu documento se convierta a PDF.
 Comprobar que se puede imprimir desde un cliente Windows.
 * Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
