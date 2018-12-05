@@ -1,14 +1,7 @@
 
 # Rails
 
-* Empresas que usan Rails: GitHub, GitLab, etc.
-* Característiscas:
-    * **DRY**: Don't Repeat Yourself
-    * **CoC**: Convention over Configuration
-    * Lenguaje Ruby.
-* Arquitectura MVC.
-
----
+![](images/cientificos.png)
 
 # Instalar Ruby and Rails
 

@@ -1,6 +1,8 @@
 
 # Rails
 
+![](images/laboratorio.png)
+
 # Hola
 
 URL camaleon:3000/hola

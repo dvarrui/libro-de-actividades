@@ -1,6 +1,8 @@
 
 # Rails
 
+![](images/koji-kabuto.png)
+
 # Solucionar un problema
 
 * Hace falta un programa/utilidad para donde tengamos `usuarios`.
