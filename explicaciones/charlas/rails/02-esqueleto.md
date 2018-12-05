@@ -47,8 +47,25 @@ Created database 'db/test.sqlite3'
 # Servidor
 
 * `rails s`, iniciar el servidor de la aplicación.
-    * Podremos ver las peticiones que se produzcan a nuestra aplicación directamente en el terminal.
+```
+david@camaleon:~/messenger> rails s
+=> Booting Puma
+=> Rails 5.2.2 application starting in development
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.12.0 (ruby 2.5.2-p104), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://camaleon:3000
+Use Ctrl-C to stop
+
+```
+
+> Podremos ver las peticiones que se produzcan a nuestra aplicación directamente en el terminal.
+
 * Abrir navegador con URL `http://localhost:3000`
+
+![](images/02-localhost3000.png)
 
 ---
 
