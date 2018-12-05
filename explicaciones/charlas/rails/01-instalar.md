@@ -5,79 +5,79 @@
 * Característiscas:
     * **DRY**: Don't Repeat Yourself
     * **CoC**: Convention over Configuration
-* Filosofía Ruby => Magia vs Filosofía Python => Explicitar lo que se hace.
+    * Lenguaje Ruby.
 * Arquitectura MVC.
 
-## Instalar Ruby and Rails
+---
+
+# Instalar Ruby and Rails
 
 * `ruby -v`, consultar la versión de ruby.
+    * Instalar ruby (`apt install ruby`).
 * Se recomienda usar entornos virtuales (rbenv, rvm, etc.)
-* Para instalar rails:
-    * `gem install rails`
-    * o consultar installrails.com
+* `gem install rails`, para instalar rails (o consultar installrails.com).
+
+```
+david@camaleon:~/charlas/rails> gem install rails
+Successfully installed concurrent-ruby-1.1.3
+Successfully installed i18n-1.1.1
+Successfully installed thread_safe-0.3.6
+Successfully installed tzinfo-1.2.5
+Successfully installed activesupport-5.2.2
+Successfully installed rack-2.0.6
+Successfully installed rack-test-1.1.0
+Successfully installed mini_portile2-2.3.0
+Building native extensions. This could take a while...
+Successfully installed nokogiri-1.8.5
+Successfully installed crass-1.0.4
+Successfully installed loofah-2.2.3
+Successfully installed rails-html-sanitizer-1.0.4
+Successfully installed rails-dom-testing-2.0.3
+Successfully installed builder-3.2.3
+Successfully installed erubi-1.7.1
+Successfully installed actionview-5.2.2
+Successfully installed actionpack-5.2.2
+Successfully installed activemodel-5.2.2
+Successfully installed arel-9.0.0
+Successfully installed activerecord-5.2.2
+Successfully installed globalid-0.4.1
+Successfully installed activejob-5.2.2
+Successfully installed mini_mime-1.0.1
+Successfully installed mail-2.7.1
+Successfully installed actionmailer-5.2.2
+Building native extensions. This could take a while...
+Successfully installed nio4r-2.3.1
+Successfully installed websocket-extensions-0.1.3
+Building native extensions. This could take a while...
+Successfully installed websocket-driver-0.7.0
+Successfully installed actioncable-5.2.2
+Successfully installed mimemagic-0.3.2
+Successfully installed marcel-0.3.3
+Successfully installed activestorage-5.2.2
+Successfully installed railties-5.2.2
+Successfully installed bundler-1.17.1
+Successfully installed sprockets-3.7.2
+Successfully installed sprockets-rails-3.2.1
+Successfully installed rails-5.2.2
+37 gems installed
+david@camaleon:~/charlas/rails> rails -v
+Rails 5.2.2
+```
+
 * `rails -v`, consultar la version de rails.
-* Instalar la BBDD:
-    * `zypper in sqlite3 sqlite3-devel`
-    * `zypper install gcc gcc-devel gcc8-c++ `
-    * `cd /usr/bin; ln -s gcc g++`
-    * `gem install mini_racer`
-
-## Mi primer proyecto
-
-* Crear un nuevo proyecto llamado demo:
-    * `rails new demo` (usará base de datos sqlite)
-    * `rails new demo -d=mysql` (usará base de datos mysql)
-    * `rails new demo --database=postgresql` (usará base de datos PostGreSQL.)
-* `tree demo`, ver las carpetas/ficheros que se han creado:
-    * `demo/app/models`
-    * `demo/app/views`
-    * `demo/app/controllers`
-    * `demo/db`, esquema de la base de datos.
-    * `demo/Gemfile`, fichero de gemas (librerías de ruby)
-* `cd demo`
-    * `rails db:drop`, elimina las base de datos.
-    * `rails db:create`, crear la base de datos.    
-    * `rails db:migrate`, hace una modificación/migración del esquema de la base de datos.
-    * `rails db:drop db:create db:migrate`, ¡todo en uno!
-
-> NOTA: Tendremos dos entornos de trabajo: develoment, testing.
-
-* `rails s`, iniciar la aplicación. Podremos ver las peticiones que se produzcan a nuestra aplicación directamente en el terminal.
-* Abrir navegador con URL `http://localhost:3000`
 
 ---
 
-# Las rutas
+# Bases de datos
 
-* Los métodos HTTP son: POST, PUT, PATCH y GET.
-Cada método genera un evento que es enrutado (rutas)
-a diferentes sitios.
-* `config/routes.rb`, fichero de configuración de las rutas.
-* Podemos usar el editor de texto que queramos. Las caracterísicas de Ruby hacen que los IDE no sean de gran ayuda. Ruby es tan expresivo que basta con escribir lo que necesitas.
-* Ejemplo de ruta `get 'hello', to: 'Welcome#sgreet'`
-    * `get`, indica el método HTML.
-    * `hello`, es la ruta en el URL.
-    * `Welcome`, es el controlador.
-    * `greet`, es un método del controlador.
-* `rails g`, ver todos los generadores.
-* `rails g Welcome`, crear un nuevo controlador y sus ficheros asociados.
-* `app/controllers/welcome_controller.rb`
-```
-  def greet
-  end
-```
-* `app/views/welcome/greet.html.erb`
-```
-<p>Hello! How are you?</p>
-```
+> **Instalar la BBDD**
+> * `zypper in sqlite3 sqlite3-devel`
+> * `zypper install gcc gcc-devel gcc8-c++ `
+> * `cd /usr/bin; ln -s gcc g++`
+> * `gem install mini_racer`
+
 ---
 
-# Resumen de órdenes
+# Resumen
 
-| Comando         | Descripción             |
-| --------------- | ----------------------- |
-| rails new demo  | Crear un nuevo proyecto |
-| rails db:drop   | Elimina la BBDD |
-| rails db:create | Crear la BBDD |
-| rails db:migrate | Migración de la BBDD |
-| rails s          | Iniciar la aplicación |
+* `gem install rails`, para instalar rails.
