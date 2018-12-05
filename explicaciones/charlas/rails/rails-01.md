@@ -11,6 +11,7 @@
 ## Instalar Ruby and Rails
 
 * `ruby -v`, consultar la versión de ruby.
+* Se recomienda usar entornos virtuales (rbenv, rvm, etc.)
 * Para instalar rails:
     * `gem install rails`
     * o consultar installrails.com
