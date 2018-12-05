@@ -83,7 +83,7 @@ Vamos a la MV cliente:
 * Agregar impresora (NO es local)
 * Crear nueva impresora usando el URL anterior.
 
-## 2.3 Comprobar desde el navegador
+## 2.2 Comprobar desde el navegador
 
 Vamos a realizar seguidamente una prueba sencilla en tu impresora de red:
 * A través del navegador pausa todos los trabajos en la impresora.
