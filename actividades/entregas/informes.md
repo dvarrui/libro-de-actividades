@@ -1,21 +1,35 @@
 
 # Informes
 
-Cuando el trabajo se pida entregar con un informe, éste deberá realizarse obligatoriamente
-en un formato que podemos ver/consultar en cualquier plataforma sin restricciones técnicas y/o legales.
+## Aspectos generales
+
+**OJO** en la elaboración de los informes, es muy importante:
+* Usar un lenguaje apropiado.
+* No cometer faltas de ortografía.
+* El documento debe tener una estructura clara y contener las imágenes justas y necesarias.
+
+---
+
+# 1. Entregar fichero
+
+Cuando el trabajo se pida entregar con un informe, éste deberá realizarse obligatoriamente en un formato que podemos ver/consultar en cualquier plataforma sin restricciones técnicas y/o legales.
 
 Por ejemplo podremos usar los formatos PDF, ODT, HTML. Si queremos usar otro formato, es posible siempre que se cumpla el criterio anterior.
 
-Además se proporciona una plantilla en la propia plataforma Moodle que servirá de modelo base
-para la confección de dicho informe.
+Además se proporciona una plantilla en la propia plataforma Moodle que servirá de modelo base para la confección de dicho informe. No es obligatorio usar dicha plantilla, pero recordar que debemos poner:
+* Encabezados y pies de página
+* Portada con título del trabajo, nombres de los componentes del grupo al inicio.
+* Una página de índice cuando el informe supere las 5 páginas.
 
-OJO es muy importante usar un lenguaje apropiado, no cometer faltas de ortografía,
-poner encabezados y pies de página, poner portada con título del trabajo
-y componentes del grupo, una página de índice. El documento debe tener una
-estructura clara y contener las imágenes justas y necesarias.
+En algunas ocasiones tendremos que comprimir la entrega. En estos casos también debemos tener cuidado y elegir un formato de compresión que se ajuste al criterio de formato libre y multiplataforma. Por ejemplo: ZIP, 7Z.
 
-Si debemos comprimir la entrega, también debemos tener cuidado y elegir un formato de compresión
-que se ajuste al criterio anterior. Por ejemplo: ZIP, 7Z.
+---
+
+# 2. Entregar URL
+
+Cuando la entrega se realiza mediante un URL a un fichero en formato Markdown alojado en un repositorio Git hay que tener en cuenta:
+* Se debe entregar URL al fichero Markdown y una referencia al commit.
+* Se tendrán en cuenta los aspectos generales a la hora de realizar cualquier informe.
 
 ---
 
