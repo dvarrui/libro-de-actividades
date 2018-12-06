@@ -13,12 +13,21 @@
     @name = 'Mazinger-Z'
   end
 ```
+
+> Recordar que los atributos de una clase en ruby se escriben con la @ delante. De modo que @name es una variable, atributo de la clase WelcomeController.
+>
+> Todo en Ruby... son objetos.
+
 * Modificar la vista `app/views/welcome/greet.html.erb`:
 ```
 <p>Hello <%= @name %>!</p>
-<p>Now. Your are into... MY CONTROLLER! Hahahaha!</p>
+<p>Now. Your are into... MY CONTROLLER! <i>Hahahaha!</i></p>
 ```
-* Probamos URL `camaleon:3000/hello`
+* Probamos:
+    * `rails s`
+    * URL `camaleon:3000/hello`
+
+![](images/05-controller-greets.png)
 
 ---
 
