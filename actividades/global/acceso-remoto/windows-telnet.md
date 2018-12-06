@@ -15,8 +15,8 @@
 ![w7-iniciar-servicio-telnet.png](./images/w7-iniciar-servicio-telnet.png)
 
 * Usuario/clave
-   * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
-   * Clave de `sysadmingame` conocida por el alumno y el profesor.
+   * Crear usuario `teuton` dentro de los grupos `Administradores` y `TelnetClients`.
+   * Clave de `teuton` conocida por el alumno y el profesor.
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
@@ -44,8 +44,8 @@ En Windows Server podemos instalar el servidor Telnet en agregar característica
 * Ir a `Administrar equipo -> Servicios`. Buscar el servicio Telnet. Iniciarlo y ponerlo en en modo Automático.
 
 * Usuario/clave
-   * Crear usuario `sysadmingame` dentro de los grupos `Administradores` y `TelnetClients`.
-   * Clave de `sysadmingame` conocida por el alumno y el profesor.
+   * Crear usuario `teuton` dentro de los grupos `Administradores` y `TelnetClients`.
+   * Clave de `teuton` conocida por el alumno y el profesor.
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
