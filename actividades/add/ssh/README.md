@@ -101,7 +101,7 @@ blkid               # Consultar UUID de la instalación
 >  * `systemctl enable sshd` por comandos
 >  * `Yast -> servicios` por entorno gráfico
 
-* `sudo lsof -i:22 -n`: Comprobar que el servicio está escuchando por el puerto 22
+* `sudo lsof -i:22 -n`: Comprobar que el servicio está escuchando por el puerto 22.
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
@@ -143,7 +143,7 @@ total 216
     * En la ventana `PuTTY Security Alert`, poner que SI grabar las información del servidor.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
-* La siguente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH.
+* La siguiente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH. Comprobarlo.
 
 ---
 
@@ -192,8 +192,7 @@ identificación de nuestro servidor.
 
 ### Comprobamos
 
-* Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los
-usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
+* Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los  usuarios `1er-apellido-alumno2` y `1er-apellido-alumno1`. ¿Qué sucede?
 
 > **Enlaces de interés**
 >
@@ -218,8 +217,7 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 >
 > Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
 
-* Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración
-del usuario1 en la máquina servidor (Fichero `/home/1er-apellido-alumno1/.bashrc`)
+* Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración del `1er-apellido-alumno1` en la máquina servidor (Fichero `/home/1er-apellido-alumno1/.bashrc`)
 
 ```
 # Se cambia el prompt al conectarse vía SSH
