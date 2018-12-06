@@ -143,6 +143,7 @@ total 216
     * En la ventana `PuTTY Security Alert`, poner que SI grabar las información del servidor.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
+* La siguente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH.
 
 ---
 
