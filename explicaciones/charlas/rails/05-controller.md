@@ -29,6 +29,8 @@
 
 ![](images/05-controller-greets.png)
 
+* Prueba `rails routes` ¿Qué ves?
+
 ---
 
 Ir a [comandos](99-commands.md) para ver el resumen de órdenes de rails.
