@@ -69,6 +69,8 @@ greet   => es un método del controlador.
 ```
 * Probamos. ¿Te acuerdas? URL `camaleon:3000/hola`
 
+![](images/04-route-hello.png)
+
 > Para trabajar con Rails podemos usar el editor de texto que queramos. Las características de Ruby hacen que los IDE no sean de gran ayuda. Ruby es tan expresivo que basta con escribir lo que necesitas de forma casi natural.
 
 ---
