@@ -31,9 +31,12 @@ messenger> vdir app/controllers/
 application_controller.rb
 concerns
 ```
-* `rails g controller Welcome`, para generar un nuevo controlador y sus ficheros asociados.
+
+> OJO: Mejor usar siempre minúsculas en los comandos.
+
+* `rails g controller welcome`, para generar un nuevo controlador y sus ficheros asociados.
 ```
-messenger> rails g controller Welcome
+messenger> rails g controller welcome
 Running via Spring preloader in process 6387
     create  app/controllers/welcome_controller.rb
     invoke  erb
