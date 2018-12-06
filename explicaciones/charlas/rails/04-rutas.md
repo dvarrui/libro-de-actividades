@@ -89,7 +89,7 @@ greet   => es un método del controlador.
 | rails db:create         | Crear la BBDD |
 | rails db:migrate        | Migración de la BBDD |
 | rails s, rails server   | Iniciar la aplicación |
-| rails g                 | Muestra los generadores |
+| rails g, rails generate | Muestra los generadores |
 | rails g controller NAME | Generar un controlador |
-| rails d                 | Muestra los destructores |
+| rails d, rails destroy  | Muestra los destructores |
 | rails d controller NAME | Destruye un controlador |
