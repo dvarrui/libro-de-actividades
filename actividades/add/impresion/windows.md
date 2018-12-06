@@ -85,6 +85,11 @@ Vamos a la MV cliente:
 
 ## 2.2 Comprobar desde el navegador
 
+> **PDF Creator Plus** (YERAY HERNÁNDEZ HERNÁNDEZ)
+>
+> * [Enlace a las funcioinalidades del PDF Creator Plus](https://www.pdfforge.org/pdfcreator/plus)
+> * Comprobaremos que la versión Free tiene limitaciones.
+
 Vamos a realizar seguidamente una prueba sencilla en tu impresora de red:
 * Accede a la configuración de la impresora a través del navegador.
     * Poner en `pausa` los trabajos de impresión de la impresora.
