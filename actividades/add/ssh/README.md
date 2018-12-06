@@ -147,7 +147,10 @@ total 216
 
 ---
 
-# 3. ¿Y si cambiamos las claves del servidor?
+# 3. Cambiamos la identidad del servidor
+
+¿Qué pasaría si cambiamos la identidad del servidor?
+Esto es, ¿Y si cambiamos las claves del servidor? ¿Qué pasa?
 
 * Confirmar que existen los siguientes ficheros en `/etc/ssh`,
 Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
@@ -204,6 +207,8 @@ usuarios 1er-apellido-alumno2 y 1er-apellido-alumno1. ¿Qué sucede?
 > * [Configuración de OpenSSH para Windows7 con SSH Cygwin +Putty](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
 > * [Installing Cygwin and Starting the SSH Daemon](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150)
 > * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta `CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys`. Para acceder al registro ejecutamos el comando `regedit`.
+
+* Para solucionarlo... lee los mensajes de advertencia. ¡Ahí está todo lo que necesitas!
 
 ---
 
