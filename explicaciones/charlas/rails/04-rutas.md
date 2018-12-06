@@ -25,15 +25,15 @@ Esto es porque la ruta `/hello` no está definida.
 
 Los métodos HTTP son: POST, PUT, PATCH y GET. Cada método genera un evento que puede ser enrutado (rutas) a diferentes sitios.
 
+> OJO: Mejor usar siempre minúsculas en los comandos.
+
 * `rails g`, ver todos los generadores (Hay muchos).
+* Comprobamos que por ahora sólo tenemos estos ficheros en controladores:
 ```
 messenger> vdir app/controllers/
 application_controller.rb
 concerns
 ```
-
-> OJO: Mejor usar siempre minúsculas en los comandos.
-
 * `rails g controller welcome`, para generar un nuevo controlador y sus ficheros asociados.
 ```
 messenger> rails g controller welcome
@@ -70,7 +70,7 @@ get     => indica el método HTML.
 welcome => es el controlador.
 greet   => es un método del controlador.
 ```
-* Probamos. ¿Te acuerdas? URL `camaleon:3000/hola`
+* Probamos. ¿Te acuerdas? URL `camaleon:3000/hello`
 
 ![](images/04-route-hello.png)
 
