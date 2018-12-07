@@ -121,6 +121,18 @@ sqlite>
 
 > Nuevamente "Convención vs configuración". La magia de verdad no existe... pero impresiona cuando ves el espectáculo.
 
+* Además tenemos la herramienta `rails dbconsole` para entrar/conectar con el gestor de bases de datos, sin pensar qué base de datos tenemos instalada:
+```
+messenger> rails dbconsole
+SQLite version 3.25.2 2018-09-25 19:08:10
+Enter ".help" for usage hints.
+sqlite> .tables
+ar_internal_metadata  schema_migrations     tags                
+sqlite> .schema tags
+CREATE TABLE IF NOT EXISTS "tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+sqlite>
+```
+
 ---
 
 Ir a [comandos](99-commands.md) para ver el resumen de órdenes de rails.
