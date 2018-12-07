@@ -10,9 +10,11 @@ Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a
 * ORM:Object Relational Mapping (ActiveRecord)
 
 El camino que hemos seguido hasta ahora es:
+1. Crear las bases de datos.
 1. Crear rutas.
 1. Generar controladores.
 1. Generar modelos.
+1. Crear algún registro.
 1. Ahora tocan las vistas.
 
 ---
