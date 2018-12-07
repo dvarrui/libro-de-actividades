@@ -3,23 +3,10 @@
 
 ![](images/super-brazo.png)
 
-# Las armas secretas de Railsinger-Z: CRUD y ORM
-
-Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a hacer con SQL... debemos montar algo en la aplicación web para hacerlo:
-* CRUD: Create-Read-Update-Delete functions.
-* ORM:Object Relational Mapping (ActiveRecord)
-
-El camino que hemos seguido hasta ahora es:
-1. Crear las bases de datos.
-1. Crear rutas.
-1. Generar controladores.
-1. Generar modelos.
-1. Crear algún registro.
-1. Ahora tocan las vistas.
 
 ---
 
-# Rutas
+# Rutas del CRUD
 
 ```
 messenger> rails routes
@@ -60,30 +47,29 @@ messenger> rails routes
 ```
 ---
 
-# New
+# Index
 
 * `rails g controller tag`
 * Editar `app/controller/tag_controller.rb`
 ```
 class TagController < ApplicationController
-  def new
+  def index
+    @tags = Tag.all
   end
 end
 ```
 
 > Erb es el motor de plantillas que usa Rail
 
-* Crear `app/views/tag/new.html.erb`
+* Crear `app/views/tag/index.html.erb`
 ```
-<h1>New Tag</h1>
+<h1>Listing Tags</h1>
 
-<%= form_with scope: :tag, url: '/hello' do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p><%= form.submit %></p>
+<ol>
+<% @tags.each do |i| %>
+  <li><%= i.name %></li>
 <% end %>
+</ol>
 ```
 
 ---
