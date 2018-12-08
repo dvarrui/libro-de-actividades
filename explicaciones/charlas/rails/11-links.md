@@ -1,7 +1,7 @@
 
 # RAILSINGER-Z
 
-![](images/cientificos.png)
+![](images/malo1.png)
 
 # El camino
 
@@ -15,6 +15,8 @@ El camino que hemos seguido hasta ahora es:
 1. Crear métodos y vistas para un CRUD.
 
 # Links
+
+* `app/views/tag/index.html.erb`
 
 ```
 <h1>Listing Tags</h1>

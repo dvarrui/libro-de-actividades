@@ -36,12 +36,14 @@ class TagController < ApplicationController
 * `app/views/tag/new.html.erb`
 ```
 <h1>New Tag</h1>
-<%= form_for(@tag) do |f| %>
+
+<%= form_for @tag, url: '/tag'  do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.submit "Save changes" %>
+  <%= f.submit "Create" %>
 <% end %>
+
 ```
 * Create no tiene vista. Jajajaja.
 
