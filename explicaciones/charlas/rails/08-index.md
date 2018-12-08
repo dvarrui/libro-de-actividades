@@ -3,48 +3,44 @@
 
 ![](images/super-brazo.png)
 
-
 ---
 
-# Rutas del CRUD
+# Rutas
 
 ```
 messenger> rails routes
-           Prefix Verb URI Pattern
-        Controller#Action
-            hello GET /hello(.:format)  
-        welcome#greet
+
+      Prefix   Verb   URI Pattern        Controller#Action
+      ------   ----   ----------------   -----------------
+      hello    GET    /hello(.:format)   welcome#greet
+
 ```
 * Modificar `config/routes.rb`
 ```
 Rails.application.routes.draw do
   # For details see http://guides.rubyonrails.org/routing.html
   get '/hello', to: 'welcome#greet'
-  resources :tags
+  resources :tag
 end
 ```
-* Consultamos las rutas CRUD para `tags`...
+* Consultamos las rutas...
 ```
 messenger> rails routes
 
-    Prefix            Verb   URI Pattern
-    Controller#Action
+    Prefix     Verb     URI Pattern              Controller#Action
+    --------   ----     ----------------------   -----------------
+    hello      GET      /hello(.:format)         welcome#greet
 
-    hello             GET    /hello(.:format)
-    welcome#greet
-    tag               GET    /tag(.:format)
-    tag#index         POST   /tag(.:format)
-    tag#create
-    new_tag           GET    /tag/new(.:format)
-    tag#new
-    edit_tag          GET    /tag/:id/edit(.:format)
-    tag#edit
-    tag               GET    /tag/:id(.:format)
-    tag#show          PATCH  /tag/:id(.:format)
-    tag#update        PUT    /tag/:id(.:format)
-    tag#update        DELETE /tag/:id(.:format)
-    tag#destroy
+    tag        GET      /tag(.:format)           tag#index         
+               POST     /tag(.:format)           tag#create
+    new_tag    GET      /tag/new(.:format)       tag#new
+    edit_tag   GET      /tag/:id/edit(.:format)  tag#edit
+    tag        GET      /tag/:id(.:format)       tag#show
+               PATCH    /tag/:id(.:format)       tag#update
+               PUT      /tag/:id(.:format)       tag#update  
+               DELETE   /tag/:id(.:format)       tag#destroy
 ```
+
 ---
 
 # Index
@@ -71,6 +67,8 @@ end
 <% end %>
 </ol>
 ```
+
+![](images/08-tag.png)
 
 ---
 
