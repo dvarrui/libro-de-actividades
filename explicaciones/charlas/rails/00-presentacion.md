@@ -3,6 +3,12 @@
 
 ![](images/mazinger-z.png)
 
+[Volver](README.md)
+
+---
+
+# Presentación
+
 David Vargas Ruiz
 * Profesor FP Informática
 * IES Puerto de la Cruz
@@ -22,7 +28,7 @@ Rock and Roll
 
 ---
 
-# Ruby on Rails
+# Introducción
 
 * Empresas que usan Rails: GitHub, GitLab, etc.
 * Característiscas:
