@@ -24,9 +24,10 @@
 </table>
 ```
 
-![](images/10-tag-index.png)
+![](images/11-tag-index.png)
 
 * `app/view/tag/show.html.erb`
+
 ```
 <%= render 'header' %>
 <h3>Show Tag</h3>
@@ -39,7 +40,10 @@
 <%= render 'footer' %>
 ```
 
+![](images/11-show-tag.png)
+
 * `app/view/tag/edit.html.erb`
+
 ```
 <%= render 'header' %>
 
@@ -56,6 +60,8 @@
 
 <%= render 'footer' %>
 ```
+
+![](images/11-edit-tag.png)
 
 ---
 
