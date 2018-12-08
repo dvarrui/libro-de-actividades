@@ -1,9 +1,9 @@
 
 # RAILSINGER-Z
 
-![](images/super-brazo.png)
+![](images/malo1.png)
 
-# CRUD
+# El camino
 
 El camino que hemos seguido hasta ahora es:
 1. Crear las bases de datos.
