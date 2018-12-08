@@ -3,6 +3,10 @@
 
 ![](images/piscina.png)
 
+[Volver](README.md)
+
+---
+
 # Crear el esqueleto
 
 > * `rails new demo` (usará base de datos sqlite)

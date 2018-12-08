@@ -3,6 +3,10 @@
 
 ![](images/cientificos.png)
 
+[Volver](README.md)
+
+---
+
 # Instalar Ruby and Rails
 
 * `ruby -v`, consultar la versión de ruby.

@@ -3,6 +3,10 @@
 
 ![](images/mazinger-y-afrodita.png)
 
+[Volver](README.md)
+
+---
+
 # Arma secreta de Railsinger-Z: ActiveRecord
 
 Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a hacer con SQL... debemos montar algo en la aplicación web para hacerlo:

@@ -3,6 +3,10 @@
 
 ![](images/laboratorio.png)
 
+[Volver](README.md)
+
+---
+
 # ¡Hola!
 
 Lo primero es saludar y presentarse... ¿verdad?

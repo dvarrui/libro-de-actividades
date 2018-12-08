@@ -3,6 +3,10 @@
 
 ![](images/doctor-hell.png)
 
+[Volver](README.md)
+
+---
+
 # Solucionar un problema
 
 Hace falta un programa/utilidad para enviar mensajes de forma selectiva o filtrada. Al estilo twitter.

@@ -3,6 +3,8 @@
 
 ![](images/cabeza.png)
 
+[Volver](README.md)
+
 # CRUD
 
 Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a hacer con SQL, o con `rails console`. No. Ahora vamos a montar un CRUD (Create-Read-Update-Delete functions) en la aplicación web para hacerlo.
