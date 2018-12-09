@@ -3,11 +3,10 @@
 
 # Instalación Triple-UEFI-GPT
 
-Vamos a instalar 3 SSOO en la misma máquina:
-* Windows 7
-* GNU/Linux OpenSUSE
-* GNU/Linux Arch
-
+* Vamos a instalar 3 SSOO en una MV UEFI con GPT:
+    * Windows 7
+    * GNU/Linux OpenSUSE
+    * GNU/Linux Arch
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
@@ -27,17 +26,17 @@ Incluir breves comentarios de cada captura de pantalla.
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
     * Recuerda `knoppix lang=es` para iniciarlo en español.
-* Gparted -> Dispositivo -> Crear tabla de particiones -> GPT.
+* `Gparted -> Dispositivo -> Crear tabla de particiones -> GPT`.
 * Crear las siguientes particiones:
 
-| Partición | Tamaño | Formato |
-| --------- | ------ | ------- |
-| BootEFI   | 100 MB | FAT     |
-| Windows 7 |  20 GB | NFTS    |
-| Swap      |   2 GB | swap    |
-| OpenSUSE  |  14 GB | Btrfs   |
-| Arch      |  14 GB | Ext4    |
-| Home      |  10 GB | XFS     |
+| id | Partición | Tamaño | Formato |
+| -- | --------- | ------ | ------- |
+| 01 | BootEFI   | 100 MB | FAT     |
+| 02 | Windows 7 |  20 GB | NFTS    |
+| 03 | Swap      |   2 GB | swap    |
+| 04 | OpenSUSE  |  14 GB | Btrfs   |
+| 05 | Arch      |  14 GB | Ext4    |
+| 06 | Home      |  10 GB | XFS     |
 
 * Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
 
@@ -45,14 +44,46 @@ Incluir breves comentarios de cada captura de pantalla.
 
 # 2. Instalación del primer SO
 
-* Intalar Arch GNU/Linux.
+> Enlace de interés:
+> * [Guía de instalación ArchLinux 2019](http://denovatoanovato.net/instalar-arch-linux/)
 
+* Instalar Arch GNU/Linux con:
+    * Partición 01 para BootEFI
+    * Partición 03 para la Swap
+    * Partición 05 para raíz del sistema (/)
+    * Partición 06 para el home (/home)
+* Nombre de usuario: `nombre-del-alumno`
+* Configuración de la MV:
+    * Nombre equipo: `1er-apellidoXXq1`
+    * IP estática 172.AA.XX.51
+* Reiniciar el sistema.
+* Ejecutar comando su para convertirnos en superusuario (clave de root).
+* Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
+```
+    date             # Muestra la fecha/hora del sistema
+    uname -a         # Muestra datos del kernel
+    ip a             # Muestra información de red
+    hostname         # Muestra nombre del sistema
+    id nombre-alumno
+    ping 8.8.4.4
+    host www.nba.com
+    df -hT           # Muestra información de ocupación del disco
+    fdisk -l         # Muestra información de particiones
+    lsblk            # Muestra UUID de las particiones
+```
+* Capturar imagen como la siguiente donde se muestra el arranque inicial
+donde se ve un menú para eligir el sistema operativo a iniciar.
 
+---
 
-Vamos a instalar primero el SO Windows.
+# 3. Segunda instalación
+
+Vamos a instalar el SO Windows.
 * Montamos ISO de instalación de Windows en la MV y la iniciamos.
 * Idioma español. Leer licencia antes de aceptarla.
-* Instalación personalizada. Elegir la partición 1 para instalar el SO.
+* Instalación personalizada.
+    * En la partición 02 instalar el SO.
+    * En la partición 01 irá el BootEFI.
 Producto/Licencia:
 * Clave de producto: La dejamos vacía por esta vez.
 * Si aparece la opción *Activar Windows automáticamente*, elegiremos que NO.
@@ -60,170 +91,92 @@ Producto/Licencia:
     * Nombre equipo: `1er-apellidoXXw1`
     * IP estática 172.AA.XX.12
 * Comprobar la conexión de red haciendo `ping www.google.es`.
-* Capturar imagen como la siguiente. Mostrando las particiones del disco duro
-(`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`).
-
-![dual-win7-particiones](./images/dual-win7-particiones.png)
-
+* Capturar imagen como la siguiente. Mostrando las particiones del disco duro (`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`).
 * Modificar la configuración de Windows Update y ponerla como Deshabilitada
 (Sin descargas ni notificaciones).
 * Ir a `miEquipo -> Btn Derecho -> Propiedades -> Cambiar conf. equipo`.
 Poner nombre grupo de trabajo indicado. Reiniciar
 * Ir a `miEquipo -> Btn derecho -> Propiedades`. Capturar imagen nombre de equipo y grupo de trabajo.
-* Capturar imagen como la siguiente:
-
-![dual-win7-nombres](./images/dual-win7-nombres.png)
-
 * Cuando terminen la instalación de Windows debemos acordarnos de desmontar
 la ISO (CD de instalación) de la MV.
-
-> Enlace de interés:
->
-> * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
+* Comandos de comprobación: date, ipconfig, hostname, whoami, ping 8.8.4.4, nslookup www.nba.com.
+* Reiniciar el sistema.
+* Capturar imagen como la siguiente donde se muestra el arranque inicial
+donde se ve un menú para eligir el sistema operativo a iniciar.
+    * ¿Hemos perdido algo?
 
 ---
 
-# 3. Instalación del segundo SO
+# 4. Instalación del tercer SO
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * [Configurar MV OpenSUSE](../../../global/configuracion/opensuse.md)
 * [Acceso remoto MV OpenSUSE](../../../global/acceso-remoto/opensuse.md)
 
-
-## 3.1 Empezamos con la ISO
+## 4.1 Empezamos con la ISO
 
 * Hacer una instantánea de la MV antes de continuar.
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
 
-## 3.2 Particionado
+## 4.2 Particionado
 
 * Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
 * Entrar en el modo experto.
 * Si no se ven las particiones que habíamos creado pulsar en `Volver a explorar dispositivos`.
 * Esquema de uso de las particiones:
-    * Área de intercambio o SWAP (500MB),
-    * Partición home (montar /home) de tamaño 100MB y con formato ext3.
-    * Partición del sistema (montar /) de tamaño 7GB y con formato ext4.
-    * Quedará espacio libre. Lo dejamos sin usar.
-* Capturar imagen como la siguiente:
+    * Partición 03 para la Swap
+    * Partición 04 para la raíz (/)
+    * Partición 06 para el home (/home).
+    * Montar la partición 02 en `/mnt/windows`.
+    * Montar la partición 05 en `/mnt/arch`
 
-![dual-suse-particiones1](./images/dual-suse-particiones1.png)
-
-* Botón derecho sobre la partición `ext3` -> para montar `/home`
-
-![dual-suse-home](./images/dual-suse-home.png)
-
-* Botón derecho sobre partición `ext4` -> para montar `/`
-
-![dual-suse-raiz](./images/dual-suse-raiz.png)
-
-```
-IMPORTANTE
-
-Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
-Esto lo hacemos para poder acceder de forma sencilla a la partición Windows desde el SO
-GNU/Linux.
-
-Esto lo hacemos para versiones de OpenSUSE 12.3 detecten sin problemas el Windows y
-se configure automáticamente el gestor de arranque.
-```
-
-* Aceptar.
-* Capturar imagen como la siguiente:
-
-![dual-suse-particiones2](./images/dual-suse-particiones2.png)
-
-* Verificar y siguiente.
-
-![dual-suse-particiones3](./images/dual-suse-particiones3.png)
-
-## 3.3 Entorno, usuario y SSH
+## 4.3 Entorno, usuario y SSH
 
 * Elegir zona horaria (Canarias)
-* Selección de entorno gráfico: XFCE
+* Selección de entorno gráfico: MATE
 
 > En teoría podríamos elegir el entorno gráfico que quisiéramos.
 > * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
-> * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
+> * MATE, XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
 * Crear usuario con `nombre-del-alumno`.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto/opensuse.md))
 
-## 3.4 Instalar
+## 4.4 Instalar
 
 * Comprobar que todo es correcto y procedemos a "Instalar".
-
-![dual-suse-verificar](./images/dual-suse-verificar.png)
-
 * ¿Desea actualización en línea? -> OMITIR actualización.
-No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo
-de ancho de banda que se produce en las actualizaciones.
+No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo de ancho de banda que se produce en las actualizaciones.
 * Entrar al sistema.
-* Comprobar que la conexión de red está bien haciendo `ping www.google.es`
-* Reiniciar el sistema.
-* Capturar imagen como la siguiente donde se muestra el arranque inicial
-donde se ve un menú para eligir el sistema operativo a iniciar.
 
-![dual-menu-final](./images/dual-menu-final.png)
-
-## 3.5 Con el SO instalado
+## 4.5 Con el SO instalado
 
 * Entrar al sistema con nuestro usuario.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * [Configuración de la MV](../../../global/configuracion/opensuse.md)
-    * IP estática 172.AA.XX.32
+    * IP estática 172.AA.XX.31
     * Poner como nombre del host o equipo `1er-apellidoXXg1`.
-    * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
-    el nombre del equipo puede cambiar en cada reinicio.
-
-![dual-suse-equipo](./images/dual-suse-equipo.png)
-
+    * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario el nombre del equipo puede cambiar en cada reinicio.
 * Abrir un terminal.
-* Ejecutar `ping www.google.com` para comprobar la conexión de red.
+* Comprobar con: date, ip a, hostname, whoami, ping 8.8.4.4, host www.nba.es.
+* Reiniciar el sistema.
+* Capturar imagen como la siguiente donde se muestra el arranque inicial
+donde se ve un menú para eligir el sistema operativo a iniciar.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
 * Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
 ```
-    date      # Muestra la fecha/hora del sistema
-    hostname  # Muestra nombre del sistema
-    uname -a  # Muestra datos del kernel
-    ip a      # Muestra información de red
-    df -hT    # Muestra información de ocupación del disco
-    fdisk -l  # Muestra información de particiones
-    lsblk     # Muestra UUID de las particiones
+    date             # Muestra la fecha/hora del sistema
+    uname -a         # Muestra datos del kernel
+    ip a             # Muestra información de red
+    hostname         # Muestra nombre del sistema
+    id nombre-alumno
+    ping 8.8.4.4
+    host www.nba.com
+    df -hT           # Muestra información de ocupación del disco
+    fdisk -l         # Muestra información de particiones
+    lsblk            # Muestra UUID de las particiones
 ```
-* Al iniciarse la MV deben aparecer los dos SSOO en el menú de inicio (Boot Loader).
-
----
-
-# ANEXO
-
-Esto NO hay que hacerlo.
-
-## Cambiar el menu de arranque Windows
-
-
-* Iniciar GNU/Linux.
-* `su` (Convertirnos en superusuario)
-* `cd /etc/grub.d` (Cambiamos de directorio)
-* `zypper install nano` (Para instalar el programa nano)
-* `nano 11_windows` (Creamos archivo nuevo con el siguiente contenido)
-
-```
-#!/bin/sh -e
-echo "Adding Windows 7" >&2
-cat<<EOF
-menuentry "Windows 7 (nombre-del-alumno - curso1819)" {
-set root=(hd0,1)
-chainloader +1
-}
-EOF
-```
-
-* Grabar el archivo y salir de nano
-* `chmod +x 11_windows`
-* `grub2-mkconfig -o /boot/grub2/grub.cfg` (Actualizamos el GRUB2 con el nuevo cambio)
-* `reboot` (Reiniciamos la MV)
-* Capturar imagen del menú de arranque.
+* Al iniciarse la MV deben aparecer todos SSOO en el menú de inicio (Boot Loader).
