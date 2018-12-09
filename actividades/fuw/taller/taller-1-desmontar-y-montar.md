@@ -76,12 +76,11 @@ Anotar las diferencias en la ficha.
 # Paso 4: Sistema Operativo
 
 * Instalar el sistema operativo que queramos (siempre de forma legal).
-* Clave de root = profesor
+* Clave de root => profesor
 * Crear usuario profesor/profesor
 * Crear usuario alumno/alumno
-
-> En GNU/Linux tenemos el comando `hwinfo` que nos da información del hardware de nuestra máquina. Ejemplo de uso:
->
-> * Abrir una consola como usuario `root`
-> * `hwinfo > salida.txt`, redirigimos la salida a un fichero de texto.
+* Instalar y ejecutar:
+    * `hardinfo`, aplicación gráfica que muestra información del hardware.
+    * `hwinfo`, comando que nos da información del hardware.
+     de nuestra máquina. Ejemplo de uso: `hwinfo > salida.txt`, para redirigir la salida del comando a un fichero de texto.
  
