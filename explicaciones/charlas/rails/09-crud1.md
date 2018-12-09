@@ -55,7 +55,7 @@ end
 * `app/views/tag/edit.html.erb`
 
 ```
-h1>Edit Tag</h1>
+<h1>Edit Tag</h1>
 <%= form_for(@tag) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

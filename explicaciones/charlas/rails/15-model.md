@@ -1,5 +1,5 @@
 
-# Rails
+# RAILSINGER-Z
 
 ![](images/nave.png)
 
