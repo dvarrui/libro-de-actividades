@@ -15,6 +15,7 @@ Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a
 > * [Building your first form](http://simple-form-bootstrap.plataformatec.com.br/documentation)
 
 * Vamos a completar los métodos en el controlador:
+
 ```
 class TagController < ApplicationController
   def index
@@ -52,6 +53,7 @@ end
 # View
 
 * `app/views/tag/edit.html.erb`
+
 ```
 h1>Edit Tag</h1>
 <%= form_for(@tag) do |f| %>
@@ -65,6 +67,7 @@ h1>Edit Tag</h1>
 ![](images/09-edit-tag.png)
 
 * `app/views/tag/show.html.erb`
+
 ```
 <h1>Show Tag</h1>
 <ul>

@@ -58,6 +58,7 @@ _(Tenemos unas cuantas más)_
 Primero vamos a mostrar un listado de todos los Tags.
 * `rails g controller tag`
 * Editar `app/controller/tag_controller.rb`
+
 ```
 class TagController < ApplicationController
   def index
@@ -69,6 +70,7 @@ end
 > Erb es el motor de plantillas que usa Rail
 
 * Crear `app/views/tag/index.html.erb`
+
 ```
 <h1>Listing Tags</h1>
 
