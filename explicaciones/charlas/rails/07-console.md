@@ -66,7 +66,11 @@ Vamos creando más Tags...
 ```
 rb(main):015:0> Tag.all
   Tag Load (0.6ms)  SELECT  "tags".* FROM "tags" LIMIT ?  [["LIMIT", 11]]
-=> #<ActiveRecord::Relation [#<Tag id: 1, name: "David", created_at: "2018-12-07 04:51:50", updated_at: "2018-12-07 04:51:50">, #<Tag id: 2, name: "CFGS", created_at: "2018-12-07 05:06:10", updated_at: "2018-12-07 05:06:10">, #<Tag id: 3, name: "asir", created_at: "2018-12-07 05:06:25", updated_at: "2018-12-07 05:06:25">, #<Tag id: 4, name: "daw", created_at: "2018-12-07 05:06:37", updated_at: "2018-12-07 05:06:37">]>
+=> #<ActiveRecord::Relation [
+    #<Tag id: 1, name: "David", created_at: "2018-12-07 04:51:50", updated_at: "2018-12-07 04:51:50">,
+    #<Tag id: 2, name: "CFGS", created_at: "2018-12-07 05:06:10", updated_at: "2018-12-07 05:06:10">,
+    #<Tag id: 3, name: "asir", created_at: "2018-12-07 05:06:25", updated_at: "2018-12-07 05:06:25">,
+    #<Tag id: 4, name: "daw", created_at: "2018-12-07 05:06:37", updated_at: "2018-12-07 05:06:37">]>
 irb(main):016:0> Tag.all.count
    (0.4ms)  SELECT COUNT(*) FROM "tags"
 => 4
@@ -81,7 +85,9 @@ irb(main):021:0> Tag.last.name
 => "daw"
 irb(main):022:0> Tag.all.limit(2)
   Tag Load (0.4ms)  SELECT  "tags".* FROM "tags" LIMIT ?  [["LIMIT", 2]]
-=> #<ActiveRecord::Relation [#<Tag id: 1, name: "David", created_at: "2018-12-07 04:51:50", updated_at: "2018-12-07 04:51:50">, #<Tag id: 2, name: "CFGS", created_at: "2018-12-07 05:06:10", updated_at: "2018-12-07 05:06:10">]>
+=> #<ActiveRecord::Relation [
+  #<Tag id: 1, name: "David", created_at: "2018-12-07 04:51:50", updated_at: "2018-12-07 04:51:50">,
+  #<Tag id: 2, name: "CFGS", created_at: "2018-12-07 05:06:10", updated_at: "2018-12-07 05:06:10">]>
 irb(main):023:0>
 ```
 

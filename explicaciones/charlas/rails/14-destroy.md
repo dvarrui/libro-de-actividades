@@ -15,6 +15,14 @@
 
 * Añadir una nueva acción en el controlador:
 
+```
+  def destroy
+    @tag = Tag.find(params[:id])
+    @tag.destroy
+    redirect_to '/tag'
+  end
+```
+
 ---
 
 Ir a [comandos](99-commands.md) para ver el resumen de órdenes de rails.

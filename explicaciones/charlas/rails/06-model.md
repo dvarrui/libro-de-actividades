@@ -95,10 +95,10 @@ end
 
 ```
 messenger> rails db:migrate
-== 20181206141757 CreateTags: migrating =======================================
+== 20181206141757 CreateTags: migrating ==========================
 -- create_table(:tags)
    -> 0.0013s
-== 20181206141757 CreateTags: migrated (0.0015s) ==============================
+== 20181206141757 CreateTags: migrated (0.0015s) =================
 ```
 
 * Para comprobar o que ha ocurrido en la base de datos, vamos a sqlite3:
@@ -112,7 +112,11 @@ sqlite> select * from schema_migrations;
 20181206141757
 
 sqlite> .schema tags
-CREATE TABLE IF NOT EXISTS "tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE IF NOT EXISTS "tags" (
+  "id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+  "name" varchar,
+  "created_at" datetime NOT NULL,
+  "updated_at" datetime NOT NULL);
 
 sqlite>
 ```
