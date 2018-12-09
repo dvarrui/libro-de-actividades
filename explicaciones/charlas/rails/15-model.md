@@ -23,6 +23,15 @@ Running via Spring preloader in process 5922
 messenger>
 ```
 
+---
+
+# Validators
+
+
+---
+
+# Migraciones
+
 * Tenemos una nueva migración.
 
 ```

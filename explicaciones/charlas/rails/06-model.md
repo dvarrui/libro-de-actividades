@@ -35,6 +35,9 @@ sqlite> .quit
 
 # Modelo (Es la M del MVC)
 
+> Enlaces de interés:
+> * [ActiveRecord Basics](https://guides.rubyonrails.org/active_record_basics.html)
+
 > Recordemos que estamos dentro de un MVC todo POO.
 
 Para la capa de modelos se usa `ActiveRecord`.
@@ -70,6 +73,19 @@ Running via Spring preloader in process 6796
 
 messenger>
 ```
+---
+
+# Validators
+
+```
+class Tag < ApplicationRecord
+  validates :name, presence: true
+end
+```
+
+---
+
+# Migraciones
 
 El directorio `db/migrate` no existía hasta ahora. Todos los cambios que se hagan en los Modelos (Y por tanto, en la base de datos que lo sustenta), se guardarán como "migraciones". Esto servirá para poder hacer cambios hacia adelante y/o hacia atrás en la estructura de forma sencilla. _¡Guau!_
 
@@ -146,7 +162,7 @@ CREATE TABLE IF NOT EXISTS "tags" (
   "name" varchar,
   "created_at" datetime NOT NULL,
   "updated_at" datetime NOT NULL);
-  
+
 sqlite>
 ```
 
