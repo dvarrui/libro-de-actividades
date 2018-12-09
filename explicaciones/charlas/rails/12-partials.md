@@ -1,7 +1,7 @@
 
 # RAILSINGER-Z
 
-![](images/cientificos.png)
+![](images/laboratorio.png)
 
 [Volver](README.md)
 
