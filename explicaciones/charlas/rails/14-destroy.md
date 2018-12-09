@@ -5,7 +5,15 @@
 
 # Links
 
+* Añadir links en Show, Edit a Index.
+
+```
 <%= link_to 'Destroy',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+```
+
+# Action destroy
+
+* Añadir una nueva acción en el controlador:
 
 ---
 
