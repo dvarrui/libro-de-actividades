@@ -27,6 +27,17 @@ messenger>
 
 # Validators
 
+```
+class Message < ApplicationRecord
+  validates :title, presence: true
+end
+```
+
+```
+class Tag < ApplicationRecord
+  validates :name, presence: true
+end
+```
 
 ---
 
