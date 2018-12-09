@@ -88,6 +88,8 @@ greet   => es un método del controlador.
 
 ![](images/04-route-hello.png)
 
+![](images/04-get-hello.png)
+
 > Para trabajar con Rails podemos usar el editor de texto que queramos. Las características de Ruby hacen que los IDE no sean de gran ayuda. Ruby es tan expresivo que basta con escribir lo que necesitas de forma casi natural.
 
 ---
