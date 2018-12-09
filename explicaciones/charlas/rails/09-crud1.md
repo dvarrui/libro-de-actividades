@@ -17,6 +17,9 @@ Ahora tendríamos que rellenar la tabla `tags` con contenido. Pero no lo vamos a
 * Vamos a completar los métodos en el controlador:
 ```
 class TagController < ApplicationController
+  def index
+    @tags = Tag.order(:name)
+  end
 
   def show
     @tag = Tag.find(params[:id])
