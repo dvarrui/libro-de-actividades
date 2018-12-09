@@ -1,7 +1,7 @@
 
 # RAILSINGER-Z
 
-![](images/mazinger-z.png)
+![](images/koji-kabuto.png)
 
 [Volver](README.md)
 
