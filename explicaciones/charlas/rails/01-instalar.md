@@ -1,5 +1,5 @@
 
-# Rails
+# RAILSINGER-Z
 
 ![](images/cientificos.png)
 
@@ -9,13 +9,16 @@
 
 # Instalar Ruby and Rails
 
+> Enlace de interés:
+> * [Instalar Rails en OpenSUSE](../ruby/rails-opensuse.md)
+
 * `ruby -v`, consultar la versión de ruby.
     * Instalar ruby (`apt install ruby`).
 * Se recomienda usar entornos virtuales (rbenv, rvm, etc.)
 * `gem install rails`, para instalar rails (o consultar installrails.com).
 
 ```
-david@camaleon:~/charlas/rails> gem install rails
+david@camaleon:~/> gem install rails
 Successfully installed concurrent-ruby-1.1.3
 Successfully installed i18n-1.1.1
 Successfully installed thread_safe-0.3.6
@@ -57,21 +60,23 @@ Successfully installed sprockets-3.7.2
 Successfully installed sprockets-rails-3.2.1
 Successfully installed rails-5.2.2
 37 gems installed
-david@camaleon:~/charlas/rails> rails -v
-Rails 5.2.2
 ```
 
 * `rails -v`, consultar la version de rails.
 
+```
+david@camaleon:~/> rails -v
+Rails 5.2.2
+```
 ---
 
 # Bases de datos
 
-> **Instalar la BBDD**
-> * `zypper in sqlite3 sqlite3-devel`
-> * `zypper install gcc gcc-devel gcc8-c++ `
-> * `cd /usr/bin; ln -s gcc g++`
-> * `gem install mini_racer`
+**Instalar la BBDD** en OpenSUSE.
+* `zypper in sqlite3 sqlite3-devel`
+* `zypper install gcc gcc-devel gcc8-c++ `
+* `cd /usr/bin; ln -s gcc g++`
+* `gem install mini_racer`
 
 ---
 

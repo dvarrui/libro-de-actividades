@@ -1,5 +1,5 @@
 
-# Rails
+# RAILSINGER-Z
 
 ![](images/super-brazo.png)
 
@@ -7,7 +7,9 @@
 
 ---
 
-# Rutas
+# Más rutas
+
+* De momento tenemos esta ruta:
 
 ```
 messenger> rails routes
@@ -17,7 +19,9 @@ messenger> rails routes
       hello    GET    /hello(.:format)   welcome#greet
 
 ```
+
 * Modificar `config/routes.rb`
+
 ```
 Rails.application.routes.draw do
   # For details see http://guides.rubyonrails.org/routing.html
@@ -25,7 +29,9 @@ Rails.application.routes.draw do
   resources :tag
 end
 ```
-* Consultamos las rutas...
+
+* Consultamos las rutas ahora y...
+
 ```
 messenger> rails routes
 
@@ -43,10 +49,13 @@ messenger> rails routes
                DELETE   /tag/:id(.:format)       tag#destroy
 ```
 
+_(Tenemos unas cuantas más)_
+
 ---
 
 # Index
 
+Primero vamos a mostrar un listado de todos los Tags.
 * `rails g controller tag`
 * Editar `app/controller/tag_controller.rb`
 ```

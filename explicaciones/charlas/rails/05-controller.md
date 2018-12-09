@@ -1,5 +1,5 @@
 
-# Rails
+# RAILSINGER-
 
 ![](images/koji-kabuto.png)
 
@@ -9,24 +9,27 @@
 
 # Controlando al controlador
 
-> Recordemos que estamos dentro de un MVC
+> Recordemos que estamos dentro de un MVC y que todo en ruby son objetos.
 
 * Modificar el controlador `app/controllers/welcome_controller.rb`:
+
 ```
   def greet
     @name = 'Mazinger-Z'
   end
 ```
 
-> Recordar que los atributos de una clase en ruby se escriben con la @ delante. De modo que @name es una variable, atributo de la clase WelcomeController.
+> Recordar que los atributos de una clase en ruby se escriben con la @ delante. De modo que @name es una variable de instancia o atributo de la clase WelcomeController.
 >
 > Todo en Ruby... son objetos.
 
 * Modificar la vista `app/views/welcome/greet.html.erb`:
+
 ```
 <p>Hello <%= @name %>!</p>
 <p>Now. Your are into... MY CONTROLLER! <i>Hahahaha!</i></p>
 ```
+
 * Probamos:
     * `rails s`
     * URL `camaleon:3000/hello`

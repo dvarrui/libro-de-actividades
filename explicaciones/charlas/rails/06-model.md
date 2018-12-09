@@ -1,5 +1,5 @@
 
-# Rails
+# RAILSINGER-Z
 
 ![](images/nave.png)
 
@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS "ar_internal_metadata" ("key" varchar NOT NULL PRIMAR
 
 sqlite> .quit
 ```
+
 * Estamos en un estado inicial... no hay nada.
 
 ---
@@ -70,11 +71,11 @@ Running via Spring preloader in process 6796
 messenger>
 ```
 
-El directorio `db/migrate` no existía hasta ahora. Todos los cambios que se hagan en los Modelos (Y por tanto, en la base de datos que lo sustenta), se guardarán como "migraciones". Esto servirá para poder hacer cambios hacia adelante y/o hacia atrás en la estructura de forma sencilla. ¡Guau!
+El directorio `db/migrate` no existía hasta ahora. Todos los cambios que se hagan en los Modelos (Y por tanto, en la base de datos que lo sustenta), se guardarán como "migraciones". Esto servirá para poder hacer cambios hacia adelante y/o hacia atrás en la estructura de forma sencilla. _¡Guau!_
 
 La idea es que cambiar... en cualquier momento del proceso de desarrollo no suponga un problema. Que sea todo natural y sencillo.
 
-Veamos nuestro modelo `Tag`... ¡qué bonito ha quedado! (Todo son objetos)
+Veamos nuestro modelo `Tag`... _¡qué bonito ha quedado! (Todo son objetos)_
 Es un DSL (Domain Specific Language) escrito en Ruby para interactuar con la base de datos.
 
 ```
@@ -130,14 +131,22 @@ sqlite>
 > Nuevamente "Convención vs configuración". La magia de verdad no existe... pero impresiona cuando ves el espectáculo.
 
 * Además tenemos la herramienta `rails dbconsole` para entrar/conectar con el gestor de bases de datos, sin pensar qué base de datos tenemos instalada:
+
 ```
 messenger> rails dbconsole
 SQLite version 3.25.2 2018-09-25 19:08:10
 Enter ".help" for usage hints.
+
 sqlite> .tables
 ar_internal_metadata  schema_migrations     tags                
+
 sqlite> .schema tags
-CREATE TABLE IF NOT EXISTS "tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE IF NOT EXISTS "tags" (
+  "id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+  "name" varchar,
+  "created_at" datetime NOT NULL,
+  "updated_at" datetime NOT NULL);
+  
 sqlite>
 ```
 
