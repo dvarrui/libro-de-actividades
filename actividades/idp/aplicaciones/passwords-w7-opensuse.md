@@ -113,7 +113,7 @@ con el siguiente contenido:
 SystemAccount=true
 ```
 
-### Escritorio KDE (Antonio Fariña)
+### Escritorio KDE (Antonio y Giovanni)
 
 Procedimiento de ocultación de usuarios para el escritorio XFCE.
 * Editamos el archivo `/etc/sddm.conf`. Puede estar vacío.
