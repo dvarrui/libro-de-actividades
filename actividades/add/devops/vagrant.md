@@ -10,7 +10,7 @@ Ejemplo de rúbrica:
 | (5.1) Suministro Shell Script | | | |
 | (5.2) Suministro Puppet       | | | |
 | (6.1) Preparar MV             | | | |
-| (6.2) Crear caja Vagrant      | | | |
+| (6.2) Crear caja Vagrant      | | |. |
 
 ---
 
