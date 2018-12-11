@@ -219,3 +219,18 @@ En el ejemplo podemos ver que estamos usando el programa ligthdm, el cual es un 
 * Consultar la información de nuestro gestor de inicio gráfico para cambiar
  la configuración y ocultar los usuarios. Gestores gráficos hay muchos: lightdm, gdm,
  gdm3, kdm, xdm, etc. (*Consultar ANEXO o buscar información en Internet*).
+
+----
+
+# ANEXO
+
+Ejemplo de rúbrica:
+
+| Sección                   | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ------------------------- | ----------- | ---------- | ---------------- |
+| W Ocultar usuarios        | | | |
+| W Inicio sesión seguro    | | | |
+| W Claves seguras          | | | |
+| G Ocultar usuarios        | | | |
+| G Claves seguras          | | | |
+| G Desactivar modo gráfico | | |.|
