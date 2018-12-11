@@ -1,6 +1,19 @@
 
 # Vagrant y VirtualBox
 
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (2.4) Primer vagrant up             | | | |
+| (3.2) Redireccionamiento de puertos | | | |
+| (5.1) Suministro Shell Script | | | |
+| (5.2) Suministro Puppet       | | | |
+| (6.1) Preparar MV             | | | |
+| (6.2) Crear caja Vagrant      | | | |
+
+---
+
 # 1. Introducción
 
 Según *Wikipedia*:
@@ -332,7 +345,7 @@ root@hostname:~# modinfo vboxguest |grep version
 version:        4.3.20
 ```
 
-## 6.2 Crear la caja vagrant
+## 6.2 Crear caja Vagrant
 
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
