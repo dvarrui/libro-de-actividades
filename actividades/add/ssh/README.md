@@ -1,6 +1,17 @@
 
 # Acceso remoto SSH
 
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (2.2) Primera conexión SSH GNU/Linux       | | | |
+| (3.2) Comprobar cambio clave servidor SSH  | | | |
+| (5  ) Autenticación mediante clave pública | | | |
+| (6  ) Uso de SSH como túnel para X         | | | |
+| (8.1) Restricción sobre un usuario         | | |. |
+| (9) Servidor SSH en Windows                | | |. |
+
 ## Introducción
 
 * Atender a la explicación del profesor.
@@ -181,7 +192,7 @@ total 576
 Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
 servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
 
-### Regenerar certificados
+## 3.1 Regenerar certificados
 
 Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
 identificación de nuestro servidor.
@@ -190,7 +201,7 @@ identificación de nuestro servidor.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
 
-### Comprobamos
+## 3.2 Comprobamos
 
 * Comprobar qué sucede al volver a conectarnos desde los dos clientes, usando los  usuarios `1er-apellido-alumno2` y `1er-apellido-alumno1`. ¿Qué sucede?
 
@@ -317,7 +328,7 @@ usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wi
 
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
 
-## Restricción sobre un usuario
+## 8.1 Restricción sobre un usuario
 
 Vamos a crear una restricción de uso del SSH para un usuario:
 
@@ -331,7 +342,7 @@ restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers
 Más información en: `man sshd_config` y en el Anexo de este enunciado.
 * Comprobarlo la restricción al acceder desde los clientes.
 
-## Restricción sobre una aplicación
+## 8.2 Restricción sobre una aplicación
 
 Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
