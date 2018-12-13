@@ -1,1 +1,0 @@
-# Comparativa Python vs Ruby
