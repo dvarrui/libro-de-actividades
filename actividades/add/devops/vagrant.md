@@ -81,8 +81,7 @@ Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagr
 (dentro de la carpeta de nuestro proyecto).
 * Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
 * Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
-De modo que vamos a hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`, y
-vamos a quitar todas las líneas comentadas del `Vagrantfile`.
+De modo que vamos a hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`, y vamos a quitar todas las líneas comentadas del `Vagrantfile` para que no nos estorben.
 
 ![vagrantfile](./images/vagrantfile.png)
 
