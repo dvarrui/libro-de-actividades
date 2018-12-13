@@ -1,6 +1,17 @@
 
 # Instalación personalizada
 
+Ejemplo de rúbrica:
+
+| Sección                  | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ------------------------ | ------------ | ----------- | ----------------- |
+| Checksum de las 2 ISOs   | | | |
+| Esquema de particionado  | | | |
+| Comandos de comprobación | | | |
+| SSH                      | | |.|
+
+## Entrega
+
 * Usaremos un CD-Live de Knoppix y otro de instalación de Debian.
 * Entregar un documento en formato ODT o PDF con los pasos realizados.
 
