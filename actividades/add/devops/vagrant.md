@@ -66,8 +66,9 @@ versiones de ambos son compatibles entre sí.
 
 ## 2.3 Imagen, caja o box
 
-* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Vamos,
-por ejemplo, a conseguir una imagen de un `Ubuntu Precise de 32 bits`:
+> En nuestro caso vamos a usar el URL y nombre de box que se mencionó en clase.
+
+* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Vamos, por ejemplo, a conseguir una imagen de un `Ubuntu Precise de 32 bits`:
 ```
 vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
 ```
