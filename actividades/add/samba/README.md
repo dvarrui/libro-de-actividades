@@ -1,11 +1,24 @@
 
 # Samba (con OpenSUSE y Windows)
 
-Entrega:
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (1.4 y 1.5) Fichero smb.conf             | | | |
+| (2.1 y 2.2) Conexión SMB desde Windows   | | | |
+| (3.1 y 3.2) Conexión SMB desde GNU/Linux | | | |
+| (3.3) Montaje automático                 | | | |
+
+---
+
+## Entrega
+
 * La entrega la realizaremos a través del repositorio Git.
 * Al terminar etiquetaremos la entrega con *samba*.
 
-Introducción:
+## Introducción
+
 * Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
