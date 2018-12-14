@@ -5,12 +5,12 @@ Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
-| (2.4) Primer vagrant up             | | | |
-| (3.2) Redireccionamiento de puertos | | | |
-| (5.1) Suministro Shell Script | | | |
-| (5.2) Suministro Puppet       | | | |
-| (6.1) Preparar MV para Box    | | | |
-| (6.2) Crear Box Vagrant       | | |. |
+| (3.3) Comprobar proyecto 1    | | | |
+| (5.2) Comprobar proyecto 2    | | | |
+| (6.1) Suministro Shell Script | | | |
+| (6.2) Suministro Puppet       | | | |
+| (7.1) Preparar MV para Box    | | | |
+| (7.2) Crear Box Vagrant       | | |. |
 
 ---
 
@@ -39,9 +39,7 @@ la información del enlace anterior publicado por *Jonathan Wiesel, el 16/07/201
 
 ---
 
-# 2. Primeros pasos
-
-## 2.1 Instalar Vagrant
+# 2. Instalar Vagrant
 
 La instalación vamos a hacerla en una máquina real. A día de hoy, no he
 probado a instalar VirtualBox dentro de una MV de VirtualBox. Y desconozco si
@@ -56,17 +54,21 @@ versiones de ambos son compatibles entre sí.
     * `vagrant version`, para comprobar la versión actual de Vagrant.
     * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 
-## 2.2. Carpeta del Proyecto
+---
+
+# 3. Mi primer proyecto Vagrant
+
+## 3.1 Directorio
 
 * Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
 ```
-mkdir vagrantXX-proyecto
-cd vagrantXX-proyecto
+mkdir vagrantXX-proyecto1
+cd vagrantXX-proyecto1
 ```
 
 * `vagrant init`
 ```
-vagrant42-proyecto> vagrant init
+vagrant42-proyecto1> vagrant init
 
 A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
@@ -74,7 +76,7 @@ the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
 ```
 
-## 2.3 Imagen, caja o box
+## 3.2 Imagen, caja o box
 
 Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Por ejemplo:
 * [Vagrant Box List](http://www.vagrantbox.es)
@@ -88,7 +90,7 @@ En este curso1819 vamos a usar los siguientes valores:
 Veamos el siguiente ejemplo y adaptémoslo a nuestras necesidades para descargar una caja de Vagrant y comprobar que la tenemos disponible en nuestra máquina:
 
 ```
-vagrant42-proyecto> vagrant box list
+vagrant42-proyecto1> vagrant box list
 There are no installed boxes! Use `vagrant box add` to add some.
 david@camaleon:~/Documentos/vagrant42-proyecto> vagrant box add ubuntu42 https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
 /usr/share/vagrant/plugins/commands/login/client.rb:8: warning: already initialized constant VagrantPlugins::LoginCommand::Client::APP
@@ -97,9 +99,9 @@ david@camaleon:~/Documentos/vagrant42-proyecto> vagrant box add ubuntu42 https:/
 ==> box: Adding box 'ubuntu42' (v0) for provider:
     box: Downloading: https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
 ==> box: Successfully added box 'ubuntu42' (v0) for 'virtualbox'!
-david@camaleon:~/Documentos/vagrant42-proyecto> vagrant box list
+david@camaleon:~/Documentos/vagrant42-proyecto1> vagrant box list
 ubuntu42 (virtualbox, 0)
-david@camaleon:~/Documentos/vagrant42-proyecto>
+david@camaleon:~/Documentos/vagrant42-proyecto1>
 ```
     * `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
     * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
@@ -110,25 +112,25 @@ david@camaleon:~/Documentos/vagrant42-proyecto>
     * `config.vm.box = "BOXNAME"`
 
 ```
-vagrant42-proyecto> v
+vagrant42-proyecto1> vdir
 total 8
 -rw-r--r-- 1 david users   69 dic 14 08:40 Vagrantfile
 -rw-r--r-- 1 david users 3011 dic 14 08:38 Vagrantfile.bak
-vagrant42-proyecto> more Vagrantfile
+vagrant42-proyecto1> more Vagrantfile
 
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu42"
 end
 ```
 
-## 2.4 Levantar el proyecto
+## 3.3 MV: Levantar y entrar
 
 Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 * Debemos estar dentro de `vagrantXX-proyecto`.
 * `vagrant up`: comando para iniciar una nueva instancia de la máquina.
 
 ```
-vagrant42-proyecto> vagrant up
+vagrant42-proyecto1> vagrant up
 
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'ubuntu42'...
@@ -181,69 +183,49 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: Guest Additions Version: 4.3.36
     default: VirtualBox Version: 5.2
 ==> default: Mounting shared folders...
-    default: /vagrant => /home/david/Documentos/vagrant42-proyecto
+    default: /vagrant => .../vagrant42-proyecto1
 
-vagrant42-proyecto>
+vagrant42-proyecto1>
 ```
 
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
-* Otros comandos últiles de Vagrant son:
-    * `vagrant suspend`: Suspender la máquina virtual. Tener en cuenta que la
-    MV en modo **suspendido** consume más espacio en disco debido a que el
-    estado de la máquina virtual que suele almacenarse en la RAM se pasa a disco.
-    * `vagrant resume` : Volver a despertar la máquina virtual.
-    * `vagrant halt`: Apagarla la máquina virtual.
-    * `vagrant status`: Estado actual de la máquina virtual.
-    * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
+
+> Otros comandos últiles de Vagrant son:
+> * `vagrant suspend`: Suspender la máquina virtual. Tener en cuenta que la MV en modo **suspendido** consume más espacio en disco debido a que el estado de la máquina virtual que suele almacenarse en la RAM se pasa a disco.
+> * `vagrant resume` : Volver a despertar la máquina virtual.
+> * `vagrant halt`: Apagarla la máquina virtual.
+> * `vagrant status`: Estado actual de la máquina virtual.
+> * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
 
 ---
 
-# 3. Configuración del entorno virtual
+# 4. TEORÍA
 
-## 3.1 Carpetas sincronizadas
+Teoría sobre opciones para configurar de entorno virtual.
 
-> La carpeta del proyecto que contiene el `Vagrantfile` es visible
+## TEORIA: Carpetas sincronizadas
+
+La carpeta del proyecto que contiene el `Vagrantfile` es visible
 para el sistema el virtualizado, esto nos permite compartir archivos fácilmente
 entre los dos entornos.
 
-* Para identificar las carpetas compartidas dentro del entorno virtual, hacemos:
+
+Para identificar las carpetas compartidas dentro del entorno virtual, hacemos:
 ```
 vagrant up
 vagrant ssh
 ls /vagrant
 ```
 
-> Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del entorno
-virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión.
+Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del entorno virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión.
 
-## 3.2 Redireccionamiento de los puertos
+## TEORIA: Redireccionamiento de los puertos
 
 Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos
 enfocados a la web, y para acceder a las páginas es necesario configurar el
 enrutamiento de puertos.
 
-* Entramos en la MV e instalamos apache.
-    * `vagrant ssh`
-    * `apt-get update`
-    * `apt-get install apache2`
-* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
-  * `config.vm.network :forwarded_port, host: 4567, guest: 80`
-* Luego iniciamos la MV (si ya se encuentra en ejecución lo podemos recargar
-  la configuración con `vagrant reload`)
-
-Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
-podemos ejecutar los siguientes comandos:
-* `nmap -p 4500-4600 localhost`, debe mostrar `4567/tcp open tram`.
-* `netstat -ntap`, debe mostrar `tcp 0.0.0.0:4567 0.0.0.0:* ESCUCHAR`.
-
-* En la máquina real, abrimos el navegador web con el URL `http://127.0.0.1:4567`.
-En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
-
-![vagrant-forward-example](./images/vagrant-forward-example.png)
-
----
-
-# 4. Ejemplos de configuración Vagrantfile
+## TEORIA: Ejemplos de configuración Vagrantfile
 
 A continuación se muestran ejemplos de configuración Vagrantfile que NO ES NECESARIO hacer. Sólo es información.
 
@@ -274,7 +256,35 @@ config.ssh.forward_x11 = true
 
 ---
 
-# 5.Suministro
+# 5. Proyecto2
+
+## 5.1 Creamos proyecto 2
+
+* Crear carpeta `vagrantXX-proyecto1`. Entrar en el directorio.
+* Crear proyecto Vagrant.
+* Configurar Vagrantfile para usar nuestra caja BOXNAME.
+* Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
+  * `config.vm.network :forwarded_port, host: 4567, guest: 80`
+* `vagrant ssh`, entramos en la MV
+* Instalamos apache: `apt-get update; apt-get install apache2`.
+* Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
+
+## 5.2 Comprobamos proyecto 2
+
+Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
+podemos ejecutar los siguientes comandos:
+* `nmap -p 4500-4600 IPHOST-CON-VAGRANT`, debe mostrar `4567/tcp open tram`.
+* Dentro del HOST-CON-VAGRANT.
+    * `netstat -ntap`, debe mostrar `tcp 0.0.0.0:4567 0.0.0.0:* ESCUCHAR`.
+    * o `lsof -i`
+
+* En HOST-CON-VAGRANT, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
+
+![vagrant-forward-example](./images/vagrant-forward-example.png)
+
+---
+
+# 6.Suministro
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
 Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de
@@ -284,7 +294,7 @@ de aspectos del SO del sistema anfitrión.
 * `vagrant halt`, apagamos la MV.
 * `vagrant destroy` y la destruimos para volver a empezar.
 
-## 5.1 Suministro mediante shell script
+## 6.1 Suministro mediante shell script
 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
@@ -322,7 +332,7 @@ mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado,
 abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
-## 5.2 Suministro mediante Puppet
+## 6.2 Suministro mediante Puppet
 
 > Enlace de interés:
 > * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
@@ -370,7 +380,9 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 y luego la hemos provisionado para personalizarla. En este apartado vamos a crear
 nuestra propia caja/box personalizada a partir de una MV de VirtualBox.
 
-## 6.1 Preparar la MV VirtualBox
+## 7.1 Preparar la MV VirtualBox
+
+### Buscar una máquina virtual 
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
@@ -378,6 +390,8 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una co
 * Instalar OpenSSH Server en la MV.
 
 > Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
+
+### Crear usuario
 
 * Crear el usuario `vagrant`, para poder acceder a la máquina virtual por SSH.
 A este usuario le agregamos una clave pública para autorizar el acceso sin clave
@@ -393,14 +407,13 @@ chmod 600 .ssh/authorized_keys
 
 * Poner clave `vagrant` al usuario vagrant y al usuario root.
 
-Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red,
-instalar software, montar carpetas compartidas, etc. para ello debemos configurar
-`/etc/sudoers` (visudo) para que no nos solicite la password de root, cuando
-realicemos estas operación con el usuario vagrant.
+Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red, instalar software, montar carpetas compartidas, etc. para ello debemos configurar `/etc/sudoers` (visudo) para que no nos solicite la password de root, cuando realicemos estas operación con el usuario vagrant.
 
 * Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a /etc/sudoers.
 
 > Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
+
+### VirtualBox Guest Additions
 
 * Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions
 con una versión compatible con el host anfitrion.
@@ -421,11 +434,11 @@ root@hostname:~# modinfo vboxguest |grep version
 version:        4.3.20
 ```
 
-## 6.2 Crear caja Vagrant
+## 7.2 Crear caja Vagrant
 
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
-* Vamos a crear una nueva carpeta `mivagrantXXconmicaja`, para este nuevo proyecto vagrant.
+* Vamos a crear una nueva carpeta `vagrantXX-proyecto3`, para este nuevo proyecto vagrant.
 * Ejecutamos `vagrant init` para crear el fichero de configuración nuevo.
 * Localizar el nombre de nuestra máquina VirtualBox (Por ejemplo, `v1-opensuse132-xfce`).
     * `VBoxManage list vms`, comando de VirtualBox que lista las MV que tenemos.
