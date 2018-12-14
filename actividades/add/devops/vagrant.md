@@ -9,8 +9,8 @@ Ejemplo de rúbrica:
 | (3.2) Redireccionamiento de puertos | | | |
 | (5.1) Suministro Shell Script | | | |
 | (5.2) Suministro Puppet       | | | |
-| (6.1) Preparar MV             | | | |
-| (6.2) Crear caja Vagrant      | | |. |
+| (6.1) Preparar MV para Box    | | | |
+| (6.2) Crear Box Vagrant       | | |. |
 
 ---
 
@@ -34,71 +34,157 @@ Enlaces de interés:
 * [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
 * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)  
 
-> Para desarrollar esta actividad se ha utilizado la información del
-enlace anterior publicado por *Jonathan Wiesel, el 16/07/2013*.
+> Para desarrollar esta actividad se ha utilizado principalmente
+la información del enlace anterior publicado por *Jonathan Wiesel, el 16/07/2013*.
 
 ---
 
 # 2. Primeros pasos
 
-## 2.1 Instalar
+## 2.1 Instalar Vagrant
 
-La instalación debemos hacerla en una máquina real.
+La instalación vamos a hacerla en una máquina real. A día de hoy, no he
+probado a instalar VirtualBox dentro de una MV de VirtualBox. Y desconozco si
+funcionaría o no.
 * Hay varias formas de instalar Vagrant:
-    * `apt-get install vagrant` o
-    * Usando un paquete [vagrant.deb](http://172.20.1.2/~david/add)
+    * `zypper in vagrant`, por comandos en OpenSUSE.
+    * `apt-get install vagrant`, por comandos en Debian.
+    * En Debian usando un paquete [vagrant.deb](http://172.20.1.2/~david/add)
 Disponible para descargar del servidor Leela.
-* `vagrant version`, para comprobar la versión actual de Vagrant.
-* `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 * Si vamos a trabajar Vagrant con MV de VirtualBox, hay que comprobar que las
 versiones de ambos son compatibles entre sí.
+    * `vagrant version`, para comprobar la versión actual de Vagrant.
+    * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 
-## 2.2. Proyecto
+## 2.2. Carpeta del Proyecto
 
 * Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
 ```
-    mkdir mivagrantXX
-    cd mivagrantXX
-    vagrant init
+mkdir vagrantXX-proyecto
+cd vagrantXX-proyecto
 ```
 
-![vagrant-init](./images/vagrant-init.png)
+* `vagrant init`
+```
+vagrant42-proyecto> vagrant init
+
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+```
 
 ## 2.3 Imagen, caja o box
 
-> En nuestro caso vamos a usar el URL y nombre de box que se mencionó en clase.
+Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Por ejemplo:
+* [Vagrant Box List](http://www.vagrantbox.es)
+* [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
+Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
 
-* Ahora necesitamos obtener una imagen(caja, box) de un sistema operativo. Vamos, por ejemplo, a conseguir una imagen de un `Ubuntu Precise de 32 bits`:
+En este curso1819 vamos a usar los siguientes valores:
+* **BOXURL**: https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
+* **BOXNAME**: `ubuntuXX`
+
+Veamos el siguiente ejemplo y adaptémoslo a nuestras necesidades para descargar una caja de Vagrant y comprobar que la tenemos disponible en nuestra máquina:
+
 ```
-vagrant box add micajaXX_ubuntu_precise32 http://files.vagrantup.com/precise32.box
+vagrant42-proyecto> vagrant box list
+There are no installed boxes! Use `vagrant box add` to add some.
+david@camaleon:~/Documentos/vagrant42-proyecto> vagrant box add ubuntu42 https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
+/usr/share/vagrant/plugins/commands/login/client.rb:8: warning: already initialized constant VagrantPlugins::LoginCommand::Client::APP
+/usr/lib64/ruby/gems/2.5.0/gems/vagrant-2.2.0/plugins/commands/login/client.rb:8: warning: previous definition of APP was here
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'ubuntu42' (v0) for provider:
+    box: Downloading: https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
+==> box: Successfully added box 'ubuntu42' (v0) for 'virtualbox'!
+david@camaleon:~/Documentos/vagrant42-proyecto> vagrant box list
+ubuntu42 (virtualbox, 0)
+david@camaleon:~/Documentos/vagrant42-proyecto>
+```
+    * `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
+    * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
+* Hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`.
+* Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`.
+    * Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
+* Configurar nuestro proyecto para usar nuestra caja BOXNAME.
+    * `config.vm.box = "BOXNAME"`
+
+```
+vagrant42-proyecto> v
+total 8
+-rw-r--r-- 1 david users   69 dic 14 08:40 Vagrantfile
+-rw-r--r-- 1 david users 3011 dic 14 08:38 Vagrantfile.bak
+vagrant42-proyecto> more Vagrantfile
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu42"
+end
 ```
 
-![vagrant-box-add](./images/vagrant-box-add.png)
+## 2.4 Levantar el proyecto
 
-* `vagrant box list`: Lista las cajas/imágenes disponibles actualmente en nuestra máquina.
-
-Para usar una caja determinada en nuestro proyecto, modificamos el fichero `Vagrantfile`
-(dentro de la carpeta de nuestro proyecto).
-* Cambiamos la línea `config.vm.box = "base"` por  `config.vm.box = "micajaXX_ubuntu_precise32"`.
-* Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
-De modo que vamos a hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`, y vamos a quitar todas las líneas comentadas del `Vagrantfile` para que no nos estorben.
-
-![vagrantfile](./images/vagrantfile.png)
-
-> Existen muchos repositorios para descargar imágenes/cajas/boxes. Por ejemplo:
->
-> * [Vagrant Box List](http://www.vagrantbox.es)
-> * [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
->
-> Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc.
-
-## 2.4 Iniciar una nueva máquina
-
-Vamos a iniciar una máquina virtual nueva usando Vagrant:
-* `cd mivagrantXX`
+Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
+* Debemos estar dentro de `vagrantXX-proyecto`.
 * `vagrant up`: comando para iniciar una nueva instancia de la máquina.
 
-![vagrant-up](./images/vagrant-up.png)
+```
+vagrant42-proyecto> vagrant up
+
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'ubuntu42'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: vagrant42-proyecto_default_1544777053818_55375
+==> default: Clearing any previously set forwarded ports...
+    Vagrant is currently configured to create VirtualBox synced folders with
+    the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant
+    guest is not trusted, you may want to disable this option. For more
+    information on this option, please refer to the VirtualBox manual:
+
+    https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+    This option can be disabled globally with an environment variable:
+      VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+    or on a per folder basis within the Vagrantfile:
+      config.vm.synced_folder '/host/path', '/guest/path', SharedFoldersEnableSymlinksCreate: false
+
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Warning: Connection reset. Retrying...
+    default: Warning: Remote connection disconnect. Retrying...
+    default: Warning: Connection reset. Retrying...
+    default: Warning: Remote connection disconnect. Retrying...
+    default: Warning: Connection reset. Retrying...
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default:
+    default: Guest Additions Version: 4.3.36
+    default: VirtualBox Version: 5.2
+==> default: Mounting shared folders...
+    default: /vagrant => /home/david/Documentos/vagrant42-proyecto
+
+vagrant42-proyecto>
+```
 
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 * Otros comandos últiles de Vagrant son:
@@ -109,16 +195,6 @@ Vamos a iniciar una máquina virtual nueva usando Vagrant:
     * `vagrant halt`: Apagarla la máquina virtual.
     * `vagrant status`: Estado actual de la máquina virtual.
     * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
-
-> **Ejemplos**
->
-> Crear un proyecto vagrant con Windows7 e iniciar la MV:
-> * `vagrant init opentable/win-7-professional-amd64-nocm`
-> * `vagrant up --provider virtualbox`
->
-> Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
-> * `vagrant init opensuse/openSUSE-42.1-x86_64`
-> * `vagrant up --provider virtualbox`
 
 ---
 
@@ -386,6 +462,18 @@ Probablemente por tener mal las GuestAdittions.
 ---
 
 # ANEXO
+
+## 2018123
+> **Ejemplos**
+>
+> Crear un proyecto vagrant con Windows7 e iniciar la MV:
+> * `vagrant init opentable/win-7-professional-amd64-nocm`
+> * `vagrant up --provider virtualbox`
+>
+> Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
+> * `vagrant init opensuse/openSUSE-42.1-x86_64`
+> * `vagrant up --provider virtualbox`
+
 
 ## A.1 Directorios
 ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando?
