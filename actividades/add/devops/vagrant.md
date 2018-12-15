@@ -9,7 +9,6 @@ Ejemplo de rúbrica:
 | (5.2) Comprobar proyecto 2    | | | |
 | (6.1) Suministro Shell Script | | | |
 | (6.2) Suministro Puppet       | | | |
-| (7.1) Preparar MV para Box    | | | |
 | (7.2) Crear Box Vagrant       | | |. |
 
 ---
