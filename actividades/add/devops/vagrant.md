@@ -124,6 +124,10 @@ Vagrant.configure("2") do |config|
 end
 ```
 
+> Si te preguntas... ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando? ¿Están disponibles sólo para mi usuario o lo están para todos los usuarios de la misma máquina?
+>
+> ![vagrant-directory](./images/vagrant-directory.png)
+
 ## 3.3 MV: Levantar y entrar
 
 Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
@@ -288,10 +292,7 @@ podemos ejecutar los siguientes comandos:
 
 # 6. Suministro
 
-Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro.
-Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de
-arranque del entorno virtual para instalar, configurar y personalizar un sin fin
-de aspectos del SO del sistema anfitrión.
+Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.
 
 * `vagrant halt`, apagamos la MV.
 * `vagrant destroy` y la destruimos para volver a empezar.
@@ -460,13 +461,13 @@ por mí, al repositorio local de cajas vagrant.
 * Levantamos la MV.
 * Nos conectamos sin problemas.
 
-> Recordar que podemos cambiar los parámetros de configuración de acceso SSH. MIra la teoría...
+> Recordar que podemos cambiar los parámetros de configuración de acceso SSH. Mira la teoría...
 
 ---
 
 # ANEXO
 
-## 2018123
+## Próximo curso
 > **Ejemplos**
 >
 > Crear un proyecto vagrant con Windows7 e iniciar la MV:
@@ -478,15 +479,9 @@ por mí, al repositorio local de cajas vagrant.
 > * `vagrant up --provider virtualbox`
 
 
-## A.1 Directorios
-¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando?
-
-![vagrant-directory](./images/vagrant-directory.png)
-
 ## A.2 Windows
 
-Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows
-y usar cajas/boxes vagrant con Windows.
+Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows.
 
 ## A.3 Cambios próximo Curso
 
