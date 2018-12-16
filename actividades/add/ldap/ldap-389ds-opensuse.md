@@ -1,6 +1,6 @@
 ```
 Nueva versión para curso 2018-2019
-REVISAR la parte de auteticación
+REVISAR la parte de autenticación con FreeIPA+389-DS
 ```
 
 ---
@@ -162,12 +162,15 @@ Podemos usar cualquiera.
 
 ![gq-browser.png](./images/gq-browser.png)
 
+---
+
 ## 3.2 Crear usuarios y grupos dentro del LDAP
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
 
 > Enlaces de interés:
 >
+> * [How To Set Up Centralized Linux Authentication with FreeIPA on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-set-up-centralized-linux-authentication-with-freeipa-on-centos-7)
 > * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
 > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
 
