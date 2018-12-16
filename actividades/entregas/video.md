@@ -12,6 +12,7 @@ Cuando la entrega sea un vídeo:
     * SI entregar URL para poder acceder al vídeo.
 * En el caso de presentar varios vídeos, numerarlos secuencialmente para mantener el orden.
 * Debe aparecer en el vídeo: `fuwXX-curso1819` de cada componente, fecha y título de la actividad y el nombre del centro "IES Puerto de la Cruz".
+* TODOS los componentes del grupo deben entregar el trabajo, aunque sea el mismo.
 
 ---
 

@@ -20,6 +20,7 @@ Además se proporciona una plantilla en la propia plataforma Moodle que servirá
 * Encabezados y pies de página
 * Portada con título del trabajo, nombres de los componentes del grupo al inicio.
 * Una página de índice cuando el informe supere las 5 páginas.
+* TODOS los componentes del grupo deben entregar el trabajo, aunque sea el mismo.
 
 En algunas ocasiones tendremos que comprimir la entrega. En estos casos también debemos tener cuidado y elegir un formato de compresión que se ajuste al criterio de formato libre y multiplataforma. Por ejemplo: ZIP, 7Z.
 
@@ -30,6 +31,7 @@ En algunas ocasiones tendremos que comprimir la entrega. En estos casos también
 Cuando la entrega se realiza mediante un URL a un fichero en formato Markdown alojado en un repositorio Git hay que tener en cuenta:
 * Se debe entregar URL al fichero Markdown y una referencia al commit.
 * Se tendrán en cuenta los aspectos generales a la hora de realizar cualquier informe.
+* TODOS los componentes del grupo deben entregar el trabajo, aunque sea el mismo.
 
 ---
 
