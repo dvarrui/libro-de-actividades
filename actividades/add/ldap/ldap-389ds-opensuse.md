@@ -11,9 +11,8 @@ Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
-| (2.3) Comprobar el servicio       | | | |
-| (3.2) Usuarios y grupos en LDAP   | | | |
-| (4.4) Comprobar autenticación desde cliente | | | |
+| (2.3) Comprobar el servicio           | | | |
+| (3.2) Browser LDAP: Usuarios y grupos | | | |
 
 Hay varias herramientas que implementan el servidor de directorios LDAP
 (389-DS, OpenLDAP, Active Directory, etc).
