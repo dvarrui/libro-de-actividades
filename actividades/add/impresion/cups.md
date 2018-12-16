@@ -6,9 +6,9 @@ Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
-| (2) Servicio en ejecución    | | | |
-| (3) Imprimir de forma local  | | | |
-| (4) Imprimir de forma remota | | | |
+| (2) Comprobar que el Servicio está en ejecución | | | |
+| (3) Comprobar que se imprime de forma local  | | | |
+| (4) Comprobar que se imprime de forma remota | | | |
 
 ---
 
@@ -22,7 +22,7 @@ Enlace de interés:
 # 2. Servidor de Impresión
 
 * Instalar el sistema de impresión CUPS para GNU/Linux.
-* Verificar que el servicio está en ejecución.
+* `systemctl status ...`, verificar que el servicio está en ejecución.
 * A continuación, conectar a la interfaz web de CUPS.
 * Acceder a la sección de `Administración`, y dentro de ahí a la
 parte de `Ver archivo de registro de accesos`.

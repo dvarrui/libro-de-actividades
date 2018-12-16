@@ -1,6 +1,15 @@
 
 # Servidor de Impresión en Windows
 
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (1.3) Comprobar que se imprime de forma local  | | | |
+| (2.2) Comprobar que se imprime de forma remota | | | |
+| (3.3) Comprobar que se imprime desde el navegador | | | |
+
+
 Necesitaremos 2 MV:
 * MV1: Windows Server
 * MV2: Windows 7/10 cliente
@@ -30,28 +39,32 @@ En nuestro caso, dado que es posible de que no tengan una impresora física en c
 > * doPDF: www.dopdf.com/es/
 > * BullZIP PDF Printer: http://www.bullzip.com/products/pdf/info.php#Introduction
 
-PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc.
-
-Este programa funciona simulando ser una impresora, de esta forma, instalando PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear archivos PDF en cuestión de segundos.
+PDFCreator es una utilidad completamente gratuita con la que podrás crear archivos PDF desde cualquier aplicación, desde el Bloc de notas hasta Word, Excel, etc. Este programa funciona simulando ser una impresora, de esta forma, instalando PDFCreator todas tus aplicaciones con opción para imprimir te permitirán crear archivos PDF en cuestión de segundos.
 
 * Descargar PDFCreator (URL recomendada `www.pdfforge.org/pdfcreator/download`) e instalar.
-* En PDFCreator, configurar en perfiles -> Guardar -> Automático. Ahí configuramos carpeta destino.
+* En PDFCreator, configurar en `perfiles -> Guardar -> Automático`. Ahí establecemos la carpeta destino.
 
 > NOTA: PDFCreator puede requerir NET FrameWork v4.
 
 ## 1.3 Probar la impresora en local
 
-Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando, simplemente ve a la opción de "imprimir" y selecciona "Impresora PDF", en segundos tendrás creado tu archivo PDF.
+Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando, simplemente ve a la opción de imprimir y selecciona "Impresora PDF", en segundos tendrás creado tu archivo PDF.
 
 Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir. Cuando finalice el proceso se abrirá un fichero PDF con el resultado de la impresión.
 
-## 1.4 Compartir por red
+---
+
+# 2. Compartir por red
+
+## 2.1 En el servidor
 
 Vamos a la MV del servidor.
 * Ir al `Administrador de Impresión -> Impresoras`
 * Elegir impresora PDFCreator.
     * `Botón derecho -> Propiedades -> Compartir`
     * Como nombre del recurso compartido utilizar `PDFnombrealumnoXX`.
+
+## 2.2 Comprobar desde el cliente
 
 Vamos al cliente:
 * Buscar recursos de red del servidor. Si tarda en aparecer ponemos `\\ip-del-servidor` en la barra de navegación.
@@ -64,16 +77,16 @@ Vamos al cliente:
 
 ---
 
-# 2. Acceso Web
+# 3. Acceso Web
 
 Realizaremos una configuración para habilitar el acceso web a las impresoras del dominio.
 
-## 2.1 Instalar característica impresión WEB
+## 3.1 Instalar característica impresión WEB
 
 * Vamos al servidor.
 * Nos aseguramos de tener instalado el servicio "Impresión de Internet".
 
-## 2.1 Configurar impresión WEB
+## 3.2 Configurar impresión WEB
 
 Vamos a la MV cliente:
 * Abrimos un navegador Web.
@@ -83,7 +96,7 @@ Vamos a la MV cliente:
 * Agregar impresora (NO es local)
 * Crear nueva impresora usando el URL anterior.
 
-## 2.2 Comprobar desde el navegador
+## 3.3 Comprobar desde el navegador
 
 > **PDF Creator Plus** (YERAY HERNÁNDEZ HERNÁNDEZ)
 >
@@ -106,7 +119,7 @@ programa PDFCreator y esperar un poco.
 
 ---
 
-# 3. Servidor de impresión en el servidor
+# ANEXO: Colas de impresión en el servidor
 
 ```
 NO HAY QUE HACER ESTE APARTADO
