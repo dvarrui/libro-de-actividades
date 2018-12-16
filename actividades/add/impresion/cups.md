@@ -33,7 +33,7 @@ parte de `Ver archivo de registro de accesos`.
 
 Ahora vamos a configurar una impresora de forma local en el servidor de impresión. El paquete `cups-pdf` nos instala una impresora virtual PDF, que podemos usar para las pruebas en caso de no disponer de una impresora real.
 
-* Hacemos una impresión local con el nombre `imprimirXX-local`.
+* Hacemos una impresión local con el nombre `imprimirXXg-local`.
 * Comprobar el resultado. Los trabajos de impresión de la impresora virtual PDF se guardan en alguno de estos directorios:
 
 ```
@@ -57,6 +57,6 @@ en la máquina cliente.
 * Habilitamos la impresora como recurso de red compartido.
 * Ir a un cliente.
 * Configuramos la impresora de red.
-* Hacemos una impresión de prueba (`imprimirXX-remoto`).
+* Hacemos una impresión de prueba (`imprimirXXg-remoto`).
 * Ir al servidor.
 * Comprobamos que se ha realizado la impresión remota.
