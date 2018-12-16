@@ -8,6 +8,8 @@ En este tipo de entregas el alumno/grupo deberá realizar un vídeo donde se mue
 
 Cuando la entrega sea un vídeo:
 * Hay que entregar URL con la ruta al vídeo subido a Youtube.
+    * NO poner HTML con el vídeo incrustado dentro de la entrega.
+    * SI entregar URL para poder acceder al vídeo.
 * En el caso de presentar varios vídeos, numerarlos secuencialmente para mantener el orden.
 * Debe aparecer en el vídeo: `fuwXX-curso1819` de cada componente, fecha y título de la actividad y el nombre del centro "IES Puerto de la Cruz".
 
