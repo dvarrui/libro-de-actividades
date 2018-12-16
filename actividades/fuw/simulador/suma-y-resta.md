@@ -1,14 +1,22 @@
 
 # Sumar y restar (Arquitectura de Von Neumann)
 
-Enlace de interés:
-* [Simulador de la arquitectura de Von Neumann](https://youtu.be/SBX9pma_e-g)
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| Entregar programa          | | | |
+| Vídeo: Programa correcto   | | | |
+| Vídeo: Explicación/formato | | | |
 
 ---
 
 # Simulador
 
-* Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/johnny-simulator-es)
+> Enlace de interés:
+> * [Simulador de la arquitectura de Von Neumann](https://youtu.be/SBX9pma_e-g)
+> * Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/johnny-simulator-es)
+
 * Instalar el programa Johnny Simulator en la MV Windows.
 
 ---
@@ -16,8 +24,8 @@ Enlace de interés:
 # Enunciado
 
  Escribir en la RAM un programa para realizar sumas y restas de la siguiente forma.
-* Si nuestra fecha de nacimiento es DD/MM/XXYY
-* debemos realizar la siguiente operación DD+MM+XX+YY-17-18.
+* Debemos realizar la siguiente operación 42+16+XX-18-19.
+    * Siendo XX nuestro número asignado.
 * Los valores (datos) deben guardarse en las posiciones de memoria desde la 21 a la 30.
 
 > Consultar el programa *"Adding numbers"* de la página 8 del manual del simulador Johnny.
