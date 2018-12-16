@@ -1,30 +1,36 @@
 ```
-Nuevo curso 2018-2019
+Nueva versión para curso 2018-2019
+REVISAR la parte de auteticación
 ```
 
 ---
 
 # Servidor 389-DS - OpenSUSE
 
-> **Últimas noticias** [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/).
->
-> Por este motivo hemos decido a partir de noviembre de 2018 cambiar el OpenLDAP2 por 389-DS.
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (2.3) Comprobar el servicio       | | | |
+| (3.2) Usuarios y grupos en LDAP   | | | |
+| (4.4) Comprobar autenticación desde cliente | | | |
+
+Hay varias herramientas que implementan el servidor de directorios LDAP
+(389-DS, OpenLDAP, Active Directory, etc).
+Según la siguiente noticia [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/). or este motivo hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS. En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS.
 
 ![arbol](./images/arbol.png)
 
 > Enlaces de interés sobre teoría LDAP:
+>
 > * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
-
-Hay varias herramientas que implementan el servidor de directorios LDAP
-(389-DS, OpenLDAP, Active Directory, etc). En esta guía vamos a instalar y
-configurar del servidor LDAP con 389-DS.
 
 ---
 
 # 1. Prerequisitos
 
-> Enlaces de interés:
+> Enlaces de interés sobre 389-DS:
 >
 > * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
 > * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
@@ -236,10 +242,7 @@ cat /etc/passwd | grep soldado1 # El usuario NO es local
 
 # 5. Autenticación
 
-Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc.
-Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
-usuarios definidos no en la máquina local, sino en la máquina remota con
-LDAP. Una especie de *Domain Controller*.
+Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
 
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
