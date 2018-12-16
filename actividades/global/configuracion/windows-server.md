@@ -1,8 +1,11 @@
 
-Documentos relacionados
-* Configurar [VirtualBox](../virtualbox/general.md)
-* Configurar [Acceso remoto](../acceso-remoto/windows-server.md)
-* Configurar [Firewall](../firewall.md).
+> Documentos relacionados
+> * Configurar [VirtualBox](../virtualbox/general.md)
+> * Configurar [Acceso remoto](../acceso-remoto/windows-server.md)
+> * Configurar [Firewall](../firewall.md).
+> * Cómo trabajar en [casa](../casa.md).
+
+---
 
 # Configurar MV Windows 2008 Server
 

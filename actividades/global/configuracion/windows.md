@@ -4,6 +4,9 @@
 > * Configurar [VirtualBox](../virtualbox/general.md)
 > * Configurar [Acceso remoto](../acceso-remoto/windows7.md)
 > * Configurar [Firewall](../firewall.md).
+> * Cómo trabajar en [casa](../casa.md).
+
+---
 
 # Configurar MV Windows 7
 

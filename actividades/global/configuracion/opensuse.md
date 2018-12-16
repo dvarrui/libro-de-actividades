@@ -4,6 +4,7 @@
 > * Configurar [VirtualBox](../virtualbox/opensuse.md)
 > * Configurar [Acceso remoto](../acceso-remoto/opensuse.md)
 > * Configurar [Firewall](../firewall.md).
+> * Cómo trabajar en [casa](../casa.md).
 
 ---
 

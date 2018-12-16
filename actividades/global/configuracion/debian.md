@@ -1,7 +1,11 @@
 
-Documentos relacionados
-* Configurar [VirtualBox](../virtualbox/debian.md)
-* Configurar [Acceso remoto](../acceso-remoto/debian.md)
+> Documentos relacionados
+> * Configurar [VirtualBox](../virtualbox/debian.md)
+> * Configurar [Acceso remoto](../acceso-remoto/debian.md)
+> * Debian NO tiene configurado el cortafuegos por defecto.
+> * Cómo trabajar en [casa](../casa.md).
+
+---
 
 # Configurar MV GNU/Linux Debian
 
