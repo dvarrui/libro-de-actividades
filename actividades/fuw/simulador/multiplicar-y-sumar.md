@@ -6,8 +6,9 @@ Ejemplo de rúbrica:
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
 | Entregar programa          | | | |
-| Vídeo: Programa correcto   | | | |
 | Vídeo: Explicación/formato | | | |
+| Vídeo: Programa 1 correcto | | | |
+| Vídeo: Programa 2 correcto | | | |
 
 ---
 
@@ -24,8 +25,8 @@ Ejemplo de rúbrica:
 # Enunciado
 
 Escribir en la RAM un programa para realizar multiplicación y sumas de la siguiente forma.
-* Si nuestra fecha de nacimiento es DD/MM/XXYY
-* Realizar la siguiente operación "DD*MM+XX+YY
+* Realizar la siguiente operación "XX*18+19+XX"
+    * Siendo XX el número del alumno.
 * Los valores (datos) deben guardarse en las posiciones de memoria desde la 21 a la 30.
 
 > Consultar el programa de ejemplo que viene con el simulador Johnny.
@@ -38,7 +39,7 @@ Escribir en la RAM un programa para realizar multiplicación y sumas de la sigui
 * Grabar un vídeo que muestre:
     * Cómo se carga e programa desde fichero a la memoria.
     * El programa funcionando en el simulador, ejecutando las instrucciones paso a paso con los valores `3*4+3+1`
-    * El programa funcionando en el simulador, ejecutando las instrucciones con los valores `DD*MM+XX+YY`
+    * El programa funcionando en el simulador, ejecutando las instrucciones con los valores `XX*18+19+XX`
 
 ## ¿Cómo editar el vídeo?
 
