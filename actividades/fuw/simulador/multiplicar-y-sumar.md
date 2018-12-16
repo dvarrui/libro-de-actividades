@@ -1,11 +1,22 @@
 
 # Multiplicar y sumar (Arquitectura de Von Neumann)
 
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| Entregar programa          | | | |
+| Vídeo: Programa correcto   | | | |
+| Vídeo: Explicación/formato | | | |
+
 ---
 
 # Simulador
 
-* Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/libro-de-actividades/tree/master/explicaciones/johnny-simulator/manual-es)
+> Enlace de interés:
+> * [Simulador de la arquitectura de Von Neumann](https://youtu.be/SBX9pma_e-g)
+> * Consultar el [Manual en español del simulador Johnny](https://github.com/dvarrui/johnny-simulator-es)
+
 * Instalar el programa Johnny Simulator en la MV Windows.
 
 ---
@@ -19,7 +30,7 @@ Escribir en la RAM un programa para realizar multiplicación y sumas de la sigui
 
 > Consultar el programa de ejemplo que viene con el simulador Johnny.
 
---
+---
 
 # Resultado final
 

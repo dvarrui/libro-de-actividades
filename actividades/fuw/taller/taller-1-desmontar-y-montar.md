@@ -1,14 +1,6 @@
 
 # Taller desmontar y montar
 
-Ejemplo de rúbrica:
-
-| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| --------------------- | ------------ | ----------- | ----------------- |
-| Entregar programa          | | | |
-| Vídeo: Programa correcto   | | | |
-| Vídeo: Explicación/formato | | | |
-
 * Realizar la siguiente práctica en parejas.
 * Realizar un vídeo de la actividad.
 * Editar el vídeo según las [indicaciones comentadas en clase](../,,/entregas/video.md).
