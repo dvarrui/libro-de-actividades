@@ -179,15 +179,15 @@ las configuraciones del comando sudo.
 * Crear el grupo `siths`.
 * Crear los usuarios `sith3` y `sith4` dentro del grupo anterior.
     * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
-    * `id sith1` para comprobar que el usuario existe.
+    * `id sith4` para comprobar que el usuario existe.
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
-    * `cat /etc/passwd | grep sith1`, para consultar la información del usuario dentro del fichero /etc/passwd.
+    * `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
-* Entrar como el usuario `sith3`
-    * Crear la carpeta `/home/sith3/private`
-    * Crear la carpeta `/home/sith3/group`
-    * Crear la carpeta `/home/sith3/public`
+* Entrar como el usuario `sith4`
+    * Crear la carpeta `/home/sith4/private`
+    * Crear la carpeta `/home/sith4/group`
+    * Crear la carpeta `/home/sith4/public`
 
 **Modificar los permisos de las carpetas:**
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
