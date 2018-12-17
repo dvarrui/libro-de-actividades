@@ -1,6 +1,16 @@
 
 # Usuarios y permisos
 
+Ejemplo de rúbrica:
+
+| Sección                  | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ------------------------ | ------------ | ----------- | ----------------- |
+| (W) Usuarios y grupos   | | | |
+| (W) Carpetas y permisos | | | |
+| (G) Usuarios y grupos   | | | |
+| (G) Carpetas y permisos | | | .|
+
+
 * Entregar documento en formato ODT o PDF, con el informe de la actividad. Incluir las acciones realizadas y las capturas solicitadas.
 
 ---
