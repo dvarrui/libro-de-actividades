@@ -14,11 +14,14 @@ Configuramos las máquinas que vamos a usar:
 
 # 1. Backup: Entorno gráfico GNU/Linux
 
+Haremos copia de seguridad de los datos del usuario siguiente:
+* USERNAME => `rebeldeXX`
+
 ## 1.1 El usuario tiene datos para guardar
 
-* Con el usuario `rebelde1`, crear en dos archivos de texto:
-    * `/home/rebelde1/mydocsXX/manual-xwing.txt`
-    * `/home/rebelde1/mydocsXX/mapa-luke-skywalker.txt`
+* Con el usuario USERNAME, crear en dos archivos de texto:
+    * `/home/USERNAME/mydocsXX/manual-xwing.txt`
+    * `/home/USERNAME/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -30,19 +33,19 @@ nombre-del-alumnoXX
 ## 1.2 Preparamos la copia de seguridad
 
 Vamos crear un directorio para almacenar las copias de seguridad que vayamos realizando.
-* Copia de seguridad de los datos del usuario `rebeldeXX`.
+* Copia de seguridad de los datos del usuario USERNAME.
 * Crear el directorio `/srv/backupXX`.
     * El usuario propietario será `root`, y el grupo propietario `root`.
     * Todos los permisos para usuario. Y lectura y navegación para el grupo y para el resto.
-* Crear el directorio `/srv/backupXX/rebeldeXX`.
-    * El usuario propietario será `rebeldeXX`, y el grupo propietario `root`.
+* Crear el directorio `/srv/backupXX/USERNAME`.
+    * El usuario propietario será USERNAME, y el grupo propietario `root`.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ## 1.3 Realizar la copia de seguridad
 
 Vamos a usar una herramienta de entorno gráfico para realizar la copia de seguridad.
 * Iniciar la herramienta de copia de seguridad que venga por defecto en nuestro sistema.
-* Copiar los datos del directorio `mydocsXX` del usuario `rebeldeXX`.
+* Copiar los datos del directorio `mydocsXX` del usuario USERNAME.
 
 > Ejemplos de herramientas de backup:
 > * deja-dup
@@ -51,7 +54,7 @@ Vamos a usar una herramienta de entorno gráfico para realizar la copia de segur
 > * Back in Time
 > * BackupPC, Amanda, Bacula, Areca Backup, Flyback, luckyBackup
 
-* Crear copia de seguridad en el directorio `/srv/backupXX/rebeldeXX` (N1).
+* Crear copia de seguridad en el directorio `/srv/backupXX/USERNAME` (N1).
 * Comprobar el contenido de la copia de seguridad. Esto podemos hacerlo
 restaurando en el directorio `/tmp` y consultado la salida, o a través de
 la propia herramienta, si ésta lo permite.
@@ -68,18 +71,21 @@ En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo to
 > Enlace de interés:
 > * [Copia de seguridad y recuperación](https://technet.microsoft.com/es-es/library/cc754097%28v=ws.10%29.aspx).
 
+Haremos copia de seguridad de los datos del usuario siguiente:
+* USERNAME => `soldadoXX`
+
 ## 2.1 En el Windows Server
 
 Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de seguridad que vayamos realizando.
 
-* Copia de seguridad de los datos del usuario `soldadoXX`.
+* Copia de seguridad de los datos del usuario USERNAME.
 * Crear la carpeta `c:\backupXX\`.
 * `Botón derecho -> Propiedades -> Seguridad`. Añadir permisos `Control total` a `Todos`.
 * `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
 * Activar `compartir`.
 * Nombre del recurso `backupXX`
 * Ir a `permisos -> Todos -> Control Total`.
-* Crear la carpeta `c:\backupXX\soldadoXX`.
+* Crear la carpeta `c:\backupXX\USERNAME`.
 
 ## 2.2 En el Windows 7
 
