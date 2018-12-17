@@ -1,13 +1,9 @@
 
 # 1. Introducción
 
-Existen varias herramientas para realizar instalaciones desde un punto central,
-como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
+Existen varias herramientas gestores de infraestructura, como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
 
-Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración
-de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe
-los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de
-Puppet o un DSL (lenguaje específico del dominio) de Ruby.
+Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
 > Enlaces de interés:
 >
@@ -22,105 +18,46 @@ Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 * El trabajo se entregará vía repositorio GitHub del alumno.
 * Usaremos la etiqueta `puppet` para la entrega.
 
-## 1.2 Configuración
+---
 
-> **ADVERTENCIA**
->
-> * Los nombres de máquinas, dominios, usuarios, etc., deben estar siempre en minúsculas.
-> * No usar tildes, caracteres especiales (ñ, ü, etc.)
-> * En OpenSUSE podemos hacer configurar el equipo a través de `Yast`
+# 2. Preparativos
+
+## 2.1 Configuraciones
 
 Vamos a usar 3 MV's con las siguientes configuraciones:
-* MV1 - master: Dará las órdenes de instalación/configuración a los clientes.
-    * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
-    * IP estática 172.AA.XX.100
-    * Nombre del equipo: `masterXX`
-    * Dominio: `curso1718`
-* MV2 - cliente 1: recibe órdenes del master.
-    * [Configuración OpenSUSE](../../global/configuracion/opensuse.md).
-    * IP estática 172.AA.XX.101
-    * Nombre del equipo: `cli1aluXX`
-    * Dominio: `curso1718`
-* MV3 - client2: recibe órdenes del master.
-    * [Configuración SO Windows 7](../../global/configuracion/windows.md).
-    Este SO debe haber sido instalado por cada alumno.
-    NO clonar de un compañero y/o profesor.
-    * IP estática 172.18.XX.102
-    * Nombre Netbios: `cli2aluXX`
-    * Nombre del equipo: `cli2aluXX`
+* MV1 (máster): Dará las órdenes de instalación/configuración a los clientes.
+* MV2 (client1): recibe órdenes del máster.
+* MV3 (client2): recibe órdenes del máster.
 
-### Configurar `/etc/hosts`
+| ID  | SSOO     | IP estática   | Equipo       | Dominio   |
+| --- | -------- | ------------- | ------------ | --------- |
+| MV1 | OpenSUSE | 172.AA.XX.100 | pp-masterXX  | curso1819 |
+| MV2 | OpenSUSE | 172.AA.XX.101 | pp-clientXXg | curso1819 |
+| MV3 | Windows7 | 172.AA.XX.102 | pp-clientXXw | curso1819 |
+
+Configuraciones:
+* [OpenSUSE](../../global/configuracion/opensuse.md).
+* [Configuración SO Windows 7](../../global/configuracion/windows.md).
+* NO clonar las MVs de un compañero y/o profesor.
+
+## 2.2 `/etc/hosts`
 
 * Cada MV debe tener configurada en su `/etc/hosts` al resto de hosts, para
-poder hacer `ping` entre ellas usando los nombres largos y cortos. Con este fichero
-obtenemos resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
+poder hacer `ping` entre ellas usando los nombres largos y cortos. Con este fichero obtenemos resolución de nombres para nuestras propias MV's sin tener un servidor DNS.
 
-> **GNU/Linux**
->
-> El fichero `/etc/hosts` debe tener un contenido similar a:
->
->     127.0.0.1       localhost
->     # IMPORTANTE: El nombre largo va primero y el corto después!!!
->     172.18.30.100   master42.curso1718    master42
->     172.18.30.101   cli1alu42.curso1718   cli1alu42
->     172.18.30.102   cli2alu42
+## 2.3 Comprobar las configuraciones
 
-> **Windows**
->
-> * Localizar el fichero hosts de Windows en la siguiente ruta:
->
-> ![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
->
-> * El contenido del fichero hosts de Windows tiene el siguiente aspecto:
->
-> ![windows-edit-etchosts](./images/windows-edit-etchosts.png)
-
-## 1.3 Comprobar las configuraciones
-
-No es necesario hacer capturas de esta parte, pero si es muy importante
-asegurarse de:
+Es muy importante asegurarse de:
 * Todas las comprobaciones estén correctas antes de seguir.
 * Todos los nombres están bien configurados antes de seguir.
 * Todas las máquinas tienen la fecha/hora correcta.
 * Cuando una MV se pone en pausa la hora se puede quedar mal (retrasada).
 
-En GNU/Linux, para comprobar que las configuraciones son correctas hacemos:
+**IMPORTANTE**: A partir de este momento ya no deberíamos cambiar los nombres de las máquinas.
 
-```
-date
-ip a
-route -n
-host www.google.es
-hostname -a
-hostname -f               # Comprobar que devuelve el valor correcto!!!
-hostname -d               # Comprobar que devuelve el valor correcto!!!
-tail -n 5 /etc/hosts
-ping masterXX
-ping masterXX.curso1718
-ping cli1aluXX
-ping cli1aluXX.curso1718
-ping cli2aluXX
-```
+---
 
-En Windows comprobamos con:
-
-```
-date
-ipconfig
-route PRINT
-nslookup www.google.es
-ping masterXX
-ping masterXX.curso1718
-ping cli1aluXX
-ping cli1aluXX.curso1718
-ping cli2aluXX
-```
-
-A partir de este momento ya no deberíamos cambiar los nombres de las máquinas.
-
-## 1.4 Información: Veamos un ejemplo
-
-*Esto NO HAY QUE HACERLO. Sólo es un ejemplo.*
+# 3. TEORÍA: Veamos un ejemplo
 
 Vamos a ver un ejemplo de cómo usar `puppet` manualmente. Esto nos puede
 ayudar a comprender cómo es la sintaxis de la herramienta.
@@ -128,33 +65,32 @@ ayudar a comprender cómo es la sintaxis de la herramienta.
 Al instalar el servidor Puppet en la máquina master, también tenemos instalado el Agente puppet.
 Vamos a preguntar a puppet para ver cómo responde:
 * sobre el paquete `tree` instalado en el sistema.
-* sobre el usuario `barbaroja` creado en el sistema, y
-* sobre la carpeta `/home/barbaroja/barco` que ya existe en el sistema.
+* sobre el usuario `koji` creado en el sistema, y
+* sobre la carpeta `/home/koji/mazinger` que ya existe en el sistema.
 
-Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
-obtenidos de puppet en el fichero de prueba `piratas.pp`. Para ello ejecutamos los comandos siguientes:
+Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos obtenidos de puppet en el fichero de prueba `mazinger.pp`. Para ello ejecutamos los comandos siguientes:
 
 ```
-$ puppet resource package tree > piratas.pp
-$ puppet resource user barbaroja >> piratas.pp
-$ puppet resource file /home/barbaroja/barco >> piratas.pp
+$ puppet resource package tree > mazinger.pp
+$ puppet resource user koji >> mazinger.pp
+$ puppet resource file /home/koji/mazinger >> mazinger.pp
 ```
 
-El contenido del fichero `piratas.pp` debe ser parecido a:
+El contenido del fichero `mazinger.pp` debe ser parecido a:
 
 ```
 package { 'tree':
   ensure => 'present',
 }
 
-user { 'barbaroja':
+user { 'koji':
   ensure => 'present',
-  home => '/home/barbaroja',
+  home => '/home/koji',
   password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fjQx20nEev3PabB6HdbqBX37oXrmP6y0',
   shell => '/bin/bash',
 }
 
-file { '/home/barbaroja/barco/':
+file { '/home/koji/mazinger/':
   ensure => 'directory',
   group => '100',
   mode => '755',
@@ -163,23 +99,18 @@ file { '/home/barbaroja/barco/':
 }
 ```
 
-Si nos lleváramos el fichero `piratas.pp` a otro PC con el Agente puppet instalado,
-podemos forzar a que se creen estos cambios con el comando: `puppet apply piratas.pp`
+Si nos lleváramos el fichero `mazinger.pp` a otro PC con el Agente puppet instalado, podemos forzar a que se creen/apliquen estas declaraciones con el comando: `puppet apply mazinger.pp`.
 
 ---
 
-# 2. Instalando y configuración del servidor
+# 4. Servidor: Instalación
 
-* Instalamos Puppet Master en la MV masterXX:
+## 4.1 Instalar Servidor
+
+* Instalamos Puppet Master en la MV pp-masterXX:
     * `zypper install rubygem-puppet-master` (OpenSUSE Leap).
-
-> En OpenSUSE 13.2 hacemos `zypper install puppet-server puppet puppet-vim`.
-> El paquete `puppet-vim`, sólo es para que el editor vim detecte la sintaxis de puppet.
-
-* `systemctl enable puppetmaster`: Permitir que el servicio se inicie automáticamente
-en el inicio de la máquina.
-* `systemctl start puppetmaster`: Iniciar el servicio.
 * `systemctl status puppetmaster`: Consultar el estado del servicio.
+* Abrir el cortafuegos para el servicio.
 * En este momento debería haberse creado el directorio `/etc/puppet/manifests`.
 * Preparamos los siguientes ficheros/directorios en el master:
 ```
@@ -191,7 +122,7 @@ en el inicio de la máquina.
 /etc/puppet/manifests/classes/hostlinux1.pp
 ```
 
-## 2.1 site.pp
+## 4.2 site.pp
 
 * `/etc/puppet/manifests/site.pp` es el fichero principal de configuración
 de órdenes para los agentes/nodos puppet.
@@ -210,7 +141,7 @@ node default {
 > * Todos los ficheros de configuración del directorio classes se añadirán a este fichero.
 > * Todos los nodos/clientes van a usar la configuración `hostlinux1`
 
-## 2.2 hostlinux1.pp
+## 4.3 hostlinux1.pp
 
 Como podemos tener muchas configuraciones, vamos a separarlas en distintos ficheros para organizarnos mejor, y las vamos a guardar en la ruta `/etc/puppet/manifests/classes`
 
@@ -229,31 +160,24 @@ class hostlinux1 {
 * `tree /etc/puppet`, consultar los ficheros/directorios que tenemos creado.
     * **OJO**: La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 * Comprobar que el directorio `/var/lib/puppet` tiene usuario/grupo propietario `puppet`.
-* Reiniciamos el servicio `systemctl restart puppetmaster`.
-* Comprobamos que el servicio está en ejecución de forma correcta.
-    * `systemctl status puppetmaster`
-    * `netstat -ntap |grep ruby`
-* Abrir el cortafuegos para el servicio.
+* Reiniciamos el servicio.
 
 > Consultamos log por si hay errores: `tail /var/log/puppet/*.log`
 
 ---
 
-# 3. Instalación y configuración del cliente1
+# 5. Cliente: Instalación
 
 Vamos a instalar y configurar el cliente 1.
 * Vamos a la MV cliente 1.
 * Instalar el Agente Puppet `zypper install rubygem-puppet` (Leap)
-
-> Para OpenSUSE 13.2 `zypper install puppet`.
-
 * El cliente puppet debe ser informado de quien será su master.
 Para ello, vamos a configurar `/etc/puppet/puppet.conf`:
 
 ```
 [main]
 # Definir el host master puppet
-server=masterXX.curso1718
+server=pp-masterXX.curso1819
 ...
 [agent]
 ...
@@ -265,30 +189,24 @@ Veamos imagen de ejemplo de Raúl García Heredia:
 
 ![](./images/puppet-client-conf.png)
 
-* `systemctl enable puppet`: Activar el servicio en cada reinicio de la máquina.
-* `systemctl start puppet`: Iniciar el servicio puppet.
 * `systemctl status puppet`: Ver el estado del servicio puppet.
 * Abrir el cortafuegos para el servicio.
 
-> * Comprobar que el directorio `/var/lib/puppet` tiene como usuario/grupo propietario `puppet`.  
-> * `netstat -ntap |grep ruby`: Muestra los servicios conectados a cada puerto.
-
 ---
 
-# 4. Certificados
+# 6. Certificados
 
-Para que el master acepte a cliente1 como cliente, se deben intercambiar los
+Para que el máster acepte a cliente1 como cliente, se deben intercambiar los
 certificados entre ambas máquinas. Esto sólo hay que hacerlo una vez.
 
-## 4.1 Aceptar certificado
+## 6.1 Aceptar certificado
 
 * Vamos a la MV master.
 * Nos aseguramos de que somos el usuario `root`.
 * `puppet cert list`, consultamos las peticiones pendientes de unión al master:
 ```
-root@master42# puppet cert list
-"cli1alu42.curso1718" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-root@master42#
+root@pp-master42# puppet cert list
+"pp-client42g.curso1819" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
 ```
 
 > **En caso de no aparecer el certificado en espera**
@@ -317,7 +235,7 @@ con lo que se pide en el ejercicio.
 >
 > ![opensuse-puppet-cert-list.png](./images/opensuse-puppet-cert-list.png)
 
-## 4.2 Comprobación
+## 6.2 Comprobación
 
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
 * Vamos a cliente1
@@ -333,7 +251,7 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
     * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del
     master y corregir los errores de sintáxis.
 
-## 4.3 Información: ¿Cómo eliminar certificados?
+## 6.3 Información: ¿Cómo eliminar certificados?
 
 **Esto NO HAY QUE HACERLO. Sólo es informativo**
 
@@ -353,7 +271,7 @@ Si tenemos problemas con los certificados, y queremos eliminar los certificados 
 
 ---
 
-# 5. Segunda versión del fichero pp
+# 7. Proyecto 2 (Segunda versión del fichero pp)
 
 Ya hemos probado una configuración sencilla en PuppetMaster.
 Ahora vamos a pasar a configurar algo más complejo.
@@ -437,7 +355,7 @@ Vamos al cliente1;
 
 ---
 
-# 6. Cliente puppet Windows
+# 8. Cliente puppet Windows
 
 Vamos a configurar Puppet para atender también a clientes Windows.
 
@@ -447,7 +365,7 @@ Vamos a configurar Puppet para atender también a clientes Windows.
 >
 > * [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 
-## 6.1 Configuración hostwindows3.pp
+## 8.1 Configuración hostwindows3.pp
 
 * Vamos a la MV master.
 * Vamos a crear una configuración puppet para las máquinas windows, dentro del fichero.
@@ -486,7 +404,7 @@ node 'cli2alu42' {
 * Reiniciamos el servicio PuppetMaster.
 * Ejecutamos el comando `facter`, para ver la versión de Puppet que está usando el master.
 
-## 6.2 Instalar el cliente2 Windows
+## 8.2 Instalar el cliente2 Windows
 
 > Enlaces de interés:
 >
@@ -541,7 +459,7 @@ los siguientes pasos para eliminar cualquier rastro de los mismos y poder reinte
 > * Repetir las recomendaciones anteriores para limpiar los datos, poner un nombre nuevo y diferente a la máquina Windows e intentarlo de nuevo.
 > * o usar una máquina Windows nueva (limpia de las acciones anteriores).
 
-## 6.3 Comprobamos los cambios
+## 8.3 Comprobamos los cambios
 
 * Vamos al cliente2.
 
@@ -562,7 +480,7 @@ Con los comandos siguientes podremos hacernos una idea de como terminar de confi
 
 ---
 
-# 7. Configuración hostwindows4.pp
+# 9. Configuración hostwindows4.pp
 
 * Configuramos en el master el fichero `/etc/puppet/manifests/classes/hostwindows4.pp`
 para el cliente Windows:
@@ -584,14 +502,14 @@ class hostwindows4 {
 
 ---
 
-# 8. Configuración personalizada: hostalumno5.pp
+# 10. Configuración personalizada: hostalumno5.pp
 
 * Crear un nuevo fichero de configuración para la máquina cliente Windows con el nombre `/etc/puppet/manifests/classes/hostalumno5.pp`.
 * Incluir configuraciones elegidas por el alumno y probarlas.
 
 ---
 
-# 9. Para probar: Fichero readme.txt
+# Para probar: Fichero readme.txt
 
 Los ficheros que se guardan en `/etc/puppet/files` se pueden
 descargar desde el resto de máquinas cliente puppet.
