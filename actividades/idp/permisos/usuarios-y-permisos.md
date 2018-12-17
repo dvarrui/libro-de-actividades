@@ -32,8 +32,7 @@ administradores, para que puedan actuar como superusuarios.
 * Para comprobar que los usuarios y grupos se han creado correctamente vamos a
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
-* Para cada miembro del grupo `jedis`:
-    * Entrar como el usuario `jedi1`
+* Entrar como el usuario `jedi1`
     * Crear la carpeta `C:\Users\jedi1\private`
     * Crear la carpeta `C:\Users\jedi1\group`
     * Crear la carpeta `C:\Users\jedi1\public`
@@ -72,11 +71,10 @@ Veamos un ejemplo de permisos para la carpeta public:
 > Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
 iconos de la ventana de inicio de sesión del sistema.
 
-* Para cada usuario del grupo `siths` hay que:
-    * Entrar con el usuario `sith1`
-    * Crear la carpeta `C:\Users\sith1\private`
-    * Crear la carpeta `C:\Users\sith1\group`
-    * Crear la carpeta `C:\Users\sith1\public`
+* Entrar con el usuario `sith2`
+    * Crear la carpeta `C:\Users\sith2\private`
+    * Crear la carpeta `C:\Users\sith2\group`
+    * Crear la carpeta `C:\Users\sith2\public`
 
 > Veamos un ejemplo de permisos por comandos:
 >
@@ -111,12 +109,11 @@ Modificar los permisos de la siguiente forma:
 
 * Capturar imagen del resultado final.
 * Crear el grupo `jedis`.
-* Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
-* Para cada usuario del grupo anterior:
-    * Entrar como el usuario `jedi1`
-    * Crear la carpeta `/home/jedi1/private`
-    * Crear la carpeta `/home/jedi1/group`
-    * Crear la carpeta `/home/jedi1/public`
+* Crear los usuarios `jedi3` y `jedi4` dentro del grupo anterior.
+* Entrar como el usuario `jedi3`
+    * Crear la carpeta `/home/jedi3/private`
+    * Crear la carpeta `/home/jedi3/group`
+    * Crear la carpeta `/home/jedi3/public`
 
 > Veamos un ejemplo de permisos por el entorno GUI, donde:
 > * Permiso R = Ver contenido
@@ -159,8 +156,7 @@ las configuraciones del comando sudo.
 
 > Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
 
-* Entrar al sistema con el usuario `jedi1` y ejecutar `sudo -l` para consultar
-la configuración de sudoers.
+* Entrar al sistema con el usuario `jedi3` y ejecutar `sudo -l` para consultar la configuración de sudoers.
 
 > Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 >
@@ -181,22 +177,21 @@ la configuración de sudoers.
 
 **Crear el grupo y los usuarios**
 * Crear el grupo `siths`.
-* Crear los usuarios `sith1` y `sith2` dentro del grupo anterior.
+* Crear los usuarios `sith3` y `sith4` dentro del grupo anterior.
     * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
     * `id sith1` para comprobar que el usuario existe.
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
     * `cat /etc/passwd | grep sith1`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
 son internos para uso de aplicaciones o del sistema operativo.
-* Para cada usuario del grupo `siths` hacer:
-    * Entrar como el usuario `sith1`
-    * Crear la carpeta `/home/sith1/private`
-    * Crear la carpeta `/home/sith1/group`
-    * Crear la carpeta `/home/sith1/public`
+* Entrar como el usuario `sith3`
+    * Crear la carpeta `/home/sith3/private`
+    * Crear la carpeta `/home/sith3/group`
+    * Crear la carpeta `/home/sith3/public`
 
 **Modificar los permisos de las carpetas:**
 * `private`: Sólo el usuario propietario tendrá todos los permisos.
-* `group`: grupo `siths` permisos de leictura/ejecución, y usuario propietario todos los permisos.
+* `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
 * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
 ## 2.5 Configurar `sudoers` para el otro grupo
@@ -280,8 +275,6 @@ En otras distribuciones se usa el fichero de configuración `/home/nombre-de-usu
 
 ## A.3 Emulador de consola portable para Windows
 
-Cmder (http://bliker.github.io/cmder/) is a software package created out of pure
-frustration over the absence of nice console emulators on Windows.
+Cmder (http://bliker.github.io/cmder/) is a software package created out of pure frustration over the absence of nice console emulators on Windows.
 
-It is based on amazing software, and spiced up with the Monokai color scheme and
-a custom prompt layout. Looking sexy from the start.
+It is based on amazing software, and spiced up with the Monokai color scheme and a custom prompt layout. Looking sexy from the start.
