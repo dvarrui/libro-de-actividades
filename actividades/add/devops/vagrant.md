@@ -279,11 +279,8 @@ config.ssh.forward_x11 = true
 
 Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
-* `nmap -p 4500-4600 IPHOST-CON-VAGRANT`, debe mostrar `4567/tcp open tram`.
-* Dentro del HOST-CON-VAGRANT.
-    * `netstat -ntap`, debe mostrar `tcp 0.0.0.0:4567 0.0.0.0:* ESCUCHAR`.
-    * o `lsof -i`
-
+* En el HOST-CON-VAGRANT (Máquina real). Comprobaremos que el puerto 4567 está a la escucha.
+    * `vagrant port` para ver la redirección de puertos de la máquina Vagrant. 
 * En HOST-CON-VAGRANT, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
