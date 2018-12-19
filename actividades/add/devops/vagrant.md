@@ -281,9 +281,8 @@ Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
 * En el HOST-CON-VAGRANT. Comprobaremos que el puerto 4567 está a la escucha.
     * `nmap -p 4500-4600 IPHOST-CON-VAGRANT`, debe mostrar `4567/tcp open tram`.
-    * Para Ubuntu/Debian: `netstat -ntap`, 
-    * para OpenSUSE: `lsof -i`
-* Dentro del HOST-CON-VAGRANT. Comprobaremos que el puerto 80 está a la escucha.
+    * `vagrant port` para ver la redirección de puertos de la máquina Vagrant. 
+* Dentro de la MV. Comprobaremos que el puerto 80 está a la escucha.
     * Para Ubuntu/Debian: `netstat -ntap`, 
     * para OpenSUSE: `lsof -i`
 * En HOST-CON-VAGRANT, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
