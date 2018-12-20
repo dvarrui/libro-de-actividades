@@ -43,11 +43,7 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 La instalación vamos a hacerla en una máquina real. A día de hoy, no he
 probado a instalar VirtualBox dentro de una MV de VirtualBox. Y desconozco si
 funcionaría o no.
-* Hay varias formas de instalar Vagrant:
-    * `zypper in vagrant`, por comandos en OpenSUSE.
-    * `apt-get install vagrant`, por comandos en Debian.
-    * En Debian usando un paquete [vagrant.deb](http://172.20.1.2/~david/add)
-Disponible para descargar del servidor Leela.
+* Instalar Vagrant.
 * Si vamos a trabajar Vagrant con MV de VirtualBox, hay que comprobar que las
 versiones de ambos son compatibles entre sí.
     * `vagrant version`, para comprobar la versión actual de Vagrant.
@@ -113,10 +109,6 @@ david@camaleon:~/Documentos/vagrant42-proyecto1>
     * `config.vm.box = "BOXNAME"`
 
 ```
-vagrant42-proyecto1> vdir
-total 8
--rw-r--r-- 1 david users   69 dic 14 08:40 Vagrantfile
--rw-r--r-- 1 david users 3011 dic 14 08:38 Vagrantfile.bak
 vagrant42-proyecto1> more Vagrantfile
 
 Vagrant.configure("2") do |config|
@@ -381,6 +373,10 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 
 ## 7.1 Preparar la MV VirtualBox
 
+> Enlace de interés:
+>
+> * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
+
 ### Buscar una máquina virtual
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
@@ -388,12 +384,12 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una co
 * Crear una MV VirtualBox nueva o usar una que ya tengamos.
 * Instalar OpenSSH Server en la MV.
 
-> Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
 ### Crear usuario
 
-* Crear el usuario `vagrant`, para poder acceder a la máquina virtual por SSH.
-A este usuario le agregamos una clave pública para autorizar el acceso sin clave
+* Ir a la MV de VirtualBox.
+* Crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este ususario.
+* A este usuario le agregamos una clave pública para autorizar el acceso sin clave
 desde Vagrant.
 ```
 useradd -m vagrant
