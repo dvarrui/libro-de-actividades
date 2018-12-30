@@ -1,14 +1,24 @@
 
+# I Love Ruby
+
+![](./images/iloveruby.png)
+
+---
+
 # Presentación
 
-David Vargas Ruiz
-* Profesor FP Informática
-* IES Puerto de la Cruz
+```
+me = {
+  :name    => “David Vargas Ruiz”,
+  :studies => “Ing. Informático ULPGC”,
+  :job     = > “Profesor FP Informática”,
+  :twitter => @dvarrui,
+  :github  => dvarrui,
+  :email   => dvarrui@protonmail.com
+}
+```
 
-Contacto:
-* GitHub: dvarrui
-* Twitter: @dvarrui
-* Email: dvarrui@protonmail.com
+# Who am I
 
 ```
 > whoami
@@ -17,3 +27,19 @@ Software Libre
 Starwars and
 Rock and Roll
 ```
+
+---
+
+# ¿Por qué?
+
+![](images/allyouneedislove.png)
+
+* Dar a conocer a Ruby.
+* Para entender mejor _Ruby on Rails_.
+* Crear comunidad.
+* Compartir.
+* Debatir y aprender.
+
+> _“El amor es lo que nos mueve...”_
+> 
+> ¡Ah! ¡Y que la música mola también!
