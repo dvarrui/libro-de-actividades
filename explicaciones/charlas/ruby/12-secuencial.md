@@ -6,11 +6,41 @@
 
 ---
 
-Estructura secuencial (I)
-#Ejemplo 1 #Ejemplo 2
-#Sumar enteros #Unir Strings
-a = 3 a = “Hello”
-b = 4 b = “World!”
-puts a + b puts a + b
-# 7 # “HelloWorld”
-Rule1: Declaración de variables dinámica.
+# Estructura secuencial (I)
+
+Ejemplo 1
+```
+# Sumar enteros
+a = 3
+b = 4
+
+puts a + b
+# 7
+```
+
+Ejemplo 2
+```
+# Unir Strings
+a = “Hello”
+b = “World!”
+puts a + b
+
+# “HelloWorld”
+```
+
+**Rule1: Declaración de variables dinámica.**
+
+Ejemplo 3
+```
+# Sumar enteros con Strings
+a = “1”
+b = 0
+
+puts a + b
+
+# ¿10 o “10”?
+# Error: No implicit conversion of
+         Integer into String
+```
+
+**Rule2: Tipado fuerte.**

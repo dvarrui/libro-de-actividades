@@ -5,6 +5,8 @@
 
 ---
 
+**Rule1: Declaración de variables dinámica.**
+
 # Variables locales
 
 Integer y Float:
