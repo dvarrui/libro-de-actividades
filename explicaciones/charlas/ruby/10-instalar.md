@@ -1,8 +1,11 @@
 
+# I love ruby
 
-# Instalación
+![](images/iloveruby.png)
 
-## Instalar Ruby
+---
+
+# Instalar Ruby
 
 * OpenSUSE: Ya viene preinstalado.
 * Debian: `apt install ruby irb ri`

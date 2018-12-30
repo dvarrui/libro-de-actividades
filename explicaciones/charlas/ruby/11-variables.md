@@ -1,7 +1,11 @@
 
-# Variables
+# I love ruby
 
-## Variables locales
+![](images/iloveruby.png)
+
+---
+
+# Variables locales
 
 Integer y Float:
 ```
@@ -46,7 +50,7 @@ me    = { :name => 'david', :age => 42 } # Hash
 
 ---
 
-## Variables globales
+# Variables globales
 
 Variables de instancia:
 
