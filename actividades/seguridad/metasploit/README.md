@@ -149,3 +149,33 @@ msfvenom -p windows/meterpreter/reverse_tcp
 * Este ejemplo es similar al anterior pero nuestro Payload esta cifrado por el encoder "shikata_ga_nai" para protegerse, por ejemplo, de los antivirus.
 
 ---
+
+# 4. TEORÍA: Meterpreter
+
+> Se necesita tener un equipo infectado para poder ver esta Shell
+
+Meterpreter es un Payload propio de Metasploit Framework que se ejecuta después del proceso de explotación de una vulnerabilidad en un sistema operativo.
+* Es el diminutivo para meta-interprete.
+* Se ejecuta en memoria es decir a bajo nivel evitando así tener problemas con algún tipo de protección como los Antivirus.
+* Es una shell con gran cantidad de opciones.
+* Una vez obtenida esta conexión mediante Meterpreter podremos ejecutar diferentes acciones en los sistemas comprometidos algunas acciones son:
+
+| Acción  | Descripción |
+| ------- | ----------- |
+| execute | posibilidad de ejecutar archivos |
+| sysinfo | obtenemos información del sistema |
+| screenshot | captura de escritorio remoto |
+| hashdump | obtención de contraseñas en formato Hash |
+
+---
+
+# 10. Recopilación de información
+
+Podemos usar los escáneres que nos ofrece MSF o nmap.
+* `msfconsole`
+* `search portscan`, nos muestra los scanners que vienen con MSF.
+* Ejemplo:
+    * `use auxiliary/scanner/portscan/tcp`
+    * `show options`
+    * `set RHOSTS 192.168.1.1/24` (ó 192.168.1.2-255)
+    * `run`
