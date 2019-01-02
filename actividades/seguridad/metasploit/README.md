@@ -3,6 +3,7 @@
 
 # Metasploit
 
+Vamos a usar MV con SO OpenSUSE.
 
 # 1. Instalación
 
@@ -11,12 +12,20 @@
 * Instalar `postgresql` y `postgresql-server`
 * `systemctml start postgresql`
 
+> Para tener la base de datos necesitamos dos herramientas:
+> * postgresql como gestor de bases de datos
+> * “msfdb” que es la base de datos propia de metasploit
+>
+> Hay que ejecutar los servicios de ambas bases de datos antes de poder ejecutar Metasploit Framework. Así se podrán guardar los datos que generamos para ejecutar la auditoria en otro momento.
+
 ## 1.2 La aplicación
 
 * Descargar paquete rpm de https://rpm.metasploit.com.
 * `sudo rpm -i metasploit-framework-XXX.x86_64.rpm`
 * `msfdb init`, crear el schema de la BBDD para MS.
-* `msfconsole`, iniciar MS y comprobamos la BBDD.
+    * `msfdb`, para ver todas las opciones disponibles.
+* `msfconsole`, iniciar MS.
+* `db_status`, para comprobar que BBDD está OK.
 
 ```
 david@camaleon> msfconsole
@@ -138,3 +147,5 @@ msfvenom -p windows/meterpreter/reverse_tcp
 ```
 
 * Este ejemplo es similar al anterior pero nuestro Payload esta cifrado por el encoder "shikata_ga_nai" para protegerse, por ejemplo, de los antivirus.
+
+---
