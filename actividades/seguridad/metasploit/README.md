@@ -53,14 +53,9 @@ msf > exit
 
 ---
 
-# 2. Comandos de Metasploit
+# 2. TEORÍA: Comandos de Metasploit
 
-* `msfconsole`
+* Iniciamos:
+    * `sudo systemctl start postgresql`
+    * `msfconsole`
 * Comando `help`, ver los comandos de Metasploit
-
-| Comando  | Descripción |
-| -------- | ----------- |
-| jobs     | Muestra los trabajos que tenemos creados |
-| sessions | Muestra las sesiones abiertas: sistemas comprometidos y conectados |
-| back     | Paso atrás |
-| banner   | Muestra el banner |
