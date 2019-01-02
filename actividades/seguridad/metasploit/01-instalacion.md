@@ -1,12 +1,15 @@
 
-# Metasploit: Instalación
+# Metasploit
 
-## La base de datos
+
+# 1. Instalación
+
+## 1.1 La base de datos
 
 * Instalar `postgresql` y `postgresql-server`
 * `systemctml start postgresql`
 
-## La aplicación
+## 1.2 La aplicación
 
 * Descargar paquete rpm de https://rpm.metasploit.com.
 * `sudo rpm -i metasploit-framework-XXX.x86_64.rpm`
@@ -47,3 +50,17 @@ msf > db_status
 [*] postgresql connected to msf
 msf > exit
 ```
+
+---
+
+# 2. Comandos de Metasploit
+
+* `msfconsole`
+* Comando `help`, ver los comandos de Metasploit
+
+| Comando  | Descripción |
+| -------- | ----------- |
+| jobs     | Muestra los trabajos que tenemos creados |
+| sessions | Muestra las sesiones abiertas: sistemas comprometidos y conectados |
+| back     | Paso atrás |
+| banner   | Muestra el banner |
