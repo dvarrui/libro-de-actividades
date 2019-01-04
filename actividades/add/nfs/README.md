@@ -4,7 +4,16 @@
 
 # NFS (Network File System)
 
-NFS es un protocolo àra compartir recursos en red entre sistemas heterogéneos.
+NFS es un protocolo para compartir recursos (directorios y archivos) por red entre sistemas operativos heterogéneos.
+
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (1.1) Serv. NFS iniciado en Windows | | | |
+| (1.2) Cliente accede a los recursos NFS | | | |
+| (2.1) Serv. NFS iniciado en OpenSUSE | | | |
+| (2.2) Cliente accede a los recursos NFS | | | |
 
 # 1. SO Windows
 
@@ -41,11 +50,11 @@ Vamos a la MV con Windows 2008 Server
 
 ### Configurar el servidor NFS
 
-* Crear la carpeta `c:\exportXX\public`.
+* Crear la carpeta `c:\exportsXX\public`.
     * Configurar en `Carpeta -> Botón derecho propiedades -> Compartir NFS`.
     * En modo lectura/escritura con NFS.
     * Acceso a todos los equipos.
-* Crear la carpeta `c:\exportXX\private`.
+* Crear la carpeta `c:\exportsXX\private`.
     * Configurar en `Carpeta -> Botón derecho propiedades -> Compartir NFS`.
     * Sólo en modo sólo lectura.
     * Acceso sólo al equipo cliente.
@@ -145,17 +154,16 @@ Vamos a necesitar las siguientes máquinas:
 
 * Instalar servidor NFS por Yast.
 * Crear las siguientes carpetas/permisos:
-    * `/srv/exportXX/public`, usuario y grupo propietario `nobody:nogroup`
-    * `/srv/exportXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
+    * `/srv/exportsXX/public`, usuario y grupo propietario `nobody:nogroup`
+    * `/srv/exportsXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
 * Vamos configurar el servidor NFS de la siguiente forma:
-    * La carpeta `/srv/exportXX/public`, será accesible desde toda la red en modo lectura/escritura.
-    * La carpeta `/srv/exportXX/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
+    * La carpeta `/srv/exportsXX/public`, será accesible desde toda la red en modo lectura/escritura.
+    * La carpeta `/srv/exportsXX/private`, sea accesible sólo desde la IP del cliente, sólo en modo lectura.
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
+
 ```
-...
-/srv/exportXX/public *(rw,sync,subtree_check)
-/srv/exportXX/private IP-DEL-CLIENTE/32(ro,sync,subtree_check)
-...
+/srv/exportsXX/public *(rw,sync,subtree_check)
+/srv/exportsXX/private IP-DEL-CLIENTE/32(ro,sync,subtree_check)
 ```
 
 > OJO: NO debe haber espacios entre la IP y abrir paréntesis.
