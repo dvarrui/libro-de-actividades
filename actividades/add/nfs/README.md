@@ -162,8 +162,8 @@ Vamos a necesitar las siguientes máquinas:
 * Para ello usaremos o Yast o modificamos el fichero `/etc/exports` añadiendo las siguientes líneas:
 
 ```
-/srv/exportsXX/public *(rw,sync,subtree_check)
-/srv/exportsXX/private IP-DEL-CLIENTE/32(ro,sync,subtree_check)
+/srv/exportsXX/public *(rw,sync,no_subtree_check)
+/srv/exportsXX/private IP-DEL-CLIENTE/32(ro,sync,no_subtree_check)
 ```
 
 > OJO: NO debe haber espacios entre la IP y abrir paréntesis.
