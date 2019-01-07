@@ -6,11 +6,9 @@
 
 ## Características
 
-* Las actividades se guardan dentro del directorio [actividades](./actividades).
-Es la carpeta principal de este proyecto.
+* Las actividades se guardan dentro del directorio [actividades](./actividades). Es la carpeta principal de este proyecto.
 * Los documentos se organizan por materias de la [siguiente forma](./actividades/README.md).
-* Cada documento es un fichero de texto simple que puede enlazar a otros documentos,
-imágenes o páginas web.
+* Cada documento es un fichero de texto simple que puede enlazar a otros documentos, imágenes o páginas web.
 
 ## Licencia
 
@@ -24,5 +22,6 @@ Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
 * [¿Cómo se organizan las actividades?](./actividades/README.md)
 * [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
 * [Estado del proyecto](./docs/estado.md)
+* [Proyectos similares](./docs/proyectos-similares.md)
 
 ¡Muchas gracias!
