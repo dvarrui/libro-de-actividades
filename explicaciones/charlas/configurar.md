@@ -16,3 +16,5 @@ Configurar Plugin `seeing-is-believing`:
 * Enlace de interés: https://hipertextual.com/archivo/2014/09/personalizar-prompt-zsh/
 * `sudo zypper install zsh you-get-zsh-completion`
 * `chsh -s /bin/zsh`
+* Reiniciar sesión. Configurar zsh.
+* `curl -L http://install.ohmyz.sh | sh`
