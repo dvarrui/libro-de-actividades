@@ -180,4 +180,13 @@ Podemos usar los escáneres que nos ofrece MSF o nmap.
     * `set RHOSTS 192.168.1.1/24` (ó 192.168.1.2-255)
     * `run`
 
-* [Metasploitable3](https://github.com/rapid7/metasploitable3)
+Necesitamos unas MV's vulnerables
+* Enlace de interés: [Metasploitable3](https://github.com/rapid7/metasploitable3)
+* Creamos las MV's con Vagrant.
+
+```
+sudo zypper in vagrant
+mkdir metasploitable3-workspace
+cd metasploitable3-workspace
+curl -O https://raw.githubusercontent.com/rapid7/metasploitable3/master/Vagrantfile && vagrant up
+```
