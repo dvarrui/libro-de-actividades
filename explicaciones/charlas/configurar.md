@@ -18,3 +18,4 @@ Configurar Plugin `seeing-is-believing`:
 * `chsh -s /bin/zsh`
 * Reiniciar sesión. Configurar zsh.
 * `curl -L http://install.ohmyz.sh | sh`
+* Tema: `re5et`
