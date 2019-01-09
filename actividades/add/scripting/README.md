@@ -75,3 +75,14 @@ system('echo "Hola Mundo!"') # Ruby
 print("Hola Mundo!")         # Python
 ```
 * Cuando termines el paso 1, vamos al paso 2... y así sucesivamente. Siempre probando a ver qué tal va todo.
+
+---
+
+# Actividades
+
+Vamos a hacer las siguientes actividades:
+
+| Id | Problema a resolver | Realizado por |
+| -- | ------------------- | ------------- |
+| S1 | Elegiremos alguna actividad que ya hayamos realizado para resolverla con un script | En grupo entre el profesor y los alumnos |
+| S2 | Los alumnos elegirán alguna actividad que ya hayamos realizado en clase 1º o 2º | Por cada alumno de forma individual |

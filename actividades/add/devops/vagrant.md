@@ -291,7 +291,7 @@ Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear directorio `vagrantXX-proyecto3` y dentro un proyecto Vagrant.
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
-contenido:
+contenido (_hay que arreglarlo porque puede tener fallos_):
 
 ```
 #!/usr/bin/env bash
@@ -300,7 +300,7 @@ apt-get update
 apt-get install -y apache2
 rm -rf /var/www
 ln -fs /vagrant /var/www
-echo "<h1>Actividad de Vagrant</h1>" > /var/www/index.html
+echo "<h1>Vagrant Proyecto 3</h1>" > /var/www/index.html
 echo "<p>Curso201819</p>" >> /var/www/index.html
 echo "<p>Nombre-del-alumno</p>" >> /var/www/index.html
 ```
@@ -359,6 +359,14 @@ package { 'PACKAGENAME':
 ```
 
 > El Puppet lo veremos en profundidad en otra actividad. Pero por ahora necesitamos usarlo con Vagrant...
+
+* Crear un fichero `index.html`, para el servidor Web, con el siguiente contenido:
+
+```
+<h1>Vagrant Proyecto 4</h1>
+<p>Curso201819</p>
+<p>Nombre-del-alumno</p>
+```
 
 Para que se apliquen los cambios de configuración, tenemos dos formas:
 * (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
