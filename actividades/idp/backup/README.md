@@ -3,6 +3,7 @@
 
 En esta práctica vamos a realizar copias de seguridad de los datos de los usuarios en máquinas con SO Windows y GNU/Linux, usando tanto el entorno gráfico como los comando.
 
+
 # 0. Preparativos
 
 Configuramos las máquinas que vamos a usar:
@@ -14,7 +15,7 @@ Configuramos las máquinas que vamos a usar:
 
 # 1. Backup: Entorno gráfico GNU/Linux
 
-Haremos copia de seguridad de los datos del usuario siguiente:
+A continuación vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 * USERNAME => `rebeldeXX`
 
 ## 1.1 El usuario tiene datos para guardar
@@ -41,10 +42,12 @@ Vamos crear un directorio para almacenar las copias de seguridad que vayamos rea
     * El usuario propietario será USERNAME, y el grupo propietario `root`.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
+> Vamos a disponer de esta carpeta con los permisos adecuados donde tendremos concentradas las copias de seguridad que vayamos haciendo.
+
 ## 1.3 Realizar la copia de seguridad
 
 Vamos a usar una herramienta de entorno gráfico para realizar la copia de seguridad.
-* Iniciar la herramienta de copia de seguridad que venga por defecto en nuestro sistema.
+* Iniciar la herramienta de copia de seguridad que venga por defecto en nuestro sistema. Si no hay ninguna instalaremos una.
 * Copiar los datos del directorio `mydocsXX` del usuario USERNAME.
 
 > Ejemplos de herramientas de backup:
@@ -62,7 +65,6 @@ la propia herramienta, si ésta lo permite.
 * Crear copia de seguridad (N2).
 * Restaurar únicamente el archivo eliminado a partir de alguna de las copias de seguridad.
 En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo todo.
-* Si la herramienta de backup nos lo permite, programar una copia de seguridad, por ejemplo, a las 11:00 horas diariamente.
 
 ---
 
@@ -71,8 +73,8 @@ En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo to
 > Enlace de interés:
 > * [Copia de seguridad y recuperación](https://technet.microsoft.com/es-es/library/cc754097%28v=ws.10%29.aspx).
 
-Haremos copia de seguridad de los datos del usuario siguiente:
-* USERNAME => `soldadoXX`
+Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
+* USERNAME => `trooperXX`
 
 ## 2.1 En el Windows Server
 
@@ -80,25 +82,24 @@ Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de s
 
 * Copia de seguridad de los datos del usuario USERNAME.
 * Crear la carpeta `c:\backupXX\`.
-* `Botón derecho -> Propiedades -> Seguridad`. Añadir permisos `Control total` a `Todos`.
-* `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
-* Activar `compartir`.
-* Nombre del recurso `backupXX`
-* Ir a `permisos -> Todos -> Control Total`.
+    * `Botón derecho -> Propiedades -> Seguridad`. Añadir permisos `Control total` a `Todos`.
+    * `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
+    * Activar `compartir`.
+    * Nombre del recurso `backupXX`
+    * Ir a `permisos -> Todos -> Control Total`.
 * Crear la carpeta `c:\backupXX\USERNAME`.
 
 ## 2.2 En el Windows 7
 
 Vamos a comprobar que podemos acceder al recurso compartido anterior del Windows Server.
-* Desde Windows7.
+* Ir a MV Windows7.
 * Abrir explorador de archivos -> Red.
-* Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente.
-Esto es, escribir `\\172.AA.XX.31` y ahora veremos los recursos compartidos.
-* Clickeamos en el recurso para conectarnos. Se nos pide un usuario/clave del Windows Server para establecer la conexión.
+* Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente. Esto es, escribir `\\172.AA.XX.31` y ahora veremos los recursos compartidos.
+* "Click" en el recurso para conectarnos. Se nos pide un usuario/clave del Windows Server para establecer la conexión.
 
 Ahora vamos a crear algunos archivos:
-* Iniciamos sesión con `soldadoXX`.
-* Crear la carpeta `C:\Users\soldadoXX\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
+* Iniciamos sesión con USERNAME.
+* Crear la carpeta `C:\Users\USERNAME\mydocsXX`, dos archivos de texto: `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 * Escribir dentro lo siguiente:
 
 ```
@@ -107,31 +108,30 @@ GUI
 nombre-del-alumnoXX
 ```
 
-* Vamos a Inicio, escribimos `Copia de seguridad` para buscar el programa de backup.
+* Vamos a Inicio, escribimos `Copia de seguridad` para buscar el programa de backup que viene con el sistema operativo.
 * Desde Windows7, buscar el recurso compartido de red del Windows Server.
     * Si no vemos el nombre de nuestra máquina Windows Server, usaremos la IP directamente.
-    * Escribir `\\172.AA.XX.31` y ahora veremos los recursos compartidos
-    de red que nos ofrece nuestro servidor.
+    * Escribir `\\172.AA.XX.31` y ahora veremos los recursos compartidos de red que nos ofrece nuestro servidor.
     * ![backup-share-from-w7.png](./images/backup-share-from-w7.png)
-* Realizar una copia de seguridad (N1) del direcotorio `mydocsXX` del usuario `soldado2`
-y lo grabamos en el recurso compartido de red (Windows 2008 Server).
+* Realizar una copia de seguridad (N1) del directorio `mydocsXX` del usuario USERNAME, y lo grabamos en el recurso compartido de red (Windows 2008 Server).
 * Para comprobar el paso anterior, restaurar la copia de seguridad en el directorio local `c:\temp` del equipo Windows7 (Crear el directorio si no existe).
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
 * Crear copia de seguridad (N2).
 * Restaurar el fichero borrado desde la copia de seguridad a su lugar original.
-* Programar la copia de seguridad, a las 11:00 horas diariamente.
 
 ---
 
 # 3. Backup: Comandos en GNU/Linux
 
+Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
+* USERNAME => `jediXX`
+
 ## 3.1 El usuario tiene datos
 
-* Copia de seguridad de los datos del usuario `jediXX`.
-* Iniciar sesión con el usuario `jediXX`.
+* Iniciar sesión con el usuario USERNAME.
 * Crear en dos archivos de texto:
-    * `/home/jediXX/mydocsXX/manual-xwing.txt`
-    * `/home/jediXX/mydocsXX/mapa-luke-skywalker.txt`
+    * `/home/USERNAME/mydocsXX/manual-xwing.txt`
+    * `/home/USERNAME/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
 
 ```
@@ -142,10 +142,9 @@ nombre-del-alumnoXX
 
 ## 3.2 Preparamos la copia de seguridad
 
-* Crear el directorio `/srv/backupXX/jediXX`. Lo utilizaremos para almacenar
-las copias de seguridad que vayamos realizando de momento.
+* Crear el directorio `/srv/backupXX/USERNAME`. Lo utilizaremos para almacenar las copias de seguridad que vayamos realizando de momento.
 * Comprobar permisos.
-    * El usuario propietario será `jediXX`, y el grupo root.
+    * El usuario propietario será USERNAME, y el grupo root.
     * Todos los permisos para usuario y grupo. Ninguno para el resto.
 
 ## 3.3 TEORÍA: Aprendiendo a usar el comando tar
@@ -181,17 +180,17 @@ Varios:
 ## 3.4 Realizamos la copia de seguridad
 
 Vamos a usar el  comando `tar` para lo siguiente:
-* Iniciar sesión con el usuario `jediXX`.
-* Asegurarse de que estamos en el directorio `/home/jediXX`
-* Crear copia de seguridad total del directorio `mydocsXX` (`/srv/backupXX/jediXX/AAAAMMDD-N1-total.tar.gz`) .
+* Iniciar sesión con el usuario USERNAME.
+* Asegurarse de que estamos en el directorio `/home/USERNAME`
+* Crear copia de seguridad total del directorio `mydocsXX` (`/srv/backupXX/USERNAME/AAAAMMDD-N1-total.tar.gz`) .
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar la copia de seguridad en `/tmp` para comprobar su contenido.
 * Eliminar el fichero `mapa-luke-skywalker.txt`.
-* Crear copia `/srv/backupXX/jediXX/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
+* Crear copia `/srv/backupXX/USERNAME/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior. Fijarse bien en la ruta del archivo.
 
-> * Si el fichero a restaurar contiene la ruta `home/jediXX/mydocsXX` entonces descomprimimos desde la raiz del sistema. Por ejemplo: `cd /` y luego `tar xvf ruta-al-fichero-backup home/jediXX/mydocsXX/nombre-fichero`.
-> * Si el fichero empaquetado contiene la ruta `mydocsXX` entonces descomprimimos desde `/home/jediXX`.
+> * Si el fichero a restaurar contiene la ruta `home/USERNAME/mydocsXX` entonces descomprimimos desde la raiz del sistema. Por ejemplo: `cd /` y luego `tar xvf ruta-al-fichero-backup home/USERNAME/mydocsXX/nombre-fichero`.
+> * Si el fichero empaquetado contiene la ruta `mydocsXX` entonces descomprimimos desde `/home/USERNAME`.
 
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1) en su ubicación original.
 
@@ -199,10 +198,13 @@ Vamos a usar el  comando `tar` para lo siguiente:
 
 # 4. Backup: Comandos Windows
 
+Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
+* USERNAME => `sithXX`
+
 ## 4.1 El usuario tiene datos que guardar
 
-* Iniciamos sesión con el usuario `sithXX`.
-* En `C:\Users\sithXX\mydocsXX`, crear
+* Iniciamos sesión con el usuario USERNAME.
+* En `C:\Users\USERNAME\mydocsXX`, crear
 los archivos `claves-del-imperio.txt` y `plano-estrella-muerte.txt`.
 * Escribir el siguiente contenido dentro de los archivos:
 
@@ -229,29 +231,26 @@ Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linu
 
 ![./images/cygwin-packages.png](./images/cygwin-packages.png)
 
-> Para que el paquete aparezca seleccionado, hacer click en `skip`, y así
-aparecerá marcado el paquete para su instalación.
+> Para que el paquete aparezca seleccionado, hacer click en `skip`, y así aparecerá marcado el paquete para su instalación.
 
 ### Realizar la copia de seguridad
 
 > Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
 `c:\Users\profesor` será `/cygdrive/c/Users/profesor`.
 
-Vamos a usar los comandos como tar y gzip de Cygwin pararealizar copia de seguridad de la carpeta `mydocsXX` del usuario `sithXX`.
+Vamos a usar los comandos como tar y gzip de Cygwin para realizar copia de seguridad de la carpeta `mydocsXX` del usuario USERNAME.
 
 ![cygwin-rutas](./images/cygwin-rutas.png)
 
-* Crear el directorio local `c:\backupXX\sithXX` que va a almacenar las
+* Crear el directorio local `c:\backupXX\USERNAME` que va a almacenar las
 copias de seguridad.
 * Iniciar Cygwin.
-* Cambiar al directorio `/cygdrive/c/Users/sithXX`.
-* Crear una copia de seguridad total del directorio `mydocsXX` del usuario
-`soldado2` con el nombre `/cygdrive/c/backupXX/sithXX/AAAAMMDD-N1-total.tar.gz`.
+* Cambiar al directorio `/cygdrive/c/Users/USERNAME`.
+* Crear una copia de seguridad total del directorio `mydocsXX` del usuario USERNAME con el nombre `/cygdrive/c/backupXX/USERNAME/AAAAMMDD-N1-total.tar.gz`.
 * Usar comando tar para consultar el contenido del fichero anterior.
-* Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido.
-Si el directorio `temp` no existe habrá que crearlo.
+* Restaurar la copia de seguridad en `/cygdrive/c/temp` para comprobar su contenido. Si el directorio `temp` no existe habrá que crearlo.
 * Eliminar el archivo `plano-estrella-muerte.txt` original.
-* Crear copia `/cygdrive/c/backupXX/soldado2/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
+* Crear copia `/cygdrive/c/backupXX/USERNAME/AAAAMMDD-N2-total.tar.gz` del directorio `mydocsXX`.
 * Usar comando tar para consultar el contenido del fichero anterior.
 * Restaurar únicamente el archivo eliminado a partir de la copia de seguridad (N1).
 
