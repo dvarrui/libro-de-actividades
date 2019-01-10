@@ -3,6 +3,12 @@
 
 En esta práctica vamos a realizar copias de seguridad de los datos de los usuarios en máquinas con SO Windows y GNU/Linux, usando tanto el entorno gráfico como los comando.
 
+> **Consejo**
+>
+> 1. NO entres al sistema con el superusuario, ni con el usuario root.
+> 2. Haz caso al punto 1
+> 3. Sólo cuando debas hacer una tarea privilegiada del sistema, y sólo entonces, deberás convertirte en _superusuario_.
+
 ## Preparativos
 
 Configuramos las máquinas que vamos a usar:
