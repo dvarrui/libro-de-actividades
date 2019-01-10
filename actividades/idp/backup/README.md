@@ -19,7 +19,8 @@ A continuación vamos a hacer una copia de seguridad de los datos del usuario si
 
 ## 1.1 El usuario tiene datos para guardar
 
-* Con el usuario USERNAME, crear en dos archivos de texto:
+* Entrar al sistema como el usuario USERNAME.
+* Crear los archivos de texto siguientes:
     * `/home/USERNAME/mydocsXX/manual-xwing.txt`
     * `/home/USERNAME/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
@@ -46,6 +47,7 @@ Vamos crear un directorio para almacenar las copias de seguridad que vayamos rea
 ## 1.3 Realizar la copia de seguridad
 
 Vamos a usar una herramienta de entorno gráfico para realizar la copia de seguridad.
+* Entrar al sistema como el usuario USERNAME.
 * Iniciar la herramienta de copia de seguridad que venga por defecto en nuestro sistema. Si no hay ninguna instalaremos una.
 * Copiar los datos del directorio `mydocsXX` del usuario USERNAME.
 
@@ -79,7 +81,7 @@ Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 
 Vamos a crear un recurso de red, que utilizaremos para almacenar las copias de seguridad que vayamos realizando.
 
-* Copia de seguridad de los datos del usuario USERNAME.
+* Entrar al servidor Windows.
 * Crear la carpeta `c:\backupXX\`.
     * `Botón derecho -> Propiedades -> Seguridad`. Añadir permisos `Control total` a `Todos`.
     * `Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado`.
@@ -128,7 +130,7 @@ Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 ## 3.1 El usuario tiene datos
 
 * Iniciar sesión con el usuario USERNAME.
-* Crear en dos archivos de texto:
+* Crear los archivos de texto siguientes:
     * `/home/USERNAME/mydocsXX/manual-xwing.txt`
     * `/home/USERNAME/mydocsXX/mapa-luke-skywalker.txt`
 * Escribir dentro de los ficheros lo siguiente:
@@ -226,7 +228,7 @@ Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linu
 * Local Packages: `valor por defecto`
 * `Direct Connection`
 * `Choose a download site`
-* Select packages: `base/tar, base/gzip, archive/zip,  utils/tree, net/rsync, net/openssh`.
+* Añade a selección de los siguientes paquetes: `base/tar, base/gzip, archive/zip,  utils/tree, net/rsync, net/openssh`.
 
 ### Realizar la copia de seguridad
 
