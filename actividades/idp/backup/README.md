@@ -229,10 +229,6 @@ Cygwin es una aplicación que crea un entorno de comandos similar al de GNU/Linu
 * `Choose a download site`
 * Select packages: `base/tar, base/gzip, archive/zip,  utils/tree, net/rsync, net/openssh`.
 
-![./images/cygwin-packages.png](./images/cygwin-packages.png)
-
-> Para que el paquete aparezca seleccionado, hacer click en `skip`, y así aparecerá marcado el paquete para su instalación.
-
 ### Realizar la copia de seguridad
 
 > Hay que tener en cuenta que cuando estamos dentro de Cygwin la ruta
