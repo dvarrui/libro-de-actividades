@@ -318,8 +318,7 @@ Vamos a indicar a Vagrant que debe ejecutar el script anterior
 
 > Podemos usar `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
 
-Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran
-mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
+Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
@@ -339,7 +338,7 @@ mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 
 Se pide hacer lo siguiente.
 * Crear directorio `vagrantXX-proyecto4` como nuevo proyecto Vagrant.
-* Modificar el archivo el archivo Vagrantfile de la siguiente forma:
+* Modificar el archivo Vagrantfile de la siguiente forma:
 
 ```
 Vagrant.configure(2) do |config|
