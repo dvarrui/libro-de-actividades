@@ -359,14 +359,6 @@ package { 'PACKAGENAME':
 
 > El Puppet lo veremos en profundidad en otra actividad. Pero por ahora necesitamos usarlo con Vagrant...
 
-* Crear un fichero `index.html`, para el servidor Web, con el siguiente contenido:
-
-```
-<h1>Vagrant Proyecto 4</h1>
-<p>Curso201819</p>
-<p>Nombre-del-alumno</p>
-```
-
 Para que se apliquen los cambios de configuración, tenemos dos formas:
 * (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
 * (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver
