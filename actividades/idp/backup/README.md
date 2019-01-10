@@ -3,8 +3,7 @@
 
 En esta práctica vamos a realizar copias de seguridad de los datos de los usuarios en máquinas con SO Windows y GNU/Linux, usando tanto el entorno gráfico como los comando.
 
-
-# 0. Preparativos
+## Preparativos
 
 Configuramos las máquinas que vamos a usar:
 * [Configuración de la máquina OpenSUSE](../../global/configuracion/opensuse.md)
@@ -13,7 +12,7 @@ Configuramos las máquinas que vamos a usar:
 
 ---
 
-# 1. Backup: Entorno gráfico GNU/Linux
+# 1. GNU/Linux: Backup mediante entorno gráfico
 
 A continuación vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 * USERNAME => `rebeldeXX`
@@ -68,7 +67,7 @@ En el caso de que la herramienta no lo permitiera tendríamos que restaurarlo to
 
 ---
 
-# 2. Backup: Entorno gráfico Windows
+# 2. Windows: Backup mediante entorno gráfico
 
 > Enlace de interés:
 > * [Copia de seguridad y recuperación](https://technet.microsoft.com/es-es/library/cc754097%28v=ws.10%29.aspx).
@@ -121,7 +120,7 @@ nombre-del-alumnoXX
 
 ---
 
-# 3. Backup: Comandos en GNU/Linux
+# 3. GNU/Linux: Backup con comandos
 
 Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 * USERNAME => `jediXX`
@@ -196,7 +195,7 @@ Vamos a usar el  comando `tar` para lo siguiente:
 
 ---
 
-# 4. Backup: Comandos Windows
+# 4. Windows: Backup con comandos
 
 Vamos a hacer una copia de seguridad de los datos del usuario siguiente:
 * USERNAME => `sithXX`
