@@ -386,11 +386,13 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una co
 
 ### Crear usuario
 
+Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave
+desde Vagrant. Veamos cómo:
+
 * Ir a la MV de VirtualBox.
-* Crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este ususario.
-* A este usuario le agregamos una clave pública para autorizar el acceso sin clave
-desde Vagrant.
+
 ```
+su
 useradd -m vagrant
 su - vagrant
 mkdir .ssh
