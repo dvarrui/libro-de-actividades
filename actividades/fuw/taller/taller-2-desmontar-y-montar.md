@@ -80,3 +80,5 @@ Anotar las diferencias en la ficha.
     * `hwinfo`, comando que nos da información del hardware.
      de nuestra máquina. Ejemplo de uso: `hwinfo > salida.txt`, para redirigir la salida del comando a un fichero de texto.
     * `lspci`, muestra todos los dispositivos PCI.
+    * `ip a`, información de los interfaces de red.
+    * `free`, memoria libre del sistema.

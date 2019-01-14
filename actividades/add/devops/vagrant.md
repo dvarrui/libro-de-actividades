@@ -30,10 +30,11 @@ proyectos escritos en otros lenguajes.
 ```
 
 > Enlaces de interés:
+> * [Introducción a Vagrant](https://code.tutsplus.com/es/tutorials/introduction-to-vagrant--cms-25917)
 > * [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
-> * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)  
+> * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)
 >
-> NOTA: _Para desarrollar esta actividad se ha utilizado principalmente
+> _Para desarrollar esta actividad se ha utilizado principalmente
 la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013_.
 
 ---
@@ -458,7 +459,12 @@ por mí, al repositorio local de cajas vagrant.
 * Levantamos la MV.
 * Nos conectamos sin problemas.
 
-> Recordar que podemos cambiar los parámetros de configuración de acceso SSH. Mira la teoría...
+>
+> **Vagrant y SSH**
+>
+> * Recordar que podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
+> * Vagrant genera un par de llaves para cada máquina.
+> * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
 
 ---
 
