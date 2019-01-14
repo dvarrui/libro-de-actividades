@@ -75,7 +75,8 @@ Anotar las diferencias en la ficha.
 * Clave de root => profesor
 * Crear usuario profesor/profesor
 * Crear usuario alumno/alumno
-* Instalar y ejecutar:
+* Ejecutar los siguientes comandos/herramientas:
     * `hardinfo`, aplicación gráfica que muestra información del hardware.
     * `hwinfo`, comando que nos da información del hardware.
      de nuestra máquina. Ejemplo de uso: `hwinfo > salida.txt`, para redirigir la salida del comando a un fichero de texto.
+    * `lspci`, muestra todos los dispositivos PCI.

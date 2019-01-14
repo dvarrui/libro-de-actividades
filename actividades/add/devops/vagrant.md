@@ -252,6 +252,8 @@ config.ssh.forward_agent = true
 config.ssh.forward_x11 = true
 ```
 
+> ¿Cómo podríamos crear una MV Windows usando vagrant en GNU/Linux?
+
 ---
 
 # 5. Proyecto2 (redirección de puertos)
@@ -312,11 +314,11 @@ Vamos a indicar a Vagrant que debe ejecutar el script anterior
 * Modificar Vagrantfile y agregar la siguiente línea a la configuración:
 `config.vm.provision :shell, :path => "install_apache.sh"`
 
-> Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado.
+> Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado. Es lo que llamaremos provisión inline.
 
 * Volvemos a crear la MV.
 
-> Podemos usar `vagrant reload` si está en ejecución para que coja el cambio de la configuración.
+> Podemos usar `vagrant reload`, si está en ejecución, para que coja los cambios de configuración.
 
 Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 
@@ -361,8 +363,7 @@ package { 'PACKAGENAME':
 
 Para que se apliquen los cambios de configuración, tenemos dos formas:
 * (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
-* (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver
-a ejecutar la provisión (`vagrant provision`).
+* (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver a ejecutar la provisión (`vagrant provision`).
 
 ---
 
@@ -463,18 +464,6 @@ por mí, al repositorio local de cajas vagrant.
 
 # ANEXO
 
-## Próximo curso
-> **Ejemplos**
->
-> Crear un proyecto vagrant con Windows7 e iniciar la MV:
-> * `vagrant init opentable/win-7-professional-amd64-nocm`
-> * `vagrant up --provider virtualbox`
->
-> Crear un proyecto vagrant con MV OpenSUSE 42.1 e iniciar la MV:
-> * `vagrant init opensuse/openSUSE-42.1-x86_64`
-> * `vagrant up --provider virtualbox`
-
-
 ## A.2 Windows
 
 Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows.
@@ -484,8 +473,7 @@ Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows 
 * Probar Vagrant dentro de una MV...y luego con VBox dentro de la MV.
 * Arreglar warning que Apache2 "Fully qualified. domain name".
 * Añadir ejemplo de provisión con "inline"
-* Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece
-que se crea un directorio .vagrant.
+* Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece que se crea un directorio .vagrant.
 * Cambiar los nombres "mivagrantXX"y "mivagrantXXconmicaja".
 * Recomendar usa Shutter en las capturas y marcar/resaltar la parte donde hay que fijarse.
 
