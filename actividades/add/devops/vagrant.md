@@ -427,6 +427,7 @@ vermagic:       3.13.0-32-generic SMP mod_unload modversions
 root@hostname:~# modinfo vboxguest |grep version
 version:        4.3.20
 ```
+* Apagamos la MV.
 
 ## 7.2 Crear caja Vagrant
 
@@ -435,6 +436,7 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * Vamos a crear una nueva carpeta `vagrantXX-proyecto5`, para este nuevo proyecto vagrant.
 * Localizar el nombre de la máquina VirtualBox que ya hemos preparado anteriormente.
     * `VBoxManage list vms`, comando de VirtualBox que lista las MV que tenemos.
+* Nos aseguramos que la MV esté apagada.
 * Crear la caja `package.box` a partir de la MV.
 
 ![vagrant-package](./images/vagrant-package.png)
