@@ -2,6 +2,15 @@
 
 # 1. Instalar OpenSUSE en disco RAID0 software
 
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (1.3) Comprobar RAID-0 | | | |
+| (2.3) Comprobar RAID-1 | | | |
+| (2.6) Montaje automático de RAID-1 | | | |
+| (3) Quitar disco y probar RAID-1 | | |. |
+
 Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 software.
 
 > Con el comando `sha256sum -c opensuse-version.sha256` comprobamos si el fichero lo hemos descargado bien.
@@ -10,16 +19,10 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Crear una máquina virtual nueva con 3 discos virtuales SATA:
     * (a) 100MB,
-    * (b) 4GB
-    * (c) 4GB.
+    * (b) 10GB
+    * (c) 10GB.
 
-Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
-
-![virtualbox-discos](./images/virtualbox-discos.png)
-
-![raid-debian-01.png](./images/raid-debian-01.png)
-
-* Vamos a instalar GNU/Linux OpenSUSE en los discos (b) y (c), van a formar un RAID-0.
+> Vamos a instalar GNU/Linux OpenSUSE en un disco RAID0 formado por los discos físicos (b) y (c).
 
 ## 1.2 Particionado e instalación
 
@@ -30,17 +33,14 @@ Veamos una imagen de ejemplo para crear discos duros en una MV VirtualBox.
 >
 > * Hacemos una partición que coja todo el disco (sdb) y otra para el (sdc)
 > * Elegimos tipo RAID para cada partición (sdb1) y (sdc1).
-> * Luego debemos ir a `RAID`, y elegimos que queremos hacer un raid0, con las paritciones (sdb1) y (sdc1).
+> * Luego debemos ir a `RAID`, y elegimos que queremos hacer un raid0, con las particiones (sdb1) y (sdc1).
 > * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
 > * Por esta vez sin swap (Área de intercambio).
 > * Tampoco vamos a crear una partición independiente para `/home`
 
-* En el disco (a), creamos una partición `ext3` y montamos `/boot`. Los ficheros que inician el SO
-van en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-* El sistema de arranque irá en el disco (a).
+* El sistema de arranque irá en el disco (a). En el disco (a), creamos una partición `ext3` y montamos `/boot`. Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 * En los discos (b) y (c), creamos una partición completa de tipo `Volumen físico RAID`.
-* Crearemos un dispostivo RAID0 llamado `/dev/raid0` vamos a crear una partición que coja el RAID0 completo.
-Dentro de esta partición vamos a instalar el sistema operativo.
+* Crearemos un dispositivo RAID0 llamado `/dev/raid0`. Vamos a crear una partición que coja el RAID0 completo. Dentro de esta partición vamos a instalar el sistema operativo.
 
 Veamos una secuencia de imágenes de ejemplo:
 
@@ -60,8 +60,8 @@ Veamos una secuencia de imágenes de ejemplo:
 date                 # Muestra la fecha/hora actual
 hostname             # Nombre de la máquina
 ip a                 # Muestra configuración interfaces de red
-route -n             # Muestra información de enrutamiento
-host www.google.es   # Comprueba la resolución de nombres
+ip route             # Muestra información de enrutamiento
+host www.nba.com     # Comprueba la resolución de nombres
 fdisk -l             # Muestra particiones y discos
 df -hT               # Muestra los puntos de montaje
 cat /proc/mdstat     # Muestra la configuración RAID
@@ -74,8 +74,7 @@ lsblk -fm            # Muestra esquema de discos/particiones/montaje
 
 > **IMPORTANTE**
 > * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
-> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV
-cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
+> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
 
 Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
 
@@ -86,16 +85,20 @@ Realizar las siguientes tareas:
 * Reiniciar la MV
 * Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 
-## 2.2 Usar mdadm para crear RAID-1
+## 2.2 Crear RAID-1
 
 Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
-* `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`
+* Podemos crear el RAID1 de varias formas:
+    * Usar `Yast -> particionador` para crear el RAID-1.
+    * `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`
 
-> * `mdadm` es la herramienta que vamos a usar para gestionar los dispositivos RAID.
+> * `mdadm` es una herramienta para gestionar los dispositivos RAID.
 > * `--create /dev/md1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
 > * `--level=1` el dispositivo a crear será un RAID-1.
 > * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
+
+## 2.3 Comprobar RAID-1
 
 * Para comprobar si se ha creado el raid1 correctamente:
 
@@ -106,7 +109,7 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
 ```
 * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md1`
 
-## 2.3 Escribir datos en el RAID-1
+## 2.4 Escribir datos en el RAID-1
 
 * Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
 * Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
@@ -119,33 +122,42 @@ mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
     * Directorio `/mnt/raid1/endor`
     * Fichero `/mnt/raid1/endor/sandtrooper.txt`
 
-## 2.4 Configuración de RAID-1
+## 2.5 Configuración de RAID-1
 
 Si reiniciamos la MV vamos a perder la configuración RAID1.
 Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada reinicio del sistema.
 
-* Hacer un snapshot de la MV por seguridad.
-* Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
-* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
-* Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
-La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
-* `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
-* Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
+Podemos hacer la configuración permanente por `Yast -> paritcionador` o por comandos.
 
-> **Redirección**
+> A continuación ejemplo por comandos:
+>
+> * Hacer un snapshot de la MV por seguridad.
+> * Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
+> * Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
+> * Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
+La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
+> * `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
+> * Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
+
+---
+
+> **INFO: Redirección**
 >
 > * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
 Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
 
-* `sudo mkinitrd`, tenemos que actualizar el fichero initramfs, de modo que contenga las configuraciones de nuestro mdadm.conf durante el arranque.
+---
+
+> * `sudo mkinitrd`, tenemos que actualizar el fichero initramfs, de modo que contenga las configuraciones de nuestro mdadm.conf durante el arranque.
 * Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
 
-## 2.5 Montaje automático
+## 2.6 Montaje automático
 
 > El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
 
-Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
+Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
 
+A continuación ejemplo por comandos:
 * Hacer una copia de seguridad del archivo `/etc/fstab`.
 * Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
 * Añadir la siguiente línea al fichero `/etc/fstab`:
