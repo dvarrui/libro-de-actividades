@@ -34,7 +34,6 @@ zypper in docker              # Instala docker
 systemctl start docker        # Inicia el servicio
                               # "docker daemon" hace el mismo efecto
 docker version                # Debe mostrar información del cliente y del servidor
-usermod -a -G docker USERNAME # Añade permisos a nuestro usuario
 ```
 * Salir de la sesión y volver a entrar con nuestro usuario.
 * Ejecutar con nuestro usuario para comprobar que todo funciona:
