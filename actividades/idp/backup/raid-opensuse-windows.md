@@ -53,13 +53,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Instalar el SSOO
     * Por esta vez sin swap (Área de intercambio).
-    * Tampoco vamos a crear una partición independiente para `/home`
-
-| Dispositivo   | Formato | Montar    |
-| ------------- | ------- | --------- |
-| /dev/sda1     | ext3    | /boot     |
-| /dev/sda2     | fat32   | /boot/efi |
-| /dev/raid0aXX | btrfs   | /         |
+    * Tampoco vamos a crear una partición independiente para `/home`.
 
 > * El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 > * Hemos creado un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
