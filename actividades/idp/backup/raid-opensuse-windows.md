@@ -18,7 +18,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 ## 1.1 Creación de la MV
 
 * Crear una máquina virtual nueva con 3 discos virtuales SATA:
-    * (a) 100MB,
+    * (a) 200MB,
     * (b) 10GB
     * (c) 10GB.
 
@@ -28,27 +28,41 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Empezamos el proceso de instalación.
 * Elegimos particionado experto o manual.
+* Preparamos los discos para el RAID:
+    * Hacemos una partición sdb1 que coja todo el disco con formato `Volumen físico RAID`.
+    * Hacemos una partición sdc1 que coja todo el disco con formato `Volumen físico RAID`.
 
-> Para hacer el RAID-0:
->
-> * Hacemos una partición que coja todo el disco (sdb) y otra para el (sdc)
-> * Elegimos tipo RAID para cada partición (sdb1) y (sdc1).
-> * Luego debemos ir a `RAID`, y elegimos que queremos hacer un raid0, con las particiones (sdb1) y (sdc1).
-> * Cuando veamos las siglas 'MD', se refieren a "MultiDisks". Esto es un conjunto de discos RAID.
-> * Por esta vez sin swap (Área de intercambio).
-> * Tampoco vamos a crear una partición independiente para `/home`
+| Dispositivo   | Size   | Tipo      | Formato |
+| ------------- | ------ | --------- | ------- |
+| /dev/sdb1     |  10 GB | Partición | RAID    |
+| /dev/sdc2     |  10 GB | Partición | RAID    |
 
-* El sistema de arranque irá en el disco (a). En el disco (a), creamos una partición `ext3` y montamos `/boot`. Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-* En los discos (b) y (c), creamos una partición completa de tipo `Volumen físico RAID`.
-* Crearemos un dispositivo RAID0 llamado `/dev/raid0`. Vamos a crear una partición que coja el RAID0 completo. Dentro de esta partición vamos a instalar el sistema operativo.
+* Creamos el nuevo volumen RAID-0:
+    * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `raid0aXX`. Hemos conseguido lo siguiente:
 
-Veamos una secuencia de imágenes de ejemplo:
+| Dispositivo   | Size   | Tipo      | Formato | Montar    |
+| ------------- | ------ | --------- | ------- | --------- |
+| /dev/raid0aXX |  10 GB | Partición | btrfs   | /         |
 
-![raid-opensuse-01.png](./images/raid-opensuse-01.png)
+* Crear las siguientes particiones:
 
-![raid-opensuse-02.png](./images/raid-opensuse-02.png)
+| Dispositivo   | Size   | Tipo      | Formato | Montar    |
+| ------------- | ------ | --------- | ------- | --------- |
+| /dev/sda1     | 150 MB | Partición | ext3    | /boot     |
+| /dev/sda2     |  50 MB | Partición | fat32   | /boot/efi |
 
-![raid-opensuse-03.png](./images/raid-opensuse-03.png)
+* Instalar el SSOO
+    * Por esta vez sin swap (Área de intercambio).
+    * Tampoco vamos a crear una partición independiente para `/home`
+
+| Dispositivo   | Formato | Montar    |
+| ------------- | ------- | --------- |
+| /dev/sda1     | ext3    | /boot     |
+| /dev/sda2     | fat32   | /boot/efi |
+| /dev/raid0aXX | btrfs   | /         |
+
+> * El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
+> * Hemos creado un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
