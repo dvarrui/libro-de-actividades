@@ -139,46 +139,25 @@ mdadm --detail /dev/raid1aXX # Muestra info del disposivo RAID1
 
 ## 2.5 Configuración de RAID-1
 
+* Hacer un snapshot de la MV por seguridad.
+
 Si reiniciamos la MV vamos a perder la configuración RAID1.
-Vamos a configurar mdadm.conf para que RAID1 pierda su configuración con cada reinicio del sistema.
+Para que la configuración de RAID-1 sea permanente hay que escribir los datos en el fichero mdadm.conf. De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
 
-Podemos hacer la configuración permanente por `Yast -> paritcionador` o por comandos.
-
-> A continuación ejemplo por comandos:
->
-> * Hacer un snapshot de la MV por seguridad.
-> * Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
-> * Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
-> * Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
-La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
-> * `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
-> * Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
-
----
-
-> **INFO: Redirección**
->
-> * Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
-Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
-
----
-
-> * `sudo mkinitrd`, tenemos que actualizar el fichero initramfs, de modo que contenga las configuraciones de nuestro mdadm.conf durante el arranque.
-* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
+* Podemos hacer la configuración RAID-1 permanente usando `Yast -> particionador`.
+* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho. Hemos conseguido tener la configuración RAID-1 permanente.
 
 ## 2.6 Montaje automático
 
 > El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
 
-Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
+Vamos a configurar `/etc/fstab` para que el disco raid1aXX se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
 
-A continuación ejemplo por comandos:
+* Hacer un snapshot de la MV por seguridad.
 * Hacer una copia de seguridad del archivo `/etc/fstab`.
-* Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
-* Añadir la siguiente línea al fichero `/etc/fstab`:
-```
-/dev/md1 /mnt/raid1 ext4 defaults 0 2
-```
+* Ir a `Yast -> Particionador`
+* Configurar para que el disco /dev/raid1aXX se monte automáticamente en cada reinicio en /mnt/raid1discoXX.
+* Consultar el fichero `/etc/fstab` resultante.
 
 ---
 
@@ -194,11 +173,12 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > Para sincronizar los discos RAID1:
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
-* `mdadm --detail /dev/md1`, comprobamos que de los dos discos configurados, sólo hay uno.
-* `mdadm /dev/md1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
-* `mdadm --detail /dev/md1`, comprobamos que están los dos.
+* `mdadm --detail /dev/raid1aXX`, comprobamos que de los dos discos configurados, sólo hay uno.
+* `mdadm /dev/raid1aXX --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
+* `mdadm --detail /dev/raid1aXX`, comprobamos que están los dos.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
+
 ```
 date
 fdisk -l
@@ -214,39 +194,43 @@ cat /etc/mdadm/mdadm.conf
 
 # 4. Discos dinámicos en Windows
 
-* Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte
-para implementar RAID5.
+* Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte para implementar RAID5.
 
-En windows las particiones se llaman volúmenes básicos.
+En windows las particiones normales se llaman `volúmenes básicos`.
 
 Para poder hacer RAID se convierten los volúmenes básicos en dinámicos.
-* Reflejo: RAID1
-* Seccionado: RAID0 con todos los discos de igual tamaño.
-* Distribuido: parecido a RAID0 usando discos de distinto tamaño.
 
-## 4.1 Volumen Seccionado (RAID0)
+| Nomenclatura Windows | Nomenclatura RAID   |
+| -------------------- | ------------------- |
+| Volumen básico       | Partición           |
+| Volumen dinámico     | Partición tipo RAID |
+| Reflejo              | RAID-1              |
+| Seccionado           | RAID-0 (Todos los discos de igual tamaño) |
+| Distribuido          | LVM (Parecido a RAID-0 pero usando discos de distinto tamaño |
+
+## 4.1 Volumen Seccionado (RAID-0)
 
 Vamos a crear un volumen *seccionado*:
 * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
-* Crea un volumen seccionado con un tamaño total de 800MB,utilizando para ello 4 discos duros virtuales de 200 MB cada uno.
+* Añadir a la MV 4 discos duros virtuales de 200 MB cada uno.
+* Crea un volumen seccionado con un tamaño total de 800 MB, utilizando los discos anteriores.
 
-> Un volumen Seccionado es similar a un RAID0, donde todos los discos de igual tamaño.
-
-## 4.2 Volumen Reflejado (RAID1)
+## 4.2 Volumen Reflejado (RAID-1)
 
 Un volumen *Reflejado* es similar a un RAID1.
 * Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
 
-* Crea un par de volúmenes reflejados de 200 MB cada uno, con los discos anteriormente utilizados.
-* Crear un fichero `prueba-mirror.txt` en el volumen reflejado. Escribe tu nombre dentro.
+* Usar los 4 discos de 200 MB anteriores para crear un volúmen reflejado de 200 MB.
+* Crear un fichero `mirror-pruebaXX.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
 
-## 4.3 Pregunta RAID5
+## 4.3 Pregunta RAID-5
 
+* ¿Qué es RAID-5?
 * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 * Investiga acerca de cómo crear en Windows un Raid-5 por software y detalla la respuesta.
 
@@ -254,24 +238,45 @@ Un volumen *Reflejado* es similar a un RAID1.
 
 # ANEXO
 
-## A1: proceso para OpenSUSE
+## A 2.5 Configuración de RAID-1 por comandos
 
-RAID0
-* Crear MV con los discos
-* Elegit idioma e instalar
-* Particionador modo experto
-* sda1 ext3 /boot
-* sdb1 (volumen bruto) -> raid
-* sdc1 (volumen bruto) -> raid
-* Raid0 -> Añadir 2 particiones
-* Siguiente -> Volumen para SO
-* Elegir ext4 /
-* Sin swap
-* Escritorio XFce
-RAID1
-* Crear discos VBox
-* Iniciar MV
-* Yast -> Particionador
-* crear particiones raid
-* Crear md1 , montar y formatear
-* usar dispositivio raid1
+* Hacer un snapshot de la MV por seguridad.
+
+Si reiniciamos la MV vamos a perder la configuración RAID1.
+Para que la configuración de RAID-1 sea permanente hay que escribir los datos en el fichero mdadm.conf. De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
+
+Podemos hacer la configuración permanente cambiando el fichero `mdadm.conf`directamente, o usando `Yast -> particionador`.
+
+* Hacer una copia de seguridad del archivo `/etc/mdadm/mdadm.conf`.
+* Consultar el fichero `/etc/mdadm/mdadm.conf`. Este archivo de configuración sólo tiene una línea ARRAY correspondiente al RAID0.
+* Para añadir una segunda línea ARRAY para el RAID1, nos ayudamos de la salida del comando siguiente: `mdadm --examine --scan`.
+La información correspondiente al RAID1 la tenemos que incluir nosotros en el fichero de configuración.
+* `mdadm --examine --scan >> /etc/mdadm/mdadm.conf`, de esta forma estamos añadiendo la salida del comando al fichero de configuración.
+* Ahora hay que editar el fichero de configuración para dejer sólo 2 líneas ARRAY: una para RAID0 y otra para RAID1.
+
+**INFO: Redirección**
+
+* Si usamos la redirección de comandos, es más fácil escribir la configuración anterior.
+Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiendo la salida de un comando al fichero de texto.
+* `sudo mkinitrd`, tenemos que actualizar el fichero initramfs, de modo que contenga las configuraciones de nuestro mdadm.conf durante el arranque.
+
+**Comprobamos**
+* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho.
+* Ya hemos conseguido tener la configuración RAID-1 permanente.
+
+---
+
+## A 2.6 Montaje automático
+
+> El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
+
+Vamos a configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
+
+A continuación ejemplo por comandos:
+* Hacer un snapshot de la MV por seguridad.
+* Hacer una copia de seguridad del archivo `/etc/fstab`.
+* Configurar `/etc/fstab` para que el disco raid1 se monte automáticamente en cada reinicio.
+* Añadir la siguiente línea al fichero `/etc/fstab`:
+```
+/dev/md1 /mnt/raid1 ext4 defaults 0 2
+```
