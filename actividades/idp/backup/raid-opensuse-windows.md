@@ -37,12 +37,16 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | /dev/sdb1     |  10 GB | Partición | RAID    |
 | /dev/sdc2     |  10 GB | Partición | RAID    |
 
+> Vamos a crear un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
+
 * Creamos el nuevo volumen RAID-0:
     * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `raid0aXX`. Hemos conseguido lo siguiente:
 
 | Dispositivo   | Size   | Tipo      | Formato | Montar    |
 | ------------- | ------ | --------- | ------- | --------- |
-| /dev/raid0aXX |  10 GB | Partición | btrfs   | /         |
+| /dev/raid0aXX |  20 GB | Partición | btrfs   | /         |
+
+> El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
 * Crear las siguientes particiones:
 
@@ -51,14 +55,9 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | /dev/sda1     | 150 MB | Partición | ext3    | /boot     |
 | /dev/sda2     |  50 MB | Partición | fat32   | /boot/efi |
 
-* Instalar el SSOO
+* Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
     * Por esta vez sin swap (Área de intercambio).
     * Tampoco vamos a crear una partición independiente para `/home`.
-
-> * El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-> * Hemos creado un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
-
-* Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
 ## 1.3 Comprobación
 
@@ -80,16 +79,18 @@ lsblk -fm            # Muestra esquema de discos/particiones/montaje
 
 # 2. RAID-1 software
 
-> **IMPORTANTE**
-> * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
-> * Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
+**IMPORTANTE**
+* Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
+* Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
 
-Ahora vamos a añadir al sistema anterior, dos discos más para montar un RAID-1 software.
+Ahora vamos a añadir a la MV anterior, dos discos más para montar un RAID-1 software.
 
 ## 2.1 Preparar la MV
 
 Realizar las siguientes tareas:
-* Crear 2 discos virtuales: (d) 500MB, (e) 500MB. Importante: (d) y (e) deben ser del mismo tamaño.
+* Crear 2 discos virtuales (Importante: (d) y (e) deben ser del mismo tamaño):
+    * (d) 500MB
+    * (e) 500MB.
 * Reiniciar la MV
 * Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 
@@ -99,10 +100,12 @@ Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 * Podemos crear el RAID1 de varias formas:
     * Usar `Yast -> particionador` para crear el RAID-1.
-    * `mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`
+    * `mdadm --create /dev/raid1aXX --level=1 --raid-devices=2 /dev/sdd /dev/sde`, crearlo por comandos.
 
+> **Aclaración**
+>
 > * `mdadm` es una herramienta para gestionar los dispositivos RAID.
-> * `--create /dev/md1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
+> * `--create /dev/raid1aXX`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
 > * `--level=1` el dispositivo a crear será un RAID-1.
 > * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
 
@@ -111,24 +114,28 @@ Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 * Para comprobar si se ha creado el raid1 correctamente:
 
 ```
-cat /proc/mdstat        # Muestra info de discos RAID
-lsblk -fm               # Muestra info de los discos/particiones
-mdadm --detail /dev/md1 # Muestra info del disposivo RAID md1
+cat /proc/mdstat             # Muestra info de discos RAID
+lsblk -fm                    # Muestra info de los discos/particiones
+mdadm --detail /dev/raid1aXX # Muestra info del disposivo RAID1
 ```
-* Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md1`
+
+* Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/raid1aXX`
 
 ## 2.4 Escribir datos en el RAID-1
 
-* Montar el dispositivo RAID-1 (/dev/md1) en /mnt/raid1: `mount /dev/md1 /mnt/raid1`.
+> * Nombre del dispositivo DEVICE1=`raid1aXX`
+> * Nombre del directorio de montaje MPOINT1=`raid1discoXX`
+
+* Montar el dispositivo RAID-1: `mount /dev/DEVICE1 /mnt/MPOINT1`.
 * Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
 
-> Ahora podemos escribir información en /mnt/raid1.
+> Ahora podemos escribir información en /mnt/MPOINT1.
 
-* Crea lo siguiente en /mnt/raid1
-    * Directorio `/mnt/raid1/naboo`
-    * Fichero `/mnt/raid1/naboo/yoda.txt`
-    * Directorio `/mnt/raid1/endor`
-    * Fichero `/mnt/raid1/endor/sandtrooper.txt`
+* Crea lo siguiente en /mnt/MPOINT1
+    * Directorio `/mnt/MPOINT1/naboo`
+    * Fichero `/mnt/MPOINT1/naboo/yoda.txt`
+    * Directorio `/mnt/MPOINT1/endor`
+    * Fichero `/mnt/MPOINT1/endor/sandtrooper.txt`
 
 ## 2.5 Configuración de RAID-1
 

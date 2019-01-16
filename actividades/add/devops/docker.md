@@ -90,17 +90,17 @@ y dentro instalaremos Nginx.
 docker images          # Vemos las imágenes disponibles localmente
 docker search debian   # Buscamos en los repositorios de Docker Hub
                        # contenedores con la etiqueta `debian`
-docker pull debian:8   # Descargamos una imagen `debian:8` en local
+docker pull debian:9   # Descargamos una imagen `debian:9` en local
 docker images
 docker ps -a           # Vemos todos los contenedores
 docker ps              # Vemos sólo los contenedores en ejecución
 ```  
 
 * Vamos a crear un contenedor con nombre `con_debian` a partir de la
-imagen `debian:8`, y ejecutaremos `/bin/bash`:
+imagen `debian:9`, y ejecutaremos `/bin/bash`:
 
 ```
-docker run --name=con_debian -i -t debian:8 /bin/bash
+docker run --name=con_debian -i -t debian:9 /bin/bash
 
 (Estamos dentro del contenedor)
 root@IDContenedor:/# cat /etc/motd            # Comprobamos que estamos en Debian
