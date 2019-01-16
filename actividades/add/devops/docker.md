@@ -86,8 +86,6 @@ y dentro instalaremos Nginx.
 
 ## 5.1 Crear una imagen manualmente
 
-* Enlace de interés: [Cómo instalar y usar docker](http://codehero.co/como-instalar-y-usar-docker/)
-
 ```
 docker images          # Vemos las imágenes disponibles localmente
 docker search debian   # Buscamos en los repositorios de Docker Hub
