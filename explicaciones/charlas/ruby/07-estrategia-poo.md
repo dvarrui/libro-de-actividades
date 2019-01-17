@@ -1,7 +1,7 @@
 
 # I Love Ruby
 
-![](./images/libro.png)
+![](./images/iloveruby.png)
 
 ---
 
@@ -11,8 +11,21 @@
 * Programación Estructurada: Subrutinas y 3 estructuras básicas.
 * Programación modular: dividir en subprogramas.
 * POO (Programación Orientada a Objetos)
-* Diseño de Patrones (POO)
-* Algunos aspectos del estilo de programación funcional.
+
+---
+
+# Diseño de Patrones
+
+![](./images/libro.png)
+
+* ITERADOR
+* Singleton
+* Decorador
+* Builder
+* Observer
+* Template
+* Wrapper
+* Etc.
 
 ---
 
@@ -39,6 +52,8 @@ jedi.saludar # => Hola, me llamo Obiwan
 ---
 
 # Imperativo vs funcional
+
+* Ruby incluye algunos aspectos del estilo de programación funcional.
 
 | Paradigma  | Descripción |
 | ---------- | ----------- |
