@@ -17,5 +17,4 @@ Hablaremos de:
 * Ejemplos
 ```
 
-> No esperes al final para
-Preguntar. ;-)
+> No esperes al final para preguntar. ;-)
