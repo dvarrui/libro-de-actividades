@@ -62,3 +62,38 @@ Ejemplo 2:
 El uso de los bloques permite aplicar el paradigma funcional (al menos en parte).
 
 > ¡El estilo Ruby!
+
+---
+
+# Estructura iterativa (III): los arrays
+
+Ejemplo 1:
+
+```
+a = Array.new
+a << 4
+a << 5
+a << 6
+
+puts a
+```
+* <a> es [3,14,27]
+* <a> es un objeto Array
+
+Ejemplo 2:
+
+```
+a = [3, 14, 27]
+a.each do |i|
+  a << 3
+  puts i
+end
+
+puts a
+```
+
+* <each> es un método del objeto a
+* <a> es un objeto Array
+* Estilo de programación funcional.
+
+> El iterador por todas partes...
