@@ -2,7 +2,7 @@
 
 # I Love Ruby
 
-![](./images/fiesta.png)
+![](images/allyouneedislove.png)
 
 ---
 

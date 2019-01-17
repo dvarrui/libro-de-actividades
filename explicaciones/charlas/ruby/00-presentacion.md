@@ -18,6 +18,10 @@ me = {
 }
 ```
 
+---
+
+# Restricciones
+
 ```
 > whoami
 Ruby
