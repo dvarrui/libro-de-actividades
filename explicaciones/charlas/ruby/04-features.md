@@ -13,3 +13,4 @@
 * Muchas bibliotecas (rubygems)
 * Fácil de leer. Muy expresivo. Lenguage Natural...
 * No necesita IDE... _¡Lo sé! Aquí vamos a discutir_
+* Tenemos a `irb` Intérprete interactivo.
