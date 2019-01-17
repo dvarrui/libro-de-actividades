@@ -11,7 +11,8 @@
 * Programación Estructurada: Subrutinas y 3 estructuras básicas.
 * Programación modular: dividir en subprogramas.
 * POO (Programación Orientada a Objetos)
-* Diseño de Patrones
+* Diseño de Patrones (POO)
+* Algunos aspectos del estilo de programación funcional.
 
 ---
 
@@ -34,6 +35,17 @@ end
 jedi = Persona.new("Obiwan")
 jedi.saludar # => Hola, me llamo Obiwan
 ```
+
+---
+
+# Imperativo vs funcional
+
+| Paradigma  | Descripción |
+| ---------- | ----------- |
+| Imperativo | decir cómo hacer algo para llegar a un objetivo |
+| Funcional  | decir qué queremos conseguir sin especificar el cómo|
+
+> La POO está muy asentada, pero la programación funcional puede darnos algunas facilidades.
 
 ---
 
