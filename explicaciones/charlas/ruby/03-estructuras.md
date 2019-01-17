@@ -28,7 +28,7 @@ puts a + b
 # “HelloWorld”
 ```
 
-**Rule1: Declaración de variables dinámica.**
+**Rule1:** _Declaración de variables dinámica._
 
 Ejemplo 3
 ```
@@ -43,4 +43,4 @@ puts a + b
          Integer into String
 ```
 
-**Rule2: Tipado fuerte.**
+**Rule2:** _Tipado fuerte._
