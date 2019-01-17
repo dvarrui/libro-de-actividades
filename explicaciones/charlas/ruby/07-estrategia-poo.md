@@ -1,15 +1,14 @@
 
-
 # I Love Ruby
 
-![](./images/iloveruby.png)
+![](./images/libro.png)
 
 ---
 
 # Estrategias para programar
 
 * Estructuras de control (Secuencial, condicional, repetitiva)
-* Programacion Estructurada: Subrutinas y 3 estructuras básicas.
+* Programación Estructurada: Subrutinas y 3 estructuras básicas.
 * Programación modular: dividir en subprogramas.
 * POO (Programación Orientada a Objetos)
 * Diseño de Patrones
