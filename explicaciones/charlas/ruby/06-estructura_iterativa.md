@@ -5,7 +5,7 @@
 
 ---
 
-# Estructura iterativa: los bucles (I)
+# Estructura iterativa (I): los bucles
 
 Ejemplo 1:
 ```
@@ -34,9 +34,7 @@ Ruby tiene integrado completamente el paradigma de programación orientado a obj
 
 ---
 
----
-
-# Estructura iterativa: los bucles (II)
+# Estructura iterativa (II): iterar
 
 Ejemplo 1:
 
