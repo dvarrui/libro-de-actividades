@@ -11,11 +11,11 @@ de pantalla/fotos de los pasos realizados.
 
 ---
 
-# 2. Clonación
+# 2. Preparativos
 
-## 2.1 Preparamos el segundo disco
+## Preparamos el segundo disco
 
-* Usaremos una MV BIOS con OpenSUSE para esta práctica.
+* Escojamos una MV (Preferiblemente una MV BIOS con OpenSUSE) que ya tengamos instalada y que estemos usando.
 * Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
@@ -23,7 +23,9 @@ de pantalla/fotos de los pasos realizados.
 * Descargar la ISO con Clonezilla del servidor Leela
 (Descargar la más reciente).
 
-## 2.2 Iniciamos Clonezilla
+---
+
+# 3. Iniciamos Clonezilla
 
 ![vbox-add-hdd.png](./images/vbox-add-hdd.png)
 
@@ -36,7 +38,9 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * `Beginner`
 * `disco-local a disco-local`
 
-## 2.3 Configurar el gestor de arranque
+---
+
+# 4. Configurar el gestor de arranque
 
 Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
@@ -48,7 +52,7 @@ Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
 ---
 
-# 3. Comprobamos
+# 5. Comprobamos
 
 * Reiniciar la MV.
 * Iniciar el SO2,
