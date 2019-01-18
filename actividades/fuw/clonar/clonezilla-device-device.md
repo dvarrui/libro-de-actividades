@@ -36,18 +36,19 @@ Iniciar la MV con la distro Clonezilla para realizar una clonación del tipo *de
 * `device-device`
 * `Beginner`
 * `disco-local a disco-local`
-* `Elegir reiniciar/apagar/etc cuando esté todo terminado`
-* Capurar imagen del comando con parámetros que aparece en la consola antes de
-confirmar del inicio del proceso.
+* `Elegir abrir una sesión` cuando termine la clonación.
+* Capturar imagen del comando con parámetros (Texto de color verde que se muestra en la pantalla) y que aparece en la consola antes de confirmar del inicio del proceso.
+* Confirmamos para que inicie la clonación.
+* Al terminar la clonación se abre un teminal.
 * Consultar archivo `/tmp/ocs-onthefly-...`. Este fichero contiene el comando y los parámetros necesarios para realizar la tarea de clonación.
-
+* Ahora ya podemos apagar la MV y quitar CDLive.
 ---
 
 # 4. Comprobamos
 
 * Quitamos el disco `clonado`. Capturar imagen VBox de los discos.
 * Iniciar el sistema.
-* Crear archivo `/home/profesor/Documentos/disco-original.txt`.
+* Crear archivo `/home/NOMBREUSUARIO/Documentos/disco-original.txt`.
 * Quitamos el disco `original`, añadimos el disco `clonado`. Capturar imagen VBox de los discos.
 * Iniciamos el sistema.
 * Comprobamos que no están los archivos que habíamos creado.
