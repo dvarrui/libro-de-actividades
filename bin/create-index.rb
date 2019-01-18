@@ -6,7 +6,7 @@ puts format('`Fecha UM: %s`',Time.now.to_s)
 puts ''
 
 def recorre_dir(parentdir, tab = '', input = [])
-  filter = ['files', 'images']
+  filter = ['files', 'images', 'REV', 'REVISAR']
   items = Dir.entries(parentdir) - [ '.', '..']
   items.sort!
   output = input

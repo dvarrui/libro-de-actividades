@@ -1,13 +1,9 @@
 # Índice de actividades
 
-`Fecha UM: 2019-01-18 20:24:02 +0000`
+`Fecha UM: 2019-01-18 20:25:35 +0000`
 
 * [idp](actividades/idp) 13
     * [aplicaciones](actividades/idp/aplicaciones) 7
-        * [REVISAR](actividades/idp/aplicaciones/REVISAR) 3
-            * [compilar.md](actividades/idp/aplicaciones/REVISAR/compilar.md)
-            * [enlaces-de-interes.md](actividades/idp/aplicaciones/REVISAR/enlaces-de-interes.md)
-            * [revisar.md](actividades/idp/aplicaciones/REVISAR/revisar.md)
         * [opensuse-apariencia.md](actividades/idp/aplicaciones/opensuse-apariencia.md)
         * [passwords-w7-opensuse.md](actividades/idp/aplicaciones/passwords-w7-opensuse.md)
         * [passwords_and_sources-w7_debian.md](actividades/idp/aplicaciones/passwords_and_sources-w7_debian.md)
@@ -72,7 +68,6 @@
     * [tests](actividades/idp/tests) 1
         * [trim1.md](actividades/idp/tests/trim1.md)
 * [fuw](actividades/fuw) 12
-    * [REV](actividades/fuw/REV) 0
     * [almacenamiento](actividades/fuw/almacenamiento) 11
         * [iscsi-opensuse.md](actividades/fuw/almacenamiento/iscsi-opensuse.md)
         * [iscsi-windows.md](actividades/fuw/almacenamiento/iscsi-windows.md)
