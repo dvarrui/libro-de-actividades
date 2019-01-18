@@ -65,6 +65,7 @@ Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
 
 ## Guía para clonar en la partición sda7
 
+```
     Apagar el PC. Reiniciar y entrar en el SO de la partición sda7.
     Reiniciar equipo con CD Clonezilla.
     es_ES idioma español
@@ -87,3 +88,4 @@ Vamos a modificar el gestor de arranque para que detecte los dos SO instalados.
     Esperamos y cuando termine se apaga el equipo.
     Quitar CD y pendrive del PC
     Iniciar SO sda7 para comprobar el proceso.
+```

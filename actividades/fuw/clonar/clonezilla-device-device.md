@@ -6,8 +6,7 @@ Vamos a hacer una práctica de clonación usando el software Clonezilla.
 # 1. Entrega
 
 * Trabajar de forma individual.
-* Entregar un informe del trabajo realizado acompañado de capturas
-de pantalla/fotos de los pasos realizados.
+* Entregar secuencia de imágenes de cada uno de los pasos del trabajo realizado.
 
 ---
 
