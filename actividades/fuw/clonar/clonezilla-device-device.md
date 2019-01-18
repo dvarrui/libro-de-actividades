@@ -12,7 +12,7 @@ Vamos a hacer una práctica de clonación usando el software Clonezilla.
 
 # 2. Preparativos
 
-* Escojamos una MV (Preferiblemente una MV con OpenSUSE) que ya tengamos instalada y que estemos usando.
+* Escojamos una MV que ya tengamos instalada y que estemos usando.
 * Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.

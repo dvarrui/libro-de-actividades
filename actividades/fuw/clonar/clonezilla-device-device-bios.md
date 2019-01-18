@@ -15,7 +15,7 @@ de pantalla/fotos de los pasos realizados.
 
 ## Preparamos el segundo disco
 
-* Escojamos una MV (Preferiblemente una MV BIOS con OpenSUSE) que ya tengamos instalada y que estemos usando.
+* Escojamos una MV que ya tengamos instalada y que estemos usando.
 * Añadir un 2º disco duro del mismo tamaño que el disco original (Puede ser un poco mayor, pero nunca menor).
     * VirtualBox -> Seleccionar MV.
     * Configuración -> Almacenamiento -> SATA.
