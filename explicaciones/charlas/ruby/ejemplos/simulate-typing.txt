@@ -1,4 +1,0 @@
-pwd
-whoami
-ls
-vdir
