@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2019-01-18 20:21:40 +0000`
+`Fecha UM: 2019-01-18 20:24:02 +0000`
 
 * [idp](actividades/idp) 13
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -8,7 +8,6 @@
             * [compilar.md](actividades/idp/aplicaciones/REVISAR/compilar.md)
             * [enlaces-de-interes.md](actividades/idp/aplicaciones/REVISAR/enlaces-de-interes.md)
             * [revisar.md](actividades/idp/aplicaciones/REVISAR/revisar.md)
-        * [images](actividades/idp/aplicaciones/images) 5
         * [opensuse-apariencia.md](actividades/idp/aplicaciones/opensuse-apariencia.md)
         * [passwords-w7-opensuse.md](actividades/idp/aplicaciones/passwords-w7-opensuse.md)
         * [passwords_and_sources-w7_debian.md](actividades/idp/aplicaciones/passwords_and_sources-w7_debian.md)
@@ -16,7 +15,6 @@
         * [w7-opensuse.md](actividades/idp/aplicaciones/w7-opensuse.md)
     * [backup](actividades/idp/backup) 7
         * [README.md](actividades/idp/backup/README.md)
-        * [images](actividades/idp/backup/images) 24
         * [lvm-debian-windows.md](actividades/idp/backup/lvm-debian-windows.md)
         * [raid-debian-windows.md](actividades/idp/backup/raid-debian-windows.md)
         * [raid-opensuse-windows.md](actividades/idp/backup/raid-opensuse-windows.md)
@@ -27,13 +25,11 @@
         * [debian-windows_xp.md](actividades/idp/boot-loader/debian-windows_xp.md)
         * [grub](actividades/idp/boot-loader/grub) 1
             * [pendiente.md](actividades/idp/boot-loader/grub/pendiente.md)
-        * [images](actividades/idp/boot-loader/images) 3
     * [comandos](actividades/idp/comandos) 2
         * [comandos-01.md](actividades/idp/comandos/comandos-01.md)
         * [enlaces.md](actividades/idp/comandos/enlaces.md)
     * [debate.md](actividades/idp/debate.md)
     * [dominios](actividades/idp/dominios) 6
-        * [files](actividades/idp/dominios/files) 17
         * [pdc-cliente-opensuse.md](actividades/idp/dominios/pdc-cliente-opensuse.md)
         * [pdc-cliente-ubuntu-debian.md](actividades/idp/dominios/pdc-cliente-ubuntu-debian.md)
         * [pdc-politicas.md](actividades/idp/dominios/pdc-politicas.md)
@@ -42,20 +38,16 @@
     * [exposicion.md](actividades/idp/exposicion.md)
     * [instalacion](actividades/idp/instalacion) 5
         * [desatendida](actividades/idp/instalacion/desatendida) 4
-            * [files](actividades/idp/instalacion/desatendida/files) 3
             * [opensuse.md](actividades/idp/instalacion/desatendida/opensuse.md)
             * [ubuntu-debian.md](actividades/idp/instalacion/desatendida/ubuntu-debian.md)
             * [windows.md](actividades/idp/instalacion/desatendida/windows.md)
         * [instalacion-dual](actividades/idp/instalacion/instalacion-dual) 3
             * [README.md](actividades/idp/instalacion/instalacion-dual/README.md)
-            * [images](actividades/idp/instalacion/instalacion-dual/images) 10
             * [triple-efi-gpt.md](actividades/idp/instalacion/instalacion-dual/triple-efi-gpt.md)
         * [instalacion-personalizada](actividades/idp/instalacion/instalacion-personalizada) 2
             * [README.md](actividades/idp/instalacion/instalacion-personalizada/README.md)
-            * [images](actividades/idp/instalacion/instalacion-personalizada/images) 2
         * [live-cd](actividades/idp/instalacion/live-cd) 2
             * [README.md](actividades/idp/instalacion/live-cd/README.md)
-            * [images](actividades/idp/instalacion/live-cd/images) 1
         * [servidor](actividades/idp/instalacion/servidor) 5
             * [debian.md](actividades/idp/instalacion/servidor/debian.md)
             * [opensuse.md](actividades/idp/instalacion/servidor/opensuse.md)
@@ -69,15 +61,12 @@
         * [eventos-locales-windows-debian.md](actividades/idp/monitorizar/eventos-locales-windows-debian.md)
         * [eventos-locales-windows-opensuse.md](actividades/idp/monitorizar/eventos-locales-windows-opensuse.md)
         * [eventos-remotos-rsyslog.md](actividades/idp/monitorizar/eventos-remotos-rsyslog.md)
-        * [files](actividades/idp/monitorizar/files) 2
         * [grafana-influxdb-collectd.md](actividades/idp/monitorizar/grafana-influxdb-collectd.md)
         * [icinga-opensuse-windows.md](actividades/idp/monitorizar/icinga-opensuse-windows.md)
-        * [images](actividades/idp/monitorizar/images) 10
         * [nagios-debian-windows.md](actividades/idp/monitorizar/nagios-debian-windows.md)
     * [particiones](actividades/idp/particiones) 1
         * [README.md](actividades/idp/particiones/README.md)
     * [permisos](actividades/idp/permisos) 3
-        * [images](actividades/idp/permisos/images) 5
         * [permisos-acl-debian.md](actividades/idp/permisos/permisos-acl-debian.md)
         * [usuarios-y-permisos.md](actividades/idp/permisos/usuarios-y-permisos.md)
     * [tests](actividades/idp/tests) 1
@@ -85,7 +74,6 @@
 * [fuw](actividades/fuw) 12
     * [REV](actividades/fuw/REV) 0
     * [almacenamiento](actividades/fuw/almacenamiento) 11
-        * [files](actividades/fuw/almacenamiento/files) 23
         * [iscsi-opensuse.md](actividades/fuw/almacenamiento/iscsi-opensuse.md)
         * [iscsi-windows.md](actividades/fuw/almacenamiento/iscsi-windows.md)
         * [iscsi-ws2008.md](actividades/fuw/almacenamiento/iscsi-ws2008.md)
@@ -103,11 +91,9 @@
         * [clonezilla-device-device-bios.md](actividades/fuw/clonar/clonezilla-device-device-bios.md)
         * [clonezilla-device-device.md](actividades/fuw/clonar/clonezilla-device-device.md)
         * [clonezilla-remote-samba.md](actividades/fuw/clonar/clonezilla-remote-samba.md)
-        * [images](actividades/fuw/clonar/images) 6
         * [recuperacion-de-datos.md](actividades/fuw/clonar/recuperacion-de-datos.md)
     * [cpd](actividades/fuw/cpd) 4
         * [ceph.md](actividades/fuw/cpd/ceph.md)
-        * [files](actividades/fuw/cpd/files) 1
         * [italc.md](actividades/fuw/cpd/italc.md)
         * [kvm.md](actividades/fuw/cpd/kvm.md)
     * [intro](actividades/fuw/intro) 2
@@ -138,11 +124,8 @@
     * [clientes-ligeros](actividades/add/clientes-ligeros) 3
         * [README.md](actividades/add/clientes-ligeros/README.md)
         * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
-        * [images](actividades/add/clientes-ligeros/images) 5
     * [devops](actividades/add/devops) 6
         * [docker.md](actividades/add/devops/docker.md)
-        * [files](actividades/add/devops/files) 4
-        * [images](actividades/add/devops/images) 18
         * [puppet-debian.md](actividades/add/devops/puppet-debian.md)
         * [puppet-opensuse.md](actividades/add/devops/puppet-opensuse.md)
         * [vagrant.md](actividades/add/devops/vagrant.md)
@@ -152,8 +135,6 @@
         * [cups.md](actividades/add/impresion/cups.md)
         * [windows.md](actividades/add/impresion/windows.md)
     * [ldap](actividades/add/ldap) 7
-        * [files](actividades/add/ldap/files) 1
-        * [images](actividades/add/ldap/images) 12
         * [ldap-389ds-opensuse.md](actividades/add/ldap/ldap-389ds-opensuse.md)
         * [ldap-auth-debian.md](actividades/add/ldap/ldap-auth-debian.md)
         * [ldap-auth-samba.md](actividades/add/ldap/ldap-auth-samba.md)
@@ -161,7 +142,6 @@
         * [ldap-server-debian.md](actividades/add/ldap/ldap-server-debian.md)
     * [nfs](actividades/add/nfs) 2
         * [README.md](actividades/add/nfs/README.md)
-        * [images](actividades/add/nfs/images) 5
     * [procesos](actividades/add/procesos) 2
         * [limitar.md](actividades/add/procesos/limitar.md)
         * [presentacion.md](actividades/add/procesos/presentacion.md)
@@ -169,11 +149,9 @@
         * [trim1.md](actividades/add/proyecto/trim1.md)
     * [rdp](actividades/add/rdp) 2
         * [README.md](actividades/add/rdp/README.md)
-        * [images](actividades/add/rdp/images) 1
     * [samba](actividades/add/samba) 5
         * [README.md](actividades/add/samba/README.md)
         * [enlaces-de-interes.md](actividades/add/samba/enlaces-de-interes.md)
-        * [images](actividades/add/samba/images) 3
         * [samba-debian.md](actividades/add/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
     * [scripting](actividades/add/scripting) 4
@@ -181,7 +159,6 @@
         * [bash](actividades/add/scripting/bash) 4
             * [README.md](actividades/add/scripting/bash/README.md)
             * [agenda.md](actividades/add/scripting/bash/agenda.md)
-            * [files](actividades/add/scripting/bash/files) 8
             * [sysinfo.md](actividades/add/scripting/bash/sysinfo.md)
         * [power-shell](actividades/add/scripting/power-shell) 2
         * [ruby](actividades/add/scripting/ruby) 7
@@ -189,14 +166,10 @@
             * [create-users.md](actividades/add/scripting/ruby/create-users.md)
             * [delete-users.md](actividades/add/scripting/ruby/delete-users.md)
             * [enlaces-de-interes.md](actividades/add/scripting/ruby/enlaces-de-interes.md)
-            * [files](actividades/add/scripting/ruby/files) 5
-                * [create-files](actividades/add/scripting/ruby/files/create-files) 4
-                * [wget](actividades/add/scripting/ruby/files/wget) 3
             * [install-and-remove.md](actividades/add/scripting/ruby/install-and-remove.md)
             * [kill-these-processes.md](actividades/add/scripting/ruby/kill-these-processes.md)
     * [ssh](actividades/add/ssh) 4
         * [README.md](actividades/add/ssh/README.md)
-        * [images](actividades/add/ssh/images) 2
         * [opensuse](actividades/add/ssh/opensuse) 5
         * [ssh-debian-windows.md](actividades/add/ssh/ssh-debian-windows.md)
     * [tareas](actividades/add/tareas) 1
