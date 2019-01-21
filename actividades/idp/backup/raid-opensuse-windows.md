@@ -96,16 +96,18 @@ Realizar las siguientes tareas:
 
 ## 2.2 Crear RAID-1
 
-Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
+> * Nombre del dispositivo DEVICE1=`raid1aXX`
+
+Vamos a crear un RAID-1 con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 * Podemos crear el RAID1 de varias formas:
     * Usar `Yast -> particionador` para crear el RAID-1.
-    * `mdadm --create /dev/raid1aXX --level=1 --raid-devices=2 /dev/sdd /dev/sde`, crearlo por comandos.
+    * `mdadm --create /dev/DEVICE1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`, crearlo por comandos.
 
 > **Aclaración**
 >
 > * `mdadm` es una herramienta para gestionar los dispositivos RAID.
-> * `--create /dev/raid1aXX`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
+> * `--create /dev/DEVICE1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
 > * `--level=1` el dispositivo a crear será un RAID-1.
 > * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
 
@@ -114,19 +116,18 @@ Vamos a crear un RAID-1 (`/dev/md1`) con los discos (d) y (e)
 * Para comprobar si se ha creado el raid1 correctamente:
 
 ```
-cat /proc/mdstat             # Muestra info de discos RAID
-lsblk -fm                    # Muestra info de los discos/particiones
-mdadm --detail /dev/raid1aXX # Muestra info del disposivo RAID1
+cat /proc/mdstat               # Muestra info de discos RAID
+lsblk -fm                      # Muestra info de los discos/particiones
+mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 ```
 
-* Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/raid1aXX`
+* Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md/DEVICE1`
 
 ## 2.4 Escribir datos en el RAID-1
 
-> * Nombre del dispositivo DEVICE1=`raid1aXX`
 > * Nombre del directorio de montaje MPOINT1=`raid1discoXX`
 
-* Montar el dispositivo RAID-1: `mount /dev/DEVICE1 /mnt/MPOINT1`.
+* Montar el dispositivo RAID-1: `mount /dev/md/DEVICE1 /mnt/MPOINT1`.
 * Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
 
 > Ahora podemos escribir información en /mnt/MPOINT1.
