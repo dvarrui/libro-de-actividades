@@ -4,17 +4,23 @@
 
 ![logo](./docs/logo.png)
 
+---
+
 ## Características
 
 * Las actividades se guardan dentro del directorio [actividades](./actividades). Es la carpeta principal de este proyecto.
 * Los documentos se organizan por materias de la [siguiente forma](./actividades/README.md).
 * Cada documento es un fichero de texto simple que puede enlazar a otros documentos, imágenes o páginas web.
 
+---
+
 ## Licencia
+
+![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
 Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+---
 
 ## Otras preguntas
 
@@ -25,3 +31,5 @@ Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAl
 * [Proyectos similares](./docs/proyectos-similares.md)
 
 ¡Muchas gracias!
+
+Email:  teuton.software@protonmail.com
