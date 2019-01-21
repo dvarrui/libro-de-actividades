@@ -32,7 +32,7 @@ tener un plan B por si esto falla. Opciones:
 
 # 2. La charla/exposición
 
-* Fecha: lunes 28 de enero
+* Fecha: lunes 11 de febrero
 * Hora: 11:55 - 13:05
 * Lugar: la clase de turismo.
 
