@@ -12,9 +12,9 @@
 
 ## Licencia
 
-Los documentos del proyecto tiene licencia `Creative Commons License CC-BY-SA`.
+Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
 
-> [http://creativecommons.org/licenses/by-sa/3.0/de/legalcode](http://creativecommons.org/licenses/by-sa/3.0/de/legalcode)
+![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
 ## Otras preguntas
 
