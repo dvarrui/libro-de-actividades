@@ -145,7 +145,7 @@ crear una nueva imagen con los cambios que hemos hecho, para esto
 abrimos otra ventana de terminal y busquemos el IDContenedor:
 
 ```
-david@camaleon:~/devops> docker ps
+> docker ps
 CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
 7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
 ```
