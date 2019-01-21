@@ -94,7 +94,6 @@ docker pull debian:9 # Descargamos una imagen `debian:9` en local
 docker images
 docker ps -a         # Vemos todos los contenedores
 docker ps            # Vemos sólo los contenedores en ejecución
-                     # Si no se encuentra el comando, ¿lo podemos instalar?
 ```  
 
 * Vamos a crear un contenedor con nombre `con_debian` a partir de la
@@ -109,7 +108,8 @@ root@IDContenedor:/# apt-get update
 root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedor
 root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el contenedor
 root@IDContenedor:/# /usr/sbin/nginx          # Iniciamos el servicio nginx
-root@IDContenedor:/# ps -ef
+root@IDContenedor:/# ps -ef                   # Si no se encuentra el comando
+                                              # ¿lo podemos instalar?
 ```
 
 * Creamos un fichero HTML (`holamundo.html`).
