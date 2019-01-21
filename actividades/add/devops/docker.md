@@ -87,13 +87,14 @@ y dentro instalaremos Nginx.
 ## 5.1 Crear una imagen manualmente
 
 ```
-docker images          # Vemos las imágenes disponibles localmente
-docker search debian   # Buscamos en los repositorios de Docker Hub
-                       # contenedores con la etiqueta `debian`
-docker pull debian:9   # Descargamos una imagen `debian:9` en local
+docker images        # Vemos las imágenes disponibles localmente
+docker search debian # Buscamos en los repositorios de Docker Hub
+                     # contenedores con la etiqueta `debian`
+docker pull debian:9 # Descargamos una imagen `debian:9` en local
 docker images
-docker ps -a           # Vemos todos los contenedores
-docker ps              # Vemos sólo los contenedores en ejecución
+docker ps -a         # Vemos todos los contenedores
+docker ps            # Vemos sólo los contenedores en ejecución
+                     # Si no se encuentra el comando, ¿lo podemos instalar?
 ```  
 
 * Vamos a crear un contenedor con nombre `con_debian` a partir de la
