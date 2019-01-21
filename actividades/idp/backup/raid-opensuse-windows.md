@@ -186,7 +186,7 @@ fdisk -l
 df -hT
 cat /proc/mdstat
 lsblk -fm
-cat /etc/mdadm/mdadm.conf
+cat /etc/mdadm.conf
 ```
 
 > NOTA: Para consultar el UUID de una partición podemos usar el comando "blkid" o hacer "vdir /dev/disk/by-uuid".
