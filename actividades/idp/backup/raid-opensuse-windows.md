@@ -102,14 +102,18 @@ Vamos a crear un RAID-1 con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 * Podemos crear el RAID1 de varias formas:
     * Usar `Yast -> particionador` para crear el RAID-1.
-    * `mdadm --create /dev/DEVICE1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`, crearlo por comandos.
+    * Formato `ext4`.
 
-> **Aclaración**
+> **Aclaración**: crearlo por comandos.
+>
+> * `mdadm --create /dev/DEVICE1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`
 >
 > * `mdadm` es una herramienta para gestionar los dispositivos RAID.
 > * `--create /dev/DEVICE1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
 > * `--level=1` el dispositivo a crear será un RAID-1.
 > * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
+>
+> * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md/DEVICE1`
 
 ## 2.3 Comprobar RAID-1
 
@@ -121,7 +125,6 @@ lsblk -fm                      # Muestra info de los discos/particiones
 mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 ```
 
-* Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md/DEVICE1`
 
 ## 2.4 Escribir datos en el RAID-1
 
