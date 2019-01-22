@@ -40,11 +40,11 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 > Vamos a crear un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
 
 * Creamos el nuevo volumen RAID-0:
-    * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `raid0aXX`. Hemos conseguido lo siguiente:
+    * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `r0_deviceXX`. Hemos conseguido lo siguiente:
 
-| Dispositivo   | Size   | Tipo      | Formato | Montar    |
-| ------------- | ------ | --------- | ------- | --------- |
-| /dev/raid0aXX |  20 GB | Partición | btrfs   | /         |
+| Dispositivo      | Size   | Tipo      | Formato | Montar    |
+| ---------------- | ------ | --------- | ------- | --------- |
+| /dev/r0_deviceXX |  20 GB | Partición | btrfs   | /         |
 
 > El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
@@ -96,7 +96,7 @@ Realizar las siguientes tareas:
 
 ## 2.2 Crear RAID-1
 
-> * Nombre del dispositivo DEVICE1=`raid1aXX`
+> * Nombre del dispositivo DEVICE1=`r1_deviceXX`
 
 Vamos a crear un RAID-1 con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
@@ -128,7 +128,7 @@ mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 
 ## 2.4 Escribir datos en el RAID-1
 
-> * Nombre del directorio de montaje MPOINT1=`raid1discoXX`
+> * Nombre del directorio de montaje MPOINT1=`r1_discoXX`
 
 * Montar el dispositivo RAID-1: `mount /dev/md/DEVICE1 /mnt/MPOINT1`.
 * Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
@@ -146,10 +146,12 @@ mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 * Hacer un snapshot de la MV por seguridad.
 
 Si reiniciamos la MV vamos a perder la configuración RAID1.
-Para que la configuración de RAID-1 sea permanente hay que escribir los datos en el fichero mdadm.conf. De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
+Para que la configuración de RAID-1 sea permanente hay que "grabar" los datos en el fichero "mdadm.conf". De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
 
+* Consultar fichero `/etc/mdadm/mdadm.conf` antes de registrar el RAID1.
 * Podemos hacer la configuración RAID-1 permanente usando `Yast -> particionador`.
-* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho. Hemos conseguido tener la configuración RAID-1 permanente.
+* Consultar fichero `/etc/mdadm/mdadm.conf` después de registrar el RAID1.
+* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho. Hemos conseguido tener la configuración RAID-1 permanente. Compuébalo.
 
 ## 2.6 Montaje automático
 
