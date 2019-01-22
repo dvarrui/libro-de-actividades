@@ -46,6 +46,14 @@ docker images
 docker ps -a            # El contenedor está estado 'Exited'
 ```
 
+Tabla de referencia para no perderse:
+
+| Software   | Base   | Sirve para crear   |
+| ---------- | ------ | ------------------ |
+| VirtualBox | ISO    | Máquinas virtuales |
+| Vagrant    | Box    | Máquinas virtuales |
+| Docker     | Imagen | Contenedores       |
+
 ---
 
 # 4. Configuración de la red
@@ -237,7 +245,7 @@ docker ps -a
     * server.sh
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 ```
-FROM debian:8
+FROM debian:9
 
 MAINTAINER Nombre-del-Alumno 1.0
 
@@ -248,6 +256,7 @@ RUN apt-get install -y vim
 
 COPY holamundo.html /var/www/html
 RUN chmod 666 /var/www/html/holamundo.html
+
 
 COPY server.sh /root
 RUN chmod +x /root/server.sh
