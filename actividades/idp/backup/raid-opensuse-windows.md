@@ -81,42 +81,29 @@ lsblk -fm            # Muestra esquema de discos/particiones/montaje
 
 **IMPORTANTE**
 * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
-* Una vez que empiecen con los apartados 2.x,  NO apagar la MV. Sólo se puede apagar la MV cuando terminen el punto 2.4, se puede reiniciar la máquina sin perder los resultados.
-
-Ahora vamos a añadir a la MV anterior, dos discos más para montar un RAID-1 software.
 
 ## 2.1 Preparar la MV
 
-Realizar las siguientes tareas:
+Ahora vamos a añadir a la MV, varios discos para montar un RAID-1 software:
 * Crear 2 discos virtuales (Importante: (d) y (e) deben ser del mismo tamaño):
     * (d) 500MB
     * (e) 500MB.
 * Reiniciar la MV
 * Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 
-## 2.2 Crear RAID-1
+## 2.2 Crear y montar RAID-1
 
 > * Nombre del dispositivo DEVICE1=`r1_deviceXX`
+> * Nombre del directorio de montaje MPOINT1=`r1_discoXX`
 
 Vamos a crear un RAID-1 con los discos (d) y (e)
 (Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 * Podemos crear el RAID1 de varias formas:
     * Usar `Yast -> particionador` para crear el RAID-1.
     * Formato `ext4`.
+    * Montar en `/mnt/MPOINT1`
 
-> **Aclaración**:
->
-> Para hacerlo por comandos: `mdadm --create /dev/DEVICE1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`.
->
-> Explicación de los parámetros del comando anterior:
-> * `mdadm` es una herramienta para gestionar los dispositivos RAID.
-> * `--create /dev/DEVICE1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
-> * `--level=1` el dispositivo a crear será un RAID-1.
-> * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
->
-> * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md/DEVICE1`
-
-## 2.3 Comprobar RAID-1
+## 2.3 Comprobar RAID-1 y el montaje
 
 * Para comprobar si se ha creado el raid1 correctamente:
 
@@ -126,46 +113,30 @@ lsblk -fm                      # Muestra info de los discos/particiones
 mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 ```
 
+* Consultar fichero `/etc/mdadm/mdadm.conf`, veremos que hay registradas dons confiuraciones RAID. ¿Sabes cuál es cada una?
+* Comprobar si el dispositivo está correctamente montado:
+
+```
+df -hT | grep r1
+mount | gre r1
+```
+* Consultar el fichero `/etc/fstab` para comprobar que el dispositivo se montará automáticamente al reiniciarse.
 
 ## 2.4 Escribir datos en el RAID-1
 
-> * Nombre del directorio de montaje MPOINT1=`r1_discoXX`
-
-* Montar el dispositivo RAID-1: `mount /dev/md/DEVICE1 /mnt/MPOINT1`.
-* Con los comandos `df -hT` y `mount` podemos comprobar el paso anterior.
-
 > Ahora podemos escribir información en /mnt/MPOINT1.
 
-* Crea lo siguiente en /mnt/MPOINT1
-    * Directorio `/mnt/MPOINT1/naboo`
-    * Fichero `/mnt/MPOINT1/naboo/yoda.txt`
-    * Directorio `/mnt/MPOINT1/endor`
-    * Fichero `/mnt/MPOINT1/endor/sandtrooper.txt`
+Crea lo siguiente en /mnt/MPOINT1
+* Directorio `/mnt/MPOINT1/naboo`
+* Fichero `/mnt/MPOINT1/naboo/yoda.txt`
+* Directorio `/mnt/MPOINT1/endor`
+* Fichero `/mnt/MPOINT1/endor/sandtrooper.txt`
 
-## 2.5 Configuración de RAID-1
-
-* Hacer un snapshot de la MV por seguridad.
-
-Si reiniciamos la MV vamos a perder la configuración RAID1.
-Para que la configuración de RAID-1 sea permanente hay que "grabar" los datos en el fichero "mdadm.conf". De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
-
-* Consultar fichero `/etc/mdadm/mdadm.conf` antes de registrar el RAID1.
-* Podemos hacer la configuración RAID-1 permanente usando `Yast -> particionador`.
-* Consultar fichero `/etc/mdadm/mdadm.conf` después de registrar el RAID1.
-* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho. Hemos conseguido tener la configuración RAID-1 permanente. Compuébalo.
-
-## 2.6 Montaje automático
-
-> El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
-
-Vamos a configurar `/etc/fstab` para que el disco raid1aXX se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
-
-* Hacer un snapshot de la MV por seguridad.
-* Hacer una copia de seguridad del archivo `/etc/fstab`.
-* Ir a `Yast -> Particionador`
-* Configurar para que el disco /dev/raid1aXX se monte automáticamente en cada reinicio en /mnt/raid1discoXX.
-* Consultar el fichero `/etc/fstab` resultante.
-
+Reiniciar la MV y comprobar que se mantienen los datos:
+```
+df -hT |grep r1
+tree /mnt/MPOINT1
+```
 ---
 
 # 3. Quitar disco y probar
@@ -173,6 +144,11 @@ Vamos a configurar `/etc/fstab` para que el disco raid1aXX se monte automáticam
 * Apagamos la MV.
 * Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
+```
+df -hT |grep r1
+tree /mnt/MPOINT1
+```
+
 * Volver a poner el disco en la MV, reiniciar.
 
 Vamos a sincronizar los discos y comprobar que todo está correcto.
@@ -180,9 +156,9 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > Para sincronizar los discos RAID1:
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
-* `mdadm --detail /dev/raid1aXX`, comprobamos que de los dos discos configurados, sólo hay uno.
-* `mdadm /dev/raid1aXX --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
-* `mdadm --detail /dev/raid1aXX`, comprobamos que están los dos.
+* `mdadm --detail /dev/DEVICE1`, comprobamos que de los dos discos configurados, sólo hay uno.
+* `mdadm /dev/DEVICE1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
+* `mdadm --detail /dev/DEVICE1`, comprobamos que están los dos.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 
@@ -243,7 +219,7 @@ Un volumen *Reflejado* es similar a un RAID1.
 
 ---
 
-# ANEXO
+# ANEXO (Esto NO hay que hacerlo)
 
 ## A 2.5 Configuración de RAID-1 por comandos
 
@@ -272,7 +248,34 @@ Por ejemplo si hacemos `echo "hola" >> /etc/mdadm/mdadm.conf`, estamos añadiend
 * Ya hemos conseguido tener la configuración RAID-1 permanente.
 
 ---
+# Crear y montar RAID1 por comandos
+> **Aclaración**:
+>
+> Para hacerlo por comandos: `mdadm --create /dev/DEVICE1 --level=1 --raid-devices=2 /dev/sdd /dev/sde`.
+>
+> Explicación de los parámetros del comando anterior:
+> * `mdadm` es una herramienta para gestionar los dispositivos RAID.
+> * `--create /dev/DEVICE1`, indica que vamos a crear un nuevo dispositivo con el nombre que pongamos.
+> * `--level=1` el dispositivo a crear será un RAID-1.
+> * `--raid-devices=2`, vamos a usar dos dispositivos (particiones o discos) reales para crear el RAID.
+>
+> * Formatear el RAID-1 con ext4: `mkfs -t ext4 /dev/md/DEVICE1`
+>
+> * Montar el dispositivo RAID-1: `mount /dev/md/DEVICE1 /mnt/MPOINT1`.
+---
+## 2.5 Configuración de RAID-1
 
+* Hacer un snapshot de la MV por seguridad.
+
+Si reiniciamos la MV vamos a perder la configuración RAID1.
+Para que la configuración de RAID-1 sea permanente hay que "grabar" los datos en el fichero "mdadm.conf". De esta forma la configuración RAID-1 se mantiene en cada reinicio del sistema.
+
+* Consultar fichero `/etc/mdadm/mdadm.conf` antes de registrar el RAID1.
+* Podemos hacer la configuración RAID-1 permanente usando `Yast -> particionador`.
+* Consultar fichero `/etc/mdadm/mdadm.conf` después de registrar el RAID1.
+* Ahora ya se puede reiniciar la MV sin que se pierda la configuración RAID1 que hemos hecho. Hemos conseguido tener la configuración RAID-1 permanente. Compruébalo.
+
+---
 ## A 2.6 Montaje automático
 
 > El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
@@ -287,3 +290,15 @@ A continuación ejemplo por comandos:
 ```
 /dev/md1 /mnt/raid1 ext4 defaults 0 2
 ```
+
+## 2.6 Montaje automático
+
+> El fichero `/etc/fstab` guarda información de los dispositivos que deben montarse al iniciarse la máquina.
+
+Vamos a configurar `/etc/fstab` para que el disco raid1aXX se monte automáticamente en cada reinicio. Podemos hacerlo por `Yast -> particionador` o por comandos:
+
+* Hacer un snapshot de la MV por seguridad.
+* Hacer una copia de seguridad del archivo `/etc/fstab`.
+* Ir a `Yast -> Particionador`
+* Configurar para que el disco /dev/raid1aXX se monte automáticamente en cada reinicio en /mnt/raid1discoXX.
+* Consultar el fichero `/etc/fstab` resultante.
