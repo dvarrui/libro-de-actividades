@@ -117,8 +117,8 @@ mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
 * Comprobar si el dispositivo está correctamente montado:
 
 ```
-df -hT | grep r1
-mount | gre r1
+df -hT | grep XX
+mount | grep XX
 ```
 * Consultar el fichero `/etc/fstab` para comprobar que el dispositivo se montará automáticamente al reiniciarse.
 
@@ -134,7 +134,7 @@ Crea lo siguiente en /mnt/MPOINT1
 
 Reiniciar la MV y comprobar que se mantienen los datos:
 ```
-df -hT |grep r1
+df -hT |grep XX
 tree /mnt/MPOINT1
 ```
 ---
@@ -145,7 +145,7 @@ tree /mnt/MPOINT1
 * Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
 ```
-df -hT |grep r1
+df -hT |grep XX
 tree /mnt/MPOINT1
 ```
 
