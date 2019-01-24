@@ -1,9 +1,18 @@
 
-# 1. Introducción
+# Volúmenes Lógicos: Debian + Wijdows
 
-Vídeos de interés:
-* [LVM. Learning Linux : "Lesson 20 Managing LVM"](https://youtu.be/m9SNN6IWyZo?list=PL3E447E094F7E3EBB)
-* [LVM. Learning Linux: "Lesson 21 LVM snapshots"](https://youtu.be/N8rUlYL2O_g?list=PL3E447E094F7E3EBB)
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| Pendiente | | | |
+| Pendiente | | | |
+|  | | | |
+|  | | |. |
+
+> Vídeos de interés:
+> * [LVM. Learning Linux : "Lesson 20 Managing LVM"](https://youtu.be/m9SNN6IWyZo?list=PL3E447E094F7E3EBB)
+> * [LVM. Learning Linux: "Lesson 21 LVM snapshots"](https://youtu.be/N8rUlYL2O_g?list=PL3E447E094F7E3EBB)
 
 ---
 
@@ -82,8 +91,7 @@ lvdisplay vgXXdebian
 df -hT
 ```
 
-> Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el dispositivo,
-podemos usar `resize2fs /dev/vgXXdebian/lvXXdatos` sirve ajustar dicho valor.
+> Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el dispositivo, podemos usar `resize2fs /dev/vgXXdebian/lvXXdatos` sirve ajustar dicho valor.
 
 ---
 
