@@ -53,6 +53,7 @@ Necesitamos 2 máquinas virtuales:
 
 Comprobamos el acceso al recurso remoto:
 * Vamos al equipo Windows7.
+* Hacer "ping" al Windows Server para probar la conectividad.
 * Explorador de archivos -> Accedemos al recurso compartido `\\172.AA.XX.21\\imagenesXX`
 * Para autenticarnos ponemos usuario/clave que hemos creado en el servidor (`nombre-del-alumno`).
 * Crear un archivo de texto en dicho recurso para comprobar que tenemos permisos de escritura.
