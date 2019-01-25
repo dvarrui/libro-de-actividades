@@ -84,7 +84,7 @@ Comprobamos el acceso al recurso remoto:
 # 4. Restauración
 
 Ahora vamos a restaurar.
-* Capturar imagenes de los pasos que vamos a realizar.
+* Capturar imágenes de los pasos que vamos realizando.
 * Iniciar MV1 Windows7.
 * Eliminar los ficheros clonados del Windows7 (file1-XX, file2-XX y file3-XX).
 * Iniciar MV1 con el Clonezilla.
