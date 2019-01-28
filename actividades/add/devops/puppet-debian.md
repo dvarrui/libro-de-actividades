@@ -21,7 +21,7 @@ Vamos a necesitar las siguientes MVs:
 | ------------ | ------------- | --------- | ----------- |
 | pp-masterXX  | 172.AA.XX.100 | curso1819 | Es la MV que dará las órdenes de instalación/configuración a los clientes |
 | pp-clientXXd | 172.AA.XX.101 | curso1819 | MV Debian que recibe órdenes del master |
-| pp-clientXXw | 172.AA.XX.102 1 curso1819 | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
+| pp-clientXXw | 172.AA.XX.102 |           | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
 
 ## 1.2 Servidor DNS y el fichero /etc/resolv.conf
 
@@ -72,9 +72,9 @@ search nombregrupo
 * Añadir a `/etc/hosts` los nombres de todas las MV's.
 ```
 127.0.0.1   localhost
-IP-master   pp-masterXX.curso1819   pp-masterXX
+127.0.0.2   pp-masterXX.curso1819   pp-masterXX
 IP-client1  pp-clientXXd.curso1819  pp-clientXXd
-IP-client2  pp-clientXXw.curso1819  pp-clientXXw
+IP-client2  pp-clientXXw
 ```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar lo siguiente:
@@ -180,10 +180,10 @@ class hostlinux1 {
 ```
 * Añadir a /etc/hosts
 ```
-    127.0.0.1 localhost
-    127.0.1.1  client1.nombregrupo client1
-    IP-master  master.nombregrupo  master
-    IP-client1 client1.nombregrupo client1
+127.0.0.1   localhost
+127.0.0.2   pp-clientXXd.curso1819  pp-clientXXd
+IP-MASTER   pp-masterXX.curso1819   pp-masterXX
+IP-client2  pp-clientXXw
 ```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar lo siguiente:
