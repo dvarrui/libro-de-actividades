@@ -2,13 +2,9 @@ _(Usada en los cursos 201415, 201314, 201819)_
 
 # 1. Introducción
 
-Existen varias herramientas para realizar instalaciones desde un punto central, 
-como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
+Existen varias herramientas para realizar instalaciones desde un punto central, como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
 
-Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración 
-de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe 
-los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de 
-Puppet o un DSL (lenguaje específico del dominio) de Ruby.
+Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
 Enlaces de interés:
 
@@ -29,82 +25,73 @@ Vamos a necesitar las siguientes MVs:
 
 ## 1.2 Servidor DNS y el fichero /etc/resolv.conf
 
-La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente 
-línea al fichero /etc/network/interfaces: `dns-nameservers 172.16.1.1`
+La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente
+línea al fichero "/etc/network/interfaces": `dns-nameservers 8.8.4.4`
 
 > **Formas de configurar DNS**
 >
-> * Opción A: SO con configuración manual
->    * Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
-> * Opción B: Adaptar la configuración automática
->    * En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
->    * El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
->    * Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
-> * Opción C: Desactivar la configuración automática
->    * Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
+> **Opción A: SO con configuración manual**
+> * Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
+>
+> **Opción B: Adaptar la configuración automática**
+> * En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
+> * El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
+> * Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
+>
+> **Opción C: Desactivar la configuración automática**
+> * Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
 
 ## 1.3 Hostname y dnsdomainname
 
-* Una forma de cambiar nombre de host y de dominio:
-    * Modificar /etc/hostname. Por ejemplo con "marte.starwars".
-    * Añadir a /etc/hosts "127.0.0.2 marte.starwars marte".
-    * Comprobamos con "hostname -a", "hostname -d".
-    * Otra forma de cambiar el nombre de host y de dominio:
+Una forma de cambiar nombre de host y de dominio:
+* Modificar /etc/hostname. Por ejemplo con "vargas42d1.cuso1819".
+* Añadir a /etc/hosts `127.0.0.2  vargas42d1.curso1819  vargas42d1` .
+* Comprobamos con "hostname -a", "hostname -d".
+* Otra forma de cambiar el nombre de host y de dominio:
 
 ```
-    hostname marte.starwars
-    /etc/init.d/hostname restart
-    service hostname restart
-```
-
-* **IMPORTANTE**: Comprobar los nombres.
-
-```
-    hostname
-    dnsdomainname
+hostname vargas42d1.curso1819
+systemctl restart hostname     # Reiniciar servicio
+hostname                       # Comprobar los nombre de máquina
+dnsdomainname                  # Comprobar los nombre de dominio
 ```
 
 ---
 
 # 2 Instalación y configuración del MASTER
 
-Preparativos para el MASTER:
-
 * Vamos a la máquina master.
-* Cambiar nombre de máquina: `echo "master.nombregrupo" > /etc/hostname`
+* Cambiar nombre de máquina: `echo "vargas42d1.curso1819" > /etc/hostname`
 * Modificar /etc/resolv.conf y poner al comienzo:
 
 ```
-    domain nombregrupo
-    search nombregrupo
-    ...
+domain nombregrupo
+search nombregrupo
 ```
 
 * Añadir a `/etc/hosts` los nombres de todas las MV's.
 ```
-    127.0.0.1  localhost
-    127.0.1.1  master.nombregrupo  master
-    IP-master  master.nombregrupo  master
-    IP-client1 client1.nombregrupo client1
-    IP-client2 client2.nombregrupo client2
-    ...
+127.0.0.1   localhost
+IP-master   pp-masterXX.curso1819   pp-masterXX
+IP-client1  pp-clientXXd.curso1819  pp-clientXXd
+IP-client2  pp-clientXXw.curso1819  pp-clientXXw
 ```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
-* Comprobar los siguiente:
-    * `hostname` -> nombre-del-master
-    * `dnsdomainname` -> nombre-del-grupo
-    * `ping master.nombregrupo` -> Ok.
+* Comprobar lo siguiente:
+```
+hostname                    # nombre-del-master
+dnsdomainname               # nombre-del-grupo
+ping pp-masterXX.curso1819  # -> Ok
+```
 
-## 2.1 Ejemplo manual
+## 2.1 TEORIA: Ejemplo manual
 
-Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet).
-Nuestro objetivo es usar puppet para conseguir lo siguiente:
+Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet). Nuestro objetivo es usar puppet para conseguir lo siguiente:
 * Instalar el paquete `tree`.
-* Crear el usuario `yoda` y 
+* Crear el usuario `yoda` y
 * Crear la carpeta `/home/yoda/endor`.
 
-Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos
-obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
+Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
 ```
     puppet resource package tree > yoda.pp
     puppet resource user yoda >> yoda.pp
@@ -132,7 +119,7 @@ file { '/home/yoda/endor/':
 }
 ```
 
-Si nos lleváramos el fichero `yoda.pp` a otro PC con puppet instalado, 
+Si nos lleváramos el fichero `yoda.pp` a otro PC con puppet instalado,
 podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
 
 ## 2.2 Primera versión del fichero pp
@@ -166,7 +153,7 @@ class hostlinux1 {
 }
 ```
 
-> **OJO** 
+> **OJO**
 >
 > La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
@@ -202,13 +189,13 @@ class hostlinux1 {
 ## 3.2 Instalación del agente
 
 * Instalando y configurando Puppet en el cliente: `apt-get install puppet`
-* El cliente puppet debe ser informado de quien será su master. Para ello, 
+* El cliente puppet debe ser informado de quien será su master. Para ello,
 añadimos a `/etc/puppet/puppet.conf`:
 ```
     [main]
     server=master.nombregrupo
 ```
-* Para que el servicio Pupper se inicie automáticamente al iniciar el equipo, 
+* Para que el servicio Pupper se inicie automáticamente al iniciar el equipo,
 editar el archivo `/etc/default/puppet`, y modificar la línea
 
 ```
@@ -251,15 +238,15 @@ Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben 
 * Reiniciamos la máquina.
 * Comprobar que los cambios configurados en Puppet se han realizado.
 * En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
-* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y 
+* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. 
+* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master.
 En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 
 > **¿Cómo eliminar certificados?**
 >
 > *Esto NO HAY QUE HACERLO*. Sólo es información, para el caso que tengamos que eliminar los certificados
-> 
+>
 > Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
 > * `puppetca --revoke client1.nombregrupo`: Lo ejecutamos en el master para revocar certificado del cliente.
 > * `puppetca --clean client1.nombregrupo`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
@@ -271,7 +258,7 @@ En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 
 # 5. Segunda versión del fichero pp
 
-Primero hemos probado una configuración sencilla en PuppetMaster. 
+Primero hemos probado una configuración sencilla en PuppetMaster.
 Ahora podemos pasar a algo más complejo en este apartado.
 
 Contenido para `hostlinux2.pp`, versión 2:
@@ -290,35 +277,35 @@ class hostlinux2 {
     home => '/home/obi-wan',
     shell => '/bin/bash',
     password => 'kenobi',
-    groups => ['jedy','admin','sudo','root'] 
+    groups => ['jedy','admin','sudo','root']
   }
 
   file { "/home/obi-wan":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 750
   }
 
   file { "/home/obi-wan/share":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 750
   }
 
   file { "/home/obi-wan/share/private":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750 
+    mode => 750
   }
 
   file { "/home/obi-wan/share/public":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 755 
+    mode => 755
   }
 
 }
@@ -346,7 +333,7 @@ node default {
 # 6. Cliente puppet windows
 
 * Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
-* En el master vamos a crear una configuración puppet para las máquinas windows, 
+* En el master vamos a crear una configuración puppet para las máquinas windows,
 dentro del fichero `/etc/puppet/manifests/classes/hostwindows1.pp`, con el siguiente contenido:
 
 ```
@@ -391,15 +378,15 @@ node 'client2' {
 
 > Una vez instalado el AgentePuppet en Windows podemos hacer uso de comandos puppet
 
-* Iniciar consola puppet como administrador y probar los comandos: 
+* Iniciar consola puppet como administrador y probar los comandos:
     * `puppet agent --server master.nombregrupo --test`: Comprobar el estado del agente puppet.
     * `facter`: Para consultar datos de la máquina windows
     * `puppet resource user profesor`: Para ver la configuración puppet del usuario.
     * `puppet resource file c:\Users`: Para var la configuración puppet de la carpeta.
 
 ![puppet-resource-windows](./images/puppet-resource-windows.png)
-          
-* Con los comandos anteriores podemos hacernos una idea de como terminar de configurar 
+
+* Con los comandos anteriores podemos hacernos una idea de como terminar de configurar
 el fichero `/etc/puppet/manifests/classes/hostwindows2.pp` del master.
 
 ```
