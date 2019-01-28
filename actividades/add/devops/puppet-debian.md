@@ -19,9 +19,9 @@ Vamos a necesitar las siguientes MVs:
 
 | Nombre       | IP            | Dominio  | Descripción |
 | ------------ | ------------- | --------- | ----------- |
-| pp-masterXX  | 172.18.XX.100 | curso1819 | Es la MV que dará las órdenes de instalación/configuración a los clientes |
-| pp-clientXXd | 172.18.XX.101 | curso1819 | MV Debian que recibe órdenes del master |
-| pp-clientXXw | 172.18.XX.102 1 curso1819 | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
+| pp-masterXX  | 172.AA.XX.100 | curso1819 | Es la MV que dará las órdenes de instalación/configuración a los clientes |
+| pp-clientXXd | 172.AA.XX.101 | curso1819 | MV Debian que recibe órdenes del master |
+| pp-clientXXw | 172.AA.XX.102 1 curso1819 | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
 
 ## 1.2 Servidor DNS y el fichero /etc/resolv.conf
 
@@ -44,7 +44,7 @@ línea al fichero "/etc/network/interfaces": `dns-nameservers 8.8.4.4`
 ## 1.3 Hostname y dnsdomainname
 
 Una forma de cambiar nombre de host y de dominio:
-* Modificar /etc/hostname. Por ejemplo con "vargas42d1.cuso1819".
+* Modificar /etc/hostname. Por ejemplo con "vargas42d1.curso1819".
 * Añadir a /etc/hosts `127.0.0.2  vargas42d1.curso1819  vargas42d1` .
 * Comprobamos con "hostname -a", "hostname -d".
 * Otra forma de cambiar el nombre de host y de dominio:
