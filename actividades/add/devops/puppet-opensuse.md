@@ -385,8 +385,7 @@ class hostwindows3 {
 > * El cliente1 GNU/Linux del ejemplo se llama `cli1alu42.curso1718`
 > * El cliente2 Windows del ejemplo se llama `cli2alu42`
 
-* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
-la configuración de clientes GNU/Linux y clientes Windows, de modo diferenciado:
+* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta la configuración de clientes GNU/Linux y clientes Windows, de modo diferenciado:
 
 ```
 import "classes/*"
@@ -411,8 +410,7 @@ node 'cli2alu42' {
 > * [http://docs.puppetlabs.com/windows?/installing.html](http://docs.puppetlabs.com/windows?/installing.html)
 > * [https://downloads.puppetlabs.com/windows/](https://downloads.puppetlabs.com/windows/)
 
-Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la misma versión
-en ambos equipos. Podemos usar comando `facter` para ver la versión de puppet del servidor.
+Ahora vamos a instalar AgentePuppet en Windows. Recordar que debemos instalar la misma versión en ambos equipos. Podemos usar comando `facter` para ver la versión de puppet del servidor.
 
 * Vamos al cliente Windows.
 * Hacer una instantánea de la MV antes de seguir.

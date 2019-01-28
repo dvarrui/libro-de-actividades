@@ -30,23 +30,6 @@ Vamos a necesitar las siguientes MVs:
 | pp-clientXXd | 172.AA.XX.101 | curso1819 | MV Debian que recibe órdenes del master |
 | pp-clientXXw | 172.AA.XX.102 |           | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
 
-## 1.2 Servidor DNS y el fichero /etc/resolv.conf
-
-La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente
-línea al fichero "/etc/network/interfaces": `dns-nameservers 8.8.4.4`
-
-> **Formas de configurar DNS**
->
-> **Opción A: SO con configuración manual**
-> * Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
->
-> **Opción B: Adaptar la configuración automática**
-> * En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
-> * El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
-> * Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
->
-> **Opción C: Desactivar la configuración automática**
-> * Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
 
 ## 1.3 Hostname y dnsdomainname
 
@@ -68,14 +51,35 @@ dnsdomainname                  # Comprobar los nombre de dominio
 # 2 Instalación y configuración del MASTER
 
 * Vamos a la máquina master.
-* Cambiar nombre de máquina: `echo "vargas42d1.curso1819" > /etc/hostname`
+
+## 2.1 Configurar servidor DNS
+
 * Modificar /etc/resolv.conf y poner al comienzo:
 
 ```
-domain nombregrupo
-search nombregrupo
+domain curso1819
+search curso1819
+nameserver 8.8.4.4
 ```
 
+> **Formas de configurar DNS**
+>
+> La forma más sencilla de configurar el servidor DNS es añadiendo la siguiente línea `dns-nameservers 8.8.4.4` al "/etc/network/interfaces":
+>
+> **Opción A: SO con configuración manual**
+> * Si usamos SO Debian, Ubuntu Server o similar NO van a tener problemas con la configuración manual del fichero /etc/resolv.conf. Para otros SO's la cosa puede ser diferente.
+>
+> **Opción B: Adaptar la configuración automática**
+> * En el caso de Ubuntu Desktop o Xubuntu Desktop existen dos servicios instalados: resolvconf y dnsmasq. El servicio resolvconf configura automáticamente el fichero /etc/resolv.conf, y machaca cualquier cambio que realicemos de forma manual.
+> * El sentido de este servicio es configurar el fichero para establecer el propio equipo como servidor DNS. Entendemos que DNS-caché. Y el servicio local que lo implementa en dnsmasq. Entonces deducimos que para que funcione correctamente dnsmasq, resolvconf configura el sistema.
+> * Una opción es modificar la configuración que establece este servicio modificando el fichero /etc/resolvconf/resolv.conf.d/base, de forma adecuada.
+>
+> **Opción C: Desactivar la configuración automática**
+> * Otra posible solución es desactivar el servicio resolvconf (/etc/init/resolvconf.conf )mientras hagamos estas pruebas.
+
+## 2.2 Nombre de máquina
+
+* Cambiar nombre de máquina: `echo "vargas42d1.curso1819" > /etc/hostname`
 * Añadir a `/etc/hosts` los nombres de todas las MV's.
 ```
 127.0.0.1   localhost
@@ -182,8 +186,9 @@ class hostlinux1 {
 * Cambiar nombre de máquina: `echo "client1.nombregrupo" > /etc/hostname`
 * Modificar /etc/resolv.conf y poner al comienzo:
 ```
-    domain nombregrupo
-    search nombregrupo
+domain curso1819
+search curso1819
+nameserver 8.8.4.4
 ```
 * Añadir a /etc/hosts
 ```
@@ -203,10 +208,12 @@ IP-client2  pp-clientXXw
 * Instalando y configurando Puppet en el cliente: `apt-get install puppet`
 * El cliente puppet debe ser informado de quien será su master. Para ello,
 añadimos a `/etc/puppet/puppet.conf`:
+
 ```
-    [main]
-    server=master.nombregrupo
+[main]
+server=pp-masterXX.curso1819
 ```
+
 * `systemctl enable puppet`, para que el servicio Pupper se inicie automáticamente al iniciar el equipo.
 * Reiniciar servicio en el cliente: `systemctl restart puppet`
 * Comprobamos los log del cliente: `tail /var/log/syslog`
@@ -215,52 +222,76 @@ añadimos a `/etc/puppet/puppet.conf`:
 
 # 6. Aceptar certificado
 
-Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben intercambiar los certificados.
+Antes de que el master acepte a `pp-clientXXd.curso1819`, como cliente, se deben intercambiar los certificados.
 
 ## 6.1 Aceptar certificado
 
-* Vamos al master y consultamos las peticiones pendiente de unión al master:
+* Vamos a la MV master.
+* Nos aseguramos de que somos el usuario `root`.
+* `puppet cert list`, consultamos las peticiones pendientes de unión al master:
 ```
-    root@master# puppetca --list
-    "client1.nombregrupo" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-    root@master#
+root@pp-master42# puppet cert list
+"pp-client42g.curso1819" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
 ```
-* Aceptar al nuevo cliente desde el master:
+
+> **En caso de no aparecer el certificado en espera**
+>
+> * Si no aparece el certificado del cliente en la lista de espera del servidor,
+quizás el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
+> * Volver a reiniciar el servicio en el cliente y comprobar su estado.
+
+* `puppet cert sign "nombre-máquina-cliente"`, aceptar al nuevo cliente desde el master:
+
 ```
-root@master# puppetca --sign "client1.nombregrupo"
-notice: Signed certificate request for client1.nombregrupo
-notice: Removing file Puppet::SSL::CertificateRequest client1.nombregrupo at '/var/lib/puppet/ssl/ca/requests/client1.nombregrupo.pem'
-root@master# puppetca --list
-root@master# puppetca --print client1.nombregrupo
+root@master42# puppet cert sign "cli1alu42.curso1718"
+notice: Signed certificate request for cli1alu42.curso1718
+notice: Removing file Puppet::SSL::CertificateRequest cli1alu42.curso1718 at '/var/lib/puppet/ssl/ca/requests/cli1alu42.curso1718.pem'
+
+root@master42# puppet cert list
+
+root@master42# puppet cert print cli1alu42.curso1718
 Certificate:
 Data:
-
+....
 ```
 
-## 6.2 Comprobación final
+## 6.2 Comprobación
 
-* Vamos a client1
-* Reiniciamos la máquina.
+Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
+* Vamos a cliente1
+* Reiniciamos la máquina y/o el servicio Puppet.
 * Comprobar que los cambios configurados en Puppet se han realizado.
-* En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
-* Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y
-consultar el archivo de log del cliente: `tail /var/log/syslog`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
+* Nos aseguramos de que somos el usuario `root`.
+* Ejecutar comando para forzar la ejecución del agente puppet:
+    * `puppet agent --test`
+    * o también `puppet agent --server master42.curso1718 --test`
+* En caso de tener errores:
+    * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en
+    el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
+    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del
+    master y corregir los errores de sintáxis.
 
-> **¿Cómo eliminar certificados?**
->
-> *Esto NO HAY QUE HACERLO*. Sólo es información, para el caso que tengamos que eliminar los certificados
->
-> Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-> * `puppetca --revoke client1.nombregrupo`: Lo ejecutamos en el master para revocar certificado del cliente.
-> * `puppetca --clean client1.nombregrupo`: Lo ejecutamos en el master para eliminar ficheros del certificado del cliente.
-> *  `rm -rf /var/lib/puppet/ssl`: Lo ejecutamos en el cliente para eliminar los certificados del cliente.
->
+## 6.3 TEORIA: ¿Cómo eliminar certificados?
+
+**Esto NO HAY QUE HACERLO. Sólo es informativo**
+
+ Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
+problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
+buena idea eliminar los certificados y volverlos a generar con la nueva información.
+
+Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
+* En el servidor:
+    * `puppet cert revoke cli1alu42.curso1718`, revocar certificado del cliente.
+    * `puppet cert clean  cli1alu42.curso1718`, eliminar ficheros del certificado del cliente.
+    * `puppet cert print --all`, Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
+* En el cliente:
+    *  `rm -rf /var/lib/puppet/ssl`, eliminar los certificados del cliente. Apagamos el cliente.
+
 > Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 ---
 
-# 7. Fichero pp (versión 2)
+# 7. Fichero pp VERSION-2
 
 Primero hemos probado una configuración sencilla en PuppetMaster.
 Ahora podemos pasar a algo más complejo en este apartado.
@@ -334,13 +365,13 @@ node default {
 
 ---
 
-# 8. Fichero pp (versión 3): Cliente puppet windows
+# 8. Fichero pp VERSION-3: Cliente puppet windows
 
 * Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 * En el master vamos a crear una configuración puppet para las máquinas windows, dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
-class hostwindows1 {
+class hostwindows3 {
   file {'C:\warning.txt':
     ensure => present,
     content => "Hola Mundo Puppet!",
@@ -349,8 +380,7 @@ class hostwindows1 {
 ```
 
 * De momento, esta configuración es muy básica. Al final la ampliaremos.
-* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta
-la configuración de clientes GNU/Linux y clientes Windows, de la siguiente forma:
+* Ahora vamos a modificar el fichero `site.pp` del master, para que tenga en cuenta la configuración de clientes GNU/Linux y clientes Windows, de la siguiente forma:
 
 ```
 import "classes/*"
@@ -405,3 +435,24 @@ class hostwindows2 {
   }
 }
 ```
+
+---
+
+# ANEXO
+
+## A.1 Comandos que han cambiado
+
+Relación de comandos de puppet que han cambiado al cambiar la versión:
+
+|Pre-2.6        | Post-2.6          |
+|-------------- |-------------------|
+| puppetmasterd | puppet master     |
+| puppetd       | puppet agent      |
+| puppet        | puppet apply      |
+| puppetca      | puppet cert       |
+| ralsh         | puppet resource   |
+| puppetrun     | puppet kick       |
+| puppetqd      | puppet queue      |
+| filebucket    | puppet filebucket |
+| puppetdoc     | puppet doc        |
+| pi            | puppet describe   |
