@@ -84,7 +84,9 @@ dnsdomainname               # nombre-del-grupo
 ping pp-masterXX.curso1819  # -> Ok
 ```
 
-## 2.1 TEORIA: Ejemplo manual
+---
+
+# 3. TEORIA: Ejemplo manual
 
 Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet). Nuestro objetivo es usar puppet para conseguir lo siguiente:
 * Instalar el paquete `tree`.
@@ -92,11 +94,13 @@ Al instalar puppetmaster en la máquina master, también tenemos instalado "pupp
 * Crear la carpeta `/home/yoda/endor`.
 
 Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
+
 ```
-    puppet resource package tree > yoda.pp
-    puppet resource user yoda >> yoda.pp
-    puppet resource file /home/yoda/endor >> yoda.pp
+puppet resource package tree > yoda.pp
+puppet resource user yoda >> yoda.pp
+puppet resource file /home/yoda/endor >> yoda.pp
 ```
+
 El contenido del fichero `yoda.pp` debe ser parecido a:
 ```
 package { 'tree':
@@ -119,10 +123,11 @@ file { '/home/yoda/endor/':
 }
 ```
 
-Si nos lleváramos el fichero `yoda.pp` a otro PC con puppet instalado,
-podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`
+Si nos lleváramos el fichero `yoda.pp` a otro PC (NO hay que hacerlo) con puppet instalado, podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`.
 
-## 2.2 Primera versión del fichero pp
+---
+
+# 4. Primera versión del fichero pp
 
 * Instalando y configurando Puppet en el master:
 ```
@@ -162,9 +167,9 @@ class hostlinux1 {
 
 ---
 
-# 3. Instalación y configuración del cliente puppet Debian
+# 5. Instalación y configuración del cliente puppet Debian
 
-## 3.1 Preparativos para CLIENT1
+## 5.1 Preparativos para CLIENT1
 
 * Vamos a la máquina client1. Comprobar que todas las máquinas tienen la fecha/hora correcta.
 * Cambiar nombre de máquina: `echo "client1.nombregrupo" > /etc/hostname`
@@ -186,7 +191,7 @@ class hostlinux1 {
    * El comando dnsdomainname -> nombredegrupo
    * ping a client1.nombregrupo debe funcionar.
 
-## 3.2 Instalación del agente
+## 5.2 Instalación del agente
 
 * Instalando y configurando Puppet en el cliente: `apt-get install puppet`
 * El cliente puppet debe ser informado de quien será su master. Para ello,
@@ -208,11 +213,11 @@ editar el archivo `/etc/default/puppet`, y modificar la línea
 
 ---
 
-# 4. Aceptar certificado
+# 6. Aceptar certificado
 
 Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben intercambiar los certificados.
 
-## 4.1 Aceptar certificado
+## 6.1 Aceptar certificado
 
 * Vamos al master y consultamos las peticiones pendiente de unión al master:
 ```
@@ -232,7 +237,7 @@ Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben 
     ....
 ```
 
-## 4.2 Comprobación final
+## 6.2 Comprobación final
 
 * Vamos a client1
 * Reiniciamos la máquina.
@@ -256,7 +261,7 @@ En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 
 ---
 
-# 5. Segunda versión del fichero pp
+# 7. Segunda versión del fichero pp
 
 Primero hemos probado una configuración sencilla en PuppetMaster.
 Ahora podemos pasar a algo más complejo en este apartado.
@@ -330,7 +335,7 @@ node default {
 
 ---
 
-# 6. Cliente puppet windows
+# 8. Cliente puppet windows
 
 * Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
 * En el master vamos a crear una configuración puppet para las máquinas windows,
