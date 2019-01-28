@@ -6,12 +6,19 @@ Existen varias herramientas para realizar instalaciones desde un punto central, 
 
 Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
-Enlaces de interés:
+Ejemplo de rúbrica:
 
-* [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
-* [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA)
-* [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
+| Sección              | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| -------------------- | ------------ | ----------- | ----------------- |
+| Comprobar v1 | | | |
+| Comprobar v2 | | | |
+| Comprobar v3 | | |. |
 
+> Enlaces de interés:
+>
+> * [Puppetcookbook](http://www.puppetcookbook.com/posts/show-resources-with-ralsh.html)
+> * [Vídeo sin audio - 14 minutos de duración](https://youtu.be/kPyaI--iAcA)
+> * [Vídeo en inglés - minuto 15, 36 minutos de duración](https://youtu.be/Hiu_ui2nZa0)
 
 ## 1.1 Requisitos
 
@@ -127,7 +134,7 @@ Si nos lleváramos el fichero `yoda.pp` a otro PC (NO hay que hacerlo) con puppe
 
 ---
 
-# 4. Primera versión del fichero pp
+# 4. Fichero pp (versión 1)
 
 * Instalando y configurando Puppet en el master:
 ```
@@ -261,7 +268,7 @@ En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
 
 ---
 
-# 7. Segunda versión del fichero pp
+# 7. Fichero pp (versión 2)
 
 Primero hemos probado una configuración sencilla en PuppetMaster.
 Ahora podemos pasar a algo más complejo en este apartado.
@@ -335,11 +342,10 @@ node default {
 
 ---
 
-# 8. Cliente puppet windows
+# 8. Fichero pp (versión 3): Cliente puppet windows
 
 * Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
-* En el master vamos a crear una configuración puppet para las máquinas windows,
-dentro del fichero `/etc/puppet/manifests/classes/hostwindows1.pp`, con el siguiente contenido:
+* En el master vamos a crear una configuración puppet para las máquinas windows, dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
 class hostwindows1 {
@@ -362,7 +368,7 @@ node 'client1.nombredegrupo' {
 }
 
 node 'client2' {
-  include hostwindows1
+  include hostwindows3
 }
 ```
 
