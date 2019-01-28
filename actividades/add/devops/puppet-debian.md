@@ -134,7 +134,7 @@ Si nos lleváramos el fichero `yoda.pp` a otro PC (NO hay que hacerlo) con puppe
 
 ---
 
-# 4. Fichero pp (versión 1)
+# 4. Fichero pp VERSION-1
 
 * Instalando y configurando Puppet en el master:
 ```
@@ -207,14 +207,7 @@ añadimos a `/etc/puppet/puppet.conf`:
     [main]
     server=master.nombregrupo
 ```
-* Para que el servicio Pupper se inicie automáticamente al iniciar el equipo,
-editar el archivo `/etc/default/puppet`, y modificar la línea
-
-```
-    #start puppet on boot
-    START=yes
-```
-
+* `systemctl enable puppet`, para que el servicio Pupper se inicie automáticamente al iniciar el equipo.
 * Reiniciar servicio en el cliente: `systemctl restart puppet`
 * Comprobamos los log del cliente: `tail /var/log/syslog`
 
@@ -234,14 +227,14 @@ Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben 
 ```
 * Aceptar al nuevo cliente desde el master:
 ```
-    root@master# puppetca --sign "client1.nombregrupo"
-    notice: Signed certificate request for client1.nombregrupo
-    notice: Removing file Puppet::SSL::CertificateRequest client1.nombregrupo at '/var/lib/puppet/ssl/ca/requests/client1.nombregrupo.pem'
-    root@master# puppetca --list
-    root@master# puppetca --print client1.nombregrupo
-    Certificate:
-    Data:
-    ....
+root@master# puppetca --sign "client1.nombregrupo"
+notice: Signed certificate request for client1.nombregrupo
+notice: Removing file Puppet::SSL::CertificateRequest client1.nombregrupo at '/var/lib/puppet/ssl/ca/requests/client1.nombregrupo.pem'
+root@master# puppetca --list
+root@master# puppetca --print client1.nombregrupo
+Certificate:
+Data:
+
 ```
 
 ## 6.2 Comprobación final
@@ -252,8 +245,7 @@ Antes de que el master acepte a `client1.nombredegrupo`, como cliente, se deben 
 * En caso contrario, ejecutar comando para comprobar errores: `puppet agent --server master.nombregrupo --test`
 * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y
 consultar el archivo de log del cliente: `tail /var/log/syslog`.
-* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master.
-En tal caso, ir a los ficheros del master y corregir los errrores de sintaxis.
+* Puede ser que tengamos algún mensaje de error de configuración del fichero manifiests del master. En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
 
 > **¿Cómo eliminar certificados?**
 >
