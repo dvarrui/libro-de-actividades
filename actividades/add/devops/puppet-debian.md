@@ -258,9 +258,9 @@ Data:
 ## 6.2 Comprobación
 
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
-* Vamos a cliente1
+* Vamos a cliente1.
 * Reiniciamos la máquina y/o el servicio Puppet.
-* Comprobar que los cambios configurados en Puppet se han realizado.
+* Comprobar que los cambios configurados en Puppet se han realizado. Esto es, que el fichero de configuración VERSION-1 a hecho su trabajo.
 * Nos aseguramos de que somos el usuario `root`.
 * Ejecutar comando para forzar la ejecución del agente puppet:
     * `puppet agent --test`
