@@ -192,85 +192,12 @@ server=pp-masterXX.curso1819
 
 ---
 
-# 5. Aceptar certificado
-
-Antes de que el master acepte a `pp-clientXXd.curso1819`, como cliente, se deben intercambiar los certificados.
-
-## 5.1 Aceptar certificado
-
-* Vamos a la MV master.
-* Nos aseguramos de que somos el usuario `root`.
-* `puppet cert list`, consultamos las peticiones pendientes de unión al master:
-```
-root@pp-master42# puppet cert list
-"pp-client42g.curso1819" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
-```
-
-> **En caso de no aparecer el certificado en espera**
->
-> * Si no aparece el certificado del cliente en la lista de espera del servidor,
-quizás el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
-> * Volver a reiniciar el servicio en el cliente y comprobar su estado.
-
-* `puppet cert sign "nombre-máquina-cliente"`, aceptar al nuevo cliente desde el master:
-
-```
-root@master42# puppet cert sign "cli1alu42.curso1718"
-notice: Signed certificate request for cli1alu42.curso1718
-notice: Removing file Puppet::SSL::CertificateRequest cli1alu42.curso1718 at '/var/lib/puppet/ssl/ca/requests/cli1alu42.curso1718.pem'
-
-root@master42# puppet cert list
-
-root@master42# puppet cert print cli1alu42.curso1718
-Certificate:
-Data:
-....
-```
-
-## 5.2 Comprobación
-
-Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
-* Vamos a cliente1.
-* Reiniciamos la máquina y/o el servicio Puppet.
-* Comprobar que los cambios configurados en Puppet se han realizado. Esto es, que el fichero de configuración VERSION-1 a hecho su trabajo.
-* Nos aseguramos de que somos el usuario `root`.
-* Ejecutar comando para forzar la ejecución del agente puppet:
-    * `puppet agent --test`
-    * o también `puppet agent --server master42.curso1718 --test`
-* En caso de tener errores:
-    * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en
-    el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del
-    master y corregir los errores de sintáxis.
-
-## 5.3 TEORIA: ¿Cómo eliminar certificados?
-
-**Esto NO HAY QUE HACERLO. Sólo es informativo**
-
- Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
-problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
-buena idea eliminar los certificados y volverlos a generar con la nueva información.
-
-Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
-* En el servidor:
-    * `puppet cert revoke cli1alu42.curso1718`, revocar certificado del cliente.
-    * `puppet cert clean  cli1alu42.curso1718`, eliminar ficheros del certificado del cliente.
-    * `puppet cert print --all`, Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
-* En el cliente:
-    *  `rm -rf /var/lib/puppet/ssl`, eliminar los certificados del cliente. Apagamos el cliente.
-
-> Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
-
----
-
----
-
-# 6. TEORIA: Ejemplo manual
+# 5. TEORIA: Ejemplo manual
 
 Vamos al cliente:
+
 * Tenemos instalado `puppet` y se han aceptado los certificados.
 * Comprobar que podemos instalar correctamente en el sistema usando el comando `apt`. Hacer una prueba.
-
 * Crear el usuario `yoda` y
 * Crear la carpeta `/home/yoda/endor`.
 
@@ -302,6 +229,75 @@ file { '/home/yoda/endor/':
 ```
 
 Si nos lleváramos el fichero `prueba-manual.pp` a otro PC (NO hay que hacerlo) con puppet instalado, podemos forzar a que se creen estos cambios con el comando: `puppet apply prueba-manual.pp`. O también si quitamos del equipo local el paquete, usuario o carpeta podemos ejecutarlo en local y se vuelven a crear.
+
+---
+
+# 6. Aceptar certificado
+
+Antes de que el master acepte a `pp-clientXXd.curso1819`, como cliente, se deben intercambiar los certificados.
+
+## 6.1 Aceptar certificado
+
+* Vamos a la MV master.
+* Nos aseguramos de que somos el usuario `root`.
+* `puppet cert list`, consultamos las peticiones pendientes de unión al master:
+```
+root@pp-master42# puppet cert list
+"pp-client42g.curso1819" (D8:EC:E4:A2:10:55:00:32:30:F2:88:9D:94:E5:41:D6)
+```
+
+> **En caso de no aparecer el certificado en espera**
+>
+> * Si no aparece el certificado del cliente en la lista de espera del servidor,
+quizás el cortafuegos del servidor y/o cliente, está impidiendo el acceso.
+> * Volver a reiniciar el servicio en el cliente y comprobar su estado.
+
+* `puppet cert sign "nombre-máquina-cliente"`, aceptar al nuevo cliente desde el master:
+
+```
+root@master42# puppet cert sign "cli1alu42.curso1718"
+notice: Signed certificate request for cli1alu42.curso1718
+notice: Removing file Puppet::SSL::CertificateRequest cli1alu42.curso1718 at '/var/lib/puppet/ssl/ca/requests/cli1alu42.curso1718.pem'
+
+root@master42# puppet cert list
+
+root@master42# puppet cert print cli1alu42.curso1718
+Certificate:
+Data:
+....
+```
+
+## 6.2 Comprobación
+
+Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
+* Vamos a cliente1.
+* Reiniciamos la máquina y/o el servicio Puppet.
+* Comprobar que los cambios configurados en Puppet se han realizado. Esto es, que el fichero de configuración VERSION-1 a hecho su trabajo.
+* Nos aseguramos de que somos el usuario `root`.
+* Ejecutar comando para forzar la ejecución del agente puppet:
+    * `puppet agent --test`
+    * o también `puppet agent --server master42.curso1718 --test`
+* En caso de tener errores:
+    * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
+    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master y corregir los errores de sintáxis.
+
+## 6.3 TEORIA: ¿Cómo eliminar certificados?
+
+**Esto NO HAY QUE HACERLO. Sólo es informativo**
+
+ Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
+problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
+buena idea eliminar los certificados y volverlos a generar con la nueva información.
+
+Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
+* En el servidor:
+    * `puppet cert revoke cli1alu42.curso1718`, revocar certificado del cliente.
+    * `puppet cert clean  cli1alu42.curso1718`, eliminar ficheros del certificado del cliente.
+    * `puppet cert print --all`, Muestra todos los certificados del servidor. No debe verse el del cliente que queremos eliminar.
+* En el cliente:
+    *  `rm -rf /var/lib/puppet/ssl`, eliminar los certificados del cliente. Apagamos el cliente.
+
+> Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
 
 ---
 
