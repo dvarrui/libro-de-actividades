@@ -237,13 +237,3 @@ para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúm
 * Con la misma letra de unidad se acceden a una zona
 de almacenamiento (volumen dinámico) formada por partes (particiones o
 volúmenes básicos) de varios discos. Comprobarlo.
-
----
-
-# ANEXO A: Esquemas LVM
-
-![lv-esquema2.jpeg](./images/lvm-esquema2.jpeg)
-
-![lv-esquema3.jpeg](./images/lvm-esquema3.jpeg)
-
-![lv-esquema4.jpeg](./images/lvm-esquema4.jpeg)

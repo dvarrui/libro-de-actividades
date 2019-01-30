@@ -97,48 +97,7 @@ ping pp-masterXX.curso1819  # -> Ok
 
 ---
 
-# 3. TEORIA: Ejemplo manual
-
-Al instalar puppetmaster en la máquina master, también tenemos instalado "puppet" (Agente puppet). Nuestro objetivo es usar puppet para conseguir lo siguiente:
-* Instalar el paquete `tree`.
-* Crear el usuario `yoda` y
-* Crear la carpeta `/home/yoda/endor`.
-
-Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
-
-```
-puppet resource package tree > yoda.pp
-puppet resource user yoda >> yoda.pp
-puppet resource file /home/yoda/endor >> yoda.pp
-```
-
-El contenido del fichero `yoda.pp` debe ser parecido a:
-```
-package { 'tree':
-  ensure => 'present',
-}
-
-user { 'yoda':
-  ensure => 'present',
-  home => '/home/yoda',
-  password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fT4BXdSYfZKdSKOPdBIivyGJpSIxIe5HAKpbt7.jQx20nEev3PabB6HdbqBX37oXrmP6y0',
-  shell => '/bin/bash',
-}
-
-file { '/home/yoda/endor/':
-  ensure => 'directory',
-  group => '100',
-  mode => '755',
-  owner => '1001',
-  type => 'directory',
-}
-```
-
-Si nos lleváramos el fichero `yoda.pp` a otro PC (NO hay que hacerlo) con puppet instalado, podemos forzar a que se creen estos cambios con el comando: `puppet apply yoda.pp`.
-
----
-
-# 4. Fichero pp VERSION-1
+# 3. Fichero pp VERSION-1
 
 * Instalando y configurando Puppet en el master:
 ```
@@ -163,9 +122,17 @@ node default {
 * Contenido para hostlinux1.pp, versión 1. :
 ```
 class hostlinux1 {
-  package { "tree": ensure => installed }
-  package { "traceroute": ensure => installed }
-  package { "geany": ensure => installed }
+  package { 'tree':
+    ensure => 'installed',
+  }
+  package { 'geany':
+    ensure => 'installed',
+  }
+
+  package { 'traceroute':
+    ensure => 'purged',
+  }
+
 }
 ```
 
@@ -178,9 +145,9 @@ class hostlinux1 {
 
 ---
 
-# 5. Instalación y configuración del cliente puppet Debian
+# 4. Instalación y configuración del cliente puppet Debian
 
-## 5.1 Preparativos para CLIENT1
+## 4.1 Preparativos para CLIENT1
 
 * Vamos a la máquina client1. Comprobar que todas las máquinas tienen la fecha/hora correcta.
 * Cambiar nombre de máquina: `echo "client1.nombregrupo" > /etc/hostname`
@@ -199,11 +166,16 @@ IP-client2  pp-clientXXw
 ```
 * Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
 * Comprobar lo siguiente:
-   * El comando hostname -> client1
-   * El comando dnsdomainname -> nombredegrupo
-   * ping a client1.nombregrupo debe funcionar.
+```
+hostname -a
+hostname -d
+hostname -f
+dnsdomainname
+ping pp-masterXX
+ping pp-clientXXd
+```
 
-## 5.2 Instalación del agente
+## 4.2 Instalación del agente
 
 * Instalando y configurando Puppet en el cliente: `apt-get install puppet`
 * El cliente puppet debe ser informado de quien será su master. Para ello,
@@ -220,11 +192,11 @@ server=pp-masterXX.curso1819
 
 ---
 
-# 6. Aceptar certificado
+# 5. Aceptar certificado
 
 Antes de que el master acepte a `pp-clientXXd.curso1819`, como cliente, se deben intercambiar los certificados.
 
-## 6.1 Aceptar certificado
+## 5.1 Aceptar certificado
 
 * Vamos a la MV master.
 * Nos aseguramos de que somos el usuario `root`.
@@ -255,7 +227,7 @@ Data:
 ....
 ```
 
-## 6.2 Comprobación
+## 5.2 Comprobación
 
 Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al cliente y éste las ejecuta.
 * Vamos a cliente1.
@@ -271,7 +243,7 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
     * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del
     master y corregir los errores de sintáxis.
 
-## 6.3 TEORIA: ¿Cómo eliminar certificados?
+## 5.3 TEORIA: ¿Cómo eliminar certificados?
 
 **Esto NO HAY QUE HACERLO. Sólo es informativo**
 
@@ -291,6 +263,48 @@ Si tenemos problemas con los certificados, y queremos eliminar los certificados 
 
 ---
 
+---
+
+# 6. TEORIA: Ejemplo manual
+
+Vamos al cliente:
+* Tenemos instalado `puppet` y se han aceptado los certificados.
+* Comprobar que podemos instalar correctamente en el sistema usando el comando `apt`. Hacer una prueba.
+
+* Crear el usuario `yoda` y
+* Crear la carpeta `/home/yoda/endor`.
+
+Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamos los datos obtenidos de puppet en el fichero `yoda.pp`. Para ello ejecutamos los comandos siguientes:
+
+* `puppet resource package tree > prueba-manual.pp`, agregar configuración Puppet para instalar el paquete.
+* `puppet resource user yoda >> prueba-manual.pp`, agregar configuración Puppet para crear usuario.
+* `puppet resource file /home/yoda/endor >> prueba-manual.pp`, agregar configuración pupper para crear directorio.
+* El contenido del fichero `prueba-manual.pp` debe ser parecido a:
+```
+package { 'tree':
+  ensure => 'installed',
+}
+
+user { 'yoda':
+  ensure => 'installed',
+  home => '/home/yoda',
+  password => '$6$G09ynAifi7mX$6pag6BIvQWT6iLa8fT4BXdSYfZKdSKOPdBIivyGJpSIxIe5HAKpbt7.jQx20nEev3PabB6HdbqBX37oXrmP6y0',
+  shell => '/bin/bash',
+}
+
+file { '/home/yoda/endor/':
+  ensure => 'directory',
+  group => '100',
+  mode => '755',
+  owner => '1001',
+  type => 'directory',
+}
+```
+
+Si nos lleváramos el fichero `prueba-manual.pp` a otro PC (NO hay que hacerlo) con puppet instalado, podemos forzar a que se creen estos cambios con el comando: `puppet apply prueba-manual.pp`. O también si quitamos del equipo local el paquete, usuario o carpeta podemos ejecutarlo en local y se vuelven a crear.
+
+---
+
 # 7. Fichero pp VERSION-2
 
 Primero hemos probado una configuración sencilla en PuppetMaster.
@@ -300,10 +314,10 @@ Contenido para `hostlinux2.pp`, versión 2:
 
 ```
 class hostlinux2 {
-  package { "tree": ensure => installed }
-  package { "traceroute": ensure => installed }
-  package { "geany": ensure => installed }
-  package { "gnomine": ensure => purged }
+  package { "tree": ensure => 'installed', }
+  package { "traceroute": ensure => 'installed', }
+  package { "geany": ensure => 'installed', }
+  package { "gnomine": ensure => 'purged', }
 
   group { "jedy": ensure => "present", }
   group { "admin": ensure => "present", }
@@ -312,35 +326,35 @@ class hostlinux2 {
     home => '/home/obi-wan',
     shell => '/bin/bash',
     password => 'kenobi',
-    groups => ['jedy','admin','sudo','root']
+    groups => ['jedy','admin','sudo','root'],
   }
 
   file { "/home/obi-wan":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750
+    mode => 750,
   }
 
   file { "/home/obi-wan/share":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750
+    mode => 750,
   }
 
   file { "/home/obi-wan/share/private":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750
+    mode => 750,
   }
 
   file { "/home/obi-wan/share/public":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 755
+    mode => 755,
   }
 
 }
