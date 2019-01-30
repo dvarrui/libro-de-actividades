@@ -158,21 +158,10 @@ class hostlinux1 {
 ## 4.1 Preparativos para CLIENT1
 
 * Vamos a la máquina client1. Comprobar que todas las máquinas tienen la fecha/hora correcta.
-* Cambiar nombre de máquina: `echo "client1.nombregrupo" > /etc/hostname`
-* Modificar /etc/resolv.conf y poner al comienzo:
-```
-domain curso1819
-search curso1819
-nameserver 8.8.4.4
-```
-* Añadir a /etc/hosts
-```
-127.0.0.1   localhost
-127.0.0.2   pp-clientXXd.curso1819  pp-clientXXd
-IP-MASTER   pp-masterXX.curso1819   pp-masterXX
-IP-client2  pp-clientXXw
-```
-* Reiniciar el equipo (Sería suficiente con reiniciar el servicio networking).
+* Comprobar el nombre de máquina.
+* Comprobar IP y DNS.
+* Añadir a /etc/hosts todos los equipos de la práctica.
+* Reiniciar el servicio de red o el equipo.
 * Comprobar lo siguiente:
 ```
 hostname -a
@@ -185,7 +174,8 @@ ping pp-clientXXd
 
 ## 4.2 Instalación del agente
 
-* Instalando y configurando Puppet en el cliente: `apt-get install puppet`
+Vamos al cliente.
+* `apt install puppet`, instalar y configurar Puppet en el cliente.
 * El cliente puppet debe ser informado de quien será su master. Para ello,
 añadimos a `/etc/puppet/puppet.conf`:
 
@@ -195,8 +185,8 @@ server=pp-masterXX.curso1819
 ```
 
 * `systemctl enable puppet`, para que el servicio Pupper se inicie automáticamente al iniciar el equipo.
-* Reiniciar servicio en el cliente: `systemctl restart puppet`
-* Comprobamos los log del cliente: `tail /var/log/syslog`
+* `systemctl restart puppet`, reiniciar servicio en el cliente.
+* `tail /var/log/syslog`, comprobar el fichero de log del cliente por si hay problemas.
 
 ---
 
