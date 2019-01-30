@@ -2,7 +2,7 @@ _(Usada en los cursos 201415, 201314, 201819)_
 
 # 1. Introducción
 
-Existen varias herramientas para realizar instalaciones desde un punto central, como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
+Existen varias herramientas para realizar instalaciones desde un punto central, como Chef, Ansible, SaltStack, SUSE Manager, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
 
 Según Wikipedia, Puppet es una herramienta diseñada para administrar la configuración de sistemas Unix-like y de Microsoft Windows de forma declarativa. El usuario describe los recursos del sistema y sus estados, ya sea utilizando el lenguaje declarativo de Puppet o un DSL (lenguaje específico del dominio) de Ruby.
 
@@ -31,7 +31,7 @@ Vamos a necesitar las siguientes MVs:
 | pp-clientXXw | 172.AA.XX.102 |           | MV Windows que recibe órdenes del master, pero con un SO distinto de client1 |
 
 
-## 1.3 Hostname y dnsdomainname
+## 1.2 Hostname y dnsdomainname
 
 Una forma de cambiar nombre de host y de dominio:
 * Modificar /etc/hostname. Por ejemplo con "vargas42d1.curso1819".
@@ -45,6 +45,14 @@ systemctl restart hostname     # Reiniciar servicio
 hostname                       # Comprobar los nombre de máquina
 dnsdomainname                  # Comprobar los nombre de dominio
 ```
+
+## 1.3 Resolución de nombres (DNS)
+
+Para Debian (por esta vez):
+* Desinstalar el paquete `network-manager`.
+* Configurar la red y DNS por el fichero `/etc/network/interfaces`.
+
+> Reiniciar el PC. Si el fichero `/etc/resolv.conf` está vacío. Completar con `nameserver 8.8.4.4`.
 
 ---
 
