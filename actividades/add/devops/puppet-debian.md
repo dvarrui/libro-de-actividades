@@ -295,7 +295,11 @@ Si tenemos problemas con los certificados, y queremos eliminar los certificados 
 * En el cliente:
     *  `rm -rf /var/lib/puppet/ssl`, eliminar los certificados del cliente. Apagamos el cliente.
 
-> Consultar [URL https://wiki.tegnix.com/wiki/Puppet](https://wiki.tegnix.com/wiki/Puppet), para más información.
+> Recordatorio:
+>
+> * `lsof -i -P`, comando para ver los puertos ocupados por los servicios locales.
+> * `8140` es el puerto de escucha del servidor Puppet.
+> * `chown puppet -R /etc/puppet`, Poner al usuario `puppet` como propietario de los ficheros de puppet.
 
 ---
 
@@ -403,7 +407,7 @@ node 'client2' {
 ```
 
 * Reiniciamos el servicio PuppetMaster.
-* Localizar el fichero hosts de Windows`. Ir a la ruta de la imagen:
+* Localizar el fichero hosts de Windows. Ir a la ruta de la imagen:
 
 ![windows-dir-etchosts.png](./images/windows-dir-etchosts.png)
 
@@ -447,6 +451,15 @@ class hostwindows2 {
 ---
 
 # ANEXO
+
+## Plan C
+
+Como la versión de puppet que estamos usando es incompatible con nuestro sistema operativo podemos hacer:
+1. Pasar los pp del master al cliente y ejecutarlos manualmente.
+2. Instalar Puppet 6.2 en Debian 9
+3. Instalar Puppet 6.2 en OpenSUSE 15
+4. Actualizar el Puppet 4.8 del Debian 9
+5. Crear Docker Debian 8 con Puppet 4.8.
 
 ## A.1 Comandos que han cambiado
 
