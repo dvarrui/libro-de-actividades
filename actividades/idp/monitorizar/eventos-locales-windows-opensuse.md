@@ -4,8 +4,7 @@
 Toda la actividad importante del sistema debe quedar registrada en los
 ficheros de registro. Esto nos permite tener un histórico del comportamiento
 del sistema, que nos ayuda a modo de *"caja negra"*, a reconstruir situaciones
-del pasado para diversos fines. Esta es la utilidad de la monitorización y la auditoría,
-saber lo que ha pasado.
+del pasado para diversos fines. Esta es la utilidad de la monitorización y la auditoría, saber lo que ha pasado.
 
 ---
 
@@ -17,13 +16,13 @@ saber lo que ha pasado.
 
 Vamos realizar las siguientes tareas en SO Windows.
 
-* Ir a Herramientas administrativas -> Directivas de auditoría -> Directivas de seguridad local.
+* Ir a `Herramientas administrativas -> Directivas de auditoría -> Directivas de seguridad local`.
 
-A continuación se muestra imagen de ejemplo de la directiva desactivada:
+> A continuación se muestra (a modo de ejemplo) una imagen de la directiva desactivada:
+>
+> ![activar-directivas](./images/activar-directivas.png)
 
-![activar-directivas](./images/activar-directivas.png)
-
-* Activar la opción para unas directivas de seguridad, para auditar los *"Sucesos de inicio de sesión"*. Habilitar la configurar tanto correctos y erróneos.
+* Activar la opción para directivas de seguridad, auditar los *"Sucesos de inicio de sesión"*. Habilitar la configurar tanto correctos y erróneos.
 * Incluir captura de pantalla con la directiva activada y configurada.
 
 > NOTA:
@@ -39,11 +38,9 @@ A continuación se muestra imagen de ejemplo de la directiva desactivada:
 * Buscar en el sistema, la herramienta visor de eventos.
 * Ir a la sección "Seguridad". Buscar los eventos de `soldado1` y `soldado2`.
 Incluir capturas de pantalla de los mismos.
-* Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO
-incluirlos todos. Elegir los generados hoy, o en las últimas horas.
+* Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO incluirlos todos. Elegir los generados hoy, o en las últimas horas.
 * Incluir fichero CSV en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
-* Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas
-de cálculo (Por ejemplo: Excel de Microsoft, Calc de LibreOffice, etc.). Comprobarlo.
+* Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas de cálculo (Por ejemplo: Calc de LibreOffice, Excel de Microsoft,  etc.). Comprobarlo.
 
 > Realmente los CSV son ficheros de texto donde cada fila es como un registro de una tabla. Normalmente se usa la coma para delimitar los campos dentro de cada fila.
 
@@ -79,11 +76,9 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 
 # 3. GNU/Linux OpenSUSE
 
-El servicio Audit es una herramienta que nos permite auditar eventos en los sistemas
-GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría audit.
+El servicio Audit es una herramienta que nos permite auditar eventos en los sistemas GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría audit.
 
-Usando herramientas potentes como audit, el sistema puede ser relizar un seguimiento
-de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
+Usando herramientas potentes como audit, el sistema puede ser relizar un seguimiento de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
 * Auditar el acceso y modificación de ficheros.
     * Ver quién cambió un fichero concreto.
     * Detectar cambios no autorizados.
@@ -131,8 +126,9 @@ log_group. Estos son las definiciones de algunos parámetros:
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
-* Consultar el fichero `/etc/audit/audit.rules`. En este fichero se definen los
-elementos se van a auditar.
+* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar.
+    * `/etc/audit/rules.d/audit.rules`, para OpenSUSE Leap 15.
+    * `/etc/audit/audit.rules`, para OpenSUSE 42 y anteriores.
 * Con el comando `auditctl -l`, también podemos ver las reglas activas.
 Al principio no debemos tener nada.
 
@@ -143,12 +139,10 @@ Hacemos lo siguiente:
 * Crear el fichero `/home/estrellita.txt` con todos los permisos para el grupo `users`.
 * Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
 * `auditctl -w /home/estrellita.txt -p warx`, estamos creando una regla temporal
-(porque no está guardada en el fichero audit.rules) para auditar un fichero concreto,
-cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
+(porque no está guardada en el fichero audit.rules) para auditar un fichero concreto, cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
 r=lectura o x=ejecución.
 * `auditctl -l`, vemos que tenemos la regla de auditoría definida.
-* `cat /etc/audit/audit.rules`, comprobamos nuestra regla no está en el fichero de
-configuración. No reiniciar el equipo todavía porque esta regla desaparecerá.
+* `cat /etc/audit/rules.d/audit.rules`, comprobamos nuestra regla no está en el fichero de configuración. No reiniciar el equipo todavía porque esta regla desaparecerá.
 
 ## 3.4 Empezamos a generar eventos
 
@@ -181,9 +175,7 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 
 ## 3.5 Hacer un informe con los eventos
 
-Como mostrar los eventos registrados con toda la información que generan es confuso,
-podemos usar el comando `aureport` para crear una especie de informe con los datos
-que queramos filtrar con `ausearch`.
+Como mostrar los eventos registrados con toda la información que generan es confuso, podemos usar el comando `aureport` para crear una especie de informe con los datos que queramos filtrar con `ausearch`.
 
 * Repetir para rebelde1, rebelde2 y rebelde3
    * `ausearch -f estrellita.txt -ui USERUID | aureport -f`
@@ -204,7 +196,7 @@ que lo accedió, un ID y número de evento.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Vamos a crear una regla de auditoría permanente sobre el programa/comando `mkdir`:
     * Usar `whereis mkdir` para averiguar la ruta de mkdir.
-    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/audit.rules`.
+    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/rules.d/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
@@ -220,9 +212,9 @@ Este comando genera una lista numerada de todos los eventos de ejecuta
 Componentes de audit:
 * auditd: Demonio que captura los eventos y los almacena (log file)
 * auditctl: Herramienta cliente para configurar auditd
-    * auditctl -e, habilitar o deshabilitar audit
-    * auditctl -r, controlar la ratio límite de mensajes
-    * auditctl -s, consultar el estado actual del demonio
+    * `auditctl -e`, habilitar o deshabilitar audit
+    * `auditctl -r`, controlar la ratio límite de mensajes
+    * `auditctl -s`, consultar el estado actual del demonio
 * audispd: daemon to multiplex events
 * aureport: Herramienta de informes que leer de los ficheros de log (auditd.log)
 * ausearch: Visor de eventos (auditd.log)
