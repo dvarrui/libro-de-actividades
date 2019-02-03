@@ -213,7 +213,7 @@ Vamos a averiguar la configuración que lee puppet de estos recursos, y guardamo
 
 * `puppet resource package tree > prueba-manual.pp`, agregar configuración Puppet para instalar el paquete.
 * `puppet resource user yoda >> prueba-manual.pp`, agregar configuración Puppet para crear usuario.
-* `puppet resource file /home/yoda/endor >> prueba-manual.pp`, agregar configuración pupper para crear directorio.
+* `puppet resource file /home/yoda/endor >> prueba-manual.pp`, agregar configuración Puppet para crear directorio.
 * El contenido del fichero `prueba-manual.pp` debe ser parecido a:
 ```
 package { 'tree':
