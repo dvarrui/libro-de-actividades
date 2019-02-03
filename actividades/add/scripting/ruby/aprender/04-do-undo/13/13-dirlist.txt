@@ -1,3 +1,0 @@
-private13:700
-group13:750
-public13:700

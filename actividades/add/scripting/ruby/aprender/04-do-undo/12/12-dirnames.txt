@@ -1,3 +1,0 @@
-private12
-group12
-public12
