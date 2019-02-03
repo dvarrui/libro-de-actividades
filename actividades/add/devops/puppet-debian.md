@@ -1,4 +1,11 @@
-_(Usada en los cursos 201415, 201314, 201819)_
+
+```
+INCOMPATIBILIDADES
+Puppet 4.8 incompatible con Debian 9
+https://puppet.com/docs/puppet/4.8/system_requirements.html
+```
+
+---
 
 # 1. Introducción
 
@@ -149,7 +156,9 @@ class hostlinux1 {
 > La ruta del fichero es `/etc/puppet/manifests/classes/hostlinux1.pp`.
 
 * Reiniciamos servicio: `systemctl restart puppetmaster`
-* Consultamos log por si hay errores: `tail /var/log/syslog`
+
+> * Si el servicio puppetmaster se ejecuta con el usuario puppet, entonces el usuario puppet debería ser propietario de los archivos /etc/puppet/manifests
+> * Consultar el fichero de log por si hay errores: `tail /var/log/syslog`
 
 ---
 
@@ -186,7 +195,8 @@ server=pp-masterXX.curso1819
 
 * `systemctl enable puppet`, para que el servicio Pupper se inicie automáticamente al iniciar el equipo.
 * `systemctl restart puppet`, reiniciar servicio en el cliente.
-* `tail /var/log/syslog`, comprobar el fichero de log del cliente por si hay problemas.
+
+> * Comprobar el fichero de log del cliente por si hay problemas `tail /var/log/syslog`.
 
 ---
 
@@ -277,15 +287,13 @@ Vamos a comprobar que las órdenes (manifiesto) del master, llega bien al client
     * o también `puppet agent --server master42.curso1718 --test`
 * En caso de tener errores:
     * Para ver el detalle de los errores, podemos reiniciar el servicio puppet en el cliente, y consultar el archivo de log del cliente: `tail /var/log/puppet/puppet.log`.
-    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master y corregir los errores de sintáxis.
+    * Puede ser que tengamos algún mensaje de error de configuración del fichero `/etc/puppet/manifests/site.pp` del master. En tal caso, ir a los ficheros del master y corregir los errores de sintaxis.
 
 ## 6.3 TEORIA: ¿Cómo eliminar certificados?
 
 **Esto NO HAY QUE HACERLO. Sólo es informativo**
 
- Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos
-problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser
-buena idea eliminar los certificados y volverlos a generar con la nueva información.
+ Sólo es información, para el caso que tengamos que eliminar los certificados. Cuando tenemos problemas con los certificados, o los identificadores de las máquinas han cambiado suele ser buena idea eliminar los certificados y volverlos a generar con la nueva información.
 
 Si tenemos problemas con los certificados, y queremos eliminar los certificados actuales, podemos hacer lo siguiente:
 * En el servidor:
@@ -379,7 +387,7 @@ node default {
 
 # 8. Fichero pp VERSION-3: Cliente puppet windows
 
-* Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windows/writing.html)
+* Enlace de interés: [http://docs.puppetlabs.com/windows/writing.html](http://docs.puppetlabs.com/windhttpsows/writing.html)
 * En el master vamos a crear una configuración puppet para las máquinas windows, dentro del fichero `/etc/puppet/manifests/classes/hostwindows3.pp`, con el siguiente contenido:
 
 ```
@@ -452,7 +460,7 @@ class hostwindows2 {
 
 # ANEXO
 
-## Plan C
+## A.1 Alternativas al problema de la incompatibilidad
 
 Como la versión de puppet que estamos usando es incompatible con nuestro sistema operativo podemos hacer:
 1. Pasar los pp del master al cliente y ejecutarlos manualmente.
@@ -461,7 +469,7 @@ Como la versión de puppet que estamos usando es incompatible con nuestro sistem
 4. Actualizar el Puppet 4.8 del Debian 9
 5. Crear Docker Debian 8 con Puppet 4.8.
 
-## A.1 Comandos que han cambiado
+## A.2 Comandos que han cambiado
 
 Relación de comandos de puppet que han cambiado al cambiar la versión:
 
@@ -477,3 +485,10 @@ Relación de comandos de puppet que han cambiado al cambiar la versión:
 | filebucket    | puppet filebucket |
 | puppetdoc     | puppet doc        |
 | pi            | puppet describe   |
+
+# A.3 Problemas con Debian
+
+cd /etc
+mv /etc/puppet /etc/puppet.bak
+dpkg -l puppet*
+=> Error?!
