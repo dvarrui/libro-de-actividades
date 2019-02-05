@@ -148,16 +148,12 @@ r=lectura o x=ejecución.
 
 Los eventos, cuando se produzcan, se guardarán en `/var/log/audit/audit.log`.
 * Abrimos otro terminal (Llamémosle t2)
-* `tail -f /var/log/audit/audit.log`, muestra en pantalla de forma permanente
-las últimas líneas del fichero audit.log. Entonces cada vez que se registre un
-nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2).
+* `tail -f /var/log/audit/audit.log`, muestra en pantalla de forma permanente las últimas líneas del fichero audit.log. Entonces cada vez que se registre un nuevo evento y se guarde, veremos aparecer una nueva línea en esta terminal (t2).
 
 Vamos a provocar que se generen eventos:
 * Volvemos al terminal t1
-* `ausearch -f estrellita.txt`, no debe haber ningún evento asociado al fichero todavía.
-Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
-* Con el usuario `rebelde1` modificar el fichero. Para cambiar de usuario en la consola
-sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
+* `ausearch -f estrellita.txt`, no debe haber ningún evento asociado al fichero todavía. Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
+* Con el usuario `rebelde1` modificar el fichero. Para cambiar de usuario en la consola sin cerrar sesión podemos usar el comando `su rebelde1` en el terminal.
 * Con el usuario `rebelde2` leer el fichero.
 
 Ahora vamos a consultar los eventos de auditoría.
@@ -170,6 +166,11 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
    * `ausearch -f estrellita.txt -ui USERUID`, consultar eventos sobre
    el fichero para el usuario con USERUID.
    * `ausearch -f estrellita.txt -ui USERUID | wc -l`, contar los eventos.
+
+> Diferencias entre
+> * ausearch -ui USERNAME
+> * ausearch -ua USERNAME
+
 * Repetir para nano, cat y more:
   * `ausearch -x COMMANDNAME`, consultar eventos asociados a dichos comandos.
 
