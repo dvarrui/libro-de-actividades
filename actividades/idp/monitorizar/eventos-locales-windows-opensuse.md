@@ -126,9 +126,7 @@ log_group. Estos son las definiciones de algunos parámetros:
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
-* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar.
-    * `/etc/audit/rules.d/audit.rules`, para OpenSUSE Leap 15.
-    * `/etc/audit/audit.rules`, para OpenSUSE 42 y anteriores.
+* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar (`/etc/audit/audit.rules`).
 * Con el comando `auditctl -l`, también podemos ver las reglas activas.
 Al principio no debemos tener nada.
 
@@ -142,7 +140,7 @@ Hacemos lo siguiente:
 (porque no está guardada en el fichero audit.rules) para auditar un fichero concreto, cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos,
 r=lectura o x=ejecución.
 * `auditctl -l`, vemos que tenemos la regla de auditoría definida.
-* `cat /etc/audit/rules.d/audit.rules`, comprobamos nuestra regla no está en el fichero de configuración. No reiniciar el equipo todavía porque esta regla desaparecerá.
+* `cat /etc/audit/audit.rules`, comprobamos nuestra regla no está en el fichero de configuración. No reiniciar el equipo todavía porque esta regla desaparecerá.
 
 ## 3.4 Empezamos a generar eventos
 
@@ -188,8 +186,7 @@ Como mostrar los eventos registrados con toda la información que generan es con
 > * `ausearch` filtra los eventos que cumplan unos determinados criterios.
 > * `aureport -f` genera una lista numerada de los eventos
 asociados a ficheros incluyendo información de fecha, hora, nombre
-del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable
-que lo accedió, un ID y número de evento.
+del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecutable que lo accedió, un ID y número de evento.
 
 ## 3.6 Crear una regla de auditoría fija
 
@@ -197,7 +194,7 @@ que lo accedió, un ID y número de evento.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Vamos a crear una regla de auditoría permanente sobre el programa/comando `mkdir`:
     * Usar `whereis mkdir` para averiguar la ruta de mkdir.
-    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/rules.d/audit.rules`.
+    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
