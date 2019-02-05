@@ -192,9 +192,9 @@ del fichero, número de llamadas al sistema, éxito/fallo del comando, el ejecut
 
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
-* Vamos a crear una regla de auditoría permanente sobre el programa/comando `mkdir`:
-    * Usar `whereis mkdir` para averiguar la ruta de mkdir.
-    * Añadir una línea de la forma `-w ruta-al-fichero-mkdir -p warx` al fichero `/etc/audit/audit.rules`.
+* Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
+    * Usar `which mkdir` para averiguar la ruta de mkdir.
+    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
