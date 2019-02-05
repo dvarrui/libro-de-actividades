@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2019-01-18 20:25:35 +0000`
+`Fecha UM: 2019-02-05 13:37:06 +0000`
 
 * [idp](actividades/idp) 13
     * [aplicaciones](actividades/idp/aplicaciones) 7
@@ -119,10 +119,11 @@
     * [clientes-ligeros](actividades/add/clientes-ligeros) 3
         * [README.md](actividades/add/clientes-ligeros/README.md)
         * [enlaces-de-interes.md](actividades/add/clientes-ligeros/enlaces-de-interes.md)
-    * [devops](actividades/add/devops) 6
+    * [devops](actividades/add/devops) 7
         * [docker.md](actividades/add/devops/docker.md)
         * [puppet-debian.md](actividades/add/devops/puppet-debian.md)
         * [puppet-opensuse.md](actividades/add/devops/puppet-opensuse.md)
+        * [saltstack-opensuse.md](actividades/add/devops/saltstack-opensuse.md)
         * [vagrant.md](actividades/add/devops/vagrant.md)
     * [exposicion](actividades/add/exposicion) 1
         * [exposision-turismo.md](actividades/add/exposicion/exposision-turismo.md)
@@ -149,18 +150,19 @@
         * [enlaces-de-interes.md](actividades/add/samba/enlaces-de-interes.md)
         * [samba-debian.md](actividades/add/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/add/samba/samba-pdc-debian.md)
-    * [scripting](actividades/add/scripting) 4
+    * [scripting](actividades/add/scripting) 5
+        * [IDEAS.md](actividades/add/scripting/IDEAS.md)
         * [README.md](actividades/add/scripting/README.md)
         * [bash](actividades/add/scripting/bash) 4
             * [README.md](actividades/add/scripting/bash/README.md)
             * [agenda.md](actividades/add/scripting/bash/agenda.md)
             * [sysinfo.md](actividades/add/scripting/bash/sysinfo.md)
         * [power-shell](actividades/add/scripting/power-shell) 2
-        * [ruby](actividades/add/scripting/ruby) 7
+        * [ruby](actividades/add/scripting/ruby) 6
+            * [README.md](actividades/add/scripting/ruby/README.md)
             * [create-and-delete-users.md](actividades/add/scripting/ruby/create-and-delete-users.md)
             * [create-users.md](actividades/add/scripting/ruby/create-users.md)
             * [delete-users.md](actividades/add/scripting/ruby/delete-users.md)
-            * [enlaces-de-interes.md](actividades/add/scripting/ruby/enlaces-de-interes.md)
             * [install-and-remove.md](actividades/add/scripting/ruby/install-and-remove.md)
             * [kill-these-processes.md](actividades/add/scripting/ruby/kill-these-processes.md)
     * [ssh](actividades/add/ssh) 4
