@@ -1,11 +1,10 @@
 
 ```
-* Curso 201617
-* Actividad copiada de Nagios-Debian-Windows y
-adaptada para Icinga-OpenSUSE-Windows.
-```
-
 EN CONSTRUCCIÓN!!!
+* Curso 201617
+* Actividad copiada de Nagios-Debian-Windows
+* Se está intentando adaptadarla para Icinga-OpenSUSE-Windows.
+```
 
 # 1. Preparativos
 
@@ -14,15 +13,15 @@ EN CONSTRUCCIÓN!!!
 Para esta actividad vamos a necesitar 3 MV's:
 * (MV1) Monitorizador
     * SO GNU/Linux [OpenSUSE](../../global/configuracion/opensuse.md) de las MV's.
-    * IP estática 172.19.XX.31
+    * IP estática 172.AA.XX.31
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * (MV2) Cliente1:
     * SO GNU/Linux [OpenSUSE](../../global/configuracion/opensuse.md) de las MV's.
-    * IP estática 172.19.XX.32
+    * IP estática 172.AA.XX.32
     * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * (MV3) Cliente2:
     * SO [Windows7](../../global/configuracion/windows.md) para ser monitorizado.
-    * IP estática 172.19.XX.11
+    * IP estática 172.AA.XX.11
     * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
 > Veamos una imagen de ejemplo:
@@ -35,10 +34,6 @@ Para esta actividad vamos a necesitar 3 MV's:
 
 Enlaces de interés:
 * [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
-
-    * Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-    * [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/)
-    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).
 
 ---
 
@@ -519,7 +514,13 @@ if 5 restarts within 5 cycles then timeout
 
 # ANEXO
 
-## A.1 Agente Windows
+## A.1 Enlaces de interés para Nagios
+
+* Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+* [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/)
+    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).
+
+## A.2 Agente Windows
 
 Configuración del servidor para acceder usando comandos check_nt al agente Windows:
 
@@ -560,7 +561,7 @@ define service{
 }
 ```
 
-## A.2 Para revisar
+## A.3 Para revisar
 
 ```
 define host{

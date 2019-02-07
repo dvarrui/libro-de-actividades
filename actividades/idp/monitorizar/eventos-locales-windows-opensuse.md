@@ -1,10 +1,8 @@
 
-# 1. Introducción
+# 1. Eventos locales: Windows y OpenSUSE
 
 Toda la actividad importante del sistema debe quedar registrada en los
-ficheros de registro. Esto nos permite tener un histórico del comportamiento
-del sistema, que nos ayuda a modo de *"caja negra"*, a reconstruir situaciones
-del pasado para diversos fines. Esta es la utilidad de la monitorización y la auditoría, saber lo que ha pasado.
+ficheros de registro. Esto nos permite tener un histórico del comportamiento del sistema, que nos ayuda a modo de *"caja negra"*, a reconstruir situaciones del pasado para diversos fines. Esta es la utilidad de la monitorización y la auditoría, saber lo que ha pasado.
 
 ---
 
@@ -92,14 +90,11 @@ Usando herramientas potentes como audit, el sistema puede ser relizar un seguimi
 La configuración del demonio audit la llevan dos ficheros, uno para el demonio
 (auditd.conf) y otro para las reglas usadas por la herramienta auditctl (audit.rules).
 
-### auditd.conf
+**auditd.conf**
 
-El fichero `auditd.conf` configura el demonio auditd centrándose en dónde y cómo
-se deben registrar los eventos. Define como tratar con los discos llenos,
-rotaciones de log y el número de log a mantener. Normalmente la configuración
-por defecto será apropiada para la mayoría de los casos.
+El fichero `auditd.conf` configura el demonio auditd centrándose en dónde y cómo se deben registrar los eventos. Define como tratar con los discos llenos, rotaciones de log y el número de log a mantener. Normalmente la configuración por defecto será apropiada para la mayoría de los casos.
 
-### audit.rules
+**audit.rules**
 
 Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
 
@@ -115,8 +110,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero audit.rule
 * Consultar el estado del demonio o servicio:
     * `auditctl -s`
     * `systemctl status auditd`
-* Consultar el fichero `/etc/audit/auditd.conf`
-* Averiguar el significado de los siguientes parámetros: log_file, log_format,
+* Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format,
 log_group. Estos son las definiciones de algunos parámetros:
     * **freq**, un valor de 20 le indica al demonio audit que debe escribir los datos de
     los eventos al disco cada 20 segundos.
@@ -205,28 +199,31 @@ Este comando genera una lista numerada de todos los eventos de ejecuta
 
 ---
 
-# ANEXO
+# 4. Información
 
-Componentes de audit:
-* auditd: Demonio que captura los eventos y los almacena (log file)
-* auditctl: Herramienta cliente para configurar auditd
-    * `auditctl -e`, habilitar o deshabilitar audit
-    * `auditctl -r`, controlar la ratio límite de mensajes
-    * `auditctl -s`, consultar el estado actual del demonio
-* audispd: daemon to multiplex events
-* aureport: Herramienta de informes que leer de los ficheros de log (auditd.log)
-* ausearch: Visor de eventos (auditd.log)
-* autrace: Componente del kernel para hacer seguimiento de los binarios.
-* aulast: Similar a last, pero usando audit
-* aulastlog: Similar a lastlog, pero usando audit
-* ausyscall: mapea los syscall ID y nombre
-* auvirt: Muestra información relacionada con las máquinas virtuales.
+## 4.1 Resumen de comandos
+
+| Comando/componente de audit | Descripción |
+| ----------- | ----------- |
+| auditd      | Demonio que captura los eventos y los almacena (log file) |
+| auditctl    | Herramienta cliente para configurar auditd |
+| auditctl -e | habilitar o deshabilitar audit |
+| auditctl -r | controlar la ratio límite de mensajes |
+| auditctl -s | consultar el estado actual del demonio |
+| audispd     | daemon to multiplex events |
+| aureport    | Herramienta de informes que leer de los ficheros de log (auditd.log) |
+| ausearch   | Visor de eventos (auditd.log) |
+| autrace    | Componente del kernel para hacer seguimiento de los binarios |
+| aulast     | Similar al comando last, pero usando audit |
+| aulastlog  | Similar al comando lastlog, pero usando audit |
+| ausyscall  | mapea los syscall ID y nombre |
+| auvirt     | Muestra información relacionada con las máquinas virtuales |
 
 Para auditar procesos en Linux, Audit tiene la herramienta autrace que es similar a strace.
 Mostrar los eventos capturados usando ausearch.
 `ausearch –start recent -p 21023 –raw | aureport –file –summary`
 
-## Auditar acceso de usuarios
+## 4.2 Auditar acceso de usuarios
 
 Si se quiere saber que ficheros han sido accedidos por un usuario (UID) concreto
 `auditctl -a exit,always -F arch=x86_64 -S open -F auid=80`
@@ -236,7 +233,7 @@ Explicación de los parámetros:
 * -S open, elige las llamadas “open” al sistema
 * -F auid=80, el UID del usuario
 
-## Systemd y journal
+## 4.3 Systemd y journal
 
 Enlace de interés:
 * [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
