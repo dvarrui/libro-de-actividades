@@ -1,6 +1,4 @@
 
-`EN CONSTRUCCIÓN !!!`
-
 # Metasploit
 
 Vamos a usar MV con SO OpenSUSE.
