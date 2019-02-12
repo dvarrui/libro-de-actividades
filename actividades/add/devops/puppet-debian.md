@@ -358,7 +358,7 @@ class hostlinux2 {
 
   file { "/home/obiwan/share/public":
     ensure => "directory",
-    owner => "obi-wan",
+    owner => "obiwan",
     group => "jedy",
     mode => '755',
   }
