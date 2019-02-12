@@ -328,39 +328,39 @@ class hostlinux2 {
   group { "jedy": ensure => "present", }
   group { "admin": ensure => "present", }
 
-  user { 'obi-wan':
-    home => '/home/obi-wan',
+  user { 'obiwan':
+    home => '/home/obiwan',
     shell => '/bin/bash',
     password => 'kenobi',
     groups => ['jedy','admin','sudo','root'],
   }
 
-  file { "/home/obi-wan":
+  file { "/home/obiwan":
     ensure => "directory",
-    owner => "obi-wan",
+    owner => "obiwan",
     group => "jedy",
-    mode => 750,
+    mode => '750',
   }
 
-  file { "/home/obi-wan/share":
+  file { "/home/obiwan/share":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 750,
+    mode => '750',
   }
 
-  file { "/home/obi-wan/share/private":
+  file { "/home/obiwan/share/private":
     ensure => "directory",
-    owner => "obi-wan",
+    owner => "obiwan",
     group => "jedy",
-    mode => 750,
+    mode => '750',
   }
 
-  file { "/home/obi-wan/share/public":
+  file { "/home/obiwan/share/public":
     ensure => "directory",
     owner => "obi-wan",
     group => "jedy",
-    mode => 755,
+    mode => '755',
   }
 
 }
