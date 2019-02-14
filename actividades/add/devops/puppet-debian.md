@@ -344,7 +344,7 @@ class hostlinux2 {
 
   file { "/home/obiwan/share":
     ensure => "directory",
-    owner => "obi-wan",
+    owner => "obiwan",
     group => "jedy",
     mode => '750',
   }
