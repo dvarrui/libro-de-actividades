@@ -1,9 +1,13 @@
 
 # AppArmor
 
-Para esta práctica vamos a usar una MV con SO OpenSUSE Leap 42.2.
+Para esta práctica vamos a usar una MV con SO OpenSUSE.
 
-# 1. Teoría/explicación
+> El curso 201718 usamos OpenSUSE LEap 42.3.
+
+---
+
+# 1. AppArmor: Teoría/explicación
 
 Enlaces de interés:
 * [1.ESP Manual SuseLinux](http://guidalinux.altervista.org/suselinux-manual_es-10.1-10/bx5bmky.html)
@@ -51,11 +55,9 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 
 ---
 
-# 2. Práctica
+# 2. AppArmor: Práctica
 
-Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq),
-que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad
-a un programa concreto.
+Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq), que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad a un programa concreto.
 
 ## 2.1 Nuestro programa/comando
 
@@ -84,47 +86,46 @@ a un programa concreto.
 > El objetivo es generar actividad con este programa, mientras está siendo auditado por
 aa-genprof.
 
-* Vamos a la "consola2".
-    * Pulsamos "S" para comenzar el Scan.
-    * Permitir acceso de lectura a la ruta `/home/nombre-alumno/aa/olimpo/*`
-    * Permitir acceso de escritura a la ruta `/home/nombre-alumno/aa/tierra/*`
-    * Pulsamos S para grabar el perfil.
-    * `ls`, debemos ver el nuevo perfil creado.
-    * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
+Vamos a la "consola2".
+* Pulsamos "S" para comenzar el Scan.
+* Permitir acceso de lectura a la ruta `/home/nombre-alumno/aa/olimpo/*`
+* Permitir acceso de escritura a la ruta `/home/nombre-alumno/aa/tierra/*`
+* Pulsamos S para grabar el perfil.
+* `ls`, debemos ver el nuevo perfil creado.
+* `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
 
 > El perfil es un fichero de texto que se puede modificar si es necesario.
 
 ## 2.3 Forzamos el perfil
 
-* Seguimos en la "consola2".
-    * `aa-enforce home.nombre-alumno.aa.mycopy`, para forzar el cumplimiento
-    del perfil para el programa mycopy.
-    * `apparmor_status` para consultar el estado de los perfiles.
-* Volvemos a la "consola1"
-    * `rm tierra/*; tree`, para limpiar y comprobar.
-    * `./mycopy olimpo/* tierra`
-    * `tree`, comprobamos el resultado.
-    * Comprobamos que todo funciona igual de bien que siempre.
-    * `mkdir aderno`
-    * `./mycopy olimpo/* aderno`, debemos tener un problema de permisos.
-    Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
-    * `tree`, comprobamos que no se han copiado los archivos.
+Seguimos en la "consola2".
+* `aa-enforce home.nombre-alumno.aa.mycopy`, para forzar el cumplimiento del perfil para el programa mycopy.
+* `apparmor_status` para consultar el estado de los perfiles.
+
+Volvemos a la "consola1"
+* `rm tierra/*; tree`, para limpiar y comprobar.
+* `./mycopy olimpo/* tierra`
+* `tree`, comprobamos el resultado.
+* Comprobamos que todo funciona igual de bien que siempre.
+* `mkdir aderno`
+* `./mycopy olimpo/* aderno`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
+* `tree`, comprobamos que no se han copiado los archivos.
 
 ## 2.4 Perfil en modo queja
 
-* Vamos a "consola2".
-    * `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en
-    modo queja. De esta forma no se prohibe ninguna acción, pero si
-    queda auditada.
-    * `apparmor_status` para consultar el estado de los perfiles.
-* Volvemos a la "consola1".
-    * `tree`, comprobamos el contenido de los directorios.
-    * `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
-    * `tree`, comprobamos que se han copiado los archivos.    
-* Vamos a "consola2".
-    * Consultamos los eventos asociados a nuestro ejecutable:
-        * `ausearch -x mycopy | aureport -u`
-        * `cat /var/log/audit/audit.log | grep mycopy`
+Vamos a "consola2".
+* `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohibe ninguna acción, pero si queda auditada.
+* `apparmor_status` para consultar el estado de los perfiles.
+
+Volvemos a la "consola1".
+* `tree`, comprobamos el contenido de los directorios.
+* `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
+* `tree`, comprobamos que se han copiado los archivos.    
+
+Vamos a "consola2".
+* Consultamos los eventos asociados a nuestro ejecutable:
+    * `ausearch -x mycopy | aureport -u`
+    * `cat /var/log/audit/audit.log | grep mycopy`
 
 ---
 
