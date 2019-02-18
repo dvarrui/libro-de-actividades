@@ -6,10 +6,10 @@
 # Preparar el Software
 
 * Instalar el SO en la RbPI.
-* Crear usuario "nombre-del-alumno".
-* Poner hostname "rbpiNN", donde NN es el identificador de la Raspberry.
-* Activar el servidor SSH.
-* Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario.
+* Configurar la [Raspberry PI](../../global/configuracion/rbpi.md)
+* Acceso remoto
+    * Activar el servidor SSH.
+    * Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario (`ssh usuario@ip`).
 
 ---
 
