@@ -3,7 +3,7 @@
 
 ---
 
-# Preparar el Software 
+# Preparar el Software
 
 * Instalar el SO en la RbPI.
 * Crear usuario "nombre-del-alumno".
@@ -36,11 +36,15 @@ Para conocer la IP de nuestra RbPI tenemos dos opciones:
 
 Para averiguar la IP hacemos lo siguiente:
 * Ir a nuestro PC desktop.
-* Ejecutar un de los siguientes comandos:
-    * ping -b -c1 -i 20 172.18.99.255
-    * ping -b -c3 -i 20 172.18.255.255
-    * nmap -Pn 172.18.99.255
-    * nmap -Pn 172.18.255.255
+* `sudo arp-scan 172.18.0.0/16` para hacer un barrido por un rango de IP's.
+
+> Otras formas de hacer el barrido IP:
+>
+> * ping -b -c1 -i 20 172.18.99.255
+> * ping -b -c3 -i 20 172.18.255.255
+> * nmap -Pn 172.18.99.255
+> * nmap -Pn 172.18.255.255
+
 * Ejecutando `arp > arp.txt`, se cre el fichero arp.txt. Consulta el fichero y busca tu MAC.
 * Ya tenemos la IP.
 
