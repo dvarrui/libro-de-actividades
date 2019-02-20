@@ -123,7 +123,7 @@ Volvemos a la "consola1"
 * `./mycopy DIRNAME1/* DIRNAME2`
 * `tree`, comprobamos el resultado.
 * Comprobamos que todo funciona igual de bien que siempre.
-* Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nabe-imperial`)
+* Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nave-imperial`)
 * `./mycopy DIRNAME1/* DIRNAME3`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
 * `tree`, comprobamos que no se han copiado los archivos.
 
