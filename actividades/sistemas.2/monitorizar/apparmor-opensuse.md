@@ -1,9 +1,18 @@
 
-# AppArmor
+# AppArmor (OpenSUSE)
 
 Para esta práctica vamos a usar una MV con SO OpenSUSE.
 
-> El curso 201718 usamos OpenSUSE LEap 42.3.
+> * Curso 201718 usamos OpenSUSE Leap 42.3.
+> * Curso 201819 usamos OpenSUSE Leap 15.
+
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (1.3) Comprobamos | | | |
+| (2.2) Comprobamos | | | |
+| (3.2) Comprobamos | | |. |
 
 ---
 
@@ -59,20 +68,21 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 
 Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq), que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad a un programa concreto.
 
-## 2.1 Nuestro programa/comando
+## 2.1 Preparativos
 
 * Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
 * Copiamos el programa `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
-* Crear los directorios y ficheros siguientes:
-    * `/home/nombre-alumno/aa/olimpo/zeus.txt`: Escribir en el contenido "curso1516alumnoXX".
-    * `/home/nombre-alumno/aa/olimpo/hera.txt`: Escribir en el contenido "curso1516alumnoXX".
-    * `/home/nombre-alumno/aa/olimpo/apolo.txt`: Escribir en el contenido "curso1516alumnoXX".
-    * `/home/nombre-alumno/aa/tierra`
+* Crear lo siguiente:
+    * Crear directorio DIRNAME1 (`/home/nombre-alumno/aa/elhacon/`)
+    * `DIRNAME1/han.txt`: Escribir en el contenido "nombre-del-alumnoXX".
+    * `DIRNAME1/chewaka.txt`: Escribir en el contenido "nombre-del-alumnoXX".
+    * `DIRNAME1/leia.txt`: Escribir en el contenido "nombre-del-alumnoXX".
+    * Crear directorio DIRNAME2 (`/home/nombre-alumno/aa/ciudad-nube/`)
 * Probamos a copiar archivos con nuestro comando `mycopy`.
     * `cd /home/nombre-alumno/aa/`
-    * `./mycopy olimpo/* tierra`
+    * `./mycopy DIRNAME1/* DIRNAME2`
     * `tree`, comprobamos el resultado.
-* `rm tierra/*`, limpiamos el directorio.
+* `rm DIRNAME2/*`, limpiamos el directorio.
 
 ## 2.2 Generar el perfil
 
@@ -82,47 +92,67 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
     * `aa-genprof /home/nombre-alumno/aa/mycopy`, para iniciar la generación
     de un perfil. Este programa se queda en espera.
 
-* Volvemos a la "consola1" y ejecutamos el comando de copia `./mycopy olimpo/* tierra`
-> El objetivo es generar actividad con este programa, mientras está siendo auditado por
-aa-genprof.
+* Volvemos a la "consola1" y ejecutamos el comando de copia `./mycopy DIRNAME1/* DIRNAME2`
+
+> El objetivo es hacer las acciones con este programa, mientras está siendo auditado por aa-genprof.
 
 Vamos a la "consola2".
 * Pulsamos "S" para comenzar el Scan.
-* Permitir acceso de lectura a la ruta `/home/nombre-alumno/aa/olimpo/*`
-* Permitir acceso de escritura a la ruta `/home/nombre-alumno/aa/tierra/*`
+* Permitir acceso de lectura a la ruta `DIRNAME1/*`
+* Permitir acceso de escritura a la ruta `DIRNAME2/*`
 * Pulsamos S para grabar el perfil.
 * `ls`, debemos ver el nuevo perfil creado.
+
+## 2.3 Comprobamos
+
 * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
 
 > El perfil es un fichero de texto que se puede modificar si es necesario.
 
-## 2.3 Forzamos el perfil
+---
+
+# 3. Forzamos el perfil
+
+## 3.1 Preparativos
 
 Seguimos en la "consola2".
 * `aa-enforce home.nombre-alumno.aa.mycopy`, para forzar el cumplimiento del perfil para el programa mycopy.
-* `apparmor_status` para consultar el estado de los perfiles.
 
 Volvemos a la "consola1"
-* `rm tierra/*; tree`, para limpiar y comprobar.
-* `./mycopy olimpo/* tierra`
+* `rm DIRNAME2/*; tree`, para limpiar y comprobar.
+* `./mycopy DIRNAME1/* DIRNAME2`
 * `tree`, comprobamos el resultado.
 * Comprobamos que todo funciona igual de bien que siempre.
-* `mkdir aderno`
-* `./mycopy olimpo/* aderno`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
+* Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nabe-imperial`)
+* `./mycopy DIRNAME1/* DIRNAME3`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
 * `tree`, comprobamos que no se han copiado los archivos.
 
-## 2.4 Perfil en modo queja
+## 3.2 Comprobamos
 
 Vamos a "consola2".
-* `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohibe ninguna acción, pero si queda auditada.
 * `apparmor_status` para consultar el estado de los perfiles.
+* Consultamos los eventos asociados a nuestro ejecutable:
+    * `ausearch -x mycopy | aureport -u`
+    * `cat /var/log/audit/audit.log | grep mycopy`
+
+---
+
+# 4. Modo queja
+
+## 4.1 Perfil en modo queja
+
+Vamos a "consola2".
+* `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohíbe ninguna acción, pero si queda auditada.
 
 Volvemos a la "consola1".
 * `tree`, comprobamos el contenido de los directorios.
-* `./mycopy olimpo/* aderno`, ahora sí debe funcionar el ejecutable.
+* `./mycopy DIRNAME1/* DIRNAME3`, ahora sí debe funcionar el ejecutable.
 * `tree`, comprobamos que se han copiado los archivos.    
 
+## 4.2 Comprobamos
+
 Vamos a "consola2".
+* `apparmor_status` para consultar el estado de los perfiles.
 * Consultamos los eventos asociados a nuestro ejecutable:
     * `ausearch -x mycopy | aureport -u`
     * `cat /var/log/audit/audit.log | grep mycopy`
