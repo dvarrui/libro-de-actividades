@@ -73,7 +73,7 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
 * Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
 * Copiamos el programa `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
 * Crear lo siguiente:
-    * Crear directorio DIRNAME1 (`/home/nombre-alumno/aa/elhacon/`)
+    * Crear directorio DIRNAME1 (`/home/nombre-alumno/aa/elhalcon/`)
     * `DIRNAME1/han.txt`: Escribir en el contenido "nombre-del-alumnoXX".
     * `DIRNAME1/chewaka.txt`: Escribir en el contenido "nombre-del-alumnoXX".
     * `DIRNAME1/leia.txt`: Escribir en el contenido "nombre-del-alumnoXX".
@@ -123,7 +123,7 @@ Volvemos a la "consola1"
 * `./mycopy DIRNAME1/* DIRNAME2`
 * `tree`, comprobamos el resultado.
 * Comprobamos que todo funciona igual de bien que siempre.
-* Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nabe-imperial`)
+* Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nave-imperial`)
 * `./mycopy DIRNAME1/* DIRNAME3`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
 * `tree`, comprobamos que no se han copiado los archivos.
 
