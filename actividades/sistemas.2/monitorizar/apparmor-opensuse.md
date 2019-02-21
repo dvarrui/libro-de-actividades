@@ -10,8 +10,8 @@ Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
-| (1.3) Comprobamos | | | |
-| (2.2) Comprobamos | | | |
+| (2.3) Comprobamos | | | |
+| (3.2) Comprobamos | | | |
 | (3.2) Comprobamos | | |. |
 
 ---
