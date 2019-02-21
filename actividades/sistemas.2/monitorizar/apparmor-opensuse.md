@@ -12,7 +12,7 @@ Ejemplo de rúbrica:
 | --------------------- | ------------ | ----------- | ----------------- |
 | (2.3) Comprobamos | | | |
 | (3.2) Comprobamos | | | |
-| (3.2) Comprobamos | | |. |
+| (4.2) Comprobamos | | |. |
 
 ---
 
