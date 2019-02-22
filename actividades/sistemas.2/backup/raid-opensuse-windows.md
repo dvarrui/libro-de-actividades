@@ -1,5 +1,8 @@
 
 
+> * Curso 201819: OpenSUSE Leap 15
+
+
 # 1. Instalar OpenSUSE en disco RAID0 software
 
 Ejemplo de rúbrica:
