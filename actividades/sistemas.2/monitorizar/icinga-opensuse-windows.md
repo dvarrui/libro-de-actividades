@@ -113,9 +113,9 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 
 ## 3.2 Directorio personal
 
-* Creamos el directorio `/etc/icinga2/nombre-del-alumno.d`, para
-guardar nuestras configuraciones.
-* Añadir la línea `cfg_dir=/etc/icinga/nombre-del-alumno.d` al fichero de configuración `/etc/icinga2/icinga.cfg`, para que se tengan en cuenta nuestros ficheros de configuración personales al iniciar el programa.
+* Sea DIRNAME = `/etc/icinga2/nombre-del-alumno.d`.
+* Creamos el directorio DIRNAME, para guardar nuestras configuraciones.
+* Añadir la línea `cfg_dir=DIRNAME` al fichero de configuración `/etc/icinga2/icinga.cfg`, para que se tengan en cuenta nuestros ficheros de configuración personales al iniciar el programa.
 
 ---
 
@@ -124,11 +124,10 @@ guardar nuestras configuraciones.
 > Cuando se tienen muchos *hosts* es más cómodo agruparlos.
 Las agrupaciones las hacemos con `hostgroup`.
 
-* Vamos crear varios `hostgroup`:
-    * Sustituir XX por el identificador del alumno.
-    * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
-    * Hay que definir 3 grupos de hosts: `routersXX`, `servidoresXX` y `clientesXX`.
-    * Veamos un ejemplo (no sirve copiarlo):
+Vamos crear varios `hostgroup`
+* Sustituir XX por el identificador del alumno.
+* Creamos el fichero `DIRNAME/gruposXX.cfg`.
+* Hay que definir los grupos siguientes: `routersXX`, `servidoresXX` y `clientesXX`. Veamos un ejemplo (no sirve copiarlo):
 
 ```
 define hostgroup {
@@ -137,14 +136,11 @@ define hostgroup {
 }
 ```
 
-## 3.3 Hosts
+## 3.3 Hosts: Routers
 
-### Routers
+* Crear el fichero `DIRNAME/routersXX.cfg` para incluir las definiciones de los hosts de tipo router.
+* Los host serán miembros también de los grupos `http-servers`, `ssh-servers` que ya vienen predefinidos por defecto. Veamos un ejemplo (no sirve copiarlo):
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-routersXX.cfg` para
-incluir las definiciones de las máquinas de tipo router.
-* Los host serán miembros también de los grupos http-servers, ssh-servers
-* Veamos un ejemplo (no sirve copiarlo):
 ```
 define host{
   host_name       NOMBRE_DEL_HOST
@@ -173,45 +169,37 @@ define host{
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 
-* El router caronteXX tiene como padre a benderXX.
-* Reiniciamos Nagios para que coja los cambios en la configuración.
-    * Pista `service nagios...`
-    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
-* Consultar la lista de hosts monitorizados por Nagios.
+* El router `caronteXX` tiene como padre(parent) a `benderXX`.
+* Reiniciamos el servicio para que coja los cambios en la configuración.
+    * Pista `systemctl restart...`
+    * Si hay problemas, consultar log `var/log/.../icinga.log`.
+* Consultar la lista de hosts monitorizados en el panel Web.
 
-### Servidores
+## 3.4 Hosts: Servidores
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-servidoresXX.cfg` para
-incluir las definiciones de las máquinas de tipo servidor.
-* Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
-* El equipo leelaXX tiene como parent a benderXX.
-* Reiniciamos Nagios
-    * Pista `service ...`
-    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
-* Consultar la lista de hosts monitorizados por Nagios.
+* Crear el fichero `DIRBASE/servidoresXX.cfg` para incluir las definiciones de los hosts de tipo servidor.
+* Todos los host servidores deben ser miembros de `servidoresXX`, `http-servers`, `ssh-servers`.
+* El equipo `leelaXX` tiene como parent a `benderXX`.
+* Reiniciamos el servicio
+* Consultar la lista de hosts monitorizados en el panel.
 
-### Clientes
+## 3.5 Hosts: Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/grupo-de-clientesXX.cfg` para
-incluir las definiciones de las máquinas de tipo cliente.
-* Veamos un ejemplo (no sirve copiar):
+* Crear el fichero `DIRBASE/clientesXX.cfg` para incluir las definiciones de los hosts de tipo cliente. Veamos un ejemplo (no sirve copiar):
 
 ```
 define host{
-  use        generic-host
-  host_name  NOMBRE_HOST
-  alias      NOMBRE_LARGO_DEL_HOST
-  address    IP_DEL_HOST
-  hostgroups GRUPO_AL_QUE_PERTENECE
+  use          generic-host
+  host_name    NOMBRE_HOST
+  alias        NOMBRE_LARGO_DEL_HOST
+  address      IP_DEL_HOST
+  hostgroups   GRUPO_AL_QUE_PERTENECE
 }
 ```
 > Personalizar: host_name, alias, address y hostgroups.
 
-* Reiniciamos Nagios para que coja los cambios
-    * Pista `service nagios3...`
-    * Comprobación: `service nagios3 status`
-    * Si hay problemas, consultar log `var/log/nagios3/nagios.log`.
-* Consultar la lista de hosts monitorizados por Nagios.
+* Reiniciamos el servicio para que coja los cambios.
+* Consultar la lista de hosts monitorizados por el panel.
 
 ---
 
@@ -231,15 +219,13 @@ Además podemos tener una visión completa de la red en la opción "map".
 
 ---
 
-# 5. Agente Nagios GNU/Linux
+# 5. Agente: Servicios Internos en el cliente GNU/Linux
 
 ## 5.1 Documentación
 
-Por ahora el servidor Nagios sólo puede obtener la información que los
-equipos dejan ver desde el exterior.
+Por ahora el monitor, sólo puede obtener la información que los
+equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que instalar una utilidad llamada "Agente" en cada uno.
 
-Cuando queremos obtener más información del interior los hosts,
-tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno.
 El agente es una especie de "chivato" que nos puede dar datos de:
 Consumo CPU, consumo de memoria, consumo de disco, etc.
 
@@ -249,19 +235,16 @@ podremos tener esta información desde los clientes remotos.
 
 ![nagios3-details](./images/nagios3-details.png)
 
-Enlaces de interés:
-* [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
-* [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
-* [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
+> Enlaces de interés:
+> * [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
+> * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
+> * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 ## 5.2 Instalar y configurar el cliente1
 
 En el cliente:
-* Debemos instalar el agente nagios en la máquina cliente (paquete NRPE server y los plugin básicos)
-    * Pista: `apt-get ... `
-* Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
-
-> En el **CURSO1617** usaremos fichero nrpe_local.cfg
+* Debemos instalar el agente en la máquina cliente (paquete NRPE server y los plugin básicos)
+* Editar el fichero `/etc/.../nrpe_local.cfg` del cliente y modificar lo siguiente:
 
 ```
  # define en qué puerto (TCP) escuchará el agente.
@@ -295,17 +278,14 @@ command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
 command[check_procs]=...
 ```
 
-* Reiniciar el servicio en el cliente:
-    * Pista `service nagios-nrpe-server ...`
+* Reiniciar el servicio en el cliente (`systemctl restart nagios-nrpe-server ...`)
 
 ## 5.3 Configurar en el servidor
 
-En el servidor Nagios:
-* Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma:
-    * `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`
-* A continuación, vamos a definir servicios a monitorizar
-   * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
-   * Añadir las siguientes líneas:
+* Ir al servidor.
+* `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`, comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma.
+* Crear el fichero `DIRBASE/servicios-gnulinuxXX.cfg`, para definir nuevos servicios a monitorizar.
+* Añadir las siguientes líneas:
 
 ```
 define service{
@@ -337,11 +317,11 @@ define service{
 }
 ```
 
-* Consultar el estado de los servicios monitorizados por Nagios.
+* Consultar el estado de los servicios monitorizados en el panel.
 
 ---
 
-# 6. Agente Nagios en Windows
+# 6. Agente: Servicios Internos en el Cliente Windows
 
 ## 6.1 Instalar en el cliente2
 
@@ -356,7 +336,7 @@ Windows y el servidor Nagios.
 > * Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la
 instalación del programa con las opciones por defecto sin preguntarnos.
 
-* Servicio `Agente Nagios` en el cliente
+* Servicio `Agente` en el cliente
     * Por entorno gráfico:
         * Ir a `Equipo -> Administrar -> Servicios -> Nagios -> Reiniciar`.
     * Por comandos:
@@ -420,15 +400,12 @@ check_firewall_service=CheckServiceState MpsSvc
 ## 6.3 Configurar en el Servidor
 
 En el servidor Nagios:
-* Vamos a comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma:
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`
+* `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`, comprobar desde el servidor la conexión NRPE al cliente.
 
-> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
-sobre cómo configurar los servicios del host Windows en Nagios Master
+> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html) sobre cómo configurar los servicios del host Windows en Nagios Master
 
-* A continuación, vamos a definir servicios a monitorizar
-   * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-windowsXX.cfg`
-   * Veamos un ejemplo.
+* Crear el fichero `DIRBASE/servicios-windowsXX.cfg`, para definir servicios a monitorizar en Windows.
+* Veamos un ejemplo.
 
 ```
 define service {
@@ -455,70 +432,4 @@ define service{
 ```
 
 * Reiniciar el servicio.
-* Consultar los servicios monitorizados por Nagios
-
----
-
-# 7. Monit en el Servidor
-
-* Instalar Monit en MV Debian1.
-* Renombrar el fichero `/etc/monit/monitrc` a `/etc/monit/monitrc.bak`.
-* Copiar el fichero de ejemplo proporcionado por el profesor a la ruta `/etc/monit/monitrc`.
-* Veamos un ejemplo:
-
-```
- # Fichero /etc/monit/monirc de ejemplo
- # config general
-set daemon 120
-set logfile /var/log/monit.log
-set mailserver localhost
-
- # Plantilla de email que se envía en las alertas
-set alert nombreusuarios@correousuario.com
-set mail-format {
-  from: ALUMNO@EMAIL.ES
-  subject: $SERVICE $EVENT at $DATE
-  message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
-  Yours sincerely, monit
-}
-
-set httpd port 2812 and use address localhost
-allow NOMBRE_ALUMNO:CLAVE_ALUMNO
-
- # Monitorizar los recursos del sistema
-check system localhost
-if loadavg (1min) > 4 then alert
-if loadavg (5min) > 2 then alert
-if memory usage > 75% then alert
-if cpu usage (user) > 70% then alert
-if cpu usage (system) > 30% then alert
-if cpu usage (wait) > 20% then alert
-
- # Monitorizar el servicio SSH
-check process sshd with pidfile /var/run/sshd.pid
-start program "service sshd start"
-stop program  "service sshd stop"
-if failed port 22 protocol ssh then restart
-if 5 restarts within 5 cycles then timeout
-```
-
-* Modificar el fichero /etc/monit/monitrc para adaptarlo a nuestra máquina.
-* Reiniciar el servicio: /etc/init.d/monit restart
-* Comprobar la lectura de datos de monit vía comandos: `monit status`
-* Comprobar la lectura de datos de monit vía GUI.
-    * Abrir un navegador web en la propia máquina, y poner URL `http://localhost:2812`.
-    * Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
-* Capturar pantalla.
-
----
-
-# ANEXO
-
-
-* Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
-    * En Debian se usa `apt-get ...` o synaptic.
-    * Comprobación: `dpkg -l nagios*`
-* Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
-Además se instalará un servidor web.
-
-![nagios3-password.png](./images/nagios3-password.png)
+* Consultar los servicios monitorizados por el panel.
