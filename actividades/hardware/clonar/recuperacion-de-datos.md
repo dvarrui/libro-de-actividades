@@ -216,7 +216,7 @@ Vamos a intentar recuperar un esquema de particionado dañado.
 * `dd if=/dev/zero of=/dev/sdc bs=512 count=1`, escribimos ceros en el sector 0 del disco sdc. Destruyendo el esquema de particiones de dicho disco.
 * `fdisk -l |grep sdc`, comprobamos que ha desaparecido la partición.
 * Ahora no se puede acceder a la partición sdc1.
-* Usar `TestDisk` para recuperar el esquema de particionado.
+* Ejecutar comando `testdisk` para iniciar la herramienta TestDisk, que nos servirá para recuperar el esquema de particionado.
 * Ahora se debería poder acceder a la partición sdc1.
 
 ---
