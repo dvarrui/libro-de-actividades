@@ -42,7 +42,7 @@ Enlaces de interés:
 * `systemctl enable icinga2` activar el servicio Icinga2.
 * `systemctl start icinga2` iniciar el servicio Icinga2.
 
-> Repositorio de paquetes openSUSE
+> Repositorio de paquetes openSUSE:
 > * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
 > * zypper ref
 > * zypper install icinga2
@@ -81,7 +81,7 @@ Otros comandos de interés:
 
 * `systemctl status icinga2`
 * `nmap localhost`
-* `lsof -i`
+* `lsof -i -n`
 * Consultar log `var/log/icinga2.log`.
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
 
@@ -111,13 +111,13 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 
 ---
 
-## 3.1 Directorio personal
+## 3.2 Directorio personal
 
-* Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para
+* Creamos el directorio `/etc/icinga2/nombre-del-alumno.d`, para
 guardar nuestras configuraciones.
-* Modificamos fichero de configuración principal `/etc/nagios3/nagios.cfg`,
-y añadiremos la siguiente línea: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
-para que Nagios tenga en cuenta también estos ficheros al iniciarse.
+* Añadir la línea `cfg_dir=/etc/icinga/nombre-del-alumno.d` al fichero de configuración `/etc/icinga2/icinga.cfg`, para que se tengan en cuenta nuestros ficheros de configuración personales al iniciar el programa.
+
+---
 
 ## 3.2 Grupos
 
