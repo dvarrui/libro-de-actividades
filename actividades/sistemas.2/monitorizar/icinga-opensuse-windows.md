@@ -41,39 +41,56 @@ Enlaces de interés:
 
 > openSUSE repositorio de paquetes
 >
-> # zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
-> # zypper ref
-> # zypper install icinga2
-
-> The default installation will enable three features required for a basic Icinga 2 installation:
-> checker for executing checks
-> notification for sending notifications
->  mainlog for writing the icinga2.log file
+> **zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo**
 >
-> `icinga2 feature list`, You can verify that by calling icinga2 feature list CLI command to see which features are enabled and disabled.
+> **zypper ref**
 >
-> Installation Paths
-> /etc/icinga2 	Contains Icinga 2 configuration files.
+> **zypper install icinga2**
 
-# Setting up Check Plugins
+> La instalación predeterminada activará tres características necesarias para la instalación básica de Icinga 2:
+>
+> `checker` para ejecutar chequeos
+> 
+> `notification` para enviar notificaciones
+>
+> `mainlog` para escribir el fichero `icinga2.log`
 
-Without plugins Icinga 2 does not know how to check external services. The Monitoring Plugins Project provides an extensive set of plugins which can be used with Icinga 2 to check whether services are working properly.
+> Puedes verificar con el comando CLI `icinga2 feature list` cuáles características estas habilitadas o deshabilitadas.
+>
+> El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
 
-These plugins are required to make the example configuration work out-of-the-box.
+# Configurando Plugins de verificación
 
-For your convenience here is a list of package names for some of the more popular operating systems/distributions:
-OS/Distribution 	Package Name 	Repository 	Installation Path
-SLES/OpenSUSE 	monitoring-plugins 	server:monitoring 	/usr/lib/nagios/plugins
+Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos. The Monitoring Plugins Project provee una extensa lista de plugins los cuáles pueden ser usados con Icinga 2 para verificar si los servicios están trabajando correctamente.
 
-> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios.
-SLES/openSUSE:
+Estos plugins son requeridos para crear el ejemplo de configuración de trabajo `out-of-the-box`.
 
-* `zypper install monitoring-plugins`, instalar los plugins
+Para vuestra comodidad aquí esta una lista de paquetes de nombres para algunos de los sistemas operativos/distribuciones más populares:
+   * OS/Distribution Package
+   * Name Repository
+   * Installation Path
+   * SLES/OpenSUSE
+   * monitoring-plugins
+   * server:monitoring
+   * /usr/lib/nagios/plugins
 
-* systemctl enable icinga2
-* systemctl start icinga2
+> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios. 
+
+SLES/OpenSUSE:
+
+* `zypper install monitoring-plugins`, instalar los plugins.
+
+* `systemctl enable icinga2` activar el servicio Icinga2.
+
+* `systemctl start icinga2` iniciar el servicio Icinga2.
 
 PROGRESO!!!
+
+> Otros comandos de interés:
+> `systemctl disable icinga2` desactivar el servicio Icinga2.
+> `systemctl restart icinga2` reiniciar el servicio Icinga2.
+> `systemctl stop icinga2` parar el servicio Icinga2.
+> `systemctl status icinga2` comprobar el servicio Icinga2.
 
 ---
 
