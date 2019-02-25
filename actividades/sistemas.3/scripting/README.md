@@ -1,6 +1,29 @@
 
 # Scripting
 
+```
+http://www.hackerhighschool.org/lessons/HHS_es2_Comandos_Esenciales.v2.pdf
+
+HackerHighSchool Lesson 2: Presentación y Objetivos
+
+Tanto si recuerdas a Hugh Jackman
+en la película Operación Swordfish
+o a Trinity hackeando un sistema UNIX
+en Matrix Reloaded,
+cuando piensas en un hacker,
+lo imaginas trabajando con la línea de comandos.
+Y por una buena razón.
+
+Puedes hacer cosas formidables con
+la interfaz de línea de comandos (CLI).
+No necesitas ser un maestro usándola, pero
+deberías sentirte cómodo trabajando con ella.
+
+Una vez que hayas aprendido los conceptos fundamentales del CLI,
+podrás comenzar a utilizar estos comandos en archivos de texto
+(los llamados scripts); es la forma más sencilla de programar.
+```
+
 ---
 
 # ¿Qué es? y ¿Para qué sirve?
@@ -15,7 +38,7 @@ Hacer un script es crear un fichero de texto plano con permisos de ejecución. E
 Los scripts NO se compilan, pero SI se interpretan. Además para hacer un script podremos usar:
 * estructuras de programación condicionales (if-then)
 * Estructuras de control iterativas o bucles (for, while, etc.)
-* Importar bibliotecas
+* Reutilizar código (Importar bibliotecas)
 * Etc.
 
 El cometido típico de un script es el de resolver problemas de administración de sistemas operativos pero... al final son programas... y con los programas puedes hacer casi lo que te imagines. ;-)
@@ -26,66 +49,11 @@ El cometido típico de un script es el de resolver problemas de administración 
 
 Básicamente lo que necesitaremos será conocer los comandos del sistema y para ejecutarlos usaremos la shell del sistema. A continuación pongo una lista (no exaustiva) de varios tipos de herramientas para crear scripts:
 * Bash
-* PowerShell
-* Python
 * Ruby
+* Python
+* PowerShell
 * BAT
 * etc.
-
----
-
-# Vamos paso a paso
-
-Empezamos a partir de un problema (de administración de sistemas operativos) que queremos automatizar o simplicar mediante un script.
-
-* Definir o acotar el problema: Define con claridad qué quieres resolver, cúal es el problema. Hazte con una lista de comandos que crees que te puede ayudar.
-* Divide y vencerás.
-    * Si el problema es muy complejo (para nosotros) entonces divídelo en trozos más sencillos hasta que te quede un problema pequeño que sepas hacer.
-    * Cuando tengamos resueltos los problemas pequeños, unimos las soluciones y ya tenemos resuelto el problema gordo.
-* Crea un fichero de texto y escribe comentarios con tu plan de acción:
-```
-# Problema : XXX
-# Autor    : David Vargas
-# Fecha    : 20190108
-#
-# Para resolver el problema XXX tengo que hacer:
-#
-# 1. bla bla bla
-#    Lista de comandos que me pueden ayudar...  
-#
-# 2. bla bla bla
-#    Lista de comandos que me pueden ayudar...  
-#
-# 3. bla bla bla
-#    Lista de comandos que me pueden ayudar...  
-#
-#
-# ¡Y listo!
-```
-* Ahora vamos a ir paso por paso.
-* Pon los comandos que necesitamos para resolver el punto 1. Cuando creas que lo tienes, ejecuta y prueba. Funciona: ¡bien! sigue al paso 2. ¿No funciona? Pues seguimos en el punto 1.
-* A veces si estamos perdidos ayuda imprimir mensajes en pantalla para saber qué está ocurriendo o utilizar técnicas de depuración de programas (ya las veremos dentro de un rato). Para imprimir un mensaje en pantalla:
-```
-echo "Hola Mundo!"           # Bash
-
-puts "Hola Mundo!"           # Ruby
-`echo "Hola Mundo!"`         # Ruby
-system('echo "Hola Mundo!"') # Ruby
-
-print("Hola Mundo!")         # Python
-```
-* Cuando termines el paso 1, vamos al paso 2... y así sucesivamente. Siempre probando a ver qué tal va todo.
-
----
-
-# Actividades
-
-Vamos a hacer las siguientes actividades:
-
-| Id | Problema a resolver | Realizado por |
-| -- | ------------------- | ------------- |
-| S1 | Elegiremos alguna actividad que ya hayamos realizado para resolverla con un script | En grupo entre el profesor y los alumnos |
-| S2 | Los alumnos elegirán alguna actividad que ya hayamos realizado en clase 1º o 2º | Por cada alumno de forma individual |
 
 ---
 
