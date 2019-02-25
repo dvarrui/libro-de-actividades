@@ -1,28 +1,24 @@
 
 ```
 EN CONSTRUCCIÓN!!!
-* Curso 201617
-* Actividad copiada de Nagios-Debian-Windows
-* Se está intentando adaptadarla para Icinga-OpenSUSE-Windows.
+* Curso 201617: Actividad copiada de Nagios-Debian-Windows
+* Curso 201819: Se está intentando adaptadar para Icinga-OpenSUSE-Windows.
 ```
 
 # 1. Preparativos
 
 ## 1.1 Preparar las máquinas
 
-Para esta actividad vamos a necesitar 3 MV's:
-* (MV1) Monitorizador
-    * SO GNU/Linux [OpenSUSE](../../global/configuracion/opensuse.md) de las MV's.
-    * IP estática 172.AA.XX.31
-    * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* (MV2) Cliente1:
-    * SO GNU/Linux [OpenSUSE](../../global/configuracion/opensuse.md) de las MV's.
-    * IP estática 172.AA.XX.32
-    * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
-* (MV3) Cliente2:
-    * SO [Windows7](../../global/configuracion/windows.md) para ser monitorizado.
-    * IP estática 172.AA.XX.11
-    * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
+Para esta actividad vamos a necesitar los siguientes MV's:
+
+| ID  | Hostname   | IP | SSOO |
+| --- | ---------- | -- | ---- |
+| MV1 | monitorXX  | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV3 | clientXXw1 | 172.AA.XX.11 |[Windows7](../../global/configuracion/windows.md)|
+
+* Incluir en el `/etc/hosts` todas las máquinas de la práctica.
+* Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
 > Veamos una imagen de ejemplo:
 >
@@ -39,94 +35,81 @@ Enlaces de interés:
 
 # 2. Instalar el servidor
 
-> openSUSE repositorio de paquetes
->
-> **zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo**
->
-> **zypper ref**
->
-> **zypper install icinga2**
+## 2.1 Instalar el software
 
-> La instalación predeterminada activará tres características necesarias para la instalación básica de Icinga 2:
->
-> `checker` para ejecutar chequeos
-> 
-> `notification` para enviar notificaciones
->
-> `mainlog` para escribir el fichero `icinga2.log`
-
-> Puedes verificar con el comando CLI `icinga2 feature list` cuáles características estas habilitadas o deshabilitadas.
->
-> El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
-
-# Configurando Plugins de verificación
-
-Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos. The Monitoring Plugins Project provee una extensa lista de plugins los cuáles pueden ser usados con Icinga 2 para verificar si los servicios están trabajando correctamente.
-
-Estos plugins son requeridos para crear el ejemplo de configuración de trabajo `out-of-the-box`.
-
-Para vuestra comodidad aquí esta una lista de paquetes de nombres para algunos de los sistemas operativos/distribuciones más populares:
-   * OS/Distribution Package
-   * Name Repository
-   * Installation Path
-   * SLES/OpenSUSE
-   * monitoring-plugins
-   * server:monitoring
-   * /usr/lib/nagios/plugins
-
-> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios. 
-
-SLES/OpenSUSE:
-
-* `zypper install monitoring-plugins`, instalar los plugins.
-
+* `zypper search icinga`, buscar paquetes.
+* `zypper install icinga2`, instalar software.
 * `systemctl enable icinga2` activar el servicio Icinga2.
-
 * `systemctl start icinga2` iniciar el servicio Icinga2.
 
-PROGRESO!!!
+> Repositorio de paquetes openSUSE
+> * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
+> * zypper ref
+> * zypper install icinga2
 
-> Otros comandos de interés:
-> `systemctl disable icinga2` desactivar el servicio Icinga2.
-> `systemctl restart icinga2` reiniciar el servicio Icinga2.
-> `systemctl stop icinga2` parar el servicio Icinga2.
-> `systemctl status icinga2` comprobar el servicio Icinga2.
+La instalación predeterminada activará tres características básicas de Icinga:
+* `checker` para ejecutar chequeos
+* `notification` para enviar notificaciones
+* `mainlog` para escribir el fichero `icinga2.log`
+Verificar las características habilitadas o deshabilitadas.
+* `icinga2 feature list`
 
----
+> INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
 
-* Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
-    * En Debian se usa `apt-get ...` o synaptic.
-    * Comprobación: `dpkg -l nagios*`
-* Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
-Además se instalará un servidor web.
+## 2.2 Configurar Plugins (Servicios externos)
 
-![nagios3-password.png](./images/nagios3-password.png)
+Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos.
+Hay una gran cantidad de plugins en `The Monitoring Plugins Project`.
 
-* Comprobar que Nagios se está ejecutando.
-    * `service nagios3 status`
-    * `netstat -ntap`.
-    * `nmap localhost`.
-    * Consultar log `var/log/nagios3/nagios.log`.
+> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios.
+
+Instalar los plugins (servicios externos) para SLES/OpenSUSE:
+* `zypper install monitoring-plugins`, instalar los plugins.
+* `systemctl reload icinga2` recargar los ficheros de configuración si hubieran cambiado.
+
+Otros comandos de interés:
+
+| Comando                     | Descripción |
+| --------------------------- | ------------------------------ |
+| `systemctl disable icinga2` | desactivar el servicio Icinga2 |
+| `systemctl restart icinga2` | reiniciar el servicio Icinga2 |
+| `systemctl stop icinga2`    | parar el servicio Icinga2 |
+| `systemctl status icinga2`  | comprobar el servicio Icinga2 |
+
+
+## 2.3 Comprobar
+
+* `systemctl status icinga2`
+* `nmap localhost`
+* `lsof -i`
+* Consultar log `var/log/icinga2.log`.
 * Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
-    * Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos
-    interactuar con el programa de monitorización.
-    * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
-    vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
 ---
 
 # 3. Configurar el servidor
 
-Nos vamos a plantear como objetivo configurar Nagios para monitorizar lo siguente:
-* Routers:
-    * Hosts: router benderXX (172.19.0.1) y el router caronteXX (192.168.1.1).
-    * Comprobar si están activos.
-* Servidores:
-    * Hosts: leelaXX (172.20.1.2)
-    * Comprobar si tiene activos los servicios HTTP y SSH.
-* Clientes:
-    * Hosts: cliente1, y el cliente2.
-    * Comprobar si están activos los equipos.
+## 3.1 Panel de control
+
+* Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
+* Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos
+interactuar con el programa de monitorización.
+    * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
+    vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
+
+**Objetivo**
+
+Nos vamos a plantear como objetivo monitorizar lo siguente:
+
+| Grupo   | Hosts      | IP           | Comprobar |
+| ------- | ---------- | ------------ | ----------- |
+| routers | benderXX   | 172.AA.0.1   | Host activo |
+| routers | caronteXX  | 192.168.1.1  | Host activo |
+| servers | leelaXX    | 172.20.1.2   | Servicio HTTP y SSH |
+| clients | clientXXg1 | 172.AA.XX.32 | Host activo |
+| clients | clientXXw1 | 172.AA.XX.11 | Host activo |
+
+---
 
 ## 3.1 Directorio personal
 
@@ -531,144 +514,11 @@ if 5 restarts within 5 cycles then timeout
 
 # ANEXO
 
-## A.1 Enlaces de interés para Nagios
 
-* Recomendado - [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-* [Instalar y configurar nagios usando check_nt](www.tropiezosenlared.com/instalar-y-configurar-nagios-para-la-monitorizacion-de-equipos-en-la-red/)
-    * [Configuring nagios to monitor remote host using nrpe](https://kura.io/2010/03/21/configuring-nagios-to-monitor-remote-load-disk-using-nrpe/).
+* Instalar Nagios3, la documentación y el plugin NRPE de Nagios.
+    * En Debian se usa `apt-get ...` o synaptic.
+    * Comprobación: `dpkg -l nagios*`
+* Durante la instalación se pedirá la clave del usuario `nagiosadmin` (Administrador Nagios).
+Además se instalará un servidor web.
 
-## A.2 Agente Windows
-
-Configuración del servidor para acceder usando comandos check_nt al agente Windows:
-
-```
-define service{
-  use                 generic-service
-  host_name           client1-windows
-  service_description Disk Space
-  check_command       check_nt!USEDDISKSPACE!-l c -w 80 -c 90
-}
-
-define service{
-  use                 generic-service
-  host_name           client1-windows
-  service_description Mem Use
-  check_command       check_nt!MEMUSE!-w 80 -c 90
-}
-
-define service{
-  use                 generic-service
-  host_name           client1-windows
-  service_description Proc State Explorer
-  check_command       check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
-}
-
-define service{
-  use                 generic-service
-  host_name           client1-windows
-  service_description NSClient++ Version
-  check_command       check_nt!CLIENTVERSION
-}
-
-define service{
-  use                 generic-service
-  host_name           client1-windows
-  service_description Uptime
-  check_command       check_nt!UPTIME
-}
-```
-
-## A.3 Para revisar
-
-```
-define host{
-host_name winserver
-alias Windows XP del profesor
-address 172.16.108.250
-check_command check-host-alive
-check_interval 5
-retry_interval 1
-max_check_attempts 1
-check_period 24x7
-hostgroups aula108
-icon_image cook/windows_pc.png
-statusmap_image cook/windows_pc.png
-}
-
-
-define service{
-use generic-service
-host_name winserver
-service_description CPU Load
-check_command check_nt!CPULOAD!-l 5,80,90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description Memory Usage
-check_command check_nt!MEMUSE!-w 80 -c 90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description C:\ Drive Space
-check_command check_nt!USEDDISKSPACE!-l c -w 80 -c 90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description W3SVC
-check_command check_nt!SERVICESTATE!-d SHOWALL -l W3SVC
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description Explorer
-check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
-}
-```
-
-## A.3 Configuraciones de ejemplo
-
-```
-define host{
-host_name leela
-alias Servidor LEELA
-address 192.168.1.3
-check_command check-host-alive
-check_interval 5
-retry_interval 1
-max_check_attempts 1
-check_period 24x7
-process_perf_data 0
-retain_nonstatus_information 0
-hostgroups servers, http-servers, ssh-servers
-contact_groups admins
-notification_interval 30
-notification_period 24x7
-notification_options d,u,r
-icon_image cook/server.png
-statusmap_image cook/server.png
-parents fry
-}
-
-    #Define router
-    define host{
-    host_name router
-    alias Router1
-    address 192.168.1.1
-    check_command check-host-alive
-    check_interval 5
-    retry_interval 1
-    max_check_attempts 1
-    check_period 24x7
-    contact_groups admins
-    icon_image cook/server.png
-    statusmap_image cook/server.png
-    parents fry
-    }
-```
+![nagios3-password.png](./images/nagios3-password.png)
