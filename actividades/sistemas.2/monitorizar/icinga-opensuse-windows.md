@@ -87,9 +87,13 @@ SLES/OpenSUSE:
 PROGRESO!!!
 
 > Otros comandos de interés:
+>
 > `systemctl disable icinga2` desactivar el servicio Icinga2.
+>
 > `systemctl restart icinga2` reiniciar el servicio Icinga2.
+>
 > `systemctl stop icinga2` parar el servicio Icinga2.
+>
 > `systemctl status icinga2` comprobar el servicio Icinga2.
 
 ---
