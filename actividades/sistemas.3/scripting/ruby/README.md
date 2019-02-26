@@ -1,15 +1,26 @@
 
 # Scripting con Ruby
 
-# 1. Teoría: Consultar el siguiente material
+Ejemplo de rúbrica:
+
+| Sección              | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| -------------------- | ------------ | ----------- | ----------------- |
+| (2.1) Resolver un problema Sysamin | | | |
+| (2.2) Requisitos del script | | | |
+
+> Las mejoras son un extra
+
+---
+
+# 1. Teoría
+
+## 1.1 Consultar el siguiente material
 
 * Consultar el material para aprender paso a paso.
     * [Charla: Ruby scripting](https://github.com/dvarrui/proyectos-de-ejemplo/tree/master/charlas/ruby/scripting)
 * Consultar y resolver las dudas en clase.
 
----
-
-# 2. Teoría: Vamos paso a paso
+## 1.2 Vamos paso a paso
 
 Empezamos a partir de un problema (de administración de sistemas operativos) que queremos automatizar o simplificar mediante un script.
 
@@ -53,19 +64,23 @@ print("Hola Mundo!")         # Python
 
 ---
 
-# 3. Actividad
+# 2. Actividad
 
-* Plantear un problema para resolver. Ideas:
-    * Elegir alguna actividad que ya hayamos realizado en clase de 1º o 2º.
-    * Elegir un problema o tarea de Sysadmin que repotamos con frecuencia.
-    * Otros
-* Requisitos del script:
-    * Paso de argumentos al script. Dos funciones como mínimo.
-    * Resolver un problema de Sysadmin (Si tienes dudas... consulta al profesor)
-    * Usar comandos propios del sistema operativo (Elige el sistema operativo que desees).
-    * Usar variables.
-    * Usar estructura if-then.
-* Mejoras:
-    * Usar estructura def (para definir bloques de código).
-    * Separar funciones/métodos (def) a una librería externa.
-    * Tener las acciones de hacer y deshacer.
+## 2.1 Plantear un problema para resolver.
+Ideas:
+* Elegir alguna actividad que ya hayamos realizado en clase de 1º o 2º.
+* Elegir un problema o tarea de Sysadmin que repotamos con frecuencia.
+* Otros
+
+## 2.2 Requisitos del script
+
+* Paso de argumentos al script. Dos funciones como mínimo.
+* Resolver un problema de Sysadmin (Si tienes dudas... consulta al profesor)
+* Usar comandos propios del sistema operativo (Elige el sistema operativo que desees).
+* Usar variables.
+* Usar estructura if-then.
+
+## 2.3 Mejoras
+* Usar estructura def (para definir bloques de código).
+* Separar funciones/métodos (def) a una librería externa.
+* Tener las acciones de hacer y deshacer.
