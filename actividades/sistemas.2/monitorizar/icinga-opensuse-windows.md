@@ -50,12 +50,16 @@ Instalar software:
 * `zypper install icingaweb2 php-Icinga`
 * `zypper install vim-icinga2 nano-icinga2`
 Base de datos Mysql:
+* `zypper install mysql mysql-client`
+* `systemctl enable mysqld`
+* `systemctl start mysqld`
 * `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
 * `zypper install icinga2-ido-mysql`
 * `icinga2 feature enable ido-mysql`
 Servidor Web Apache:
 * `zypper install apache2`
-* `systemctls start apache2`
+* `systemctl enable apache2`
+* `systemctl start apache2`
 * `firewall-cmd --add-service=http`
 * `firewall-cmd --permanent --add-service=http`
 Iniciar y comprobar:
@@ -91,7 +95,6 @@ Otros comandos de interés:
 | `systemctl stop icinga2`    | parar el servicio Icinga2 |
 | `systemctl status icinga2`  | comprobar el servicio Icinga2 |
 
-
 ## 2.3 Comprobar
 
 * `systemctl status icinga2`
@@ -126,30 +129,14 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 
 ---
 
-## 3.2 Directorio personal
+## 3.2 Configuración personal
 
 * Sea DIRNAME = `/etc/icinga2/nombre-del-alumno.d`.
 * Creamos el directorio DIRNAME, para guardar nuestras configuraciones.
-* Añadir la línea `cfg_dir=DIRNAME` al fichero de configuración `/etc/icinga2/icinga.cfg`, para que se tengan en cuenta nuestros ficheros de configuración personales al iniciar el programa.
+* Editar `/etc/icinga2/icinga2.conf` y poner
+`include_recursive "nombre-del-alumo.d"`.
 
 ---
-
-## 3.2 Grupos
-
-> Cuando se tienen muchos *hosts* es más cómodo agruparlos.
-Las agrupaciones las hacemos con `hostgroup`.
-
-Vamos crear varios `hostgroup`
-* Sustituir XX por el identificador del alumno.
-* Creamos el fichero `DIRNAME/gruposXX.cfg`.
-* Hay que definir los grupos siguientes: `routersXX`, `servidoresXX` y `clientesXX`. Veamos un ejemplo (no sirve copiarlo):
-
-```
-define hostgroup {
-  hostgroup_name NOMBRE_DEL_GRUPO
-  alias NOMBRE_LARGO_DEL_GRUPO
-}
-```
 
 ## 3.3 Hosts: Routers
 
@@ -173,6 +160,11 @@ define host{
   check_period       24x7
 }
 ```
+
+object Host "my-server1" {
+  address = "10.0.0.1"
+  check_command = "hostalive"
+}
 
 > Fijarse en todos los parámetros anteriores y preguntar las dudas.
 > * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
