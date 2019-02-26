@@ -37,15 +37,31 @@ Enlaces de interés:
 
 ## 2.1 Instalar el software
 
-* `zypper search icinga`, buscar paquetes.
-* `zypper install icinga2`, instalar software.
-* `systemctl enable icinga2` activar el servicio Icinga2.
-* `systemctl start icinga2` iniciar el servicio Icinga2.
+Buscar paquetes:
+* `zypper search icinga`,
 
 > Repositorio de paquetes openSUSE:
 > * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
 > * zypper ref
 > * zypper install icinga2
+
+Instalar software:
+* `zypper install icinga2 icingacli`
+* `zypper install icingaweb2 php-Icinga`
+* `zypper install vim-icinga2 nano-icinga2`
+Base de datos Mysql:
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
+* `zypper install icinga2-ido-mysql`
+* `icinga2 feature enable ido-mysql`
+Servidor Web Apache:
+* `zypper install apache2`
+* `systemctls start apache2`
+* `firewall-cmd --add-service=http`
+* `firewall-cmd --permanent --add-service=http`
+Iniciar y comprobar:
+* `systemctl enable icinga2` activar el servicio Icinga2.
+* `systemctl start icinga2` iniciar el servicio Icinga2.
+* `icinga2`
 
 La instalación predeterminada activará tres características básicas de Icinga:
 * `checker` para ejecutar chequeos
@@ -58,8 +74,7 @@ Verificar las características habilitadas o deshabilitadas.
 
 ## 2.2 Configurar Plugins (Servicios externos)
 
-Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos.
-Hay una gran cantidad de plugins en `The Monitoring Plugins Project`.
+Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos. Hay una gran cantidad de plugins en `The Monitoring Plugins Project`.
 
 > Es curioso ver como Icinga sigue usando ficheros derivados de Nagios.
 
@@ -83,7 +98,7 @@ Otros comandos de interés:
 * `nmap localhost`
 * `lsof -i -n`
 * Consultar log `var/log/icinga2.log`.
-* Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
+* Abrimos un navegador y ponemos el URL `http://localhost/???`.
 
 ---
 
