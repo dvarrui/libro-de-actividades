@@ -39,7 +39,7 @@ Enlaces de interés:
 ## 2.1 Instalar el software principal
 
 Instalar software:
-* `zypper install icinga2 icingacli`
+* `zypper install icinga2`
 
 > En el caso de no encontrar los paquetes. Buscar con `zypper search icinga`.
 >
@@ -47,11 +47,6 @@ Instalar software:
 > * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
 > * zypper ref
 > * zypper install icinga2
-
-Iniciar y comprobar:
-* `systemctl enable icinga2` activar el servicio Icinga2.
-* `systemctl start icinga2` iniciar el servicio Icinga2.
-* `icinga2`
 
 La instalación predeterminada activará tres características básicas de Icinga:
 
@@ -63,7 +58,16 @@ La instalación predeterminada activará tres características básicas de Icing
 
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
-> INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
+Iniciar y comprobar:
+* `systemctl enable icinga2`, activar el servicio.
+* `systemctl start icinga2`, iniciar el servicio.
+* `systemctl status icinga2`, ver el estado del servicio.
+
+```
+========================
+Comprobado hasta AQUI!!!
+========================
+```
 
 ## 2.2 Instalar el panel web
 
@@ -94,15 +98,6 @@ Instalar los plugins (servicios externos) para SLES/OpenSUSE:
 * `zypper install monitoring-plugins`, instalar los plugins.
 * `systemctl reload icinga2` recargar los ficheros de configuración si hubieran cambiado.
 
-Otros comandos de interés:
-
-| Comando                     | Descripción |
-| --------------------------- | ------------------------------ |
-| `systemctl disable icinga2` | desactivar el servicio Icinga2 |
-| `systemctl restart icinga2` | reiniciar el servicio Icinga2 |
-| `systemctl stop icinga2`    | parar el servicio Icinga2 |
-| `systemctl status icinga2`  | comprobar el servicio Icinga2 |
-
 ## 2.4 Comprobar
 
 * `systemctl status icinga2`
@@ -112,15 +107,12 @@ Otros comandos de interés:
 
 > En el caso de errores consultar log `var/log/icinga2.log`.
 
-```
-========================
-Comprobado hasta AQUI!!!
-========================
-```
 
 ---
 
 # 3. Monitor: Configurar
+
+> INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
 
 ## 3.1 Panel de control
 
