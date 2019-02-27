@@ -7,6 +7,11 @@ EN CONSTRUCCIÓN!!!
 
 # 1. Preparativos
 
+Enlaces de interés:
+* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
+
+![](images/esquema-red.png)
+
 ## 1.1 Preparar las máquinas
 
 Para esta actividad vamos a necesitar los siguientes MV's:
@@ -17,6 +22,8 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 | MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV3 | clientXXw1 | 172.AA.XX.11 |[Windows7](../../global/configuracion/windows.md)|
 
+## 1.2 Configurar DNS local
+
 * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
@@ -24,44 +31,22 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 >
 > ![etc-hosts](./images/nagios3-etc-hosts.png)
 
-## 1.2 Consultar la documentación
-
-* Leer los documentos proporcionados por el profesor.
-
-Enlaces de interés:
-* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
-
 ---
 
-# 2. Instalar el servidor
+# 2. En el monitor: Instalar
 
-## 2.1 Instalar el software
+## 2.1 Instalar el software principal
 
-Buscar paquetes:
-* `zypper search icinga`,
+Instalar software:
+* `zypper install icinga2 icingacli`
 
+> En el caso de no encontrar los paquetes. Buscar con `zypper search icinga`.
+>
 > Repositorio de paquetes openSUSE:
 > * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
 > * zypper ref
 > * zypper install icinga2
 
-Instalar software:
-* `zypper install icinga2 icingacli`
-* `zypper install icingaweb2 php-Icinga`
-* `zypper install vim-icinga2 nano-icinga2`
-Base de datos Mysql:
-* `zypper install mysql mysql-client`
-* `systemctl enable mysqld`
-* `systemctl start mysqld`
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
-* `zypper install icinga2-ido-mysql`
-* `icinga2 feature enable ido-mysql`
-Servidor Web Apache:
-* `zypper install apache2`
-* `systemctl enable apache2`
-* `systemctl start apache2`
-* `firewall-cmd --add-service=http`
-* `firewall-cmd --permanent --add-service=http`
 Iniciar y comprobar:
 * `systemctl enable icinga2` activar el servicio Icinga2.
 * `systemctl start icinga2` iniciar el servicio Icinga2.
@@ -76,11 +61,30 @@ Verificar las características habilitadas o deshabilitadas.
 
 > INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
 
-## 2.2 Configurar Plugins (Servicios externos)
+## 2.2 Instalar el panel web
+
+* `zypper install icingaweb2 php-Icinga`
+* `zypper install vim-icinga2 nano-icinga2`
+
+Base de datos Mysql:
+* `zypper install mysql mysql-client`
+* `systemctl enable mysqld`
+* `systemctl start mysqld`
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
+* `zypper install icinga2-ido-mysql`
+* `icinga2 feature enable ido-mysql`
+
+Servidor Web Apache:
+* `zypper install apache2`
+* `systemctl enable apache2`
+* `systemctl start apache2`
+* `firewall-cmd --add-service=http`
+* `firewall-cmd --permanent --add-service=http`
+
+
+## 2.3 Monitor: Configurar Plugins (Servicios externos)
 
 Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos. Hay una gran cantidad de plugins en `The Monitoring Plugins Project`.
-
-> Es curioso ver como Icinga sigue usando ficheros derivados de Nagios.
 
 Instalar los plugins (servicios externos) para SLES/OpenSUSE:
 * `zypper install monitoring-plugins`, instalar los plugins.
