@@ -70,7 +70,11 @@ Iniciar y comprobar:
 * `systemctl enable apache2`
 * `systemctl start apache2`
 * `systemctl status apache2`
-
+* Abrir el servicio apache2 en el cortafuegos.
+    * `firewall-cmd --permanent --add-service=http`
+* Desde otra máquina comprobamos `nmap -Pn IP-monitorXX`, para consultar el acceso al servidor web (Puerto 80).
+* Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`.
+* Ahora nos muestra la ventana de autenticación del panel web de la herramienta.
 
 ```
 ========================
@@ -86,9 +90,6 @@ Base de datos Mysql:
 * `zypper install icinga2-ido-mysql`
 * `icinga2 feature enable ido-mysql`
 
-* `firewall-cmd --add-service=http`
-* `firewall-cmd --permanent --add-service=http`
-
 
 ## 2.3 Monitor: Configurar Plugins (Servicios externos)
 
@@ -103,7 +104,6 @@ Instalar los plugins (servicios externos) para SLES/OpenSUSE:
 * `systemctl status icinga2`
 * `nmap localhost`
 * `lsof -i -n`
-* Abrimos un navegador y ponemos el URL `http://localhost/icinga2/setup`.
 
 > En el caso de errores consultar log `var/log/icinga2.log`.
 
