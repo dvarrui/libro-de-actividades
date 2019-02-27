@@ -7,11 +7,6 @@ EN CONSTRUCCIÓN!!!
 
 # 1. Preparativos
 
-Enlaces de interés:
-* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
-
-![](images/esquema-red.png)
-
 ## 1.1 Preparar las máquinas
 
 Para esta actividad vamos a necesitar los siguientes MV's:
@@ -21,6 +16,8 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 | MV1 | monitorXX  | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV3 | clientXXw1 | 172.AA.XX.11 |[Windows7](../../global/configuracion/windows.md)|
+
+![](images/esquema-red.png)
 
 ## 1.2 Configurar DNS local
 
@@ -34,6 +31,10 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 ---
 
 # 2. En el monitor: Instalar
+
+Enlaces de interés:
+* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
+
 
 ## 2.1 Instalar el software principal
 
@@ -53,11 +54,14 @@ Iniciar y comprobar:
 * `icinga2`
 
 La instalación predeterminada activará tres características básicas de Icinga:
-* `checker` para ejecutar chequeos
-* `notification` para enviar notificaciones
-* `mainlog` para escribir el fichero `icinga2.log`
-Verificar las características habilitadas o deshabilitadas.
-* `icinga2 feature list`
+
+| Característica | Descripción |
+| -------------- | ----------- |
+| `checker`      | Ejecutar chequeos |
+| `notification` | Enviar notificaciones |
+| `mainlog`      | Escribir el fichero `icinga2.log` |
+
+* `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
 > INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
 
@@ -99,17 +103,24 @@ Otros comandos de interés:
 | `systemctl stop icinga2`    | parar el servicio Icinga2 |
 | `systemctl status icinga2`  | comprobar el servicio Icinga2 |
 
-## 2.3 Comprobar
+## 2.4 Comprobar
 
 * `systemctl status icinga2`
 * `nmap localhost`
 * `lsof -i -n`
-* Consultar log `var/log/icinga2.log`.
-* Abrimos un navegador y ponemos el URL `http://localhost/???`.
+* Abrimos un navegador y ponemos el URL `http://localhost/icinga2/setup`.
+
+> En el caso de errores consultar log `var/log/icinga2.log`.
+
+```
+========================
+Comprobado hasta AQUI!!!
+========================
+```
 
 ---
 
-# 3. Configurar el servidor
+# 3. Monitor: Configurar
 
 ## 3.1 Panel de control
 
