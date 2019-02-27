@@ -30,7 +30,7 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 
 ---
 
-# 2. En el monitor: Instalar
+# 2. Monitor: Instalación
 
 Enlaces de interés:
 * [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
@@ -63,16 +63,20 @@ Iniciar y comprobar:
 * `systemctl start icinga2`, iniciar el servicio.
 * `systemctl status icinga2`, ver el estado del servicio.
 
+
+## 2.2 Instalar el panel web
+
+* `zypper install icingaweb2`, esto instala el panel web y además las dependencias (servidor Web, etc).
+* `systemctl enable apache2`
+* `systemctl start apache2`
+* `systemctl status apache2`
+
+
 ```
 ========================
 Comprobado hasta AQUI!!!
 ========================
 ```
-
-## 2.2 Instalar el panel web
-
-* `zypper install icingaweb2 php-Icinga`
-* `zypper install vim-icinga2 nano-icinga2`
 
 Base de datos Mysql:
 * `zypper install mysql mysql-client`
@@ -82,10 +86,6 @@ Base de datos Mysql:
 * `zypper install icinga2-ido-mysql`
 * `icinga2 feature enable ido-mysql`
 
-Servidor Web Apache:
-* `zypper install apache2`
-* `systemctl enable apache2`
-* `systemctl start apache2`
 * `firewall-cmd --add-service=http`
 * `firewall-cmd --permanent --add-service=http`
 
@@ -142,6 +142,7 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 * Creamos el directorio DIRNAME, para guardar nuestras configuraciones.
 * Editar `/etc/icinga2/icinga2.conf` y poner
 `include_recursive "nombre-del-alumo.d"`.
+* `zypper install vim-icinga2 nano-icinga2`
 
 ---
 
