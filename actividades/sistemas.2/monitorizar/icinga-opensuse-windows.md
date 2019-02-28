@@ -35,7 +35,6 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 Enlaces de interés:
 * [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
 
-
 ## 2.1 Instalar el software principal
 
 Instalar software:
@@ -73,14 +72,28 @@ Iniciar y comprobar:
 * Abrir el servicio apache2 en el cortafuegos.
     * `firewall-cmd --permanent --add-service=http`
 * Desde otra máquina comprobamos `nmap -Pn IP-monitorXX`, para consultar el acceso al servidor web (Puerto 80).
-* Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`.
-* Ahora nos muestra la ventana de autenticación del panel web de la herramienta.
+* Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
+* URL http://172.18.42.31/icingaweb2/setup
+Welcome to the configuration of Icinga Web 2!
+This wizard will guide you through the configuration of Icinga Web 2. Once completed and successfully finished you are able to log in and to explore all the new and stunning features!
+
+Comprobar lo siguente:
+* `cat /etc/group | grep icingaweb`, comprobar que existe el grupo "icingaweb2".
+* `id wwwrun`, este usuario debe pertenecer al grupo  `icingaweb2`.
+* If you've got the IcingaCLI installed you can do the following:
+    * `icingacli setup config directory --group icingaweb2`
+    * `icingacli setup token create`, crear un token para empezar
+    * `icingacli setup token show`, para ver el token
+
+> Necesitamos usuario/clave para acceder al panel web.
 
 ```
 ========================
 Comprobado hasta AQUI!!!
 ========================
 ```
+
+---
 
 Base de datos Mysql:
 * `zypper install mysql mysql-client`
