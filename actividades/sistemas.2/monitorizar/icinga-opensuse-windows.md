@@ -39,22 +39,6 @@ Enlaces de interés:
 
 Instalar software:
 * `zypper install icinga2`
-
-> En el caso de no encontrar los paquetes. Buscar con `zypper search icinga`.
->
-> Repositorio de paquetes openSUSE:
-> * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
-> * zypper ref
-> * zypper install icinga2
-
-La instalación predeterminada activará tres características básicas de Icinga:
-
-| Característica | Descripción |
-| -------------- | ----------- |
-| `checker`      | Ejecutar chequeos |
-| `notification` | Enviar notificaciones |
-| `mainlog`      | Escribir el fichero `icinga2.log` |
-
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
 Iniciar y comprobar:
