@@ -1,0 +1,11 @@
+[virtualbox]
+name=VirtualBox for openSUSE $releasever - $basearch
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/$releasever/$basearch
+type=yum
+enabled=1
+priority=120
+autorefresh=1
+gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+keeppackages=0
+

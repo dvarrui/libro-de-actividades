@@ -1,0 +1,435 @@
+medusa103
+    descripción: Equipo de escritorio
+    producto: System Product Name (To Be Filled By O.E.M.)
+    fabricante: System manufacturer
+    versión: System Version
+    serie: System Serial Number
+    anchura: 64 bits
+    capacidades: smbios-2.4 dmi-2.4 vsyscall32
+    configuración: boot=normal chassis=desktop family=To Be Filled By O.E.M. sku=To Be Filled By O.E.M. uuid=8047E71E-8EFE-D511-9ED5-001BFC2FBCF8
+  *-core
+       descripción: Placa base
+       producto: P5B-VM
+       fabricante: ASUSTeK Computer INC.
+       id físico: 0
+       versión: Rev 1.xx
+       serie: MB-1234567890
+       ranura: To Be Filled By O.E.M.
+     *-firmware
+          descripción: BIOS
+          fabricante: American Megatrends Inc.
+          id físico: 0
+          versión: 0613
+          date: 01/18/2007
+          tamaño: 64KiB
+          capacidad: 960KiB
+          capacidades: isa pci pnp apm upgrade shadowing escd cdboot bootselect socketedrom edd int13floppy1200 int13floppy720 int13floppy2880 int5printscreen int9keyboard int14serial int17printer int10video acpi usb ls120boot zipboot biosbootspecification
+     *-cpu
+          descripción: CPU
+          producto: Intel(R) Core(TM)2 CPU          6600  @ 2.40GHz
+          fabricante: Intel Corp.
+          id físico: 4
+          información del bus: cpu@0
+          versión: Intel(R) Core(TM)2 CPU 6600 @ 2.40GHz
+          serie: To Be Filled By O.E.M.
+          ranura: LGA 775
+          tamaño: 2394MHz
+          capacidad: 3800MHz
+          anchura: 64 bits
+          reloj: 266MHz
+          capacidades: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx x86-64 constant_tsc arch_perfmon pebs bts nopl aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm lahf_lm dtherm tpr_shadow cpufreq
+        *-cache:0
+             descripción: L1 caché
+             id físico: 5
+             ranura: L1-Cache
+             tamaño: 32KiB
+             capacidad: 32KiB
+             capacidades: internal write-back data
+        *-cache:1
+             descripción: L2 caché
+             id físico: 6
+             ranura: L2-Cache
+             tamaño: 4MiB
+             capacidad: 4MiB
+             capacidades: internal write-back instruction
+     *-memory
+          descripción: Memoria de sistema
+          id físico: 39
+          ranura: Placa de sistema o placa base
+          tamaño: 2GiB
+        *-bank:0
+             descripción: DIMM SDRAM Síncrono 800 MHz (1,2 ns)
+             producto: PartNum0
+             fabricante: Manufacturer0
+             id físico: 0
+             serie: SerNum0
+             ranura: DIMM0
+             tamaño: 1GiB
+             anchura: 64 bits
+             reloj: 800MHz (1.2ns)
+        *-bank:1
+             descripción: DIMMProject-Id-Version: lshwReport-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>POT-Creation-Date: 2009-10-08 14:02+0200PO-Revision-Date: 2012-03-14 06:38+0000Last-Translator: Paco Molinero <paco@byasl.com>Language-Team: Spanish <es@li.org>MIME-Version: 1.0Content-Type: text/plain; charset=UTF-8Content-Transfer-Encoding: 8bitX-Launchpad-Export-Date: 2014-11-10 11:11+0000X-Generator: Launchpad (build 17241) [vacío]
+             producto: PartNum1
+             fabricante: Manufacturer1
+             id físico: 1
+             serie: SerNum1
+             ranura: DIMM1
+        *-bank:2
+             descripción: DIMM SDRAM Síncrono 800 MHz (1,2 ns)
+             producto: PartNum2
+             fabricante: Manufacturer2
+             id físico: 2
+             serie: SerNum2
+             ranura: DIMM2
+             tamaño: 1GiB
+             anchura: 64 bits
+             reloj: 800MHz (1.2ns)
+        *-bank:3
+             descripción: DIMMProject-Id-Version: lshwReport-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>POT-Creation-Date: 2009-10-08 14:02+0200PO-Revision-Date: 2012-03-14 06:38+0000Last-Translator: Paco Molinero <paco@byasl.com>Language-Team: Spanish <es@li.org>MIME-Version: 1.0Content-Type: text/plain; charset=UTF-8Content-Transfer-Encoding: 8bitX-Launchpad-Export-Date: 2014-11-10 11:11+0000X-Generator: Launchpad (build 17241) [vacío]
+             producto: PartNum3
+             fabricante: Manufacturer3
+             id físico: 3
+             serie: SerNum3
+             ranura: DIMM3
+     *-pci
+          descripción: Host bridge
+          producto: 82P965/G965 Memory Controller Hub
+          fabricante: Intel Corporation
+          id físico: 100
+          información del bus: pci@0000:00:00.0
+          versión: 02
+          anchura: 32 bits
+          reloj: 33MHz
+          configuración: driver=agpgart-intel
+          recursos: irq:0
+        *-pci:0
+             descripción: PCI bridge
+             producto: 82P965/G965 PCI Express Root Port
+             fabricante: Intel Corporation
+             id físico: 1
+             información del bus: pci@0000:00:01.0
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pci pm msi pciexpress normal_decode bus_master cap_list
+             configuración: driver=pcieport
+             recursos: irq:24 ioport:bfd00000(size=1048576)
+        *-display
+             descripción: VGA compatible controller
+             producto: 82G965 Integrated Graphics Controller
+             fabricante: Intel Corporation
+             id físico: 2
+             información del bus: pci@0000:00:02.0
+             versión: 02
+             anchura: 64 bits
+             reloj: 33MHz
+             capacidades: msi pm vga_controller bus_master cap_list rom
+             configuración: driver=i915 latency=0
+             recursos: irq:29 memoria:ffa00000-ffafffff memoria:d0000000-dfffffff ioport:ec00(size=8)
+        *-usb:0
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB UHCI Controller #4
+             fabricante: Intel Corporation
+             id físico: 1a
+             información del bus: pci@0000:00:1a.0
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: uhci bus_master
+             configuración: driver=uhci_hcd latency=0
+             recursos: irq:16 ioport:d880(size=32)
+        *-usb:1
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB UHCI Controller #5
+             fabricante: Intel Corporation
+             id físico: 1a.1
+             información del bus: pci@0000:00:1a.1
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: uhci bus_master
+             configuración: driver=uhci_hcd latency=0
+             recursos: irq:17 ioport:dc00(size=32)
+        *-usb:2
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB2 EHCI Controller #2
+             fabricante: Intel Corporation
+             id físico: 1a.7
+             información del bus: pci@0000:00:1a.7
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pm debug ehci bus_master cap_list
+             configuración: driver=ehci-pci latency=0
+             recursos: irq:18 memoria:ff9fb800-ff9fbbff
+        *-multimedia
+             descripción: Audio device
+             producto: 82801H (ICH8 Family) HD Audio Controller
+             fabricante: Intel Corporation
+             id físico: 1b
+             información del bus: pci@0000:00:1b.0
+             versión: 02
+             anchura: 64 bits
+             reloj: 33MHz
+             capacidades: pm msi pciexpress bus_master cap_list
+             configuración: driver=snd_hda_intel latency=0
+             recursos: irq:30 memoria:ff9f4000-ff9f7fff
+        *-pci:1
+             descripción: PCI bridge
+             producto: 82801H (ICH8 Family) PCI Express Port 1
+             fabricante: Intel Corporation
+             id físico: 1c
+             información del bus: pci@0000:00:1c.0
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuración: driver=pcieport
+             recursos: irq:25 ioport:1000(size=4096) memoria:7f000000-7f3fffff ioport:bfe00000(size=1048576)
+        *-pci:2
+             descripción: PCI bridge
+             producto: 82801H (ICH8 Family) PCI Express Port 5
+             fabricante: Intel Corporation
+             id físico: 1c.4
+             información del bus: pci@0000:00:1c.4
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuración: driver=pcieport
+             recursos: irq:26 ioport:b000(size=4096) memoria:ff600000-ff6fffff ioport:7f400000(size=2097152)
+           *-storage
+                descripción: SATA controller
+                producto: JMB363 SATA/IDE Controller
+                fabricante: JMicron Technology Corp.
+                id físico: 0
+                información del bus: pci@0000:03:00.0
+                versión: 03
+                anchura: 32 bits
+                reloj: 33MHz
+                capacidades: storage pm pciexpress ahci_1.0 bus_master cap_list rom
+                configuración: driver=ahci latency=0
+                recursos: irq:16 memoria:ff6fe000-ff6fffff memoria:ff6e0000-ff6effff
+           *-ide
+                descripción: IDE interface
+                producto: JMB363 SATA/IDE Controller
+                fabricante: JMicron Technology Corp.
+                id físico: 0.1
+                información del bus: pci@0000:03:00.1
+                versión: 03
+                anchura: 32 bits
+                reloj: 33MHz
+                capacidades: ide pm bus_master cap_list
+                configuración: driver=pata_jmicron latency=0
+                recursos: irq:17 ioport:bc00(size=8) ioport:b880(size=4) ioport:b800(size=8) ioport:b480(size=4) ioport:b400(size=16)
+        *-pci:3
+             descripción: PCI bridge
+             producto: 82801H (ICH8 Family) PCI Express Port 6
+             fabricante: Intel Corporation
+             id físico: 1c.5
+             información del bus: pci@0000:00:1c.5
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuración: driver=pcieport
+             recursos: irq:27 ioport:a000(size=4096) memoria:ff500000-ff5fffff ioport:7f600000(size=2097152)
+           *-network
+                descripción: Ethernet interface
+                producto: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+                fabricante: Realtek Semiconductor Co., Ltd.
+                id físico: 0
+                información del bus: pci@0000:02:00.0
+                nombre lógico: eth0
+                versión: 01
+                serie: 00:1b:fc:2f:bc:f8
+                tamaño: 100Mbit/s
+                capacidad: 1Gbit/s
+                anchura: 64 bits
+                reloj: 33MHz
+                capacidades: pm vpd msi pciexpress bus_master cap_list rom ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt 1000bt-fd autonegotiation
+                configuración: autonegotiation=on broadcast=yes driver=r8169 driverversion=2.3LK-NAPI duplex=full ip=172.16.140.83 latency=0 link=yes multicast=yes port=MII speed=100Mbit/s
+                recursos: irq:28 ioport:a800(size=256) memoria:ff5ff000-ff5fffff memoria:ff500000-ff51ffff
+        *-usb:3
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB UHCI Controller #1
+             fabricante: Intel Corporation
+             id físico: 1d
+             información del bus: pci@0000:00:1d.0
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: uhci bus_master
+             configuración: driver=uhci_hcd latency=0
+             recursos: irq:23 ioport:d400(size=32)
+        *-usb:4
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB UHCI Controller #2
+             fabricante: Intel Corporation
+             id físico: 1d.1
+             información del bus: pci@0000:00:1d.1
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: uhci bus_master
+             configuración: driver=uhci_hcd latency=0
+             recursos: irq:19 ioport:d480(size=32)
+        *-usb:5
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB UHCI Controller #3
+             fabricante: Intel Corporation
+             id físico: 1d.2
+             información del bus: pci@0000:00:1d.2
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: uhci bus_master
+             configuración: driver=uhci_hcd latency=0
+             recursos: irq:18 ioport:d800(size=32)
+        *-usb:6
+             descripción: USB controller
+             producto: 82801H (ICH8 Family) USB2 EHCI Controller #1
+             fabricante: Intel Corporation
+             id físico: 1d.7
+             información del bus: pci@0000:00:1d.7
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pm debug ehci bus_master cap_list
+             configuración: driver=ehci-pci latency=0
+             recursos: irq:23 memoria:ff9fb400-ff9fb7ff
+        *-pci:4
+             descripción: PCI bridge
+             producto: 82801 PCI Bridge
+             fabricante: Intel Corporation
+             id físico: 1e
+             información del bus: pci@0000:00:1e.0
+             versión: f2
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: pci subtractive_decode bus_master cap_list
+             recursos: memoria:ff700000-ff7fffff
+           *-firewire
+                descripción: FireWire (IEEE 1394)
+                producto: TSB43AB22A IEEE-1394a-2000 Controller (PHY/Link) [iOHCI-Lynx]
+                fabricante: Texas Instruments
+                id físico: 1
+                información del bus: pci@0000:05:01.0
+                versión: 00
+                anchura: 32 bits
+                reloj: 33MHz
+                capacidades: pm ohci bus_master cap_list
+                configuración: driver=firewire_ohci latency=64 maxlatency=4 mingnt=2
+                recursos: irq:20 memoria:ff7ff800-ff7fffff memoria:ff7f8000-ff7fbfff
+        *-isa
+             descripción: ISA bridge
+             producto: 82801HB/HR (ICH8/R) LPC Interface Controller
+             fabricante: Intel Corporation
+             id físico: 1f
+             información del bus: pci@0000:00:1f.0
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             capacidades: isa bus_master cap_list
+             configuración: driver=lpc_ich latency=0
+             recursos: irq:0
+        *-ide:0
+             descripción: IDE interface
+             producto: 82801H (ICH8 Family) 4 port SATA Controller [IDE mode]
+             fabricante: Intel Corporation
+             id físico: 1f.2
+             información del bus: pci@0000:00:1f.2
+             versión: 02
+             anchura: 32 bits
+             reloj: 66MHz
+             capacidades: ide pm bus_master cap_list
+             configuración: driver=ata_piix latency=0
+             recursos: irq:19 ioport:e880(size=8) ioport:e800(size=4) ioport:e480(size=8) ioport:e400(size=4) ioport:e080(size=16) ioport:e000(size=16)
+        *-serial NO RECLAMADO
+             descripción: SMBus
+             producto: 82801H (ICH8 Family) SMBus Controller
+             fabricante: Intel Corporation
+             id físico: 1f.3
+             información del bus: pci@0000:00:1f.3
+             versión: 02
+             anchura: 32 bits
+             reloj: 33MHz
+             configuración: latency=0
+             recursos: memoria:7f800000-7f8000ff ioport:400(size=32)
+        *-ide:1
+             descripción: IDE interface
+             producto: 82801HR/HO/HH (ICH8R/DO/DH) 2 port SATA Controller [IDE mode]
+             fabricante: Intel Corporation
+             id físico: 1f.5
+             información del bus: pci@0000:00:1f.5
+             versión: 02
+             anchura: 32 bits
+             reloj: 66MHz
+             capacidades: ide pm bus_master cap_list
+             configuración: driver=ata_piix latency=0
+             recursos: irq:19 ioport:d080(size=8) ioport:d000(size=4) ioport:cc00(size=8) ioport:c880(size=4) ioport:c800(size=16) ioport:c480(size=16)
+     *-scsi:0
+          id físico: 1
+          nombre lógico: scsi0
+          capacidades: emulated
+        *-disk
+             descripción: ATA Disk
+             producto: SAMSUNG HD250HJ
+             id físico: 0.0.0
+             información del bus: scsi@0:0.0.0
+             nombre lógico: /dev/sda
+             versión: 0-05
+             serie: S0URJDQP811123
+             tamaño: 232GiB (250GB)
+             capacidades: partitioned partitioned:dos
+             configuración: ansiversion=5 sectorsize=512 signature=d8e1d8e1
+           *-volume:0
+                descripción: Linux swap / Solaris partition
+                id físico: 1
+                información del bus: scsi@0:0.0.0,1
+                nombre lógico: /dev/sda1
+                capacidad: 3814MiB
+                capacidades: primary nofs
+           *-volume:1
+                descripción: partición EXT4
+                fabricante: Linux
+                id físico: 2
+                información del bus: scsi@0:0.0.0,2
+                nombre lógico: /dev/sda2
+                nombre lógico: /
+                versión: 1.0
+                serie: 4fd9e293-e32b-4d60-89bd-25e13f1cb42c
+                tamaño: 27GiB
+                capacidad: 27GiB
+                capacidades: primary bootable journaled extended_attributes large_files huge_files dir_nlink recover extents ext4 ext2 initialized
+                configuración: created=2015-10-28 11:09:33 filesystem=ext4 lastmountpoint=/ modified=2016-02-17 17:39:57 mount.fstype=ext4 mount.options=rw,relatime,errors=remount-ro,data=ordered mounted=2016-02-17 17:39:57 state=mounted
+           *-volume:2
+                descripción: Extended partition
+                id físico: 3
+                información del bus: scsi@0:0.0.0,3
+                nombre lógico: /dev/sda3
+                tamaño: 201GiB
+                capacidad: 201GiB
+                capacidades: primary extended partitioned partitioned:extended
+              *-logicalvolume
+                   descripción: Linux filesystem partition
+                   id físico: 5
+                   nombre lógico: /dev/sda5
+                   nombre lógico: /home
+                   capacidad: 201GiB
+                   configuración: mount.fstype=ext4 mount.options=rw,relatime,data=ordered state=mounted
+     *-scsi:1
+          id físico: 2
+          nombre lógico: scsi4
+          capacidades: emulated
+        *-cdrom
+             descripción: DVD-RAM writer
+             producto: CD/DVDW SH-S182D
+             fabricante: TSSTcorp
+             id físico: 0.0.0
+             información del bus: scsi@4:0.0.0
+             nombre lógico: /dev/cdrom
+             nombre lógico: /dev/sr0
+             versión: SB05
+             capacidades: removable audio cd-r cd-rw dvd dvd-r dvd-ram
+             configuración: ansiversion=5 status=nodisc
