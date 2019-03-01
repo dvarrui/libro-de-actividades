@@ -34,6 +34,7 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 
 Enlaces de interés:
 * [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
+* https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/#
 
 ## 2.1 Instalar el software principal
 
