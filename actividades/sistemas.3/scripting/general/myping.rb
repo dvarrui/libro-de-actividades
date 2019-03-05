@@ -1,4 +1,8 @@
 #!/usr/bin/ruby
+# Objetivo: hacer ping a un grupo de hosts para ver si están activos.
+# Argumentos:
+#   --screen, -s => Mostrar datos en pantalla
+#   --html,   -h => Genera la salida en un fichero html
 
 option=ARGV[0]
 
@@ -15,14 +19,12 @@ def ping_on_screen
 		items=line.split(":")
 		ip=items[0]
 		nombre=items[1]
-		#flag=`ping -c 1 #{ip} | grep Unreachable| wc -l`
-		flag=system("ping -c 1 #{ip} > /dev/null")
-		#system("ping -c 1 #{ip} > /dev/null")
-		#flag=`echo $?`
+
+		flag = system("ping -c 1 #{ip} > /dev/null")
 		if flag then
-			puts "ip=#{ip} nombre=#{nombre} OK!"
+			puts "[ OK ] ip=#{ip} nombre=#{nombre}"
 		else
-			puts "ip=#{ip} nombre=#{nombre} ERR!"
+			puts "[ERRO] ip=#{ip} nombre=#{nombre} ERR!"
 		end
 	end
 end
