@@ -34,6 +34,7 @@ La tarea programada se define para ejecutarse periódicamente cada intervalo de 
 
 Vamos a hacer una tarea diferida con GNU/Linux.
 
+* [Programar tareas con cron y crontab](https://www.ochobitshacenunbyte.com/2018/03/22/programar-tareas-en-linux-facilmente-con-cron-y-crontab/)
 * [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
 * Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
