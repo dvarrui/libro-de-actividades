@@ -35,8 +35,7 @@ Supongamos que tenemos el siguiente esquema de red:
 # 2. Monitor: Instalación
 
 Enlaces de interés:
-* [Getting Started](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/getting-started)
-* https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/#
+* [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
 
 ## 2.1 Instalar el software principal
 
@@ -55,6 +54,16 @@ Configurar el editor vim (con usuario root):
 * `vim ~/.vimrc`
 * `syntax on` (ESC : wq)
 * Test it: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
+
+Configurar el editor nano (con usuario root):
+* `zypper install nano-icinga2`
+* `nano ~/.nanorc`
+* Include the icinga2.nanorc file.
+```
+## Icinga 2
+include "/usr/share/nano/icinga2.nanorc"
+```
+* Test it: `nano /etc/icinga2/conf.d/templates.conf`
 
 **Installation Paths**: By default Icinga 2 uses the following files and directories:
 
