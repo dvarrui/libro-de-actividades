@@ -17,6 +17,8 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 | MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV3 | clientXXw1 | 172.AA.XX.11 |[Windows7](../../global/configuracion/windows.md)|
 
+Supongamos que tenemos el siguiente esquema de red:
+
 ![](images/esquema-red.png)
 
 ## 1.2 Configurar DNS local
@@ -41,12 +43,29 @@ Enlaces de interés:
 Instalar software:
 * `zypper install icinga2`
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
+* `zypper install monitoring-plugins`
 
 Iniciar y comprobar:
 * `systemctl enable icinga2`, activar el servicio.
 * `systemctl start icinga2`, iniciar el servicio.
 * `systemctl status icinga2`, ver el estado del servicio.
 
+Configurar el editor vim (con usuario root):
+* `zypper install vim-icinga2`
+* `vim ~/.vimrc`
+* `syntax on` (ESC : wq)
+* Test it: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
+
+**Installation Paths**: By default Icinga 2 uses the following files and directories:
+
+| Path	| Description |
+| ----- | ----------- |
+| /etc/icinga2 | Contains Icinga 2 configuration files |
+| /usr/lib/systemd/system/icinga2.service	| The Icinga 2 Systemd service file on systems using Systemd |
+| /usr/sbin/icinga2	| Shell wrapper for the Icinga 2 binary |
+| /usr/share/doc/icinga2 | Documentation files that come with Icinga 2 |
+| /var/run/icinga2 | PID file |
+| /var/log/icinga2 | Log file location and compat/ directory for the CompatLogger feature |
 
 ## 2.2 Instalar el panel web
 
