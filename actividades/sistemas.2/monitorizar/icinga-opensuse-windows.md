@@ -90,6 +90,7 @@ Installing MySQL database server
 * `zypper install mysql mysql-client`
 * `systemctl enable mysql`
 * `systemctl status mysql`
+* `zypper install icinga2-ido-mysql`
 
 ```
 ========================
