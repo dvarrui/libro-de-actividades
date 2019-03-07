@@ -84,6 +84,8 @@ By default Icinga 2 uses the following files and directories:
 
 # 3 Instalar el panel web
 
+## 3.1 Base de datos
+
 **Configuring DB IDO MySQL**
 
 Installing MySQL database server
@@ -102,6 +104,18 @@ quit
 ```
 * `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
 
+**Enabling the IDO MySQL module**
+
+* `more /etc/icinga2/features-available/ido-mysql.conf`, You can update the database credentials in this file.
+* `icinga2 feature enable ido-mysql`, You can enable the ido-mysql feature configuration file using icinga2 feature enable.
+* `systemctl restart icinga2` Restart Icinga 2.
+
+## 3.2 Servidor Web
+
+* `zypper in apache2`
+* `systemctl enable apache2`
+* `systemctl start apache2`
+* `systemctl status apache2`
 
 ```
 ========================
@@ -110,9 +124,6 @@ Comprobado hasta AQUI!!!
 ```
 
 * `zypper install icingaweb2`, esto instala el panel web y además las dependencias (servidor Web, etc).
-* `systemctl enable apache2`
-* `systemctl start apache2`
-* `systemctl status apache2`
 * Abrir el servicio apache2 en el cortafuegos.
     * `firewall-cmd --permanent --add-service=http`
 * Desde otra máquina comprobamos `nmap -Pn IP-monitorXX`, para consultar el acceso al servidor web (Puerto 80).
