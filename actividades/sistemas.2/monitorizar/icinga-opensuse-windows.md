@@ -92,6 +92,17 @@ Installing MySQL database server
 * `systemctl status mysql`
 * `zypper install icinga2-ido-mysql`
 
+Set up a MySQL database for Icinga 2 (El usuario root de mysql NO tiene clave):
+```
+# mysql -u root -p
+
+CREATE DATABASE icinga;
+GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icinga.* TO 'icinga'@'localhost' IDENTIFIED BY 'icinga';
+quit
+```
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
+
+
 ```
 ========================
 Comprobado hasta AQUI!!!
