@@ -67,7 +67,9 @@ include "/usr/share/nano/icinga2.nanorc"
 ```
 * Test it: `nano /etc/icinga2/conf.d/templates.conf`
 
-**Installation Paths**: By default Icinga 2 uses the following files and directories:
+**Installation Paths**
+
+By default Icinga 2 uses the following files and directories:
 
 | Path	| Description |
 | ----- | ----------- |
@@ -80,16 +82,20 @@ include "/usr/share/nano/icinga2.nanorc"
 
 ---
 
+# 3 Instalar el panel web
+
+**Configuring DB IDO MySQL**
+
+Installing MySQL database server
+* `zypper install mysql mysql-client`
+* `systemctl enable mysql`
+* `systemctl status mysql`
+
 ```
 ========================
 Comprobado hasta AQUI!!!
 ========================
 ```
-
-# 3 Instalar el panel web
-
-Configuring DB IDO MySQL ¶
-Installing MySQL database server
 
 * `zypper install icingaweb2`, esto instala el panel web y además las dependencias (servidor Web, etc).
 * `systemctl enable apache2`
