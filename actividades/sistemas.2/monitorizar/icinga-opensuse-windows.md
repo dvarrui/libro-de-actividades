@@ -49,6 +49,8 @@ Iniciar y comprobar:
 * `systemctl start icinga2`, iniciar el servicio.
 * `systemctl status icinga2`, ver el estado del servicio.
 
+## 2.2 Configurar los editores
+
 Configurar el editor vim (con usuario root):
 * `zypper install vim-icinga2`
 * `vim ~/.vimrc`
@@ -76,7 +78,18 @@ include "/usr/share/nano/icinga2.nanorc"
 | /var/run/icinga2 | PID file |
 | /var/log/icinga2 | Log file location and compat/ directory for the CompatLogger feature |
 
-## 2.2 Instalar el panel web
+---
+
+```
+========================
+Comprobado hasta AQUI!!!
+========================
+```
+
+# 3 Instalar el panel web
+
+Configuring DB IDO MySQL ¶
+Installing MySQL database server
 
 * `zypper install icingaweb2`, esto instala el panel web y además las dependencias (servidor Web, etc).
 * `systemctl enable apache2`
@@ -100,11 +113,6 @@ Comprobar lo siguente:
 
 > Necesitamos usuario/clave para acceder al panel web.
 
-```
-========================
-Comprobado hasta AQUI!!!
-========================
-```
 
 ---
 
