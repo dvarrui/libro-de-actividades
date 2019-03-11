@@ -146,10 +146,21 @@ Icinga Web 2 and other web interfaces require the REST API to send actions (resc
 ```
 object ApiUser "nombre-del-alumno" {
   password = "clave"
-  permissions = [ "status/query", "actions/*", "objects/modify/*", "objects/query/*" ]
+  permissions = [ "* ]
 }
 ```
 * `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
+
+## 3.5 Instalar icingaweb2
+
+You can install Icinga Web 2 by using your distribution’s package manager to install the icingaweb2 package. The additional package icingacli is necessary to follow further steps in this guide.
+
+* `zypper search icingaweb2`, comprobar que está disponible.
+
+> En caso contrario:
+>
+> * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
+> * zypper ref
 
 
 ```
@@ -158,10 +169,35 @@ Comprobado hasta AQUI!!!
 ========================
 ```
 
-* `zypper install icingaweb2`, esto instala el panel web y además las dependencias (servidor Web, etc).
-* Abrir el servicio apache2 en el cortafuegos.
-    * `firewall-cmd --permanent --add-service=http`
-* Desde otra máquina comprobamos `nmap -Pn IP-monitorXX`, para consultar el acceso al servidor web (Puerto 80).
+---
+
+Icingaweb2: Installing Requirements ¶
+
+Icinga 2 with the IDO database backend (MySQL or PostgreSQL)
+A web server, e.g. Apache or Nginx
+PHP version >= 5.6.0
+The following PHP modules must be installed: cURL, gettext, intl, mbstring, OpenSSL and xml
+Default time zone configured for PHP in the php.ini file
+LDAP PHP library when using Active Directory or LDAP for authentication
+MySQL or PostgreSQL PHP libraries
+
+---
+Icinga2: Backup ¶
+Ensure to include the following in your backups:
+
+Configuration files in /etc/icinga2
+Certificate files in /var/lib/icinga2/ca (Master CA key pair) and /var/lib/icinga2/certs (node certificates)
+Runtime files in /var/lib/icinga2
+Optional: IDO database backup
+Backup: Database ¶
+MySQL/MariaDB:
+
+Documentation
+PostgreSQL:
+
+Documentation
+---
+
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * URL http://172.18.42.31/icingaweb2/setup
 Welcome to the configuration of Icinga Web 2!
