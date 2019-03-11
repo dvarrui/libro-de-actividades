@@ -148,7 +148,7 @@ Icinga Web 2 and other web interfaces require the REST API to send actions (resc
 ```
 object ApiUser "nombre-del-alumno" {
   password = "clave"
-  permissions = [ "*"" ]
+  permissions = [ "*" ]
 }
 ```
 * `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
