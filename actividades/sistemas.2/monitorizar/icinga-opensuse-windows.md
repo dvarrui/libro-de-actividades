@@ -144,11 +144,11 @@ Icinga Web 2 and other web interfaces require the REST API to send actions (resc
 
 * `icinga2 api setup`, to enable the api feature and set up certificates. Adding new API user root in `/etc/icinga2/conf.d/api-users.conf`.
 * `systemctl restart icinga2`
-* Edit the `/etc/icinga2/conf.d/api-users.conf` file and add a new ApiUser object. Specify the permissions attribute with minimal permissions required by Icinga Web 2.
+* Edit the `/etc/icinga2/conf.d/api-users.conf` file and add a new ApiUser object:
 ```
 object ApiUser "nombre-del-alumno" {
   password = "clave"
-  permissions = [ "* ]
+  permissions = [ "*"" ]
 }
 ```
 * `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
@@ -166,6 +166,30 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
+
+## 3.6 Preparing Web Setup
+
+You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizard which is available the first time you visit Icinga Web 2 in your browser.
+
+* `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
+
+> * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
+
+
+Configuration Overview
+
+Apart from its web configuration capabilities,
+ (depending on your configuration setup).
+
+| File/Directory     | Description |
+| ------------------ | ----------- |
+| /etc/icingaweb2    | configuration stored in by default |
+| config.ini	       | General configuration |
+| resources.ini	     | Global resources |
+| roles.ini	         | User specific roles |
+| authentication.ini | Authentication backends |
+| enabledModules     | Symlinks to enabled modules |
+
 
 ```
 ========================
