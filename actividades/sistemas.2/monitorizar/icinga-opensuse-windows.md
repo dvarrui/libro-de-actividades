@@ -2,7 +2,7 @@
 ```
 EN CONSTRUCCIÓN!!!
 * Curso 201617: Actividad copiada de Nagios-Debian-Windows
-* Curso 201819: Se está intentando adaptadar para Icinga-OpenSUSE-Windows.
+* Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
 ```
 
 # 1. Preparativos
@@ -84,17 +84,22 @@ By default Icinga 2 uses the following files and directories:
 
 # 3 Instalar el panel web
 
+En principio se supone que no es estrictamente necesario tener un panel web para monitorizar los equipos de la red, pero entendemos que visualmente es cómodo tenerlo, así que seguimos.
+
 ## 3.1 Base de datos
+
+* En este punto podemos usar una de las siguientes bases de datos:
+    * MySQL
+    * PosgreSQL
+* Elegimos MySQL (por votación en clase. Es la misma que usan ya en BBDD)
 
 **Configuring DB IDO MySQL**
 
-Installing MySQL database server
-* `zypper install mysql mysql-client`
+* `zypper install mysql mysql-client`, Installing MySQL database server
 * `systemctl enable mysql`
 * `systemctl status mysql`
 * `zypper install icinga2-ido-mysql`
-
-Set up a MySQL database for Icinga 2 (El usuario root de mysql NO tiene clave):
+* Set up a MySQL database for Icinga 2 (El usuario root de mysql NO tiene clave):
 ```
 # mysql -u root -p
 
@@ -112,11 +117,43 @@ quit
 
 ## 3.2 Servidor Web
 
+Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
+
 * `zypper in apache2`
 * `systemctl enable apache2`
 * `systemctl start apache2`
 * `systemctl status apache2`
 
+## 3.3 Cortafuegos
+
+* Firewall Rules: Enable port 80 (http). Best practice is to only enable port 443 (https) and use TLS certificates.
+    * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`, o
+    * `firewall-cmd --add-service=http` o
+    * `firewall-cmd --permanent --add-service=http`
+* `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
+
+> **Servicios que deben estár iniciados**: icinga2, mysql y apache2.
+
+## 3.4 Setting Up Icinga 2 REST API
+
+Icinga Web 2 and other web interfaces require the REST API to send actions (reschedule check, etc.) and query object details.
+
+
+* `icinga2 api setup`, to enable the api feature and set up certificates. Adding new API user root in `/etc/icinga2/conf.d/api-users.conf`.
+* `systemctl restart icinga2`
+
+Edit the api-users.conf file and add a new ApiUser object. Specify the permissions attribute with minimal permissions required by Icinga Web 2.
+
+vim /etc/icinga2/conf.d/api-users.conf
+
+object ApiUser "icingaweb2" {
+  password = "Wijsn8Z9eRs5E25d"
+  permissions = [ "status/query", "actions/*", "objects/modify/*", "objects/query/*" ]
+}
+
+Restart Icinga 2 to activate the configuration.
+
+systemctl restart icinga2
 ```
 ========================
 Comprobado hasta AQUI!!!
