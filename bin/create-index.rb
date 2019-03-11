@@ -23,6 +23,6 @@ def recorre_dir(parentdir, tab = '', input = [])
   output
 end
 
-puts recorre_dir 'actividades/idp'
-puts recorre_dir 'actividades/fuw'
-puts recorre_dir 'actividades/add'
+puts recorre_dir 'actividades/hardware'
+puts recorre_dir 'actividades/sistemas.2'
+puts recorre_dir 'actividades/sistemas.3'
