@@ -93,6 +93,8 @@ En principio se supone que no es estrictamente necesario tener un panel web para
     * PosgreSQL
 * Elegimos MySQL (por votación en clase. Es la misma que usan ya en BBDD)
 
+> De momento dejo los textos tal cual están en inglés. Y cuando se acabe de revisar se traducirán a español.
+
 **Configuring DB IDO MySQL**
 
 * `zypper install mysql mysql-client`, Installing MySQL database server
@@ -132,28 +134,24 @@ Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apac
     * `firewall-cmd --permanent --add-service=http`
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 
-> **Servicios que deben estár iniciados**: icinga2, mysql y apache2.
+> **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
 
 ## 3.4 Setting Up Icinga 2 REST API
 
 Icinga Web 2 and other web interfaces require the REST API to send actions (reschedule check, etc.) and query object details.
 
-
 * `icinga2 api setup`, to enable the api feature and set up certificates. Adding new API user root in `/etc/icinga2/conf.d/api-users.conf`.
 * `systemctl restart icinga2`
-
-Edit the api-users.conf file and add a new ApiUser object. Specify the permissions attribute with minimal permissions required by Icinga Web 2.
-
-vim /etc/icinga2/conf.d/api-users.conf
-
-object ApiUser "icingaweb2" {
-  password = "Wijsn8Z9eRs5E25d"
+* Edit the `/etc/icinga2/conf.d/api-users.conf` file and add a new ApiUser object. Specify the permissions attribute with minimal permissions required by Icinga Web 2.
+```
+object ApiUser "nombre-del-alumno" {
+  password = "clave"
   permissions = [ "status/query", "actions/*", "objects/modify/*", "objects/query/*" ]
 }
+```
+* `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
 
-Restart Icinga 2 to activate the configuration.
 
-systemctl restart icinga2
 ```
 ========================
 Comprobado hasta AQUI!!!
