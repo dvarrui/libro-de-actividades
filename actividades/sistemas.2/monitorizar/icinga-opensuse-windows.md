@@ -42,7 +42,7 @@ Enlaces de interés:
 Instalar software:
 * `zypper install icinga2`
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
-* `zypper install monitoring-plugins`
+* `zypper install monitoring-plugins`, instalar los plugins.
 
 Iniciar y comprobar:
 * `systemctl enable icinga2`, activar el servicio.
@@ -175,21 +175,8 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 
 > * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
 
-
-Configuration Overview
-
-Apart from its web configuration capabilities,
- (depending on your configuration setup).
-
-| File/Directory     | Description |
-| ------------------ | ----------- |
-| /etc/icingaweb2    | configuration stored in by default |
-| config.ini	       | General configuration |
-| resources.ini	     | Global resources |
-| roles.ini	         | User specific roles |
-| authentication.ini | Authentication backends |
-| enabledModules     | Symlinks to enabled modules |
-
+* Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
+* Ponemos el token.
 
 ```
 ========================
@@ -197,84 +184,15 @@ Comprobado hasta AQUI!!!
 ========================
 ```
 
----
-
-Icingaweb2: Installing Requirements ¶
-
-Icinga 2 with the IDO database backend (MySQL or PostgreSQL)
-A web server, e.g. Apache or Nginx
-PHP version >= 5.6.0
-The following PHP modules must be installed: cURL, gettext, intl, mbstring, OpenSSL and xml
-Default time zone configured for PHP in the php.ini file
-LDAP PHP library when using Active Directory or LDAP for authentication
-MySQL or PostgreSQL PHP libraries
-
----
-Icinga2: Backup ¶
-Ensure to include the following in your backups:
-
-Configuration files in /etc/icinga2
-Certificate files in /var/lib/icinga2/ca (Master CA key pair) and /var/lib/icinga2/certs (node certificates)
-Runtime files in /var/lib/icinga2
-Optional: IDO database backup
-Backup: Database ¶
-MySQL/MariaDB:
-
-Documentation
-PostgreSQL:
-
-Documentation
----
-
-* Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
-* URL http://172.18.42.31/icingaweb2/setup
-Welcome to the configuration of Icinga Web 2!
-This wizard will guide you through the configuration of Icinga Web 2. Once completed and successfully finished you are able to log in and to explore all the new and stunning features!
-
-Comprobar lo siguente:
-* `cat /etc/group | grep icingaweb`, comprobar que existe el grupo "icingaweb2".
-* `id wwwrun`, este usuario debe pertenecer al grupo  `icingaweb2`.
-* If you've got the IcingaCLI installed you can do the following:
-    * `icingacli setup config directory --group icingaweb2`
-    * `icingacli setup token create`, crear un token para empezar
-    * `icingacli setup token show`, para ver el token
-
-> Necesitamos usuario/clave para acceder al panel web.
-
-
----
-
-Base de datos Mysql:
-* `zypper install mysql mysql-client`
-* `systemctl enable mysqld`
-* `systemctl start mysqld`
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
-* `zypper install icinga2-ido-mysql`
-* `icinga2 feature enable ido-mysql`
-
-
-## 2.3 Monitor: Configurar Plugins (Servicios externos)
-
-Sin los plugins, Icinga 2 no sabe cómo verificar los servicios externos. Hay una gran cantidad de plugins en `The Monitoring Plugins Project`.
-
-Instalar los plugins (servicios externos) para SLES/OpenSUSE:
-* `zypper install monitoring-plugins`, instalar los plugins.
-* `systemctl reload icinga2` recargar los ficheros de configuración si hubieran cambiado.
-
-## 2.4 Comprobar
-
-* `systemctl status icinga2`
-* `nmap localhost`
 * `lsof -i -n`
-
 > En el caso de errores consultar log `var/log/icinga2.log`.
 
 
+
 ---
+===================================================
 
-# 3. Monitor: Configurar
-
-> INFO: El directorio de instalación `/etc/icinga2` contiene los ficheros de configuración de Icinga 2.
+# Nagios
 
 ## 3.1 Panel de control
 
@@ -610,3 +528,63 @@ define service{
 
 * Reiniciar el servicio.
 * Consultar los servicios monitorizados por el panel.
+
+---
+
+# ANEXO A
+
+---
+Icinga2: Backup ¶
+Ensure to include the following in your backups:
+
+Configuration files in /etc/icinga2
+Certificate files in /var/lib/icinga2/ca (Master CA key pair) and /var/lib/icinga2/certs (node certificates)
+Runtime files in /var/lib/icinga2
+Optional: IDO database backup
+Backup: Database ¶
+MySQL/MariaDB:
+
+Documentation
+PostgreSQL:
+
+Documentation
+---
+
+
+Configuration Overview
+
+Apart from its web configuration capabilities,
+ (depending on your configuration setup).
+
+| File/Directory     | Description |
+| ------------------ | ----------- |
+| /etc/icingaweb2    | configuration stored in by default |
+| config.ini	       | General configuration |
+| resources.ini	     | Global resources |
+| roles.ini	         | User specific roles |
+| authentication.ini | Authentication backends |
+| enabledModules     | Symlinks to enabled modules |
+
+Icingaweb2: Installing Requirements:
+* Icinga 2 with the IDO database backend (MySQL or PostgreSQL)
+* A web server, e.g. Apache or Nginx
+* PHP version >= 5.6.0
+* The following PHP modules must be installed: cURL, gettext, intl, mbstring, OpenSSL and xml
+* Default time zone configured for PHP in the php.ini file
+* LDAP PHP library when using Active Directory or LDAP for authentication
+* MySQL or PostgreSQL PHP libraries
+
+---
+
+---
+
+Welcome to the configuration of Icinga Web 2!
+This wizard will guide you through the configuration of Icinga Web 2. Once completed and successfully finished you are able to log in and to explore all the new and stunning features!
+
+Comprobar lo siguente:
+* `cat /etc/group | grep icingaweb`, comprobar que existe el grupo "icingaweb2".
+* `id wwwrun`, este usuario debe pertenecer al grupo  `icingaweb2`.
+* If you've got the IcingaCLI installed you can do the following:
+    * `icingacli setup config directory --group icingaweb2`
+    * `icingacli setup token create`, crear un token para empezar
+    * `icingacli setup token show`, para ver el token
