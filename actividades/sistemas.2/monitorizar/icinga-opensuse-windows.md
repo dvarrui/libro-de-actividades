@@ -122,6 +122,8 @@ quit
 Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
 
 * `zypper in apache2`
+* `a2enmod rewrite`
+* `a2enmod php7`
 * `systemctl enable apache2`
 * `systemctl start apache2`
 * `systemctl status apache2`
@@ -162,6 +164,8 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 > * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
 > * zypper ref
 
+* `zypper install icingaweb2`
+* `zypper install icingaweb2-icingacli`
 
 ```
 ========================
