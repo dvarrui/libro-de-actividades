@@ -166,11 +166,14 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
+* Quitamos php7.25 y ponemos php7.1.27
+    * Encontrar la versión 7.1 de php: https://software.opensuse.org/package/php7
 
-> **Problema con la versión de PHP**: Posible solución (versión php) de Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
+> **Problema con la versión de PHP**: Posible solución (versión php) de > Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
 >
 > * Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
-> * Donde encontrar la versión 7.1 de php: https://software.opensuse.org/package/php7
+
+* Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
 
 ## 3.6 Preparing Web Setup
 
