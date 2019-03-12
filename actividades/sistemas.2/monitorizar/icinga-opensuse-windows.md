@@ -181,6 +181,8 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token -> NEXT
 * `Modules > Monitoring > ENABLE` -> NEXT
+* Poner todos los paquetes en verde:
+    * `zypper se php |grep ldap` => `php7-ldap`
 
 ```
 ========================
@@ -191,8 +193,6 @@ Comprobado hasta AQUI!!!
 * `lsof -i -n`
 > En el caso de errores consultar log `var/log/icinga2.log`.
 
-
-
 ---
 ===================================================
 
@@ -200,11 +200,8 @@ Comprobado hasta AQUI!!!
 
 ## 3.1 Panel de control
 
-* Abrimos un navegador y ponemos el URL `http://localhost/nagios3`.
-* Ponemos usuario/clave (nagiosadmin/clavesecreta), y ya podemos
-interactuar con el programa de monitorización.
-    * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
-    vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
+* Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
+vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
 **Objetivo**
 
