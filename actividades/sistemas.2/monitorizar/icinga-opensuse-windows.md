@@ -167,6 +167,11 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
 
+> **Problema con la versión de PHP**: Posible solución (versión php) de Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
+>
+> * Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+> * Donde encontrar la versión 7.1 de php: https://software.opensuse.org/package/php7
+
 ## 3.6 Preparing Web Setup
 
 You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizard which is available the first time you visit Icinga Web 2 in your browser.
