@@ -166,13 +166,9 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
-* Quitamos php7.25 y ponemos php7.1.27
-    * Encontrar la versión 7.1 de php: https://software.opensuse.org/package/php7
-
-> **Problema con la versión de PHP**: Posible solución (versión php) de > Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
->
-> * Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
-
+* Quitar php7.25 y ponemos php7.1.27 (https://software.opensuse.org/package/php7).
+    * **Problema con la versión de PHP**: Posible solución (versión php) de Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
+    * Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
 * Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
 
 ## 3.6 Preparing Web Setup
@@ -180,11 +176,11 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizard which is available the first time you visit Icinga Web 2 in your browser.
 
 * `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
-
-> * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
-
+* `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
+* `chgrp -R icingaweb2 /etc/icingaweb2`. dar permisos a todos los miembros del grupo `icingaweb2` para acceder a este directorio.
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
-* Ponemos el token.
+* Ponemos el token -> NEXT
+* `Modules > Monitoring > ENABLE` -> NEXT
 
 ```
 ========================
