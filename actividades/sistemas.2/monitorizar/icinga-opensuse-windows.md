@@ -208,30 +208,14 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * Crear usuario para icingaweb2: profesor/profesor
 * COnfiguración de la aplicación -> siguiente.
 * Monitoring IDO resource: BBDD/usuario/clave => icinga/icinga/icinga.
-
-
-```
-========================
-Comprobado hasta AQUI!!!
-========================
-```
-
-* `lsof -i -n`
-> En el caso de errores consultar log `var/log/icinga2.log`.
+* Command transport: local
+...
+...
+...
 
 ---
-```
-===================================================
-NO HACER ESTO
-===================================================
-```
 
-# Nagios
-
-## 3.1 Panel de control
-
-* Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*,
-vemos que ya estamos monitorizando nuestro propio equipo *"localhost"*.
+# 4. Configurar objetos para monitorizar
 
 **Objetivo**
 
@@ -245,15 +229,33 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 | clients | clientXXg1 | 172.AA.XX.32 | Host activo |
 | clients | clientXXw1 | 172.AA.XX.11 | Host activo |
 
+* Sea ALUMNODIR=`/etc/icinga2/nombre-del-alumno.d`.
+* Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
+* Editar `/etc/icinga2/icinga2.conf` y poner
+`include_recursive "ALUMNODIR"`.
+* Crear fichero ALUMNODIR/leelaXX.conf.
+
+```
+object Host "leelaXX" {
+  import "generic-host"
+  address = "172.20.1.2"
+  check_command = "hostalive"
+}
+```
+* Reinciar el servicio de icinga2. En caso de error, consultar log `var/log/icinga2.log`.
+
+```
+========================
+Comprobado hasta AQUI!!!
+========================
+```
+
 ---
 
-## 3.2 Configuración personal
 
-* Sea DIRNAME = `/etc/icinga2/nombre-del-alumno.d`.
-* Creamos el directorio DIRNAME, para guardar nuestras configuraciones.
-* Editar `/etc/icinga2/icinga2.conf` y poner
-`include_recursive "nombre-del-alumo.d"`.
-* `zypper install vim-icinga2 nano-icinga2`
+* `lsof -i -n`
+
+# Nagios
 
 ---
 
@@ -280,10 +282,6 @@ define host{
 }
 ```
 
-object Host "my-server1" {
-  address = "10.0.0.1"
-  check_command = "hostalive"
-}
 
 > Fijarse en todos los parámetros anteriores y preguntar las dudas.
 > * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
