@@ -190,6 +190,18 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 
 * `systemctl restart apache2`, reiniciar el servidor web Apache2.
 * Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Sequimos.
+* Autentificación -> Database.
+* Database Resource:
+
+| Campo         | Valor        |
+| ------------- | ------------ |
+| Resource name | icingaweb_db |
+| Database type | MySQL |
+| Host          | localhost |
+| Database name | icinga |
+| User name     | icinga |
+| Password      | icinga |
+
 
 ```
 ========================
