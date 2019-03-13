@@ -198,9 +198,16 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 | Resource name | icingaweb_db |
 | Database type | MySQL |
 | Host          | localhost |
-| Database name | icinga |
-| User name     | icinga |
-| Password      | icinga |
+| Database name | icingaweb2 |
+| User name     | icingaweb2 |
+| Password      | icingaweb2 |
+
+* Validar y siguiente.
+* Poner usuario/clave del administrador de mysql.
+* Backend name : icingaweb2
+* Crear usuario para icingaweb2: profesor/profesor
+* COnfiguración de la aplicación -> siguiente.
+* Monitoring IDO resource: BBDD/usuario/clave => icinga/icinga/icinga.
 
 
 ```
