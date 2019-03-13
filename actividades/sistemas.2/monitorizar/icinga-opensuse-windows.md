@@ -183,7 +183,7 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * `Modules > Monitoring > ENABLE` -> NEXT
 * Debemos instalar los paquetes que faltan (paquetes en color amarillo):
     * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
-    * Descargar ficheros paquetes e instalarlos.
+    * [Descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) e instalarlos.
     * Se pondrán rpm en el Moodle.
 
 ```
