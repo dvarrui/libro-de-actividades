@@ -186,6 +186,11 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
     * [Descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) e instalarlos.
     * Se pondrán rpm en el Moodle.
 
+> Sigo sin poder instalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0.
+
+* `systemctl restart apache2`, reiniciar el servidor web Apache2.
+* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Sequimos.
+
 ```
 ========================
 Comprobado hasta AQUI!!!
