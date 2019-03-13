@@ -181,8 +181,10 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token -> NEXT
 * `Modules > Monitoring > ENABLE` -> NEXT
-* Poner todos los paquetes en verde:
-    * `zypper se php |grep ldap` => `php7-ldap`
+* Debemos instalar los paquetes que faltan (paquetes en color amarillo):
+    * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
+    * Descargar ficheros paquetes e instalarlos.
+    * Se pondrán rpm en el Moodle.
 
 ```
 ========================
@@ -194,7 +196,11 @@ Comprobado hasta AQUI!!!
 > En el caso de errores consultar log `var/log/icinga2.log`.
 
 ---
+```
 ===================================================
+NO HACER ESTO
+===================================================
+```
 
 # Nagios
 
