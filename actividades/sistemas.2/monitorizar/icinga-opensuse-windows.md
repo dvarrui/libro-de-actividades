@@ -145,14 +145,6 @@ Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apac
 Icinga Web 2 and other web interfaces require the REST API to send actions (reschedule check, etc.) and query object details.
 
 * `icinga2 api setup`, to enable the api feature and set up certificates. Adding new API user root in `/etc/icinga2/conf.d/api-users.conf`.
-* `systemctl restart icinga2`
-* Edit the `/etc/icinga2/conf.d/api-users.conf` file and add a new ApiUser object:
-```
-object ApiUser "nombre-del-alumno" {
-  password = "clave"
-  permissions = [ "*" ]
-}
-```
 * `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
 
 ## 3.5 Instalar icingaweb2
@@ -160,12 +152,6 @@ object ApiUser "nombre-del-alumno" {
 You can install Icinga Web 2 by using your distribution’s package manager to install the icingaweb2 package. The additional package icingacli is necessary to follow further steps in this guide.
 
 * `zypper search icingaweb2`, comprobar que está disponible.
-
-> En caso contrario:
->
-> * zypper ar http://packages.icinga.com/openSUSE/ICINGA-release.repo
-> * zypper ref
-
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
 * Quitar php7.25 y ponemos php7.1.27 (https://software.opensuse.org/package/php7).
@@ -568,5 +554,7 @@ Icingaweb2: Installing Requirements:
 * Default time zone configured for PHP in the php.ini file
 * LDAP PHP library when using Active Directory or LDAP for authentication
 * MySQL or PostgreSQL PHP libraries
+
+
 
 ---
