@@ -36,6 +36,8 @@ Supongamos que tenemos el siguiente esquema de red:
 
 Enlaces de interés:
 * [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
+* Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
+* [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
 
 ## 2.1 Instalar el software principal
 
@@ -209,9 +211,7 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * COnfiguración de la aplicación -> siguiente.
 * Monitoring IDO resource: BBDD/usuario/clave => icinga/icinga/icinga.
 * Command transport: local
-...
-...
-...
+* API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
 
 ---
 
@@ -229,20 +229,77 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 | clients | clientXXg1 | 172.AA.XX.32 | Host activo |
 | clients | clientXXw1 | 172.AA.XX.11 | Host activo |
 
-* Sea ALUMNODIR=`/etc/icinga2/nombre-del-alumno.d`.
+* Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
 * Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
-* Editar `/etc/icinga2/icinga2.conf` y poner
-`include_recursive "ALUMNODIR"`.
-* Crear fichero ALUMNODIR/leelaXX.conf.
+
+## 4.1 Configurar HOST servidores
+
+* Crear fichero ALUMNODIR/servers.conf.
 
 ```
 object Host "leelaXX" {
-  import "generic-host"
   address = "172.20.1.2"
+  vars.os = "Linux"
+  check_command = "hostalive"
+}
+
+object Service "http_leela" {
+  host_name = "leelaXX"
+  check_command = "http"
+}
+```
+> Fijarse en todos los parámetros anteriores y preguntar las dudas.
+> * Host: Nombre del host
+> * address: Dirección IP
+> * vars.os: Sistema Operativo
+> * check_command: Comando usado para verificar el host.
+
+## 4.2 Configurar HOSTS routers
+
+* Crear fichero ALUMNODIR/routers.conf.
+
+```
+object Host "benderXX" {
+  address = "ip-del-host"
+  check_command = "hostalive"
+}
+
+object Host "caronteXX" {
+  address = "ip-del-host"
   check_command = "hostalive"
 }
 ```
-* Reinciar el servicio de icinga2. En caso de error, consultar log `var/log/icinga2.log`.
+
+## 4.3 Configurar HOSTS clientes
+
+* Crear fichero ALUMNODIR/clients.conf.
+
+```
+object Host "clientXXg1" {
+  address = "ip-del-host"
+  vars.os = "Linux"
+  check_command = "hostalive"
+}
+
+object Service "ssh_clientXXg1" {
+  host_name = "clientXXg1"
+  check_command = "ssh"
+}
+
+object Host "clientXXw1" {
+  address = "ip-del-host"
+  vars.os = "Windows"
+  check_command = "hostalive"
+}
+
+object Service "ssh_clientXXw1" {
+  host_name = "clientXXw1"
+  check_command = "ssh"
+}
+```
+
+* `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `var/log/icinga2.log`.
+* Comprobar los cambios por IcingaWeb2.
 
 ```
 ========================
@@ -259,39 +316,9 @@ Comprobado hasta AQUI!!!
 
 ---
 
-## 3.3 Hosts: Routers
-
-* Crear el fichero `DIRNAME/routersXX.cfg` para incluir las definiciones de los hosts de tipo router.
 * Los host serán miembros también de los grupos `http-servers`, `ssh-servers` que ya vienen predefinidos por defecto. Veamos un ejemplo (no sirve copiarlo):
 
-```
-define host{
-  host_name       NOMBRE_DEL_HOST
-  alias           NOMBRE_LARGO_DEL_HOST
-  address         IP_DEL_HOST
-  hostgroups      GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
-  icon_image      cook/NOMBRE_IMAGEN.png
-  statusmap_image cook/NOMBRE_IMAGENrouter.png
-  #parents
 
-  check_command      check-host-alive
-  check_interval     5
-  retry_interval     1
-  max_check_attempts 1
-  check_period       24x7
-}
-```
-
-
-> Fijarse en todos los parámetros anteriores y preguntar las dudas.
-> * [Enlace de interés sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-> * host_name: Nombre del host
-> * alias: Nombre largo asociado al host
-> * address: Dirección IP
-> * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. Las imágenes PNG están en `/usr/share/nagios/htdocs/images/logos/cook`.
->   Poner a cada host una imagen que lo represente.
-> * parents: Nombre del equipo padre o anterior.
 
 * El router `caronteXX` tiene como padre(parent) a `benderXX`.
 * Reiniciamos el servicio para que coja los cambios en la configuración.
