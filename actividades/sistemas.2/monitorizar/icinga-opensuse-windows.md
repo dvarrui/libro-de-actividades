@@ -166,6 +166,9 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
 * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
 * `chgrp -R icingaweb2 /etc/icingaweb2`. dar permisos a todos los miembros del grupo `icingaweb2` para acceder a este directorio.
+
+## 3.7 Usar la navegador para acceder a Icingaweb2
+
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token -> NEXT
 * `Modules > Monitoring > ENABLE` -> NEXT
@@ -220,7 +223,7 @@ Nos vamos a plantear como objetivo monitorizar lo siguente:
 
 ## 4.1 Configurar HOST servidores
 
-* Crear fichero ALUMNODIR/servers.conf.
+* Crear fichero `ALUMNODIR/servers.conf`.
 
 ```
 object Host "leelaXX" {
@@ -242,7 +245,7 @@ object Service "http_leela" {
 
 ## 4.2 Configurar HOSTS routers
 
-* Crear fichero ALUMNODIR/routers.conf.
+* Crear fichero `ALUMNODIR/routers.conf`.
 
 ```
 object Host "benderXX" {
@@ -258,7 +261,7 @@ object Host "caronteXX" {
 
 ## 4.3 Configurar HOSTS clientes
 
-* Crear fichero ALUMNODIR/clients.conf.
+* Crear fichero `ALUMNODIR/clients.conf`.
 
 ```
 object Host "clientXXg1" {
