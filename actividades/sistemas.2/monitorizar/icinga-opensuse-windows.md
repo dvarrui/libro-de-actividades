@@ -309,67 +309,6 @@ Comprobado hasta AQUI!!!
 
 ---
 
-
-* `lsof -i -n`
-
-# Nagios
-
----
-
-* Los host serán miembros también de los grupos `http-servers`, `ssh-servers` que ya vienen predefinidos por defecto. Veamos un ejemplo (no sirve copiarlo):
-
-
-
-* El router `caronteXX` tiene como padre(parent) a `benderXX`.
-* Reiniciamos el servicio para que coja los cambios en la configuración.
-    * Pista `systemctl restart...`
-    * Si hay problemas, consultar log `var/log/.../icinga.log`.
-* Consultar la lista de hosts monitorizados en el panel Web.
-
-## 3.4 Hosts: Servidores
-
-* Crear el fichero `DIRBASE/servidoresXX.cfg` para incluir las definiciones de los hosts de tipo servidor.
-* Todos los host servidores deben ser miembros de `servidoresXX`, `http-servers`, `ssh-servers`.
-* El equipo `leelaXX` tiene como parent a `benderXX`.
-* Reiniciamos el servicio
-* Consultar la lista de hosts monitorizados en el panel.
-
-## 3.5 Hosts: Clientes
-
-* Crear el fichero `DIRBASE/clientesXX.cfg` para incluir las definiciones de los hosts de tipo cliente. Veamos un ejemplo (no sirve copiar):
-
-```
-define host{
-  use          generic-host
-  host_name    NOMBRE_HOST
-  alias        NOMBRE_LARGO_DEL_HOST
-  address      IP_DEL_HOST
-  hostgroups   GRUPO_AL_QUE_PERTENECE
-}
-```
-> Personalizar: host_name, alias, address y hostgroups.
-
-* Reiniciamos el servicio para que coja los cambios.
-* Consultar la lista de hosts monitorizados por el panel.
-
----
-
-# 4 Ver algunos ejemplos
-
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-* El verde significa OK.
-* El rojo que el equipo presenta algún problema y requiere atención.
-
-![nagios3-hosts](./images/nagios3-hosts.png)
-
-Además podemos tener una visión completa de la red en la opción "map".
-
-![nagios3-map](./images/nagios3-map.png)
-
-* Consulta la lista de hosts, el mapa de Nagios.
-
----
-
 # 5. Agente: Servicios Internos en el cliente GNU/Linux
 
 ## 5.1 Documentación
@@ -631,16 +570,3 @@ Icingaweb2: Installing Requirements:
 * MySQL or PostgreSQL PHP libraries
 
 ---
-
----
-
-Welcome to the configuration of Icinga Web 2!
-This wizard will guide you through the configuration of Icinga Web 2. Once completed and successfully finished you are able to log in and to explore all the new and stunning features!
-
-Comprobar lo siguente:
-* `cat /etc/group | grep icingaweb`, comprobar que existe el grupo "icingaweb2".
-* `id wwwrun`, este usuario debe pertenecer al grupo  `icingaweb2`.
-* If you've got the IcingaCLI installed you can do the following:
-    * `icingacli setup config directory --group icingaweb2`
-    * `icingacli setup token create`, crear un token para empezar
-    * `icingacli setup token show`, para ver el token
