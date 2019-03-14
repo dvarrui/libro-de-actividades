@@ -168,7 +168,7 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
 * `chgrp -R icingaweb2 /etc/icingaweb2`. dar permisos a todos los miembros del grupo `icingaweb2` para acceder a este directorio.
 
-## 3.7 Usar la navegador para acceder a Icingaweb2
+## 3.7 Usar navegador para acceder a Icingaweb2
 
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token -> NEXT
@@ -198,7 +198,7 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 * Poner usuario/clave del administrador de mysql.
 * Backend name : icingaweb2
 * Crear usuario para icingaweb2: profesor/profesor
-* COnfiguración de la aplicación -> siguiente.
+* Configuración de la aplicación -> siguiente.
 * Monitoring IDO resource: BBDD/usuario/clave => icinga/icinga/icinga.
 * Command transport: local
 * API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
@@ -291,15 +291,41 @@ object Service "ssh_clientXXw1" {
 * `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `var/log/icinga2.log`.
 * Comprobar los cambios por IcingaWeb2.
 
+---
+
+# 5. Agent-based monitoring (cliente GNU/Linux)
+
+Enlaces de interés:
+* https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
+
+## 5.1 Teoría SSH
+
+Podemos usar varios protocolos de comunicación diferente con el nodo (Agente). En nuestro caso vamos a usar el protocolo SSH.
+
+Calling a plugin using the SSH protocol to execute a plugin on the remote server fetching its return code and output. The by_ssh command object is part of the built-in templates and requires the check_by_ssh check plugin which is available in the Monitoring Plugins package.
+
+```
+object CheckCommand "by_ssh_swap" {
+  import "by_ssh"
+  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_swap -w $by_ssh_swap_warn$ -c $by_ssh_swap_crit$"
+  vars.by_ssh_swap_warn = "75%"
+  vars.by_ssh_swap_crit = "50%"
+}
+
+object Service "swap" {
+  import "generic-service"
+  host_name = "remote-ssh-host"
+  check_command = "by_ssh_swap"
+  vars.by_ssh_logname = "icinga"
+}
+```
+
 ```
 ========================
 Comprobado hasta AQUI!!!
 ========================
 ```
 
----
-
-# 5. Agente: Servicios Internos en el cliente GNU/Linux
 
 ## 5.1 Documentación
 
@@ -402,6 +428,9 @@ define service{
 ---
 
 # 6. Agente: Servicios Internos en el Cliente Windows
+
+Enlaces de interés:
+* https://www.antonissen.net/2017/02/18/monitoring-your-network-with-icinga-2-part-3/
 
 ## 6.1 Instalar en el cliente2
 
