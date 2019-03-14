@@ -163,6 +163,7 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 
 You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizard which is available the first time you visit Icinga Web 2 in your browser.
 
+* `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
 * `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
 * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
 * `chgrp -R icingaweb2 /etc/icingaweb2`. dar permisos a todos los miembros del grupo `icingaweb2` para acceder a este directorio.
