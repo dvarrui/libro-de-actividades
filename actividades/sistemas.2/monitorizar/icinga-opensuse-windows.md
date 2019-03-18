@@ -35,9 +35,10 @@ Supongamos que tenemos el siguiente esquema de red:
 # 2. Monitor: Instalación
 
 Enlaces de interés:
-* [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
-* Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
-* [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
+* EN - [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
+* EN - [Install IcingaWeb2](https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/)
+* ES - Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
+* ES - [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
 
 ## 2.1 Instalar el software principal
 
@@ -298,6 +299,9 @@ object Service "ssh_clientXXw1" {
 Enlaces de interés:
 * https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
 
+Por ahora el monitor, sólo puede obtener la información que los
+equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
+
 ## 5.1 Teoría SSH
 
 Podemos usar varios protocolos de comunicación diferente con el nodo (Agente). En nuestro caso vamos a usar el protocolo SSH.
@@ -320,228 +324,16 @@ object Service "swap" {
 }
 ```
 
-```
-========================
-Comprobado hasta AQUI!!!
-========================
-```
+> NOTA: En el directorio `/usr/lib/nagios/plugins/`, tenemos muchos check commands para usar.
 
+## 5.2 Cliente GNULinux
 
-## 5.1 Documentación
+* Monitorizar disco duro
 
-Por ahora el monitor, sólo puede obtener la información que los
-equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que instalar una utilidad llamada "Agente" en cada uno.
+## 5.3 CLiente Window
 
-El agente es una especie de "chivato" que nos puede dar datos de:
-Consumo CPU, consumo de memoria, consumo de disco, etc.
-
-Aquí vemos un ejemplo del estado de los "servicios internos" monitorizados,
-en el host "localhost". Con la instalación de los "agentes",
-podremos tener esta información desde los clientes remotos.
-
-![nagios3-details](./images/nagios3-details.png)
-
-> Enlaces de interés:
-> * [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
-> * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
-> * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
-
-## 5.2 Instalar y configurar el cliente1
-
-En el cliente:
-* Debemos instalar el agente en la máquina cliente (paquete NRPE server y los plugin básicos)
-* Editar el fichero `/etc/.../nrpe_local.cfg` del cliente y modificar lo siguiente:
-
-```
- # define en qué puerto (TCP) escuchará el agente.
- # Por defecto es el 5666.
-server_port=5666
-
- # indica en qué dirección IP escuchará el agente,                              
- # en caso que la MV posea más de una IP.
-server_address=IP_DEL_CLIENTE
-
- # define qué IPs tienen permitido conectarse al agente en busca de datos.
- # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
-allowed_hosts=127.0.0.1,IP_DEL_SERVIDOR
-
- # Esta variable indica que NO se permite que el agente
- # reciba comandos con parámetros poe seguridad.
-dont_blame_nrpe=0
-
- # alias check_user para obtener la cantidad de usuarios logueados
- # y alertar si hay más de 5 logueados al mismo tiempo.
-command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
-
- # alias check_load para obtener la carga de CPU
-command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
-
- #alias check_disk para obtener el espacio disponible en el disco /dev/sda
- # y alertar si queda menos de 20% de espacio en alguna partición.
-command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
-
-
-command[check_procs]=...
-```
-
-* Reiniciar el servicio en el cliente (`systemctl restart nagios-nrpe-server ...`)
-
-## 5.3 Configurar en el servidor
-
-* Ir al servidor.
-* `/usr/lib/nagios/plugins/check_nrpe -H ip-del-cliente`, comprobar desde el servidor la conexión NRPE al cliente de la siguiente forma.
-* Crear el fichero `DIRBASE/servicios-gnulinuxXX.cfg`, para definir nuevos servicios a monitorizar.
-* Añadir las siguientes líneas:
-
-```
-define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Espacio en disco
-  check_command        check_nrpe_1arg!check_disk
-}
-
-define service{
-  use                 generic-service
-  host_name           NOMBRE_DEL_HOST
-  service_description Usuarios actuales
-  check_command       check_nrpe_1arg!check_users
-}
-
-define service{
-  use                 generic-service
-  host_name           NOMBRE_DEL_HOST
-  service_description Procesos totales
-  check_command       check_nrpe_1arg!check_procs
-}
-
-define service{
-  use                 generic-service
-  host_name           NOMBRE_DEL_HOST
-  service_description Carga actual
-  check_command       check_nrpe_1arg!check_load
-}
-```
-
-* Consultar el estado de los servicios monitorizados en el panel.
-
----
-
-# 6. Agente: Servicios Internos en el Cliente Windows
-
-Enlaces de interés:
-* https://www.antonissen.net/2017/02/18/monitoring-your-network-with-icinga-2-part-3/
-
-## 6.1 Instalar en el cliente2
-
-* Descargar el programa Agente Windows (NSCLient++)
-    * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
-    * [http://www.nagios.org/download/addons](http://www.nagios.org/download/addons).
-* Instalar el programa nsclient.
-    * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`
-
-> * En este caso hemos elegido NRPE como protocolo de comunicación entre el agente
-Windows y el servidor Nagios.
-> * Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la
-instalación del programa con las opciones por defecto sin preguntarnos.
-
-* Servicio `Agente` en el cliente
-    * Por entorno gráfico:
-        * Ir a `Equipo -> Administrar -> Servicios -> Nagios -> Reiniciar`.
-    * Por comandos:
-        * `net start nsclient` para iniciar el servicio del agente.
-        * `net stop nsclient` para parar el servicio del agente.
-
-## 6.2 Configurar el cliente2
-
-Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nsclient.ini`
- (o `C:\Archivos de Programas\NSClient++\nsclient.ini`).
-
-NSClient no utiliza el mismo formato de configuración que el visto en el host Linux.
-Para empezar, la configuración se divide en secciones.
-Por otra parte, los plugins se deben habilitar antes de ser utilizados.
-Además los plugins se llaman con nombres de ejecutables diferentes
-(CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera.
-
-> Para estandarizar, en la configuración utilizaremos los mismos alias que en el host Linux
-> Así es posible realizar grupos de hosts que incluyan tanto servidores
-GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
-
-* Enlaces de interés:
-    * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
-* La configuración que utilizaremos será la siguiente:
-
-```
-[/settings/default]
-;Desactivar el password
-;password=
-
-; permitimos el acceso al servidor Nagios para las consultas.
-allowed hosts=IP_DEL_SERVIDOR
-
-[/settings/NRPE/server]
-ssl options = no-sslv2, no-sslv3
-verify mode = none
-insecure = true
-
-[/modules]
-; habilitamos el uso de NRPE
-NRPEServer=1
-
-; habilitamos plugins a utilizar
-CheckSystem=1
-CheckDisk=1
-CheckExternalScripts=1
-
-[/settings/external scripts/alias]
-
-; alias para chequear la carga de CPU. Si sobrepasa el 80% en un intervalo de 5 minutos, nos alertará.
-check_load=CheckCpu MaxWarn=80 time=5m
-
-; alias para chequear el espacio en todos los discos del servidor
-check_disk=CheckDriveSize ShowAll MinWarnFree=10% MinCritFree=5%
-
-; alias para chequear el servicio del firewall de Windows (llamado MpsSvc).
-check_firewall_service=CheckServiceState MpsSvc
-
-```
-
-## 6.3 Configurar en el Servidor
-
-En el servidor Nagios:
-* `/usr/lib/nagios/plugins/check_nrpe -H IP_DEL_CLIENTE2`, comprobar desde el servidor la conexión NRPE al cliente.
-
-> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html) sobre cómo configurar los servicios del host Windows en Nagios Master
-
-* Crear el fichero `DIRBASE/servicios-windowsXX.cfg`, para definir servicios a monitorizar en Windows.
-* Veamos un ejemplo.
-
-```
-define service {
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Carga media
-  check_command        check_nrpe_1arg!check_load
-}
-
-define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Espacio en disco
-  check_command        check_nrpe_1arg!check_disk
-}
-
-define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Firewall
-  check_command        check_nrpe_1arg!check_firewall_service
-}
-
-```
-
-* Reiniciar el servicio.
-* Consultar los servicios monitorizados por el panel.
+NO ES OBLIGATORIO
+* Monitorizar disco duro.
 
 ---
 
