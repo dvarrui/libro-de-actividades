@@ -155,14 +155,20 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 * `zypper search icingaweb2`, comprobar que está disponible.
 * `zypper install icingaweb2`
 * `zypper install icingaweb2-icingacli`
-* Quitar php7.25 y ponemos php7.1.27 (https://software.opensuse.org/package/php7).
-    * **Problema con la versión de PHP**: Posible solución (versión php) de Aarón Rodríguez Pérez - lunes, 11 de marzo de 2019, 09:39
-    * Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
-* Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
+
+**Problema con la versión de PHP**
+
+* Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5.
+    * Solución propuesta por de Aarón Rodríguez Pérez: cambiar la versión de php7.2.5 por php7.1.27. Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+
+> Recuerda: para instalar un paquete rpm hacemos `rpm -i PACKAGENAME.rpm`
+
+* Cambiamos los siguientes paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7).
+    * php7-7.1.27-lp150.1.1.x86_64.rpm
+ Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
 
 ## 3.6 Preparing Web Setup
 
-You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizard which is available the first time you visit Icinga Web 2 in your browser.
 
 * `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
 * `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
@@ -171,18 +177,22 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
+Vamos a configurar IcingaWeb2 por el navegador.
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
-* Ponemos el token -> NEXT
+* Ponemos el token y siguiente.
 * `Modules > Monitoring > ENABLE` -> NEXT
-* Debemos instalar los paquetes que faltan (paquetes en color amarillo):
+* Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
     * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
-    * [Descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) e instalarlos.
-    * Se pondrán rpm en el Moodle.
+    * En nuestro caso necesitaremos los siguientes :
+        * php7-curl-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-ldap-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-mysql-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-pgsql-7.1.27-lp150.1.1.x86_64.rpm
 
-> Sigo sin poder instalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0.
+> ERROR: No hemos podidoinstalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0. Para nuestra práctica no es necesario y podemos seguir.
 
 * `systemctl restart apache2`, reiniciar el servidor web Apache2.
-* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Sequimos.
+* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están isntalados. Sequimos.
 * Autentificación -> Database.
 * Database Resource:
 
@@ -196,12 +206,12 @@ You can set up Icinga Web 2 quickly and easily with the Icinga Web 2 setup wizar
 | Password      | icingaweb2 |
 
 * Validar y siguiente.
-* Poner usuario/clave del administrador de mysql.
-* Backend name : icingaweb2
-* Crear usuario para icingaweb2: profesor/profesor
+* Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usar `root` (De MySQL) sin clave. Tal y como hicimos en el apartado 3.1.
+* Backend name : `icingaweb2`
+* Crear usuario para icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
 * Configuración de la aplicación -> siguiente.
-* Monitoring IDO resource: BBDD/usuario/clave => icinga/icinga/icinga.
-* Command transport: local
+* Monitoring IDO resource. BBDD/usuario/clave => icinga/icinga/icinga.
+* Command transport: `local`
 * API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
 
 ---
