@@ -343,12 +343,12 @@ object Service "swap" {
 
 ## 5.2 Cliente GNULinux
 
-* Modificar fichero `ALUMNODIR/clients-gnulinux.conf` para incluir monitorización del disco duro.
+* Crear fichero `ALUMNODIR/agents-gnulinux.conf` para incluir monitorización del disco duro.
 
 ## 5.3 CLiente Window
 
 NO ES OBLIGATORIO
-* Modificar fichero `ALUMNODIR/clients-windows.conf` para incluir monitorización del disco duro.
+* Modificar fichero `ALUMNODIR/agents-windows.conf` para incluir monitorización del disco duro.
 
 ---
 
