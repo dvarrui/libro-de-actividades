@@ -275,7 +275,7 @@ object Host "caronteXX" {
 
 ## 4.3 Configurar HOSTS clientes
 
-* Crear fichero `ALUMNODIR/clients.conf`.
+* Crear fichero `ALUMNODIR/clients-gnulinux.conf`.
 
 ```
 object Host "clientXXg1" {
@@ -288,7 +288,10 @@ object Service "ssh_clientXXg1" {
   host_name = "clientXXg1"
   check_command = "ssh"
 }
+```
 
+* Crear fichero `ALUMNODIR/clients-windows.conf`.
+```
 object Host "clientXXw1" {
   address = "ip-del-host"
   vars.os = "Windows"
@@ -340,12 +343,12 @@ object Service "swap" {
 
 ## 5.2 Cliente GNULinux
 
-* Monitorizar disco duro
+* Modificar fichero `ALUMNODIR/clients-gnulinux.conf` para incluir monitorización del disco duro.
 
 ## 5.3 CLiente Window
 
 NO ES OBLIGATORIO
-* Monitorizar disco duro.
+* Modificar fichero `ALUMNODIR/clients-windows.conf` para incluir monitorización del disco duro.
 
 ---
 
