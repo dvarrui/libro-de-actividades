@@ -304,6 +304,8 @@ object Service "ssh_clientXXw1" {
 }
 ```
 
+> **¡OJO!**: Asegurarse de que el usuario `icinga` es el propietario de los archivos que acabamos de crear en la ruta ALUMNODIR. Si no tiene permisos de lectura sobre dichas configuraciones, éstas no tendrán efecto.
+
 * `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `var/log/icinga2.log`.
 * Comprobar los cambios por IcingaWeb2.
 
