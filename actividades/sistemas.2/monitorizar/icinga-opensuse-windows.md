@@ -346,6 +346,23 @@ object Service "swap" {
 ## 5.2 Cliente GNULinux
 
 * Crear fichero `ALUMNODIR/agents-gnulinux.conf` para incluir monitorización del disco duro.
+* Ejemplo que hay que revisar y adaptar:
+```
+object CheckCommand "by_ssh_disk_clientXXg1" {
+  import "by_ssh"
+  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk -w $by_ssh_disk_warn$ -c $by_ssh_disk_crit$"
+  vars.by_ssh_disk_warn = "75%"
+  vars.by_ssh_disk_crit = "50%"
+}
+
+object Service "disk_clientXXg1" {
+  import "generic-service"
+  host_name = "clientXXg1"
+  check_command = "by_ssh_disk_clientXXg1"
+  vars.by_ssh_logname = "root"
+  ...
+}
+```
 
 ## 5.3 CLiente Window
 
