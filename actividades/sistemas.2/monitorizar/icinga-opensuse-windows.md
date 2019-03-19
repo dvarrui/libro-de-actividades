@@ -214,6 +214,8 @@ Vamos a configurar IcingaWeb2 por el navegador.
 * Command transport: `local`
 * API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
 
+> Si tenemos errores de permisos para habilitar Módulos en la fase final de la configuración de IcingaWeb2, entonces comprobar los permisos de la carpeta `/etc/icingaweb2/enableModules` para el usuario de Apache2 (`wwwrun`).
+
 ---
 
 # 4. Configurar objetos para monitorizar
