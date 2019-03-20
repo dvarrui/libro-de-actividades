@@ -157,16 +157,17 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 
 **Problema con la versión de PHP**
 
-* Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5.
-    * Solución propuesta por de Aarón Rodríguez Pérez: cambiar la versión de php7.2.5 por php7.1.27. Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5. Hay una solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de php7.2.5 por php7.1.27. Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+
+Proceso para instalar la versión php7.1.27.
+* `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_leap_15.0/ devel:languages:php:php71`
+* `zypper install --oldpackage php7-7.1.27`
+* Si hay errores instalar php-Icinga
 
 > NOTA:
 >
-> * Para instalar un paquete rpm hacemos `rpm -i PACKAGENAME.rpm`
-> * El commando zypper tiene la opción `--oldpackage` ("Allow to replace a newer item with an older one. Handy if you are doing a rollback.") que nos sirve para gestionar la instalación de versión más antiguas.
-
-* Cambiamos los siguientes paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7).
-    * php7-7.1.27-lp150.1.1.x86_64.rpm
+> * Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm. Primero lo descargamos y luego lo instalamos con `rpm -i PACKAGENAME.rpm`
+> * Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
 
 * Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
 
@@ -367,7 +368,7 @@ object Service "disk_clientXXg1" {
   host_name = "clientXXg1"
   check_command = "by_ssh_disk"
   vars.by_ssh_logname = "root"
-  ...(configurar ssh password)...
+  vars.by_ssh_password = "CLAVE"
 }
 ```
 
