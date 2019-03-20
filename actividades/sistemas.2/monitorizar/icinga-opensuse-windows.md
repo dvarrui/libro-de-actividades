@@ -134,9 +134,8 @@ Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apac
 ## 3.3 Cortafuegos
 
 * Firewall Rules: Enable port 80 (http). Best practice is to only enable port 443 (https) and use TLS certificates.
-    * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`, o
-    * `firewall-cmd --add-service=http` o
-    * `firewall-cmd --permanent --add-service=http`
+    * `firewall-cmd --permanent --add-service=http` o
+    * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 
 > **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
@@ -222,7 +221,7 @@ Vamos a configurar IcingaWeb2 por el navegador.
 >
 > Si en la fase final del proceso de configuración de IcingaWeb2, aparece un error al habilitar Módulos por falta de permisos, entonces es necesario revisar los permisos que tiene la carpeta `/etc/icingaweb2/enableModules` para el usuario `wwwrun` (Este es el usuario que utiliza el servidor Web Apache2 en OpenSUSE).
 >
-> * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enablaModules`
+> * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enabledModules`
 
 ---
 
