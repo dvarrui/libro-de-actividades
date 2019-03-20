@@ -214,7 +214,11 @@ Vamos a configurar IcingaWeb2 por el navegador.
 * Command transport: `local`
 * API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
 
-> Si tenemos errores de permisos para habilitar Módulos en la fase final de la configuración de IcingaWeb2, entonces comprobar los permisos de la carpeta `/etc/icingaweb2/enableModules` para el usuario de Apache2 (`wwwrun`).
+> **NOTA**
+>
+> Si en la fase final del proceso de configuración de IcingaWeb2, aparece un error al habilitar Módulos por falta de permisos, entonces es necesario revisar los permisos que tiene la carpeta `/etc/icingaweb2/enableModules` para el usuario `wwwrun` (Este es el usuario que utiliza el servidor Web Apache2 en OpenSUSE).
+>
+> * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enablaModules`
 
 ---
 
@@ -319,7 +323,7 @@ Enlaces de interés:
 Por ahora el monitor, sólo puede obtener la información que los
 equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
-## 5.1 Teoría SSH
+## 5.1 INFO: Teoría sobre agentes SSH de Icinga
 
 Podemos usar varios protocolos de comunicación diferente con el nodo (Agente). En nuestro caso vamos a usar el protocolo SSH.
 
@@ -360,41 +364,35 @@ object Service "disk_clientXXg1" {
   host_name = "clientXXg1"
   check_command = "by_ssh_disk"
   vars.by_ssh_logname = "root"
-  ...
+  ...(configurar ssh password)...
 }
 ```
 
-## 5.3 CLiente Window
+## 5.3 Cliente Window
 
-NO ES OBLIGATORIO
+```
+Este apartado es OPCIONAL.
+NO ES OBLIGATORIO hacerlo.
+```
+
 * Modificar fichero `ALUMNODIR/agents-windows.conf` para incluir monitorización del disco duro.
 
 ---
 
 # ANEXO A
 
----
-Icinga2: Backup ¶
+## A.1 Icinga2: Backup
+
 Ensure to include the following in your backups:
+* Configuration files in /etc/icinga2
+* Certificate files in /var/lib/icinga2/ca (Master CA key pair) and /var/lib/icinga2/certs (node certificates)
+* Runtime files in /var/lib/icinga2
+* Optional: IDO database backup
+* Backup: Database
 
-Configuration files in /etc/icinga2
-Certificate files in /var/lib/icinga2/ca (Master CA key pair) and /var/lib/icinga2/certs (node certificates)
-Runtime files in /var/lib/icinga2
-Optional: IDO database backup
-Backup: Database ¶
-MySQL/MariaDB:
+## A.2 Configuration Overview
 
-Documentation
-PostgreSQL:
-
-Documentation
----
-
-
-Configuration Overview
-
-Apart from its web configuration capabilities,
- (depending on your configuration setup).
+Apart from its web configuration capabilities, (depending on your configuration setup).
 
 | File/Directory     | Description |
 | ------------------ | ----------- |
@@ -405,7 +403,8 @@ Apart from its web configuration capabilities,
 | authentication.ini | Authentication backends |
 | enabledModules     | Symlinks to enabled modules |
 
-Icingaweb2: Installing Requirements:
+## A.3 Icingaweb2: Installing Requirements
+
 * Icinga 2 with the IDO database backend (MySQL or PostgreSQL)
 * A web server, e.g. Apache or Nginx
 * PHP version >= 5.6.0
@@ -413,7 +412,3 @@ Icingaweb2: Installing Requirements:
 * Default time zone configured for PHP in the php.ini file
 * LDAP PHP library when using Active Directory or LDAP for authentication
 * MySQL or PostgreSQL PHP libraries
-
-
-
----
