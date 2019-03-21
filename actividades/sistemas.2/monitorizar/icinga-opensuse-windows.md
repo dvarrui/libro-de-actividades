@@ -160,9 +160,10 @@ You can install Icinga Web 2 by using your distribution’s package manager to i
 Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5. Hay una solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de php7.2.5 por php7.1.27. Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
 
 Proceso para instalar la versión php7.1.27.
-* `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_leap_15.0/ devel:languages:php:php71`
+* `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_Leap_15.0/ devel:languages:php:php71`
 * `zypper install --oldpackage php7-7.1.27`
 * Si hay errores instalar php-Icinga
+* Tras instalar, reiniciar la máquina.
 
 > NOTA:
 >
