@@ -163,6 +163,7 @@ Proceso para instalar la versión php7.1.27.
 * `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_Leap_15.0/ devel:languages:php:php71`
 * `zypper install --oldpackage php7-7.1.27`
 * Si hay errores instalar php-Icinga
+* Tras instalar, reiniciar la máquina.
 
 > NOTA:
 >
