@@ -2,9 +2,14 @@
 
 # Ocultación de la información
 
+En prácticas anteriores habíamos comprobado que los ficheros, aunque se
+borren se pueden recuperar. Para hacer un borrado real hay que usar determinadas herramientas de borrado seguro. De esta forma nos aseguramos que nadie puede acceder a los ficheros que habíamos borrado.
+
+Pero si queremos tener ficheros con datos que sólo nosotros (o nuestros amigo) podamos acceder, entonces tenemos que usar técnicas de ocultación.
+
 En este taller vamos a practicar diversas formas de ocultar nuestros datos.
 
-* Nos podemos ayudar en parejas. Los llamaremos alumno1 y alumno2.
+* Nos podemos ayudar en parejas. Los llamaremos alumno1(yo) y alumno2(el compañero).
 * Cada alumno entregará un informe propio.
 * Entregaremos un informe con capturas de pantalla.
 
@@ -12,11 +17,11 @@ En este taller vamos a practicar diversas formas de ocultar nuestros datos.
 
 # 1. Encriptación
 
+Enlaces de interés:
 * Información sobre la herramienta [GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
 
 ## 1.1 Encriptado simétrico
 
-Hacemos lo siguiente:
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Trabajaremos con nuestro usuario habitual. No usar root.
 * Crear un fichero de texto `/home/nombre-alumno/mensaje1-alumnoXX.txt`.
@@ -31,7 +36,7 @@ Hacemos lo siguiente:
 Alumno1:
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`, genera un par de claves pública/privada.
-    * Consultar las claves públicas con alguno de los siguientes comandos 
+    * Consultar las claves públicas con alguno de los siguientes comandos
     `gpg --list-public-keys`, `gpg --list-keys` o `gpg -k`. La línea `pub 2048R/IDNUMBER`,
     muestra la información con el identificador de la clave pública.
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
@@ -135,7 +140,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
     * Tamaño 50 MB.
 * Activar el check box para crear el fichero.
 * Especificar el tipo de sistema de fichero.
-* Especificar el punto de montaje (directorio creado anteriormente) 
+* Especificar el punto de montaje (directorio creado anteriormente)
 * Asegurarse de que el dispositivo encriptado está marcado.
 
 ![](./images/crypt-contenedor02.png)
