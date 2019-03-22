@@ -311,6 +311,20 @@ object Service "ssh_clientXXw1" {
   check_command = "ssh"
 }
 ```
+* Crear fichero `ALUMNODIR/clients-dummy.conf`.
+```
+object Host "dummyXXup" {
+  check_command = "dummy"
+  vars.dummy_state = 0 //Up
+  vars.dummy_text = "Everything OK."
+}
+
+object Host "dummyXXdown" {
+  check_command = "dummy"
+  vars.dummy_state = 2 //Down
+  vars.dummy_text = "Down and critical!!!"
+}
+```
 
 > **¡OJO!**: Asegurarse de que el usuario `icinga` es el propietario de los archivos que acabamos de crear en la ruta ALUMNODIR. Si no tiene permisos de lectura sobre dichas configuraciones, éstas no tendrán efecto.
 
@@ -323,6 +337,7 @@ object Service "ssh_clientXXw1" {
 
 Enlaces de interés:
 * https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
+* https://icinga.com/docs/icinga2/latest/doc/03-monitoring-basics/
 
 Por ahora el monitor, sólo puede obtener la información que los
 equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
