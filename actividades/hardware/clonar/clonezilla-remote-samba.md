@@ -21,7 +21,7 @@ Necesitamos 2 máquinas virtuales:
 
 * Añadir un 2º disco de la MV Windows7 de 100MB.
 * Iniciar la MV Windows7.
-* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
+* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`. Poner como nombre "source-XX-nombrealumno".
 * Elegir MBR.
 * Asignar letra de unidad `E:`. ¿Cuántas letras podemos usar?
 * Formatear el 2º disco (100MB) NTFS.
@@ -34,7 +34,7 @@ Necesitamos 2 máquinas virtuales:
 
 * Crear el usuario `nombre-del-alumno` y poner una clave (No dejar clave vacía).
 * Añadir un 2º disco de la MV Windows Server de 1GB.
-* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`.
+* Ir a `Equipos -> botón derecho -> administrar -> gestión de almacenamiento -> Añadir nuevo disco`. Poner como nombre "target-XX-nombrealumno".
 * Elegir MBR.
 * Asignar letra de unidad `E:` ¿Cuántas letras hay disponibles?
 * Formatear el 2º disco (1GB) NTFS.
