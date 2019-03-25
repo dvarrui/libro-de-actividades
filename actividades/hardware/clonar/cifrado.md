@@ -141,7 +141,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 * Montar partición encriptada en la carpeta anterior.
 * Reiniciar la MV para que active los cambios que hemos realizado.
 * Escribir el password del contenedor para poder activarlo.
-* `df -hT | grep datos-cifradosXX.d`, comprobamos que hay un dispositivo montado montado.
+* `df -hT | grep datos-cifradosXX.d`, comprobamos que hay un dispositivo montado.
 * Poner archivos dentro del contenedor.
 * Reiniciar la MV.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
