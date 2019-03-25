@@ -1,4 +1,15 @@
 
+| Metadatos | Valores |
+| --------- | ------- |
+| Módulos recomendados | Sistemas Operativos (1asir, 2asir) |
+| Curso     | 201819  |
+| SSOO      | Debian9 y Windows7 |
+| Duración estimada | 11 sesiones (1semana) |
+| Entrega por defecto | Informe tipo tutorial |
+| Futuro | Hacer rúbrica y migrar a OpenSUSE con Yast |
+
+---
+
 # Volúmenes Lógicos: Debian + Windows
 
 Ejemplo de rúbrica:
