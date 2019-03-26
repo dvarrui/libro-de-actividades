@@ -32,16 +32,16 @@ Enlaces de interés:
 
 * Asegurarnos de tener instalado GPG (`zypper info gpg2`).
 * Trabajaremos con nuestro usuario habitual. No usar root.
-* Crear un fichero de texto `/home/nombre-alumno/mensaje1-alumnoXX.txt`.
+* Crear un fichero de texto `/home/nombre-alumno/mensaje1-nombre-alumnoXX.txt`.
     * Escribir dentro el nombre del alumno, la fecha de hoy y un título de una película.
 * Hacer una encriptación simétrica con GPG.
-    * `gpg -c mensaje1-alumnoXX.txt`
+    * `gpg -c mensaje1-nombre-alumnoXX.txt`
 * Enviar fichero encriptado al compañero (alumno2) para que lo desencripte.
-    * `gpg -d mensaje1-alumnoXX.txt.gpg`
+    * `gpg -d mensaje1-nombre-alumnoXX.txt.gpg`
 
 ## 1.2 Encriptado asimétrico
 
-Alumno1:
+Alumno1(Nosotros):
 * Alumno1 genera un par de claves pública/privada.
     * `gpg --gen-key`, genera un par de claves pública/privada.
     * Consultar las claves públicas con alguno de los siguientes comandos
@@ -49,21 +49,21 @@ Alumno1:
     muestra la información con el identificador de la clave pública.
     * `tree .gnupg`, Comprobaremos que se crea un directorio oculto, dentro del home de nuestro usuario con el nombre `.gnugp`. Ahí es donde se guarda la información de claves de GPG para nuestro usuario.
 * Alumno1 exporta la clave pública para pasarla al compañero.
-    * `gpg --output alumnoXX.pub.gpg --export PUBLIC_KEY_IDNUMBER`
+    * `gpg --output nombre-alumnoXX.pub.gpg --export PUBLIC_KEY_IDNUMBER`
     * El valor PUBLIC_KEY_IDNUMBER lo obtenemos al consultar la salida del comando anterior (gpg -k).
 
-Alumno2:
-* Alumno2 crea un fichero de texto `/home/nombre-alumno/mensaje2-alumnoXX.txt`.
+Alumno2(Nuestro compañero):
+* Alumno2 crea un fichero de texto `/home/nombre-alumno/mensaje2-nombre-alumnoXX.txt`.
     * Escribir dentro el nombre del alumno, la fecha de hoy y una frase/mensaje.
 * Alumno2 importa la clave pública del compañero (alumno1).
-    * `gpg --import alumnoXX.pub.gpg`
+    * `gpg --import nombre-alumnoXX.pub.gpg`
 * Alumno2 hace una encriptación asimétrica con GPG con la clave pública recibida.
     * `gpg --list-public-keys`, para ver las claves públicas que tenemos.
-    * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje2-alumnoXX.txt`
+    * `gpg --encrypt --recipient PUBLIC_KEY_IDNUMBER mensaje2-nombre-alumnoXX.txt`
 * Alumno2 envía el fichero a alumno1 para que lo desencripte.
 
-Alumno1:
-* Alumno1 desencripta el fichero `gpg -d mensaje2-alumnoXX.txt.gpg`.
+Alumno1(Nosotros):
+* Alumno1 desencripta el fichero `gpg -d mensaje2-nombre-alumnoXX.txt.gpg`.
 
 > Se entiende que podemos desencriptar el fichero porque ha sido encriptado
 con nuestra clave pública por parte del compañero que nos envía el archivo.
@@ -85,14 +85,14 @@ con nuestra clave pública por parte del compañero que nos envía el archivo.
 > * [Información sobre firma GPG](https://www.genbetadev.com/seguridad-informatica/que-son-y-para-que-sirven-los-hash-funciones-de-resumen-y-firmas-digitales)
 
 Hacer lo siguiente:
-* Crear documento `firma-alumnoXX.txt`.
+* Crear documento `firma-nombre-alumnoXX.txt`.
     * Escribir dentro el nombre del alumno, la fecha de hoy y un grupo de música.
 * Vamos a firmar digitalmente el documento en modo ASCII.
-    * `gpg --clearsign firma-alumnoXX.txt`
+    * `gpg --clearsign firma-nombre-alumnoXX.txt`
 * Consultar el fichero que se ha generado con la firma `firma-alumnoXX.txt.asc`
 * Comprobar que la firma es correcta.
-    * `gpg --verify firma-alumnoXX.txt.asc`
-* Modificar el documento `firma-alumnoXX.txt.asc`.
+    * `gpg --verify firma-nombre-alumnoXX.txt.asc`
+* Modificar el documento `firma-nombre-alumnoXX.txt.asc`.
 * Comprobar que ahora el fichero tiene la firma incorrecta.
 
 ---
@@ -109,19 +109,18 @@ Hacer lo siguiente:
 
 Hacemos lo siguiente:
 * Consultar enlace sobre estenografía de "Andar por casa (zip y cat)".
-* Crear un fichero de texto con un mensaje oculto (`secreto-alumnoXX.txt`).
+* Crear un fichero de texto con un mensaje oculto (`secreto-nombre-alumnoXX.txt`).
     * Escribir dentro el nombre del alumno, la fecha de hoy y un refrán o frase famosa.
 * Crear un fichero zip con el mensaje oculto.
-* Descargar una `imagen1-alumnoXX.png` que nos guste.
-* Incrustar el fichero zip dentro de la `imagen1-alumnoXX.png`, obteniendo un fichero `imagen2-alumnoXX.png`.
-* Pasar el fichero `imagen2-alumnoXX.png` al compañero.
+* Descargar una `imagen1-nombre-alumnoXX.png` que nos guste.
+* Incrustar el fichero zip dentro de la `imagen1-nombre-alumnoXX.png`, obteniendo un fichero `imagen2-nombre-alumnoXX.png`.
+* Pasar el fichero `imagen2-nombre-alumnoXX.png` al compañero.
 * Verificar el formato de las imágenes, bien usando el comando `file` o capturando vista de la misma.
-* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2-alumnoXX.png`.
+* El compañero debe aplicar el proceso necesario para extraer el mensaje oculto dentro de la `imagen2-nombre-alumnoXX.png`.
 
 ---
 
 # 4. Partición encriptada
-
 
 ## 4.1 Teoría: contenedor encriptado
 
