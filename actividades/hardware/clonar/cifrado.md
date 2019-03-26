@@ -120,20 +120,14 @@ Hacemos lo siguiente:
 
 ---
 
-# 4. Contenedor encriptado
+# 4. Partición encriptada
 
-> Enlace de interés:
->
-> * [Security](https://doc.opensuse.org/documentation/leap/security/html/book.security/cha.security.cryptofs.html#sec.security.cryptofs.y2)
 
-## 4.1 Explicación
+## 4.1 Teoría: contenedor encriptado
 
-En lugar de usar una partición, es posible crear un fichero encriptado, que a su vez puede contener directorios y ficheros manteniendo los datos de forma confidencial. La ventaja de usar un contenedor encriptado sobre encriptar particiones es que se pueden añadir sin tener que reparticionar el disco.
-Se montan en un dispositivo Loop y se comportan como si fueran particiones normales.
+Es posible crear un fichero encriptado, que a su vez puede contener directorios y ficheros manteniendo los datos de forma confidencial. La ventaja de usar un contenedor encriptado sobre encriptar particiones es que se pueden añadir sin tener que reparticionar el disco. Se montan en un dispositivo Loop y se comportan como si fueran particiones normales.
 
-Estos ficheros contenedores se pueden crear usando la ventana de particionamiento de Yast.
-
-## 4.2 proceso
+## 4.2 Proceso: partición encriptada
 
 * Por seguridad, vamos a hacer una instantánea de la MV antes de empezar con este apartado.
 * Crear directorio `/home/nombre-alumno/datos-cifradosXX.d`.
@@ -146,7 +140,7 @@ Estos ficheros contenedores se pueden crear usando la ventana de particionamient
 * Reiniciar la MV.
 * Comprobar a acceder a los ficheros del contenedor cuando se pone la contraseña correcta y cuando no.
 
-> Curiosidad: ¿Qué ocurre si iniciamos la MV con un CDLive como Knoppix e intentamos acceder a los datos...?
+> Curiosidad: ¿Qué ocurre si iniciamos la MV con un CDLive como Knoppix e intentamos acceder a los datos que están encriptados...?
 >
 > * Configurar MV sin EFI para poder inciar Knoppix.
 
