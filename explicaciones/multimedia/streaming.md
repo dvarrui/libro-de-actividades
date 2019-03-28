@@ -25,6 +25,8 @@ Pasos:
 
 # VLC Servidor Streaming
 
+Enlace de interés: [Vídeo](https://youtu.be/uO5e_lYylmo)
+
 * Abrir el programa `VLC`
 * Ir a `menú -> Medio -> Emitir`
 * Pestaña `Dispositivo de captura -> Escritorio`
