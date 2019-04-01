@@ -50,8 +50,9 @@ Ejecutar las siguientes herramientas:
 | Rendimiento de los discos duros | HD tune | SmartMonTools: monitorización de los discos usando el sistema S.M.A.R.T. de los propios discos |
 | Rendimiento de la tarjeta gráfica | GPU‐Z (En las máquinas virtuales no muestra información) | XNVCtrl: Monitorización de GPUs de NVIDIA |
 
+---
 
-Otros programas
+Otros programas que pueden ser de utilidad:
 
 | Programa | Descripción |
 | -------- | ----------- |
@@ -72,7 +73,8 @@ Otros programas
 
 # 6. Optimización
 
-* Usar utilidades de optimización para mejorar el rendimiento del sistema en una de las máquinas.
+Usar utilidades de optimización para mejorar el rendimiento del sistema en una de las máquinas.
+* Para SO Windows
     * Comprobación de errores del disco, chkdsk o Scandisk
     * Desfragmentador del disco
 * Usar estas herramientas en la máquina virtual y/o real del taller:
