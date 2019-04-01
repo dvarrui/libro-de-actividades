@@ -42,26 +42,27 @@ entregar un comprimido ZIP.
 
 Ejecutar las siguientes herramientas:
 
-| Herramienta | Windows | GNU/Linux |
-| ----------- | ------- | --------- |
-| Realizar inventariado del equipo | AIDA/EVEREST Home Edition | Hardinfo |
-| Rendimiento de la CPU | CPU‐Z | LMBench: test de rendimiento (benchmarking). |
-| Comprobar la RAM | Memtest86+ | Memtest86+ |
-| Rendimiento de los discos duros | HD tune | SmartMonTools: monitorización de los discos usando el sistema S.M.A.R.T. de los propios discos |
-| Rendimiento de la tarjeta gráfica | GPU‐Z (En las máquinas virtuales no muestra información) | XNVCtrl: Monitorización de GPUs de NVIDIA |
+| Categoría | Herramienta | Windows | GNU/Linux |
+| --------- | ----------- | ------- | --------- |
+| Inventario | Realizar inventariado del equipo | AIDA/EVEREST Home Edition | Hardinfo |
+| CPU | Rendimiento de la CPU | CPU‐Z | LMBench: test de rendimiento (benchmarking). |
+| RAM | Comprobar la RAM | Memtest86+ | Memtest86+ |
+| Discos | Rendimiento de los discos duros | HD tune | SmartMonTools: monitorización de los discos usando el sistema S.M.A.R.T. de los propios discos |
+| T. Gráfica | Rendimiento de la tarjeta gráfica | GPU‐Z (En las máquinas virtuales no muestra información) | FurMark: para hacer pruebas de estrés de la tarjeta gráfica.|
 
 ---
 
 Otros programas que pueden ser de utilidad:
 
-| Programa | Descripción |
-| -------- | ----------- |
-| Hiren | CD con muchas herramientas |
-| CPUCool | HW Monitor |
-| GNU Krell Monitors | Herramienta gráfica para monitorizar distintos parámetros del equipo (depende de “lmsensors” y “hdd-temp”, entre otros) |
-| PSensor | Herramienta gráfica para monitorizar la temperatura del hardware (CPU, GPU, placa base, discos duros, velocidad de rotación de los ventiladores,…). Es posible monitorizar una máquina remota (psensorserver). |
-| CPUBurn | pruebas de estrés de la CPU (PELIGROSO; úsalo bajo tu propia responsabilidad; vigilar la temperatura del micro cuando se hagan las pruebas). Para microprocesadores Intel(burnP6). Para micros AMD (burnK7) |
-| GParted | Herramienta de gestión de particiones |
+| Categoría | Programa | Descripción |
+| --------- | -------- | ----------- |
+| Todo      | Hiren | CD con muchas herramientas |
+| Todo      | GNU Krell Monitors | Herramienta gráfica para monitorizar distintos parámetros del equipo (depende de “lmsensors” y “hdd-temp”, entre otros) |
+| Todo | PSensor | Herramienta gráfica para monitorizar la temperatura del hardware (CPU, GPU, placa base, discos duros, velocidad de rotación de los ventiladores,…). Es posible monitorizar una máquina remota (psensorserver). |
+| CPU | CPUCool | HW Monitor |
+| CPU | CPUBurn | pruebas de estrés de la CPU (PELIGROSO; úsalo bajo tu propia responsabilidad; vigilar la temperatura del micro cuando se hagan las pruebas). Para microprocesadores Intel(burnP6). Para micros AMD (burnK7) |
+| Discos | GParted | Herramienta de gestión de particiones |
+| T. Gráfica | XNVCtrl | Monitorización de GPUs de NVIDIA |
 
 ---
 
@@ -96,4 +97,3 @@ Usar utilidades de optimización para mejorar el rendimiento del sistema en una 
 
 Otras herramientas:
 * [Phoronix Test Suit](www.phoronix-test-suit.com) (MuyLinux): para varias plataformas
-* FurMark: para hacer pruebas de estrés de la tarjeta gráfica.
