@@ -1,10 +1,22 @@
 
-# Presupuesto para PC
+# Presupuesto
+
+Ejemplo de rúbrica:
+
+| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| --------------------- | ------------ | ----------- | ----------------- |
+| (A) No exceder el presupuesto | | | |
+| (B) Uso adecuado del equipo | | | |
+| (C) Detalle de la compra | | | |
+| (D) Informe | | |. |
 
 * Trabaremos de forma individual.
 * Entregar un documento en formato ODT o PDF.
 
-## Realizar las siguientes tareas
+---
+
+# 1. Realizar las siguientes tareas
+
 * Buscar presupuesto para un equipo, donde sólo podemos gastarnos hasta un máximo de 500 euros.
 * Podemos contactar con proveedores/vendedores locales directamente o remotos vía Internet/email/web.
 * Debemos tratar de encontrar un presupuesto donde se detalle al máximo posible 
@@ -12,7 +24,10 @@ las características hardware según hemos visto hasta hora en la asignatura.
 Si falta información relevante debemos contactar con el proveedor/vendedor 
 para que nos complete los datos que nos hagan falta.
 
-## Información para completar el documento
+---
+
+# 2. Información para completar el documento
+
 * Indicar de dónde se ha extraído la información (Empresa, URL, etc.)
 * Precio.
 * Recogida y plazo de entrega.
