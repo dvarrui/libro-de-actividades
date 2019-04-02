@@ -44,8 +44,8 @@ Ejecutar las siguientes herramientas:
 
 | Categoría | Herramienta | Windows | GNU/Linux |
 | --------- | ----------- | ------- | --------- |
-| Inventario | Realizar inventariado del equipo | AIDA/EVEREST Home Edition | Hardinfo |
-| CPU | Rendimiento de la CPU | CPU‐Z | LMBench: test de rendimiento (benchmarking). |
+| Inventario | Realizar inventariado del equipo | AIDA/EVEREST (Home Edition), Speccy | Hardinfo |
+| CPU | Rendimiento de la CPU | CPU‐Z | Test de rendimiento: LMBench, Phoronix-test-suite |
 | RAM | Comprobar la RAM | Memtest86+ | Memtest86+ |
 | Discos | Rendimiento de los discos duros | HD tune | SmartMonTools: monitorización de los discos usando el sistema S.M.A.R.T. de los propios discos |
 | T. Gráfica | Rendimiento de la tarjeta gráfica | GPU‐Z (En las máquinas virtuales no muestra información) | FurMark: para hacer pruebas de estrés de la tarjeta gráfica.|
