@@ -1,4 +1,8 @@
 
+```
+Curso: 201819
+```
+
 # Instalación Dual
 
 > Enlaces de interés:
@@ -33,16 +37,16 @@ operativos, muy probablemente las imágenes actuales sean diferentes.
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
 
-```
-RECORDAR
-* Cuando inicia Knoppix y aparece el prompt "boot:", pondremos `knoppix lang=es` para iniciarlo en español.
-* La tecla "=" puede estar en "¡".
-```
+> **RECORDAR**
+>
+> * Cuando se inicia Knoppix y aparece el prompt "boot:", pondremos `knoppix lang=es` para iniciarlo en español.
+> * La tecla "=" puede estar en "¡".
 
-* Para hacer las particiones en Knoppix, abrimos un terminal. Nos ponemos como
-superusuario (comando `su` o `sudo bash`). Iniciamos la herramienta de particionado
-con el usuario root ejecutando el comando `gparted`.
-* Gparted -> Dispositivo -> Crear tabla de particiones -> MSDOS.
+* Para hacer las particiones en Knoppix:
+    * Abrimos un terminal.
+    * Nos ponemos como superusuario (comando `su` o `sudo bash`).
+    * Iniciamos la herramienta de particionado con el usuario root ejecutando el comando `gparted`.
+* `Gparted -> Dispositivo -> Crear tabla de particiones -> MSDOS`.
 * Crear las siguientes particiones:
     * Una partición primaria, tipo NTFS para Windows (12GB),
     * Una primaria FAT32 para datos (100MB).
@@ -52,7 +56,8 @@ con el usuario root ejecutando el comando `gparted`.
     * Partición de tamaño 100MB y con formato ext3.
     * Partición de tamaño 7GB y con formato ext4.
     * Quedará un espacio libre que lo dejamos sin usar.
-* Capturar pantalla del gparted con las particiones solicitadas, y apagar MV.
+* Capturar pantalla del `gparted` con las particiones solicitadas
+* Apagar MV.
 
 ---
 
