@@ -1,6 +1,10 @@
 
 # Instalación Dual
 
+> Enlaces de interés:
+>
+> * [Arranque dual Windows GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/130/cd/redesubuntu/ubuntu-SaberMas/arranque_dual_windowslinux.html)
+
 Vamos a realizar una instalación dual Windows y GNU/Linux.
 Esto es, instalar dos SSOO en la misma máquina.
 
@@ -8,15 +12,11 @@ Esto es, instalar dos SSOO en la misma máquina.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
-```
-* Recuerda: Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
-* Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
-operativos, muy probablemente las imágenes actuales sean diferentes.
-```
-
-> Enlaces de interés:
+> **Recuerda**
 >
-> * [Arranque dual Windows GNU/Linux] (http://www.ite.educacion.es/formacion/materiales/130/cd/redesubuntu/ubuntu-SaberMas/arranque_dual_windowslinux.html)
+> * Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
+> * Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
+operativos, muy probablemente las imágenes actuales sean diferentes.
 
 ---
 
