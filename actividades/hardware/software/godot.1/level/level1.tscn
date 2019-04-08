@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/enemy1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
+
+[node name="level1" type="Node2D"]
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="object" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( 308.333, 310.82 )
+
+[node name="object2" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( 703.333, 241.749 )
+
+[node name="enemies" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="enemy" parent="enemies" instance=ExtResource( 2 )]
+position = Vector2( 679.545, 194.181 )
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 2 )]
+position = Vector2( 534.087, 321.637 )
+
+[node name="goal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 908.083, 281.456 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 219.834, 277.962 )
+
