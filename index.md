@@ -1,8 +1,8 @@
 # Índice de actividades
 
-`Fecha UM: 2019-03-11 07:56:24 +0000`
+`Fecha UM: 2019-04-18 12:32:44 +0100`
 
-* [hardware](actividades/hardware) 12
+* [hardware](actividades/hardware) 13
     * [almacenamiento](actividades/hardware/almacenamiento) 11
         * [iscsi-opensuse.md](actividades/hardware/almacenamiento/iscsi-opensuse.md)
         * [iscsi-windows.md](actividades/hardware/almacenamiento/iscsi-windows.md)
@@ -16,11 +16,12 @@
         * [nube.md](actividades/hardware/almacenamiento/nube.md)
     * [bios](actividades/hardware/bios) 1
         * [enlaces-de-interes.md](actividades/hardware/bios/enlaces-de-interes.md)
-    * [clonar](actividades/hardware/clonar) 6
+    * [clonar](actividades/hardware/clonar) 7
         * [cifrado.md](actividades/hardware/clonar/cifrado.md)
         * [clonezilla-device-device-bios.md](actividades/hardware/clonar/clonezilla-device-device-bios.md)
         * [clonezilla-device-device.md](actividades/hardware/clonar/clonezilla-device-device.md)
         * [clonezilla-remote-samba.md](actividades/hardware/clonar/clonezilla-remote-samba.md)
+        * [ocultacion-opensuse42.md](actividades/hardware/clonar/ocultacion-opensuse42.md)
         * [recuperacion-de-datos.md](actividades/hardware/clonar/recuperacion-de-datos.md)
     * [cpd](actividades/hardware/cpd) 5
         * [ceph.md](actividades/hardware/cpd/ceph.md)
@@ -31,7 +32,8 @@
     * [intro](actividades/hardware/intro) 2
         * [arquitectura-von-neumann.md](actividades/hardware/intro/arquitectura-von-neumann.md)
         * [unidades-de-medida.md](actividades/hardware/intro/unidades-de-medida.md)
-    * [monitorizar](actividades/hardware/monitorizar) 1
+    * [monitorizar](actividades/hardware/monitorizar) 2
+        * [rendimiento-hardware.md](actividades/hardware/monitorizar/rendimiento-hardware.md)
         * [windows-rendimiento.md](actividades/hardware/monitorizar/windows-rendimiento.md)
     * [presupuesto](actividades/hardware/presupuesto) 2
         * [presupuesto-1-pc.md](actividades/hardware/presupuesto/presupuesto-1-pc.md)
@@ -43,6 +45,14 @@
         * [ayuda.md](actividades/hardware/simulador/ayuda.md)
         * [multiplicar-y-sumar.md](actividades/hardware/simulador/multiplicar-y-sumar.md)
         * [suma-y-resta.md](actividades/hardware/simulador/suma-y-resta.md)
+    * [software](actividades/hardware/software) 2
+        * [godot.1](actividades/hardware/software/godot.1) 9
+            * [.import](actividades/hardware/software/godot.1/.import) 10
+            * [enemy](actividades/hardware/software/godot.1/enemy) 4
+            * [level](actividades/hardware/software/godot.1/level) 1
+            * [objects](actividades/hardware/software/godot.1/objects) 7
+            * [player](actividades/hardware/software/godot.1/player) 4
+        * [godot1.md](actividades/hardware/software/godot1.md)
     * [taller](actividades/hardware/taller) 9
         * [cpd-1-desmontar-y-montar.md](actividades/hardware/taller/cpd-1-desmontar-y-montar.md)
         * [nintendo-data-to-pc.md](actividades/hardware/taller/nintendo-data-to-pc.md)
