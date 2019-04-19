@@ -11,10 +11,10 @@ Enlaces de interés:
 
 ---
 
-# 1. Crear un servicio
+# 1. Crear un servicio (S1)
 
 * Vamos a crear un script para gestionar nuestro servicio.
-Por ejemplo usando el siguiente script Bash (`service_alumnoXX.sh`):
+Por ejemplo usando el siguiente script Bash (`alumnoXXs1.sh`):
 ```
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
 echo "[nombre-alumnoXX] service started at ${DATE}" | systemd-cat -p info
@@ -28,14 +28,14 @@ done
 > Este script registra el instante cuando se inicia y luego entra en un bucle infinito.
 
 * Copiar el script a `/usr/local/bin` y hacerlo ejecutable.
-* Crear el `Unit file` para definir el servicio de systemd. Creamos el fichero `/lib/systemd/system/alumnoXX.service`:
+* Crear el `Unit file` para definir el servicio de systemd. Creamos el fichero `/lib/systemd/system/alumnoXXs1.service`:
 ```
     [Unit]
-    Description=Servicio de alumnoXX.
+    Description=Servicio 1 de alumnoXX.
 
     [Service]
     Type=simple
-    ExecStart=/bin/bash /usr/local/bin/service_alumnoXX.sh
+    ExecStart=/bin/bash /usr/local/bin/alumnoXXs1.sh
 
     [Install]
     WantedBy=multi-user.target
@@ -44,17 +44,30 @@ done
 
 ---
 
-# 2. Iniciar y activar el servicio
+# 2. Iniciar y activar el servicio (S1)
 
-* `sudo systemctl start service_alumnoXX`, para iniciar el servicio.
-* `sudo systemctl status service_alumnoXX`, para comprobar el estado actual del servicio.
+* `sudo systemctl start alumnoXXs1`, para iniciar el servicio.
+* `sudo systemctl status alumnoXXs1`, para comprobar el estado actual del servicio.
 * Otros comandos:
-    * `sudo systemctl stop service_alumnoXX`, para parar el servicio.
-    * `sudo systemctl restart service_alumnoXX`, para reiniciar el servicio.
-* `sudo systemctl enable service_alumnoXX`, para activar el servicio y asegurarnos de que se iniciará al arramcar el sistema.
+    * `sudo systemctl stop alumnoXXs1`, para parar el servicio.
+    * `sudo systemctl restart alumnoXXs1`, para reiniciar el servicio.
+* `sudo systemctl enable alumnoXXs1`, para activar el servicio y asegurarnos de que se iniciará al arramcar el sistema.
 
 ---
 
-# 3. Cambiar el script del servicio.
+# 3. Crear servicio S2
 
-* Crear otro script con la especificaciones del profesor para crear un servicio personalizado.
+Vamos a crear un nuevo servicio con las siguientes especificaciones:
+* Nombre del servicio `alumnoXXs2`. Por tanto tendremos el `Unit file` en el fichero `/lib/systemd/system/alumnoXXs2.service`.
+* El servicio se ejecutará una vez, en cada reinicio de la máquina.
+* Crearemos un script ruby `/usr/local/bin/alumnoXXs2.rb` que se encargará de gestionar las acciones del servicio.
+* Debemos tener definido en el sistema el usuario `visitaXX`.
+* Debe existir el fichero `/home/visitaXX/Escritorio/leeme.txt` con el siguiente contenido:
+```
+AVISO
+
+Esta cuenta de usuario no puede
+guardar los cambios de forma permanente.
+Es sólo temporal.
+```
+* El script se encargará de restaurar en cada reinicio de máquina el directorio HOME del usuario `visitaXX` (`/home/visitaXX`). El usuario `visitaXX` puede hacer cambios en los contenidos de su HOME pero al reiniciar la máquina, volverá a estar todo en su estado inicial.
