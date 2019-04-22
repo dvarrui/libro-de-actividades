@@ -71,3 +71,57 @@ guardar los cambios de forma permanente.
 Es sólo temporal.
 ```
 * El script se encargará de restaurar en cada reinicio de máquina el directorio HOME del usuario `visitaXX` (`/home/visitaXX`). El usuario `visitaXX` puede hacer cambios en los contenidos de su HOME pero al reiniciar la máquina, volverá a estar todo en su estado inicial.
+
+---
+
+
+# ANEXO
+
+```
+alumno@telesforo:~> more /usr/lib/systemd/system/alumno.service 
+[Unit]
+Description=Reset User alumno
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ruby /home/auto/reset-user.rb
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+alumno@telesforo:/home/auto> more reset-user.rb 
+#!/usr/bin/ruby
+# encoding: utf-8
+
+puts "[INFO] Executing <#{$0}>..."
+
+def reset_alumno
+  puts "* Setting password"
+  system('echo "alumno:alumno" | chpasswd')
+
+  puts "* Remove home files"
+  system('rm -rf /home/alumno')
+
+  puts "* Restarting home files"
+  system('cd /home/auto && tar xvf alumno.tar')
+  system('mv /home/auto/alumno /home')
+end
+
+FILE="/home/auto/last_execution.dat"
+last_execution=(`cat #{FILE}`).to_i
+now=Time.now
+today=now.year*10000+now.yday
+
+if today>last_execution
+  system("echo #{today.to_s} > #{FILE}")
+  reset_alumno
+  puts "[INFO] OK!"
+else
+  puts "[INFO] Nothing done!"
+end
+
+alumno@telesforo:/home/auto> 
+
+```
