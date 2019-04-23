@@ -69,9 +69,7 @@ Instalación:
 
 Instalación:
 * Hacer una instántanea de la MV antes de nada.
-* Para activar la función de controlador de dominios podemos hacerlo de dos formas:
-    * Abrir una consola (cmd) y ejecutar el comando `dcpromo`.
-    * Ir a `Inicio -> Administrar el servidor -> Agregar roles`. (Servicio de Dominio de Directorio Activo y el Servicio DNS).
+* Abrir una consola (cmd) y ejecutar el comando `dcpromo`. Es es para activar la función de controlador de dominios junto con el servidor DNS.
 
 Veamos imagen del comando `dcpromo` en ejecución:
 
