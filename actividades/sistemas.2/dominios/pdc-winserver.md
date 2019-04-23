@@ -129,6 +129,7 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
 * Crear los siguientes grupos:
+
 | Grupo  | jedi1819   | sith1819  |
 | ------ | ---------- | --------- |
 | Ámbito | global     | global    |
