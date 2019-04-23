@@ -2,7 +2,7 @@
 # Introducción
 
 * En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Windows Server
-    * Este enunciado viene adaptado parar Windows 2012 Server y Windows 2008 Server.
+    * Este enunciado viene adaptado para Windows 2012 Server y Windows 2008 Server.
 * Leer/consultar la documentación de la unidad.
 * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
 
