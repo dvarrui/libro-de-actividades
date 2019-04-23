@@ -128,16 +128,14 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
-* Crear el grupo `jedi1819`:
-    * Ámbito global
-    * Tipo Seguridad
-    * Con los siguientes usuarios de dominio: `yoda`, y `obiwan`.
-* No confundir usuarios locales con usuarios del dominio.
-* Crear el grupo `sith1819`:
-    * Ámbito global
-    * Tipo Seguridad
-    * Con los siguientes usuarios de dominio: `vader` y `maul`.
+* Crear los siguientes grupos:
+| Grupo  | jedi1819   | sith1819  |
+| ------ |----------- | --------- |
+| Ámbito | global     | global    |
+| Tipo   | Seguridad  | Seguridad |
+| Usuarios de dominio | yoda y obiwan | vader maul |
 
+> ¡OJO! No confundir usuarios locales con usuarios del dominio.
 
 Vemos imagen con los usuarios del dominio creados:
 
