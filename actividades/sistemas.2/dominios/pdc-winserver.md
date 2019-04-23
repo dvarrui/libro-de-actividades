@@ -134,7 +134,7 @@ Vamos a crear usuarios y grupos del dominio:
 | ------ | ---------- | --------- |
 | Ámbito | global     | global    |
 | Tipo   | Seguridad  | Seguridad |
-| Usuarios de dominio | yoda y obiwan | vader maul |
+| Usuarios de dominio | yoda y obiwan | vader y maul |
 
 > ¡OJO! No confundir usuarios locales con usuarios del dominio.
 
