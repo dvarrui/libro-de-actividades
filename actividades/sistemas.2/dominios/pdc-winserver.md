@@ -149,15 +149,15 @@ Vemos imagen con los usuarios del dominio creados:
 
 ## 4.1 Preparativos
 
-* MV's CLIENTES:
-    * Necesitaremos 2 MV's con Windows 7, que actuarán como equipos del dominio.
-    * Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para
-  no tener problemas de conectividad por tarjetas de red duplicadas.
+Configurar las MV's clientes de la siguiente forma:
+* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio.
+* **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
-    * **FECHA/HORA**: Es muy importante que todos los equipos estén bien sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
-    * **RED**: Además cada cliente debe tener como DNS1 la IP del PDC, y como DNS2 al 8.8.4.4.
-    * Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer
-la IP de nuestro servidor PDC.
+* Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos. 
+* Cada equipo cliente debe tener como DNS1 la IP del PDC, y como DNS2 la IP 8.8.4.4.
+    * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para comprobar que nos DNS está correctos. 
+    * Debe aparecer la IP de nuestro servidor PDC.
+* Ejecutar `hostname` en una consola powershell. Debe aparecer el nombre correcto de la máquina.
 
 ## 4.2 Unir equipo al dominio
 
@@ -170,7 +170,7 @@ Veamos imagen de ejemplo:
 
 ## 4.3 Problemas en la unión al dominio
 
-_Espero que no tengas problemas y puedas saltar este apartado, si no es así... sigue leyendo._
+_Espero que no tengas problemas, y puedas saltar este apartado, si no es así... sigue leyendo._
 
 Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, tenemos varias opciones:
 
@@ -207,7 +207,7 @@ Podemos comprobarlos por entorno gráfico o usando comandos.
 * Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
 * Abrimos consola PowerShell y ejecutamos los comandos:
     * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
-    * `net user`, muestra los usuarios locales del sistema.
+    * `net user`, muestra los usuarios locales del sistema y no debe mostrar el usuario anterior.
     * `hostname`, muestra el nombre del equipo local.
 
 ---
