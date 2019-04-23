@@ -287,7 +287,7 @@ Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
     * Desde Windows7. Entramos con usuario `maul`
     * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
     * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V2`.
-* Convertir el perfil móvil del  Sith Maul, a perfil obligatorio.
+* Convertir el perfil móvil del  Sith Maul, a perfil obligatorio (Los ficheros que hay que cambiar están ocultos y son del sistema).
 * Comprobar que ahora el perfil no cambia.
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, 
 y comprobar que el perfil es ahora obligatorio.
