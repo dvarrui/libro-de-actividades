@@ -264,10 +264,12 @@ A continuación se muestra una imagen de ejemplo:
 
 ## 5.4 Comprobar perfiles desde CLIENTE2
 
-Ir al equipo CLIENTE1: Vamos a limpiar el equipo cliente.
-* Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
-* Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
+> **Esto sólo hay que hacerlo con versiones anteriores a W2008server**
+>
+> Ir al equipo CLIENTE1: Vamos a limpiar el equipo cliente.
+> * Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
+> * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
+> * Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
 
 Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
 * Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul). 
@@ -297,8 +299,8 @@ y comprobar que el perfil es ahora obligatorio.
 # 7. Control de tiempo
 
 Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
-* Los "jedi" sólo pueden acceder de 08:00 a 14:00 (de lunes a viernes) y
-* Los "sith" sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
+* Configurar a cada uno de los usuarios "jedis", para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes) y
+* Configurar a cada uno de los usuarios "siths", para que sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
 
 ---
 
