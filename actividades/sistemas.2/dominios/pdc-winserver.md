@@ -1,4 +1,9 @@
 
+```
+Fecha UM: Curso 201920
+Duración estimada:  6 horas
+```
+
 # Introducción
 
 * En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Windows Server
@@ -230,7 +235,7 @@ Material de lectura/estudio/consulta:
 ## 5.2 Configurar la ruta de perfil de cada usuario
 
 * En el PDC, crear la carpeta `E:\perfiles`.
-* Definir permisos lectura/escritura para los `usuarios del dominio` en la carpeta.
+* En dicha carpeta, definir permisos lectura/escritura para el grupo `Usuarios del dominio`.
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
