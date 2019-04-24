@@ -172,25 +172,29 @@ Veamos imagen de ejemplo:
 
 ![pdc-unir-al-dominio](./files/pdc-unir-al-dominio.png)     
 
+
+> **Unir un equipo al dominio usando comandos de Windows Server**
+>
+> * [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
+> * El comando Netdom es de los más usados. Lo primero sería descargarlo e instalarlo.
+> * `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`, para unir un equipo al dominio.
+> * `netdom.exe remove %nombreequipo%`, Para quitar y eliminar equipo de dominio.
+
 ## 4.3 Problemas en la unión al dominio
 
 _Espero que no tengas problemas, y puedas saltar este apartado, si no es así... sigue leyendo._
 
 Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, tenemos varias opciones:
-
 * Esperar 5 minutos y repetir el proceso. Las redes SMB/CIFS tardan un tiempo en propagar la información de los equipos por la red.
-* Volver a comprobar que todas las configuraciones son correctas. Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2).
-* Si tenemos problemas con el DNS probar a configurar únicamente el DNS1 (ip del PDC).
-* Consultar la información que contiene el servidor DNS del W2k8server. Si está vacía probar a resinstalar AD y DNS en W2k8server
-(NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
-* Probar a poner como puerta de enlace del cliente la IP del servidor PDC.
-* Configurar las máquinas servidor y cliente en la misma red interna de VirtualBox (Consultar configuración de red de VirtualBox) y vuelve a intentarlo (NOTA: Pueden darse problemas si se repiten IP's no nombres de máquinas en la red. Al crear una red interna tenemos una zona aislada bajo nuestro control).
+* Volver a comprobar que todas las configuraciones son correctas. 
+    * Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2). 
+    * (NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
 * ¿Repetimos?
 
 ## 4.4 Comprobaciones
 
-Entrar en los equipos cliente usando los usuarios del dominio.
-Podemos comprobarlos por entorno gráfico o usando comandos.
+Entraremos en los equipos cliente usando los usuarios del dominio.
+Podemos comprobarlo por entorno gráfico o usando comandos.
 
 ### Por entorno gráfico
 
@@ -310,16 +314,15 @@ Modificar los permisos de acceso de los usuarios del dominio, de la siguiente fo
 
 # ANEXO
 
-
 ## Duda con la complejidad de contraseñas
 
 En Windows 2012 Server, queremos quitar la opcion de complejidad de contraseña pero aparece deshabilitada.
 ¿Cómo podemos habilitarla para poder desactivar la complejidad de contraseña?
 
-* open Run and type: `gpedit.msc`.
-* from Local Group Policy Editor, choose from the tree (left): `Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Password Policy`.
-* choose on the right: `Password must meet complexity requirements`
-* choose Disable.
+* Open Run and type: `gpedit.msc`.
+* From Local Group Policy Editor, choose from the tree (left): `Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Password Policy`.
+* Choose on the right: `Password must meet complexity requirements`
+* Choose Disable.
 
 Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc.
 
@@ -329,8 +332,4 @@ Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde u
     * `WMIC computersystem where caption='nombreDEahora' rename nuevoNombre`
     * Ahora tendrás que reiniciar tu PC Windows para que tenga efecto el nuevo nombre del equipo.
     * Este comando es válido para todos los sistemas Windows 10, 8, 7, Vista, XP, Server...
-* [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
-    * El comando Netdom es de los más usados. Lo primero sería descargarlo e instalarlo.
-    *  `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`
-    * Para quitar y eliminar equipo de dominio Windows Server `netdom.exe remove %nombreequipo%`
  
