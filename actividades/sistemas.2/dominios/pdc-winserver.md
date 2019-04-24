@@ -1,7 +1,8 @@
 
 ```
-Fecha UM: Curso 201920
-Duración estimada:  6 horas
+Fecha UM          : Curso 201920
+Duración estimada :  6 horas
+SSOO              : Windows 2008/2012 Server y Windows 7/10
 ```
 
 # Introducción
