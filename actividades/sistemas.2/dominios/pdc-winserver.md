@@ -88,7 +88,7 @@ siguientes valores:
 | -------------------------- | ----- |
 | Modo experto               | NO |
 | Crear un dominio nuevo de un bosque nuevo        | SI |
-| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1918 |
+| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1819 |
 | Nivel funcional del bosque | Windows Server 2008 |
 | Servidor DNS               | SI |
 | Carpetas de almacenamiento | Dejar valores por defecto |
