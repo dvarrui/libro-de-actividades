@@ -1,7 +1,7 @@
 
 ```
 Fecha UM          : Curso 201920
-Duración estimada :  6 horas
+Duración estimada : 6 horas
 SSOO              : Windows 2008/2012 Server y Windows 7/10
 ```
 
@@ -168,6 +168,7 @@ Configurar las MV's clientes de la siguiente forma:
 
 Unir el equipo cliente al dominio.
 * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
+* Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
 
 Veamos imagen de ejemplo:
 
