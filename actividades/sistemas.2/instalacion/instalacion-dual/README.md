@@ -1,6 +1,8 @@
 
 ```
-Curso: 201819
+Fecha UM          : 201819
+Duracion estimada : 11 horas
+SSOO              : Windows y GNU/Linux
 ```
 
 # Instalación Dual
