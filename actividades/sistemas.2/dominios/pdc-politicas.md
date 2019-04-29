@@ -11,6 +11,8 @@
 
 # 2. Aplicar directivas de Usuario
 
+## 2.1 Crear las OU y GPO
+
 Realizar las siguientes tareas:
 
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual por seguridad.
@@ -27,6 +29,8 @@ Realizar las siguientes tareas:
 
 * Dentro de la OU de los jedis crear la GPO `gpo_jediXX`.
 * Dentro de la OU de los siths crear la GPO `gpo_sithXX`.
+
+## 2.2 Personalizar cada GPO de forma diferente
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
@@ -46,6 +50,8 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
 * En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer) 
     * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
     * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
+
+## 2.3 Comprobar que se aplican las directivas 
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
