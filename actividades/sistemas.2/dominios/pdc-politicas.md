@@ -14,7 +14,7 @@
 Realizar las siguientes tareas:
 
 * Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual por seguridad.
-* Crear las OU (Unidades Organizativas) `jediXXc1718` y `sithXXc1718`.
+* Crear las OU (Unidades Organizativas) `jediXXc1819` y `sithXXc1819`.
 * Mover los usuarios a su correspondiente OU.
 * Enlaces de interés:
     * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
@@ -135,7 +135,7 @@ yendo a la carpeta `E:\softwareXX\firefox`.
 ## 3.3 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
-* Crear las OU `maquinasXXc1718` y mover los equipos del dominio dentro de esta UO.
+* Crear las OU `maquinasXXc1819` y mover los equipos del dominio dentro de esta UO.
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
 * Editar la directiva. Ir a `Configuración del equipo -> Directivas -> Configuración de software`,
 un nuevo paquete de instalación de software de la aplicación.
