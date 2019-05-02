@@ -3,7 +3,7 @@
 
 Ejemplo de rúbrica:
 
-| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| Criterios             | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
 | (2.2) Primera conexión SSH GNU/Linux       | | | |
 | (3.2) Comprobar cambio clave servidor SSH  | | | |
@@ -61,11 +61,11 @@ lsblk               # Consultar particiones
 blkid               # Consultar UUID de la instalación
 ```
 
-* Crear los siguientes usuarios en `ssh-serverXXg`:
-    * primer-apellido-del-alumno1
-    * primer-apellido-del-alumno2
-    * primer-apellido-del-alumno3
-    * primer-apellido-del-alumno4
+Crear los siguientes usuarios en `ssh-serverXXg`:
+* primer-apellido-del-alumno1
+* primer-apellido-del-alumno2
+* primer-apellido-del-alumno3
+* primer-apellido-del-alumno4
 
 ## 1.2 Cliente GNU/Linux
 
@@ -122,6 +122,8 @@ blkid               # Consultar UUID de la instalación
 Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
+
+> Existe una herramienta gráfica para nmap, llamada nmapfe
 
 * Si esto falla debemos comprobar en el servidor la configuración del cortafuegos.
 

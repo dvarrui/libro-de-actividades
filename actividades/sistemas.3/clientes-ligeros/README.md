@@ -198,7 +198,7 @@ Se puede consultar sus valores ejecutando el comando `getltscfg -a`.
 >
 > INFO Por ejemplo, `LDM_AUTOLOGIN=true` se usa en combinación con LDM_USERNAME y LDM_PASSWORD.
 
-## A.1 Clientes ligueros con OpenSUSE
+## A.1 Clientes ligeros con OpenSUSE
 
 * Para el curso próximo, probar a usar OpenSUSE y/o Debian en lugar de Ubuntu.
 * WtWare es una herramienta para clientes ligeros.
