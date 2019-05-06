@@ -82,11 +82,29 @@ Vamos a crear un recurso compartido de red para guardar los ficheros MSI y que s
 
 **En el servidor**
 * Crear la carpeta `e:\softwareXX`.
-    * Esta carpeta con permisos de `lectura/ejecución, mostrar... y lectura` para los usuarios del dominio.
-    * Este carpeta con permisos `control total` para los administradores.
+
+Permisos                           | **`Usuarios del dominio`** | **`Administradores`**
+---------------------------------- | :------------------------: | :-------------------:
+Control total                      |                            | &#x2714;
+Modificar                          |                            | &#x2714;
+Lectura y ejecución                | &#x2714;                   | &#x2714;
+Mostrar el contenido de la carpeta | &#x2714;                   | &#x2714;
+Lectura                            | &#x2714;                   | &#x2714;
+Escritura                          |                            | &#x2714;
+Permisos especiales                |                            | &#x2714;
+    
 * Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
-    * Este recurso con permisos de `lectura` para Todos.
-    * Este recurso con permisos `control total` para los usuarios del dominio.
+
+Permisos                           |         **`Todos`**        | **`Usuarios del dominio`**
+---------------------------------- | :------------------------: | :------------------------:
+Control total                      |                            | &#x2714;
+Modificar                          |                            | &#x2714;
+Lectura y ejecución                |                            | &#x2714;
+Mostrar el contenido de la carpeta |                            | &#x2714;
+Lectura                            | &#x2714;                   | &#x2714;
+Escritura                          |                            | &#x2714;
+Permisos especiales                |                            | &#x2714;
+    
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
 ## 3.2 Instalar en el servidor
