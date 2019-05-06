@@ -32,4 +32,3 @@ Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAl
 
 ¡Muchas gracias!
 
-Email:  teuton.software@protonmail.com
