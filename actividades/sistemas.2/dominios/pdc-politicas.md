@@ -22,8 +22,8 @@ Realizar las siguientes tareas:
     * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
     * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
 
-> **IMPORTANTE**: No aplicar la directivas a todo el dominio. 
-> Sólo a las unidades organizativas que se especifiquen. 
+> **IMPORTANTE**: No aplicar la directivas a todo el dominio.
+> Sólo a las unidades organizativas que se especifiquen.
 > Un error grave es aplicar las directivas a todo el site en lugar de a cada OU.
 > Este error puede afectar al correcto funcionamiento del servidor.
 
@@ -47,11 +47,11 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * `Prohibir el acceso al Panel de control`
 * En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Escritorio` ( User configuration / Administrative Templates / Active Desktop)
     * `Ocultar el icono Ubicaciones de red del escritorio`.
-* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer) 
+* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer)
     * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
     * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
 
-## 2.3 Comprobar que se aplican las directivas 
+## 2.3 Comprobar que se aplican las directivas
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
@@ -76,9 +76,24 @@ de que este paso de activación se realice inmediatamente.
 
 * IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
 
-## 3.1 Instalar en el servidor
+## 3.1 Crear recurso compartido de red
 
-Vamos a crear nuestro propio paquete de instalación MSI.
+Vamos a crear un recurso compartido de red para guardar los ficheros MSI y que se puedan compartir entre todos los equipos de nuestra red.
+
+**En el servidor**
+* Crear la carpeta `e:\softwareXX`.
+    * Esta carpeta con permisos de `lectura/ejecución, mostrar... y lectura` para los usuarios del dominio.
+    * Este carpeta con permisos `control total` para los administradores.
+* Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
+    * Este recurso con permisos de `lectura` para Todos.
+    * Este recurso con permisos `control total` para los usuarios del dominio.
+* Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
+
+## 3.2 Instalar en el servidor
+
+> Si disponemos del paquete MSI nos saltamos este apartado.
+
+Vamos a crear nuestro propio paquete de instalación MSI, y para ello necesitaremos instalar el software WinINSTALL.
 * Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
 **En el servidor**
@@ -86,15 +101,10 @@ Vamos a crear nuestro propio paquete de instalación MSI.
     * http://www.downloadsource.es/3414/WinINSTALL-LE/
     * http://www.freewarefiles.com/downloads_counter.php?programid=52066
 * Una vez instalada la aplicación hemos de asignar permisos de acceso al recurso compartido de WinINSTALL al usuario `Administrador` en modo lectura.
-* Crear la carpeta `e:\softwareXX`.
-    * Esta carpeta con permisos de `lectura/ejecución, mostrar... y lectura` para los usuarios del dominio.
-    * Este carpeta con permisos `control total` para los administradores.
-* Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
-    * Este recurso con permisos de `lectura` para Todos.
-    * Este recurso con permisos `control total` para los usuarios del dominio.
-* Crear la subcarpeta `e:\softwareXX\firefox`.
 
-## 3.2 Crear paquete MSI
+## 3.3 Crear paquete MSI
+
+> Si disponemos del paquete MSI nos saltamos este apartado.
 
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
@@ -121,24 +131,21 @@ en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto
 > En el tiempo comprendido entre la ejecución de este proceso y la ejecución
 del proceso de la foto final, es crítico ejecutar únicamente el software
 de instalación del paquete MSI a generar.
-> Cualquier modificación que se haga durante este proceso, se grabará en el paquete MSI obtenido, 
+> Cualquier modificación que se haga durante este proceso, se grabará en el paquete MSI obtenido,
 aunque no forme parte de las modificaciones realizadas de la aplicación durante su instalación.
 
 * Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y
-a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero
-de instalación de la aplicación de la que vamos a generar el paquete MSI.
-En nuestro caso el fichero firefox.exe que nos habíamos descargado.
+a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero de instalación de la aplicación de la que vamos a generar el paquete MSI.En nuestro caso el fichero firefox.exe que nos habíamos descargado.
 * Comienza la instalación de la aplicación de firefox.exe de modo manual.
 * Volvemos a inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar el proceso de creación de la foto final del sistema.
 Este que puede durar varios minutos.
-* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR",
-yendo a la carpeta `E:\softwareXX\firefox`.
+* Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", yendo a la carpeta `E:\softwareXX\firefox`.
 * Limpiamos el equipo cliente:
     * Eliminar el fichero firefox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
 
-## 3.3 Crear nueva GPO en el servidor
+## 3.4 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
 * Crear las OU `maquinasXXc1819` y mover los equipos del dominio dentro de esta UO.
@@ -164,7 +171,7 @@ actualizaciones de las directivas.
 * Capturar imagen del resumen de la configuración de cada una de la directiva creada
 (`Ir a directiva -> Configuración`).
 
-## 3.4 Comprobar desde los clientes
+## 3.5 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
 * Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
