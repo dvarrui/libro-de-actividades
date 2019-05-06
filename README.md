@@ -25,7 +25,6 @@ Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAl
 ## Otras preguntas
 
 * [¿Cómo accedo a los documentos?](./docs/acceso.md)
-* [¿Cómo se organizan las actividades?](./actividades/README.md)
 * [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
 * [Estado del proyecto](./docs/estado.md)
 * [Proyectos similares](./docs/proyectos-similares.md)
