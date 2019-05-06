@@ -1,7 +1,6 @@
 
 ```
-Curso    : 201819
-Software : Migrando OwnCloud a NextCloud
+Software : OwnCloud
 SO       : OpenSUSE Leap
 ```
 
@@ -38,12 +37,7 @@ Dentro de las soluciones libres disponemos de ownCloud o NetxCloud.
 
 Las fuentes están disponibles para poder instalarlo en máquinas propias o alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
-Enlaces de interés:
-* [NextCloud OpenSUSE Leap 15](https://en.opensuse.org/SDB:Nextcloud)
-* [Nextcloud, almacenamiento en la nube. Instalación](https://colaboratorio.net/davidochobits/sysadmin/2017/nextcloud-almacenamiento-en-la-nube-instalacion/)
-* [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
-
----
+Para más información [official documentation](https://doc.owncloud.org/) sobre OwnCloud.
 
 ## 3.1 Instalar OwnCloud
 

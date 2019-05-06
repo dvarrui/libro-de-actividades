@@ -1,4 +1,9 @@
 
+```
+Software : OwnCLoud
+SO       : OpenSUSE 13.2
+```
+
 # 1. Entrega
 
 * Apartado 2:
