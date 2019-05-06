@@ -188,8 +188,14 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 
 # ANEXO A
 
+## Duda
+
 Parece que la directiva siguiente no es compatible con la instalación de software:
 * En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Escritorio` ( User configuration / Administrative Templates / Active Desktop)
     * `Ocultar el icono Ubicaciones de red del escritorio`.
 
 ![pdc-wininstall-domain-user.png](./files/pdc-wininstall-domain-user.png)
+
+## Iconos UNICODE
+
+https://tutorialzine.com/2014/12/you-dont-need-icons-here-are-100-unicode-symbols-that-you-can-use
