@@ -1,8 +1,8 @@
 
 ```
-Fecha UM          : Curso 201920
-Duración estimada : 6 horas
+Curso             : 201819
 SSOO              : Windows 2008/2012 Server y Windows 7/10
+Duración estimada : 6 horas
 ```
 
 # Introducción
@@ -11,6 +11,15 @@ SSOO              : Windows 2008/2012 Server y Windows 7/10
     * Este enunciado viene adaptado para Windows 2012 Server y Windows 2008 Server.
 * Leer/consultar la documentación de la unidad.
 * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
+
+Propuesta de rúbrica:
+
+| Criterio                         | Nivel 0 | Nivel 1 | Nivel 2 |
+| -------------------------------- | ------- | ------- | ------- |
+| (2.4) PDC: Instalar y configurar | | | | 
+| (4.4) Unir equipos al dominio    | | | | 
+| (5.4) Perfiles móviles           | | | | 
+| (6.0) Perfil obligatorio         | | |.| 
 
 ---
 
@@ -42,15 +51,15 @@ paquetes/funciones/servicios, y acceder a los paneles de administración de los 
 
 # 2. Instalar el Controlador de dominio
 
-> **Definiciones**:
->
-> * **DA**: El DA(Directorio Activo) es una base de datos LDAP, que guarda la información de los objetos de nuestro dominio.
-> * **NOMBRE DE DOMINIO**:
->     * Cada PDC se identifica con su nombre de dominio, el cuál debe ser único. Hay que evitar que el nombre de dominio se repita con la configuración de otro compañero.
->     * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
->     * Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
+## 2.1 Definiciones
 
-## Instalar en Windows 2012 Server
+* **DA**: El DA(Directorio Activo) es una base de datos LDAP, que guarda la información de los objetos de nuestro dominio.
+* **NOMBRE DE DOMINIO**:
+    * Cada PDC se identifica con su nombre de dominio, el cuál debe ser único. Hay que evitar que el nombre de dominio se repita con la configuración de otro compañero.
+    * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
+    * Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
+
+## 2.2 Instalar en Windows 2012 Server
 
 Instalación:
 * Hacer una instántanea de la MV antes de nada.
@@ -71,7 +80,7 @@ Instalación:
 * Al terminar hay que reiniciar el sistema.
 * Capturar imagen de `Panel del servidor` donde se muestren los servicios instalados.
 
-## Instalar en Windows 2008 Server
+## 2.3 Instalar en Windows 2008 Server
 
 Instalación:
 * Hacer una instántanea de la MV antes de nada.
@@ -111,7 +120,7 @@ Veamos imagen de configuración de nuestro servidor:
 > Enlace de interés:
 > * [Cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
 
-## Comprobaciones
+## 2.4 Comprobaciones
 
 * Ir a `Herramientas -> DNS` y comprobar que dentro de `Zona de búsqueda directa` aparece nuestro `nombre-de-dominio`.
 * Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer la IP de nuestro servidor PDC.
