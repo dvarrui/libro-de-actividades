@@ -10,6 +10,14 @@ Duración estimada : 8-10 horas
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
 
+Propuesta de rúbrica
+
+| Criterio                   | Nivel 0 | Nivel 1 | Nivel 2 |
+| -------------------------- | ------- | ------- | ------- |
+| gpo_jedi y gpo_sith        ||||
+| MSI y carpetas compartidas ||||
+| gp_maquina                 ||||
+
 ---
 
 # 2. Aplicar directivas de Usuario
