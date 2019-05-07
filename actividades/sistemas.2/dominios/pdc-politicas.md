@@ -1,11 +1,14 @@
 
+```
+Curso             : 201819
+SSOO              : Windows Server (2008, 2012)
+Duración estimada : 8-10 horas
+```
+
 # 1. Políticas o directivas de grupo
 
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
-* Incluir capturas de pantalla de:
-    * El proceso de configuración en el servidor
-    * y de los resultados producidos en los clientes.
 
 ---
 
