@@ -40,7 +40,6 @@ Las fuentes están disponibles para poder instalarlo en máquinas propias o alqu
 Enlaces de interés:
 * [NextCloud OpenSUSE Leap 15](https://en.opensuse.org/SDB:Nextcloud)
 * [Nextcloud, almacenamiento en la nube. Instalación](https://colaboratorio.net/davidochobits/sysadmin/2017/nextcloud-almacenamiento-en-la-nube-instalacion/)
-* [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
 
 ---
 
@@ -48,19 +47,19 @@ Enlaces de interés:
 
 * Primero nos Aseguramos de tener correctamente intalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
 
-### Apache: Webserver setup and configuration.
+### Servidor Web Apache: Instalación y configuraciḉón
 
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
 * `systemctl enable apache2`, automatically start the apache server after a reboot:
-* Enabling public access to the web server: You can do this using YaST and selecting Security and Users --> Firewall --> Allowed services and add HTTP server.
+* Permitir acceso público al servidor Web: using YaST and selecting Security and Users --> Firewall --> Allowed services and add HTTP server.
 
-### Setting up PHP
+### PHP: Instalación y configuración
 
 * `zypper in php7 php7-mysql apache2-mod_php7`, Installing PHP7
 * `a2enmod php7`, to enable mod-php.
 
-### Setting up MariaDB
+### MariaDB: Instalación y configuración
 
 * `zypper in mariadb mariadb-tools`, Installing MariaDB
 * `systemctl start mysql`, Starting the MariaDB server
@@ -105,7 +104,7 @@ Configure MariaDB for Nextcloud
 
 ---
 
-## 4 Comprobar vía web
+# 4 Comprobar vía web
 
 * Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
@@ -131,11 +130,12 @@ Configure MariaDB for Nextcloud
 
 ---
 
-# 5. OwnCloud Desktop Client
+# 5. NextCloud Desktop Client
 
+* Enlacede interés: [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
 * Ir a una MV con Windows 7.
-* Instalar el sofware cliente de OwnCloud.
-   * Usar URL `http://ip-servidor/owncloud`.
+* Instalar el sofware cliente de NextCloud.
+   * Usar URL `http://ip-servidor/nextcloud`.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
 ---
