@@ -52,7 +52,9 @@ Instalación y configuración de Apache2
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
 * `systemctl enable apache2`, automatically start the apache server after a reboot:
-* Permitir acceso público al servidor Web: using YaST and selecting Security and Users --> Firewall --> Allowed services and add HTTP server.
+* Abrir el acceso Web desde el cortafuegos. 
+    * Vamos a `Yast -> Cortafuegos`. 
+    * Añadir en `Servicios Autorizados` de la `Zona externa` a: `apache2`, `http`,`https`.
 
 ## 3.2 PHP: Instalación y configuración
 
@@ -95,18 +97,18 @@ Configuración:
 
 # 4 Comprobar vía web
 
-* Hacer una copia de seguridad del fichero de configuración de OwnCloud ( `/srv/www/htdocs/owncloud/config/config.php`).
+* Hacer una copia de seguridad del fichero de configuración `/srv/www/htdocs/nextcloud/config/config.php`.
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
-`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/owncloud/config/config.php`. Ver ejemplo:
+`trusted_domains` dentro del fichero de configuración `/srv/www/htdocs/nextcloud/config/config.php`. Ver ejemplo:
 
 ![owncloud-config-php](./files/owncloud-config-php.png)
 
 > **IMPORTANTE**: Revisar bien los cambios que realicemos en el fichero de configuración anterior. Un fallo de sintaxis puede dejar nuestro servidor sin funcionar.
 
-* Hacer captura de pantalla del fichero `/srv/www/htdocs/owncloud/config/config.php`.
-* Abrimos un navegador URL: `ip-del-servidor/owncloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
+* Hacer captura de pantalla del fichero `/srv/www/htdocs/nextcloud/config/config.php`.
+* Abrimos un navegador URL: `ip-del-servidor/nextcloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
 
-> Si no funciona el acceso a `http://ip-del-servidor/owncloud` desde otra máquina:
+> Si no funciona el acceso a `http://ip-del-servidor/nextcloud` desde otra máquina:
 > * Primero comprobar si el cortafuegos del servidor está bloqueando el acceso. Vamos a otra máquina y hacemos `nmap -Pn IP-del-servidor`. Debe mostrar los servicios del servidor.
 > * Para abrir el cortafuegos, vamos a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
 
@@ -129,21 +131,3 @@ Ir a una MV con Windows 7:
    * Usar URL `http://ip-servidor/nextcloud`.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
 
----
-
-# ANEXO
-
-## A.1 Instalación del servidor OwnCloud para Ubuntu
-
-* [OwnCloud en Debian/Ubuntu](http://hipertextual.com/archivo/2014/10/owncloud/)
-
-## A.2 Instalación del servidor OwnCloud para Debian7
-
-* Añadimos un nuevo repositorio con el paquete que queremos instalar:
-    * echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community:/nightly/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list
-* Actualizamos la lista de repositorios: `apt-get update`
-* Instalamos el paquete: `apt-get install owncloud`
-
-## A.3 Instalación del servidor OwnCloud para Raspberry PI
-
-* [BTSync: Clone Dropbox with a Raspberry Pi and BTSync](http://reustle.io/blog/btsync-pi)
