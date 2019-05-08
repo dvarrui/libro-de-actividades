@@ -48,40 +48,17 @@ Enlaces de interés:
 
 * Primero nos Aseguramos de tener correctamente intalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
 
-
 ### Apache: Webserver setup and configuration.
 
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
 * `systemctl enable apache2`, automatically start the apache server after a reboot:
-
-> Testing the installation
->
-> To check if you apache server works, use you favorite text editor an create the index.html file in the /srv/www/htdocs/ folder with the following content: `<html><body><h1>Welcome to my web site!</h1></body></html>`
->
-> Now point your favorite Web browser to: 'localhost'. You should see a page with Welcome to my web site! as a headline.
-
 * Enabling public access to the web server: You can do this using YaST and selecting Security and Users --> Firewall --> Allowed services and add HTTP server.
-
-    Open the YaST Control Center
-    Select Firewall
-    The Configuration for modification defaults under Runtime. Any changes you make will only affect the current Runtime of the machine
-    Note the Zone that the network is running and ensure that the current zone is selected under the Zones tab.
-    In the Services tab, locate apache2 in the window.
-    If you would like to make this change permanent under the selected Zone, select Options > Runtime to Permanent
-    If no further changes to the firewall are required, close the Configuration window, changes are immediate.
-
 
 ### Setting up PHP
 
 * `zypper in php7 php7-mysql apache2-mod_php7`, Installing PHP7
 * `a2enmod php7`, to enable mod-php.
-
-> Testing the installation
->
-> To verify that php is properly working, create a index.php file into the /srv/www/htdocs/ folder with the following content: `<?php phpinfo();?>`
-> 
-> Now, point your browser to 'localhost/index.php'. You should see a page containing a table with all php settings displayed.
 
 ### Setting up MariaDB
 
