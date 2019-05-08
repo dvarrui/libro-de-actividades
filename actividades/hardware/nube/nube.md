@@ -63,8 +63,8 @@ Instalación y configuración de Apache2
 
 Instalación:
 * `zypper in mariadb mariadb-tools`, Installing MariaDB
-* `systemctl start mysql`, Starting the MariaDB server
-* `systemctl enable mysql`, ensure that the server will start at every boot.
+* `systemctl start mariadb`, Starting the MariaDB server
+* `systemctl enable mariadb`, ensure that the server will start at every boot.
 * `mysql_secure_installation`, to configure the MariaDB server with improved security.
 
 Configuración para Nextcloud:
