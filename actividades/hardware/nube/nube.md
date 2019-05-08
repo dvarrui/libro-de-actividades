@@ -24,7 +24,7 @@ SO       : OpenSUSE Leap
 En este apartado vamos a practicar el almacenamiento usando la nube de un proveedor externo.
 
 * Elegir alguna de las siguientes herramientas: DropBox, Google Drive, OneDrive, Mega. Consultar con el profesor si queremos elegir otra opción.
-* Realizar la instalación y configuración de la herramienta elegida sobre los SSOO Windows y GNU/Linux.
+* Realizar la instalación y configuración de la herramienta elegida sobre Windows, GNU/Linux o Android.
 * Mostrar su uso mediante ejemplos.
 
 ---
@@ -46,7 +46,7 @@ Enlaces de interés:
 
 ## 3.1 LAMP
 
-* Ensure that the LAMP Stack is properly installed and configured (https://en.opensuse.org/SDB:LAMP_setup)
+* Primero nos Aseguramos de tener correctamente intalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
 
 ## 3.2 Database
 
