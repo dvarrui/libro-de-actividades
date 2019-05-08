@@ -70,8 +70,7 @@ Instalación:
 Configuración para Nextcloud:
 * `mysql -u root -p`
 * `create database nextcloud;` Create the Nextcloud database. Enter the line exactly as displayed, including the semicolon.
-* `create user nextclouduser@localhost identified by 'some-password-here';
-`, Create the Nextcloud user with a password of your choice
+* `create user nextclouduser@localhost identified by 'some-password-here';`, Create the Nextcloud user with a password of your choice.
 * `grant all privileges on nextcloud.* to nextclouduser@localhost identified by 'some-password-here';` Grant the needed privileges of nextclouduser to the database nextcloud with the password of your choice.
 * `exit;` Exit the database configuration application.
 
@@ -87,9 +86,9 @@ Configuración:
 * The data folder is set to the default path.
 * Below Configure Database, Select MySQL/MariaDB
 * Enter the MariaDB user for Nextcloud
-    * Database User - nextclouduser
+    * Database User: **nextclouduser**
     * Database User Password (for nextclouduser)
-    * Database name - nextcloud
+    * Database name: **nextcloud**
     * Hostname (such as localhost)
 
 ---
