@@ -43,35 +43,31 @@ Enlaces de interés:
 
 ---
 
-## 3.1 LAMP
+## 3.1 Servidor Web Apache: Instalación y configuraciḉón
 
-* Primero nos Aseguramos de tener correctamente intalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
+Enlace de interés:
+* Primero nos Aseguramos de tener correctamente instalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
 
-### Servidor Web Apache: Instalación y configuraciḉón
-
+Instalación y configuración de Apache2
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
 * `systemctl enable apache2`, automatically start the apache server after a reboot:
 * Permitir acceso público al servidor Web: using YaST and selecting Security and Users --> Firewall --> Allowed services and add HTTP server.
 
-### PHP: Instalación y configuración
+## 3.2 PHP: Instalación y configuración
 
 * `zypper in php7 php7-mysql apache2-mod_php7`, Installing PHP7
 * `a2enmod php7`, to enable mod-php.
 
-### MariaDB: Instalación y configuración
+## 3.3 Database MariaDB
 
+Instalación:
 * `zypper in mariadb mariadb-tools`, Installing MariaDB
 * `systemctl start mysql`, Starting the MariaDB server
 * `systemctl enable mysql`, ensure that the server will start at every boot.
 * `mysql_secure_installation`, to configure the MariaDB server with improved security.
 
----
-
-## 3.2 Database
-
-Configure MariaDB for Nextcloud
-
+Configuración para Nextcloud:
 * `mysql -u root -p`
 * `create database nextcloud;` Create the Nextcloud database. Enter the line exactly as displayed, including the semicolon.
 * `create user nextclouduser@localhost identified by 'some-password-here';
@@ -79,18 +75,13 @@ Configure MariaDB for Nextcloud
 * `grant all privileges on nextcloud.* to nextclouduser@localhost identified by 'some-password-here';` Grant the needed privileges of nextclouduser to the database nextcloud with the password of your choice.
 * `exit;` Exit the database configuration application.
 
----
+## 3.4 Nextcloud
 
-## 3.3 Install Nextcloud
-
+Instalación:
 * `zypper install nextcloud`
 
----
-
-## 3.4 Initiate Nextcloud
-
-* Navigate to the Nextcloud web portal
-        Open http://localhost/nextcloud to install your instance.
+Configuración:
+* Navigate to the Nextcloud web portal. Open http://localhost/nextcloud to install your instance.
 * Create an admin account with a username an password of your choice
 * Select the Storage & database drop down
 * The data folder is set to the default path.
@@ -100,7 +91,6 @@ Configure MariaDB for Nextcloud
     * Database User Password (for nextclouduser)
     * Database name - nextcloud
     * Hostname (such as localhost)
-
 
 ---
 
@@ -132,8 +122,10 @@ Configure MariaDB for Nextcloud
 
 # 5. NextCloud Desktop Client
 
-* Enlacede interés: [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
-* Ir a una MV con Windows 7.
+Enlace de interés: 
+* [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
+
+Ir a una MV con Windows 7:
 * Instalar el sofware cliente de NextCloud.
    * Usar URL `http://ip-servidor/nextcloud`.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
