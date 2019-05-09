@@ -1,35 +1,28 @@
 
 ```
 Curso    : 201819
-Software : Migrando OwnCloud a NextCloud
+Software : NextCloud
 SO       : OpenSUSE Leap
 ```
 
-# 1. Entrega
-
-* Apartado 1:
-    * URL Vídeo que muestre la práctica en funcionamiento.
-    * Trabajo individual.
-* Apartados 3, 4 y 5:
-    * Colaborar con otro compañero.
-        * Montar nuestro servidor para que lo use el compañero.
-        * Usar el servidor de otro compañero.
-    * Hacer un informe de esta parte.
-* Entregar un informe de los pasos realizados y el URL del vídeo subido a Youtube.
-
 ---
 
-# 2. Nube ajena
+# 1. Nube ajena
 
 En este apartado vamos a practicar el almacenamiento usando la nube de un proveedor externo.
 
+Entregar:
+* URL Vídeo que muestre la práctica en funcionamiento.
+* Trabajo individual.
+
+Pasos a realizar:
 * Elegir alguna de las siguientes herramientas: DropBox, Google Drive, OneDrive, Mega. Consultar con el profesor si queremos elegir otra opción.
 * Realizar la instalación y configuración de la herramienta elegida sobre Windows, GNU/Linux o Android.
 * Mostrar su uso mediante ejemplos.
 
 ---
 
-# 3. Nube propia con NextCoud Server en OpenSUSE Leap
+# 2. Nube propia con NextCoud Server en OpenSUSE Leap
 
 En los servicios de almacenamiento y sincronización de ficheros en la nube destacan Dropbox y Google Drive. Pero ambas soluciones son cerradas.
 
@@ -37,13 +30,19 @@ Dentro de las soluciones libres disponemos de ownCloud o NetxCloud.
 
 Las fuentes están disponibles para poder instalarlo en máquinas propias o alquiladas, así como clientes de sincronización para Windows, Linux, Android y próximamente para iOs y Mac.
 
+Entregar:
+* Informe de los pasos realizados.
+* Colaborar con otro compañero.
+    * Montar nuestro servidor para que lo use el compañero.
+    * Usar el servidor de otro compañero.
+
 Enlaces de interés:
 * [NextCloud OpenSUSE Leap 15](https://en.opensuse.org/SDB:Nextcloud)
 * [Nextcloud, almacenamiento en la nube. Instalación](https://colaboratorio.net/davidochobits/sysadmin/2017/nextcloud-almacenamiento-en-la-nube-instalacion/)
 
 ---
 
-## 3.1 Servidor Web Apache: Instalación y configuraciḉón
+## 2.1 Servidor Web Apache: Instalación y configuraciḉón
 
 Enlace de interés:
 * Primero nos Aseguramos de tener correctamente instalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
@@ -52,16 +51,16 @@ Instalación y configuración de Apache2
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
 * `systemctl enable apache2`, automatically start the apache server after a reboot:
-* Abrir el acceso Web desde el cortafuegos. 
-    * Vamos a `Yast -> Cortafuegos`. 
+* Abrir el acceso Web desde el cortafuegos.
+    * Vamos a `Yast -> Cortafuegos`.
     * Añadir en `Servicios Autorizados` de la `Zona externa` a: `apache2`, `http`,`https`.
 
-## 3.2 PHP: Instalación y configuración
+## 2.2 PHP: Instalación y configuración
 
 * `zypper in php7 php7-mysql apache2-mod_php7`, Installing PHP7
 * `a2enmod php7`, to enable mod-php.
 
-## 3.3 Database MariaDB
+## 2.3 Database MariaDB
 
 Instalación:
 * `zypper in mariadb mariadb-tools`, Installing MariaDB
@@ -76,7 +75,7 @@ Configuración para Nextcloud:
 * `grant all privileges on nextcloud.* to nextclouduser@localhost identified by 'some-password-here';` Grant the needed privileges of nextclouduser to the database nextcloud with the password of your choice.
 * `exit;` Exit the database configuration application.
 
-## 3.4 Nextcloud
+## 2.4 Nextcloud
 
 Instalación:
 * `zypper install nextcloud`
@@ -95,7 +94,7 @@ Configuración:
 
 ---
 
-# 4 Comprobar vía web
+# 3 Comprobar vía web
 
 * Hacer una copia de seguridad del fichero de configuración `/srv/www/htdocs/nextcloud/config/config.php`.
 * Para permitir el acceso desde otros equipos, tenemos que añadir la IP del servidor a las opciones
@@ -121,13 +120,12 @@ Configuración:
 
 ---
 
-# 5. NextCloud Desktop Client
+# 4. NextCloud Desktop Client
 
-Enlace de interés: 
+Enlace de interés:
 * [Instalar y configurar un cliente de Nextcloud en Linux](https://geekland.eu/instalar-cliente-de-nextcloud-linux/)
 
 Ir a una MV con Windows 7:
 * Instalar el sofware cliente de NextCloud.
    * Usar URL `http://ip-servidor/nextcloud`.
 * Comprobar cómo se mantienen sincronizados los archivos entre las máquinas.
-
