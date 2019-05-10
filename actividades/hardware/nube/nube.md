@@ -42,10 +42,10 @@ Enlaces de interés:
 
 ---
 
-## 2.1 Servidor Web Apache: Instalación y configuraciḉón
+## 2.1 Servidor Web Apache: Instalación y configuración
 
 Enlace de interés:
-* Primero nos Aseguramos de tener correctamente instalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
+* Primero nos aseguramos de tener correctamente instalado y configurado Apache, PHP y la base de datos (https://en.opensuse.org/SDB:LAMP_setup).
 
 Instalación y configuración de Apache2
 * `zypper in apache2`, Installing Apache2
