@@ -45,12 +45,20 @@
 * Volver a montarlo.
 * Comprobar que funciona correctamente. Capturar imagen.
 * Instalar software de la siguiente forma:
-    * Particionado:
-        * (partición1) 2 GB => swap
-        * (partición2) 20 GB => sistema operativo
-        * (partición3) resto GB => home
+        
+    Particionado | Tamaño   | Montaje
+    ------------ | -------- | -------
+    particion1   | 2 GB     | swap
+    particion2   | 20 GB    | sistema operativo
+    particion3   | resto GB | home
+    
     * Sistema operativo a elegir: Proxmox, OpenSUSE Server (Sin escritorio), oPfSense.
-    * Usuarios: (usuario1) root/profesor, (usuario2) profesor/profesor
+    
+    Usuarios | Nombre   | Contraseña
+    -------- | -------- | ----------
+    usuario1 | root     | profesor
+    usuario2 | profesor | profesor
+    
 * [OPCIONAL] "Enracar" en equipo en el armario del taller.
 
 > Al terminar la actividad hay que dejar la ficha en su sitio, y el PC recogido y en donde le corresponde.
