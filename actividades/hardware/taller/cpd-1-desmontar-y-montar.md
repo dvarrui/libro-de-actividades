@@ -13,7 +13,7 @@
 * Recoger la ficha del equipo `SR16`.
 * Descargar manual del equipo de la web del fabricante. Puede ser alguno de los siguientes modelos:
     * Placa [Server Board S5000PSL](https://www.intel.com/content/dam/support/us/en/documents/motherboards/server/s5000psl/sb/417435_d41763_008_s5000psl_tps_rev_17.pdf)
-    * Placa Server Board SE7520BD2
+    * Placa [Server Board SE7520BD2](https://www.intel.com/content/dam/support/us/en/documents/motherboards/server/se7520bd2/sb/se7520bd2_server_board_tps_r23.pdf)
 * Comprobar que el PC funciona correctamente. Captura de imagen.
 * Comprobar si las características del equipo según la documentación coinciden con el PC real.
 * Incluir detalles de las características en el informe:
