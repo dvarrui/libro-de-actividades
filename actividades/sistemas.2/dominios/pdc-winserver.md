@@ -1,25 +1,24 @@
 
 ```
 Curso             : 201819
-SSOO              : Windows 2008/2012 Server y Windows 7/10
+Software          : Windows 2008/2012 Server, Windows 7/10
 Duración estimada : 6 horas
 ```
 
 # Introducción
 
-* En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Windows Server
-    * Este enunciado viene adaptado para Windows 2012 Server y Windows 2008 Server.
-* Leer/consultar la documentación de la unidad.
+En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Windows Server.
+* Leer/consultar la documentación de la unidad. Este enunciado viene adaptado para Windows 2008/2012 Server.
 * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
 
 Propuesta de rúbrica:
 
 | Criterio                         | Nivel 0 | Nivel 1 | Nivel 2 |
 | -------------------------------- | ------- | ------- | ------- |
-| (2.4) PDC: Instalar y configurar | | | | 
-| (4.4) Unir equipos al dominio    | | | | 
-| (5.4) Perfiles móviles           | | | | 
-| (6.0) Perfil obligatorio         | | |.| 
+| (2.4) PDC: Instalar y configurar | | | |
+| (4.4) Unir equipos al dominio    | | | |
+| (5.4) Perfiles móviles           | | | |
+| (6.0) Perfil obligatorio         | | |.|
 
 ---
 
@@ -139,7 +138,7 @@ usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del d
     * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
     * Información sobre [Tipos y ámbitos de grupo en Windows Server](https://es.slideshare.net/cesartg65/tipos-y-mbitos-de-grupo-windows-server)
 
-## 3.2 Práctica 
+## 3.2 Práctica
 
 Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
@@ -167,9 +166,9 @@ Configurar las MV's clientes de la siguiente forma:
 * Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio.
 * **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
-* Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos. 
+* Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC, y como DNS2 la IP 8.8.4.4.
-    * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para comprobar que nos DNS está correctos. 
+    * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para comprobar que nos DNS está correctos.
     * Debe aparecer la IP de nuestro servidor PDC.
 * Ejecutar `hostname` en una consola powershell. Debe aparecer el nombre correcto de la máquina.
 
@@ -197,8 +196,8 @@ _Espero que no tengas problemas, y puedas saltar este apartado, si no es así...
 
 Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, tenemos varias opciones:
 * Esperar 5 minutos y repetir el proceso. Las redes SMB/CIFS tardan un tiempo en propagar la información de los equipos por la red.
-* Volver a comprobar que todas las configuraciones son correctas. 
-    * Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2). 
+* Volver a comprobar que todas las configuraciones son correctas.
+    * Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2).
     * (NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
 * ¿Repetimos?
 
@@ -291,7 +290,7 @@ A continuación se muestra una imagen de ejemplo:
 > * Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
 
 Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
-* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul). 
+* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul).
     * Abrir PowerShell y ejecutar los siguientes comandos.
     * `hostname`, para mostrar nombre del equipo.
     * `whoami`, para mostrar nuestro usuario actual.
@@ -310,7 +309,7 @@ Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
     * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V2`.
 * Convertir el perfil móvil del  Sith Maul, a perfil obligatorio (Los ficheros que hay que cambiar están ocultos y son del sistema).
 * Comprobar que ahora el perfil no cambia.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, 
+* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`,
 y comprobar que el perfil es ahora obligatorio.
 
 ---
@@ -343,4 +342,3 @@ Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde u
     * `WMIC computersystem where caption='nombreDEahora' rename nuevoNombre`
     * Ahora tendrás que reiniciar tu PC Windows para que tenga efecto el nuevo nombre del equipo.
     * Este comando es válido para todos los sistemas Windows 10, 8, 7, Vista, XP, Server...
- 
