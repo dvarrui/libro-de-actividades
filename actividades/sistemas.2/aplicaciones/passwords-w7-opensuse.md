@@ -114,28 +114,10 @@ NO aparezcan en la ventana de inicio del sistema.
 
 * Si nuestro entorno gráfico actual ya oculta los usuario, no hay que hacer nada. En caso contrario seguimos con este apartado.
 
-### Escritorio XFCE
-
-Procedimiento de ocultación de usuarios para el escritorio XFCE.
-* Cuando nuestro sistema usa AccountsService, para ocultar un usuario llamadopor ejemplo, USERNAME, hay que modificar el fichero `/var/lib/AccountsService/users/USERNAME`
-con el siguiente contenido:
-
-```
-[User]
-SystemAccount=true
-```
-
-### Escritorio KDE (Antonio y Giovanni)
-
-Procedimiento de ocultación de usuarios para el escritorio XFCE.
-* Editamos el archivo `/etc/sddm.conf`. Puede estar vacío.
-* Añadimos las siguientes líneas:
-
-```
-[Users]
-
-HideUsers=USERNAME1,USERNAME2....
-```
+| Escritorio    | XFCE | KDE |
+| ------------- | ---- | --- |
+| Fichero       | `/var/lib/AccountsService/users/USERNAME` | `/etc/sddm.conf`. Puede estar vacío. |
+| Contenido     | Sección `[User]` añadir `SystemAccount=true` | En la seccion [Users] añadimos la siguiente línea `HideUsers=USERNAME1,USERNAME2` |
 
 > Donde USERNAME es el nombre del usuario a ocultar.
 
