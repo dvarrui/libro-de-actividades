@@ -1,4 +1,9 @@
 
+```
+Curso           : 201718
+Software        : Ubuntu o Debian
+Tiempo estimado :
+```
 
 # Instalación desatendida con Ubuntu usando KickStart
 
@@ -6,14 +11,20 @@ Enlaces de interés:
 * Ver [vídeo](https://youtu.be/i2uUIux6_l8)
 * [Tutorial kickstart](https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart)
 
-## Preparativos
+---
+
+# 1. Preparativos
+
 * Usar una MV con ubuntu (o Xubuntu que es más ligero).
 * Instalar las herramientas siguientes:
     * `isomaster`: Se usa para manejar ficheros con formato ISO.
     * `system-config-kickstart` (Kickstart): Se usa para crear el fichero de respuestas.
 * Descargar una ISO de instalación de `Ubuntu Server` dentro de la MV.
 
-## Modificar el menú de arranque
+---
+
+# 2. Modificar el menú de arranque
+
 * Usar `isomaster` para extraer el fichero `/isolinux/txt.cfg` de la ISO.
 * Consultar el vídeo, para averiguar las líneas que debemos incluir.
     * Comprobar si debemos actualizar/cambiar las rutas a los ficheros `vmlinuz`, `ubuntu-server.seed` e `initrd`, según nuestra ISO.
@@ -29,29 +40,35 @@ label desatendida
 * Modificar el fichero `txt.cfg` para incluir una nueva opción de arranque para la instalación desatendida.
 * Grabar el fichero `txt.cfg` modificado dentro de la ISO en la ruta `/isolinux/txt.cfg`.
 
-## Crear archivo de respuestas
-* Usar la herramienta Kickstart para crear el archivo de respuestas.
-    * Configuración básica: 
-        * Definir idioma: Español
-        * Arquitectura objetivo: 64 bits
-    * Definir las particiones:
-        * swap (tamaño recomendado)
-        * /  ext4 (rellenar todo el espacio del disco)
-    * Configurar la tarjeta de red.
-    * Crear usuario: nombre-alumno
-    * Configuración de pantalla: 
-        * Configurar escritorio `KDE` (Esta opción nos sirve para activar por defecto el entorno gráfico)
-        * Activar X Windows en el arranque.
-    * Configuración de Paquetes 
-        * Instalar `kubuntu-desktop` (Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE)
-    * PostScript:
-        ```
-        #!/bin/bash
-        apt install -y kubuntu-desktop
-        ```
+---
+
+# 3. Crear archivo de respuestas
+
+Usar la herramienta Kickstart para crear el archivo de respuestas.
+* Configuración básica:
+    * Definir idioma: Español
+    * Arquitectura objetivo: 64 bits
+* Definir las particiones:
+    * swap (tamaño recomendado)
+    * /  ext4 (rellenar todo el espacio del disco)
+* Configurar la tarjeta de red.
+* Crear usuario: nombre-alumno
+* Configuración de pantalla:
+    * Configurar escritorio `KDE` (Esta opción nos sirve para activar por defecto el entorno gráfico)
+    * Activar X Windows en el arranque.
+* Configuración de Paquetes
+    * Instalar `kubuntu-desktop` (Esta opción nos sirve para instalar el software necesario para el entorno gráfico KDE)
+* PostScript:
+    ```
+    #!/bin/bash
+    apt install -y kubuntu-desktop
+    ```
 * Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
-## Crear nueva ISO y comprobar
+---
+
+# 4. Crear nueva ISO y comprobar
+
 * Usar `isomaster` para 
     * Guardar el fichero `ks.cfg` dentro de la ISO (En el directorio raíz de la ISO).
     * Crear la nueva ISO personalizada.
@@ -94,4 +111,3 @@ para una instalación desatendida.
 
 Instalación desatendida usando Preseed:
 * https://jjcurriculumvitae.wordpress.com/2018/02/16/instalacion-desatendida-ubuntu/
-

@@ -1,9 +1,13 @@
 
+```
+Curso           : curso1718
+Software        :
+Tiempo estimado :
+```
+
 # Instalación desatendida de Windows 7
 
-Vamos a crear instalación desatendida para Windows 7.
-
-Entregar:
+Vamos a crear instalación desatendida para SO Windows 7. Entregar:
 * Informe de los pasos realizados.
 * Fichero `autounattend.xml`.
 
@@ -32,7 +36,7 @@ Requisitos:
 * Montar la ISO Windows 7 de 64 bits en la unidad CD de la MV
 * Copiar el contenido de la unidad de CD a la carpeta `C:\W7`.
 
-## 2.2 Desacargar e Instalar WAIK
+## 2.2 Descargar e Instalar WAIK
 
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
@@ -86,6 +90,8 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 > * En el apartado `amd64 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
 
+* Agregar componente `Windows Setup -> LocalAccount`
+    * Name: nombre-del-alumno
 * Agregar los siguientes componentes al ciclo **oobeSystem**.
 
 | Componente | Parámetros |
@@ -119,14 +125,19 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
     * Description: Una descripción del programa que se va a instalar.
     * Order: Orden en el que se instalará la aplicación. Ejemplo: `1`.
     * RequiresUserInput: Si la aplicación necesita interacción del usuario. Ejemplo: `false`.
-* Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
-* Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 > Deberemos agregar este componentes tantas veces como aplicaciones queramos que se instalen al inicio.
 
 ---
 
-# 5. Crear la ISO
+# 5. Validar y guardar
+
+* Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
+* Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
+
+---
+
+# 6. Crear la ISO
 
 Después de configurar esta última entrada en el archivo de respuesta, debemos compilar los archivos en una ISO para después grabarla en un DVD o memoria USB y poder usarla para su instalación en cualquier equipo.
 
@@ -137,7 +148,7 @@ Después de configurar esta última entrada en el archivo de respuesta, debemos 
 
 ---
 
-# 6. Comprobamos la ISO
+# 7. Comprobamos la ISO
 
 * Al terminar probamos a instalar el SO con la nueva ISO en una máquina virtual.
 * Si al iniciar la MV con la iso recién creada, aparece el error 225.
@@ -172,15 +183,8 @@ que se van a instalar, y por tanto no sería una instalación estandar del siste
 * https://www.rafaelsantos.es/web/informatica/windows/39-instalacion-de-windows-desatendida
     * Windows System Image Manager
 * `ntlite` es una herramienta para personalizar la instalación de Windows (www.ntlite.com/download/).
-* Otra herramienta es nlite
 
-## A.2 Cambios para el futuro
-
-* Agregar componente `Windows Setup -> LocalAccount`
-    * Name: nombre-del-alumno
-
-
-## A.3 Instalación desatendida de Windows XP
+## A.2 Instalación desatendida de Windows XP
 
 > Esta parte NO hay que hacerla. Es meramente informativa.
 

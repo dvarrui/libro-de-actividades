@@ -1,5 +1,11 @@
 
-# Instalaciónes desatendidas
+```
+Curso           : 201718
+Software        : OpenSUSE Leap
+Tiempo estimado :
+```
+
+# Instalación desatendida
 
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
 de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
@@ -13,7 +19,9 @@ Enlace de interés:
 * [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
 * [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
-## 1.1 Personalizamos la MV OpenSUSE Leap
+---
+
+# 2. Personalizamos la MV OpenSUSE Leap
 
 Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
 
@@ -25,7 +33,9 @@ Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera crea
     * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
 
-## 1.2 Creamos el fichero `autoinst.xml`
+---
+
+# 3. Creamos el fichero `autoinst.xml`
 
 Necesitamos el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
 
@@ -41,7 +51,9 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 * `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
 
-## 1.3 Modos de acceso al fichero XML
+---
+
+# 4. Modos de acceso al fichero XML
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **USB** - Fichero de control en USB
@@ -60,7 +72,9 @@ Elegir una de las siguientes formas para la instalación desatendida.
 para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
 >    * Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 
-## 1.4 Comenzar la instalación desatendida
+---
+
+# 5. Comenzar la instalación desatendida
 
 * Creamos una MV nueva.
 
@@ -85,8 +99,7 @@ Elegiremos una de las siguientes formas para localizar el fichero XML.
 >     * Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
 >     * Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
 
-A continuación debe comenzar la instalación de forma desatendida con las opciones
-especificadas en el fichero XML.
+A continuación debe comenzar la instalación de forma desatendida con las opciones especificadas en el fichero XML.
 
 ---
 
