@@ -116,10 +116,11 @@ Configuración:
 
 * Abrimos un navegador web, y ponemos en el URL `http://localhost/nextcloud`
 * Usamos nuestro usuario/clave administrador.
-* Crear un usuario normal `nombre-del-alumnoXX`.
-* Subiremos algunos archivos al servidor con el usuario anterior.
-* Crear un usuario normal `nombre-del-compañeroXX`.
-* Le diremos al compañero que suba algunos archivos al servidor con el usuario anterior.
+
+| Crear usuario | Acción a realizar |
+| ------------- | ----------------- |
+| CrearUsuario normal `nombre-del-alumnoXX` | Nosotros subiremos algunos archivos al servidor |
+| Crear un usuario normal `nombre-del-compañeroXX` | Nuestro compañeor subirá algunos archivos al servidor |
 
 ---
 
