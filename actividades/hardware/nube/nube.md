@@ -1,8 +1,8 @@
 
 ```
-Curso    : 201819
-Software : NextCloud
-SO       : OpenSUSE Leap
+Curso           : 201819
+Software        : NextCloud, OpenSUSE Leap
+Tiempo estimado : 4 horas
 ```
 
 ---
@@ -50,17 +50,20 @@ Enlace de interés:
 Instalación y configuración de Apache2
 * `zypper in apache2`, Installing Apache2
 * `systemctl start apache2`, Starting Apache2
-* `systemctl enable apache2`, automatically start the apache server after a reboot:
-* Abrir el acceso Web desde el cortafuegos.
-    * Vamos a `Yast -> Cortafuegos`.
-    * Añadir en `Servicios Autorizados` de la `Zona externa` a: `apache2`, `http`,`https`.
+* `systemctl enable apache2`, automatically start the apache server after a reboot.
 
-## 2.2 PHP: Instalación y configuración
+## 2.2 Cortafuegos
+
+Abrir el acceso Web desde el cortafuegos.
+* Vamos a `Yast -> Cortafuegos`.
+* Añadir en `Servicios Autorizados` de la `Zona externa` a: `apache2`, `http`,`https`.
+
+## 2.3 PHP: Instalación y configuración
 
 * `zypper in php7 php7-mysql apache2-mod_php7`, Installing PHP7
 * `a2enmod php7`, to enable mod-php.
 
-## 2.3 Database MariaDB
+## 2.4 Database MariaDB
 
 Instalación:
 * `zypper in mariadb mariadb-tools`, Installing MariaDB
@@ -75,7 +78,7 @@ Configuración para Nextcloud:
 * `grant all privileges on nextcloud.* to nextclouduser@localhost identified by 'some-password-here';` Grant the needed privileges of nextclouduser to the database nextcloud with the password of your choice.
 * `exit;` Exit the database configuration application.
 
-## 2.4 Nextcloud
+## 2.5 Nextcloud
 
 Instalación:
 * `zypper install nextcloud`
@@ -108,10 +111,10 @@ Configuración:
 * Abrimos un navegador URL: `ip-del-servidor/nextcloud`. Ahora debe funcionar el acceso usando la IP tanto desde el propio servidor como desde otra máquina. Comprobarlo.
 
 > Si no funciona el acceso a `http://ip-del-servidor/nextcloud` desde otra máquina:
-> * Primero comprobar si el cortafuegos del servidor está bloqueando el acceso. Vamos a otra máquina y hacemos `nmap -Pn IP-del-servidor`. Debe mostrar los servicios del servidor.
-> * Para abrir el cortafuegos, vamos a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
+> * (1) Comprobar si el cortafuegos del servidor está bloqueando el acceso. El comando `nmap -Pn IP-del-servidor`, debe mostrar los servicios web abiertos.
+> * (2) Para abrir el cortafuegos, vamos a `Yast -> Cortafuegos`. Añadir en `Servicios Autorizados` de la `Zona externa` a `HTTP Server` y  `HTTPS Server`.
 
-* Abrimos un navegador web, y ponemos en el URL `http://localhost/owncloud`
+* Abrimos un navegador web, y ponemos en el URL `http://localhost/nextcloud`
 * Usamos nuestro usuario/clave administrador.
 * Crear un usuario normal `nombre-del-alumnoXX`.
 * Subiremos algunos archivos al servidor con el usuario anterior.
