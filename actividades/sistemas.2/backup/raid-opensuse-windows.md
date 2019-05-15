@@ -1,7 +1,9 @@
 
-
-> * Curso 201819: OpenSUSE Leap 15
-
+```
+Curso           : 201819
+Software        : OpenSUSE Leap 15
+Tiempo estimado :
+```
 
 # 1. Instalar OpenSUSE en disco RAID0 software
 
