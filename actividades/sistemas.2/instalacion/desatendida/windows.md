@@ -1,7 +1,7 @@
 
 ```
 Curso           : 201718, 201819
-Software        : Windows 7, WAIK
+Software        : WAIK, Windows 7 ENTERPRISE
 Tiempo estimado :
 ```
 
