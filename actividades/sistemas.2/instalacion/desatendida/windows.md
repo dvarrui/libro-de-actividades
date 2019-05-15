@@ -1,7 +1,7 @@
 
 ```
-Curso           : curso1718
-Software        :
+Curso           : 201718, 201819
+Software        : Windows 7, WAIK
 Tiempo estimado :
 ```
 
@@ -78,7 +78,7 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 | amd64 Windows Setup / DiskConfiguration | WillShowUI: OnError |
 | amd64 Windows Setup / DiskConfiguration / Disk | DiskID: 0, WillWipeDisk: true |
 | amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 1, Size: 200, Type: primary |
-| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 2, Size: 200, Type: primary |
+| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 2, Type: primary |
 | amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Active: true, Format: NTFS, label: System, Order: 1, PartitionID: 1 |
 | amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Extend: true, Format: NTFS, label: Windows7, Letter: C, Order: 2, PartitionID: 2 |
 | amd Windows Setup / ImageInstall / OSImage | InstallToAvailablePartition: false, WillShowUI: OnError |
