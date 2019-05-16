@@ -50,6 +50,8 @@ Realizar las siguientes tareas:
 
 Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
 * En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas` (User configuration / Administrative Templates / Start Menu and Taskbar)
+    * `No buscar archivos`
+    * `No buscar programas`
     * `Quitar el menú Ejecutar del menú Inicio`
     * `Quitar el icono de Red del menú inicio`
     * `Quitar icono de Red`
@@ -65,10 +67,7 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
 ## 2.3 Comprobar que se aplican las directivas
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
-* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
-actualizaciones de las directivas. En algunos casos, después de definir una política,
-ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos
-de que este paso de activación se realice inmediatamente.
+* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas. En algunos casos, después de definir una política, ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos de que este paso de activación se realice inmediatamente.
 * Ir a `Administración de Directivas de Grupo`. Capturar imagen del resumen de la configuración de cada una de las directivas creadas (`Ir a directiva -> Configuración`). Esta pestaña debe mostrar las opciones que hemos usado para configurar nuestra directiva.
 * Comprobar los efectos de las directivas de usuario en las MV cliente.
 
