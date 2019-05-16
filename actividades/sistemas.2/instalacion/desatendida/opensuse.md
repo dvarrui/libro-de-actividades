@@ -30,8 +30,10 @@ Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera crea
 
 * A continuación, personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstaldos. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
+    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
+
+> IDEA: Buscar dentro de la ISO, los ficheros RPM del software que queremos instalar. Si no están, descargarlos de Internet y grabarlos dentro de la ISO.
 
 ---
 
