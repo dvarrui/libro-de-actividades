@@ -119,7 +119,7 @@ Configuración:
 
 | Crear usuario | Acción a realizar |
 | ------------- | ----------------- |
-| CrearUsuario normal `nombre-del-alumnoXX` | Nosotros subiremos algunos archivos al servidor |
+| Crear usuario normal `nombre-del-alumnoXX` | Nosotros subiremos algunos archivos al servidor |
 | Crear un usuario normal `nombre-del-compañeroXX` | Nuestro compañeor subirá algunos archivos al servidor |
 
 ---

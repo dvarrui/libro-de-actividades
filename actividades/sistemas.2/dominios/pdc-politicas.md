@@ -16,7 +16,7 @@ Propuesta de rúbrica
 | -------------------------- | ------- | ------- | ------- |
 | gpo_jedi y gpo_sith        ||||
 | MSI y carpetas compartidas ||||
-| gp_maquina                 ||||
+| gpo_maquina                ||||
 
 ---
 
@@ -103,7 +103,7 @@ Mostrar el contenido de la carpeta | &#x2714;                   | &#x2714;
 Lectura                            | &#x2714;                   | &#x2714;
 Escritura                          |                            | &#x2714;
 Permisos especiales                |                            | &#x2714;
-    
+
 * Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
 
 Permisos                           |         **`Todos`**        | **`Usuarios del dominio`**
@@ -115,7 +115,7 @@ Mostrar el contenido de la carpeta |                            | &#x2714;
 Lectura                            | &#x2714;                   | &#x2714;
 Escritura                          |                            | &#x2714;
 Permisos especiales                |                            | &#x2714;
-    
+
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
 ## 3.2 Instalar en el servidor

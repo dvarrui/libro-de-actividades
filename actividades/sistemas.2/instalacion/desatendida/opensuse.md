@@ -1,8 +1,8 @@
 
 ```
-Curso           : 201718
-Software        : OpenSUSE Leap
-Tiempo estimado :
+Curso           : 201819, 201718
+Software        : OpenSUSE Leap 15.0
+Tiempo estimado : 4 horas
 ```
 
 # Instalación desatendida
