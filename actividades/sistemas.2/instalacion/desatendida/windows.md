@@ -8,7 +8,7 @@ Tiempo estimado :
 # Instalación desatendida de Windows 7
 
 Vamos a crear instalación desatendida para SO Windows 7. Entregar:
-* Informe de los pasos realizados.
+* Informe/imágenes/vídeo (a elegir) de los pasos realizados.
 * Fichero `autounattend.xml`.
 
 ---
@@ -73,19 +73,19 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 
 | Componente | Parámetros |
 | :--------- | :--------- |
-| amd64 Microsoft Windows International Core... neutral | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
-| amd64 Microsoft International Core / SetupUILanguage | UILanguage: es-ES, WillShowUI: OnError |
-| amd64 Windows Setup / DiskConfiguration | WillShowUI: OnError |
-| amd64 Windows Setup / DiskConfiguration / Disk | DiskID: 0, WillWipeDisk: true |
-| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 1, Size: 200, Type: primary |
-| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: 2, Type: primary |
-| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Active: true, Format: NTFS, label: System, Order: 1, PartitionID: 1 |
-| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Extend: true, Format: NTFS, label: Windows7, Letter: C, Order: 2, PartitionID: 2 |
-| amd Windows Setup / ImageInstall / OSImage | InstallToAvailablePartition: false, WillShowUI: OnError |
-| amd64 Windows Setup / ImageInstall / OSImage / InstallTo| DiskID: 0, PartitionID: 2 |
-| amd64 Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | key: /IMAGE/NAME, Value: Windows 7 ENTERPRISE |
-| amd64 Windows Setup / UserData| AcceptEULA: true, FullName: DemoUSer, Organization: Contoso |
-| amd64 Windows Setup / UserData / ProductKey | Key: (serial de producto), WillShowUI: OnError |
+| amd64 Microsoft Windows International Core... neutral | InputLocale: **es-ES**, SystemLocale: **es-ES**, UILanguage: **es-ES**, UserLocale: **es-ES** |
+| amd64 Microsoft International Core / SetupUILanguage | UILanguage: **es-ES**, WillShowUI: **OnError** |
+| amd64 Windows Setup / DiskConfiguration | WillShowUI: **OnError** |
+| amd64 Windows Setup / DiskConfiguration / Disk | DiskID: **0**, WillWipeDisk: **true** |
+| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: **1**, Size: **200**, Type: **primary** |
+| amd64 Windows Setup / DiskConfiguration / Disk / CreatePartitions / CreatePartition | Order: **2**, Type: **primary** |
+| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Active: **true**, Format: **NTFS**, label: **System**, Order: **1**, PartitionID: **1** |
+| amd64 Windows Setup / DiskConfiguration / Disk / ModifyPartitions / ModifyPartition | Extend: **true**, Format: **NTFS**, label: **Windows7**, Letter: **C**, Order: **2**, PartitionID: **2** |
+| amd Windows Setup / ImageInstall / OSImage | InstallToAvailablePartition: false, WillShowUI: **OnError** |
+| amd64 Windows Setup / ImageInstall / OSImage / InstallTo| DiskID: **0**, PartitionID: **2** |
+| amd64 Windows Setup / ImageInstall / OSImage / InstallFrom / MetaData | key: **/IMAGE/NAME**, Value: **Windows 7 ENTERPRISE** |
+| amd64 Windows Setup / UserData| AcceptEULA: **true**, FullName: **DemoUser**, Organization: **Contoso** |
+| amd64 Windows Setup / UserData / ProductKey | Key: _(serial de producto)_, WillShowUI: **OnError** |
 
 > * En el apartado `amd64 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
@@ -96,17 +96,17 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 
 | Componente | Parámetros |
 | :--------- | :--------- |
-| amd64 Shell Setup | RegisteredOrganization: Contoso, RegisteredOwner: DemoUSer, TimeZone: (Usar salida del comando "tzutil /g") |
-| amd64 Shell Setup / OOBE | HideEULAPage: true, NetworkLocation: Home |
-| amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: Administrador, DisplayName: DemoUser, Group: administrators, Name: DemoUser |
-| amd64 Shell Setup / OEMInformation | HelpCustomized: false, Manufacturer: Contoso, SupportHours: 24/7, SupportURL: geeks.ms/blogs/checho |
-| amd64 Microsoft Windows International Core... neutral | InputLocale: es-ES, SystemLocale: es-ES, UILanguage: es-ES, UserLocale: es-ES |
+| amd64 Shell Setup | RegisteredOrganization: Contoso, RegisteredOwner: **DemoUser**, TimeZone: _(Usar salida del comando "tzutil /g")_ |
+| amd64 Shell Setup / OOBE | HideEULAPage: **true**, NetworkLocation: **Home** |
+| amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: **Administrador**, DisplayName: **DemoUser**, Group: **administrators**, Name: **DemoUser** |
+| amd64 Shell Setup / OEMInformation | HelpCustomized: **false**, Manufacturer: **Contoso**, SupportHours: **24/7**, SupportURL: **geeks.ms/blogs/checho** |
+| amd64 Microsoft Windows International Core... neutral | InputLocale: **es-ES**, SystemLocale: **es-ES**, UILanguage: **es-ES**, UserLocale: **es-ES** |
 
 * Agregar el siguiente componentes al ciclo **specialize**.
 
 | Componente | Parámetros |
 | :--------- | :--------- |
-| amd64 Shell Setup | ComputerName: DemoPC |
+| amd64 Shell Setup | ComputerName: **1er-apellido-alumnoXXw** |
 
 ## 3.3 Validar y guardar respuestas
 
