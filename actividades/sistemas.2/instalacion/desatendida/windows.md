@@ -4,12 +4,14 @@ Curso           : 201718, 201819
 Software        : WAIK, Windows 7 ENTERPRISE
 Tiempo estimado : 4 horas
 ```
+---
 
 # Instalación desatendida de Windows 7
 
-Vamos a crear instalación desatendida para SO Windows 7. Entregar:
-* Informe/imágenes/vídeo (a elegir) de los pasos realizados.
-* Fichero `autounattend.xml`.
+* **Objetivo:** Crear instalación desatendida para SO Windows 7.
+* **Entregar:**
+    * Informe/imágenes/vídeo (a elegir) de los pasos realizados.
+    * Fichero `autounattend.xml`.
 
 ---
 
@@ -22,21 +24,20 @@ Enlaces de interés:
 Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
 El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `autounattend.xml`.
 
-Requisitos:
-* ISO de Windows 7.
-* La herramienta WAIK "Kit de instalación Automatizada de Windows 7".
-
 ---
 
 # 2. Instalar WAIK
 
 ## 2.1 Copiar ficheros
 
+Ir a la máquina real.
+* Descargar la ISO de Windows 7.
+Ir a una máquina virtual con Windows.
 * Crear la carpeta `C:\W7`.
 * Montar la ISO Windows 7 de 64 bits en la unidad CD de la MV
 * Copiar el contenido de la unidad de CD a la carpeta `C:\W7`.
 
-## 2.2 Descargar e Instalar WAIK
+## 2.2 WAIK: Descargar e Instalar
 
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.

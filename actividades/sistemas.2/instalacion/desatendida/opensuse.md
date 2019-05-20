@@ -4,11 +4,16 @@ Curso           : 201819, 201718
 Software        : OpenSUSE Leap 15.0
 Tiempo estimado : 4 horas
 ```
+---
 
 # Instalación desatendida
 
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
 de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
+
+Entregar:
+* Informe, capturas de imágenes o vídeo.
+* Entregar XML utilizado.
 
 ---
 

@@ -4,12 +4,17 @@ Curso           : 201718
 Software        : Ubuntu o Debian
 Tiempo estimado :
 ```
+---
 
 # Instalación desatendida con Ubuntu usando KickStart
 
 Enlaces de interés:
 * Ver [vídeo](https://youtu.be/i2uUIux6_l8)
 * [Tutorial kickstart](https://sites.google.com/site/ssoounattended/proyectos/instalacion-desatendida-de-ubuntu-desktop-14-04-utilizando-kickstart)
+
+Entregar:
+* Informe, capturas de imágenes o vídeo.
+* Entregar XML utilizado.
 
 ---
 
@@ -69,7 +74,7 @@ Usar la herramienta Kickstart para crear el archivo de respuestas.
 
 # 4. Crear nueva ISO y comprobar
 
-* Usar `isomaster` para 
+* Usar `isomaster` para
     * Guardar el fichero `ks.cfg` dentro de la ISO (En el directorio raíz de la ISO).
     * Crear la nueva ISO personalizada.
 * Comprobar la nueva ISO para instalar una nueva MV.
