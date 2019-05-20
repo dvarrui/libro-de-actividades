@@ -4,6 +4,7 @@ Curso             : 201819
 SSOO              : Windows Server (2008, 2012)
 Duración estimada : 8-10 horas
 ```
+---
 
 # 1. Políticas o directivas de grupo
 

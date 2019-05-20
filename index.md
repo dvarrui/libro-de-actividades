@@ -1,19 +1,8 @@
 # Índice de actividades
 
-`Fecha UM: 2019-04-18 12:32:44 +0100`
+`Fecha UM: 2019-05-20 19:51:34 +0100`
 
-* [hardware](actividades/hardware) 13
-    * [almacenamiento](actividades/hardware/almacenamiento) 11
-        * [iscsi-opensuse.md](actividades/hardware/almacenamiento/iscsi-opensuse.md)
-        * [iscsi-windows.md](actividades/hardware/almacenamiento/iscsi-windows.md)
-        * [iscsi-ws2008.md](actividades/hardware/almacenamiento/iscsi-ws2008.md)
-        * [nas-freenas.md](actividades/hardware/almacenamiento/nas-freenas.md)
-        * [nas-omv.md](actividades/hardware/almacenamiento/nas-omv.md)
-        * [nas-opensuse.md](actividades/hardware/almacenamiento/nas-opensuse.md)
-        * [nas-otros.md](actividades/hardware/almacenamiento/nas-otros.md)
-        * [nube-debian.md](actividades/hardware/almacenamiento/nube-debian.md)
-        * [nube-opensuse132.md](actividades/hardware/almacenamiento/nube-opensuse132.md)
-        * [nube.md](actividades/hardware/almacenamiento/nube.md)
+* [hardware](actividades/hardware) 15
     * [bios](actividades/hardware/bios) 1
         * [enlaces-de-interes.md](actividades/hardware/bios/enlaces-de-interes.md)
     * [clonar](actividades/hardware/clonar) 7
@@ -32,15 +21,31 @@
     * [intro](actividades/hardware/intro) 2
         * [arquitectura-von-neumann.md](actividades/hardware/intro/arquitectura-von-neumann.md)
         * [unidades-de-medida.md](actividades/hardware/intro/unidades-de-medida.md)
+    * [iscsi](actividades/hardware/iscsi) 4
+        * [iscsi-opensuse.md](actividades/hardware/iscsi/iscsi-opensuse.md)
+        * [iscsi-windows.md](actividades/hardware/iscsi/iscsi-windows.md)
+        * [iscsi-ws2008.md](actividades/hardware/iscsi/iscsi-ws2008.md)
     * [monitorizar](actividades/hardware/monitorizar) 2
         * [rendimiento-hardware.md](actividades/hardware/monitorizar/rendimiento-hardware.md)
         * [windows-rendimiento.md](actividades/hardware/monitorizar/windows-rendimiento.md)
+    * [nas](actividades/hardware/nas) 5
+        * [freenas.md](actividades/hardware/nas/freenas.md)
+        * [omv.md](actividades/hardware/nas/omv.md)
+        * [opensuse.md](actividades/hardware/nas/opensuse.md)
+        * [otros.md](actividades/hardware/nas/otros.md)
+    * [nube](actividades/hardware/nube) 5
+        * [nube-debian.md](actividades/hardware/nube/nube-debian.md)
+        * [nube-opensuse132.md](actividades/hardware/nube/nube-opensuse132.md)
+        * [nube-owncloud.md](actividades/hardware/nube/nube-owncloud.md)
+        * [nube.md](actividades/hardware/nube/nube.md)
     * [presupuesto](actividades/hardware/presupuesto) 2
         * [presupuesto-1-pc.md](actividades/hardware/presupuesto/presupuesto-1-pc.md)
         * [presupuesto-2-pc.md](actividades/hardware/presupuesto/presupuesto-2-pc.md)
-    * [rbpi](actividades/hardware/rbpi) 2
+    * [rbpi](actividades/hardware/rbpi) 4
         * [rbpi-en-red.md](actividades/hardware/rbpi/rbpi-en-red.md)
         * [rbpi3-ubuntu-server.md](actividades/hardware/rbpi/rbpi3-ubuntu-server.md)
+        * [taller-1-raspberry.md](actividades/hardware/rbpi/taller-1-raspberry.md)
+        * [taller-5-encender-led.md](actividades/hardware/rbpi/taller-5-encender-led.md)
     * [simulador](actividades/hardware/simulador) 3
         * [ayuda.md](actividades/hardware/simulador/ayuda.md)
         * [multiplicar-y-sumar.md](actividades/hardware/simulador/multiplicar-y-sumar.md)
@@ -53,16 +58,14 @@
             * [objects](actividades/hardware/software/godot.1/objects) 7
             * [player](actividades/hardware/software/godot.1/player) 4
         * [godot1.md](actividades/hardware/software/godot1.md)
-    * [taller](actividades/hardware/taller) 9
+    * [taller](actividades/hardware/taller) 7
         * [cpd-1-desmontar-y-montar.md](actividades/hardware/taller/cpd-1-desmontar-y-montar.md)
         * [nintendo-data-to-pc.md](actividades/hardware/taller/nintendo-data-to-pc.md)
         * [taller-1-desmontar-y-montar.md](actividades/hardware/taller/taller-1-desmontar-y-montar.md)
-        * [taller-1-raspberry.md](actividades/hardware/taller/taller-1-raspberry.md)
         * [taller-2-desmontar-y-montar.md](actividades/hardware/taller/taller-2-desmontar-y-montar.md)
         * [taller-2-mejorar.md](actividades/hardware/taller/taller-2-mejorar.md)
         * [taller-3-trastadas.md](actividades/hardware/taller/taller-3-trastadas.md)
         * [taller-4-simplificar.md](actividades/hardware/taller/taller-4-simplificar.md)
-        * [taller-5-encender-led.md](actividades/hardware/taller/taller-5-encender-led.md)
 * [sistemas.2](actividades/sistemas.2) 13
     * [aplicaciones](actividades/sistemas.2/aplicaciones) 7
         * [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md)
@@ -152,9 +155,10 @@
         * [ldap-server-debian.md](actividades/sistemas.3/ldap/ldap-server-debian.md)
     * [nfs](actividades/sistemas.3/nfs) 2
         * [README.md](actividades/sistemas.3/nfs/README.md)
-    * [procesos](actividades/sistemas.3/procesos) 3
+    * [procesos](actividades/sistemas.3/procesos) 4
         * [limitar.md](actividades/sistemas.3/procesos/limitar.md)
         * [presentacion.md](actividades/sistemas.3/procesos/presentacion.md)
+        * [systemd.md](actividades/sistemas.3/procesos/systemd.md)
         * [tareas-programadas.md](actividades/sistemas.3/procesos/tareas-programadas.md)
     * [proyecto](actividades/sistemas.3/proyecto) 1
         * [trim1.md](actividades/sistemas.3/proyecto/trim1.md)
