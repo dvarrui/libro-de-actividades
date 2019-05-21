@@ -64,7 +64,7 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 
 Elegir una de las siguientes formas para la instalación desatendida.
 * **USB** - Fichero de control en USB
-    * Copiamos el fichero en un pendrive y al instalar el sistema operativo.
+    * Copiamos el fichero en un pendrive para usarlo más adelante.
 * **ISO** - Fichero de control dentro de la propia ISO.
     * Iniciamos un programa para modificar ficheros ISO(Por ejemplo `isomaster`).
     * Abrimos el fichero ISO de OpenSUSE.
@@ -91,10 +91,12 @@ para que se accesible a través de la red. El fichero tendrá el nombre `nombre_
 * Completamos `Boot Options` para iniciar el proceso de instalación desatendida.
 
 Elegiremos una de las siguientes formas para localizar el fichero XML.
-* **USB** - Fichero de control en USB
+* **USB**
+    * Ponemos pendrive con el fichero de control XML.
     * En opciones de arranque ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
     * OJO que son 3 barras seguidas después de los dos puntos.
-* **ISO** - Fichero de control dentro de la propia ISO
+* **ISO**
+   * Iniciar MV con la ISO que tiene el fchero de control dentro.
    * En opciones de arranque ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
    * OJO que son 3 barras seguidas después de los dos puntos.
 
