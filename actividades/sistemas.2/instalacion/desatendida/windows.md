@@ -8,27 +8,24 @@ Tiempo estimado : 4 horas
 
 # Instalación desatendida de Windows 7
 
-* **Objetivo:** Crear instalación desatendida para SO Windows 7.
-* **Entregar:**
-    * Informe/imágenes/vídeo (a elegir) de los pasos realizados.
-    * Fichero `autounattend.xml`.
+**Objetivo:** Crear instalación desatendida para SO Windows 7.
 
----
+> Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
+El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `autounattend.xml`.
 
-# 1. Introducción
+**Entregar:**
+* Informe/imágenes/vídeo (a elegir) de los pasos realizados.
+* Fichero `autounattend.xml`.
 
-Enlaces de interés:
+**Enlaces de interés:**
 * [Instalación desatendida Windows7 - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
 * [Instalación desatendida Windows7 - David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
 
-Vamos a crear una imagen ISO de windows 7 con instalación desatendida.
-El sistema operativo se instalará en la máquina sin necesidad de que un usuario supervise la instalación ya que todos los parámetros configurables son configuradas anteriormente en un archivo que incluiremos en la ISO llamado `autounattend.xml`.
-
 ---
 
-# 2. Instalar WAIK
+# 1. Instalar WAIK
 
-## 2.1 Copiar ficheros
+## 1.1 Copiar ficheros
 
 Ir a la máquina real.
 * Descargar la ISO de Windows 7.
@@ -37,7 +34,7 @@ Ir a una máquina virtual con Windows.
 * Montar la ISO Windows 7 de 64 bits en la unidad CD de la MV
 * Copiar el contenido de la unidad de CD a la carpeta `C:\W7`.
 
-## 2.2 WAIK: Descargar e Instalar
+## 1.2 WAIK: Descargar e Instalar
 
 * Descargar el [Kit de instalación automatizada de Windows (AIK) para Windows 7](https://www.microsoft.com/es-es/download/details.aspx?id=5753)
 * Instalamos la herramienta WAIK.
@@ -45,9 +42,9 @@ Ir a una máquina virtual con Windows.
 
 ---
 
-# 3. Crear fichero de respuestas
+# 2. Crear fichero de respuestas
 
-## 3.1 Abrir el archivo de catálogo
+## 2.1 Abrir el archivo de catálogo
 
 Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se puede y no se puede hacer dentro de la imagen seleccionada de Windows 7.
 
@@ -57,7 +54,7 @@ Ahora deberemos crear un catálogo que es el que nos dirá que tiene, que se pue
     * OJO: Elegir la versión de Windows 7 para la que queremos crear el archivo de autorespuesta. Debe corresponder con la versión de la ISO que usamos inicialemente (Apartado 2.1).
 * Nos saldrá en la esquina inferior izquierda una lista que podemos desplegar con diferentes componentes y paquetes.
 
-## 3.2 Crear el archivo de respuestas (autounattend.xml)
+## 2.2 Crear el archivo de respuestas (autounattend.xml)
 
 * Crear el archivo de autorespuesta que configuraremos a continuación.
 Ir a `Archivo -> Nuevo archivo de respuesta`.
@@ -91,16 +88,14 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 > * En el apartado `amd64 Shell Setup` encontraremos los componentes para configurar OOBE, cuentas de usuario, y OEM Information.
 > * ZONA HORARIA: Para conocer nuestra zona horaria tan sólo tenemos que abrir una consola de comandos (`Inicio -> Ejecutar -> CMD`) y escribir el comando `tzutil /g`. El texto que se muestre lo escribiremos en el archivo de respuestas.
 
-* Agregar componente `Windows Setup -> LocalAccount`
-    * Name: nombre-del-alumno
 * Agregar los siguientes componentes al ciclo **oobeSystem**.
 
 | Componente | Parámetros |
 | :--------- | :--------- |
 | amd64 Shell Setup | RegisteredOrganization: Contoso, RegisteredOwner: **DemoUser**, TimeZone: _(Usar salida del comando "tzutil /g")_ |
 | amd64 Shell Setup / OOBE | HideEULAPage: **true**, NetworkLocation: **Home** |
-| amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: **Administrador**, DisplayName: **DemoUser**, Group: **administrators**, Name: **DemoUser** |
-| amd64 Shell Setup / OEMInformation | HelpCustomized: **false**, Manufacturer: **Contoso**, SupportHours: **24/7**, SupportURL: **geeks.ms/blogs/checho** |
+| amd64 Shell Setup / UserAccount / LocalAccounts / LocalAccount | Description: **Administrador**, DisplayName: **alumnoXX**, Group: **administrators**, Name: **alumnoXX** |
+| amd64 Shell Setup / OEMInformation | HelpCustomized: **false**, Manufacturer: **IES Puerto de la Cruz**, SupportHours: **24/7**, SupportURL: **www.iespuertodelacruz.es** |
 | amd64 Microsoft Windows International Core... neutral | InputLocale: **es-ES**, SystemLocale: **es-ES**, UILanguage: **es-ES**, UserLocale: **es-ES** |
 
 * Agregar el siguiente componentes al ciclo **specialize**.
@@ -109,14 +104,14 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 | :--------- | :--------- |
 | amd64 Shell Setup | ComputerName: **1er-apellido-alumnoXXw** |
 
-## 3.3 Validar y guardar respuestas
+## 2.3 Validar y guardar respuestas
 
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
 * Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 ---
 
-# 4. Configurar aplicaciones
+# 3. Configurar aplicaciones
 
 * Crear la carpeta `C:\W7\applications`. Dentro pondremos un programa de instalación MSI. Por ejemplo: Evince, o el que creamos en prácticas anteriores para Firefox, etc.
 * Para que la instalación automática de las aplicaciones que queramos al iniciarse el sistema después de su instalación deberemos agregar el componente:
@@ -131,14 +126,14 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 
 ---
 
-# 5. Validar y guardar
+# 4. Validar y guardar
 
 * Validar el archivo de respuesta. Ir a `herramientas -> validar archivo de respuesta`.
 * Guardar el archivo de respuesta `Archivo -> Guardar archivo de respuesta como`. Elegir la ruta `C:\W7\autounattend.xml`.
 
 ---
 
-# 6. Crear la ISO
+# 5. Crear la ISO
 
 Después de configurar esta última entrada en el archivo de respuesta, debemos compilar los archivos en una ISO para después grabarla en un DVD o memoria USB y poder usarla para su instalación en cualquier equipo.
 
@@ -149,7 +144,7 @@ Después de configurar esta última entrada en el archivo de respuesta, debemos 
 
 ---
 
-# 7. Comprobamos la ISO
+# 6. Comprobamos la ISO
 
 * Al terminar probamos a instalar el SO con la nueva ISO en una máquina virtual.
 * Si al iniciar la MV con la iso recién creada, aparece el error 225.
