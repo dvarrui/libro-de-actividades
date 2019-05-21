@@ -69,9 +69,12 @@ Ir a `Archivo -> Nuevo archivo de respuesta`.
 
 * Agregar los siguientes componentes al ciclo **windowsPE**.
 
-| Componente | Parámetros |
-| :--------- | :--------- |
-| amd64 Microsoft Windows International Core... neutral | InputLocale: **es-ES**, SystemLocale: **es-ES**, UILanguage: **es-ES**, UserLocale: **es-ES** |
+| Componente | Parámetro | Valor |
+| :--------- | :-------- | ----- |
+| amd64 Microsoft Windows International Core... neutral | InputLocale| **es-ES** |
+| | SystemLocale | **es-ES** |
+| | UILanguage | **es-ES** |
+| | UserLocale | **es-ES** |
 | amd64 Microsoft International Core / SetupUILanguage | UILanguage: **es-ES**, WillShowUI: **OnError** |
 | amd64 Windows Setup / DiskConfiguration | WillShowUI: **OnError** |
 | amd64 Windows Setup / DiskConfiguration / Disk | DiskID: **0**, WillWipeDisk: **true** |
