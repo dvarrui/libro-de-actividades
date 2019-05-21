@@ -6,7 +6,7 @@ Duración estimada : 8-10 horas
 ```
 ---
 
-# 1. Políticas o directivas de grupo
+# Políticas o directivas de grupo
 
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
@@ -21,9 +21,9 @@ Propuesta de rúbrica
 
 ---
 
-# 2. Aplicar directivas de Usuario
+# 1. Aplicar directivas de Usuario
 
-## 2.1 Crear las OU y GPO
+## 1.1 Crear las OU y GPO
 
 Realizar las siguientes tareas:
 
@@ -42,7 +42,7 @@ Realizar las siguientes tareas:
 * Dentro de la OU de los jedis crear la GPO `gpo_jediXX`.
 * Dentro de la OU de los siths crear la GPO `gpo_sithXX`.
 
-## 2.2 Personalizar cada GPO de forma diferente
+## 1.2 Personalizar cada GPO de forma diferente
 
 > **INFO**
 > Para editar configuraciones de Directiva de grupo:
@@ -65,7 +65,7 @@ Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para 
     * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
     * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
 
-## 2.3 Comprobar que se aplican las directivas
+## 1.3 Comprobar que se aplican las directivas
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
 * Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas. En algunos casos, después de definir una política, ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos de que este paso de activación se realice inmediatamente.
@@ -74,20 +74,11 @@ Al terminar de configurar las directivas, hacemos lo siguiente:
 
 ---
 
-# 3. Aplicar directiva de Equipo
-
-> Enlaces de interés
->
-> * Crear política de instalación para nuestro paquete MSI
->    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
->    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
-> * Crear y probar las directivas del siguiente enlace Windows Server 2008
->    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
-> *  [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
+# 2. Paquete MSI
 
 * IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
 
-## 3.1 Crear recurso compartido de red
+## 2.1 Crear recurso compartido de red
 
 Vamos a crear un recurso compartido de red para guardar los ficheros MSI y que se puedan compartir entre todos los equipos de nuestra red.
 
@@ -118,7 +109,7 @@ Permisos especiales                |                            | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
-## 3.2 Instalar en el servidor
+## 2.2 Instalar en el servidor
 
 > Si disponemos del paquete MSI nos saltamos este apartado.
 
@@ -131,7 +122,7 @@ Vamos a crear nuestro propio paquete de instalación MSI, y para ello necesitare
     * http://www.freewarefiles.com/downloads_counter.php?programid=52066
 * Una vez instalada la aplicación hemos de asignar permisos de acceso al recurso compartido de WinINSTALL al usuario `Administrador` en modo lectura.
 
-## 3.3 Crear paquete MSI
+## 2.3 Crear paquete MSI
 
 > Si disponemos del paquete MSI nos saltamos este apartado.
 
@@ -174,15 +165,30 @@ Este que puede durar varios minutos.
     * Eliminar el fichero firefox.exe que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
 
-## 3.4 Crear nueva GPO en el servidor
+---
+
+# 3. Aplicar directiva de Equipo
+
+> Enlaces de interés
+>
+> * Crear política de instalación para nuestro paquete MSI
+>    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
+>    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
+> * Crear y probar las directivas del siguiente enlace Windows Server 2008
+>    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
+> *  [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
+
+
+## 3.1 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
 * Crear las OU `maquinasXXc1819` y mover los equipos del dominio dentro de esta UO.
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
-* Editar la directiva. Ir a `Configuración del equipo -> Directivas -> Configuración de software`,
-un nuevo paquete de instalación de software de la aplicación.
+* Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
+    * Paquete de instalación de software de la aplicación.
     * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
     * Configurar la instalación del paquete en modo `Asignado`.
+    * Exigido: `Sí`.
 * En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
 
 > **ADVERTENCIAS**
@@ -200,7 +206,7 @@ actualizaciones de las directivas.
 * Capturar imagen del resumen de la configuración de cada una de la directiva creada
 (`Ir a directiva -> Configuración`).
 
-## 3.5 Comprobar desde los clientes
+## 3.2 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
 * Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
