@@ -1,10 +1,16 @@
 
+```
+Curso           : 201819, 201718
+Software        : SO Windows Server 2012/2008 y Windows 7
+Tiempo estimado :
+```
+---
+
 # 1. Servidor de actualizaciones WSUS
 
 ## 1.1 Teoría
 
-El mantenimiento de las actualizaciones de software es una necesidad constante.
-Si no mantienen los sistemas actualizados:
+El mantenimiento de las actualizaciones de software es una necesidad constante. Si no mantienen los sistemas actualizados:
 * Un atacante puede aprovechar las vulnerabilidades.
 * Aumenta el tiempo de inactividad de los PC's comprometidos.
 * La información de la empresa puede verse comprometida.
@@ -23,14 +29,9 @@ Funcionamiento de WSUS:
 
 > **Resumen:**
 >
-> * WSUS proporciona control a la hora de aprobar y distribuir actualizaciones
-de Microsoft entre sus ordenadores clientes.
-> * Un servidor WSUS puede copiar actualizaciones desde Microsoft y almacenarlas
-localmente. Entonces, los ordenadores clientes descargarán las actualizaciones
-desde su servidor WSUS en vez de descargarlas desde Microsoft a través de Internet.
-> * Para soportar organizaciones con muchas oficinas, los servidores WSUS de descarga
-pueden sincronizar actualizaciones, aprobaciones y opciones de configuración de
-los servidores WSUS de subida.
+> * WSUS proporciona control a la hora de aprobar y distribuir actualizaciones de Microsoft entre sus ordenadores clientes.
+> * Un servidor WSUS puede copiar actualizaciones desde Microsoft y almacenarlas localmente. Entonces, los ordenadores clientes descargarán las actualizaciones desde su servidor WSUS en vez de descargarlas desde Microsoft a través de Internet.
+> * Para soportar organizaciones con muchas oficinas, los servidores WSUS de descarga pueden sincronizar actualizaciones, aprobaciones y opciones de configuración de los servidores WSUS de subida.
 > * WSUS también requiere IIS.
 
 ## 1.2 Preparativos

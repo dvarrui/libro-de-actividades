@@ -1,6 +1,9 @@
 ```
-En construcción...
+Estado   : En construcción...
+Curso    :
+Software : SO Debian
 ```
+---
 
 # Servidor de actualizaciones (Debian)
 

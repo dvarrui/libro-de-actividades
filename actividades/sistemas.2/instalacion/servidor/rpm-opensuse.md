@@ -1,4 +1,11 @@
 
+```
+Curso           :
+Software        : SO OpenSUSE
+Tiempo estimado :
+```
+---
+
 # Crear nuestro paquete rpm en OpenSUSE
 
 Esta práctica está basada en el tutorial [Build rpm packages with the rpmbuild command](http://www.linuxintro.org/wiki/Build_rpm_packages_with_the_rpmbuild_command)

@@ -1,4 +1,11 @@
 
+```
+Curso           : 201819, 201718
+Software        : SO OpenSUSE Leap
+Tiempo estimado :
+```
+---
+
 # Servidor de actualizaciones con OpenSUSE
 
 Necesitaremos 2 MV:
@@ -49,7 +56,7 @@ archivos de los paquetes descargados.
 > INFO
 >
 > Si quisiéramos descargar un repositorio entero podriamos hacer `wget -r URL-DEL-REPOSITORIO`.
-> Este proceso tarda mucho tiempo y no lo vamos a hacer. 
+> Este proceso tarda mucho tiempo y no lo vamos a hacer.
 
 * Copiar toda la estructura de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro repositorio local.
     * Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
@@ -62,13 +69,11 @@ Ahora hay que convertir el directorio local en un repositorio. Para ello vamos a
 * Comprobamos el estado final de nuestro repositorio, `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`.
     * Se tiene que haber creado un subcarpeta `repodata` con ficheros xml dentro.
 
-Se pueden compartir los paquetes de este repositorio al resto de equipo de la red
-usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar
-el protocolo HTTP (Servidor Web).
+Se pueden compartir los paquetes de este repositorio al resto de equipo de la red usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar el protocolo HTTP (Servidor Web).
 
 ---
 
-# 3. Cliente del repositorio 
+# 3. Cliente del repositorio
 
 * Ir a otra MV OpenSUSE
 * Comprobar acceso:
