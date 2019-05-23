@@ -25,7 +25,7 @@ Es simple y fácil de usar para un usuario no experto.
 ## Instalar Open Media Vault.
 
 * Nombre de máquina: `openmediavaultXX`
-* Dominio: `curso1718`
+* Dominio: `curso1819`
 * Elegir el disco1 (sda) para instalar el sistema operativo.
 * Al terminar la instalación se nos muestra la IP del NAS.
     * Apuntar la IP del NAS.
