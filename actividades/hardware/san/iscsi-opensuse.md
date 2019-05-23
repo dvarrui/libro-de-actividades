@@ -1,7 +1,14 @@
 
+```
+Curso          : 201819, 201718
+Software       : SO OpenSUSE
+Tiempo estimado: 7 horas
+```
+---
+
 # iSCSI en OpenSUSE
 
-Vamos a montar un iSCSI sin autenticación, con dos máquinas GNU/Linux OpenSUSE.
+Vamos a montar un iSCSI sin autenticación, usando dos máquinas GNU/Linux OpenSUSE.
 
 ---
 
@@ -10,26 +17,28 @@ Vamos a montar un iSCSI sin autenticación, con dos máquinas GNU/Linux OpenSUSE
 Vamos a montar la práctica de iSCSI con GNU/Linux OpenSUSE.
 
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
-* MV1: Esta MV actuará de `Initiator`.
+* MV1: Actuará de `Initiator`.
     * SSOO OpenSUSE Leap
     * Hostname `initiatorXXg`.
     * Con dos interfaces de red.
-    * Una en modo puente (172.19.XX.31)
-    * y la otra en red interna (192.168.XX.31) con nombre `san`. Este interfaz NO tieneº gateway.
-* MV2: Esta MV actuará de `Target`.
+    * Una en modo puente (172.AA.XX.31)
+    * y la otra en red interna (192.168.XX.31) con nombre `san`. Este interfaz NO tiene gateway.
+* MV2: Actuará de `Target`.
     * SSOO OpenSUSE Leap
     * Hostname `targetXXg`.
     * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
-    * Este interfaz tiene como gateway 192.168.XX.31.
+    * Este interfaz tiene como gateway a 192.168.XX.31.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
 
-> Como vamos a necesitar acceso a los repositorios de Internet en el Target
+**Acceso a Internet desde el Target**
+
+Como vamos a necesitar acceso a los repositorios de Internet en el Target
 para instalar el software, podemos hacerlo de varias formas:
-> * (a) Poner el interfaz de red temporalmente en puente y DHCP, instalar y cambiar.
-> * (b) Poner temporalmente un 2º interfaz puente y DHCP para instalar y luego lo desactivamos.
-> * (c) Activar/configurar enrutamiento en el Initiator. Esto es más complejo.
+* (a) Poner temporalmente un 2º interfaz puente y DHCP para instalar y luego lo desactivamos. Es sencillo y rápido para nuestro entorno de aprendizaje.
+* (b) Poner el interfaz de red temporalmente en puente y DHCP, instalar y cambiar.
+* (c) Activar/configurar enrutamiento y NAT en el Initiator. Esto es más complejo, pero más profesional.
 
 ---
 
@@ -49,8 +58,7 @@ Donde:
 * `YYYY-MM` es la fecha de alta del dominio de la organización para la que estamos
 configurando el equipo.
 * A continuación debe figurar el nombre del dominio invertido.
-* Después de ":", un identificador del almacenamiento, que podemos ponerlo a nuestro gusto, y que
-puede en muchos casos brindar información del target.
+* Después de ":", un identificador del almacenamiento, que podemos ponerlo a nuestro gusto, y que puede en muchos casos brindar información del target.
 
 Ejemlos válidos serían: `iqn.2005-02.au.com.empresa:san.200G.samba`, `iqn.2017-05.curso1617.target42:test`.
 
