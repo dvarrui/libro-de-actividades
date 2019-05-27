@@ -10,19 +10,15 @@ Tiempo estimado :
 
 ## 1.1 Teoría
 
-El mantenimiento de las actualizaciones de software es una necesidad constante. Si no mantienen los sistemas actualizados:
+Inconvenientes de no tener nuestros sistemas actualizados:
 * Un atacante puede aprovechar las vulnerabilidades.
 * Aumenta el tiempo de inactividad de los PC's comprometidos.
 * La información de la empresa puede verse comprometida.
 
-El servidor WSUS almacena y distribuye las actualizaciones de software MS,
-consiguiendo:
+Ventajas de tener un servidor WSUS que almacena y distribuye las actualizaciones de software MS:
 * Reducción del consumo del ancho de banda WAN.
 * Mejora de los tiempos de actualización global.
 * Mayor control de las actualizaciones que se desean.
-
-Los servidores de instalación son la solución para ayudar a distribuir las actualizaciones
-Funcionamiento de WSUS:
 * Servidor pone las actualizaciones disponibles a los clientes.
 * El administrador del servidor aprueba y prioriza las actualizaciones.
 * El cliente se conecta a WSUS e instala los paquetes usando Windows update.
@@ -38,6 +34,7 @@ Funcionamiento de WSUS:
 
 Vamos a necesitar 2 MVs.
 * 1 MV Window Server 2012 (No es necesario que sea PDC). [Configurar](../../../global/configuracion/windows-server.md) como se indica.
+    * Añadir una disco extra de 10 GB y configurarlo en la unidad E:.
 * 1 MV Windows 7. [Configurar](../../../global/configuracion/windows.md) como se indica.
 
 ---
@@ -48,17 +45,12 @@ Vamos a la MV con Windows Server.
 
 ## 2.1 Teoría
 
-Tener en cuenta que:
+Consideraciones a tener en cuenta:
 * NO es necesario tener un Active Directory para montar el servicio WSUS.
-* Necesitamos 1 servidor WSUS por cada 10 PC's.
-* Servidor WSUS se conecta vía HTTP/HTTPS con el exterior.
-* IIS en WSUS para que se conecten los clientes.
+* Servidor WSUS se conecta vía HTTP/HTTPS con el exterior. Se usa IIS en WSUS para que se conecten los clientes.
 * Se requiere al menos 6GB de disco duro parfa almacenar las actualizaciones.
 * Tendremos que hacer copias de seguridad de la BBDD de WSUS periódicamente.
-* En caso de fallo disponemos de 1 semana para reemplazar el servidor.
-
-Consideraciones a tener en cuenta a la hora de configurar servidor:
-
+* Necesitamos 1 servidor WSUS por cada 10 PC's. En caso de fallo disponemos de 1 semana para reemplazar el servidor.
 * Podremos usar como fuente origen de las actualizaciones a los servidor
  de Microsoft u otros servidores WSUS.
 * La base de datos que guarda la información, la podemos tener en
@@ -67,10 +59,10 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf (WS2008) o montar un SQL-Server.
 
 ## 2.2 Instalación del servidor
 
-Enlaces de interés:
-* [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
-* [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
-* [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
+> Enlaces de interés:
+> * [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
+> * [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
+> * [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
 
 Ir a la MV Windows Server.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
@@ -86,7 +78,7 @@ ir a la configuración de WSUS.
 
 Configurar servidor WSUS con los siguientes parámetros:
 * No usar base de datos.
-* Almacenar actualizaciones en `C:\Actualizaciones`.
+* Almacenar actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
 selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
@@ -107,9 +99,7 @@ servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
 * Asegurarnos en `Administración -> Servicios` que el servicio WSUS tiene
 configurado inicio automático al arrancar la máquina.
 
-> Consultar configuración del WSUS en el servidor.
-> * Navegador URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo
-`iuident.txt` que nos muestra la configuración del WSUS en el servidor.
+> NOTA: Podemos consultar configuración del WSUS en el servidor, abriendo un navegador con el URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo `iuident.txt` que nos muestra la configuración del WSUS en el servidor.
 
 ---
 
@@ -119,13 +109,11 @@ Vamos a una MV Windows 7.
 
 ## 3.1 Teoría
 
-Tener en cuenta que:
-* Sistemas operativos clientes pueden ser W2K, WXP, WVista, WS2K3 y WS2K8.
-* Los clientes se conectan vía HTTP con el servidor WSUS.
-* Cliente Windows Update usa la firma digital y HASH (SHA1) para comprobar
-la autenticidad. En WXP y W2K se usa "cliente de actualizaciones automáticas".
-* Se pueden usar directivas de grupo para distribuir la configuración de
-la organización ( `Conf Eq. > Direct > Plant. Admin. > Componen > Win Update`)
+> Tener en cuenta que:
+> * Sistemas operativos clientes pueden ser W2K, WXP, WVista, WS2K3 y WS2K8.
+> * Los clientes se conectan vía HTTP con el servidor WSUS.
+> * Cliente Windows Update usa la firma digital y HASH (SHA1) para comprobar la autenticidad. En WXP y W2K se usa "cliente de actualizaciones automáticas".
+> * Se pueden usar directivas de grupo para distribuir la configuración de la organización ( `Conf Eq. > Direct > Plant. Admin. > Componen > Win Update`)
 
 Parámetros de configuración en el cliente:
 * Máquina Servidor WSUS

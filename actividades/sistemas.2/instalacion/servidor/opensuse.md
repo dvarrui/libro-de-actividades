@@ -2,7 +2,7 @@
 ```
 Curso           : 201819, 201718
 Software        : SO OpenSUSE Leap
-Tiempo estimado :
+Tiempo estimado : 5 horas
 ```
 ---
 
@@ -85,19 +85,19 @@ Vamos a añadir nuestro repositorio a esta MV.
 * Ir a `Yast -> Repositorios`
 * Añadir nuevo repositorio.
 * Seleccionar: HTTP y Descargar archivos de descripción de repositorio
-* Nombre de repositorio: `repo-nombre-alumnoXX`
+* Nombre de repositorio: `nombre-alumnoXX`
 * URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
 * Autenticación: Anónimo
 * Hacer captura de la lista de repositorios actual. Para ver todos los que tenemos habilitados al inicio.
 * Deshabilitar todos los repositorios.
-* Habilitar sólo el `repo-nombre-alumnoXX`
+* Habilitar sólo el `nombre-alumnoXX`
 * Aceptar y cerrar Yast.
 
 ---
 
 # 4. Comprobamos el repositorio desde el cliente
 
-* `cat /etc/zypp/repos.d/repo-nombre-alumnoXX.repo`, comprobamos que la configuración
+* `cat /etc/zypp/repos.d/nombre-alumnoXX.repo`, comprobamos que la configuración
 del repositorio nuevo está en este fichero de texto.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio.
@@ -108,5 +108,5 @@ del repositorio nuevo está en este fichero de texto.
 # ANEXO
 
 > Podríamos haber hecho el paso anterior por comandos
-> * Creando el fichero `/etc/zypp/repo.d/repo-nombre-alumnoXX.repo`
+> * Creando el fichero `/etc/zypp/repo.d/nombre-alumnoXX.repo`
 > * `zypper addrepo http://hostname/repo alias`
