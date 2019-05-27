@@ -21,7 +21,7 @@ Ventajas de tener un servidor WSUS que almacena y distribuye las actualizaciones
 * Mayor control de las actualizaciones que se desean.
 * Servidor pone las actualizaciones disponibles a los clientes.
 * El administrador del servidor aprueba y prioriza las actualizaciones.
-* El cliente se conecta a WSUS e instala los paquetes usando Windows update.
+* El cliente se conecta a WSUS e instala los paquetes usando Windows Update.
 
 > **Resumen:**
 >
@@ -48,7 +48,7 @@ Vamos a la MV con Windows Server.
 Consideraciones a tener en cuenta:
 * NO es necesario tener un Active Directory para montar el servicio WSUS.
 * Servidor WSUS se conecta vía HTTP/HTTPS con el exterior. Se usa IIS en WSUS para que se conecten los clientes.
-* Se requiere al menos 6GB de disco duro parfa almacenar las actualizaciones.
+* Se requiere al menos 6GB de disco duro para almacenar las actualizaciones.
 * Tendremos que hacer copias de seguridad de la BBDD de WSUS periódicamente.
 * Necesitamos 1 servidor WSUS por cada 10 PC's. En caso de fallo disponemos de 1 semana para reemplazar el servidor.
 * Podremos usar como fuente origen de las actualizaciones a los servidor
