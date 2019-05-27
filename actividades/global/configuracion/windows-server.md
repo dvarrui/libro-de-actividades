@@ -25,7 +25,7 @@ Configuración de la máquina Windows 2008 Server Enterprise (Instalación compl
 * Nombre de equipo: `primer-apellido-del-alumno+XXs`.
     * Por ejemplo: vargas30s.
     * El nombre NetBIOS sólo puede tener 16 caractéres.
-    * Si tenemos varias máquinas las llamaremos vargas30s, vargas30t, vargas30u, etc.
+    * Si tenemos varias máquinas las llamaremos vargas30s1, vargas30s2, vargas30s3, etc.
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 * Grupo de trabajo: `curso1516` (Modificar los números al curso actual)
