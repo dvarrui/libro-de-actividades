@@ -4,6 +4,18 @@ Curso           : 201819
 Software        : NextCloud, OpenSUSE Leap
 Tiempo estimado : 4 horas
 ```
+---
+
+# Nube de almacenamiento
+
+Propuesta de rúbrica:
+
+| Id | Criterio                      | Nivel 0 | Nivel 1 | Nivel 2 |
+| ----------------------------- | ------- | ------- | ------- |
+| C1 | Funcionamiento nube ajena ||||
+| C2 | Instalación de NextCloud  ||||
+| C3 | Comprobar acceso web      ||||
+| C4 | Desktop client            |||.|
 
 ---
 
