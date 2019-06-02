@@ -1,4 +1,13 @@
 
+```
+Curso           : 201819, 201817
+Software        : Windows 7/10 y OpenSUSE
+Tiempo estimado :
+Revisión        : Simplificar dejando los apartados más prácticos.
+                  O separarlo en dos actividades.
+```
+
+---
 # Instalar aplicaciones y actualizar el sistema (Windows + OpenSUSE)
 
 En esta actividad vamos a practicar diversas formas de realizar la instalación de aplicaciones en varios sistemas operativos, así como la forma de mantener nuestros sistemas actualizados.
