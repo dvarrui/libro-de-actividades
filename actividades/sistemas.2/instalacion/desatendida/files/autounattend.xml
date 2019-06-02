@@ -12,7 +12,6 @@
         </component>
         <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <DiskConfiguration>
-                <WillShowUI>OnError</WillShowUI>
                 <Disk wcm:action="add">
                     <CreatePartitions>
                         <CreatePartition wcm:action="add">
@@ -46,21 +45,22 @@
                     <DiskID>0</DiskID>
                     <WillWipeDisk>true</WillWipeDisk>
                 </Disk>
+                <WillShowUI>OnError</WillShowUI>
             </DiskConfiguration>
             <ImageInstall>
                 <OSImage>
-                    <InstallTo>
-                        <DiskID>0</DiskID>
-                        <PartitionID>2</PartitionID>
-                    </InstallTo>
-                    <InstallToAvailablePartition>false</InstallToAvailablePartition>
-                    <WillShowUI>OnError</WillShowUI>
                     <InstallFrom>
                         <MetaData wcm:action="add">
                             <Key>/IMAGE/NAME</Key>
                             <Value>Windows 7 ENTERPRISE</Value>
                         </MetaData>
                     </InstallFrom>
+                    <InstallTo>
+                        <DiskID>0</DiskID>
+                        <PartitionID>2</PartitionID>
+                    </InstallTo>
+                    <InstallToAvailablePartition>false</InstallToAvailablePartition>
+                    <WillShowUI>OnError</WillShowUI>
                 </OSImage>
             </ImageInstall>
             <UserData>
@@ -68,7 +68,7 @@
                     <WillShowUI>OnError</WillShowUI>
                 </ProductKey>
                 <AcceptEula>true</AcceptEula>
-                <FullName>DemoUSer</FullName>
+                <FullName>DemoUser</FullName>
                 <Organization>Contoso</Organization>
             </UserData>
         </component>
@@ -78,45 +78,39 @@
             <UserAccounts>
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
-                        <Name>aaron</Name>
+                        <Name>Aitor</Name>
                     </LocalAccount>
-                </LocalAccounts>
-            </UserAccounts>
-            <FirstLogonCommands>
-                <SynchronousCommand wcm:action="add">
-                    <CommandLine>C:\W7\applications\firefox</CommandLine>
-                    <Description>Navegador Mozilla Noche</Description>
-                    <Order>1</Order>
-                    <RequiresUserInput>false</RequiresUserInput>
-                </SynchronousCommand>
-            </FirstLogonCommands>
-        </component>
-        <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <OEMInformation>
-                <HelpCustomized>false</HelpCustomized>
-                <Manufacturer>Contoso</Manufacturer>
-                <SupportHours>24/7</SupportHours>
-                <SupportURL>geeks.ms/blogs/checho</SupportURL>
-            </OEMInformation>
-            <OOBE>
-                <HideEULAPage>true</HideEULAPage>
-                <NetworkLocation>Home</NetworkLocation>
-            </OOBE>
-            <UserAccounts>
-                <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Description>Administrador</Description>
-                        <DisplayName>DemoUSer</DisplayName>
+                        <DisplayName>DemoUser</DisplayName>
                         <Group>administrators</Group>
                         <Name>DemoUser</Name>
                     </LocalAccount>
                 </LocalAccounts>
             </UserAccounts>
             <RegisteredOrganization>Contoso</RegisteredOrganization>
-            <RegisteredOwner>DemoUSer</RegisteredOwner>
-            <TimeZone>GMT Standard Time</TimeZone>
+            <RegisteredOwner>DemoUser</RegisteredOwner>
+            <TimeZone>GMT Standard Time </TimeZone>
+            <OOBE>
+                <HideEULAPage>true</HideEULAPage>
+                <NetworkLocation>Home</NetworkLocation>
+            </OOBE>
+            <OEMInformation>
+                <HelpCustomized>false</HelpCustomized>
+                <Manufacturer>Contoso</Manufacturer>
+                <SupportHours>24/7</SupportHours>
+                <SupportURL>geeks.ms/blogs/checho</SupportURL>
+            </OEMInformation>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <CommandLine>C:\W7\applications\firefox26.msi</CommandLine>
+                    <Description>Navegador web firefox</Description>
+                    <Order>1</Order>
+                    <RequiresUserInput>false</RequiresUserInput>
+                </SynchronousCommand>
+            </FirstLogonCommands>
         </component>
-        <component name="Microsoft-Windows-International-Core" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <InputLocale>es-ES</InputLocale>
             <SystemLocale>es-ES</SystemLocale>
             <UILanguage>es-ES</UILanguage>
@@ -125,7 +119,7 @@
     </settings>
     <settings pass="specialize">
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <ComputerName>1er-apellidoXXw</ComputerName>
+            <ComputerName>DemoPC</ComputerName>
         </component>
     </settings>
     <cpi:offlineImage cpi:source="catalog:c:/w7/sources/install_windows 7 enterprise.clg" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
