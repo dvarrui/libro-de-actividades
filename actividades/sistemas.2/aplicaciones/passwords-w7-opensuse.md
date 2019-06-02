@@ -187,6 +187,11 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
+## A.1 Descifrando password encriptadas con shadow (md5 + salt)
+
+Descifrando password encriptadas con shadow (md5 + salt)
+
+https://blog.zerial.org/seguridad/descifrando-password-encriptadas-con-shadow-md5-salt/
 
 ## A.2 OpenSUSE 13.2. Usuarios de tipo sistema
 
