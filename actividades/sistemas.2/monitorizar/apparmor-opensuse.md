@@ -1,10 +1,14 @@
 
+```
+Curso           : 201819, 201718
+Software        : OpenSUSE Leap 15 y anteriormente OpenSUSE Leap 42.3.
+Tiempo estimado :
+```
+---
+
 # AppArmor (OpenSUSE)
 
 Para esta práctica vamos a usar una MV con SO OpenSUSE.
-
-> * Curso 201718 usamos OpenSUSE Leap 42.3.
-> * Curso 201819 usamos OpenSUSE Leap 15.
 
 Ejemplo de rúbrica:
 
@@ -169,3 +173,8 @@ En versiones antiguas se usaban estos otros comandos para gestionar el servicio:
 * rcapparmor start
 * rcapparmor stop
 * rcapparmor reload
+
+## A.2 Ideas para usar con Teuton
+
+* Revisar la fecha dentro del fichero perfil.
+* Crear dos comandos: uno complain y otro enforce.
