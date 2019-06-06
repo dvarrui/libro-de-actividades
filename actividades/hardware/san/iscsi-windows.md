@@ -42,7 +42,7 @@ El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows se
 Propuesta de rúbrica:
 
 | ID | Criterios                   | Nivel 2 | Nivel 1 | Nivel 0 |
-| -- | --------------------------- | | | |
+| -- | --------------------------- | ------- | ------- | ------- |
 | C1 | (3.4) Crear destino 1       | | | |
 | C2 | (4) Consumir almacenamiento | | | |
 
