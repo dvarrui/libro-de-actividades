@@ -43,6 +43,13 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
 Donde XX será el número correspondiente al puesto de cada alumno.
 
+Parámetros:
+
+| Parámetro     | Valor                    |
+| ------------- | ------------------------ |
+| IQN_INITIATOR | iqn.2019-06.initiatorXXw |
+| IQN_TARGET    | iqn.2019-06.targetXXw    |
+
 ---
 
 # 2. Iniciador: Configurar IQN
@@ -55,7 +62,7 @@ operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos
 
 Vamos a cambiar el identificador IQN de nuestro iniciador.
 * `Herramientas -> iSCSI Iniciador -> Configurar -> Identificador`
-* Poner como IQN lo siguiente: `iqn.2018-05.initiatorXXw`. Donde XX es el código del alumno.
+* Poner como IQN el valor de IQN_INITIATOR (Ver tabla).
 
 ---
 
@@ -79,7 +86,7 @@ En WS2008:
 
 Vamos a cambiar el identificador IQN de nuestra máquina.
 * `Herramientas -> iSCSI Iniciador -> Configurar -> Identificador`
-* Poner como IQN lo siguiente: `iqn.2019-06.targetXXw`. Donde XX es el código del alumno.
+* Poner como IQN el valor de IQN_TARGET (Ver tabla).
 
 ---
 
