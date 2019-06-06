@@ -58,8 +58,14 @@ Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/
         * Formatear en NTFS.
         * Le asignamos la letra E:.
 * Las IP's las pondremos todas estáticas.
-* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
-Donde XX será el número correspondiente al puesto de cada alumno.
+* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. Donde XX será el número correspondiente al puesto de cada alumno.
+
+Parámetros de la práctica
+
+| Parámetro     | Valor                    |
+| ------------- | ------------------------ |
+| IQN_INITIATOR | iqn.2019-06.initiatorXXw |
+| IQN_TARGET    | iqn.2019-06.targetXXw    |
 
 ---
 
@@ -71,7 +77,7 @@ operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos
 Vamos a cambiar el identificador IQN de nuestro iniciador.
 * Ir a MV iniciador.
 * `Herramientas -> iSCSI Iniciador -> Identificador`
-* Poner como IQN lo siguiente: `iqn.2019-06.initiatorXXw`. Donde XX es el código del alumno.
+* Poner como IQN el valor de IQN_INITIATOR (Ver tabla).
 
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
@@ -84,7 +90,7 @@ Vamos a cambiar el identificador IQN de nuestro iniciador.
 Vamos a cambiar el identificador IQN de nuestro target.
 * Ir a MV Target.
 * `Herramientas -> iSCSI Iniciador -> Identificador`
-* Poner como IQN lo siguiente: `iqn.2019-06.targetXXw`. Donde XX es el código del alumno.
+* Poner como IQN el valor IQN_TARGET (Ver tabla)
 
 ## 3.2 Instalación
 
@@ -113,7 +119,7 @@ Configuración destino iSCSI:
     * Nombre: `alumnoXXdestino01`
     * Descripción: `Destino01 - nombre del alumno y la fecha de hoy`
 * Servidor de Acceso
-    * IQN iniciador iSCSI
+    * IQN iniciador iSCSI (Ver tabla).
 * Servicio de autenticación: `NO HABILITAR`
 * Capturar imagen del resumen final de la configuración.
 
