@@ -83,11 +83,11 @@ En WS2008:
 Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
 
 * Creamos un nuevo destino iSCSI con:
-    * Nombre: `alumnoXXdisco01`.
+    * Nombre: `alumnoXXdestino01`.
     * Descripción: `Destino 1 - Nombre del alumno y la fecha de hoy`
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
         * El identificador IQN del initiator es la forma de identificar el equipo que tendrá permitido el uso del almacenamiento que estamos creando.
-* Identificador IQN para el target `iqn.2018-05.targetXXw:test`.
+* Identificador IQN para el target `iqn.2019-06.targetXXw:test`.
 
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
