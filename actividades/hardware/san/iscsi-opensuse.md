@@ -13,7 +13,7 @@ Vamos a montar un iSCSI sin autenticación, usando dos máquinas GNU/Linux OpenS
 Propuesta de rúbrica:
 
 | ID | Criterios                     | Nivel 2 | Nivel 1 | Nivel 0 |
-| -- | ----------------------------- | | | |
+| -- | ----------------------------- | ------- | ------- | ------- |
 | C1 | (4.3) Crear destino 1         | | | |
 | C2 | (5.3) Conectar a destino      | | | |
 | C3 | (5.4) Consumir almacenamiento | | | |
