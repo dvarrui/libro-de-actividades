@@ -2,7 +2,7 @@
 ```
 Curso           : 201819, 201718
 Software        : SO Windows Server 2012
-Tiempo estimado :
+Tiempo estimado : 5 horas
 ```
 ---
 
