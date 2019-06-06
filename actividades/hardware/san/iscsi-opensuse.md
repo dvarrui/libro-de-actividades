@@ -10,6 +10,14 @@ Tiempo estimado: 7 horas
 
 Vamos a montar un iSCSI sin autenticación, usando dos máquinas GNU/Linux OpenSUSE.
 
+Propuesta de rúbrica:
+
+| ID | Criterios                     | Nivel 2 | Nivel 1 | Nivel 0 |
+| -- | ----------------------------- | | | |
+| C1 | (4.3) Crear destino 1         | | | |
+| C2 | (5.3) Conectar a destino      | | | |
+| C3 | (5.4) Consumir almacenamiento | | | |
+
 ---
 
 # 1 Preparativos
@@ -131,7 +139,7 @@ Crear los dispositivos en el equipo target.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
 
-## 4.3 Instalar y configurar el Target
+## 4.3 Crear destino 1 (test)
 
 * Vamos a la máquina target.
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
@@ -142,7 +150,7 @@ Crear los dispositivos en el equipo target.
 * Global
     * Sin autenticación
 * Destinos(Dispositivos)
-    * Nombre `iqn.2017-05.targetXXg`.
+    * Nombre `iqn.2019-06.targetXXg`.
     * Identificador `test`
     * Seleccionar los LUN (dispositivos creados anteriormente)
         * `Lun 0 Path=/home/nombre-alumnoXXdisco01.img,Type=fileio`
@@ -180,7 +188,7 @@ Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciad
 
 # 5 Initiator
 
-Enlaces recomendados:
+Enlaces de interés:
 * [OpenSUSE - tutorail iSCSI Initiator con comandos](http://es.opensuse.org/iSCSI)
 * [OpenSUSE - iSCSI Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
 
@@ -240,15 +248,15 @@ Vamos a equipo Iniciador:
     * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdc`.
 * Guardar datos en el disco SAN.
 
+---
+
+# ANEXO
+
 > IDEAS para el futuro
 >
 > * Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
 > * Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
 > * Hacer configuraciones usando las autenticaciones de entrada y salida.
-
----
-
-# ANEXO
 
 ## A.1 Otros enlaces de interés Debian
 
