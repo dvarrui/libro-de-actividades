@@ -96,8 +96,6 @@ Los destinos (según las definiciones del protocolo iSCSI) es una definición de
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
         * El identificador IQN del initiator es la forma de identificar el equipo que tendrá permitido el uso del almacenamiento que estamos creando.
 
-> Identificador IQN para el target `iqn.2019-06.targetXXw:test`.
->
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
 ## 4.2 Crear un dispositivo
