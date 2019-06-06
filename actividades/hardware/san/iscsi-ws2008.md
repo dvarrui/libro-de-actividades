@@ -45,31 +45,28 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 ---
 
-# 2 Enlaces de interés
+# 2. Iniciador: Configurar IQN
 
-* Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
-* Cómo usar un TARGET hardware - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
-* INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
-
----
-
-# 3. Iniciador iSCSI
+> Enlace de interés:
+> * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
 
 Las máquinas que intervienen en iSCSI usan un identificador llamado IQN. Al instalar el sistema
 operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos a personalizar estos valores.
 
 Vamos a cambiar el identificador IQN de nuestro iniciador.
-* `Herramientas -> iSCSI Iniciador -> Identificador`
+* `Herramientas -> iSCSI Iniciador -> Configurar -> Identificador`
 * Poner como IQN lo siguiente: `iqn.2018-05.initiatorXXw`. Donde XX es el código del alumno.
 
 ---
 
-# 4. Target iSCSI
+# 3. Target: Instalación
 
-* Consultar este vídeo [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA) para darnos una idea
+> Enlaces de interés:
+> * Consultar este vídeo [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA) para darnos una idea
 de los pasos que vamos a realizar.
+> * Cómo usar un TARGET hardware - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
 
-## 4.1 Instalar el target
+## 3.1 Instalar el target
 
 En WS2008:
 * Hay que descargar el software iSCSI Target para instalar en Windows Server (Target).
@@ -78,10 +75,21 @@ En WS2008:
     * `C:\iSCSI_target\x64\instalar_target.msi`
 * Una vez instalado, vamos a `Herramientas administrativas -> iSCSI Target`
 
-## 4.2 Crear un destino
+## 3.2 Cambiar el identificador IQN 
+
+Vamos a cambiar el identificador IQN de nuestra máquina.
+* `Herramientas -> iSCSI Iniciador -> Configurar -> Identificador`
+* Poner como IQN lo siguiente: `iqn.2019-06.targetXXw`. Donde XX es el código del alumno.
+
+---
+
+# 4. Target: Crear destino y dispositivo 
+
+## 4.1 Crear un destino
 
 Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
 
+* Ir a la MV target.
 * Creamos un nuevo destino iSCSI con:
     * Nombre: `alumnoXXdestino01`.
     * Descripción: `Destino 1 - Nombre del alumno y la fecha de hoy`
@@ -92,7 +100,7 @@ Los destinos (según las definiciones del protocolo iSCSI) es una definición de
 >
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
-## 4.3 Crear un dispositivo
+## 4.2 Crear un dispositivo
 
 Ahora vamos a añadir discos al destino que hemos creado anteriormente.
 * Crear disco virtual para el destino iSCSI en `E:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
@@ -108,7 +116,7 @@ Ahora vamos a añadir discos al destino que hemos creado anteriormente.
 
 Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador.
 
-## 4.4 [OPCIONAL]: Crear destino a dispositivo disco
+## 4.3 [OPCIONAL]: Crear destino a dispositivo disco
 
 * Añadir otro disco a la MV VBox.
 * Crear otro destino iSCSI usando el tercer disco (800 MB) de la máquina target.
@@ -118,7 +126,9 @@ Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador
 
 ---
 
-# 5. Configurar Iniciador
+# 5. Iniciador: acceder al almacenamiento
+
+## 5.1 Configurar Iniciador
 
 * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
 * Vamos al iniciador. El software Iniciador ya viene preinstalado.
@@ -129,9 +139,7 @@ Sólo hay que configurarlo para conectar con el target.
 
 Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
----
-
-# 6. Comprobación final
+## 5.2 Comprobación final
 
 * Desde el Iniciador, montar el nuevo almacenamiento (Letras de unidad `F`, `G`, etc.).
 * Guardar varios ficheros en dichas unidades, de modo que la información que se guarde en ella
