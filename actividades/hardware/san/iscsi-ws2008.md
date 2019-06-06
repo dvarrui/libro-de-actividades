@@ -98,12 +98,13 @@ Ahora vamos a añadir discos al destino que hemos creado anteriormente.
 * Crear disco virtual para el destino iSCSI en `E:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
 * Asociar este dispositivo 1 con el destino 1.
 
-
-* `Dispositivo -> Botón derecho -> Acceso disco -> Montar`.
-* Vamos a `Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado) -> Nuevo volumen`. Le asignamos letra (`E:`) y le damos formato.
-* En este momento podemos guardar ficheros en la unidad `E:`
-* Desconectamos el disco.
-* Desmontamos el disco.
+> Comprobación en el target local
+>
+> * `Dispositivo -> Botón derecho -> Acceso disco -> Montar`.
+> * Vamos a `Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado) -> Nuevo volumen`. Le asignamos letra (`E:`) y le damos formato.
+> * En este momento podemos guardar ficheros en la unidad `E:`
+> * Desconectamos el disco.
+> * Desmontamos el disco.
 
 Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador.
 
