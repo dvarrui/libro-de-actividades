@@ -108,9 +108,10 @@ Ahora vamos a añadir discos al destino que hemos creado anteriormente.
 
 Ya tenemos el dispositivo de almacenamiento listo para usarlo desde el Iniciador.
 
-## 4.4 Crear un segundo destino
+## 4.4 [OPCIONAL]: Crear destino a dispositivo disco
 
-* Crear otro destino iSCSI usando el segundo disco (800 MB) de la máquina target.
+* Añadir otro disco a la MV VBox.
+* Crear otro destino iSCSI usando el tercer disco (800 MB) de la máquina target.
     * Nombre: `alumnoXXdisco02`.
     * Descripción: `Destino2 - Nombre del alumno y la fecha de hoy.`
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
