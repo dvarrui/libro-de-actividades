@@ -87,14 +87,15 @@ Los destinos (según las definiciones del protocolo iSCSI) es una definición de
     * Descripción: `Destino 1 - Nombre del alumno y la fecha de hoy`
     * Nombre IQN del iniciador o también en avanzado podremos poner la dirección IP del Iniciador.
         * El identificador IQN del initiator es la forma de identificar el equipo que tendrá permitido el uso del almacenamiento que estamos creando.
-* Identificador IQN para el target `iqn.2019-06.targetXXw:test`.
 
+> Identificador IQN para el target `iqn.2019-06.targetXXw:test`.
+>
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
 ## 4.3 Crear un dispositivo
 
 Ahora vamos a añadir discos al destino que hemos creado anteriormente.
-* Crear disco virtual para el destino iSCSI en `C:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
+* Crear disco virtual para el destino iSCSI en `E:\nombre-alumnoXXdisco01.vhd` de tamaño 600 MB.
 * `Dispositivo -> Botón derecho -> Acceso disco -> Montar`.
 * Vamos a `Administrador del Servidor -> Almacenamiento -> Disco1 (desconectado) -> Nuevo volumen`. Le asignamos letra (`E:`) y le damos formato.
 * En este momento podemos guardar ficheros en la unidad `E:`
