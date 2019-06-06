@@ -32,6 +32,11 @@ Sin embargo esto no excluye que un iniciador software se pueda conectar a un Tar
 El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, generalmente dedicadas en el host y en el guest.
 ```
 
+> Enlaces de interés orientados a Windows Server 2008:
+> * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
+> * Cómo usar un TARGET hardware - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-> global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
+> * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
+
 ---
 
 # 1 Preparativos
@@ -58,7 +63,7 @@ Donde XX será el número correspondiente al puesto de cada alumno.
 
 ---
 
-# 2. Iniciador iSCSI para WS2012
+# 2. Iniciador: cambiar IQN
 
 Las máquinas que intervienen en iSCSI usan un identificador llamado IQN. Al instalar el sistema
 operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos a personalizar estos valores.
@@ -66,13 +71,13 @@ operativo se pone un valor por defecto para el identificador IQN. Nosotros vamos
 Vamos a cambiar el identificador IQN de nuestro iniciador.
 * Ir a MV iniciador.
 * `Herramientas -> iSCSI Iniciador -> Identificador`
-* Poner como IQN lo siguiente: `iqn.2018-05.initiatorXXw`. Donde XX es el código del alumno.
+* Poner como IQN lo siguiente: `iqn.2019-06.initiatorXXw`. Donde XX es el código del alumno.
 
 > IMPORTANTE: El iniciador tiene 2 IP's, pero se comunica con el target usando el interfaz de red de la red interna.
 
 ---
 
-# 3. Target iSCSI para WS2012
+# 3. Target
 
 ## 3.1 Cambiar IQN
 
@@ -89,6 +94,8 @@ Vamos a cambiar el identificador IQN de nuestro target.
 
 ## 3.3 Crear dispositivo 
 
+Los dispositivos son el soporte donde se guardarán los datos realmente.
+
 Configuración disco virtual para iSCSI:
 * Disco virtual -> Se guardará en el disco E:
 * Nombre de disco virtual
@@ -99,7 +106,8 @@ Configuración disco virtual para iSCSI:
 
 ## 3.4 Crear destino 
 
-Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto.
+Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto utilizado por el iniciador.
+
 Configuración destino iSCSI:
 * Destino -> Nuevo
     * Nombre: `alumnoXXdestino01`
@@ -111,7 +119,7 @@ Configuración destino iSCSI:
 
 ---
 
-# 4. Configurar Iniciador para WS2012
+# 4. Iniciador: consumir almacenamiento
 
 * Ir a MV Iniciador
 * Ir a `Iniciador iSCSI -> destino`
@@ -125,24 +133,12 @@ Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
 ---
 
-# Preguntas
+# 5. Preguntas
 
 * ¿Podemos aumentar el espacio del disco virtual `alumnoXXdisco01`en el target?
     * En tal caso ¿Qué pasaría en el iniciador?
+* ¿Qué pasaría si en el target añadimos un segundo destino con el segundo dispositivo?
 * ¿Que pasaría si en el target agregamos un nuevo disco virtual `alumnoXXdisco02` al mismo destino?
     * En tal caso ¿Qué pasaría en el iniciador?
-    * En el iniciador aparece otro disco más.
+    * ¿En el iniciador aparece otro disco más o el mismo con más capacidad?.
 
----
-
-# ANEXO
-
-> Enlaces de interés orientados a Windows Server 2008:
-> * Vídeo de referencia [ES - Crear y conectar recursos iSCSI](https://youtu.be/_77UL2kZEEA).
-> * Cómo usar un TARGET hardware - [How to use iSCSI target on Windows 2008 server](https://www.synology.com/en-> global/knowledgebase/DSM/tutorial/Virtualization/How_to_use_iSCSI_Targets_on_a_Windows_Server)
-> * INITIATOR - [Guía paso a paso del iniciador Windows](https://technet.microsoft.com/es-es/library/ee338476%28v=ws.10%29.aspx)
-
-Pendiente para revisar:
-* Comprobar los datos, montando el disco virtual en el servidor target.
-* Añadir un segundo disco al destino 1.
-* Añadir un nuevo destino.
