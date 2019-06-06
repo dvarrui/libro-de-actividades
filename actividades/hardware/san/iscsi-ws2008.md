@@ -1,13 +1,19 @@
 
-# iSCSI en Windows Server 2008
+```
+Curso           : 201819, 201615
+Software        : SO Windows Server 2008 (64 bits)
+Tiempo estimado : 5 horas
+Comentarios     : Por falta de licencias 2012 se hizo este curso con ws2008.
+```
+---
 
-Vamos a montar un almacenamiento iSCSI con Windows Server (64 bits).
+# iSCSI en Windows Server 2008
 
 *(El siguiente texto está copiado de un enlace de Internet)*
 
-```
 Para los que no estén familiarizados con iSCSI, digamos que es una manera de “encapsular”
-comandos SCSI en paquetes IP. De esta manera podemos acceder a sistemas de almacenamiento externos usando una red IP en lugar de los tradicionales buses SCSI o los canales de fibra. Es decir, una buena forma de montarnos una SAN.
+comandos SCSI en paquetes IP. De esta manera podemos acceder a sistemas de almacenamiento externos 
+usando una red IP en lugar de los tradicionales buses SCSI o los canales de fibra. Es decir, una buena forma de montarnos una SAN.
 
 La solución consta de al menos dos componentes. Un iSCSI Initiator y un Target.
 * El initiator es lo que utilizamos en el equipo que va a aceder a esos volumenes,
@@ -18,8 +24,10 @@ Generalmente esta tecnología está ya incluida en el propio hardware de los ser
 y de los sistemas SAN, que ofrecen este tipo de conectividad a través de dispositivos multifunción.
 Sin embargo esto no excluye que un iniciador software se pueda conectar a un Target hardware o viceversa.
 
-El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, generalmente dedicadas en el host y en el guest.
-```
+El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows server 2003. En Windows Vista y 
+Windows Server 2008 viene ya incluido por defecto. Los iniciadores software son muy útiles en entornos virtualizados, 
+ya que permiten a las máquinas virtuales el acceso a sistemas de tipo SAN mediante tarjetas de red, 
+generalmente dedicadas en el host y en el guest.
 
 ---
 
@@ -49,6 +57,15 @@ Parámetros:
 | ------------- | ------------------------ |
 | IQN_INITIATOR | iqn.2019-06.initiatorXXw |
 | IQN_TARGET    | iqn.2019-06.targetXXw    |
+
+---
+
+Propuesta de rúbrica:
+
+| ID | Criterios                           | Nivel 2 | Nivel 1 | Nivel 0 |
+| -- | ----------------------------------- | ------- | ------- | ------- |
+| C1 | (4.2) Crear dispositivo y destino 1 | | | |
+| C2 | (5.2) Consumir almacenamiento       | | | |
 
 ---
 
@@ -144,7 +161,7 @@ Sólo hay que configurarlo para conectar con el target.
 
 Ya tenemos el nuevo almacenamiento disponible en el Iniciador.
 
-## 5.2 Comprobación final
+## 5.2 Consumir almacenamiento
 
 * Desde el Iniciador, montar el nuevo almacenamiento (Letras de unidad `F`, `G`, etc.).
 * Guardar varios ficheros en dichas unidades, de modo que la información que se guarde en ella
