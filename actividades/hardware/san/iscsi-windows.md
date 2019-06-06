@@ -39,6 +39,15 @@ El iSCSI initiator puede descargarse gratuitamente, para Windows XP y Windows se
 
 ---
 
+Propuesta de rúbrica:
+
+| ID | Criterios                   | Nivel 2 | Nivel 1 | Nivel 0 |
+| -- | --------------------------- | | | |
+| C1 | (3.4) Crear destino 1       | | | |
+| C2 | (4) Consumir almacenamiento | | | |
+
+---
+
 # 1 Preparativos
 
 La MV target es la encargada de ofrecer espacio de almacenamiento, y la MV Initiator será la que
@@ -110,7 +119,7 @@ Configuración disco virtual para iSCSI:
     * Ruta `(valor por defecto)`
 * Tamaño: 600 MB
 
-## 3.4 Crear destino 
+## 3.4 Crear destino 1
 
 Los destinos (según las definiciones del protocolo iSCSI) es una definición de un espacio de almacenamiento concreto utilizado por el iniciador.
 
