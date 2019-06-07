@@ -3,6 +3,7 @@
 Curso          : 201819
 Software       : SO OpenSUSE Leap 15
 Tiempo estimado: 7 horas
+Comentarios    : Revisar problemas con el software del target
 ```
 ---
 
@@ -25,20 +26,19 @@ Propuesta de rúbrica:
 Vamos a montar la práctica de iSCSI con GNU/Linux OpenSUSE.
 
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
-* MV1: Actuará de `Initiator`.
-    * SSOO OpenSUSE Leap
-    * Hostname `initiatorXXg.curso1819`.
-    * Con dos interfaces de red.
-    * Una en modo puente (172.AA.XX.31)
-    * y la otra en red interna (192.168.XX.31) con nombre `san`. Este interfaz NO tiene gateway.
-* MV2: Actuará de `Target`.
-    * SSOO OpenSUSE Leap
-    * Hostname `targetXXg.curso1819`.
-    * Con un interfaz de red (192.168.XX.32) en modo red interna `san`.
-    * Este interfaz tiene como gateway a 192.168.XX.31.
-* Las IP's las pondremos todas estáticas.
-* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
-Donde XX será el número correspondiente al puesto de cada alumno.
+
+| Parámetro | MV1                      | MV2      |
+| --------- | ------------------------ | -------- |
+| Rol       | Initiator              | Target |
+| SSOO      | OpenSUSE Leap          | OpeSUSE Leap |
+| Hostname  | initiatorXXg.curso1819 | targetXXg.curso1819 |
+| Red1      | Red interna `san` (192.168.XX.31). NO gateway | Red interna `san` (192.168.XX.32) |
+| Red2      | Puente (172.AA.XX.31)  | |
+| IQN       | iqn.2019-06.curso1819.initiatorXXg | iqn.2019-06.curso1819.targetXXg |
+
+> * Las IP's las pondremos todas estáticas.
+> * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
+> Donde XX será el número correspondiente al puesto de cada alumno.
 
 **Acceso a Internet desde el Target**
 
@@ -50,14 +50,14 @@ para instalar el software, podemos hacerlo de varias formas:
 
 ---
 
-# 2 Un poco de teoría
+# 2 Teoría: Un poco de teoría sobre iSCSI
 
 La configuración del Target contiene:
 * El nombre de nuestro target
 * El nombre de usuario y la contraseña para la conexión del iniciador
 * El dispositivo que ofreceremos como target
 
-### 2.1 Nombre
+### 2.1 Teoría: Nombre IQN
 
 El estándar iSCSI define que tanto los target como los iniciadores deben
 tener un nombre (identificador iqn) que sigue el siguiente patrón: `iqn.YYYY-MM.NOMBRE-DEL_DOMINIO_INVERTIDO:IDENTIFICADOR`.
@@ -73,7 +73,7 @@ Ejemlos válidos serían: `iqn.2005-02.au.com.empresa:san.200G.samba`, `iqn.2017
 Como vemos el identificador aunque es variable y personalizable, puede
 reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
 
-### 2.2 Autenticación
+### 2.2 Teoría: Autenticación
 
 Si queremos que nuestro target requiera autenticación, podemos definir
 un usuario y una contraseña para que solo se conecten los iniciadores que nosotros queremos.
@@ -84,7 +84,7 @@ Hay 3 tipos de autenticación:
 * Autenticación de entrada y
 * Autenticación de salida
 
-### 2.3 Dispositivos/Destinos
+### 2.3 Teoría: Dispositivos/Destinos
 
 Luego debemos definir qué dispositivo ofreceremos como target.
 Debemos poner una línea como la siguiente: `Lun 0 Path=/dev/sda3,Type=fileio`
@@ -96,6 +96,7 @@ e incluso archivos. En cualquier caso hay que definirlo en el path.
 
 El archivo contiene muchos parámetros más de configuración,
 que en la mayoría de los casos tienen que ver con la performance del servidor.
+
 En nuestro ejemplo, configurando estos tres parámetros nos bastaría.
 
 ---
@@ -104,12 +105,8 @@ En nuestro ejemplo, configurando estos tres parámetros nos bastaría.
 
 Vamos al equipo que será nuestro iniciador:
 * Por entorno gráfico, `Yast -> Iniciador SCSI`
-* Modificamos el identificador iqn del Initiator con
-`iqn.2019-06.curso1819.initiatorXXg`.
+* Modificamos el identificador IQN del Initiator (Consultar tabla).
 * Comprobamos por comandos, `more /etc/iscsi/initiatorname.iscsi`
-
-Veamos imagen de ejemplo en Yast:
-![iscsi-opensuse-initiator-iqn.png](files/iscsi-opensuse-initiator-iqn.png)
 
 ---
 
@@ -117,17 +114,11 @@ Veamos imagen de ejemplo en Yast:
 
 ## 4.1 Enlaces de interés
 
-Enlaces de interés:
-* [OpenSUSE Leap 15: Install tgt for iSCSI target](https://www.hiroom2.com/2018/06/12/opensuse-15-tgt-en/)
-* [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
-* [OpenSUSE - iSCSI Target documentation ](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_target.html)
-
-Otros enlaces de interés:
-* INITIATOR - [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
-* Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
-* Vídeo: [Linux Configure an iSCSI Target](https://www.youtube.com/watch?v=cWPY3lH3qTQ)
-* Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
-* Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
+> Enlaces de interés:
+> * [OpenSUSE - Target usando comandos](http://es.opensuse.org/iSCSI)
+> * [OpenSUSE - Target documentation ](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_target.html)
+> * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
+> * Vídeo: [Linux Configure an iSCSI Target](https://www.youtube.com/watch?v=cWPY3lH3qTQ)
 
 ## 4.2 Crear los dispositivos
 
@@ -140,7 +131,7 @@ Crear los dispositivos en el equipo target.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
 
-## 4.3 Crear destino 1 (test)
+## 4.3 Crear destino 1
 
 * Vamos a la máquina target.
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
@@ -151,72 +142,54 @@ Crear los dispositivos en el equipo target.
 * Global
     * Sin autenticación
 * Destinos(Dispositivos)
-    * Nombre `iqn.2019-06.curso1819.targetXXg`.
-    * Identificador `test`
+    * Nombre IQN del target (Consultar tabla).
+    * Identificador `destino1`
     * Seleccionar los LUN (dispositivos creados anteriormente)
         * `Lun 0 Path=/home/nombre-alumnoXXdisco01.img,Type=fileio`
         * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
     * Utilizar autenticación => NO
 
-![iscsi-opensuse-target-destino.png](files/iscsi-opensuse-target-destino.png)
-
-> El target tiene un identificador iqn y el iniciador tendrá otro iqn diferente.
-> En el target hay que habilitar permiso de acceso al iqn del Iniciador.
-
-* Pulsamos siguiente y vamos a configurar los permisos para el iniciador -> Añadir -> Ponemos el identificador de nuestro iniciador.
-
-![iscsi-opensuse-target-initiator.png](files/iscsi-opensuse-target-initiator.png)
-
-* Comprobamos los LUN's(dispositivos) disponibles.
-
-![iscsi-opensuse-target-lun.png](files/iscsi-opensuse-target-lun.png)
-
-* Siguiente -> Terminar.
-
-![iscsi-opensuse-target-finalconfig.png](files/iscsi-opensuse-target-finalconfig.png)
-
-## 4.4 Comprobamos
-
-Para activar todos los cambios hay que reiniciar el servidor Target iSCSI.
-
-* `systemctl start target.service`, inicia el servicio Target manualmente.
-* `systemctl status target.service`, comprueba el estado del servicio Target.
-* `systemctl enable target.service`, habilita el servicio Target para que se inicie automáticamente con cada reinicio.
-
-Ya tenemos nuestro servidor Target iSCSI instalado. Ahora necesitamos un iniciador iSCSI para que se conecte a nuestro target y empezar a usar el almacenamiento.
-
 ---
 
 # 5 Initiator
 
-Enlaces de interés:
-* [OpenSUSE - tutorail iSCSI Initiator con comandos](http://es.opensuse.org/iSCSI)
-* [OpenSUSE - iSCSI Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
+> Enlaces de interés:
+> * [OpenSUSE - Initiator con comandos](http://es.opensuse.org/iSCSI)
+> * [OpenSUSE - Initiador documentation](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
+> Enlaces de interés:
+> * [Setting up iSCSI initiator on OpenSUSE](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_initiator.html)
+> * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
+> * Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
+> * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
 
 ## 5.1 Instalar y configurar acceso
 
-Vamos a la máquina Iniciador.
+* Vamos a la máquina Iniciador.
 * El software necesario viene preinstalado en OpenSUSE Leap:
-    *  Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
+
+> Si tenemos que hacer la instalación ejecutar `zypper in open-iscsi yast2-iscsi-client`.
 
 ## 5.2 Descubrir
 
-* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos de targets disponibles.
-    * Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
-    * Puerto 3260
-    * Sin autenticación.
+**Descubrir por Yast**
+
+* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos disponibles en las máquinas targets.
+* Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
+* Puerto 3260
+* Sin autenticación.
 
 ![iscsi-opensuse-initiator-descubrir.png](files/iscsi-opensuse-initiator-descubrir.png)
 
-> Otra forma de descubrir target es usando el siguiente comando por la consola:
->
-> * `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`
-> * `iscsiadm -m discovery -t st -p IP-DEL-TARGET`
->
-> El target ofrece su servicio por defecto en el puerto 3260.
+**Descubrir por comandos**
+
+* `iscsiadm -m discovery -t sendtargets -p IP-DEL-TARGET`, comando para descubrir máquinas target.
+
+> * El target ofrece su servicio por defecto en el puerto 3260.
 > * `iscsiadm -m discovery`, para descubrir los puertos de trabajo del Target.
 
-## 5.3 Conectar
+## 5.4 Conectar
+
+**Conectar por Yast**
 
 * `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
 * Elegimos:
@@ -225,13 +198,13 @@ Vamos a la máquina Iniciador.
 
 ![iscsi-opensuse-initiator-conectado.png](files/iscsi-opensuse-initiator-conectado.png)
 
-> Otra forma de conectar con el destino del Target vía comandos:
->
-> * `iscsiadm -m node --targetname iqn.2017-05.targetXXg:test -p IP-TARGET --login`,
-conectar un target concreto.
-> * `iscsiadm -m node -l`, conectar con todos los targets, usando una configuración básica sin autenticación.
+**Conectar por comandos**
 
-* Si hacemos `fdisk -l`, veremos que nos aparece dos nuevos discos en el equipo iniciador.
+* `iscsiadm -m node -l`, conectar con todos los targets configurados, usando modo básico sin autenticación.
+
+> NOTA: Otra forma de conectar con un target concreto sería `iscsiadm -m node --targetname IQN-TARGET:destino1 -p IP-TARGET --login`.
+
+* Si hacemos `fdisk -l`, veremos que nos aparece nuevos discos en el equipo iniciador.
 
 ## 5.4 Usar almacenamiento
 
@@ -253,18 +226,13 @@ Vamos a equipo Iniciador:
 
 # ANEXO
 
-> IDEAS para el futuro
->
-> * Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
-> * Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
-> * Hacer configuraciones usando las autenticaciones de entrada y salida.
+¿Localizar el software servidor del target y los ficheros de configuración que deben estar en /etc/target?
 
-## A.1 Otros enlaces de interés Debian
+## IDEAS para el futuro
 
-Enlaces de interés:
-* [federicosayd - ISCSI Target en GNU/Linux Debian](https://federicosayd.wordpress.com/2007/09/11/instalando-un-target-iscsi/)
-* iSCSI - [Using iSCSI (target and initiator) on Debian](https://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target).
-* TARGET - [Create targer iSCSI on Debian](https://wiki.debian.org/SAN/iSCSI/iscsitarget).
+* Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
+* Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
+* Hacer configuraciones usando las autenticaciones de entrada y salida.
 
 ## A.2 Enrutamiento en GNU/Linux
 
