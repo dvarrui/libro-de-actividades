@@ -1,7 +1,7 @@
 
 ```
-Curso          : 201819
-Software       : SO OpenSUSE Leap 15
+Curso          : 201718
+Software       : SO OpenSUSE 42
 Tiempo estimado: 7 horas
 ```
 ---
