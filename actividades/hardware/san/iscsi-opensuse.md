@@ -117,7 +117,8 @@ Veamos imagen de ejemplo en Yast:
 
 ## 4.1 Enlaces de interés
 
-Enlaces recomendados:
+Enlaces de interés:
+* [OpenSUSE Leap 15: Install tgt for iSCSI target](https://www.hiroom2.com/2018/06/12/opensuse-15-tgt-en/)
 * [OpenSUSE - tutorial iSCSI Target usando comandos](http://es.opensuse.org/iSCSI)
 * [OpenSUSE - iSCSI Target documentation ](https://www.suse.com/documentation/sles11/stor_admin/data/sec_inst_system_iscsi_target.html)
 
