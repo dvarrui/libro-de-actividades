@@ -249,7 +249,7 @@ Vamos a equipo Iniciador:
     * Editar -> Montar -> Punto de montaje -> `/mnt/destino1sdbXX`.
     * Crear partición y formatear el disco sdc.
     * Editar -> Montar -> Punto de montaje -> `/mnt/destino1sdcXX`.
-* Guardar datos en el disco SAN.
+* Guardar datos en las carpetas anteriores. Notar que estos datos se están guardando realmente en el dispositivo remoto SAN iSCSI.
 
 ---
 
