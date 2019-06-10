@@ -25,6 +25,8 @@ Propuesta de rúbrica:
 
 Vamos a montar la práctica de iSCSI con GNU/Linux OpenSUSE.
 
+## 1.1 Configuraciones 
+
 Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opensuse.md)).
 
 | Parámetro | MV1                      | MV2      |
@@ -36,17 +38,39 @@ Necesitamos 2 MV's (Consultar [configuraciones](../../global/configuracion/opens
 | Red2      | Puente (172.AA.XX.31)  | |
 | IQN       | iqn.2019-06.curso1819.initiatorXXg | iqn.2019-06.curso1819.targetXXg |
 
-> * Las IP's las pondremos todas estáticas.
-> * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24.
-> Donde XX será el número correspondiente al puesto de cada alumno.
+Recordar:
+* Las IP's las pondremos todas estáticas.
+* Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. Donde XX será el número correspondiente al puesto de cada alumno.
 
-**Acceso a Internet desde el Target**
 
+## 1.2 INFO: Acceso a Internet desde el Target
+
+_Esta parte es INFORMATIVA_
+ 
 Como vamos a necesitar acceso a los repositorios de Internet en el Target
 para instalar el software, podemos hacerlo de varias formas:
-* (a) Poner temporalmente un 2º interfaz puente y DHCP para instalar y luego lo desactivamos. Es sencillo y rápido para nuestro entorno de aprendizaje.
+* (a) Poner temporalmente un 2º interfaz puente y DHCP para instalar y luego lo desactivamos. Es sencillo y rápido > para nuestro entorno de aprendizaje.
 * (b) Poner el interfaz de red temporalmente en puente y DHCP, instalar y cambiar.
-* (c) Activar/configurar enrutamiento y NAT en el Initiator. Esto es más complejo, pero más profesional.
+* (c) Activar/configurar enrutamiento y NAT en ma MV Initiator. Esto es más complejo, pero más profesional.
+
+**Activar enrutamiento en GNU/Linux**
+
+* Enlace de interés: [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
+* Veamos un script de ejemplo de script que sirve para activar el enrutamiento y el NAT.
+
+```
+// activar-enrutamiento.sh
+echo "1" > /proc/sys/net/ipv4/ip_forward
+iptables -A FORWARD -j ACCEPT
+iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
+```
+
+*  Ejemplo de script que desactivara el enrutamiento:
+
+```
+// desactivar-enrutamiento.sh
+echo "0" > /proc/sys/net/ipv4/ip_forward
+```
 
 ---
 
@@ -57,7 +81,7 @@ La configuración del Target contiene:
 * El nombre de usuario y la contraseña para la conexión del iniciador
 * El dispositivo que ofreceremos como target
 
-### 2.1 Teoría: Nombre IQN
+## 2.1 Teoría: Nombre IQN
 
 El estándar iSCSI define que tanto los target como los iniciadores deben
 tener un nombre (identificador iqn) que sigue el siguiente patrón: `iqn.YYYY-MM.NOMBRE-DEL_DOMINIO_INVERTIDO:IDENTIFICADOR`.
@@ -73,7 +97,7 @@ Ejemlos válidos serían: `iqn.2005-02.au.com.empresa:san.200G.samba`, `iqn.2017
 Como vemos el identificador aunque es variable y personalizable, puede
 reflejar el nombre dado al target, la capacidad y el servicio donde lo usaremos.
 
-### 2.2 Teoría: Autenticación
+## 2.2 Teoría: Autenticación
 
 Si queremos que nuestro target requiera autenticación, podemos definir
 un usuario y una contraseña para que solo se conecten los iniciadores que nosotros queremos.
@@ -84,7 +108,7 @@ Hay 3 tipos de autenticación:
 * Autenticación de entrada y
 * Autenticación de salida
 
-### 2.3 Teoría: Dispositivos/Destinos
+## 2.3 Teoría: Dispositivos/Destinos
 
 Luego debemos definir qué dispositivo ofreceremos como target.
 Debemos poner una línea como la siguiente: `Lun 0 Path=/dev/sda3,Type=fileio`
@@ -101,7 +125,7 @@ En nuestro ejemplo, configurando estos tres parámetros nos bastaría.
 
 ---
 
-## 3 Práctica: Initiator
+# 3 Práctica: Initiator
 
 Vamos al equipo que será nuestro iniciador:
 * Por entorno gráfico, `Yast -> Iniciador SCSI`
@@ -122,7 +146,7 @@ Vamos al equipo que será nuestro iniciador:
 
 ## 4.2 Crear los dispositivos
 
-Crear los dispositivos en el equipo target.
+Crear los dispositivos de almacenamiento en el equipo target.
 * Creamos el `dispositivo1` a partir de un fichero.
     * `dd if=/dev/zero of=/home/nombre-alumnoXXdisco01.img bs=1M count=500`
     * Hemos creado un fichero con tamaño 500M.
@@ -149,6 +173,8 @@ Crear los dispositivos en el equipo target.
         * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
     * Utilizar autenticación => NO
 
+> Comprobar que los ficheros de configuración están en /etc/target.
+
 ---
 
 # 5 Initiator
@@ -161,6 +187,9 @@ Crear los dispositivos en el equipo target.
 > * Vídeo: [EN - LINUX: ISCSI Target and Initiator Command Line configuration](https://youtu.be/5yMSxqUs4ys)
 > * Vídeo: [Linux Configure iSCSI Initiator ( client ) ](https://www.youtube.com/watch?v=8UojNONhQDo)
 > * Vídeo: [EN - Configure iSCSI initiator (client)](https://youtu.be/8UojNONhQDo)
+
+* Ir a la mv Iniciador.
+* Ejecutar `nmap -Pn IP-TARGET`. Debe aparecer el puerto iscsi (3260) abierto, indicando que el servicio iSCSI estaría disponible en el equipo Target.
 
 ## 5.1 Instalar y configurar acceso
 
@@ -226,29 +255,8 @@ Vamos a equipo Iniciador:
 
 # ANEXO
 
-¿Localizar el software servidor del target y los ficheros de configuración que deben estar en /etc/target?
-
 ## IDEAS para el futuro
 
 * Crear en el target un destino (test2) con un lun0 que sea un volumen lógico (lvm)
 * Conectar destinos de un target Windows con un iniciador GNU/Linux y viceversa.
 * Hacer configuraciones usando las autenticaciones de entrada y salida.
-
-## A.2 Enrutamiento en GNU/Linux
-
-* [Enrutamiento en GNU/Linux](http://www.ite.educacion.es/formacion/materiales/85/cd/linux/m6/enrutamiento_en_linux.html)
-*  Ejemplo de script que activa el enrutamiento y el NAT:
-
-```
-// activar-enrutamiento.sh
-echo "1" > /proc/sys/net/ipv4/ip_forward
-iptables -A FORWARD -j ACCEPT
-iptables -t nat -A POSTROUTING -s IP_RED_INTERNA/MASCARA_RED_INTERNA -o eth0 -j MASQUERADE
-```
-
-*  Ejemplo de script que desactivara el enrutamiento:
-
-```
-// desactivar-enrutamiento.sh
-echo "0" > /proc/sys/net/ipv4/ip_forward
-```
