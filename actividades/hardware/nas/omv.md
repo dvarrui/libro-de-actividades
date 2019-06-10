@@ -8,8 +8,8 @@ Tiempo estimado : 2 horas
 
 # Almacenamiento NAS con Open Media Vault
 
-Enlace de interés:
-* https://www.openmediavault.org/
+> Enlace de interés:
+> * https://www.openmediavault.org/
 
 OpenMediaVault es una herramienta NAS (network attached storage) basada en Debian.
 Contiene servicios como SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, cliente
@@ -60,7 +60,7 @@ Es simple y fácil de usar para un usuario no experto.
 * Ir a `Almacenamiento -> Sistema de archivos`
     * Crear un nuevo sistema de archivos.
         * Usar el dispositivo RAID1 (`nasXXraid1`)
-        * Nombre `nasdatos`
+        * Nombre `nasXXdatos`
         * Formato `ext4`
     * Montar el disco Raid `/dev/md0` (`nasXXraid1`) donde tenemos nuestro sistema de ficheros.
 
