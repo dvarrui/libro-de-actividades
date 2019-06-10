@@ -155,7 +155,7 @@ Crear los dispositivos de almacenamiento en el equipo target.
     * Añadiremos un 2º disco de 700M a la MV Target.
     * `/dev/sdb` será nuestro dispositivo2.
 
-## 4.3 Crear destino 1
+## 4.3 Crear destino
 
 * Vamos a la máquina target.
 * `zypper in yast2-iscsi-lio-server`, instala el software para crear un Target iSCSI y sus dependencias.
@@ -242,13 +242,13 @@ Vamos a equipo Iniciador:
 
 ![iscsi-opensuse-initiator-lsscsi.png](files/iscsi-opensuse-initiator-lsscsi.png)
 
-* Crear directorio `/mnt/remote_targetXXsdb`.
-* Crear directorio `/mnt/remote_targetXXsdc`.
+* Crear directorio `/mnt/destino1sdbXX`.
+* Crear directorio `/mnt/destino1sdcXX`.
 * `Yast -> Particionador`, elegir el disco.
     * Crear partición y formatear el disco sdb.
-    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdb`.
+    * Editar -> Montar -> Punto de montaje -> `/mnt/destino1sdbXX`.
     * Crear partición y formatear el disco sdc.
-    * Editar -> Montar -> Punto de montaje -> `/mnt/remote_targetXXsdc`.
+    * Editar -> Montar -> Punto de montaje -> `/mnt/destino1sdcXX`.
 * Guardar datos en el disco SAN.
 
 ---
