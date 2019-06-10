@@ -1,18 +1,39 @@
 
-`EN CONSTRUCCIÓN!!!`
 
-# Instalación Triple-UEFI-GPT
+```
+Curso             : EN CONSTRUCCIÓN!!!
+Software          : Windows y OpenSUSE
+Duracion estimada : 3 horas
+```
+---
 
-* Vamos a instalar 3 SSOO en una MV UEFI con GPT:
-    * Windows 7
-    * GNU/Linux OpenSUSE
-    * GNU/Linux Arch
+# Instalación TRIPLE (PC UEFI-GPT)
+
+* Vamos a instalar varios sistemas operativos en la misma MV UEFI con GPT:
+
+| ID   | Sistema operativo  |
+| ---- | ------------------ |
+| SO.1 | GNU/Linux Arch     |
+| SO.2 | Windows 7          |
+| SO.3 | GNU/Linux OpenSUSE |
+
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
+Propuesta de rúbrica:
+
+| ID | Criterio                  | Nivel 2 | Nivel 1 | Nivel 0 |
+| -- | ------------------------- | ------- | ------- | ------- |
+| C1 | (1.2) Particiones Gparted | | |
+| C2 | (2.2) Comprobación        | | |
+| C3 | (3.2) Comprobación        | | |
+| C4 | (4.6) Comprobación        | | |
+
 ---
 
-# 1. Preparar la máquina virtual
+# 1. Preparativos
+
+## 1.1 Crear máquina virtual
 
 * Crear una máquina virtual (VirtualBox).
 * Configurar con:
@@ -22,7 +43,7 @@ Incluir breves comentarios de cada captura de pantalla.
     * Disco duro de 60GB
     * Tarjeta de red en modo puente (bridge).
 
-## 1.1 Particionado
+## 1.2 Particionado
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
     * Recuerda `knoppix lang=es` para iniciarlo en español.
@@ -42,10 +63,12 @@ Incluir breves comentarios de cada captura de pantalla.
 
 ---
 
-# 2. Instalación del primer SO
+# 2. Sistema operativo 1
 
 > Enlace de interés:
 > * [Guía de instalación ArchLinux 2019](http://denovatoanovato.net/instalar-arch-linux/)
+
+## 2.1 Instalar SO.1
 
 * Instalar Arch GNU/Linux con:
     * Partición 01 para BootEFI
@@ -54,8 +77,11 @@ Incluir breves comentarios de cada captura de pantalla.
     * Partición 06 para el home (/home)
 * Nombre de usuario: `nombre-del-alumno`
 * Configuración de la MV:
-    * Nombre equipo: `1er-apellidoXXq1`
+    * Nombre equipo: `1er-apellidoXXa1`
     * IP estática 172.AA.XX.51
+
+## 2.2 Comprobación
+
 * Reiniciar el sistema.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
 * Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
@@ -76,7 +102,9 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ---
 
-# 3. Segunda instalación
+# 3. Sistema operativo 2
+
+## 3.1 Instalación SO.2
 
 Vamos a instalar el SO Windows.
 * Montamos ISO de instalación de Windows en la MV y la iniciamos.
@@ -100,6 +128,9 @@ Poner nombre grupo de trabajo indicado. Reiniciar
 * Cuando terminen la instalación de Windows debemos acordarnos de desmontar
 la ISO (CD de instalación) de la MV.
 * Comandos de comprobación: date, ipconfig, hostname, whoami, ping 8.8.4.4, nslookup www.nba.com.
+
+## 3.2 Comprobamos
+
 * Reiniciar el sistema.
 * Capturar imagen como la siguiente donde se muestra el arranque inicial
 donde se ve un menú para eligir el sistema operativo a iniciar.
@@ -107,7 +138,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 
 ---
 
-# 4. Instalación del tercer SO
+# 4. Sistema operativo 3
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * [Configurar MV OpenSUSE](../../../global/configuracion/opensuse.md)
@@ -161,7 +192,9 @@ No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el c
     * Poner como nombre del host o equipo `1er-apellidoXXg1`.
     * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario el nombre del equipo puede cambiar en cada reinicio.
 * Abrir un terminal.
-* Comprobar con: date, ip a, hostname, whoami, ping 8.8.4.4, host www.nba.es.
+
+## 4.6 Comprobación
+
 * Reiniciar el sistema.
 * Capturar imagen como la siguiente donde se muestra el arranque inicial
 donde se ve un menú para eligir el sistema operativo a iniciar.

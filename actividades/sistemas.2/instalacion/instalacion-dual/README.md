@@ -1,11 +1,12 @@
 
 ```
-Fecha UM          : 201819
+Curso             : 201819
+Software          : Windows 7 y OpenSUSE Leap 15.0
 Duracion estimada : 11 horas
-SSOO              : Windows y GNU/Linux
 ```
+---
 
-# Instalación Dual
+# Instalación Dual (PC BIOS)
 
 > Enlaces de interés:
 >
