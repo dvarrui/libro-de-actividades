@@ -1,20 +1,30 @@
 
+```
+Curso           : 201819, 201718
+Software        : OpenMediaVault
+Tiempo estimado : 2 horas
+```
+---
 
 # Almacenamiento NAS con Open Media Vault
 
 Enlace de interés:
 * https://www.openmediavault.org/
 
-openmediavault es una herramienta NAS (network attached storage) basada en Debian.
+OpenMediaVault es una herramienta NAS (network attached storage) basada en Debian.
 Contiene servicios como SSH, (S)FTP, SMB/CIFS, DAAP media server, RSync, cliente
 BitTorrent client, etc. Tiene un diseño modular que le permite ampliar funciones
 mediante el uso de plugins.
 
-openmediavault está diseñado para usarse principalmente para pequeñas oficinas o
+Está diseñado para usarse principalmente para pequeñas oficinas o
 entornos domésticos, pero no está limitado a esos entornos.
 Es simple y fácil de usar para un usuario no experto.
 
-## Crear la MV
+---
+
+# 1. Instalación
+
+## 1.1 Crear la MV
 
 * Crear una nueva MV (tipo Debian 64 bits) con 3 discos:
     * Disco 8 GB (Para instalar el sistema)
@@ -22,7 +32,7 @@ Es simple y fácil de usar para un usuario no experto.
     * Disco de 500 MB (Para almacenamiento).
 * Red en modo puente.
 
-## Instalar Open Media Vault.
+## 1.2 Instalar Open Media Vault.
 
 * Nombre de máquina: `openmediavaultXX`
 * Dominio: `curso1819`
@@ -35,33 +45,43 @@ Es simple y fácil de usar para un usuario no experto.
     * Configurar IP estática para el NAS.
     * Cambiar clave de acceso al panel Web.
 
-## Crear almacenamiento RAID
+> NOTA: Usar `firstaid` para cambiar clave.
 
-* Desde otra máquina abrimos navegador con URL `ip-del-nas`
+---
+
+# 2. Almacenamiento
+
+## 2.1 Crear dispositivo RAID
+
+* Desde otra máquina abrimos navegador con URL `IP-DEL-NAS`
 * Poner usuario/clave del panel Web.
 * Ir a `Almacenamiento -> Gestión de Raid`
     * Crear un `espejo` con el nombre `nasraid1`, usando los discos `sdb` y `sdc`.
 * Ir a `Almacenamiento -> Sistema de archivos`
     * Crear un nuevo sistema de archivos.
-        * Usar el dispositivo RAID1 (`nasraid1`)
+        * Usar el dispositivo RAID1 (`nasXXraid1`)
         * Nombre `nasdatos`
         * Formato `ext4`
-    * Montar el disco Raid `/dev/md0` (`nasraid1`) donde tenemos nuestro sistema de ficheros.
+    * Montar el disco Raid `/dev/md0` (`nasXXraid1`) donde tenemos nuestro sistema de ficheros.
 
-## Crear recurso compartido
+## 2.2 Crear recurso compartido
 
 * Ir a `Servicios -> SMB/CIFS -> Compartidos`
 * Añadir
     * Habilitar `SI`
     * Carpeta compartida -> Crear `+`
         * Nombre: `public`
-        * Dispositivo: `nasraid1`
-        * Ruta: `public/`
+        * Dispositivo: `nasXXraid1`
+        * Ruta: `publicXX/`
         * Con permisos de Lectura/escritura para los usuarios.
     * Público `NO`
     * Sólo lectura `NO`
 
-## Crear usuario
+---
+
+# 3. Permisos/Servicio
+
+## 3.1 Crear usuario
 
 * Ir a `Permisos de Acceso -> Usuarios`.
     * Crear un nuevo usuario `nombre-alumnoXX`.
@@ -69,17 +89,19 @@ Es simple y fácil de usar para un usuario no experto.
 * Ir a `Permisos de Acceso -> Carpetas compartidas`.
     * Dar permisos al usuario `nombre-alumnoXX` de lectura/escritura sobre la carpeta compartida.
 
-## Activar el servicio
+## 3.2 Activar el servicio
 
 * Ir a `Servicios -> SMB/CIFS -> Configuración -> Opciones Generales -> Habilitar`
 * Ir a `Diagnósticos -> Sevicios` para verificar que el servicio SMB/CIFS está habilitado y en ejecución.
 * Si el servicio no está en ejecución podemos reiniciar el equipo o probar con `systemctl start smbd`.
 
-## Comprobar
+---
+
+# 4. Comprobar
 
 Ir a MV Windows 7:
 * Comprobar el acceso al recurso compartido (incluir captura de pantalla).
-* Podemos encontrar la MV más rápido poniendo `\\ip-del-servidor` en la búsqueda de red.
+* Podemos encontrar la MV más rápido poniendo `\\IP-DEL-NAS` en la búsqueda de red.
 * `net use` para comprobar sesiones de red abiertas.
 * `netstat -nt`, comprobar que hay una conexión establecida con el servidor.
 
@@ -88,12 +110,7 @@ Ir a MV Windows 7:
 
 Ir a MV GNU/Linux:
 * Comprobar el acceso al recurso compartido  (incluir captura de pantalla).
-    * Abrir explorador de archivos -> CTRL+L
-    * Poner URL `smb://ip-del-nas`
+    * Abrir `Explorador de archivos -> CTRL+L`
+    * Poner URL `smb://IP-DEL-NAS`
 * `netstat`, comprobar que hay una conexión establecida con el servidor.
 
----
-
-# ANEXO
-
-`firstaid`para cambiar clave.
