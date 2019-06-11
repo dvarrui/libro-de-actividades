@@ -173,7 +173,11 @@ Crear los dispositivos de almacenamiento en el equipo target.
         * `Lun 1 Path=/dev/sdb,Type=fileio` (Escribir la ruta del dispositivo)
     * Utilizar autenticación => NO
 
-> Comprobar que los ficheros de configuración están en /etc/target.
+> Podemos comprobar que los ficheros de configuración están en /etc/target.
+
+## 4.4 Comprobar servicio 
+
+* `systemctl status targetcli`, debe mostrar el servicio loaded y enable. En caso contrario, ya sabemos que hay que hacer.
 
 ---
 
@@ -202,7 +206,7 @@ Crear los dispositivos de almacenamiento en el equipo target.
 
 **Descubrir por Yast**
 
-* `Yast -> configurar Initiator -> Descubrir`, para descubrir los destinos disponibles en las máquinas targets.
+* `Yast -> Iniciador iSCSI -> Descubrir`, para descubrir los destinos disponibles en las máquinas targets.
 * Debemos especificar la IP del equipo target donde queremos descubrir los destinos disponibles.
 * Puerto 3260
 * Sin autenticación.
@@ -220,7 +224,7 @@ Crear los dispositivos de almacenamiento en el equipo target.
 
 **Conectar por Yast**
 
-* `Yast -> configurar Initiator -> Conectar` para conectar con el destino que hemos descubierto.
+* `Yast -> Iniciador iSCSI -> Conectar` para conectar con el destino que hemos descubierto.
 * Elegimos:
    * Inicio en el arranque
    * Sin autenticación.
