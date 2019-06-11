@@ -3,7 +3,7 @@
 ```
 Curso             : EN CONSTRUCCIÓN!!!
 Software          : Windows y OpenSUSE
-Duracion estimada : 3 horas
+Duracion estimada : 4 horas
 ```
 ---
 
