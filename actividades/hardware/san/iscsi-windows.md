@@ -53,27 +53,30 @@ La MV target es la encargada de ofrecer espacio de almacenamiento, y la MV Initi
 consumirá el espacio de almacenamiento.
 
 Necesitamos 2 MV's con Windows Server (Consultar [configuraciones](../../global/configuracion/windows-server.md)).
-* MV1: Esta MV actuará de `Initiator`.
-    * Con dos interfaces de red.
-    * Una en modo puente (172.AA.XX.21) Donde AA es el código de la clase y XX el código del alumno.
-    * la otra en red interna (192.168.XX.21) con nombre `san`.
-        * Esta interfaz NO tiene gateway.
-* MV2: Esta MV actuará de `Target`.
-    * Necesitamos Windows Server 64 bits para poder instalar el software de Target.
-    * Con un interfaz de red (192.168.XX.22) en modo red interna `san`.
-        * Esta interfaz NO tiene gateway.
-    * Añadimos un segundo disco de 800 MB a la MV de VirtualBox.
-        * Formatear en NTFS.
-        * Le asignamos la letra E:.
 * Las IP's las pondremos todas estáticas.
 * Las IP's de la red interna estarán en el rango 192.168.XX.NN/24. Donde XX será el número correspondiente al puesto de cada alumno.
 
+| Configuración | MV1                 | MV2                 |
+| ------------- | ------------------- | ------------------- |
+| Rol           |`Initiator`          | `Target`            |
+| Red1-VBOX     | Red interna (`san`) | Red interna (`san`) |
+| Red1-IP       | 192.168.XX.21/24    | 192.168.XX.22       |
+| Red1-Gateway  | No tiene            | No tiene            |
+| Red2-VBOX     | Modo puente         |                     |
+| Red2-IP       | 172.AA.XX.21        |                     |
+| SSOO          | Windows Server 64   | Windows Server 64   |
+| hostname      | initiatorXXw.curso1819 | targetXXw.curso1819 |
+
+* Añadimos un segundo disco de 800 MB a la MV2 de VirtualBox.
+    * Formatear en NTFS.
+    * Le asignamos la letra E:.
+
 Parámetros de la práctica
 
-| Parámetro     | Valor                    |
-| ------------- | ------------------------ |
-| IQN_INITIATOR | iqn.2019-06.initiatorXXw |
-| IQN_TARGET    | iqn.2019-06.targetXXw    |
+| Parámetro          | Valor                              |
+| ------------------ | ---------------------------------- |
+| IQN_INITIATOR      | iqn.2019-06.curso1819.initiatorXXw |
+| IQN_TARGET         | iqn.2019-06.curso1819.targetXXw    |
 
 ---
 
