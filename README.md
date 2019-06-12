@@ -1,6 +1,6 @@
 # Libro de actividades
 
-Éste es un proyecto libre para compartir actividades/ejercicios útiles para usar en los **Ciclos Formativos de Grado Superior de Informática**.
+Éste es un proyecto libre para compartir actividades/ejercicios útiles para usar en los **Ciclos Formativos de Informática**.
 
 ![logo](./docs/logo.png)
 
