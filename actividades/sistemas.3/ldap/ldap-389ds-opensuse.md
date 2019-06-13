@@ -1,6 +1,9 @@
+
 ```
-Nueva versión para curso 2018-2019
-REVISAR la parte de autenticación con FreeIPA+389-DS
+Curso           : 201819
+Software        : 389-DS, OpenSUSE
+Tiempo estimado :
+Comentarios     : REVISAR la parte de autenticación con FreeIPA+389-DS
 ```
 
 ---
@@ -266,3 +269,17 @@ su -l soldado1   # Entramos con el usuario definido en LDAP
 >     * `group: files nis ldap`
 > * Reiniciar MV cliente
 > * Repetir configuración Yast.
+
+---
+
+# ANEXO
+
+Error de la plataforma de autenticación gobcan:
+```
+Página Principal / ► Entrar al sitio
+El módulo LDAP no puede conectarse a ninguno de los servidores: 
+Server: 'ldap://directorio.gobiernodecanarias.net/', 
+Connection: 'Resource id #29', Bind result: ''
+
+Más información sobre este error
+```
