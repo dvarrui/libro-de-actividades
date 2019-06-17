@@ -238,3 +238,10 @@ Explicación de los parámetros:
 Enlace de interés:
 * [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
 * [Ver los logs del sistema en Linux con journalctl](http://lamiradadelreplicante.com/2015/03/29/ver-los-logs-del-sistema-en-linux-con-journalctl/)
+
+---
+
+# ANEXO
+
+* [Locking users after X failed login attempts with pam_tally2](https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/)
+
