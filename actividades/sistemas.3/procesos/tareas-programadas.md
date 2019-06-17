@@ -1,4 +1,10 @@
 
+```
+Curso           : 201819, 201718, 201617
+Software        : Windows y GNU/Linux
+Tiempo estimado : 5 horas
+```
+---
 
 # Tareas programadas
 
@@ -7,7 +13,9 @@
 
 ---
 
-# 1. Windows - Tarea diferida.
+# 1. Windows
+
+## 1.1 Windows - Tarea diferida.
 
 Vamos a hacer una tarea diferida con Windows. Una tarea diferida se define para ejecutarse una sola vez en una fecha futura.
 
@@ -19,9 +27,7 @@ Vamos a hacer una tarea diferida con Windows. Una tarea diferida se define para 
     * Abrir un fichero de texto en pantalla.
     * Iniciar un programa determinado (Firefox).
 
----
-
-# 2. Windows - Tarea periódica
+## 1.2 Windows - Tarea periódica
 
 La tarea programada se define para ejecutarse periódicamente cada intervalo de tiempo.
 
@@ -30,7 +36,9 @@ La tarea programada se define para ejecutarse periódicamente cada intervalo de 
 
 ---
 
-# 3. SO GNU/Linux - Tarea diferida
+# 2. SO GNU/Linux
+
+## 2.1 SO GNU/Linux - Tarea diferida
 
 Vamos a hacer una tarea diferida con GNU/Linux.
 
@@ -73,9 +81,7 @@ que inició el entorno gráfico.
 * Capturar imagen cuando se ejecute la tarea.
 * `atq`, consultamos que ya NO hay tareas.
 
----
-
-# 4. GNU/Linux - Tarea periódica
+## 2.2 GNU/Linux - Tarea periódica
 
 Consultar
 * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
