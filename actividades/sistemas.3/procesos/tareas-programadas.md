@@ -112,6 +112,11 @@ de los directorios siguientes:
 
 # ANEXO
 
+## Procesos en segundo plano
+
+Enlaces de interés:
+* [Procesos en segundo plano en Linux](https://www.atareao.es/como/procesos-en-segundo-plano-en-linux/)
+
 ## Ejemplos GNU/Linux
 
 * Crear un script de prueba. Programar la ejecución del script con las configuraciones /etc/cron.hourly.
