@@ -1,9 +1,9 @@
 
 ```
-Módulos recomendados : Seguridad (2asir), Fundamentos Hardware (1asir)
 Curso                : 201819
-Softwatre            : OpenSUSE Leap 15.0
+Software             : OpenSUSE Leap 15.0
 Tiempo estimado      : 6 sesiones (2 semanas)
+Módulos recomendados : Seguridad (2asir), Fundamentos Hardware (1asir)
 Entrega por defecto  : Informe tipo tutorial
 ```
 ---
