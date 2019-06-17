@@ -1,4 +1,11 @@
 
+```
+Curso           : 20181º9, 201718, 201617
+Software        : Lector de PDF
+Tiempo estimado : 3 horas
+```
+---
+
 # Modo de trabajo
 
 * Se trabajará por parejas.
@@ -7,7 +14,10 @@
 
 ---
 
-# Licencias
+# 1. Licencias
+
+> Enlaces de interés:
+> * [¿Conoces los tipos de licencia de software?](https://okhosting.com/blog/tipos-de-licencia-de-software/)
 
 * Leer los documentos de las licencias CLUF y GPL.
 * Para cada licencia identificar:
@@ -16,7 +26,7 @@
 
 ---
 
-# Distribuciones
+# 2. Distribuciones
 
 Existen muchísimas distribuciones Linux, cada una de ellas con sus particularidades.
 
