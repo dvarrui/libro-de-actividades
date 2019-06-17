@@ -27,6 +27,7 @@ En este taller vamos a practicar diversas formas de ocultar nuestros datos.
 
 Enlaces de interés:
 * Información sobre la herramienta [GPG](https://www.genbetadev.com/seguridad-informatica/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
+* [Manual de GPG: cifra, firma y envía datos de forma segura](https://www.genbeta.com/desarrollo/manual-de-gpg-cifra-y-envia-datos-de-forma-segura)
 
 ## 1.1 Encriptado simétrico
 
