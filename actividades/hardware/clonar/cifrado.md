@@ -1,12 +1,12 @@
 
-| Metadatos | Valores |
-| --------- | ------- |
-| Módulos recomendados | Seguridad (2asir), Fundamentos Hardware (1asir) |
-| Curso     | 201819  |
-| SSOO      | OpenSUSE Leap 15.0 |
-| Duración estimada | 6 sesiones (2 semanas) |
-| Entrega por defecto | Informe tipo tutorial |
-| Futuro | |
+```
+Módulos recomendados : Seguridad (2asir), Fundamentos Hardware (1asir)
+Curso                : 201819
+Softwatre            : OpenSUSE Leap 15.0
+Tiempo estimado      : 6 sesiones (2 semanas)
+Entrega por defecto  : Informe tipo tutorial
+```
+---
 
 # Ocultación de la información
 
