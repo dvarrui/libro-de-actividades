@@ -1,4 +1,11 @@
 
+```
+Curso           : 201819, 201718, 201617
+Software        : Windows y OpenSUSE
+Tiempo estimado :
+```
+---
+
 # 1. Eventos locales: Windows y OpenSUSE
 
 Toda la actividad importante del sistema debe quedar registrada en los
