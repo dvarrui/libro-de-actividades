@@ -143,8 +143,8 @@ Crear carpetas y poner permisos ACL:
     * donde el usuario `han` tienen permisos acl rwx.
     * donde el usuario `luke` tienen permisos acl rx.
 * Comprobar:
-    * `getacl /mnt/starwars/endor`
-    * `getacl /mnt/starwars/xwing`
+    * `getfacl /mnt/starwars/endor`
+    * `getfacl /mnt/starwars/xwing`
 * Comprobar las asignaciones de permisos anteriores, entrando con cada usuario y
 creando ficheros en cada recurso si se puede.
     * `vdir /mnt/starwars/endor`
