@@ -1,4 +1,12 @@
 
+```
+Curso           : 201819, 201718
+Requisitos      : SO Windows y SO GNU/Linux OpenSUSE
+Tiempo estimado :
+```
+
+---
+
 # Claves y ocultación
 
 Ejemplo de rúbrica:
@@ -186,6 +194,10 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 ---
 
 # ANEXO
+
+## Comando chntpw 
+
+* [chntpwd](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
 
 ## A.1 Cifrado /etc/shadow
 
