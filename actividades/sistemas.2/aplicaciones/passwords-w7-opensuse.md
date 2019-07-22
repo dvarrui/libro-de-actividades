@@ -197,7 +197,7 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 ## Comando chntpw 
 
-* [chntpwd](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
+* [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
 
 ## A.1 Cifrado /etc/shadow
 
