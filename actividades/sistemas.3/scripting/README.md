@@ -44,7 +44,7 @@ Básicamente lo que necesitaremos será conocer los comandos del sistema y para 
 
 # ANEXO
 
-* [Scripts básicos en Bash](https://www.ochobitshacenunbyte.com/2019/07/17scripts-basicos-en-bash)
+* [Scripts básicos en Bash](https://www.ochobitshacenunbyte.com/2019/07/17/scripts-basicos-en-bash)
 
 ## HackerHighSchool Lesson 2: Presentación y Objetivos
 
