@@ -1,4 +1,9 @@
 
+```
+Descripción: Un poco de teoría sobre scripting
+```
+---
+
 # Scripting
 
 Enlaces de interés
@@ -36,27 +41,22 @@ Básicamente lo que necesitaremos será conocer los comandos del sistema y para 
 * etc.
 
 ---
----
 
 # ANEXO
 
+* [Scripts básicos en Bash](https://www.ochobitshacenunbyte.com/2019/07/17/scripts-basicos-en-bash)
+
+## HackerHighSchool Lesson 2: Presentación y Objetivos
+
 http://www.hackerhighschool.org/lessons/HHS_es2_Comandos_Esenciales.v2.pdf
 
-HackerHighSchool Lesson 2: Presentación y Objetivos
-
-Tanto si recuerdas a Hugh Jackman
-en la película Operación Swordfish
-o a Trinity hackeando un sistema UNIX
-en Matrix Reloaded,
-cuando piensas en un hacker,
-lo imaginas trabajando con la línea de comandos.
+Tanto si recuerdas a Hugh Jackman en la película Operación Swordfish
+o a Trinity hackeando un sistema UNIX en Matrix Reloaded,
+cuando piensas en un hacker, lo imaginas trabajando con la línea de comandos.
 Y por una buena razón.
 
-Puedes hacer cosas formidables con
-la interfaz de línea de comandos (CLI).
-No necesitas ser un maestro usándola, pero
-deberías sentirte cómodo trabajando con ella.
+Puedes hacer cosas formidables con la interfaz de línea de comandos (CLI).
+No necesitas ser un maestro usándola, pero deberías sentirte cómodo trabajando con ella.
 
-Una vez que hayas aprendido los conceptos fundamentales del CLI,
-podrás comenzar a utilizar estos comandos en archivos de texto
+Una vez que hayas aprendido los conceptos fundamentales del CLI, podrás comenzar a utilizar estos comandos en archivos de texto
 (los llamados scripts); es la forma más sencilla de programar.

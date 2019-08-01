@@ -165,14 +165,9 @@ Vamos a "consola2".
 
 # ANEXO
 
-## A.1 Comandos antiguos
+## A.1 SELinux 
 
-En versiones antiguas se usaban estos otros comandos para gestionar el servicio:
-
-* rcapparmor status
-* rcapparmor start
-* rcapparmor stop
-* rcapparmor reload
+* [SELinux](https://theurbanpenguin.com/product/selinux-fundamentals-in-red-hat-enterprise-linux-8)
 
 ## A.2 Ideas para usar con Teuton
 
