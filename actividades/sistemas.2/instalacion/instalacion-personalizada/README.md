@@ -1,4 +1,11 @@
 
+```
+Curso           : 201819
+Requisitios     : Knoppix y Debian
+Tiempo estimado :
+```
+---
+
 # Instalación personalizada
 
 Ejemplo de rúbrica:
@@ -24,8 +31,8 @@ Ejemplo de rúbrica:
 * Capturar imágenes de los siguientes pasos.
 * Crear una nueva MV con:
     * Tipo Debian 64 bits
-    * Tamaño de disco de 10GB y
-    * Tarjeta de red en modo bridge (Puente).
+    * Tamaño de disco de 10GB
+    * Tarjeta de red en modo bridge (Puente)
 
 ---
 
@@ -85,7 +92,7 @@ NO hace falta capturar imagen de los siguientes pasos:
 
 Veamos un ejemplo:
 
-![act1-debian-particiones](./images/act1-debian-particiones.png)
+![debian-particiones](./images/debian-particiones.png)
 
 * Elegimos una réplica de red de España. El valor de Proxy lo dejamos vacío.
 
@@ -98,7 +105,7 @@ Veamos un ejemplo:
     * Marcar *SSH Server*
 
 Veamos imagen de ejemplo:
-![act1-debian-paquetes](./images/act1-debian-paquetes.png)
+![debian-paquetes](./images/debian-paquetes.png)
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
 Esto es el disco `/dev/sda`.
@@ -142,13 +149,3 @@ Capturar imagen de los siguientes comandos:
 * Desde la máquina real hacer `ssh root@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
-
----
-
-# ANEXO
-
-```
-Curso 2017-2018
-* Comprobar que funciona el comando file
-* Instalar wget, zip
-```
