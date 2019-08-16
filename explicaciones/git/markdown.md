@@ -1,11 +1,7 @@
 
 # Editor Markdown
 
-
-Podemos usar cualquier editor de texto para editar documentos en formato Markdown.
-
-Si usamos el editor atom, podemos activar la previsualización Markdown, tal y como se muestra en
-la siguiente imagen.
+Podemos usar cualquier editor de texto para editar documentos en formato Markdown. Si usamos, por ejemplo, el editor **atom** podemos activar la previsualización Markdown, tal y como se muestra en la siguiente imagen.
 
 ![Atom markdown prewiew](./images/atom-markdown-preview.png)
 
