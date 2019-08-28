@@ -1,6 +1,8 @@
 
 # Ramas o branches
 
+> Antes podemos crear un release del proyecto.
+
 ## Crear nueva rama
 
 Al crear nuestro primer proyecto/repositorio Git, éste tiene una rama/branch llamada `master`. Ahí es donde trabajamos por defecto. Para crear una nueva rama hacemos:
