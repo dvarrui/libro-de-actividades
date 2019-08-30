@@ -38,6 +38,6 @@ Rama 'devel' configurada para hacer seguimiento a la rama remota 'devel' de 'ori
 ## Fusionar los cambios
 
 * `git checkout master`, vamos a la rama master para traernos los cambios de la rama devel.
-* `git merge devel`, fusionar los cambios de la rama deme en master.
+* `git merge devel`, fusionar los cambios de la rama devel en master.
 * Resolver los conflictos.
 * `git branch -d devel`, para eliminar la rama cuando no haga falta.
