@@ -3,7 +3,7 @@
 Creado: curso 201920
 ```
 
-# systemd
+# Systemd
 
 Enlaces de interés:
 * EN - [Use systemd to Start a Linux Service at Boot](https://www.linode.com/docs/quick-answers/linux/start-service-at-boot/)
@@ -13,7 +13,7 @@ Enlaces de interés:
 
 # 1. Crear un servicio (S1)
 
-* Vamos a crear un script para gestionar nuestro servicio.
+* Vamos a crear un script para crear nuestro servicio.
 Por ejemplo usando el siguiente script Bash (`alumnoXXs1.sh`):
 ```
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
@@ -25,9 +25,12 @@ do
   sleep 30;
 done
 ```
-> Este script registra el instante cuando se inicia y luego entra en un bucle infinito.
+Este script registra el instante cuando se inicia y luego entra en un bucle infinito.
 
 * Copiar el script a `/usr/local/bin` y hacerlo ejecutable.
+
+> Si invocamos al script desde el fichero `/home/nombre-alumno/.bashrc`, entonces nuestro programa se iniciará cuando el usuario nombre-alumno inicie sesión en el sistema. Pero como queremos que el programa se inicie al arrancar en sistema operativo... entonces seguimos con la práctica...
+
 * Crear el `Unit file` para definir el servicio de systemd. Creamos el fichero `/lib/systemd/system/alumnoXXs1.service`:
 ```
     [Unit]
@@ -40,7 +43,7 @@ done
     [Install]
     WantedBy=multi-user.target
 ```
-> Así se define un servicio sencilla. La directiva ExecStart especifica el comando que se ejecutará para iniciar el servicio.
+> Así se define un servicio sencillo. La directiva ExecStart especifica el comando que se ejecutará para iniciar el servicio.
 
 ---
 
@@ -78,7 +81,7 @@ Es sólo temporal.
 # ANEXO
 
 ```
-alumno@telesforo:~> more /usr/lib/systemd/system/alumno.service 
+alumno@telesforo:~> more /usr/lib/systemd/system/alumno.service
 [Unit]
 Description=Reset User alumno
 
@@ -91,7 +94,7 @@ WantedBy=multi-user.target
 ```
 
 ```
-alumno@telesforo:/home/auto> more reset-user.rb 
+alumno@telesforo:/home/auto> more reset-user.rb
 #!/usr/bin/ruby
 # encoding: utf-8
 
@@ -122,6 +125,6 @@ else
   puts "[INFO] Nothing done!"
 end
 
-alumno@telesforo:/home/auto> 
+alumno@telesforo:/home/auto>
 
 ```
