@@ -22,6 +22,15 @@ Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAl
 
 ---
 
+## Evolución
+
+Los documentos de este repositorio están en contínua evolución, por ese motivo se han creado dos ramas:
+
+1. Rama **master** (https://github.com/dvarrui/libro-de-actividades/blob/master/). Es la que se muestra por defecto en la web de GitHub.
+2. 
+
+---
+
 ## Otras preguntas
 
 * [¿Cómo accedo a los documentos?](./docs/acceso.md)
@@ -30,4 +39,3 @@ Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAl
 * [Proyectos similares](./docs/proyectos-similares.md)
 
 ¡Muchas gracias!
-
