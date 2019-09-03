@@ -29,10 +29,10 @@ Los documentos de este repositorio están en contínua evolución, por ese motiv
 1. Rama **master**:
     * Estable de septiembre a junio.
     * Se muestra por defecto en la web de GitHub.
-    * URL: https://github.com/dvarrui/libro-de-actividades/blob/master/
+    * URL: https://github.com/dvarrui/libro-de-actividades/tree/master/
 2. Rama **devel**
     * En esta rama se realizarán los cambios y en julio se copiarán a la rama master.
-    * URL: https://github.com/dvarrui/libro-de-actividades/blob/devel
+    * URL: https://github.com/dvarrui/libro-de-actividades/tree/devel/
 
 ---
 
