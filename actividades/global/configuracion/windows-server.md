@@ -10,7 +10,7 @@
 # Configurar MV Windows 2008 Server
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
->     * 18 para el aula108
+>     * 18 para el aula103
 >     * 19 para el aual109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 

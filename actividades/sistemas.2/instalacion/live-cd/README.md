@@ -43,7 +43,7 @@ hostname
     * Supongamos que el alumno se llama "David Vargas"  y está en el puesto 16.
     * Nombre de usuario : `david`
     * Nombre del equipo : `vargas16w1`
-    * Nombre del grupo de trabajo: `curso1819` (Adapta este valor al curso actual)
+    * Nombre del grupo de trabajo: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
 ## 2.2 Después de la instalación
@@ -75,7 +75,7 @@ hostname
     * Supongamos que el alumno se llama "Obiwan Kenobi"  y está en el puesto 42.
     * Nombre de usuario : `obiwan`
     * Nombre del equipo : `kenobi42g1`
-    * Nombre del dominio: `curso1819` (Adapta este valor al curso actual)
+    * Nombre del dominio: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
 ## 3.2 Después de la instalación
