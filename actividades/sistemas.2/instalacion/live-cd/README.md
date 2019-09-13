@@ -39,7 +39,7 @@ hostname
     * La versión *Windows7 enterprise sp1 x64*.
 * Crear una MV, esta vez si tendrá disco duro.
     * Dejar el tamaño de disco recomendado.
-* Vamos a realizar un instalación por defecto, cambiando lo siguiente:
+* Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/windows.md)):
     * Supongamos que el alumno se llama "David Vargas"  y está en el puesto 16.
     * Nombre de usuario : `david`
     * Nombre del equipo : `vargas16w1`
@@ -55,6 +55,7 @@ date
 whoami
 hostname
 ```
+
 * Cuando terminamos la instalación conviene quitar la ISO de instalación de la unidad de CD/DVD para que no se inicie al arrancar la MV.
 
 ---
@@ -70,7 +71,7 @@ hostname
     * La versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
 * Crear una MV, esta vez si tendrá disco duro.
     * Poner 20GB como tamaño del disco duro virtual.
-* Vamos a realizar un instalación por defecto, cambiando lo siguiente:
+* Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/opensuse.md)):
     * Supongamos que el alumno se llama "Obiwan Kenobi"  y está en el puesto 42.
     * Nombre de usuario : `obiwan`
     * Nombre del equipo : `kenobi42g1`
