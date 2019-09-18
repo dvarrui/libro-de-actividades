@@ -2,8 +2,8 @@
 # 1. Introducción VNC
 
 Entrega a determinar por el profesor:
-* (a) Correccción remota con TEUTON.
-* (b) Entraga informe por GIT.
+* (a) Corrección remota con TEUTON.
+* (b) Entrega informe por GIT.
 
 > En el caso de la entrega por GIT:
 > * URL con la ruta al archivo del informe dentro del repositorio del alumno.
