@@ -14,7 +14,7 @@ Entrega a determinar por el profesor:
 Conexiones remotas con VNC:
 
 | MV | OS       | IP           | Rol        | Detalles              |
-| -- | -------- | ------------ | -------- - | --------------------- |
+| -- | -------- | ------------ | ---------- | --------------------- |
 |  1 | Windows  | 172.AA.XX.11 | Slave VNC  | Instalar servidor VNC |
 |  2 | Windows  | 172.AA.XX.12 | Master VNC | Instalar cliente VNC  |
 |  3 | OpenSUSE | 172.AA.XX.31 | Slave VNC  | Instalar servidor VNC |
