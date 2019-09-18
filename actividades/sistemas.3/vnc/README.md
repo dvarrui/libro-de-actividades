@@ -2,21 +2,23 @@
 # 1. Introducción VNC
 
 Entrega a determinar por el profesor:
-* (a) Corrección remota con TEUTON.
-* (b) Entrega informe por GIT.
+* (a) Correccción remota con TEUTON.
+* (b) Entraga informe por GIT.
 
 > En el caso de la entrega por GIT:
 > * URL con la ruta al archivo del informe dentro del repositorio del alumno.
 > * URl commit del repositorio con la versión entregada.
 > * Etiquetaremos la entrega en el repositorio Git con `vnc`.
+> * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 
 Conexiones remotas con VNC:
-* Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
-* Vamos a realizar las siguientes conexiones remotas VNC:
-    * Acceder a Windows - desde Windows 7/10
-    * Acceder a Windows - desde GNU/Linux OpenSUSE
-    * Acceder a GNU/Linux OpenSUSE - desde GNU/Linux OpenSUSE (A lo mejor no hay que instalar el software cliente VNC)
-    * Acceder a GNU/Linux OpenSUSE - desde Windows 7/10
+
+| MV | OS       | IP           | Rol        | Detalles              |
+| -- | -------- | ------------ | -------- - | --------------------- |
+|  1 | Windows  | 172.AA.XX.11 | Slave VNC  | Instalar servidor VNC |
+|  2 | Windows  | 172.AA.XX.12 | Master VNC | Instalar cliente VNC  |
+|  3 | OpenSUSE | 172.AA.XX.31 | Slave VNC  | Instalar servidor VNC |
+|  4 | OpenSUSE | 172.AA.XX.32 | Master VNC | Instalar cliente VNC  |
 
 ---
 
@@ -35,7 +37,9 @@ Conexiones remotas con VNC:
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse los puertos 580X, 590X, etc.
 
-## 1.3 Ir al cliente Windows
+---
+
+# 2 Ir al cliente Windows
 
 * En el cliente Windows instalar `TightVNC -> Custom -> Viewer`.
 * Usaremos `TightVNC Viewer`. Esto es el cliente VNC.
@@ -51,18 +55,18 @@ que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben vers
 > * Refrescar las MAC de la MV.
 > * Revisar en la configuración del servidor VNC Windows las opciones de "Access Control".
 
-## 1.4 Comprobaciones finales
+## 2.1 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
 * Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC cob el cliente.
 
 ---
 
-# 2. Instalación en OpenSUSE
+# 3. Instalación en OpenSUSE
 
 * Configurar las máquinas virtuales según este [documento](../../global/configuracion/).
 
-## 2.1 Ir al servidor VNC OpenSUSE
+## 3.1 Ir al servidor VNC OpenSUSE
 
 * Ir a `Yast -> VNC`
     * Permitir conexión remota. Esto configura el servicio `xinet`.
@@ -83,13 +87,17 @@ Para verificar que se han establecido las conexiones remotas:
 > El comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo hay que instalar
 el paquete `net-tools-deprecated`.
 
-## 2.2 Ir a la máquina GNU/Linux
+## 3.2 Ir a la máquina GNU/Linux
 
 * Ejecutar `nmap -Pn IP-VNC-SERVER`, desde la máquina real GNU/Linux para comprobar
 que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben verse
 los puertos VNC (5801, 5901, etc).
 
-## 2.3 Ir al cliente GNU/Linux
+---
+
+# 4. Ir al cliente GNU/Linux
+
+> NOTA: A lo mejor no hay que instalar el software cliente VNC.
 
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
 * En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
@@ -104,7 +112,7 @@ los puertos VNC (5801, 5901, etc).
 > * Enlace sobre [VNC server OpenSUSE 13.2](https://www.howtoforge.com/tutorial/vnc-server-on-opensuse-13.2/)
 > * Como cliente VNC podemos usar también `krdc`.
 
-## 2.4 Comprobaciones finales
+## 4.1 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
@@ -112,7 +120,7 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 
 ---
 
-# 3. Comprobaciones con SSOO cruzados
+# 5. Comprobaciones con SSOO cruzados
 
 * Conectar el cliente GNU/Linux con el Servidor VNC Windows.
 * Ejecutar `netstat -n` en el servidor Windows.
@@ -121,7 +129,7 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 
 ---
 
-# 4. DISPLAY 0 en GNU/Linux
+# 6. DISPLAY 0 en GNU/Linux
 
 > [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
 
