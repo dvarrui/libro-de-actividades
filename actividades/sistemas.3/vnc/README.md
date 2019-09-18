@@ -54,7 +54,7 @@ que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben vers
 ## 1.4 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
-* Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC cob el cliente.
+* Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC con el cliente.
 
 ---
 
