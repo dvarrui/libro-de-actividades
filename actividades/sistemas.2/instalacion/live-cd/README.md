@@ -17,7 +17,7 @@
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/windows.md)):
     * Supongamos que el alumno se llama "David Vargas"  y está en el puesto 16.
     * Nombre de usuario : `david`
-    * Nombre del equipo : `vargas16w1`
+    * Nombre del equipo : `vargas16w`
     * Nombre del grupo de trabajo: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
@@ -49,7 +49,7 @@ hostname
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/opensuse.md)):
     * Supongamos que el alumno se llama "Obiwan Kenobi"  y está en el puesto 42.
     * Nombre de usuario : `obiwan`
-    * Nombre del equipo : `kenobi42g1`
+    * Nombre del equipo : `kenobi42g`
     * Nombre del dominio: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
