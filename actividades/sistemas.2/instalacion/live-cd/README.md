@@ -6,34 +6,9 @@
 
 ---
 
-# 1. Live CD
+# 1. Windows
 
-Vamos a practicar con un SO en live CD.
-* Descargar una ISO Live del sistema operativo Knoppix (versión 7 por ejemplo).
-* Crear una máquina virtual sin disco duro.
-* Iniciar el SO en modo LIVE.
-
-> Para que se nos cargue en español debemos poner en el inicio **boot:**` knoppix lang=es`
-
-* Probar el sistema.
-* Abrir un terminal y capturar la salida de los siguientes comandos:
-```
-ip a
-sudo blkid
-date
-whoami
-hostname
-```
-
-* Crear algunos archivos y carpetas.
-* Reiniciar el SO live.
-* Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
-
----
-
-# 2. Windows
-
-## 2.1 Durante la instalación
+## 1.1 Durante la instalación
 
 * Descargar Windows:
     * La versión *Windows7 enterprise sp1 x64*.
@@ -46,7 +21,7 @@ hostname
     * Nombre del grupo de trabajo: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
-## 2.2 Después de la instalación
+## 1.2 Después de la instalación
 
 * Abrir un terminal *PowerShell*, y capturar la salida de los siguientes comandos:
 ```
@@ -60,12 +35,12 @@ hostname
 
 ---
 
-# 3. GNU/Linux
+# 2. GNU/Linux
 
 > Enlace de interés:
 > * [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
 
-## 3.1 Durante la intalación
+## 2.1 Durante la intalación
 
 * Descargar GNU/Linux.
     * La versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
@@ -78,7 +53,7 @@ hostname
     * Nombre del dominio: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
-## 3.2 Después de la instalación
+## 2.2 Después de la instalación
 
 > Cuando decimos nombre de host es lo mismo que nombre de máquina
 
@@ -102,3 +77,29 @@ sudo fdisk -l
 ```
 
 * Cuando terminamos la instalación conviene quitar la ISO de instalación de la unidad de CD/DVD para que no se inicie al arrancar la MV.
+
+---
+
+# 3. Live CD
+
+Vamos a practicar con un SO en live CD.
+* Descargar una ISO Live del sistema operativo Knoppix (versión 7 por ejemplo).
+* Crear una máquina virtual sin disco duro.
+* Iniciar el SO en modo LIVE.
+
+> Para que se nos cargue en español debemos poner en el inicio **boot:**` knoppix lang=es`
+
+* Probar el sistema.
+* Abrir un terminal y capturar la salida de los siguientes comandos:
+```
+ip a
+sudo blkid
+date
+whoami
+hostname
+```
+
+* Crear algunos archivos y carpetas.
+* Reiniciar el SO live.
+* Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
+
