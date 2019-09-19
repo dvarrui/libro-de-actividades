@@ -43,11 +43,10 @@ hostname
 ## 2.1 Durante la intalación
 
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
-* Comprobar la descarga:
+* Comprobar la descarga (Comando sha256sum):
 ```
 $ sha256sum -c openSUSE-Leap-15.0-DVD-x86_64.iso.sha256 
 openSUSE-Leap-15.0-DVD-x86_64.iso: La suma coincide
-sha256sum: ATENCIÓN: 14: líneas tienen un formato erróneo
 ```
 
 * Crear una MV, esta vez si tendrá disco duro.
