@@ -1,11 +1,4 @@
 
-# Entrega
-
-* Entregar 1 informe con las capturas de pantalla.
-* Comentar brevemente los pasos en el informe.
-
----
-
 # 1. Windows
 
 ## 1.1 Durante la instalación
