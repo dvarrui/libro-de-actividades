@@ -145,7 +145,14 @@ Capturar imagen de los siguientes comandos:
 # 5. Acceso externo
 
 * Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status sshd`.
-* En caso contrario... seguir los siguientes pasos para [instalar y configurar Servidor SSH en la MV Debian](../../../global/acceso-remoto/debian.md).
+* En caso contrario, seguir los siguientes pasos para [instalar y configurar Servidor SSH en la MV Debian](../../../global/acceso-remoto/debian.md).
 * Desde la máquina real hacer `ssh root@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
+
+---
+
+# ANEXO
+
+* [Linux: Should You Use Twice the Amount of Ram as Swap Space?
+last updated June 8, 2017](https://www.cyberciti.biz/tips/linux-swap-space.html)
