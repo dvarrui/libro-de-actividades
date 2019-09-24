@@ -1,5 +1,5 @@
 
-# 1. Introducción VNC
+# 0. Introducción VNC
 
 Entrega a determinar por el profesor:
 * (a) Correccción remota con TEUTON.
@@ -10,6 +10,15 @@ Entrega a determinar por el profesor:
 > * URl commit del repositorio con la versión entregada.
 > * Etiquetaremos la entrega en el repositorio Git con `vnc`.
 > * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
+
+## 0.1 Propuesta de rúbrica
+
+| Sección | Bien(2) | Regular(1) | Poco adecuado(0) |
+| ------- | ------- | ---------- | ---------------- |
+| (2.1) Comprobaciones ||||
+| (4.1) Comprobaciones ||||
+
+## 0.2 Configuraciones
 
 Conexiones remotas con VNC:
 
