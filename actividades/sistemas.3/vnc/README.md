@@ -88,8 +88,9 @@ Para verificar que se han establecido las conexiones remotas:
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
 * Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos VNC (580X y 590X).
 
-> El comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo hay que instalar
-el paquete `net-tools-deprecated`.
+> Podemos parar completamente el cortafuegos usando el siguiente comando `systemctl stop firewalld`.
+>
+> En OpenSUSE GNU/Linux el comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo... tendremos que instalar el paquete `net-tools-deprecated`.
 
 ## 3.1 Ir a una máquina GNU/Linux
 
