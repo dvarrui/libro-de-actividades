@@ -16,7 +16,7 @@ Entrega a determinar por el profesor:
 | Sección | Bien(2) | Regular(1) | Poco adecuado(0) |
 | ------- | ------- | ---------- | ---------------- |
 | (2.1) Comprobaciones ||||
-| (4.1) Comprobaciones ||||
+| (4.1) Comprobaciones ||| |
 
 ## 0.2 Configuraciones
 
