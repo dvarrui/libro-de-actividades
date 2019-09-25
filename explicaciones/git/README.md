@@ -99,22 +99,20 @@ Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
 
 El árbol de directorios creado en el repositorio debe ser como el siguiente:
 ```
-├── trim1
-│   ├── u1
-│   │   ├── script1.rb
-│   │   ├── script2.rb
-│   │   └── script3.rb
-│   ├── u2
-│   │   ├── ltsp
-│   │   │   ├── images
-│   │   │   └── README.md
-│   │   ├── vnc
-│   │   │   ├── images
-│   │   │   └── README.md
-│   │   └── ssh
-│   │       ├── images
-│   │       └── README.md
-│   ├── u3
-│   └── u4
-└── trim2    
+├── u1
+│   ├── script1.rb
+│   ├── script2.rb
+│   └── script3.rb
+├── u2
+│   ├── ltsp
+│   │   ├── images
+│   │   └── README.md
+│   ├── vnc
+│   │   ├── images
+│   │   └── README.md
+│   └── ssh
+│       ├── images
+│       └── README.md
+├── u3
+└── u4    
 ```
