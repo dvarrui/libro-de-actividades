@@ -1,15 +1,24 @@
 
-# 1. Introducción VNC
+# 0. Introducción VNC
 
 Entrega a determinar por el profesor:
 * (a) Correccción remota con TEUTON.
-* (b) Entraga informe por GIT.
+* (b) Entrega informe por GIT.
 
 > En el caso de la entrega por GIT:
 > * URL con la ruta al archivo del informe dentro del repositorio del alumno.
 > * URl commit del repositorio con la versión entregada.
 > * Etiquetaremos la entrega en el repositorio Git con `vnc`.
 > * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
+
+## 0.1 Propuesta de rúbrica
+
+| Sección | Bien(2) | Regular(1) | Poco adecuado(0) |
+| ------- | ------- | ---------- | ---------------- |
+| (2.1) Comprobaciones ||||
+| (4.1) Comprobaciones ||| |
+
+## 0.2 Configuraciones
 
 Conexiones remotas con VNC:
 
@@ -55,6 +64,8 @@ que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben vers
 ## 2.1 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
+* Conectar desde Window Master hacia el Windows Slave.
+* Conectar desde GNU/Linux Master hacia el Windows Slave.
 * Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC con el cliente.
 
 ---
@@ -78,8 +89,9 @@ Para verificar que se han establecido las conexiones remotas:
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
 * Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos VNC (580X y 590X).
 
-> El comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo hay que instalar
-el paquete `net-tools-deprecated`.
+> Podemos parar completamente el cortafuegos usando el siguiente comando `systemctl stop firewalld`.
+>
+> En OpenSUSE GNU/Linux el comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo... tendremos que instalar el paquete `net-tools-deprecated`.
 
 ## 3.1 Ir a una máquina GNU/Linux
 
@@ -107,6 +119,8 @@ el paquete `net-tools-deprecated`.
 ## 4.1 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
+* Conectar desde Window Master hacia GNU/Linux Slave.
+* Conectar desde Window Master hacia GNU/Linux Slave.
 * Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 

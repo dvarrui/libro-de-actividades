@@ -1,6 +1,6 @@
 
 ```
-Curso           : 20181º9, 201718, 201617
+Curso           : 201819, 201718, 201617
 Software        : Lector de PDF
 Tiempo estimado : 3 horas
 ```
@@ -12,6 +12,14 @@ Tiempo estimado : 3 horas
 * Cada alumno debe entregar un documento en formato ODT o PDF.
 * En la entrega debe aparecer el nombre del alumno.
 
+## Propuesta de rúbrica 
+
+| Sección | Bien(2) | Regular(1) | Poco adecuado(0) |
+| ------- | ------- | ---------- | ---------------- |
+| (1.1) Licencia CLUF ||||
+| (1.2) Licencia GPL ||||
+| (2.0) Distribuciones ||||
+
 ---
 
 # 1. Licencias
@@ -19,10 +27,17 @@ Tiempo estimado : 3 horas
 > Enlaces de interés:
 > * [¿Conoces los tipos de licencia de software?](https://okhosting.com/blog/tipos-de-licencia-de-software/)
 
-* Leer los documentos de las licencias CLUF y GPL.
-* Para cada licencia identificar:
-    * 5 características permitidas y
-    * 5 características prohibidas.
+## 1.1 Licencia CLUF 
+
+* Leer los documento de las licencias CLUF.
+* Identificar 5 características permitidas y
+* Identificar 5 características prohibidas.
+
+## 1.2 Licencia GPL
+
+* Leer los documento de la licencia GPL.
+* Identificar 5 características permitidas y
+* Identificar 5 características prohibidas.
 
 ---
 
