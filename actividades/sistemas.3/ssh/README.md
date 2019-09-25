@@ -137,10 +137,10 @@ Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usand
 ![ssh-conexion2](./opensuse/ssh-conexion2.png)
 
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
-pone *ssh-server* están el el servidor, y si pone *ssh-client1* están el el cliente1.
+pone *ssh-server* están el el servidor, y si pone *ssh-clientXXg* están el el cliente GNU/Linux.
 
 ```
-david@ssh-server42g:~> vdir .ssh/
+david@ssh-client42g:~> vdir .ssh/
 total 216
 -rw-r--r-- 1 david users 14910 oct 22 09:48 known_hosts
 ```
