@@ -64,7 +64,8 @@ que los servicios son visibles desde fuera de la máquina VNC-SERVER. Deben vers
 ## 2.1 Comprobaciones finales
 
 Para verificar que se han establecido las conexiones remotas:
-* Conectar Window Master y GNU/Linux Mastar al Windows Slave.
+* Conectar desde Window Master hacia el Windows Slave.
+* Conectar desde GNU/Linux Master hacia el Windows Slave.
 * Ir al servidor VNC y usar el comando `netstat -n` para ver las conexiones VNC con el cliente.
 
 ---
@@ -118,7 +119,8 @@ Para verificar que se han establecido las conexiones remotas:
 ## 4.1 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
-* Conectar Window Master y GNU/Linux Mastar al GNU/Linux Slave.
+* Conectar desde Window Master hacia GNU/Linux Slave.
+* Conectar desde Window Master hacia GNU/Linux Slave.
 * Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
