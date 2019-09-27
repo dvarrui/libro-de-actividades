@@ -103,8 +103,8 @@ minionXXg:
 
 Vamos a crear directorios para guardar lo estados de Salt. Los estados de Salt son definiciones de cómo queremos que estén nuestras máquinas.
 
-Ir al Máster:
-* Crear directorios `/srv/salt/base` y `/srv/salt/dev`.
+Ir a la MV Máster:
+* Crear directorios `/srv/salt/base` y `/srv/salt/devel`.
 * Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
 ```
 file_roots:
@@ -115,7 +115,7 @@ file_roots:
 ```
 * Reiniciar el servicio del Máster.
 
-Hemos creado dos directorios:
+Hemos creado los directorios para:
 * base = para guardar nuestros estados.
 * devel = para desarrollo o para hacer pruebas.
 
@@ -136,10 +136,10 @@ apache_service:
 ```
 
 Entendamos las definiciones:
-* La primera línea es un identificador (ID) del estado.
-* `pkg.installed`: se asegura que el paquete esté instalado.
-* `service.running`: se asegura de que el servicio esté iniciado.
-* `require`: Establece como requisito de que el servicio se inicia después de la instalación del paquete "apache2".
+* Nuestro nuevo estado se llama `apache` porque el directorio donde están las definiciones se llama `srv/salt/base/apache`.
+* La primera línea es un identificador (ID) del estado. Por ejemplo: `install_apache` o `apache_service`, es un texto que ponemos nosotros libremente, de forma que nos ayude a identificar lo que vamos a hacer.
+* `pkg.installed`: Es una orden de salt que asegura que los paquetes estén instalado.
+* `service.running`: Es una orden salt que asegura de que los servicios estén iniciado o parados.
 
 ## 5.3 Asociar Minions a estados
 
@@ -150,13 +150,16 @@ base:
   '*':
     - apache
 ```
-* `salt '*' state.show_states`, consultar los estados que tenemos:
+
+## 5.4 Comprobar: estados definidos
+
+* `salt '*' state.show_states`, consultar los estados que tenemos definidos para cada Minion:
 ```
 minionXXg:
     - apache
 ```
 
-## 5.4 Aplicar el nuevo estado
+## 5.5 Aplicar el nuevo estado
 
 Ir al Master:
 * Consultar los estados en detalle y verificar que no hay errores en las definiciones.
