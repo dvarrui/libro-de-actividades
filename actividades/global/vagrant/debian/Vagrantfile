@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "debian" do |i|
+    i.vm.box = "debian/stretch64"
+    i.vm.hostname = "profesor42d"
+    i.vm.network "public_network", bridge: [
+      "enp2s0",
+      "wlp1s0",
+    ]
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'debian-stretch64'
+      v.memory = 2048
+    end
+  end
+end
