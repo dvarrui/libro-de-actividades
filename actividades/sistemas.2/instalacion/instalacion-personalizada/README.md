@@ -1,8 +1,8 @@
 
 ```
-Curso           : 201819
+Curso           : 201920, 201819
 Requisitios     : Knoppix y Debian
-Tiempo estimado :
+Tiempo estimado : 2 sesiones
 ```
 ---
 
@@ -19,20 +19,25 @@ Ejemplo de rúbrica:
 
 ## Entrega
 
-* Usaremos un CD-Live de Knoppix y otro de instalación de Debian.
 * Entregar un documento en formato ODT o PDF con los pasos realizados.
 
-> NOTA: No borrar esta máquina virtual Debian al terminar, porque la usaremos en las próximas unidades de trabajo.
+## Requisitos
+
+* Usaremos un CD-Live de Knoppix y otro de instalación de Debian.
+
+> NOTA: No borrar esta máquina virtual Debian al terminar, porque la vamos a necesitar en las próximas actividades.
 
 ---
 
 # 1. Preparar la Máquina virtual
 
-* Capturar imágenes de los siguientes pasos.
-* Crear una nueva MV con:
-    * Tipo Debian 64 bits
-    * Tamaño de disco de 10GB
-    * Tarjeta de red en modo bridge (Puente)
+> Capturar imágenes de los siguientes pasos.
+
+* Crear una nueva MV VirtualBox con:
+    * Nombre: idp-debian-personalizado
+    * Tipo: Debian 64 bits
+    * Tamaño de disco: 10GB
+    * Tarjeta de red: modo bridge (Puente)
 
 ---
 
@@ -41,7 +46,9 @@ Ejemplo de rúbrica:
 > Knoppix es una distribución de GNU/Linux que viene en CD-Live.
 > Por defecto, viene provista de un conjunto de herramientas muy útiles.
 
-* Descargar del servidor:
+## 2.1 Descargar
+
+* Descargar del servidor indicado por el profesor:
     * la ISO de Knoppix y
     * el fichero md5.
 * Vamos a comprobar que la descarga de los ficheros se hizo de forma correcta.
@@ -50,13 +57,20 @@ Ejemplo de rúbrica:
     * `vdir`, para asegurarnos que los ficheros que vamos a usar están en nuestra carpeta actual.
     * `md5sum -c nombre-fichero.md5`, ejecutamos el comando de comprobación.
     * Debe aparecer mensaje `la suma coincide`.
+
+## 2.2 Iniciar Knoppix
+
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
     * Para iniciar el SSOO en español, escribir: `knoppix lang=es`
-* Abrir una consola, ponerse como root (comando su) y ejecutar gparted (comando gparted).
+* Abrir una consola
+    * ponerse como root (comando su) y
+    * ejecutar gparted (comando gparted).
 
->Ahora vamos a usar gparted para crear una partición en el disco.
+> Ahora vamos a usar gparted para crear una partición en el disco.
+
+## 2.3 Crear particiones con Gparted
 
 * Iniciar `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
@@ -64,37 +78,47 @@ Ejemplo de rúbrica:
 
 ---
 
-# 3. Instalando SO Debian
+# 3. Instalar SO Debian
 
-Capturar imágenes de los siguientes pasos:
+## 3.1 Descargar los ficheros
+
+> Capturar imágenes de los siguientes pasos
+
 * Descargar del servidor la ISO de Debian y su fichero md5.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
     * `md5sum -c nombre-fichero.md5`
     * Debe aparecer mensaje `la suma coincide`.
 
-NO hace falta capturar imagen de los siguientes pasos:
+## 3.2 Instalar SO
+
+> NO hace falta capturar imagen de los siguientes pasos
+
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
-* En la [configuración de la MV](../../../global/configuracion/debian.md) podremos valores a:
+* Configurar los siguientes parámetros durante el proceso de instalación según se especifican en [¿Cómo configurar la MV?](../../../global/configuracion/debian.md):
     * Nombre del equipo
     * Nombre de dominio
     * La clave de root
     * Nombre de usuario y su clave
-* Zona horaria Canarias.
-* Método de particionado manual.
+* Zona horaria: elegir la de Canarias.
+* Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
-    1. Partición lógica para la Swap de 1GB (Tipo Área de Intercambio)
-    1. Partición lógica para la Raíz del sistema (Montar /) de 7GB tipo ext4.
-    1. Partición lógica para el Home (Montar /home) de 500MB tipo ext3.
-    1. Partición lógica sin usar (No se monta) de 100MB de tipo ext2.
-    1. Dejar el resto sin usar.
+
+| Partición | Tamaño | Uso  | Montar | Tipo                |
+| --------- | ------ | ---- | ------ | ------------------- |
+| Lógica    | 1 GB   | Swap | No     | Área de Intercambio |
+| Lógica    | 7 GB   | Raíz | /      | ext4 |
+| Lógica    | 500 M  | Home | /home  | ext3 |
+| Lógica    | 100 MB | Sin usar | No | ext2 |
+| -         | Resto (1.4 GB) | Sin usar | No | -    |
+
 * Capturar imagen del esquema de particionado final.
 
 Veamos un ejemplo:
 
 ![debian-particiones](./images/debian-particiones.png)
 
-* Elegimos una réplica de red de España. El valor de Proxy lo dejamos vacío.
+* Elegir una réplica de red de España. El valor de Proxy lo dejamos vacío.
 
 > Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio.
 > Por el momento queremos un sistema sólo en modo texto.
@@ -105,17 +129,17 @@ Veamos un ejemplo:
     * Marcar *SSH Server*
 
 Veamos imagen de ejemplo:
+
 ![debian-paquetes](./images/debian-paquetes.png)
 
-* ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI.
-Esto es el disco `/dev/sda`.
+* ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI. Esto es el disco `/dev/sda`.
 * Instalación completa -> Continuar.
 
 ---
 
 # 4. Con el SO instalado
 
-NO hace falta capturar imágenes de lo siguiente:
+> NO hace falta capturar imágenes de lo siguiente
 
 * Entrar al sistema como root (superusuario)
 * Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion/debian.md).
@@ -144,8 +168,12 @@ Capturar imagen de los siguientes comandos:
 
 # 5. Acceso externo
 
-* Debemos tener instalado el servidor OpenSSH. Comprobamos `systemctl status sshd`.
+## 5.1 Instalar servidor SSH
+* `systemctl status sshd`, comprobamos que el servidor SSH está activo.
 * En caso contrario, seguir los siguientes pasos para [instalar y configurar Servidor SSH en la MV Debian](../../../global/acceso-remoto/debian.md).
+
+## 5.2 Comprobar que funciona el acceso SSH
+
 * Desde la máquina real hacer `ssh root@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
 * Apagar el sistema con el comando: `halt`
@@ -154,5 +182,4 @@ comprobar que funciona bien el acceso desde fuera.
 
 # ANEXO
 
-* [Linux: Should You Use Twice the Amount of Ram as Swap Space?
-last updated June 8, 2017](https://www.cyberciti.biz/tips/linux-swap-space.html)
+* [Linux: Should You Use Twice the Amount of Ram as Swap Space? - 201708](https://www.cyberciti.biz/tips/linux-swap-space.html)
