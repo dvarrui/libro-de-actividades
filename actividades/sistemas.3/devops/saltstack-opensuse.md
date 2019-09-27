@@ -25,12 +25,12 @@ Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet,
 ---
 # 3. Master: instalar y configurar.
 
-Enlaces de interés:
-* [OpenSUSE -Saltstack](https://docs.saltstack.com/en/latest/ref/configuration)
+> Enlaces de interés:
+> * [OpenSUSE -Saltstack](https://docs.saltstack.com/en/latest/ref/configuration)
 
 * Ir a la MV1
-* `zypper install salt-master`, instalar el software del master.
-* Modificar `/etc/salt/master` para configurar nuestro master con:
+* `zypper install salt-master`, instalar el software del Máster.
+* Modificar `/etc/salt/master` para configurar nuestro Máster con:
 ```
 interface: 172.19.XX.31
 file_roots:
