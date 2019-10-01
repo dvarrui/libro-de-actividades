@@ -116,10 +116,10 @@ Crear los siguientes usuarios en `ssh-serverXXg`:
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
-* Ir al cliente `sshclientXXg`.
+* Ir al cliente `ssh-clientXXg`.
 * `ping ssh-serverXXg`, comprobar la conectividad con el servidor.
 * `nmap -Pn ssh-serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open).
-Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
+Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
 
