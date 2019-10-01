@@ -301,6 +301,7 @@ remoto en la máquina remota.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
 * Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes.
 Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
+* Reiniciar el servicio SSH para que se lean los cambios de confiuración.
 
 Vamos al clienteXXa.
 * `zypper se APP1`,cComprobar que no está instalado el programa APP1.
