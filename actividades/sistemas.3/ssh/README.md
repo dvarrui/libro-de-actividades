@@ -305,7 +305,7 @@ Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwardi
 
 Vamos al clienteXXa.
 * `zypper se APP1`,cComprobar que no está instalado el programa APP1.
-* Vamos a comprobar desde el clienteXXa, que funciona APP1(del servidor).
+* Vamos a comprobar desde ssh-clientXXg, que funciona APP1(del servidor).
     * `ssh -X primer-apellido-alumno1@ssh-serverXXg`, nos conectamos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
     * **¡OJO!** El parámetro es `-X` en mayúsculas, no minúsculas.
