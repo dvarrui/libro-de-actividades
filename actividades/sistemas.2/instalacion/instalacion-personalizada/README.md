@@ -104,13 +104,13 @@ Ejemplo de rúbrica:
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
 
-| Partición | Tamaño | Uso  | Montar | Tipo                |
-| --------- | ------ | ---- | ------ | ------------------- |
-| Lógica    | 1 GB   | Swap | No     | Área de Intercambio |
-| Lógica    | 7 GB   | Raíz | /      | ext4 |
-| Lógica    | 500 M  | Home | /home  | ext3 |
-| Lógica    | 100 MB | Sin usar | No | ext2 |
-| -         | Resto (1.4 GB) | Sin usar | No | -    |
+| Partición | Uso      | Tamaño | Formato             | Montar    |
+| --------- | -------- | ------ | ------------------- | --------- |
+| Lógica#5  | Swap     | 1 GB   | Área de Intercambio | No        | 
+| Lógica#6  | Raíz     | 7 GB   | ext4                | /         |
+| Lógica#7  | Home     | 500 M  | ext3                | /home     |
+| Lógica#8  | Sin usar | 100 MB | ext2                | No montar |
+| -         | Sin usar | Resto  | -                   | No montar |
 
 * Capturar imagen del esquema de particionado final.
 
