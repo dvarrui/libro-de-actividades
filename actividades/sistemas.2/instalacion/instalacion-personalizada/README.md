@@ -64,15 +64,15 @@ Ejemplo de rúbrica:
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
     * Para iniciar el SSOO en español, escribir: `knoppix lang=es` (El símbolo `=` puede estar en la tecla `¿`).
-* Abrir una consola
-    * ponerse como root (comando su) y
-    * ejecutar gparted (comando gparted).
 
 > Ahora vamos a usar gparted para crear una partición en el disco.
 
 ## 2.3 Crear particiones con Gparted
 
-* Iniciar `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
+* Abrir una consola
+    * ponerse como root (comando su) y
+    * ejecutar gparted (comando gparted).
+* Se ha iniciado `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
