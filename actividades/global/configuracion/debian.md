@@ -15,7 +15,7 @@
 | ----------------- | ------------------------------- |
 | Nombre de equipo  | `primer-apellido-del-alumnoXXd`. Por ejemplo `vargasXXd`. Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXd2, vargasXXd2, etc. |
 | Nombre de dominio | `curso1920` (Modificar los números al curso actual) |
-| Nombre de usuario | `nombre-del-alumno` en minúscolas y sin tildes |
+| Nombre de usuario | `nombre-del-alumno` en minúsculas y sin tildes |
 
 > **ATENCIÓN**
 >
