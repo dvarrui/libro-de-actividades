@@ -63,7 +63,7 @@ Ejemplo de rúbrica:
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
-    * Para iniciar el SSOO en español, escribir: `knoppix lang=es`
+    * Para iniciar el SSOO en español, escribir: `knoppix lang=es` (El símbolo `=` puede estar en la tecla `¿`).
 * Abrir una consola
     * ponerse como root (comando su) y
     * ejecutar gparted (comando gparted).
