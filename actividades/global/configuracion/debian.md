@@ -11,11 +11,11 @@
 
 # Configurar Nombre EQUIPO, DOMINIO y USUARIO
 
-* Nombre de equipo: `primer-apellido-del-alumnoXXd1`.
-    * Por ejemplo vargasXXd1
-    * Si tenemos varias máquinas las llamaremos vargasXXd1, vargasXXd2, vargasXXd2, etc.
-* Nombre de dominio: `curso1819` (Modificar los números al curso actual).
-* Un usuario identificado con `nombre-del-alumno`.
+| Parámetro         | Valor                           |
+| ----------------- | ------------------------------- |
+| Nombre de equipo  | `primer-apellido-del-alumnoXXd`. Por ejemplo `vargasXXd`. Si tenemos varias máquinas las llamaremos vargasXXd, vargasXXd2, vargasXXd2, etc. |
+| Nombre de dominio | `curso1920` (Modificar los números al curso actual) |
+| Nombre de usuario | `nombre-del-alumno` en minúscolas y sin tildes |
 
 > **ATENCIÓN**
 >
@@ -23,10 +23,10 @@
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hostname`
 >     * Ponemos el `nombre-maquina.nombre-dominio`
->     * Por ejemplo: `vargasXXd1.curso1617`
+>     * Por ejemplo: `vargasXXd.curso1920`
 > * Fichero `/etc/hosts`.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
->     * Por ejemplo: `127.0.0.2   vargasXXd1.curso1617   vargasXXd1`
+>     * Por ejemplo: `127.0.0.2   vargasXXd.curso1920   vargasXXd`
 
 *Comprobar nombre de equipo y usuario:*
 ```
