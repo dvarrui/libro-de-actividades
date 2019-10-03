@@ -2,7 +2,7 @@
 ```
 Curso           : 201920, 201819
 Requisitios     : Knoppix y Debian
-Tiempo estimado : 2 sesiones
+Tiempo estimado : 4 sesiones
 ```
 ---
 
@@ -10,12 +10,12 @@ Tiempo estimado : 2 sesiones
 
 Ejemplo de rúbrica:
 
-| Sección                  | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| ------------------------ | ------------ | ----------- | ----------------- |
-| Checksum de las 2 ISOs   | | | |
+| Sección                      | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ---------------------------- | ------------ | ----------- | ----------------- |
+| (2.1) Checksum de las 2 ISOs | | | |
 | Esquema de particionado  | | | |
-| Comandos de comprobación | | | |
-| SSH                      | | |.|
+| (4) Comandos de comprobación | | | |
+| (5.2) SSH                    | | |.|
 
 ## Entrega
 
