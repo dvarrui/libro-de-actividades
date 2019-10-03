@@ -4,7 +4,7 @@
 # Instalar servicio SSH
 
 * Para averiguar si lo tenemos instalado: `dpkg -l *ssh*`.
-* Instalar servidor SSH para que el profesor pueda acceder de forma remota:
+* Instalar servidor SSH para poder acceder de forma remota:
     * `apt-get install openssh-server`, por comandos.
     * Usar gestor de paquetes del entorno gráfico.
 
@@ -13,7 +13,7 @@
 # Cambiar la configuración de SSH
 
 * Entrar en la consola con el usuario `root`.
-* Editar el fichero `/etc/ssh/sshd_config`:
+* Editar el fichero `nano /etc/ssh/sshd_config`:
      * Quitar y/o comentar la línea `PermitRootLogin without-password`.
      * Dejar la siguiente configuración `PermitRootLogin yes`. SIN ALMOHADILLA.
      Las almohadillas `#` al comienzo de la línea la desactivan/deshabilitan/la comentan.
