@@ -96,10 +96,10 @@ Ejemplo de rúbrica:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * Configurar los siguientes parámetros durante el proceso de instalación según se especifican en [¿Cómo configurar la MV?](../../../global/configuracion/debian.md):
-    * Nombre del equipo
-    * Nombre de dominio
+    * Nombre del equipo: `1er-apellidoXXd`
+    * Nombre de dominio: `curso1920`
     * La clave de root
-    * Nombre de usuario y su clave
+    * Nombre de usuario (`nombre-del-alumno`) y su clave.
 * Zona horaria: elegir la de Canarias.
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
