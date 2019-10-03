@@ -58,7 +58,9 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 
 ---
 
-# Proceso para configurar la red.
+# Proceso para cambiar la configurar la red
+
+## Usando entorno gráfico
 
 Podemos configurar la red por entorno gráfico usando la aplicación NetworkManager.
 Por comandos debemos modificar el contenido de los ficheros de configuración de red.
@@ -67,9 +69,10 @@ Por comandos debemos modificar el contenido de los ficheros de configuración de
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-* Primero debemos averiguar el nombre de nuestra interfaces.
-    * Usaremos `ip a` o `ifconfig`.
-* Para cambiar la configuración de red,modificar el fichero `/etc/network/interfaces`.
+## Sin entorno gráfico 
+
+* Usar comando `ip a`para averiguar el nombre de nuestras interfaces de red.
+* `nano /etc/network/interfaces`, para modificar el fichero de configuración de red.
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
 
 ```
