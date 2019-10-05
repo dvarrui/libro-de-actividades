@@ -116,10 +116,10 @@ Crear los siguientes usuarios en `ssh-serverXXg`:
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
-* Ir al cliente `sshclientXXg`.
+* Ir al cliente `ssh-clientXXg`.
 * `ping ssh-serverXXg`, comprobar la conectividad con el servidor.
 * `nmap -Pn ssh-serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open).
-Debe mostrarnos que el puerto 22 está abierto. Esto es, debe aparecer una línea como  "22/tcp open  ssh".
+Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
 
@@ -301,10 +301,11 @@ remoto en la máquina remota.
 Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
 * Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes.
 Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
+* Reiniciar el servicio SSH para que se lean los cambios de confiuración.
 
 Vamos al clienteXXa.
 * `zypper se APP1`,cComprobar que no está instalado el programa APP1.
-* Vamos a comprobar desde el clienteXXa, que funciona APP1(del servidor).
+* Vamos a comprobar desde ssh-clientXXg, que funciona APP1(del servidor).
     * `ssh -X primer-apellido-alumno1@ssh-serverXXg`, nos conectamos de forma
 remota al servidor, y ahora ejecutamos APP1 de forma remota.
     * **¡OJO!** El parámetro es `-X` en mayúsculas, no minúsculas.

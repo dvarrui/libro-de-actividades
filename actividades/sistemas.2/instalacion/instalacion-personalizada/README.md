@@ -2,7 +2,7 @@
 ```
 Curso           : 201920, 201819
 Requisitios     : Knoppix y Debian
-Tiempo estimado : 2 sesiones
+Tiempo estimado : 4 sesiones
 ```
 ---
 
@@ -10,12 +10,12 @@ Tiempo estimado : 2 sesiones
 
 Ejemplo de rúbrica:
 
-| Sección                  | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| ------------------------ | ------------ | ----------- | ----------------- |
-| Checksum de las 2 ISOs   | | | |
+| Sección                      | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ---------------------------- | ------------ | ----------- | ----------------- |
+| (2.1) Checksum de las 2 ISOs | | | |
 | Esquema de particionado  | | | |
-| Comandos de comprobación | | | |
-| SSH                      | | |.|
+| (4) Comandos de comprobación | | | |
+| (5.2) SSH                    | | |.|
 
 ## Entrega
 
@@ -63,16 +63,16 @@ Ejemplo de rúbrica:
 * Iniciar la MV con CDLive de Knoppix.
     * Cuando aparezca el prompt `boot:` pulsar F3.
     * Leer la pantalla.
-    * Para iniciar el SSOO en español, escribir: `knoppix lang=es`
-* Abrir una consola
-    * ponerse como root (comando su) y
-    * ejecutar gparted (comando gparted).
+    * Para iniciar el SSOO en español, escribir: `knoppix lang=es` (El símbolo `=` puede estar en la tecla `¿`).
 
 > Ahora vamos a usar gparted para crear una partición en el disco.
 
 ## 2.3 Crear particiones con Gparted
 
-* Iniciar `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
+* Abrir una consola
+    * ponerse como root (comando su) y
+    * ejecutar gparted (comando gparted).
+* Se ha iniciado `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
 * Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
@@ -96,21 +96,21 @@ Ejemplo de rúbrica:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * Configurar los siguientes parámetros durante el proceso de instalación según se especifican en [¿Cómo configurar la MV?](../../../global/configuracion/debian.md):
-    * Nombre del equipo
-    * Nombre de dominio
+    * Nombre del equipo: `1er-apellidoXXd`
+    * Nombre de dominio: `curso1920`
     * La clave de root
-    * Nombre de usuario y su clave
+    * Nombre de usuario (`nombre-del-alumno`) y su clave.
 * Zona horaria: elegir la de Canarias.
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
 
-| Partición | Tamaño | Uso  | Montar | Tipo                |
-| --------- | ------ | ---- | ------ | ------------------- |
-| Lógica    | 1 GB   | Swap | No     | Área de Intercambio |
-| Lógica    | 7 GB   | Raíz | /      | ext4 |
-| Lógica    | 500 M  | Home | /home  | ext3 |
-| Lógica    | 100 MB | Sin usar | No | ext2 |
-| -         | Resto (1.4 GB) | Sin usar | No | -    |
+| Partición | Uso      | Tamaño | Tipo                | Montar    |
+| --------- | -------- | ------ | ------------------- | --------- |
+| Lógica#5  | Swap     | 1 GB   | Área de Intercambio | No        | 
+| Lógica#6  | Raíz     | 7 GB   | ext4                | /         |
+| Lógica#7  | Home     | 500 M  | ext3                | /home     |
+| Lógica#8  | Sin usar | 100 MB | ext2                | No montar |
+| -         | Sin usar | Resto  | -                   | No montar |
 
 * Capturar imagen del esquema de particionado final.
 
