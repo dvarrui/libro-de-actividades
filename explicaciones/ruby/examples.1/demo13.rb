@@ -8,3 +8,5 @@ if age > '18'
 else
   puts "You are younger..."
 end
+
+# How important is to choose proper data type (class)

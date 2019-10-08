@@ -13,3 +13,4 @@ puts a+" *  8 = "+a*8
 puts a+" *  9 = "+a*9
 puts a+" * 10 = "+a*10
 
+# Multiply table

@@ -6,3 +6,5 @@ puts "Hello World!" # Show message on screen
 print "Hello "
 print "World!"
 print "\n"
+
+# Differents ways to get same result.

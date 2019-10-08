@@ -9,3 +9,5 @@ puts "- Upcase     : #{word.upcase}"
 puts "- Downcase   : #{word.downcase}"
 puts "- Reverse    : #{word.reverse}"
 puts "- Bytes      : #{word.bytes}"
+
+# String has a lot of method... read documentation to find more.

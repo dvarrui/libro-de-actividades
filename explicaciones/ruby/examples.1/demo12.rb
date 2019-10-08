@@ -9,3 +9,5 @@ puts "value=#{a} class=#{a.class}"
 puts "value=#{b} class=#{b.class}"
 puts "value=#{c} class=#{c.class}"
 puts "value=#{d} class=#{d.class}"
+
+# Integer are Math integer and FLoat are math real numbers.

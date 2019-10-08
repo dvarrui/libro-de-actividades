@@ -10,3 +10,5 @@ if name == 'david'
 else
   puts "I'm thinking about programming languages..."
 end
+
+# Now we are using conditional! And looks just like pseudocode!

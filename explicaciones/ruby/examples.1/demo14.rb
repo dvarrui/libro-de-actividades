@@ -12,3 +12,5 @@ if age > 18
 else
   puts "You are younger..."
 end
+
+# Better with integers

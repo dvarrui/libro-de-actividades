@@ -3,3 +3,6 @@
 name = gets
 
 puts "Hello " + name + "!"
+
+
+# Get user information!
