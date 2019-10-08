@@ -1,4 +1,4 @@
-##!/usr/bin/env ruby
+#!/usr/bin/env ruby
 
 a = 4+3
 b = 4-3
