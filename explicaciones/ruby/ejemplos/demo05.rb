@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 
-var = "Hello World!"
+print "Write your name: "
+name = gets.chop
 
-puts var
+puts "Hello " + name + "!"

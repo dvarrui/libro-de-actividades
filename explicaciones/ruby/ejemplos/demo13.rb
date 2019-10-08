@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-a = 3
-b = 4
-c =  a.to_f / b.to_f
-puts c
+print "Write your age: "
+age = gets.chop
+
+if age > '18'
+  puts "You are adult"
+else
+  puts "You are younger..."
+end

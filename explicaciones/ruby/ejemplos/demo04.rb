@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 
-puts "Hello World!"
+name = gets
+
+puts "Hello " + name + "!"

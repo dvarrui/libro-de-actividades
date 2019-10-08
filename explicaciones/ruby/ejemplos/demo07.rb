@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 
-name = "Obiwan"
+print "Write your name: "
+name = gets.chop
 
-puts "Hello #{name}!"
+puts "Hello #{name.capitalize}!"

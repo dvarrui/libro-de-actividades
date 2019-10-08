@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 
-name = "Obiwan"
+print "Write your name: "
+name = gets.chop
 
-puts "Hello #{name.upcase}!"
+puts "Hello #{name.capitalize}!"
+
+if name == 'david'
+  puts "Ruby is the best!"
+else
+  puts "I'm thinking about programming languages..."
+end
