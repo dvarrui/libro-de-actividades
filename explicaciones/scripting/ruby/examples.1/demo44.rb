@@ -1,15 +1,12 @@
 #!/usr/bin/ruby
 
-resultado = `cat carpetas.txt`
+input = `cat carpetas.txt`
+subjects = input.split("\n")
 
-asignaturas = resultado.split("\n")
-
-puts asignaturas
-
+puts "[INFO] subjects = #{subjets}"
 system("mkdir curso1516")
 
-asignaturas.each do |nombre|
-  system("mkdir curso1516/#{nombre}")
+subjects.each do |name|
+  system("mkdir curso1516/#{name}")
 end
-
-puts "Creadas las carpetas"
+puts "Finish!"
