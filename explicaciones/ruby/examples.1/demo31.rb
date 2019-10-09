@@ -4,3 +4,5 @@
 name = ARGV.first
 
 puts "Hello #{name}!"
+
+# Reading first argument
