@@ -28,10 +28,12 @@ host www.google.es # Comprobar DNS
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta HOME de nuestro usuario (`/home/nombre-del-alumno`):
 ```
-curso1920/hardware
-curso1920/sistemas-operativos
-curso1920/lenguaje-de-marcas
-curso1920/ingles
+curso1920
+├── hardware
+├── ingles
+├── lenguaje-de-marcas
+└── sistemas-operativos
 ```
+
 * Dentro de cada carpeta crear documento `leeme.txt`
 * Dentro de dicho documento escribir el nombre y apellidos en minúsculas, sin tildes ni eñes.
