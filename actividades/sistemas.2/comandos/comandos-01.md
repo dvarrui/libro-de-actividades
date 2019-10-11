@@ -3,7 +3,7 @@
 
 ## Máquina Virtual
 
-Partimos que ya tenemos creada la MV GNU/Linux [bien configurada](../../global/configuracion/opensuse.md).
+Partimos de la MV (sin entorno gráfico), que ya tenemos creada.
 
 ---
 
@@ -11,7 +11,7 @@ Partimos que ya tenemos creada la MV GNU/Linux [bien configurada](../../global/c
 
 Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 
-* Comprobar [configuración](../../global/configuracion/opensuse.md).
+* Comprobar [configuración](../../global/configuracion/debian.md).
 * Comprobamos que la configuración está bien con:
 ```
 ip a               # Comprobar la IP
