@@ -7,7 +7,7 @@ Partimos que ya tenemos creada la MV GNU/Linux [bien configurada](../../global/c
 
 ---
 
-## Acceso remoto
+## Acceso remoto (Revisar)
 
 Vamos a configurar la máquina para permitir el acceso remoto al profesor.
 
@@ -28,10 +28,10 @@ host www.google.es # Comprobar DNS
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta HOME de nuestro usuario (`/home/usuario`):
 ```
-curso1718/hardware
-curso1718/sistemas-operativos
-curso1718/lenguaje-de-marcas
-curso1718/ingles
+curso1920/hardware
+curso1920/sistemas-operativos
+curso1920/lenguaje-de-marcas
+curso1920/ingles
 ```
 * Dentro de cada carpeta crear documento `leeme.txt`
 * Dentro de dicho documento escribir el nombre y apellidos en minúsculas, sin tildes ni eñes.
