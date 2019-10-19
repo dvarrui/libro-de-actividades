@@ -15,8 +15,9 @@
 ![w7-iniciar-servicio-telnet.png](./images/w7-iniciar-servicio-telnet.png)
 
 * Usuario/clave
-   * Crear usuario `teuton` dentro de los grupos `Administradores` y `TelnetClients`.
+   * Crear usuario `teuton`.
    * Clave de `teuton` conocida por el alumno y el profesor.
+   * Incluir al usuario dentro de los grupos `Administradores` y `TelnetClients`.
 
 ![w7-usuario-telnet.png](./images/w7-usuario-telnet.png)
 
