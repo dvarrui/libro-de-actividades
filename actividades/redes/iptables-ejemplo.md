@@ -1,5 +1,9 @@
 
-`Autor: Juan Carlos Pérez`
+```
+Estado : Ejemplo pendiente de convertir en actividad
+Curso  : 201819
+Autor  : Juan Carlos Pérez
+```
 
 ---
 

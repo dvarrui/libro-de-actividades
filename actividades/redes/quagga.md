@@ -1,43 +1,35 @@
 
 ```
-EN CONSTRUCCIÓN
-Usar scripting para configurar esta práctica
+Estado : EN CONSTRUCCIÓN
+Ideas  : Usar scripting para configurar esta práctica
 ```
 
-# How to build a network of Linux routers using quagga
+# Construir una red de routers GNU/Linux usando quagga
 
 Enlace de interés:
 * http://www.brianlinkletter.com/how-to-build-a-network-of-linux-routers-using-quagga/
 
-
-
 This post lists the commands required on each node to build a network
-of three Ubuntu Linux routers. Each router is connected to the other two routers
-and is running quagga. Each router is also connected to a PC running Ubuntu Linux.
+of three Ubuntu Linux routers. Each router is connected to the other two routers and is running quagga. Each router is also connected to a PC running Ubuntu Linux.
 
-I use this network configuration to evaluate network emulators and open-source
-networking software in a simple scenario. Readers may find these commands
-useful in building their own configuration scripts.
+I use this network configuration to evaluate network emulators and open-source networking software in a simple scenario. Readers may find these commands useful in building their own configuration scripts.
 
 I provide “copy and paste” commands so the network can be configured quickly.
 
-Creating a basic topology
 
-The physical — or virtual — network installation and the management network setup
-is outside the scope of this post. The method used to build the lab topology
-depends on the equipment, and/or the network emulator and hypervisor technology you are using.
+## Creating a basic topology
+
+The physical — or virtual — network installation and the management network setup is outside the scope of this post. The method used to build the lab topology depends on the equipment, and/or the network emulator and hypervisor technology you are using.
 
 I assume you already have six machines running and connected in a network
-as shown above, and I assume you have a management network set up so that each
-machine can communicate with the host computer and with the Internet. I assume
-the management interface is the first Ethernet interface on each node, enp0s3.
+as shown above, and I assume you have a management network set up so that each machine can communicate with the host computer and with the Internet. I assume the management interface is the first Ethernet interface on each node, enp0s3.
 
-# Router configuration
+## Router configuration
 
-Each router needs to install the quagga router package, configure quagga,
- and then configure the network using the quagga VTY shell. Optionally,
- quagga daemon configuration files may be created.
-Router-1
+Each router needs to install the quagga router package, configure quagga, and then configure the network using the quagga VTY shell. Optionally, quagga daemon configuration files may be created.
+
+---
+# Router-1
 
 Skip to Copy-and-paste shell commands below if you want to quickly configure
 the node Router-1. This section shows the commands to configure Router-1 step by step.
@@ -80,25 +72,17 @@ Start Quagga: `/etc/init.d/quagga start`
 
 Set up environment variables so we avoid the vtysh END problem. Edit the /etc/bash.bashrc file:
 
-# nano /etc/bash.bashrc
+`nano /etc/bash.bashrc`
+* Add the following line at the end of the file: `export VTYSH_PAGER=more`
+* Save the file and quit the editor. Then, edit the /etc/environment file:
 
-Add the following line at the end of the file:
-
-export VTYSH_PAGER=more
-
-Save the file and quit the editor. Then, edit the /etc/environment file:
-
-# nano /etc/environment
-
-Then add the following line to the end of the file:
-
-VTYSH_PAGER=more
-
-Save the file and quit the editor.
+`nano /etc/environment`
+* Then add the following line to the end of the file: `VTYSH_PAGER=more`
+* Save the file and quit the editor.
 
 Start the Quagga shell with the command vtysh on Router-1:
 
-# vtysh
+## vtysh
 
 Enter the following Quagga commands:
 
@@ -174,6 +158,8 @@ EOF2
 
 I will configure the remaining routers with the quick shell commands so you can copy and paste the configuration for each router.
 
+---
+
 # Router-2
 
 On Router-2, install quagga and configure OSPF on the router’s interfaces. Copy-and-paste the following commands into the Router-2 terminal window:
@@ -220,6 +206,8 @@ EOF
 exit
 EOF2
 ```
+
+---
 
 # Router-3
 
@@ -284,17 +272,16 @@ $ sudo su
 # nano /etc/network/interfaces
 
 Add the following lines to the file:
-
+```
 auto enp0s8
 iface enp0s8 inet static
    address 192.168.1.1
    netmask 255.255.255.0
+```
 
-Then, add a static route the sends all traffic in the 102.168.0.0/16 network out enp0s3. Enter the following in teh same /etc/network/interfaces file:
-
-up route add -net 192.168.0.0/16 gw 192.168.1.254 dev enp0s8
-
-Restart the networking service to make the configuration change operational:
+Then, add a static route the sends all traffic in the 102.168.0.0/16 network out enp0s3:
+* Enter the following in the same `/etc/network/interfaces` file: `up route add -net 192.168.0.0/16 gw 192.168.1.254 dev enp0s8`.
+* Restart the networking service to make the configuration change operational:
 
 # /etc/init.d/networking restart
 
