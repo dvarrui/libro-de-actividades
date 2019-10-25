@@ -1,6 +1,6 @@
 
 ```
-EN CONSTRUCCIÓN
+Estado : EN CONSTRUCCIÓN
 ```
 
 # 1. Rsync
@@ -10,13 +10,9 @@ Más información:
 
 ## 1.1 Introducción
 
-Rsync transfiere archivos eficientemente por una red a otro sistema, desde el
-cual puede recuperarlos en caso de que le ocurra un desastre al sistema local.
+Rsync transfiere archivos eficientemente por una red a otro sistema, desde el cual puede recuperarlos en caso de que le ocurra un desastre al sistema local.
 
-La utilidad rsync es programa diseñado para replicar grandes cantidades de datos.
-Puede saltarse archivos copiados previamente y fragmentos y encriptar las transferencias
-de datos con SSH, haciendo copias de seguridad remota con rsync de manera más
-rápida y más segura que con herramientas tradicionales.
+La utilidad rsync es programa diseñado para replicar grandes cantidades de datos. Puede saltarse archivos copiados previamente y fragmentos y encriptar las transferencias de datos con SSH, haciendo copias de seguridad remota con rsync de manera más rápida y más segura que con herramientas tradicionales.
 
 ## 1.2 Opciones de rsync
 
@@ -43,8 +39,7 @@ la variable de entorno `RSYNC_RSH` como ssh.
 * `-b`, hace copia de todos los archivos destino en lugar de sustituirlos. Se usará
 cuando se desea mantener versiones antiguas de cada archivo.
 
-Después de las opciones vienen los parámetros de origen y destino. Las rutas
-pueden ser locales o remotas (user@host:path).
+Después de las opciones vienen los parámetros de origen y destino. Las rutas pueden ser locales o remotas (user@host:path).
 
 ---
 
@@ -55,12 +50,14 @@ Necesitaremos 2 MV's:
 * MV2 con SO GNU/Linux ([Configuración](../../global/configuracion/opensuse.md)).
     * Modificar hostname de MV2 con `backupXX`.
 
-## Instalación
+## 2.1 Instalación
 
+Instalar rsync en las 2 MV's.
 * `rsync --help`, para comprobar si tenemos rsync instalado en el sistema.
 También podemos verificarlo con: `whereis rsync`, `zypper info rsync`, etc.
-* `zypper install rsync`, instalar rsync en OpenSUSE. Usaremos el comando
-`apt-get install rsync`,para instalar en Debian/Ubuntu.
+* `zypper install rsync`, instalar rsync en OpenSUSE.
+
+> También podemos usar el comando `apt install rsync`, para OpenSUSE o Debian/Ubuntu.
 
 ---
 
@@ -107,7 +104,7 @@ Vamos a crearnos un script muy sencillo para ayudarnos a realizar la tarea de co
 #!/bin/bash
 export RSYNC_RSH=/usr/bin/ssh
 HOSTNAME=172.19.XX.42
-USERNAME=$(whomai
+USERNAME=$(whomai)
 cd || exit 1
 rsync -aHPvz . $(USERNAME)@${HOSTNAME}:.
 ```
@@ -138,9 +135,7 @@ Rsync puede ofrecer una lista de los archivos que hay en el servidor de copias d
 
 # ANEXO
 
-* tar: programa tradicional Unix para crear colecciones comprimidas de archivos;
-crea convenientes bloques de datos que puede salvaguardar usango otras herramientas.
+* tar: programa tradicional Unix para crear colecciones comprimidas de archivos; crea convenientes bloques de datos que puede salvaguardar usando otras herramientas.
 * cdrecord/cdrtools: Graba archivos en CD o DVD.
-* Amanda: Automatiza las copias en cinta, útil en entornos con grandes cantidades
-de datos.
+* Amanda: Automatiza las copias en cinta, útil en entornos con grandes cantidades de datos.
 * MySQL tools.
