@@ -91,3 +91,24 @@ Para una recuperación de correcta desde los bakcup incrementales:
 * `tree restore`
 
 Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero eliminado (b.txt) en el momento de hacer el incremental.
+
+**Curiosidad**
+
+La información final de los archivos que deben persistir entre todos los backups (full o inc) se guarda en el fichero snap. Pero como está en formato binario es difícil de ver, para ello usaremo el visor hexadecimal siguiente:
+
+```
+$ hexdump mydocs.snap -C
+00000000  47 4e 55 20 74 61 72 2d  31 2e 33 32 2d 32 0a 31  |GNU tar-1.32-2.1|
+00000010  35 37 32 30 31 31 35 32  34 00 36 31 33 31 35 38  |572011524.613158|
+00000020  34 37 32 00 30 00 31 35  37 32 30 31 31 33 31 34  |472.0.1572011314|
+00000030  00 34 30 38 35 34 39 34  32 36 00 32 30 36 36 00  |.408549426.2066.|
+00000040  36 38 34 32 31 36 00 6d  79 64 6f 63 73 00 4e 61  |684216.mydocs.Na|
+00000050  2e 74 78 74 00 4e 63 2e  74 78 74 00 4e 64 2e 74  |.txt.Nc.txt.Nd.t|
+00000060  78 74 00 00 00                                    |xt...|
+00000065
+```
+
+Podemos comprobar que los ficheros que persisten son:
+* mydocs/a.txt
+* mydocs/c.txt
+* mydocs/d.txt
