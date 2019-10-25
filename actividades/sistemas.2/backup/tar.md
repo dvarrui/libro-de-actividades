@@ -9,12 +9,14 @@ Objetivo : Copias de seguridad usando tar
 # Copias de seguridad con tar
 
 Enlaces de interés:
+* [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
 * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
 Preparar una MV a elegir:
 1. SO GNU/Linux
 2. SO Windows + Cygwin
 
+---
 # 1. Preparativos
 
 | Parámetro  | Valor                          |
@@ -35,15 +37,57 @@ mydocs
 
 ---
 
-# 2. Copia de seguridad total (fullbackup)
+# 2. Copia de seguridad total (full-backup)
 
-* `tar cvf backupXX-total-1.tar mydocs`, parea realizar una copia de seguridad total.
-* `tar tvc backupXX-total-1.tar`, comprobar el contenido de la copia de seguridad total.
+* `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
+* `tar tvc backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
 * Crear archivo DOCFOLDER/c.txt. Escribir dentro el título de tu película favorita.
-* Realiza copia seguridad total con el nombre `backupXX-total-2.tar`.
+* Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprueba el contenido.
 
 Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. No era necesario volver a copiar los archivos a.txt, ni b.txt porque no han cambiado.
 
 ---
 # 3. Copia de seguridad incremental
+
+Tenemos lo siguiente:
+```
+mydocs
+   ├── a.txt
+   ├── b.txt
+   └── c.txt
+```
+
+## 3.1 Copia seguridad inicial
+
+* `tar -g mydocs.snap -cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
+* A continuación simulamos dos cambios
+    * Borrar el archibo DOCFOLDER/b.txt.
+    * Crear el archivo DOCFOLDER/d.txt.
+* `tar -g mydocs.snap -cvf backupXX-4-inc.tar mydocs`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
+
+> Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde que se creo el snap file.
+
+* Realizar otra copia incremental (snap file `mydocs.snap`), pero usando como nombre de fichero de backup el siguiente: `backupXX-5-inc.tar`
+* Comprobar el contenido de `backupXX-5-inc.tar`.
+
+> Sin hacer cambios en los ficheros, cuando volvemos a realizar otra copia incremental, podemos comprobar... que NO se copia ningún archivo, porque no ha habido ningún cambio.
+
+La recuperación de archivos desde una copia incremental, no refleja el verdadero estado del directorio en el momento de hacer el backup incremental.
+
+(Seguir por el siguiente apartado)
+
+## 3.2 Recuperación de los archivos
+
+Para una recuperación de correcta desde los bakcup incrementales:
+1. Primero descomprimir el full-bakcip inicial.
+2. Luego aplicar el incremental usando la opción `-incremental`.
+
+* `cd /home/nombre-del-alumno`
+* `mkdir restore`
+* `tar xvf backupXX-3-init.tar -C restore/`
+* `tar --incremental -xvf backupXX-4-inc.tar -C restore/`
+* `tar --incremental -xvf backupXX-5-inc.tar -C restore/`
+* `tree restore`
+
+Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero eliminado (b.txt) en el momento de hacer el incremental.
