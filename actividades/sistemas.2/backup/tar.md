@@ -12,16 +12,18 @@ Enlaces de interés:
 * [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
 * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
-Preparar una MV a elegir:
+Elegir una de las siguientes MV:
 1. SO GNU/Linux
 2. SO Windows + Cygwin
 
 ---
 # 1. Preparativos
 
-| Parámetro  | Valor                          |
-| ---------- | ------------------------------ |
-| DOCFOLDER  | /home/nombre-del-alumno/mydocs |
+| Parámetro | Valor                             |
+| --------- | --------------------------------- |
+| HOME      | /home/nombre-del-alumno           |
+| DOCFOLDER | /home/nombre-del-alumno/mydocs    |
+| RECFOLDER | /home/nombre-del-alumno/restaurar |
 
 * `tar --version`, para comprobar que lo tenemos instalado en nuestro sistema.
 * Crear directorio DOCFOLDER.
@@ -66,22 +68,25 @@ mydocs
     * Crear el archivo DOCFOLDER/d.txt.
 * `tar -g mydocs.snap -cvf backupXX-4-inc.tar mydocs`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
 
-> Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde que se creo el snap file.
+> Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde el último backup. El fichero snap va guardando el estado final de la copia. Esto es, qué ficheros permanecen y cuáles desaparecen.
 
 * Realizar otra copia incremental (snap file `mydocs.snap`), pero usando como nombre de fichero de backup el siguiente: `backupXX-5-inc.tar`
 * Comprobar el contenido de `backupXX-5-inc.tar`.
 
-> Sin hacer cambios en los ficheros, cuando volvemos a realizar otra copia incremental, podemos comprobar... que NO se copia ningún archivo, porque no ha habido ningún cambio.
+> Sin hacer cambios en los ficheros, cuando volvemos a realizar otra copia incremental (basándonos en el snap file anterior), podemos comprobar... que NO se copia ningún archivo, porque no ha habido ningún cambio.
 
-La recuperación de archivos desde una copia incremental, no refleja el verdadero estado del directorio en el momento de hacer el backup incremental.
+Podemos comprobar que la recuperación de archivos desde la última copia incremental, no refleja por sí sola, el verdadero estado final del directorio. El último backup incremental sólo permite restaurar los cambios del último "incremento".
 
-(Seguir por el siguiente apartado)
+
+*(Seguir al siguiente apartado)*
 
 ## 3.2 Recuperación de los archivos
 
-Para una recuperación de correcta desde los bakcup incrementales:
+Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup: full-backup inicial  y todos los sucesivos incrementales.
+
+Pasos para una recuperación completa:
 1. Primero descomprimir el full-bakcip inicial.
-2. Luego aplicar el incremental usando la opción `-incremental`.
+2. Luego aplicar el incremental usando la opción `--incremental`.
 
 * `cd /home/nombre-del-alumno`
 * `mkdir restore`
@@ -112,3 +117,11 @@ Podemos comprobar que los ficheros que persisten son:
 * mydocs/a.txt
 * mydocs/c.txt
 * mydocs/d.txt
+
+Conclusiones:
+* Las copias totales (full-backup) son sencillas de hacer, pero desaprovechamos espacio duplicando archivos que no cambian.
+* Las copias incrementales (inc) permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo.
+
+---
+
+# 4. Copias diferenciales
