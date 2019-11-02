@@ -1,6 +1,7 @@
 
 ```
-EN CONSTRUCCIóN!!!
+Versión OBSOLETA
+Pendiente de actualizar
 ```
 
 ----
