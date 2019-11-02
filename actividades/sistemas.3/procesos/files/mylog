@@ -1,0 +1,22 @@
+#!/usr/bin/ruby
+#File: /etc/init.d/kup
+
+option = ARGV.first
+
+def show_status
+  if File.exists?("/etc/kup/running") then
+    puts "Service KUP is running"
+  else
+    puts "Service KUP is stopped"
+  end
+end
+
+if option == "start"
+  system("/usr/local/bin/kupd &")
+elsif option == "stop"
+  system("rm /etc/kup/running")
+elsif option == "status"
+  show_status
+else
+  puts "Modo de uso: #{$0} [start|stop|status]"
+end
