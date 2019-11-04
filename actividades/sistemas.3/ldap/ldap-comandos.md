@@ -13,8 +13,8 @@ Requisitos : Servidor LDAP instalado y configurado
 
 ## 0.1 ¿Que es LDAP?
 
-Extraído de:
-* [Curso de LDAP en GNU/Linux](https://docplayer.es/1981696-Curso-de-ldap-en-gnu-linux-60-horas.html) Página 7.
+> Extraído de:
+> * [Curso de LDAP en GNU/Linux](https://docplayer.es/1981696-Curso-de-ldap-en-gnu-linux-60-horas.html) Página 7.
 
 LDAP en inglés Lightweight Directory Access Protocol. Traducido   al   español su significado es: Protocolo Ligero para Acceder al Servicio de Directorio, ésta implementación se basa en un conjunto de estándares de redes de computadoras (X.500) sobre el servicio de directorios.  
 
