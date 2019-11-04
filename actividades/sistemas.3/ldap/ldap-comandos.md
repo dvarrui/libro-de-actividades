@@ -148,7 +148,7 @@ shadowLastChange: 14001
 shadowMax: 99999
 shadowWarning: 7
 loginShell: /bin/bash
-uidNumber: 1001
+uidNumber: 2001
 gidNumber: 100
 homeDirectory: /home/mazinger
 gecos: Mazinger Z
@@ -156,11 +156,13 @@ gecos: Mazinger Z
 
 * `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif`
 
-## 2.3 Contraseñas
+---
+
+# 3. Contraseñas
 
 Enlaces de interés:
 * [Configurar password LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
-* [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)
+* [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)´
 
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
 
@@ -193,6 +195,23 @@ clave secreta
 ```
 
 Ahora, crear los siguientes usuarios en LDAP con una clave encriptada:
-* Koji Kabuto (koji)
-* Doctor Infierno (infierno)
-* Boss (boss)
+
+| Full name       | Login acount | uid  |
+| --------------- | ------------ | ---- |
+| Koji Kabuto     | koji         | 2002 |
+| Doctor Infierno | infierno     | 2003 |
+| Boss            | boss         | 2004 |
+
+---
+# 4. Usar el servicio LDAP
+
+Ir a la MV `ldap-clientXX`:
+* Crear un script que haga uso del servicio LDAP.
+
+Por ejemplo:
+* Crear un script llamado `set-users-from-ldap`.
+* Dicho script leerá los usuarios definidos en el servidor LDAP.
+* Para cada usuario:
+    * Si el usuario no existe, entonces lo creará en el sistema local.
+    * Si el usuario existe, entonces se muestra un mensaje en pantalla.
+* El resto de usuarios del sistema con uid>2000, serán desactivados.
