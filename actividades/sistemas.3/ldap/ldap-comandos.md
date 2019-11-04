@@ -75,7 +75,7 @@ Enlaces de interés:
 Normalmente se usa la clase `inetOrgPerson`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`.
 Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`. Veamos un ejemplo:
 
-```
+```bash
 ldapsearch -z 0
            -H ldap://localhost:389
            -W
@@ -101,24 +101,38 @@ Uno de los usos más frecuentes para el directorio LDAP es para la administraci�
 ### Crear las unidades organizativas (OU)
 
 * Fichero `ou_people.ldif` para la crear la OU "people":
-```
+
+```bash
 dn: ou=people,dc=apellidoXX,dc=asir
 ou: people
 objectclass: organizationalUnit
 ```
-* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif`
-* Fichero `ou_group.ldif`, para crear la UO "group":
+
+* Ejecutar :
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif
 ```
+
+* Fichero `ou_group.ldif`, para crear la UO "group":
+
+```bash
 dn: ou=group,dc=apellidoXX,dc=asir
 ou: group
 objectclass: organizationalUnit
 ```
-* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif`
+
+* Ejecutar
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif
+```
 
 ### Crear los grupos
 
 * Fichero `g_users.ldif`, para crear el grupo "users":
-```
+
+```bash
 dn: cn=users,ou=group,dc=apellidoXX,dc=asir
 objectclass: posixGroup
 objectclass: top
@@ -126,8 +140,13 @@ cn: users
 userPassword: {crypt}*
 gidNumber: 100
 ```
-* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif`
-* `# ldapsearch -x -b "dc=apellidoXX,dc=asir"`, para comprobar los resultados.
+
+* Ejecutar los comandos:
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif  # Agregar registro
+ldapsearch -x -b "dc=apellidoXX,dc=asir" # Comprobar los resultados.
+```
 
 ## Agregar usuarios
 
@@ -135,7 +154,8 @@ Enlace de interés:
 * [Cómo configurar el password de root de LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
 
 * Fichero `mazinger.ldif`:
-```
+
+```bash
 dn: uid=mazinger,ou=people,dc=apellidoXX,dc=asir
 uid: mazinger
 cn: Mazinger Z
@@ -154,10 +174,28 @@ homeDirectory: /home/mazinger
 gecos: Mazinger Z
 ```
 
-* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif`
+* Ejecutar:
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif`
+```
+
+> **INFORMACION**: Eliminar usuario del árbol del directorio.
+>
+> * Crear un archivo `borrar-boss.ldif`:
+>
+> ```bash
+> dn: uid=boss,ou=people,dc=apellidoXX,dc=asir
+> changetype: delete
+> ```
+>
+> * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP
+>
+> ```bash
+> ldapmodify -x -D "cn=admin,dc=apellidoXX,dc=asir" -W -f borrar-boss.ldif
+> ```
 
 ---
-
 # 3. Contraseñas
 
 Enlaces de interés:
@@ -178,8 +216,8 @@ La herramienta `slappasswd` provee la funcionalidad para generar un valor userPa
 
 Para generar un valor de contraseña hasheada utilizando SHA-1 con salt compatible con el formato requerido para un valor userPassword, ejecutar el siguiente comando:
 
-```
-root@ldap-serverXX:~# slappasswd -h {SSHA}
+```bash
+$ slappasswd -h {SSHA}
 New password:
 Re-enter new password:
 {SSHA}5uUxSgD1ssGkEUmQTBEtcqm+I1Aqsp37
@@ -188,7 +226,8 @@ Re-enter new password:
 **Ejemplo MD5**
 
 También podemos usar el comando `md5sum` para crear claves md5. Ejemplo:
-```
+
+```bash
 $ md5sum
 clave secreta
 43cff9e9a30167a1e383026bf61108f2  -
