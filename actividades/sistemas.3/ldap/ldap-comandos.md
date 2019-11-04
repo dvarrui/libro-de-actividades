@@ -47,9 +47,32 @@ Ir a la MV1:
 * Asegurarse de que el servicio LDAP está corriendo
     * `lsof -i -T -n -P`
     * `systemctl status ...`
+* `ldapsearch -x -b "dc=apellidoXX,dc=asir"`, comprobar accesibilidad en local.
+
 Ir a la MV2:
 * Asegurarse de que el servicio LDAP es accesible desde el cliente.
     * `nmap -Pn ldap-serverXX`
+
+---
+
+
+Tecno-Redes Sistemas VCG
+                          Agosto-2008                                  LDAP-v01
+
+El resultado del comando anterior debe ser algo como
+Administración de usuarios
+En este apartado se mostrará como agregar un usuario al
+LDAP
+ utilizando
+para   ello   los  
+ldif
+    (
+LDAP   Data   Interchange   Format
+).   A   continuación   se
+mostrará cual es la estructura de los
+ldif.
+ldif   para   la   creación   de   una   unidad   organizacional   “people”.   El   nombre   del
+archivo es people.ldif
 
 ---
 # Consultar contenido del directorio LDAP
