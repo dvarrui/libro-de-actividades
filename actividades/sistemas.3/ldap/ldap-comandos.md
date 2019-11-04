@@ -177,23 +177,21 @@ gecos: Mazinger Z
 * Ejecutar:
 
 ```bash
-ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif`
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif
 ```
 
 > **INFORMACION**: Eliminar usuario del árbol del directorio.
 >
 > * Crear un archivo `borrar-boss.ldif`:
 >
-> ```bash
+> ```
 > dn: uid=boss,ou=people,dc=apellidoXX,dc=asir
 > changetype: delete
 > ```
 >
 > * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP
 >
-> ```bash
-> ldapmodify -x -D "cn=admin,dc=apellidoXX,dc=asir" -W -f borrar-boss.ldif
-> ```
+> `ldapmodify -x -D "cn=admin,dc=apellidoXX,dc=asir" -W -f borrar-boss.ldif`
 
 ---
 # 3. Contraseñas
@@ -203,6 +201,8 @@ Enlaces de interés:
 * [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)´
 
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
+
+## 3.1 Ejemplos
 
 La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
 * {CLEARTEXT} (texto plano),
@@ -233,7 +233,9 @@ clave secreta
 43cff9e9a30167a1e383026bf61108f2  -
 ```
 
-Ahora, crear los siguientes usuarios en LDAP con una clave encriptada:
+## 3.2 Agregar más usuarios
+
+* Ahora, crear los siguientes usuarios en LDAP con una clave encriptada:
 
 | Full name       | Login acount | uid  |
 | --------------- | ------------ | ---- |
