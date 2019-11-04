@@ -9,7 +9,34 @@ Requisitos : Servidor LDAP instalado y configurado
 # LDAP comandos
 
 ---
-# Preparativos
+# 0. TEORIA
+
+## 0.1 ¿Que es LDAP?
+
+Extraído de:
+* [Curso de LDAP en GNU/Linux](https://docplayer.es/1981696-Curso-de-ldap-en-gnu-linux-60-horas.html) Página 7.
+
+LDAP en inglés Lightweight Directory Access Protocol. Traducido   al   español su significado es: Protocolo Ligero para Acceder al Servicio de Directorio, ésta implementación se basa en un conjunto de estándares de redes de computadoras (X.500) sobre el servicio de directorios.  
+
+LDAP se ejecuta sobre TCP/IP o sobre otros servicios de transferencia   orientado a conexión; que permite el acceso a los datos de un directorio ordenado y distribuido para buscar información.
+
+Habitualmente se almacena información de los usuarios que conforman
+una red de computadores, como por ejemplo el nombre de usuario, contraseña, directorio hogar, etc. Es posible almacenar otro tipo de información tal como, bebida preferida, número de teléfono celular, fecha de cumpleaños, etc.
+
+En  conclusión, LDAP es un protocolo de acceso unificado a un conjunto  de información sobre los usuarios de una red de computadores
+
+## 0.2 ¿Qué tipo de información se puede almacenar en un directorio?
+
+En principio en un servicio de directorio se puede almacenar cualquier tipo
+de información. Como por ejemplo, nombre, dirección de habitación, nombre de
+la mascota, música preferida, bebida favorita, etc. Sin embargo, la información
+que se almacena es aquella que permita organizar de manera jerárquica todos
+los usuarios de la red. Estructurar la información de los usuarios de la red es de utilidad a la hora de restringir el acceso a los servicios y recursos de la red; Permitiendo gestionar con mayor facilidad la red.
+
+---
+# 1. Preparativos
+
+## 1.1 Configurar las MVs
 
 Configurar MV1:
 
@@ -25,23 +52,7 @@ Configurar MV2:
 | Rol      | Cliente LDAP  |
 | hostname | ldap-clientXX |
 
----
-# TEORIA: ¿Que es LDAP?
-
-Extraído de:
-* [Curso de LDAP en GNU/Linux](https://docplayer.es/1981696-Curso-de-ldap-en-gnu-linux-60-horas.html) Página 7.
-
-LDAP en inglés Lightweight Directory Access Protocol. Traducido   al   español su significado es: Protocolo Ligero para Acceder al Servicio de Directorio, ésta implementación se basa en un conjunto de estándares de redes de computadoras (X.500) sobre el servicio de directorios.  
-
-LDAP se ejecuta sobre TCP/IP o sobre otros servicios de transferencia   orientado a conexión; que permite el acceso a los datos de un directorio ordenado y distribuido para buscar información.
-
-Habitualmente se almacena información de los usuarios que conforman
-una red de computadores, como por ejemplo el nombre de usuario, contraseña, directorio hogar, etc. Es posible almacenar otro tipo de información tal como, bebida preferida, número de teléfono celular, fecha de cumpleaños, etc.
-
-En  conclusión, LDAP es un protocolo de acceso unificado a un conjunto  de información sobre los usuarios de una red de computadores
-
----
-# Servicio directorio LDAP
+## 1.2 Comprobar el servicio directorio LDAP
 
 Ir a la MV1:
 * Asegurarse de que el servicio LDAP está corriendo
@@ -54,28 +65,9 @@ Ir a la MV2:
     * `nmap -Pn ldap-serverXX`
 
 ---
+# 2. Comandos LDAP
 
-
-Tecno-Redes Sistemas VCG
-                          Agosto-2008                                  LDAP-v01
-
-El resultado del comando anterior debe ser algo como
-Administración de usuarios
-En este apartado se mostrará como agregar un usuario al
-LDAP
- utilizando
-para   ello   los  
-ldif
-    (
-LDAP   Data   Interchange   Format
-).   A   continuación   se
-mostrará cual es la estructura de los
-ldif.
-ldif   para   la   creación   de   una   unidad   organizacional   “people”.   El   nombre   del
-archivo es people.ldif
-
----
-# Consultar contenido del directorio LDAP
+## 2.1 Consultar contenido del directorio LDAP
 
 Enlaces de interés:
 * [Consultas a directorios LDAP utilizando ldapsearch](https://www.linuxito.com/gnu-linux/nivel-alto/1023-consultas-a-directorios-ldap-utilizando-ldapsearch)
@@ -101,3 +93,102 @@ ldapsearch -z 0
 | "(uid=*)"                  | Filtro para la búsqueda         |
 
 > Importante: No olvidar especificar la base (-b). De lo contrario probablemente no haya resultados en la búsqueda.
+
+## 2.2 Escrituras en LDAP
+
+Uno de los usos más frecuentes para el directorio LDAP es para la administración de usuarios. Vamos a utilizar ficheros **ldif** para agregar usuarios.
+
+### Crear las unidades organizativas (OU)
+
+* Fichero `ou_people.ldif` para la crear la OU "people":
+```
+dn: ou=people,dc=apellidoXX,dc=asir
+ou: people
+objectclass: organizationalUnit
+```
+* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif`
+* Fichero `ou_group.ldif`, para crear la UO "group":
+```
+dn: ou=group,dc=apellidoXX,dc=asir
+ou: group
+objectclass: organizationalUnit
+```
+* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif`
+
+### Crear los grupos
+
+* Fichero `g_users.ldif`, para crear el grupo "users":
+```
+dn: cn=users,ou=group,dc=apellidoXX,dc=asir
+objectclass: posixGroup
+objectclass: top
+cn: users
+userPassword: {crypt}*
+gidNumber: 100
+```
+* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif`
+* `# ldapsearch -x -b "dc=apellidoXX,dc=asir"`, para comprobar los resultados.
+
+## Agregar usuarios
+
+Enlace de interés:
+* [Cómo configurar el password de root de LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
+
+* Fichero `mazinger.ldif`:
+```
+dn: uid=mazinger,ou=people,dc=apellidoXX,dc=asir
+uid: mazinger
+cn: Mazinger Z
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+userPassword: {CLEARTEXT}clave secreta
+shadowLastChange: 14001
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 1001
+gidNumber: 100
+homeDirectory: /home/mazinger
+gecos: Mazinger Z
+```
+
+* `# ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f mazinger.ldif`
+
+## 2.3 Contraseñas
+
+En el ejemplo anterior la clave se puso en texto plano que cualquiera puede leer. Como esto no es seguro, ahora vamos a cambiar los valores de configuración para almacenar el password como hash MD5 o SHA-1.
+
+La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
+* {CLEARTEXT} (texto plano),
+* {CRYPT} (crypt),
+* {MD5} (md5sum),
+* {SMD5} (MD5 con salt),
+* {SHA} (1ssl sha) y
+* {SSHA} (SHA-1 con salt, esquema por defecto).
+
+**Ejemplo SHA-1**
+
+Para generar un valor de contraseña hasheada utilizando SHA-1 con salt compatible con el formato requerido para un valor userPassword, ejecutar el siguiente comando:
+
+```
+root@ldap-serverXX:~# slappasswd -h {SSHA}
+New password:
+Re-enter new password:
+{SSHA}5uUxSgD1ssGkEUmQTBEtcqm+I1Aqsp37
+```
+
+**Ejemplo MD5**
+
+También podemos usar el comando `md5sum` para crear claves md5. Ejemplo:
+```
+$ md5sum
+clave secreta
+43cff9e9a30167a1e383026bf61108f2  -
+```
+
+Ahora, crear los siguientes usuarios en LDAP con una clave encriptada:
+* Koji Kabuto (koji)
+* Doctor Infierno (infierno)
+* Boss (boss)
