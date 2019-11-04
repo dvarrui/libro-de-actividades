@@ -158,7 +158,11 @@ gecos: Mazinger Z
 
 ## 2.3 Contraseñas
 
-En el ejemplo anterior la clave se puso en texto plano que cualquiera puede leer. Como esto no es seguro, ahora vamos a cambiar los valores de configuración para almacenar el password como hash MD5 o SHA-1.
+Enlaces de interés:
+* [Configurar password LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
+* [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)
+
+En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
 
 La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
 * {CLEARTEXT} (texto plano),
