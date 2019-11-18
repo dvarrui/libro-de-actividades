@@ -13,14 +13,15 @@ def recorre_dir(parentdir)
               parentdir,
               items.size)
   puts "\n"
-  puts '| Sections | Size | Activities |'
-  puts '| -------- | ---- | ---------- |'
+  puts '| ID | Sections | Size | Activities |'
+  puts '| -- | -------- | ---- | ---------- |'
 
-  items.each do |item|
+  items.each_with_index do |item, index|
     filepath = File.join(parentdir, item)
     if File.directory?(filepath)
       subitems = get_activity_names(filepath)
-      puts format('|%s | %d   | %s |',
+      puts format('| %d |%s | %d | %s |',
+                  index,
                   item,
                   subitems.size,
                   subitems.join(', '))
