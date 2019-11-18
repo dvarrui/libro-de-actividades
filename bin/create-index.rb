@@ -9,13 +9,28 @@ def show_title
   puts ''
 end
 
+def resume_dirs(dirpaths)
+  puts "\# Resumen\n\n"
+  puts '| Categoría | Cantidad de actividaes |'
+  puts '| --------- | ---------------------- |'
+
+  dirpaths.each do |dirpath|
+    items = Dir.entries(dirpath) - [ '.', '..', 'REV']
+    puts format('| [%s](%s) | %d |',
+                File.basename(dirpath),
+                dirpath,
+                items.size)
+  end
+  puts "\n"
+  dirpaths.each { |dirpath| show_dir dirpath }
+end
+
 def show_dir(parentdir)
   items = Dir.entries(parentdir) - [ '.', '..', 'REV']
   items.sort!
-  puts format('## [%s](%s) %d',
+  puts format('## [%s](%s)',
               File.basename(parentdir),
-              parentdir,
-              items.size)
+              parentdir)
   puts "\n"
   puts '| ID | Sección | Cantidad | Actividaes |'
   puts '| -- | ------- | -------- | ---------- |'
@@ -47,6 +62,6 @@ def get_activity_names(dirpath)
 end
 
 show_title
-show_dir 'actividades/hardware'
-show_dir 'actividades/sistemas.2'
-show_dir 'actividades/sistemas.3'
+resume_dirs( ['actividades/hardware',
+              'actividades/sistemas.2',
+              'actividades/sistemas.3'] )

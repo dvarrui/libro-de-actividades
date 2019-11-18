@@ -1,8 +1,16 @@
 # Índice de actividades
 
-`Fecha UM: 2019-11-18 20:09:49 +0000`
+`Fecha UM: 2019-11-18 20:17:37 +0000`
 
-## [hardware](actividades/hardware) 14
+# Resumen
+
+| Categoría | Cantidad de actividaes |
+| --------- | ---------------------- |
+| [hardware](actividades/hardware) | 14 |
+| [sistemas.2](actividades/sistemas.2) | 14 |
+| [sistemas.3](actividades/sistemas.3) | 13 |
+
+## [hardware](actividades/hardware)
 
 | ID | Sección | Cantidad | Actividaes |
 | -- | ------- | -------- | ---------- |
@@ -20,7 +28,7 @@
 | 12 | [software](actividades/hardware/software) | 2 | [godot.1](actividades/hardware/software/godot.1), [godot1.md](actividades/hardware/software/godot1.md) |
 | 13 | [taller](actividades/hardware/taller) | 7 | [cpd-1-desmontar-y-montar.md](actividades/hardware/taller/cpd-1-desmontar-y-montar.md), [nintendo-data-to-pc.md](actividades/hardware/taller/nintendo-data-to-pc.md), [taller-1-desmontar-y-montar.md](actividades/hardware/taller/taller-1-desmontar-y-montar.md), [taller-2-desmontar-y-montar.md](actividades/hardware/taller/taller-2-desmontar-y-montar.md), [taller-2-mejorar.md](actividades/hardware/taller/taller-2-mejorar.md), [taller-3-trastadas.md](actividades/hardware/taller/taller-3-trastadas.md), [taller-4-simplificar.md](actividades/hardware/taller/taller-4-simplificar.md) |
 
-## [sistemas.2](actividades/sistemas.2) 14
+## [sistemas.2](actividades/sistemas.2)
 
 | ID | Sección | Cantidad | Actividaes |
 | -- | ------- | -------- | ---------- |
@@ -37,7 +45,7 @@
 | 12 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 4 | [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
 | 13 | [tests](actividades/sistemas.2/tests) | 1 | [trim1.md](actividades/sistemas.2/tests/trim1.md) |
 
-## [sistemas.3](actividades/sistemas.3) 13
+## [sistemas.3](actividades/sistemas.3)
 
 | ID | Sección | Cantidad | Actividaes |
 | -- | ------- | -------- | ---------- |
