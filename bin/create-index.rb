@@ -10,7 +10,18 @@ def recorre_dir(parentdir, tab = '', input = [])
   items = Dir.entries(parentdir) - [ '.', '..']
   items.sort!
   output = input
-  output << format('%s* [%s](%s) %d',tab, File.basename(parentdir), parentdir, items.size)
+  if tab == ''
+    output << format('## [%s](%s) %d',
+                     File.basename(parentdir),
+                     parentdir,
+                     items.size)
+  else
+    output << format('%s* [%s](%s) %d',
+                     tab,
+                     File.basename(parentdir),
+                     parentdir,
+                     items.size)
+  end
   tab += '    '
   items.each do |item|
     filepath = File.join(parentdir,item)

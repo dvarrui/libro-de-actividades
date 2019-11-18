@@ -1,8 +1,8 @@
 # Índice de actividades
 
-`Fecha UM: 2019-11-18 18:59:21 +0000`
+`Fecha UM: 2019-11-18 19:07:58 +0000`
 
-* [hardware](actividades/hardware) 15
+## [hardware](actividades/hardware) 15
     * [bios](actividades/hardware/bios) 1
         * [enlaces-de-interes.md](actividades/hardware/bios/enlaces-de-interes.md)
     * [clonar](actividades/hardware/clonar) 7
@@ -67,7 +67,7 @@
         * [taller-2-mejorar.md](actividades/hardware/taller/taller-2-mejorar.md)
         * [taller-3-trastadas.md](actividades/hardware/taller/taller-3-trastadas.md)
         * [taller-4-simplificar.md](actividades/hardware/taller/taller-4-simplificar.md)
-* [sistemas.2](actividades/sistemas.2) 14
+## [sistemas.2](actividades/sistemas.2) 14
     * [aplicaciones](actividades/sistemas.2/aplicaciones) 7
         * [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md)
         * [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md)
@@ -135,7 +135,7 @@
         * [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md)
     * [tests](actividades/sistemas.2/tests) 1
         * [trim1.md](actividades/sistemas.2/tests/trim1.md)
-* [sistemas.3](actividades/sistemas.3) 13
+## [sistemas.3](actividades/sistemas.3) 13
     * [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) 3
         * [README.md](actividades/sistemas.3/clientes-ligeros/README.md)
         * [enlaces-de-interes.md](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md)
