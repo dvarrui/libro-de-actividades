@@ -18,7 +18,7 @@ def resume_dirs(dirpaths)
     items = Dir.entries(dirpath) - [ '.', '..', 'REV']
     puts format('| [%s](%s) | %d |',
                 File.basename(dirpath),
-                "categoría-#{File.basename(dirpath)}",
+                "categoría-#{File.basename(dirpath)}".gsub('.',''),
                 items.size)
   end
   puts "\n"
