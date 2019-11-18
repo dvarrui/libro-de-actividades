@@ -38,7 +38,7 @@ end
 def get_activity_names(dirpath)
   output = []
   output << Dir.entries(dirpath).select { |name| name.include?('.md') }
-  dirs = Dir.entries(dirpath) - ['.', '..', 'files', 'images', 'REV']
+  dirs = Dir.entries(dirpath) - ['.', '..', 'files', 'images', 'REV', 'REVISAR']
   output << dirs.select do |name|
     File.directory?(File.join(dirpath,name))
   end

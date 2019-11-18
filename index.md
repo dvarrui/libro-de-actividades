@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2019-11-18 20:08:57 +0000`
+`Fecha UM: 2019-11-18 20:09:49 +0000`
 
 ## [hardware](actividades/hardware) 14
 
@@ -24,7 +24,7 @@
 
 | ID | Sección | Cantidad | Actividaes |
 | -- | ------- | -------- | ---------- |
-| 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 6 | [REVISAR](actividades/sistemas.2/aplicaciones/REVISAR), [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md), [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian.md](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [w7-debian.md](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse.md](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
+| 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 5 | [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md), [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian.md](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [w7-debian.md](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse.md](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
 | 1 | [backup](actividades/sistemas.2/backup) | 3 | [README.md](actividades/sistemas.2/backup/README.md), [rsync.md](actividades/sistemas.2/backup/rsync.md), [tar.md](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README.md](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp.md](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
 | 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01.md](actividades/sistemas.2/comandos/comandos-01.md), [enlaces.md](actividades/sistemas.2/comandos/enlaces.md) |
