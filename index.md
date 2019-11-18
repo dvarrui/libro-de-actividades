@@ -1,14 +1,14 @@
 # Índice de actividades
 
-`Fecha UM: 2019-11-18 20:21:27 +0000`
+`Fecha UM: 2019-11-18 20:22:37 +0000`
 
 # Resumen
 
 | Categoría | Cantidad de actividaes |
 | --------- | ---------------------- |
-| [hardware](categoría-hardware) | 14 |
-| [sistemas.2](categoría-sistemas2) | 14 |
-| [sistemas.3](categoría-sistemas3) | 13 |
+| [hardware](#categoría-hardware) | 14 |
+| [sistemas.2](#categoría-sistemas2) | 14 |
+| [sistemas.3](#categoría-sistemas3) | 13 |
 
 ## Categoría: [hardware](actividades/hardware)
 
