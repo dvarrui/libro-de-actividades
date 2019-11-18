@@ -1,16 +1,16 @@
 # Índice de actividades
 
-`Fecha UM: 2019-06-13 21:18:14 +0100`
+`Fecha UM: 2019-11-18 18:59:21 +0000`
 
 * [hardware](actividades/hardware) 15
     * [bios](actividades/hardware/bios) 1
         * [enlaces-de-interes.md](actividades/hardware/bios/enlaces-de-interes.md)
     * [clonar](actividades/hardware/clonar) 7
+        * [cifrado-opensuse42.md](actividades/hardware/clonar/cifrado-opensuse42.md)
         * [cifrado.md](actividades/hardware/clonar/cifrado.md)
         * [clonezilla-device-device-bios.md](actividades/hardware/clonar/clonezilla-device-device-bios.md)
         * [clonezilla-device-device.md](actividades/hardware/clonar/clonezilla-device-device.md)
         * [clonezilla-remote-samba.md](actividades/hardware/clonar/clonezilla-remote-samba.md)
-        * [ocultacion-opensuse42.md](actividades/hardware/clonar/ocultacion-opensuse42.md)
         * [recuperacion-de-datos.md](actividades/hardware/clonar/recuperacion-de-datos.md)
     * [cpd](actividades/hardware/cpd) 5
         * [ceph.md](actividades/hardware/cpd/ceph.md)
@@ -67,20 +67,17 @@
         * [taller-2-mejorar.md](actividades/hardware/taller/taller-2-mejorar.md)
         * [taller-3-trastadas.md](actividades/hardware/taller/taller-3-trastadas.md)
         * [taller-4-simplificar.md](actividades/hardware/taller/taller-4-simplificar.md)
-* [sistemas.2](actividades/sistemas.2) 13
+* [sistemas.2](actividades/sistemas.2) 14
     * [aplicaciones](actividades/sistemas.2/aplicaciones) 7
         * [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md)
         * [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md)
         * [passwords_and_sources-w7_debian.md](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md)
         * [w7-debian.md](actividades/sistemas.2/aplicaciones/w7-debian.md)
         * [w7-opensuse.md](actividades/sistemas.2/aplicaciones/w7-opensuse.md)
-    * [backup](actividades/sistemas.2/backup) 7
+    * [backup](actividades/sistemas.2/backup) 4
         * [README.md](actividades/sistemas.2/backup/README.md)
-        * [lvm-debian-windows.md](actividades/sistemas.2/backup/lvm-debian-windows.md)
-        * [raid-debian-windows.md](actividades/sistemas.2/backup/raid-debian-windows.md)
-        * [raid-opensuse-windows.md](actividades/sistemas.2/backup/raid-opensuse-windows.md)
-        * [raid-y-lvm.md](actividades/sistemas.2/backup/raid-y-lvm.md)
         * [rsync.md](actividades/sistemas.2/backup/rsync.md)
+        * [tar.md](actividades/sistemas.2/backup/tar.md)
     * [boot-loader](actividades/sistemas.2/boot-loader) 4
         * [README.md](actividades/sistemas.2/boot-loader/README.md)
         * [debian-windows_xp.md](actividades/sistemas.2/boot-loader/debian-windows_xp.md)
@@ -131,6 +128,11 @@
     * [permisos](actividades/sistemas.2/permisos) 3
         * [permisos-acl-debian.md](actividades/sistemas.2/permisos/permisos-acl-debian.md)
         * [usuarios-y-permisos.md](actividades/sistemas.2/permisos/usuarios-y-permisos.md)
+    * [raid-lvm](actividades/sistemas.2/raid-lvm) 5
+        * [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md)
+        * [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md)
+        * [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md)
+        * [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md)
     * [tests](actividades/sistemas.2/tests) 1
         * [trim1.md](actividades/sistemas.2/tests/trim1.md)
 * [sistemas.3](actividades/sistemas.3) 13
@@ -148,19 +150,26 @@
     * [impresion](actividades/sistemas.3/impresion) 2
         * [cups.md](actividades/sistemas.3/impresion/cups.md)
         * [windows.md](actividades/sistemas.3/impresion/windows.md)
-    * [ldap](actividades/sistemas.3/ldap) 7
+    * [ldap](actividades/sistemas.3/ldap) 9
         * [ldap-389ds-opensuse.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md)
+        * [ldap-apache.md](actividades/sistemas.3/ldap/ldap-apache.md)
         * [ldap-auth-debian.md](actividades/sistemas.3/ldap/ldap-auth-debian.md)
         * [ldap-auth-samba.md](actividades/sistemas.3/ldap/ldap-auth-samba.md)
+        * [ldap-comandos.md](actividades/sistemas.3/ldap/ldap-comandos.md)
         * [ldap-openldap2-opensuse.md](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md)
         * [ldap-server-debian.md](actividades/sistemas.3/ldap/ldap-server-debian.md)
     * [nfs](actividades/sistemas.3/nfs) 2
         * [README.md](actividades/sistemas.3/nfs/README.md)
-    * [procesos](actividades/sistemas.3/procesos) 4
+    * [procesos](actividades/sistemas.3/procesos) 10
+        * [install-service.md](actividades/sistemas.3/procesos/install-service.md)
         * [limitar.md](actividades/sistemas.3/procesos/limitar.md)
+        * [powershell.md](actividades/sistemas.3/procesos/powershell.md)
         * [presentacion.md](actividades/sistemas.3/procesos/presentacion.md)
+        * [signals.md](actividades/sistemas.3/procesos/signals.md)
+        * [system-v.md](actividades/sistemas.3/procesos/system-v.md)
         * [systemd.md](actividades/sistemas.3/procesos/systemd.md)
         * [tareas-programadas.md](actividades/sistemas.3/procesos/tareas-programadas.md)
+        * [upstart.md](actividades/sistemas.3/procesos/upstart.md)
     * [proyecto](actividades/sistemas.3/proyecto) 1
         * [trim1.md](actividades/sistemas.3/proyecto/trim1.md)
     * [rdp](actividades/sistemas.3/rdp) 2
@@ -170,7 +179,7 @@
         * [enlaces-de-interes.md](actividades/sistemas.3/samba/enlaces-de-interes.md)
         * [samba-debian.md](actividades/sistemas.3/samba/samba-debian.md)
         * [samba-pdc-debian.md](actividades/sistemas.3/samba/samba-pdc-debian.md)
-    * [scripting](actividades/sistemas.3/scripting) 6
+    * [scripting](actividades/sistemas.3/scripting) 7
         * [IDEAS.md](actividades/sistemas.3/scripting/IDEAS.md)
         * [README.md](actividades/sistemas.3/scripting/README.md)
         * [bash](actividades/sistemas.3/scripting/bash) 6
@@ -179,12 +188,14 @@
             * [bucles.md](actividades/sistemas.3/scripting/bash/bucles.md)
             * [creacion-de-usuarios.md](actividades/sistemas.3/scripting/bash/creacion-de-usuarios.md)
             * [sysinfo.md](actividades/sistemas.3/scripting/bash/sysinfo.md)
+        * [c](actividades/sistemas.3/scripting/c) 2
+            * [README.md](actividades/sistemas.3/scripting/c/README.md)
         * [general](actividades/sistemas.3/scripting/general) 4
             * [my-nework.md](actividades/sistemas.3/scripting/general/my-nework.md)
             * [my-papelera.md](actividades/sistemas.3/scripting/general/my-papelera.md)
             * [my-ping.md](actividades/sistemas.3/scripting/general/my-ping.md)
         * [power-shell](actividades/sistemas.3/scripting/power-shell) 2
-        * [ruby](actividades/sistemas.3/scripting/ruby) 7
+        * [ruby](actividades/sistemas.3/scripting/ruby) 8
             * [README.md](actividades/sistemas.3/scripting/ruby/README.md)
             * [calculadora.md](actividades/sistemas.3/scripting/ruby/calculadora.md)
             * [create-and-delete-users.md](actividades/sistemas.3/scripting/ruby/create-and-delete-users.md)
@@ -192,6 +203,7 @@
             * [delete-users.md](actividades/sistemas.3/scripting/ruby/delete-users.md)
             * [install-and-remove.md](actividades/sistemas.3/scripting/ruby/install-and-remove.md)
             * [kill-these-processes.md](actividades/sistemas.3/scripting/ruby/kill-these-processes.md)
+            * [multiple-copy.md](actividades/sistemas.3/scripting/ruby/multiple-copy.md)
     * [ssh](actividades/sistemas.3/ssh) 4
         * [README.md](actividades/sistemas.3/ssh/README.md)
         * [opensuse](actividades/sistemas.3/ssh/opensuse) 5
