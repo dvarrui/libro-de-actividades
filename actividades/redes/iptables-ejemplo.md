@@ -1,6 +1,7 @@
 
 ```
 Estado : Ejemplo pendiente de convertir en actividad
+         EN CONSTRUCCIÓN
 Curso  : 201819
 Autor  : Juan Carlos Pérez
 ```

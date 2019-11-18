@@ -1,4 +1,8 @@
 
+```
+Estado : EN CONSTRUCCIÓN
+```
+
 # Hacker: hackerhighschool
 
 Enlace de interés:

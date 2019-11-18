@@ -1,4 +1,8 @@
 
+```
+Estado : EN CONSTRUCCIÓN
+```
+
 # Quitar claves en GNU/Linux
 
 Para quitar/cambiar las claves de un sistema desconocido haremos lo siguiente:

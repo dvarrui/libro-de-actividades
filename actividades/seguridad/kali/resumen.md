@@ -1,4 +1,8 @@
 
+```
+Estado : EN CONSTRUCCIÓN
+```
+
 SQLMAP
 
 Búsqueda en GOOGLE: inurl php id=
