@@ -28,9 +28,7 @@ end
 def show_dir(parentdir)
   items = Dir.entries(parentdir) - [ '.', '..', 'REV']
   items.sort!
-  puts format('## Categoría: [%s](%s)',
-              File.basename(parentdir),
-              parentdir)
+  puts format('## Categoría: %s', File.basename(parentdir))
   puts "\n"
   puts '| ID | Sección | Cantidad | Actividaes |'
   puts '| -- | ------- | -------- | ---------- |'
