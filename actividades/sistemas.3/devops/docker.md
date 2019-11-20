@@ -1,4 +1,11 @@
 
+```
+Estado     : Estable
+Curso      : 201819, 201716
+Requisitos : Se recomienda usar SSOO GNU/Linux
+```
+---
+
 # 1. Introducción
 
 Es muy común que nos encontremos desarrollando una aplicación, y llegue
@@ -229,7 +236,7 @@ está redireccionado a un puerto local `0.0.0.0.:NNNNNN->80/tcp`.
 * Abrir navegador web y poner URL `0.0.0.0.:NNNNNN`. De esta forma nos
 conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor.
 
-![docker-url-nginx.png](./files/docker-url-nginx.png)
+![docker-url-nginx.png](./images/docker-url-nginx.png)
 
 * Comprobar el acceso a `holamundo.html`.
 * Paramos el contenedor y lo eliminamos.
