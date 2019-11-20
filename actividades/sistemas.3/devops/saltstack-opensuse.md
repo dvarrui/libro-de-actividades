@@ -12,17 +12,15 @@ En esta actividad vamos a practicar Saltstack con OpenSUSE.
 
 # 2. Preparativos
 
-MV1:
-* Hostname: salt-masterXXg
-* SO: GNU/Linux OpenSUSE
-* IP: 172.19.XX.31
+| Configuración | MV1 | MV2 |
+| -------- | --- | --- |
+| Hostname | salt-masterXXg | salt-minionXXg |
+| SO       | GNU/Linux OpenSUSE | GNU/Linux OpenSUSE |
+| IP       | 172.19.XX.31 | 172.19.XX.32 |
+
 * Configurar `/etc/hosts` con "IP nombre" de MV1 y MV2.
 
-MV2:
-* Hostname: salt-minionXXg
-* SO: GNU/Linux OpenSUSE
-* IP: 172.19.XX.32
-* Configurar `/etc/hosts` con "IP nombre" de MV1 y MV2.
+> "XX" es el número asignado a cada alumno.
 
 ---
 # 3. salt-master
@@ -80,13 +78,15 @@ Rejected Keys:
 
 Comprobamos la conectividad desde el Master a los Minions.
 ```
-# salt salt-minionXXg test.version
+# salt '*' test.version
 salt-minionXXg:
     2019.2.0
-# salt salt-minionXXg test.ping
+# salt '*' test.ping
 salt-minionXXg:
     True
 ```
+
+> `'*'` representa a todos los minions aceptados.
 
 ---
 # 5. Salt States
