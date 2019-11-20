@@ -23,20 +23,23 @@ En esta actividad vamos a practicar Saltstack con OpenSUSE.
 > "XX" es el número asignado a cada alumno.
 
 ---
-# 3. salt-master
+# 3. Master: instalación de configuración.
 
 Enlaces de interés:
 * [OpenSUSE -Saltstack](https://docs.saltstack.com/en/latest/ref/configuration)
 
-## 3.1 Instalación del Master
-
-Ir a la MV1
+Instalación:
+* Ir a la MV1
 * `zypper install salt-master`, instalar el software del master.
 
-## 3.2 Configuración del Master
-
+Configuración:
 * Modificar `/etc/salt/master` para configurar nuestro interfaz de red:
-`interface: 172.19.XX.31`.
+```
+interface: 172.19.XX.31
+file_roots:
+  base:
+    - /srv/salt
+```
 * `systemctl enable salt-master.service`, activiar servicio en el arranque del sistema.
 * `systemctl start salt-master.service`, iniciar servicio.
 * `salt-key -L`, para consultar minions. Vemos que no hay ninguno todavía.
@@ -48,7 +51,7 @@ Rejected Keys:
 ```
 
 ---
-# 4. salt-minion
+# 4. Minion
 
 ## 4.1 Instalación y configuración
 
@@ -86,28 +89,42 @@ salt-minionXXg:
     True
 ```
 
-> `'*'` representa a todos los minions aceptados.
+> `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
 
 ---
 # 5. Salt States
 
+* Buscar cómo está definido `file_roots` en `/etc/salt/master`. Esta es la variable que define dónde se almacenarán los estados de Salt.
+* En OpenSUSE, tendrá el valor `/srv/salt`. Entonces tenemos que FILEROOTS=/srv/salt.
 
----
-# ANEXO
+## 5.1 Crear el estado apache2
 
-Enlaces de interés:
-* https://riptutorial.com/es/salt-stack/example/5504/instalacion-o-configuracion
-* https://www.elmundoenbits.com/2013/10/primeros-pasos-saltstack.html?m=1
-* https://www.linode.com/docs/applications/configuration-management/beginners-guide-to-salt/
+Los estados de Salt se definen en ficheros SLS.
+* Crear fichero `FILEROOTS/apache2/init.sls`:
+```
+apache2:
+  pkg.installed: []
+  service.running:
+    - require:
+      - pkg: apache2
+```
 
+Entendamos las definiciones:
+* La primera línea es un identificador (ID = apache2) que se usa cuando se quiere invocar. El resto del fichero contiene el estado.
+* pkg.installed se asegura que el paquete esté instalado.
+* service.running: se asegura de que el servicio esté iniciado.
+* require: Establece como requisito de que el servicio se inicia después de la instalación del paquete "apache2".
 
-> For openSUSE Tumbleweed run the following as root:
->
-> zypper addrepo http://download.opensuse.org/repositories/systemsmanagement:/saltstack/openSUSE_Tumbleweed/systemsmanagement:saltstack.repo
-> zypper refresh
-> zypper install salt salt-minion salt-master
+## 5.2 Asociar minions a roles/estados
 
-* `salt-master`, ejecutar el master.
-> Usar `salt-master -d` para ejecutar en segundo plano (daemon).
-* `salt-minion`, ejecutar el minion.
-> Usar `salt-minion -d` para ejecutar en segundo plano (daemon).
+* Crear `FILEROOTS/top.sls`, donde asociamos a todos los minions con el estado que acabamos de definir.
+```
+base:       
+  '*':
+    - apache2/init
+```
+
+Seguimos:
+* Comprobar que  que no tenemos instalado apache2 en el minion.
+* `salt-call '*' state.apply`, para aplicar los estados en todos los minions.
+`salt '*' state.apply`
