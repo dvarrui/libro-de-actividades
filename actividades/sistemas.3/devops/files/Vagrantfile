@@ -10,9 +10,10 @@ Vagrant.configure("2") do |config|
       "enp2s0",
     ]
 
-#    i.vm.provision "shell", inline: <<-SHELL
-#    wget -qO- https://raw.githubusercontent.com/dvarrui/teuton/master/bin/linux_t-node_install.sh | bash
-#  SHELL
+    i.vm.provision "shell", inline: <<-SHELL
+    zypper install -y tree
+    zypper install -y vim
+    SHELL
     i.vm.provider "virtualbox" do |v|
       v.name = 'salt-master'
       v.memory = 2048

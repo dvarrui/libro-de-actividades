@@ -1,39 +1,39 @@
 
 ```
-Estado     : EN CONSTRUCCIÓN!!!
+Curso      : 201920
 Requisitos : 2 MV's
+Estado     : Terminado. Pendiente de probar en clase.
 ```
 ---
 
 # 1. Saltstack
 
 Saltstack es un gestor de infrastructura como Puppet, Chef y Ansible.
+
 En esta actividad vamos a practicar Saltstack con OpenSUSE.
 
 # 2. Preparativos
 
-| Configuración | MV1 | MV2 |
-| -------- | --- | --- |
-| Hostname | salt-masterXXg | salt-minionXXg |
-| SO       | GNU/Linux OpenSUSE | GNU/Linux OpenSUSE |
-| IP       | 172.19.XX.31 | 172.19.XX.32 |
+| Config   | MV1           | MV2          |
+| -------- | ------------- | ------------ |
+| Alias    | Master        | Minion       |
+| Hostname | masterXXg     | minionXXg    |
+| SO       | OpenSUSE      | OpenSUSE     |
+| IP       | 172.19.XX.31  | 172.19.XX.32 |
 
 * Configurar `/etc/hosts` con "IP nombre" de MV1 y MV2.
 
 > "XX" es el número asignado a cada alumno.
 
 ---
-# 3. Master: instalación de configuración.
+# 3. Master: instalar y configurar.
 
 Enlaces de interés:
 * [OpenSUSE -Saltstack](https://docs.saltstack.com/en/latest/ref/configuration)
 
-Instalación:
 * Ir a la MV1
 * `zypper install salt-master`, instalar el software del master.
-
-Configuración:
-* Modificar `/etc/salt/master` para configurar nuestro interfaz de red:
+* Modificar `/etc/salt/master` para configurar nuestro master con:
 ```
 interface: 172.19.XX.31
 file_roots:
@@ -62,6 +62,7 @@ master: 172.19.XX.31
 ```
 * `systemctl enable salt-minion.service`, activar Minion en el arranque del sistema.
 * `systemctl start salt-minion.service`, iniciar el servico del Minion.
+* Comprobar que  que no tenemos instalado apache2 en el minion.
 
 ## 4.2 Aceptación desde el Master
 
@@ -71,10 +72,10 @@ Ir a MV1:
 Accepted Keys:
 Denied Keys:
 Unaccepted Keys:
-salt-minionXXg
+minionXXg
 Rejected Keys:
 ```
-* `salt-key -a salt-minionXXg`, para que el Master acepte a dicho Minion.
+* `salt-key -a minionXXg`, para que el Master acepte a dicho Minion.
 * `salt-key -L`, comprobamos.
 
 ## 4.3 Comprobamos conectividad
@@ -82,10 +83,10 @@ Rejected Keys:
 Comprobamos la conectividad desde el Master a los Minions.
 ```
 # salt '*' test.version
-salt-minionXXg:
+minionXXg:
     2019.2.0
 # salt '*' test.ping
-salt-minionXXg:
+minionXXg:
     True
 ```
 
@@ -94,37 +95,102 @@ salt-minionXXg:
 ---
 # 5. Salt States
 
-* Buscar cómo está definido `file_roots` en `/etc/salt/master`. Esta es la variable que define dónde se almacenarán los estados de Salt.
-* En OpenSUSE, tendrá el valor `/srv/salt`. Entonces tenemos que FILEROOTS=/srv/salt.
+Enlaces de interés:
+* [Learning SaltStack - top.sls (1 of 2)](https://www.youtube.com/watch?v=UOzmExyAXOM&t=8s)
+* [Learning SaltStack - top.sls (2 of 2)](https://www.youtube.com/watch?v=1KblVBuHP2k)
+* [Repositorio GitHub con estados de ejemplo](https://github.com/AkhterAli/saltstates/)
 
-## 5.1 Crear el estado apache2
+## 5.1 Preparar el directorio para los estados
+
+Ir al master:
+* Crear directorios `/srv/salt/base` y `/srv/salt/dev`.
+* Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
+```
+file_roots:
+  base:
+    - /srv/salt/base
+  devel:
+    - /srv/salt/devel
+```
+* Reiniciar el servicio del master.
+
+## 5.2 Crear un nuevo estado
 
 Los estados de Salt se definen en ficheros SLS.
-* Crear fichero `FILEROOTS/apache2/init.sls`:
+* Crear fichero `/srv/salt/base/apache/init.sls`:
 ```
-apache2:
-  pkg.installed: []
+install_apache:
+  pkg.installed:
+    - pkgs:
+      - apache2
+
+apache_service:
   service.running:
-    - require:
-      - pkg: apache2
+    - name: apache2
+    - enable: True
 ```
 
 Entendamos las definiciones:
-* La primera línea es un identificador (ID = apache2) que se usa cuando se quiere invocar. El resto del fichero contiene el estado.
+* La primera línea es un identificador (ID) del estado.
 * pkg.installed se asegura que el paquete esté instalado.
 * service.running: se asegura de que el servicio esté iniciado.
 * require: Establece como requisito de que el servicio se inicia después de la instalación del paquete "apache2".
 
-## 5.2 Asociar minions a roles/estados
-
-* Crear `FILEROOTS/top.sls`, donde asociamos a todos los minions con el estado que acabamos de definir.
+Ir al Master:
+* Crear `/srv/salt/base/top.sls`, donde asociamos a todos los minions con el estado que acabamos de definir.
 ```
 base:       
   '*':
-    - apache2/init
+    - apache
+```
+* `salt '*' state.show_states`, consultar los estados que tenemos:
+```
+minionXXg:
+    - apache
 ```
 
-Seguimos:
-* Comprobar que  que no tenemos instalado apache2 en el minion.
-* `salt-call '*' state.apply`, para aplicar los estados en todos los minions.
-`salt '*' state.apply`
+## 5.3 Aplicar el nuevo estado
+
+Ir al Master:
+* Consultar los estados en detalle y verificar que no hay errores en las definiciones.
+    * `salt '*' state.show_lowstate`
+    * `salt '*' state.show_highstate`,
+* `salt '*' state.apply apache`, para aplicar el nuevo estado en todos los minions. OJO: Esta acción puede tardar un tiempo.
+
+```
+minionXXg:
+----------
+          ID: install_apache
+    Function: pkg.installed
+      Result: True
+     Comment: The following packages were installed/updated: apache2
+              ...
+----------
+          ID: apache_service
+    Function: service.running
+        Name: apache2
+      Result: True
+     Comment: Service apache2 has been enabled, and is running
+              ...
+
+Summary for minionXXg
+------------
+Succeeded: 2 (changed=2)
+Failed:    0
+------------
+Total states run:     2
+Total run time: 105.971 s
+```
+
+> NOTA: Con este comando `salt '*' state.highstate`, también se pueden invocar todos los estados.
+
+---
+# 6. Crear estado "users"
+
+Crear un estado llamado "users" que nos sirva para crear un usuario llamado "saltXX".
+
+---
+# 7. Añadir minion
+
+* Crear MV3 con SO Windows (minionXXw)
+* Instalar salt-minion y agregar al master.
