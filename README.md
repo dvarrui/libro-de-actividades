@@ -18,7 +18,9 @@
 
 ![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
-Los documentos del proyecto tiene licencia [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+En general, los documentos del proyecto tiene licencia 
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/), 
+excepto aquellos que expresamente tengan indicados otro tipo de licencia o tengan en su subdirectorio otro fichero LICENSE diferente.
 
 ---
 
