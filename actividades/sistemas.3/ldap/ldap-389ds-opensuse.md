@@ -84,7 +84,8 @@ para hacer la instalación y configuración inicial del 389-DS. Este script se e
 
 * Abrir una consola como root.
 * Instalar `zypper in 389-ds`
-* `find / -name setup-ds.pl`, el script tiene un nombre diferente al que aparece en la documentación (Yeray lo ha encontrado en `/usr/sbin/setup-ds.pl`).
+* Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
+    * `find / -name setup-ds.pl`, para buscar el script en el sistema.
 
 > Al ejecutar el script con el usuario root obtenemos el siguiente [resultado](./files/salida-setup-ds.txt).
 
