@@ -122,7 +122,8 @@ Directory server network port [389]:
 
 ==========================================================
 
-Usuario administrador de la BD LDAP [Directory Manager]:
+Usuario administrador de la BD LDAP
+[cn=Directory Manager]: cn=admin
 ...
 ```
 
@@ -158,7 +159,7 @@ Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por def
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
     * Base DN = `dc=ldap-serverXX,dc=curso1920`
-    * Admin user =`cn=Administrator,dc=ldap-serverXX,dc=curso1920`
+    * Admin user = `cn=admin,dc=ldap-serverXX,dc=curso1920`, o Bind User.
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)
