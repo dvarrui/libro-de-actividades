@@ -159,7 +159,7 @@ Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por def
     * `File -> Preferencias -> Servidor -> Nuevo`
     * URI = `ldap://ldap-serverXX`
     * Base DN = `dc=ldap-serverXX,dc=curso1920`
-    * Admin user = `cn=admin,dc=ldap-serverXX,dc=curso1920`, o Bind User.
+    * Admin user = `cn=admin,dc=ldap-serverXX,dc=curso1920`.
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ![gq-browser.png](./images/gq-browser.png)
@@ -175,8 +175,8 @@ Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por def
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
 * `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
-* Crear el grupo `soldados` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `soldado1`, `soldado2` (Estos se crearán dentro de la `ou=people`).
+* Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
 
 > Vemos un ejemplo de un árbol de datos en LDAP:
