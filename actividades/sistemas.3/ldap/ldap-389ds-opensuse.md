@@ -47,11 +47,10 @@ Ejemplo de rúbrica:
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
     * [Configuración MV](../../global/configuracion/opensuse.md)
 * Nuestra máquina debe tener un FQDN.
-    * Nombre equipo: `ldap-serverXX.curso1920`
+    * Nombre equipo: `ldap-serverXX.curso1920` en `/etc/hostname`
     * Además en `/etc/hosts` añadiremos:
 ```
-ip-del-servidor   ldap-serverXX.curso1920   ldap-serverXX
-127.0.0.3         1er-apellido-del-alumnoXXg.curso1920  1er-apellido-del-alumnoXXg
+172.19.XX.31   ldap-serverXX.curso1920   ldap-serverXX
 ```
 
 > Veamos imagen de ejemplo:
@@ -162,9 +161,6 @@ Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por def
     * Admin user = `cn=admin,dc=ldap-serverXX,dc=curso1920`.
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
-![gq-browser.png](./images/gq-browser.png)
-
-
 ## 3.3 Crear usuarios y grupos dentro del LDAP
 
 > Enlaces de interés:
@@ -178,18 +174,7 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
-
-> Vemos un ejemplo de un árbol de datos en LDAP:
-> ![gq-browser-users.png](./images/gq-browser-users.png)
->
-> Imagen de ejemplo:
-> ![userPassword_empty-gq](./images/userPassword_empty-gq.png)
-
 * `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
-
-> Veamos imagen de ejemplo:
->
-> ![userPassword_empty-ldapsearch](./images/userPassword_empty-ldapsearch.png)
 
 ---
 
