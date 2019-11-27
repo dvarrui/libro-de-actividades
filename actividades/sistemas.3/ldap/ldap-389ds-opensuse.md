@@ -177,7 +177,6 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 * `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
 ---
-
 # 4. Cliente para autenticación LDAP
 
 Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP.
@@ -192,8 +191,8 @@ Vamos a otra MV.
 * Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el nombre DNS con su IP correspondiente:
 
 ```
-IP-DEL-SERVIDOR   ldap-serverXX.curso1920   ldap-serverXX   
-127.0.0.2         ldap-clientXX.curso1920   ldap-clientXX
+172.19.XX.31   ldap-serverXX.curso1920   ldap-serverXX   
+127.0.0.2      ldap-clientXX.curso1920   ldap-clientXX
 ```
 
 ## 4.2 Comprobación
@@ -218,11 +217,11 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
-getent group soldados           # Comprobamos los datos del grupo
-cat /etc/group | grep soldados  # El grupo NO es local
+getent group villanos           # Comprobamos los datos del grupo
+cat /etc/group | grep villanos  # El grupo NO es local
 
-getent passwd soldado1          # Comprobamos los datos del usuario
-cat /etc/passwd | grep soldado1 # El usuario NO es local
+getent passwd baron             # Comprobamos los datos del usuario
+cat /etc/passwd | grep baron    # El usuario NO es local
 ```
 
 ---
@@ -236,9 +235,9 @@ Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como reposit
 * Iniciar sesión con usuario local.
 * Abrir una consola y hacer lo siguiente:
 ```
-id soldado1
-finger soldado1
-su -l soldado1   # Entramos con el usuario definido en LDAP
+id drinfierno
+finger drinfierno
+su -l drinfierno   # Entramos con el usuario definido en LDAP
 ```
 
 > **Si tenemos problemas al reiniciar la MV cliente**
