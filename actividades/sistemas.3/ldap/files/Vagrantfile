@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "ldap-server42" do |i|
+    i.vm.box = "generic/opensuse15"
+    i.vm.hostname = "ldap-server42"
+    i.vm.network "public_network", bridge: [
+      "enp2s0",
+      "wlp1s0",
+    ]
+
+#    i.vm.provision "shell", inline: <<-SHELL
+#    wget -qO- https://raw.githubusercontent.com/dvarrui/teuton/master/bin/linux_t-node_install.sh | bash
+#  SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'ldap-server-42'
+      v.memory = 2048
+    end
+  end
+end
