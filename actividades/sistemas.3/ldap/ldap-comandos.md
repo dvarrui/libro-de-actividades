@@ -27,11 +27,7 @@ En  conclusión, LDAP es un protocolo de acceso unificado a un conjunto  de info
 
 ## 0.2 ¿Qué tipo de información se puede almacenar en un directorio?
 
-En principio en un servicio de directorio se puede almacenar cualquier tipo
-de información. Como por ejemplo, nombre, dirección de habitación, nombre de
-la mascota, música preferida, bebida favorita, etc. Sin embargo, la información
-que se almacena es aquella que permita organizar de manera jerárquica todos
-los usuarios de la red. Estructurar la información de los usuarios de la red es de utilidad a la hora de restringir el acceso a los servicios y recursos de la red; Permitiendo gestionar con mayor facilidad la red.
+En principio en un servicio de directorio se puede almacenar cualquier tipo de información. Como por ejemplo, nombre, dirección de habitación, nombre de la mascota, música preferida, bebida favorita, etc. Sin embargo, la información que se almacena es aquella que permita organizar de manera jerárquica todos los usuarios de la red. Estructurar la información de los usuarios de la red es de utilidad a la hora de restringir el acceso a los servicios y recursos de la red; Permitiendo gestionar con mayor facilidad la red.
 
 ---
 # 1. Preparativos

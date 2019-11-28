@@ -72,6 +72,9 @@ Ejemplo de rúbrica:
 
 # 2. Instalar el Servidor LDAP
 
+Enlaces de interés:
+* https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html#installing-the-software
+
 ## 2.1 Script de Perl
 
 * Abrir una consola como root.
@@ -135,22 +138,7 @@ Log file is '/tmp/setupuofQkd.log'
 > * `systemctl enable dirsrv@ldapXX`, activar al inicio.
 > * `systemctl start dirsrv@ldapXX`, iniciar el servicio.
 
-## 2.3 Comprobar contenido con ldapsearch
-
-Para obtener todos los objetos en un directorio a partir de cierta base (dc=ldap42, dc=curso1920):
-
-```
-ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap42, dc=curso1920" -b "dc=ldap42, dc=curso1920" "(objectclass=*)
-```
-
-| Campo | Descripción |
-| ----- | ----------- |
-| -z 0  | evita cortar la respuesta una vez alcanzado cierto límite (cantidad de entradas) |
-| -H ldap://localhost:389 | Consulta el servidor LDAP en el puerto 389 del host local.|
-| -W    | Se solicita la contraseña para el método de autenticación simple de manera interactiva |
-| -D "cn=admin, dc=ldap42, dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
-| -b "dc=ldap42, dc=curso1920" | base desde donde comenzar la búsqueda|
-| "(objectclass=*)" | Filtro para la búsqueda (en este ejemplo todos los objetos, este a su vez es el filtro por defecto). |
+* `ldapsearch -x -b "dc=ldap42,dc=curso1920"`, muestra el contenido de nuestra base de datos LDAP.
 
 ---
 
@@ -281,3 +269,20 @@ Connection: 'Resource id #29', Bind result: ''
 
 Más información sobre este error
 ```
+
+## 2.3 Comprobar contenido con ldapsearch
+
+Para obtener todos los objetos en un directorio a partir de cierta base (dc=ldap42, dc=curso1920):
+
+```
+ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap42, dc=curso1920" -b "dc=ldap42, dc=curso1920" "(objectclass=*)
+```
+
+| Campo | Descripción |
+| ----- | ----------- |
+| -z 0  | evita cortar la respuesta una vez alcanzado cierto límite (cantidad de entradas) |
+| -H ldap://localhost:389 | Consulta el servidor LDAP en el puerto 389 del host local.|
+| -W    | Se solicita la contraseña para el método de autenticación simple de manera interactiva |
+| -D "cn=admin, dc=ldap42, dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
+| -b "dc=ldap42, dc=curso1920" | base desde donde comenzar la búsqueda|
+| "(objectclass=*)" | Filtro para la búsqueda (en este ejemplo todos los objetos, este a su vez es el filtro por defecto). |
