@@ -72,13 +72,7 @@ Ejemplo de rúbrica:
 
 # 2. Instalar el Servidor LDAP
 
-## 2.1 Información
-
-NOTA:
-* Durante el proceso se creará un usuario (dirsrv) y grupo (dirsrv) para el servidor de directorios.
-* El sufijo del directorio es la primera entrada al árbol de directorios. Ejemplo: si el host del servidor de directorios se llama `ldap.example.com`, entonces el sufijo es `dc=example,dc=com`.
-
-## 2.2 Script de Perl
+## 2.1 Script de Perl
 
 * Abrir una consola como root.
 * Instalar `zypper in 389-ds`
@@ -132,13 +126,31 @@ Log file is '/tmp/setupuofQkd.log'
 
 > **IMPORTANTE**: Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
 
-## 2.3 Comprobamos el servicio
+## 2.2 Comprobamos el servicio
 
-* `systemctl enable dirsrv@ldap-serverXX`, activar al inicio.
 * `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
-* `systemctl start dirsrv@ldap-serverXX`, iniciar el servicio.
 * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
-* `nmap -Pn localhost | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
+* `nmap -Pn ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
+
+> * `systemctl enable dirsrv@ldap-serverXX`, activar al inicio.
+> * `systemctl start dirsrv@ldap-serverXX`, iniciar el servicio.
+
+## 2.3 Comprobar contenido con ldapsearch
+
+Para obtener todos los objetos en un directorio (dn) a partir de cierta base (dc=ldap-server42,dc=curso1920), y sin límite de para la respuesta:
+
+```
+ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap-server42,dc=curso1920" -b "dc=ldap-server42,dc=curso1920" "(objectclass=*)
+```
+
+| Campo | Descripción |
+| ----- | ----------- |
+| -z 0  | evita cortar la respuesta una vez alcanzado cierto límite (cantidad de entradas) |
+| -H ldap://localhost:389 | Consulta el servidor LDAP en el puerto 389 del host local.|
+| -W    | Se solicita la contraseña para el método de autenticación simple de manera interactiva |
+| -D "cn=admin,dc=ldap-server42,dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
+| -b "dc=ldap-server42,dc=curso1920" | base desde donde comenzar la búsqueda|
+| "(objectclass=*)" | Filtro para la búsqueda (en este ejemplo todos los objetos, este a su vez es el filtro por defecto). |
 
 ---
 

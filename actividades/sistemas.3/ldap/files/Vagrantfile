@@ -10,9 +10,10 @@ Vagrant.configure("2") do |config|
       "wlp1s0",
     ]
 
-#    i.vm.provision "shell", inline: <<-SHELL
-#    wget -qO- https://raw.githubusercontent.com/dvarrui/teuton/master/bin/linux_t-node_install.sh | bash
-#  SHELL
+    i.vm.provision "shell", inline: <<-SHELL
+      zypper in -y vim tree
+      zypper in -y 389-ds
+    SHELL
     i.vm.provider "virtualbox" do |v|
       v.name = 'ldap-server-42'
       v.memory = 2048
