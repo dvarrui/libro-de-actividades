@@ -15,136 +15,132 @@ Comentarios     : REVISAR la parte de autenticación con FreeIPA+389-DS
 > * VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 > * VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
-![arbol](./images/arbol.png)
-
 ## Introducción
+
+![arbol](./images/arbol.png)
 
 Hay varias herramientas que implementan el servidor de directorios LDAP (389-DS, OpenLDAP, Active Directory, etc).
 
-Según la siguiente noticia [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/). or este motivo hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS. En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS.
+Según parece [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/), por este motivo, hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS.
+
+En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS.
 
 ## Entrega
 
 Ejemplo de rúbrica:
 
-| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| --------------------- | ------------ | ----------- | ----------------- |
-| (2.3) Comprobar el servicio           | | | |
+| Sección | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ------- | ------------ | ----------- | ----------------- |
+| (2.4) Comprobar contenido del DS LDAP | | | |
 | (3.3) Browser LDAP: Usuarios y grupos | | | |
 
 ---
-
 # 1. Prerequisitos
 
-> Enlaces de interés sobre 389-DS:
+> Enlaces de interés:
 >
 > * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
-> * [389-DS installation](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
+> * [389-DS installation RH](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
+Enlaces de interés:
+> * [389-DS installation Fedora](https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html#installing-the-software)
 
 ## 1.1 Nombre de equipo FQDN
 
-* Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
-    * [Configuración MV](../../global/configuracion/opensuse.md)
-* Nuestra máquina debe tener un FQDN.
-    * Nombre equipo: `ldapXX.curso1920` en `/etc/hostname`
-    * Además en `/etc/hosts` añadiremos:
+* Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP ([Configuración MV](../../global/configuracion/opensuse.md)).
+* Nuestra máquina debe tener un FQDN=`serverXX.curso1920`.
+    * Revisar `/etc/hostname`
+    * Revisar `/etc/hosts`
 
 ```
-172.19.XX.31   ldapXX.curso1920   ldapXX
+127.0.0.2   serverXX.curso1920   serverXX
 ```
 
-> Veamos imagen de ejemplo:
->
-> ![opensuse-host-names.png](./images/opensuse-host-names.png)
+* Comprobar salida de: `hostname -a`, `hostname -d` y `hostname -f`.
 
-* Comprobar con `hostname -a`, `hostname -d` y `hostname -f`
+## 1.2 Cortafuegos
 
-## 1.2 Opening the Required Ports in the Firewall
+Abrir los puertos en en cortafuegos:
 
 * `systemctl status firewalld`, comprobar el estado del cortafuegos. Debe estar en ejecución.
-* `systemctl enable firewalld`, activar contafuegos en el inicio del sistema.
-* `systemctl start firewalld`, iniciar el cortafuegos.  
 * `firewall-cmd --permanent --add-port={389/tcp,636/tcp,9830/tcp}
-`, abrir determinados puertos en el cortafuegos usando la herramienta  "firewall-cmd"
+`, abre determinados puertos en el cortafuegos usando la herramienta  "firewall-cmd"
 * `firewall-cmd --reload`, recargar la configuración del cortafuegos para asegurarnos de que se han leído los nuevos cambios.
+
+> Recordatorio:
+> * `systemctl enable firewalld`, activar contafuegos en el inicio del sistema.
+> * `systemctl start firewalld`, iniciar el cortafuegos.  
 
 ---
 
 # 2. Instalar el Servidor LDAP
 
-Enlaces de interés:
-* https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html#installing-the-software
-
-## 2.1 Script de Perl
+## 2.1 Instalación del paquete
 
 * Abrir una consola como root.
 * Instalar `zypper in 389-ds`
 * Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
-    * `find / -name setup-ds.pl`, para buscar el script en el sistema.
+
+## 2.2 Script de Perl
+
+* Abrir una consola como root.
+* `/usr/sbin/setup-ds.pl`, ejecutar el script y responder a las preguntas de configuración del servicio.
 
 Veamos un resumen de la salida del script:
 ```
 ==================================================
-Choose a setup type:
-   1. Express
-   2. Typical
-   3. Custom
-
-Choose a setup type [2]:
-
+* Choose a setup type  => 2. Typical
+* FQDN of the computer => server42.curso1920
+* System User          => dirsrv
+* System Group         => dirsrv
+* Network port number  => 389
+* DS identifier        => ldap42
+* Suffix (valid DN)    => dc=ldap42,dc=curso1920
+* Administrative user  => cn=Directory Manager
 ==================================================
-Enter the fully qualified domain name of the computer
+```
 
-Computer name [ldap42]: ldap42.curso1920
-
-==================================================
-System User [dirsrv]:
-System Group [dirsrv]:
-
-==================================================
-The standard directory server network port number is 389.
-
-Directory server network port [389]:
-
-==================================================
-Each instance of a directory server requires a unique identifier.
-
-Directory server identifier [ldap42]:
-
-==================================================
-The suffix is the root of your directory tree.  The suffix must be a valid DN.
-
-Suffix [dc=curso1920]: dc=ldap42,dc=curso1920
-
-===================================================
-Certain directory server operations require an administrative user.
-
-Directory Manager DN [cn=Directory Manager]: cn=admin
-
+Nos aparece este Warning de SELinux, pero la instancia LDAP se ha creado:
+```
 ImportError: No module named selinux
-Your new DS instance 'ldap-server42' was successfully created.
+Your new DS instance 'ldap42' was successfully created.
 Exiting . . .
 Log file is '/tmp/setupuofQkd.log'
 ```
 
-> **IMPORTANTE**: Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
+> **IMPORTANTE**:
+> * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
+> * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldap42`
 
-## 2.2 Comprobamos el servicio
+## 2.3 Comprobamos el servicio
 
 * `systemctl status dirsrv@ldapXX`, comprobar si el servicio está en ejecución.
-* `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
-* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
+* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
 
+> Más ayuda:
+> * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 > * `systemctl enable dirsrv@ldapXX`, activar al inicio.
 > * `systemctl start dirsrv@ldapXX`, iniciar el servicio.
 
-* `ldapsearch -x -b "dc=ldap42,dc=curso1920"`, muestra el contenido de nuestra base de datos LDAP.
+## 2.4 Comprobamos el acceso al contenido del LDAP
+
+* `ldapsearch -b "dc=ldap42,dc=curso1920" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
+* Comprobar que existen las OU Groups y People.
+* `ldapsearch -H ldap://localhost -b "dc=ldap42,dc=curso1920" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
+
+| Parámetro                   | Descripción                |
+| --------------------------- | -------------------------- |
+| -x                          | No se valida usuario/clave |
+| -b "dc=ldap42,dc=curso1920" | Base/sufijo del contenido  |
+| -H ldap://localhost:389     | IP:puerto del servidor     |
+| -W                          | Se solicita contraseña     |
+| -D "cn=Directory Manager"   | Usuario del LDAP           |
+
 
 ---
 
 # 3. Browser LDAP
 
-## 3.1 Instalar browser LDAP
+## 3.1 [OPCIONAL] Instalar browser LDAP
 
 Hay varias herramientas que pueden servir como browser LDAP:
 * [ldapadmin](http://www.ldapadmin.org/).
@@ -156,14 +152,13 @@ Hay varias herramientas que pueden servir como browser LDAP:
 Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por defecto con nuestra distribución.
 * Instalar un browser LDAP.
 
-## 3.2 Browser LDAP
+## 3.2 [OPCIONAL] Browser LDAP
 
 * Usar un browser LDAP para comprobar el contenido del servidor de directorios LDAP:
     * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://ldapXX`
+    * URI = `ldap://serverXX`
     * Base DN = `dc=ldapXX, dc=curso1920`
-    * Admin user = `cn=admin, dc=ldapXX, dc=curso1920`.
-* ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
+    * Admin user = `cn=Directory Manager`.
 
 ## 3.3 Crear usuarios y grupos dentro del LDAP
 
@@ -195,7 +190,7 @@ Vamos a otra MV.
 * Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el nombre DNS con su IP correspondiente:
 
 ```
-172.19.XX.31   ldapXX.curso1920   ldapXX   
+172.19.XX.31   serverXX.curso1920   serverXX   
 127.0.0.2      1er-apellidoXXg2.curso1920   1er-apellidoXXg2
 ```
 
@@ -204,7 +199,7 @@ Vamos a otra MV.
 * `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV cliente.
 * Usar un browser LDAP en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://ldapXX`
+    * URI = `ldap://serverXX`
     * Base DN = `dc=ldapXX, dc=curso1920`
 
 ## 4.3 Instalar y configurar la autenticación
@@ -234,6 +229,17 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
 
+Ejemplo que muestra la plataforma de autenticación gobcan:
+
+```
+Página Principal / ► Entrar al sitio
+El módulo LDAP no puede conectarse a ninguno de los servidores:
+Server: 'ldap://directorio.gobiernodecanarias.net/',
+Connection: 'Resource id #29', Bind result: ''
+```
+
+## 5.1 Comprobar autenticación desde el cliente
+
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
 * Iniciar sesión con usuario local.
@@ -259,16 +265,6 @@ su -l drinfierno   # Entramos con el usuario definido en LDAP
 
 # ANEXO
 
-## Plataforma de autenticación gobcan
-
-```
-Página Principal / ► Entrar al sitio
-El módulo LDAP no puede conectarse a ninguno de los servidores:
-Server: 'ldap://directorio.gobiernodecanarias.net/',
-Connection: 'Resource id #29', Bind result: ''
-
-Más información sobre este error
-```
 
 ## 2.3 Comprobar contenido con ldapsearch
 
