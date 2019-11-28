@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "ldap42" do |i|
     i.vm.box = "generic/opensuse15"
-    i.vm.hostname = "ldap42"
+    i.vm.hostname = "ldap42.curso1920"
     i.vm.network "public_network", bridge: [
       "enp2s0",
       "wlp1s0",
