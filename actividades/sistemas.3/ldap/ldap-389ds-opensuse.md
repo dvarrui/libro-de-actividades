@@ -46,11 +46,11 @@ Ejemplo de rúbrica:
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP con:
     * [Configuración MV](../../global/configuracion/opensuse.md)
 * Nuestra máquina debe tener un FQDN.
-    * Nombre equipo: `ldap-serverXX.curso1920` en `/etc/hostname`
+    * Nombre equipo: `ldapXX.curso1920` en `/etc/hostname`
     * Además en `/etc/hosts` añadiremos:
 
 ```
-172.19.XX.31   ldap-serverXX.curso1920   ldap-serverXX
+172.19.XX.31   ldapXX.curso1920   ldapXX
 ```
 
 > Veamos imagen de ejemplo:
@@ -92,7 +92,7 @@ Choose a setup type [2]:
 ==================================================
 Enter the fully qualified domain name of the computer
 
-Computer name [ldap-server42]: ldap-server42.curso1920
+Computer name [ldap42]: ldap42.curso1920
 
 ==================================================
 System User [dirsrv]:
@@ -106,12 +106,12 @@ Directory server network port [389]:
 ==================================================
 Each instance of a directory server requires a unique identifier.
 
-Directory server identifier [ldap-server42]:
+Directory server identifier [ldap42]:
 
 ==================================================
 The suffix is the root of your directory tree.  The suffix must be a valid DN.
 
-Suffix [dc=curso1920]: dc=ldap-server42,dc=curso1920
+Suffix [dc=curso1920]: dc=ldap42,dc=curso1920
 
 ===================================================
 Certain directory server operations require an administrative user.
@@ -128,19 +128,19 @@ Log file is '/tmp/setupuofQkd.log'
 
 ## 2.2 Comprobamos el servicio
 
-* `systemctl status dirsrv@ldap-serverXX`, comprobar si el servicio está en ejecución.
+* `systemctl status dirsrv@ldapXX`, comprobar si el servicio está en ejecución.
 * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
-* `nmap -Pn ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
+* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red.
 
-> * `systemctl enable dirsrv@ldap-serverXX`, activar al inicio.
-> * `systemctl start dirsrv@ldap-serverXX`, iniciar el servicio.
+> * `systemctl enable dirsrv@ldapXX`, activar al inicio.
+> * `systemctl start dirsrv@ldapXX`, iniciar el servicio.
 
 ## 2.3 Comprobar contenido con ldapsearch
 
-Para obtener todos los objetos en un directorio (dn) a partir de cierta base (dc=ldap-server42,dc=curso1920), y sin límite de para la respuesta:
+Para obtener todos los objetos en un directorio a partir de cierta base (dc=ldap42, dc=curso1920):
 
 ```
-ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap-server42,dc=curso1920" -b "dc=ldap-server42,dc=curso1920" "(objectclass=*)
+ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap42, dc=curso1920" -b "dc=ldap42, dc=curso1920" "(objectclass=*)
 ```
 
 | Campo | Descripción |
@@ -148,8 +148,8 @@ ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap-server42,dc=curs
 | -z 0  | evita cortar la respuesta una vez alcanzado cierto límite (cantidad de entradas) |
 | -H ldap://localhost:389 | Consulta el servidor LDAP en el puerto 389 del host local.|
 | -W    | Se solicita la contraseña para el método de autenticación simple de manera interactiva |
-| -D "cn=admin,dc=ldap-server42,dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
-| -b "dc=ldap-server42,dc=curso1920" | base desde donde comenzar la búsqueda|
+| -D "cn=admin, dc=ldap42, dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
+| -b "dc=ldap42, dc=curso1920" | base desde donde comenzar la búsqueda|
 | "(objectclass=*)" | Filtro para la búsqueda (en este ejemplo todos los objetos, este a su vez es el filtro por defecto). |
 
 ---
@@ -172,9 +172,9 @@ Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por def
 
 * Usar un browser LDAP para comprobar el contenido del servidor de directorios LDAP:
     * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://ldap-serverXX`
-    * Base DN = `dc=ldap-serverXX,dc=curso1920`
-    * Admin user = `cn=admin,dc=ldap-serverXX,dc=curso1920`.
+    * URI = `ldap://ldapXX`
+    * Base DN = `dc=ldapXX, dc=curso1920`
+    * Admin user = `cn=admin, dc=ldapXX, dc=curso1920`.
 * ¿Tenemos creadas las unidades organizativas: `groups` y `people`?
 
 ## 3.3 Crear usuarios y grupos dentro del LDAP
@@ -202,22 +202,22 @@ Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación
 Vamos a otra MV.
 * SO OpenSUSE.
 * [Configuración MV](../../global/configuracion/opensuse.md)
-* Nombre equipo: `ldap-clientXX`
+* Nombre equipo: `1er-apellido-alumnoXXg2`
 * Dominio: `curso1920`
 * Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el nombre DNS con su IP correspondiente:
 
 ```
-172.19.XX.31   ldap-serverXX.curso1920   ldap-serverXX   
-127.0.0.2      ldap-clientXX.curso1920   ldap-clientXX
+172.19.XX.31   ldapXX.curso1920   ldapXX   
+127.0.0.2      1er-apellidoXXg2.curso1920   1er-apellidoXXg2
 ```
 
 ## 4.2 Comprobación
 
-* `nmap -Pn ldap-serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV cliente.
+* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV cliente.
 * Usar un browser LDAP en el cliente para comprobar que se han creado bien los usuarios.
     * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://ldap-serverXX`
-    * Base DN = `dc=ldap-serverXX,dc=curso1819`
+    * URI = `ldap://ldapXX`
+    * Base DN = `dc=ldapXX, dc=curso1920`
 
 ## 4.3 Instalar y configurar la autenticación
 
@@ -271,7 +271,8 @@ su -l drinfierno   # Entramos con el usuario definido en LDAP
 
 # ANEXO
 
-Error de la plataforma de autenticación gobcan:
+## Plataforma de autenticación gobcan
+
 ```
 Página Principal / ► Entrar al sitio
 El módulo LDAP no puede conectarse a ninguno de los servidores:
@@ -280,8 +281,3 @@ Connection: 'Resource id #29', Bind result: ''
 
 Más información sobre este error
 ```
-
-* La documentación de 389-DS dice que ahora debemos ejecutar el script `setup-ds-admin.pl`, pero no lo encontramos:
-    * `find / -name setup-ds-admin.pl`, pero no encuentramos este script.
-    * Enlaces de interés: https://serverfault.com/questions/658042/how-to-install-and-setup-389-ds-on-centos-7
-* Se nos ocurre otro camino. `cnf setup-ds.pl`

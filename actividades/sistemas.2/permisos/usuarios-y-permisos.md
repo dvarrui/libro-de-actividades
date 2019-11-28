@@ -1,4 +1,10 @@
 
+```
+Cursos     : 201920, 201817, 201716
+Requisitos : Windows y GNU/Linux
+```
+---
+
 # Usuarios y permisos
 
 Ejemplo de rúbrica:
@@ -25,6 +31,8 @@ herramienta está limitada. Nosotros vamos a ir a
 
 ## 1.1 Usando el GUI Windows
 
+**Crear usuarios**
+
 * Crear el grupo `jedis`.
 * Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
 * Los miembros del grupo `jedis` incluirlos además en el grupo
@@ -32,6 +40,11 @@ administradores, para que puedan actuar como superusuarios.
 * Para comprobar que los usuarios y grupos se han creado correctamente vamos a
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
+
+**Asignar permisos**
+
+> **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
+
 * Entrar como el usuario `jedi1`
     * Crear la carpeta `C:\Users\jedi1\private`
     * Crear la carpeta `C:\Users\jedi1\group`
@@ -53,7 +66,7 @@ en una carpeta determinada, haremos lo siguiente:
     * `private`: El usuario propietario tendrá control total y nadie más tendrá permisos.
     * `group`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
     * `public`: todos tienen permiso de lectura, y el usuario propietario control total.
-* **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
+
 * Capturar imagen del resultado de la asignación de permisos.
 
 Veamos un ejemplo de permisos para la carpeta public:
@@ -62,14 +75,17 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ## 1.2 Usando los comandos Windows
 
-* Ahora vistos los ejemplos, vamos a crear el grupo `siths`.
-    * `net localgroup`, para ver los grupos.
+**Crear usuarios**
+
+* `net localgroup`, para ver los grupos.
+* `net localgroup siths /add`, crear el grupo `siths`.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
     * `net user USERNAME /add`, para crear usuarios.
     * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario dentro de un grupo.
 
-> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que se muestre los
-iconos de la ventana de inicio de sesión del sistema.
+> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que aparezca como iconos de la ventana de inicio de sesión del sistema.
+
+**Asignar permisos**
 
 * Entrar con el usuario `sith2`
     * Crear la carpeta `C:\Users\sith2\private`
