@@ -10,19 +10,18 @@ Comentarios     : REVISAR la parte de autenticación con FreeIPA+389-DS
 
 # Servidor 389-DS - OpenSUSE
 
-> Enlaces de interés sobre teoría LDAP:
+> Enlaces de interés:
 >
-> * VÍDEO [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
-> * VÍDEO [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+> * VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
+> * VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+
+![arbol](./images/arbol.png)
 
 ## Introducción
 
-Hay varias herramientas que implementan el servidor de directorios LDAP
-(389-DS, OpenLDAP, Active Directory, etc).
+Hay varias herramientas que implementan el servidor de directorios LDAP (389-DS, OpenLDAP, Active Directory, etc).
 
 Según la siguiente noticia [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/). or este motivo hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS. En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS.
-
-![arbol](./images/arbol.png)
 
 ## Entrega
 
@@ -49,6 +48,7 @@ Ejemplo de rúbrica:
 * Nuestra máquina debe tener un FQDN.
     * Nombre equipo: `ldap-serverXX.curso1920` en `/etc/hostname`
     * Además en `/etc/hosts` añadiremos:
+
 ```
 172.19.XX.31   ldap-serverXX.curso1920   ldap-serverXX
 ```
@@ -56,6 +56,8 @@ Ejemplo de rúbrica:
 > Veamos imagen de ejemplo:
 >
 > ![opensuse-host-names.png](./images/opensuse-host-names.png)
+
+* Comprobar con `hostname -a`, `hostname -d` y `hostname -f`
 
 ## 1.2 Opening the Required Ports in the Firewall
 
@@ -78,52 +80,54 @@ NOTA:
 
 ## 2.2 Script de Perl
 
-La documentación indica que debemos usar el script `setup-ds-admin.pl`
-para hacer la instalación y configuración inicial del 389-DS. Este script se ejecuta como superusuario y de forma interactiva iremos configurando los parámetros de la instalación.
-
 * Abrir una consola como root.
 * Instalar `zypper in 389-ds`
 * Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
     * `find / -name setup-ds.pl`, para buscar el script en el sistema.
 
-> Al ejecutar el script con el usuario root obtenemos el siguiente [resultado](./files/salida-setup-ds.txt).
-
 Veamos un resumen de la salida del script:
 ```
-ldap-server27:~ # setup-ds.pl
-
-==========================================================
-This program will set up the 389 Directory Server.
-==========================================================
+==================================================
 Choose a setup type:
+   1. Express
    2. Typical
-       Allows you to specify common defaults and options.
+   3. Custom
 
-Choose a setup type [2]: 2
+Choose a setup type [2]:
 
-==========================================================
+==================================================
 Enter the fully qualified domain name of the computer
-on which you're setting up server software. Using the form
-<hostname>.<domainname>
 
-Computer name [ldap-server27]: ldap-server27.curso1819
+Computer name [ldap-server42]: ldap-server42.curso1920
 
-==========================================================
-The server must run as a specific user in a specific group.
-
+==================================================
 System User [dirsrv]:
 System Group [dirsrv]:
 
-==========================================================
+==================================================
 The standard directory server network port number is 389.
 
 Directory server network port [389]:
 
-==========================================================
+==================================================
+Each instance of a directory server requires a unique identifier.
 
-Usuario administrador de la BD LDAP
-[cn=Directory Manager]: cn=admin
-...
+Directory server identifier [ldap-server42]:
+
+==================================================
+The suffix is the root of your directory tree.  The suffix must be a valid DN.
+
+Suffix [dc=curso1920]: dc=ldap-server42,dc=curso1920
+
+===================================================
+Certain directory server operations require an administrative user.
+
+Directory Manager DN [cn=Directory Manager]: cn=admin
+
+ImportError: No module named selinux
+Your new DS instance 'ldap-server42' was successfully created.
+Exiting . . .
+Log file is '/tmp/setupuofQkd.log'
 ```
 
 > **IMPORTANTE**: Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
