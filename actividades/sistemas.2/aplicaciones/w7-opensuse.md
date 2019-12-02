@@ -1,10 +1,9 @@
 
 ```
-Curso           : 201819, 201817
+Curso           : 201920, 201819, 201817
 Software        : Windows 7/10 y OpenSUSE
 Tiempo estimado :
-Revisión        : Simplificar dejando los apartados más prácticos.
-                  O separarlo en dos actividades.
+Revisión        :
 ```
 
 ---
@@ -33,7 +32,7 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 * Comprobar que funcionan correctamente.
     * `telnet towel.blinkenlights.nl`
 
-> **Cliente Telnet**
+> **INFORMACIÓN** Cliente Telnet
 >
 > La herramienta telnet sirve para conectarse a equipos remotos.
 >
@@ -81,62 +80,31 @@ Vamos a comprobar su funcionamiento:
 
 Capturar imágenes de los pasos realizados.
 
----
+## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-## 2.1 Instalar programas
+> Enlaces de interés:
+> * URL: http://chocolatey.org/
+> * Probado en Windows 7 64bits.
 
-* Descargar el programa GIT desde la web oficial (http://git-scm.com/).
-* Abrir una consola cmd.
-* Ir a la carpeta donde hemos descargado el fichero.
+Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
 
-> NOTA: Sustituir VERSION por el número de versión que se haya descargado cada uno.
+* `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`. Una vez realizado este paso ya está instalado el "gestor" de instalaciones para la terminal.
 
-* `Git-VERSION.exe /?` (Con el argumento /? vemos todas las opciones del programa)
-* `Git-VERSION.exe /SILENT` (Hacemos una instalación sin preguntar al usuario)
-
-Comprobar (por la consola cmd) que lo tenemos instalado haciendo:
-* `cd c:\Program Files\Git\bin` (Esta es la ruta donde se instaló el programa)
-Si no encuentran el programa `git.exe` en esta ruta hagan una búsqueda y sitúense en el directorio encontrado.
-
-![windows-git-path](./images/windows-git-path.png)
-
-* `git --version`, comando para averiguar la versión instalada del programa git.
-
----
-
-## 2.2 Desinstalar programas
-
-A continuación vamos a desinstalar un programa MSI por comandos, usando la consola wmic.
-
-> Estos comandos sólo sirven para desinstalar programas instalados MSI. NO sirve para ficheros EXE.
-
-* Abrir consola PowerShell como Administrador
-* `wmic`, abrir consola wmic.
-* `product get name`, para localizar los programas MSI instalados. Si no se muestra información reiniciar el equipo y repetir.
-* `product where name="APPNAME VERSION" call uninstall`, para desintalar el programa APPNAME con la versión VERSION.
-* Comprobarlo.
-
-> **INFORMACIÓN - PowerShell**
+> Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`. Ver imagen de ejemplo:
 >
-> * Ejemplo de [Script para desinstalar un programa con PowerShell](https://social.technet.microsoft.com/Forums/es-ES/b56a8e37-0840-45fb-b9ea-4ece77af1ebe/script-para-desinstalar-un-programa-con-powershell?forum=powershelles)
-> * Desinstalar programas MSI usando comandos de PowerShell. Abrir consola PowerShell como Administrador y ejecutar lo siguiente:
-> ```
-> $programa = Get-WmiObject -Class Win32_Product -Filter "Name = 'Nombre-mostrado-en Agregar/Quitar programas' "
-> $programa.Uninstall()
-> ```
+> ![chocolatey-org](./images/chocolatey-org.jpg)
 
----
+* Instalar una aplicación elegida por el alumno. En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
 
-## 2.3 Gestor de paquetes
+## 2.2 Gestor de paquetes
 
 > Enlaces de interés:
 > * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
 > * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
-* Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga:
+* Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga los siguiente programas:
     * Firefox
     * VLC
-    * Gimp
     * 7z
     * Steam
 
@@ -144,19 +112,20 @@ A continuación vamos a desinstalar un programa MSI por comandos, usando la cons
 
 # 3. Windows - Actualización del sistema
 
+Punto de restauración de seguridad:
 * Hacer un snapshot de la MV por seguridad.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
 Vamos a instalar un paquete de actualizaciones para Windows7.
-De esta forma las actualizaciones tardan menos tiempo.
-
+De esta forma las actualizaciones tardarán menos tiempo.
 * Reiniciamos el servicio Windows Update
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
     * Botón derecho -> Reiniciar
 * Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
-* Reiniciar la máquina
+* Reiniciar la máquina.
 
+Actualizar algunos paquetes:
 * Ir a `Panel de control -> Windows Update`. Debe de estar desactivado.
 * Consultar las actualizaciones pendientes.
 * Elegir 3 y aplicar actualización.
@@ -167,7 +136,7 @@ De esta forma las actualizaciones tardan menos tiempo.
 
 * Partimos de una [MV con OpenSUSE](../../global/configuracion/opensuse.md).
 
-## Instalar paquetes
+## 4.1 Instalar paquetes
 
 El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
 
@@ -178,7 +147,7 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
 * Comprobar que funcionan los programas que hemos instalado.
 
-## Desinstalar paquetes
+## 4.2 Desinstalar paquetes
 
 * Desinstalar la aplicación con el gestor de paquetes.
 * Comprobarlo.
@@ -192,30 +161,27 @@ Capturar imágenes de los pasos realizados.
 Enlace de interés:
 * [Zypper](https://es.opensuse.org/Zypper)
 
-## Instalar software
+## 5.1 Instalar software
 
 * Entramos en la consola como `root`.
 * Instalar algún programa con el comando `zypper ...` (`man zypper` para consultar ayuda).
-
-Ahora vamos a comprobar que el programa está instalado:
-* `zypper search nombre-programa`
+* `zypper search nombre-programa`, comprobamnos que el programa está instalado.
 * Ejecutar el programa y ver funciona.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 
-## Desinstalar software
+## 5.2 Desinstalar software
 
 * Desinstalar el programa con `zypper ...`.
-Comprobar que el programa no está instalado:
-* `zypper se nombre-programa`
+* `zypper se nombre-programa`, comprobar que el programa no está instalado.
 * Ejecutar el programa y ver que funciona.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 
-## Instalar programa Windows
+## 5.3 Instalar programa nativo de Windows en GNU/Linux
 
 * Instalar el emulador Windows (`wine`).
 * Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhonny Simulator.
 
-## Instalar programa desde rpm
+## 5.4 Instalar programa desde rpm
 
 > * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
@@ -224,8 +190,7 @@ Comprobar que el programa no está instalado:
 * Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
 * Descargamos el fichero `.rpm`.
 * `rpm -i atom-VERSION.rpm`, para instalar el programa mediante el fichero rpm.
-* Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla
-manualmente. Por ejemplo:
+* Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla manualmente. Por ejemplo:
     * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
     * `zypper install lsb`, para instalar el paquete lsb.
 
@@ -236,10 +201,11 @@ manualmente. Por ejemplo:
     * `atom`
 * Comprobamos que funciona bien el editor `atom`.
 
-## Instalación desde el código fuente
+## 5.5 Instalación desde el código fuente
 
 GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
-pública.
+pública. Vamos a realizar la instalación de un programa alojado en este repositorio,
+desde el código fuente.
 
 * Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
 * Dentro de la sección `Native`, elegir un programa  de la lista. Ejemplos:
@@ -266,23 +232,7 @@ pública.
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
-## A.1 Instalar desde la terminal Windows al estilo de Linux
-
-* URL: http://chocolatey.org/
-* Probado en Windows 7 64bits.
-
-Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
-* `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`
-
-Una vez realizado este paso ya está instalado el "gestor" de instalaciones para la terminal.
-
-Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`
-
-![chocolatey-org](./images/chocolatey-org.jpg)
-
-En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
-
-## A.2 Instalación desde las fuentes
+## A.1 Instalación desde las fuentes
 
 Realizar las siguientes tareas:
 * Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
@@ -294,10 +244,7 @@ Realizar las siguientes tareas:
     * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
     * Si elijen otro programa deben consultarlo con el profesor. Por ejemplo Geany.
     El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
+    * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
+    * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
-
-## A.3 Ejemplo de instalación usando las fuentes de GitHub
-
-* [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
-* [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
