@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201918, 201819, 201817
+Curso           : 201920, 201819, 201817
 Software        : Windows 7/10 y OpenSUSE
 Tiempo estimado :
 Revisión        :
@@ -82,20 +82,19 @@ Capturar imágenes de los pasos realizados.
 
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-* URL: http://chocolatey.org/
-* Probado en Windows 7 64bits.
+> Enlaces de interés:
+> * URL: http://chocolatey.org/
+> * Probado en Windows 7 64bits.
 
 Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
+
 * `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`. Una vez realizado este paso ya está instalado el "gestor" de instalaciones para la terminal.
 
 > Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`. Ver imagen de ejemplo:
 >
 > ![chocolatey-org](./images/chocolatey-org.jpg)
 
-* En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
-* Instalar una aplicación elegida por el alumno.
-
----
+* Instalar una aplicación elegida por el alumno. En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
 
 ## 2.2 Gestor de paquetes
 
@@ -104,28 +103,29 @@ Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente
 > * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
 
 * Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga los siguiente programas:
-    1. Firefox
-    1. VLC
-    1. Gimp
-    1. 7z
-    1. Steam
+    * Firefox
+    * VLC
+    * 7z
+    * Steam
 
 ---
 
 # 3. Windows - Actualización del sistema
 
+Punto de restauración de seguridad:
 * Hacer un snapshot de la MV por seguridad.
 * Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
 
 Vamos a instalar un paquete de actualizaciones para Windows7.
 De esta forma las actualizaciones tardarán menos tiempo.
-
 * Reiniciamos el servicio Windows Update
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
     * Botón derecho -> Reiniciar
 * Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
 * Reiniciar la máquina.
+
+Actualizar algunos paquetes:
 * Ir a `Panel de control -> Windows Update`. Debe de estar desactivado.
 * Consultar las actualizaciones pendientes.
 * Elegir 3 y aplicar actualización.
