@@ -82,23 +82,24 @@ Abrir los puertos en en cortafuegos:
 * Abrir una consola como root.
 * Instalar `zypper in 389-ds`
 * Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
-* `/usr/sbin/setup-ds.pl`, ejecutar el script de instalación, y responder a las preguntas de configuración del servicio.
+* `/usr/sbin/setup-ds.pl`, para ejecutar el script de instalación.
+A continuación iremos respondiendo a las preguntas de configuración del servicio (Cambiar XX por identificador de cada alumno):
 
-Veamos un resumen de la salida del script:
 ```
 ==================================================
 * Choose a setup type  => 2. Typical
-* FQDN of the computer => server42.curso1920
+* FQDN of the computer => serverXX.curso1920
 * System User          => dirsrv
 * System Group         => dirsrv
 * Network port number  => 389
-* DS identifier        => ldap42
-* Suffix (valid DN)    => dc=ldap42,dc=curso1920
+* DS identifier        => ldapXX
+* Suffix (valid DN)    => dc=ldapXX,dc=curso1920
 * Administrative user  => cn=Directory Manager
 ==================================================
 ```
 
-Nos aparece este Warning de SELinux, pero la instancia LDAP se ha creado:
+Nos aparece este "Warning2 de SELinux, pero la instancia LDAP se ha creado:
+
 ```
 ImportError: No module named selinux
 Your new DS instance 'ldap42' was successfully created.
@@ -144,10 +145,9 @@ Log file is '/tmp/setupuofQkd.log'
 
 Deberían estar creadas las OU People y Groups, es caso contrario hay que crearlas (Consultar ANEXO). Ejemplo para buscar las OU:
 
-```bash
+```
 ldapsearch -H ldap://localhost:389
-           -W
-           -D "cn=Directory Manager"
+           -W -D "cn=Directory Manager"
            -b "dc=ldap42,dc=curso1920" "(ou=*)"
 ```
 
@@ -189,7 +189,7 @@ gecos: Mazinger Z
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger.ldif
 `, escribir los datos del fichero **ldif** anterior:
 
-## 3.3 Comprobar nuevo usuario
+## 3.3 Comprobar el nuevo usuario
 
 * `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldap42,dc=curso1920" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
 
