@@ -135,41 +135,16 @@ Log file is '/tmp/setupuofQkd.log'
 | -W                          | Se solicita contraseña     |
 | -D "cn=Directory Manager"   | Usuario del LDAP           |
 
-
 ---
 
-# 3. Browser LDAP
-
-## 3.1 [OPCIONAL] Instalar browser LDAP
-
-Hay varias herramientas que pueden servir como browser LDAP:
-* [ldapadmin](http://www.ldapadmin.org/).
-* [phpLDAPadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page)
-* gq
-* mozldap-tools
-* etc
-
-Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por defecto con nuestra distribución.
-* Instalar un browser LDAP.
-
-## 3.2 [OPCIONAL] Browser LDAP
-
-* Usar un browser LDAP para comprobar el contenido del servidor de directorios LDAP:
-    * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://serverXX`
-    * Base DN = `dc=ldapXX, dc=curso1920`
-    * Admin user = `cn=Directory Manager`.
+# 3. Añadir usuarios LDAP con Yast
 
 ## 3.3 Crear usuarios y grupos dentro del LDAP
 
-> Enlaces de interés:
->
-> * [How To Set Up Centralized Linux Authentication with FreeIPA on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-set-up-centralized-linux-authentication-with-freeipa-on-centos-7)
-> * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
-> * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
-
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
-* `Yast -> Usuarios Grupos -> Filtro -> LDAP`.
+* `Yast -> Usuarios Grupos`.
+* Set filter: `LDAP users`.
+* Bind DN: `cn=Directory Manager`.
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
@@ -265,20 +240,28 @@ su -l drinfierno   # Entramos con el usuario definido en LDAP
 
 # ANEXO
 
+## 3.1 [OPCIONAL] Instalar browser LDAP
 
-## 2.3 Comprobar contenido con ldapsearch
+Hay varias herramientas que pueden servir como browser LDAP:
+* [ldapadmin](http://www.ldapadmin.org/).
+* [phpLDAPadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page)
+* gq
+* mozldap-tools
+* etc
 
-Para obtener todos los objetos en un directorio a partir de cierta base (dc=ldap42, dc=curso1920):
+Podemos usar cualquiera. Aunque suele ser recomendable usar la que venga por defecto con nuestra distribución.
+* Instalar un browser LDAP.
 
-```
-ldapsearch -z 0 -H ldap://localhost:389 -W -D "cn=admin,dc=ldap42, dc=curso1920" -b "dc=ldap42, dc=curso1920" "(objectclass=*)
-```
+## 3.2 [OPCIONAL] Browser LDAP
 
-| Campo | Descripción |
-| ----- | ----------- |
-| -z 0  | evita cortar la respuesta una vez alcanzado cierto límite (cantidad de entradas) |
-| -H ldap://localhost:389 | Consulta el servidor LDAP en el puerto 389 del host local.|
-| -W    | Se solicita la contraseña para el método de autenticación simple de manera interactiva |
-| -D "cn=admin, dc=ldap42, dc=curso1920" | El usuario con el cual se autentica en el servidor LDAP |
-| -b "dc=ldap42, dc=curso1920" | base desde donde comenzar la búsqueda|
-| "(objectclass=*)" | Filtro para la búsqueda (en este ejemplo todos los objetos, este a su vez es el filtro por defecto). |
+* Usar un browser LDAP para comprobar el contenido del servidor de directorios LDAP:
+    * `File -> Preferencias -> Servidor -> Nuevo`
+    * URI = `ldap://serverXX`
+    * Base DN = `dc=ldapXX, dc=curso1920`
+    * Admin user = `cn=Directory Manager`.
+
+    > Enlaces de interés:
+    >
+    > * [How To Set Up Centralized Linux Authentication with FreeIPA on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-set-up-centralized-linux-authentication-with-freeipa-on-centos-7)
+    > * [ Crear usuarios y grupos LDAP ](https://es.opensuse.org/Ingreso_de_usuarios_y_grupos_en_LDAP_usando_YaST)
+    > * VIDEO [LPIC-2 202 LDAP Client Usage](http://www.youtube.com/embed/ZAHj93YWY84).
