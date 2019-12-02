@@ -75,7 +75,7 @@ Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid
 ldapsearch -z 0
            -H ldap://localhost:389
            -W
-           -D "cn=root"
+           -D "cn=Directory Manager"
            -b "dc=apellidoXX,dc=asir" "(uid=*)"
 ```
 
@@ -84,7 +84,7 @@ ldapsearch -z 0
 | -z 0                       | No hay límite en las respuestas |
 | -H ldap://localhost:389    | IP:puerto del servidor          |
 | -W                  | Se solicita contraseña para autenticar |
-| -D "cn=root,dc=apellidoXX,dc=asir"  | Usuario de la conexión |
+| -D "cn=Directory Manager"  | Usuario de la conexión |
 | -b "dc=apellidoXX,dc=aisr" | Base donde comenzar la búsqueda |
 | "(uid=*)"                  | Filtro para la búsqueda         |
 
