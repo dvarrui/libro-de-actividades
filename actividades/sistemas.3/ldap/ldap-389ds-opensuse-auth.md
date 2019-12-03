@@ -1,9 +1,9 @@
 
 ```
 Curso           : EN CONSTRUCCIÓN!!!
-Software        : 389-DS, OpenSUSE
+Software        : Partimos de 389-DS en OpenSUSE
 Tiempo estimado :
-Comentarios     : REVISAR la parte de autenticación con FreeIPA+389-DS
+Comentarios     : Revisar autenticación con FreeIPA+389-DS
 ```
 
 ---
@@ -12,28 +12,28 @@ Comentarios     : REVISAR la parte de autenticación con FreeIPA+389-DS
 
 Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP.
 
+Por tanto, se supone que ya tenemos MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+
 # 1 Preparativos
 
-Vamos a otra MV.
-* SO OpenSUSE.
-* [Configuración MV](../../global/configuracion/opensuse.md)
+Necesitamos MV2 con:
+* SO OpenSUSE ([Configuración MV](../../global/configuracion/opensuse.md))
 * Nombre equipo: `1er-apellido-alumnoXXg2`
 * Dominio: `curso1920`
-* Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el nombre DNS con su IP correspondiente:
+* Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el par DNS-IP del servidor. Ver ejemplo:
 
 ```
 172.19.XX.31   serverXX.curso1920   serverXX   
 127.0.0.2      1er-apellidoXXg2.curso1920   1er-apellidoXXg2
 ```
 
+---
 # 2. Comprobación
 
-* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV cliente.
-* Usar un browser LDAP en el cliente para comprobar que se han creado bien los usuarios.
-    * `File -> Preferencias -> Servidor -> Nuevo`
-    * URI = `ldap://serverXX`
-    * Base DN = `dc=ldapXX, dc=curso1920`
+* `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente.
+* `ldapsearch -H ldap://serverXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
+---
 # 3. Instalar y configurar la autenticación
 
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
@@ -44,6 +44,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
+---
 # 4. Comprobamos desde el cliente
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
