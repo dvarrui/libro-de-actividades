@@ -10,11 +10,38 @@ Comentarios     : Revisar autenticación con FreeIPA+389-DS
 
 # Cliente para autenticación LDAP
 
-Ahora vamos a configurar otra MV GNU/Linux para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP.
+En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
 
-Por tanto, se supone que ya tenemos MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+# 1. Requisitos
 
-# 1 Preparativos
+Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+
+En caso contrario podemos elegir entre:
+* (A) Ir a la actividad anterior para instalar DS-389 y usar los comandos para crear usuarios dentro del servicio de directorio, o
+* (B) Vamos a crear el servicio de directorio en la MV1 (GNU/Linux OpenSUSE) usando Yast.
+
+## 1.1 Usar Yast para montar el DS
+
+* Instalar `patterns-server-directory_server`.
+* Ir a `Yast -> Servicios de Red -> Create New Directory Server`.
+* Configurar:
+
+```
+Nombre de dominio           : serverXX.curso1920
+Nombre de la instancia LDAP : ldapXX
+Sufijo del directorio       : dc=ldapXX,dc=curso1920
+Directory Manager DN        : cn=root
+Directory Manager password  : ESCRIBIR LA CLAVE
+Repetir la clave            : ESCRIBIR LA CLAVE
+Autoridad certificadora     : (vacío)
+Server TLS certificate      : (vacío)
+```
+
+> Por ahora no vamos a encriptar las comunicaciones LDAP (Procolo sldap). Lo haremos más adelante.
+
+
+---
+# 2. Preparativos
 
 Necesitamos MV2 con:
 * SO OpenSUSE ([Configuración MV](../../global/configuracion/opensuse.md))
@@ -28,13 +55,13 @@ Necesitamos MV2 con:
 ```
 
 ---
-# 2. Comprobación
+# 3. Comprobación
 
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente.
 * `ldapsearch -H ldap://serverXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
 ---
-# 3. Instalar y configurar la autenticación
+# 4. Instalar y configurar la autenticación
 
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
@@ -45,7 +72,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
 ---
-# 4. Comprobamos desde el cliente
+# 5. Comprobamos desde el cliente
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
@@ -57,7 +84,7 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 ```
 ---
 
-# 5. Autenticación
+# 6. Autenticación
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
 
@@ -70,7 +97,7 @@ Server: 'ldap://directorio.gobiernodecanarias.net/',
 Connection: 'Resource id #29', Bind result: ''
 ```
 
-## 5.1 Comprobar autenticación desde el cliente
+## 6.1 Comprobar autenticación desde el cliente
 
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
