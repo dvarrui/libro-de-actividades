@@ -219,13 +219,15 @@ En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo 
 
 ## 4.1 TEORIA: Herramienta slappasswd
 
+* Ejecutar `zypper in openldap2`, para instalar la heramienta `slappasswd` en OpenSUSE.
+
 La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
-* {CLEARTEXT} (texto plano),
-* {CRYPT} (crypt),
-* {MD5} (md5sum),
-* {SMD5} (MD5 con salt),
-* {SHA} (1ssl sha) y
-* {SSHA} (SHA-1 con salt, esquema por defecto).
+1. {CLEARTEXT} (texto plano),
+1. {CRYPT} (crypt),
+1. {MD5} (md5sum),
+1. {SMD5} (MD5 con salt),
+1. {SHA} (1ssl sha) y
+1. {SSHA} (SHA-1 con salt, esquema por defecto).
 
 **Ejemplo SHA-1**
 
