@@ -114,7 +114,7 @@ Log file is '/tmp/setupuofQkd.log'
 ## 2.2 Comprobamos el servicio
 
 * `systemctl status dirsrv@ldapXX`, comprobar si el servicio está en ejecución.
-* `nmap -Pn ldapXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
+* `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
 
 > Más ayuda:
 > * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
