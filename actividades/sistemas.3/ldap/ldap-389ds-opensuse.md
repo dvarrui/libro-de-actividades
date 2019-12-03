@@ -2,7 +2,7 @@
 ```
 Curso           : 201920, 201819
 Software        : 389-DS, OpenSUSE
-Tiempo estimado :
+Tiempo estimado : 5 horas
 Ultimos cambios : Se quita browser ldap por fallos de las app
                   Se pasa autenticación desde cliente a otra actividad
                   Se añaden comandos ldap para creación de usuarios
@@ -80,7 +80,7 @@ Abrir los puertos en en cortafuegos:
 ## 2.1 Instalación del paquete
 
 * Abrir una consola como root.
-* Instalar `zypper in 389-ds`
+* `zypper in 389-ds`, instalar el script de instalación.
 * Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
 * `/usr/sbin/setup-ds.pl`, para ejecutar el script de instalación.
 A continuación iremos respondiendo a las preguntas de configuración del servicio (Cambiar XX por identificador de cada alumno):
@@ -108,8 +108,9 @@ Log file is '/tmp/setupuofQkd.log'
 ```
 
 > **IMPORTANTE**:
-> * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP
-> * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldap42`
+> * Cada vez que aparece ldapXX, hay que cambiar XX por el identificador de cada alumno.
+> * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP.
+> * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldapXX`
 
 ## 2.2 Comprobamos el servicio
 
@@ -123,9 +124,9 @@ Log file is '/tmp/setupuofQkd.log'
 
 ## 2.3 Comprobamos el acceso al contenido del LDAP
 
-* `ldapsearch -b "dc=ldap42,dc=curso1920" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
+* `ldapsearch -b "dc=ldapXX,dc=curso1920" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
 * Comprobar que existen las OU Groups y People.
-* `ldapsearch -H ldap://localhost -b "dc=ldap42,dc=curso1920" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
+* `ldapsearch -H ldap://localhost -b "dc=ldapXX,dc=curso1920" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
 
 | Parámetro                   | Descripción                |
 | --------------------------- | -------------------------- |
@@ -148,7 +149,7 @@ Deberían estar creadas las OU People y Groups, es caso contrario hay que crearl
 ```
 ldapsearch -H ldap://localhost:389
            -W -D "cn=Directory Manager"
-           -b "dc=ldap42,dc=curso1920" "(ou=*)"
+           -b "dc=ldapXX,dc=curso1920" "(ou=*)"
 ```
 
 | Parámetro                  | Descripción                     |
@@ -191,7 +192,7 @@ gecos: Mazinger Z
 
 ## 3.3 Comprobar el nuevo usuario
 
-* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldap42,dc=curso1920" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
+* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
 
 Normalmente se usa la clase `inetOrgPerson`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`.
 Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
@@ -201,7 +202,7 @@ Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid
 > * Crear un archivo `mazinger-delete.ldif`:
 >
 > ```
-> dn: uid=mazinger,ou=people,dc=ldap42,dc=curso1920
+> dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso1920
 > changetype: delete
 > ```
 >
