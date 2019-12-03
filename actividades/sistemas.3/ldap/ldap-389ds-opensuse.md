@@ -165,7 +165,7 @@ ldapsearch -H ldap://localhost:389
 
 Uno de los usos más frecuentes para el directorio LDAP es para la administración de usuarios. Vamos a utilizar ficheros **ldif** para agregar usuarios.
 
-* Fichero `mazinger-add.ldif` con la información para crear el usuario `mazinger`:
+* Fichero `mazinger-add.ldif` con la información para crear el usuario `mazinger` (Cambiar el valor de dn por el nuestro):
 
 ```
 dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso1920
@@ -187,7 +187,7 @@ gecos: Mazinger Z
 ```
 
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif
-`, escribir los datos del fichero **ldif** anterior:
+`, escribir los datos del fichero **ldif** anterior en LDAP.
 
 ## 3.3 Comprobar el nuevo usuario
 
