@@ -1,7 +1,7 @@
 
 ```
 Curso           : 201920, 201819
-Software        : 389-DS, OpenSUSE
+Software        : Servidor 389-DS y SO OpenSUSE
 Tiempo estimado : 5 horas
 Ultimos cambios : Se quita browser ldap por fallos de las app
                   Se pasa autenticación desde cliente a otra actividad
@@ -10,7 +10,7 @@ Ultimos cambios : Se quita browser ldap por fallos de las app
 
 ---
 
-# Servidor 389-DS - OpenSUSE
+# Servicio de Directorio con comandos
 
 > Enlaces de interés:
 >
@@ -60,19 +60,6 @@ Enlaces de interés:
 
 * Comprobar salida de: `hostname -a`, `hostname -d` y `hostname -f`.
 
-## 1.2 Cortafuegos
-
-Abrir los puertos en en cortafuegos:
-
-* `systemctl status firewalld`, comprobar el estado del cortafuegos. Debe estar en ejecución.
-* `firewall-cmd --permanent --add-port={389/tcp,636/tcp,9830/tcp}
-`, abre determinados puertos en el cortafuegos usando la herramienta  "firewall-cmd"
-* `firewall-cmd --reload`, recargar la configuración del cortafuegos para asegurarnos de que se han leído los nuevos cambios.
-
-> Recordatorio:
-> * `systemctl enable firewalld`, activar contafuegos en el inicio del sistema.
-> * `systemctl start firewalld`, iniciar el cortafuegos.  
-
 ---
 
 # 2. Instalar el Servidor LDAP
@@ -115,12 +102,24 @@ Log file is '/tmp/setupuofQkd.log'
 ## 2.2 Comprobamos el servicio
 
 * `systemctl status dirsrv@ldapXX`, comprobar si el servicio está en ejecución.
-* `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
 
 > Más ayuda:
 > * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
 > * `systemctl enable dirsrv@ldapXX`, activar al inicio.
 > * `systemctl start dirsrv@ldapXX`, iniciar el servicio.
+
+* `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
+
+> **Cortafuegos**: Abrir los puertos LDAP en el cortafuegos
+>
+> * `systemctl status firewalld`, comprobar el estado del cortafuegos. Debe estar en ejecución.
+> * `firewall-cmd --permanent --add-port={389/tcp,636/tcp,9830/tcp}
+`, abre determinados puertos en el cortafuegos usando la herramienta  "firewall-cmd"
+> * `firewall-cmd --reload`, recargar la configuración del cortafuegos para asegurarnos de que se han leído los nuevos cambios.
+>
+> Recordatorio:
+> * `systemctl enable firewalld`, activar contafuegos en el inicio del sistema.
+> * `systemctl start firewalld`, iniciar el cortafuegos.  
 
 ## 2.3 Comprobamos el acceso al contenido del LDAP
 
@@ -149,7 +148,7 @@ Deberían estar creadas las OU People y Groups, es caso contrario hay que crearl
 ```
 ldapsearch -H ldap://localhost:389
            -W -D "cn=Directory Manager"
-           -b "dc=ldapXX,dc=curso1920" "(ou=*)"
+           -b "dc=ldapXX,dc=curso1920" "(ou=*) | grep dn"
 ```
 
 | Parámetro                  | Descripción                     |
@@ -194,7 +193,7 @@ gecos: Mazinger Z
 
 * `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
 
-Normalmente se usa la clase `inetOrgPerson`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`.
+Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`.
 Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
 
 > **Eliminar usuario del árbol del directorio**
@@ -264,7 +263,7 @@ clave secreta
 ## 4.3 Comprobar los usuarios creados
 
 * Ir a la MV cliente LDAP.
-* Ejecutar comando `ldpasearch ...` para consultar los usuarios LDAP en el servidor de directorios remoto.
+* Ejecutar comando `ldpasearch ... "(uid=*)" | grep dn` para consultar los usuarios LDAP en el servidor de directorios remoto.
 
 ---
 
