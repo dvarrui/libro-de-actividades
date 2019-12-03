@@ -98,6 +98,7 @@ Log file is '/tmp/setupuofQkd.log'
 > * Cada vez que aparece ldapXX, hay que cambiar XX por el identificador de cada alumno.
 > * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP.
 > * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldapXX`
+> * El fichero de configuración `/etc/dirsrv/slapd-ldapXX/dse.ldif` contiene los parámetros principales del servicio de directorio. Como el DN de la Base, del usuario administrador, clave, etc.
 
 ## 2.2 Comprobamos el servicio
 
