@@ -186,7 +186,7 @@ homeDirectory: /home/mazinger
 gecos: Mazinger Z
 ```
 
-* `ldapadd -x -W -D "cn=Directory Manager" -f mazinger.ldif
+* `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif
 `, escribir los datos del fichero **ldif** anterior:
 
 ## 3.3 Comprobar el nuevo usuario
