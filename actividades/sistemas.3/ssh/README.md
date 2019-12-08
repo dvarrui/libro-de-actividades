@@ -1,4 +1,10 @@
+```
+Cursos          : 201920, 201819, 201718, etc.
+Requisitos      : SO GNU/Linux y SO Windows
+Tiempo estimado : 8 sesiones
+```
 
+---
 # Acceso remoto SSH
 
 Ejemplo de rúbrica:
@@ -22,6 +28,15 @@ Enlaces de interés:
 * [Hardening SSH](https://linux-audit.com/audit-and-harden-your-ssh-configuration)
 * http://en.wikipedia.org/wiki/: Secure_Shell,VNC, NX_technology, Remote_Desktop_Protocol, Remote_Desktop_Services, X_Window_System_protocols_and_architecture, Comparison_of_remote_desktop_software
 
+Entrega:
+* Añadir informe al repositorio git. Etiqueta `ssh`.
+* Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
+* Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
+
+---
+
+# 1. Preparativos
+
 Vamos a necesitar las siguientes MVs:
 
 | Función | Sistema Operativo     | IP        | Nombre |
@@ -30,16 +45,6 @@ Vamos a necesitar las siguientes MVs:
 | Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | ssh-clientXXg |
 | Un servidor SSH | Windows Server| 172.AA.XX.11 | ssh-serverXXs |
 | Un cliente SSH | Windows7 | 172.AA.XX.12 | ssh-clienteXXw |
-
-Entrega:
-* Añadir informe al repositorio git. Etiqueta `ssh`.
-* Incluir capturas de pantalla de cada apartado para confirmar que está funcionando.
-* Además se mostrará al profesor la práctica funcionando en clase y se responderá
-a las preguntas que pudieran hacerse en dicho instante.
-
----
-
-# 1. Preparativos
 
 ## 1.1 Servidor SSH
 
