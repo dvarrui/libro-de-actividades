@@ -10,3 +10,13 @@
 | Cortafuegos        | Gestionar configuraciones más usadas.|
 | Wireshark          | capturar y buscar un patrón determinado.
 | KVM Proxmox        ||
+
+
+## Idea.1 Restricción sobre una IP con `iptables`
+
+* Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.
+* Enlace de interés:
+    * [ Howto Ejemplos de iptables ](http://www.seavtec.com/en/content/soporte/documentacion/iptables-howto-ejemplos-de-iptables-para-sysadmins)
+    * [ 20 ejemplos de iptables para sysadmins ](https://elbauldelprogramador.com/20-ejemplos-de-iptables-para-sysadmins/#parar--iniciar--reiniciar-el-firewall)
+* Usar `iptables` para restringir el acceso al puerto 22 desde `ssh-clientXXb`.
+* Comprobar.

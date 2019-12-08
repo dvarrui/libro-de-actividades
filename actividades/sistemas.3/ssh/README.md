@@ -41,32 +41,32 @@ Vamos a necesitar las siguientes MVs:
 
 | Función | Sistema Operativo     | IP        | Nombre |
 | ------- |--------------------- | --------- | --------- |
-| Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | ssh-serverXXg |
-| Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | ssh-clientXXg |
-| Un servidor SSH | Windows Server| 172.AA.XX.11 | ssh-serverXXs |
-| Un cliente SSH | Windows7 | 172.AA.XX.12 | ssh-clienteXXw |
+| Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | serverXXg |
+| Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | clientXXg |
+| Un servidor SSH | Windows Server| 172.AA.XX.11 | serverXXs |
+| Un cliente SSH | Windows7 | 172.AA.XX.12 | clienteXXw |
 
 ## 1.1 Servidor SSH
 
 * Configurar el servidor GNU/Linux con siguientes valores:
     * SO GNU/Linux: OpenSUSE - Sin entorno gráfico
-    * Nombre de equipo: `ssh-serverXXg`
+    * Nombre de equipo: `serverXXg`
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
     * Poner clave compleja al usuario root.
-* Añadir en `/etc/hosts` los equipos `ssh-clientXXg` y `ssh-clientXXw` (Donde XX es el puesto del alumno).
+* Añadir en `/etc/hosts` los equipos `clientXXg` y `clientXXw` (Donde XX es el puesto del alumno).
 * Para comprobar los cambios ejecutamos varios comandos. Capturar imagen:
 ```
-ip a                # Comprobar IP, máscara y ver nombre del interfaz de red
-ip route            # Comprobar puerta de enlace
-ping 8.8.4.4 -i 2   # Comprobar conectividad externa
-host www.nba.com    # Comprobar el servidor DNS
-ping ssh-clientXXg  # Comprobar conectividad con cliente GNU/Linux
-ping ssh-clientXXw  # Comprobar conectividad con cliente Windows
-lsblk               # Consultar particiones
-blkid               # Consultar UUID de la instalación
+ip a               # Comprobar IP, máscara y nombre interfaz de red
+ip route           # Comprobar puerta de enlace
+ping 8.8.4.4 -i 2  # Comprobar conectividad externa
+host www.nba.com   # Comprobar el servidor DNS
+ping clientXXg     # Comprobar conectividad con cliente GNU/Linux
+ping clientXXw     # Comprobar conectividad con cliente Windows
+lsblk              # Consultar particiones
+blkid              # Consultar UUID de la instalación
 ```
 
-Crear los siguientes usuarios en `ssh-serverXXg`:
+Crear los siguientes usuarios en `serverXXg`:
 * primer-apellido-del-alumno1
 * primer-apellido-del-alumno2
 * primer-apellido-del-alumno3
@@ -77,8 +77,8 @@ Crear los siguientes usuarios en `ssh-serverXXg`:
 * Configurar el cliente1 GNU/Linux con los siguientes valores:
     * SO OpenSUSE
     * [Configuración de las MV's](../global/configuracion/opensuse.md)
-    * Nombre de equipo: ssh-clientXXg
-* Añadir en `/etc/hosts` el equipo `ssh-serverXXg`, y `ssh-clientXXw`.
+    * Nombre de equipo: `clientXXg`
+* Añadir en `/etc/hosts` los equipos serverXXg, y clientXXw.
 * Comprobar haciendo ping a ambos equipos.
 
 ## 1.3 Cliente Windows
@@ -86,26 +86,33 @@ Crear los siguientes usuarios en `ssh-serverXXg`:
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
     * SO Windows 7
-    * Nombre de equipo: `ssh-clientXXw`
+    * Nombre de equipo: `clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
-* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-serverXXg y ssh-clientXXg.
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` los equipos serverXXg y clientXXg.
 * Comprobar haciendo ping a ambos equipos.
 
 ---
-
 # 2 Instalación del servicio SSH
 
-* Instalar el servicio SSH en la máquina ssh-serverXXg. Por comandos o entorno gráfico.
-    * Desde la herramienta `yast -> Instalar Software`
-    * Desde terminal `zypper search openssh` muestra los paquetes instalados o no con nombre openssh*.
-    * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
+* Instalar el servicio SSH en la máquina serverXXg. Por comandos o entorno gráfico.
 
-> * Los ficheros de configuración del servicio se guardan en /etc/ssh.
+> ENlaces de interés:
+>
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
+>
+> Instalación de SSH:
+>
+> * Desde la herramienta `yast -> Instalar Software`
+> * Desde terminal `zypper search openssh` muestra los paquetes instalados o no con nombre openssh*.
+> * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
+>
+> Configuración:
+>
+> * Los ficheros de configuración del servicio se guardan en /etc/ssh.
 
 ## 2.1 Comprobación
 
-* Desde el propio **ssh-server**, verificar que el servicio está en ejecución.
+* Desde el propio servidor, verificar que el servicio está en ejecución.
     * `systemctl status sshd`, esta es la forma de comprobarlo en *systemd*
     * `ps -ef|grep sshd`, esta es la forma de comprobarlo mirando los procesos del sistema.
 
@@ -121,10 +128,9 @@ Crear los siguientes usuarios en `ssh-serverXXg`:
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
-* Ir al cliente `ssh-clientXXg`.
-* `ping ssh-serverXXg`, comprobar la conectividad con el servidor.
-* `nmap -Pn ssh-serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open).
-Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh".
+* Ir al cliente `clientXXg`.
+* `ping serverXXg`, comprobar la conectividad con el servidor.
+* `nmap -Pn serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open). Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh".
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
 
@@ -133,7 +139,7 @@ Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "
 * Si esto falla debemos comprobar en el servidor la configuración del cortafuegos.
 
 Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
-* Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@ssh-serverXXg`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
+* Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@serverXXg`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
@@ -141,16 +147,15 @@ Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usand
 
 ![ssh-conexion2](./opensuse/ssh-conexion2.png)
 
-* Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo ssh-client1. OJO si el prompt
-pone *ssh-server* están el el servidor, y si pone *ssh-clientXXg* están el el cliente GNU/Linux.
+* Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo cliente. OJO el prompt nos indica en qué equipo estamos.
 
 ```
-david@ssh-client42g:~> vdir .ssh/
+david@client42g:~> vdir .ssh/
 total 216
 -rw-r--r-- 1 david users 14910 oct 22 09:48 known_hosts
 ```
 
-* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
 ## 2.3 Primera conexión SSH desde cliente Windows
@@ -159,12 +164,11 @@ total 216
     * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
     * No usar `Save Settings` para guardar la configuración de la conexión SSH en los perfiles de PuTTY.
     * En la ventana `PuTTY Security Alert`, poner que SI grabar las información del servidor.
-* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina ssh-server.
+* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 * La siguiente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH. Comprobarlo.
 
 ---
-
 # 3. Cambiamos la identidad del servidor
 
 ¿Qué pasaría si cambiamos la identidad del servidor?
@@ -175,8 +179,8 @@ Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública
 que identifican a nuestro servidor frente a nuestros clientes:
 
 ```
-david@ssh-server42g:~> cd /etc/ssh/
-david@ssh-server42g:/etc/ssh> ll
+david@server42g:~> cd /etc/ssh/
+david@server42g:/etc/ssh> ll
 total 576
 -rw-r--r-- 1 root root   2375 oct  1 08:15 ldap.conf
 -rw------- 1 root root 535929 oct  1 08:15 moduli
@@ -194,16 +198,13 @@ total 576
 -rw-r--r-- 1 root root    402 jun 28 09:55 ssh_host_rsa_key.pub
 ```
 
-* Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea:
-`HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
-Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro
-servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
+* Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
+Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
 
 ## 3.1 Regenerar certificados
 
-Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la
-identificación de nuestro servidor.
-* En **ssh-serverXXg**, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
+Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
+* En el servidor, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
     * ¡OJO! -> No poner password al certificado de la máquina.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
@@ -261,38 +262,35 @@ alias s='ssh'
 
 # 5. Autenticación mediante claves públicas
 
-> Explicación:
->
-> El objetivo de este apartado es el de configurar SSH para poder acceder desde el `ssh-clientXXg`
-sin necesidad de escribir la clave. Usaremos un par de claves pública/privada.
->
-> Para ello, vamos a configurar la autenticación mediante clave pública para
-acceder con nuestro usuario personal desde el equipo cliente al servidor con el
-usuario `1er-apellido-alumno4`. Vamos a verlo.
+**Explicación:**
+
+El objetivo de este apartado es el de configurar SSH para poder acceder desde el `clientXXg` sin necesidad de escribir la clave. Usaremos un par de claves pública/privada.
+
+Para ello, vamos a configurar la autenticación mediante clave pública para acceder con nuestro usuario personal desde el equipo cliente al servidor con el usuario `1er-apellido-alumno4`. Vamos a verlo.
+
+**Práctica**
 
 Capturar imágenes de los siguientes pasos:
-* Vamos a la máquina `ssh-clientXXg`.
+* Vamos a la máquina `clientXXg`.
 * **¡OJO! No usar el usuario root**.
-* Iniciamos sesión con nuestro el usuario **nombre-alumno** de la máquina `ssh-clientXXg`.
+* Iniciamos sesión con nuestro el usuario **nombre-alumno** de la máquina `clientXXg`.
 * `ssh-keygen -t rsa` para generar un nuevo par de claves para el usuario en:
     * `/home/nombre-alumno/.ssh/id_rsa`
     * `/home/nombre-alumno/.ssh/id_rsa.pub`
 * Ahora vamos a copiar la clave pública (`id_rsa.pub`), al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4* que está definido en el servidor.
     * Hay varias formas de hacerlo.
-    * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar la clave pública del usuario actual al usuario remoto en la máquina remota: `ssh-copy-id 1er-apellido-alumno4@ssh-serverXXg`.
+    * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar la clave pública del usuario actual al usuario remoto en la máquina remota: `ssh-copy-id 1er-apellido-alumno4@serverXXg`.
 
 > Otra forma de hacerlo sería usando el programa de copia segura `scp`.
 >
 > * Comprobar que existe el directorio `/home/1er-apellido-alumno4/.ssh` en el servidor.
-> * Copiamos el fichero `.ssh/id_rsa.pub` local al fichero `.ssh/authorized_keys` del usuario
-remoto en la máquina remota.
+> * Copiamos el fichero `.ssh/id_rsa.pub` local al fichero `.ssh/authorized_keys` del usuario remoto en la máquina remota.
 
 * Comprobar que ahora al acceder remotamente vía SSH
-    * Desde `ssh-clientXXg`, NO se pide password.
-    * Desde `ssh-clientXXw`, SI se pide el password.
+    * Desde `clientXXg`, NO se pide password.
+    * Desde `clientXXw`, SI se pide el password.
 
 ---
-
 # 6. Uso de SSH como túnel para X
 
 ![tunel](./images/ssh-tunel.jpeg)
@@ -302,36 +300,28 @@ remoto en la máquina remota.
 > * http://dustwell.com/how-x-over-ssh-really-works.html
 > * http://www.vanemery.com/Linux/XoverSSH/X-over-SSH2.html
 
-* Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes.
-Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
-* Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes.
-Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
-* Reiniciar el servicio SSH para que se lean los cambios de confiuración.
+* Instalar en el servidor una aplicación de entorno gráfico (APP1) que no esté en los clientes. Por ejemplo Geany. Si estuviera en el cliente entonces buscar otra aplicación o desinstalarla en el cliente.
+* Modificar servidor SSH para permitir la ejecución de aplicaciones gráficas, desde los clientes. Consultar fichero de configuración `/etc/ssh/sshd_config` (Opción `X11Forwarding yes`)
+* Reiniciar el servicio SSH para que se lean los cambios de configuración.
 
-Vamos al clienteXXa.
-* `zypper se APP1`,cComprobar que no está instalado el programa APP1.
-* Vamos a comprobar desde ssh-clientXXg, que funciona APP1(del servidor).
-    * `ssh -X primer-apellido-alumno1@ssh-serverXXg`, nos conectamos de forma
-remota al servidor, y ahora ejecutamos APP1 de forma remota.
+Vamos a clientXXg.
+* `zypper se APP1`,comprobar que no está instalado el programa APP1.
+* Vamos a comprobar desde clientXXg, que funciona APP1(del servidor).
+    * `ssh -X primer-apellido-alumno1@serverXXg`, nos conectamos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
     * **¡OJO!** El parámetro es `-X` en mayúsculas, no minúsculas.
 
-> Para ver los logs del sistema usar `journalctl`
-
 ---
-
 # 7. Aplicaciones Windows nativas
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
-* Instalar emulador Wine en el `ssh-serverXXg`.
-* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH
-usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
-* Comprobar el funcionamiento de APP2 en ssh-serverXXg.
-* Comprobar funcionamiento de APP2, accediendo desde ssh-clientXXg.
+* Instalar emulador Wine en el `serverXXg`.
+* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+* Comprobar el funcionamiento de APP2 en serverXXg.
+* Comprobar funcionamiento de APP2, accediendo desde clientXXg.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
 ---
-
 # 8. Restricciones de uso
 
 Vamos a modificar los usuarios del servidor SSH para añadir algunas restricciones de uso del servicio.
@@ -340,13 +330,11 @@ Vamos a modificar los usuarios del servidor SSH para añadir algunas restriccion
 
 Vamos a crear una restricción de uso del SSH para un usuario:
 
-* En el servidor tenemos el usuario `primer-apellido2`. Desde local en el servidor podemos usar
-sin problemas el usuario.
+* En el servidor tenemos el usuario `primer-apellido2`. Desde local en el servidor podemos usar sin problemas el usuario.
 * Vamos a modificar SSH de modo que al usar el usuario por SSH desde los clientes tendremos permiso denegado.
 
 Capturar imagen de los siguientes pasos:
-* Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para
-restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers`, `DenyUsers`.
+* Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers`, `DenyUsers`.
 Más información en: `man sshd_config` y en el Anexo de este enunciado.
 * Comprobarlo la restricción al acceder desde los clientes.
 
@@ -358,8 +346,7 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 * Incluir al usuario `1er-apellido-alumno4` en el grupo `remoteapps`.
 * Localizar el programa APP1. Posiblemente tenga permisos 755.
 * Poner al programa APP1 el grupo propietario a remoteapps.
-* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usurios
-que no pertenezcan al grupo puedan ejecutar el programa.
+* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usuarios que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor en local.
 * Comprobamos el funcionamiento desde el cliente en remoto (Recordar `ssh -X ...`).
 
@@ -369,9 +356,9 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 
 * Configurar el servidor Windows con los siguientes valores:
     * SO Windows Server
-    * Nombre de equipo: `ssh-serverXXs`
+    * Nombre de equipo: `serverXXs`
     * [Configuración de las MV's](../../global/configuracion/windows-server.md)
-* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo ssh-clientXXg y ssh-clientXXw.
+* Añadir en `C:\Windows\System32\drivers\etc\hosts` el equipo clientXXg y clientXXw.
 * Comprobar haciendo ping a ambos equipos.
 * [Instalar y configurar el servidor SSH en Windows](../../global/acceso-remoto/windows-ssh.md).
     * Elegir la opción que se quiera: OpenSSH o integrado.
@@ -387,16 +374,6 @@ que no pertenezcan al grupo puedan ejecutar el programa.
 ## SSH cipher
 
 https://answers.launchpad.net/ubuntu/+source/openssh/+question/669164
-
-## A.1 Restricción sobre una IP con `iptables`
-
-* Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.
-* Enlace de interés:
-    * [ Howto Ejemplos de iptables ](http://www.seavtec.com/en/content/soporte/documentacion/iptables-howto-ejemplos-de-iptables-para-sysadmins)
-    * [ 20 ejemplos de iptables para sysadmins ](https://elbauldelprogramador.com/20-ejemplos-de-iptables-para-sysadmins/#parar--iniciar--reiniciar-el-firewall)
-* Usar `iptables` para restringir el acceso al puerto 22 desde `ssh-clientXXb`.
-* Comprobar.
-
 
 ## A.2 Configuración de seguridad en OpenSSH
 
