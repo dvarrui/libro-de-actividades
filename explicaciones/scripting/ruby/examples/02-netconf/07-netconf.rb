@@ -11,10 +11,17 @@
 
 require 'rainbow'
 
+# Get network information
 output = %x[ip a | grep 'inet ' | grep -v 'host lo']
 items = output.split()
 ip = items[1]
 if_name = items[7]
+
+items = %x[ip route | grep default].split
+gateway = items[2]
+
+# Display Network information
 puts "[INFO] Showing network configuration"
 puts "  IF name : #{Rainbow(if_name).bright}"
 puts "  IP/mask : #{Rainbow(ip).bright}"
+puts "  Gateway : #{Rainbow(gateway).bright}"
