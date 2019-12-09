@@ -1,16 +1,3 @@
-#!/usr/bin/env ruby
-# Target:
-# * Show current network configuration: IP, mask, interface name
-# Changes:
-# * Execute command wiht system(command)
-# * Filter only real IP with grep and grep -v
-# * Save command output using %x[command]
-# * Pretty and clear output
-# * It's easy then show if_name
-# * Print colors using Rainbow gem (gem install rainbow)
-# * Show gateway and verify Internet access
-# * Organize code using functions
-
 require 'rainbow'
 
 def get_network_information
@@ -37,5 +24,3 @@ def display_network_information
   puts "  Gateway  : #{Rainbow(data[:gateway]).bright}"
   puts "  Internet : #{Rainbow(data[:internet]).bright}"
 end
-
-display_network_information
