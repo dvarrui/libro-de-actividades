@@ -37,5 +37,4 @@ def display_network_information(data)
   puts "  Internet : #{Rainbow(data[:internet]).bright}"
 end
 
-data = get_network_information
-display_network_information data
+display_network_information(get_network_information)
