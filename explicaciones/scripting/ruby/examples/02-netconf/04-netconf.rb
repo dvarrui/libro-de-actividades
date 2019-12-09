@@ -5,7 +5,9 @@
 # * Execute command wiht system(command)
 # * Filter only real IP with grep and grep -v
 # * Save command output using %x[command]
+# * Pretty and clear output
 
-ip = %x[ip a | grep 'inet ' | grep -v 'host lo']
+output = %x[ip a | grep 'inet ' | grep -v 'host lo']
+ip = output.split()[1]
 puts "[INFO] Showing network configuration"
-puts "  IP : #{ip}"
+puts "  IP/mask : #{ip}"

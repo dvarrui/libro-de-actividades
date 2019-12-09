@@ -5,7 +5,13 @@
 # * Execute command wiht system(command)
 # * Filter only real IP with grep and grep -v
 # * Save command output using %x[command]
+# * Pretty and clear output
+# * It's easy then show if_name
 
-ip = %x[ip a | grep 'inet ' | grep -v 'host lo']
+output = %x[ip a | grep 'inet ' | grep -v 'host lo']
+items = output.split()
+ip = items[1]
+if_name = items[7]
 puts "[INFO] Showing network configuration"
-puts "  IP : #{ip}"
+puts "  IF name : #{if_name}"
+puts "  IP/mask : #{ip}"
