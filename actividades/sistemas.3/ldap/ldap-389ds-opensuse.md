@@ -152,15 +152,9 @@ ldapsearch -H ldap://localhost:389
            -b "dc=ldapXX,dc=curso1920" "(ou=*) | grep dn"
 ```
 
-| Parámetro                  | Descripción                     |
-| -------------------------- | ------------------------------- |
-| -H ldap://localhost:389    | IP:puerto del servidor          |
-| -W                         | Se solicita contraseña |
-| -D "cn=Directory Manager"  | Usuario de la conexión |
-| -b "dc=ldap42,dc=curso1920" | Base donde comenzar la búsqueda |
-| "(uid=*)"                  | Filtro para la búsqueda         |
-
-> Importante: No olvidar especificar la base (-b). De lo contrario probablemente no haya resultados en la búsqueda.
+> * Importante: No olvidar especificar la base (-b). De lo contrario probablemente no haya resultados en la búsqueda.
+> * `"(ou=*)"` es un filtro de búsqueda de todas las unidades organizativas.
+> * `"(uid=*)"` es un filtro de búsqueda de todos los usuarios.
 
 ## 3.2 Agregar usuarios
 
