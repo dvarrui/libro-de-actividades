@@ -82,13 +82,7 @@ Capturar imágenes de los pasos realizados.
 
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-> Enlaces de interés:
-> * URL: http://chocolatey.org/
-> * Probado en Windows 7 64bits.
-
-Para instalar esta herramienta ejecutamos en una terminal (cmd.exe) lo siguiente:
-
-* `@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('http://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin`. Una vez realizado este paso ya está instalado el "gestor" de instalaciones para la terminal.
+* Descargar Chocolatey de http://chocolatey.org/ y lo instalamos. (Probado en Windows 7 64bits).
 
 > Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`. Ver imagen de ejemplo:
 >
