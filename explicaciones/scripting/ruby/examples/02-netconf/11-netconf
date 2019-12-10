@@ -41,3 +41,8 @@
 
 require_relative '11-netconf-lib'
 display_network_information
+
+data = { :device => 'enp0s20u2',
+         :ip => '172.31.16.0/16' }
+set_network_information(data)
+display_network_information

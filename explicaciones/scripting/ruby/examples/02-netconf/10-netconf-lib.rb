@@ -5,7 +5,7 @@ def get_network_information
   data = {}
   items = %x[ip a | grep 'inet ' | grep -v 'host lo'].split
   data[:ip] = items[1]
-  data[:if_name] = items.last
+  data[:device] = items.last
 
   items = %x[ip route | grep default].split
   data[:gateway] = items[2]
@@ -21,7 +21,7 @@ def display_network_information
   data = get_network_information
   # Display Network information
   puts "[INFO] Showing network configuration"
-  puts "  IF name  : #{Rainbow(data[:if_name]).bright}"
+  puts "  Device   : #{Rainbow(data[:device]).bright}"
   puts "  IP/mask  : #{Rainbow(data[:ip]).bright}"
   puts "  Gateway  : #{Rainbow(data[:gateway]).bright}"
   puts "  Internet : #{Rainbow(data[:internet]).bright}"
