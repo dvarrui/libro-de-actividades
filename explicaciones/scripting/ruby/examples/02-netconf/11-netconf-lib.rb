@@ -29,6 +29,9 @@ end
 
 def set_network_information(data)
   puts "[INFO] Setting network configuration"
-  puts "  Device   : #{Rainbow(data[:device]).blue}"
-  puts "  IP/mask  : #{Rainbow(data[:ip]).blue}"
+  puts "  Device      : #{Rainbow(data[:device]).blue}"
+  puts "  Old IP/mask : #{Rainbow(data[:old_ip]).yellow}"
+  puts "  New IP/mask : #{Rainbow(data[:new_ip]).blue}"
+
+  system("ip addr add #{data[:new_ip]} dev #{data[:device]}")
 end

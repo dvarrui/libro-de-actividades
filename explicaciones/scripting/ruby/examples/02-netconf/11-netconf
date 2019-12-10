@@ -38,11 +38,24 @@
 #
 # Command to assign a IP Address to Specific Interface
 # ip addr add 192.168.50.5 dev eth1
+#
+# How to Remove an IP Address
+# ip addr del 192.168.50.5/24 dev eth1
+#
+# How to Enable Network Interface
+# ip link set eth1 up
+#
+# How to Disable Network Interface
+# ip link set eth1 down
+#
+# How do I Check Route Table?
+# ip route show
 
 require_relative '11-netconf-lib'
 display_network_information
 
 data = { :device => 'enp0s20u2',
-         :ip => '172.31.16.0/16' }
+         :old_ip => '172.31.99.118/16',
+         :new_ip => '172.31.16.0/16' }
 set_network_information(data)
 display_network_information
