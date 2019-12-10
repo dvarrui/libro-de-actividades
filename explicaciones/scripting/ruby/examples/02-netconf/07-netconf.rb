@@ -16,7 +16,7 @@ require 'rainbow'
 output = %x[ip a | grep 'inet ' | grep -v 'host lo']
 items = output.split()
 ip = items[1]
-if_name = items[7]
+if_name = items.last
 
 items = %x[ip route | grep default].split
 gateway = items[2]

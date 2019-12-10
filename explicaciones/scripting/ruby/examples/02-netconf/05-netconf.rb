@@ -11,7 +11,7 @@
 output = %x[ip a | grep 'inet ' | grep -v 'host lo']
 items = output.split()
 ip = items[1]
-if_name = items[7]
+if_name = items.last
 puts "[INFO] Showing network configuration"
 puts "  IF name : #{if_name}"
 puts "  IP/mask : #{ip}"

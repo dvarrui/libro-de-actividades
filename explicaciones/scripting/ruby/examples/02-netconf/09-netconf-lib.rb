@@ -5,7 +5,7 @@ def get_network_information
   data = {}
   items = %x[ip a | grep 'inet ' | grep -v 'host lo'].split
   data[:ip] = items[1]
-  data[:if_name] = items[7]
+  data[:if_name] = items.last
 
   items = %x[ip route | grep default].split
   data[:gateway] = items[2]
