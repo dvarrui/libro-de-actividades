@@ -205,14 +205,14 @@ Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid
 ---
 # 4. Contraseñas encriptadas
 
+En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
+
+## 4.1 TEORIA: Herramienta slappasswd
+
 > Enlace de interés:
 > * [Configurar password LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
 > * [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)´
 > * [Cómo configurar el password de root de LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
-
-En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
-
-## 4.1 TEORIA: Herramienta slappasswd
 
 * Ejecutar `zypper in openldap2`, para instalar la heramienta `slappasswd` en OpenSUSE.
 
@@ -247,15 +247,25 @@ clave secreta
 
 ## 4.2 Agregar más usuarios
 
+> Enlace de interés:
+> * [Cómo cifra GNU/Linux las contraseñas](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
+
+Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
+* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
+* Por tanto, se deduce que:
+    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
+    * aaa => salt bit
+    * bbb => clave encriptada.
+
+Agregar más usuarios:    
 * Ir a la MV servidor LDAP.
-* Crear los siguientes usuarios en LDAP con una clave encriptada:
+* Crear los siguientes usuarios en LDAP con clave encriptada:
 
 | Full name       | Login acount | uid  |
 | --------------- | ------------ | ---- |
 | Koji Kabuto     | koji         | 2002 |
 | Boss            | boss         | 2003 |
 | Doctor Infierno | drinfierno   | 2004 |
-
 
 ## 4.3 Comprobar los usuarios creados
 
