@@ -35,7 +35,7 @@ Ejemplo de rúbrica:
 | ------- | ------------ | ----------- | ----------------- |
 | (2.3) Comprobar contenido del DS LDAP | | | |
 | (3.3) Comprobar nuevo usuario | | | |
-| (4.3) Comprobar los usuarios creado | | | .|
+| (4.3) Comprobar los usuarios creados | | | .|
 
 ---
 # 1. Prerequisitos
