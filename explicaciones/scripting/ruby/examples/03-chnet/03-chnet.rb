@@ -5,14 +5,14 @@ require 'rainbow'
 def reset
   name = 'Reset'
   puts "[INFO] #{Rainbow(name).bright} configuration..."
-  puts "ip link enp0s20u1 down"
-  puts "ip link enp0s20u1 up"
+  puts "ipdown enp2s0"
+  puts "ipup enp2s0"
 end
 
 def set_classroom109
   name = 'classroom109'
   puts "[INFO] Setting '#{Rainbow(name).bright}' configuration..."
-  puts "ip addr add 172.19.42.31 dev enp2s0"
+  puts "ip addr add 172.19.42.100/16 dev enp2s0"
 end
 
 def set_myhome
