@@ -2,36 +2,36 @@
 
 require 'rainbow'
 
-def set_dinamic
-  name = 'dinamic'
-  puts "[INFO] Setting '#{Rainbow(name).bright}' configuration..."
+def reset
+  name = 'Reset'
+  puts "[INFO] #{Rainbow(name).bright} configuration..."
   puts "ip link enp0s20u1 down"
   puts "ip link enp0s20u1 up"
 end
 
-def set_static_classroom109
-  name = 'static_classroom109'
+def set_classroom109
+  name = 'classroom109'
   puts "[INFO] Setting '#{Rainbow(name).bright}' configuration..."
-  puts "ip addr add 172.19.42.31 dev enp0s20u1"
+  puts "ip addr add 172.19.42.31 dev enp2s0"
 end
 
-def set_static_myhome
-  name = 'static_myhome'
+def set_myhome
+  name = 'myhome'
   puts "[INFO] Setting '#{Rainbow(name).bright}' configuration..."
-  puts "ip addr add 192.168.1.116/24 dev enp0s20u1"
+  puts "ip addr add 192.168.1.116/24 dev enp2s0"
 end
 
 def change_network_configuration
   puts "[INFO] CHange NETwork configuration"
-  puts " 1. Dinamic"
-  puts " 2. Static Classroom 109"
-  puts " 3. Static My home"
-  print " Select option: "
+  puts " r. Reset"
+  puts " 1. Classroom 109"
+  puts " 2. My home"
+  print " Select option [Enter=exit]: "
   option = gets.chop
 
-  set_dinamic if option == '1'
-  set_static_classroom109 if option == '2'
-  set_static_myhome if option == '3'
+  reset if option == 'r'
+  set_classroom109 if option == '1'
+  set_myhome if option == '2'
 end
 
 change_network_configuration
