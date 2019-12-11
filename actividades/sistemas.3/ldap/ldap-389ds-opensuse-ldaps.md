@@ -8,6 +8,8 @@ Comentarios     : Revisar autenticación con FreeIPA+389-DS
 
 ---
 
+https://es.opensuse.org/Creaci%C3%B3n_de_certificados_autofirmados_con_YaST
+
 # Cliente para autenticación LDAP
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
