@@ -28,3 +28,4 @@ CHange NETwork configuration
 | Reset  | Resetar la configuración de red | ifdown eth; ifup eth0 |
 | Classroom109 | Poner configuración de red para el aula 109 | ip addr add 172.19.XX.33/16 dev eth0 |
 | MyHome | Poner configuración de red para casa | ip addr add 192.168.1.1XX/24 dev eth0 |
+| Refresh | Refrescar la IP dinámica | dhclient -r eth0 |
