@@ -22,11 +22,13 @@ def set_myhome
 end
 
 def change_network_configuration
-  puts "[INFO] CHange NETwork configuration"
+  puts "==================================="
+  puts "chnet: CHange NETwork configuration"
+  puts "==================================="
   puts " r. Reset"
   puts " 1. Classroom 109"
   puts " 2. My home"
-  print " Select option [Enter=exit]: "
+  print "\n Select option [Enter=exit]: "
   option = gets.chop
 
   reset if option == 'r'
