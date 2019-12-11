@@ -3,10 +3,11 @@
 Curso           : EN CONSTRUCCIÓN!!!
 Software        : Partimos de 389-DS en OpenSUSE
 Tiempo estimado :
-Comentarios     :
+Comentarios     : Revisar autenticación con FreeIPA+389-DS
 ```
 
 ---
+
 # Cliente para autenticación LDAP
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
@@ -14,6 +15,34 @@ En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que poda
 # 1. Requisitos
 
 Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+
+En caso contrario podemos elegir entre:
+* (A) Ir a la actividad anterior para instalar DS-389 y usar los comandos para crear usuarios dentro del servicio de directorio, o
+* (B) Vamos a crear el servicio de directorio en la MV1 (GNU/Linux OpenSUSE) usando Yast.
+
+## 1.1 [PENDIENTE] Usar Yast para montar el DS
+
+* Instalar `patterns-server-directory_server`.
+* Ir a `Yast -> Servicios de Red -> Create New Directory Server`.
+* Configurar:
+
+```
+Nombre de dominio           : serverXX.curso1920
+Nombre de la instancia LDAP : ldapXX
+Sufijo del directorio       : dc=ldapXX,dc=curso1920
+Directory Manager DN        : cn=root
+Directory Manager password  : ESCRIBIR LA CLAVE
+Repetir la clave            : ESCRIBIR LA CLAVE
+Autoridad certificadora     : (vacío)
+Server TLS certificate      : (vacío)
+```
+
+> **[PENDIENTE] de completar la información sobre los certificados.**
+>
+> Esto no funciona, pero es un intento de crear certificado y firma para LDAPS.
+>
+> * Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem - days 265`.
+> * Export firma PKCS12: `openssl pkcs12 -export -out server.pfx -in server.pem`.
 
 ---
 # 2. Preparativos
@@ -85,6 +114,15 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 # 4. Autenticación por entorno gráfico
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
+
+Ejemplo que muestra la plataforma de autenticación gobcan:
+
+```
+Página Principal / ► Entrar al sitio
+El módulo LDAP no puede conectarse a ninguno de los servidores:
+Server: 'ldap://directorio.gobiernodecanarias.net/',
+Connection: 'Resource id #29', Bind result: ''
+```
 
 ## 4.1 Comprobar autenticación desde el cliente
 
