@@ -136,7 +136,8 @@ Capturar imágenes de los pasos realizados.
 ## 5.3 Instalar programa nativo de Windows en GNU/Linux
 
 * Instalar el emulador Windows (`wine`).
-* Descargar un programa Windows en GNU/Linux e instalarlo usando `wine`. Por ejemplo, usar Jhonny Simulator.
+* Elegir un de programa Windows. Por ejemplo: Jhonny Simulator.
+* Ejecutarlo usando `wine`. 
 
 ## 5.4 Instalar programa desde rpm
 
