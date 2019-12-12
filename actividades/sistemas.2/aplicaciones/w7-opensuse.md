@@ -53,8 +53,7 @@ Capturar imagenes de los pasos realizados.
 
 > Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
 
-* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta.
-Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
+* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
 * Realizar la instalación de la aplicación.
 
 > Información:
@@ -64,6 +63,7 @@ Para realizar dicha verificación en Windows podemos usar por ejemplo el program
 > * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
 
 Vamos a comprobar su funcionamiento:
+* Abrir consola como usuario administrador.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
 * Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
     * ¿Lo ves? Si la respuesta es NO, puede ser que el cortafuegos de Windows esté bloqueando el acceso a dicho sitio. Resuélvelo y seguimos.
