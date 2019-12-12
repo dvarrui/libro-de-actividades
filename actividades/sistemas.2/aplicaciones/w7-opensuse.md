@@ -17,34 +17,25 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 * Partimos de una [MV con Windows](../../global/configuracion/windows.md).
 * Capturar imagen del resultado final.
 
-## 1.1 Instalar características del sistema operativo
+## 1.1 Instalar característica
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
 * Instalar `características -> Juegos/Buscaminas`.
 
-## 1.2 Vamos a instalar aplicaciones
+## 1.2 Instalar aplicación
 
 Capturar imagenes de los pasos realizados.
-* Descargar Wget para Windows de la [página oficial](http://gnuwin32.sourceforge.net/packages/wget.htm)
-* Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
-* Realizar la instalación de la aplicación.
+* Descargar un programa GnuWin32 de la [página oficial](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, gcal.
+* Instalar el programa
+* `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
+* Comprobar su funcionamiento.
 
-> Información:
->
-> * El programa Wget se usa para hacer descargas desde la consola.
-> * `wget http://URL/to/file`, descarga el fichero alojado en el URL.
-> * `wget --no-check-certificate https://URL/to/file`, descarga el fichero alojado en el URL pero omite la verificación del certificado.
+## 1.3 Instalar un programa MSI
 
-Vamos a comprobar su funcionamiento:
-* Abrir consola como usuario administrador.
-* `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el fichero `wget.exe`.
 * Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
-    * ¿Lo ves? Si la respuesta es NO, puede ser que el cortafuegos de Windows esté bloqueando el acceso a dicho sitio. Resuélvelo y seguimos.
-* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
-    * Para averiguar la URL correcta... abre un navegador y pon `ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit`...
-    * Cambiar VERSION por el valor adecuado.
+* Descargar un MSI. Por ejemplo: ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
 * Instalar el programa descargado (Formato MSI).
 
 ---
@@ -110,7 +101,7 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 >     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
 * Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
-* Instalar por ejemplo algunos de los siguientes programas: `geany`, `git`, `gkrellm` o `gtk-recordmydesktop`.
+* Instalar por ejemplo algunos de los siguientes programas: `geany`, `gkrellm` y `gtk-recordmydesktop`.
 * Comprobar que funcionan los programas que hemos instalado.
 
 ## 4.2 Desinstalar paquetes
@@ -124,8 +115,8 @@ El gestor de paquetes es un programa para instalar/desinstalar software como un 
 
 Capturar imágenes de los pasos realizados.
 
-Enlace de interés:
-* [Zypper](https://es.opensuse.org/Zypper)
+> Enlace de interés:
+> * [Zypper](https://es.opensuse.org/Zypper)
 
 ## 5.1 Instalar software
 
