@@ -12,47 +12,22 @@ Revisión        :
 En esta actividad vamos a practicar diversas formas de realizar la instalación de aplicaciones en varios sistemas operativos, así como la forma de mantener nuestros sistemas actualizados.
 
 ---
-
 # 1. Windows 7 usando el GUI
 
 * Partimos de una [MV con Windows](../../global/configuracion/windows.md).
 * Capturar imagen del resultado final.
-
----
 
 ## 1.1 Instalar características del sistema operativo
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
-* Instalar 3 `características`:
-    * Cliente Telnet.
-    * Juegos/Buscaminas.
-    * Otra `característica` a elección del alumno.
-* Comprobar que funcionan correctamente.
-    * `telnet towel.blinkenlights.nl`
-
-> **INFORMACIÓN** Cliente Telnet
->
-> La herramienta telnet sirve para conectarse a equipos remotos.
->
-> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar
-la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
->
-> Una forma de comprobar el cliente telnet:
-> * Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
-> * Escribir `olleh` y pulsar enter
-> * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
-
----
+* Instalar `características -> Juegos/Buscaminas`.
 
 ## 1.2 Vamos a instalar aplicaciones
 
 Capturar imagenes de los pasos realizados.
 * Descargar Wget para Windows de la [página oficial](http://gnuwin32.sourceforge.net/packages/wget.htm)
-
-> Otras opciones serían Gimp o LibreOffice, pero son más "pesadas", y se tarda más tiempo.
-
 * Comprobar el código MD5 del fichero descargado, para verificar que la descarga es correcta. Para realizar dicha verificación en Windows podemos usar por ejemplo el programa HashCalc, [FCIV](https://support.microsoft.com/en-us/help/841290/availability-and-description-of-the-file-checksum-integrity-verifier-u), u otros.
 * Realizar la instalación de la aplicación.
 
@@ -70,12 +45,9 @@ Vamos a comprobar su funcionamiento:
 * `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi`
     * Para averiguar la URL correcta... abre un navegador y pon `ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit`...
     * Cambiar VERSION por el valor adecuado.
-* `wget ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.sha256sum`
-    * Fichero de comprobación sha256.
-* Instalar el programa en formato MSI.
+* Instalar el programa descargado (Formato MSI).
 
 ---
-
 # 2. Windows usando los comandos
 
 Capturar imágenes de los pasos realizados.
@@ -242,3 +214,20 @@ Realizar las siguientes tareas:
     * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
+
+---
+# ANEXO
+
+* Instalar `características` Cliente Telnet.Comprobar que funcionan correctamente con: `telnet towel.blinkenlights.nl`
+
+> **INFORMACIÓN** Cliente Telnet
+>
+> La herramienta telnet sirve para conectarse a equipos remotos.
+>
+> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar
+la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
+>
+> Una forma de comprobar el cliente telnet:
+> * Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
+> * Escribir `olleh` y pulsar enter
+> * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
