@@ -45,13 +45,10 @@ Capturar imágenes de los pasos realizados.
 
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-* Descargar Chocolatey de http://chocolatey.org/ y lo instalamos. (Probado en Windows 7 64bits).
-
-> Por ejemplo si queremos instalar el Notepad++ podemos hacerlo desde la terminal tecleando lo siguiente: `cinst notepadplusplus`. Ver imagen de ejemplo:
->
-> ![chocolatey-org](./images/chocolatey-org.jpg)
-
-* Instalar una aplicación elegida por el alumno. En http://chocolatey.org/packages podemos ver todas las aplicaciones disponibles.
+* Descargar Chocolatey de http://chocolatey.org/ y lo instalamos.
+* Elegir una aplicación disponible en http://chocolatey.org/packages.
+* Abrir una consola como administrador.
+* Ejecutar comando para instalar el programa. Por ejemplo, para instalar VLC pondremos `choco install vlc`.
 
 ## 2.2 Gestor de paquetes
 
@@ -137,7 +134,7 @@ Capturar imágenes de los pasos realizados.
 
 * Instalar el emulador Windows (`wine`).
 * Elegir un de programa Windows. Por ejemplo: Jhonny Simulator.
-* Ejecutarlo usando `wine`. 
+* Ejecutarlo usando `wine`.
 
 ## 5.4 Instalar programa desde rpm
 
