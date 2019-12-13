@@ -17,7 +17,7 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 * Partimos de una [MV con Windows](../../global/configuracion/windows.md).
 * Capturar imagen del resultado final.
 
-## 1.1 Instalar característica
+## 1.1 Agregar característica
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
@@ -28,7 +28,7 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 
 Capturar imagenes de los pasos realizados.
 * Descargar un programa GnuWin32 de la [página oficial](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, grep, gcal, stat.
-* Instalar el programa
+* Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
 * Comprobar su funcionamiento.
 
@@ -36,7 +36,7 @@ Capturar imagenes de los pasos realizados.
 
 * Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
 * Descargar un MSI. Por ejemplo: ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
-* Instalar el programa descargado (Formato MSI).
+* Instalar el programa MSI. La instalación de un MSI no hace ninguna pregunta durante el proceso.
 
 ---
 # 2. Windows usando los comandos
