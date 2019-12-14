@@ -9,15 +9,13 @@ Ultimos cambios : Se quita browser ldap por fallos de las app
 ```
 
 ---
-
 # Servicio de Directorio con comandos
+
+## Introducción
 
 > Enlaces de interés:
 >
 > * VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
-> * VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
-
-## Introducción
 
 ![arbol](./images/arbol.png)
 
@@ -157,6 +155,9 @@ ldapsearch -H ldap://localhost:389
 > * `"(uid=*)"` es un filtro de búsqueda de todos los usuarios.
 
 ## 3.2 Agregar usuarios
+
+> Enlaces de interés:
+> * VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
 Uno de los usos más frecuentes para el directorio LDAP es para la administración de usuarios. Vamos a utilizar ficheros **ldif** para agregar usuarios.
 
