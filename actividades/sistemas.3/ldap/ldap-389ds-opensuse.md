@@ -16,8 +16,8 @@ Ultimos cambios : Se quita browser ldap por fallos de las app
 > Enlaces de interés:
 >
 > * VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
-
-![arbol](./images/arbol.png)
+>
+> ![arbol](./images/arbol.png)
 
 Hay varias herramientas que implementan el servidor de directorios LDAP (389-DS, OpenLDAP, Active Directory, etc).
 
@@ -164,7 +164,7 @@ Uno de los usos más frecuentes para el directorio LDAP es para la administraci�
 * Fichero `mazinger-add.ldif` con la información para crear el usuario `mazinger` (Cambiar el valor de dn por el nuestro):
 
 ```
-dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso1920
+dn: uid=mazinger,ou=People,dc=ldapXX,dc=curso1920
 uid: mazinger
 cn: Mazinger Z
 objectClass: account
@@ -197,7 +197,7 @@ Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid
 > * Crear un archivo `mazinger-delete.ldif`:
 >
 > ```
-> dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso1920
+> dn: uid=mazinger,ou=People,dc=ldapXX,dc=curso1920
 > changetype: delete
 > ```
 >
