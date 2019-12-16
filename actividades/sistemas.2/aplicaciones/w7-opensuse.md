@@ -45,18 +45,14 @@ Capturar imágenes de los pasos realizados.
 
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-* Descargar Chocolatey de http://chocolatey.org/ y lo instalamos.
-* Elegir una aplicación disponible en http://chocolatey.org/packages.
+* Descargar a instalar Chocolatey desde http://chocolatey.org/.
+* Elegir una aplicación disponible de la lista http://chocolatey.org/packages.
 * Abrir una consola como administrador.
 * Ejecutar comando para instalar el programa. Por ejemplo, para instalar VLC pondremos `choco install vlc`.
 
 ## 2.2 Gestor de paquetes
 
-> Enlaces de interés:
-> * [Chocolatey NuGet](https://chocolatey.org/) is a Machine Package Manager, somewhat like apt-get, but built with Windows in mind.
-> * [Ninite](https://ninite.com/): Instala y actualiza varios programas en un paso.
-
-* Vamos a usar la aplicación Ninite para crearnos un paquete de instalación que contenga los siguiente programas:
+* Vamos a usar la aplicación [Ninite](https://ninite.com/) para crearnos un paquete de instalación que contenga los siguiente programas:
     * Firefox
     * VLC
     * 7z
