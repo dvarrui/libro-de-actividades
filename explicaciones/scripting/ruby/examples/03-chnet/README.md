@@ -80,7 +80,14 @@ CHange NETwork configuration (v2)
 * 1: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-classroom109`.
 * 2: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-myhome`.
 
-# Averiguar el SO
+> Los más sencillo para averiguar el SO instalado es usar la gema `os`.
+> Más información en rubygems.org.
+
+---
+
+# ANEXO
+
+## Averiguar el SO
 
 Podemos usar la salida de los comandos `which zypper`, `which apt` para averiguar el SO en el que nos encontramos. Por ejemplo:
 
