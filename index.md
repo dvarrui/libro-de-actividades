@@ -1,13 +1,13 @@
 # Índice de actividades
 
-`Fecha UM: 2019-11-18 20:23:35 +0000`
+`Fecha UM: 2019-12-17 12:27:12 +0000`
 
 # Resumen
 
 | Categoría | Cantidad de actividaes |
 | --------- | ---------------------- |
 | [hardware](#categoría-hardware) | 14 |
-| [sistemas.2](#categoría-sistemas2) | 14 |
+| [sistemas.2](#categoría-sistemas2) | 15 |
 | [sistemas.3](#categoría-sistemas3) | 13 |
 
 ## Categoría: hardware
@@ -37,13 +37,14 @@
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README.md](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp.md](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
 | 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01.md](actividades/sistemas.2/comandos/comandos-01.md), [enlaces.md](actividades/sistemas.2/comandos/enlaces.md) |
 | 5 | [dominios](actividades/sistemas.2/dominios) | 5 | [pdc-cliente-opensuse.md](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian.md](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas.md](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver.md](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza.md](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
-| 7 | [instalacion](actividades/sistemas.2/instalacion) | 5 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [servidor](actividades/sistemas.2/instalacion/servidor) |
-| 8 | [licencias](actividades/sistemas.2/licencias) | 1 | [README.md](actividades/sistemas.2/licencias/README.md) |
-| 9 | [monitorizar](actividades/sistemas.2/monitorizar) | 8 | [apparmor-opensuse.md](actividades/sistemas.2/monitorizar/apparmor-opensuse.md), [eventos-locales-windows-debian.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-debian.md), [eventos-locales-windows-opensuse.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-opensuse.md), [eventos-remotos-rsyslog.md](actividades/sistemas.2/monitorizar/eventos-remotos-rsyslog.md), [grafana-influxdb-collectd.md](actividades/sistemas.2/monitorizar/grafana-influxdb-collectd.md), [icinga-opensuse-windows.md](actividades/sistemas.2/monitorizar/icinga-opensuse-windows.md), [monit.md](actividades/sistemas.2/monitorizar/monit.md), [nagios-debian-windows.md](actividades/sistemas.2/monitorizar/nagios-debian-windows.md) |
-| 10 | [particiones](actividades/sistemas.2/particiones) | 1 | [README.md](actividades/sistemas.2/particiones/README.md) |
-| 11 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian.md](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos.md](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
-| 12 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 4 | [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
-| 13 | [tests](actividades/sistemas.2/tests) | 1 | [trim1.md](actividades/sistemas.2/tests/trim1.md) |
+| 7 | [faq](actividades/sistemas.2/faq) | 2 | [README.md](actividades/sistemas.2/faq/README.md), [ln.md](actividades/sistemas.2/faq/ln.md) |
+| 8 | [instalacion](actividades/sistemas.2/instalacion) | 5 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [servidor](actividades/sistemas.2/instalacion/servidor) |
+| 9 | [licencias](actividades/sistemas.2/licencias) | 1 | [README.md](actividades/sistemas.2/licencias/README.md) |
+| 10 | [monitorizar](actividades/sistemas.2/monitorizar) | 8 | [apparmor-opensuse.md](actividades/sistemas.2/monitorizar/apparmor-opensuse.md), [eventos-locales-windows-debian.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-debian.md), [eventos-locales-windows-opensuse.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-opensuse.md), [eventos-remotos-rsyslog.md](actividades/sistemas.2/monitorizar/eventos-remotos-rsyslog.md), [grafana-influxdb-collectd.md](actividades/sistemas.2/monitorizar/grafana-influxdb-collectd.md), [icinga-opensuse-windows.md](actividades/sistemas.2/monitorizar/icinga-opensuse-windows.md), [monit.md](actividades/sistemas.2/monitorizar/monit.md), [nagios-debian-windows.md](actividades/sistemas.2/monitorizar/nagios-debian-windows.md) |
+| 11 | [particiones](actividades/sistemas.2/particiones) | 1 | [README.md](actividades/sistemas.2/particiones/README.md) |
+| 12 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian.md](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos.md](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
+| 13 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 4 | [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
+| 14 | [tests](actividades/sistemas.2/tests) | 1 | [trim1.md](actividades/sistemas.2/tests/trim1.md) |
 
 ## Categoría: sistemas.3
 
@@ -53,7 +54,7 @@
 | 1 | [devops](actividades/sistemas.3/devops) | 5 | [docker.md](actividades/sistemas.3/devops/docker.md), [puppet-debian.md](actividades/sistemas.3/devops/puppet-debian.md), [puppet-opensuse.md](actividades/sistemas.3/devops/puppet-opensuse.md), [saltstack-opensuse.md](actividades/sistemas.3/devops/saltstack-opensuse.md), [vagrant.md](actividades/sistemas.3/devops/vagrant.md) |
 | 2 | [exposicion](actividades/sistemas.3/exposicion) | 1 | [exposision-turismo.md](actividades/sistemas.3/exposicion/exposision-turismo.md) |
 | 3 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups.md](actividades/sistemas.3/impresion/cups.md), [windows.md](actividades/sistemas.3/impresion/windows.md) |
-| 4 | [ldap](actividades/sistemas.3/ldap) | 7 | [ldap-389ds-opensuse.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache.md](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian.md](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba.md](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos.md](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse.md](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md), [ldap-server-debian.md](actividades/sistemas.3/ldap/ldap-server-debian.md) |
+| 4 | [ldap](actividades/sistemas.3/ldap) | 9 | [ldap-389ds-opensuse-auth.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse-ldaps.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse-ldaps.md), [ldap-389ds-opensuse.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache.md](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian.md](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba.md](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos.md](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse.md](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md), [ldap-server-debian.md](actividades/sistemas.3/ldap/ldap-server-debian.md) |
 | 5 | [nfs](actividades/sistemas.3/nfs) | 1 | [README.md](actividades/sistemas.3/nfs/README.md) |
 | 6 | [procesos](actividades/sistemas.3/procesos) | 9 | [install-service.md](actividades/sistemas.3/procesos/install-service.md), [limitar.md](actividades/sistemas.3/procesos/limitar.md), [powershell.md](actividades/sistemas.3/procesos/powershell.md), [presentacion.md](actividades/sistemas.3/procesos/presentacion.md), [signals.md](actividades/sistemas.3/procesos/signals.md), [system-v.md](actividades/sistemas.3/procesos/system-v.md), [systemd.md](actividades/sistemas.3/procesos/systemd.md), [tareas-programadas.md](actividades/sistemas.3/procesos/tareas-programadas.md), [upstart.md](actividades/sistemas.3/procesos/upstart.md) |
 | 7 | [proyecto](actividades/sistemas.3/proyecto) | 1 | [trim1.md](actividades/sistemas.3/proyecto/trim1.md) |
