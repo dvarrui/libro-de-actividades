@@ -2,6 +2,18 @@
 
 # Preguntas frecuentes
 
+## Emoticonos
+
+:eyes:
+:+1:
+:question:
+:pushpin:
+:computer:
+:card_index:
+:octocat:
+:dizzy:
+:sparklen:
+
 ## Reinstalar GRUB2
 
 * http://www.guia-ubuntu.org/index.php?title=Recuperar_GRUB
@@ -25,22 +37,25 @@ Copiar en /etc/apt/sources.list:
     * deb-src http://www.debian-multimedia.org squeeze main non-fre
 * aptitude install debian-multimedia-keyring
 
-# Conversor de formato multimedia
+## Conversor de formato multimedia
 
 Crea un fichero de texto con el nombre "conversor-de-video". Escribe el siguiente contenido dentro del fichero:
-```
+
+```bash
 #!/bin/bash
 echo "[INFO] Realizando conversión de formato..."
 mencoder -idx out.ogv -ovc lavc -oac mp3lame -o out.avi
 echo "[INFO] Done"
 ```
-Pon permisos de ejecución al fichero: chmod +x conversor-de-video
-Para ejecutarlo, simplemente escribe en la consola: conversor-de-video
-¡Ya está!
 
-6. Escaneo de puertos
+* `chmod +x conversor-de-video`, poner permisos de ejecución.
+* `./conversor-de-video`, para ejecutarlo el script.
+
+## Escaneo de puertos
+
 Desde un cliente podemos comprobar los servicios disponibles de un servidor usando nmap de la siguiente forma:
+```
 apt-get install nmap
 nmap ip-de-servidor
-
+```
 Esto nos muestra un listado con los servicios abiertos en la ip.
