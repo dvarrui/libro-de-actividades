@@ -28,7 +28,7 @@ CHange NETwork configuration (v1)
 
 | Acción | Descripción | Comandos |
 | ------ | ----------- | -------- |
-| Reset  | Resetar la configuración de red | ifdown eth; ifup eth0 |
+| Reset  | Resetar la configuración de red | ifdown eth0; ifup eth0 |
 | Classroom109 | Poner configuración de red para el aula 109 | ip addr add 172.19.XX.33/16 dev eth0 |
 | MyHome | Poner configuración de red para casa | ip addr add 192.168.1.1XX/24 dev eth0 |
 | Refresh | Refrescar la IP dinámica | dhclient -r eth0 |
@@ -77,5 +77,7 @@ CHange NETwork configuration (v2)
 ```
 
 * r: Resetea la configuración de red.
-* 1: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `nc-classroom109`.
-* 2: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `nc-myhome`.
+* 1: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-classroom109`.
+* 2: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-myhome`.
+
+> Podemos usar la salida de los comandos `which zypper`, `which apt` para averiguar el SO en el que nos encontramos.
