@@ -80,4 +80,26 @@ CHange NETwork configuration (v2)
 * 1: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-classroom109`.
 * 2: Sustituye el contenido del fichero de configuración de red de eth0 por el contenido del fichero `eth0-myhome`.
 
-> Podemos usar la salida de los comandos `which zypper`, `which apt` para averiguar el SO en el que nos encontramos.
+# Averiguar el SO
+
+Podemos usar la salida de los comandos `which zypper`, `which apt` para averiguar el SO en el que nos encontramos. Por ejemplo:
+
+```
+> which zypper
+/usr/bin/zypper
+
+> echo $?
+0
+
+> which packman
+packman not found
+
+> echo $?
+1
+>
+```
+
+Si el SO tiene instalado:
+* `zypper` entonces es OpenSUSE.
+* `apt` entonces es Debian/Ubuntu.
+* Si no, es otro diferente.
