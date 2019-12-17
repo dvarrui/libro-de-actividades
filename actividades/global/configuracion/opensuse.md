@@ -28,7 +28,7 @@
 
 Recomendaciones:
 * Crear usuario identificado con `nombre-del-alumno`.
-* Seleccionar entorno gráfico ligero como MATE (Otra opción sería XFCE).
+* Seleccionar entorno gráfico ligero (XFCE o MATE preferiblemente).
 * Recordatorio.
     * Abrir puerto SSH.
     * Habilitar servicio SSH.
@@ -55,13 +55,13 @@ Comprobar nombre del equipo por los ficheros de texto.
 
 Comprobar hostname. Ejemplo:
 ```
-david@vargas42g1:~> cat /etc/hostname
-vargas42g1.curso1819
+david@vargas42g:~> cat /etc/hostname
+vargas42g.curso1819
 ```
 
 Comprobar host. Ejemplo:
 ```
-david@vargas42g1:~> cat /etc/hosts
+david@vargas42g:~> cat /etc/hosts
 #
 # hosts         This file describes a number of hostname-to-address
 #               mappings for the TCP/IP subsystem.  It is mostly
@@ -70,7 +70,7 @@ david@vargas42g1:~> cat /etc/hosts
 #               "named" name server.
 
 127.0.0.1	localhost
-127.0.0.2 vargas42g1.curso1819   vargas42g1
+127.0.0.2 vargas42g.curso1819   vargas42g
 
 # special IPv6 addresses
 ::1             localhost ipv6-localhost ipv6-loopback
@@ -108,7 +108,7 @@ Vamos a `Inicio -> Configuración -> Yast -> Ajustes de red`.
 Vamos a `Nombre de Host/DNS` y ponemos:
 * Desmarcamos `Modificar nombre mediante DHCP`
 * Marcamos `Asignar nombre de host a la IP bucle local`
-* Nombre de equipo: `primer-apellido-del-alumnoXXg1`.
+* Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g1
 * Nombre de dominio: `curso1819` (Modificar los números al curso actual).
 * Servidor DNS: `8.8.4.4`.
@@ -142,9 +142,9 @@ Comprobar con los siguientes comandos:
 
 ```
 ip a                     # Información de red
-ifstatus NOMBREINTERFAZ  # Muestra información de la configuración de red
+ifstatus NOMBREINTERFAZ  # Configuración del interfaz de red
 ping 8.8.4.4             # Verifica la conectividad con Internet
-traceroute 8.8.4.4       # Si falla el ping comprueba el router que falla   
+traceroute 8.8.4.4       # Comprobar enrutamiento   
 host www.nba.com         # Comprueba DNS
 ```
 
