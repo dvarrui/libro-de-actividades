@@ -61,6 +61,7 @@ Description:
     * `zypper se nmap|grep 'i '|wc -l`
     * Si el resultado es 0 -> NO está instalado
     * Si el resultado es mayor que 0 -> SI está instalado
+* Para instalar software en OpenSUSE podemos usar `zypper install -y tree` o incluso `apt install -y tree` que además también vale en Debian/Ubuntu.
 * El script debe actuar de forma NO interactiva. No debe hacer preguntas al usuario durante la ejecución.
 * Antes de realizar cada acción comprobar:
     * Si la acción es "eliminar software" hay que comprobar si el paquete está instalado y por tanto se puede desinstalar. Si no se puede hay que mostrar un mensaje en pantalla "software desinstalado".
