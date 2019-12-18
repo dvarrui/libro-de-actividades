@@ -65,3 +65,34 @@ Description:
 * Antes de realizar cada acción comprobar:
     * Si la acción es "eliminar software" hay que comprobar si el paquete está instalado y por tanto se puede desinstalar. Si no se puede hay que mostrar un mensaje en pantalla "software desinstalado".
     * Si la acción es "instalar software" hay que comprobar si el paquete no está instalado. En caso contrario hay que mostrar un mensaje en pantalla de que el "software ya está instalado".
+
+---
+# ANEXO
+
+Para saber en que SO estamos podemos usar la gema [os](https://github.com/rdp/os):
+* `gem install os` para instalar la gema.
+* [Información de la gema os](https://github.com/rdp/os).
+
+Ejemplo con irb:
+```
+> irb
+irb> require 'os'
+
+irb> puts OS.linux?
+true
+
+irb> puts OS.report
+
+---
+arch: x86_64-linux-gnu
+target_os: linux-gnu
+target_vendor: suse
+target_cpu: x86_64
+target: x86_64-suse-linux-gnu
+host_os: linux-gnu
+host_vendor: suse
+host_cpu: x86_64
+host: x86_64-suse-linux-gnu
+RUBY_PLATFORM: x86_64-linux-gnu
+=> nil
+```
