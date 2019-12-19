@@ -21,17 +21,25 @@ CHange NETwork configuration (v1)
  Select option [Enter=exit]:
 ```
 
-## 1.2 Comandos de red
+## 1.2 Funciones
 
-> Enlaces de interés:
-> * [Learn about IP configuration](URL: https://www.tecmint.com/ip-command-examples/)
+| Acción       | Descripción                       |
+| -------------| --------------------------------- |
+| Reset        | Reiniciar la configuración de red |
+| Classroom109 | Poner configuración de red para el aula 109 |
+| MyHome       | Poner configuración de red para casa |
+| Refresh      | Refrescar la IP dinámica |
 
-| Acción | Descripción | Comandos |
-| ------ | ----------- | -------- |
-| Reset  | Resetar la configuración de red | ifdown eth0; ifup eth0 |
-| Classroom109 | Poner configuración de red para el aula 109 | ip addr add 172.19.XX.33/16 dev eth0 |
-| MyHome | Poner configuración de red para casa | ip addr add 192.168.1.1XX/24 dev eth0 |
-| Refresh | Refrescar la IP dinámica | dhclient -r eth0 |
+## 1.3 Comandos de red
+
+Enlaces de interés:
+* [Learn about IP configuration](URL: https://www.tecmint.com/ip-command-examples/)
+
+Comandos:
+* `ifdown eth0; ifup eth0`, desactivar y activar interfaz eth0.
+* `ip addr add 172.19.XX.33/16 dev eth0`, poner una IP determinada en el interfaz eth0.
+* `ip addr del 192.168.1.1XX/24 dev eth0`, quitar una IP determinada del interfaz eth0.
+* `dhclient -r eth0`, refrescar la IP del interfaz eth0 cuando está configurado en modo dinámico (dhcp).
 
 ---
 # 2. Sustituyendo los ficheros de configuración
@@ -41,14 +49,10 @@ CHange NETwork configuration (v1)
 En GNU/Linux OpenSUSE, se usa el fichero `/etc/sysconfig/network-scripts/ifcfg-eth0`, para guardar la configuración del interfaz eth0 con el siguiente formato:
 
 ```
-DEVICE="eth0"
-BOOTPROTO=static
-ONBOOT=yes
-TYPE="Ethernet"
-IPADDR=192.168.50.2
-NAME="System eth0"
-HWADDR=00:0C:29:28:FD:4C
-GATEWAY=192.168.50.1
+BOOTPROTO='static'
+ONBOOT='yes'
+IPADDR='192.168.50.42'
+GATEWAY='192.168.50.1'
 ```
 
 > For Ubuntu/Debian/Linux Mint
