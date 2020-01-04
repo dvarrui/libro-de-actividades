@@ -7,13 +7,13 @@ Requisitos : GNU/Linux, Ruby
 ---
 # Control de Software (softwarectl)
 
-| Función             | Peso |
-| ------------------- | ---- |
-| softwarectl         | 1    |
-| softwarectl --help    | 1  |
-| softwarectl --version | 1  |
-| softwarectl --status FILENAME | 7 |
-| softwarectl --run FILENAME | 10 |
+| Función                       | Adecuado | Bien | Insuficiente |
+| ----------------------------- | -------- | ---- | ------------ |
+| softwarectl                   | 1        | 0    | 0            |
+| softwarectl --help            | 1        | 1    | 0            |
+| softwarectl --version         | 1        | 0    | 0            |
+| softwarectl --status FILENAME | 7        | 4    | 0            |
+| softwarectl --run FILENAME    | 10       | 5    | 0            |
 
 ## Entrega
 
@@ -66,6 +66,21 @@ Description:
 * Antes de realizar cada acción comprobar:
     * Si la acción es "eliminar software" hay que comprobar si el paquete está instalado y por tanto se puede desinstalar. Si no se puede hay que mostrar un mensaje en pantalla "software desinstalado".
     * Si la acción es "instalar software" hay que comprobar si el paquete no está instalado. En caso contrario hay que mostrar un mensaje en pantalla de que el "software ya está instalado".
+
+## Estilo de programación
+
+Se valorará lo siguiente:
+* Creación de funciones para agrupar bloques de código con una función definida.
+* Incluir comentarios que ayuden a entender el código y hacerlo más legible.
+    * Autor y versión.
+    * Descripción
+    * Comentar los bloques del script y/o funciones.
+* Estilo:
+    * El sangrado en Ruby es de 2 espacios.
+    * No dejar líneas en blanco o vacías, a menos que sirvan para indicar la separación entre bloques del programa.
+    * Las variables y nombres de funciones van en minúsculas.
+    * Las variables son sujetos y las funciones verbos.
+    * Escoger nombres adecuados para las variables y funciones.
 
 ---
 # ANEXO
