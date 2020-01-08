@@ -25,7 +25,9 @@ Requisitos : GNU/Linux, Ruby
 
 * El script se llamará **softwarectl**.
 * Si el script se ejecuta **sin parámetros**, se mostrará un mensaje aconsejando usar la opción "--help" para ver la ayuda.
-    * _RECORDATORIO_: Para leer los argumentos en Ruby usamos la variable ARGV.
+
+> :eyes: Para leer los argumentos en Ruby usamos la variable ARGV.
+
 * Si el script se ejecuta con el parámetro **--help** se mostrará la ayuda, que tendrá la siguiente forma:
 ```
 Usage:
