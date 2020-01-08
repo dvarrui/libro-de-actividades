@@ -62,11 +62,15 @@ Description:
 ## Consejos técnicos
 
 * El script leerá el contenido del fichero de entrada, y lo cargará en un array para luego procesarlos.
-* Para saber si tenemos un programa instalado o no...
-    * `whereis PACKAGENAME |grep bin |wc -l`
-    * `zypper se PACKAGENAME|grep 'i '|wc -l`
-    * Si el resultado es 0 -> NO está instalado
-    * Si el resultado es mayor que 0 -> SI está instalado
+
+> **PISTAS**: Para saber si tenemos un programa instalado o no...
+> * `whereis PACKAGENAME |grep bin |wc -l`
+> * `zypper se PACKAGENAME|grep 'i '|wc -l`
+> * `zypper info PACKAGENAME|grep Instalado|grep Sí|wc -l`
+>
+> Si el resultado es 0 -> NO está instalado
+> Si el resultado es mayor que 0 -> SI está instalado
+
 * Para instalar software en OpenSUSE podemos usar `zypper install -y tree` o incluso `apt install -y tree` que además también vale en Debian/Ubuntu.
 * El script debe actuar de forma NO interactiva. No debe hacer preguntas al usuario durante la ejecución.
 * Antes de realizar cada acción comprobar:
