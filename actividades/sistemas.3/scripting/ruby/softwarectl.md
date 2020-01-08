@@ -15,12 +15,14 @@ Requisitos : GNU/Linux, Ruby
 | softwarectl --status FILENAME | 7        | 4    | 0            |
 | softwarectl --run FILENAME    | 10       | 5    | 0            |
 
+---
 ## Entrega
 
 * Vamos a crear un script ruby llamado **softwarectl**.
 * La entrega la realizaremos a través del repositorio Git.
 * Una vez subida al repositorio, etiquetaremos la entrega con *softwarectl*.
 
+---
 ## Funcionamiento
 
 * El script se llamará **softwarectl**.
@@ -53,6 +55,7 @@ Description:
     * **PACKAGENAME** es el nombre del paquete o software.
     * **ACTION** podrá ser `install` o `remove`.
 
+---
 ## Consejos técnicos
 
 * El script leerá el contenido del fichero de entrada, y lo cargará en un array para luego procesarlos.
@@ -67,6 +70,7 @@ Description:
     * Si la acción es "eliminar software" hay que comprobar si el paquete está instalado y por tanto se puede desinstalar. Si no se puede hay que mostrar un mensaje en pantalla "software desinstalado".
     * Si la acción es "instalar software" hay que comprobar si el paquete no está instalado. En caso contrario hay que mostrar un mensaje en pantalla de que el "software ya está instalado".
 
+---
 ## Estilo de programación
 
 Se valorará lo siguiente:
