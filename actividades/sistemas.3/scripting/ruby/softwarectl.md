@@ -27,6 +27,9 @@ Requisitos : GNU/Linux, Ruby
 
 * El script se llamará **softwarectl**.
 * Si el script se ejecuta **sin parámetros**, se mostrará un mensaje aconsejando usar la opción "--help" para ver la ayuda.
+
+> :eyes: Para leer los argumentos en Ruby usamos la variable ARGV.
+
 * Si el script se ejecuta con el parámetro **--help** se mostrará la ayuda, que tendrá la siguiente forma:
 ```
 Usage:
@@ -61,7 +64,7 @@ Description:
 * El script leerá el contenido del fichero de entrada, y lo cargará en un array para luego procesarlos.
 * Para saber si tenemos un programa instalado o no...
     * `whereis PACKAGENAME |grep bin |wc -l`
-    * `zypper se nmap|grep 'i '|wc -l`
+    * `zypper se PACKAGENAME|grep 'i '|wc -l`
     * Si el resultado es 0 -> NO está instalado
     * Si el resultado es mayor que 0 -> SI está instalado
 * Para instalar software en OpenSUSE podemos usar `zypper install -y tree` o incluso `apt install -y tree` que además también vale en Debian/Ubuntu.
