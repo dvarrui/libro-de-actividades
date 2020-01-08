@@ -16,13 +16,13 @@ Vamos a crear un servicio de Systemd que iniciará un Bot de Telegram.
 * URL vídeo Youtube donde se muestre el Bot en funcionamiento.
 
 ---
-# 1. Create Telegram bot with ruby
+# 1. Crear un bot de Telegram con ruby
 
-Steps:
-1. Create bot with BotFather
-2. Add ruby program to our bot.
+Pasos:
+1. Registrar el bot con BotFather
+2. Asociar programa ruby con nuestro bot.
 
-# 1.1 Create bot with BotFather
+# 1.1 Crear bot con BotFather
 
 1. Open Telegram
 1. Search user @BotFather
