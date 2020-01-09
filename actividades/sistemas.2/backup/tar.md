@@ -1,16 +1,18 @@
 
 ```
-Estado: En construcción
-Objetivo : Copias de seguridad usando tar
+Curso     : 201920
+Estado    : Nuevo
+Objetivo  : Copias de seguridad usando tar
+Requisitos:
 ```
 
 ---
 
 # Copias de seguridad con tar
 
-Enlaces de interés:
-* [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
-* [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
+> Enlaces de interés:
+> * [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
+> * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
 Elegir una de las siguientes MV:
 1. SO GNU/Linux
@@ -38,7 +40,6 @@ mydocs
 ```
 
 ---
-
 # 2. Copia de seguridad total (full-backup)
 
 * `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
@@ -77,12 +78,11 @@ mydocs
 
 Podemos comprobar que la recuperación de archivos desde la última copia incremental, no refleja por sí sola, el verdadero estado final del directorio. El último backup incremental sólo permite restaurar los cambios del último "incremento".
 
-
 *(Seguir al siguiente apartado)*
 
 ## 3.2 Recuperación de los archivos
 
-Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup: full-backup inicial  y todos los sucesivos incrementales.
+Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup. Esto es el full-backup inicial y todos los sucesivos incrementales.
 
 Pasos para una recuperación completa:
 1. Primero descomprimir el full-bakcip inicial.
@@ -99,7 +99,7 @@ Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha
 
 **Curiosidad**
 
-La información final de los archivos que deben persistir entre todos los backups (full o inc) se guarda en el fichero snap. Pero como está en formato binario es difícil de ver, para ello usaremo el visor hexadecimal siguiente:
+La información final de los archivos que deben persistir entre todos los backups (full o inc) se guarda en el fichero snap. Pero como está en formato binario es difícil de ver, para ello usaremos un visor hexadecimal, de la siguiente forma:
 
 ```
 $ hexdump mydocs.snap -C
@@ -113,7 +113,7 @@ $ hexdump mydocs.snap -C
 00000065
 ```
 
-Podemos comprobar que los ficheros que persisten son:
+De la salida anterior, comprobamos que los ficheros que persisten son:
 * mydocs/a.txt
 * mydocs/c.txt
 * mydocs/d.txt
@@ -123,5 +123,11 @@ Conclusiones:
 * Las copias incrementales (inc) permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo.
 
 ---
-
 # 4. Copias diferenciales
+
+Una copia "diferencial" copia o guarda todos los cambios producidos desde la última copia "total". Comprobarlo.
+
+---
+# 5. Comparativa
+
+Hacer una copia usando la herramienta que viene por defecto en Windows y comparar con "tar".
