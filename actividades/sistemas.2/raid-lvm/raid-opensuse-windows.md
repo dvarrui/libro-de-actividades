@@ -42,8 +42,6 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | /dev/sdb1     |  10 GB | Partición | RAID    |
 | /dev/sdc2     |  10 GB | Partición | RAID    |
 
-> Vamos a crear un dispositivo RAID0 llamado `/dev/raid0aXX`. Dentro de esta partición vamos a instalar el sistema operativo.
-
 * Creamos el nuevo volumen RAID-0:
     * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `r0_deviceXX`. Hemos conseguido lo siguiente:
 
