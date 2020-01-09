@@ -25,6 +25,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
     * (a) 300MB,
     * (b) 10GB
     * (c) 10GB.
+* Configurar MV con EFI activo.
 
 ## 1.2 Particionado e instalación
 
