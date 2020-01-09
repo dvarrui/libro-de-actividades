@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201819
+Curso           : 201920, 201819
 Software        : OpenSUSE Leap 15
 Tiempo estimado :
 ```
@@ -23,7 +23,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 ## 1.1 Creación de la MV
 
 * Crear una máquina virtual nueva con 3 discos virtuales SATA:
-    * (a) 200MB,
+    * (a) 300MB,
     * (b) 10GB
     * (c) 10GB.
 
@@ -47,7 +47,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 | Dispositivo      | Size   | Tipo      | Formato | Montar    |
 | ---------------- | ------ | --------- | ------- | --------- |
-| /dev/r0_deviceXX |  20 GB | Partición | btrfs   | /         |
+| /dev/r0_deviceXX |  20 GB | Partición | ext4    | /         |
 
 > El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
