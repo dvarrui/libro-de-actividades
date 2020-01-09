@@ -33,6 +33,13 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Empezamos el proceso de instalación.
 * Elegimos particionado experto o manual.
+* Crear las siguientes particiones en el disco sda:
+
+| Dispositivo   | Size   | Tipo      | Formato | Montar    |
+| ------------- | ------ | --------- | ------- | --------- |
+| /dev/sda1     | 150 MB | Partición | ext3    | /boot     |
+| /dev/sda2     |  50 MB | Partición | fat32   | /boot/efi |
+
 * Ir a `Particionador -> RAID`, y elegimos:
     * Hacer un `raid0`
     * Con los discos sdb y sdc. 
@@ -45,13 +52,6 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | /dev/r0_deviceXX |  20 GB | Partición | ext4    | /         |
 
 El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
-
-* Crear las siguientes particiones en el disco sda:
-
-| Dispositivo   | Size   | Tipo      | Formato | Montar    |
-| ------------- | ------ | --------- | ------- | --------- |
-| /dev/sda1     | 150 MB | Partición | ext3    | /boot     |
-| /dev/sda2     |  50 MB | Partición | fat32   | /boot/efi |
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
     * Por esta vez sin swap (Área de intercambio).
@@ -80,10 +80,11 @@ lsblk -fm            # Muestra esquema de discos/particiones/montaje
 **IMPORTANTE**
 * Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
 
+
 ## 2.1 Preparar la MV
 
 Ahora vamos a añadir a la MV, varios discos para montar un RAID-1 software:
-* Crear 2 discos virtuales (Importante: (d) y (e) deben ser del mismo tamaño):
+* Crear 2 discos virtuales (del mismo tamaño) a la MV:
     * (d) 500MB
     * (e) 500MB.
 * Reiniciar la MV
@@ -91,24 +92,28 @@ Ahora vamos a añadir a la MV, varios discos para montar un RAID-1 software:
 
 ## 2.2 Crear y montar RAID-1
 
-> * Nombre del dispositivo DEVICE1=`r1_deviceXX`
-> * Nombre del directorio de montaje MPOINT1=`r1_discoXX`
+> Enlace de interés: 
+> * [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 
-Vamos a crear un RAID-1 con los discos (d) y (e)
-(Consultar [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
-* Podemos crear el RAID1 de varias formas:
-    * Usar `Yast -> particionador` para crear el RAID-1.
+Crear RAID-1 con los discos (d) y (e):
+* Ir a `Particionador -> RAID`, y elegimos:
+    * Elegir tipo `raid1`
+    * Elegir los discos sdd y sde. 
+    * Le pondremos el nombre `r1_deviceXX`. 
+* Aceptar
+* Crear directorio `/mnt/r1_discoXX` (Nombre del directorio de montaje).
+* Crear una partición en el nuevo dispositivo `r0_deviceXX`:
     * Formato `ext4`.
-    * Montar en `/mnt/MPOINT1`
+    * Montar en `/mnt/r1_discoXX`
 
 ## 2.3 Comprobar RAID-1 y el montaje
 
 * Para comprobar si se ha creado el raid1 correctamente:
 
 ```
-cat /proc/mdstat               # Muestra info de discos RAID
-lsblk -fm                      # Muestra info de los discos/particiones
-mdadm --detail /dev/md/DEVICE1 # Muestra info del disposivo RAID1
+cat /proc/mdstat                   # Muestra info de discos RAID
+lsblk -fm                          # Muestra info de los discos/particiones
+mdadm --detail /dev/md/r1_deviceXX # Muestra info del disposivo RAID1
 ```
 
 * Consultar fichero `/etc/mdadm/mdadm.conf`, veremos que hay registradas dons confiuraciones RAID. ¿Sabes cuál es cada una?
@@ -122,18 +127,18 @@ mount | grep XX
 
 ## 2.4 Escribir datos en el RAID-1
 
-> Ahora podemos escribir información en /mnt/MPOINT1.
+> Ahora podemos escribir información en `/mnt/r1_discoXX`.
 
-Crea lo siguiente en /mnt/MPOINT1
-* Directorio `/mnt/MPOINT1/naboo`
-* Fichero `/mnt/MPOINT1/naboo/yoda.txt`
-* Directorio `/mnt/MPOINT1/endor`
-* Fichero `/mnt/MPOINT1/endor/sandtrooper.txt`
+Crea lo siguiente en `/mnt/r1_discoXX`:
+* Directorio `/mnt/r1_discoXX/naboo`
+* Fichero `/mnt/r1_discoXX/naboo/yoda.txt`
+* Directorio `/mnt/r1_discoXX/endor`
+* Fichero `/mnt/r1_discoXX/endor/sandtrooper.txt`
 
 Reiniciar la MV y comprobar que se mantienen los datos:
 ```
 df -hT |grep XX
-tree /mnt/MPOINT1
+tree /mnt/r1_discoXX
 ```
 ---
 
@@ -144,7 +149,7 @@ tree /mnt/MPOINT1
 * Reiniciamos la MV y comprobamos que la información no se ha perdido.
 ```
 df -hT |grep XX
-tree /mnt/MPOINT1
+tree /mnt/r1_discoXX
 ```
 
 * Volver a poner el disco en la MV, reiniciar.
@@ -154,9 +159,9 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > Para sincronizar los discos RAID1:
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
-* `mdadm --detail /dev/DEVICE1`, comprobamos que de los dos discos configurados, sólo hay uno.
+* `mdadm --detail /dev/md/r1_deviceXX`, comprobamos que de los dos discos configurados, sólo hay uno.
 * `mdadm /dev/DEVICE1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
-* `mdadm --detail /dev/DEVICE1`, comprobamos que están los dos.
+* `mdadm --detail /dev/md/r1_deviceXX`, comprobamos que están los dos.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 
