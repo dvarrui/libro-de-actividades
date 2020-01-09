@@ -159,6 +159,9 @@ host www.nba.com         # Comprueba DNS
 
 https://www.suse.com/documentation/opensuse110/opensuse110_reference/data/sec_suse_l10n.html
 
+## Combrobar ISO
+
+Con el comando `sha256sum -c opensuse-version.sha256` comprobamos si el fichero lo hemos descargado bien.
 
 ## EFI + GPT
 
