@@ -33,25 +33,20 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Empezamos el proceso de instalación.
 * Elegimos particionado experto o manual.
-* Preparamos los discos para el RAID:
-    * Hacemos una partición sdb1 que coja todo el disco con formato `Volumen físico RAID`.
-    * Hacemos una partición sdc1 que coja todo el disco con formato `Volumen físico RAID`.
-
-| Dispositivo   | Size   | Tipo      | Formato |
-| ------------- | ------ | --------- | ------- |
-| /dev/sdb1     |  10 GB | Partición | RAID    |
-| /dev/sdc2     |  10 GB | Partición | RAID    |
-
-* Creamos el nuevo volumen RAID-0:
-    * Luego debemos ir a `Particionador -> RAID`, y elegimos que queremos hacer un raid0, con las particiones RAID (sdb1 y sdc1). Le pondremos el nombre `r0_deviceXX`. Hemos conseguido lo siguiente:
+* Ir a `Particionador -> RAID`, y elegimos:
+    * Hacer un `raid0`
+    * Con los discos sdb y sdc. 
+    * Le pondremos el nombre `r0_deviceXX`. 
+* Aceptar
+* Crear una partición en el nuevo dispositivo `r0_deviceXX`:
 
 | Dispositivo      | Size   | Tipo      | Formato | Montar    |
 | ---------------- | ------ | --------- | ------- | --------- |
 | /dev/r0_deviceXX |  20 GB | Partición | ext4    | /         |
 
-> El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
+El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
-* Crear las siguientes particiones:
+* Crear las siguientes particiones en el disco sda:
 
 | Dispositivo   | Size   | Tipo      | Formato | Montar    |
 | ------------- | ------ | --------- | ------- | --------- |
