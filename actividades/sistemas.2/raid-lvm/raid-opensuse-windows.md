@@ -109,7 +109,7 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
     * Le pondremos el nombre `r1_deviceXX`.
 * Aceptar
 * Crear directorio `/mnt/r1_discoXX`. Este es el directorio que vamos a usar para montar el dispositivo.
-* Crear una partición en el nuevo dispositivo `r0_deviceXX`:
+* Crear una partición en el nuevo dispositivo `r1_deviceXX`:
     * Formato `ext4`.
     * Montar en `/mnt/r1_discoXX`
 
