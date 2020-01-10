@@ -108,11 +108,11 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
     * Elegir los discos `sdd` y `sde`.
     * Le pondremos el nombre `r1_deviceXX`.
 * Aceptar
-* Crear directorio `/mnt/r1_discoXX`. Este es el directorio que vamos a usar para montar el dispositivo.
+* Crear directorio `/mnt/r1_folderXX`. Este es el directorio que vamos a usar para montar el dispositivo.
 * Crear una partición en el nuevo dispositivo `r1_deviceXX`:
     * Formato `ext4`.
     * Tamaño: `Disco completo`.
-    * Montar en `/mnt/r1_discoXX`
+    * Montar en `/mnt/r1_folderXX`
 
 ## 2.3 Comprobar RAID-1 y el montaje
 
@@ -133,20 +133,20 @@ mount | grep XX
 ```
 * Consultar el fichero `/etc/fstab` para comprobar que el dispositivo se montará automáticamente al reiniciarse. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
 * Reiniciar equipo
-* Asegúrate que el dispositivo RAID1 está montado en `/mnt/r1_discoXX`.
+* Asegúrate que el dispositivo RAID1 está montado en `/mnt/r1_folderXX`.
 
 ## 2.4 Escribir datos en el RAID-1
 
 Crea lo siguiente:
-* Directorio `/mnt/r1_discoXX/naboo`
-* Fichero `/mnt/r1_discoXX/naboo/yoda.txt`
-* Directorio `/mnt/r1_discoXX/endor`
-* Fichero `/mnt/r1_discoXX/endor/sandtrooper.txt`
+* Directorio `/mnt/r1_folderXX/naboo`
+* Fichero `/mnt/r1_folderXX/naboo/yoda.txt`
+* Directorio `/mnt/r1_folderXX/endor`
+* Fichero `/mnt/r1_folderXX/endor/sandtrooper.txt`
 
 Reiniciar la MV y comprobar que se mantienen los datos:
 ```
 df -hT |grep XX
-tree /mnt/r1_discoXX
+tree /mnt/r1_folderXX
 ```
 
 ---
@@ -162,7 +162,7 @@ Como tenemos un dispositivo RAID1, entonces podemos quitar uno de los discos y c
 ```
 lsblk -fm              # Muestra info de los discos/particiones
 df -hT |grep XX
-tree /mnt/r1_discoXX
+tree /mnt/r1_folderXX
 ```
 
 ## 3.2 Poner el disco
