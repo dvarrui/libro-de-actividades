@@ -1,8 +1,8 @@
 
 ```
 Curso           : 201920, 201819
-Software        : OpenSUSE Leap 15, Windows
-Tiempo estimado :
+Software        : OpenSUSE Leap 15, Windows Server
+Tiempo estimado : 8 sesiones
 ```
 
 # 1. Instalar OpenSUSE en disco RAID0 software
@@ -35,9 +35,9 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 **Partición de arranque**: El arranque del sistema operativo (boot) lo pondremos en una partición normal, fuera del RAID.
 * Crear la siguiente partición en el disco sda:
 
-| Dispositivo   | Size   | Tipo      | Formato | Montar    |
-| ------------- | ------ | --------- | ------- | --------- |
-| /dev/sda1     | 300 MB | Partición | fat32   | /boot/efi |
+| Dispositivo   | Size   | Tipo                      | Formato | Montar    |
+| ------------- | ------ | ------------------------- | ------- | --------- |
+| /dev/sda1     | 300 MB | Partición de Arranque EFI | fat32   | /boot/efi |
 
 > El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
@@ -49,9 +49,9 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 * Aceptar.
 * Ya tenemos creado el nuevo dispositivo. Ahora crear una partición en él:
 
-| Dispositivo         | Size   | Tipo      | Formato | Montar |
-| ------------------- | ------ | --------- | ------- | ------ |
-| /dev/md/r0_deviceXX |  20 GB | Partición | ext4    | /      |
+| Dispositivo         | Size   | Tipo                  | Formato | Montar |
+| ------------------- | ------ | --------------------- | ------- | ------ |
+| /dev/md/r0_deviceXX |  20 GB | Partición del sistema | ext4    | /      |
 
 > En esta ocasión:
 > * No crearemos área de intercambio(swap).
@@ -194,15 +194,16 @@ cat /etc/mdadm.conf
 ---
 # 4. Discos dinámicos en Windows
 
-* Haremos la práctica con MV Windows Server, para asegurarnos de que tenga soporte para implementar RAID5.
+**Preparativos**
+* Crear una MV con Windows Server. Debemos usar Windows Server porque nos aseguramos de que tiene soporte para implementar RAID5.
 
-En windows las particiones normales se llaman `volúmenes básicos`. Para poder hacer RAID hay que convertir el volumen básico en dinámico.
+**Teoría**: En windows las particiones normales se llaman `volúmenes básicos`. Para poder hacer RAID hay que convertir el volumen básico en dinámico. A continuación podemos una tabla con la traducción de los terminos:
 
-| Nomenclatura Windows | Nomenclatura RAID   |
-| -------------------- | ------------------- |
-| Volumen básico       | Partición           |
-| Volumen dinámico     | Partición tipo RAID |
-| Reflejo              | RAID-1              |
+| Nomenclatura Windows | Nomenclatura Standard |
+| -------------------- | --------------------- |
+| Volumen básico       | Partición             |
+| Volumen dinámico     | Partición tipo RAID   |
+| Reflejo              | RAID-1                |
 | Seccionado           | RAID-0 (Todos los discos de igual tamaño) |
 | Distribuido          | LVM (Parecido a RAID-0 pero usando discos de distinto tamaño |
 
@@ -212,9 +213,9 @@ En windows las particiones normales se llaman `volúmenes básicos`. Para poder 
 > * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
 > * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
-Vamos a crear un volumen *seccionado*:
-* Añadir a la MV 4 discos duros virtuales de 200 MB cada uno.
-* Crea un volumen seccionado con un tamaño total de 800 MB, utilizando los discos anteriores.
+Vamos a crear un volumen *seccionado* (es lo mismo que un RAID0):
+* Añadir a la MV 3 discos duros virtuales de 200 MB cada uno.
+* Crea un volumen seccionado con un tamaño total de 600 MB, utilizando los discos anteriores.
 
 ## 4.2 Volumen Reflejado (RAID-1)
 
@@ -223,7 +224,7 @@ Vamos a crear un volumen *seccionado*:
 > * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 > * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
 
-Un volumen *Reflejado* es similar a un RAID1.
+Un volumen *Reflejado* (es lo mismo que un RAID1):
 * Usar los 2 discos de 200 MB anteriores para crear un volúmen reflejado de 200 MB.
 * Crear un fichero `mirror-pruebaXX.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
