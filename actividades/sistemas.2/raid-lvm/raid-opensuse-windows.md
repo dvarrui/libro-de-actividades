@@ -124,16 +124,16 @@ lsblk -fm                          # Muestra info de los discos/particiones
 mdadm --detail /dev/md/r1_deviceXX # Muestra info del disposivo RAID1
 ```
 
-* Consultar fichero `/etc/mdadm/mdadm.conf`, veremos que están registradas las dos configuraciones RAID que hemos realizado. ¿Sabes cuál es cada una?
-* Comprobar si el dispositivo está correctamente montado:
+> En el fichero `/etc/mdadm.conf`, se guardan todas las configuraciones relacionadas con los dispositivos RAID.
 
+* Comprobar si el dispositivo está correctamente montado:
 ```
 df -hT | grep XX
 mount | grep XX
 ```
-* Consultar el fichero `/etc/fstab` para comprobar que el dispositivo se montará automáticamente al reiniciarse. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
-* Reiniciar equipo
-* Asegúrate que el dispositivo RAID1 está montado en `/mnt/r1_folderXX`.
+* `cat /etc/fstab | grep r1_device`, comando para consultar el fiichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
+* Reiniciar equipo.
+* Comprobar que el dispositivo RAID1 está montado en `/mnt/r1_folderXX`.
 
 ## 2.4 Escribir datos en el RAID-1
 
