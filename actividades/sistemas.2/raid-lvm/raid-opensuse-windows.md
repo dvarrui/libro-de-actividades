@@ -25,7 +25,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
     * (a) 300MB,
     * (b) 10GB
     * (c) 10GB.
-* Configurar MV con EFI activo.
+* **IMPORTANTE**: Configurar la MV con EFI activo (`Configuración -> Sistema -> EFI`).
 
 ## 1.2 Particionado e instalación
 
@@ -111,6 +111,7 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
 * Crear directorio `/mnt/r1_discoXX`. Este es el directorio que vamos a usar para montar el dispositivo.
 * Crear una partición en el nuevo dispositivo `r1_deviceXX`:
     * Formato `ext4`.
+    * Tamaño: `Disco completo`.
     * Montar en `/mnt/r1_discoXX`
 
 ## 2.3 Comprobar RAID-1 y el montaje
