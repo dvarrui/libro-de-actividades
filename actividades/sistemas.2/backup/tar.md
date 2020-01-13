@@ -15,8 +15,8 @@ Requisitos:
 > * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
 Elegir una de las siguientes MV:
-1. SO GNU/Linux
-2. SO Windows + Cygwin
+* SO GNU/Linux ([Configuración](../../global/configuracion)).
+* SO Windows + Cygwin  ([Configuración](../../global/configuracion)).
 
 ---
 # 1. Preparativos
@@ -40,18 +40,49 @@ mydocs
 ```
 
 ---
-# 2. Copia de seguridad total (full-backup)
+# 2 TEORÍA: Aprendiendo a usar el comando tar
+
+> Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
+
+Crear backup:
+* `tar -cvf ...`: Crear fichero empaquetado.
+* `tar -acvf ...`: Crear fichero empaquetado y comprimido.
+
+Consultar contenido del backup:
+* `tar -tvf ...`: Muestra el contenido del fichero empaquetado.
+* `tar -atvf ...`: Muestra el contenido del fichero empaquetado y comprimido.
+
+Extraer uno o varios ficheros del backup:
+* `tar -xvf ...`: Extrae el contenido del fichero empaquetado.
+* `tar -xvf ... --directory dir2`: Extrae el contenido del fichero empaquetado en dir2.
+* `tar -xvf ... -C /dir2`: Extrae el contenido del fichero empaquetado en dir2.
+* `tar -xvf backup.tar --directory dir2 file3`: Extrae un archivo (file3) del fichero empaquetado en el directorio dir2.
+O también `tar -xvf backup.tar -C dir2 archivo`.
+* `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
+
+Varios:
+* `date +%Y%m%y`: Genera la fecha actual en formato AAAAMMDD
+* `gzip ...`: Comando para hacer la compresión en formato gz.
+* `zip ...`: Comando para hacer la compresión en formato zip.
+
+---
+# 3. Copia de seguridad total (full-backup)
 
 * `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
 * `tar tvc backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
 * Crear archivo DOCFOLDER/c.txt. Escribir dentro el título de tu película favorita.
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
-* Comprueba el contenido.
+* Comprobar el contenido.
 
 Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. No era necesario volver a copiar los archivos a.txt, ni b.txt porque no han cambiado.
 
 ---
-# 3. Copia de seguridad incremental
+# 4. Copia de seguridad incremental
+
+> Enlaces de interés:
+>
+> * [ES - Copia incremental con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
+> * [EN - Incremental backup using tar command](https://www.unixmen.com/performing-incremental-backups-using-tar/)
 
 Tenemos lo siguiente:
 ```
@@ -61,7 +92,7 @@ mydocs
    └── c.txt
 ```
 
-## 3.1 Copia seguridad inicial
+## 4.1 Copia seguridad inicial
 
 * `tar -g mydocs.snap -cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
@@ -78,14 +109,12 @@ mydocs
 
 Podemos comprobar que la recuperación de archivos desde la última copia incremental, no refleja por sí sola, el verdadero estado final del directorio. El último backup incremental sólo permite restaurar los cambios del último "incremento".
 
-*(Seguir al siguiente apartado)*
-
-## 3.2 Recuperación de los archivos
+## 4.2 Recuperación de los archivos
 
 Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup. Esto es el full-backup inicial y todos los sucesivos incrementales.
 
 Pasos para una recuperación completa:
-1. Primero descomprimir el full-bakcip inicial.
+1. Primero descomprimir el "full-backup" inicial.
 2. Luego aplicar el incremental usando la opción `--incremental`.
 
 * `cd /home/nombre-del-alumno`
@@ -95,7 +124,7 @@ Pasos para una recuperación completa:
 * `tar --incremental -xvf backupXX-5-inc.tar -C restore/`
 * `tree restore`
 
-Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero eliminado (b.txt) en el momento de hacer el incremental.
+Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero (b.txt) que había sido eliminado en el momento de hacer el incremental.
 
 **Curiosidad**
 
@@ -123,11 +152,11 @@ Conclusiones:
 * Las copias incrementales (inc) permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo.
 
 ---
-# 4. Copias diferenciales
+# 5. Copias diferenciales
 
 Una copia "diferencial" copia o guarda todos los cambios producidos desde la última copia "total". Comprobarlo.
 
 ---
-# 5. Comparativa
+# 6. Windows
 
-Hacer una copia usando la herramienta que viene por defecto en Windows y comparar con "tar".
+Hacer una copia usando la herramienta que viene por defecto en Windows.
