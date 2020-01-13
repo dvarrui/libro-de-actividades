@@ -7,19 +7,14 @@ Requisitos:
 ```
 
 ---
+# 1. Copias de seguridad con tar
 
-# Copias de seguridad con tar
+## 1.1 Elegir una de las siguientes MV
 
-> Enlaces de interés:
-> * [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
-> * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
-
-Elegir una de las siguientes MV:
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
 * SO Windows + Cygwin  ([Configuración](../../global/configuracion)).
 
----
-# 1. Preparativos
+## 1.2 Preparativos
 
 | Parámetro | Valor                             |
 | --------- | --------------------------------- |
@@ -42,7 +37,13 @@ mydocs
 ---
 # 2 TEORÍA: Aprendiendo a usar el comando tar
 
-> Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
+Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
+
+> Enlaces de interés:
+> * [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
+> * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
+
+El comando "tar" sirve para empaquetar. No para comprimir. Pero podemos usarlo en combinación con alguna herramienta de compresión para hacer las dos acciones en un sólo paso.
 
 Crear backup:
 * `tar -cvf ...`: Crear fichero empaquetado.
@@ -59,6 +60,10 @@ Extraer uno o varios ficheros del backup:
 * `tar -xvf backup.tar --directory dir2 file3`: Extrae un archivo (file3) del fichero empaquetado en el directorio dir2.
 O también `tar -xvf backup.tar -C dir2 archivo`.
 * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
+
+Otros parámetros:
+* Con el parámetro `-p` los ficheros mantetienen su trayectoria absoluta.
+* Con el parámetro `-z` podemos forzar compresión "gz".
 
 Varios:
 * `date +%Y%m%y`: Genera la fecha actual en formato AAAAMMDD
@@ -83,6 +88,7 @@ Las copias de seguridad total son sencillas de hacer, pero no son eficientes en 
 >
 > * [ES - Copia incremental con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
 > * [EN - Incremental backup using tar command](https://www.unixmen.com/performing-incremental-backups-using-tar/)
+> * [Comando tar](https://maslinux.es/comando-tar-comprimir-y-descomprimir-los-archivosdirectorios/)
 
 Tenemos lo siguiente:
 ```
@@ -151,12 +157,50 @@ Conclusiones:
 * Las copias totales (full-backup) son sencillas de hacer, pero desaprovechamos espacio duplicando archivos que no cambian.
 * Las copias incrementales (inc) permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo.
 
+## 4.3 Programar la copias
+
+> Enlaxces de interés:
+> * [Cómo utilizar crontab para programar tareas](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/)
+
+Vamos a crear una configuración (crontab) para que las copias de seguridad se realicen de forma automática.
+
+* `crontab -l`, vemos que no hay ninguna configuración creada.
+* `crontab -e`, se nos abre un editor.
+* Pulsar `i`(insert) para activar el modo de empezar a escribir.
+
+> Información para configurar crontab:
+> * m: minuto
+> * h: hora
+> * mon: mes
+> * dow: día del mes
+> * dom: día de la semana (0=domingo, 1=lunes, etc)
+> * Comando a ejecutar
+
+* Escribir algo parecido a lo siguiente:
+```
+45 10 * * 1   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
+45 10 * * 2   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
+45 10 * * 3   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
+45 10 * * 4   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
+45 10 * * 5   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
+```
+
+Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
+
 ---
 # 5. Copias diferenciales
 
-Una copia "diferencial" copia o guarda todos los cambios producidos desde la última copia "total". Comprobarlo.
+> Enlace de interés:
+> * [Backups con tar](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
+
+* Partimos de que ya se ha realizado un "full-backup".
+* Con el comando siguiente crearemos la copia diferencial de la copia completa que hemos realizado: `tar -cvf backupXX-7-diff.tar mydocs/* -N 13-feb-18`.
+
+Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos permite esta opción es ordenar a tar que solo archive aquellos datos que han cambiado desde una determinada fecha, hasta la fecha de ejecución del comando.
+
+> Nota: Si pasados unos días, volviésemos a crear otra copia diferencial "backupXX-8-diff" con la misma fecha, esta copia contendría también los cambios reflejados en las copias diferenciales anteriores. Por esta razón su tamaño va aumentando en comparación con los backups incrementales.
 
 ---
-# 6. Windows
+# 7. Windows
 
 Hacer una copia usando la herramienta que viene por defecto en Windows.
