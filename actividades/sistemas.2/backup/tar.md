@@ -167,7 +167,7 @@ Conclusiones:
 
 ## 4.3 Programar la copias
 
-> Enlaxces de interés:
+> Enlaces de interés:
 > * [Cómo utilizar crontab para programar tareas](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/)
 
 Vamos a crear una configuración (crontab) para que las copias de seguridad se realicen de forma automática.
@@ -194,6 +194,9 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 ```
 
 Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
+
+* Escribir: `ESC`, `:`, `wq`, cuando hayamos acabado. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
+* `crontab -l`, para consultar que las tareas están programadas correctamente.
 
 ---
 # 5. Copias diferenciales
