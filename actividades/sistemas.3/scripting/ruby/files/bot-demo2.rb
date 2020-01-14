@@ -20,7 +20,6 @@ Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: message.chat.id, text: "Hello Word!")
     when byebye
       bot.api.send_message(chat_id: message.chat.id, text: "Bye bye!")
-      exit
     end
   end
 end
