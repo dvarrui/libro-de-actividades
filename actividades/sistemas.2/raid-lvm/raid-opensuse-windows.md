@@ -131,7 +131,7 @@ mdadm --detail /dev/md/r1_deviceXX # Muestra info del disposivo RAID1
 df -hT | grep XX
 mount | grep XX
 ```
-* `cat /etc/fstab | grep r1_folder`, comando para consultar el fiichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
+* `cat /etc/fstab`, comando para consultar el fiichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
 * Reiniciar equipo.
 * Comprobar que el dispositivo RAID1 está montado en `/mnt/r1_folderXX`.
 
