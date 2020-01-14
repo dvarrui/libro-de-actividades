@@ -13,7 +13,6 @@ Ejemplo de rúbrica:
 | --------------------- | ------------ | ----------- | ----------------- |
 | (1.3) Comprobar RAID-0 | | | |
 | (2.3) Comprobar RAID-1 | | | |
-| (2.6) Montaje automático de RAID-1 | | | |
 | (3) Quitar disco y probar RAID-1 | | |. |
 
 Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 software.
@@ -59,7 +58,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
-## 1.3 Comprobación
+## 1.3 Comprobar RAID0
 
 > Como resultado final obtenemos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 formado por la unión de dos discos físicos `sdb` y `sdc`.
 
@@ -114,7 +113,7 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
     * Tamaño: `Disco completo`.
     * Montar en `/mnt/r1_folderXX`
 
-## 2.3 Comprobar RAID-1 y el montaje
+## 2.3 Comprobar RAID-1 (configuración y montaje)
 
 * Para comprobar si se ha creado el dispositivo RAID1 correctamente:
 
