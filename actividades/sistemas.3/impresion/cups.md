@@ -1,5 +1,11 @@
 
+```
+Curso           : 201920, 201819, 201718
+Requisitos      : MV GNU/Linux
+Tiempo estimado :
+```
 
+---
 # Servidor de Impresión GNU/Linux (CUPS)
 
 Ejemplo de rúbrica:
@@ -31,8 +37,9 @@ parte de `Ver archivo de registro de accesos`.
 
 # 3. Imprimir de forma local
 
-Ahora vamos a configurar una impresora de forma local en el servidor de impresión. El paquete `cups-pdf` nos instala una impresora virtual PDF, que podemos usar para las pruebas en caso de no disponer de una impresora real.
+Ahora vamos a usar una impresora de forma local en el servidor de impresión.
 
+* Instalar el paquete `cups-pdf` que nos permite hacer uso de una impresora virtual PDF local. Usaremos esta impresora virtual para las pruebas en caso de no disponer de una impresora real.
 * Hacemos una impresión local con el nombre `imprimirXXg-local`.
 * Comprobar el resultado. Los trabajos de impresión de la impresora virtual PDF se guardan en alguno de estos directorios:
 
