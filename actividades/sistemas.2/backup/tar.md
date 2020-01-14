@@ -9,6 +9,14 @@ Requisitos:
 ---
 # 1. Copias de seguridad con tar
 
+Propuesta de rúbrica:
+
+| Criterio | Bien(2) | Regular(1)| Falta(0) |
+| -------- | ------- | --------- | -------- |
+| (4.1) Copia inicial            | | | |
+| (4.2) Recuperación de archivos | | | |
+| (4.3) Programar las copias     | | | .|
+
 ## 1.1 Elegir una de las siguientes MV
 
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
