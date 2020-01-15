@@ -63,7 +63,6 @@ Modificar el bot para personalizar los comandos que acepta.
 ## 1.4 Entrega
 
 * Entregar el script del bot (`/usr/local/bin/botXXd`).
-* Fichero de confoiguración del servicio `/lib/systemd/system/botXX.service`.
 * URL vídeo Youtube donde se muestre el Bot en funcionamiento.
 
 ---
@@ -105,8 +104,8 @@ WantedBy=multi-user.target
 * Iniciar sesión como superusuario.
 * `systemctl status botXX`, comprobamos que el estado está parado.
 * `systemctl start botXX`, para iniciar el servicio.
-* `systemctl status botXX`, comprobamos que está corriendo.
-* `systemctl enable botXX`, para activar el servicio, de modo que se iniciará al arrancar el sistema.
+* `systemctl status botXX`, comprobamos que ahora sí está corriendo.
+* `systemctl enable botXX`, para activar el servicio. De este modo se iniciará automáticamente al arrancar el sistema.
 * Reiniciamos la MV.
 * `systemctl status botXX`, para confirmar que el servicio se ha iniciado automáticamente.
 
@@ -118,7 +117,9 @@ Lo más cómodo para parar el servicio es `systemctl stop botXX`, pero también 
 
 ## 2.4 Entrega
 
-* Fichero de confoiguración del servicio `/lib/systemd/system/botXX.service`.
+* Fichero de configuración del servicio:
+    * `/lib/systemd/system/botXX.service` o
+    * `/usr/lib/systemd/system/botXX.service`
 * Capturas de pantalla donde se muestre que podemos iniciar el parar el servicio botXX con el comando systemctl.
 
 ---
@@ -170,6 +171,6 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * Esperamos 5 minutos y ahora debe haberse iniciado de forma automática (con crontab).
 
 **Preguntas**:
-* _¿Se podría instalar Ruby wn Windows?_
-* _¿Se podría pasar el demonio (botXXd) a Windows?_
-* _¿Sabrías crear una tarea programa en Windows?_
+* _¿Se podría instalar Ruby en Windows?_ RubyInstaller
+* _¿Se podría pasar el demonio (botXXd) a Windows?_ Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
+* _¿Sabrías crear una tarea programa en Windows?_ Panel de control -> tareas programadas.
