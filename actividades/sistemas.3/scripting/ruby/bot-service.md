@@ -53,6 +53,7 @@ TOKEN (HTTP API): ...
 > * [gem telegram-bot-ruby](https://github.com/atipugin/telegram-bot-ruby)
 
 * `gem install telegram-bot-ruby`, instalar la gems de ruby que permite comunicarse con Telegram.
+* Crear un fichero `hide.token` con el valor de nuestro TOKEN.
 * Ejecutar este programa de ejemplo [bot-demo.rb](files/bot-demo.rb).
 
 ## 1.3 Personalizar el bot
