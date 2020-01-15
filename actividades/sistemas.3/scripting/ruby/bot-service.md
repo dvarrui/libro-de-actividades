@@ -92,7 +92,7 @@ El init es el proceso que inicia todo el sistema y arranca los servicios. Cada s
 
 Cada servicio de Systemd se define en un fichero `Unit file`
 
-* Crear el fichero `/lib/systemd/system/botXX.service` o `/usr/lib/systemd/system/botXX.service`:
+* Crear el fichero `/usr/lib/systemd/system/botXX.service`:
 ```
 [Unit]
 Description=Servicio Bot del alumnoXX.
@@ -124,9 +124,7 @@ Lo más cómodo para parar el servicio es `systemctl stop botXX`, pero también 
 
 ## 2.4 Entrega
 
-* Fichero de configuración del servicio:
-    * `/lib/systemd/system/botXX.service` o
-    * `/usr/lib/systemd/system/botXX.service`
+* Fichero de configuración del servicio `/usr/lib/systemd/system/botXX.service`.
 * Capturas de pantalla donde se muestre que podemos iniciar el parar el servicio botXX con el comando systemctl.
 
 ---
@@ -181,3 +179,10 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * _¿Se podría instalar Ruby en Windows?_ RubyInstaller
 * _¿Se podría pasar el demonio (botXXd) a Windows?_ Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
 * _¿Sabrías crear una tarea programa en Windows?_ Panel de control -> tareas programadas.
+
+---
+# ANEXO
+
+Revisar:
+* Varios comandos en message de bot.
+* Systemd dependencias after before network para bot
