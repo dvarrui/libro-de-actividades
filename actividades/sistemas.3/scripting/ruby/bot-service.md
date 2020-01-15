@@ -78,12 +78,18 @@ Vamos a crear un servicio para nuestro bot, de modo que se inicie siempre al arr
 
 * Vamos a usar el script demonio, creado en el apartado anterior. Un demonio (daemon) es un programa que se ejecuta en segundo plano permanentemente para dar algún servicio.
 * Copiar el script a `/usr/local/bin/botXXd` y hacerlo ejecutable.
+* Crear el directorio `/etc/botXX`. Lo usaremos para poner configuraciones de nuestro servicio.
+* Crear el fichero `/etc/botXX/token`. Lo usaremos para guardar dentro el TOKEN de nuestro bot de Telegram.
+* Modificar el contenido del script para cambiar la ruta del TOKEN:
+```
+token = %x[cat /etc/botXX/token].strip
+```
 
 > **Informacion**: Si invocamos al script desde el fichero `/home/nombre-alumno/.bashrc`, entonces nuestro programa se iniciará cuando el usuario nombre-alumno inicie sesión en el sistema. Pero como queremos que el programa se inicie al arrancar en sistema operativo... entonces seguimos con la práctica...
 
 El init es el proceso que inicia todo el sistema y arranca los servicios. Cada sistema operativo puede tener distintos "init" como Systemd, SystemV, Upstart, Openrc, etc. Nuestro sistema operativo viene con Systemd, así vamos a configurar Systemd para gestionar nuestro servicio.
 
-Cada sercivio de Systemd se define en un fichero `Unit file`
+Cada servicio de Systemd se define en un fichero `Unit file`
 
 * Crear el fichero `/lib/systemd/system/botXX.service` o `/usr/lib/systemd/system/botXX.service`:
 ```
