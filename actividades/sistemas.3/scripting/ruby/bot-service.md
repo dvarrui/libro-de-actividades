@@ -85,7 +85,7 @@ El init es el proceso que inicia todo el sistema y arranca los servicios. Cada s
 
 Cada sercivio de Systemd se define en un fichero `Unit file`
 
-* Crear el fichero `/lib/systemd/system/botXX.service`:
+* Crear el fichero `/lib/systemd/system/botXX.service` o `/usr/lib/systemd/system/botXX.service`:
 ```
 [Unit]
 Description=Servicio Bot del alumnoXX.
