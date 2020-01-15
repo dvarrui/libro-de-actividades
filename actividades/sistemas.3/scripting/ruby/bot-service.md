@@ -15,6 +15,7 @@ Propuesta de rúbrica:
 | --- | -------- | ------- | ---------- | ------ |
 | 1.4 | Entrega  ||||
 | 2.4 | Entrega  ||||
+| 3.2 | Tareas programadas ||||
 
 ---
 # 1. Crear un bot de Telegram con ruby
@@ -66,6 +67,20 @@ Modificar el bot para personalizar los comandos que acepta.
 * Entregar el script del bot (`/usr/local/bin/botXXd`).
 * URL vídeo Youtube donde se muestre el Bot en funcionamiento.
 
+**Idea**:
+
+Si quieres que el Bot acepte mensajes con varios argumentos o parámetros... recuerda el uso de `split`. Ejemplo:
+
+```
+bot.listen do |message|
+  options = message.text.split(" ")
+  if options[0] == "/hello"
+    say = "Hello #{options[1]}!"
+    bot.api.send_message(chat_id: message.chat.id, text: say)
+  end
+end
+```
+
 ---
 # 2. Systemd
 
@@ -86,13 +101,12 @@ Vamos a crear un servicio para nuestro bot, de modo que se inicie siempre al arr
 token = %x[cat /etc/botXX/token].strip
 ```
 
-> **Informacion**: Si invocamos al script desde el fichero `/home/nombre-alumno/.bashrc`, entonces nuestro programa se iniciará cuando el usuario nombre-alumno inicie sesión en el sistema. Pero como queremos que el programa se inicie al arrancar en sistema operativo... entonces seguimos con la práctica...
-
 El init es el proceso que inicia todo el sistema y arranca los servicios. Cada sistema operativo puede tener distintos "init" como Systemd, SystemV, Upstart, Openrc, etc. Nuestro sistema operativo viene con Systemd, así vamos a configurar Systemd para gestionar nuestro servicio.
 
 Cada servicio de Systemd se define en un fichero `Unit file`
 
-* Crear el fichero `/usr/lib/systemd/system/botXX.service`:
+* Crear el fichero `/usr/lib/systemd/system/botXX.service` con el siguiente contenido:
+
 ```
 [Unit]
 Description=Servicio Bot del alumnoXX.
@@ -104,7 +118,8 @@ ExecStart=/usr/bin/ruby /usr/local/bin/botXXd
 [Install]
 WantedBy=multi-user.target
 ```
-> Así se define un servicio sencillo. La directiva ExecStart especifica el comando que se ejecutará para iniciar el servicio.
+
+Así se define un servicio sencillo. La directiva `ExecStart` especifica el comando que se ejecutará para iniciar el servicio.
 
 # 2.2 Iniciar y activar el servicio
 
@@ -176,13 +191,12 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * Esperamos 5 minutos y ahora debe haberse iniciado de forma automática (con crontab).
 
 **Preguntas**:
-* _¿Se podría instalar Ruby en Windows?_ RubyInstaller
-* _¿Se podría pasar el demonio (botXXd) a Windows?_ Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
-* _¿Sabrías crear una tarea programa en Windows?_ Panel de control -> tareas programadas.
+* _¿Se podría instalar Ruby en Windows?_ => RubyInstaller
+* _¿Se podría pasar el demonio (botXXd) a Windows?_ => Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
+* _¿Sabrías crear una tarea programa en Windows?_ => Ir a `Panel de control -> tareas programadas`.
 
 ---
 # ANEXO
 
 Revisar:
-* Varios comandos en message de bot.
 * Systemd dependencias after before network para bot
