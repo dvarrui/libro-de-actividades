@@ -28,17 +28,20 @@ Vamos a realizar esta práctica en 1 MV que puede ser:
 Una vez elegida la MV, empezamos:
 * `tar --version`, para comprobar que lo tenemos instalado en nuestro sistema.
 
+Ahora vamos a crear la estructura de directorios y ficheros para probar con ellos las copias de seguridad.
+
 | Parámetro | Valor                             |
 | --------- | --------------------------------- |
 | HOME      | /home/nombre-del-alumno           |
 | DOCFOLDER | /home/nombre-del-alumno/mydocs    |
 | RECFOLDER | /home/nombre-del-alumno/restaurar |
 
+* Iniciar sesión con nuestro usuario (`nombre-del-alumno`). Estamos en el directorio `/home/nombre-del-alumno`
 * Crear directorio DOCFOLDER.
     * Crear archivo DOCFOLDER/a.txt. Dentro escribir nombre completo del alumno.
     * Crear archivo DOCFOLDER/b.txt. Dentro escribir la fecha actual.
-* `cd /home/nombre-del-alumno`
 
+Se ha creado lo siguiente:
 ```
 mydocs
 ├── a.txt
@@ -73,13 +76,13 @@ O también `tar -xvf backup.tar -C dir2 archivo`.
 * `tar -axvf ...`: Extrae el contenido del fichero empaquetado y comprimido.
 
 Otros parámetros:
-* Con el parámetro `-p` los ficheros mantetienen su trayectoria absoluta.
+* Con el parámetro `-p` los ficheros mantienen su trayectoria absoluta.
 * Con el parámetro `-z` podemos forzar compresión "gz".
 
-Varios:
-* `date +%Y%m%y`: Genera la fecha actual en formato AAAAMMDD
-* `gzip ...`: Comando para hacer la compresión en formato gz.
-* `zip ...`: Comando para hacer la compresión en formato zip.
+> Varios:
+> * `date +%Y%m%y`: Comando para mostrar la fecha actual en formato AAAAMMDD.
+> * `gzip ...`: Comando para hacer la compresión en formato gz.
+> * `zip ...`: Comando para hacer la compresión en formato zip.
 
 ---
 # 3. Copia de seguridad total (full-backup)
