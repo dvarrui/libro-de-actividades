@@ -87,6 +87,7 @@ end
 > Enlaces de interés:
 > * EN - [Use systemd to Start a Linux Service at Boot](https://www.linode.com/docs/quick-answers/linux/start-service-at-boot/)
 > * EN - [Systemd System and Service Manager](https://www.freedesktop.org/wiki/Software/systemd/)
+> * EN - [Systemd - Unit file](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 
 Vamos a crear un servicio para nuestro bot, de modo que se inicie siempre al arrancar el equipo y que podemos gestionarlo como el resto de servicios (usando el comando `systemctl`).
 
@@ -105,7 +106,7 @@ El init es el proceso que inicia todo el sistema y arranca los servicios. Cada s
 
 Cada servicio de Systemd se define en un fichero `Unit file`
 
-* Crear el fichero `/usr/lib/systemd/system/botXX.service` con el siguiente contenido:
+* Crear el fichero `/etc/systemd/system/botXX.service` con el siguiente contenido:
 
 ```
 [Unit]
@@ -117,9 +118,12 @@ ExecStart=/usr/bin/ruby /usr/local/bin/botXXd
 
 [Install]
 WantedBy=multi-user.target
+After=network.service
 ```
 
-Así se define un servicio sencillo. La directiva `ExecStart` especifica el comando que se ejecutará para iniciar el servicio.
+Así se define un servicio sencillo.
+* `ExecStart`, especifica el comando/demonio que se ejecutará para iniciar el servicio.
+* `After`, indica que este servicio debe iniciarse después del servicio que activa la red.
 
 # 2.2 Iniciar y activar el servicio
 
@@ -139,7 +143,7 @@ Lo más cómodo para parar el servicio es `systemctl stop botXX`, pero también 
 
 ## 2.4 Entrega
 
-* Fichero de configuración del servicio `/usr/lib/systemd/system/botXX.service`.
+* Fichero de configuración del servicio `/etc/systemd/system/botXX.service`.
 * Capturas de pantalla donde se muestre que podemos iniciar el parar el servicio botXX con el comando systemctl.
 
 ---
