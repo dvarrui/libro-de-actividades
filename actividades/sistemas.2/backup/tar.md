@@ -88,7 +88,7 @@ Otros parámetros:
 # 3. Copia de seguridad total (full-backup)
 
 * `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
-* `tar tvc backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
+* `tar tvf backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
 * Crear archivo DOCFOLDER/c.txt. Escribir dentro el título de tu película favorita.
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprobar el contenido.
