@@ -19,10 +19,14 @@ Propuesta de rúbrica:
 
 ## 1.1 Elegir una de las siguientes MV
 
+Vamos a realizar esta práctica en 1 MV que puede ser:
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
-* SO Windows + Cygwin  ([Configuración](../../global/configuracion)).
+* SO Windows ([Configuración](../../global/configuracion)) con [Cygwin](https://www.cygwin.com/) instalado.
 
 ## 1.2 Preparativos
+
+Una vez elegida la MV, empezamos:
+* `tar --version`, para comprobar que lo tenemos instalado en nuestro sistema.
 
 | Parámetro | Valor                             |
 | --------- | --------------------------------- |
@@ -30,7 +34,6 @@ Propuesta de rúbrica:
 | DOCFOLDER | /home/nombre-del-alumno/mydocs    |
 | RECFOLDER | /home/nombre-del-alumno/restaurar |
 
-* `tar --version`, para comprobar que lo tenemos instalado en nuestro sistema.
 * Crear directorio DOCFOLDER.
     * Crear archivo DOCFOLDER/a.txt. Dentro escribir nombre completo del alumno.
     * Crear archivo DOCFOLDER/b.txt. Dentro escribir la fecha actual.
