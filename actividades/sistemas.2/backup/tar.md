@@ -228,3 +228,8 @@ Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos p
 # 7. Windows
 
 Hacer una copia usando la herramienta que viene por defecto en Windows.
+
+---
+# ANEXO
+
+* Hacer una copia de seguridad guardando los ficheros en un servidor remoto (smb/cifs, scp, etc.)
