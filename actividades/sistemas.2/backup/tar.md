@@ -1,9 +1,9 @@
 
 ```
-Curso     : 201920
-Estado    : Nuevo
-Objetivo  : Copias de seguridad usando tar
-Requisitos:
+Curso      : 201920
+Estado     : Nuevo
+Objetivo   : Copias de seguridad usando tar, rsync, Windows
+Requisitos : GNU/Linux, Windows, SSH
 ```
 
 [Metodología de trabajo](../../global/metodologia.md)
@@ -224,12 +224,101 @@ Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos p
 
 > Nota: Si pasados unos días, volviésemos a crear otra copia diferencial "backupXX-8-diff" con la misma fecha, esta copia contendría también los cambios reflejados en las copias diferenciales anteriores. Por esta razón su tamaño va aumentando en comparación con los backups incrementales.
 
----
-# 7. Windows
+Por ahora estamos guardando las copias de seguridad en el equipo local. Es aconsejable  guardar las copias en otro equipo de nuestra red. Podríamos guardar los ficheros de las copias de seguridad en un servidor remoto usando smb/cifs, scp, etc.
 
-Hacer una copia usando la herramienta que viene por defecto en Windows.
+---
+# 6. Windows
+
+Hacer una copia de seguridad de la carpeta `C:\Users\nombre-del-alumno\Documents`, usando la herramienta que viene por defecto en Windows.
+
+---
+# 7. rsync
+
+`ESTO NO HAY QUE HACERLO. ES PARA COMENTAR EN CLASE`
+
+Ahora vamos a usar la herramienta `rsync` para hacer réplicas de nuestros ficheros.
+
+> Más información:
+> * Libro "Administración de Sistemas Linux" de ANAYA (Capítulo 11)
+
+## 7.1 Introducción
+
+Rsync transfiere archivos eficientemente por una red a otro sistema, desde el cual puede recuperarlos en caso de que le ocurra un desastre al sistema local.
+
+La utilidad rsync es programa diseñado para replicar grandes cantidades de datos. Puede saltarse archivos copiados previamente y fragmentos y encriptar las transferencias de datos con SSH, haciendo copias de seguridad remota con rsync de manera más rápida y más segura que con herramientas tradicionales.
+
+**Opciones de rsync**
+
+Éstas son algunas de las principales opciones de rsync:
+
+| Oopción | Descripción |
+| ------- | ----------- |
+| -g      | Preserva los permisos de grupo de los archivos que se están duplicando |
+| -l      | Copia los enlaces simbólicos con enlaces simbólicos |
+| -o      | Preserva el usuario de los archivos que se replican |
+| -p      | Preserva los permisos de los archivos que se replican |
+| -t      | Preserva la hora de modificación de los archivos que se replican |
+| -r      | Activa la recursividad, transfiriendo subdirectorios |
+| -a      | Es lo mismo que "-Dgloprt" |
+| --partial | Activa las transferencias parciales. Si rsync se para, será capaz de completar el resto del archivo cuando se reinicie |
+| --progress | Muestra el progreso de la transferencia de archivos |
+| -P      | Activa "--partial" y "--progress" |
+| -v      | Lista los archivos que se están transfiriendo |
+| -vv     | Igual que -v pero también lista los archivos que se ignoran |
+| -vvv    | Igual que -vv pero también muestra información de depuración |
+| -n      | Muestra los archivos que se transferirán |
+| --rsh='ssh' | Usa SSH para la transferencia. También se puede hacer definiendo la variable de entorno RSYNC_RSH como ssh |
+| -z      | Activa la compresión |
+| -H      | Preserva los enlaces |
+| -b`     | Hace copia de todos los archivos destino en lugar de sustituirlos. Se usará cuando se desea mantener versiones antiguas de cada archivo |
+
+Después de las opciones vienen los parámetros de origen y destino. Las rutas pueden ser locales o remotas (`user@host:path`).
+
+## 7.2 Preparativos
+
+* `whereis rsync`, para comprobar si tenemos rsync instalado en el sistema. También podemos verificarlo con: `rsync --version`, `rsync --help`, `zypper info rsync`, etc.
+* Si no está debemos instalarlo:
+    * `zypper install rsync`, instalar rsync en OpenSUSE.
+    * También podemos usar el comando `apt install rsync`, para OpenSUSE o Debian/Ubuntu.
+
+## 7.3 rsync en local
+
+* Crear la siguiente estructura de ficheros en nuestro directorio HOME:
+```
+├── mydocs
+│   ├── a.txt
+│   ├── b.txt
+│   └── c.txt
+└── replica
+```
+* `rsync -aP mydocs replica`, para crear una réplica exacta de `mydocs` en el directorio `replica`.
+* Si repetimos el proceso (`rsync -aP mydocs replica`) no copia nada porque no es necesario.
+* Crear `mydocs/d.txt` en local.
+* Volver a replicar. Comprobar que sólo se replican lo cambios.
+* Eliminar `mydocs/b.txt` en local.
+* Ejecutar `rsync -aP --delete mydocs replica`. Comprobamos que sólo se replican lo cambios. En este caso se replica la eliminación del archivo.
+
+## 7.4 rsync remoto
+
+* Crear MV2 con servidor SSH activo.
+* Volver a la MV1.
+* `ssh usuario2@ip-mv2`, comprobamos que funciona el acceso remoto SSH a la MV2.
+* `exit` para salir de la sesión SSH.
+
+Estamos en la MV1.
+* Partimos de la siguiente estructura de ficheros en nuestro directorio HOME:
+
+```
+mydocs
+├── a.txt
+├── c.txt
+└── d.txt
+```
+
+* `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2`, de la máquina remota `ip-mv2`.
+* Crear `mydocs/b.txt`
+* Eliminar `mydocs/d.txt`.
+* Volver a replicar al servidor remoto.
 
 ---
 # ANEXO
-
-* Hacer una copia de seguridad guardando los ficheros en un servidor remoto (smb/cifs, scp, etc.)

@@ -123,7 +123,7 @@ rsync -aHPvz . $(USERNAME)@${HOSTNAME}:.
 
 ---
 
-# 5. Recuparación
+# 5. Recuperación
 
 ## 5.1 Listando archivos en el servidor
 
