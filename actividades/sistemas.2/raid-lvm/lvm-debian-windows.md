@@ -1,12 +1,12 @@
 
-| Metadatos | Valores |
-| --------- | ------- |
-| Módulos recomendados | Sistemas Operativos (1asir, 2asir) |
-| Curso     | 201819  |
-| SSOO      | Debian9 y Windows7 |
-| Duración estimada | 11 sesiones (1semana) |
-| Entrega por defecto | Informe tipo tutorial |
-| Futuro | Hacer rúbrica y migrar a OpenSUSE con Yast |
+```
+Módulos         : Sistemas Operativos
+Curso           : 201819
+Requisitos      : SSOO Debian9 y Windows7
+Tiempo estimado : 11 sesiones (1semana)
+Entrega         : Informe tipo tutorial
+Futuro          : Hacer rúbrica y migrar a OpenSUSE con Yast
+```
 
 ---
 
@@ -25,15 +25,9 @@ Ejemplo de rúbrica:
 > * [LVM. Learning Linux: "Lesson 21 LVM snapshots"](https://youtu.be/N8rUlYL2O_g?list=PL3E447E094F7E3EBB)
 
 ---
-
 # 1. Instalar SO sobre LVM
 
 Vamos a instalar un sistema operativo GNU/Linux Debian, sobre unos discos con LVM.
-
-> NOTA:
->
-> Otra forma de producir un efecto similar al de LVM, es mediante el uso de
-sistemas de ficheros como BtrFS o ZFS (Consultar). Nosotros NO vamos a usar ZFS sino LVM en nuestra práctica, pero si algún grupo desea usar ZFS debe hablar con el profesor.
 
 ## 1.1 Preparar MV
 
@@ -92,7 +86,6 @@ lvdisplay vgXXdebian
 ```
 
 ---
-
 # 2 Aumentar el tamaño del VL en caliente
 
 Ahora podremos ampliar *"en caliente"*, el espacio de lvXXdatos de 100MB a 400MB.
