@@ -227,7 +227,9 @@ Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos p
 Por ahora estamos guardando las copias de seguridad en el equipo local. Es aconsejable  guardar las copias en otro equipo de nuestra red. Podríamos guardar los ficheros de las copias de seguridad en un servidor remoto usando smb/cifs, scp, etc.
 
 ---
-# 6. Windows
+# 6. Entorno gráfico
+
+En Windows como en GNU/Linux, suele haber una herramienta de entorno gráfico para realizar copias de seguridad. Es una herramienta mucho más limitada que las que tenemos en los comandos.
 
 Hacer una copia de seguridad de la carpeta `C:\Users\nombre-del-alumno\Documents`, usando la herramienta que viene por defecto en Windows.
 
