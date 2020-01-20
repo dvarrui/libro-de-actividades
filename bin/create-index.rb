@@ -11,8 +11,8 @@ end
 
 def resume_dirs(dirpaths)
   puts "\# Resumen\n\n"
-  puts '| Categoría | Cantidad de actividaes |'
-  puts '| --------- | ---------------------- |'
+  puts '| Categoría | Cantidad de actividades |'
+  puts '| --------- | ----------------------- |'
 
   dirpaths.each do |dirpath|
     items = Dir.entries(dirpath) - [ '.', '..', 'REV']
@@ -30,8 +30,8 @@ def show_dir(parentdir)
   items.sort!
   puts format('## Categoría: %s', File.basename(parentdir))
   puts "\n"
-  puts '| ID | Sección | Cantidad | Actividaes |'
-  puts '| -- | ------- | -------- | ---------- |'
+  puts '| ID | Sección | Cantidad | Actividades |'
+  puts '| -- | ------- | -------- | ----------- |'
 
   items.each_with_index do |item, index|
     filepath = File.join(parentdir, item)

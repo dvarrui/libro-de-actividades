@@ -1,19 +1,19 @@
 # Índice de actividades
 
-`Fecha UM: 2020-01-20 18:50:22 +0000`
+`Fecha UM: 2020-01-20 18:51:28 +0000`
 
 # Resumen
 
-| Categoría | Cantidad de actividaes |
-| --------- | ---------------------- |
+| Categoría | Cantidad de actividades |
+| --------- | ----------------------- |
 | [hardware](#categoría-hardware) | 14 |
 | [sistemas.2](#categoría-sistemas2) | 15 |
 | [sistemas.3](#categoría-sistemas3) | 13 |
 
 ## Categoría: hardware
 
-| ID | Sección | Cantidad | Actividaes |
-| -- | ------- | -------- | ---------- |
+| ID | Sección | Cantidad | Actividades |
+| -- | ------- | -------- | ----------- |
 | 1 | [bios](actividades/hardware/bios) | 1 | [enlaces-de-interes.md](actividades/hardware/bios/enlaces-de-interes.md) |
 | 2 | [clonar](actividades/hardware/clonar) | 6 | [cifrado-opensuse42.md](actividades/hardware/clonar/cifrado-opensuse42.md), [cifrado.md](actividades/hardware/clonar/cifrado.md), [clonezilla-device-device-bios.md](actividades/hardware/clonar/clonezilla-device-device-bios.md), [clonezilla-device-device.md](actividades/hardware/clonar/clonezilla-device-device.md), [clonezilla-remote-samba.md](actividades/hardware/clonar/clonezilla-remote-samba.md), [recuperacion-de-datos.md](actividades/hardware/clonar/recuperacion-de-datos.md) |
 | 3 | [cpd](actividades/hardware/cpd) | 4 | [ceph.md](actividades/hardware/cpd/ceph.md), [italc.md](actividades/hardware/cpd/italc.md), [kvm.md](actividades/hardware/cpd/kvm.md), [visitas](actividades/hardware/cpd/visitas) |
@@ -30,8 +30,8 @@
 
 ## Categoría: sistemas.2
 
-| ID | Sección | Cantidad | Actividaes |
-| -- | ------- | -------- | ---------- |
+| ID | Sección | Cantidad | Actividades |
+| -- | ------- | -------- | ----------- |
 | 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 5 | [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md), [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian.md](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [w7-debian.md](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse.md](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
 | 1 | [backup](actividades/sistemas.2/backup) | 3 | [README.md](actividades/sistemas.2/backup/README.md), [rsync.md](actividades/sistemas.2/backup/rsync.md), [tar.md](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README.md](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp.md](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
@@ -48,8 +48,8 @@
 
 ## Categoría: sistemas.3
 
-| ID | Sección | Cantidad | Actividaes |
-| -- | ------- | -------- | ---------- |
+| ID | Sección | Cantidad | Actividades |
+| -- | ------- | -------- | ----------- |
 | 0 | [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) | 2 | [README.md](actividades/sistemas.3/clientes-ligeros/README.md), [enlaces-de-interes.md](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md) |
 | 1 | [devops](actividades/sistemas.3/devops) | 6 | [docker-compose.md](actividades/sistemas.3/devops/docker-compose.md), [docker.md](actividades/sistemas.3/devops/docker.md), [puppet-debian.md](actividades/sistemas.3/devops/puppet-debian.md), [puppet-opensuse.md](actividades/sistemas.3/devops/puppet-opensuse.md), [saltstack-opensuse.md](actividades/sistemas.3/devops/saltstack-opensuse.md), [vagrant.md](actividades/sistemas.3/devops/vagrant.md) |
 | 2 | [exposicion](actividades/sistemas.3/exposicion) | 1 | [exposision-turismo.md](actividades/sistemas.3/exposicion/exposision-turismo.md) |
