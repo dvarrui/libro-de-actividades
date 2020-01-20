@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2019-12-17 12:27:12 +0000`
+`Fecha UM: 2020-01-20 18:50:22 +0000`
 
 # Resumen
 
@@ -51,7 +51,7 @@
 | ID | Sección | Cantidad | Actividaes |
 | -- | ------- | -------- | ---------- |
 | 0 | [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) | 2 | [README.md](actividades/sistemas.3/clientes-ligeros/README.md), [enlaces-de-interes.md](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md) |
-| 1 | [devops](actividades/sistemas.3/devops) | 5 | [docker.md](actividades/sistemas.3/devops/docker.md), [puppet-debian.md](actividades/sistemas.3/devops/puppet-debian.md), [puppet-opensuse.md](actividades/sistemas.3/devops/puppet-opensuse.md), [saltstack-opensuse.md](actividades/sistemas.3/devops/saltstack-opensuse.md), [vagrant.md](actividades/sistemas.3/devops/vagrant.md) |
+| 1 | [devops](actividades/sistemas.3/devops) | 6 | [docker-compose.md](actividades/sistemas.3/devops/docker-compose.md), [docker.md](actividades/sistemas.3/devops/docker.md), [puppet-debian.md](actividades/sistemas.3/devops/puppet-debian.md), [puppet-opensuse.md](actividades/sistemas.3/devops/puppet-opensuse.md), [saltstack-opensuse.md](actividades/sistemas.3/devops/saltstack-opensuse.md), [vagrant.md](actividades/sistemas.3/devops/vagrant.md) |
 | 2 | [exposicion](actividades/sistemas.3/exposicion) | 1 | [exposision-turismo.md](actividades/sistemas.3/exposicion/exposision-turismo.md) |
 | 3 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups.md](actividades/sistemas.3/impresion/cups.md), [windows.md](actividades/sistemas.3/impresion/windows.md) |
 | 4 | [ldap](actividades/sistemas.3/ldap) | 9 | [ldap-389ds-opensuse-auth.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse-ldaps.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse-ldaps.md), [ldap-389ds-opensuse.md](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache.md](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian.md](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba.md](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos.md](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse.md](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md), [ldap-server-debian.md](actividades/sistemas.3/ldap/ldap-server-debian.md) |
