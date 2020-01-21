@@ -195,10 +195,9 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * Paramos el servicio.
 * Esperamos 5 minutos y ahora debe haberse iniciado de forma automática (con crontab).
 
-**Preguntas**:
+---
+### Preguntas**
+
 * _¿Se podría instalar Ruby en Windows?_ => RubyInstaller
 * _¿Se podría pasar el demonio (botXXd) a Windows?_ => Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
 * _¿Sabrías crear una tarea programa en Windows?_ => Ir a `Panel de control -> tareas programadas`.
-
----
-# ANEXO
