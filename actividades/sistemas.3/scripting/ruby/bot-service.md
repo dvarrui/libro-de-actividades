@@ -111,6 +111,7 @@ Cada servicio de Systemd se define en un fichero `Unit file`
 ```
 [Unit]
 Description=Servicio Bot del alumnoXX.
+After=network.service
 
 [Service]
 Type=simple
@@ -118,7 +119,6 @@ ExecStart=/usr/bin/ruby /usr/local/bin/botXXd
 
 [Install]
 WantedBy=multi-user.target
-After=network.service
 ```
 
 Así se define un servicio sencillo.
