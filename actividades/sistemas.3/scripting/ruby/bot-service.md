@@ -11,8 +11,8 @@ Vamos a crear un servicio de Systemd que iniciará un Bot de Telegram.
 
 Propuesta de rúbrica:
 
-| ID  | Criterio | Bien(2) | Regular(1) | Mal(0) |
-| --- | -------- | ------- | ---------- | ------ |
+| ID  | Criterio | Muy bien(2) | Regular(1) | Poco adecuado(0) |
+| --- | -------- | ----------- | ---------- | ---------------- |
 | 1.4 | Entrega  ||||
 | 2.4 | Entrega  ||||
 | 3.2 | Tareas programadas ||||
