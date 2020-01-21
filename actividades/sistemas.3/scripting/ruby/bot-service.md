@@ -88,6 +88,7 @@ end
 > * EN - [Use systemd to Start a Linux Service at Boot](https://www.linode.com/docs/quick-answers/linux/start-service-at-boot/)
 > * EN - [Systemd System and Service Manager](https://www.freedesktop.org/wiki/Software/systemd/)
 > * EN - [Systemd - Unit file](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
+> * EN - [Understanding Systemd Units and Unit Files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files)
 
 Vamos a crear un servicio para nuestro bot, de modo que se inicie siempre al arrancar el equipo y que podemos gestionarlo como el resto de servicios (usando el comando `systemctl`).
 
@@ -201,6 +202,3 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 
 ---
 # ANEXO
-
-Revisar:
-* Systemd dependencias after before network para bot
