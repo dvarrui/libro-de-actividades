@@ -157,11 +157,14 @@ Supongamos que nos preocupa que nuestro programa (botXXd) se pueda detener de fo
 ## 3.1 Controlador
 
 Creamos un nuevo script `/usr/local/bin/botXXcontroller`. Este script hará lo siguiente:
-* Consulta si el demonio está en ejecución. Se podría hacer con:
+* Consulta si el demonio está en ejecución. Se puede hacer con:
     * `ps -ef |grep botXXd` o
+    * `systemctl is-active botXX` o
     * `systemctl status botXX`
     * etc.
-* Si no está en ejecución, entonces se inicia el servicio (`systemctl ...`).
+* Si no está en ejecución, entonces:
+    * Se inicia el servicio (`systemctl ...`).
+    * Se guarda el siguiente mensaje en `/etc/botXX/log`: "[botXXcontroller] Inicia el servico del bot."
 * Se termina el script.
 
 ## 3.2 Tareas programadas

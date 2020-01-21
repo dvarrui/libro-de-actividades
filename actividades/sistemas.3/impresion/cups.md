@@ -24,7 +24,6 @@ Enlace de interés:
 * [Vídeo LPIC-1 102 Printing using CUPS](https://youtu.be/6M4oGNn9cVc)
 
 ---
-
 # 2. Servidor de Impresión
 
 * Instalar el sistema de impresión CUPS para GNU/Linux.
@@ -33,8 +32,9 @@ Enlace de interés:
 * Acceder a la sección de `Administración`, y dentro de ahí a la
 parte de `Ver archivo de registro de accesos`.
 
----
+> OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`.
 
+---
 # 3. Imprimir de forma local
 
 Ahora vamos a usar una impresora de forma local en el servidor de impresión.
@@ -53,7 +53,6 @@ de la herramienta que proporciona en entorno de escritorio GNOME
 en `Sistema -> Administración -> Impresión`.
 
 ---
-
 # 4. Imprimir de forma remota
 
 > NOTA: Aunque lo indiquen los apuntes, para nuestras pruebas,
