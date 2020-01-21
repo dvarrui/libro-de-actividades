@@ -162,9 +162,10 @@ Creamos un nuevo script `/usr/local/bin/botXXcontroller`. Este script hará lo s
     * `systemctl is-active botXX` o
     * `systemctl status botXX`
     * etc.
-* Si no está en ejecución, entonces:
+* Si el servicio no está en ejecución, entonces:
     * Se inicia el servicio (`systemctl ...`).
-    * Se guarda el siguiente mensaje en `/etc/botXX/log`: "[botXXcontroller] Inicia el servico del bot."
+    * Se registra el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "[botXXcontroller] Iniciando el servicio del bot..."
+* Si el servico está en ejecución, entonces registramos el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "[botXXcontroller] No hace nada!".
 * Se termina el script.
 
 ## 3.2 Tareas programadas
