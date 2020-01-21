@@ -145,7 +145,7 @@ Lo más cómodo para parar el servicio es `systemctl stop botXX`, pero también 
 ## 2.4 Entrega
 
 * Fichero de configuración del servicio `/etc/systemd/system/botXX.service`.
-* Capturas de pantalla donde se muestre que podemos iniciar el parar el servicio botXX con el comando systemctl.
+* Capturas de pantalla donde se muestre que podemos iniciar y parar el servicio `botXX` con el comando `systemctl`.
 
 ---
 # 3. Programar tareas
@@ -190,7 +190,8 @@ Vamos a programar el script `botXXcontroller` para que se ejecute cada 5 minutos
 
 Esta configuración programa una ejecución del script cada 5 minutos.
 
-* Escribir: `ESC`, `:`, `wq`, cuando hayamos acabado. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
+* Cuando terminemos, pulsar `ESC`.
+* Escribir `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
 * `crontab -l`, para consultar la tarea programada.
 * Paramos el servicio.
 * Esperamos 5 minutos y ahora debe haberse iniciado de forma automática (con crontab).
