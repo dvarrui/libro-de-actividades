@@ -171,6 +171,7 @@ Creamos un nuevo script `/usr/local/bin/botXXcontroller`. Este script hará lo s
 
 Vamos a programar el script `botXXcontroller` para que se ejecute cada 5 minutos. Usaremos la herramienta crontab.
 
+* Iniciar sesión con el usuario `root`.
 * `crontab -l`, vemos que no hay ninguna configuración creada.
 * `crontab -e`, se nos abre un editor.
 * Pulsar `i`(insert) para activar el modo de empezar a escribir.
