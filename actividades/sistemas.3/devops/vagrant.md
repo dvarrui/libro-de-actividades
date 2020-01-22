@@ -86,13 +86,11 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 ```
 vagrant42-proyecto1> vagrant box list
 ubuntu/bionic64 (virtualbox, 0)
-vagrant42-proyecto1>
 ```
 
 * Hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`.
 * Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`. NOTA: Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
-* Configurar nuestro proyecto para usar nuestra caja BOXNAME.
-    * `config.vm.box = "BOXNAME"`
+* Configurar nuestro proyecto para usar nuestra caja BOXNAME. Esto es: `config.vm.box = "BOXNAME"`.
 
 Veamos ejemplo:
 ```
@@ -128,46 +126,27 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 
 `NO ES NECESARIO hacer este apartado. Sólo es información.`
 
-Teoría sobre opciones para configurar de entorno virtual.
-
-## TEORIA: Carpetas sincronizadas
-
-La carpeta del proyecto que contiene el `Vagrantfile` es visible
-para el sistema el virtualizado, esto nos permite compartir archivos fácilmente
-entre los dos entornos.
-
-Para identificar las carpetas compartidas dentro del entorno virtual, hacemos:
-```
-vagrant up
-vagrant ssh
-ls /vagrant
-```
-
-Esto nos mostrará que efectivamente el directorio `/vagrant` dentro del entorno virtual posee el mismo `Vagrantfile` que se encuentra en nuestro sistema anfitrión.
-
-## TEORIA: Redireccionamiento de los puertos
-
-Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos
-enfocados a la web, y para acceder a las páginas es necesario configurar el
-enrutamiento de puertos.
-
-## TEORIA: Ejemplos de configuración Vagrantfile
-
 A continuación se muestran ejemplos de configuración Vagrantfile que NO ES NECESARIO hacer. Sólo es información.
 
 > Enlace de interés [Tutorial Vagrant. ¿Qué es y cómo usarlo?](https://geekytheory.com/tutorial-vagrant-1-que-es-y-como-usarlo)
 
-Ejemplo para configurar la red:
-```
-config.vm.network "private_network", ip: "192.168.33.10"
-```
+**Carpetas compartidas**
 
-Ejemplo para configurar las carpetas compartidas:
-```
-config.vm.synced_folder "htdocs", "/var/www/html"
-```
+La carpeta del proyecto que contiene el `Vagrantfile` es visible
+para el sistema el virtualizado, esto nos permite compartir archivos fácilmente entre los dos entornos.
 
-Ejemplo para personalizar la conexión SSH a nuestra máquina virtual:
+Ejemplos para configurar las carpetas compartidas:
+* `config.vm.synced_folder ".", "/vagrant"`: La carpeta del proyecto es accesible desde /vagrant de la MV.
+* `config.vm.synced_folder "htdocs", "/var/www/html"`. La carpeta htdocs del proyecto es accesible desde /var/www/html de la MV.
+
+**Redireccionamiento de los puertos**
+
+Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos enfocados a la web, y para acceder a las páginas es necesario configurar el enrutamiento de puertos.
+
+* `config.vm.network "private_network", ip: "192.168.33.10"`: Ejemplo para configurar la red.
+
+**Conexión SSH**: Ejemplo para personalizar la conexión SSH a nuestra máquina virtual:
+
 ```
 config.ssh.username = 'root'
 config.ssh.password = 'vagrant'
