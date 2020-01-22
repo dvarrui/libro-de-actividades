@@ -101,8 +101,9 @@ david@camaleon:~/Documentos/vagrant42-proyecto1> vagrant box list
 ubuntu42 (virtualbox, 0)
 david@camaleon:~/Documentos/vagrant42-proyecto1>
 ```
-    * `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
-    * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
+
+* `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
+* `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
 * Hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`.
 * Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`.
     * Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
