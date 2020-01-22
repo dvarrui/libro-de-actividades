@@ -1,6 +1,0 @@
-gem: --commands
-gempath:
-  - /usr/local/rubygems
-  - /another/spot/for/rubygems
-  - /usr/local/lib/ruby/gems/1.8
-gemhome: test/data/gemhome
