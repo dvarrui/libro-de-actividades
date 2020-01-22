@@ -78,8 +78,7 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 * [Vagrant Box List](http://www.vagrantbox.es)
 * [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
 
-En este curso vamos a usar los siguientes valores:
-* **BOXNAME**: `ubuntu/bionic64`
+> OJO: Sustituir **BOXNAME** por `ubuntu/bionic64`
 
 * `vagrant box add ubuntu/bionic64`, descargar la caja que necesitamos a través de vagrant.
 * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
@@ -100,7 +99,7 @@ Veamos ejemplo:
 vagrant42-proyecto1> more Vagrantfile
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu42"
+  config.vm.box = "BOXNAME"
   config.vm.provider "virtualbox"
 end
 ```
