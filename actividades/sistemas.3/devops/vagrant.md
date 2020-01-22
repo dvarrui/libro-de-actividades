@@ -79,24 +79,17 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 * [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
 
 En este curso vamos a usar los siguientes valores:
-* **BOXNAME**: `ubuntuXX`
-* **BOXURL**: https://cloud-images.ubuntu.com/vagrant/trusty/20181207/trusty-server-cloudimg-i386-vagrant-disk1.box
+* **BOXNAME**: `ubuntu/bionic64`
 
-
-* `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
+* `vagrant box add ubuntu/bionic64`, descargar la caja que necesitamos a través de vagrant.
 * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
 
 ```
 vagrant42-proyecto1> vagrant box list
-ubuntu42 (virtualbox, 0)
+ubuntu/bionic64 (virtualbox, 0)
 vagrant42-proyecto1>
 ```
 
-<<<<<<< HEAD
-=======
-* `vagrant box add BOXNAME BOXURL`, descargar la caja que necesitamos a través de vagrant.
-* `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
->>>>>>> 73c7c399ddad13a9bcd4bbd8002b5160f1a81f72
 * Hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`.
 * Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`. NOTA: Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
 * Configurar nuestro proyecto para usar nuestra caja BOXNAME.
