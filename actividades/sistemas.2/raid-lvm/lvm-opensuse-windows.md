@@ -41,6 +41,7 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
 | ID | Size   | Tipo de partición       | Formato |
 | -- | ------ | ----------------------- | ------- |
 | 1  | 500 MB | Sistema de arranque EFI | FAT     |
+| 2  | Resto  | Linux LVM               | -       |
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
