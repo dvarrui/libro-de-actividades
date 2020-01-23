@@ -58,6 +58,7 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
 > Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 
 * Terminamos la instalación del sistema operativo.
+* Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
 
 ## 1.3 Comprobación de la instalación con volúmenes (LVM)
 
