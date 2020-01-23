@@ -125,10 +125,12 @@ Esquema de PV, VG y LV:
 
 ## 3.2 Crear VG y VL
 
-* Crear un Grupo de Volumen llamado `grupoXXextra`, con el disco (B) y las 2 primeras particiones del (C). Veamos un ejemplo de cómo
-crear un grupo de volúmenes con vgcreate: `vgcreate /dev/NOMBRE-GRUPO-VOLUMEN disco1 particion`
-* Crear un nuevo Volumen Lógico llamado `volXXextra` con tamaño 690MB.
-Comando: `lvcreate -L690M -n volXXextra grupoXXextra`.
+* Crear un Grupo de Volumen llamado `grupoXXextra`, con el disco (B) y las 2 primeras particiones del (C).
+* Crear un nuevo Volumen Lógico
+    * Nombre: `volXXextra`
+    * Tamaño: 690MB.
+    * Formato: `ext4`
+    * Punto de montaje: `/mnt/folderXXextra`.
 
 > NOTA: La partición 3 del disco (C) NO la estamos usando por ahora.
 
@@ -136,16 +138,13 @@ Comando: `lvcreate -L690M -n volXXextra grupoXXextra`.
 ```
 vgdisplay grupoXXextra # Información del grupo de volumen
 lvdisplay grupoXXextra # Volúmenes lógicos de un grupo
+df -hT                 # Volmnen montado
 ```
 
 ## 3.3 Escribir información
 
-* El nuevo dispositivo `/dev/grupoXXextra/volXXextra` no tiene formato. Vamos a darle formato ext4. Ejemplo: `mkfs.ext4 nombre-del-dispositivo`.
-* Crear directorio (`/mnt/folderXXextra`),donde vamos a montar el nuevo dispositivo (Volumen lógico).
-* Montar el nuevo dispositivo (Volumen Lógico) en la carpeta `/mnt folderXXextra`.
-* Comprobamos que se ha montado correctamente con `df -hT`.
+A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se estará guardando en el dispositivo montado.
 
-A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando en el dispositivo montado.
 * Comprobar el espacio usado en `/mnt/folderXXextra` (df -hT).
 * Escribir información en `/mnt/folderXXextra`. Crear algunas carpetas y ficheros con tamaño mayor a cero.
 
@@ -157,15 +156,9 @@ A partir de ahora todo lo que escribamos en dicha carpeta se estará guardando e
 
 ## 3.4 Añadir más tamaño
 
-* Añadir la tercera partición del disco (C) (no utilizada) al VG vg-extra. Podemos hacerla por Yast o usando los siguientes comandos:
-
-```
-pvcreate  /dev/sdc3              # Crear un dispositivo físico de LVM
-vgextend  grupoXXextra /dev/sdc3 # Ampliar el grupo de volumen.
-vgdisplay grupoXXextra           # Para comprobar el cambio
-```
-
-* Ampliar el tamaño de volXXextra a 930MB (Comando lvextend). Comprobar el aumento del espacio (lvdisplay)
+* Añadir la tercera partición del disco (C) (no utilizada) al VG vg-extra. Podemos hacerla por Yast.
+* `vgdisplay grupoXXextra`, para comprobar el cambio.
+* Ampliar el tamaño de volXXextra a 930MB. Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
 
 ## 3.5 Quitar un disco físico del VG
