@@ -47,11 +47,11 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
 * Dentro del `grupoXX`, crearemos los volúmenes lógicos (LV) siguientes:
 
-| Logical Volume | Tamaño | Formato | Descripción         |
-| -------------- | ------ | ------- | ------------------- |
-| volXXswap      | 500 MB | swap    | Area de intercambio |
-| volXXraiz      | 6 GB   | ext4    | Instalar el SO (/)  |
-| volXXhome      | 100 MB | ext3    | Datos de usuario (/home) |
+| Nombnre   | Tamaño | Tipo                | Formato | Montar |
+| --------- | ------ | ------------------- | ------- | ------ |
+| volXXswap | 500 MB | Area de intercambio | swap    | -      |
+| volXXraiz | 6 GB   | Sistema operativo   | ext4    | /      |
+| volXXhome | 100 MB | Datos de usuario    | ext3    | /home  |
 
 * Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 * Terminamos la instalación del sistema operativo.
