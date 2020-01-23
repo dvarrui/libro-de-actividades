@@ -30,7 +30,9 @@ Realizar las siguientes tareas:
     * Sistema UEFI-BIOS activo.
     * Un disco de 8GB.
     * [Configuración](../../global/configuracion/opensuse.md).
-* Comenzar a instalar el sistema operativo, pero **parar al llegar al particionado**.
+* Comenzar a instalar el sistema operativo.
+* Elegir escritorio genérico.
+* **Parar al llegar al particionado**.
 
 Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
@@ -65,7 +67,7 @@ Podemos hacernos la idea de que los "grupos de volumen" son como si fueran disco
 
 ```
 date
-hostname -f
+hostname
 ip a
 fdisk -l
 vgdisplay          # Muestra los grupos de volumen
