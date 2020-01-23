@@ -79,9 +79,7 @@ Ahora podremos ampliar _"en caliente"_, el espacio de `volXXhome` de 100MB a 400
 ## 2.1 Ampliamos
 
 * Consultar el tamaño actual del volumen lógico: `lvdisplay -v /dev/grupoXX/volXXhome`
-* Para ampliar el tamaño del volumen lógico podemos:
-    * Usar entorno gráfico: `Yast`
-    * Usar comandos: `lvextend --resizefs -L 400 /dev/grupoXX/volXXhome`
+* Podemos usar `Yast` para ampliar el tamaño del volumen lógico. O también podemos hacerlo por comandos: `lvextend --resizefs -L 400 /dev/grupoXX/volXXhome`.
 * Comprobar con: `lvdisplay -v /dev/grupoXX/volXXhome`
 
 ## 2.2 Comprobamos

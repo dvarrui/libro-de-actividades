@@ -55,22 +55,13 @@ La instalación vamos a hacerla en una máquina real.
 ## 3.1 Directorio
 
 * Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
+
 ```
 mkdir vagrantXX-proyecto1
 cd vagrantXX-proyecto1
 ```
 
-* `vagrant init`
-
-```
-vagrant42-proyecto1> vagrant init
-
-A `Vagrantfile` has been placed in this directory. You are now
-ready to `vagrant up` your first virtual environment! Please read
-the comments in the Vagrantfile as well as documentation on
-`vagrantup.com` for more information on using Vagrant.
-
-```
+A partir de ahora vamos a trabajar dentro de esta carpeta.
 
 ## 3.2 Imagen, caja o box
 
@@ -92,7 +83,7 @@ ubuntu/bionic64 (virtualbox, 0)
 * Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`. NOTA: Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
 * Configurar nuestro proyecto para usar nuestra caja BOXNAME. Esto es: `config.vm.box = "BOXNAME"`.
 
-Veamos ejemplo:
+Ejemplo:
 ```
 vagrant42-proyecto1> more Vagrantfile
 
