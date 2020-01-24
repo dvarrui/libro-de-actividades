@@ -205,19 +205,17 @@ lvdisplay grupoXXextra
 
 # 4. Discos dinámicos en Windows
 
-En Windows las particiones se llaman volúmenes básicos. Para poder hacer el mismo efecto de LVM debemos convertir las particiones a volúmenes básicos.
+En Windows las particiones se llaman volúmenes básicos. Para poder hacer el mismo efecto que hicimos con LVM, primero debemos convertir las particiones a volúmenes dinámicos.
 
 ## 4.1 Volumen Distribuido
+
+Un volumen Distribuido de Windows se parece a RAID0 pero NO es RAID0. Un volumen distribuido usa discos de distinto tamaño para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
 
 * Vídeo sobre la [Creación de un volumen distribuido en Windows7](https://www.youtube.com/watch?v=prXBbHvqgx8)
 * Añadimos 2 discos virtuales nuevos:
     * Disco de 200MB (B): con una partición completa del disco
     * Disco de 600MB (C): con 2 particiones de 300MB sin formato, ni tipo.
-* Vamos a crear un volumen *Distribuido* con el disco (B) y las
+* Nota: los volúmenes simples del primer disco (A) deben permanecer intactos.
+* Vamos a crear un volumen *Distribuido* con el disco (B) y la
 primera partición del disco (C).
-
-> * Nota: los volúmenes simples del primer disco deben permanecer intactos.
-> * Un volumen Distribuido NO es RAID0. Se parece a RAID0 y usa discos de distinto tamaño para crear otro mayor. Es el mismo efecto que el conseguido con LVM y los volúmenes lógicos.
-
-* Con la misma letra de unidad se acceden a una zona de almacenamiento (volumen dinámico) formada por partes (particiones o
-volúmenes básicos) de varios discos. Comprobarlo.
+* Comprobar que con la letra de unidad que hayamos escogido para el volumen, se accede a una zona de almacenamiento (volumen dinámico) formada por partes (particiones o volúmenes básicos) de varios discos diferentes.
