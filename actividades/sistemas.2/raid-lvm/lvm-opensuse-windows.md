@@ -1,8 +1,8 @@
 
 ```
-Curso           : 201819
-Requisitos      : SO GNU/Linux y Windows
-Tiempo estimado : 11 sesiones (1semana)
+Curso           : 201920
+Requisitos      : SO OpenSUSE (Yast) y Windows
+Tiempo estimado : 6 sesiones
 Módulos         : Sistemas Operativos
 ```
 [Metodología](../../global/metodologia.md)
@@ -21,7 +21,7 @@ Ejemplo de rúbrica:
 ---
 # 1. Instalar SO sobre LVM
 
-Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre unos discos con LVM.
+Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volúmenes(LVM) en lugar de particiones.
 
 ## 1.1 Preparar MV
 
@@ -57,7 +57,8 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
 
 > Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 
-* Terminamos la instalación del sistema operativo.
+* Seguimos con la instalación del sistema operativo.
+* En Software elegir "Escritorio XFCE" para tener un escritorio ligero.
 * Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
 
 ## 1.3 Comprobación de la instalación con volúmenes (LVM)
