@@ -150,8 +150,7 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 * Escribir información en `/mnt/folderXXextra`. Crear algunas carpetas y ficheros con tamaño mayor a cero.
 
 > Por ejemplo para crear un archivo de tamaño 1M podemos hacer `dd if=/dev/zero of=/mnt/folderXXextra/file-size-1M bs=512 count=2048`.
->
-> **El comando dd hay que usarlo con precaución**.
+> **OJO**: El comando dd hay que usarlo con precaución.
 
 * Comprobar el espacio usado en `/mnt/folderXXextra` (df -hT).
 
