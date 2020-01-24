@@ -72,6 +72,7 @@ date
 hostname
 ip a
 fdisk -l
+lsblk
 vgdisplay          # Muestra los grupos de volumen
 lvdisplay grupoXX  # Muestra los volúmenes lógicos de un grupo
 ```
@@ -137,9 +138,10 @@ Esquema de PV, VG y LV:
 
 * Comprobamos lo que tenemos:
 ```
-vgdisplay grupoXXextra # Información del grupo de volumen
-lvdisplay grupoXXextra # Volúmenes lógicos de un grupo
-df -hT                 # Volmnen montado
+vgdisplay grupoXXextra # Información del grupo "extra"
+lvdisplay grupoXXextra # Volúmenes lógicos del grupo "extra"
+df -hT                 # Volumen montado
+lsblk
 ```
 
 ## 3.3 Escribir información
