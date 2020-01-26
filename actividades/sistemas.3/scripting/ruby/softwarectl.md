@@ -2,6 +2,7 @@
 ```
 Curso      : 201920
 Requisitos : GNU/Linux, Ruby
+Objetivo   : Ejercicio de scripting de sistemas con Ruby
 ```
 
 ---
@@ -95,6 +96,13 @@ Se valorará lo siguiente:
 
 ---
 # ANEXO
+
+## ¿Qué usuario está ejecutando el script?
+
+* Podemos lanzar un comando del sistema (`whoami`, `id`, etc) y leer el resultado.
+* También podemos hacer uso de la siguiente instrucción de Ruby para averiguar el uid de nuestro proceso (Script en ejecución): `Process.uid`.
+
+## ¿En qué plataforma se está ejecutando el script?
 
 Para saber en que SO estamos podemos usar la gema [os](https://github.com/rdp/os):
 * `gem install os` para instalar la gema.
