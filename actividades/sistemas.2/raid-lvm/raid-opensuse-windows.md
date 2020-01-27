@@ -44,7 +44,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 * Ir a `Particionador -> RAID`, y elegimos:
     * Hacer un `raid0`
     * Elegir los discos `sdb` y `sdc`.
-    * Le pondremos el nombre `r0_deviceXX` al dispositivo RAID0.
+    * Le pondremos el nombre `deviceXXr0` al dispositivo RAID0.
 * Aceptar.
 * Ya tenemos creado el nuevo dispositivo. Ahora crear una partición en él:
 
@@ -77,7 +77,7 @@ df -hT            # Muestra los puntos de montaje
 Información sobre los discos, particiones y dispositivos:
 ```
 cat /proc/mdstat  # Muestra la configuración RAID
-lsblk -fm         # Muestra esquema de discos/particiones/montaje
+lsblk             # Muestra esquema de discos/particiones/montaje
 ```
 
 ---
@@ -105,22 +105,22 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
 * Ir a `Particionador -> RAID`, y elegimos:
     * Elegir tipo `raid1`
     * Elegir los discos `sdd` y `sde`.
-    * Le pondremos el nombre `r1_deviceXX`.
+    * Le pondremos el nombre `deviceXXr1`.
 * Aceptar
-* Crear directorio `/mnt/r1_folderXX`. Este es el directorio que vamos a usar para montar el dispositivo.
-* Crear una partición en el nuevo dispositivo `r1_deviceXX`:
+* Crear directorio `/mnt/folderXXr1`. Este es el directorio que vamos a usar para montar el dispositivo.
+* Crear una partición en el nuevo dispositivo `deviceXXr1`:
     * Formato `ext4`.
     * Tamaño: `Disco completo`.
-    * Montar en `/mnt/r1_folderXX`
+    * Montar en `/mnt/folderXXr1`
 
 ## 2.3 Comprobar RAID-1 (configuración y montaje)
 
 * Para comprobar si se ha creado el dispositivo RAID1 correctamente:
 
 ```
-cat /proc/mdstat                   # Muestra info de discos RAID
-lsblk -fm                          # Muestra info de los discos/particiones
-mdadm --detail /dev/md/r1_deviceXX # Muestra info del disposivo RAID1
+cat /proc/mdstat                  # Muestra info de discos RAID
+lsblk                             # Muestra info de los discos/particiones
+mdadm --detail /dev/md/deviceXXr1 # Muestra info del disposivo RAID1
 ```
 
 > En el fichero `/etc/mdadm.conf`, se guardan todas las configuraciones relacionadas con los dispositivos RAID.
@@ -130,22 +130,22 @@ mdadm --detail /dev/md/r1_deviceXX # Muestra info del disposivo RAID1
 df -hT | grep XX
 mount | grep XX
 ```
-* `cat /etc/fstab`, comando para consultar el fiichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
+* `cat /etc/fstab`, comando para consultar el fichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
 * Reiniciar equipo.
-* Comprobar que el dispositivo RAID1 está montado en `/mnt/r1_folderXX`.
+* Comprobar que el dispositivo RAID1 está montado en `/mnt/folderXXr1`.
 
 ## 2.4 Escribir datos en el RAID-1
 
 Crea lo siguiente:
-* Directorio `/mnt/r1_folderXX/naboo`
-* Fichero `/mnt/r1_folderXX/naboo/yoda.txt`
-* Directorio `/mnt/r1_folderXX/endor`
-* Fichero `/mnt/r1_folderXX/endor/sandtrooper.txt`
+* Directorio `/mnt/folderXXr1/naboo`
+* Fichero `/mnt/folderXXr1/naboo/yoda.txt`
+* Directorio `/mnt/folderXXr1/endor`
+* Fichero `/mnt/folderXXr1/endor/sandtrooper.txt`
 
 Reiniciar la MV y comprobar que se mantienen los datos:
 ```
 df -hT |grep XX
-tree /mnt/r1_folderXX
+tree /mnt/folderXXr1
 ```
 
 ---
@@ -159,9 +159,9 @@ Como tenemos un dispositivo RAID1, entonces podemos quitar uno de los discos y c
 * Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
 * Reiniciamos la MV y comprobamos que la información no se ha perdido, aunque el disco no esté.
 ```
-lsblk -fm              # Muestra info de los discos/particiones
+lsblk                 # Muestra info de los discos/particiones
 df -hT |grep XX
-tree /mnt/r1_folderXX
+tree /mnt/folderXXr1
 ```
 
 ## 3.2 Poner el disco
@@ -173,22 +173,18 @@ Vamos a sincronizar los discos y comprobar que todo está correcto.
 > Para sincronizar los discos RAID1:
 > * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
-* `mdadm --detail /dev/md/r1_deviceXX`, comprobamos que de los dos discos configurados, sólo hay uno.
-* `mdadm /dev/md/r1_deviceXX --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
-* `mdadm --detail /dev/md/r1_deviceXX`, comprobamos que están los dos.
+* `mdadm --detail /dev/md/deviceXXr1`, comprobamos que de los dos discos configurados, sólo hay uno.
+* `mdadm /dev/md/deviceXXr1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
+* `mdadm --detail /dev/md/deviceXXr1`, comprobamos que están los dos.
 
 Una vez realizado lo anterior, ejecutar los siguientes comandos, y comprobar su salida:
 
 ```
 date
 fdisk -l
-df -hT
 cat /proc/mdstat
-lsblk -fm
-cat /etc/mdadm.conf
+lsblk
 ```
-
-> NOTA: Para consultar el UUID de una partición podemos usar el comando "blkid" o hacer "vdir /dev/disk/by-uuid".
 
 ---
 # 4. Discos dinámicos en Windows
