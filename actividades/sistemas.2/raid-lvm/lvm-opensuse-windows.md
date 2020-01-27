@@ -125,7 +125,7 @@ Esquema de PV, VG y LV:
 >     * `w` grabar y salir
 >     * `q` salir sin grabar
 
-## 3.2 Crear VG y VL
+## 3.2 Crear nuevo grupo y volumen
 
 * Crear un Grupo de Volumen llamado `grupoXXextra`, con el disco (B) y las 2 primeras particiones del (C).
 * Crear un nuevo Volumen Lógico
@@ -156,21 +156,23 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 
 * Comprobar el espacio usado en `/mnt/folderXXextra` (df -hT).
 
-## 3.4 Añadir más tamaño
+## 3.4 Añadir más espacio
 
-* Añadir la tercera partición del disco (C) (no utilizada) al VG vg-extra. Podemos hacerla por Yast.
-* `vgdisplay grupoXXextra`, para comprobar el cambio.
+**Ampliar el tamaño del grupo extra**
+* Añadir la tercera partición del disco (C) (no utilizada) al `grupoXXextra`. Podemos hacerlo por Yast.
+* `vgdisplay grupoXXextra`, para comprobar la ampliación del tamaño del grupo.
+**Ampliar el tamaño del volumen extra**
 * Ampliar el tamaño de volXXextra a 930MB. Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
 
-## 3.5 Quitar un disco físico del VG
+## 3.5 Quitar un disco físico del grupo
 
 > En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes).
 
-El grupo de volumen grupoXXextra, tiene dos volúmenes físicos que son los discos (B) y (C). En los pasos siguientes vamos a dejar de usar disco (C) dentro del VG, sin perder la información almacenada en él. Y además en "caliente".
+El grupo de volumen `grupoXXextra`, tiene como volúmenes físicos las particiones de los discos (B) y (C). En los pasos siguientes vamos a dejar de usar disco (C) dentro del grupo, sin perder la información almacenada en él. Y además en "caliente".
 
 * Primero comprobamos el tamaño de nuestros datos: `du -sh /mnt/folderXXextra`. Este valor debe ser menor a 50 MB si queremos reducir el volumen.
-* **Reducir el tamaño del volumen lógico** lvXXextra a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por comandos sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
+* **Reducir el tamaño del volumen lógico** `volXXextra` a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por comandos sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
 * Redimensionar el sistema de ficheros para adaptarlo al nuevo espacio. `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora.
 * Comprobamos: `lvdisplay /dev/grupoXXextra/volXXextra`.
 
