@@ -170,8 +170,10 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 El grupo de volumen grupoXXextra, tiene dos volúmenes físicos que son los discos (B) y (C). En los pasos siguientes vamos a dejar de usar disco (C) dentro del VG, sin perder la información almacenada en él. Y además en "caliente".
 
 * Primero comprobamos el tamaño de nuestros datos: `du -sh /mnt/folderXXextra`. Este valor debe ser menor a 50 MB si queremos reducir el volumen.
-* **Reducir el tamaño del volumen lógico** lvXXextra a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por comandos sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
-* Redimensionar el sistema de ficheros para adaptarlo al nuevo espacio. `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora.
+* **Reducir el tamaño del volumen lógico** lvXXextra a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por coma En caso contrario, habrá que ros sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
+
+>  `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora. En caso contrario, habrá que redimensionar el sistema de ficheros para adaptarlo al nuevo espacio. 
+
 * Comprobamos: `lvdisplay /dev/grupoXXextra/volXXextra`.
 
 Antes de quitar el disco hay que asegurarse de que no guarda datos.
