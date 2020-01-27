@@ -5,7 +5,6 @@ Requisitos      : SO OpenSUSE (Yast) y Windows
 Tiempo estimado : 6 sesiones
 Módulos         : Sistemas Operativos
 ```
-[Metodología](../../global/metodologia.md)
 
 ---
 # Volúmenes Lógicos (OpenSUSE + Windows)
