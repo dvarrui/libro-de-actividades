@@ -70,12 +70,12 @@ hostname          # Nombre de la máquina
 ip a              # Muestra configuración interfaces de red
 ip route          # Muestra información de enrutamiento
 host www.nba.com  # Comprueba la resolución de nombres
-fdisk -l          # Muestra particiones y discos
-df -hT            # Muestra los puntos de montaje
 ```
 
 Información sobre los discos, particiones y dispositivos:
 ```
+fdisk -l          # Muestra particiones y discos
+df -hT            # Muestra los puntos de montaje
 cat /proc/mdstat  # Muestra la configuración RAID
 lsblk             # Muestra esquema de discos/particiones/montaje
 ```
@@ -109,7 +109,7 @@ Vamos a crear RAID-1 con los discos `sdd` y `sde`:
 * Aceptar
 * Crear directorio `/mnt/folderXXr1`. Este es el directorio que vamos a usar para montar el dispositivo.
 * Crear una partición en el nuevo dispositivo `deviceXXr1`:
-    * Formato `ext4`.
+    * Formato `ext3`.
     * Tamaño: `Disco completo`.
     * Montar en `/mnt/folderXXr1`
 
