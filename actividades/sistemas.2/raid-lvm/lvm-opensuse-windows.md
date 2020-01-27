@@ -113,8 +113,8 @@ Esquema de PV, VG y LV:
 ## 3.1 Preparar la MV
 
 * Añadimos 2 discos virtuales nuevos:
-    * Disco de 200MB (B): con una partición completa del disco
-    * Disco de 750MB (C): con 3 particiones de 250MB sin formato, ni tipo.
+    * Disco de 200MB (B)
+    * Disco de 750MB (C). Crear 3 particiones de 250MB sin formato, ni tipo.
 
 > NOTA: Las particiones las podemos crear con fdisk, gparted, Yast, etc.
 >
@@ -167,22 +167,24 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 
 ## 3.5 Quitar un disco físico del grupo
 
+* Hacer una instantánea o copia de seguridad de la MV antes de seguir.
+
 > En LVM los discos físicos se llaman volúmenes físicos (Physical Volumes).
 
 El grupo de volumen `grupoXXextra`, tiene como volúmenes físicos las particiones de los discos (B) y (C). En los pasos siguientes vamos a dejar de usar disco (C) dentro del grupo, sin perder la información almacenada en él. Y además en "caliente".
 
 * Primero comprobamos el tamaño de nuestros datos: `du -sh /mnt/folderXXextra`. Este valor debe ser menor a 50 MB si queremos reducir el volumen.
 * **Reducir el tamaño del volumen lógico** `volXXextra` a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por comandos sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
-* Redimensionar el sistema de ficheros para adaptarlo al nuevo espacio. `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora.
+* `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora. En caso contrario hay que redimensionar el sistema de ficheros para adaptarlo al nuevo espacio (resize2fs o e2fcsk).
 * Comprobamos: `lvdisplay /dev/grupoXXextra/volXXextra`.
 
 Antes de quitar el disco hay que asegurarse de que no guarda datos.
 * **Movemos la información** del disco sdc al disco sdb:
 
 ```
-pvmove /dev/sdc1 /dev/sdb1
-pvmove /dev/sdc2 /dev/sdb1
-pvmove /dev/sdc3 /dev/sdb1
+pvmove /dev/sdc1 /dev/sdb
+pvmove /dev/sdc2 /dev/sdb
+pvmove /dev/sdc3 /dev/sdb
 ```
 
 * **Reducir el tamaño del grupo** de volumen:
