@@ -56,6 +56,7 @@ La instalación vamos a hacerla en una máquina real.
 Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc. Por ejemplo:
 * [Vagrant Box List](http://www.vagrantbox.es)
 * [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
+* [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
 
 > OJO: Sustituir **BOXNAME** por `ubuntu/bionic64`
 
