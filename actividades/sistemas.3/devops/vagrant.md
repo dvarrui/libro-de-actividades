@@ -118,7 +118,7 @@ para el sistema el virtualizado, esto nos permite compartir archivos fácilmente
 
 Ejemplos para configurar las carpetas compartidas:
 * `config.vm.synced_folder ".", "/vagrant"`: La carpeta del proyecto es accesible desde /vagrant de la MV.
-* `config.vm.synced_folder "htdocs", "/var/www/html"`. La carpeta htdocs del proyecto es accesible desde /var/www/html de la MV.
+* `config.vm.synced_folder "html", "/var/www/html"`. La carpeta htdocs del proyecto es accesible desde /var/www/html de la MV.
 
 **Redireccionamiento de los puertos**
 
@@ -168,7 +168,6 @@ podemos ejecutar los siguientes comandos:
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
 
 ---
-
 # 6. Suministro
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.
@@ -179,38 +178,33 @@ Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. 
 ## 6.1 Proyecto 3 (Suministro mediante shell script)
 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
-* Crear directorio `vagrantXX-proyecto3` y dentro un proyecto Vagrant.
+* Crear directorio `vagrantXX-proyecto3` para nuestro proyecto.
+* Entrar en dicha carpeta.
+* Crear fichero `html/index.html` con el siguiente contenido:
+```
+<h1>Vagrant Proyecto 3</h1>
+<p>Curso201920</p>
+<p>Nombre-del-alumno</p>
+```
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
-contenido (_hay que arreglarlo porque puede tener fallos_):
-
+contenido:
 ```
 #!/usr/bin/env bash
 
 apt-get update
 apt-get install -y apache2
-rm -rf /var/www
-ln -fs /vagrant /var/www
-echo "<h1>Vagrant Proyecto 3</h1>" > /var/www/index.html
-echo "<p>Curso201819</p>" >> /var/www/index.html
-echo "<p>Nombre-del-alumno</p>" >> /var/www/index.html
 ```
 
-> Poner permisos de ejecución al script. ¿No crees?
-
-Vamos a indicar a Vagrant que debe ejecutar el script anterior
-(`install_apache.sh`) dentro del entorno virtual.
-* Modificar Vagrantfile y agregar la siguiente línea a la configuración:
-`config.vm.provision :shell, :path => "install_apache.sh"`
-
-> Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado. Es lo que llamaremos provisión inline.
-
-* Volvemos a crear la MV.
-
-> Podemos usar `vagrant reload`, si está en ejecución, para que coja los cambios de configuración.
-
-Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
-
+Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
+* `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
+* `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visibl dentro de la MV.
+* `vagrant up`, para crear la MV.
+    * Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
+
+> NOTA:
+> * Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
+> * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado. Es lo que llamaremos provisión inline.
 
 ## 6.2 Proyecto 4 (Suministro mediante Puppet)
 
