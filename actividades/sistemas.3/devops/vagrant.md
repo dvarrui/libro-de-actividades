@@ -49,14 +49,11 @@ La instalación vamos a hacerla en una máquina real.
     * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 
 ---
-# 3. Proyecto 1
+# 3. Proyecto Celtics
 
 ## 3.1 Imagen, caja o box
 
-Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc. Por ejemplo:
-* [Vagrant Box List](http://www.vagrantbox.es)
-* [HashiCorp's Atlas box catalog](https://atlas.hashicorp.com/boxes/search)
-* [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
+Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas de otros sistemas oprativos desde [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
 
 > OJO: Sustituir **BOXNAME** por `ubuntu/bionic64`
 
@@ -64,7 +61,7 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
 
 ```
-vagrant42-proyecto1> vagrant box list
+> vagrant box list
 ubuntu/bionic64 (virtualbox, 0)
 ```
 
@@ -73,8 +70,8 @@ ubuntu/bionic64 (virtualbox, 0)
 * Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
 
 ```
-mkdir vagrantXX-proyecto1
-cd vagrantXX-proyecto1
+mkdir vagrantXX-celtics
+cd vagrantXX-celtics
 ```
 
 A partir de ahora vamos a trabajar dentro de esta carpeta.
@@ -91,7 +88,7 @@ end
 ## 3.3 MV: Levantar y entrar
 
 Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
-* Debemos estar dentro de `vagrantXX-proyecto1`.
+* Debemos estar dentro de `vagrantXX-celtics`.
 * `vagrant up`, para iniciar una nueva instancia de la máquina.
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 
@@ -144,12 +141,11 @@ config.ssh.forward_x11 = true
 > ¿Cómo podríamos crear una MV Windows usando vagrant en GNU/Linux?
 
 ---
+# 5. Proyecto Hawks (redirección de puertos)
 
-# 5. Proyecto2 (redirección de puertos)
+## 5.1 Creamos proyecto Hawks
 
-## 5.1 Creamos proyecto 2
-
-* Crear carpeta `vagrantXX-proyecto2`. Entrar en el directorio.
+* Crear carpeta `vagrantXX-hawks`. Entrar en el directorio.
 * Crear proyecto Vagrant.
 * Configurar Vagrantfile para usar nuestra caja BOXNAME.
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
@@ -176,14 +172,14 @@ Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. 
 * `vagrant halt`, apagamos la MV.
 * `vagrant destroy` y la destruimos para volver a empezar.
 
-## 6.1 Proyecto 3 (Suministro mediante shell script)
+## 6.1 Proyecto Lakers (Suministro mediante shell script)
 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
-* Crear directorio `vagrantXX-proyecto3` para nuestro proyecto.
+* Crear directorio `vagrantXX-lakers` para nuestro proyecto.
 * Entrar en dicha carpeta.
 * Crear fichero `html/index.html` con el siguiente contenido:
 ```
-<h1>Vagrant Proyecto 3</h1>
+<h1>Proyecto Lakers</h1>
 <p>Curso201920</p>
 <p>Nombre-del-alumno</p>
 ```
@@ -207,7 +203,7 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 > * Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
 > * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado. Es lo que llamaremos provisión inline.
 
-## 6.2 Proyecto 4 (Suministro mediante Puppet)
+## 6.2 Proyecto Raptors (Suministro mediante Puppet)
 
 > Enlace de interés:
 > * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
@@ -222,7 +218,7 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 > ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
 
 Se pide hacer lo siguiente.
-* Crear directorio `vagrantXX-proyecto4` como nuevo proyecto Vagrant.
+* Crear directorio `vagrantXX-raptors` como nuevo proyecto Vagrant.
 * Modificar el archivo Vagrantfile de la siguiente forma:
 
 ```
@@ -250,7 +246,7 @@ Para que se apliquen los cambios de configuración, tenemos dos formas:
 
 ---
 
-# 7. Proyecto 5 (Nuestra caja)
+# 7. Proyecto Bulls (Nuestra caja)
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y luego la hemos provisionado para personalizarla. En este apartado vamos a crear nuestra propia caja/box personalizada a partir de una MV de VirtualBox que tengamos.
 
@@ -319,7 +315,7 @@ version:        4.3.20
 
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
-* Vamos a crear una nueva carpeta `vagrantXX-proyecto5`, para este nuevo proyecto vagrant.
+* Vamos a crear una nueva carpeta `vagrantXX-bulls`, para este nuevo proyecto vagrant.
 * Localizar el nombre de la máquina VirtualBox que ya hemos preparado anteriormente.
     * `VBoxManage list vms`, comando de VirtualBox que lista las MV que tenemos.
 * Nos aseguramos que la MV esté apagada.
