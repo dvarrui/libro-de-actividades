@@ -199,9 +199,7 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
     * Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
-> NOTA:
-> * Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
-> * Si usamos los siguiente `config.vm.provision "shell", inline: '"echo "Hola"'`, ejecutaría directamente el comando especificado. Es lo que llamaremos provisión inline.
+> NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
 
 ## 6.2 Proyecto Raptors (Suministro mediante Puppet)
 
@@ -219,16 +217,20 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 
 Se pide hacer lo siguiente.
 * Crear directorio `vagrantXX-raptors` como nuevo proyecto Vagrant.
-* Modificar el archivo Vagrantfile de la siguiente forma:
+* Modificar el archivo `Vagrantfile` de la siguiente forma:
 
 ```
 Vagrant.configure(2) do |config|
   ...
+  vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
+
   config.vm.provision "puppet" do |puppet|
     puppet.manifest_file = "default.pp"
   end
  end
 ```
+
+> Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
 * Ahora hay que crear el fichero `manifests/default.pp`, con las órdenes/instrucciones puppet para instalar el programa `PACKAGENAME`. Ejemplo:
 
@@ -238,14 +240,13 @@ package { 'PACKAGENAME':
 }
 ```
 
-> El Puppet lo veremos en profundidad en otra actividad. Pero por ahora necesitamos usarlo con Vagrant...
+> El Puppet es un gestor de infraestructura.
 
 Para que se apliquen los cambios de configuración, tenemos dos formas:
 * (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
 * (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver a ejecutar la provisión (`vagrant provision`).
 
 ---
-
 # 7. Proyecto Bulls (Nuestra caja)
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y luego la hemos provisionado para personalizarla. En este apartado vamos a crear nuestra propia caja/box personalizada a partir de una MV de VirtualBox que tengamos.
@@ -256,7 +257,7 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 >
 > * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-### Buscar una máquina virtual
+**Buscar una máquina virtual**
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
@@ -264,7 +265,7 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una co
 * Instalar OpenSSH Server en la MV.
 
 
-### Crear usuario
+**Crear usuario con aceso SSHs**
 
 Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave
 desde Vagrant. Veamos cómo:
@@ -289,7 +290,7 @@ Tenemos que conceder permisos al usuario vagrant para que pueda configurar la re
 
 > Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
 
-### VirtualBox Guest Additions
+**Añadir las VirtualBox Guest Additions**
 
 * Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions
 con una versión compatible con el host anfitrion.
@@ -356,10 +357,7 @@ Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows 
 
 * Probar Vagrant dentro de una MV...y luego con VBox dentro de la MV.
 * Arreglar warning que Apache2 "Fully qualified. domain name".
-* Añadir ejemplo de provisión con "inline"
 * Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece que se crea un directorio .vagrant.
-* Cambiar los nombres "mivagrantXX"y "mivagrantXXconmicaja".
-* Recomendar usa Shutter en las capturas y marcar/resaltar la parte donde hay que fijarse.
 
 ## A.4 VBoxManage
 
