@@ -125,11 +125,7 @@ mdadm --detail /dev/md/deviceXXr1 # Muestra info del disposivo RAID1
 
 > En el fichero `/etc/mdadm.conf`, se guardan todas las configuraciones relacionadas con los dispositivos RAID.
 
-* Comprobar si el dispositivo está correctamente montado:
-```
-df -hT | grep XX
-mount | grep XX
-```
+* `df -hT | grep XX`, comprobar si el dispositivo está correctamente montado.
 * `cat /etc/fstab`, comando para consultar el fichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
 * Reiniciar equipo.
 * Comprobar que el dispositivo RAID1 está montado en `/mnt/folderXXr1`.
