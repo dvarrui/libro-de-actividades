@@ -162,8 +162,6 @@ podemos ejecutar los siguientes comandos:
     * `vagrant port` para ver la redirección de puertos de la máquina Vagrant.
 * En HOST-CON-VAGRANT, abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
-![vagrant-forward-example](./images/vagrant-forward-example.png)
-
 ---
 # 6. Suministro
 
@@ -200,6 +198,8 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
 > NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
+
+![vagrant-forward-example](./images/vagrant-forward-example.png)
 
 ## 6.2 Proyecto Raptors (Suministro mediante Puppet)
 
@@ -317,15 +317,10 @@ version:        4.3.20
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 * Vamos a crear una nueva carpeta `vagrantXX-bulls`, para este nuevo proyecto vagrant.
-* Localizar el nombre de la máquina VirtualBox que ya hemos preparado anteriormente.
-    * `VBoxManage list vms`, comando de VirtualBox que lista las MV que tenemos.
-* Nos aseguramos que la MV esté apagada.
-* Crear la caja `package.box` a partir de la MV.
-
-![vagrant-package](./images/vagrant-package.png)
-
-* Comprobamos que se ha creado el fichero `package.box` en el directorio donde
-hemos ejecutado el comando.
+* `VBoxManage list vms`, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegiar una de las máquinas (VMNAME).
+* Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
+* `vagrant package --base VMNAME package.box`, parar crear nuestra propia caja.
+* Comprobamos que se ha creado el fichero `package.box` en el directorio donde hemos ejecutado el comando.
 
 ![vagrant-package_box_file](./images/vagrant-package_box_file.png)
 
