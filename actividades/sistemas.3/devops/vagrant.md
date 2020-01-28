@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> NOTA: Con `vagrant init` se crea un fichero `Vagranfile` con las opciones por defecto.
+> NOTA: Con `vagrant init` se crea un fichero `Vagrantfile` con las opciones por defecto.
 
 ## 3.3 MV: Levantar y entrar
 
