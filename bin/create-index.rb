@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-require 'pry-byebug'
+#require 'pry-byebug'
 
 def show_title
   puts '# Índice de actividades'

@@ -20,7 +20,6 @@ Ejemplo de rúbrica:
 | (7.2) Crear Box Vagrant       | | |. |
 
 ---
-
 # 1. Introducción
 
 Según *Wikipedia*:
@@ -52,18 +51,7 @@ La instalación vamos a hacerla en una máquina real.
 ---
 # 3. Proyecto 1
 
-## 3.1 Directorio
-
-* Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
-
-```
-mkdir vagrantXX-proyecto1
-cd vagrantXX-proyecto1
-```
-
-A partir de ahora vamos a trabajar dentro de esta carpeta.
-
-## 3.2 Imagen, caja o box
+## 3.1 Imagen, caja o box
 
 Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas con Windows, GNU/Linux con entorno gráfico, BSD, etc. Por ejemplo:
 * [Vagrant Box List](http://www.vagrantbox.es)
@@ -79,14 +67,18 @@ vagrant42-proyecto1> vagrant box list
 ubuntu/bionic64 (virtualbox, 0)
 ```
 
-* Hacer una copia de seguridad del archivo `Vagrantfile` a `Vagrantfile.bak`.
-* Editar el fichero de configuración de nuestro proyecto Vagrant. Esto es  fichero `Vagrantfile`. NOTA: Es más cómodo trabajar con el fichero si eliminamos todas las líneas de comentarios.
-* Configurar nuestro proyecto para usar nuestra caja BOXNAME. Esto es: `config.vm.box = "BOXNAME"`.
+## 3.2 Directorio
 
-Ejemplo:
+* Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
+
 ```
-vagrant42-proyecto1> more Vagrantfile
+mkdir vagrantXX-proyecto1
+cd vagrantXX-proyecto1
+```
 
+A partir de ahora vamos a trabajar dentro de esta carpeta.
+* Crear el fichero `Vagrantfile` de la siguiente forma:
+```
 Vagrant.configure("2") do |config|
   config.vm.box = "BOXNAME"
   config.vm.provider "virtualbox"

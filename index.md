@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2020-01-20 18:51:28 +0000`
+`Fecha UM: 2020-01-27 20:21:18 +0000`
 
 # Resumen
 
@@ -43,7 +43,7 @@
 | 10 | [monitorizar](actividades/sistemas.2/monitorizar) | 8 | [apparmor-opensuse.md](actividades/sistemas.2/monitorizar/apparmor-opensuse.md), [eventos-locales-windows-debian.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-debian.md), [eventos-locales-windows-opensuse.md](actividades/sistemas.2/monitorizar/eventos-locales-windows-opensuse.md), [eventos-remotos-rsyslog.md](actividades/sistemas.2/monitorizar/eventos-remotos-rsyslog.md), [grafana-influxdb-collectd.md](actividades/sistemas.2/monitorizar/grafana-influxdb-collectd.md), [icinga-opensuse-windows.md](actividades/sistemas.2/monitorizar/icinga-opensuse-windows.md), [monit.md](actividades/sistemas.2/monitorizar/monit.md), [nagios-debian-windows.md](actividades/sistemas.2/monitorizar/nagios-debian-windows.md) |
 | 11 | [particiones](actividades/sistemas.2/particiones) | 1 | [README.md](actividades/sistemas.2/particiones/README.md) |
 | 12 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian.md](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos.md](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
-| 13 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 4 | [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
+| 13 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 5 | [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows.md](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
 | 14 | [tests](actividades/sistemas.2/tests) | 1 | [trim1.md](actividades/sistemas.2/tests/trim1.md) |
 
 ## Categoría: sistemas.3
