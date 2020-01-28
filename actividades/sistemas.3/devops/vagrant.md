@@ -67,6 +67,10 @@ vagrant42-proyecto1> vagrant box list
 ubuntu/bionic64 (virtualbox, 0)
 ```
 
+> Si te preguntas... ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando? ¿Están disponibles sólo para mi usuario o lo están para todos los usuarios de la misma máquina?
+>
+> ![vagrant-directory](./images/vagrant-directory.png)
+
 ## 3.2 Directorio
 
 * Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
@@ -85,9 +89,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> Si te preguntas... ¿Dónde se guardan las imágenes base? ¿Las cajas de vagrant que nos vamos descargando? ¿Están disponibles sólo para mi usuario o lo están para todos los usuarios de la misma máquina?
->
-> ![vagrant-directory](./images/vagrant-directory.png)
+> NOTA: Con `vagrant init` se crea un fichero `Vagranfile` con las opciones por defecto.
 
 ## 3.3 MV: Levantar y entrar
 
