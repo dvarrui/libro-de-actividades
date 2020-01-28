@@ -222,7 +222,7 @@ Se pide hacer lo siguiente.
 ```
 Vagrant.configure(2) do |config|
   ...
-  vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
+  config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
 
   config.vm.provision "puppet" do |puppet|
     puppet.manifest_file = "nombre-del-alumnoXX.pp"
