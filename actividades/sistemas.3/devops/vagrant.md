@@ -197,9 +197,9 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
     * Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
-> NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
-
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
+
+> NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
 
 ## 6.2 Proyecto Raptors (Suministro mediante Puppet)
 
