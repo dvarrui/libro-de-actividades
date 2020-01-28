@@ -225,14 +225,14 @@ Vagrant.configure(2) do |config|
   vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
 
   config.vm.provision "puppet" do |puppet|
-    puppet.manifest_file = "default.pp"
+    puppet.manifest_file = "nombre-del-alumnoXX.pp"
   end
  end
 ```
 
 > Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
-* Ahora hay que crear el fichero `manifests/default.pp`, con las órdenes/instrucciones puppet para instalar el programa `PACKAGENAME`. Ejemplo:
+* Ahora hay que crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet para instalar el programa `PACKAGENAME`. Ejemplo:
 
 ```
 package { 'PACKAGENAME':
@@ -240,32 +240,34 @@ package { 'PACKAGENAME':
 }
 ```
 
-> El Puppet es un gestor de infraestructura.
+> El Puppet es un gestor de infraestructura que veremos en otra actividad.
 
-Para que se apliquen los cambios de configuración, tenemos dos formas:
-* (A) Parar la MV, destruirla y crearla de nuevo (`vagrant halt`, `vagrant destroy` y `vagrant up`).
-* (B) Con la MV encendida recargar la configuración (`vagrant reload`), y volver a ejecutar la provisión (`vagrant provision`).
+Para que se apliquen los cambios de configuración tenemos 2 caminos:
+* **Con la MV encendida**
+    1. `vagrant reload`, recargar la configuración.
+    2. `vagrant provision`, volver a ejecutar la provisión.
+* **Con la MV apagada**:
+    1. `vagrant destroy`, destruir la MV.
+    2. `vagrant up` volver a crearla.
 
 ---
 # 7. Proyecto Bulls (Nuestra caja)
 
-En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y luego la hemos provisionado para personalizarla. En este apartado vamos a crear nuestra propia caja/box personalizada a partir de una MV de VirtualBox que tengamos.
+En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y la hemos personalizado. En este apartado vamos a crear nuestra propia caja/box a partir de una MV de VirtualBox que tengamos.
 
 ## 7.1 Preparar la MV VirtualBox
 
 > Enlace de interés:
->
 > * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-**Buscar una máquina virtual**
+**Elegir una máquina virtual**
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
 
 * Crear una MV VirtualBox nueva o usar una que ya tengamos.
 * Instalar OpenSSH Server en la MV.
 
-
-**Crear usuario con aceso SSHs**
+**Crear usuario con aceso SSH**
 
 Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave
 desde Vagrant. Veamos cómo:
@@ -281,8 +283,11 @@ wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
 ```
-* ¿Qué estamos haciendo? ¿Te suena de verlo con SSH?
-* Poner clave `vagrant` al usuario vagrant y al usuario root.
+
+¿Qué estamos haciendo? ¿Te suena de verlo con SSH?
+* IMPORTANTE: Poner clave `vagrant` al usuario vagrant y al usuario root.
+
+**Sudoers**
 
 Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red, instalar software, montar carpetas compartidas, etc. para ello debemos configurar `/etc/sudoers` (visudo) para que no nos solicite la password de root, cuando realicemos estas operación con el usuario vagrant.
 
@@ -321,32 +326,26 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
 * `vagrant package --base VMNAME package.box`, parar crear nuestra propia caja.
 * Comprobamos que se ha creado el fichero `package.box` en el directorio donde hemos ejecutado el comando.
+* `vagrant box add nombre-alumnoXX/bulls package.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
+* `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
 
-![vagrant-package_box_file](./images/vagrant-package_box_file.png)
+## 7.3 Usar la nueva caja
 
-* Muestro la lista de cajas disponibles, pero sólo tengo 1 porque todavía
-no he incluido la que acabo de crear. Finalmente, añado la nueva caja creada
-por mí, al repositorio local de cajas vagrant.
-
-![vagrant-package](./images/vagrant-2-boxes.png)
-
+* Crear un nuevo Vagrantfile para usar nuestra caja.
 * Levantamos la MV.
-* Nos conectamos sin problemas.
+* Nos debemos conectar sin problemas.
 
->
 > **Vagrant y SSH**
->
-> * Recordar que podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
+> * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
 > * Vagrant genera un par de llaves para cada máquina.
 > * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
 
 ---
-
 # ANEXO
 
-## A.2 Windows
+## Pendiente
 
-Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows.
+* Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows.
 
 ## A.3 Cambios próximo Curso
 
