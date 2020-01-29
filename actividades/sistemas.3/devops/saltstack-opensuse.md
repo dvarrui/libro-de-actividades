@@ -101,6 +101,8 @@ minionXXg:
 
 ## 5.1 Preparar el directorio para los estados
 
+Vamos a crear directorios para guardar lo estados de Salt. Los estados de Salt son definiciones de cómo queremos que estén nuestras máquinas.
+
 Ir al Máster:
 * Crear directorios `/srv/salt/base` y `/srv/salt/dev`.
 * Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
@@ -111,7 +113,11 @@ file_roots:
   devel:
     - /srv/salt/devel
 ```
-* Reiniciar el servicio del master.
+* Reiniciar el servicio del Máster.
+
+Hemos creado dos directorios:
+* base = para guardar nuestros estados.
+* devel = para desarrollo o para hacer pruebas.
 
 ## 5.2 Crear un nuevo estado
 
@@ -131,12 +137,14 @@ apache_service:
 
 Entendamos las definiciones:
 * La primera línea es un identificador (ID) del estado.
-* pkg.installed se asegura que el paquete esté instalado.
-* service.running: se asegura de que el servicio esté iniciado.
-* require: Establece como requisito de que el servicio se inicia después de la instalación del paquete "apache2".
+* `pkg.installed`: se asegura que el paquete esté instalado.
+* `service.running`: se asegura de que el servicio esté iniciado.
+* `require`: Establece como requisito de que el servicio se inicia después de la instalación del paquete "apache2".
+
+## 5.3 Asociar Minions a estados
 
 Ir al Master:
-* Crear `/srv/salt/base/top.sls`, donde asociamos a todos los minions con el estado que acabamos de definir.
+* Crear `/srv/salt/base/top.sls`, donde asociamos a todos los Minions con el estado que acabamos de definir.
 ```
 base:       
   '*':
@@ -148,7 +156,7 @@ minionXXg:
     - apache
 ```
 
-## 5.3 Aplicar el nuevo estado
+## 5.4 Aplicar el nuevo estado
 
 Ir al Master:
 * Consultar los estados en detalle y verificar que no hay errores en las definiciones.
@@ -186,7 +194,7 @@ Total run time: 105.971 s
 ---
 # 6. Crear estado "users"
 
-Crear un estado llamado "users" que nos sirva para crear un usuario llamado "saltXX".
+Crear un estado llamado "users" que nos sirva para crear un usuario llamado "saltXX" en las máquinas Minions.
 
 ---
 # 7. Añadir minion

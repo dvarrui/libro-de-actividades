@@ -220,7 +220,7 @@ Se pide hacer lo siguiente.
 * Modificar el archivo `Vagrantfile` de la siguiente forma:
 
 ```
-Vagrant.configure(2) do |config|
+Vagrant.configure("2") do |config|
   ...
   config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
 
