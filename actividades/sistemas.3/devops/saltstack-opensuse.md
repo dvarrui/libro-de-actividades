@@ -1,16 +1,13 @@
 
 ```
-Curso      : 201920
-Requisitos : 2 MV's
-Estado     : Terminado. Pendiente de probar en clase.
+Curso           : 201920
+Requisitos      : 2 MV's con GNU/Linux
+Tiempo estimado :
 ```
 ---
+# 1. Salt-stack
 
-# 1. Saltstack
-
-Saltstack es un gestor de infrastructura como Puppet, Chef y Ansible.
-
-En esta actividad vamos a practicar Saltstack con OpenSUSE.
+Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet, Chef y Ansible. En esta actividad vamos a practicar Salt-stack con OpenSUSE.
 
 # 2. Preparativos
 
@@ -42,7 +39,7 @@ file_roots:
 ```
 * `systemctl enable salt-master.service`, activiar servicio en el arranque del sistema.
 * `systemctl start salt-master.service`, iniciar servicio.
-* `salt-key -L`, para consultar minions. Vemos que no hay ninguno todavía.
+* `salt-key -L`, para consultar Minions aceptados por nuestro Máster. Vemos que no hay ninguno todavía.
 ```
 Accepted Keys:
 Denied Keys:
@@ -53,21 +50,23 @@ Rejected Keys:
 ---
 # 4. Minion
 
+Los Minios son los equipos que van a estar bajo el control del Máster.
+
 ## 4.1 Instalación y configuración
 
 * `zypper install salt-minion`, instalar el software del agente (minion).
-* Modificar `/etc/salt/minion`:
+* Modificar `/etc/salt/minion` para definir quien será nuestro Máster:
 ```
 master: 172.19.XX.31
 ```
 * `systemctl enable salt-minion.service`, activar Minion en el arranque del sistema.
 * `systemctl start salt-minion.service`, iniciar el servico del Minion.
-* Comprobar que  que no tenemos instalado apache2 en el minion.
+* Comprobar que  que no tenemos instalado `apache2` en el Minion.
 
 ## 4.2 Aceptación desde el Master
 
 Ir a MV1:
-* `salt-key -L`, vemos que el Master recibe petición del Minion.
+* `salt-key -L`, vemos que el Máster recibe petición del Minion.
 ```
 Accepted Keys:
 Denied Keys:
@@ -75,12 +74,12 @@ Unaccepted Keys:
 minionXXg
 Rejected Keys:
 ```
-* `salt-key -a minionXXg`, para que el Master acepte a dicho Minion.
+* `salt-key -a minionXXg`, para que el Máster acepte a dicho Minion.
 * `salt-key -L`, comprobamos.
 
 ## 4.3 Comprobamos conectividad
 
-Comprobamos la conectividad desde el Master a los Minions.
+Comprobamos la conectividad desde el Máster a los Minions.
 ```
 # salt '*' test.version
 minionXXg:
@@ -90,19 +89,19 @@ minionXXg:
     True
 ```
 
-> `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
+> El símbolo `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
 
 ---
 # 5. Salt States
 
-Enlaces de interés:
-* [Learning SaltStack - top.sls (1 of 2)](https://www.youtube.com/watch?v=UOzmExyAXOM&t=8s)
-* [Learning SaltStack - top.sls (2 of 2)](https://www.youtube.com/watch?v=1KblVBuHP2k)
-* [Repositorio GitHub con estados de ejemplo](https://github.com/AkhterAli/saltstates/)
+> Enlaces de interés:
+> * [Learning SaltStack - top.sls (1 of 2)](https://www.youtube.com/watch?v=UOzmExyAXOM&t=8s)
+> * [Learning SaltStack - top.sls (2 of 2)](https://www.youtube.com/watch?v=1KblVBuHP2k)
+> * [Repositorio GitHub con estados de ejemplo](https://github.com/AkhterAli/saltstates/)
 
 ## 5.1 Preparar el directorio para los estados
 
-Ir al master:
+Ir al Máster:
 * Crear directorios `/srv/salt/base` y `/srv/salt/dev`.
 * Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
 ```
