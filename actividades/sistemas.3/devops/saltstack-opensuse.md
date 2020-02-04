@@ -197,10 +197,28 @@ Total run time: 105.971 s
 ---
 # 6. Crear estado "users"
 
-Crear un estado llamado `users` que nos servirá para crear usuarios en las máquinas Minions.
+> Enlaces de interés:
+>
+> * [Create groups](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.group.html)
+> * [Create users](https://docs.saltstack.com/en/master/ref/states/all/salt.states.user.html)
+
+Crear un estado llamado `users` que nos servirá para crear un grupo y usuarios en las máquinas Minions.
 
 * Crear directorio `/srv/salt/base/users`.
-* Crear fichero `/srv/salt/base/users/init.sls` con lo siguiente:
+* Crear fichero `/srv/salt/base/users/init.sls` con las definiones para crear los siguiente:
+    * Grupo `mazingerz`
+    * Usuarios `kojiXX`, `drinfiernoXX` dentro de dicho grupo.
+
+---
+# 7. Añadir minion
+
+* Crear MV3 con SO Windows (minionXXw)
+* Instalar salt-minion y agregar al master.
+
+---
+# ANEXO A
+
+Ejemplo
 ```
 user_mazinger:
   user.present:
@@ -210,19 +228,4 @@ user_mazinger:
     - home: /home/mazingerXX
     - uid: 2001
     - groups: users
-
-user_koji:
-  user.present:
-    - name: kojiXX
-    - fullname: Koji del alumnoXX
-    - shell: /bin/bash
-    - home: /home/kojiXX
-    - uid: 2002
-    - groups: users
 ```
-
----
-# 7. Añadir minion
-
-* Crear MV3 con SO Windows (minionXXw)
-* Instalar salt-minion y agregar al master.
