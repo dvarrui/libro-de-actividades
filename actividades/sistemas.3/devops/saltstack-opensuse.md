@@ -1,9 +1,12 @@
 
 ```
-Curso           : 201920
-Requisitos      : 2 MV's con GNU/Linux
-Tiempo estimado :
+Curso       : 201920
+Area        : Sistemas operativos, automatización, devops   
+Descripción : Automatización de tareas con gestor de infraestructura "Saltstack"
+Requisitos  : 2 MV's con GNU/Linux
+Tiempo      : 6 sesiones
 ```
+
 ---
 # 1. Salt-stack
 
