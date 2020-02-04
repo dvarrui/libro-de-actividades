@@ -65,6 +65,8 @@ master: 172.19.XX.31
 
 ## 4.2 Aceptación desde el Master
 
+> Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt.
+
 Ir a MV1:
 * `salt-key -L`, vemos que el Máster recibe petición del Minion.
 ```
