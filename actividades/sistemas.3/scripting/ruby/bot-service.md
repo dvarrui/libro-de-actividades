@@ -2,7 +2,8 @@
 ```
 Curso       : 201920
 Area        : Sistemas operativos, scripting, servicios, procesos
-Descripción : Crear scripts para crear un servicio, gestionar y configurar servicios para tareas de sysadmin
+Descripción : Crear scripts para crear un servicio.
+              Gestionar y configurar servicio para tareas de sysadmin.
 Requisitos  : GNU/Linux, Ruby, Telegram.
 Tiempo      : 6 sesiones
 ```
