@@ -195,7 +195,9 @@ Total run time: 105.971 s
 > NOTA: Con este comando `salt '*' state.highstate`, también se pueden invocar todos los estados.
 
 ---
-# 6. Crear estado "users"
+# 6. Crear más estados
+
+## 6.1 Crear estado "users"
 
 > Enlaces de interés:
 >
@@ -208,6 +210,20 @@ Crear un estado llamado `users` que nos servirá para crear un grupo y usuarios 
 * Crear fichero `/srv/salt/base/users/init.sls` con las definiones para crear los siguiente:
     * Grupo `mazingerz`
     * Usuarios `kojiXX`, `drinfiernoXX` dentro de dicho grupo.
+
+## 6.2 Crear estado "directories"
+
+* Crear estado `drectories` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el home del usuario `koji`.
+
+Ejemplo:
+```
+/home/kojiXX/private:
+  file.directory:
+    - user:  kojiXX
+    - name:  /home/kojiXX/private
+    - group: mazingerz
+    - mode:  700
+```
 
 ---
 # 7. Añadir minion
