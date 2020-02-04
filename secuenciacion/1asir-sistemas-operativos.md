@@ -14,15 +14,20 @@ Además, cada UD se acompaña de varios cuestionarios de Moodle que no se han in
 ---
 ## Trimestre 1
 
+[Metodología](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/metodologia.md)
+
 **UD1: Instalaciones**
 
 * [live-cd](actividades/sistemas.2/instalacion/live-cd)
-* [licencias](actividades/sistemas.2/licencias)
+* [licencias](actividades/sistemas.2/licencias))
+
+Explicación: [Formato de las particiones](https://github.com/dvarrui/libro-de-actividades/blob/master/explicaciones/particiones/formatos.md)
+
 * [Instalacion personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada)
 * [comandos-01.md](actividades/sistemas.2/comandos/comandos-01.md)
 * [Instalacion dual: Windows, GNU/Linux](actividades/sistemas.2/instalacion/instalacion-dual)
 * [boot-loader](actividades/sistemas.2/boot-loader/README.md)
-* Cuestionarios de Moodle.
+* Cuestionarios de Moodle ([Comandos unit 1](https://github.com/dvarrui/asker-inputs/blob/master/es/inf/sistemas.2/comandos-unit1.xml))
 
 **UD2: Configuración**
 
@@ -33,6 +38,8 @@ Además, cada UD se acompaña de varios cuestionarios de Moodle que no se han in
 
 ---
 ### Trimestre 2
+
+[Metodología](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/metodologia.md)
 
 **UD3: Aseguramiento de la información**
 * [RAID con OpensSUSE y Windows](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md)
@@ -49,6 +56,8 @@ Además, cada UD se acompaña de varios cuestionarios de Moodle que no se han in
 
 ---
 ## Trimestre 3
+
+[Metodología](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/metodologia.md)
 
 **UD5: Dominios**
 
