@@ -65,7 +65,11 @@ master: 172.19.XX.31
 
 ## 4.2 Aceptación desde el Master
 
-> Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt.
+* Ir a la MV1 Máster.
+* Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt.
+    * Comnsultar URL [Opening the Firewall up for Salt](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html)
+
+## 4.3 Aceptación desde el Master
 
 Ir a MV1:
 * `salt-key -L`, vemos que el Máster recibe petición del Minion.
@@ -79,7 +83,7 @@ Rejected Keys:
 * `salt-key -a minionXXg`, para que el Máster acepte a dicho Minion.
 * `salt-key -L`, comprobamos.
 
-## 4.3 Comprobamos conectividad
+## 4.4 Comprobamos conectividad
 
 Comprobamos la conectividad desde el Máster a los Minions.
 ```
