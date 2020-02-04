@@ -92,15 +92,15 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 ---
 # 3. GNU/Linux OpenSUSE
 
-El servicio Audit es una herramienta que nos permite auditar eventos en los sistemas GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría audit.
+El servicio Audit es una herramienta que nos permite auditar eventos en los sistemas GNU/Linux. En este tutorial instalar, configurar y usar la herramienta de auditoría `audit`.
 
-Usando herramientas potentes como audit, el sistema puede ser relizar un seguimiento de muchos eventos y monitorizar y auditar el sistema. Ejemplos:
+Usando estas herramientas se puede ser realizar un seguimiento de muchos tipos de eventos, y monitorizar y auditar el sistema. Ejemplos:
 * Auditar el acceso y modificación de ficheros.
     * Ver quién cambió un fichero concreto.
     * Detectar cambios no autorizados.
 * Monitorizar las llamadas al sistema y funciones
 * Detectar anomalías como procesos dañados.
-* Establecer marcas (tripwires) para detectar intrusiones.
+* Establecer marcas ("tripwires") para detectar intrusiones.
 * Grabar comandos de usuarios concretos.
 
 ## 3.1 INFO: Un poco de teoría
