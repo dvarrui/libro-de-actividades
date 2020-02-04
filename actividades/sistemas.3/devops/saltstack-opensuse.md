@@ -197,7 +197,29 @@ Total run time: 105.971 s
 ---
 # 6. Crear estado "users"
 
-Crear un estado llamado "users" que nos sirva para crear un usuario llamado "saltXX" en las máquinas Minions.
+Crear un estado llamado `users` que nos servirá para crear usuarios en las máquinas Minions.
+
+* Crear directorio `/srv/salt/base/users`.
+* Crear fichero `/srv/salt/base/users/init.sls` con lo siguiente:
+```
+user_mazinger:
+  user.present:
+    - name: mazingerXX
+    - fullname: Mazinger del alumnoXX
+    - shell: /bin/bash
+    - home: /home/mazingerXX
+    - uid: 2001
+    - groups: users
+
+user_koji:
+  user.present:
+    - name: kojiXX
+    - fullname: Koji del alumnoXX
+    - shell: /bin/bash
+    - home: /home/kojiXX
+    - uid: 2002
+    - groups: users
+```
 
 ---
 # 7. Añadir minion
