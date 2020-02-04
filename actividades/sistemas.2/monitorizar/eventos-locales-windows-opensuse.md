@@ -1,8 +1,10 @@
 
 ```
-Curso           : 201819, 201718, 201617
-Software        : Windows y OpenSUSE
-Tiempo estimado :
+Curso       : 201920, 201819, 201718, 201617
+Area        : Sistemas operativos, monitorización, auditoría
+Requisitos  : Windows y OpenSUSE
+Tiempo      : 11 sesiones
+Descripción : Monitorizar y auditar eventos del sistema operativo
 ```
 
 ---
@@ -34,16 +36,20 @@ Vamos realizar las siguientes tareas en SO Windows.
 
 * Reiniciar la MV para que empiecen a funcionar las auditorías.
 * Crear los usuarios `soldado1`, `soldado2` y `soldado3`.
-* Hacer las siguientes acciones:
+* Realizar las siguientes acciones:
     * Entrar al sistema con `soldado1` de forma correcta.
     * Intentar entrar con `soldado2` poniendo la clave mal.
     * y no entrar con `soldado3`.
 * Buscar en el sistema, la herramienta visor de eventos.
 * Ir a la sección "Seguridad". Buscar los eventos de `soldado1` y `soldado2`.
 
+> Imagen de ejemplo para crear un filtro de eventos "Error de auditoría":
+>
+> ![](images/windows-filtrar-eventos.png)
+
 **Entregar**: Captura de pantalla de los eventos de seguridad para los usuarios `soldado1`y `soldado2`.
 
-## 2.2 Exportar los datos 
+## 2.2 Exportar los datos
 
 * Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO incluirlos todos. Elegir los generados hoy, o en las últimas horas.
 * Incluir fichero CSV en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
@@ -122,7 +128,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero audit.rule
     * `auditctl -s`
     * `systemctl status auditd`
 * Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format,
-log_group. 
+log_group.
 
 > Estos son las definiciones de algunos parámetros:
 > * **freq**, un valor de 20 le indica al demonio audit que debe escribir los datos de los eventos al disco cada 20 segundos.
@@ -251,4 +257,3 @@ Explicación de los parámetros:
 # ANEXO
 
 * [Locking users after X failed login attempts with pam_tally2](https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/)
-

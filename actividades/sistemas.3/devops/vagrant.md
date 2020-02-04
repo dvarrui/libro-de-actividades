@@ -1,8 +1,10 @@
 
 ```
-Curso           : 201920, 201819, 201718
-Requisitos      : Vagrant y Virtualbox
-Tiempo estimado : 6 sesiones
+Curso       : 201920, 201819, 201718
+Area        : Sistemas Operativos, automatización, Devops
+Requisitos  : Vagrant y Virtualbox
+Tiempo      : 6 sesiones
+Descripción : Uso de la herramienta de automatización Vagrant
 ```
 
 ---
