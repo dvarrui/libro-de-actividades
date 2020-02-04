@@ -1,9 +1,8 @@
 
 ```
-Curso      : 201920, 201819, curso1718
-Requisitos : Vagrant y Virtualbox
-Tiempo estimado :
-
+Curso           : 201920, 201819, 201718
+Requisitos      : Vagrant y Virtualbox
+Tiempo estimado : 6 sesiones
 ```
 
 ---
@@ -249,6 +248,11 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
 * **Con la MV apagada**:
     1. `vagrant destroy`, destruir la MV.
     2. `vagrant up` volver a crearla.
+
+
+> **Suministro con Salt-stack**
+>
+> * [Salt Provisioner](https://www.vagrantup.com/docs/provisioning/salt.html)
 
 ---
 # 7. Proyecto Bulls (Nuestra caja)
