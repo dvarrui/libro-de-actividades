@@ -36,11 +36,10 @@ Pasos:
     * Bot name: `@Bot_dvarrui`
     * Username: `dvarrui_bot`
 
-
-Obtendremos los siguientes datos:
+Apuntar los siguientes datos porque los vamos a usar más adelante:
 ```
-Bot URL: t.me/dvarrui_bot
-TOKEN (HTTP API): ...
+Bot URL          : ***
+TOKEN (HTTP API) : ***
 ```
 
 > Usar `/help` para consultar el listado de comandos del bot.
@@ -63,27 +62,30 @@ TOKEN (HTTP API): ...
 
 ## 1.3 Personalizar el bot
 
-Modificar el bot para personalizar los comandos que acepta.
-* Añadir 2 nuevas órdenes del bot para que el programa Ruby ejecute comandos en el sistema operativo donde se está ejecutando y devuelva el resultado al Bot de Telegram.
+Modificar el `bot-demo.rb` y personalizarlo de la siguiente forma:
+* Guardar el bot en `/usr/local/bin/botXXd`.
+* Quitar las órdenes "/hello" y "/bye".
+* Añadir orden "/help" que muestre una ayuda de los comandos que acepta el bit.
+* Añadir orden "/version" que muestre el autor del bot y la fecha de creación.
+* Añadir orden "/ip" que muestre la IP del sistema.
+* Añadir una orden para que el script ejecute comandos del sistema, y devuelva el resultado al Bot de Telegram.
+* Añadir una orden que acepte al menos dos argumentos. Por ejemplo, si quieres que el Bot acepte mensajes con varios argumentos o parámetros... recuerda el uso de `split`. Ejemplo:
+```
+bot.listen do |message|
+ options = message.text.split(" ")
+ if options[0] == "/meet"
+   # "/meet Mazinger-Z"
+   say = "Nice to meet you, #{options[1]}!"
+   bot.api.send_message(chat_id: message.chat.id,
+     text: say)
+ end
+end
+```
 
 ## 1.4 Entrega
 
 * Entregar el script del bot (`/usr/local/bin/botXXd`).
 * URL vídeo Youtube donde se muestre el Bot en funcionamiento.
-
-**Idea**:
-
-Si quieres que el Bot acepte mensajes con varios argumentos o parámetros... recuerda el uso de `split`. Ejemplo:
-
-```
-bot.listen do |message|
-  options = message.text.split(" ")
-  if options[0] == "/hello"
-    say = "Hello #{options[1]}!"
-    bot.api.send_message(chat_id: message.chat.id, text: say)
-  end
-end
-```
 
 ---
 # 2. Systemd
@@ -94,7 +96,7 @@ end
 > * EN - [Systemd - Unit file](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)
 > * EN - [Understanding Systemd Units and Unit Files](https://www.digitalocean.com/community/tutorials/understanding-systemd-units-and-unit-files)
 
-Vamos a crear un servicio para nuestro bot, de modo que se inicie siempre al arrancar el equipo y que podemos gestionarlo como el resto de servicios (usando el comando `systemctl`).
+Vamos a crear un servicio para nuestro Bot, de modo que se inicie siempre al arrancar el equipo y que podemos gestionarlo como el resto de servicios (usando el comando `systemctl`).
 
 ## 2.1 Crear un servicio
 
@@ -126,9 +128,9 @@ ExecStart=/usr/bin/ruby /usr/local/bin/botXXd
 WantedBy=multi-user.target
 ```
 
-Así se define un servicio sencillo.
-* `ExecStart`, especifica el comando/demonio que se ejecutará para iniciar el servicio.
-* `After`, indica que este servicio debe iniciarse después del servicio que activa la red.
+> Así se define un servicio sencillo.
+> * `ExecStart`, especifica el comando/demonio que se ejecutará para iniciar el servicio.
+> * `After`, indica que este servicio debe iniciarse después del servicio que activa la red.
 
 # 2.2 Iniciar y activar el servicio
 
