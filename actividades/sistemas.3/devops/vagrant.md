@@ -295,29 +295,17 @@ chmod 600 .ssh/authorized_keys
 
 **Sudoers**
 
-Tenemos que conceder permisos al usuario vagrant para que pueda configurar la red, instalar software, montar carpetas compartidas, etc. para ello debemos configurar `/etc/sudoers` (visudo) para que no nos solicite la password de root, cuando realicemos estas operación con el usuario vagrant.
+Tenemos que conceder permisos al usuario `vagrant` para que pueda configurar la red, instalar software, montar carpetas compartidas, etc. Para ello debemos configurar el fichero `/etc/sudoers` (Podemos usar el comando `visudo`) para que no nos solicite la password de root, cuando realicemos estas operaciones con el usuario `vagrant`.
 
-* Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a /etc/sudoers.
+* Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a `/etc/sudoers`.
 
 > Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
 
 **Añadir las VirtualBox Guest Additions**
 
 * Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions
-con una versión compatible con el host anfitrion.
-
+con una versión compatible con el host anfitrión.
 ```
-root@hostname:~# modinfo vboxguest
-filename:       /lib/modules/3.13.0-32-generic/updates/dkms/vboxguest.ko
-version:        4.3.20
-license:        GPL
-description:    Oracle VM VirtualBox Guest Additions for Linux Module
-author:         Oracle Corporation
-srcversion:     22BF504734255C977E4D805
-alias:          pci:v000080EEd0000CAFEsv00000000sd00000000bc*sc*i*
-depends:        
-vermagic:       3.13.0-32-generic SMP mod_unload modversions
-
 root@hostname:~# modinfo vboxguest |grep version
 version:        4.3.20
 ```
@@ -351,7 +339,26 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 ## Pendiente
 
-* Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows.
+* Ampliar esta práctica para comprobar el funcionamiento de Vagrant bajo Windows y usar cajas/boxes vagrant con Windows. Ver ejemplo:
+
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "windows10" do |i|
+    i.vm.box = "senglin/win-10-enterprise-vs2015community"
+    i.vm.box_version = "1.0.0"
+    i.vm.hostname = "profesor42w10"
+    i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.network :forwarded_port, guest: 80, host: 8081
+    i.vm.provider "virtualbox" do |v|
+      v.name = "windows10-ent-vs2015"
+      v.memory = 2048
+    end
+  end
+end
+```
 
 ## A.3 Cambios próximo Curso
 
