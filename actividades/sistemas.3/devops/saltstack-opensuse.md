@@ -4,7 +4,7 @@ Curso       : 201920
 Area        : Sistemas operativos, automatización, devops   
 Descripción : Automatización de tareas con gestor de infraestructura "Saltstack"
 Requisitos  : 2 MV's con GNU/Linux
-Tiempo      : 6 sesiones
+Tiempo      : 5 sesiones
 ```
 
 ---
@@ -241,7 +241,8 @@ Ejemplo:
 # 7. Añadir Minion de otro SO
 
 * Crear MV3 con SO Windows (minionXXw)
-* Instalar `salt-minion` y agregar al máster.
+* Instalar `salt-minion` en MV3.
+* Ir a MV1(Máster) y aceptar al minion.
 
 ---
 # ANEXO A
