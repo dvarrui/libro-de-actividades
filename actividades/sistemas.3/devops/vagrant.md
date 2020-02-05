@@ -233,7 +233,7 @@ Vagrant.configure("2") do |config|
 
 > Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
-* Ahora hay que crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet para instalar el programa `PACKAGENAME`. Ejemplo:
+* Ahora hay que crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet para instalar un programa determinado (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
 
 ```
 package { 'PACKAGENAME':
