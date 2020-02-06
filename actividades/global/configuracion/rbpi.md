@@ -12,10 +12,10 @@
 
 # Configurar Nombre EQUIPO, DOMINIO y USUARIO
 
-* Nombre de equipo: `primer-apellido-del-alumnoXXr1`.
-    * Por ejemplo vargas42r1
-    * Si tenemos varias máquinas las llamaremos vargasXXr1, vargasXXr2, etc.
-* Nombre de dominio: `curso1819` (Modificar los números al curso actual).
+* Nombre de equipo: `primer-apellido-del-alumnoXXrb`.
+    * Por ejemplo vargas42rb
+    * Si tenemos varias máquinas las llamaremos vargasXXrb, vargasXXrb2, etc.
+* Nombre de dominio: `curso1920` (Modificar los números al curso actual).
 * Un usuario identificado con `nombre-del-alumno`.
 
 > **ATENCIÓN**
@@ -24,15 +24,16 @@
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hostname`
 >     * Ponemos el `nombre-maquina.nombre-dominio`
->     * Por ejemplo: `vargasXXr1.curso1819`
+>     * Por ejemplo: `vargasXXrb.curso1920`
 > * Fichero `/etc/hosts`.
 >     * Asegurarse de que hay una línea con `ip nombre-de-host`
->     * Por ejemplo: `127.0.0.2   vargasXXr1.curso1819   vargasXXr1`
+>     * Por ejemplo: `127.0.0.2   vargasXXrb.curso1920   vargasXXrb`
 
-*Comprobar nombre de equipo y usuario:*
+* Comprobar nombre de equipo y usuario:
 ```
 date
 uname -a
+
 hostname -f           # Muestra nombre-máquina.nombre-dominio
 hostname -a           # Muestra nombre-máquina
 hostname -d           # Muestra nombre-dominio
@@ -41,7 +42,6 @@ id nombre-de-usuario  # Comprobar que existe el usuario
 ```
 
 ---
-
 # Configuración de red
 
 > * Donde aparezca AA debemos poner el código asignado al aula:
@@ -49,22 +49,21 @@ id nombre-de-usuario  # Comprobar que existe el usuario
 >     * 19 para el aula109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
-* IP: `172.AA.XX.51` (Donde XX corresponde al nº de cada puesto).
-    * Si tenemos varias máquinas usaremos las IP 172.AA.XX.52, 172.AA.XX.53, etc.
-    * Máscara de red: `255.255.0.0`
-    * Gateway: `172.AA.0.1`
-    * Servidor DNS: `8.8.4.4`
+* IP: `172.AA.XX.51` (Donde XX corresponde al nº de cada puesto). Si tenemos varias máquinas usaremos las IP 172.AA.XX.52, 172.AA.XX.53, etc.
+* Máscara de red: `255.255.0.0`
+* Gateway: `172.AA.0.1`
+* Servidor DNS: `8.8.4.4`
 
----
-
-# Proceso para configurar la red.
+## Proceso para configurar la red.
 
 * Podemos configurar la red:
     * Por entorno gráfico usando la aplicación NetworkManager.
     * Por comandos debemos modificar el contenido de los ficheros de configuración de red.
 * Primero debemos averiguar el nombre de nuestra interfaces.
     * Usaremos `ip a` o `ifconfig`.
-* Para cambiar la configuración de red,modificar el fichero `/etc/network/interfaces` (Si está basado en Debian)
+* Para cambiar la configuración de red,modificar el fichero
+    * `/etc/network/interfaces` (Si está basado en Debian)
+    * `/etc/sysconfig/network/ifcfg-...` (Si está basado en OpenSUSE)
 * Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
 
 ```
@@ -72,15 +71,15 @@ id nombre-de-usuario  # Comprobar que existe el usuario
 auto lo
 iface lo inet loopback
 
-# Ejemplo configuración interfaz enp0s3 en modo estático
-auto enp0s3
-iface enp0s3 inet static
-  address 172.AA.XX.41
+# Ejemplo configuración interfaz eth0 en modo estático
+auto eth0
+iface eth0 inet static
+  address 172.AA.XX.51
   netmask 255.255.0.0
   gateway 172.AA.0.1
   dns-nameserver 8.8.4.4
 
-# Ejemplo configuración interfaz ethq en modo dinámico
+# Ejemplo configuración interfaz eth1 en modo dinámico
 auto eth1
 iface eth1 inet dhcp
 ```
