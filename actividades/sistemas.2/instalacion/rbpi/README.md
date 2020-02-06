@@ -16,7 +16,7 @@ Tiempo      :
 **Preparar el sistema**
 
 * Instalar el SO en la RbPI.
-* Configurar la [Raspberry PI](../../global/configuracion/rbpi.md)
+* Configurar la [Raspberry PI](../../../global/configuracion/rbpi.md)
 * Activar el servidor SSH.
 * Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario (`ssh usuario@ip`).
 
