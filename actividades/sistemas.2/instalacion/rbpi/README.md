@@ -10,6 +10,9 @@ Tiempo      :
 ---
 # Raspberry PI
 
+> Enlaces de interés:
+> * [Página oficial Raspberry PI](https://www.raspberrypi.org/)
+
 **Preparar el sistema**
 
 * Instalar el SO en la RbPI.
