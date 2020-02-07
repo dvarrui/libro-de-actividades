@@ -169,13 +169,13 @@ Vamos a provocar que se generen eventos:
 Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Repetir para rebelde1, rebelde2 y rebelde3:
    * `id USERNAME`, consultar el uid del usuario.
-   * `ausearch -f estrellita.txt -ua USERUID`, consultar eventos sobre el fichero para el usuario con USERUID.
-   * `ausearch -f estrellita.txt -ua USERUID | wc -l`, contar los eventos.
+   * `ausearch -f estrellita.txt -ua USERID`, consultar eventos sobre el fichero para el usuario con USERID.
+   * `ausearch -f estrellita.txt -ua USERID | wc -l`, contar los eventos.
 
-> ¿Diferencias entre los siguientes comandos?
-> * ausearch -ua USERNAME
-> * ausearch -ue USERNAME
-> * ausearch -ui USERNAME
+> ¿Diferencias entre los siguientes comandos/parámetros de filtrado?
+> * ausearch -ui USERNAME: Filtrado por el usuario real
+> * ausearch -ue USERNAME: Filtrado por el usuario efectivo (no es real pero lo parece)
+> * ausearch -ua USERNAME: Filtrado por usuario real o efectivo.
 
 * Repetir para nano, cat y more:
   * `ausearch -x COMMANDNAME`, consultar eventos asociados a dichos comandos.
