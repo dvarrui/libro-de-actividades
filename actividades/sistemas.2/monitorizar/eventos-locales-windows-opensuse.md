@@ -202,7 +202,7 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
     * Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
     * Comentar la línea `-a never,task`.
-    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`.
+    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`. 
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
@@ -253,4 +253,5 @@ Explicación de los parámetros:
 ---
 # ANEXO
 
+* [What is the purpose of auditctl -a never,task?](https://unix.stackexchange.com/questions/491406/what-is-the-purpose-of-auditctl-a-never-task)
 * [Locking users after X failed login attempts with pam_tally2](https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/)
