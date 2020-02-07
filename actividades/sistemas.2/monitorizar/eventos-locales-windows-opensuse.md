@@ -200,17 +200,22 @@ Como mostrar los eventos registrados con toda la información que generan es con
 
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
-* Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
-    * Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
-    * Comentar la línea `-a never,task`.
-    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/rules.d/audit.rules`.
+
+Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir` en "audit.rules" (Reglas de audit):
+* Editar el fichero `/etc/audit/rules.d/audit.rules`.
+* Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
+* Comentar la línea `-a never,task`.
+* Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx`
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
+
+Comprobamos que funciona la regla:
 * Crear el directorio `/home/rebelde1/rogue-one`.
 * Consultar los registros de auditoría para mkdir.
 * Crear un informe de los eventos del ejecutable mkdir(`aureport -x`).
-Este comando genera una lista numerada de todos los eventos de ejecuta
-* Eliminar la regla del fichero audit.rules.
+
+Al terminar limpiamos las reglas para que no se sigan generando más eventos:
+* Eliminar la regla del fichero "audit.rules".
 
 ---
 # 4. Información
