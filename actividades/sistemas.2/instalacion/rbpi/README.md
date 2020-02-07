@@ -1,7 +1,8 @@
 
 ```
 Curso       : 201920
-Area        :
+Area        : Sistemas operativos, instalación.
+              Fundamentos de hardware.
 Descripción : Preparar la RbPI con acceso remoto
 Requisitos  :
 Tiempo      :
@@ -16,9 +17,13 @@ Tiempo      :
 **Preparar el sistema**
 
 * Instalar el SO en la RbPI.
+    * Consultar la [página oficial Raspberry PI](https://www.raspberrypi.org/)
+    * Elegir uno de los sistemas operativos GNU/Linux recomendados.
 * Configurar la [Raspberry PI](../../../global/configuracion/rbpi.md)
-* Activar el servidor SSH.
-* Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario (`ssh usuario@ip`).
+    * Configurar la IP estática del interfaz de red.
+    * Configurar la IP dinámica del interfaz Wifi (Sólo en la RbPI modelo 3).
+* Instalar y activar el servicio SSH.
+* Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario (`ssh nombre-del-alumno@ip`).
 
 **Identificación**
 
