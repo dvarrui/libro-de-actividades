@@ -185,8 +185,8 @@ Como mostrar los eventos registrados con toda la información que generan es con
 
 **Entregar:** Capturas de las siguientes acciones.
 * Repetir para rebelde1, rebelde2 y rebelde3
-   * `ausearch -f estrellita.txt -ui USERUID | aureport -f`
-   * `ausearch -f estrellita.txt -ui USERUID | aureport -u`
+   * `ausearch -f estrellita.txt -ua USERUID | aureport -f`
+   * `ausearch -f estrellita.txt -ua USERUID | aureport -u`
 * Repetir para nano, cat y more:
    * `ausearch -x PROGRAMNAME | aureport -f`
    * `ausearch -x PROGRAMNAME | aureport -u`
@@ -202,7 +202,7 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
     * Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
     * Comentar la línea `-a never,task`.
-    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`. 
+    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
