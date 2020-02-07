@@ -87,7 +87,7 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 * Mostrar los resultados de la auditoría.
 (Si no se ven registros entreguen la captura de pantalla de todas formas)
 
-**Entregar:** Captura de pantalla de los eventos resgistrados con los accesos al fichero `estrellita.txt`.
+**Entregar:** Captura de pantalla de los eventos registrados con los accesos al fichero `estrellita.txt`.
 
 ---
 # 3. GNU/Linux OpenSUSE
@@ -109,11 +109,11 @@ La configuración del demonio audit la llevan dos ficheros, uno para el demonio 
 
 **auditd.conf**
 
-El fichero `auditd.conf` configura el demonio auditd centrándose en dónde y cómo se deben registrar los eventos. Define como tratar con los discos llenos, rotaciones de log y el número de log a mantener. Normalmente la configuración por defecto será apropiada para la mayoría de los casos.
+El fichero `auditd.conf` configura el demonio "auditd", centrándose en dónde y cómo se deben registrar los eventos. Define como tratar con los discos llenos, rotaciones de log y el número de log a mantener. Normalmente la configuración por defecto será apropiada para la mayoría de los casos.
 
 **audit.rules**
 
-Para configurar los eventos que deben ser auditados se usa el fichero audit.rules.
+Para configurar los eventos que deben ser auditados se usa el fichero "audit.rules".
 
 > Enlaces de interés:
 > * [Tutorial - Configuring and auditing Linux with audit](https://linux-audit.com/configuring-and-auditing-linux-systems-with-audit-daemon/)
@@ -213,8 +213,9 @@ Este comando genera una lista numerada de todos los eventos de ejecuta
 * Eliminar la regla del fichero audit.rules.
 
 ---
-
 # 4. Información
+
+Esta parte no hay que hacerla. Sólo es información para consultar.
 
 ## 4.1 Resumen de comandos
 
@@ -233,7 +234,6 @@ Este comando genera una lista numerada de todos los eventos de ejecuta
 | aulastlog   | Similar al comando lastlog, pero usando audit |
 | ausyscall   | mapea los syscall ID y nombre |
 | auvirt      | Muestra información relacionada con las máquinas virtuales |
-
 
 ## 4.2 Auditar acceso de usuarios
 
