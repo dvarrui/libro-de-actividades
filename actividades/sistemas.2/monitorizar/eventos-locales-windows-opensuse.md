@@ -137,10 +137,8 @@ log_group.
 ## 3.3 Crear una regla temporal para auditar un fichero
 
 * Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar (`/etc/audit/audit.rules`).
-* Con el comando `auditctl -l`, también podemos ver las reglas activas.
-Al principio no debemos tener nada.
-
-> Para eliminar reglas usaremos auditctl y el parámetro -D.
+* `auditctl -D`, para eliminar (temporalmente) todas las reglas de audit.
+* `auditctl -l`, podemos ver que no hay ninguna regla.
 
 Hacemos lo siguiente:
 * Abrirmos un terminal (Llamémosle "t1").
