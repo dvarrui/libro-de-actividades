@@ -136,7 +136,7 @@ log_group.
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
-* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar (`/etc/audit/audit.rules`).
+* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar (`/etc/audit/rules.d/audit.rules`).
 * `auditctl -D`, para eliminar (temporalmente) todas las reglas de audit.
 * `auditctl -l`, podemos ver que no hay ninguna regla.
 
@@ -203,7 +203,7 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
     * Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
     * Comentar la línea `-a never,task`.
-    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`.
+    * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/rules.d/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
 * Crear el directorio `/home/rebelde1/rogue-one`.
