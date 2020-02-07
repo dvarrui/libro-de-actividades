@@ -200,7 +200,8 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * Reiniciamos el equipo.
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 * Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir`:
-    * Usar `which mkdir` para averiguar la ruta de mkdir.
+    * Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
+    * Comentar la línea `-a never,task`.
     * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx` al fichero `/etc/audit/audit.rules`.
 * Reiniciar el equipo.
 * `auditctl -l`, comprobar que la regla permanece definida.
