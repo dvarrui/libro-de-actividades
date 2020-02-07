@@ -203,7 +203,7 @@ Como mostrar los eventos registrados con toda la información que generan es con
 
 Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir` en "audit.rules" (Reglas de audit):
 * Editar el fichero `/etc/audit/rules.d/audit.rules`.
-* Averiguar la ruta de mkdir: `which mkdir` o `whereis mkdir`.
+* `whereis mkdir`, averiguar la ruta de mkdir.
 * Comentar la línea `-a never,task`.
 * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx`
 * Reiniciar el equipo.
