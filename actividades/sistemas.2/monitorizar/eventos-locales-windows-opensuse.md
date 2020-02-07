@@ -4,7 +4,7 @@ Curso       : 201920, 201819, 201718, 201617
 Area        : Sistemas operativos, monitorización, auditoría
 Requisitos  : Windows y OpenSUSE
 Tiempo      : 11 sesiones
-Descripción : Monitorizar y auditar eventos del sistema operativo
+Descripción : Monitorizar y auditar eventos del sistema operativo en local
 ```
 
 ---
@@ -124,9 +124,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero audit.rule
 ## 3.2 Instalación
 
 * Instalar los paquetes `audit` y `yast2-audit-laf`.
-* Consultar el estado del demonio o servicio:
-    * `auditctl -s`
-    * `systemctl status auditd`
+* `systemctl status auditd`, consultar el estado del servicio. También se puede usar `auditctl -s`.
 * Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format,
 log_group.
 
