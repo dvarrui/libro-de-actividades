@@ -19,7 +19,7 @@ Propuesta de rúbrica:
 | --- | -------- | ----------- | ---------- | ---------------- |
 | 1.4 | Entrega  ||||
 | 2.4 | Entrega  ||||
-| 3.2 | Tareas programadas ||||
+| 3.2 | Entrega  ||||
 
 ---
 # 1. Crear un bot de Telegram con ruby
@@ -207,8 +207,13 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * Paramos el servicio.
 * Esperamos 5 minutos y ahora debe haberse iniciado de forma automática (con crontab).
 
+## 3.3 Entrega
+
+* `botXXcontroller`.
+* Configuración `crontab -l`.
+
 ---
-### Preguntas
+# 4. Preguntas
 
 * _¿Se podría instalar Ruby en Windows?_ => RubyInstaller
 * _¿Se podría pasar el demonio (botXXd) a Windows?_ => Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
