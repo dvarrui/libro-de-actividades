@@ -215,6 +215,7 @@ Esta configuración programa una ejecución del script cada 5 minutos.
     1. `systemctl status botXX`, mostrando el servicio parado.
     1. Esperar 5 minutos.
     1. `systemctl status botXX`, mostrando el servicio activo.
+* Contenido del fichero `/etc/botXX/bot.log`.
 
 ---
 # 4. Preguntas
