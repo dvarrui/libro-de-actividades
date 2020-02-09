@@ -170,8 +170,8 @@ Creamos un nuevo script `/usr/local/bin/botXXcontroller`. Este script hará lo s
     * etc.
 * Si el servicio no está en ejecución, entonces:
     * Se inicia el servicio (`systemctl ...`).
-    * Se registra el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "[botXXcontroller] Iniciando el servicio del bot..."
-* Si el servico está en ejecución, entonces registramos el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "[botXXcontroller] No hace nada!".
+    * Se registra el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "botXXcontroller [Fecha/hora] => Iniciando el servicio botXX..."
+* Si el servico está en ejecución, entonces registramos el siguiente mensaje en el fichero de log (`/etc/botXX/log`): "botXXcontroller [Fecha/hora] => No hace nada!".
 * Se termina el script.
 
 ## 3.2 Tareas programadas
@@ -211,6 +211,10 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 
 * `botXXcontroller`.
 * Configuración `crontab -l`.
+* Captura de pantalla con la siguiente secuencia:
+    1. `systemctl status botXX`, mostrando el servicio parado.
+    1. Esperar 5 minutos.
+    1. `systemctl status botXX`, mostrando el servicio activo.
 
 ---
 # 4. Preguntas
