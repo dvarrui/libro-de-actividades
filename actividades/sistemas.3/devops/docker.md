@@ -1,12 +1,18 @@
 
 ```
-Estado     : Estable
-Curso      : 201819, 201716
+Curso      : 201920, 201819, 201716
+Area       : Sistemas operativos, automatización, devops
 Requisitos : Se recomienda usar SSOO GNU/Linux
+Tiempo
+Descripción: Introducción a los contenedores con Docker
 ```
----
 
-# 1. Docker
+---
+# 1. Contenedores con Docker
+
+> Enlaces de interés
+> * [Docker for beginners](http://prakhar.me/docker-curriculum/)
+> * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 
 ## 1.1 Introducción
 
@@ -18,10 +24,6 @@ Esta herramienta nos permite crear lo que ellos denominan contenedores, lo cual 
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
-> Enlaces de interés
-> * [Docker for beginners](http://prakhar.me/docker-curriculum/)
-> * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
-
 ## 1.2. Requisitos
 
 * Vamos a usar MV OpenSUSE.
@@ -31,17 +33,15 @@ Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar la opción IP_FORWARD (`net.ipv4.ip_forward`). Lo podemos hacer en YAST. ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-| Sistema opertivo | Activar "forwarding" |
-| ---------------- | -------------------- |
+| Sistema operativo | Activar "forwarding" |
+| ----------------- | -------------------- |
 | OpenSUSE Leap (configuración de red es Wicked) | Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4 |
 | Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
 | OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
 
-
-Reiniciar el equipo para que se apliquen los cambios.
+* Reiniciar el equipo para que se apliquen los cambios de configuración anteriores.
 
 ---
-
 # 2. Instalación y primeras pruebas
 
 > Enlaces de interés:
@@ -55,8 +55,8 @@ Reiniciar el equipo para que se apliquen los cambios.
 ```
 zypper in docker        # Instala docker
 systemctl start docker  # Inicia el servicio
-                        # "docker daemon" hace el mismo efecto
-docker version          # Información del cliente y del servidor
+                        # El comando "docker daemon" hace el mismo efecto
+docker version          # Información de las versiones cliente y servidor
 ```
 
 * Salir de la sesión y volver a entrar con nuestro usuario.
@@ -71,11 +71,13 @@ docker images           # Muestra las imágenes descargadas hasta ahora
 docker ps -a            # Muestra todos los contenedores creados
                         # No debe haber ninguno
 ```
+
 * Primera prueba:
+
 ```
 docker run hello-world  # Descarga y ejecuta un contenedor
                         # con la imagen "hello-world"
-                        # Sólo muestra unos mensajes en pantalla.
+                        # Sólo muestra un mensaje en pantalla.
 docker images           # Vemos la nueva imagen
 docker ps -a            # El contenedor está estado 'Exited'
 ```
@@ -84,11 +86,11 @@ docker ps -a            # El contenedor está estado 'Exited'
 
 Tabla de referencia para no perderse:
 
-| Software   | Base   | Sirve para crear   |
-| ---------- | ------ | ------------------ |
-| VirtualBox | ISO    | Máquinas virtuales |
-| Vagrant    | Box    | Máquinas virtuales |
-| Docker     | Imagen | Contenedores       |
+| Software   | Base   | Sirve para crear   | Aplicaciones |
+| ---------- | ------ | ------------------ | ------------ |
+| VirtualBox | ISO    | Máquinas virtuales | N |
+| Vagrant    | Box    | Máquinas virtuales | N |
+| Docker     | Imagen | Contenedores       | 1 |
 
 
 Información sobre otros comandos útiles:
@@ -203,7 +205,6 @@ docker ps -a
 ```
 
 ---
-
 # 4. Crear contenedor a partir de nuestra imagen
 
 ## 4.1 Crear contenedor con Nginx
@@ -253,7 +254,6 @@ docker ps -a
 cuando lo necesitemos.
 
 ---
-
 # 5. Crear un contenedor a partir de un `Dockerfile`
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
@@ -343,7 +343,6 @@ docker run --name=con_super -p 80 -t dvarrui/super /usr/bin/supervisord -c /etc/
     * URL `http://localhost:PORTNUMBER/holamundo.html`
 
 ---
-
 # 6. Migrar las imágenes de docker a otro servidor
 
 ¿Cómo puedo llevar los contenedores docker a un nuevo servidor?
@@ -373,7 +372,6 @@ Importar imagen docker desde fichero:
 * Crear contenedor a partir de la nueva imagen.
 
 ---
-
 # 7. Limpiar
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
