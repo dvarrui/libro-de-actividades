@@ -101,7 +101,6 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 > * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
 
 ---
-
 # 4. TEORÍA
 
 `NO ES NECESARIO hacer este apartado. Sólo es información.`
