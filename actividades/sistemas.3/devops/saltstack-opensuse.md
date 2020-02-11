@@ -66,12 +66,14 @@ master: 172.19.XX.31
 * `systemctl start salt-minion.service`, iniciar el servico del Minion.
 * Comprobar que  que no tenemos instalado `apache2` en el Minion.
 
-## 4.2 Aceptación desde el Master
+## 4.2 Cortafuegos
+
+Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt. Consultar URL [Opening the Firewall up for Salt](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html)
 
 * Ir a la MV1 Máster.
-* Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt. Consultar URL [Opening the Firewall up for Salt](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html)
-
-> En el curso 201920 tuvimos que desactivar el cortafuego. Revisar este punto para el próximo curso.
+* `firewall-cmd --get-active-zones`, consultar la zona de red. El resultado será public, dmz o algún otro. Sólo debe aplicar a las zonas necesarias.
+* `firewall-cmd --zone=public --add-port=4505-4506/tcp --permanent`, abrir puerto de forma permanente en la zona "public".
+* `firewall-cmd reload`, reiniciar el firewall para que los cambios surtan efecto.
 
 ## 4.3 Aceptación desde el Master
 
