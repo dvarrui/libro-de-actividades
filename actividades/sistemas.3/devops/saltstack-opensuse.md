@@ -91,14 +91,18 @@ Rejected Keys:
 
 ## 4.4 Comprobamos conectividad
 
-Comprobamos la conectividad desde el Máster a los Minions.
+Desde el Máster comprobamos:
+1. Conectividad hacia los Minions.
+```
+# salt '*' test.ping
+minionXXg:
+    True
+```
+2. Versión de Salt instalada en los Minions
 ```
 # salt '*' test.version
 minionXXg:
     2019.2.0
-# salt '*' test.ping
-minionXXg:
-    True
 ```
 
 > El símbolo `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
