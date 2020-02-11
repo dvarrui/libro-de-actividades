@@ -58,17 +58,17 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 
 > OJO: Sustituir **BOXNAME** por `ubuntu/bionic64`
 
-* `vagrant box add ubuntu/bionic64`, descargar la caja que necesitamos a través de vagrant.
+* `vagrant box add BOXNAME`, descargar la caja que necesitamos a través de vagrant.
 * `vagrant box list`, lista las cajas/imágenes disponibles actualmente en nuestra máquina.
 
 ```
 > vagrant box list
-ubuntu/bionic64 (virtualbox, 0)
+BOXNAME (virtualbox, 0)
 ```
 
 ## 3.2 Directorio
 
-* Crear un directorio para nuestro proyecto vagrant (Donde XX es el número de cada alumno):
+* Crear un directorio para nuestro proyecto. Donde XX es el número de cada alumno:
 
 ```
 mkdir vagrantXX-celtics
@@ -80,13 +80,14 @@ A partir de ahora vamos a trabajar dentro de esta carpeta.
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "BOXNAME"
+  config.vm.hostname = "nombre-alumnoXX-celtics"
   config.vm.provider "virtualbox"
 end
 ```
 
 > NOTA: Con `vagrant init` se crea un fichero `Vagrantfile` con las opciones por defecto.
 
-## 3.3 MV: Levantar y entrar
+## 3.3 Comprobar
 
 Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 * Debemos estar dentro de `vagrantXX-celtics`.
@@ -141,20 +142,22 @@ config.ssh.forward_x11 = true
 > ¿Cómo podríamos crear una MV Windows usando vagrant en GNU/Linux?
 
 ---
-# 5. Proyecto Hawks (redirección de puertos)
+# 5. Proyecto Hawks
+
+Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
 
 ## 5.1 Creamos proyecto Hawks
 
 * Crear carpeta `vagrantXX-hawks`. Entrar en el directorio.
 * Crear proyecto Vagrant.
-* Configurar Vagrantfile para usar nuestra caja BOXNAME.
+* Configurar Vagrantfile para usar nuestra caja BOXNAME y hostname = "nombre-alumnoXX-hawks".
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
 * `vagrant ssh`, entramos en la MV
 * Instalamos apache2.
 * Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
 
-## 5.2 Comprobamos proyecto 2
+## 5.2 Comprobar
 
 Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
@@ -191,6 +194,7 @@ apt-get install -y apache2
 ```
 
 Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
+* `config.vm.hostname = "nombre-alumnoXX-lakers"`
 * `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
 * `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visibl dentro de la MV.
 * `vagrant up`, para crear la MV.
@@ -222,8 +226,12 @@ Se pide hacer lo siguiente.
 ```
 Vagrant.configure("2") do |config|
   ...
+  config.vm.hostname = "nombre-alumnoXX-raptors"
+  ...
+  # Nos aseguramos de tener Puppet en la MV antes de usarlo.
   config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
 
+  # Hacemos aprovisionamiento con Puppet
   config.vm.provision "puppet" do |puppet|
     puppet.manifest_file = "nombre-del-alumnoXX.pp"
   end
@@ -249,7 +257,6 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
 * **Con la MV apagada**:
     1. `vagrant destroy`, destruir la MV.
     2. `vagrant up` volver a crearla.
-
 
 > **Suministro con Salt-stack**
 >
@@ -326,7 +333,7 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 * Crear un nuevo Vagrantfile para usar nuestra caja.
 * Levantamos la MV.
-* Nos debemos conectar sin problemas.
+* Nos debemos conectar sin problemas (`vagant ssh`).
 
 > **Vagrant y SSH**
 > * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
