@@ -1,6 +1,6 @@
 
 ```
-Curso      : 201920, 201819, 201716
+Curso      : 201819, 201716
 Area       : Sistemas operativos, automatización, devops
 Requisitos : Se recomienda usar SSOO GNU/Linux
 Tiempo
