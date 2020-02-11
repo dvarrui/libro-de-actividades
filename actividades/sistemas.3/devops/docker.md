@@ -238,10 +238,10 @@ docker ps -a
 
 ## 5.2 Preparar ficheros
 
-* Crear directorio `/home/nombre-alumno/dockerXX`, poner dentro los siguientes ficheros:
-    * Dockerfile (vacío)
-    * holamundo.html (igual que en el contenedor anterior)
-* Modificar el fichero `Dockerfile` con el siguiente contenido:
+* Crear directorio `/home/nombre-alumno/dockerXX`.
+* Entrar el directorio anterior.
+* Poner copia del fichero `holamundo.html` que teníamos.
+* Crear el fichero `Dockerfile` con el siguiente contenido:
 
 ```
 FROM debian:9
@@ -251,7 +251,6 @@ MAINTAINER nombre-del-alumnoXX 1.0
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y nginx
-RUN apt-get install -y vim
 
 COPY holamundo.html /var/www/html
 RUN chmod 666 /var/www/html/holamundo.html
@@ -276,15 +275,14 @@ docker images                    # Debe aparecer nuestra nueva imagen
 
 ## 5.4 Crear contenedor y comprobar
 
-A continuación vamos a crear un contenedor con el nombre `con_super`, a partir de la imagen `dvarrui/super`.
+A continuación vamos a crear un contenedor con el nombre `con_super`, a partir de la imagen `dvarrui/super`. Probaremos con:
 
-```
-docker run --name=con_super -p 80 -t dvarrui/super`
+* `docker run --name=con_super -t dvarrui/super`
+* `docker run --name=con_super -t dvarrui/super -p 80`
+* `docker run --name=con_super -t dvarrui/super -p 80 /usr/sbin/nginx -d`
 
-docker run --name=con_super -p 80 -t dvarrui/super /usr/sbin/nginx -d`
-```
-
-* Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha del servidor Nginx.
+Desde otra terminal:
+* `docker...`, para averiguar el puerto de escucha del servidor Nginx.
 * Comprobar en el navegador:
     * URL `http://localhost:PORTNUMBER`
     * URL `http://localhost:PORTNUMBER/holamundo.html`
@@ -292,33 +290,37 @@ docker run --name=con_super -p 80 -t dvarrui/super /usr/sbin/nginx -d`
 ---
 # 6. Migrar las imágenes de docker a otro servidor
 
-¿Cómo puedo llevar los contenedores docker a un nuevo servidor?
+¿Cómo puedo llevar los contenedores Docker a un nuevo servidor?
 
 > Enlaces de interés
 >
 > * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
 > * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
 
-## 6.1 Exportar
+**Exportar** imagen Docker a fichero tar:
+* `docker save -o ~/backupXX.tar nombre-alumno/super`, guardamos la imagen
+"nombre-alumno/super" en un fichero tar.
 
-Crear un imagen de contenedor:
-* `docker ps`, muestra los contenedores que tengo en ejecución.
-* `docker commit -p CONTAINERID nombre-alumno/backupXX`, grabar una imagen de nombre "nombre-alumno/backupXX" a partir del contenedor CONTAINERID.
-* `docker images`comprobar que se ha creado la imagen "nombre-alumno/backupXX".
-
-Exportar imagen docker a fichero:
-* `docker save -o ~/backupXX.tar nombre-alumno/backupXX`, guardamos la imagen
-"nombre-alumno/backupXX" en un fichero tar.
-
-## 6.2 Importar
-
-Importar imagen docker desde fichero:
+**Importar** imagen Docker desde fichero:
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
 * `docker load -i ~/backupXX.tar`, cargamos la imagen docker a partir del fichero tar.
 * `docker images`, comprobamos que la nueva imagen está disponible.
-* Crear contenedor a partir de la nueva imagen.
+
+Ya podemos crear contenedores a partir de la nueva imagen.
 
 ---
 # 7. Limpiar
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
+* `ps -a`
+* `docker stop ...`
+* `docker rm ...`
+* `docker images`
+* `docker rmi ...`
+
+---
+# ANEXO
+Crear un imagen de contenedor:
+* `docker ps`, muestra los contenedores que tengo en ejecución.
+* `docker commit -p CONTAINERID nombre-alumno/backupXX`, grabar una imagen de nombre "nombre-alumno/backupXX" a partir del contenedor CONTAINERID.
+* `docker images`comprobar que se ha creado la imagen "nombre-alumno/backupXX".
