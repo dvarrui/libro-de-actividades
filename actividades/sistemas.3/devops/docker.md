@@ -54,7 +54,7 @@ Ejecutar como superusuario:
 * `zypper in docker`, instalar docker.
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
 
-**Entregar:** captura de imagen.
+Comprobar:
 * `docker version`, muestra información de las versiones cliente y servidor.
 
 Salir de la sesión y volver a entrar con nuestro usuario.
@@ -117,14 +117,14 @@ y dentro instalaremos Nginx.
 docker images        # Vemos las imágenes disponibles localmente
 docker search debian # Buscamos en los repositorios de Docker Hub
                      # contenedores con la etiqueta `debian`
-docker pull debian:9 # Descargamos una imagen `debian:9` en local
+docker pull debian   # Descargamos una imagen `debian:9` en local
 docker images
 docker ps -a         # Vemos todos los contenedores
 docker ps            # Vemos sólo los contenedores en ejecución
 ```  
 
 * Vamos a crear un contenedor con nombre `con_debian` a partir de la
-imagen `debian:9`, y ejecutaremos `/bin/bash`:
+imagen `debian`, y ejecutaremos `/bin/bash`:
 
 ```
 docker run --name=con_debian -i -t debian:9 /bin/bash
@@ -158,8 +158,8 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos crear una 
 
 ```
 > docker ps
-CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
-7d193d728925   debian:9   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
+CONTAINER ID   IMAGE    COMMAND       CREATED          STATUS         PORTS  NAMES
+7d193d728925   debian   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
 ```
 
 * Ahora con el ID podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
@@ -246,7 +246,7 @@ docker ps -a
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 
 ```
-FROM debian:9
+FROM debian
 
 MAINTAINER nombre-del-alumnoXX 1.0
 
@@ -268,10 +268,8 @@ El fichero Dockerfile contiene la información
 necesaria para construir el contenedor, veamos:
 
 * `cd dockerXX`, entramos al directorio con el Dockerfile.
-* `docker build -t nombre-alumno/super`, construye una nueva imagen a partir del Dockerfile.
-                                       # OJO: el punto final es necesario
-docker images                          # Debe aparecer nuestra nueva imagen
-```
+* `docker build -t nombre-alumno/super .`, construye una nueva imagen a partir del Dockerfile. OJO: el punto final es necesario.
+* `docker images`, ahora debe aparecer nuestra nueva imagen.
 
 ## 5.4 Crear contenedor y comprobar
 

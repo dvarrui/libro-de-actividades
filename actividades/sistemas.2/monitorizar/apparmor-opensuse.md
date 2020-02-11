@@ -1,11 +1,14 @@
 
 ```
-Curso           : 201819, 201718
-Software        : OpenSUSE Leap 15 y anteriormente OpenSUSE Leap 42.3.
-Tiempo estimado :
+Curso       : 201920, 201819, 201718
+Area        : Sistemas operativos, monitorización, seguridad.
+Requisitos  : GNU/Linux OpenSUSE Leap 15
+Tiempo      : 7 sesiones
+Descripción : Configuración de AppArmor en modo monitorización.
+              Configuración de AppArmor en modo seguridad.
 ```
----
 
+---
 # AppArmor (OpenSUSE)
 
 Para esta práctica vamos a usar una MV con SO OpenSUSE.
@@ -67,7 +70,6 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 > Ver un [perfil de ejemplo](./images/home.david.temp.aa.copy.rb)
 
 ---
-
 # 2. AppArmor: Práctica
 
 Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq), que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad a un programa concreto.
@@ -114,7 +116,6 @@ Vamos a la "consola2".
 > El perfil es un fichero de texto que se puede modificar si es necesario.
 
 ---
-
 # 3. Forzamos el perfil
 
 ## 3.1 Preparativos
@@ -140,7 +141,6 @@ Vamos a "consola2".
     * `cat /var/log/audit/audit.log | grep mycopy`
 
 ---
-
 # 4. Modo queja
 
 ## 4.1 Perfil en modo queja
@@ -162,10 +162,9 @@ Vamos a "consola2".
     * `cat /var/log/audit/audit.log | grep mycopy`
 
 ---
-
 # ANEXO
 
-## A.1 SELinux 
+## A.1 SELinux
 
 * [SELinux](https://theurbanpenguin.com/product/selinux-fundamentals-in-red-hat-enterprise-linux-8)
 

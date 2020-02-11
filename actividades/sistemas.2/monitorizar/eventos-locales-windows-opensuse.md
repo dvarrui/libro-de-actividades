@@ -39,7 +39,7 @@ Vamos realizar las siguientes tareas en SO Windows.
 * Realizar las siguientes acciones:
     * Entrar al sistema con `soldado1` de forma correcta.
     * Intentar entrar con `soldado2` poniendo la clave mal.
-    * y no entrar con `soldado3`.
+    * No entrar al sistema con `soldado3`.
 * Buscar en el sistema, la herramienta visor de eventos.
 * Ir a la sección "Seguridad". Buscar los eventos de `soldado1` y `soldado2`.
 
@@ -125,8 +125,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero "audit.rul
 
 * Instalar los paquetes `audit` y `yast2-audit-laf`.
 * `systemctl status auditd`, consultar el estado del servicio. También se puede usar `auditctl -s`.
-* Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format,
-log_group.
+* Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format, log_group.
 
 > Estos son las definiciones de algunos parámetros:
 > * **freq**, un valor de 20 le indica al demonio audit que debe escribir los datos de los eventos al disco cada 20 segundos.
@@ -202,20 +201,23 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 
 Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir` en "audit.rules" (Reglas de audit):
-* Editar el fichero `/etc/audit/rules.d/audit.rules`.
 * `whereis mkdir`, averiguar la ruta de mkdir.
+* Editar el fichero `/etc/audit/rules.d/audit.rules`.
 * Comentar la línea `-a never,task`.
 * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx`
-* Reiniciar el equipo.
-* `auditctl -l`, comprobar que la regla permanece definida.
+* Reiniciar el servicio de audit:
+    * `systemctl stop auditd`, parar el servicio.
+    * `systemctl start auditd`, iniciar el servicio.
+* `auditctl -l`, comprobar que tenemos la nueva regla. Si reiniciamos el equipo podremos comprobar que la regla de auditoría sigue estando activa.
 
-Comprobamos que funciona la regla:
+## 3.7 Comprobamos que funciona la regla
+
 * Crear el directorio `/home/rebelde1/rogue-one`.
-* Consultar los registros de auditoría para mkdir.
-* Crear un informe de los eventos del ejecutable mkdir(`aureport -x`).
+* Consultar los registros de auditoría para `mkdir`.
+* Crear un informe de los eventos del ejecutable `mkdir`(`aureport -x`).
 
 Al terminar limpiamos las reglas para que no se sigan generando más eventos:
-* Eliminar la regla del fichero "audit.rules".
+* Eliminar la regla del fichero `/etc/audit/rules.d/audit.rules`.
 
 ---
 # 4. Información
