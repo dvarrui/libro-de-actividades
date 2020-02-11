@@ -149,6 +149,8 @@ apache_service:
   service.running:
     - name: apache2
     - enable: True
+    - require:
+     - pkg: apache2
 ```
 
 Entendamos las definiciones:
