@@ -54,7 +54,7 @@ Ejecutar como superusuario:
 * `zypper in docker`, instalar docker.
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
 
-**Entregar:**
+**Entregar:** captura de imagen.
 * `docker version`, muestra información de las versiones cliente y servidor.
 
 Salir de la sesión y volver a entrar con nuestro usuario.
@@ -152,7 +152,9 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
 
 ## 3.3 Crear una imagen a partir del contenedor
 
-* Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos crear una nueva imagen con los cambios que hemos hecho, para esto abrimos otra ventana de terminal y busquemos el IDContenedor:
+Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos crear una nueva imagen con los cambios que hemos hecho.
+
+* Abrimos otra ventana de terminal y buscamos el ID del contenedor:
 
 ```
 > docker ps
@@ -160,7 +162,7 @@ CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  N
 7d193d728925   debian:9   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
 ```
 
-* Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
+* Ahora con el ID podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
 
 ```
 docker commit 7d193d728925 dvarrui/nginx
@@ -171,6 +173,10 @@ docker images
 >
 > * Los estándares de Docker estipulan que los nombres de las imagenes deben seguir el formato `nombreusuario/nombreimagen`.
 > * Todo cambio que se haga en la imagen, y no se le haga commit se perderá en cuanto se cierre el contenedor.
+
+## 3.4 Limpiamos
+
+Eliminamos contenedores activos:
 
 ```
 docker ps
@@ -186,17 +192,13 @@ docker ps -a
 
 ## 4.1 Crear contenedor con Nginx
 
-Bien, tenemos una imagen con Debian/Nginx instalado, probemos ahora la magia de Docker.
+Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
 
-* Iniciemos el contenedor de la siguiente manera:
+* `docker ps`, comprobamos los contenedores activos.
+* `docker ps -a`, comprobamos todos los contendores.
+* `docker run --name=con_nginx -p 80 -t dvarrui/nginx "/usr/sbin/nginx -d"`, iniciar el contenedor a partir de la imagen anterior.
 
-```
-docker ps
-docker ps -a
-docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/sbin/nginx -d
-```
-
-:eyes: El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
+> El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
 ## 4.2 Buscar los puertos de salida
 
@@ -219,7 +221,7 @@ docker rm con_nginx
 docker ps -a
 ```
 
-> Como ya tenemos una imagen docker, podemos crear nuevos contenedores
+Como ya tenemos una imagen docker, podemos crear nuevos contenedores
 cuando lo necesitemos.
 
 ---
@@ -263,23 +265,21 @@ CMD ["/usr/sbin/nginx -d"]
 ## 5.3 Crear imagen a partir del `Dockerfile`
 
 El fichero Dockerfile contiene la información
-necesaria para contruir el contenedor, veamos:
+necesaria para construir el contenedor, veamos:
 
-```
-cd dockerXX                      # Directorio del Dockerfile
-docker images                    # Consultamos las imágenes
-docker build -t dvarrui/super .  # Construye imagen a partir del Dockefile
-                                 # OJO: el punto final es necesario
-docker images                    # Debe aparecer nuestra nueva imagen
+* `cd dockerXX`, entramos al directorio con el Dockerfile.
+* `docker build -t nombre-alumno/super`, construye una nueva imagen a partir del Dockerfile.
+                                       # OJO: el punto final es necesario
+docker images                          # Debe aparecer nuestra nueva imagen
 ```
 
 ## 5.4 Crear contenedor y comprobar
 
 A continuación vamos a crear un contenedor con el nombre `con_super`, a partir de la imagen `dvarrui/super`. Probaremos con:
 
-* `docker run --name=con_super -t dvarrui/super`
-* `docker run --name=con_super -t dvarrui/super -p 80`
-* `docker run --name=con_super -t dvarrui/super -p 80 /usr/sbin/nginx -d`
+* `docker run --name=con_super -t nombre-alumno/super`
+* `docker run --name=con_super -t nombre-alumno/super -p 80`
+* `docker run --name=con_super -t nombre-alumno/super -p 80 /usr/sbin/nginx -d`
 
 Desde otra terminal:
 * `docker...`, para averiguar el puerto de escucha del servidor Nginx.
