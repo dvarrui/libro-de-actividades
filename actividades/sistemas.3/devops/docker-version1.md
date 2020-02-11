@@ -78,8 +78,6 @@ docker run hello-world  # Descarga y ejecuta un contenedor
                         # Sólo muestra un mensaje en pantalla.
 docker images           # Vemos la nueva imagen
 docker ps -a            # El contenedor está estado 'Exited'
-docker stop IDContainer # Parar el conteneder
-docker rm IDContainer   # Eliminar el contenedor
 ```
 
 ## 2.3 TEORIA: Información
@@ -150,6 +148,28 @@ root@IDContenedor:/# ps -ef                   # Si no se encuentra el comando
 root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo.html
 ```
 
+* Creamos tambien un script `/root/server.sh` con el siguiente contenido:
+
+```
+#!/bin/bash
+echo "Booting Nginx!"
+/usr/sbin/nginx &
+
+echo "Waiting..."
+while(true) do
+  sleep 60
+done
+```
+
+Recordatorio:
+* Hay que poner permisos de ejecución al script para que se pueda ejecutar.
+* La primera línea de un script, siempre debe comenzar por `#!/`, sin espacios.
+
+> NOTA:
+>
+> * Este script inicia el programa/servicio y entra en un bucle, para permanecer activo y que no se cierre el contenedor.
+> * Más adelante cambiaremos este script por la herramienta `supervisor`.
+
 ## 3.3 Crear una imagen a partir del contenedor
 
 * Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos crear una nueva imagen con los cambios que hemos hecho, para esto abrimos otra ventana de terminal y busquemos el IDContenedor:
@@ -157,7 +177,7 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
 ```
 > docker ps
 CONTAINER ID   IMAGE      COMMAND       CREATED          STATUS         PORTS  NAMES
-7d193d728925   debian:9   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
+7d193d728925   debian:8   "/bin/bash"   2 minutes ago    Up 2 minutes          con_debian
 ```
 
 * Ahora con esto podemos crear la nueva imagen a partir de los cambios que realizamos sobre la imagen base:
@@ -193,10 +213,17 @@ Bien, tenemos una imagen con Debian/Nginx instalado, probemos ahora la magia de 
 ```
 docker ps
 docker ps -a
-docker run --name=con_nginx -p 80 -t dvarrui/nginx /usr/sbin/nginx -d
+docker run --name=con_nginx -p 80 -t dvarrui/nginx /root/server.sh
+
+Booting Nginx!
+Waiting...
 ```
 
-:eyes: El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
+NOTA:
+* El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
+* Los mensajes muestran que el script `server.sh` está en ejecución. No parar el programa. Es correcto.
+* El script `server.sh` nos sirve para iniciar el servicio y permanecer en espera. Lo podemos hacer también con el programa `Supervisor`.
+
 
 ## 4.2 Buscar los puertos de salida
 
@@ -241,6 +268,25 @@ docker ps -a
 * Crear directorio `/home/nombre-alumno/dockerXX`, poner dentro los siguientes ficheros:
     * Dockerfile (vacío)
     * holamundo.html (igual que en el contenedor anterior)
+    * supervisor.conf (vacío)
+
+En el contenedor anterior usamos el script "server.sh" para mantener el contenedor activo. Ahora usaremos "supervisord". Entonces tenemos que crear una configuración personalizado para Nginx con Supervidor.
+
+* Modificar `supervisord.conf` con el siguiente contenido:
+```
+[supervisord]
+nodaemon=true
+
+[program:nginx]
+command = /usr/sbin/nginx -g "daemon off;"
+username = www-data
+autorestart = true
+stdout_logfile = /dev/stdout
+stdout_logfile_maxbytes = 0
+stderr_logfile = /dev/stderr
+stderr_logfile_maxbytes = 0
+```
+
 * Modificar el fichero `Dockerfile` con el siguiente contenido:
 
 ```
@@ -249,6 +295,7 @@ FROM debian:9
 MAINTAINER nombre-del-alumnoXX 1.0
 
 RUN apt-get update
+RUN apt-get install -y supervisor
 RUN apt-get install -y apt-utils
 RUN apt-get install -y nginx
 RUN apt-get install -y vim
@@ -256,9 +303,11 @@ RUN apt-get install -y vim
 COPY holamundo.html /var/www/html
 RUN chmod 666 /var/www/html/holamundo.html
 
+COPY supervisor.conf /etc/supervisor/conf.d/supervisord.conf
+
 EXPOSE 80
 
-CMD ["/usr/sbin/nginx -d"]
+CMD ["/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"]
 ```
 
 ## 5.3 Crear imagen a partir del `Dockerfile`
@@ -281,7 +330,7 @@ A continuación vamos a crear un contenedor con el nombre `con_super`, a partir 
 ```
 docker run --name=con_super -p 80 -t dvarrui/super`
 
-docker run --name=con_super -p 80 -t dvarrui/super /usr/sbin/nginx -d`
+docker run --name=con_super -p 80 -t dvarrui/super /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf`
 ```
 
 * Desde otra terminal hacer `docker...`, para averiguar el puerto de escucha del servidor Nginx.
@@ -322,3 +371,20 @@ Importar imagen docker desde fichero:
 # 7. Limpiar
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
+
+---
+
+# ANEXO
+
+## Docker-compose
+
+> Enlaces de interés:
+> * [Getting started](https://docs.docker.com/compose/gettingstarted/)
+
+## A.3 Kubernetes
+
+> Enlaces de interés:
+> * https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
+> * http://www.javiergarzas.com/2016/02/kubernetes-for-dummies-explicado-en-10-minutos.html
+
+Kubernetes (commonly referred to as "K8s") is an open source container cluster manager originally designed by Google and donated to the Cloud Native Computing Foundation. It aims to provide a "platform for automating deployment, scaling, and operations of application containers across clusters of hosts".[3] It usually works with the Docker container tool and coordinates between a wide cluster of hosts running Docker.
