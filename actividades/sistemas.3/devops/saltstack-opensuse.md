@@ -69,8 +69,9 @@ master: 172.19.XX.31
 ## 4.2 Aceptación desde el Master
 
 * Ir a la MV1 Máster.
-* Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt.
-    * Comnsultar URL [Opening the Firewall up for Salt](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html)
+* Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt. Consultar URL [Opening the Firewall up for Salt](https://docs.saltstack.com/en/latest/topics/tutorials/firewall.html)
+
+> En el curso 201920 tuvimos que desactivar el cortafuego. Revisar este punto para el próximo curso.
 
 ## 4.3 Aceptación desde el Master
 
@@ -146,13 +147,13 @@ apache_service:
 
 Entendamos las definiciones:
 * Nuestro nuevo estado se llama `apache` porque el directorio donde están las definiciones se llama `srv/salt/base/apache`.
-* La primera línea es un identificador (ID) del estado. Por ejemplo: `install_apache` o `apache_service`, es un texto que ponemos nosotros libremente, de forma que nos ayude a identificar lo que vamos a hacer.
-* `pkg.installed`: Es una orden de salt que asegura que los paquetes estén instalado.
-* `service.running`: Es una orden salt que asegura de que los servicios estén iniciado o parados.
+* La primera línea es un identificador (Por ejemplo: `install_apache` o `apache_service`), y es un texto que ponemos nosotros libremente, de forma que nos ayude a identificar lo que vamos a definir.
+* `pkg.installed`: Es una orden de salt que asegura que los paquetes estén instalados.
+* `service.running`: Es una orden salt que asegura de que los servicios estén iniciados o parados.
 
 ## 5.3 Asociar Minions a estados
 
-Ir al Master:
+Ir al Máster:
 * Crear `/srv/salt/base/top.sls`, donde asociamos a todos los Minions con el estado que acabamos de definir.
 ```
 base:       
