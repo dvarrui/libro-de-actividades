@@ -237,8 +237,8 @@ El fichero Dockerfile contiene toda la información necesaria para construir el 
 
 A continuación vamos a crear un contenedor con el nombre `con_server`, a partir de la imagen `dvarrui/server`. Probaremos con:
 
-* `docker run --name=con_server -t nombre-alumno/web`
-* `docker run --name=con_server -t nombre-alumno/web /root/server.sh`
+* `docker run --name=con_server -t nombre-alumno/server`
+* `docker run --name=con_server -t nombre-alumno/server /root/server.sh`
 
 Desde otra terminal:
 * `docker...`, para averiguar el puerto de escucha del servidor Nginx.
