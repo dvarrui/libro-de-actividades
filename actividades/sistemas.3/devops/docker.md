@@ -126,7 +126,6 @@ root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el conte
 
 ```
 root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo.html
-root@IDContenedor:/# /usr/sbin/nginx          # Iniciamos el servicio nginx
 ```
 
 **Crear un script** `/root/server.sh` con el siguiente contenido:
