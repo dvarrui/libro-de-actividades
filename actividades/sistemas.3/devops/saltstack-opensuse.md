@@ -12,6 +12,15 @@ Tiempo      : 5 sesiones
 
 Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet, Chef y Ansible. En esta actividad vamos a practicar Salt-stack con OpenSUSE.
 
+Propuesta de rúbrica:
+| ID  | Criterio                     | Muy bien(2) | Regular(1) | Mal(0) |
+| --- | ---------------------------- | ----------- | ---------- | ------ |
+| 4.4 | Comprobar la conectividad    ||||
+| 5.5 | Aplicar estado (apache)      ||||
+| 6.1 | Aplicar estado (users)       ||||
+|76.2 | Aplicar estado (directories) ||||
+| 7.2 | Aplicar estado a minionXXw   ||||
+
 # 2. Preparativos
 
 | Config   | MV1           | MV2          |
@@ -249,9 +258,15 @@ Ejemplo:
 ---
 # 7. Añadir Minion de otro SO
 
+## 7.1 Minion con Windows
 * Crear MV3 con SO Windows (minionXXw)
 * Instalar `salt-minion` en MV3.
+* El instalador nos da la opción de iniciar el servicio del minion. Pero también podemos iniciarlo desde una consola como administrador ejecutando `sc start salt-minion`.
 * Ir a MV1(Máster) y aceptar al minion.
+
+## 7.2 Aplicar estado
+* Crear un estado para el Minion de Windows únicamente.
+* Aplicar estado al Minion de Windows.
 
 ---
 # ANEXO A
