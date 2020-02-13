@@ -113,12 +113,10 @@ Vamos a la "consola2".
 
 ## 2.3 Comprobamos
 
-* `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
-
-El perfil es un fichero de texto que se puede modificar si es necesario. Lo importante tener las siguientes reglas:
-* Permitir ejecución de mycopy.
-* Permitir lectura `DIRNAME1/*`.
-* Permitir escritura en `DIRNAME2/*`.
+* `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero para ver el contenido del perfil. El perfil es un fichero de texto que se puede modificar si es necesario. Lo importante tener las siguientes reglas:
+    1. Permitir ejecución de mycopy (mr).
+    2. Permitir lectura `DIRNAME1/*` (r).
+    3. Permitir escritura en `DIRNAME2/*` (w).
 
 ## 2.4 Revisar Audit
 
