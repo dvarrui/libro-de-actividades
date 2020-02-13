@@ -1,21 +1,24 @@
 
 ```
-EN CONSTRUCCIÓN!!!
-* Curso 201617: Actividad copiada de Nagios-Debian-Windows
-* Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
+Estado : EN CONSTRUCCIÓN!!!
+         Curso 201617: Actividad copiada de Nagios-Debian-Windows
+         Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
+Curso  : 201920, 201819
+Area   : Sistemas Operativos, monitorización, redes, centro de proceso de datos
 ```
 
+---
 # 1. Preparativos
 
 ## 1.1 Preparar las máquinas
 
 Para esta actividad vamos a necesitar los siguientes MV's:
 
-| ID  | Hostname   | IP | SSOO |
-| --- | ---------- | -- | ---- |
+| ID  | Hostname   | IP           | SSOO |
+| --- | ---------- | ------------ | ---- |
 | MV1 | monitorXX  | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
-| MV3 | clientXXw1 | 172.AA.XX.11 |[Windows7](../../global/configuracion/windows.md)|
+| MV3 | clientXXw1 | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
 
 Supongamos que tenemos el siguiente esquema de red:
 
@@ -31,7 +34,6 @@ Supongamos que tenemos el siguiente esquema de red:
 > ![etc-hosts](./images/nagios3-etc-hosts.png)
 
 ---
-
 # 2. Monitor: Instalación
 
 Enlaces de interés:
@@ -47,7 +49,7 @@ Instalar software:
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 * `zypper install monitoring-plugins`, instalar los plugins.
 
-Iniciar y comprobar:
+Iniciar y comprobar el servicio:
 * `systemctl enable icinga2`, activar el servicio.
 * `systemctl start icinga2`, iniciar el servicio.
 * `systemctl status icinga2`, ver el estado del servicio.
@@ -58,7 +60,7 @@ Configurar el editor vim (con usuario root):
 * `zypper install vim-icinga2`
 * `vim ~/.vimrc`
 * `syntax on` (ESC : wq)
-* Test it: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
+* Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
 Configurar el editor nano (con usuario root):
 * `zypper install nano-icinga2`
@@ -68,41 +70,37 @@ Configurar el editor nano (con usuario root):
 ## Icinga 2
 include "/usr/share/nano/icinga2.nanorc"
 ```
-* Test it: `nano /etc/icinga2/conf.d/templates.conf`
+* Comprobarlo: `nano /etc/icinga2/conf.d/templates.conf`
 
-**Installation Paths**
+**Rutas de la instalación**
 
-By default Icinga 2 uses the following files and directories:
+Por defecto Icinga2 usa los siguientes ficheros y directorios:
 
-| Path	| Description |
-| ----- | ----------- |
-| /etc/icinga2 | Contains Icinga 2 configuration files |
-| /usr/lib/systemd/system/icinga2.service	| The Icinga 2 Systemd service file on systems using Systemd |
-| /usr/sbin/icinga2	| Shell wrapper for the Icinga 2 binary |
-| /usr/share/doc/icinga2 | Documentation files that come with Icinga 2 |
-| /var/run/icinga2 | PID file |
-| /var/log/icinga2 | Log file location and compat/ directory for the CompatLogger feature |
+| Path	                 | Descripción                            |
+| ---------------------- | -------------------------------------- |
+| /etc/icinga2           | Contiene los ficheros de configuración |
+| /usr/lib/systemd/system/icinga2.service	| Configuración del servicio |
+| /usr/sbin/icinga2	     | Shell wrapper for the Icinga 2 binary |
+| /usr/share/doc/icinga2 | Ficheros de documentación |
+| /var/run/icinga2       | PID file |
+| /var/log/icinga2       | Ficheros de log |
 
 ---
-
 # 3 Instalar el panel web
 
-En principio se supone que no es estrictamente necesario tener un panel web para monitorizar los equipos de la red, pero entendemos que visualmente es cómodo tenerlo, así que seguimos.
+En principio se supone que no es estrictamente necesario tener un panel web para monitorizar los equipos de la red, pero entendemos que visualmente es más cómodo tenerlo, así que seguimos.
 
 ## 3.1 Base de datos
 
-* En este punto podemos usar una de las siguientes bases de datos:
-    * MySQL
-    * PosgreSQL
-* Elegimos MySQL (por votación en clase. Es la misma que usan ya en BBDD)
+Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegimos MySQL (por votación en clase. Es la misma que usan ya en BBDD).
 
 > De momento dejo los textos tal cual están en inglés. Y cuando se acabe de revisar se traducirán a español.
 
-**Configuring DB IDO MySQL**
+**Instalar y configurar MySQL**
 
-* `zypper install mysql mysql-client`, Installing MySQL database server
+* `zypper install mysql mysql-client`, instalación de MySQL.
 * `systemctl enable mysql`
-* `systemctl status mysql`
+* `systemctl status mysql`, iniciar el servicio.
 * `zypper install icinga2-ido-mysql`
 * Set up a MySQL database for Icinga 2 (El usuario root de mysql NO tiene clave):
 ```
@@ -114,7 +112,7 @@ quit
 ```
 * `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
 
-**Enabling the IDO MySQL module**
+**Activar el módulo IDO MySQL**
 
 * `more /etc/icinga2/features-available/ido-mysql.conf`, You can update the database credentials in this file.
 * `icinga2 feature enable ido-mysql`, You can enable the ido-mysql feature configuration file using icinga2 feature enable.
@@ -124,11 +122,11 @@ quit
 
 Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
 
-* `zypper in apache2`
-* `a2enmod rewrite`
-* `a2enmod php7`
+* `zypper in apache2`, instalar Apache.
+* `a2enmod rewrite`, activar módulo.
+* `a2enmod php7`, activar módulo.
 * `systemctl enable apache2`
-* `systemctl start apache2`
+* `systemctl start apache2`, iniciar servicio.
 * `systemctl status apache2`
 
 ## 3.3 Cortafuegos
@@ -174,7 +172,6 @@ Proceso para instalar la versión php7.1.27.
 
 ## 3.6 Preparing Web Setup
 
-
 * `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
 * `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
 * `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
@@ -204,11 +201,11 @@ Vamos a configurar IcingaWeb2 por el navegador.
 | Campo         | Valor        |
 | ------------- | ------------ |
 | Resource name | icingaweb_db |
-| Database type | MySQL |
-| Host          | localhost |
-| Database name | icingaweb2 |
-| User name     | icingaweb2 |
-| Password      | icingaweb2 |
+| Database type | MySQL        |
+| Host          | localhost    |
+| Database name | icingaweb2   |
+| User name     | icingaweb2   |
+| Password      | icingaweb2   |
 
 * Validar y siguiente.
 * Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usar `root` (De MySQL) sin clave. Tal y como hicimos en el apartado 3.1.
@@ -226,20 +223,19 @@ Vamos a configurar IcingaWeb2 por el navegador.
 > * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enabledModules`
 
 ---
-
 # 4. Configurar objetos para monitorizar
 
 **Objetivo**
 
 Nos vamos a plantear como objetivo monitorizar lo siguente:
 
-| Grupo   | Hosts      | IP           | Comprobar |
-| ------- | ---------- | ------------ | ----------- |
-| routers | benderXX   | 172.AA.0.1   | Host activo |
-| routers | caronteXX  | 192.168.1.1  | Host activo |
+| Grupo   | Hosts      | IP           | Comprobar           |
+| ------- | ---------- | ------------ | ------------------- |
+| routers | benderXX   | 172.AA.0.1   | Host activo         |
+| routers | caronteXX  | 192.168.1.1  | Host activo         |
 | servers | leelaXX    | 172.20.1.2   | Servicio HTTP y SSH |
-| clients | clientXXg1 | 172.AA.XX.32 | Host activo |
-| clients | clientXXw1 | 172.AA.XX.11 | Host activo |
+| clients | clientXXg1 | 172.AA.XX.32 | Host activo         |
+| clients | clientXXw1 | 172.AA.XX.11 | Host activo         |
 
 * Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
 * Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
@@ -333,7 +329,6 @@ object Host "dummyXXdown" {
 * Comprobar los cambios por IcingaWeb2.
 
 ---
-
 # 5. Agent-based monitoring (cliente GNU/Linux)
 
 Enlaces de interés:

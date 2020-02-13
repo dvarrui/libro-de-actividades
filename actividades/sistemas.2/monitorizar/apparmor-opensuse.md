@@ -77,7 +77,8 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
 ## 2.1 Preparativos
 
 * Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
-* Copiamos el programa `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
+* Crear el directorio `/home/nombre-alumno/aa/`.
+* Copiar el programa(fichero) `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
 * Crear lo siguiente:
     * Crear directorio DIRNAME1 (`/home/nombre-alumno/aa/elhalcon/`)
     * `DIRNAME1/han.txt`: Escribir en el contenido "nombre-del-alumnoXX".
