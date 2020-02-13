@@ -14,10 +14,7 @@ El directorio [actividades](./actividades) es la carpeta principal del proyecto 
 | [sistemas.3](./sistemas.3) | Actividades de sistemas operativos con grado de dificultad avanzado. Se puede usar en la asignatura de "Adminitración de Sistemas Operativos" de 2ASIR. |
 | [entregar](./entregar)     | Indicaciones sobre las distintas formas de hacer las entregas de los trabajos. |
 | [global](./global)         | Contiene información general, que se repite entre varias categorías |
-| [programar](./programar)   | En construcción! |
-| [redes](./redes)           | En construcción! |
-| [seguridad](./seguridad)   | En construcción! |
-| [web](./web)               | En construcción! |
+| programar, redes, seguridad y web | En construcción! |
 
 > En la medida que los compañeros que imparten estas materias ofrezcan sus actividades, se irán subiendo más documentos y se irán creando sus respectivas carpetas/categorías.
 
