@@ -2,9 +2,9 @@
 ```
 Curso       : 201920
 Area        : Sistemas operativos, automatización, devops
+Descripción : Introducción básica a los contenedores con Docker
 Requisitos  : Se recomienda usar Docker con SSOO GNU/Linux
 Tiempo      : 6 sesiones
-Descripción : Introducción a los contenedores con Docker
 ```
 
 ---
@@ -37,7 +37,7 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 * Para activarlo podemos poner el valor 1 en el fichero de texto indicado o usar Yast.
 * Reiniciar el equipo para que se aplique el cambio de configuración.
 
-**Usar YATS para activar IP_FORWARD**
+**Usar YAST para activar IP_FORWARD**
 
 | Sistema operativo | Activar "forwarding" |
 | ----------------- | -------------------- |
@@ -93,12 +93,12 @@ Información sobre otros comandos útiles:
 | docker rmi IMAGENAME      | eliminar una imagen |
 
 ---
-# 3. Creación manual
+# 3. Creación manual de nuestra imagen
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian,
 y dentro instalaremos Nginx.
 
-## 3.1 Crear un contendor manualmente
+## 3.1 Crear un contenedor manualmente
 
 **Descargar una imagen**
 * `docker search debian`, buscamos en los repositorios de Docker Hub contenedores con la etiqueta `debian`.
@@ -111,7 +111,6 @@ y dentro instalaremos Nginx.
 ## 3.2 Personalizar el contenedor
 
 Ahora dentro del contenedor, vamos a personalizarlo a nuestro gusto:
-
 
 **Instalar aplicaciones dentro del contenedor**
 
@@ -151,20 +150,14 @@ Recordatorio:
 Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a crear una nueva imagen que incluya los cambios que hemos hecho.
 
 * Abrir otra ventana de terminal.
-* `docker commit con_debian nombre-del-alumno/nginx`, a partir del CONTAINERID vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx".
-* `docker images`, comprobamos.
+* `docker commit con_debian nombre-del-alumno/nginx1`, a partir del CONTAINERID vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx1".
 
 > NOTA:
 >
 > * Los estándares de Docker estipulan que los nombres de las imágenes deben seguir el formato `nombreusuario/nombreimagen`.
 > * Todo cambio que se haga en la imagen, y no se le haga commit se perderá en cuanto se cierre el contenedor.
 
-## 3.4 Limpiamos
-
-Eliminamos el contenedor:
-* `docker stop con_debian`, paramos el contenedor.
-* `docker rm con_debian`, eliminamos el contenedor.
-* `docker ps -a`, comprobamos.
+* `docker images`, comprobamos.
 
 ---
 # 4. Crear contenedor a partir de nuestra imagen
@@ -172,11 +165,11 @@ Eliminamos el contenedor:
 ## 4.1 Crear contenedor con Nginx
 
 Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
-* `docker run --name=con_nginx -p 80 -t dvarrui/nginx /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
+* `docker run --name=con_nginx -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
-## 4.2 Buscar los puertos de salida
+## 4.2 Comprobamos
 
 * Abrimos una nueva terminal.
 * `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar que la última columna nos indica que el puerto 80 del contenedor está redireccionado a un puerto local `0.0.0.0.:PORT -> 80/tcp`.
@@ -191,15 +184,38 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores
 cuando lo necesitemos.
 
+## 4.3 Migrar la imágen a otra máquina
+
+¿Cómo puedo llevar los contenedores Docker a un nuevo servidor?
+
+> Enlaces de interés
+>
+> * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
+> * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
+
+**Exportar** imagen Docker a fichero tar:
+* `docker save -o ~/alumnoXX.tar nombre-alumno/nginx1`, guardamos la imagen
+"nombre-alumno/server" en un fichero tar.
+
+Intercambiar nuestra imagen exportada con la de un compañero de clase.
+
+**Importar** imagen Docker desde fichero:
+* Coger la imagen de un compañero de clase.
+* Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
+* `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar.
+* `docker images`, comprobamos que la nueva imagen está disponible.
+
+Ya podemos crear contenedores a partir de la nueva imagen.
+
 ---
-# 5. Crear un contenedor a partir de un `Dockerfile`
+# 5. Dockerfile
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
-usando un fichero de configuración, llamado `Dockerfile`.
+usando un fichero de configuración. Esto es, vamos a crear un contenedor a partir de un fichero `Dockerfile`.
 
 ## 5.1 Preparar ficheros
 
-* Crear directorio `/home/nombre-alumno/dockerXX`.
+* Crear directorio `/home/nombre-alumno/dockerXXa`.
 * Entrar el directorio anterior.
 * Poner copia del fichero `holamundo.html` anterior.
 * Poner copia del fichero `server.sh` anterior.
@@ -229,16 +245,16 @@ CMD ["/root/server.sh"]
 
 El fichero Dockerfile contiene toda la información necesaria para construir el contenedor, veamos:
 
-* `cd dockerXX`, entramos al directorio con el Dockerfile.
-* `docker build -t nombre-alumno/server .`, construye una nueva imagen a partir del Dockerfile. OJO: el punto final es necesario.
+* `cd dockerXXa`, entramos al directorio con el Dockerfile.
+* `docker build -t nombre-alumno/nginx2 .`, construye una nueva imagen a partir del Dockerfile. OJO: el punto final es necesario.
 * `docker images`, ahora debe aparecer nuestra nueva imagen.
 
-## 5.4 Crear contenedor y comprobar
+## 5.3 Crear contenedor y comprobar
 
-A continuación vamos a crear un contenedor con el nombre `con_server`, a partir de la imagen `dvarrui/server`. Probaremos con:
+A continuación vamos a crear un contenedor con el nombre `con_nginx2`, a partir de la imagen `dvarrui/nginx2`. Probaremos con:
 
-* `docker run --name=con_server -t nombre-alumno/server`
-* `docker run --name=con_server -t nombre-alumno/server /root/server.sh`
+* `docker run --name=con_nginx2 -t nombre-alumno/nginx2`
+* `docker run --name=con_nginx2 -t nombre-alumno/nginx2 /root/server.sh`
 
 Desde otra terminal:
 * `docker...`, para averiguar el puerto de escucha del servidor Nginx.
@@ -246,29 +262,28 @@ Desde otra terminal:
     * URL `http://localhost:PORTNUMBER`
     * URL `http://localhost:PORTNUMBER/holamundo.html`
 
+Ahora que sabemos usar los ficheros Dockerfile nos damos cuenta que es más sencillo usar estos ficheros para intercambiar imágenes docker con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
+
+## 5.4 Usar imágenes ya creadas
+
+El ejemplo anterior donde creábamos una imagen docker con nginx se puede simplificar aún más aprovechando imágenes que ya existen.
+
+> Enlace de interés:
+> * [nginx - Docker Official Images] https://hub.docker.com/_/nginx
+
+* Crea el directorio `dockerXXb`. Entrar al directorio.
+* Crea el siguiente `Dockerfile`
+```
+FROM nginx
+
+COPY holamundo.html /var/www/html
+RUN chmod 666 /var/www/html/holamundo.html
+```
+* `docker build -t nombre-alumno/nginx3`, crear la imagen.
+* `docker run --name con_nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
+
 ---
-# 6. Migrar las imágenes de docker a otro servidor
-
-¿Cómo puedo llevar los contenedores Docker a un nuevo servidor?
-
-> Enlaces de interés
->
-> * https://www.odooargentina.com/forum/ayuda-1/question/migrar-todo-a-otro-servidor-imagenes-docker-397
-> * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
-
-**Exportar** imagen Docker a fichero tar:
-* `docker save -o ~/alumnoXX.tar nombre-alumno/server`, guardamos la imagen
-"nombre-alumno/server" en un fichero tar.
-
-**Importar** imagen Docker desde fichero:
-* Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
-* `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar.
-* `docker images`, comprobamos que la nueva imagen está disponible.
-
-Ya podemos crear contenedores a partir de la nueva imagen.
-
----
-# 7. Limpiar
+# 6. Limpiar
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
 * `docker ps -a`
