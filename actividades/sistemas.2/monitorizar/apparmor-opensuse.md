@@ -120,6 +120,13 @@ El perfil es un fichero de texto que se puede modificar si es necesario. Lo impo
 * Permitir lectura `DIRNAME1/*`.
 * Permitir escritura en `DIRNAME2/*`.
 
+## 2.4 Revisar Audit
+
+Revisar la configuración de audit para que permita registrar eventos.
+* Editar `/etc/audit/rules.d/audit.rules`.
+* Comentar la línea `-a never,task`.
+* Reiniciar la máquina.
+
 ---
 # 3. Forzamos el perfil
 
@@ -141,7 +148,7 @@ Volvemos a la "consola1"
 
 Vamos a "consola2".
 * `apparmor_status` para consultar el estado de los perfiles.
-* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable. No debe aparecer ninguno.
+* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
 
 ---
 # 4. Modo queja
