@@ -147,8 +147,8 @@ Volvemos a la "consola1"
 Vamos a "consola2".
 * `apparmor_status` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
-* `cat /var/log/audit/audit.log | grep mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `cat /var/log/audit/audit.log | grep mycopy | grep ALLOW | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
 ---
 # 4. Modo queja
@@ -168,8 +168,8 @@ Volvemos a la "consola1".
 Vamos a "consola2".
 * `apparmor_status` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
-* `cat /var/log/audit/audit.log | grep mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `cat /var/log/audit/audit.log | grep mycopy | grep ALLOW | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
 ---
 # ANEXO
