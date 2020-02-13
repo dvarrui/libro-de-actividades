@@ -1,6 +1,10 @@
 
 # Configurar Raspberry PI
 
+1. Usuario
+2. Nombre del equipo
+3. Interfaz de red
+
 ---
 # 1. Configurar USUARIO
 
