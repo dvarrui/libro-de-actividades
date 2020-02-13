@@ -141,9 +141,7 @@ Volvemos a la "consola1"
 
 Vamos a "consola2".
 * `apparmor_status` para consultar el estado de los perfiles.
-* Consultamos los eventos asociados a nuestro ejecutable:
-    * `ausearch -x mycopy | aureport -u`
-    * `cat /var/log/audit/audit.log | grep mycopy`
+* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable. No debe aparecer ninguno.
 
 ---
 # 4. Modo queja
@@ -162,9 +160,7 @@ Volvemos a la "consola1".
 
 Vamos a "consola2".
 * `apparmor_status` para consultar el estado de los perfiles.
-* Consultamos los eventos asociados a nuestro ejecutable:
-    * `ausearch -x mycopy | aureport -u`
-    * `cat /var/log/audit/audit.log | grep mycopy`
+* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
 
 ---
 # ANEXO
