@@ -25,7 +25,7 @@ Propuesta de rúbrica:
 
 | Config   | MV1           | MV2          | MV3          |
 | -------- | ------------- | ------------ | ------------ |
-| Alias    | Master        | Minion       | Minion       |
+| Alias    | Master        | Minion       | Minion2      |
 | Hostname | masterXXg     | minionXXg    | minionXXw    |
 | SO       | OpenSUSE      | OpenSUSE     | Windows      |
 | IP       | 172.19.XX.31  | 172.19.XX.32 | 172.19.XX.11 |
@@ -238,22 +238,33 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 * Aplicar el estado.
 
 ## 5.2 Crear estado "files"
+> Enlace de inteŕes:
+>
+> * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
 
 * Crear estado `files` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el home del usuario `koji` (ver ejemplos en el ANEXO).
 * Crear el fichero `srv/salt/files/README.txt`. Escribir dentro el nombre del alumno y la fecha actual.
-* Incluir en el estado anterior la creación del fichero `README.txt` en el minmion, a partir de la descarga del mismo desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
+* Incluir en el estado anterior la creación del fichero `README.txt` en el Minion, a partir de la descarga del mismo desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
 * Aplicar el estado `files`.
+
+## 5.3 Ampliar estaod "apache"
+
+* Crear el fichero `srv/salt/files/holamundo.html`. Escribir dentro el nombre del alumno y la fecha actual.
+* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster.
+* Aplicar el estado.
 
 ---
 # 6. Añadir Minion de otro SO
 
 ## 6.1 Minion con Windows
+
 * Crear MV3 con SO Windows (minionXXw)
 * Instalar `salt-minion` en MV3.
 * El instalador nos da la opción de iniciar el servicio del minion. Pero también podemos iniciarlo desde una consola como administrador ejecutando `sc start salt-minion`.
 * Ir a MV1(Máster) y aceptar al minion.
 
 ## 6.2 Aplicar estado
+
 * Crear un estado para el Minion de Windows únicamente.
 * Aplicar estado al Minion de Windows.
 
