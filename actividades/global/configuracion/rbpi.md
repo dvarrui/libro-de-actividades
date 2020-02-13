@@ -1,106 +1,100 @@
 
-> Otros temas relacionados
-> * No vamos a configurar VirtualBox
-> * Configurar Acceso remoto
->     * Activar el servidor SSH.
->     * Comprobar que funciona correctamente el acceso remoto SSH con nuestro usuario.
-> * NO tiene configurado el cortafuegos por defecto.
-
----
-
 # Configurar Raspberry PI
 
-# Configurar Nombre EQUIPO, DOMINIO y USUARIO
+---
+# 1. Configurar USUARIO
 
+* Crear un usuario identificado con `nombre-del-alumno` (en minúsculas).
+* `id nombre-del-alumno`, comprobamos.
+
+---
+# 2. Configurar Nombre EQUIPO, DOMINIO
+
+Usaremos los siguientes valores:
 * Nombre de equipo: `primer-apellido-del-alumnoXXrb`.
     * Por ejemplo vargas42rb
     * Si tenemos varias máquinas las llamaremos vargasXXrb, vargasXXrb2, etc.
 * Nombre de dominio: `curso1920` (Modificar los números al curso actual).
-* Un usuario identificado con `nombre-del-alumno`.
 
-> **ATENCIÓN**
->
-> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
+> **ATENCIÓN**: Los nombres de máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-> * Fichero `/etc/hostname`
->     * Ponemos el `nombre-maquina.nombre-dominio`
->     * Por ejemplo: `vargasXXrb.curso1920`
-> * Fichero `/etc/hosts`.
->     * Asegurarse de que hay una línea con `ip nombre-de-host`
->     * Por ejemplo: `127.0.0.2   vargasXXrb.curso1920   vargasXXrb`
 
-* Comprobar nombre de equipo y usuario:
-```
-date
-uname -a
-
-hostname -f           # Muestra nombre-máquina.nombre-dominio
-hostname -a           # Muestra nombre-máquina
-hostname -d           # Muestra nombre-dominio
-
-id nombre-de-usuario  # Comprobar que existe el usuario
-```
+Modificar los siguientes archivos de configuración:
+* Fichero `/etc/hostname`
+     * Ponemos el `nombre-maquina.nombre-dominio`
+     * Por ejemplo: `vargasXXrb.curso1920`
+* Fichero `/etc/hosts`.
+     * Asegurarse de que hay una línea con `ip equipo.dominio  equipo`
+     * Por ejemplo: `127.0.0.2   vargasXXrb.curso1920   vargasXXrb`
+* Comprobamos:
+    * `hostname -f`, muestra nombre-máquina.nombre-dominio
+    * `hostname -a`, muestra nombre-máquina
+    * `hostname -d`, muestra nombre-dominio
 
 ---
-# Configuración de red
+# 3. Configuración de red
 
-> * Donde aparezca AA debemos poner el código asignado al aula:
->     * 18 para el aula108
->     * 19 para el aula109
-> * Donde aparezca XX debemos poner el código asignado al alumno.
+Recordar:
+* Donde aparezca AA debemos poner el código asignado al aula:
+   * 18 para el aula108
+   * 19 para el aula109
+* Donde aparezca XX debemos poner el código asignado al alumno.
 
+Usaremos los siguientes valores:
 * IP: `172.AA.XX.51` (Donde XX corresponde al nº de cada puesto). Si tenemos varias máquinas usaremos las IP 172.AA.XX.52, 172.AA.XX.53, etc.
 * Máscara de red: `255.255.0.0`
 * Gateway: `172.AA.0.1`
 * Servidor DNS: `8.8.4.4`
 
-## Proceso para configurar la red.
+## 3.1 Proceso para configurar la red.
 
-* Podemos configurar la red:
-    * Por entorno gráfico usando la aplicación NetworkManager.
-    * Por comandos debemos modificar el contenido de los ficheros de configuración de red.
-* Primero debemos averiguar el nombre de nuestra interfaces.
-    * Usaremos `ip a` o `ifconfig`.
-* Para cambiar la configuración de red,modificar el fichero
-    * `/etc/network/interfaces` (Si está basado en Debian)
-    * `/etc/sysconfig/network/ifcfg-...` (Si está basado en OpenSUSE)
-* Veamos un ejemplo, donde se configura el interfaz eth0 estático y el eth1 dinámico:
+Dependiendo del SO que hayamos instalado en la máquina tendremos que usar un método u otro. Podemos configurar la red:
+1. Por entorno gráfico usando la aplicación NetworkManager o Yast.
+2. Por comandos debemos modificar el contenido de los ficheros de configuración de red.
+
+**Cambiar la IP/máscara por ficheros Debian**
+
+* Primero debemos averiguar el nombre de nuestra interface de red (Usaremos `ip a` o `ifconfig`)
+* Para cambiar la configuración de red, editar y modificar el fichero `/etc/network/interfaces` .
+
+Veamos ejemplo de configuración del interfaz de red eth0 estático:
 
 ```
-# Ejemplo configuración interfaz loopback
 auto lo
 iface lo inet loopback
 
-# Ejemplo configuración interfaz eth0 en modo estático
 auto eth0
 iface eth0 inet static
   address 172.AA.XX.51
   netmask 255.255.0.0
   gateway 172.AA.0.1
   dns-nameserver 8.8.4.4
+```
 
-# Ejemplo configuración interfaz eth1 en modo dinámico
+Veamos ejemplo de configuración del interfaz de red eth1 dinámico:
+
+```
+auto lo
+iface lo inet loopback
+
 auto eth1
 iface eth1 inet dhcp
 ```
 
-> NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres (Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
+**Configurar Servidor DNS por ficheros**: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres (Servidor DNS) debemos modificar directamente el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
 
-* Para que se apliquen los cambios anterior haremos alguna de las siguientes acciones:
-   * Reiniciar el equipo o
-   * `systemctl restart networking` o
-   * `service networking restart` o
+**Aplicar los cambios**: Para que se apliquen los cambios anterior haremos alguna de las siguientes acciones dependiendo del SO que tengamos instalado:
+1. Reiniciar el equipo o
+2. `systemctl restart networking` o
+3. `service networking restart` o
 
-*Comprobar la red:*
-```
-ip a              # Muestra configuración de red
-ip route          # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
-ping 8.8.4.4      # Comprueba la conexión con una máquina de Internet
-host www.nba.com  # Comprueba que funciona bien el DNS
-```
+**Comprobar la red:**
+* `ip a`, muestra configuración de red
+* `ip route`, muestra Gateway y la tabla de enrutamiento. Antes se usaba "route -n".
+* `ping 8.8.4.4`, comprueba la conexión con una máquina de Internet. Esto es, si funciona la confiuración de la puerta de enlace.
+* `host www.nba.com`, comprueba que funciona bien el DNS.
 
 ---
-
 # ANEXO
 
 ## resolvconf
