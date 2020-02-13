@@ -1,10 +1,13 @@
 
 ```
-Curso           : 201920, 201819
-Software        : OpenSUSE Leap 15, Windows Server
-Tiempo estimado : 8 sesiones
+Curso       : 201920, 201819
+Area        : Sistemas operativos, fundamentos de hardware
+Descripción : Practicar las configuraciones RAID0 y RAID1 por softwere.
+Requisitos  : OpenSUSE Leap 15, Windows Server
+Tiempo      : 8 sesiones
 ```
 
+---
 # 1. Instalar OpenSUSE en disco RAID0 software
 
 Ejemplo de rúbrica:
