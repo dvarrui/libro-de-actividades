@@ -273,17 +273,19 @@ El ejemplo anterior donde creábamos una imagen docker con nginx se puede simpli
 
 * Crea el directorio `dockerXXb`. Entrar al directorio.
 * Crea el siguiente `Dockerfile`
+
 ```
 FROM nginx
 
 COPY holamundo.html /var/www/html
 RUN chmod 666 /var/www/html/holamundo.html
 ```
+
 * `docker build -t nombre-alumno/nginx3`, crear la imagen.
 * `docker run --name con_nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
 
 ---
-# 6. Limpiar
+# 6. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
 * `docker ps -a`

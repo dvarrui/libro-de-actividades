@@ -1,12 +1,11 @@
 
 ```
-Curso      : 201920
-Estado     : Nuevo
-Objetivo   : Copias de seguridad usando tar, rsync, Windows
-Requisitos : GNU/Linux, Windows, SSH
+Curso       : 201920
+Area        : Sistemas operativos, backup
+Descripción : Copias de seguridad usando tar, rsync, Windows
+Requisitos  : GNU/Linux, Windows, SSH
+Tiempo      : 11 sesiones
 ```
-
-[Metodología de trabajo](../../global/metodologia.md)
 
 ---
 # 1. Copias de seguridad con tar
