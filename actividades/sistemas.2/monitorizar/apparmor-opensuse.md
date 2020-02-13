@@ -2,10 +2,10 @@
 ```
 Curso       : 201920, 201819, 201718
 Area        : Sistemas operativos, monitorización, seguridad.
-Requisitos  : GNU/Linux OpenSUSE Leap 15
-Tiempo      : 7 sesiones
 Descripción : Configuración de AppArmor en modo monitorización.
               Configuración de AppArmor en modo seguridad.
+Requisitos  : GNU/Linux OpenSUSE Leap 15
+Tiempo      : 7 sesiones
 ```
 
 ---
@@ -13,7 +13,7 @@ Descripción : Configuración de AppArmor en modo monitorización.
 
 Para esta práctica vamos a usar una MV con SO OpenSUSE.
 
-Ejemplo de rúbrica:
+Propuesta de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
@@ -22,7 +22,6 @@ Ejemplo de rúbrica:
 | (4.2) Comprobamos | | |. |
 
 ---
-
 # 1. AppArmor: Teoría/explicación
 
 Enlaces de interés:
@@ -35,17 +34,18 @@ Enlaces de interés:
 
 ## 1.1 Modos de trabajo
 
-* Modos de trabajo:
-    * **complain/learning**: Modo de queja/aprendizaje.
-    * **enforce**: Fuerza la aplicación de las políticas/reglas.
-* Control del servicio AppArmor
-    * systemctl status apparmor, ver el estado del servicio
-    * systemctl start apparmor, iniciar el servicio
-    * systemctl stop apparmor, parar el servicio
-    * systemctl enable apparmor, activar inicio automático
-    * systemctl disable apparmor, desactivar inicio automático
+La herramienta AppArmor tiene dos modos de trabajo. Estos son:
+* **complain/learning**: Modo de queja/aprendizaje.
+* **enforce**: Fuerza la aplicación de las políticas/reglas.
 
-> Herramientas CLI
+Para controlar el servicio AppArmor tenemos los siguientes comandos:
+* systemctl status apparmor, ver el estado del servicio
+* systemctl start apparmor, iniciar el servicio
+* systemctl stop apparmor, parar el servicio
+* systemctl enable apparmor, activar inicio automático
+* systemctl disable apparmor, desactivar inicio automático
+
+> Otras herramientas CLI de AppArmor
 > * autodep, Guess basic AppArmor profile requirements.
 > * enforce, Set an AppArmor profile to enforce mode from complain mode.
 > * logprof, Manage AppArmor profiles.
@@ -53,8 +53,8 @@ Enlaces de interés:
 
 ## 1.2 Yast
 
-* Gestión de los perfiles AppArmor con Yast: `Yast -> Configuración AppArmor`
-* Permite
+* Gestión de los perfiles AppArmor la podemos hacer también con Yast: `Yast -> Configuración AppArmor`.
+* Yast Permite
     1. Cambiar la configuración de AppArmor.
     1. Gestionar los perfiles existentes.
     1. Crear un perfil manualmente.
@@ -98,7 +98,8 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
     * `aa-genprof /home/nombre-alumno/aa/mycopy`, para iniciar la generación
     de un perfil. Este programa se queda en espera.
 
-* Volvemos a la "consola1" y ejecutamos el comando de copia `./mycopy DIRNAME1/* DIRNAME2`
+Volvemos a la "consola1":
+* Ejecutamos el comando de copia `./mycopy DIRNAME1/* DIRNAME2`. Mientras hacemos esta acción, se está registrando toda su actividad.
 
 > El objetivo es hacer las acciones con este programa, mientras está siendo auditado por aa-genprof.
 
@@ -113,7 +114,10 @@ Vamos a la "consola2".
 
 * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero.
 
-> El perfil es un fichero de texto que se puede modificar si es necesario.
+El perfil es un fichero de texto que se puede modificar si es necesario. Lo importante tener las siguientes reglas:
+* Permitir ejecución de mycopy.
+* Permitir lectura `DIRNAME1/*`.
+* Permitir escritura en `DIRNAME2/*`.
 
 ---
 # 3. Forzamos el perfil
@@ -125,11 +129,11 @@ Seguimos en la "consola2".
 
 Volvemos a la "consola1"
 * `rm DIRNAME2/*; tree`, para limpiar y comprobar.
-* `./mycopy DIRNAME1/* DIRNAME2`
+* `./mycopy DIRNAME1/* DIRNAME2`. Se supone que el perfil permite realizar esta acción.
 * `tree`, comprobamos el resultado.
 * Comprobamos que todo funciona igual de bien que siempre.
 * Crear directorio DIRNAME3 (`/home/nombre-alumno/aa/nave-imperial`)
-* `./mycopy DIRNAME1/* DIRNAME3`, debemos tener un problema de permisos. Esto es correcto, así es como ha funcionado nuestro perfil de seguridad.
+* `./mycopy DIRNAME1/* DIRNAME3`, debemos tener un problema de permisos. Esto es correcto, porque nuestro perfil de seguridad no lo permite.
 * `tree`, comprobamos que no se han copiado los archivos.
 
 ## 3.2 Comprobamos
@@ -146,7 +150,7 @@ Vamos a "consola2".
 ## 4.1 Perfil en modo queja
 
 Vamos a "consola2".
-* `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohíbe ninguna acción, pero si queda auditada.
+* `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohíbe ninguna acción, pero sí se quedan registradas (auditoría).
 
 Volvemos a la "consola1".
 * `tree`, comprobamos el contenido de los directorios.
