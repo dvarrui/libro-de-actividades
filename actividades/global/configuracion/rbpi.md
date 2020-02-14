@@ -56,10 +56,17 @@ Dependiendo del SO que hayamos instalado en la máquina tendremos que usar un m�
 1. Por entorno gráfico usando la aplicación NetworkManager o Yast.
 2. Por comandos debemos modificar el contenido de los ficheros de configuración de red.
 
+**Cambiar la IP/máscara por ficheros Raspbian**
+
+* Primero debemos averiguar el nombre de nuestra interface de red (Usaremos `ip a`)
+* Para cambiar la configuración de red, editar y modificar el fichero `/etc/dhcp.conf`.
+
 **Cambiar la IP/máscara por ficheros Debian**
 
 * Primero debemos averiguar el nombre de nuestra interface de red (Usaremos `ip a` o `ifconfig`)
-* Para cambiar la configuración de red, editar y modificar el fichero `/etc/network/interfaces` .
+* Para cambiar la configuración de red:
+    1. Editar y modificar el fichero `/etc/network/interfaces` .
+    2. Crear y modificar el fichero `/etc/network/interfaces.d/red-de-clase` .
 
 Veamos ejemplo de configuración del interfaz de red eth0 estático:
 
