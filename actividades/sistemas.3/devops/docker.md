@@ -256,7 +256,7 @@ El fichero Dockerfile contiene toda la información necesaria para construir el 
 A continuación vamos a crear un contenedor con el nombre `con_nginx2`, a partir de la imagen `dvarrui/nginx2`. Probaremos con:
 
 ```
-docker run --name=con_nginx2 -p 8080:80 -t nombre-alumno/nginx2`
+docker run --name=con_nginx2 -p 8080:80 -t nombre-alumno/nginx2
 ```
 
 Desde otra terminal:
