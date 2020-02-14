@@ -1,6 +1,6 @@
 
 Documentos relacionados
-* Configurar [Acceso remoto](../acceso-remoto/windows7.md)
+* Configurar [Acceso remoto](../acceso-remoto/windows.md)
 * Configurar [Firewall](../firewall.md).
 * Cómo trabajar en [casa](../casa.md).
 
