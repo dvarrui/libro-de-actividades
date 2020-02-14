@@ -1,7 +1,9 @@
 ```
-Cursos          : 201920, 201819, 201718, etc.
-Requisitos      : SO GNU/Linux y SO Windows
-Tiempo estimado : 8 sesiones
+Cursos      : 201920, 201819, 201718, etc.
+Area        : Sistemas oprativos, acceso remoto
+Descripción :
+Requisitos  : SO GNU/Linux y SO Windows
+Tiempo      : 8 sesiones
 ```
 
 ---

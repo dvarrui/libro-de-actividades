@@ -1,24 +1,20 @@
 
-> Documentos relacionados
->
-> * Configurar [VirtualBox](../virtualbox/general.md)
-> * Configurar [Acceso remoto](../acceso-remoto/windows7.md)
-> * Configurar [Firewall](../firewall.md).
-> * Cómo trabajar en [casa](../casa.md).
+Documentos relacionados
+* Configurar [Acceso remoto](../acceso-remoto/windows7.md)
+* Configurar [Firewall](../firewall.md).
+* Cómo trabajar en [casa](../casa.md).
 
 ---
-
-# Configurar MV Windows 7
+# Configurar MV Windows
 
 ## Introducción
 
-> * Donde aparezca AA debemos poner el código asignado al aula:
->     * 18 para el aula103
->     * 19 para el aula109
-> * Donde aparezca XX debemos poner el código asignado al alumno.
+* Donde aparezca AA debemos poner el código asignado al aula:
+   * 18 para el aula103
+   * 19 para el aula109
+* Donde aparezca XX debemos poner el código asignado al alumno.
 
 ---
-
 ## VirtualBox
 
 * Crear la MV.
