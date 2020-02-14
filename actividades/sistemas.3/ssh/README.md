@@ -1,7 +1,7 @@
 ```
 Cursos      : 201920, 201819, 201718, etc.
 Area        : Sistemas oprativos, acceso remoto
-Descripción :
+Descripción : Practicar con la herramienta de acceso remoto SSH
 Requisitos  : SO GNU/Linux y SO Windows
 Tiempo      : 8 sesiones
 ```
@@ -36,7 +36,6 @@ Entrega:
 * Además se mostrará al profesor la práctica funcionando en clase y se responderá a las preguntas que pudieran hacerse en dicho instante.
 
 ---
-
 # 1. Preparativos
 
 Vamos a necesitar las siguientes MVs:
@@ -231,12 +230,7 @@ Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la iden
 * Para solucionarlo... lee los mensajes de advertencia. ¡Ahí está todo lo que necesitas!
 
 ---
-
 # 4. Personalización del prompt Bash
-
-> [INFO] Esto sólo para servidores GNU/Linux o BSD.
->
-> Personalizar Bash según la documentación, para cambiar el color cuando tenemos activa una sesión SSH.
 
 * Por ejemplo, podemos añadir las siguientes líneas al fichero de configuración del `1er-apellido-alumno1` en la máquina servidor (Fichero `/home/1er-apellido-alumno1/.bashrc`)
 
@@ -261,7 +255,6 @@ alias s='ssh'
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
 ---
-
 # 5. Autenticación mediante claves públicas
 
 **Explicación:**

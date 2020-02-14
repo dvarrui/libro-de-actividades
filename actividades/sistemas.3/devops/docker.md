@@ -22,14 +22,22 @@ Esta herramienta nos permite crear "contenedores", que son aplicaciones empaquet
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
----
-# 2. Instalación y primeras pruebas
+## 1.1 Instalación
 
 > Enlaces de interés:
 > * [EN - Docker installation on SUSE](https://docs.docker.com/engine/installation/linux/SUSE)
 > * [ES - Curso de Docker en vídeos](jgaitpro.com/cursos/docker/)
 
-## 2.1 Habilitar el acceso a la red externa a los contenedores
+Ejecutar como superusuario:
+* `zypper in docker`, instalar docker.
+* `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
+* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`.
+
+Iniciar sesión como usuario normal.
+* `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
+* Salir de la sesión y volver a entrar con nuestro usuario.
+
+## 1.1 Habilitar el acceso a la red externa a los contenedores
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
@@ -45,18 +53,7 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 | Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
 | OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
 
-## 2.2 Instalación
-
-Ejecutar como superusuario:
-* `zypper in docker`, instalar docker.
-* `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
-* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`.
-
-Iniciar sesión como usuario normal.
-* `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
-* Salir de la sesión y volver a entrar con nuestro usuario.
-
-## 2.3 Primera prueba
+## 1.3 Primera prueba
 
 * `docker images`, muestra las imágenes descargadas hasta ahora, y no debe haber ninguna.
 * `docker ps -a`, muestra todos los contenedores creados y no debe haber ninguno por ahora.
@@ -69,7 +66,7 @@ Iniciar sesión como usuario normal.
 * `docker stop IDContainer`, parar el conteneder.
 * `docker rm IDContainer`, eliminar el contenedor.
 
-## 2.4 Sólo para LEER
+## 1.4 Sólo para LEER
 
 Veamos un poco de teoría.
 
@@ -84,23 +81,36 @@ Tabla de referencia para no perderse:
 
 Información sobre otros comandos útiles:
 
-| Comando                   | Descripción |
-| ------------------------- | ------------------- |
-| docker stop CONTAINERID   | parar un contenedor |
-| docker start CONTAINERID  | iniciar un contenedor |
-| docker attach CONTAINERID | conectar el terminal actual con el interior de contenedor |
+| Comando                   | Descripción           |
+| ------------------------- | --------------------- |
+| docker stop CONTAINERID   | Parar un contenedor   |
+| docker start CONTAINERID  | Iniciar un contenedor |
+| docker attach CONTAINERID | Conectar el terminal actual con el contenedor |
 | docker ps                 | mostrar los contenedores en ejecución |
 | docker ps -a              | mostrar todos los contenedores (en ejecución o no) |
-| docker rm CONTAINERID     | eliminar un contenedor |
-| docker rmi IMAGENAME      | eliminar una imagen |
+| docker rm CONTAINERID     | Eliminar un contenedor |
+| docker rmi IMAGENAME      | Eliminar una imagen    |
+
+## 1.5 Alias
+
+Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregar los siguientes alias al fichero `/home/nombre-alumno/.alias`:
+
+```
+alias di='docker images'
+alias dp='docker ps'
+alias dpa='docker ps -a'
+alias drm='docker rm '
+alias drmi='docker rmi '
+alias ds='docker stop '
+```
 
 ---
-# 3. Creación manual de nuestra imagen
+# 2. Creación manual de nuestra imagen
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian,
 y dentro instalaremos Nginx.
 
-## 3.1 Crear un contenedor manualmente
+## 2.1 Crear un contenedor manualmente
 
 **Descargar una imagen**
 * `docker search debian`, buscamos en los repositorios de Docker Hub contenedores con la etiqueta `debian`.
@@ -108,9 +118,9 @@ y dentro instalaremos Nginx.
 * `docker images`, comprobamos.
 
 **Crear un contenedor**: Vamos a crear un contenedor con nombre `con_debian` a partir de la imagen `debian`, y ejecutaremos el programa `/bin/bash` dentro del contendor:
-* `docker run --name=con_debian -i -t debian /bin/bash`
+* `docker run --name=app1debian -i -t debian /bin/bash`
 
-## 3.2 Personalizar el contenedor
+## 2.2 Personalizar el contenedor
 
 Ahora dentro del contenedor, vamos a personalizarlo a nuestro gusto:
 
@@ -147,12 +157,12 @@ Recordatorio:
 * La primera línea de un script, siempre debe comenzar por `#!/`, sin espacios.
 * Este script inicia el programa/servicio y entra en un bucle, para permanecer activo y que no se cierre el contenedor.
 
-## 3.3 Crear una imagen a partir del contenedor
+## 2.3 Crear una imagen a partir del contenedor
 
 Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a crear una nueva imagen que incluya los cambios que hemos hecho.
 
 * Abrir otra ventana de terminal.
-* `docker commit con_debian nombre-del-alumno/nginx1`, a partir del CONTAINERID vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx1".
+* `docker commit app1debian nombre-del-alumno/nginx1`, a partir del CONTAINERID vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx1".
 
 > NOTA:
 >
@@ -162,16 +172,16 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 * `docker images`, comprobamos.
 
 ---
-# 4. Crear contenedor a partir de nuestra imagen
+# 3. Crear contenedor a partir de nuestra imagen
 
-## 4.1 Crear contenedor con Nginx
+## 3.1 Crear contenedor con Nginx
 
 Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
-* `docker run --name=con_nginx1 -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
+* `docker run --name=app2nginx1 -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
-## 4.2 Comprobamos
+## 3.2 Comprobamos
 
 * Abrimos una nueva terminal.
 * `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar que la última columna nos indica que el puerto 80 del contenedor está redireccionado a un puerto local `0.0.0.0.:PORT -> 80/tcp`.
@@ -181,12 +191,11 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 ![docker-url-nginx.png](./images/docker-url-nginx.png)
 
 * Comprobar el acceso a `holamundo.html`.
-* Paramos el contenedor `con_nginx1` y lo eliminamos.
+* Paramos el contenedor `app2nginx1` y lo eliminamos.
 
-Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores
-cuando lo necesitemos.
+Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores cuando lo necesitemos.
 
-## 4.3 Migrar la imágen a otra máquina
+## 3.3 Migrar la imágen a otra máquina
 
 ¿Cómo puedo llevar los contenedores Docker a un nuevo servidor?
 
@@ -206,16 +215,15 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
 * `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar.
 * `docker images`, comprobamos que la nueva imagen está disponible.
-
-Ya podemos crear contenedores a partir de la nueva imagen.
+* Probar a crear un contenedor (`app3alumno`), a partir de la nueva imagen.
 
 ---
-# 5. Dockerfile
+# 4. Dockerfile
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
 usando un fichero de configuración. Esto es, vamos a crear un contenedor a partir de un fichero `Dockerfile`.
 
-## 5.1 Preparar ficheros
+## 4.1 Preparar ficheros
 
 * Crear directorio `/home/nombre-alumno/dockerXXa`.
 * Entrar el directorio anterior.
@@ -243,7 +251,7 @@ EXPOSE 80
 CMD ["/root/server.sh"]
 ```
 
-## 5.2 Crear imagen a partir del `Dockerfile`
+## 4.2 Crear imagen a partir del `Dockerfile`
 
 El fichero Dockerfile contiene toda la información necesaria para construir el contenedor, veamos:
 
@@ -251,12 +259,12 @@ El fichero Dockerfile contiene toda la información necesaria para construir el 
 * `docker build -t nombre-alumno/nginx2 .`, construye una nueva imagen a partir del Dockerfile. OJO: el punto final es necesario.
 * `docker images`, ahora debe aparecer nuestra nueva imagen.
 
-## 5.3 Crear contenedor y comprobar
+## 4.3 Crear contenedor y comprobar
 
-A continuación vamos a crear un contenedor con el nombre `con_nginx2`, a partir de la imagen `dvarrui/nginx2`. Probaremos con:
+A continuación vamos a crear un contenedor con el nombre `app4nginx2`, a partir de la imagen `nombre-alumno/nginx2`. Probaremos con:
 
 ```
-docker run --name=con_nginx2 -p 8080:80 -t nombre-alumno/nginx2
+docker run --name=app4nginx2 -p 8080:80 -t nombre-alumno/nginx2
 ```
 
 Desde otra terminal:
@@ -265,11 +273,11 @@ Desde otra terminal:
     * URL `http://localhost:PORTNUMBER`
     * URL `http://localhost:PORTNUMBER/holamundo.html`
 
-Ahora que sabemos usar los ficheros Dockerfile nos damos cuenta que es más sencillo usar estos ficheros para intercambiar imágenes docker con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
+Ahora que sabemos usar los ficheros Dockerfile, nos damos cuenta que es más sencillo usar estos ficheros para intercambiar con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
 
-## 5.4 Usar imágenes ya creadas
+## 4.4 Usar imágenes ya creadas
 
-El ejemplo anterior donde creábamos una imagen docker con nginx se puede simplificar aún más aprovechando imágenes que ya existen.
+El ejemplo anterior donde creábamos una imagen Docker con Nginx se puede simplificar aún más aprovechando imágenes oficiales que ya existen.
 
 > Enlace de interés:
 > * [nginx - Docker Official Images] https://hub.docker.com/_/nginx
@@ -285,10 +293,10 @@ RUN chmod 666 /usr/share/nginx/html/holamundo.html
 ```
 
 * `docker build -t nombre-alumno/nginx3`, crear la imagen.
-* `docker run --name=con_nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
+* `docker run --name=app5nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
 
 ---
-# 6. Limpiar contenedores e imágenes
+# 5. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
 * `docker ps -a`
