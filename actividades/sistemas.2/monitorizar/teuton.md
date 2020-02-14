@@ -32,19 +32,23 @@ Tiempo      :
 
 ## 1.1 Preparativos
 
-* MV1 GNULinux
-* MV2 GNULinux
-* MV3 Windows
-* MV4 RbPI
+Listado de MVs:
+1. MV1 GNULinux
+2. MV2 GNULinux
+3. MV3 RbPI
+4. MV4 Windows
 
-Configurar IP estáticas.
-Activar servicio SSH.
-Habilitar acceso SSH a root.
+En todas las MVs:
+* Configurar IP estáticas.
+* Activar servicio SSH.
+* Habilitar acceso SSH a root.
 
 ## 1.2 Instalación
 
-Enlace de interés:
-* https://github.com/teuton-software/teuton
+> Enlace de interés:
+> * https://github.com/teuton-software/teuton
+
+* Entender los modos de trabajo de Teuton: T-NODE y S-NODE.
 
 Instalación de "teuton" (T-NODE)
 * Tener ruby instalado. `ruby -v` para consultar versión de ruby.
@@ -56,8 +60,10 @@ Instalación de "teuton" (T-NODE)
 
 Ir a la MV1:
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton create alumnoXX/test1`.
-* Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
+* `teuton create alumnoXX/test1`. Los ficheros principales son:
+    * `congig.yaml`, fichero de configuración de las máquinas
+    * `start.rb`, definición de las unidades de prueba.
+* Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar y sus configuraciones:
 
 ```
 ---
@@ -71,14 +77,34 @@ Ir a la MV1:
 - :tt_members: S-NODE-XX GNU/Linux
   :host_ip: 172.19.XX.32
   :host_password: clave-secreta
-- :tt_members: S-NODE-XX Windows
-  :host_ip: 172.19.XX.11
-  :host_password: clave-secreta
 - :tt_members: S-NODE-XX Raspberry PI
   :host_ip: 172.19.XX.51
   :host_password: clave-secreta
+- :tt_members: S-NODE-XX Windows
+  :host_ip: 172.19.XX.11
+  :host_password: clave-secreta
 ```
-* Modificar `start.rb` para comprobar lo siguiente en las máquinas:
-    * hostname
-    * ping 8.8.4.4
-    * host www.nba.com
+
+* Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
+    * Puerta de enlace: `ping 8.8.4.4 -c 1`
+    * Servidor DNS: `host www.nba.com`
+
+```
+group "alumnoXX - test1" do
+
+  target "La puerta de enlace funciona correctamente"
+  goto :host, :exec => "ping 8.8.4.4 -c 1"
+  expect ["1 received", "0% packet loss"]
+
+  target "Servidor DNS funciona corectamente"
+  goto :host, :exec => "ping 8.8.4.4 -c 1"
+  expect "has address"
+end
+
+play do
+  show
+  export
+end
+```
+
+* `teuton alumnoXX/test1`, Ejecutar el test1.
