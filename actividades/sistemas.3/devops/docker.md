@@ -50,12 +50,14 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 Ejecutar como superusuario:
 * `zypper in docker`, instalar docker.
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
+* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`.
+
+Iniciar sesión como usuario normal.
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
 * Salir de la sesión y volver a entrar con nuestro usuario.
 
 ## 2.3 Primera prueba
 
-* Iniciar sesión como usuario normal. Nuestro usuario debe ser miembro del grupo `docker`
 * `docker images`, muestra las imágenes descargadas hasta ahora, y no debe haber ninguna.
 * `docker ps -a`, muestra todos los contenedores creados y no debe haber ninguno por ahora.
 * `docker run hello-world`:
@@ -165,7 +167,7 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 ## 4.1 Crear contenedor con Nginx
 
 Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
-* `docker run --name=con_nginx -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
+* `docker run --name=con_nginx1 -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
@@ -179,7 +181,7 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 ![docker-url-nginx.png](./images/docker-url-nginx.png)
 
 * Comprobar el acceso a `holamundo.html`.
-* Paramos el contenedor `con_nginx` y lo eliminamos.
+* Paramos el contenedor `con_nginx1` y lo eliminamos.
 
 Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores
 cuando lo necesitemos.
@@ -253,8 +255,9 @@ El fichero Dockerfile contiene toda la información necesaria para construir el 
 
 A continuación vamos a crear un contenedor con el nombre `con_nginx2`, a partir de la imagen `dvarrui/nginx2`. Probaremos con:
 
-* `docker run --name=con_nginx2 -t nombre-alumno/nginx2`
-* `docker run --name=con_nginx2 -t nombre-alumno/nginx2 /root/server.sh`
+```
+docker run --name=con_nginx2 -p 8080:80 -t nombre-alumno/nginx2`
+```
 
 Desde otra terminal:
 * `docker...`, para averiguar el puerto de escucha del servidor Nginx.
