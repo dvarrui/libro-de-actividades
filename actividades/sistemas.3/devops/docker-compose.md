@@ -23,6 +23,10 @@ En esta práctica vamos a trabajar:
 ## Docker-compose
 
 
+# Gestión de volúmenes
+
+https://dockertips.com/volumenes
+
 ---
 # ANEXO
 
