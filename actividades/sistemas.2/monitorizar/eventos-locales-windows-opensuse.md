@@ -2,9 +2,10 @@
 ```
 Curso       : 201920, 201819, 201718, 201617
 Area        : Sistemas operativos, monitorización, auditoría
-Requisitos  : Windows y OpenSUSE
-Tiempo      : 11 sesiones
 Descripción : Monitorizar y auditar eventos del sistema operativo en local
+Requisitos  : Windows y Audit con OpenSUSE
+              Se recomienda trabajar esta práctica antes de AppArmor.
+Tiempo      : 11 sesiones
 ```
 
 ---

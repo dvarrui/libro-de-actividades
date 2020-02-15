@@ -5,7 +5,9 @@ Area        : Sistemas operativos, monitorización, seguridad.
 Descripción : Configuración de AppArmor en modo monitorización.
               Configuración de AppArmor en modo seguridad.
 Requisitos  : GNU/Linux OpenSUSE Leap 15
-Tiempo      : 7 sesiones
+              Es recomendable trabajar antes la actividad de
+              "Audit" (eventos locales).
+Tiempo      : 5 sesiones
 ```
 
 ---
