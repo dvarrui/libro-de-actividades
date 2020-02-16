@@ -209,6 +209,8 @@ Esta configuración programa una copia de seguridad del directorio `/home/user/m
 * Pulsar la tecla `ESC`.
 * Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
 * `crontab -l`, para consultar que las tareas están programadas correctamente.
+* Esperar a que se ejecute la copia de seguridad programada con crontab.
+* `vdir /home/user/`, para comprobar que existe el fichero con la fecha esperada.
 
 ---
 # 5. Copias diferenciales
