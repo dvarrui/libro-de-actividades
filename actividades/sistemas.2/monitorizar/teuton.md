@@ -72,9 +72,15 @@ En todas las máquinas:
 > Enlace de interés:
 > * [Instalación](https://github.com/teuton-software/teuton/blob/devel/docs/install/install.md)
 
-Instalación de "teuton" (T-NODE)
-* Tener ruby instalado. `ruby -v` para consultar versión de ruby.
-* `gem install teuton`
+Vamos a ver el proceso de instalación de "teuton" (T-NODE).
+
+Entrar como superusuario.
+* `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
+* `gem install teuton`, instalar Teuton.
+* `ln -s /usr/lib64/ruby/gems/2.5.0/gems/teuton-2.1.2/bin/teuton cd /usr/local/bin/teuton`, crear enlace al ejecutable.
+* Cerrar sesión.
+
+Entrar como nuestro usuario normal:
 * `teuton version`, comprobar versión.
 
 ---
