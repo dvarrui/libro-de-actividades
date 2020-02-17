@@ -1,7 +1,10 @@
 
-    Autor: Francisco Vargas Ruiz
-    Versión: v201711211859
+```
+Autor   : Francisco Vargas Ruiz
+Versión : v201711211859
+```
 
+---
 # Acceso remoto con SSH en Windows 10 y Server
 
 Vamos a ver dos formar de acceder vía SSH al SO Windows 10.

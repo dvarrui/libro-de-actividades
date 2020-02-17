@@ -47,10 +47,10 @@ Listado de las máquinas que necesitamos:
 
 | ID | Sistema  | Hostname     | IP           |
 | -- | -------- | ------------ | ------------ |
-|  1 | OpenSUSE | apellidoXXg  | 172.AA.XX.31 |
-|  2 | OpenSUSE | apellidoXXg2 | 172.AA.XX.32 |
-|  3 | RbPI     | apellidoXXrb | 172.AA.XX.51 |
-|  4 | Windows  | apellidoXXw  | 172.AA.XX.11 |
+|  1 | [OpenSUSE](../../global/configuracion/opensuse.md) | apellidoXXg  | 172.AA.XX.31 |
+|  2 | [OpenSUSE](../../global/configuracion/opensuse.md) | apellidoXXg2 | 172.AA.XX.32 |
+|  3 | [RbPI](../../global/configuracion/rbpi.md)     | apellidoXXrb | 172.AA.XX.51 |
+|  4 | [Windows](../../global/configuracion/windows.md)  | apellidoXXw  | 172.AA.XX.11 |
 
 En todas las máquinas:
 * Configurar IP estática.
