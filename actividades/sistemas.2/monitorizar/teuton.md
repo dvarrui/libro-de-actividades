@@ -110,7 +110,7 @@ Ir a la MV1:
 group "alumnoXX - test2" do
 
   target "Hay conectividad con la Máquina #{get(:host_ip)}"
-  run, :exec => "ping -c 1 #{get(:host_ip)}"
+  run :exec => "ping -c 1 #{get(:host_ip)}"
   expect ["1 received", "0% packet loss"]
 end
 
