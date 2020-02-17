@@ -85,7 +85,7 @@ Instalación de "teuton" (T-NODE)
 Ir a la MV1:
 * Ir al directorio `Documentos` para trabajar ahí.
 * `teuton create alumnoXX/test2`. Los ficheros principales son:
-    * `congig.yaml`, fichero de configuración de las máquinas
+    * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
 
