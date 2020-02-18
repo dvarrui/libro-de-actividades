@@ -40,6 +40,14 @@ Propuesta de rúbrica:
 
 * Ir a la MV1
 * `zypper install salt-master`, instalar el software del Máster.
+
+> ATENCIÓN: El fichero de configuración siguiente tiene formato YAML. 
+>
+> 1. Los valores de clave(key) principal no tienen espacios por delante. 
+> 2. El resto de valores de clave(key) secundarios tendrán 2 espacios o 4 espacios por delante.
+>
+> Hay que cumplir estas restricciones para que el contenido del dichero sea válido.
+
 * Modificar `/etc/salt/master` para configurar nuestro Máster con:
 ```
 interface: 172.19.XX.31
