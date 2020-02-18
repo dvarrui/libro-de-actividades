@@ -41,8 +41,12 @@ Iniciar sesión como usuario normal.
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-* `cat /proc/sys/net/ipv4/ip_forward`, para consultar el estado de IP_FORWARD (desactivado=0, activo=1).
-* Para activarlo podemos poner el valor 1 en el fichero de texto indicado o usar Yast.
+* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos poner el valor 1 en el fichero de texto indicado o también podemos usar Yast.
+* También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro
+```
+## Configuración para docker de alumnoXX
+net.ipv4.ip_forward = 1
+```
 * Reiniciar el equipo para que se aplique el cambio de configuración.
 
 **Usar YAST para activar IP_FORWARD**
