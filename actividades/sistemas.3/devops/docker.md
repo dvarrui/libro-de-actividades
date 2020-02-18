@@ -292,7 +292,8 @@ COPY holamundo.html /usr/share/nginx/html
 RUN chmod 666 /usr/share/nginx/html/holamundo.html
 ```
 
-* `docker build -t nombre-alumno/nginx3`, crear la imagen.
+* Poner el el directorio `dockerXXb` los ficheros que se requieran para construir el contenedor.
+* `docker build -t nombre-alumno/nginx3 .`, crear la imagen.
 * `docker run --name=app5nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
 
 ---
