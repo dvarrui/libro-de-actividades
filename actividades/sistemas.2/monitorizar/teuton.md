@@ -168,14 +168,14 @@ end
 > De momento vamos a excluir (skip==true) de la monitorización a la máquina con Windows, por que los comandos son diferentes.
 
 * Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
-    * Puerta de enlace: `ping 8.8.4.4 -c 1`
+    * Puerta de enlace: `ping -c 1 8.8.4.4`
     * Servidor DNS: `host www.nba.com`
 
 ```
 group "alumnoXX - test3" do
 
   target "La puerta de enlace funciona correctamente"
-  goto :host, :exec => "ping 8.8.4.4 -c 1"
+  goto :host, :exec => "ping -c 1 8.8.4.4"
   expect ["1 received", "0% packet loss"]
 
   target "Servidor DNS funciona corectamente"
