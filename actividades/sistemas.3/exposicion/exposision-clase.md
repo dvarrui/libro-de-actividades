@@ -4,7 +4,6 @@
 Tendrán que preparar un tema (por parejas) para exponer durante 10 minutos.
 
 ---
-
 # 1. Preparar la exposición
 
 ## 1.1 Agrupamientos
@@ -15,15 +14,11 @@ Tendrán que preparar un tema (por parejas) para exponer durante 10 minutos.
 contenidos a exponer. La profundidad de los contenidos y cantidad de los
 mismos debe ir en relación al nivel de la audiencia.
 
----
-
 ## 1.2 Elegir un tema
 
 El tema deberá estar relacionado con nuestro ciclo, y debe ser de interés para la audiencia que va a asistir. Previamente deberán acordar con los alumnos de otro ciclo el tema que se va a exponer y hay que recordar que debemos adecuar el grado de dificultad y el vocabulario a nuestra audiencia.
 
 Una vez tengan los temas es conveniente comunicarlo al profesor para reservarlo. NO pueden haber dos grupos con el mismo tema. Si fuera así, deberán ponerse de acuerdo para que el segundo grupo sea la continuación del primero.
-
----
 
 ## 1.3 Recursos disponibles y el plan B
 
@@ -36,7 +31,6 @@ En el aula de la charla tendrá un proyector y un PC con Windows. Aún así debe
 * etc.
 
 ---
-
 # 2. La charla/exposición
 
 ## 2.1 Datos del evento
