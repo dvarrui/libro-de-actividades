@@ -304,6 +304,9 @@ Ejemplo para crear directorio:
 ---
  # ANEXO 
  
+ ## Terraform 
+ 
  Enlaces de interés:
  * [Terraform by HashiCorp](https://www.terraform.io/): Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service.
+ * [Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation](https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c)
  
