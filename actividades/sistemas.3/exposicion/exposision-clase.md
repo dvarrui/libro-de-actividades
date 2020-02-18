@@ -58,7 +58,7 @@ Es conveniente tener en cuenta los siguientes aspectos para la presentación:
 
 ## 3.2 Evaluar a los ponentes
 
-El profesor de informática elaborará unos cuestionarios para rellenar por
+El profesor de informática elaborará unas fichas para rellenar por
 parte de los asistentes, de modo que puedan evaluar el trabajo realizado por
 los ponentes.
 
