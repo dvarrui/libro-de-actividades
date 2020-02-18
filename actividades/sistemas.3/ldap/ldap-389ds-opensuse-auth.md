@@ -96,3 +96,9 @@ Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como reposit
 id drinfierno
 su -l drinfierno   # Entramos con el usuario definido en LDAP
 ```
+
+---
+# ANEXO
+
+Enlaces de interés:
+* Cliente LDAP: [PAM, NIS, LDAP, Kerberos, DS y Samba 4 AD-CD - Redes PYMES](http://blog.desdelinux.net/pam-nis-ldap-kerberos-ds-samba-4-ad-cd-redes-pymes/#Cliente_DAP)
