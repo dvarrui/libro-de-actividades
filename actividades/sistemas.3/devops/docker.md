@@ -199,7 +199,7 @@ conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor
 
 Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores cuando lo necesitemos.
 
-## 3.3 Migrar la imágen a otra máquina
+## 3.3 Migrar la imagen a otra máquina
 
 ¿Cómo puedo llevar los contenedores Docker a un nuevo servidor?
 
@@ -301,7 +301,17 @@ RUN chmod 666 /usr/share/nginx/html/holamundo.html
 * `docker run --name=app5nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
 
 ---
-# 5. Limpiar contenedores e imágenes
+# 5. Crear un hola mundo
+
+* Crear un contenedor en la carpeta `dockerXXc` usando Dockerfile.
+* Al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje:
+```
+Hola Mundo!
+nombre-del-alumnoXX!
+```
+
+---
+# 6. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
 * `docker ps -a`
