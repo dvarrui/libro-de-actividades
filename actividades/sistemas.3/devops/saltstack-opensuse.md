@@ -10,7 +10,7 @@ Tiempo      : 5 sesiones
 ---
 # 1. Salt-stack
 
-Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet, Chef y Ansible. En esta actividad vamos a practicar Salt-stack con OpenSUSE.
+Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet, Chef, Ansible y Terraform. En esta actividad vamos a practicar Salt-stack con OpenSUSE.
 
 Propuesta de rúbrica:
 | ID  | Criterio                    | Muy bien(2) | Regular(1) | Mal(0) |
@@ -300,3 +300,10 @@ Ejemplo para crear directorio:
     - group: mazingerz
     - mode:  700
 ```
+
+---
+ # ANEXO 
+ 
+ Enlaces de interés:
+ * [Terraform by HashiCorp](https://www.terraform.io/): Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service.
+ 
