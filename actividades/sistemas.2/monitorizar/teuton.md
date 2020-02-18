@@ -168,8 +168,6 @@ end
 > De momento vamos a excluir (skip==true) de la monitorización a la máquina con Windows, por que los comandos son diferentes.
 
 * Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
-    * Nombre de equipo: `hostname`
-    * Usuario alumno: `id nombre-alumno`
     * Puerta de enlace: `ping 8.8.4.4 -c 1`
     * Servidor DNS: `host www.nba.com`
 
