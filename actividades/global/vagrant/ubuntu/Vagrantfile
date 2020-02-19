@@ -2,14 +2,19 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "ubuntu" do |i|
+  config.vm.define "ubuntu1804" do |i|
     i.vm.box = "ubuntu/bionic64"
-    i.vm.hostname = "profesor42u"
+    i.vm.hostname = "profesor42u.curso1920"
     i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2242
+    i.vm.synced_folder "./", "/vagrant"
+    i.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y vim tree nmap
+    SHELL
     i.vm.provider "virtualbox" do |v|
-      v.name = 'ubuntu-bionic64'
+      v.name = 'ubuntu1804'
       v.memory = 2048
     end
   end
 end
-

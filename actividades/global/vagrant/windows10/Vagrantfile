@@ -7,7 +7,8 @@ Vagrant.configure("2") do |config|
     i.vm.box_version = "1.0.0"
     i.vm.hostname = "profesor42w10"
     i.vm.network "public_network", bridge: [ "eth0" ]
-    i.vm.network :forwarded_port, guest: 80, host: 8081
+    i.vm.network :forwarded_port, guest: 22, host: 2211
+    i.vm.synced_folder "./", "/vagrant"
     i.vm.provider "virtualbox" do |v|
       v.name = "windows10-ent-vs2015"
       v.memory = 2048

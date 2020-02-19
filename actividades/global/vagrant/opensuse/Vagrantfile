@@ -4,8 +4,9 @@
 Vagrant.configure("2") do |config|
   config.vm.define "opensuse15" do |i|
     i.vm.box = "generic/opensuse15"
-    i.vm.hostname = "profesor.curso1920"
+    i.vm.hostname = "profesor42g.curso1920"
     i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2231
     i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
       zypper refresh

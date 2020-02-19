@@ -4,8 +4,9 @@
 Vagrant.configure("2") do |config|
   config.vm.define "debian10" do |i|
     i.vm.box = "generic/debian10"
-    i.vm.hostname = "profesor.curso1920"
+    i.vm.hostname = "profesor42d.curso1920"
     i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2241
     i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
       apt-get update 
