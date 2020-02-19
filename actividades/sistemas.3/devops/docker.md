@@ -22,6 +22,16 @@ Esta herramienta nos permite crear "contenedores", que son aplicaciones empaquet
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
+Propuesta de rúbrica:
+| ID  | Criterio      | Muy bien(2) | Regular(1) | Poco adecuado(0) |
+| --- | ------------- | ----------- | ---------- | ---------------- |
+| 3.2 | Comprobar     ||||
+| 3.3 | Migrar imagen ||||
+| 4.2 | Crear imagen Dockerfile ||||
+| 4.3 | Crear contenedor        ||||
+| 4.4 | Usar imagen de nginx    ||||
+| 5   | Hola Mundo              ||||
+
 ## 1.1 Instalación
 
 > Enlaces de interés:
@@ -35,7 +45,7 @@ Ejecutar como superusuario:
 
 Iniciar sesión como usuario normal.
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
-* Salir de la sesión y volver a entrar con nuestro usuario.
+* OJO: A partir de ahora todo lo haremos con nuestro usuario, sin usar `sudo`.
 
 ## 1.1 Habilitar el acceso a la red externa a los contenedores
 
@@ -59,8 +69,6 @@ net.ipv4.ip_forward = 1
 
 ## 1.3 Primera prueba
 
-* `docker images`, muestra las imágenes descargadas hasta ahora, y no debe haber ninguna.
-* `docker ps -a`, muestra todos los contenedores creados y no debe haber ninguno por ahora.
 * `docker run hello-world`:
     * Descarga una imagen "hello-world"
     * Crea un contenedor y
@@ -255,6 +263,8 @@ EXPOSE 80
 CMD ["/root/server.sh"]
 ```
 
+> Probar con CMD ["/usr/sbin/nginx","-g"]
+
 ## 4.2 Crear imagen a partir del `Dockerfile`
 
 El fichero Dockerfile contiene toda la información necesaria para construir el contenedor, veamos:
@@ -299,6 +309,7 @@ RUN chmod 666 /usr/share/nginx/html/holamundo.html
 * Poner el el directorio `dockerXXb` los ficheros que se requieran para construir el contenedor.
 * `docker build -t nombre-alumno/nginx3 .`, crear la imagen.
 * `docker run --name=app5nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
+* Comprobar el acceso a "holamundo.html".
 
 ---
 # 5. Crear un hola mundo

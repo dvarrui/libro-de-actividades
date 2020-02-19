@@ -5,13 +5,11 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu" do |i|
     i.vm.box = "ubuntu/bionic64"
     i.vm.hostname = "profesor42u"
-    i.vm.network "public_network", bridge: [
-      "enp2s0",
-      "wlp1s0",
-    ]
+    i.vm.network "public_network", bridge: [ "eth0" ]
     i.vm.provider "virtualbox" do |v|
       v.name = 'ubuntu-bionic64'
       v.memory = 2048
     end
   end
 end
+
