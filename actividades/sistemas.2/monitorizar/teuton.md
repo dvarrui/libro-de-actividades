@@ -134,8 +134,8 @@ Explicación:
 * [expect](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/expect.md): Comprueba que la salida del comando anterior (run) contenga el texto que esperamos.
 
 A continuación vemos una imagen de ejemplo, donde tenemos:
-* En verde la salida de un comando que se ejecuta dando la salida que esperamos (`expect " 0% packet loss"`).
-* En rojo la salida de un comando que se ejecuta dando una salida que NO esperamos.
+1. En verde la salida de un comando que se ejecuta dando la salida que esperamos (`expect " 0% packet loss"`).
+1. En rojo la salida de un comando que se ejecuta dando una salida que NO esperamos.
 
 ![](images/teuton-ping.png)
 
@@ -143,6 +143,7 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 * `teuton alumnoXX/test2`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test2`.
+* Comprobar que los resultados son los correctos.
 
 **Entregar** los ficheros de los directorios:
 * `alumnoXX/test2/*`
@@ -191,7 +192,7 @@ group "alumnoXX - test3" do
 
   target "La puerta de enlace funciona correctamente"
   goto :host, :exec => "ping -c 1 8.8.4.4"
-  expect ["1 received", "0% packet loss"]
+  expect " 0% packet loss"
 
   target "Servidor DNS funciona corectamente"
   goto :host, :exec => "host www.nba.com"
@@ -205,10 +206,30 @@ play do
 end
 ```
 
+Explicación:
+* [goto](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/goto.md): La sentencia "goto" inicia una conexión SSH con el equipo "host" y ejecuta el comando indicado por "exec".
+* Cuando ejecutamos el comando `host www.nba.com` de forma correcta, obtenemos una salida como la siguiente, donde se obtiene al menos una línea con el texto `has address`:
+```    
+> host www.nba.com
+
+www.nba.com has address 104.126.107.194
+www.nba.com has IPv6 address 2a02:26f0:13c:396::2e1
+www.nba.com has IPv6 address 2a02:26f0:13c:38b::2e1
+www.nba.com is an alias for nbaevsecure.edgekey.net.
+nbaevsecure.edgekey.net is an alias for e737.dscg.akamaiedge.net.
+```
+* Cuando ejecutamos el comando `host www.enebea66.com` y es incorrecto, comprobamos que la salida no muestra ninguna línea del tipo `has address`:
+```
+> host www.enebea66.com
+
+Host www.enebea66.com not found: 3(NXDOMAIN)
+```
+
 ## 3.2 Comprobar
 
 * `teuton alumnoXX/test3`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test3`.
+* Comprobar que los resultados son los correctos.
 
 **Entregar**
 
@@ -233,19 +254,19 @@ end
   :host_username: root
   :username: nombre-del-alumno
 :cases:
-- :tt_members: T-NODE-XX
+- :tt_members: alumnoXX MV1
   :host_ip: localhost
   :host_password: clave-secreta
   :hostname: apellidoXXg
-- :tt_members: S-NODE-XX GNU/Linux
+- :tt_members: alumnoXX MV2 GNU/Linux
   :host_ip: 172.19.XX.32
   :host_password: clave-secreta
   :hostname: apellidoXXg2
-- :tt_members: S-NODE-XX Raspberry PI
+- :tt_members: alumnoXX MV3 Raspberry PI
   :host_ip: 172.19.XX.51
   :host_password: clave-secreta
   :hostname: apellidoXXrb
-- :tt_members: S-NODE-XX Windows
+- :tt_members: alumnoXX MV4 Windows
   :tt_skip: true
   :host_ip: 172.19.XX.11
   :host_password: clave-secreta
@@ -264,6 +285,7 @@ end
 
 * `teuton alumnoXX/test4`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test4`.
+* Comprobar que los resultados son los correctos.
 
 **Entregar**
 
@@ -289,6 +311,7 @@ end
 
 * `teuton alumnoXX/test5`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test5`.
+* Comprobar que los resultados son los correctos.
 
 **Entregar**
 
@@ -309,6 +332,7 @@ end
 
 * `teuton alumnoXX/test6`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test6`.
+* Comprobar que los resultados son los correctos.
 
 **Entregar**
 
