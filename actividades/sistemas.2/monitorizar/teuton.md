@@ -4,7 +4,7 @@ Curso       : 201920
 Area        : Sistemas operativos, monitorización, devops
 Descripción : Practicar test de infraestructura
 Requisitos  : Varias máquinas. Una al menos con GNU/Linux
-Tiempo      :
+Tiempo      : 11 sesiones
 ```
 
 ---
@@ -77,8 +77,10 @@ Vamos a ver el proceso de instalación de "teuton" (T-NODE).
 Entrar como superusuario.
 * `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
 * `gem install teuton`, instalar Teuton.
-* `ln -s /usr/lib64/ruby/gems/2.5.0/gems/teuton-2.1.2/bin/teuton cd /usr/local/bin/teuton`, crear enlace al ejecutable.
-* Cerrar sesión.
+
+> En OpenSUSE es necesario además es necesario hacer los siguiente:
+> * `find / -name teuton`, para localizar el ejecutable.
+> * `ln -s PATH/TO/FILE/teuton /usr/local/bin/teuton`, crear un enlace al ejecutable.
 
 Entrar como nuestro usuario normal:
 * `teuton version`, comprobar versión.
@@ -90,7 +92,7 @@ Entrar como nuestro usuario normal:
 
 Ir a la MV1:
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton create alumnoXX/test2`. Los ficheros principales son:
+* `teuton create alumnoXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
@@ -117,7 +119,7 @@ group "alumnoXX - test2" do
 
   target "Hay conectividad con la Máquina #{get(:host_ip)}"
   run "ping -c 1 #{get(:host_ip)}"
-  expect ["1 received", "0% packet loss"]
+  expect " 0% packet loss"
 end
 
 play do
@@ -126,15 +128,25 @@ play do
 end
 ```
 
+Explicación:
+* [target](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/target.md): se usa para iniciar la definición de un "objetivo" de motnitorización. Debemos poner una descripción que nos ayude a identificar cuál es ese objetivo.
+* [run](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/run.md): Indica el comando queremos ejecutar en la máquina local. Esta será la máquina T-Node, donde tenemos instalado Teutón.
+* [expect](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/expect.md): Comprueba que la salida del comando anterior (run) contenga el texto que esperamos.
+
+A continuación vemos una imagen de ejemplo, donde tenemos:
+* En verde la salida de un comando que se ejecuta dando la salida que esperamos (`expect " 0% packet loss"`).
+* En rojo la salida de un comando que se ejecuta dando una salida que NO esperamos.
+
+![](images/teuton-ping.png)
+
 ## 2.2 Comprobar
 
 * `teuton alumnoXX/test2`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test2`.
 
-**Entregar**
-
-* Ficheros `alumnoXX/test2/*`
-* Ficheros `var/test2/*`
+**Entregar** los ficheros de los directorios:
+* `alumnoXX/test2/*`
+* `var/test2/*`
 
 ---
 # 3. Test: Configuración de red
@@ -142,7 +154,7 @@ end
 ## 3.1 Crear el test
 
 * Crear el test `alumnoXX/test3`.
-* Personalizar `config.yaml`
+* Personalizar el fichero de configuración (`config.yaml`):
 
 ```
 ---
@@ -165,7 +177,10 @@ end
   :host_password: clave-secreta
 ```
 
-> De momento vamos a excluir (skip==true) de la monitorización a la máquina con Windows, por que los comandos son diferentes.
+> Fijarse que hemos añadido los siguientes parámetros:
+> * `host_username`: será el nombre del usuario que usaremos para conectarnos de forma remota a las máquinas vía SSH.
+> * `host_ip`: será valor de IP de la máquina a la que vamos a conectarnos de forma remota vía SSH.
+> * `tt_skip`: si se pone a true estamos indicando que esta máquina no la vamos a comprobar por ahora. De momento vamos a excluir (skip==true) la máquina Windows de la monitorización, porque los comandos son diferentes. Lo arreglaremos más adelante.
 
 * Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
     * Puerta de enlace: `ping -c 1 8.8.4.4`
