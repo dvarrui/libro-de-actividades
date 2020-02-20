@@ -3,16 +3,23 @@
 
 ## Windows10
 
-**Opción 1: Usando script de instalación**
+**Opción 1:**
 
-Requirements:
-* Windows 7+ / Windows Server 2003+
-* PowerShell v2+
+Desde el escritorio:
+* Descargar OpenSSH para Windows desde la URL https://github.com/PowerShell/Win32-OpenSSH/releases.
+* Descomprimir el fichero en `c:\Archivos de programas\OpenSSH`
 
-Run this command on PowerShell (PS) as Administrator user:
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/teuton-software/teuton/master/bin/windows_s-node_install.ps1'))
-```
+Abrir PowerShell como administrador:
+* Ejecutar la orden `Set-ExecutionPolicy Bypass -Scope Process -Force`, para permitir la ejecución de scripts.
+* Ejecutar `./install-sshd.ps1`, para instalar SSHD.
+
+Configurar el servicio SSH:
+* `Set-Service sshd -StartupType Automatic`, configurar para que se inicie el sercivio al iniciar el sistema.
+* `Start-Service sshd`, arrancar el servicio.
+
+Comprobamos desde la máquina real:
+* `ssh usuario@ip`, probamos a conectar con el SSH del Windows.
+* Deshabilitar el cortafuegos si hay problemas de conectividad.
 
 **Opción 2: Proceso manual**
 
