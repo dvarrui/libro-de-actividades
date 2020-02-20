@@ -197,6 +197,7 @@ Conclusiones:
 
 Vamos a crear una configuración (crontab) para que las copias de seguridad se realicen de forma automática.
 
+* Iniciamos sesión con nuestro usuario normal.
 * `crontab -l`, vemos que no hay ninguna configuración creada.
 * `crontab -e`, se nos abre un editor.
 * Pulsar `i`(insert) para activar el modo de empezar a escribir.
