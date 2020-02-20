@@ -91,6 +91,8 @@ Otros parámetros de interés:
 ---
 # 3. Copia de seguridad total (full-backup)
 
+## 3.1 Realizar copia total
+
 Iniciar sesión con nuestro usuario:
 * `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
 * `tar tvf backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
@@ -98,7 +100,19 @@ Iniciar sesión con nuestro usuario:
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprobar el contenido.
 
-Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. No era necesario volver a copiar los archivos a.txt, ni b.txt porque no han cambiado.
+Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. No será necesario volver a copiar los archivos a.txt, ni b.txt mientras no hayan cambiado.
+
+## 3.2 Restaurar tar vs copia normal
+
+La copia de seguridad realizada con tar es mejor que un copiado normal de las carpetas y/o ficheros porque con tar se preserva la información del propietario de los archivos y sus permisos pero en el caso de una copia normal no es así. Comprobemos:
+
+* Entrar como superusuario.
+* Nos movemos al directorio `/root`
+* `cp -r /home/alumno/mydocs .`, hacemos un copiado recursivo de los archivos con el usuario `root`.
+* Vemos que el propietario de los ficheros es ahora `root`.
+* `rm -r /root/mydocs`, limpiamos.
+* `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad.
+* Vemos que el propietario de los ficheros restaurados se mantiene.
 
 ---
 # 4. Copia de seguridad incremental
