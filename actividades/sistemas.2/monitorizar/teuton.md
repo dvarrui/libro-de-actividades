@@ -4,7 +4,8 @@ Curso       : 201920
 Area        : Sistemas operativos, monitorización, devops
 Descripción : Practicar test de infraestructura
 Requisitos  : Varias máquinas. Una al menos con GNU/Linux
-Tiempo      : 11 sesiones
+Tiempo      : 3 sesiones instalar y configurar las máquinas con acceso remoto
+              4 sesiones realizar la práctica
 ```
 
 ---
