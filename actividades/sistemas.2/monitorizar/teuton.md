@@ -277,8 +277,7 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   :hostname: apellidoXXw
 ```
 
-* Ejemplo de configuración en `start.rb`:
-
+Ver ejemplo de monitorización del nombre del equipo:
 ```
   target "Configurar nombre de equipo con #{get(:hostname)}"
   goto :host, :exec => "hostname"
