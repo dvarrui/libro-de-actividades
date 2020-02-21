@@ -92,7 +92,7 @@ Entrar como nuestro usuario normal:
 
 Ir a la MV1:
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton create alumnoXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
+* `teuton create castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
@@ -139,14 +139,16 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ![](images/teuton-ping.png)
 
+* `teuton test castleXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+
 ## 2.2 Comprobar
 
-* `teuton alumnoXX/test2`, ejecutar el test.
+* `teuton castleXX/test2`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test2`.
 * Comprobar que los resultados son los correctos.
 
 **Entregar** los ficheros de los directorios:
-* `alumnoXX/test2/*`
+* `castleXX/test2/*`
 * `var/test2/*`
 
 ---
@@ -154,7 +156,7 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ## 3.1 Crear el test
 
-* Crear el test `alumnoXX/test3`.
+* Crear el test `castleXX/test3`.
 * Personalizar el fichero de configuración (`config.yaml`):
 
 ```
@@ -225,15 +227,17 @@ nbaevsecure.edgekey.net is an alias for e737.dscg.akamaiedge.net.
 Host www.enebea66.com not found: 3(NXDOMAIN)
 ```
 
+* `teuton test castleXX/test3`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+
 ## 3.2 Comprobar
 
-* `teuton alumnoXX/test3`, ejecutar el test.
+* `teuton castleXX/test3`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test3`.
 * Comprobar que los resultados son los correctos.
 
 **Entregar**
 
-* Ficheros `alumnoXX/test3/*`
+* Ficheros `castleXX/test3/*`
 * Ficheros `var/test3/*`
 
 ---
@@ -241,7 +245,7 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 ## 4.1 Modificar el test
 
-* Copiar test3 en `alumnoXX/test4`.
+* Copiar test3 en `castleXX/test4`.
 * Ampliar los targets para comprobar lo siguiente en las máquinas remotas:
     * Nombre de equipo: `hostname`
     * Usuario alumno: `id nombre-alumno`
@@ -281,21 +285,23 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   expect get(:hostname)
 ```
 
+* `teuton test castleXX/test4`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+
 ## 4.2 Comprobar
 
-* `teuton alumnoXX/test4`, ejecutar el test.
+* `teuton castleXX/test4`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test4`.
 * Comprobar que los resultados son los correctos.
 
 **Entregar**
 
-* Ficheros `alumnoXX/test4/*`
+* Ficheros `castleXX/test4/*`
 * Ficheros `var/test4/*`
 
 ---
 # 5. Test: directorios y permisos
 
-* Crear un nuevo test `alumnoXX/test5`.
+* Crear un nuevo test `castleXX/test5`.
 * Definir las comprobaciones necesarias en `start.rb`para:
     * Comprobar que existe el grupo `jedis`.
     * Comprobar que existe el usuario `obiwan`.
@@ -309,13 +315,13 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 ## 5.2 Comprobar
 
-* `teuton alumnoXX/test5`, ejecutar el test.
+* `teuton castleXX/test5`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test5`.
 * Comprobar que los resultados son los correctos.
 
 **Entregar**
 
-* Ficheros `alumnoXX/test5/*`
+* Ficheros `castleXX/test5/*`
 * Ficheros `var/test5/*`
 
 ---
@@ -323,18 +329,18 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 ## 6.1 Crear el test
 
-* Copiar el contenido del test3 en `alumnoXX/test6`.
+* Copiar el contenido del test3 en `castleXX/test6`.
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
     * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
 * Adaptar los comandos de comprobación al sistema operativo Windows. Por ejemplo, cambiar `id nombre-alumno` por `net user alumno`.
 
 ## 6.2 Comprobar
 
-* `teuton alumnoXX/test6`, ejecutar el test.
+* `teuton castleXX/test6`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test6`.
 * Comprobar que los resultados son los correctos.
 
 **Entregar**
 
-* Ficheros `alumnoXX/test6/*`
+* Ficheros `castleXX/test6/*`
 * Ficheros `var/test6/*`
