@@ -80,7 +80,7 @@ Entrar como superusuario.
 * `gem install teuton`, instalar Teuton.
 
 > En OpenSUSE es necesario además es necesario hacer los siguiente:
-> * `find / -name teuton`, para localizar el ejecutable.
+> * `find /usr -name teuton`, para localizar el ejecutable.
 > * `ln -s PATH/TO/FILE/teuton /usr/local/bin/teuton`, crear un enlace al ejecutable.
 
 Entrar como nuestro usuario normal:

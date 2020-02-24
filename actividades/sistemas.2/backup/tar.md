@@ -210,7 +210,7 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 > * dom: día de la semana (0=domingo, 1=lunes, etc)
 > * Comando a ejecutar
 
-* Escribir algo parecido a lo siguiente:
+* Escribir algo parecido a lo siguiente, cambiando `user` por nuestro usuario:
 ```
 45 10 * * 1   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
 45 10 * * 2   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
