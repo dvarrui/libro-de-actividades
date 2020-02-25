@@ -247,7 +247,10 @@ usando un fichero de configuración. Esto es, vamos a crear un contenedor a part
 
 * Crear directorio `/home/nombre-alumno/dockerXXa`.
 * Entrar el directorio anterior.
-* Poner copia del fichero `holamundo.html` anterior.
+* Crear fichero `holamundo2.html` con:
+    * Proyecto: dockerXXa
+    * Autor: Nombre del alumno
+    * Fecha: Fecha actual
 * Poner copia del fichero `server.sh` anterior.
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 
@@ -260,8 +263,8 @@ RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y nginx
 
-COPY holamundo.html /var/www/html
-RUN chmod 666 /var/www/html/holamundo.html
+COPY holamundo2.html /var/www/html
+RUN chmod 666 /var/www/html/holamundo2.html
 
 COPY server.sh /root/server.sh
 RUN chmod 755 /root/server.sh
@@ -286,7 +289,7 @@ El fichero Dockerfile contiene toda la información necesaria para construir el 
 A continuación vamos a crear un contenedor con el nombre `app4nginx2`, a partir de la imagen `nombre-alumno/nginx2`. Probaremos con:
 
 ```
-docker run --name=app4nginx2 -p 8080:80 -t nombre-alumno/nginx2
+docker run --name=app4nginx2 -p 8082:80 -t nombre-alumno/nginx2
 ```
 
 Desde otra terminal:
@@ -305,18 +308,22 @@ El ejemplo anterior donde creábamos una imagen Docker con Nginx se puede simpli
 > * [nginx - Docker Official Images] https://hub.docker.com/_/nginx
 
 * Crea el directorio `dockerXXb`. Entrar al directorio.
+* Crear fichero `holamundo3.html` con:
+    * Proyecto: dockerXXb
+    * Autor: Nombre del alumno
+    * Fecha: Fecha actual
 * Crea el siguiente `Dockerfile`
 
 ```
 FROM nginx
 
-COPY holamundo.html /usr/share/nginx/html
-RUN chmod 666 /usr/share/nginx/html/holamundo.html
+COPY holamundo3.html /usr/share/nginx/html
+RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 ```
 
 * Poner el el directorio `dockerXXb` los ficheros que se requieran para construir el contenedor.
 * `docker build -t nombre-alumno/nginx3 .`, crear la imagen.
-* `docker run --name=app5nginx3 -d -p 8080:80 nombre-alumno/nginx3`, crear contenedor.
+* `docker run --name=app5nginx3 -d -p 8083:80 nombre-alumno/nginx3`, crear contenedor.
 * Comprobar el acceso a "holamundo.html".
 
 ---
@@ -326,7 +333,8 @@ RUN chmod 666 /usr/share/nginx/html/holamundo.html
 * Al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje:
 ```
 Hola Mundo!
-nombre-del-alumnoXX!
+nombre-del-alumnoXX
+Proyecto dockerXXc
 ```
 
 ---
