@@ -229,6 +229,14 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 * `docker images`, comprobamos que la nueva imagen está disponible.
 * Probar a crear un contenedor (`app3alumno`), a partir de la nueva imagen.
 
+## 3.4 Capas
+
+**Teoría sobre las capas**. Las imágenes de docker están creadas a partir de capas que van definidas en el fichero Dockerfile. Una de las ventajas de este sistema es que esas capas son cacheadas y se pueden compartir entre distintas imágenes, esto es que si por ejemplo la creación de nuestra imagen consta de 10 capas, y modificamos una de esas capas, a la hora de volver a construir la imagen solo se debe ejecutar esta nueva capa, el resto permanecen igual.
+
+Estas capas a parte de ahorrarnos peticiones de red al bajarnos una nueva versión de una imagen también ahorra espacio en disco, ya que las capas que no se hayan cambiado entre versiones no se descargarán.
+
+* `docker image history nombre_imagen:version`, para consultar las capas de la imagen del compañero.
+
 ---
 # 4. Dockerfile
 
