@@ -51,21 +51,23 @@ Iniciar sesión como usuario normal.
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos poner el valor 1 en el fichero de texto indicado o también podemos usar Yast.
-* También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro
-```
-## Configuración para docker de alumnoXX
-net.ipv4.ip_forward = 1
-```
-* Reiniciar el equipo para que se aplique el cambio de configuración.
-
-**Usar YAST para activar IP_FORWARD**
+* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos hacer lo siguiente:
+    * Poner el valor 1 en el fichero de texto indicado o también podemos usar Yast.
+    * O ejecutar el siguiente comando `sysctl -w net.ipv4.ip_forward=1`
+    * También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro lo siguiente:
+    ```
+    ## Configuración para docker de alumnoXX
+    net.ipv4.ip_forward = 1
+    ```
+* También podemos **Usar YAST para activar IP_FORWARD**:
 
 | Sistema operativo | Activar "forwarding" |
 | ----------------- | -------------------- |
 | OpenSUSE Leap (configuración de red es Wicked) | Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4 |
 | Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
 | OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
+
+* Reiniciar el equipo para que se aplique el cambio de configuración.
 
 ## 1.3 Primera prueba
 
@@ -225,7 +227,7 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 **Importar** imagen Docker desde fichero:
 * Coger la imagen de un compañero de clase.
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
-* `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar.
+* `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar. Cuando se importa una imagen se muestra en pantalla las capas que tiene. Las capas las veremos en un momento.
 * `docker images`, comprobamos que la nueva imagen está disponible.
 * Probar a crear un contenedor (`app3alumno`), a partir de la nueva imagen.
 
