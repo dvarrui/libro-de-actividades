@@ -53,15 +53,18 @@ Description:
 * Si el script se ejecuta con la opción **--version**, se muestra en pantalla información del autor del script y la fecha de creación.
 
 **Opción 04**
+* Comprobar los argumentos de entrada:
+    * El argumento NUMBER es obligatorio para saber el número de capturas que hay que realizar.
+    * El argumento TIME que indica el número de segundos entre las capturas es opcional. En el caso de que no se pase por parámetro se asume el valor por defecto de 5 segundos.
+* Comprobar si existe el directorio `captureimg.d`, en caso contrario el script lo creará de forma automática. La orden `File.exist?(filename)` averigua si existe un fichero/directorio.
 * Se capturarán un número (NUMBER) de imágenes en intervalos de (TIME) segundos.
     * Un comando para capturar imágenes de pantalla puede ser este: `convert x:root image.png`. También se podría usar el programa `scrot`.
     * En Ruby una pausa de 1 segundo es `sleep(1)`.
-* Las imágenes se guardarán en el directorio local `captureimg.d` con el nombre `image01.png`, `image02.png`, etc.
+    * Las imágenes se guardarán en el directorio local `captureimg.d` con el nombre `image01.png`, `image02.png`, etc.
 * Si la imagen N es igual a la imagen anterior (N-1) entonces no se guarda.
     * Se puede usar el comando `diff` del sistema para comparar dos ficheros y y comprobar si son iguales o no.
     * Si son iguales el comando `diff` devuelve código de salida 0, en caso contrario devuelve 1.
-* En argumento NUMBER es obligatorio para saber el número de capturas que hay que realizar.
-* El argumento TIME que indica el número de segundos entre las capturas es opcional. En el caso de que no se pase por parámetro se asume el valor por defecto de 5 segundos.
+* Cuando el programa termine mostrará un mensaje "Finish!" en pantalla.
 
 ---
 ## Estilo de programación

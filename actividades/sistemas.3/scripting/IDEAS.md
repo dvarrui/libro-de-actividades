@@ -31,9 +31,3 @@
 * Crear un script2 que use script1 para crear las copias de seguridad de todos los directorios del /home.
 * Automatizar script2 para que se ejecute una vez al día usando crontab.
 * Automatizar script2 usando Systemd.
-
-## Idea.4 Captura de pantalla
-
-* Crear script que cada intervalo de 5 segundos hace una captura de pantalla no interactiva(scrot o "convert x:root image.png").
-* Si la imagen N es diferente a la N-1 entonces se guarda.
-* Las capturas se guardarán como /var/capturas/image01.png.

@@ -16,8 +16,7 @@ con el formato `nombre-del-ejecutable:action` en cada fila.
 vendrán definidos los nombres de los ejecutables y su acción.
 Deberá cargarlos en un array para luego procesarlos.
 
-> Elegir una lista de procesos que NO sean importantes para el correcto funcionamiento
-del sistema como: firefox, libreoffice, geany, etc.
+> Elegir una lista de procesos que NO sean importantes para el correcto funcionamiento del sistema como: firefox, libreoffice, geany, etc.
 
 ## 3. Aplicar acción de control a cada proceso de la lista
 
@@ -39,7 +38,7 @@ para aplicar sobre cada proceso su acción asociada. Por ejemplo:
     if resultado
       puts "Se eliminó el proceso firefox"
     else
-      #No se realizó la acción
+      # No se realizó la acción
     end
 ```
 
