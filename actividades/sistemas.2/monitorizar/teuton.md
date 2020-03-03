@@ -329,11 +329,17 @@ Ver ejemplo de monitorización del nombre del equipo:
 
 ## 6.1 Crear el test
 
-* Copiar el contenido del test3 en `castleXX/test6`.
-* Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
-    * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
 * Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows. 
     * Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`.
+* Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
+    * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
+* Definir las comprobaciones necesarias en start.rb para:
+    * Comprobar que existe el grupo jedis (`net user localgroup`).
+    * Comprobar que existe el usuario obiwan (`net user`).
+    * Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
+    * Comprobar que existe el directorio C:\Users\obiwan\private.
+    * Comprobar que existe el directorio C:\Users\obiwan\group.
+    * Comprobar que existe el directorio C:\Users\obiwan\public.
 
 ## 6.2 Comprobar
 
