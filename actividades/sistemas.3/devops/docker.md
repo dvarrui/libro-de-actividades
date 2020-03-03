@@ -1,8 +1,8 @@
 
 ```
 Curso       : 201920
-Area        : Sistemas operativos, automatización, devops
-Descripción : Introducción básica a los contenedores con Docker
+Área        : Sistemas operativos, automatización, devops
+Descripción : Introducción a los contenedores con Docker
 Requisitos  : Se recomienda usar Docker con SSOO GNU/Linux
 Tiempo      : 6 sesiones
 ```
@@ -331,13 +331,14 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 ---
 # 5. Crear un hola mundo
 
-* Crear un contenedor en la carpeta `dockerXXc` usando Dockerfile.
+* Crear un contenedor en la carpeta `dockerXXc` usando Dockerfile. Usaremos la imagen base `busybox`.
 * Al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje:
 ```
 Hola Mundo!
 nombre-del-alumnoXX
 Proyecto dockerXXc
 ```
+* `docker push ...`, para subir la imagen a los repositorios de Docker.
 
 ---
 # 6. Limpiar contenedores e imágenes
