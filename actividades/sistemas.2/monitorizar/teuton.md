@@ -104,7 +104,7 @@ Ir a la MV1:
 :global:
 :cases:
 - :tt_members: T-NODE-XX
-  :host_ip: localhost
+  :host_ip: 127.0.0.1
 - :tt_members: S-NODE-XX GNU/Linux
   :host_ip: 172.19.XX.32
 - :tt_members: S-NODE-XX Raspberry PI
@@ -167,7 +167,7 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
   :host_username: root
 :cases:
 - :tt_members: T-NODE-XX
-  :host_ip: localhost
+  :host_ip: 127.0.0.1
   :host_password: clave-secreta
 - :tt_members: S-NODE-XX GNU/Linux
   :host_ip: 172.19.XX.32
