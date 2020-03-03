@@ -332,7 +332,8 @@ Ver ejemplo de monitorización del nombre del equipo:
 * Copiar el contenido del test3 en `castleXX/test6`.
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
     * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
-* Adaptar los comandos de comprobación al sistema operativo Windows. Por ejemplo, cambiar `id nombre-alumno` por `net user alumno`.
+* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows. 
+    * Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`.
 
 ## 6.2 Comprobar
 
