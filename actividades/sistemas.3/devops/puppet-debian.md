@@ -1,12 +1,17 @@
 
+**INCOMPATIBILIDADES**
+* Puppet 4.8 incompatible con Debian 9
+* https://puppet.com/docs/puppet/4.8/system_requirements.html
+
 ```
-INCOMPATIBILIDADES
-Puppet 4.8 incompatible con Debian 9
-https://puppet.com/docs/puppet/4.8/system_requirements.html
+Curso       : 2001617
+Area        : Sistemas Operativos, automatización, CPD
+Descripción : Taller con el gestor de infraesructura Puppet en Debian
+Requisitos  : GNU/Linux Debian 8
+Tiempo      : 6 sesiones
 ```
 
 ---
-
 # 1. Introducción
 
 Existen varias herramientas para realizar instalaciones desde un punto central, como Chef, Ansible, SaltStack, SUSE Manager, CFEngine, etc. En este ejemplo, vamos a usar Puppet.

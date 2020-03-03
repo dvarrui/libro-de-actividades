@@ -1,14 +1,10 @@
 
-```
-INCOMPATIBILIDADES
-Puppet 4.8 incompatible con OpenSUSE 15 y Tumbleweed
-Porque Puppet requiere Ruby: 2.1.x, 2.0.x, 1.9.3
-y OpenSUSE requiere 2.5.X
-https://puppet.com/docs/puppet/4.8/system_requirements.html
-```
+**INCOMPATIBILIDADES**
+* Puppet 4.8 incompatible con OpenSUSE 15 y Tumbleweed
+* Porque Puppet requiere Ruby: 2.1.x, 2.0.x, 1.9.3 y OpenSUSE requiere 2.5.X
+* https://puppet.com/docs/puppet/4.8/system_requirements.html
 
 ---
-
 # 1. Introducción
 
 Existen varias herramientas gestores de infraestructura, como Chef, Ansible, CFEngine, etc. En este ejemplo, vamos a usar Puppet.
