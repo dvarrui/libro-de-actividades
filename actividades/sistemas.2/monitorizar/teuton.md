@@ -334,7 +334,7 @@ Ver ejemplo de monitorización del nombre del equipo:
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
     * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
 * Definir las comprobaciones necesarias en start.rb para:
-    * Comprobar que existe el grupo jedis (`net user localgroup`).
+    * Comprobar que existe el grupo jedis (`net localgroup`).
     * Comprobar que existe el usuario obiwan (`net user`).
     * Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
     * Comprobar que existe el directorio C:\Users\obiwan\private.
