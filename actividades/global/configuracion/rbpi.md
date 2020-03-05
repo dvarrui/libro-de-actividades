@@ -116,7 +116,7 @@ Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 
 ## Configurar temporalmente la red mediante comandos
 
-También podemos usar comandos del sistema para definir una configuración de red temporal. No es fija porque al reiniciar el equipo no se mantiene.
+Podemos usar los comandos del sistema para definir una configuración de red temporal. No es fija porque al reiniciar el equipo se pierde.
 
 * `ifconfig eth0 172.AA.XX.0 netmask 255.255.0.0`, para configurar la IP y la máscara de red.
 * `route add default gw 172.AA.0.1`, para configurar la puerta de enlace.
