@@ -53,10 +53,10 @@ Listado de las máquinas que necesitamos:
 |  3 | [RbPI](../../global/configuracion/rbpi.md)     | apellidoXXrb | 172.AA.XX.51 |
 |  4 | [Windows](../../global/configuracion/windows.md)  | apellidoXXw  | 172.AA.XX.11 |
 
-En todas las máquinas:
-* Configurar IP estática.
+Configurar en todas las máquinas:
+* IP estática.
 * Activar servicio SSH.
-* Habilitar acceso SSH a root.
+* Habilitar acceso SSH a root (Modificar fichero de configuración con `PermitRootLogin Yes`).
 * Comprobar acceso remoto con `ssh root@ip-mv`.
 
 ## 1.3 Modos de trabajo
@@ -78,6 +78,7 @@ Vamos a ver el proceso de instalación de "teuton" (T-NODE).
 Entrar como superusuario.
 * `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
 * `gem install teuton`, instalar Teuton.
+* `gem list | grep teuton`, para comprobar que lo tenemos instalado.
 
 > En OpenSUSE es necesario además es necesario hacer los siguiente:
 > * `find /usr -name teuton`, para localizar el ejecutable.
@@ -329,7 +330,7 @@ Ver ejemplo de monitorización del nombre del equipo:
 
 ## 6.1 Crear el test
 
-* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows. 
+* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows.
     * Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`.
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
     * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.

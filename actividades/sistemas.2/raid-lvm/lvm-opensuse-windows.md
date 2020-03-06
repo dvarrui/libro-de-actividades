@@ -1,9 +1,10 @@
 
 ```
 Curso           : 201920
+Area            : Sistemas Operativos, almacenamiento, volúmenes
+Descripción     : Gestión de volúmenes lógicos con varios SSOO.
 Requisitos      : SO OpenSUSE (Yast) y Windows
 Tiempo estimado : 6 sesiones
-Módulos         : Sistemas Operativos
 ```
 
 ---
