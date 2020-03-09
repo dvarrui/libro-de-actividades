@@ -44,21 +44,22 @@ Instalar software:
 * `zypper install icinga2`
 * `zypper install monitoring-plugins`, instalar los plugins.
 
-Iniciar y comprobar el servicio:
-* `systemctl enable icinga2`, activar el servicio.
+Comprobar el servicio:
+* `systemctl enable icinga2`, activar el servicio al iniciar la máquina.
 * `systemctl start icinga2`, iniciar el servicio.
-* `systemctl status icinga2`, ver el estado del servicio.
+* `systemctl status icinga2`, ver el estado actual del servicio.
 
 ## 2.2 Configurar los editores
 
-Configurar el editor nano (con usuario root):
+Configurar el editor nano para faciliar el su uso con icinga2:
+* Abrir sesión con el usuario root.
 * `zypper install nano-icinga2`
-* `nano ~/.nanorc`, crear este archivo de configuración de nano e incluimos lo siguiente:
+* `nano ~/.nanorc`, crear este archivo de configuración de nano, para incluimos lo siguiente:
 ```
 ## Icinga 2
 include "/usr/share/nano/icinga2.nanorc"
 ```
-* Comprobarlo: `nano /etc/icinga2/conf.d/templates.conf`
+* Comprobamos: `nano /etc/icinga2/conf.d/templates.conf`
 
 ## 2.3 INFO: Rutas de la instalación
 
@@ -67,10 +68,7 @@ Por defecto Icinga2 usa los siguientes ficheros y directorios:
 | Path	                 | Descripción                            |
 | ---------------------- | -------------------------------------- |
 | /etc/icinga2           | Contiene los ficheros de configuración |
-| /usr/lib/systemd/system/icinga2.service	| Configuración del servicio |
 | /usr/sbin/icinga2	     | Shell wrapper for the Icinga 2 binary |
-| /usr/share/doc/icinga2 | Ficheros de documentación |
-| /var/run/icinga2       | PID file |
 | /var/log/icinga2       | Ficheros de log |
 
 ---
@@ -80,17 +78,15 @@ No es estrictamente necesario tener un panel web para monitorizar los equipos de
 
 ## 3.1 Base de datos
 
-Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegimos MySQL (por votación en clase. Es la misma que usan ya en BBDD).
-
-> De momento dejo los textos tal cual están en inglés. Y cuando se acabe de revisar se traducirán a español.
+Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegimos MySQL (por ser la misma que se usa ya en BBDD).
 
 **Instalar y configurar MySQL**
 
 * `zypper install mysql mysql-client`, instalación de MySQL.
-* `systemctl enable mysql`
+* `systemctl enable mysql`, activar servicio al iniciar la máquina.
 * `systemctl status mysql`, iniciar el servicio.
-* `zypper install icinga2-ido-mysql`
-* Set up a MySQL database for Icinga 2 (El usuario root de mysql NO tiene clave):
+* `zypper install icinga2-ido-mysql`, instalar el módulo que comunica icinga2 con mysql.
+* Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
 ```
 # mysql -u root -p
 
@@ -102,88 +98,92 @@ quit
 
 **Activar el módulo IDO MySQL**
 
-* `more /etc/icinga2/features-available/ido-mysql.conf`, You can update the database credentials in this file.
-* `icinga2 feature enable ido-mysql`, You can enable the ido-mysql feature configuration file using icinga2 feature enable.
-* `systemctl restart icinga2` Restart Icinga 2.
+* `more /etc/icinga2/features-available/ido-mysql.conf`, es posible modificar las credenciales de la base de datos en este fichero.
+* `icinga2 feature enable ido-mysql`, habilitamos la característica "ido-mysql".
+    * Comprobamos `icinga2 feature list`.
+* `systemctl restart icinga2`, reiniciamos el servicio.
 
 ## 3.2 Servidor Web
 
-Podemos usar como servidor web Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
+Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
 
 * `zypper in apache2`, instalar Apache.
-* `a2enmod rewrite`, activar módulo.
-* `a2enmod php7`, activar módulo.
-* `systemctl enable apache2`
+* `a2enmod rewrite`, activar módulo "rewrite" de Apache.
+* `a2enmod php7`, activar módulo "php7" de Apache.
+* `systemctl enable apache2`, activamos Apache al iniciar la máquina.
 * `systemctl start apache2`, iniciar servicio.
-* `systemctl status apache2`
+* `systemctl status apache2`, comprobamos el estado del servicio.
 
 ## 3.3 Cortafuegos
 
-* Firewall Rules: Enable port 80 (http). Best practice is to only enable port 443 (https) and use TLS certificates.
+El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos. Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS.
+* Abrir el puerto 80 (http) en el cortafuegos con:
     * `firewall-cmd --permanent --add-service=http` o
     * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 
 > **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
 
-## 3.4 Setting Up Icinga 2 REST API
+## 3.4 Configurar API REST de Icinga 2
 
-Icinga Web 2 and other web interfaces require the REST API to send actions (reschedule check, etc.) and query object details.
+Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y consultar el detalle de los objetos.
 
-* `icinga2 api setup`, to enable the api feature and set up certificates. Adding new API user root in `/etc/icinga2/conf.d/api-users.conf`.
-* `systemctl restart icinga2`, Restart Icinga 2 to activate the configuration.
+* `icinga2 api setup`, para habilitar la característica API.
+* Añadir un nuevo usuario root de API en `/etc/icinga2/conf.d/api-users.conf`.
+* `systemctl restart icinga2`, reiniciar el servicio para activar los cambios.
 
 ## 3.5 Instalar icingaweb2
 
-You can install Icinga Web 2 by using your distribution’s package manager to install the icingaweb2 package. The additional package icingacli is necessary to follow further steps in this guide.
-
-* `zypper search icingaweb2`, comprobar que está disponible.
-* `zypper install icingaweb2`
-* `zypper install icingaweb2-icingacli`
+* `zypper search icingaweb2`, comprobar que está disponible el paquete.
+* `zypper install icingaweb2`, instalar el paquete.
+* `zypper install icingaweb2-icingacli`.
 
 **Problema con la versión de PHP**
 
-Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5. Hay una solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de php7.2.5 por php7.1.27. Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5.
+
+**SOLUCIÓN A**
+
+Solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de "php7.2.5" por "php7.1.27". Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
 
 Proceso para instalar la versión php7.1.27.
 * `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_Leap_15.0/ devel:languages:php:php71`
 * `zypper install --oldpackage php7-7.1.27`
 * Si hay errores instalar php-Icinga
-* Tras instalar, reiniciar la máquina.
+* Reiniciar la máquina.
+* Comprobamos el cambio de versión `php -v`.
 
-> NOTA:
->
-> * Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm. Primero lo descargamos y luego lo instalamos con `rpm -i PACKAGENAME.rpm`
-> * Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
+**SOLUCIÓN B**
 
-* Reiniciamos el equipo. Comprobamos el cambio de versión `php -v`.
+Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
+* Primero los descargamos y luego lo instalamos con `rpm -i PACKAGENAME.rpm`
+* Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
+* Reiniciamos el equipo.
+* Comprobamos el cambio de versión `php -v`.
 
-## 3.6 Preparing Web Setup
+## 3.6 Prparando la configuración Web.
 
 * `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
-* `icingacli setup token create`, to generate a token use the icingacli. When using the web setup you are required to authenticate using a token.
-* `icingacli setup token show`, In case you do not remember the token you can show it using the icingacli:
-* `chgrp -R icingaweb2 /etc/icingaweb2`. dar permisos a todos los miembros del grupo `icingaweb2` para acceder a este directorio.
+* `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
+* `chgrp -R icingaweb2 /etc/icingaweb2`, dar permisos a todos los usuarios miembros del grupo `icingaweb2` para acceder a este directorio.
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
 Vamos a configurar IcingaWeb2 por el navegador.
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
-* Ponemos el token y siguiente.
-* `Modules > Monitoring > ENABLE` -> NEXT
+* Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
+* `Modules > Monitoring > ENABLE -> NEXT`.
 * Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
     * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
-    * En nuestro caso necesitaremos los siguientes :
+    * En nuestro caso necesitaremos los siguientes:
         * php7-curl-7.1.27-lp150.1.1.x86_64.rpm
         * php7-ldap-7.1.27-lp150.1.1.x86_64.rpm
         * php7-mysql-7.1.27-lp150.1.1.x86_64.rpm
         * php7-pgsql-7.1.27-lp150.1.1.x86_64.rpm
-
-> ERROR: No hemos podidoinstalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0. Para nuestra práctica no es necesario y podemos seguir.
-
+        * ERROR: No hemos podido instalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0. Para nuestra práctica no es necesario y podemos seguir.
 * `systemctl restart apache2`, reiniciar el servidor web Apache2.
-* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están isntalados. Sequimos.
-* Autentificación -> Database.
+* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Sequimos.
+* `Autentificación -> Database`.
 * Database Resource:
 
 | Campo         | Valor        |
@@ -192,12 +192,12 @@ Vamos a configurar IcingaWeb2 por el navegador.
 | Database type | MySQL        |
 | Host          | localhost    |
 | Database name | icingaweb2   |
-| User name     | icingaweb2   |
-| Password      | icingaweb2   |
+| User name     | profesor     |
+| Password      | profesor     |
 
 * Validar y siguiente.
-* Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usar `root` (De MySQL) sin clave. Tal y como hicimos en el apartado 3.1.
-* Backend name : `icingaweb2`
+* Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave. Tal y como hicimos en el apartado 3.1.
+* Backend name: `icingaweb2`
 * Crear usuario para icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
 * Configuración de la aplicación -> siguiente.
 * Monitoring IDO resource. BBDD/usuario/clave => icinga/icinga/icinga.
@@ -215,7 +215,7 @@ Vamos a configurar IcingaWeb2 por el navegador.
 
 **Objetivo**
 
-Nos vamos a plantear como objetivo monitorizar lo siguente:
+Nos vamos a plantear como objetivo monitorizar lo siguiente:
 
 | Grupo   | Hosts      | IP           | Comprobar           |
 | ------- | ---------- | ------------ | ------------------- |
@@ -313,18 +313,17 @@ object Host "dummyXXdown" {
 
 > **¡OJO!**: Asegurarse de que el usuario `icinga` es el propietario de los archivos que acabamos de crear en la ruta ALUMNODIR. Si no tiene permisos de lectura sobre dichas configuraciones, éstas no tendrán efecto.
 
-* `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `var/log/icinga2.log`.
+* `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `/var/log/icinga2.log`.
 * Comprobar los cambios por IcingaWeb2.
 
 ---
 # 5. Agent-based monitoring (cliente GNU/Linux)
 
-Enlaces de interés:
-* https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
-* https://icinga.com/docs/icinga2/latest/doc/03-monitoring-basics/
+> Enlaces de interés:
+> * https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
+> * https://icinga.com/docs/icinga2/latest/doc/03-monitoring-basics/
 
-Por ahora el monitor, sólo puede obtener la información que los
-equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts, tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
+Por ahora el monitor, sólo puede obtener la información que los euipos dejan ver desde el exterior. Cuando queremos obtener información del interior de los hosts, entonces tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
 ## 5.1 INFO: Teoría sobre agentes SSH de Icinga
 
@@ -386,7 +385,7 @@ NO ES OBLIGATORIO hacerlo.
 ---
 # ANEXO A
 
-## Revisar
+## A.1 Revisar
 
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
@@ -396,7 +395,7 @@ Configurar el editor vim (con usuario root):
 * `syntax on` (ESC : wq)
 * Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
-## A.1 Icinga2: Backup
+## A.2 Icinga2: Backup
 
 Ensure to include the following in your backups:
 * Configuration files in /etc/icinga2
@@ -404,26 +403,3 @@ Ensure to include the following in your backups:
 * Runtime files in /var/lib/icinga2
 * Optional: IDO database backup
 * Backup: Database
-
-## A.2 Configuration Overview
-
-Apart from its web configuration capabilities, (depending on your configuration setup).
-
-| File/Directory     | Description |
-| ------------------ | ----------- |
-| /etc/icingaweb2    | configuration stored in by default |
-| config.ini	       | General configuration |
-| resources.ini	     | Global resources |
-| roles.ini	         | User specific roles |
-| authentication.ini | Authentication backends |
-| enabledModules     | Symlinks to enabled modules |
-
-## A.3 Icingaweb2: Installing Requirements
-
-* Icinga 2 with the IDO database backend (MySQL or PostgreSQL)
-* A web server, e.g. Apache or Nginx
-* PHP version >= 5.6.0
-* The following PHP modules must be installed: cURL, gettext, intl, mbstring, OpenSSL and xml
-* Default time zone configured for PHP in the php.ini file
-* LDAP PHP library when using Active Directory or LDAP for authentication
-* MySQL or PostgreSQL PHP libraries
