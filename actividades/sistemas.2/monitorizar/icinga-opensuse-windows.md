@@ -53,8 +53,7 @@ Iniciar y comprobar el servicio:
 
 Configurar el editor nano (con usuario root):
 * `zypper install nano-icinga2`
-* `nano ~/.nanorc`
-* Include the icinga2.nanorc file.
+* `nano ~/.nanorc`, crear este archivo de configuración de nano e incluimos lo siguiente:
 ```
 ## Icinga 2
 include "/usr/share/nano/icinga2.nanorc"
