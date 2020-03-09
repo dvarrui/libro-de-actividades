@@ -42,7 +42,6 @@ Enlaces de interés:
 
 Instalar software:
 * `zypper install icinga2`
-* `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 * `zypper install monitoring-plugins`, instalar los plugins.
 
 Iniciar y comprobar el servicio:
@@ -394,6 +393,10 @@ NO ES OBLIGATORIO hacerlo.
 ---
 
 # ANEXO A
+
+## Revisar
+
+* `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
 ## A.1 Icinga2: Backup
 
