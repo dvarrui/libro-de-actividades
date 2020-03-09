@@ -60,7 +60,7 @@ include "/usr/share/nano/icinga2.nanorc"
 ```
 * Comprobarlo: `nano /etc/icinga2/conf.d/templates.conf`
 
-**Rutas de la instalación**
+## 2.3 INFO: Rutas de la instalación
 
 Por defecto Icinga2 usa los siguientes ficheros y directorios:
 
@@ -76,7 +76,7 @@ Por defecto Icinga2 usa los siguientes ficheros y directorios:
 ---
 # 3 Instalar el panel web
 
-En principio se supone que no es estrictamente necesario tener un panel web para monitorizar los equipos de la red, pero entendemos que visualmente es más cómodo tenerlo, así que seguimos.
+No es estrictamente necesario tener un panel web para monitorizar los equipos de la red, pero entendemos que visualmente es más cómodo tenerlo, así que seguimos.
 
 ## 3.1 Base de datos
 
