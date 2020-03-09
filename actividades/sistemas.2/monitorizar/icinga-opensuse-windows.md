@@ -32,11 +32,11 @@ Supongamos que tenemos el siguiente esquema de red:
 ---
 # 2. Monitor: Instalación
 
-Enlaces de interés:
-* EN - [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
-* EN - [Install IcingaWeb2](https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/)
-* ES - Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
-* ES - [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
+> Enlaces de interés:
+> * EN - [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
+> * EN - [Install IcingaWeb2](https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/)
+> * ES - Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
+> * ES - [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
 
 ## 2.1 Instalar el software principal
 
@@ -50,12 +50,6 @@ Iniciar y comprobar el servicio:
 * `systemctl status icinga2`, ver el estado del servicio.
 
 ## 2.2 Configurar los editores
-
-Configurar el editor vim (con usuario root):
-* `zypper install vim-icinga2`
-* `vim ~/.vimrc`
-* `syntax on` (ESC : wq)
-* Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
 Configurar el editor nano (con usuario root):
 * `zypper install nano-icinga2`
@@ -391,12 +385,17 @@ NO ES OBLIGATORIO hacerlo.
 * Modificar fichero `ALUMNODIR/agents-windows.conf` para incluir monitorización del disco duro.
 
 ---
-
 # ANEXO A
 
 ## Revisar
 
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
+
+Configurar el editor vim (con usuario root):
+* `zypper install vim-icinga2`
+* `vim ~/.vimrc`
+* `syntax on` (ESC : wq)
+* Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
 ## A.1 Icinga2: Backup
 
