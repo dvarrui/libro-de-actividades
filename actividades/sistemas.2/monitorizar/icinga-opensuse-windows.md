@@ -29,10 +29,6 @@ Supongamos que tenemos el siguiente esquema de red:
 * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
-> Veamos una imagen de ejemplo:
->
-> ![etc-hosts](./images/nagios3-etc-hosts.png)
-
 ---
 # 2. Monitor: Instalación
 
