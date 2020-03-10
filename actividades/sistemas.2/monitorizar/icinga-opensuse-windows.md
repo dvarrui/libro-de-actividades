@@ -41,8 +41,7 @@ Supongamos que tenemos el siguiente esquema de red:
 ## 2.1 Instalar el software principal
 
 Instalar software:
-* `zypper install icinga2`
-* `zypper install monitoring-plugins`, instalar los plugins.
+* `zypper install icinga2 monitoring-plugins`
 
 Comprobar el servicio:
 * `systemctl enable icinga2`, activar el servicio al iniciar la máquina.
