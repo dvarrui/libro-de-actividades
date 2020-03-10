@@ -14,11 +14,11 @@ Area   : Sistemas Operativos, monitorización, redes, centro de proceso de datos
 
 Para esta actividad vamos a necesitar los siguientes MV's:
 
-| ID  | Hostname   | IP           | SSOO |
-| --- | ---------- | ------------ | ---- |
-| MV1 | monitorXX  | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
-| MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
-| MV3 | clientXXw1 | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
+| ID  | Hostname  | IP           | SSOO |
+| --- | --------- | ------------ | ---- |
+| MV1 | monitorXX | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV2 | clientXXg | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV3 | clientXXw | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
 
 Supongamos que tenemos el siguiente esquema de red:
 
