@@ -51,7 +51,13 @@ Si los alumnos no intervienen o no se atreven a hablar, el profesor dirá qué a
 
 ---
 
-# 3. Empezamos en debate
+# 3. Desarrollo del debate
+
+## 3.1 Preparamos el tema
+
+Cada grupo tendrá un tiempo de 15 minutos para buscar información sobre el tema y preparar su debate con argumentos y datos.
+
+## 3.2 Turnos de palabra
 
 En modo de bucle permanente:
 * El moderador dará la palabra a **Eurbanitas**.
@@ -66,9 +72,7 @@ En modo de bucle permanente:
 haya hueco en el grupo que desea ir. O también podrá intercambiarse
 con otro compañero.
 
----
-
-# 4. Cerramos el debate
+## 3.3 Cierre y alegatos finales
 
 20 minutos antes de que se acerque el momento de acabar el debate el profesor dará:
 * 5 minutos a los **Eurbanitas** para que hagan su alegato final.
