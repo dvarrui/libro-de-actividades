@@ -107,7 +107,7 @@ quit
 
 ## 3.2 Servidor Web
 
-Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
+Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece (No tenemos ningún otro motivo y/o criterio de elección).
 
 * `zypper in apache2`, instalar Apache.
 * `a2enmod rewrite`, activar módulo "rewrite" de Apache.
@@ -119,9 +119,10 @@ Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apa
 ## 3.3 Cortafuegos
 
 El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos. Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS.
-* Abrir el puerto 80 (http) en el cortafuegos con:
-    * `firewall-cmd --permanent --add-service=http` o
-    * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`
+* Abrir el puerto http(80) en el cortafuegos:
+    * `firewall-cmd --add-service=http`
+    * `firewall-cmd --permanent --add-service=http`
+> También podemos usar Yast para abrir el puerto en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 
 > **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
@@ -163,7 +164,7 @@ Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
 * Reiniciamos el equipo.
 * Comprobamos el cambio de versión `php -v`.
 
-## 3.6 Prparando la configuración Web.
+## 3.6 Preparando la configuración Web.
 
 * `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
