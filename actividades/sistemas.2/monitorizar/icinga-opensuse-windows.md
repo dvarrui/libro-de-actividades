@@ -138,7 +138,6 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 ## 3.5 Instalar icingaweb2
 
 * `zypper install icingaweb2`, instalar el paquete.
-* `zypper install icingaweb2-icingacli`.
 
 **Problema con la versión de PHP**
 
