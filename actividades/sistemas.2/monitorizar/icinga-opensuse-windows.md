@@ -164,9 +164,8 @@ Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
 
 ## 3.6 Preparando la configuración Web.
 
-* `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
+* `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
-* `chgrp -R icingaweb2 /etc/icingaweb2`, dar permisos a todos los usuarios miembros del grupo `icingaweb2` para acceder a este directorio.
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
