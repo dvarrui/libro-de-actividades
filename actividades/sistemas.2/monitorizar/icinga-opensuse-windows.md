@@ -132,12 +132,11 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y consultar el detalle de los objetos.
 
 * `icinga2 api setup`, para habilitar la característica API.
-* Añadir un nuevo usuario root de API en `/etc/icinga2/conf.d/api-users.conf`.
+* Añadir un nuevo ApiUser(root) en `/etc/icinga2/conf.d/api-users.conf`.
 * `systemctl restart icinga2`, reiniciar el servicio para activar los cambios.
 
 ## 3.5 Instalar icingaweb2
 
-* `zypper search icingaweb2`, comprobar que está disponible el paquete.
 * `zypper install icingaweb2`, instalar el paquete.
 * `zypper install icingaweb2-icingacli`.
 
