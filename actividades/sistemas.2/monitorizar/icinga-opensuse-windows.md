@@ -1,10 +1,12 @@
 
 ```
-Estado : EN CONSTRUCCIÓN!!!
-         Curso 201617: Actividad copiada de Nagios-Debian-Windows
-         Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
-Curso  : 201920, 201819
-Area   : Sistemas Operativos, monitorización, redes, centro de proceso de datos
+Estado          : Curso 201617: Actividad copiada de Nagios-Debian-Windows
+                  Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
+Curso           : 201920, 201819
+Area            : Sistemas Operativos, monitorización, redes, centro de proceso de datos
+Descripción     : Monitorización de red con la herramienta Icinga2
+Requisitos      : GNU/Linux y Windows
+Tiempo estimado :
 ```
 
 ---
