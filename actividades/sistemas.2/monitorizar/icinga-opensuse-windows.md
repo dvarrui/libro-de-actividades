@@ -170,6 +170,7 @@ Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
 Vamos a configurar IcingaWeb2 por el navegador.
+* `systemctl restart apache2`
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
 * `Modules > Monitoring > ENABLE -> NEXT`.
