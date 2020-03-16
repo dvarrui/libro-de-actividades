@@ -1,10 +1,12 @@
 
 ```
-Estado : EN CONSTRUCCIÓN!!!
-         Curso 201617: Actividad copiada de Nagios-Debian-Windows
-         Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
-Curso  : 201920, 201819
-Area   : Sistemas Operativos, monitorización, redes, centro de proceso de datos
+Estado          : Curso 201617: Actividad copiada de Nagios-Debian-Windows
+                  Curso 201819: Se está intentando adaptar para Icinga-OpenSUSE-Windows.
+Curso           : 201920, 201819
+Area            : Sistemas Operativos, monitorización, redes, centro de proceso de datos
+Descripción     : Monitorización de red con la herramienta Icinga2
+Requisitos      : GNU/Linux y Windows
+Tiempo estimado :
 ```
 
 ---
@@ -14,11 +16,11 @@ Area   : Sistemas Operativos, monitorización, redes, centro de proceso de datos
 
 Para esta actividad vamos a necesitar los siguientes MV's:
 
-| ID  | Hostname   | IP           | SSOO |
-| --- | ---------- | ------------ | ---- |
-| MV1 | monitorXX  | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
-| MV2 | clientXXg1 | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
-| MV3 | clientXXw1 | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
+| ID  | Hostname  | IP           | SSOO |
+| --- | --------- | ------------ | ---- |
+| MV1 | monitorXX | 172.AA.XX.31 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV2 | clientXXg | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
+| MV3 | clientXXw | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
 
 Supongamos que tenemos el siguiente esquema de red:
 
@@ -84,7 +86,12 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 * `zypper install mysql mysql-client icinga2-ido-mysql`, instalación de MySQL y el módulo que comunicará icinga2 con mysql.
 * `systemctl enable mysql`, activar servicio al iniciar la máquina.
 * `systemctl start mysql`, iniciar el servicio.
+<<<<<<< HEAD
 * `systemctl status mysql`, consultar estado del servicio.
+=======
+* `systemctl status mysql`, comprobar el estado del servicio.
+* `zypper install icinga2-ido-mysql`, instalar el módulo que comunica icinga2 con mysql.
+>>>>>>> e4e503e6d5bba48f04c6de2647fcf110b66d6212
 * Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
 ```
 # mysql -u root -p
@@ -104,7 +111,7 @@ quit
 
 ## 3.2 Servidor Web
 
-Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece. No tenemos ningún motivo y/o criterio de elección.
+Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece (No tenemos ningún otro motivo y/o criterio de elección).
 
 * `zypper in apache2`, instalar Apache.
 * `a2enmod rewrite`, activar módulo "rewrite" de Apache.
@@ -116,9 +123,10 @@ Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apa
 ## 3.3 Cortafuegos
 
 El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos. Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS.
-* Abrir el puerto 80 (http) en el cortafuegos con:
-    * `firewall-cmd --permanent --add-service=http` o
-    * `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`
+* Abrir el puerto http(80) en el cortafuegos:
+    * `firewall-cmd --add-service=http`
+    * `firewall-cmd --permanent --add-service=http`
+> También podemos usar Yast para abrir el puerto en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 
 > **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
@@ -128,14 +136,12 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y consultar el detalle de los objetos.
 
 * `icinga2 api setup`, para habilitar la característica API.
-* Añadir un nuevo usuario root de API en `/etc/icinga2/conf.d/api-users.conf`.
+* Añadir un nuevo ApiUser(root) en `/etc/icinga2/conf.d/api-users.conf`.
 * `systemctl restart icinga2`, reiniciar el servicio para activar los cambios.
 
 ## 3.5 Instalar icingaweb2
 
-* `zypper search icingaweb2`, comprobar que está disponible el paquete.
 * `zypper install icingaweb2`, instalar el paquete.
-* `zypper install icingaweb2-icingacli`.
 
 **Problema con la versión de PHP**
 
@@ -160,15 +166,15 @@ Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
 * Reiniciamos el equipo.
 * Comprobamos el cambio de versión `php -v`.
 
-## 3.6 Prparando la configuración Web.
+## 3.6 Preparando la configuración Web.
 
-* `icingacli module list`, Debe aparecer el módulo `setup` como disponible. En caso contrario lo activamos con `icingacli module enable setup`.
+* `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
-* `chgrp -R icingaweb2 /etc/icingaweb2`, dar permisos a todos los usuarios miembros del grupo `icingaweb2` para acceder a este directorio.
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
 Vamos a configurar IcingaWeb2 por el navegador.
+* `systemctl restart apache2`
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
 * `Modules > Monitoring > ENABLE -> NEXT`.
