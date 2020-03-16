@@ -41,8 +41,7 @@ Supongamos que tenemos el siguiente esquema de red:
 ## 2.1 Instalar el software principal
 
 Instalar software:
-* `zypper install icinga2`
-* `zypper install monitoring-plugins`, instalar los plugins.
+* `zypper install icinga2 monitoring-plugins`, instalar Icinga2 y los plugins para monitorizar.
 
 Comprobar el servicio:
 * `systemctl enable icinga2`, activar el servicio al iniciar la máquina.
@@ -82,10 +81,10 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 
 **Instalar y configurar MySQL**
 
-* `zypper install mysql mysql-client`, instalación de MySQL.
+* `zypper install mysql mysql-client icinga2-ido-mysql`, instalación de MySQL y el módulo que comunicará icinga2 con mysql.
 * `systemctl enable mysql`, activar servicio al iniciar la máquina.
-* `systemctl status mysql`, iniciar el servicio.
-* `zypper install icinga2-ido-mysql`, instalar el módulo que comunica icinga2 con mysql.
+* `systemctl start mysql`, iniciar el servicio.
+* `systemctl status mysql`, consultar estado del servicio.
 * Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
 ```
 # mysql -u root -p
