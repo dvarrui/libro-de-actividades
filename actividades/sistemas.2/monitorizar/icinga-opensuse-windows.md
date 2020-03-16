@@ -211,6 +211,8 @@ Vamos a configurar IcingaWeb2 por el navegador.
 * Estamos en la ventana Command transport. Elegir Transport type = `Local Command file` y siguente.
 * Estamos en la ventana Monitoring security y siguiente.
 * Ventana de resumen y fin.
+* Estamos en la ventana "Congratulations! Icinga Web 2 has been successfully set up". Vamos a "login" para entrar.
+* El usuario/clave para entrar es profesor/profesor.
 
 ---
 # 4. Configurar objetos para monitorizar
