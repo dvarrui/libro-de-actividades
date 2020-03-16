@@ -88,6 +88,7 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 * `systemctl start mysql`, iniciar el servicio.
 * `systemctl status mysql`, consultar estado del servicio.
 * Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
+
 ```
 # mysql -u root -p
 
@@ -95,6 +96,7 @@ CREATE DATABASE icinga;
 GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icinga.* TO 'icinga'@'localhost' IDENTIFIED BY 'icinga';
 quit
 ```
+
 * `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
 
 **Activar el módulo IDO MySQL**
@@ -148,18 +150,21 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 * `zypper install icingaweb2`, para instalar el software IcingaWeb2 y sus dependencias (Como por ejemplo php7).
 
-> En el caso de tener problemas con la versión de PHP, consultar el Anexo A.3.
+> En el caso de tener problemas con la versión de PHP, consultar el Anexo A3.
 
 ## 3.6 Preparando la configuración Web.
 
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
+* `systemctl restart apache2`
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
 Vamos a configurar IcingaWeb2 por el navegador.
-* `systemctl restart apache2`
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
+
+![](images/icinga-url-icingaweb2.png)
+
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
 * `Modules > Monitoring > ENABLE -> NEXT`.
 * Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
