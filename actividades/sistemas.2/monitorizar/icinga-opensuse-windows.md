@@ -86,12 +86,7 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 * `zypper install mysql mysql-client icinga2-ido-mysql`, instalación de MySQL y el módulo que comunicará icinga2 con mysql.
 * `systemctl enable mysql`, activar servicio al iniciar la máquina.
 * `systemctl start mysql`, iniciar el servicio.
-<<<<<<< HEAD
 * `systemctl status mysql`, consultar estado del servicio.
-=======
-* `systemctl status mysql`, comprobar el estado del servicio.
-* `zypper install icinga2-ido-mysql`, instalar el módulo que comunica icinga2 con mysql.
->>>>>>> e4e503e6d5bba48f04c6de2647fcf110b66d6212
 * Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
 ```
 # mysql -u root -p
