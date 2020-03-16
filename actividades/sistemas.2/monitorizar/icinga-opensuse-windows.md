@@ -156,6 +156,7 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
+* `chgrp icingaweb2 /etc/icingaweb2/setup.token`, nos aseguramos de que el grupo "icingaweb2" tiene acceso al fichero donde se guarda el "token".
 * `systemctl restart apache2`
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
@@ -166,6 +167,7 @@ Vamos a configurar IcingaWeb2 por el navegador.
 ![](images/icinga-url-icingaweb2.png)
 
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
+    * **NOTA**: Si nos aparece el siguiente mensaje de error `Cannot validate token: /etc/icingaweb2/setup.token: failed to open stream: Permission denied)`, entonces lo solucionamos asignando los permisos de la siguiente forma: `chgrp icingaweb2 /etc/icingaweb2/setup.token`.
 * `Modules > Monitoring > ENABLE -> NEXT`.
 * Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
     * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
