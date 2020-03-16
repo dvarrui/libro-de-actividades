@@ -152,6 +152,8 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 > En el caso de tener problemas con la versión de PHP, consultar el Anexo A3.
 
+* `zypper install php7-imagick php7-curl`, Instalar varios paquetes PHP que nos harán faltan.
+
 ## 3.6 Preparando la configuración Web.
 
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
@@ -168,19 +170,20 @@ Vamos a configurar IcingaWeb2 por el navegador.
 
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
     * **NOTA**: Si nos aparece el siguiente mensaje de error `Cannot validate token: /etc/icingaweb2/setup.token: failed to open stream: Permission denied)`, entonces lo solucionamos asignando los permisos de la siguiente forma: `chgrp icingaweb2 /etc/icingaweb2/setup.token`.
-* `Modules > Monitoring > ENABLE -> NEXT`.
-* Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
-    * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
-    * En nuestro caso necesitaremos los siguientes:
-        * php7-curl-7.1.27-lp150.1.1.x86_64.rpm
-        * php7-ldap-7.1.27-lp150.1.1.x86_64.rpm
-        * php7-mysql-7.1.27-lp150.1.1.x86_64.rpm
-        * php7-pgsql-7.1.27-lp150.1.1.x86_64.rpm
-        * ERROR: No hemos podido instalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0. Para nuestra práctica no es necesario y podemos seguir.
+* Estamos en la ventana "Modules". Nos aseguramos de tener `Monitoring` en `ENABLE`. Siguiente.
+* Estamos en la ventana "Requirements". Se nos muestra una lista de los paquetes PHP se son necesarios para continuar. Los paquetes en verde significan que están bien. Los paquetes en amarillo indican que se recomienda su instalación.
+
+> Si por ejemplo, nos aparecen los siguientes paquetes en amarillo:
+> * The PHP module Imagick is missing.
+> * The PHP module cURL is missing.
+> Entonces, instalar los paquetes PHP que faltan:
+> * `zypper install php7-imagick`
+> * `zypper install php7-curl`
+
 * `systemctl restart apache2`, reiniciar el servidor web Apache2.
 * Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Sequimos.
-* `Autentificación -> Database`.
-* Database Resource:
+* Estamos en la ventana de `Configuration / Autentificación`. Elegimos `Database` y siguiente.
+* Estamos en la ventana de `Configuration / Database Resource`. Completamos el formulario con lo siguiente:
 
 | Campo         | Valor        |
 | ------------- | ------------ |
@@ -192,19 +195,21 @@ Vamos a configurar IcingaWeb2 por el navegador.
 | Password      | profesor     |
 
 * Validar y siguiente.
-* Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave. Tal y como hicimos en el apartado 3.1.
-* Backend name: `icingaweb2`
-* Crear usuario para icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
-* Configuración de la aplicación -> siguiente.
-* Monitoring IDO resource. BBDD/usuario/clave => icinga/icinga/icinga.
-* Command transport: `local`
-* API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
-
-> **NOTA**
->
-> Si en la fase final del proceso de configuración de IcingaWeb2, aparece un error al habilitar Módulos por falta de permisos, entonces es necesario revisar los permisos que tiene la carpeta `/etc/icingaweb2/enableModules` para el usuario `wwwrun` (Este es el usuario que utiliza el servidor Web Apache2 en OpenSUSE).
->
-> * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enabledModules`
+* Estamos en la ventana `Configuration / Database setup`. Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave. Tal y como hicimos en el apartado 3.1.
+* Estamos en la ventana `Configuration / Authentication backend`. Dejamos Backend name = `icingaweb2`, y siguiente.
+* Estamos en la ventana `Configuration / Administration`. En este punto vamos a crear usuario para usar icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
+* Estamos en la ventana`Configuration / Application configuration`. Dejamos los valores como están y siguiente.
+* Vemos un resumen y siguiente.
+* Estamos en la ventana Configuración Module y siguiente.
+* Estamos en la ventana Monitoring backend y siguiente.
+* Estamos en la ventana Monitoring IDO resource. Añadimos los siguientes valores al formulario:
+    * BBDD: icinga
+    * Usuario: icinga
+    * Clave: icinga
+* Validamos la configuración. Y si es correcta seguimos.
+* Estamos en la ventana Command transport. Elegir Transport type = `Local Command file` y siguente.
+* Estamos en la ventana Monitoring security y siguiente.
+* Ventana de resumen y fin.
 
 ---
 # 4. Configurar objetos para monitorizar
@@ -392,7 +397,7 @@ Configurar el editor vim (con usuario root):
 * Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
 ---
-## A.2 Icinga2: Backup
+## A.2 INFO backup Icinga2
 
 Ensure to include the following in your backups:
 * Configuration files in /etc/icinga2
@@ -424,3 +429,25 @@ Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
 * Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
 * Reiniciamos el equipo.
 * Comprobamos el cambio de versión `php -v`.
+
+---
+# A.4 Problemas con los paquetes PHP 7.1.27
+Debemos instalar los paquetes que faltan (paquetes en color amarillo).     Para [descargar paquetes PHP versión 7.1.27](https://software.opensuse.org/package/php7) o también se pondrán en el Moodle para descargar:
+    * Ejemplo para localizar los nombres de los paquetes: `zypper se php |grep ldap` => `php7-ldap`
+    * En nuestro caso necesitaremos los siguientes:
+        * php7-curl-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-ldap-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-mysql-7.1.27-lp150.1.1.x86_64.rpm
+        * php7-pgsql-7.1.27-lp150.1.1.x86_64.rpm
+        * ERROR: No hemos podido instalar `php-imagick` para php 7.1.27 en OpenSUSE Leap 15.0. Para nuestra práctica no es necesario y podemos seguir.
+
+---
+# A.5 Problemas con ApiUser
+
+API User/API Password: Poner lo que tenemos en `/etc/icinga2/conf.d/api-users.conf` como ApiUser object.
+
+> **NOTA**
+>
+> Si en la fase final del proceso de configuración de IcingaWeb2, aparece un error al habilitar Módulos por falta de permisos, entonces es necesario revisar los permisos que tiene la carpeta `/etc/icingaweb2/enableModules` para el usuario `wwwrun` (Este es el usuario que utiliza el servidor Web Apache2 en OpenSUSE).
+>
+> * `chown -R wwwrun:icingaweb2 /etc/icingaweb2/enabledModules`
