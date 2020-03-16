@@ -2,10 +2,10 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "opensuse15" do |i|
+  config.vm.define "lda-opensuse15" do |i|
     i.vm.box = "generic/opensuse15"
-    i.vm.hostname = "profesor42g.curso1920"
-    i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.hostname = "monitor42"
+    i.vm.network "public_network", bridge: [ "eth1" ]
     i.vm.network :forwarded_port, guest: 22, host: 2231
     i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
       zypper in -y vim tree nmap
     SHELL
     i.vm.provider "virtualbox" do |v|
-      v.name = 'opensuse15'
+      v.name = 'lda-opensuse15'
       v.memory = 2048
     end
   end
