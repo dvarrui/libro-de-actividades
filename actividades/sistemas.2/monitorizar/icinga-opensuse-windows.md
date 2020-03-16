@@ -158,7 +158,8 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
-* `chgrp icingaweb2 /etc/icingaweb2/setup.token`, nos aseguramos de que el grupo "icingaweb2" tiene acceso al fichero donde se guarda el "token".
+* `chgrp icingaweb2 -R /etc/icingaweb2/`, nos aseguramos de que el grupo "icingaweb2" tiene acceso a todos los ficheros de configuración.
+* `chmod 770 /etc/icingaweb2/enabledModules`, el grupo icingaweb2 requiere acceso de ecritura en dicha carpeta para poder habilitar módulos.
 * `systemctl restart apache2`
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
