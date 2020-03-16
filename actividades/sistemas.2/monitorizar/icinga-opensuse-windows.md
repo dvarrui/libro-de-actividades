@@ -121,8 +121,16 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 * Abrir el puerto http(80) en el cortafuegos:
     * `firewall-cmd --add-service=http`
     * `firewall-cmd --permanent --add-service=http`
+
 > También podemos usar Yast para abrir el puerto en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
+
 * `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
+```
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+3306/tcp open  mysql
+```
 
 > **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
 
@@ -131,35 +139,16 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y consultar el detalle de los objetos.
 
 * `icinga2 api setup`, para habilitar la característica API.
-* Añadir un nuevo ApiUser(root) en `/etc/icinga2/conf.d/api-users.conf`.
+
+> Los ApiUser como root se configuran en `/etc/icinga2/conf.d/api-users.conf`.
+
 * `systemctl restart icinga2`, reiniciar el servicio para activar los cambios.
 
 ## 3.5 Instalar icingaweb2
 
-* `zypper install icingaweb2`, instalar el paquete.
+* `zypper install icingaweb2`, para instalar el software IcingaWeb2 y sus dependencias (Como por ejemplo php7).
 
-**Problema con la versión de PHP**
-
-Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5.
-
-**SOLUCIÓN A**
-
-Solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de "php7.2.5" por "php7.1.27". Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
-
-Proceso para instalar la versión php7.1.27.
-* `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_Leap_15.0/ devel:languages:php:php71`
-* `zypper install --oldpackage php7-7.1.27`
-* Si hay errores instalar php-Icinga
-* Reiniciar la máquina.
-* Comprobamos el cambio de versión `php -v`.
-
-**SOLUCIÓN B**
-
-Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
-* Primero los descargamos y luego lo instalamos con `rpm -i PACKAGENAME.rpm`
-* Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
-* Reiniciamos el equipo.
-* Comprobamos el cambio de versión `php -v`.
+> En el caso de tener problemas con la versión de PHP, consultar el Anexo A.3.
 
 ## 3.6 Preparando la configuración Web.
 
@@ -385,7 +374,7 @@ NO ES OBLIGATORIO hacerlo.
 ---
 # ANEXO A
 
-## A.1 Revisar
+## A.1 Configurar el editor vi para Icinga2
 
 * `icinga2 feature list`, verificar las características habilitadas o deshabilitadas.
 
@@ -395,6 +384,7 @@ Configurar el editor vim (con usuario root):
 * `syntax on` (ESC : wq)
 * Comprobarlo: `vim /etc/icinga2/conf.d/templates.conf` (ESC : q)
 
+---
 ## A.2 Icinga2: Backup
 
 Ensure to include the following in your backups:
@@ -403,3 +393,27 @@ Ensure to include the following in your backups:
 * Runtime files in /var/lib/icinga2
 * Optional: IDO database backup
 * Backup: Database
+
+---
+## A.3 Problema con la versión de PHP
+
+Hemos comprobado que la versión actual de IcingaWeb2 no funciona correctamente con php7.2.5.
+
+**SOLUCIÓN A**
+
+Solución propuesta por Aarón Rodríguez Pérez. Esto es, cambiar la versión de "php7.2.5" por "php7.1.27". Foro: https://forums.opensuse.org/showthread.php/530164-php7-is-only-available-whith-version-7-2-and-i-don-t-find-way-to-install-7-1-version
+
+Proceso para instalar la versión php7.1.27.
+* `zypper ar http://download.opensuse.org/repositories/devel:/languages:/php:/php71/openSUSE_Leap_15.0/ devel:languages:php:php71`
+* `zypper install --oldpackage php7-7.1.27`
+* Si hay errores instalar php-Icinga
+* Reiniciar la máquina.
+* Comprobamos el cambio de versión `php -v`.
+
+**SOLUCIÓN B**
+
+Otra forma de cambiar la versión de PHP es cambiando los paquetes rpm:
+* Primero los descargamos y luego lo instalamos con `rpm -i PACKAGENAME.rpm`
+* Enlace de interés para cambiar paquetes de php7.2.5 a php7.1.27 (https://software.opensuse.org/package/php7). Buscar `php7-7.1.27-lp150.1.1.x86_64.rpm`.
+* Reiniciamos el equipo.
+* Comprobamos el cambio de versión `php -v`.
