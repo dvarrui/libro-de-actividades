@@ -212,7 +212,14 @@ Vamos a configurar IcingaWeb2 por el navegador.
 * Estamos en la ventana Monitoring security y siguiente.
 * Ventana de resumen y fin.
 * Estamos en la ventana "Congratulations! Icinga Web 2 has been successfully set up". Vamos a "login" para entrar.
+
+![](images/icingaweb-login.png)
+
 * El usuario/clave para entrar es profesor/profesor.
+
+![](images/icingaweb-dashboard.png)
+
+Por defecto, nos aparecen unas primeras recogidas de datos de monitorización, correspondientes a nuestro equipo local. Pero en los siguiente apartados vamos a ampliarla.
 
 ---
 # 4. Configurar objetos para monitorizar
