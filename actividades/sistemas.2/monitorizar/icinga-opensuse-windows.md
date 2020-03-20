@@ -236,11 +236,13 @@ Nos vamos a plantear como objetivo monitorizar lo siguiente:
 | clients | clientXXg1 | 172.AA.XX.32 | Host activo         |
 | clients | clientXXw1 | 172.AA.XX.11 | Host activo         |
 
+* Abrir sesión como usuario `root`.
 * Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
 * Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
 
 ## 4.1 Configurar HOST servidores
 
+* Abrir sesión como usuario `root`.
 * Crear fichero `ALUMNODIR/servers.conf`.
 
 ```
