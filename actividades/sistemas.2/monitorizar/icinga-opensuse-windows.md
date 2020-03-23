@@ -97,7 +97,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icing
 quit
 ```
 
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`. OJO: Si va todo bien no se muestra nada en pantalla.
 
 **Activar el módulo IDO MySQL**
 
@@ -288,7 +288,7 @@ object Host "caronteXX" {
 
 ## 4.3 Configurar HOSTS clientes
 
-* Crear fichero `ALUMNODIR/clients-gnulinux.conf`.
+* Crear fichero `ALUMNODIR/clients-gnulinux.conf`. Este fichero lo usaremos para configurar las máquinas con GNU/Linux.
 
 ```
 object Host "clientXXg1" {
@@ -303,7 +303,8 @@ object Service "ssh_clientXXg1" {
 }
 ```
 
-* Crear fichero `ALUMNODIR/clients-windows.conf`.
+* Crear fichero `ALUMNODIR/clients-windows.conf`. Este fichero lo usaremos para configurar las máquinas con Windows.
+
 ```
 object Host "clientXXw1" {
   address = "ip-del-host"
@@ -316,7 +317,9 @@ object Service "ssh_clientXXw1" {
   check_command = "ssh"
 }
 ```
-* Crear fichero `ALUMNODIR/clients-dummy.conf`.
+
+* Crear fichero `ALUMNODIR/clients-dummy.conf`. Este fichero lo usaremos para configurar unas máquinas "virtuales" que no existen en la realidad. Una de ellas siempre dará buenos resultados("up") y la otra siempre dará malos resultados ("down"). Estas másquina "dummy" sirven sólo para hacer pruebas.
+
 ```
 object Host "dummyXXup" {
   check_command = "dummy"
@@ -333,7 +336,9 @@ object Host "dummyXXdown" {
 
 > **¡OJO!**: Asegurarse de que el usuario `icinga` es el propietario de los archivos que acabamos de crear en la ruta ALUMNODIR. Si no tiene permisos de lectura sobre dichas configuraciones, éstas no tendrán efecto.
 
-* `systemctl restart icinga2`, reinciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error, consultar log `/var/log/icinga2.log`.
+* `systemctl restart icinga2`, reiniciar el servicio para forzar la lectura de los nuevos ficheros de configuración. En caso de error:
+    * Revisar los últimos cambios realizados.
+    * Consultar log `/var/log/icinga2.log`.
 * Comprobar los cambios por IcingaWeb2.
 
 ---
@@ -343,7 +348,7 @@ object Host "dummyXXdown" {
 > * https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
 > * https://icinga.com/docs/icinga2/latest/doc/03-monitoring-basics/
 
-Por ahora el monitor, sólo puede obtener la información que los euipos dejan ver desde el exterior. Cuando queremos obtener información del interior de los hosts, entonces tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información: Consumo CPU, consumo de memoria, consumo de disco, etc.
+Por ahora el monitor, sólo puede obtener la información que los equipos dejan ver desde el exterior. Cuando queremos obtener información del interior de los Hosts,  tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información interna de la máquina: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
 ## 5.1 INFO: Teoría sobre agentes SSH de Icinga
 
@@ -372,7 +377,7 @@ object Service "swap" {
 ## 5.2 Cliente GNULinux
 
 * Crear fichero `ALUMNODIR/agents-gnulinux.conf` para incluir monitorización del disco duro.
-* Editar `ALUMNODIR/agents-gnulinux.conf` para incluir el commando para monitorizar el disco.
+* Editar `ALUMNODIR/agents-gnulinux.conf` para crear un nuevo comando "by_ssh_disk":
 ```
 object CheckCommand "by_ssh_disk" {
   import "by_ssh"
@@ -381,8 +386,11 @@ object CheckCommand "by_ssh_disk" {
   vars.by_ssh_disk_crit = "50%"
 }
 ```
-* El parámetro `vars.by_ssh_command` está incompleto.Para saber cómo completarlo debemos consultar la ayuda del comando check_disk (`/usr/lib/nagios/plugins/check_disk -h`). Consultar los ejemplos.
-* Editar `ALUMNODIR/agents-gnulinux.conf` para incluir el servicio para monitorizar el disco.
+
+**OJO**: El parámetro `vars.by_ssh_command` está incompleto. Para saber cómo completarlo debemos consultar la ayuda del comando check_disk (`/usr/lib/nagios/plugins/check_disk -h`). Consultar los ejemplos.
+
+* Editar `ALUMNODIR/agents-gnulinux.conf` para crear el servicio "disk_clientXXg1" para monitorizar el disco de un cliente concreto:
+
 ```
 object Service "disk_clientXXg1" {
   import "generic-service"
@@ -392,6 +400,8 @@ object Service "disk_clientXXg1" {
   vars.by_ssh_password = "CLAVE-DE-ROOT"
 }
 ```
+
+Sustituir CLAVE-DE-ROOT, por el password del usuario root. **OJO** es necesario tener el servicio SSH funcionando en la máquina que se quiere monitorizar.
 
 ## 5.3 Cliente Window
 
