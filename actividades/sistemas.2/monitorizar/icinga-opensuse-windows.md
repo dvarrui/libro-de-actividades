@@ -357,22 +357,6 @@ Podemos usar varios protocolos de comunicación diferente con el nodo (Agente). 
 
 Calling a plugin using the SSH protocol to execute a plugin on the remote server fetching its return code and output. The by_ssh command object is part of the built-in templates and requires the check_by_ssh check plugin which is available in the Monitoring Plugins package.
 
-```
-object CheckCommand "by_ssh_swap" {
-  import "by_ssh"
-  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_swap -w $by_ssh_swap_warn$ -c $by_ssh_swap_crit$"
-  vars.by_ssh_swap_warn = "75%"
-  vars.by_ssh_swap_crit = "50%"
-}
-
-object Service "swap" {
-  import "generic-service"
-  host_name = "remote-ssh-host"
-  check_command = "by_ssh_swap"
-  vars.by_ssh_logname = "icinga"
-}
-```
-
 > NOTA: En el directorio `/usr/lib/nagios/plugins/`, tenemos muchos check commands para usar.
 
 ## 5.2 Cliente GNULinux
@@ -382,13 +366,11 @@ object Service "swap" {
 ```
 object CheckCommand "by_ssh_disk" {
   import "by_ssh"
-  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk ...."
+  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk -w $by_ssh_disk_warn$ -c $by_ssh_disk_crit$"
   vars.by_ssh_disk_warn = "75%"
   vars.by_ssh_disk_crit = "50%"
 }
 ```
-
-**OJO**: El parámetro `vars.by_ssh_command` está incompleto. Para saber cómo completarlo debemos consultar la ayuda del comando check_disk (`/usr/lib/nagios/plugins/check_disk -h`). Consultar los ejemplos.
 
 * Editar `ALUMNODIR/agents-gnulinux.conf` para crear el servicio "disk_clientXXg1" para monitorizar el disco de un cliente concreto:
 
@@ -397,7 +379,7 @@ object Service "disk_clientXXg1" {
   import "generic-service"
   host_name = "clientXXg1"
   check_command = "by_ssh_disk"
-  vars.by_ssh_logname = "root"
+  vars.by_ssh_username = "root"
   vars.by_ssh_password = "CLAVE-DE-ROOT"
 }
 ```
