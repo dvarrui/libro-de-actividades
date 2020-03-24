@@ -265,10 +265,13 @@ object Service "http_leela" {
 > * vars.os: Sistema Operativo
 > * check_command: Comando usado para verificar el host.
 
-**Vamos a comprobar que vamos por el buen camino:**
-* Guardar el archivo.
-* `systemctl restart icinga2`, reiniciar Icinga2 para que coja los nuevos cambios.  **OJO** Si aparecen mensajes de error, entonces es que hemos escrito algo mal en la configuración anterior. Volver a revisarlo bien. Les recuerdo que hemos configurado el editor "nano" para que nos ayude a colorear la sintaxis y poder detectar más facilmente los fallos en la escritura.
-* Cuando lo anteior esté correcto hacemos `systemctl restart apache2` para reiniciar el servidor web. Vamos al navegador y entramos a IcingaWeb2 para ver los cambios que hemos añadido.
+**Comprobamos los cambios.** Vamos a comprobar que vamos por el buen camino haciendo lo siguiente:
+* Guardar el archivo de configuración.
+* `systemctl restart icinga2`, reiniciar Icinga2 para que coja los nuevos cambios.  
+
+**OJO** Si aparecen mensajes de error, entonces es que hemos escrito algo mal en la configuración anterior. Volver a revisarlo bien. Les recuerdo que hemos configurado el editor "nano" para que nos ayude a colorear la sintaxis y poder detectar más facilmente los fallos en la escritura.
+
+* Cuando lo anterior esté correcto hacemos `systemctl restart apache2` para reiniciar el servidor web. Vamos al navegador y entramos a IcingaWeb2 para ver los cambios que hemos añadido.
 * Cuando todo esté correcto... seguimos al siguiente punto.
 
 ## 4.2 Configurar HOSTS routers
@@ -286,6 +289,8 @@ object Host "caronteXX" {
   check_command = "hostalive"
 }
 ```
+
+* Comprobamos: `systemctl restart icinga2`. Si hay errores debemos revisar el fichero que acabamos de crear.
 
 ## 4.3 Configurar HOSTS clientes
 
@@ -361,8 +366,9 @@ Calling a plugin using the SSH protocol to execute a plugin on the remote server
 
 ## 5.2 Cliente GNULinux
 
-* Crear fichero `ALUMNODIR/agents-gnulinux.conf` para incluir monitorización del disco duro.
-* Editar `ALUMNODIR/agents-gnulinux.conf` para crear un nuevo comando "by_ssh_disk":
+* Crear fichero `ALUMNODIR/agents-gnulinux.conf` para incluir monitorización del disco duro de la siguiente forma:
+* Primero vamos a definir un nuevo comando llamado `by_ssh_disk`:
+
 ```
 object CheckCommand "by_ssh_disk" {
   import "by_ssh"
@@ -372,7 +378,7 @@ object CheckCommand "by_ssh_disk" {
 }
 ```
 
-* Editar `ALUMNODIR/agents-gnulinux.conf` para crear el servicio "disk_clientXXg1" para monitorizar el disco de un cliente concreto:
+* Luego seguimos creando un servicio `disk_clientXXg1` que usa el comando anterior para monitorizar el disco del cliente:
 
 ```
 object Service "disk_clientXXg1" {
@@ -384,16 +390,13 @@ object Service "disk_clientXXg1" {
 }
 ```
 
-Sustituir CLAVE-DE-ROOT, por el password del usuario root. **OJO** es necesario tener el servicio SSH funcionando en la máquina que se quiere monitorizar.
+> **OJO**:
+> * Sustituir CLAVE-DE-ROOT, por el password del usuario root.
+> * Es necesario tener el servicio SSH funcionando en la máquina que se quiere monitorizar.
 
-## 5.3 Cliente Window
+## 5.3 Cliente Window (Apartado OPCIONAL)
 
-```
-Este apartado es OPCIONAL.
-NO ES OBLIGATORIO hacerlo.
-```
-
-* Modificar fichero `ALUMNODIR/agents-windows.conf` para incluir monitorización del disco duro.
+* Modificar fichero `ALUMNODIR/agents-windows.conf` para incluir monitorización del disco duro del cliente Windows.
 
 ---
 # ANEXO A
