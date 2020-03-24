@@ -239,6 +239,7 @@ Nos vamos a plantear como objetivo monitorizar lo siguiente:
 * Abrir sesión como usuario `root`.
 * Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
 * Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
+* Asegurarse de que el usuario `icinga` tiene permisos sobre dicha carpeta.
 
 ## 4.1 Configurar HOST servidores
 
