@@ -370,7 +370,7 @@ Calling a plugin using the SSH protocol to execute a plugin on the remote server
 ```
 object CheckCommand "by_ssh_disk" {
   import "by_ssh"
-  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk"
+  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk -w $by_ssh_disk_warn$"
   vars.by_ssh_disk_warn = "75%"
 }
 ```
