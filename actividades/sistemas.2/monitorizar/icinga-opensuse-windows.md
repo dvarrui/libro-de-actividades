@@ -226,13 +226,13 @@ Por defecto, nos aparecen unas primeras recogidas de datos de monitorización, c
 
 Nos vamos a plantear como objetivo monitorizar lo siguiente:
 
-| Grupo   | Hosts      | IP           | Comprobar           |
-| ------- | ---------- | ------------ | ------------------- |
-| routers | benderXX   | 172.AA.0.1   | Host activo         |
-| routers | caronteXX  | 192.168.1.1  | Host activo         |
-| servers | leelaXX    | 172.20.1.2   | Servicio HTTP y SSH |
-| clients | clientXXg1 | 172.AA.XX.32 | Host activo         |
-| clients | clientXXw1 | 172.AA.XX.11 | Host activo         |
+| Grupo   | Hosts     | IP           | Comprobar           |
+| ------- | --------- | ------------ | ------------------- |
+| routers | benderXX  | 172.AA.0.1   | Host activo         |
+| routers | caronteXX | 192.168.1.1  | Host activo         |
+| servers | leelaXX   | 172.20.1.2   | Servicio HTTP y SSH |
+| clients | clientXXg | 172.AA.XX.32 | Host activo         |
+| clients | clientXXw | 172.AA.XX.11 | Host activo         |
 
 * Abrir sesión como usuario `root`.
 * Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
@@ -295,14 +295,14 @@ object Host "caronteXX" {
 * Crear fichero `ALUMNODIR/clients-gnulinux.conf`. Este fichero lo usaremos para configurar las máquinas con GNU/Linux.
 
 ```
-object Host "clientXXg1" {
+object Host "clientXXg" {
   address = "ip-del-host"
   vars.os = "Linux"
   check_command = "hostalive"
 }
 
-object Service "ssh_clientXXg1" {
-  host_name = "clientXXg1"
+object Service "ssh_clientXXg" {
+  host_name = "clientXXg"
   check_command = "ssh"
 }
 ```
@@ -310,14 +310,14 @@ object Service "ssh_clientXXg1" {
 * Crear fichero `ALUMNODIR/clients-windows.conf`. Este fichero lo usaremos para configurar las máquinas con Windows.
 
 ```
-object Host "clientXXw1" {
+object Host "clientXXw" {
   address = "ip-del-host"
   vars.os = "Windows"
   check_command = "hostalive"
 }
 
-object Service "ssh_clientXXw1" {
-  host_name = "clientXXw1"
+object Service "ssh_clientXXw" {
+  host_name = "clientXXw"
   check_command = "ssh"
 }
 ```
@@ -376,19 +376,19 @@ object CheckCommand "by_ssh_disk" {
 }
 ```
 
-* Luego seguimos creando un servicio `disk_clientXXg1` que usa el comando anterior para monitorizar el disco del cliente:
+* Luego seguimos creando un servicio `disk_clientXXg` que usa el comando anterior para monitorizar el disco del cliente:
 
 ```
-object Service "disk_clientXXg1" {
+object Service "disk_clientXXg" {
   import "generic-service"
-  host_name = "clientXXg1"
+  host_name = "clientXXg"
   check_command = "by_ssh_disk"
   vars.by_ssh_username = "root"
   vars.by_ssh_password = "CLAVE-DE-ROOT"
 }
 ```
 
-> **OJO**:
+> **Recordar**:
 > * Sustituir CLAVE-DE-ROOT, por el password del usuario root.
 > * Es necesario tener el servicio SSH funcionando en la máquina que se quiere monitorizar.
 
