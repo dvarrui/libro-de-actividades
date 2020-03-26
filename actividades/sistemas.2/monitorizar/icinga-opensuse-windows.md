@@ -267,7 +267,7 @@ object Service "http_leela" {
 * Guardar el archivo de configuración.
 * `systemctl restart icinga2`, reiniciar Icinga2 para que coja los nuevos cambios.  
 
-**OJO** Si aparecen mensajes de error, entonces es que hemos escrito algo mal en la configuración anterior. Volver a revisarlo bien. Les recuerdo que hemos configurado el editor "nano" para que nos ayude a colorear la sintaxis y poder detectar más facilmente los fallos en la escritura.
+> **Si aparecen mensajes de error**, entonces es que hemos escrito algo mal en la configuración anterior. Volver a revisarlo bien. Les recuerdo que hemos configurado el editor "nano" para que nos ayude a colorear la sintaxis y poder detectar más facilmente los fallos en la escritura.
 
 * Cuando lo anterior esté correcto hacemos `systemctl restart apache2` para reiniciar el servidor web. Vamos al navegador y entramos a IcingaWeb2 para ver los cambios que hemos añadido.
 * Cuando todo esté correcto... seguimos al siguiente punto.
