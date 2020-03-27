@@ -155,7 +155,7 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 ## 3.6 Preparando la configuración Web.
 
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
-* `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE**: Apuntar este "token" para usarlo más adelante.
+* `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE: Apuntar este token** para usarlo más adelante.
 * `chgrp icingaweb2 -R /etc/icingaweb2/`, nos aseguramos de que el grupo "icingaweb2" tiene acceso a todos los ficheros de configuración.
 * `chmod 770 /etc/icingaweb2/enabledModules`, el grupo icingaweb2 requiere acceso de ecritura en dicha carpeta para poder habilitar módulos.
 * `systemctl restart apache2`
@@ -169,20 +169,30 @@ Vamos a configurar IcingaWeb2 por el navegador.
 
 * Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
     * **NOTA**: Si nos aparece el siguiente mensaje de error `Cannot validate token: /etc/icingaweb2/setup.token: failed to open stream: Permission denied)`, entonces lo solucionamos asignando los permisos de la siguiente forma: `chgrp icingaweb2 /etc/icingaweb2/setup.token`.
-* Estamos en la ventana "Modules". Nos aseguramos de tener `Monitoring` en `ENABLE`. Siguiente.
-* Estamos en la ventana "Requirements". Se nos muestra una lista de los paquetes PHP se son necesarios para continuar. Los paquetes en verde significan que están bien. Los paquetes en amarillo indican que se recomienda su instalación.
+
+Estamos en la ventana "Modules".
+* Nos aseguramos de tener `Monitoring` en `ENABLE`. Siguiente.
+
+Estamos en la ventana **Requirements**.
+* Se nos muestra una lista de los paquetes PHP se son necesarios para continuar. Los paquetes en verde significan que están bien. Los paquetes en amarillo indican que se recomienda su instalación.
 
 > Si por ejemplo, nos aparecen los siguientes paquetes en amarillo:
 > * The PHP module Imagick is missing.
 > * The PHP module cURL is missing.
+>
 > Entonces, instalar los paquetes PHP que faltan:
 > * `zypper install php7-imagick`
 > * `zypper install php7-curl`
+>
+> Reiniciamos el servidor web Apache2.
+>
+> * `systemctl restart apache2`,
+> * Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Seguimos.
 
-* `systemctl restart apache2`, reiniciar el servidor web Apache2.
-* Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Sequimos.
-* Estamos en la ventana de `Configuration / Autentificación`. Elegimos `Database` y siguiente.
-* Estamos en la ventana de `Configuration / Database Resource`. Completamos el formulario con lo siguiente:
+Ventanas de Configuration:
+
+* Estamos en la ventana de **Configuration / Autentificación**. Elegimos `Database` y siguiente.
+* Estamos en la ventana de **Configuration / Database Resource**. Completamos el formulario con los siguientes valores:
 
 | Campo         | Valor        |
 | ------------- | ------------ |
@@ -194,22 +204,26 @@ Vamos a configurar IcingaWeb2 por el navegador.
 | Password      | profesor     |
 
 * Validar y siguiente.
-* Estamos en la ventana `Configuration / Database setup`. Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave. Tal y como hicimos en el apartado 3.1.
-* Estamos en la ventana `Configuration / Authentication backend`. Dejamos Backend name = `icingaweb2`, y siguiente.
+* Estamos en la ventana **Configuration / Database setup**. Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave que ya teníamos del apartado 3.1.
+* Estamos en la ventana **Configuration / Authentication backend**. Dejamos Backend name = `icingaweb2`, y siguiente.
 * Estamos en la ventana `Configuration / Administration`. En este punto vamos a crear usuario para usar icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
-* Estamos en la ventana`Configuration / Application configuration`. Dejamos los valores como están y siguiente.
+* Estamos en la ventana **Configuration / Application configuration**. Dejamos los valores como están y siguiente.
 * Vemos un resumen y siguiente.
 * Estamos en la ventana Configuración Module y siguiente.
-* Estamos en la ventana Monitoring backend y siguiente.
-* Estamos en la ventana Monitoring IDO resource. Añadimos los siguientes valores al formulario:
+
+Ventanas de Monitorig:
+* Estamos en la ventana **Monitoring backend** y siguiente.
+* Estamos en la ventana **Monitoring IDO resource**. Añadimos los siguientes valores al formulario:
     * BBDD: icinga
     * Usuario: icinga
     * Clave: icinga
 * Validamos la configuración. Y si es correcta seguimos.
-* Estamos en la ventana Command transport. Elegir Transport type = `Local Command file` y siguente.
-* Estamos en la ventana Monitoring security y siguiente.
+* Estamos en la ventana **Command transport**. Elegir Transport type = `Local Command file` y siguente.
+* Estamos en la ventana **Monitoring security** y siguiente.
+
+Fin del proceso:
 * Ventana de resumen y fin.
-* Estamos en la ventana "Congratulations! Icinga Web 2 has been successfully set up". Vamos a "login" para entrar.
+* Estamos en la ventana **Congratulations! Icinga Web 2 has been successfully set up**. Vamos a "login" para entrar.
 
 ![](images/icingaweb-login.png)
 
