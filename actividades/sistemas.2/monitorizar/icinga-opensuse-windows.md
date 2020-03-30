@@ -1,10 +1,11 @@
 
 ```
 Curso           : 201920, 201819
-Area            : Sistemas Operativos, monitorización, redes, centro de proceso de datos
+Area            : Sistemas Operativos , redes, Hardware(CPD), seguridad
+                  monitorización software/hardware/redes.
 Descripción     : Monitorización de red con la herramienta Icinga2
 Requisitos      : GNU/Linux y Windows
-Tiempo estimado :
+Tiempo estimado : 8 horas
 ```
 
 ---
@@ -85,7 +86,7 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 * `systemctl enable mysql`, activar servicio al iniciar la máquina.
 * `systemctl start mysql`, iniciar el servicio.
 * `systemctl status mysql`, consultar estado del servicio.
-* Configurar base de datos MySQL para Icinga2 (El usuario root de mysql NO tiene clave):
+* Creamos la base de datos y el usuario. NOTA: El usuario root de mysql NO tiene clave:
 
 ```
 # mysql -u root -p
@@ -95,18 +96,17 @@ GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icing
 quit
 ```
 
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`. OJO: Si va todo bien no se muestra nada en pantalla.
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`. Este script SQL crea todas las tablas necesarias en la BBDD. Sólo se muestrarán mensajes si hay problemas.
 
 **Activar el módulo IDO MySQL**
 
-* `more /etc/icinga2/features-available/ido-mysql.conf`, es posible modificar las credenciales de la base de datos en este fichero.
 * `icinga2 feature enable ido-mysql`, habilitamos la característica "ido-mysql".
-    * Comprobamos `icinga2 feature list`.
+* Comprobamos `icinga2 feature list`.
 * `systemctl restart icinga2`, reiniciamos el servicio.
 
 ## 3.2 Servidor Web
 
-Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2, por ser el primero que aparece (No tenemos ningún otro motivo y/o criterio de elección).
+Podríamos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apache2.
 
 * `zypper in apache2`, instalar Apache.
 * `a2enmod rewrite`, activar módulo "rewrite" de Apache.
@@ -117,14 +117,17 @@ Podemos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos Apa
 
 ## 3.3 Cortafuegos
 
-El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos. Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS.
+El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos.
+
 * Abrir el puerto http(80) en el cortafuegos:
     * `firewall-cmd --add-service=http`
     * `firewall-cmd --permanent --add-service=http`
 
-> También podemos usar Yast para abrir el puerto en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
+> Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS. Pero tendríamos que usar certificados. De momento vamos a seguir la práctica usando el puerto 80 (http).
+>
+> También podemos usar Yast para abrir los puertos en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
 
-* `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
+* `nmap -Pn localhost`, comprobar que el puerto 80(http) está abierto.
 ```
 PORT     STATE SERVICE
 22/tcp   open  ssh
@@ -132,7 +135,7 @@ PORT     STATE SERVICE
 3306/tcp open  mysql
 ```
 
-> **Servicios que deben estár iniciados**: icinga2, mysql, apache2 y firewalld.
+> Recordar que los siguientes servicios ya deben estar en ejecución: icinga2, mysql, apache2 y firewalld.
 
 ## 3.4 Configurar API REST de Icinga 2
 
@@ -236,9 +239,7 @@ Por defecto, nos aparecen unas primeras recogidas de datos de monitorización, c
 ---
 # 4. Configurar objetos para monitorizar
 
-**Objetivo**
-
-Nos vamos a plantear como objetivo monitorizar lo siguiente:
+Nos vamos a plantear como objetivo monitorizar los siguientes Hosts:
 
 | Grupo   | Hosts     | IP           | Comprobar           |
 | ------- | --------- | ------------ | ------------------- |
@@ -249,8 +250,10 @@ Nos vamos a plantear como objetivo monitorizar lo siguiente:
 | clients | clientXXw | 172.AA.XX.11 | Host activo         |
 
 * Abrir sesión como usuario `root`.
-* Sea ALUMNODIR=`/etc/icinga2/conf.d/nombre-del-alumno.d`.
-* Crear directorio ALUMNODIR. Creamos el directorio para guardar nuestras configuraciones.
+
+> A partir de ahora ALUMNODIR = `/etc/icinga2/conf.d/nombre-del-alumno.d`.
+
+* Crear directorio ALUMNODIR. Este directorio nos servirá para guardar nuestros ficheros de configuración.
 * Asegurarse de que el usuario `icinga` tiene permisos sobre dicha carpeta.
 
 ## 4.1 Configurar HOST servidores
@@ -271,11 +274,15 @@ object Service "http_leela" {
 }
 ```
 
-> Fijarse en todos los parámetros anteriores y preguntar las dudas.
+> Nos fijarmos los parámetros anteriores (preguntar las dudas):
 > * Host: Nombre del host
-> * address: Dirección IP
+> * address: Dirección IP del host
 > * vars.os: Sistema Operativo
-> * check_command: Comando usado para verificar el host.
+> * check_command: Comando usado para verificar el host (hostalive = ping, http = comprueba el servicio web)
+>
+> Por ejemplo probar los siguientes comandos (plugins):
+> * `/usr/lib/nagios/plugins/check_host IP`
+> * `/usr/lib/nagios/plugins/check_http IP`
 
 **Comprobamos los cambios.** Vamos a comprobar que vamos por el buen camino haciendo lo siguiente:
 * Guardar el archivo de configuración.
@@ -374,7 +381,10 @@ Podemos usar varios protocolos de comunicación diferente con el nodo (Agente). 
 
 Calling a plugin using the SSH protocol to execute a plugin on the remote server fetching its return code and output. The by_ssh command object is part of the built-in templates and requires the check_by_ssh check plugin which is available in the Monitoring Plugins package.
 
-> NOTA: En el directorio `/usr/lib/nagios/plugins/`, tenemos muchos check commands para usar.
+> En el directorio `/usr/lib/nagios/plugins/`, tenemos muchos "check commands" para usar.
+>
+> Por ejemplo probar lo siguiente:
+> * `/usr/lib/nagios/plugins/check_ssh IP`
 
 ## 5.2 Cliente GNULinux
 
@@ -384,7 +394,7 @@ Calling a plugin using the SSH protocol to execute a plugin on the remote server
 ```
 object CheckCommand "by_ssh_disk" {
   import "by_ssh"
-  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk -w $by_ssh_disk_warn$"
+  vars.by_ssh_command = "/usr/lib/nagios/plugins/check_disk -W $by_ssh_disk_warn$"
   vars.by_ssh_disk_warn = "75%"
 }
 ```

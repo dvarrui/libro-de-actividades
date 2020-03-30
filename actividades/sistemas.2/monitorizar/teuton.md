@@ -26,7 +26,7 @@ Propuesta de rúbrica:
 * ¿Qué son los test de infraestructura?
 * Ver la infraestructura como código (IaC).
 
-* Comparativa
+* Comparativa de varios test de infraestructura:
 
 | Features | Teuton | Testinfra | Goss |
 | -------- | ------ | --------- | ---- |
@@ -41,6 +41,8 @@ Propuesta de rúbrica:
 | Output formats      | Documentation, TXT, YAML, JSON, silent | ? | rspecish, documentation, JSON, TAP, JUnit, nagios, silent |
 | Builtin functions | Yes | Yes | ... |
 | Function creation | Yes | ?   | ? |
+
+> Incluir Inspec en la comparativa.
 
 ## 1.2 Preparativos
 
