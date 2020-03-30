@@ -15,9 +15,10 @@ Propuesta de rúbrica:
 
 | ID | Criterio | Bien(2) | Regular(1) | Poco adecuado(0) |
 | -- | -------- | ------- | ---------- | ---------------- |
-| 01 | IcingaWeb2 -> Overview -> Hosts ||||
-| 01 | IcingaWeb2 -> Overview -> Services ||||
-| 03 | Contenido de los ficheros de configuración |||.|
+| 01 | Abrir IcingaWeb2 en el navegador ||||
+| 02 | IcingaWeb2 -> Overview -> Hosts ||||
+| 03 | IcingaWeb2 -> Overview -> Services ||||
+| 04 | Contenido de los ficheros de configuración |||.|
 
 ---
 # 1. Preparativos
@@ -232,7 +233,7 @@ Ventanas de Monitorig:
     * Usuario: icinga
     * Clave: icinga
 * Validamos la configuración. Y si es correcta seguimos.
-* Estamos en la ventana **Command transport**. Elegir Transport type = `Local Command file` y siguente.
+* Estamos en la ventana **Command transport**. Elegir Transport type = `Local Command file` y siguiente.
 * Estamos en la ventana **Monitoring security** y siguiente.
 
 Fin del proceso:
