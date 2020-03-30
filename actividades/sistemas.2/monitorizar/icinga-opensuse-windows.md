@@ -203,7 +203,7 @@ Ventanas de Configuration:
 | Database type | MySQL        |
 | Host          | localhost    |
 | Database name | icingaweb2   |
-| User name     | profesor     |
+| Username      | profesor     |
 | Password      | profesor     |
 
 * Validar y siguiente.
