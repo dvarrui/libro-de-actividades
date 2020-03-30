@@ -9,6 +9,17 @@ Tiempo estimado : 8 horas
 ```
 
 ---
+# Icinga2 : OpenSUSE + Windows
+
+Propuesta de rúbrica:
+
+| ID | Criterio | Bien(2) | Regular(1) | Poco adecuado(0) |
+| -- | -------- | ------- | ---------- | ---------------- |
+| 01 | IcingaWeb2 -> Overview -> Hosts ||||
+| 01 | IcingaWeb2 -> Overview -> Services ||||
+| 03 | Contenido de los ficheros de configuración |||.|
+
+---
 # 1. Preparativos
 
 ## 1.1 Preparar las máquinas
@@ -414,6 +425,9 @@ object Service "disk_clientXXg" {
 > **Recordar**:
 > * Sustituir CLAVE-DE-ROOT, por el password del usuario root.
 > * Es necesario tener el servicio SSH funcionando en la máquina que se quiere monitorizar.
+
+* Consultar el estado del servicio en `IcingaWeb2 -> Overview -> Services`. Podemos esperar a que pasen los segundos (timeout) y salte la comprobación automática, o bien podemos pulsar en `Check now` para forzar la comprobación de forma manual.
+* Si tenemos un error de permisos en la carpeta `/var/run/icinga2/cmd`, podemos cambiar los permisos `chmod 777 /var/run/icinga2/cmd`, para eludir el problema de acceso denegado (Esta es una solución temporal).
 
 ## 5.3 Cliente Window (Apartado OPCIONAL)
 
