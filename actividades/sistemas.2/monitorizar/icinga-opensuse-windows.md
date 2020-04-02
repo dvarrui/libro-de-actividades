@@ -42,6 +42,21 @@ Supongamos que tenemos el siguiente esquema de red:
 * Incluir en el `/etc/hosts` todas las máquinas de la práctica.
 * Incluir en el fichero `c:\Windows\System32\drivers\etc\hosts` todas las máquinas de la práctica.
 
+## 1.3 Script de instalación
+
+A fecha de 2-4-2020 se ha creado un script de instalación para automatizar los pasos:
+2.X, 3.1, 3.2, 3.3, 3.5 y 3.6. Por tanto, si se utiliza el script. Después de ejecutarlo podemos saltar directamente al paso 3.7.
+
+Ficheros necesarios:
+1. Script de instalación: [icinga-instalar.sh](files/icinga-instalar.sh)
+1. Fichero SQL: [icinga-crear-bd.sql](files/icinga-crear-bd.sql)
+
+* Descargar los ficheros en `/root` de la máquina monitor.
+* `cd /root`
+* `chmod +x icinga-instalar.sh`, dar permisos de ejecución al fichero.
+* `./icinga-instalar.sh`, ejecutar el script.
+* Esperar a que termine el script.
+
 ---
 # 2. Monitor: Instalación
 
@@ -55,23 +70,24 @@ Supongamos que tenemos el siguiente esquema de red:
 
 Instalar software:
 * `zypper install icinga2 monitoring-plugins`, instalar Icinga2 y los plugins para monitorizar.
-
-Comprobar el servicio:
 * `systemctl enable icinga2`, activar el servicio al iniciar la máquina.
 * `systemctl start icinga2`, iniciar el servicio.
-* `systemctl status icinga2`, ver el estado actual del servicio.
+
+> Comprobar el servicio:
+> * `systemctl status icinga2`, ver el estado actual del servicio.
 
 ## 2.2 Configurar los editores
 
 Configurar el editor nano para faciliar el su uso con icinga2:
 * Abrir sesión con el usuario root.
 * `zypper install nano-icinga2`
-* `nano ~/.nanorc`, crear este archivo de configuración de nano, para incluimos lo siguiente:
+* `nano ~/.nanorc`, crear este archivo de configuración de nano, para incluir lo siguiente:
 ```
 ## Icinga 2
 include "/usr/share/nano/icinga2.nanorc"
 ```
-* Comprobamos: `nano /etc/icinga2/conf.d/templates.conf`
+
+> Comprobamos: `nano /etc/icinga2/conf.d/templates.conf`
 
 ## 2.3 INFO: Rutas de la instalación
 
@@ -97,7 +113,6 @@ Podemos elegir entre la base de datos MySQL o PosgreSQL. En nuestro caso, elegim
 * `zypper install mysql mysql-client icinga2-ido-mysql`, instalación de MySQL y el módulo que comunicará icinga2 con mysql.
 * `systemctl enable mysql`, activar servicio al iniciar la máquina.
 * `systemctl start mysql`, iniciar el servicio.
-* `systemctl status mysql`, consultar estado del servicio.
 * Creamos la base de datos y el usuario. NOTA: El usuario root de mysql NO tiene clave:
 
 ```
@@ -112,9 +127,10 @@ quit
 
 **Activar el módulo IDO MySQL**
 
-* `icinga2 feature enable ido-mysql`, habilitamos la característica "ido-mysql".
-* Comprobamos `icinga2 feature list`.
+* `icinga2 featur´e enable ido-mysql`, habilitamos la característica "ido-mysql".
 * `systemctl restart icinga2`, reiniciamos el servicio.
+
+> Comprobamos `icinga2 feature list`.
 
 ## 3.2 Servidor Web
 
@@ -125,7 +141,8 @@ Podríamos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos 
 * `a2enmod php7`, activar módulo "php7" de Apache.
 * `systemctl enable apache2`, activamos Apache al iniciar la máquina.
 * `systemctl start apache2`, iniciar servicio.
-* `systemctl status apache2`, comprobamos el estado del servicio.
+
+> Comprobamos el estado del servicio: `systemctl status apache2`,
 
 ## 3.3 Cortafuegos
 
@@ -137,7 +154,7 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 
 > Las buenas prácticas aconsejan permitir únicamente el puerto 443 (https) y usar certificados TLS. Pero tendríamos que usar certificados. De momento vamos a seguir la práctica usando el puerto 80 (http).
 >
-> También podemos usar Yast para abrir los puertos en el cortafuegos: `Yast -> Contafuegos -> Abrir servicio http(80) y https(443)`.
+> También podemos usar Yast para abrir los puertos en el cortafuegos: `Yast -> Cortafuegos -> Abrir servicio http(80) y https(443)`.
 
 * `nmap -Pn localhost`, comprobar que el puerto 80(http) está abierto.
 ```
@@ -154,21 +171,15 @@ PORT     STATE SERVICE
 Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y consultar el detalle de los objetos.
 
 * `icinga2 api setup`, para habilitar la característica API.
-
-> Los ApiUser como root se configuran en `/etc/icinga2/conf.d/api-users.conf`.
-
 * `systemctl restart icinga2`, reiniciar el servicio para activar los cambios.
 
 ## 3.5 Instalar icingaweb2
 
 * `zypper install icingaweb2`, para instalar el software IcingaWeb2 y sus dependencias (Como por ejemplo php7).
-
-> En el caso de tener problemas con la versión de PHP, consultar el Anexo A3.
-
 * `zypper install php7-imagick php7-curl`, Instalar varios paquetes PHP que nos harán faltan.
 
 ## 3.6 Preparando la configuración Web.
-
+´
 * `icingacli module enable setup`, activar el módulo setup. Comprobamos `icingacli module list`.
 * `icingacli setup token create`, para generar un "token" para "icingacli". Usaremos el "token" cuando usemos la configuración Web y se nos requiera autenticación. **IMPORTANTE: Apuntar este token** para usarlo más adelante.
 * `chgrp icingaweb2 -R /etc/icingaweb2/`, nos aseguramos de que el grupo "icingaweb2" tiene acceso a todos los ficheros de configuración.
@@ -177,34 +188,30 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 ## 3.7 Usar navegador para acceder a Icingaweb2
 
+> Si hemos usado el script de instalación del punto 1.3, entonces podemos continuar la práctica desde este punto.
+
 Vamos a configurar IcingaWeb2 por el navegador.
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 
 ![](images/icinga-url-icingaweb2.png)
 
-* Ponemos el token y siguiente. **NOTA**: Si no recordamos el "token" lo podemos con el siguiente comando, `icingacli setup token show`.
-    * **NOTA**: Si nos aparece el siguiente mensaje de error `Cannot validate token: /etc/icingaweb2/setup.token: failed to open stream: Permission denied)`, entonces lo solucionamos asignando los permisos de la siguiente forma: `chgrp icingaweb2 /etc/icingaweb2/setup.token`.
+* Ponemos el token de autenticación y siguiente.
+    * Si hemos ejecutado el script de instalación del punto 1.3, entonces consultar el token con `cat /root/icinga-token.txt`.
+    * Si hemos hecho el proceso manualmente, entonces tenemos el token apuntado de apartados anteriores.
+    * Si no recordamos el "token", lo podemos consultar con el siguiente comando, `icingacli setup token show`.
 
 Estamos en la ventana "Modules".
 * Nos aseguramos de tener `Monitoring` en `ENABLE`. Siguiente.
 
 Estamos en la ventana **Requirements**.
-* Se nos muestra una lista de los paquetes PHP se son necesarios para continuar. Los paquetes en verde significan que están bien. Los paquetes en amarillo indican que se recomienda su instalación.
+* Se nos muestra una lista de los paquetes PHP que son necesarios para continuar. Los paquetes en verde significan que están bien. Los paquetes en amarillo indican que se recomienda su instalación.
 
-> Si por ejemplo, nos aparecen los siguientes paquetes en amarillo:
-> * The PHP module Imagick is missing.
-> * The PHP module cURL is missing.
->
-> Entonces, instalar los paquetes PHP que faltan:
-> * `zypper install php7-imagick`
-> * `zypper install php7-curl`
->
-> Reiniciamos el servidor web Apache2.
->
-> * `systemctl restart apache2`,
-> * Consultar la página web y refrescar (F5). Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Seguimos.
+> Si por ejemplo, nos aparece en amarillo el mensaje "The PHP module Imagick is missing", entonces:
+> * Instalamos el paquete que faltan `zypper install php7-imagick`.
+> * Reiniciamos el servidor web Apache2. Consultar la página web y refrescar (F5).
+> * Ahora deben aparecer los módulos en verde. Eso indica que están correctamente instalados. Seguimos.
 
-Ventanas de Configuration:
+Ventanas de **Configuration**:
 
 * Estamos en la ventana de **Configuration / Autentificación**. Elegimos `Database` y siguiente.
 * Estamos en la ventana de **Configuration / Database Resource**. Completamos el formulario con los siguientes valores:
@@ -221,10 +228,10 @@ Ventanas de Configuration:
 * Validar y siguiente.
 * Estamos en la ventana **Configuration / Database setup**. Ahora se nos pide un usuario/clave con privilegios para crear la base de datos y usuario en la Base de datos MySQL. Esto es, usaremos el usuario `root` de MySQL sin clave que ya teníamos del apartado 3.1.
 * Estamos en la ventana **Configuration / Authentication backend**. Dejamos Backend name = `icingaweb2`, y siguiente.
-* Estamos en la ventana `Configuration / Administration`. En este punto vamos a crear usuario para usar icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
+* Estamos en la ventana **Configuration / Administration**. En este punto vamos a crear usuario para usar icingaweb2. Por ejemplo usuario `profesor` con clave `profesor`.
 * Estamos en la ventana **Configuration / Application configuration**. Dejamos los valores como están y siguiente.
 * Vemos un resumen y siguiente.
-* Estamos en la ventana Configuración Module y siguiente.
+* Estamos en la ventana **Configuration / Module** y siguiente.
 
 Ventanas de Monitorig:
 * Estamos en la ventana **Monitoring backend** y siguiente.
@@ -233,20 +240,24 @@ Ventanas de Monitorig:
     * Usuario: icinga
     * Clave: icinga
 * Validamos la configuración. Y si es correcta seguimos.
-* Estamos en la ventana **Command transport**. Elegir Transport type = `Local Command file` y siguiente.
+* Estamos en la ventana **Command transport**. Ponemos los siguientes valores:
+    * Host = `localhost`
+    * API Username = `root`
+    * Consultar el contenido del fichero `/etc/icinga2/conf.d/api-users.conf`, para poder completar el valor de API Password.
 * Estamos en la ventana **Monitoring security** y siguiente.
 
 Fin del proceso:
 * Ventana de resumen y fin.
-* Estamos en la ventana **Congratulations! Icinga Web 2 has been successfully set up**. Vamos a "login" para entrar.
+* Estamos en la ventana **Congratulations! Icinga Web 2 has been successfully set up**.
+* Vamos a "login" para entrar, y veremos la imagen siguiente:
 
 ![](images/icingaweb-login.png)
 
-* El usuario/clave para entrar es profesor/profesor.
+* El usuario/clave para entrar es `profesor/profesor`.
 
 ![](images/icingaweb-dashboard.png)
 
-Por defecto, nos aparecen unas primeras recogidas de datos de monitorización, correspondientes a nuestro equipo local. Pero en los siguiente apartados vamos a ampliarla.
+Por defecto, nos aparecen unas primeros datos de monitorización, correspondientes a nuestro equipo local. Pero en los siguiente apartados vamos a ampliarla los dispositivos a monitorizar.
 
 ---
 # 4. Configurar objetos para monitorizar
