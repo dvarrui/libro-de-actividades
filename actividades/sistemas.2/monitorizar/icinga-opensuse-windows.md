@@ -125,7 +125,7 @@ quit
 
 **Activar el módulo IDO MySQL**
 
-* `icinga2 featur´e enable ido-mysql`, habilitamos la característica "ido-mysql".
+* `icinga2 feature enable ido-mysql`, habilitamos la característica "ido-mysql".
 * `systemctl restart icinga2`, reiniciamos el servicio.
 
 > Comprobamos `icinga2 feature list`.
