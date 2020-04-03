@@ -121,7 +121,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icing
 quit
 ```
 
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`. Este script SQL crea todas las tablas necesarias en la BBDD. Sólo se muestrarán mensajes si hay problemas.
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`, este script SQL crea todas las tablas necesarias dentro de la BBDD icinga. Sólo se muestran mensajes si hay problemas. OJO: Sólo se ejecuta una vez.
 
 **Activar el módulo IDO MySQL**
 
