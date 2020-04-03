@@ -393,6 +393,7 @@ object Host "dummyXXdown" {
 > Enlaces de interés:
 > * https://stackoverflow.com/questions/42167778/icinga2-disk-space-check-or-with-three-arguments
 > * https://icinga.com/docs/icinga2/latest/doc/03-monitoring-basics/
+> * [Icinga2: Agent-based Checks](https://icinga.com/docs/icinga2/latest/doc/07-agent-based-monitoring/)
 
 Por ahora el monitor, sólo puede obtener la información que los equipos dejan ver desde el exterior. Cuando queremos obtener información del interior de los Hosts,  tenemos que acceder dentro de la máquina remota. En nuestro caso, usaremos SSH para acceder a esta información interna de la máquina: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
