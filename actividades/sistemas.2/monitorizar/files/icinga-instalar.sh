@@ -58,10 +58,10 @@ function step35_icingaweb() {
   systemctl restart apache2
 }
 
-# step2_icinga
-# step31_mariadb
-# step32_apache
-# step33_apirest
-# step35_icingaweb
+step2_icinga
+step31_mariadb
+step32_apache
+step33_apirest
+step35_icingaweb
 
 echo "[NEXT] Abrimos un navegador cons el URL http://localhost/icingaweb2/"
