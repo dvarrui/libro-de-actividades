@@ -144,7 +144,7 @@ Podríamos usar como servidor web: Apache2 o Nginx. En nuestro ejemplo elegimos 
 
 ## 3.3 Cortafuegos
 
-El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos configurarlo también. Vamos a permitir el puerto 80 (http) en las reglas del cortafuegos.
+El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos modificar su configuración para permitir acceso por el puerto http(80).
 
 * Abrir el puerto http(80) en el cortafuegos:
     * `firewall-cmd --add-service=http`
@@ -154,7 +154,7 @@ El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos
 >
 > También podemos usar Yast para abrir los puertos en el cortafuegos: `Yast -> Cortafuegos -> Abrir servicio http(80) y https(443)`.
 
-* `nmap -Pn localhost`, comprobar que el puerto 80(http) está abierto.
+* `nmap -Pn localhost`, comprobar que el puerto http(80) está abierto.
 ```
 PORT     STATE SERVICE
 22/tcp   open  ssh
