@@ -71,10 +71,8 @@ Podemos hacernos la idea de que los "grupos de volumen" son como si fueran disco
 date
 hostname
 ip a
-fdisk -l
-lsblk
+lsblk              # Muestra discos, particiones, volúmenes y puntos de montaje
 vgdisplay          # Muestra los grupos de volumen
-lvdisplay grupoXX  # Muestra los volúmenes lógicos de un grupo
 ```
 
 ---
@@ -92,6 +90,7 @@ Ahora podremos ampliar _"en caliente"_, el espacio de `volXXhome` de 100MB a 400
 
 * Comprobamos lo que tenemos por ahora:
 ```
+lsblk
 vgdisplay          # Comprobar que ha aumentado el espacio ocupado
 lvdisplay grupoXX
 df -hT
