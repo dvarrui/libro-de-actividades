@@ -96,7 +96,9 @@ lvdisplay grupoXX
 df -hT
 ```
 
-> Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el volumen, entonces podemos usar `resize2fs /dev/grupoXX/volXXhome` sirve ajustar dicho valor.
+> **ATENCION:**
+> * Si la salida de algún comando es muy extensa y es difícil hacer las capturas de pantalla, podemos hacer lo siguiente. `lvdisplay grupoXX > salida.txt`, este comando pasa toda la salida de pantalla a un fichero de texto con el nombre `salida.txt`. Luego más tarde, podemos incluir dicho texto en nuestro informe.
+> * Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el volumen, entonces podemos usar `resize2fs /dev/grupoXX/volXXhome` sirve ajustar dicho valor.
 
 ---
 # 3. Modificar el espacio físico LVM
@@ -142,6 +144,9 @@ lvdisplay grupoXXextra # Volúmenes lógicos del grupo "extra"
 df -hT                 # Volumen montado
 lsblk
 ```
+
+> **ATENCION:**
+> * Si la salida de algún comando es muy extensa y es difícil hacer las capturas de pantalla, podemos hacer lo siguiente. `lvdisplay grupoXXextra > salida.txt`, este comando pasa toda la salida de pantalla a un fichero de texto con el nombre `salida.txt`. Luego más tarde, podemos incluir dicho texto en nuestro informe.
 
 ## 3.3 Escribir información
 
