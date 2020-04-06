@@ -69,7 +69,9 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 * Crear un perfil con `aa-genprof` [Saltar al minuto 1:14 del vídeo](https://www.youtube.com/watch?v=2x8_76rFcM4)
 * [Crear un perfil con `aa-autodep`](https://www.digitalocean.com/community/tutorials/how-to-create-an-apparmor-profile-for-nginx-on-ubuntu-14-04)
 
-> Ver un [perfil de ejemplo](./images/home.david.temp.aa.copy.rb)
+> Enlaces de interés:
+> * Veamos un [perfil de ejemplo](./images/home.david.temp.aa.copy.rb)
+> * https://gitlab.com/apparmor/apparmor/wikis/Profiles
 
 ---
 # 2. AppArmor: Práctica
@@ -147,10 +149,11 @@ Volvemos a la "consola1"
 ## 3.2 Comprobamos
 
 Vamos a "consola2".
-* `apparmor_status` para consultar el estado de los perfiles.
-* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
+* `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
 * `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+
+> `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
 
 ---
 # 4. Modo queja
@@ -168,10 +171,11 @@ Volvemos a la "consola1".
 ## 4.2 Comprobamos
 
 Vamos a "consola2".
-* `apparmor_status` para consultar el estado de los perfiles.
-* `ausearch -x mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
+* `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
 * `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+
+> * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
 
 ---
 # ANEXO
@@ -183,4 +187,4 @@ Vamos a "consola2".
 ## A.2 Ideas para usar con Teuton
 
 * Revisar la fecha dentro del fichero perfil.
-* Crear dos comandos: uno complain y otro enforce.
+* Crear dos comandos: uno complain y otro enforce. O usar la futura modalidad de evaluación con estados dinámicos de teuton.
