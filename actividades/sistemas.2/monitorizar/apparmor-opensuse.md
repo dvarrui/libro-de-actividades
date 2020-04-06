@@ -186,5 +186,5 @@ Vamos a "consola2".
 
 ## A.2 Ideas para usar con Teuton
 
-* Revisar la fecha dentro del fichero perfil.
+* Revisar la fecha dentro del fichero perfil (Last modified).
 * Crear dos comandos: uno complain y otro enforce. O usar la futura modalidad de evaluación con estados dinámicos de teuton.
