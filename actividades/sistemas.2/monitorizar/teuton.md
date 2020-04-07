@@ -346,9 +346,9 @@ Ver ejemplo de monitorización del nombre del equipo:
     * Comprobar que existe el grupo jedis (`net localgroup`).
     * Comprobar que existe el usuario obiwan (`net user`).
     * Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
-    * Comprobar que existe el directorio C:\Users\obiwan\private.
-    * Comprobar que existe el directorio C:\Users\obiwan\group.
-    * Comprobar que existe el directorio C:\Users\obiwan\public.
+    * Comprobar que existe el directorio `C:\Users\obiwan\private`.
+    * Comprobar que existe el directorio `C:\Users\obiwan\group`.
+    * Comprobar que existe el directorio `C:\Users\obiwan\public`.
 
 ## 6.2 Comprobar
 
