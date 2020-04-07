@@ -89,6 +89,12 @@ Entrar como superusuario.
 Entrar como nuestro usuario normal:
 * `teuton version`, comprobar versión.
 
+## 1.5 Entregar
+
+Entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
+* `castleXX/*`
+* `var/*`
+
 ---
 # 2. Test: conectividad
 
@@ -106,13 +112,13 @@ Ir a la MV1:
 :alias:
 :global:
 :cases:
-- :tt_members: T-NODE-XX
+- :tt_members: teuton-XX
   :host_ip: 127.0.0.1
-- :tt_members: S-NODE-XX GNU/Linux
+- :tt_members: GNU/Linux-XX
   :host_ip: 172.19.XX.32
-- :tt_members: S-NODE-XX Raspberry PI
+- :tt_members: RaspberryPI-XX
   :host_ip: 172.19.XX.51
-- :tt_members: S-NODE-XX Windows
+- :tt_members: Windows-XX
   :host_ip: 172.19.XX.11
 ```
 
@@ -169,16 +175,16 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 :global:
   :host_username: root
 :cases:
-- :tt_members: T-NODE-XX
+- :tt_members: teuton-XX
   :host_ip: 127.0.0.1
   :host_password: clave-secreta
-- :tt_members: S-NODE-XX GNU/Linux
+- :tt_members: GNU/Linux-XX
   :host_ip: 172.19.XX.32
   :host_password: clave-secreta
-- :tt_members: S-NODE-XX Raspberry PI
+- :tt_members: RaspberryPI-XX
   :host_ip: 172.19.XX.51
   :host_password: clave-secreta
-- :tt_members: S-NODE-XX Windows
+- :tt_members: Windows-XX
   :tt_skip: true
   :host_ip: 172.19.XX.11
   :host_password: clave-secreta
@@ -262,19 +268,19 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   :host_username: root
   :username: nombre-del-alumno
 :cases:
-- :tt_members: alumnoXX MV1
+- :tt_members: teuton-XX
   :host_ip: localhost
   :host_password: clave-secreta
   :hostname: apellidoXXg
-- :tt_members: alumnoXX MV2 GNU/Linux
+- :tt_members: GNU/Linux-XX
   :host_ip: 172.19.XX.32
   :host_password: clave-secreta
   :hostname: apellidoXXg2
-- :tt_members: alumnoXX MV3 Raspberry PI
+- :tt_members: RaspberryPI-XX
   :host_ip: 172.19.XX.51
   :host_password: clave-secreta
   :hostname: apellidoXXrb
-- :tt_members: alumnoXX MV4 Windows
+- :tt_members: Windows-XX
   :tt_skip: true
   :host_ip: 172.19.XX.11
   :host_password: clave-secreta
