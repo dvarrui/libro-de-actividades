@@ -45,9 +45,9 @@ Supongamos que tenemos el siguiente esquema de red:
 ## 1.3 Script de instalación
 
 A fecha de 2-4-2020 se ha creado un script de instalación para automatizar los pasos:
-2.X, 3.1, 3.2, 3.3, 3.5 y 3.6. Por tanto, si se utiliza el script. Después de ejecutarlo podemos saltar directamente al paso 3.7.
+2.X, 3.1, 3.2, 3.3, 3.5 y 3.6. Por tanto, si se ejecuta el script, podemos saltar directamente al paso 3.7.
 
-* Descargar los siguientes ficheros en `/root` de la máquina monitor.
+* Descargar los siguientes ficheros en la carpeta `/root` de la máquina monitor.
     1. Script de instalación: [icinga-instalar.sh](files/icinga-instalar.sh)
     1. Fichero SQL: [icinga-crear-bd.sql](files/icinga-crear-bd.sql)
 * `cd /root`
@@ -87,16 +87,6 @@ include "/usr/share/nano/icinga2.nanorc"
 
 > Comprobamos: `nano /etc/icinga2/conf.d/templates.conf`
 
-## 2.3 INFO: Rutas de la instalación
-
-Por defecto Icinga2 usa los siguientes ficheros y directorios:
-
-| Path	                 | Descripción                            |
-| ---------------------- | -------------------------------------- |
-| /etc/icinga2           | Contiene los ficheros de configuración |
-| /usr/sbin/icinga2	     | Shell wrapper for the Icinga 2 binary |
-| /var/log/icinga2       | Ficheros de log |
-
 ---
 # 3 Instalar el panel web
 
@@ -121,7 +111,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE VIEW, INDEX, EXECUTE ON icing
 quit
 ```
 
-* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`, este script SQL crea todas las tablas necesarias dentro de la BBDD icinga. Sólo se muestran mensajes si hay problemas. OJO: Sólo se ejecuta una vez.
+* `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`, este script SQL crea todas las tablas necesarias dentro de la BBDD icinga. Sólo se muestran mensajes si hay problemas. **OJO: Ejecutar sólo una vez**.
 
 **Activar el módulo IDO MySQL**
 
@@ -188,7 +178,7 @@ Icinga Web 2 y otras interfaces Web requieren API REST para enviar acciones y co
 
 > Si hemos usado el script de instalación del punto 1.3, entonces podemos continuar la práctica desde este punto.
 
-Vamos a configurar IcingaWeb2 por el navegador.
+Vamos a configurar IcingaWeb2 por el navegador web.
 * Abrimos un navegador y ponemos el URL `http://localhost/icingaweb2/`. Se nos muestra la ventana de autenticación del panel web de la herramienta.
 
 ![](images/icinga-url-icingaweb2.png)
