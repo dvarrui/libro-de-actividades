@@ -113,6 +113,11 @@ quit
 
 * `mysql -u root -p icinga < /usr/share/icinga2-ido-mysql/schema/mysql.sql`, este script SQL crea todas las tablas necesarias dentro de la BBDD icinga. Sólo se muestran mensajes si hay problemas. **OJO: Ejecutar sólo una vez**.
 
+> NOTA: para borrar la base de datos hacemos:
+> * `mysql -u root -p`
+> * `DROP DATABASE icinga;`
+> * `quit`
+
 **Activar el módulo IDO MySQL**
 
 * `icinga2 feature enable ido-mysql`, habilitamos la característica "ido-mysql".
