@@ -6,7 +6,7 @@ Descripción     : Instalación desatendida en Debian/Ubuntu
 Requisitos      : Debian o Ubuntu
 Tiempo estimado :
 ```
----
+
 # Instalación desatendida con KickStart
 
 Enlaces de interés:
