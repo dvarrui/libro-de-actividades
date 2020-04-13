@@ -1,7 +1,7 @@
 
 ```
-Area            : Sistemas Operativos, instalaciones
 Curso           : 201819, 201718
+Area            : Sistemas Operativos, instalaciones
 Descripción     : Instalación desatendida de Windows 7
 Requisitos      : WAIK, Windows 7 ENTERPRISE
 Tiempo estimado : 4 horas
