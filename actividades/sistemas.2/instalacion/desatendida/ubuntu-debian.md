@@ -1,12 +1,13 @@
 
 ```
 Curso           : 201718
-Software        : Ubuntu o Debian
+Area            : Sistemas Operativos, instalaciones
+Descripción     : Instalación desatendida en Debian/Ubuntu
+Requisitos      : Debian o Ubuntu
 Tiempo estimado :
 ```
 ---
-
-# Instalación desatendida con Ubuntu usando KickStart
+# Instalación desatendida con KickStart
 
 Enlaces de interés:
 * Ver [vídeo](https://youtu.be/i2uUIux6_l8)
@@ -20,11 +21,10 @@ Entregar:
 
 # 1. Preparativos
 
-* Usar una MV con ubuntu (o Xubuntu que es más ligero).
-* Instalar las herramientas siguientes:
+* Instalar las herramientas siguientes en la máquina:
     * `isomaster`: Se usa para manejar ficheros con formato ISO.
     * `system-config-kickstart` (Kickstart): Se usa para crear el fichero de respuestas.
-* Descargar una ISO de instalación de `Ubuntu Server` dentro de la MV.
+* Descargar una ISO de instalación de `Ubuntu Server`.
 
 ---
 
@@ -46,7 +46,6 @@ label desatendida
 * Grabar el fichero `txt.cfg` modificado dentro de la ISO en la ruta `/isolinux/txt.cfg`.
 
 ---
-
 # 3. Crear archivo de respuestas
 
 Usar la herramienta Kickstart para crear el archivo de respuestas.
@@ -71,7 +70,6 @@ Usar la herramienta Kickstart para crear el archivo de respuestas.
 * Guardar el fichero de respuestas como `ks.cfg` (en el escritorio, por ejemplo).
 
 ---
-
 # 4. Crear nueva ISO y comprobar
 
 * Usar `isomaster` para
@@ -83,9 +81,8 @@ Usar la herramienta Kickstart para crear el archivo de respuestas.
 
 # ANEXO
 
-## Incluir escritorio en la ISO
+## A1. Resumen de los niveles de ejecución
 
-Resumen de los niveles de ejecución:
 * Run level 0 is matched by poweroff.target (and runlevel0.target is a symbolic link to poweroff.target).
 * Run level 1 is matched by rescue.target (and runlevel1.target is a symbolic link to rescue.target).
 * Run level 3 is emulated by multi-user.target (and runlevel3.target is a symbolic link to multi-user.target).
@@ -99,7 +96,7 @@ Comandos para gestionar el runlevel:
 * `systemctl isolate multi-user.target`, para cambiar a runlevel 3.
 * `systemctl isolate graphical.target`, para cambiar a runlevel 5.
 
-## Instalación desatendida con Debian
+## A2. Instalación desatendida con Debian
 
 Enlaces de interés:
 * Tutorial de cómo modificar
@@ -112,7 +109,7 @@ para una instalación desatendida.
 * [Documentación Debian sobre instalaciones desatendidas](http://www.debian.org/releases/stable/mips/ch04s04.html.es)
 
 
-## Preseed
+## A3. Preseed
 
 Instalación desatendida usando Preseed:
 * https://jjcurriculumvitae.wordpress.com/2018/02/16/instalacion-desatendida-ubuntu/
