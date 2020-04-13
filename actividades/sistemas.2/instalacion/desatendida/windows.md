@@ -1,11 +1,12 @@
 
 ```
-Curso           : 201718, 201819
-Software        : WAIK, Windows 7 ENTERPRISE
+Area            : Sistemas Operativos, instalaciones
+Curso           : 201819, 201718
+Descripción     : Instalación desatendida de Windows 7
+Requisitos      : WAIK, Windows 7 ENTERPRISE
 Tiempo estimado : 4 horas
 ```
 ---
-
 # Instalación desatendida de Windows 7
 
 **Objetivo:** Crear instalación desatendida para SO Windows 7.
@@ -20,9 +21,9 @@ El sistema operativo se instalará en la máquina sin necesidad de que un usuari
 **Enlaces de interés:**
 * [Instalación desatendida Windows7 - IES Valle del Jerte 7](http://informatica.iesvalledeljerteplasencia.es/wordpress/creacion-de-imagen-de-windows-7-con-instalacion-desatendida/).
 * [Instalación desatendida Windows7 - David del Río Pascual](http://www.daviddelrio.es/instalacion-desatendida-de-windows/)
+* [Instalación desatendida con Windows 10](https://www.rafaelsantos.es/web/informatica/windows/39-instalacion-de-windows-desatendida)
 
 ---
-
 # 1. Instalar WAIK
 
 ## 1.1 Copiar ficheros
@@ -41,7 +42,6 @@ Ir a una máquina virtual con Windows.
 * Ir `Inicio -> Todos los programas -> Microsoft Windows AIK -> Administrador de imágenes del sistema de Windows`. Ejecutar como administrador.
 
 ---
-
 # 2. Crear fichero de respuestas
 
 ## 2.1 Abrir el archivo de catálogo
