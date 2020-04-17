@@ -6,7 +6,7 @@ Descripción     : Instalación desatendida OpenSUSE
 Requisitos      : OpenSUSE Leap 15.0
 Tiempo estimado : 4 horas
 ```
----
+
 # Instalación desatendida
 
 Una instalación desatendida del sistema operativo ejecuta el proceso completo
@@ -29,15 +29,13 @@ Enlace de interés:
 
 Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
 
-> OJO: La MVs deben tener configurada la opción de BIOS. NO UEFI.
-> El proceso de instalación desatendida con UEFI debe revisarse.
-
-* A continuación, personalizamos nuestra máquina con los siguientes cambios:
+* Crear una MV1 nueva o usar una que ya tengamos.
+    * OJO: La MV deben tener configurada la opción de BIOS. NO UEFI.
+    * El proceso de instalación desatendida con UEFI debe revisarse porque es diferente.
+* Personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
     * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
-
-> IDEA: Buscar dentro de la ISO, los ficheros RPM del software que queremos instalar. Si no están, descargarlos de Internet y grabarlos dentro de la ISO.
 
 ---
 # 3. Crear el fichero de respuestas
@@ -91,9 +89,10 @@ Fichero de control en un servidor Web (HTTP)
 
 * Creamos una MV2 nueva con un tamaño de disco duro similar a la MV de donde se creó el XML.
 * Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV2.
-* Completar `Boot Options` de la siguiente forma:
 
-> Seleccionar la misma opción que elegimos en el apartado 4.
+![](files/opensuse-boot-options.png)
+
+* Completar `Boot Options` seleccionado la misma opción que elegimos en el apartado 4. Veamos:
 
 ## 5.1 USB
 
@@ -121,3 +120,8 @@ Fichero de control en un servidor Web (HTTP)
 * Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
 
 A continuación debe comenzar la instalación de forma desatendida con las opciones especificadas en el fichero XML.
+
+---
+# ANEXO A
+
+> IDEA: Buscar dentro de la ISO, los ficheros RPM del software que queremos instalar. Si no están, descargarlos de Internet y grabarlos dentro de la ISO.
