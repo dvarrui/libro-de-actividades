@@ -23,13 +23,16 @@ En esta práctica vamos a construir un paquete RPM con la herramienta `rpmbuild`
 * `yast -i rpm-build`, instalamos el paquete rpmbuild.
 
 ---
-# 2. Programa hello
+# 2. Preparativos
 
-Usaremos un programa de ejemplo (hello) que será el programa de ejemplo que queremos incluir en nuestro paquete RPM.
+Preparar los ficheros para construir nuestro paquete:
+1. Código fuente
+1. Makefile
+1. SPECS
 
-## 3.1 Creamos nuestro programa hello
+## 2.1 Código fuente del programa
 
-Creamos el código de un programa en C que muestra un saludo por pantalla.
+Vamos a crear un programa en C de ejemplo (hello). Este programa sólo muestra un saludo por pantalla cuando se ejecuta.
 
 * Crear un fichero `/root/helloXX/main.c`.
 ```
@@ -45,10 +48,9 @@ int main()
 EOF
 ```
 
-## 3.2 Fichero Makefile
+## 2.2 Fichero Makefile
 
-para nuestro , añadiremos el ficheros `makefile` para construirlo, y crearemos un fichero `SPEC` para empaquetar
-el software como un fichero RPM.
+Tenemos que crear un fichero `makefile` que nos ayudará a construir el paquete RPM a partir del código fuente anterior.
 
 * Creamos el fichero `/root/helloXX/Makefile` correspondiente:
 ```
@@ -65,27 +67,28 @@ EOF
 sed -i "s/        /\t/g" Makefile
 ```
 
-## 3.3 Fichero SPEC
+## 2.3 Fichero SPEC
 
-* Creamos el fichero `SPEC` en `/root/hello-1.0/hello.spec`.
-Se necesita el fichero SPEC para crear el paquete RPM.
+En el fichero `SPEC` se incluye metadatos del paquete RPM.
+
+* Creamos el fichero `SPEC` en `/root/helloXX/hello.spec`.
 
 ```
 cat >hello.spec<<EOF
-Summary: hello greets the world
-Name: hello
+Summary: Hello world from XX
+Name: helloXX
 Version: 1.0
 Release: 1
 License: GPL
 Group: Applications/Tutorials
-Source: hello.tar.gz
+Source: helloXX.tar.gz
 URL: http://www.iespuertodelacruz.es
-Distribution: OpenSUSE
+Distribution: GNU/Linux
 Vendor: -
 Packager: NOMBRE-DEL-ALUMNO-XX
 
 %description
-hello greets the world
+Hello world from XX
 
 %prep
 %setup
@@ -102,43 +105,48 @@ make install prefix=\$RPM_BUILD_ROOT
 EOF
 ```
 
-> License is a free-text field. You can enter what you want.
-> Source is the file that will be stored in /usr/src/packages/SOURCES.
+> NOTA:
+> * License is a free-text field. You can enter what you want.
+> * Source is the file that will be stored in /usr/src/packages/SOURCES.
 
 ---
-
-# 4. Construir el RPM
+# 3. Construir el RPM
 
 * Almacenar el código fuente en el lugar apropiado:
 ```
-cd
-tar cvzf hello.tar.gz hello-1.0
-cp hello.tar.gz /usr/src/packages/SOURCES
+cd /root
+tar cvzf helloXX.tar.gz helloXX
+cp helloXX.tar.gz /usr/src/packages/SOURCES
 ```
-* `rpmbuild -ba hello-1.0/hello.spec`
+* `rpmbuild -ba helloXX/hello.spec`
 * Encontraremos nuestro RPM en `/usr/src/packages/RPMS`.
 
 ----
 
-# 5. Comprobar RPM
+# 5. Comprobamos
 
-* `zypper se hello`
-* `zypper info hello`
-* `rpm -ivh /usr/src/packages/RPMS/x86_64/hello-1.0-1.x86_64.rpm`, instalar RPM.
-* `rpm -ql hello`, listar los ficheros que contiene el paquete.
-* `rpm -qi hello`, consultar información del paquete.
+> Por curiosidad:
+> * `zypper se hello`,
+> * `zypper info helloXX`
 
-* `ll /usr/local/bin/hello`, el programa hello está instalado.
-* `rpm -e hello`,desinstalar el paquete.
+Instalamos el paquete:
+* `rpm -ivh /usr/src/packages/RPMS/x86_64/helloXX-1.0-1.x86_64.rpm`, instalar RPM.
+
+Consultamos información del paquete ya instalado:
+* `rpm -ql helloXX`, listar los ficheros que contiene el paquete.
+* `rpm -qi helloXX`, consultar información del paquete.
+* `ll /usr/local/bin/hello`, el programa hello está en nuestro sistema.
+* `hello`, ejecutamos nuestro programa de HelloWorld.
+
+Desinstalamos el paquete:
+* `rpm -e helloXX`,desinstalar el paquete.
 * `ll /usr/local/bin/hello`, el programa ya no existe.
 
-> **Clean up**
-> To clean up, run
-> rm /usr/src/packages/SOURCES/hello.tar.gz
-> rm -rf /usr/src/packages/BUILD/hello-1.0
+> **Clean up**: To clean up, run
+> rm /usr/src/packages/SOURCES/helloXX.tar.gz
+> rm -rf /usr/src/packages/BUILD/helloXX-1.0
 
 ---
-
 # ANEXO
 
 Enlaces de interés:
