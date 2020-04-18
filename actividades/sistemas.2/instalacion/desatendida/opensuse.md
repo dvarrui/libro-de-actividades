@@ -20,9 +20,9 @@ Entregar:
 # 1. Instalación desatendida con **autoyast**
 
 Enlace de interés:
-* [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
-* [Documentación de AutoYast](https://doc.opensuse.org/projects/autoyast/)   
-* [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
+* ES - [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
+* EN - [AutoYaST Guide](https://doc.opensuse.org/projects/autoyast/)   
+* ES - [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
 ---
 # 2. Personalizamos la MV

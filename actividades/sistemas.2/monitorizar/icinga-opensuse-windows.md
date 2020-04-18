@@ -62,6 +62,7 @@ A fecha de 2-4-2020 se ha creado un script de instalación para automatizar los 
 > * EN - [Getting Started](https://icinga.com/docs/icinga2/latest/doc/02-getting-started/)
 > * EN - [Install IcingaWeb2](https://www.2daygeek.com/install-icinga-web2-on-centos-rhel-fedora-opensuse-ubuntu-debian-mint/)
 > * ES - Vídeo sobre [Instalar Icinga2 e IcingaWeb2 en Centos 7](https://youtu.be/eVFqyFJN9nk)
+> * ES - [Instalar Icinga 2 e Icinga Web 2 en Centos 7 ](https://twitter.com/ochobitsunbyte/status/1250034071570460672?s=09)
 > * ES - [Monitorizar sistemas y redes con Icinga2](https://www.ochobitshacenunbyte.com/2015/10/30/monitoriza-sistemas-redes-icinga2/)
 
 ## 2.1 Instalar el software principal

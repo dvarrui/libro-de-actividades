@@ -1,48 +1,58 @@
 
 ```
-Curso           :
-Software        : SO OpenSUSE
-Tiempo estimado :
+Curso       : EN CONSTRUCCION!!!
+Area        : Sistemas operativos, programación, administración
+Descripción : Creación de paquetes RPM
+Requisitos  : SO OpenSUSE
+Tiempo      :
 ```
----
 
-# Crear nuestro paquete rpm en OpenSUSE
+# 1. Crear paquetes RPM
 
-Esta práctica está basada en el tutorial [Build rpm packages with the rpmbuild command](http://www.linuxintro.org/wiki/Build_rpm_packages_with_the_rpmbuild_command)
+## 1.1 Introducción
 
-# 1. Introducción
+En esta práctica vamos a construir un paquete RPM con la herramienta `rpmbuild`. Nos basaremos principalmente en el primer enlace de la lista de tutoriales.
 
-Vamos a construir un paquete RPM con el comando `rpmbuild` y el fichero `SPEC`.
-Crearemos un programa que muestra en pantalla el mensaje "hello world", añadiremos
-el ficheros `makefile` para construirlo, y crearemos un fichero `SPEC` para empaquetar
-el software como un fichero ROM.
+> Enlaces de interés:
+> * EN [Build rpm packages with the rpmbuild command](http://www.linuxintro.org/wiki/Build_rpm_packages_with_the_rpmbuild_command)
+> * EN [RPM Packaging Tutorial - Creating packages](http://duncan.codes/tutorials/rpm-packaging/index.html#creating-packages)
+> * EN [Centos - rpmbuild tutorial - how to build rpm packages](https://rogerwelin.github.io/rpm/rpmbuild/2015/04/04/rpmbuild-tutorial-part-1.html)
 
-# 2. Instalación del software
+## 1.2. Instalación del software
 
 * `yast -i rpm-build`, instalamos el paquete rpmbuild.
 
-# 3. Crear los ficheros del programa hello
+---
+# 2. Programa hello
+
+Usaremos un programa de ejemplo (hello) que será el programa de ejemplo que queremos incluir en nuestro paquete RPM.
 
 ## 3.1 Creamos nuestro programa hello
 
+Creamos el código de un programa en C que muestra un saludo por pantalla.
+
+* Crear un fichero `/root/helloXX/main.c`.
 ```
-mkdir /root/hello-1.0
-cd /root/hello-1.0
-cat >main.c <<EOF
+mkdir /root/helloXX
+cd /root/helloXX
+cat > main.c << EOF
 #include <stdio.h>
 
 int main()
 {
-  printf("Hello World! (nombre-alumnoXX)\n");
+  printf("nombre-alumnoXX: Hello World!\n");
 }
 EOF
 ```
 
 ## 3.2 Fichero Makefile
 
-* Creamos el fichero `/root/hello-1.0/Makefile` correspondiente:
+para nuestro , añadiremos el ficheros `makefile` para construirlo, y crearemos un fichero `SPEC` para empaquetar
+el software como un fichero RPM.
+
+* Creamos el fichero `/root/helloXX/Makefile` correspondiente:
 ```
-cat >Makefile <<EOF
+cat > Makefile << EOF
 all:hello
 
 hello: main.c
@@ -135,7 +145,6 @@ Enlaces de interés:
 * [OpenSUSE – Build a rpm package](https://eureka.ykyuen.info/2009/12/28/opensuse-build-a-rpm-package/)
 * [Build RPM Package for Installation and Management by System Package Manager](https://www.ordinatechnic.com/os-specific-guides/opensuse/build-rpm-package-for-local-installation)
 
-```
 Rebuilding an existing src.rpm is probably the easiest. I would definitely not go the way of configure, make, make install because (a) that doesn't scale, (b) doesn't provide for easy removal / upgrading of the package and (c) is not atomic.
 
 Building an RPM is not so hard. There used to be a pretty good beginners tutorial at Linux.com, before they destroyed the site. You can try this one, but it's a lot of text, not easy to digest. Still, it's better than nothing.
@@ -162,3 +171,7 @@ I usually have something like this in my .rpmmacros.
 
 As for the syntax of the specfile: it is not that hard. There exists a very detailed, be it very old, reference work called 'Maximum RPM'. Everything you want to know is in there.
 ```
+
+## OBS
+
+* [Beginnerʼs Guide | Open Build Service](https://openbuildservice.org/help/manuals/obs-beginners-guide/)
