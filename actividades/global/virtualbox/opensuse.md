@@ -5,13 +5,16 @@
 
 ## Guest Additions en OpenSUSE
 
-* En la consola como root, `zypper in kernel-devel kernel-desktop-devel gcc make`
-* Reiniciar equipo
-* VirtualBox -> Instalar Guest Additions
+* Ir a la MV.
+* En la consola como root.
+* `zypper in kernel-devel kernel-desktop-devel gcc make`, para instalar paquetes para compilar el código fuente.
+* Reiniciar MV.
+* En a la máquina real, ir a `VirtualBox -> Instalar Guest Additions`
+* Ir a la MV.
 * En la consola como root
-    * `cd /run/media/....`
-    * `./VBoxLinux...`
-* Reiniciar el equipo si todo va bien.
+* `cd /run/media/....`, moverse a la carpeta de la ISO (DVD).
+* `./VBoxLinuxAdditions.run`, ejecutar la instalación para GNU/Linux.
+* Reiniciar MV si todo va bien.
 
 Para montar una carpeta compartida
 * Configurar en VirtualBox el recurso de carpeta compartida con NOMBRE y PATH-HOST-REAL
