@@ -12,7 +12,6 @@
 :card_index:
 :octocat:
 :dizzy:
-:sparklen:
 
 ## Reinstalar GRUB2
 

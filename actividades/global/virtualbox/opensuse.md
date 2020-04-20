@@ -1,8 +1,6 @@
 
 # VirtualBox y SO OpenSUSE
 
-* Configurar [MAC](general.md) de la máquina virtual.
-
 ## Guest Additions en OpenSUSE
 
 * Ir a la MV.
@@ -22,7 +20,10 @@ Para montar una carpeta compartida
 * Entrar en consola como root
     * crear carpeta local PATH-DENTRO-MV
     * `mount -t vboxsf NOMBRE PATH-DE-MV`
-* Ya está!
+* Ya está! :+1:
+
+---
+# ANEXO
 
 ## Instalar VirtualBox en OpenSuse 13.2
 
