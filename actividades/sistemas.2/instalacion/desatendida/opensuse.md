@@ -60,14 +60,9 @@ Necesitamos crear el fichero `autoinst.xml`, con las respuestas a las preguntas 
 Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
 
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-
-> INFO: La Opción de `Autoinstallation Configuration` de Yast, sirve para editar/modificar un fichero de configuración XML ya existente.
-
-* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)`
-(o por consola con `/sbin/yast2 clone_system`).
-* El perfil clonado se guarda en `/root/autoinst.xml`.
+* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
+* El perfil se guarda en `/root/autoinst.xml`.
 * `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
-* Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
 
 # 4. Modos de acceso al fichero de respuestas (XML)
 
@@ -75,18 +70,19 @@ Elegir una de las siguientes formas para la instalación desatendida. Se recomie
 
 ## 4.1 USB
 
-Fichero de control en USB
-* Copiamos el fichero en un pendrive para usarlo más adelante.
-
-> Ejemplo: Copiar fichero al pendrive por comandos.
->
-> * `df -hT |grep media`, consultar la ruta donde está montado el USB.
-> * `cp /root/autoinst.yaml /run/media/...`, copiar el archivo XML a la ruta del USB.
+Vamos a copiar el fichero de control en un USB:
+* Ir a la MV1.
+* Poner el pendrive y montarlo por el entorno gráfico.
+* Abrir un terminal como root.
+* `df -hT |grep media`, consultar la ruta donde está montado el USB.
+* `cp /root/nombre-alumnoXX.xml /run/media/...`, copiar el archivo XML en la ruta del USB.
 
 ## 4.2 ISO
 
 Fichero de control dentro de la propia ISO.
-* Iniciamos un programa para modificar ficheros ISO(Por ejemplo `isomaster`).
+* Ir a la MV1 y copiar el fichero `nombre-alumnoXX.xml` en la máquina real.
+* Ir a la máquina real.
+* Iniciamos un programa para modificar ficheros ISO (Por ejemplo `isomaster`).
 * Abrimos el fichero ISO de OpenSUSE.
 * Incluir el fichero XML dentro de la ISO de instalación.
 * Grabar ISO modificada.
