@@ -19,6 +19,7 @@ En esta práctica vamos a trabajar:
 
 > Enlaces de interés:
 > * [Getting started](https://docs.docker.com/compose/gettingstarted/)
+> * [Taller de introducción a Docker](https://github.com/sergarb1/TallerIntroduccionDocker)
 
 ## Docker-compose
 

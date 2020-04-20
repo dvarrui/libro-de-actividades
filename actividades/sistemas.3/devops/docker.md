@@ -329,7 +329,9 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 * Comprobar el acceso a "holamundo.html".
 
 ---
-# 5. Crear un hola mundo
+# 5. Docker Hub
+
+Crear contenedor un hola mundo y subirlo a Docker Hub.
 
 * Crear un contenedor en la carpeta `dockerXXc` usando Dockerfile. Usaremos la imagen base `busybox`.
 * Al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje:
@@ -337,7 +339,10 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 Hola Mundo!
 nombre-del-alumnoXX
 Proyecto dockerXXc
+Fecha actual
 ```
+* Registrarse en Docker Hub.
+* `docker login`, para abrir la conexión.
 * `docker push ...`, para subir la imagen a los repositorios de Docker.
 
 ---
