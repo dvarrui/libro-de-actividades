@@ -78,6 +78,11 @@ Elegir una de las siguientes formas para la instalación desatendida. Se recomie
 Fichero de control en USB
 * Copiamos el fichero en un pendrive para usarlo más adelante.
 
+> Ejemplo: Copiar fichero al pendrive por comandos.
+>
+> * `df -hT |grep media`, consultar la ruta donde está montado el USB.
+> * `cp /root/autoinst.yaml /run/media/...`, copiar el archivo XML a la ruta del USB.
+
 ## 4.2 ISO
 
 Fichero de control dentro de la propia ISO.
