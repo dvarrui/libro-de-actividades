@@ -51,7 +51,7 @@ Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0
 
 ![](images/virtualbox-usb.png)
 
-* Iniciar la MV1 y ya podemos usar el USB desde dentro de la MV1.
+* Iniciar la MV1. Ya podemos usar el USB desde dentro de la MV1. :+1:
 
 # 3. Crear el fichero de respuestas
 

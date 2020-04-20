@@ -20,7 +20,7 @@ Para montar una carpeta compartida
 * Entrar en consola como root
     * crear carpeta local PATH-DENTRO-MV
     * `mount -t vboxsf NOMBRE PATH-DE-MV`
-* Ya está! :+1:
+* Ya está!
 
 ---
 # ANEXO
