@@ -1,13 +1,14 @@
 
 ```
+Curso       : 201516
+Area        : Sistemas operativos
 Descripción : Instalación desatendida en OpenSUSE 13.X
+              Documentación antigua (curso1516), sobre
+              el proceso de creación del fichero XML en OpenSUSE 13.2
 Requisitos  : OpenSUSE 13.X
 ```
 
----
 ## A.2 OpenSUSE 13.2 (modo 1)
-
-`Documentación antigua (curso1516), sobre el proceso de creación del fichero XML en OpenSUSE 13.2`.
 
 En este caso actualizamos XML con la siguiente información:
 
@@ -22,8 +23,6 @@ En este caso actualizamos XML con la siguiente información:
 vamos a File -> Save as. Y lo grabamos con "nombre-del-alumno.xml".
 
 ## A.2 OpenSUSE 13.2 (modo 2)
-
-`Documentación antigua (curso1516), sobre el proceso de creación del fichero XML en OpenSUSE 13.2`.
 
 Con OpenSUSE 13.2 podemos hacer una nueva instalación en MV y guardar el fichero `autoyast.xml` durante el proceso.
 

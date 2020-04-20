@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201819, 201718
+Curso           : 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
 Requisitos      : OpenSUSE Leap 15.0
