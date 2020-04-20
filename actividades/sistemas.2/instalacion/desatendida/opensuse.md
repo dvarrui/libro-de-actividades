@@ -24,10 +24,11 @@ Enlace de interés:
 * EN - [AutoYaST Guide](https://doc.opensuse.org/projects/autoyast/)   
 * ES - [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
----
-# 2. Personalizamos la MV
+# 2. Preparativos
 
-Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
+Escogemos una MV1 con el sistema operativo OpenSUSE. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
+
+# 2.1 Personalizamos la MV
 
 * Crear una MV1 nueva o usar una que ya tengamos.
     * OJO: La MV deben tener configurada la opción de BIOS. NO UEFI.
@@ -37,7 +38,22 @@ Vamos a usar una MV con el sistema operativo ya instalado. Si no se hubiera crea
     * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
 
----
+## 2.2 Configurar USB en la MV de VirtualBox
+
+* Abrir VirtualBox. Ir a `Ayuda -> Acerca de` para consultar la versión que tenemos instalada. Por ejemplo: "5.2.38".
+* Descargar "Oracle Extension Pack" correspondiente a mi versión de VirtualBox (https://download.virtualbox.org/virtualbox/).
+Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0 Host Controller, Host Webcam, VirtualBox RDP, PXE ROM, Disk Encryption, NVMe.
+
+![](images/virtualbox-extpack.png)
+
+* Aceptar e instalar.
+* Seleccionamos nuestra MV1 y `configuración -> USB -> Añadir`. Elegimos nuestro USB y aceptamos.
+
+![](images/virtualbox-usb.png)
+
+* Iniciar la MV1.
+
+
 # 3. Crear el fichero de respuestas
 
 Necesitamos crear el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
@@ -53,8 +69,6 @@ Vamos a crear un fichero XML que clona la configuración de nuestro sistema actu
 * El perfil clonado se guarda en `/root/autoinst.xml`.
 * `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 * Copiamos el fichero `nombre-alumnoXX.xml` en un pendrive o en la máquina real.
-
----
 
 # 4. Modos de acceso al fichero de respuestas (XML)
 
@@ -84,13 +98,12 @@ Fichero de control en un servidor Web (HTTP)
 * Copiaremos el fichero XML en el servidor web proporcionado por el profesor, para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
 * Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
 
----
 # 5. Comenzar la instalación desatendida
 
 * Creamos una MV2 nueva con un tamaño de disco duro similar a la MV de donde se creó el XML.
 * Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV2.
 
-![](files/opensuse-boot-options.png)
+![](images/opensuse-boot-options.png)
 
 * Completar `Boot Options` seleccionado la misma opción que elegimos en el apartado 4. Veamos:
 
