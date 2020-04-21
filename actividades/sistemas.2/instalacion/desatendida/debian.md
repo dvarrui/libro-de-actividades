@@ -75,7 +75,6 @@ Usar la herramienta Kickstart para crear el archivo de respuestas.
 # ANEXO
 
 
-
 ## A2. Instalación desatendida con Debian
 
 Enlaces de interés:
