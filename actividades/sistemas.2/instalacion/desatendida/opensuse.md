@@ -35,10 +35,21 @@ Escogemos una MV1 con el sistema operativo OpenSUSE. Si no se hubiera creado el 
     * El proceso de instalación desatendida con UEFI debe revisarse porque es diferente.
 * Personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `nano`, `vim`, `git`, `dia`.
+    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `tree`, `vim`, `git`, `dia`.
     * Creamos usuario `nombre-del-alumno`.
 
-## 2.2 Configurar USB en la MV de VirtualBox
+# 3. Fichero de respuestas
+
+## 3.1 Crear el fichero de respuestas
+
+Como necesitamos las respuestas a las preguntas del instalador, vamos a crear un fichero `autoinst.xml` que "copia" la configuración de nuestro sistema actual.
+
+* Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
+* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
+* El perfil se guarda en `/root/autoinst.xml`.
+* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
+
+## 3.2 Configurar USB en la MV de VirtualBox
 
 * Abrir VirtualBox. Ir a `Ayuda -> Acerca de` para consultar la versión que tenemos instalada. Por ejemplo: "5.2.38".
 * Descargar "Oracle Extension Pack" correspondiente a mi versión de VirtualBox (https://download.virtualbox.org/virtualbox/).
@@ -53,88 +64,91 @@ Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0
 
 * Iniciar la MV1. Ya podemos usar el USB desde dentro de la MV1. :+1:
 
-# 3. Crear el fichero de respuestas
-
-Necesitamos crear el fichero `autoinst.xml`, con las respuestas a las preguntas del instalador.
-
-Vamos a crear un fichero XML que clona la configuración de nuestro sistema actual.
-
-* Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
-* El perfil se guarda en `/root/autoinst.xml`.
-* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
-
-# 4. Modos de acceso al fichero de respuestas (XML)
-
-Elegir una de las siguientes formas para la instalación desatendida. Se recomienda (para empezar) escoger USB y/o ISO.
-
-## 4.1 USB
+## 3.3 Copiar fichero XML en pendrive
 
 Vamos a copiar el fichero de control en un USB:
-* Ir a la MV1.
+* Estamos en la MV1.
 * Poner el pendrive y montarlo por el entorno gráfico.
 * Abrir un terminal como root.
 * `df -hT |grep media`, consultar la ruta donde está montado el USB.
 * `cp /root/nombre-alumnoXX.xml /run/media/...`, copiar el archivo XML en la ruta del USB.
+* Podemos apagar la MV1.
 
-## 4.2 ISO
+# 4. Instalación desatendida desde USB
 
-Fichero de control dentro de la propia ISO.
-* Ir a la MV1 y copiar el fichero `nombre-alumnoXX.xml` en la máquina real.
-* Ir a la máquina real.
-* Iniciamos un programa para modificar ficheros ISO (Por ejemplo `isomaster`).
-* Abrimos el fichero ISO de OpenSUSE.
-* Incluir el fichero XML dentro de la ISO de instalación.
-* Grabar ISO modificada.
-
-## 4.3 CIFS
-
-Fichero de control en una carpeta compartida de Windows de una equipo de nuestra red LAN.
-
-## 4.4 HTTP
-
-Fichero de control en un servidor Web (HTTP)
-
-* Copiaremos el fichero XML en el servidor web proporcionado por el profesor, para que se accesible a través de la red. El fichero tendrá el nombre `nombre_del_alumnoXX.xml`.
-* Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
-
-# 5. Comenzar la instalación desatendida
-
-* Creamos una MV2 nueva con un tamaño de disco duro similar a la MV de donde se creó el XML.
+Ya tenemos nuestro fichero XML de respuestas en un pendrive. Ahora vamos a realizar una instalación desatendida en una nueva máquina MV2.
+* En VirtualBox crear una MV2 nueva, con un tamaño de disco duro similar a la MV1.
+* Configurar MV2 para acceder al pendrive USB, igual que hicimos con la MV1.
 * Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV2.
+* Ponemos pendrive con el fichero de control XML en la máquina real.
+* Iniciar la MV2.
 
 ![](images/opensuse-boot-options.png)
 
-* Completar `Boot Options` seleccionado la misma opción que elegimos en el apartado 4. Veamos:
+* Elegimos `Installation`.
+* Completar `Boot Options` con: `autoyast=usb:///nombre-del-alumnoXX.xml`
 
-## 5.1 USB
+> **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=usb://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
-1. Ponemos pendrive con el fichero de control XML.
-1. En opciones de arranque ponemos `autoyast=usb:///nombre-del-alumnoXX.xml`
+* La instalación se debe realizar de forma automática y desatendida.
+* Durante el proceso de instalación habrá una parada donde el instalador nos advirte que no ha podido encontrar algunos paquetes de software (Por ejemplo: geany, tree, git, etc.). Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
 
-> OJO que son 3 barras seguidas después de los dos puntos.
+# 5. Instalación desatendida desde ISO
 
-## 5.2 ISO
+En la instalación desatendida anterior desde USB, tuvimos un problema porque algunos paquetes que se iban a instalar no estaban disponibles en la ISO de instalación. Vamos a realizar de nuevo la instalación desatendida pero en esta ocasión vamos a modificar la ISO original.
 
-1. Iniciar MV con la ISO que tiene el fchero de control dentro.
-1. En opciones de arranque ponemos `autoyast=file:///nombre-de-alumnoXX.xml`
+## 5.1 Preparar los paquetes RPM
 
-> OJO que son 3 barras seguidas después de los dos puntos.
+Vamos a localizar los ficheros RMP de los paquetes: geany, tree y git.
+* `zypper refresh`
+* `zypper install --download-only tree`, para descargar el fichero RPM del paquete tree.
+* `sudo find / -name tree |grep rpm`, para localizar la ruta donde se ha descargado el fichero.
+* Repetimos el proceso para todos los paquetes que necesitemos.
 
-## 5.3 SMB/CIFS
+## 5.2 Preparar la ISO
 
-Fichero de control en carpeta compartida de Windows
-* `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
+* Ir la máquina real.
+* Copiar el fichero `nombre-alumnoXX.xml` en la máquina real.
+* Instalar el programa `isomaster` en la máquina real. NOTA: Es un programa para modificar el contenido de ficheros ISO.
+* Iniciamos `isomaster` y abrimos el fichero ISO de OpenSUSE.
 
-## 5.4 HTTP
+![](images/opensuse-isomaster-xml.png)
 
-Fichero de control en un servidor Web (HTTP)
-* Luego en Boot options `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
-* Poner en Boot Options información de la configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
+* Añadir el fichero XML dentro del directorio raíz de la ISO.
+* Añadir los paquetes RPM dentro del directorio `x86_64` de la ISO.
 
-A continuación debe comenzar la instalación de forma desatendida con las opciones especificadas en el fichero XML.
+![](images/opensuse-isomaster-rpm.png)
 
----
-# ANEXO A
+> NOTA: ¿Por qué se elige esa ruta? Con `zypper info tree`, consultamos información del paquete. Y si nos fijamos en su arquitectura, vemos que tiene `x86_64`. Si repetimos el proceso con el resto de paquetes vemos que son todos de la misma arquitectura.
 
-> IDEA: Buscar dentro de la ISO, los ficheros RPM del software que queremos instalar. Si no están, descargarlos de Internet y grabarlos dentro de la ISO.
+* Grabar ISO modificada con el nombre `opensuse-nombredelalumnoXX.iso`
+
+## 5.3 Instalación desatendida desde la ISO
+
+Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a realizar una instalación desatendida en una nueva máquina MV3.
+* En VirtualBox crear una MV3 nueva, con un tamaño de disco duro similar a la MV1.
+* Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV3.
+* Iniciar la MV3.
+
+![](images/opensuse-boot-options.png)
+
+* Elegimos `Installation`.
+* Completar `Boot Options` con: `autoyast=file:///nombre-del-alumnoXX.xml`
+
+> **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=file://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
+
+* La instalación se debe realizar de forma automática y desatendida. En este caso hemos resuelto el problema de los paquetes RPM que no se encontraban, porque los hemos añadido en nuestra ISO personalizada.
+
+# 6. INFO: Otras formas de instalación
+
+**Carpetas compartidas SMB/CIFS**: El fichero de control se pone en una carpeta compartida de Windows de un equipo de nuestra red LAN.
+
+* Boot options: `autoyast=cifs://servidor/carpeta/nombre-del-alumnoXX.xml`
+
+**Servidor web HTTP**: El fichero de control se pone accesible desde un servidor Web (HTTP) en la red LAN o WAN.
+* En clase podemos copiar el fichero XML en el servidor web proporcionado por el profesor, para que se accesible a través de la red. El fichero tendrá el nombre `nombredelalumnoXX.xml`.
+* Establecer la configuración de red de forma manual, pulsando F4 -> Configuración de red.
+
+Ejemplos de boot options:
+* `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
+* Con información de configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`

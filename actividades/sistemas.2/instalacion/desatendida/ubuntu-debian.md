@@ -99,6 +99,7 @@ Comandos para gestionar el runlevel:
 ## A2. Instalación desatendida con Debian
 
 Enlaces de interés:
+* https://www.librebyte.net/despliegue-de-sistemas/como-instalar-debian-de-forma-automatica-o-desatendida/
 * Tutorial de cómo modificar
 [debian-installer](http://lihuen.info.unlp.edu.ar/index.php?title=Modificando_debian-installer)
 para una instalación desatendida.
