@@ -100,10 +100,10 @@ En la instalación desatendida anterior desde USB, tuvimos un problema porque al
 ## 5.1 Preparar los paquetes RPM
 
 Vamos a localizar los ficheros RMP de los paquetes: geany, tree y git.
-* `zypper refresh`
-* `zypper install --download-only tree`, para descargar el fichero RPM del paquete tree.
-* `sudo find / -name tree |grep rpm`, para localizar la ruta donde se ha descargado el fichero.
-* Repetimos el proceso para todos los paquetes que necesitemos.
+
+* tree: https://software.opensuse.org/download/package?package=tree&project=openSUSE%3ALeap%3A15.1
+* geany: https://software.opensuse.org/download/package?package=geany&project=openSUSE%3ALeap%3A15.1
+*  git: https://software.opensuse.org/download/package?package=git&project=openSUSE%3ALeap%3A15.1
 
 ## 5.2 Preparar la ISO
 
@@ -152,3 +152,11 @@ Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a rea
 Ejemplos de boot options:
 * `autoyast=http://ip-del-servidor-web/autoyast/nombre-de-alumnoXX.xml`.
 * Con información de configuración de red. Esto es: `hostip=172.19.XX.31/16 gateway=172.19.0.1 autoyast=http://172.20.1.2/autoyast/nombre-de-alumnoXX.xml`
+
+---
+# ANEXO
+
+* `zypper refresh`
+* `zypper install --download-only tree`, para descargar el fichero RPM del paquete tree.
+* `sudo find / -name tree |grep rpm`, para localizar la ruta donde se ha descargado el fichero.
+* Repetimos el proceso para todos los paquetes que necesitemos.

@@ -80,8 +80,16 @@ Es sólo temporal.
 
 # ANEXO
 
+Comandos para gestionar el runlevel:
+* `systemctl get-default`, para ver el target por defecto.
+* `systemctl set-default multi-user.target`, para cambiar el target por defecto.
+* `systemctl isolate multi-user.target`, para cambiar a runlevel 3.
+* `systemctl isolate graphical.target`, para cambiar a runlevel 5.
+
+Ficheros
+* /usr/lib/systemd/system/alumno.service
+
 ```
-alumno@telesforo:~> more /usr/lib/systemd/system/alumno.service
 [Unit]
 Description=Reset User alumno
 
@@ -93,8 +101,9 @@ ExecStart=/usr/bin/ruby /home/auto/reset-user.rb
 WantedBy=multi-user.target
 ```
 
+* more reset-user.rb
+
 ```
-alumno@telesforo:/home/auto> more reset-user.rb
 #!/usr/bin/ruby
 # encoding: utf-8
 
@@ -124,7 +133,4 @@ if today>last_execution
 else
   puts "[INFO] Nothing done!"
 end
-
-alumno@telesforo:/home/auto>
-
 ```
