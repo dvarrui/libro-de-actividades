@@ -11,20 +11,22 @@ Tiempo      :
 
 # Instalación desatendida de Windows 10
 
-Entrega:
-* Elaborar un informe detallado, incluyendo capturas de pantalla, de la creación de una ISO de instalación desatendida de Windows 10.
-* Subir el informe a esta actividad en formato PDF y demostrar al profesor en el aula el correcto funcionamiento de la imagen ISO en una máquina virtual.
-
-NOTA: Se deberá comprobar en una máquina virtual de tipo Windows 10 la ISO de instalación desatendida.
-
-Enlaces de interés:
+**Enlaces de interés:**
 * https://www.windowscentral.com/how-create-unattended-media-do-automated-installation-windows-10
 
+**Entrega:**
+* Informe detallado con capturas de pantalla, de la creación de una ISO de instalación desatendida de Windows 10.
+* Demostrar al profesor en el aula el correcto funcionamiento de la imagen ISO en una máquina virtual.
+
 # 1. Preparativos
+
+## 1.1 Software
 
 * Tenemos que tener la ISO de Windows 10 en nuestra máquina real.
 * Descargar [Windows ADK installer for Windows 10](https://go.microsoft.com/fwlink/?linkid=873065).
 * Instalar Windows ADK marcando la opción "Check the Deployment Tools package". Esta opción contiene "Windows System Image Manager".
+
+## 1.2 Proyecto
 
 * Importing Windows 10 image files to your PC
 * Setting up an answer file environment
@@ -45,4 +47,5 @@ Enlaces de interés:
 # 3 Adding the answer file to a USB installation media
 
 * Use ImgBurn to add `autounattend.xml` file into Windows 10 ISO.
-* Save as new ISO (windows-alumnoXX.iso)
+* Guardar la nueva ISO como `windows10-alumnoXX.iso`
+* Comprobar el resultado en una nueva máquina virtual.
