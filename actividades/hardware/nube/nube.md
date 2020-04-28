@@ -1,10 +1,10 @@
 
 ```
-Curso           : 201819
-Software        : NextCloud, OpenSUSE Leap
-Tiempo estimado : 4 horas
+Curso      : 201920, 201819
+Area       : Almacenamiento en la nube
+Requisitos : NextCloud, OpenSUSE Leap
+Tiempo     : 4 horas
 ```
----
 
 # Nube de almacenamiento
 
@@ -16,8 +16,6 @@ Propuesta de rúbrica:
 | C2 | Instalación de NextCloud  ||||
 | C3 | Comprobar acceso web      ||||
 | C4 | Desktop client            |||.|
-
----
 
 # 1. Nube ajena
 
@@ -31,8 +29,6 @@ Pasos a realizar:
 * Elegir alguna de las siguientes herramientas: DropBox, Google Drive, OneDrive, Mega. Consultar con el profesor si queremos elegir otra opción.
 * Realizar la instalación y configuración de la herramienta elegida sobre Windows, GNU/Linux o Android.
 * Mostrar su uso mediante ejemplos.
-
----
 
 # 2. Nube propia con NextCoud Server en OpenSUSE Leap
 
@@ -52,8 +48,6 @@ Enlaces de interés:
 * [NextCloud OpenSUSE Leap 15](https://en.opensuse.org/SDB:Nextcloud)
 * [Nextcloud, almacenamiento en la nube. Instalación](https://colaboratorio.net/davidochobits/sysadmin/2017/nextcloud-almacenamiento-en-la-nube-instalacion/)
 
----
-
 ## 2.1 Servidor Web Apache: Instalación y configuración
 
 Enlace de interés:
@@ -66,9 +60,15 @@ Instalación y configuración de Apache2
 
 ## 2.2 Cortafuegos
 
-Abrir el acceso Web desde el cortafuegos.
-* Vamos a `Yast -> Cortafuegos`.
-* Añadir en `Servicios Autorizados` de la `Zona externa` a: `apache2`, `http`,`https`.
+Abrir el acceso Web desde el cortafuegos. El cortafuegos filtra las comunicaciones entrantes y salientes, así que debemos modificar su configuración para permitir acceso por el puerto http(80).
+
+* Abrir el puerto http(80) en el cortafuegos por comandos:
+    * `firewall-cmd --add-service=http`
+    * `firewall-cmd --permanent --add-service=http`
+
+> También se puede hacer por Yast:
+> * Vamos a `Yast -> Cortafuegos`.
+> * Añadir en `Servicios Autorizados` de la zona `public` los puertos `http`,`https`.
 
 ## 2.3 PHP: Instalación y configuración
 
