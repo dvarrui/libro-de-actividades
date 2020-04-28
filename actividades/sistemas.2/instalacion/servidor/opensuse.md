@@ -1,8 +1,10 @@
 
 ```
-Curso       : 201819, 201718
+Curso       : 201920, 201819, 201718
 Área        : Sistemas operativos, servidor, instalar, software
-Descripción : Servidor de actualizaciones para OpenSUSE
+              Servicio Web
+Descripción : Servidor de actualizaciones OpenSUSE
+              Instalar un repositorio OpenSUSE
 Requisitos  : GNU/Linux OpenSUSE Leap
 Tiempo      : 5 horas
 ```
@@ -28,9 +30,14 @@ con el servidor de actualizaciones usando el protocolo HTTP.
 
 ## 1.2 Cortafuegos
 
-Abrir el servicio web en el cortafuegos:
-* `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HHTP Server`
-* Ir al cliente y ejecur `nmap -Pn ip-del-servidor` parar comprobar los servicios abiertos en el servidor (Debe aparecer abierto el servicio Web).
+* Abrir el puerto http(80) en el cortafuegos por comandos:
+    * `firewall-cmd --add-service=http`
+    * `firewall-cmd --permanent --add-service=http`
+
+> También se puede hacer por Yast:
+> * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HHTP Server`
+
+* Ir al cliente y ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
 
 ## 1.3 Comprobamos
 

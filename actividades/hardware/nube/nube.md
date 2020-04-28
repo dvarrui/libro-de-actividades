@@ -1,9 +1,11 @@
 
 ```
-Curso      : 201920, 201819
-Area       : Almacenamiento en la nube
-Requisitos : NextCloud, OpenSUSE Leap
-Tiempo     : 4 horas
+Curso       : 201920, 201819
+Area        : Almacenamiento en la nube, CPD, servicios
+Descripción : Instalar un servidor de almacenamiento en una nube
+              con NextCloud en nuestras propias máquinas.
+Requisitos  : NextCloud, OpenSUSE Leap
+Tiempo      : 4 horas
 ```
 
 # Nube de almacenamiento
@@ -106,8 +108,6 @@ Configuración:
     * Database User Password (for nextclouduser)
     * Database name: **nextcloud**
     * Hostname (such as localhost)
-
----
 
 # 3 Comprobar vía web
 
