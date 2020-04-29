@@ -1,13 +1,13 @@
 # Índice de actividades
 
-`Fecha UM: 2020-04-29 10:45:49 +0100`
+`Fecha UM: 2020-04-29 10:47:32 +0100`
 
 # Resumen
 
 | Categoría | Cantidad de actividades |
 | --------- | ----------------------- |
 | [hardware](#categoría-hardware) | 14 |
-| [sistemas.2](#categoría-sistemas2) | 14 |
+| [sistemas.2](#categoría-sistemas2) | 13 |
 | [sistemas.3](#categoría-sistemas3) | 13 |
 
 ## Categoría: hardware
@@ -45,7 +45,6 @@
 | 10 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian.md](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos.md](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
 | 11 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 6 | [btrfs.md](actividades/sistemas.2/raid-lvm/btrfs.md), [lvm-debian-windows.md](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows.md](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows.md](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows.md](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm.md](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
 | 12 | [tests](actividades/sistemas.2/tests) | 1 | [trim1.md](actividades/sistemas.2/tests/trim1.md) |
-| 13 | [teuton](actividades/sistemas.2/teuton) | 0 |  |
 
 ## Categoría: sistemas.3
 
