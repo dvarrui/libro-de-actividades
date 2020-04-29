@@ -3,7 +3,7 @@
 Curso           : 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
-Requisitos      : OpenSUSE Leap 15.0
+Requisitos      : OpenSUSE Leap 15.0, isomaster
 Tiempo estimado : 4 horas
 ```
 
@@ -19,24 +19,24 @@ Entregar:
 ---
 # 1. Instalación desatendida con **autoyast**
 
-Enlace de interés:
-* ES - [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
-* EN - [AutoYaST Guide](https://doc.opensuse.org/projects/autoyast/)   
-* ES - [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
+> Enlace de interés:
+> * ES - [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
+> * EN - [AutoYaST Guide](https://doc.opensuse.org/projects/autoyast/)   
+> * ES - [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 
 # 2. Preparativos
 
-Escogemos una MV1 con el sistema operativo OpenSUSE. Si no se hubiera creado el fichero `/root/autoinst.xml` durante la instalación entonces tenemos que crearlo como se indica a continuación.
-
 # 2.1 Personalizamos la MV
 
-* Crear una MV1 nueva o usar una que ya tengamos.
+* Crear una MV1 nueva o usar una que ya tengamos con SO OpenSUSE.
     * OJO: La MV deben tener configurada la opción de BIOS. NO UEFI.
     * El proceso de instalación desatendida con UEFI debe revisarse porque es diferente.
 * Personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `geany`, `tree`, `vim`, `git`, `dia`.
+    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `evince`, `gedit`, `vlc` (Prueba los programas para que los conozcas).
     * Creamos usuario `nombre-del-alumno`.
+
+> **Elección de los paquetes**: Hemos elegido paquetes de software que sabemos están dentro de la ISO de instalación. Si queremos incluir más paquetes RPM dentro de la ISO, debemos modificar los ficheros de configuración del repositorio ISO (Consultar ANEXO).
 
 # 3. Fichero de respuestas
 
@@ -97,30 +97,34 @@ Ya tenemos nuestro fichero XML de respuestas en un pendrive. Ahora vamos a reali
 
 En la instalación desatendida anterior desde USB, tuvimos un problema porque algunos paquetes que se iban a instalar no estaban disponibles en la ISO de instalación. Vamos a realizar de nuevo la instalación desatendida pero en esta ocasión vamos a modificar la ISO original.
 
-## 5.1 Preparar los paquetes RPM
+## 5.1 Software para editar ficheros ISO
 
-Vamos a localizar los ficheros RMP de los paquetes: geany, tree y git.
+* Ir la máquina real.
+* Instalar el programa `isomaster` en la máquina real. NOTA: Es un programa para modificar el contenido de ficheros ISO.
 
-* tree: https://software.opensuse.org/download/package?package=tree&project=openSUSE%3ALeap%3A15.1
-* geany: https://software.opensuse.org/download/package?package=geany&project=openSUSE%3ALeap%3A15.1
-*  git: https://software.opensuse.org/download/package?package=git&project=openSUSE%3ALeap%3A15.1
+**Windows**: Si la máquina real es Windows podemos usar Isomaster u otro programa similar como ImgBurn, etc.
+
+**Ubuntu/Debian**: Si la máquina real es Ubuntu/Debian podemos instalar el programa con `apt-get install isomaster`.
+
+**OpenSUSE**: Si la máquina real es OpenSUSE, debemos añadir el repositorio `packman` para poder localizar e instalar el programa isomaster. Veamos:
+* Crear fichero `/etc/zypp/repos.d/repo-packman.repo` con el siguiente contenido:
+```
+[repo-packman]
+enabled=1
+autorefresh=1
+baseurl=http://packman.inode.at/suse/openSUSE_Leap_15.1/
+type=rpm-md
+```
+* `zypper refresh; zypper install isomaster`
 
 ## 5.2 Preparar la ISO
 
-* Ir la máquina real.
 * Copiar el fichero `nombre-alumnoXX.xml` en la máquina real.
-* Instalar el programa `isomaster` en la máquina real. NOTA: Es un programa para modificar el contenido de ficheros ISO.
 * Iniciamos `isomaster` y abrimos el fichero ISO de OpenSUSE.
 
 ![](images/opensuse-isomaster-xml.png)
 
 * Añadir el fichero XML dentro del directorio raíz de la ISO.
-* Añadir los paquetes RPM dentro del directorio `x86_64` de la ISO.
-
-![](images/opensuse-isomaster-rpm.png)
-
-> NOTA: ¿Por qué se elige esa ruta? Con `zypper info tree`, consultamos información del paquete. Y si nos fijamos en su arquitectura, vemos que tiene `x86_64`. Si repetimos el proceso con el resto de paquetes vemos que son todos de la misma arquitectura.
-
 * Grabar ISO modificada con el nombre `opensuse-nombredelalumnoXX.iso`
 
 ## 5.3 Instalación desatendida desde la ISO
@@ -139,7 +143,9 @@ Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a rea
 
 * La instalación se debe realizar de forma automática y desatendida. En este caso hemos resuelto el problema de los paquetes RPM que no se encontraban, porque los hemos añadido en nuestra ISO personalizada.
 
-# 6. INFO: Otras formas de instalación
+# 6. INFO: Otras formas de localizar el fichero XML
+
+A parte de usar un XML desde un USB, o desde el interior de la propia ISO, además tenemos estas otras formas de localizar nuestro fichero XML de respuestas.
 
 **Carpetas compartidas SMB/CIFS**: El fichero de control se pone en una carpeta compartida de Windows de un equipo de nuestra red LAN.
 
@@ -156,7 +162,29 @@ Ejemplos de boot options:
 ---
 # ANEXO
 
+## A.1 Pasos para modificar la información de repositorio ISO
+
+**Paso 1: Descargar los paquetes RPM**
+
+Descargar paquetes RPM por comandos:
 * `zypper refresh`
 * `zypper install --download-only tree`, para descargar el fichero RPM del paquete tree.
 * `sudo find / -name tree |grep rpm`, para localizar la ruta donde se ha descargado el fichero.
 * Repetimos el proceso para todos los paquetes que necesitemos.
+
+Descargar paquetes RPM, directamente desde la web de software de OpenSUSE.
+* tree: https://software.opensuse.org/download/package?package=tree&project=openSUSE%3ALeap%3A15.1
+* geany: https://software.opensuse.org/download/package?package=geany&project=openSUSE%3ALeap%3A15.1
+*  git: https://software.opensuse.org/download/package?package=git&project=openSUSE%3ALeap%3A15.1
+
+**Paso 2: Añadir paquetes al fichero ISO**
+
+* Añadir los paquetes RPM dentro del directorio `x86_64` de la ISO.
+
+![](images/opensuse-isomaster-rpm.png)
+
+> NOTA: ¿Por qué se elige esa ruta? Con `zypper info tree`, consultamos información del paquete. Y si nos fijamos en su arquitectura, vemos que tiene `x86_64`. Si repetimos el proceso con el resto de paquetes vemos que son todos de la misma arquitectura.
+
+**Paso 3: Modificar el catálogo del repositorio**
+
+Para este paso, consultar documento sobre [crear un repositorio](../servidor/opensuse.md) o servidor de actualizaciones.
