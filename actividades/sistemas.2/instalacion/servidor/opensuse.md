@@ -6,24 +6,38 @@ Curso       : 201920, 201819, 201718
 Descripción : Servidor de actualizaciones OpenSUSE
               Instalar un repositorio OpenSUSE
 Requisitos  : GNU/Linux OpenSUSE Leap
+              Paquetes RPM
+              Herramienta createrepo
 Tiempo      : 5 horas
 ```
 
 # Servidor de actualizaciones con OpenSUSE
 
-Necesitaremos las siguientes máquinas:
-* MV1: Un servidor con OpenSUSE.
-* MV2: Un cliente con OpenSUSE.
+**Propuesta de rúbrica:**
+
+| ID  | Criterio               | Bien(2) | Regular(1) | Poco adecuado(0) |
+| --- | ---------------------- | ------- | ---------- | ---------------- |
+| 3.1 | Comprobar acceso al fichero XML ||||
+| 3.2 | Añadir repositorio ||||
+| 3.3 | Comprobar instalaciones desde el cliente ||||
+
+**Preparativos**. Necesitaremos las siguientes máquinas:
+
+| ID  | Sistema Operativo | Rol |
+| --- | ----------------- | --- |
+| MV1 | OpenSUSE          | Servidor de actualizaciones |
+| MV2 | OpenSUSE | Cliente que instala las actualizaciones |
 
 # 1. Servidor Web
 
-Vamos a necesitar un servidor Web para que los clientes se puedan conectar
-con el servidor de actualizaciones usando el protocolo HTTP.
+Para compartir los paquetes de este repositorio con el resto de equipos de la red, podríamos usar diferentes protocolos (http, nfs, ftp/tftp, etc.).
+
+Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar un servidor Web, de modo que los clientes se podrán conectar con el servidor de actualizaciones usando el protocolo HTTP.
 
 ## 1.1 Instalación
 
 * Ir a la MV1 (servidor de actualizaciones).
-* Instalamos el servidor web Apache `zypper in apache2`
+* Instalar el servidor web Apache `zypper in apache2`
 * `systemctl enable apache2`, activar apache2 al inicio.
 * `systemctl start apache2`, iniciar servicio apache2.
 * `systemctl status apache2`, comprobar el estado del servicio apache2.
@@ -39,7 +53,7 @@ con el servidor de actualizaciones usando el protocolo HTTP.
 
 * Ir al cliente y ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
 
-## 1.3 Comprobamos
+## 1.3 Comprobar
 
 * Crear el fichero `/srv/www/htdocs/index.html`. Escribimos nuestro nombre dentro.
 * Desde la MV cliente abrimos navegador web y ponemos URL `http://ip-del-servidor`, para comprobar que accedemos vía HTTP a la otra MV. Si no se ve la página web, volver a revisar la conexión con el servidor y la configuración del cortafuegos en el servidor.
@@ -48,10 +62,12 @@ con el servidor de actualizaciones usando el protocolo HTTP.
 
 ## 2.1 Descargar ficheros rpm
 
+Los ficheros RPM nos permiten instalar software en el sistema operativo.
+A continuación vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina local.
+
 * Ir a la MV1.
-* Ahora vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina local.
-* `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios sin archivos.
-* Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, nano, dia, nmap y/o ipcalc):
+* `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios sin archivos. No tenemos paquetes descargados por ahora.
+* Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
     * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
     * `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
     instalarlo, cuando el software ya está instalado en nuestro sistema local.
@@ -59,21 +75,19 @@ con el servidor de actualizaciones usando el protocolo HTTP.
 
 > INFO: Si quisiéramos descargar un repositorio remoto entero podríamos hacer `wget -r URL-DEL-REPOSITORIO`. Este proceso tarda mucho tiempo y no lo vamos a hacer.
 
-## 2.2 Copiar a nuestro repositorio
+## 2.2 Copiar ficheros a nuestro repositorio
 
-* Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestro REPOSITORIO LOCAL.
+* Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestra carpeta para el REPOSITORIO LOCAL.
 * Copiar toda la estructura de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL.
-    * Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
+* Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
 ## 2.3 Crear el fichero índice
 
-Ahora hay que convertir el directorio local en un repositorio. Para ello vamos a usar la herramienta `createrepo`.
+Ahora hay que convertir el directorio local en un repositorio. Para ello usaremos la herramienta **createrepo**.
 * Instalar la herramienta `createrepo`.
 * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobamos el contenido actual del repositorio.
 * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear los índices de nuestro repositorio. Se muestra una lista de todos los paquetes detectados en este repositorio local.
-* `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobamos el contenido final de nuestro repositorio. Se ha creado un subcarpeta `repodata` con ficheros xml dentro.
-
-> Se pueden compartir los paquetes de este repositorio al resto de equipo de la red usando diferentes protocolos (http, nfs, ftp/tftp, etc.). Nosotros hemos elegido usar el protocolo HTTP (Servidor Web).
+* `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobamos el contenido final de nuestro repositorio. Se ha creado un subcarpeta `repodata` con ficheros XML dentro.
 
 # 3. Cliente del repositorio
 
@@ -108,4 +122,4 @@ Vamos a añadir nuestro repositorio en la MV2.
 * Ir a MV2.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio personalizado. Por ejemplo: `zypper in geany`
-* Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejmplo: `zypper in chromium`
+* Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejemplo: `zypper in chromium`
