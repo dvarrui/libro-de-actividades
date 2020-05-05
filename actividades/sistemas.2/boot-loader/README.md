@@ -211,6 +211,17 @@ Comprueba lo siguiente:
 
 # Dudas
 
+## Reinstalar el cargador de arranque por defecto de Windows en MBR
+
+> Enlaces de interés:
+> * https://miguelcarmona.com/notas-y-recortes/fixmbr-y-fixboot-en-windows-vista-7-8-y-10
+
+* En la consola de recuperación (iniciando desde cd) de Windows:
+```
+bootrec.exe /fixmbr
+bootrec.exe /fixboot
+```
+
 ## Reinstalar GRUB2 en OpenSuse
 
 * [Enlace de interés](https://forums.opensuse.org/content.php/128-Re-install-Grub2-from-DVD-Rescue)
