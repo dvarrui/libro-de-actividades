@@ -1,8 +1,7 @@
 #!/bin/bash
 
-FOLDER=/home/profesor
-EXT=*.png
+mkdir backup
 
-for I in $(find $FOLDER -name $EXT); do
-  echo "cp $I /backup/$(basename $I)"
+for I in $(find /home/profesor -name *.png); do
+  cp $I backup/$(basename $I)
 done
