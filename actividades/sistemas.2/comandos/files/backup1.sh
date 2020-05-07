@@ -7,3 +7,5 @@ for I in $FILES; do           # Bucle para todos los ficheros
   cp $I backup/$(basename $I) # Copiar un archivo
   echo -n "."                 # Mostrar un . por pantalla
 done
+
+echo "Fin del script!"
