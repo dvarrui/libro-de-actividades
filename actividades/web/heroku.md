@@ -73,3 +73,58 @@ https://devcenter.heroku.com/articles/dyno-sleeping.
 * `bundle exec rake db:create db:migrate`
 * `heroku local web`
 * Abrir el navegador con el URL http://localhost:5000 para ver la aplicación corriendo en local.
+
+
+---
+
+# ANEXO
+
+## Push local changes
+
+https://devcenter.heroku.com/articles/getting-started-with-ruby#push-local-changes
+
+In this step you’ll learn how to propagate a local change to the application through to Heroku. As an example, you’ll modify the application to add an additional dependency and the code to use it.
+
+Modify Gemfile to include a dependency for the cowsay gem by including a line gem 'cowsay':
+
+source 'https://rubygems.org'
+ruby '>= 2.3.5', '< 2.7'
+
+gem 'cowsay'
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '5.2.3'
+...
+
+Modify app/views/welcome/index.erb so that it uses this gem, by changing the file so that its first few lines read as follows:
+
+<pre>
+<%= Cowsay.say("Hello", "Cow") %>
+</pre>
+...
+
+Now test locally:
+
+bundle install
+
+heroku local
+
+Visit your application at http://localhost:5000. You should see a cute ASCII picture displayed.
+
+Now deploy this local change to Heroku.
+
+Almost every deploy to Heroku follows this same pattern. First, add the modified files to the local git repository:
+
+git add .
+
+Now commit the changes to the repository:
+
+git commit -m "Demo"
+
+Now deploy, just as you did previously:
+
+git push heroku master
+
+Finally, check that everything is working:
+
+heroku open
