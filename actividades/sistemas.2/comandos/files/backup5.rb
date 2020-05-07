@@ -2,17 +2,17 @@
 
 require 'fileutils'
 
-# Dir.chdir('C:/')
-Dir.chdir('/home/profesor')
-items = Dir.glob("**/*.png")
+# Crea el directorio backup si no existe
+FileUtils.mkdir('backup') unless File.exist? 'backup'
+# Lee los nombres de los archivos que buscamos
+nombres = Dir.glob("/home/profesor/**/*.{jpg,jpeg,png}")
 
-items.each do |i|
-  source = File.join('/home', 'profesor', i)
-  dest = File.join('backup', File.basename(i))
-#  puts source
-#  puts dest
-#  FileUtils.cp(source, dest)
-  #puts "/home/profesor/#{i}", "backup/#{File.basename(i)}"
-  puts "copy #{source} #{dest}"
-  system("copy #{source} #{dest}")
+# Para cada nombre de archivo hacemos lo siguiente:
+nombres.each do |i|
+  source = i                      # Nombre del fichero origen
+  dest = File.join('.','backup', File.basename(i)) # Nombre del fichero destino
+  FileUtils.cp(source, dest)      # Copia source en dest
+  print '.'                       # Muestra un punto en pantalla
 end
+
+puts "\nFin del script."
