@@ -8,8 +8,6 @@
 * No cometer faltas de ortografía.
 * El documento debe tener una estructura clara y contener las imágenes justas y necesarias.
 
----
-
 # 1. Entregar fichero
 
 Cuando el trabajo se pida entregar con un informe, éste deberá realizarse obligatoriamente en un formato que podemos ver/consultar en cualquier plataforma sin restricciones técnicas y/o legales.
@@ -23,8 +21,6 @@ Además se proporciona una plantilla en la propia plataforma Moodle que servirá
 * TODOS los componentes del grupo deben entregar el trabajo, aunque sea el mismo.
 
 En algunas ocasiones tendremos que comprimir la entrega. En estos casos también debemos tener cuidado y elegir un formato de compresión que se ajuste al criterio de formato libre y multiplataforma. Por ejemplo: ZIP, 7Z.
-
----
 
 # 2. Entregar URL
 

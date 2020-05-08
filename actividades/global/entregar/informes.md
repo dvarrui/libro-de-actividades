@@ -30,13 +30,9 @@ odt, pdf, etc.
 * En el caso de comprimir el archivo usar formatos abiertos y multiplataforma,
 como por ejemplo: zip, 7z, etc.
 
----
-
 ## 3. Imágenes
 
-* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar.
-Si el fondo del informe y el de las imágenes son blancos, se van a mezclar
-ambos, produciendo confusión.
+* Las imágenes deben ser claras y adecuadas al contenido que se quiere mostrar. Si el fondo del informe y el de las imágenes son blancos, se van a mezclar ambos, produciendo confusión.
 * Tener cuidado de no mostrar las imágenes deformadas.
 * Tener cuidado de no mostrar el contenido tan pequeño que cueste leerlo.
 * Si la imagen muestra mucha información, se deberá resaltar la parte relevante
