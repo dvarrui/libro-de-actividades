@@ -3,14 +3,14 @@
 Curso           : 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
-Requisitos      : OpenSUSE Leap 15.0, isomaster
+Requisitos      : OpenSUSE Leap 15.1, isomaster
+                  Conveniente ver primero la creación de repositorios.
 Tiempo estimado : 4 horas
 ```
 
 # Instalación desatendida
 
-Una instalación desatendida del sistema operativo ejecuta el proceso completo
-de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
+Una instalación desatendida del sistema operativo ejecuta el proceso completo de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
 Entregar:
 * Informe, capturas de imágenes o vídeo.
@@ -176,6 +176,8 @@ Descargar paquetes RPM, directamente desde la web de software de OpenSUSE.
 * tree: https://software.opensuse.org/download/package?package=tree&project=openSUSE%3ALeap%3A15.1
 * geany: https://software.opensuse.org/download/package?package=geany&project=openSUSE%3ALeap%3A15.1
 *  git: https://software.opensuse.org/download/package?package=git&project=openSUSE%3ALeap%3A15.1
+
+**IMPORTANTE**: Incluir los paquetes RPM y sus dependencias.
 
 **Paso 2: Añadir paquetes al fichero ISO**
 
