@@ -1,4 +1,5 @@
 #!/bin/bash
+# Script para crear usuarios en Windows de forma masiva (version 1)
 
 # PASO1a: Leer el fichero con los nombres de los usuarios
 NOMBRES=$(cat nombres.txt)
@@ -9,8 +10,8 @@ echo '' > $SALIDA
 
 # PASO2: Para cada nombre de usuario hacer lo siguiente:
 for I in $NOMBRES; do
-  echo "=> Leyendo el nombre de $I"   # Mostrar mensaje en pantalla
-  echo "net user /add $I" >> $SALIDA  # Añadir línea al fichero de salida
+  echo "=> Leyendo el nombre de $I"         # Mostrar mensaje en pantalla
+  echo "net user $I 123456 /add" >> $SALIDA # Añadir línea al fichero de salida
 done
 
 # PASO3: Mensaje final
