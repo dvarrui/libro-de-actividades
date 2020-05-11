@@ -7,9 +7,15 @@ Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
-# EXPLICACIÓN: Find and copy
+# Ejemplos: Find and copy
 
-Ejemplos:
+Hacer explicación en clase usando los siguientes ejemplos:
 * [ejemplo1.sh](files/ejemplo1.sh)
 * [backup1.sh](files/backup1.sh)
 * [backup2.sh](files/backup2.sh)
+
+# Ejemplos: Create users
+
+Hacer explicación en clase usando los siguientes ejemplos:
+* [create-users1.sh](files/create-users1.sh)
+* [create-users2.sh](files/create-users2.sh)
