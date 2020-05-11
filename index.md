@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2020-05-11 10:44:12 +0100`
+`Fecha UM: 2020-05-11 10:49:38 +0100`
 
 # Resumen
 
@@ -35,7 +35,7 @@
 | 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 5 | [opensuse-apariencia.md](actividades/sistemas.2/aplicaciones/opensuse-apariencia.md), [passwords-w7-opensuse.md](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian.md](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [w7-debian.md](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse.md](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
 | 1 | [backup](actividades/sistemas.2/backup) | 4 | [README.md](actividades/sistemas.2/backup/README.md), [rsync.md](actividades/sistemas.2/backup/rsync.md), [snapper.md](actividades/sistemas.2/backup/snapper.md), [tar.md](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README.md](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp.md](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
-| 3 | [comandos](actividades/sistemas.2/comandos) | 3 | [comandos-01.md](actividades/sistemas.2/comandos/comandos-01.md), [enlaces.md](actividades/sistemas.2/comandos/enlaces.md), [script-find-and-copy.md](actividades/sistemas.2/comandos/script-find-and-copy.md) |
+| 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01.md](actividades/sistemas.2/comandos/comandos-01.md), [scripts-iterativos.md](actividades/sistemas.2/comandos/scripts-iterativos.md) |
 | 4 | [dominios](actividades/sistemas.2/dominios) | 5 | [pdc-cliente-opensuse.md](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian.md](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas.md](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver.md](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza.md](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
 | 5 | [faq](actividades/sistemas.2/faq) | 2 | [README.md](actividades/sistemas.2/faq/README.md), [ln.md](actividades/sistemas.2/faq/ln.md) |
 | 6 | [instalacion](actividades/sistemas.2/instalacion) | 6 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor) |
