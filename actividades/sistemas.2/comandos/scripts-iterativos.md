@@ -7,7 +7,7 @@ Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
-# Ejemplos: bucle
+# Ejemplo script secuencial
 
 Hacer explicación en clase usando el siguiente ejemplo:
 * [ejemplo1.sh](files/ejemplo1.sh)
