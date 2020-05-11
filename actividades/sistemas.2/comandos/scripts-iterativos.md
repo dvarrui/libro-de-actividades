@@ -7,10 +7,14 @@ Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
+# Ejemplos: bucle
+
+Hacer explicación en clase usando el siguiente ejemplo:
+* [ejemplo1.sh](files/ejemplo1.sh)
+
 # Ejemplos: Find and copy
 
 Hacer explicación en clase usando los siguientes ejemplos:
-* [ejemplo1.sh](files/ejemplo1.sh)
 * [backup1.sh](files/backup1.sh)
 * [backup2.sh](files/backup2.sh)
 * [backup3.sh](files/backup3.sh)
