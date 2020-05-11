@@ -7,7 +7,7 @@
 Enlace de interés:
 * [Presentación Git](https://control-versiones-git.netlify.com/)
 * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
-* [Guía de instalación y uso de git en Windows](https://github.com/oscarmoreira11/Guides/blob/master/Github-Windows/README.md)
+* [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
 
 ### Servidor GIT en Internet:
 
