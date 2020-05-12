@@ -11,8 +11,8 @@ end
 
 def resume_dirs(dirpaths)
   puts "\# Resumen\n\n"
-  puts '| Categoría | Cantidad de actividades |'
-  puts '| --------- | ----------------------- |'
+  puts '| Categoría | Secciones |'
+  puts '| --------- | --------- |'
 
   dirpaths.each do |dirpath|
     items = Dir.entries(dirpath) - [ '.', '..', 'REV']

@@ -1,11 +1,11 @@
 # Índice de actividades
 
-`Fecha UM: 2020-05-12 11:36:22 +0100`
+`Fecha UM: 2020-05-12 11:39:38 +0100`
 
 # Resumen
 
-| Categoría | Cantidad de actividades |
-| --------- | ----------------------- |
+| Categoría | Secciones |
+| --------- | --------- |
 | [hardware](#categoría-hardware) | 14 |
 | [sistemas.2](#categoría-sistemas2) | 13 |
 | [sistemas.3](#categoría-sistemas3) | 13 |
