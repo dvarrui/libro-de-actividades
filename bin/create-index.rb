@@ -56,7 +56,7 @@ def get_activity_names(dirpath)
     File.directory?(File.join(dirpath,name))
   end
   output.flatten!.sort!
-  output.map { |name| "[#{name}](#{File.join(dirpath,name)})" }
+  output.map { |name| "[#{File.basename(name,'.md')}](#{File.join(dirpath,name)})" }
 end
 
 show_title
