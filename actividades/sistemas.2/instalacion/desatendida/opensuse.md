@@ -3,7 +3,8 @@
 Curso           : 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
-Requisitos      : OpenSUSE Leap 15.1, isomaster
+Requisitos      : OpenSUSE Leap 15.1,
+                  Programa para editar ISO (isomaster)
                   Conveniente ver primero la creación de repositorios.
 Tiempo estimado : 4 horas
 ```
@@ -53,7 +54,8 @@ Como necesitamos las respuestas a las preguntas del instalador, vamos a crear un
 
 * Abrir VirtualBox. Ir a `Ayuda -> Acerca de` para consultar la versión que tenemos instalada. Por ejemplo: "5.2.38".
 * Descargar "Oracle Extension Pack" correspondiente a mi versión de VirtualBox (https://download.virtualbox.org/virtualbox/).
-Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0 Host Controller, Host Webcam, VirtualBox RDP, PXE ROM, Disk Encryption, NVMe.
+
+> Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0 Host Controller, Host Webcam, VirtualBox RDP, PXE ROM, Disk Encryption, NVMe.
 
 ![](images/virtualbox-extpack.png)
 
@@ -162,30 +164,22 @@ Ejemplos de boot options:
 ---
 # ANEXO
 
-## A.1 Pasos para modificar la información de repositorio ISO
+## A.1 Añadir software al repositorio ISO
 
-**Paso 1: Descargar los paquetes RPM**
-
-Descargar paquetes RPM por comandos:
-* `zypper refresh`
-* `zypper install --download-only tree`, para descargar el fichero RPM del paquete tree.
-* `sudo find / -name tree |grep rpm`, para localizar la ruta donde se ha descargado el fichero.
-* Repetimos el proceso para todos los paquetes que necesitemos.
-
-Descargar paquetes RPM, directamente desde la web de software de OpenSUSE.
-* tree: https://software.opensuse.org/download/package?package=tree&project=openSUSE%3ALeap%3A15.1
-* geany: https://software.opensuse.org/download/package?package=geany&project=openSUSE%3ALeap%3A15.1
-*  git: https://software.opensuse.org/download/package?package=git&project=openSUSE%3ALeap%3A15.1
+**Paso 1: Descargar los paquetes RPM**:
+* Ejecutar los siguientes comandos para descargar algunos paquetes, y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
+    * _Cuando el software no lo tenemos instalado_, ejecutamos `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo.
+    * _Cuando el software ya está instalado en nuestro sistema_, ejecutamos `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
+    instalarlo.
+* `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios con los archivos de los paquetes descargados.
 
 **IMPORTANTE**: Incluir los paquetes RPM y sus dependencias.
 
 **Paso 2: Añadir paquetes al fichero ISO**
 
-* Añadir los paquetes RPM dentro del directorio `x86_64` de la ISO.
+* Añadir los paquetes RPM dentro del directorio correspondiente dentro de la ISO (`noarcho`, `x86_64`, etc.)
 
 ![](images/opensuse-isomaster-rpm.png)
-
-> NOTA: ¿Por qué se elige esa ruta? Con `zypper info tree`, consultamos información del paquete. Y si nos fijamos en su arquitectura, vemos que tiene `x86_64`. Si repetimos el proceso con el resto de paquetes vemos que son todos de la misma arquitectura.
 
 **Paso 3: Modificar el catálogo del repositorio**
 

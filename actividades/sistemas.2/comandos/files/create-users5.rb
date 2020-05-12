@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-# Script para crear usuarios en Windows de fora masiva (version 2)
+# * Script para crear usuarios de forma masiva
+# * SO Windows
+# * Version 1 (usando Ruby each)
 
 # PASO1: Leer el fichero con los nombres de los usuarios
 nombres = File.read('nombres.txt').split
