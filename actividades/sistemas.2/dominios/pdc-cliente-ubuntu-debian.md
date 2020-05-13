@@ -1,6 +1,9 @@
 ```
-* Práctica realizada en los cursos 201314, 201415
-* Cliente de dominio GNU/Linux con PIBS/Likewise
+Curso       : 201415, 201314
+Area        : Sistemas operativos, dominios
+Descripción : Unir un equipo Ubuntu/Debian a un dominio Windows server
+Requisitos  : PDC Windows Server, SO Ubuntu, Software PIBS/Likewise
+Tiempo      :
 ```
 
 # 1. Clientes de Dominio
