@@ -230,7 +230,6 @@ Material de lectura/estudio/consulta:
     * vader: `\\ip-del-PDC\perfiles$\%username%`
     * maul: `\\ip-del-PDC\perfiles$\maul`
 
-
 ## 5.3 Personalizar los perfiles en CLIENTE1
 
 * Iniciar sesión en CLIENTE1 con los usuarios obiwan y maul.
