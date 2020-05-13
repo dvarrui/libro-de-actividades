@@ -1,10 +1,10 @@
 
 ```
-Curso       : 201920, 201819
-Area        : Sistemas operativos, dominios
+Curso       : 201819
+Area        : Sistemas Operativos, dominios
 Descripción : Instalar un PDC y configurarlo para
               autenticación y perfiles móviles
-Requisitos  : Windows 2008 Server, Windows 7/10
+Requisitos  : Windows 2012 Server, Windows 10
 Tiempo      : 6 horas
 ```
 
@@ -24,18 +24,16 @@ Propuesta de rúbrica:
 # 1. Preparativos
 
 Necesitaremos:
-* 1 MV con Windows Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
+* 1 MV con Windows Server 2012 Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
     * Poner como DNS1 el valor `127.0.0.1`.
-* 2 MV con Windows 7 Enterprise
+* 2 MV con Windows 10 Enterprise
 ( [Consultar configuración](../../global/configuracion/windows.md)).
 
 > **OBSERVACIONES**
 >
 > * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
 > * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
-> * Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado con el controlador IDE, para evitar problemas con los drivers SATA.
-> * Recién instalado, Window Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
-> * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
+> * Windows Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10). Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
 
 * Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`,
 que nos permite consultar la configuración del servidor, instalar/desinstalar
@@ -53,44 +51,26 @@ paquetes/funciones/servicios, y acceder a los paneles de administración de los 
 * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
 * Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
 
-## 2.2 Instalar en Windows 2008 Server
+## 2.2 Instalar en Windows 2012 Server
 
 Instalación:
-* Hacer una instántanea de la MV antes de nada.
-* Abrir una consola (cmd) y ejecutar el comando `dcpromo`. Es es para activar la función de controlador de dominios junto con el servidor DNS.
-
-Veamos imagen del comando `dcpromo` en ejecución:
-
-![pdc-dcpromo](./files/pdc-dcpromo.png)
-
-* Se inicia el asistente de configuración de los servicios del dominio de AD. Ponemos los
-siguientes valores:
+* Hacer una instantánea de la MV antes de nada.
+* Para activar la función de controlador de dominios ir a `Inicio -> Administrar el servidor -> Agregar roles`.
+    (Servicio de Dominio de Directorio Activo y el Servicio DNS).
+* `Configurar Directorio Activo` con los siguientes valore:
 
 | Parámetro                  | Valor |
 | -------------------------- | ----- |
-| Modo experto               | NO |
-| Crear un dominio nuevo de un bosque nuevo        | SI |
+| Crear un bosque nuevo      | SI |
 | FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1920 |
-| Nivel funcional del bosque | Windows Server 2008 |
+| Nivel funcional del bosque | Windows Server 2012 R2 |
 | Servidor DNS               | SI |
 | Carpetas de almacenamiento | Dejar valores por defecto |
 
+> INFO [Advertencia con la delegación del servicio DNS](https://social.technet.microsoft.com/Forums/es-ES/d77ff7bb-0204-4cfd-94fd-c5160f794793/problema-durante-dcpromo?forum=wsades)
+
 * Al terminar hay que reiniciar el sistema.
-
-![pdc-dcpromo-compatibilidad](./files/pdc-dcpromo-compatibilidad.png)
-
-![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
-
-Vemos imagen, donde podemos comprobar que se han instalado varios "roles" para controlar el dominio:
-
-![pdc-admin-funciones](./files/pdc-admin-funciones.png)
-
-Veamos imagen de configuración de nuestro servidor:
-
-![pdc-config-inicial](./files/pdc-config-inicial.png)
-
-> Enlace de interés:
-> * [Cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
+* Capturar imagen de `Panel del servidor` donde se muestren los servicios instalados.
 
 ## 2.3 Comprobaciones
 
@@ -127,13 +107,15 @@ Vemos imagen con los usuarios del dominio creados:
 
 ![pdc-usuarios-dominio](./files/pdc-usuarios-dominio.png)
 
+---
+
 # 4. Equipos del dominio
 
 ## 4.1 Preparativos
 
 Configurar las MV's clientes de la siguiente forma:
-
-* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
+* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio.
+* **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC, y como DNS2 la IP 8.8.4.4.
