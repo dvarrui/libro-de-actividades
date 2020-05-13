@@ -1,6 +1,6 @@
 
 ```
-Curso             : 201819
+Curso             : 201920, 201819
 Software          : Windows 2008/2012 Server, Windows 7/10
 Duración estimada : 6 horas
 ```
@@ -32,31 +32,26 @@ Necesitaremos:
 
 > **NOTA**
 >
-> * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc.
-son las funcionalidades/características que vienen activas o deshabilitadas.
-> * Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado
-con el controlador IDE, para evitar problemas con los drivers SATA.
-> * Recién instalado, WinServer es estricto con la política de seguridad, en cuanto a cómo
-deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y
-longitud superior a 10).
-> * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`,
-pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016`.
+> * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
+> * Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado con el controlador IDE, para evitar problemas con los drivers SATA.
+> * Recién instalado, WinServer es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
+> * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
 
 * Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`,
 que nos permite consultar la configuración del servidor, instalar/desinstalar
 paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
 
----
-
 # 2. Instalar el Controlador de dominio
 
 ## 2.1 Definiciones
 
-* **DA**: El DA(Directorio Activo) es una base de datos LDAP, que guarda la información de los objetos de nuestro dominio.
-* **NOMBRE DE DOMINIO**:
-    * Cada PDC se identifica con su nombre de dominio, el cuál debe ser único. Hay que evitar que el nombre de dominio se repita con la configuración de otro compañero.
-    * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
-    * Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
+**AD**:
+* El AD (Directorio Activo o Active Directory) es una base de datos LDAP, que guarda la información de los objetos de nuestro dominio.
+
+**NOMBRE DE DOMINIO**:
+* Cada PDC se identifica con su nombre de dominio, el cuál debe ser único. Hay que evitar que el nombre de dominio se repita con la configuración de otro compañero.
+* En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
+* Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
 
 ## 2.2 Instalar en Windows 2012 Server
 
@@ -96,7 +91,7 @@ siguientes valores:
 | -------------------------- | ----- |
 | Modo experto               | NO |
 | Crear un dominio nuevo de un bosque nuevo        | SI |
-| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1819 |
+| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1920 |
 | Nivel funcional del bosque | Windows Server 2008 |
 | Servidor DNS               | SI |
 | Carpetas de almacenamiento | Dejar valores por defecto |
@@ -123,8 +118,6 @@ Veamos imagen de configuración de nuestro servidor:
 
 * Ir a `Herramientas -> DNS` y comprobar que dentro de `Zona de búsqueda directa` aparece nuestro `nombre-de-dominio`.
 * Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer la IP de nuestro servidor PDC.
-
----
 
 # 3. Usuarios del dominio
 
