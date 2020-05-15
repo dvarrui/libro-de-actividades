@@ -23,25 +23,36 @@ Propuesta de rúbrica:
 
 # 1. Preparativos
 
+## 1.1 Máquinas virtuales
+
 Necesitaremos:
 * 1 MV con Windows Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
     * Poner como DNS1 el valor `127.0.0.1`.
 * 2 MV con Windows 7 Enterprise
 ( [Consultar configuración](../../global/configuracion/windows.md)).
 
-> **OBSERVACIONES**
->
-> * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
-> * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
-> * Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado con el controlador IDE, para evitar problemas con los drivers SATA.
-> * Recién instalado, Window Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
-> * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
+## 1.2 OBSERVACIONES
 
-* Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`,
-que nos permite consultar la configuración del servidor, instalar/desinstalar
-paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
+* Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
+* Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
+* Recién instalado, Window Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
+* Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
+
+> Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado con el controlador IDE, para evitar problemas con los drivers SATA.
+
+## 1.3 [OPCIONAL] Raspberry PI
+
+Se podría usar la Raspberry PI que se presta a cada alumno, para instalar GNU/Linux y usarla como cliente del dominio.
+
+* Enlace de interés: [Instalar OpenSUSE en al RbPI](https://en.opensuse.org/HCL:Raspberry_Pi3)
+* En OpenSUSE podemos usar Yast para unir el equipo RbPI al dominio.
 
 # 2. Instalar el Controlador de dominio
+
+Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que nos permite:
+* consultar la configuración del servidor
+* instalar/desinstalar paquetes/funciones/servicios,
+* y acceder a los paneles de administración de los distintos servicios.
 
 ## 2.1 Definiciones
 
