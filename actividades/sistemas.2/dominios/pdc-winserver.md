@@ -42,12 +42,16 @@ Necesitaremos:
 
 ## 1.3 [OPCIONAL] Raspberry PI
 
-Se podría usar la Raspberry PI que se presta a cada alumno, para instalar GNU/Linux y usarla como cliente del dominio.
+Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU/Linux y usarla como cliente del dominio.
+
+**OpenSUSE**
 
 * Enlace de interés: [Instalar OpenSUSE en al RbPI](https://en.opensuse.org/HCL:Raspberry_Pi3)
 * En OpenSUSE podemos usar Yast para unir el equipo RbPI al dominio.
 
 ![](files/pdc-rbpi-opensuse.png)
+
+**Ubuntu/Debian**: [Leer práctica](pdc-cliente-ubuntu-debian.md)
 
 # 2. Instalar el Controlador de dominio
 
