@@ -31,6 +31,8 @@ En el documentos se muestran dos formas de hacer este paso:
 
 # 2. Preparativos en el cliente
 
+## 2.1 Revisar
+
 Tener en cuenta los siguientes aspectos en la configuración del cliente Ubuntu.
 
 * **FECHA/HORA**: La fecha/hora del sistema debe sincronizarse con el PDC.
@@ -38,6 +40,8 @@ Si hiciera falta cambiar la zona horaria podemos usar el comando `dpkg-reconfigu
 * **VIRTUALBOX**: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable configurar la red de las máquinas virtuales en modo "puente" las dos (El modo "Red interna" también funcionará bien).
 * **Interfaz de RED**: Recordar que las máquinas Servidor y cliente deben tener la configuración de red estática.
 * **Servidores DNS**: Los clientes, para unirse al PDC, deben tener como DNS1=ip-del-pdc, y DNS2=8.8.4.4.
+
+## 2.2 Configuracion de red
 
 Veamos un ejemplo de configuración del interfaz de red Ubuntu (Fichero `/etc/network/interfaces`):
 
@@ -55,8 +59,8 @@ netmask 255.255.0.0
 gateway 172.16.1.1
 
 dns-nameservers ip-del-pdc 172.16.1.1
-dns-search vargas1w.idp
-dns-domain vargas1w.idp
+dns-search vargas42dom.curso1415
+dns-domain vargas42dom.curso1415
 ```
 
 * Después de modificar los ficheros de configuración de red, es necesario
@@ -64,16 +68,20 @@ reiniciar el servicio de red para que se lean los cambios. Hay varias formas:
     * service networking restart
     * /etc/init.d/networking restart
     * o bien, reiniciar la máquina.
+
+## 2.3 Servidores DNS
+
 * Para configurar los servidores DNS en Debian, tenemos otra forma.
 Que es editar el archivo /etc/resolv.conf, añadiendo lo siguiente:
 ```
-search vargas1w.idp
-domain vargas1w.idp
+search vargas42dom.curso1415
+domain vargas42dom.curso1415
 nameserver ip-del-pdc
 nameserver 172.16.1.1
 ```
 
 * Comprobar configuración DNS: Para comprobar si la resolución de nombres está funcionando correctamente hacemos las siguientes pruebas:
+
 ```
 $ nslookup www.iespuertodelacruz.es
 Server: 172.16.1.1
@@ -83,19 +91,19 @@ Non-authoritative answer:
 Name: www.iespuertodelacruz.es
 Address: 88.198.18.148
 
-$ nslookup vargas1w.idp
+$ nslookup vargas42dom.curso1415
 Server: 172.16.108.40
 Address: 172.16.108.40#53
 
 Non-authoritative answer:
-Name: vargas1w.idp
+Name: vargas42dom.curso1415
 Address: 172.16.108.40
 ```
 
 * Configuración "manual" de la resolución de nombres: Si la resolución de nombres fallara, podemos para este caso, hacer una configuración de nombres "manual". Para ello editamos el archivo "/etc/hosts" y añadimos la línea siguiente:
 
 ```
-172.16.108.40 vargas1.vargas1w.idp vargas1w.idp
+172.16.108.40 vargas42s.vargas42dom.curso1415 vargas42dom.curso1415
 ```
 
 * Volvemos a realizar la comprobación mediante la ejecución del comando nslookup.
@@ -112,16 +120,20 @@ Para instalar Likewise en Ubuntu hay varias formas:
 
 **(A) Instalar la herramienta PBIS (PowerBroker Identity Services PBIS)**
 * Descargar el instalador de PowerBroker Identity Services, Open Edition y lo hacemos ejecutable (chmod a+x). Lo ejecutamos.
-* Si tenemos el error "Unable to find ssh binary" podemos (a) instalar el paquete del servidor SSH: "apt-get install openssh-server", o (b) Desactivar el uso de ssh "domainjoin-cli join --disable ssh DOMAIN administrador"
+* Si tenemos el error "Unable to find ssh binary" podemos
+    * (a) instalar el paquete del servidor SSH: `apt-get install openssh-server` , o
+    * (b) Desactivar el uso de ssh `domainjoin-cli join --disable ssh DOMAIN administrador`.
 
-**(B) Instalar los paquetes**: likewise-open y likewise-open-gui.
+**(B) Instalar los paquetes**: `likewise-open` y `likewise-open-gui`.
 
 **(C) Descargar el paquete/instalador desde la web de Likewise, para nuestra distro.**
 
 **(D) Descargar el código fuente, y realizar la instalación del programa**
 * http://debian-base.blogspot.com.es/2014/01/installing-active-directory-client.html
 
-## 3.2 Ejecutar el programa para unirse al dominio
+## 3.2 Unir equipo al dominio
+
+**Por entorno gráfico**
 
 Una vez instalado el programa Likewise, puede ser que no tengamos creado un acceso directo en los menús del entorno gráfico. Si queremos saber dónde está el programa podemos ejecutando una búsqueda con "find / -name domainjoin-gui" o "whereis domainjoin-gui".
 
@@ -135,10 +147,11 @@ Una vez instalado el programa Likewise, puede ser que no tengamos creado un acce
 
 * Luego saldrá una pantalla indicando si el proceso ha sido correcto, y se pide reiniciar.
 
-> **Otra forma de ejecutar el programa de unión al dominio:**
->
-> * Otra forma de unirnos al dominio es ejecutando el comando: "domainjoin-cli join DOMINIO Administrador".
-> * Si tenemos un error DNS a la hora de encontrar el servidor de dominio desde la máquina GNU/Linux, podemos incorporar la IP y el NOMBRE-DEL-DOMINIO al fichero /etc/hosts de cada máquina cliente. Esto lo hacemos para facilitar la búsqueda de la resolución de nombre e IP.
+**Por comandos**
+
+* Ir al equipo cliente.
+* `domainjoin-cli join DOMINIO Administrador`, ejecutar el comando para unir el equipo cliente al dominio.
+* Si tenemos un error DNS a la hora de encontrar el servidor de dominio desde la máquina GNU/Linux, podemos incorporar la IP y el NOMBRE-DEL-DOMINIO al fichero /etc/hosts de cada máquina cliente. Esto lo hacemos para facilitar la búsqueda en la resolución de nombre e IP.
 
 ## 3.3 Comprobar
 
@@ -148,18 +161,17 @@ Una vez instalado el programa Likewise, puede ser que no tengamos creado un acce
 # 4. Autenticación
 
 * Ir al cliente.
-* Entramos al sistema con algún usuario del dominio (Ejemplo username, username@DOMAIN, DOMAIN\username).
+* Entramos al sistema con algún usuario del dominio (Ejemplos: username, username@DOMAIN, DOMAIN\username).
 
-> En SO Ubuntu veremos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1. Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
-
-* Abrir consola y poner el comando: `cat /etc/passwd | grep $(whoami)`. Este comando busca si nuestro usuario actual está configurado dentro del fichero de usuario locales del sistema.
+> En la imagen de ejemplo podemos ver una máquina con SO Ubuntu, donde se ha iniciado sesión con el usuario **alu1** del dominio **EZEQUIELW**.
 
 ![dentro-dominio-win](./files/pdc-dentro-dominio-win.jpg)
 
-> Si hemos conseguido unirnos al dominio pero tuviéramos problemas para entrar en la máquina GNU/Linux con los usuarios del dominio, debemos probar a quitar el cliente del dominio, volver a unirla al dominio e intentarlo de nuevo.
+* Abrir consola y poner el comando: `cat /etc/passwd | grep $(whoami)`. Este comando busca si nuestro usuario actual está configurado dentro del fichero de usuario locales del sistema.
+
+> **PROBLEMAS**: Si hemos conseguido unirnos al dominio pero tuviéramos problemas para entrar en la máquina GNU/Linux con los usuarios del dominio, probaremos a quitar el cliente del dominio, volver a unirla al dominio e intentarlo de nuevo.
 
 ---
-
 # ANEXO
 
 ## A1. Enlaces de Interés
