@@ -47,6 +47,8 @@ Se podría usar la Raspberry PI que se presta a cada alumno, para instalar GNU/L
 * Enlace de interés: [Instalar OpenSUSE en al RbPI](https://en.opensuse.org/HCL:Raspberry_Pi3)
 * En OpenSUSE podemos usar Yast para unir el equipo RbPI al dominio.
 
+![](files/pdc-rbpi-opensuse.png)
+
 # 2. Instalar el Controlador de dominio
 
 Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que nos permite:
