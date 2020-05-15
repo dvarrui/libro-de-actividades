@@ -5,13 +5,11 @@
 2. Nombre del equipo
 3. Interfaz de red
 
----
 # 1. Configurar USUARIO
 
 * Crear un usuario identificado con `nombre-del-alumno` (en minúsculas).
 * `id nombre-del-alumno`, comprobamos.
 
----
 # 2. Configurar Nombre EQUIPO, DOMINIO
 
 Usaremos los siguientes valores:
@@ -35,7 +33,6 @@ Modificar los siguientes archivos de configuración:
     * `hostname -a`, muestra nombre-máquina
     * `hostname -d`, muestra nombre-dominio
 
----
 # 3. Configuración de red
 
 Recordar:
@@ -108,16 +105,20 @@ iface eth1 inet dhcp
 ---
 # ANEXO
 
-## resolvconf
+## A1. DNS: resolvconf
 
 Si tuviéramos problemas con resolvconf podemos reconfigurarlo con:
 * `sudo rm /etc/resolv.conf`
 * `sudo dpkg-reconfigure resolvconf`
 
-## Configurar temporalmente la red mediante comandos
+## A2. Configurar temporalmente la red mediante comandos
 
 Podemos usar los comandos del sistema para definir una configuración de red temporal. No es fija porque al reiniciar el equipo se pierde.
 
 * `ifconfig eth0 172.AA.XX.0 netmask 255.255.0.0`, para configurar la IP y la máscara de red.
 * `route add default gw 172.AA.0.1`, para configurar la puerta de enlace.
 * `echo nameserver 8.8.4.4 >> /etc/resolv.conf`, para configurar la IP del servidor DNS.
+
+## A3. Instalar OpenSUSE en la RbPI
+
+> Enlace de interés: https://en.opensuse.org/HCL:Raspberry_Pi3
