@@ -178,16 +178,10 @@ Una vez instalado el programa Likewise, puede ser que no tengamos creado un acce
 
 * http://cerowarnings.blogspot.com.es/2011/11/how-to-linux-en-dominio-windows.html
 * Una web que puede servir de ayuda para el ejercicio: http://alternativalibre.wordpress.com/2010/09/15/likewise-open-linux-y-active-directory/
-* Para iniciar sesión en un likewise
-* http://www.likewise.com/resources/documentation_library/manuals/lwe/likewise-enterprise-53-guide.html#AboutLoggingOn
+* Para iniciar sesión en un likewise: http://www.likewise.com/resources/documentation_library/manuals/lwe/likewise-enterprise-53-guide.html#AboutLoggingOn
 
-## A2. PowerBroker Identity Services PBIS
+## A2. Debian
 
-Download the PowerBroker Identity Services, Open Edition installer for your type of computer and operating system from the list and then make it executable with chmod a+x. Or, right-click the installer, click Properties, click the Permissions tab, select Execute for Owner, and then click Close. Then double-click the installer to run it.
-
-After installing PowerBroker Identity Services, Open Edition, run the following command as root. Your AD account must have privileges to join computers to the domain:
-Linux: /opt/pbis/bin/domainjoin-cli join domainName ADjoinAccount
-
-Log on with your AD credentials by using the form DOMAIN\username. On the command line, you must include an escape character: DOMAIN\username.
-
-Note:If you are copying the installer file from your Windows system to your non-Windows target system using a utility such as WinSCP, please be sure to set the file type to binary instead of text or default in your copy options. Not doing so may result in a checksum error.
+Enlaces de interés:
+* [Samba: Unir Debian a un Dominio Windows (I)](https://blog.desdelinux.net/samba-unir-debian-a-un-dominio-windows-i/)
+* [Unir Debian a un dominio de Active Directory](https://red-orbita.com/?p=2652)
