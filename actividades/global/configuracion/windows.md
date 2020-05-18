@@ -4,25 +4,25 @@ Documentos relacionados
 * Configurar [Firewall](../firewall.md).
 * Cómo trabajar en [casa](../casa.md).
 
----
-# Configurar MV Windows
-
-## Introducción
+# MV Windows
 
 * Donde aparezca AA debemos poner el código asignado al aula:
    * 18 para el aula103
    * 19 para el aula109
 * Donde aparezca XX debemos poner el código asignado al alumno.
 
----
-## VirtualBox
+1. [VirtualBox](#virtualbox)
+2. [Durante la instalación](#durante-la-instalacion)
+3. [Despueś de la instalacion](#despues-de-la-instalacion)
+4. [Comprobaciones](#comprobaciones)
+5. [Periodo de pruebas](#periodo-de-pruebas)
+
+## 1. VirtualBox
 
 * Crear la MV.
 * Configuración de red en modo puente.
 
----
-
-## Durante el proceso de Instalación
+## 2. Durante la instalación
 
 * El usuario debe ser el `nombre-del-alumno`. Todos los nombres deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
@@ -38,17 +38,13 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
     * Gateway: `172.AA.0.1`
     * Servidor DNS: `8.8.4.4`
 
----
-
-## Después de la Instalación
+## 3. Después de la Instalación
 
 * El nombre de equipo ir a `Inicio -> Equipo -> (Botón derecho) -> Propiedades`
 
----
+## 4. Comprobaciones
 
-## Comprobaciones finales
-
-Ejecutar los siguientes comandos *PowerShell* para comprobar la configuración:
+Ejecutar los siguientes comandos **PowerShell** para comprobar la configuración:
 
 ```
 date                  # Fecha actual
@@ -60,9 +56,7 @@ ping 8.8.4.4          # Conectividad con Internet
 nslookup www.nba.com  # Configuración DNS
 ```
 
----
-
-## Periodo de pruebas
+## 5. Periodo de pruebas
 
 Una vez instalado el SO Windows 7 disponemos de unos 30 días trabajar con el sistema,
 antes de que pase al estado *"Copia ilegal"*.
