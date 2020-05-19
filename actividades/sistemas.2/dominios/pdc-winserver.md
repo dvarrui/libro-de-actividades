@@ -164,7 +164,11 @@ Configurar las MV's clientes de la siguiente forma:
 
 ## 4.2 Unir equipo al dominio
 
-Unir el equipo cliente al dominio.
+Podemos unir el equipo al dominio por entorno gráfico o por comandos.
+
+**Unir el equipo cliente al dominio por entorno gráfico**
+
+* Ir al equipo cliente Windows.
 * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
 * Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
 
@@ -172,13 +176,13 @@ Veamos imagen de ejemplo:
 
 ![pdc-unir-al-dominio](./files/pdc-unir-al-dominio.png)     
 
+**Unir un equipo al dominio usando comandos**
 
-> **Unir un equipo al dominio usando comandos de Windows Server**
->
-> * [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
-> * El comando Netdom es de los más usados. Lo primero sería descargarlo e instalarlo.
-> * `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`, para unir un equipo al dominio.
-> * `netdom.exe remove %nombreequipo%`, Para quitar y eliminar equipo de dominio.
+* Ir al equipo de Windows Server.
+* Haremos uso del comando **Netdom**. Si no lo tenemos, lo primero sería descargarlo e instalarlo.
+* `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`, para unir un equipo al dominio.
+
+> NOTA: `netdom.exe remove %nombreequipo%`, Para quitar y eliminar equipo de dominio.
 
 ## 4.3 Problemas en la unión al dominio
 
