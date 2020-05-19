@@ -46,8 +46,10 @@ Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU
 
 **OpenSUSE**
 
-* Enlace de interés: [Instalar OpenSUSE en al RbPI](https://en.opensuse.org/HCL:Raspberry_Pi3)
-* En OpenSUSE podemos usar Yast para unir el equipo RbPI al dominio.
+* Enlace de interés:
+    * [Instalar OpenSUSE en al RbPI](https://en.opensuse.org/HCL:Raspberry_Pi3)
+    * [Mi RaspberryPi 3 con openSUSE Tumbleweed])https://victorhckinthefreeworld.com/2017/11/29/mi-raspberrypi-3-con-opensuse-tumbleweed/).
+* Luego podemos usar Yast para unir el equipo RbPI al dominio.
 
 ![](files/pdc-rbpi-opensuse.png)
 
