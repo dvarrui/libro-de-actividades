@@ -46,9 +46,7 @@ Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU
 
 **Raspberry PI con OpenSUSE**
 
-> Enlace de interés:
-> * [Mi RaspberryPi 3 con openSUSE Tumbleweed](https://victorhckinthefreeworld.com/2017/11/29/mi-raspberrypi-3-con-opensuse-tumbleweed/).
-> * [Raspberry Pi – openSUSE install guide – Mic's Linux Experience](https://hreikin.wordpress.com/2014/05/03/raspberry-pi-opensuse-install-guide/)
+> Enlaces de interés: [Mi RaspberryPi 3 con openSUSE Tumbleweed](https://victorhckinthefreeworld.com/2017/11/29/mi-raspberrypi-3-con-opensuse-tumbleweed/), [Raspberry Pi – openSUSE install guide – Mic's Linux Experience](https://hreikin.wordpress.com/2014/05/03/raspberry-pi-opensuse-install-guide/)
 
 * Instalar OpenSUSE en:
     * [Raspberry PI2](https://en.opensuse.org/HCL:Raspberry_Pi2)
