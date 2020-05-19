@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2020-05-12 11:44:29 +0100`
+`Fecha UM: 2020-05-19 13:56:53 +0100`
 
 # Resumen
 
@@ -36,7 +36,7 @@
 | 1 | [backup](actividades/sistemas.2/backup) | 4 | [README](actividades/sistemas.2/backup/README.md), [rsync](actividades/sistemas.2/backup/rsync.md), [snapper](actividades/sistemas.2/backup/snapper.md), [tar](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
 | 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01](actividades/sistemas.2/comandos/comandos-01.md), [scripts-iterativos](actividades/sistemas.2/comandos/scripts-iterativos.md) |
-| 4 | [dominios](actividades/sistemas.2/dominios) | 5 | [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
+| 4 | [dominios](actividades/sistemas.2/dominios) | 6 | [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [pdc-winserver2012](actividades/sistemas.2/dominios/pdc-winserver2012.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
 | 5 | [faq](actividades/sistemas.2/faq) | 2 | [README](actividades/sistemas.2/faq/README.md), [ln](actividades/sistemas.2/faq/ln.md) |
 | 6 | [instalacion](actividades/sistemas.2/instalacion) | 6 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor) |
 | 7 | [licencias](actividades/sistemas.2/licencias) | 1 | [README](actividades/sistemas.2/licencias/README.md) |
