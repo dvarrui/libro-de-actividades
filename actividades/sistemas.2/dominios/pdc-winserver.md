@@ -44,7 +44,7 @@ Necesitaremos:
 
 Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU/Linux y usarla como cliente del dominio.
 
-**OpenSUSE**
+**Raspberry PI con OpenSUSE**
 
 > Enlace de interés:
 > * [Mi RaspberryPi 3 con openSUSE Tumbleweed](https://victorhckinthefreeworld.com/2017/11/29/mi-raspberrypi-3-con-opensuse-tumbleweed/).
@@ -57,7 +57,7 @@ Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU
 
 ![](files/pdc-rbpi-opensuse.png)
 
-**Ubuntu/Debian**: [Leer práctica](pdc-cliente-ubuntu-debian.md)
+**Raspberry PI con Ubuntu/Debian**: [Leer práctica](pdc-cliente-ubuntu-debian.md)
 
 # 2. Instalar el Controlador de dominio
 
