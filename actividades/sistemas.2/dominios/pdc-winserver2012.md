@@ -23,18 +23,21 @@ Propuesta de rúbrica:
 
 # 1. Preparativos
 
-Necesitaremos:
-* 1 MV con Windows Server 2012 Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
-    * Poner como DNS1 el valor `127.0.0.1`.
-* 2 MV con Windows 10 Enterprise
-( [Consultar configuración](../../global/configuracion/windows.md)).
+## 1.1 Máquinas virtuales
 
-> **OBSERVACIONES**
->
-> * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
-> * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
-> * Windows Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10). Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
+Necesitaremos las siguientes máquinas virtuales:
 
+| MV | Sistema operativo | Configuración | DNS |
+| -- | ----------------- | ------------- | --- |
+| 01 | Windows Server 2012 Enterprise | [Consultar](../../global/configuracion/windows-server.md) | DNS1 = `127.0.0.1` |
+| 02 | Windows 10 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+| 03 | Windows 10 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+
+## 1.2 OBSERVACIONES
+
+* Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
+* Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
+* Windows Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10). Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
 * Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que nos permite consultar la configuración del servidor, instalar/desinstalar paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
 
 # 2. Instalar el Controlador de dominio

@@ -25,11 +25,14 @@ Propuesta de rúbrica:
 
 ## 1.1 Máquinas virtuales
 
-Necesitaremos:
-* 1 MV con Windows Server Enterprise ( [Consultar configuración](../../global/configuracion/windows-server.md)).
-    * Poner como DNS1 el valor `127.0.0.1`.
-* 2 MV con Windows 7 Enterprise
-( [Consultar configuración](../../global/configuracion/windows.md)).
+Necesitaremos las siguientes máquinas virtuales:
+
+| MV | Sistema operativo | Configuración | DNS |
+| -- | ----------------- | ------------- | --- |
+| 01 | Windows 2008 Server Enterprise | [Consultar](../../global/configuracion/windows-server.md) | DNS1 = `127.0.0.1` |
+| 02 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+| 03 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+
 
 ## 1.2 OBSERVACIONES
 
