@@ -157,19 +157,23 @@ Configurar las MV's clientes de la siguiente forma:
 * Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
-* Cada equipo cliente debe tener como DNS1 la IP del PDC, y como DNS2 la IP 8.8.4.4.
+* Cada equipo cliente debe tener como DNS1 la IP del PDC.
     * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para comprobar que nos DNS está correctos.
     * Debe aparecer la IP de nuestro servidor PDC.
 * Ejecutar `hostname` en una consola powershell. Debe aparecer el nombre correcto de la máquina.
+* Comprobar la conectividad entre PDC-cliente y cliente-PDC usando el comando `ping` (Deshabilitar el cortafuegos si fuera necesario).
 
 ## 4.2 Unir equipo al dominio
+
+> Enlace de interés: https://www.youtube.com/watch?v=5vJ5zli0efE
 
 Podemos unir el equipo al dominio por entorno gráfico o por comandos.
 
 **Unir el equipo cliente al dominio por entorno gráfico**
 
 * Ir al equipo cliente Windows.
-* Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
+* Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio`
+* Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `vargas42dom.curso1920`, nosotros pondremos sólo `vargas42dom`.
 * Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
 
 Veamos imagen de ejemplo:
