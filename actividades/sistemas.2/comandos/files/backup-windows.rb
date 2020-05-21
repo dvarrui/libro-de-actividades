@@ -5,9 +5,9 @@ require 'fileutils'
 FileUtils.mkdir('c:\backup') unless File.exist?('c:\backup')
 
 # Lee los nombres de los archivos que buscamos
-nombres = Dir.glob(File.join('c:', '**', '*.png')) + 
-          Dir.glob(File.join('c:', '**', '*.jpg')) + 
-	  Dir.glob(File.join('c:', '**', '*.jpeg'))
+nombres = Dir.glob(File.join('c:', '**', '*.png')) 
+nombres << Dir.glob(File.join('c:', '**', '*.jpg'))
+nombres << Dir.glob(File.join('c:', '**', '*.jpeg'))
 
 # Para cada nombre de archivo hacemos lo siguiente:
 nombres.each do |i|
