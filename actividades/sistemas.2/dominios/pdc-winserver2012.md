@@ -35,9 +35,7 @@ Necesitaremos:
 > * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
 > * Windows Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10). Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
 
-* Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`,
-que nos permite consultar la configuración del servidor, instalar/desinstalar
-paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
+* Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que nos permite consultar la configuración del servidor, instalar/desinstalar paquetes/funciones/servicios, y acceder a los paneles de administración de los distintos servicios.
 
 # 2. Instalar el Controlador de dominio
 
@@ -107,8 +105,6 @@ Vemos imagen con los usuarios del dominio creados:
 
 ![pdc-usuarios-dominio](./files/pdc-usuarios-dominio.png)
 
----
-
 # 4. Equipos del dominio
 
 ## 4.1 Preparativos
@@ -119,27 +115,31 @@ Configurar las MV's clientes de la siguiente forma:
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC, y como DNS2 la IP 8.8.4.4.
-    * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para comprobar que nos DNS está correctos.
-    * Debe aparecer la IP de nuestro servidor PDC.
+* Abrir una consola y ejecutar `nslookup nombre-de-dominio` para **comprobar que el DNS está correcto**. Debe aparecer una respuesta desde la IP de nuestro servidor PDC.
 * Ejecutar `hostname` en una consola powershell. Debe aparecer el nombre correcto de la máquina.
+* **Comprobar la conectividad** entre PDC-cliente y cliente-PDC usando el comando `ping` (Deshabilitar el cortafuegos si fuera necesario).
 
 ## 4.2 Unir equipo al dominio
 
-Unir el equipo cliente al dominio.
-* Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio (Escribir el nombre del dominio) -> Aceptar`.
+Podemos unir el equipo al dominio por entorno gráfico o por comandos.
+
+**Unir el equipo cliente al dominio por entorno gráfico**
+
+* Ir al equipo cliente Windows.
+* Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio`
+* Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `vargas42dom.curso1920`, nosotros pondremos sólo `vargas42dom`.
 * Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
 
 Veamos imagen de ejemplo:
 
 ![pdc-unir-al-dominio](./files/pdc-unir-al-dominio.png)     
 
+**Unir un equipo al dominio usando comandos**
 
-> **Unir un equipo al dominio usando comandos de Windows Server**
->
-> * [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
-> * El comando Netdom es de los más usados. Lo primero sería descargarlo e instalarlo.
-> * `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`, para unir un equipo al dominio.
-> * `netdom.exe remove %nombreequipo%`, Para quitar y eliminar equipo de dominio.
+* [Comando para unir equipo a dominio Windows Server](https://www.solvetic.com/tutoriales/article/2706-como-adicionar-windows-10-en-dominio-windows-server/)
+* `netdom.exe join %nombreequipo% /domain:NombreDominio /UserD:NombreDominio\nombreUsuario /PasswordD:Password`, comando para unir un equipo al dominio.
+
+> NOTA: `netdom.exe remove %nombreequipo%`, Para quitar y eliminar equipo de dominio.
 
 ## 4.3 Problemas en la unión al dominio
 
