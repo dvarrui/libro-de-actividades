@@ -17,6 +17,7 @@ Tiempo      :
 * [backup2.sh](files/backup2.sh)
 * [backup3.sh](files/backup3.sh)
 * [backup5.rb](files/backup5.rb)
+* [backup-windows.rb](files/backup-windows.rb)
 
 **Ejemplos: Create users**. Hacer explicación en clase usando los siguientes ejemplos:
 * [create-users1.sh](files/create-users1.sh)
