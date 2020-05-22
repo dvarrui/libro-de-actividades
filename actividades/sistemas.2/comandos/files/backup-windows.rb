@@ -1,5 +1,8 @@
 # Ejecutar este script como:
 #  runas /user:administrador "ruby backup-windows.rb"
+#
+# Descripción:
+#  Buscar todos los archivos png, jpg y jpeg y copiarlos en c:\backup
 
 require 'fileutils'
 
