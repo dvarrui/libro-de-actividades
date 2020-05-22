@@ -1,3 +1,5 @@
+# Ejecutar este script como:
+#  runas /user:administrador "ruby backup-windows.rb"
 
 require 'fileutils'
 
@@ -5,7 +7,7 @@ require 'fileutils'
 FileUtils.mkdir('c:\backup') unless File.exist?('c:\backup')
 
 # Lee los nombres de los archivos que buscamos
-nombres = Dir.glob(File.join('c:', '**', '*.png')) 
+nombres = Dir.glob(File.join('c:', '**', '*.png'))
 nombres << Dir.glob(File.join('c:', '**', '*.jpg'))
 nombres << Dir.glob(File.join('c:', '**', '*.jpeg'))
 
