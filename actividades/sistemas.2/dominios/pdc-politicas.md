@@ -119,12 +119,12 @@ Permisos especiales                |                            | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
-## 2.2 Instalar en el servidor
+## 2.2 Instalar WinINSTALL
 
-> Si disponemos del paquete MSI nos saltamos este apartado.
+Ahora vamos a crear nuestro propio paquete de instalación MSI, usando la herramienta WinINSTALL. Si ya tenemos el software que queremos instalar en los clientes en formato MSI, nos podemos saltar este apartado.
 
-Vamos a crear nuestro propio paquete de instalación MSI, y para ello necesitaremos instalar el software WinINSTALL.
-* Consultar enlace sobre cómo [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+> Enlaces de interés:
+> * [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
 
 **En el servidor**
 * Descargar el programa WinINSTALL y lo instalamos.
@@ -138,8 +138,7 @@ Vamos a crear nuestro propio paquete de instalación MSI, y para ello necesitare
 
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
-* Descargar el instalador de Firefox. ¡OJO! Sólo descargar. NO instalar todavía. El instalador de Firefox debe tener un
-tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa para descargar el instalador.
+* Descargar el instalador de Firefox. **¡OJO! Sólo descargar** (NO instalar todavía). El instalador de Firefox debe tener un tamaño de varios MBs. Si tiene pocos KBs no es el instalador, sino un programa para descargar el instalador.
 * `Inicio -> Ejecutar -> \\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
 para iniciar la aplicación WinINSTALL LE de forma remota,
 
