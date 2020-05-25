@@ -157,7 +157,7 @@ Vemos imagen con los usuarios del dominio creados:
 
 Configurar las MV's clientes de la siguiente forma:
 
-* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla, modificando la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
+* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla. Pero hay que modificar la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC.
@@ -230,8 +230,6 @@ Podemos comprobarlo por entorno gráfico o usando comandos.
     * `net user`, muestra los usuarios locales del sistema y no debe mostrar el usuario anterior.
     * `hostname`, muestra el nombre del equipo local.
 
----
-
 # 5. Perfiles móviles
 
 Material de lectura/estudio/consulta:
@@ -256,46 +254,44 @@ Material de lectura/estudio/consulta:
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
 * En el PDC, vamos a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
-    * yoda: `\\ip-del-PDC\perfiles$\%username%`
-    * obiwan: `\\ip-del-PDC\perfiles$\obiwan`
-    * vader: `\\ip-del-PDC\perfiles$\%username%`
-    * maul: `\\ip-del-PDC\perfiles$\maul`
+
+| Usuario | Ruta del perfil                 |
+| ------- | ------------------------------- |
+| yoda    | `\\IP-del-PDC\perfiles$\yoda`   |
+| obiwan  | `\\IP-del-PDC\perfiles$\obiwan` |
+| vader   | `\\IP-del-PDC\perfiles$\vader`  |
+| maul    | `\\IP-del-PDC\perfiles$\maul`   |
+
+> INFO: También podríamos haber puesto en la ruta del perfil el valor `\\IP-del-PDC\\perfiles$\%username%`. En este caso la variable %username% se cambia automáticamente al valor del nombre de cada usuario.
 
 ## 5.3 Personalizar los perfiles en CLIENTE1
 
-* Iniciar sesión en CLIENTE1 con los usuarios obiwan y maul.
+* Ir a la MV CLIENTE 1.
+* Iniciar sesión con los usuarios `obiwan` y `maul`.
 * Para cada usuario modificar el entorno del escritorio, colores, iconos.
-* Para el usuario del dominio obiwan
+* Para el usuario del dominio `obiwan`:
     * Crear la carpeta `jedi` en el escritorio.
     * Crear fichero `Escritorio/jedi/personajes.txt`. Escribir dentro los nombres de los 2 jedis.
-* Para el usuario dominio maul
+* Para el usuario dominio `maul`:
     * Crear la carpeta `sith` en el escritorio.
     * Crear fichero `Escritorio/sith/personajes.txt`. Escribir dentro los nombres de los 2 siths.
 
 > De este modo el "perfil" de cada usuario será diferente en aspecto y contenido.
 
-* Debemos comprobar que se han creado las carpetas con los perfiles en el servidor para los usuarios anteriores.
-A continuación se muestra una imagen de ejemplo:
+* Debemos comprobar que se han creado las carpetas con los perfiles en el servidor para los usuarios anteriores. A continuación se muestra una imagen de ejemplo:
 
 ![pdc-perfiles](./files/pdc-perfiles.png)
 
 ## 5.4 Comprobar perfiles desde CLIENTE2
 
-> **Esto sólo hay que hacerlo con versiones anteriores a W2008server**
->
-> Ir al equipo CLIENTE1: Vamos a limpiar el equipo cliente.
-> * Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
-> * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
-> * Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a liminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
+Vamos a comprobar el perfil móvil.
 
-Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
-* Entrar en el equipo CLIENTE2, con los usuarios del dominio (obiwan y maul).
-    * Abrir PowerShell y ejecutar los siguientes comandos.
-    * `hostname`, para mostrar nombre del equipo.
-    * `whoami`, para mostrar nuestro usuario actual.
+* Ir al equipo CLIENTE2.
+* Entrar en el equipo con los usuarios del dominio (obiwan y maul).
+* Abrir PowerShell y ejecutar los siguientes comandos.
+* `hostname`, para mostrar nombre del equipo.
+* `whoami`, para mostrar nuestro usuario actual.
 * Comprobar que tenemos perfiles móviles para ellos. El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
-
----
 
 # 6. Perfiles obligatorios
 
@@ -310,8 +306,6 @@ Ir al equipo CLIENTE2: Vamos a comprobar el perfil móvil.
 * Comprobar que ahora el perfil no cambia.
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`,
 y comprobar que el perfil es ahora obligatorio.
-
----
 
 # 7. Control de tiempo
 
@@ -341,3 +335,10 @@ Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde u
     * `WMIC computersystem where caption='nombreDEahora' rename nuevoNombre`
     * Ahora tendrás que reiniciar tu PC Windows para que tenga efecto el nuevo nombre del equipo.
     * Este comando es válido para todos los sistemas Windows 10, 8, 7, Vista, XP, Server...
+
+## Versiones anteriores a W2008server
+
+Ir al equipo CLIENTE1: Vamos a limpiar el equipo cliente.
+* Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
+* Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a eliminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
