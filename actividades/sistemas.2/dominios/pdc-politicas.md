@@ -1,82 +1,92 @@
 
 ```
-Curso             : 201819
-SSOO              : Windows Server (2008, 2012)
-Duración estimada : 8-10 horas
+Curso       :  201819
+Área        : Sistemas operativos, dominios, políticas, seguridad
+Descripción : Aplicar políticas de seguridad a los equipos del dominio
+              Crear paquetes de instalación desatendido
+              Configurar políticas con el uso de ficheros MSI.
+Requisitos  : Windows Server (2008, 2012)
+Tiempo      : 8-10 horas
 ```
----
 
 # Políticas o directivas de grupo
 
+## Preparativos
+
+* Vamos a usar las MVs de la práctica anterior (**Montar un controlador de dominio con Windows Server**).
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
 
-Propuesta de rúbrica
+## Propuesta de rúbrica
 
-| Criterio                   | Nivel 0 | Nivel 1 | Nivel 2 |
-| -------------------------- | ------- | ------- | ------- |
+| Criterios                | Muy bien(2) | Adecuado(1) | Poco adecuado(0) |
+| ------------------------ | ----------- | ----------- | ---------------- |
 | gpo_jedi y gpo_sith        ||||
 | MSI y carpetas compartidas ||||
 | gpo_maquina                ||||
 
----
-
 # 1. Aplicar directivas de Usuario
 
-## 1.1 Crear las OU y GPO
+## 1.1 Crear las OU
 
 Realizar las siguientes tareas:
 
-* Antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual por seguridad.
-* Crear las OU (Unidades Organizativas) `jediXXc1819` y `sithXXc1819`.
-* Mover los usuarios a su correspondiente OU.
-* Enlaces de interés:
-    * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
-    * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
+* Ir a la MV PDC.
+* Por seguridad, antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
+* Crear las OU (Unidades Organizativas) siguientes: `jediXX` y `sithXX`.
+* Mover los usuarios que teníamos creados (obiwan, yoda, maul y vader) a su correspondiente OU.
 
-> **IMPORTANTE**: No aplicar la directivas a todo el dominio.
-> Sólo a las unidades organizativas que se especifiquen.
-> Un error grave es aplicar las directivas a todo el site en lugar de a cada OU.
-> Este error puede afectar al correcto funcionamiento del servidor.
+## 1.2 Crear GPO's
+
+> Enlaces de interés:
+> * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
+> * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
+
+**IMPORTANTE**: No aplicar la directivas a todo el dominio, sino a las unidades organizativas que se especifiquen. Este error puede afectar al correcto funcionamiento del servidor en su totalidad.
 
 * Dentro de la OU de los jedis crear la GPO `gpo_jediXX`.
 * Dentro de la OU de los siths crear la GPO `gpo_sithXX`.
 
-## 1.2 Personalizar cada GPO de forma diferente
+## 1.3 Personalizar cada GPO de forma diferente
 
-> **INFO**
-> Para editar configuraciones de Directiva de grupo:
+> **INFO**: Para editar configuraciones de Directiva de grupo:
 > * En Group Policy Management (Administración de directivas de grupo), en el árbol de consola, desplegar Group Policy Objects (Objetos de Directiva de grupo). Click con el botón derecho del ratón en el GPO y seleccionar Edit (Editar).
 > * En el Editor de objetos de Directiva de grupo, buscar la Directiva de grupo que queremos modificar y hacemos doble clic. En el cuadro de diálogo Propiedades, cambiamos la configuración y Aceptar.
 
-Vamos a aplicar las siguientes directivas a las OU anteriores. Elegir unas para una OU y otras para la otra.
-* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas` (User configuration / Administrative Templates / Start Menu and Taskbar)
-    * `No buscar archivos`
-    * `No buscar programas`
-    * `Quitar el menú Ejecutar del menú Inicio`
-    * `Quitar el icono de Red del menú inicio`
-    * `Quitar icono de Red`
-    * `Quitar Conexiones de red del menú Inicio`
-* En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Panel de control` (User configuration / Administrative Templates / Control Panel)
-    * `Prohibir el acceso al Panel de control`
-* En la sección `Configuración de usuario / Directivas / Plantillas administrativas / Escritorio` ( User configuration / Administrative Templates / Active Desktop)
-    * `Ocultar el icono Ubicaciones de red del escritorio`.
-* En la sección de `Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows` (User configuration / Administrative Templates / Windows Components / Windows Explorer)
-    * Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
-    * `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
+Vamos a aplicar las siguientes directivas a las OU anteriores(_Elegir unas para una OU y otras para la otra_).
 
-## 1.3 Comprobar que se aplican las directivas
+En la sección de **Configuración de usuario / Directivas / Plantillas administrativas / Menú Inicio y barra de tareas** (User configuration / Administrative Templates / Start Menu and Taskbar)
+* `No buscar archivos`
+* `No buscar programas`
+* `Quitar el menú Ejecutar del menú Inicio`
+* `Quitar el icono de Red del menú inicio`
+* `Quitar icono de Red`
+* `Quitar Conexiones de red del menú Inicio`
+
+En la sección **Configuración de usuario / Directivas / Plantillas administrativas / Panel de control** (User configuration / Administrative Templates / Control Panel)
+* `Prohibir el acceso al Panel de control`
+
+En la sección **Configuración de usuario / Directivas / Plantillas administrativas / Escritorio** ( User configuration / Administrative Templates / Active Desktop)
+* `Ocultar el icono Ubicaciones de red del escritorio`.
+
+En la sección **Configuración de usuario / Directivas / Plantillas administrativas / Componentes de Windows / Explorador de Windows** (User configuration / Administrative Templates / Windows Components / Windows Explorer)
+* Ocultar estas unidades específicas en Mi PC (Hide these specified drives in My Computer) o Impedir el acceso a las unidades desde Mi PC (Prevent Access to drives from my computer). Elegir un combinación adecuada como bloquear las unidades A y B (Restrict A y B drives only).
+* `Quitar <Conectar a unidad de red> y <Desconectar de unidad de red>`
+
+## 1.5 Comprobar que se aplican las directivas
 
 Al terminar de configurar las directivas, hacemos lo siguiente:
-* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas. En algunos casos, después de definir una política, ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos de que este paso de activación se realice inmediatamente.
-* Ir a `Administración de Directivas de Grupo`. Capturar imagen del resumen de la configuración de cada una de las directivas creadas (`Ir a directiva -> Configuración`). Esta pestaña debe mostrar las opciones que hemos usado para configurar nuestra directiva.
-* Comprobar los efectos de las directivas de usuario en las MV cliente.
+* Ir al PDC.
+* Abrir consola como administrador.
+* Ejecutar `gpupdate /force`, para forzar las actualizaciones de las directivas. En algunos casos, después de definir una política, ésta tarda un tiempo en activarse, pero usando el comando anterior, nos aseguramos de que este paso de activación se realice inmediatamente.
+* Ir a `Administración de Directivas de Grupo`.
+* Capturar imagen del resumen de la configuración de cada una de las directivas creadas (`Ir a directiva -> Configuración`). Esta pestaña debe mostrar las opciones que hemos usado para configurar nuestra directiva.
+* Ir cada máquina cliente para comprobar los efectos de las directivas.
 
----
 
 # 2. Paquete MSI
 
-* IMPORTANTE: Vamos a crear otro "snapshot" de la máquina virtual.
+> **IMPORTANTE**: Vamos a crear otro "snapshot" de la máquina virtual, por seguridad.
 
 ## 2.1 Crear recurso compartido de red
 
@@ -146,26 +156,19 @@ para iniciar la aplicación WinINSTALL LE de forma remota,
 en nuestro caso sobre la unidad C: de nuestro equipo cliente.
 * Indicar los ficheros que serán excluidos del análisis;
 en nuestro caso aceptaremos las opciones propuestas por el asistente por defecto.
-* Pulsamos Finish para comenzar la generación de la foto inicial del equipo.
+* Pulsamos `Finish` para comenzar la generación de la foto inicial del equipo.
 
-> En el tiempo comprendido entre la ejecución de este proceso y la ejecución
-del proceso de la foto final, es crítico ejecutar únicamente el software
-de instalación del paquete MSI a generar.
-> Cualquier modificación que se haga durante este proceso, se grabará en el paquete MSI obtenido,
-aunque no forme parte de las modificaciones realizadas de la aplicación durante su instalación.
+> **ADVERTENCIA**: Durante el tiempo comprendido entre la ejecución de este proceso y la ejecución del proceso de la foto final, es crítico ejecutar únicamente el software de instalación del paquete MSI a generar.
+> Cualquier modificación que se haga durante este proceso, se grabará en el paquete MSI obtenido, aunque no forme parte de las modificaciones realizadas de la aplicación durante su instalación.
 
 * Una vez que la foto inicial haya sido realizada, pulsamos Aceptar, y
-a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero de instalación de la aplicación de la que vamos a generar el paquete MSI.En nuestro caso el fichero firefox.exe que nos habíamos descargado.
-* Comienza la instalación de la aplicación de firefox.exe de modo manual.
-* Volvemos a inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`,
-para iniciar el proceso de creación de la foto final del sistema.
-Este que puede durar varios minutos.
+a continuación se nos mostrará otra ventana en el que seleccionaremos el fichero de instalación de la aplicación de la que vamos a generar el paquete MSI.En nuestro caso el fichero `firefox.exe` que nos habíamos descargado.
+* Comienza la instalación de la aplicación de `firefox.exe` de modo manual.
+* Volvemos a Inicio -> ejecutar -> `\\ip-del-servidor\WinINSTALL\Bin\Discover.exe`, para iniciar el proceso de creación de la foto final del sistema (_Este que puede durar varios minutos_).
 * Podremos confirmar que el paquete ha sido creado correctamente en el equipo "SERVIDOR", yendo a la carpeta `E:\softwareXX\firefox`.
 * Limpiamos el equipo cliente:
-    * Eliminar el fichero firefox.exe que nos habíamos descargado.
+    * Eliminar el fichero `firefox.exe` que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
-
----
 
 # 3. Aplicar directiva de Equipo
 
@@ -182,7 +185,7 @@ Este que puede durar varios minutos.
 ## 3.1 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
-* Crear las OU `maquinasXXc1819` y mover los equipos del dominio dentro de esta UO.
+* Crear las OU `equiposXX` y mover los equipos del dominio dentro de esta UO.
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
     * Paquete de instalación de software de la aplicación.
@@ -195,16 +198,12 @@ Este que puede durar varios minutos.
 >
 > * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
 ruta de red y NO su ruta del sistema de ficheros.
->     * Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
->     * Ejemplo INCORRECTO: `E:\softwareXX\firefox\firefox.msi`
-> * La configuración de instalación de paquete `Publicado` no instala el programa,
-pero lo deja disponible por si el usuario lo quiere instalar a través de la
-herramienta de `Instalación de Software` del panel de control.
+>     1. Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+>     1. Ejemplo INCORRECTO: `E:\softwareXX\firefox\firefox.msi`
+> * La configuración de instalación de paquete `Publicado` no instala el programa, pero lo deja disponible por si el usuario lo quiere instalar a través de la herramienta de `Instalación de Software` del panel de control.
 
-* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las
-actualizaciones de las directivas.
-* Capturar imagen del resumen de la configuración de cada una de la directiva creada
-(`Ir a directiva -> Configuración`).
+* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas.
+* Capturar imagen del resumen de la configuración de la directiva (`Ir a directiva -> Configuración`).
 
 ## 3.2 Comprobar desde los clientes
 
@@ -220,7 +219,6 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 > * Comprobar MSI de forma manual.
 
 ---
-
 # ANEXO A
 
 ## Duda
