@@ -1,6 +1,6 @@
 
 ```
-Curso       :  201819
+Curso       : 201920, 201819
 Área        : Sistemas operativos, dominios, políticas, seguridad
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
@@ -19,11 +19,11 @@ Tiempo      : 8-10 horas
 
 ## Propuesta de rúbrica
 
-| Criterios                | Muy bien(2) | Adecuado(1) | Poco adecuado(0) |
-| ------------------------ | ----------- | ----------- | ---------------- |
-| gpo_jedi y gpo_sith        ||||
-| MSI y carpetas compartidas ||||
-| gpo_maquina                ||||
+| ID | Criterios                | Muy bien(2) | Adecuado(1) | Poco adecuado(0) |
+| -- | ------------------------ | ----------- | ----------- | ---------------- |
+| 01 | gpo_jedi y gpo_sith        ||||
+| 02 | MSI y carpetas compartidas ||||
+| 03 | gpo_software               ||||
 
 # 1. Aplicar directivas de Usuario
 
@@ -179,7 +179,6 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 > * Crear y probar las directivas del siguiente enlace Windows Server 2008
 >    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
 > *  [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
-
 
 ## 3.1 Crear nueva GPO en el servidor
 
