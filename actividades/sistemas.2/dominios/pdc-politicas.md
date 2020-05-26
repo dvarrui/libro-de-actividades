@@ -33,10 +33,15 @@ Realizar las siguientes tareas:
 
 * Ir a la MV PDC.
 * Por seguridad, antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
+* Abrir la herramienta de gestión de "Usuarios del dominio".
+* En el `Lateral izquierdo -> botón derecho -> Crear OU`
 * Crear las OU (Unidades Organizativas) siguientes: `jediXX` y `sithXX`.
-* Mover los usuarios que teníamos creados (obiwan, yoda, maul y vader) a su correspondiente OU.
+* Los usuarios (obiwan y yoda) que teníamos creados en `Usuarios`, los movemos a la OU de `jediXX`.
+* Los usuarios (maul y vader) que teníamos creados en `Usuarios`, los movemos a la OU de `sithXX`.
 
 ## 1.2 Crear GPO's
+
+La GPO es un conjunto de poĺiticas o directivas que se aplica a una o varias unidades organizativas.
 
 > Enlaces de interés:
 > * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
@@ -44,8 +49,8 @@ Realizar las siguientes tareas:
 
 **IMPORTANTE**: No aplicar la directivas a todo el dominio, sino a las unidades organizativas que se especifiquen. Este error puede afectar al correcto funcionamiento del servidor en su totalidad.
 
-* Dentro de la OU de los jedis crear la GPO `gpo_jediXX`.
-* Dentro de la OU de los siths crear la GPO `gpo_sithXX`.
+* Dentro de la OU de los `jediXX` -> Botón derecho -> crear la GPO `gpo_jediXX`.
+* Dentro de la OU de los `sithXX` -> Botón derecho -> crear la GPO `gpo_sithXX`.
 
 ## 1.3 Personalizar cada GPO de forma diferente
 
@@ -183,7 +188,7 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 ## 3.1 Crear nueva GPO en el servidor
 
 **Vamos al servidor:**
-* Crear las OU `equiposXX` y mover los equipos del dominio dentro de esta UO.
+* Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
     * Paquete de instalación de software de la aplicación.
