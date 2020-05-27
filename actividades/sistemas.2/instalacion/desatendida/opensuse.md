@@ -21,7 +21,8 @@ Entregar:
 # 1. Instalación desatendida con **autoyast**
 
 > Enlace de interés:
-> * ES - [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)  
+> * ES - [Instalación desatendida con autoyast](https://dtrinf.wordpress.com/2012/11/06/instalacion-de-suse-desatendida-con-autoyast/)
+> * EN - [Step by Step Guide to create autoyast xml file for SuSE Linux (SLES) with examples](https://www.golinuxhub.com/2018/02/step-guide-create-autoyast-xml-example-sles-or-suse.html?m=1)
 > * EN - [AutoYaST Guide](https://doc.opensuse.org/projects/autoyast/)   
 > * ES - [Resumen de los comandos versión 13.1](https://es.opensuse.org/openSUSE:Vadem%C3%A9cum_comandos_13.1)   
 

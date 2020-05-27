@@ -7,7 +7,6 @@ Requisitos  : Se recomienda usar Docker con SSOO GNU/Linux
 Tiempo      : 6 sesiones
 ```
 
----
 # 1. Contenedores con Docker
 
 > Enlaces de interés
@@ -118,7 +117,6 @@ alias drmi='docker rmi '
 alias ds='docker stop '
 ```
 
----
 # 2. Creación manual de nuestra imagen
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian,
@@ -185,7 +183,6 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 
 * `docker images`, comprobamos.
 
----
 # 3. Crear contenedor a partir de nuestra imagen
 
 ## 3.1 Crear contenedor con Nginx
@@ -239,7 +236,6 @@ Estas capas a parte de ahorrarnos peticiones de red al bajarnos una nueva versi�
 
 * `docker image history nombre_imagen:version`, para consultar las capas de la imagen del compañero.
 
----
 # 4. Dockerfile
 
 Ahora vamos a conseguir el mismo resultado del apartado anterior, pero
@@ -328,7 +324,6 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 * `docker run --name=app5nginx3 -d -p 8083:80 nombre-alumno/nginx3`, crear contenedor.
 * Comprobar el acceso a "holamundo.html".
 
----
 # 5. Docker Hub
 
 Crear contenedor un hola mundo y subirlo a Docker Hub.
@@ -345,7 +340,6 @@ Fecha actual
 * `docker login`, para abrir la conexión.
 * `docker push ...`, para subir la imagen a los repositorios de Docker.
 
----
 # 6. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
@@ -355,3 +349,11 @@ Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pa
 Lo mismo con las imágenes:
 * `docker images`
 * `docker rmi ...`
+
+---
+
+# ANEXO
+
+Enlaces de interés:
+* [Docker stats: Métricas fáciles para contenedores](https://t.co/CUs0D6av6R)
+* [Linux con Entorno Gráfico y VNC desde Docker](https://jonathan.vargas.cr/es/temas/plataforma/18271-ejecutar-linux-con-entorno-grafico-desde-docker)

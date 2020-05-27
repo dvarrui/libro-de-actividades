@@ -340,3 +340,6 @@ mydocs
 
 ---
 # ANEXO
+
+* [Tar Vs Zip Vs Gz : Difference And Efficiency](https://itsfoss.com/tar-vs-zip-vs-gz/): Difference between Tar, Zip and gz explained and their performance compared. Find out which is the most efficient among the three.
+* [Reading files in a zip archive, without unzipping the archive - Stack Overflow](https://stackoverflow.com/questions/28100888/reading-files-in-a-zip-archive-without-unzipping-the-archive)

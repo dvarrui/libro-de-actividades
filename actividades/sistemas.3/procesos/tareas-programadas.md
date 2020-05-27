@@ -1,17 +1,16 @@
 
 ```
-Curso           : 201819, 201718, 201617
-Software        : Windows y GNU/Linux
-Tiempo estimado : 5 horas
+Curso       : 201819, 201718, 201617
+Area        : Sistemas operativos, tareas programadas, automatización
+Descripción : Automatizar tareas de administración de sistemas
+Requisitos  : Windows y GNU/Linux
+Tiempo      : 5 horas
 ```
----
 
 # Tareas programadas
 
 * Realizar la entrega por el repositorio GitHub.
 * Usar etiqueta `cron` al finalizar.
-
----
 
 # 1. Windows
 
@@ -42,7 +41,6 @@ La tarea programada se define para ejecutarse periódicamente cada intervalo de 
 
 Vamos a hacer una tarea diferida con GNU/Linux.
 
-* [Programar tareas con cron y crontab](https://www.ochobitshacenunbyte.com/2018/03/22/programar-tareas-en-linux-facilmente-con-cron-y-crontab/)
 * [Configurar OpenSUSE](../../global/configuracion/opensuse.md)
 * Consultar el vídeo [Scheduling tasks with at](https://www.youtube.com/embed/cf-oUCobxiM?list=UUFFLP0dKesrKWccYscdAr9A).
 
@@ -83,14 +81,16 @@ que inició el entorno gráfico.
 
 ## 2.2 GNU/Linux - Tarea periódica
 
-Consultar
+Enlaces de interés:
+* [Entender crontab ](https://crontab.guru)
+* [Programar tareas con cron y crontab](https://www.ochobitshacenunbyte.com/2018/03/22/programar-tareas-en-linux-facilmente-con-cron-y-crontab/)
 * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
 * Enlaces de interés [Tareas programadas]](https://www.nerion.es/soporte/tutoriales/tareas-programadas-en-linux/)
 
 > Para programar una tarea periódica tenemos dos formas:
 >
 > * Los usuarios normales usan el comando `crontab`  para programar sus tareas periódicas.
-> * El usuario root, además puede usar el fichero `/etc/crontab` para programar las tareas del sistema.
+> * El usuario root, además puede configurar el fichero `/etc/crontab` para programar las tareas del sistema.
 
 * `crontab -l`, para consultar que no hay tareas programadas.
 * Por defecto, la herramienta crontab usa el editor `vim` para modificar su configuración.

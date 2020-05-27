@@ -329,8 +329,8 @@ Vamos a crear una restricción de uso del SSH para un usuario:
 * Vamos a modificar SSH de modo que al usar el usuario por SSH desde los clientes tendremos permiso denegado.
 
 Capturar imagen de los siguientes pasos:
-* Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers`, `DenyUsers`.
-Más información en: `man sshd_config` y en el Anexo de este enunciado.
+* Consultar/modificar fichero de configuración del servidor SSH (`/etc/ssh/sshd_config`) para restringir el acceso a determinados usuarios. Consultar las opciones `AllowUsers`, `DenyUsers` (Más información en: `man sshd_config`)
+* `/usr/sbin/sshd -t; echo $?`, comprobar si la sintaxis del fichero de configuración del servicio SSH es correcta (Respuesta 0 => OK, 1 => ERROR).
 * Comprobarlo la restricción al acceder desde los clientes.
 
 ## 8.2 Restricción sobre una aplicación
@@ -344,8 +344,6 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 * Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usuarios que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor en local.
 * Comprobamos el funcionamiento desde el cliente en remoto (Recordar `ssh -X ...`).
-
----
 
 # 9. Servidor SSH en Windows
 
@@ -363,81 +361,31 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
     * `lsof -i -n` en GNU/Linux.
 
 ---
-
 # ANEXO A
 
 ## SSH cipher
 
 https://answers.launchpad.net/ubuntu/+source/openssh/+question/669164
 
-## A.2 Configuración de seguridad en OpenSSH
+## Túnel Inverso SSH - mundohackers
 
-Fichero de configuración del servidor SSH `/etc/ssh/sshd_config`
+* [Cómo hacer un túnel inverso SSH](https://mundo-hackers.weebly.com/tuacutenel-inverso-ssh.html#)
+* [Un bruto con Debian: Tunel inverso SSH](https://unbrutocondebian.blogspot.com/2013/08/tunel-inverso-ssh.html?m=1)
 
-## OpenSSH locking parameters
-
-For locking down which users may or may not access the server you will want to look into one, or more, of the following directives: User/Group Based Access
-
-* **AllowGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.If specified, login is allowed only for users whose primary group or supplementary group list matches one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized.By default, login is allowed for all groups.
-
-* **AllowUsers**. This keyword can be followed by a list of user name patterns, separated by spaces.If specified, login is allowed only for user names that match one of the patterns.`*' and `?' can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users.If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
-
-* **DenyGroups**. This keyword can be followed by a list of group name patterns, separated by spaces.Login is disallowed for users whose primary group or supplementary group list matches one of the patterns.
-* and ? can be used as wildcards in the patterns.Only group names are valid; a numerical group ID is not recognized. By default, login is allowed for all groups.
-
-* **DenyUsers**. This keyword can be followed by a list of user name patterns, separated by spaces.Login is disallowed for user names that match one of the patterns. * and ? can be used as wildcards in the patterns.Only user names are valid; a numerical user ID is not recognized.By default, login is allowed for all users. If the pattern takes the form USER@HOST then USER and HOST are separately checked, restricting logins to particular users from particular hosts.
-
-## Example configuring locking
-
-* The first thing to do is backup the original configuration file:
-`cp /etc/ssh/sshd_config /etc/ssh/sshd_config{,.`date +%s`}`
-* We will now need to edit the configuration file with your favorite editor (vi/vim/ed/joe/nano/pico/emacs.)
-* An example of only allowing two specific users, admin and bob, to login to the server will be,
-/etc/ssh/sshd_config: `AllowUsers admin bob`
-
-
-Ifyou would like to more easily control this for the future then you can create a Group on the server that will be allowed to login to the server, adding individual users as needed (replace username with the actual user):
-* Open a shell
-* `groupadd –r sshusers`
-*  `usermod –a –G sshusers username`
-* With this we will no longer be using AllowUsers but AllowGroups
-* Edit /etc/ssh/sshd_config: `AllowGroups sshusers`
-
-The alternatives to these directives are DenyGroups and DenyUsers which perform the exact opposite of the aforementioned AllowGroups and AllowUsers. When complete you will want to make sure that sshd will read in the new configuration without breaking.
-```
-    /usr/sbin/sshd –t
-    echo $?
-```
-
-We will want to see a 0 following the `echo $?` command.Otherwise we should also
-see an error stating what the erroneous data is:
-```
-    sshd_config: line 112: Bad configuration option: allowuser
-    sshd_config: terminating, 1 bad configuration options
-```
-After verification we will simply need to restart sshd.This can be performed via many different methods.
-
-> Make sure to not disconnect your ssh session but create a new one as a ‘just incase’.
-> Verify that you can perform any required actions with this user(eg: su into root if you are not allowing root logins.)
-
----
-
-## Conectar 2 máquinas
+## Trabajo colaborativo usando SSH
 
 Podemos seguir esta recomendación para que varias personas trabajen en la misma máquina.
 
-    Supongamos que tenemos 2 máquinas llamadas m1 y m2.
-    En m1 instalamos openssh-server: apt-get install openssh-server
-    En m1 tenemos los usuarios usu1 y usu2.
-    En la máquina m2 para conectarse a m1 debemos hacer: ssh usu2@ip-m1
-    Con esto abrimos sesión en m1 desde m2 y podemos trabajar desde m2.
-    Si queremos abrir una sesión remota pero gráfica podemos hacer en m2:
-        ssh -X usu2@ip-m1 (Es es para abrir la sesión. Establecer contacto)
-        nautilus (Con esto abrimos un explorador en m1 pero desde m2) sonrisa
-        Si tenemos el programa LibreOffice instalado en m1, pero no en m2... podemos conectarnos con ssh -X, y luego ejecutar... /usr/lib/libreoffice/program/soffice.bin, y ya está. Esto es trabajo remoto.
+Supongamos que tenemos 2 máquinas llamadas MV1 y MV2.
+* En MV1 instalamos el servidor SSH.
+* En MV1 tenemos los usuarios usu1 y usu2.
+* Desde MV2 para conectarse a MV1 debemos hacer: ssh usu2@ip-mv1. Con esto abrimos sesión en MV1 desde MV2 y podemos trabajar desde MV2.
 
-Si queremos copiar archivo de m2 hacia m1 hacemos:
+Si queremos abrir una sesión remota pero gráfica podemos hacer en MV2:
+* ssh -X usu2@ip-mv1 (Es es para abrir la sesión. Establecer contacto)
+* nautilus (Con esto abrimos un explorador en MV1 pero desde MV2)
+* Si tenemos el programa LibreOffice instalado en MV1, pero no en MV2... podemos conectarnos con ssh -X, y luego ejecutar... /usr/lib/libreoffice/program/soffice.bin, y ya está. Esto es trabajo remoto.
 
-    scp file usu2@ip-m1:/home/usu2
-    Ya está! Si además queremos iniciar una sesión sftp hacemos:
-    sftp usu2@ip-m1
+Si queremos copiar archivo de MV2 hacia MV1 hacemos:
+* scp file usu2@ip-m1:/home/usu2, Ya está!
+* Si además queremos iniciar una sesión sftp hacemos: sftp usu2@ip-m1

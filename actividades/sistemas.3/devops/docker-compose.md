@@ -21,8 +21,14 @@ En esta práctica vamos a trabajar:
 > * [Getting started](https://docs.docker.com/compose/gettingstarted/)
 > * [Taller de introducción a Docker](https://github.com/sergarb1/TallerIntroduccionDocker)
 
+
 ## Docker-compose
 
+Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
+
+Enlaces de interés:
+* [Aprendiendo a utilizar Docker Compose](https://dockertips.com/utilizando-docker-compose)
+* [Empezando con docker-compose](https://riptutorial.com/es/docker-compose)
 
 # Gestión de volúmenes
 

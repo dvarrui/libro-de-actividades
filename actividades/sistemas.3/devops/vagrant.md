@@ -2,12 +2,11 @@
 ```
 Curso       : 201920, 201819, 201718
 Area        : Sistemas Operativos, automatización, Devops
+Descripción : Uso de la herramienta de automatización Vagrant
 Requisitos  : Vagrant y Virtualbox
 Tiempo      : 6 sesiones
-Descripción : Uso de la herramienta de automatización Vagrant
 ```
 
----
 # Vagrant con VirtualBox
 
 Ejemplo de rúbrica:
