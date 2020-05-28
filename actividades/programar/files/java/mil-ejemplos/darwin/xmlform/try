@@ -1,2 +1,0 @@
-export CODEDIR=/c/javasrc/numbers
-java -classpath ${CLASSPATH}:${CODEDIR} -Dcodedir=${CODEDIR} XmlForm test1.xml > test1.mif

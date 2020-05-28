@@ -1,1 +1,0 @@
-ChartBean, a sample GUI-based JavaBean.

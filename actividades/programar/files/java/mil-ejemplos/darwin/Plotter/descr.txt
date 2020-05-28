@@ -1,1 +1,0 @@
-The Plotter example, used in various chapters.

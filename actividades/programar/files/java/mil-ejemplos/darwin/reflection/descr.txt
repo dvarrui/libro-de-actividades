@@ -1,1 +1,0 @@
-Introspection, or, a class named class.

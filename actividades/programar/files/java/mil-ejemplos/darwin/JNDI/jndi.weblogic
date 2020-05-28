@@ -1,9 +1,0 @@
-#
-# Example of jndi.properties for WebLogics - save in \crsXXX\lib
-#
-# Context.INITIAL_CONTEXT_FACTORY (aka java.naming.factory.initial)
-# is always needed for JNDI
-java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
-# Provider URL is pretty common
-java.naming.provider.url=t3://localhost:7001
-# user name and password may also be needed...

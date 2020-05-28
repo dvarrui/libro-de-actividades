@@ -1,1 +1,0 @@
-GUI (graphical user interface) examples in AWT and Swing.

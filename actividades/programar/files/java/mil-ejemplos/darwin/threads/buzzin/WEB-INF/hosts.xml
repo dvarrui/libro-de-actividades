@@ -1,6 +1,0 @@
-<tomcat-users>
-
-  <user name="scott" password="ctanks" roles="host" />
-  <user name="ian"   password="onefish" roles="host" />
-
-</tomcat-users>
