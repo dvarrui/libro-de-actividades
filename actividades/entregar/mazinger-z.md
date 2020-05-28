@@ -29,8 +29,7 @@ Si hay empate en los ganadores se reparte el punto.
 
 # Perfeccionista (Mazinger Z)
 
-5 actividades elegidas por el profesor tendrán acceso al `Puño de Mazinger Z`.
-Aquellos alumnos que hagan la actividad perfecta. Tendrán un puño.
+5 actividades elegidas por el profesor tendrán acceso al `Puño de Mazinger Z`. Aquellos alumnos que hagan la actividad perfecta. Tendrán un puño.
 Cuando se consigan 5 puños tendrán el punto de `Mazinger Z`.
 
 Todos pueden ganar el punto de `Mazinger Z`.

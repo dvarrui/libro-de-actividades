@@ -1,5 +1,4 @@
 
-
 # Modo de trabajo
 
 En cada UD la forma de proceder será la siguiente:
@@ -20,17 +19,12 @@ El desarrollo/aprendizaje de la UD se basa en la resolución de las actividades.
 
 Las recuperaciones se harán siempre en el siguiente trimestre, excepto en el 3er trim. que se harán en junio.
 
----
-
 # Entrega de los trabajos
 
-Las fechas/horas y forma para las entregas de los trabajos estará especificado en la actividad correspondiente de moodle. El profesor NO tiene que recordar fechas, ni comentar nada en clase al respecto.
-
+Las fechas/horas y forma para las entregas de los trabajos estará especificado en la actividad correspondiente de Moodle. El profesor NO tiene que recordar fechas, ni comentar nada en clase al respecto.
 
 # Imágenes de SO listas para usar
 
 Las imágenes de los SO tanto en formato ISO como VBox las tienen disponibles en:
-
-    El servidor leela del departamento. Además también hay colgadas varias imágenes de debian con diferentes entornos gráficos.
-    En internet.
-    Para el que le guste aquí les dejo una página donde pueden descargar imagenes de distros variadas (GNU/Linux, GNU/kfree, Solaris, BSD, etc.) listas para usar.
+* El servidor leela del departamento. Además también hay colgadas varias imágenes de debian con diferentes entornos gráficos.
+* En internet.
