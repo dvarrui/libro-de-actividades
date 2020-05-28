@@ -1,5 +1,4 @@
 
-
 > Es obligatorio hacer la entrega de cada actividad en el plazo previsto.
 >
 > En el caso de los trabajos en grupo:
