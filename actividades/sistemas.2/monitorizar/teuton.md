@@ -4,11 +4,10 @@ Curso       : 201920
 Area        : Sistemas operativos, monitorización, devops
 Descripción : Practicar test de infraestructura
 Requisitos  : Varias máquinas. Una al menos con GNU/Linux
-Tiempo      : 3 sesiones instalar y configurar las máquinas con acceso remoto
+Tiempo      : 3 sesiones preparativos
               4 sesiones realizar la práctica
 ```
 
----
 # 1.Test de infrastructura
 
 Propuesta de rúbrica:
@@ -95,7 +94,6 @@ Entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
 * `castleXX/*`
 * `var/*`
 
----
 # 2. Test: conectividad
 
 ## 2.1 Crear el test
@@ -138,7 +136,7 @@ play do
 end
 ```
 
-Explicación:
+**Explicación:**
 * [target](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/target.md): se usa para iniciar la definición de un "objetivo" de motnitorización. Debemos poner una descripción que nos ayude a identificar cuál es ese objetivo.
 * [run](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/run.md): Indica el comando queremos ejecutar en la máquina local. Esta será la máquina T-Node, donde tenemos instalado Teutón.
 * [expect](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/expect.md): Comprueba que la salida del comando anterior (run) contenga el texto que esperamos.
@@ -161,7 +159,6 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 * `castleXX/test2/*`
 * `var/test2/*`
 
----
 # 3. Test: Configuración de red
 
 ## 3.1 Crear el test
@@ -250,7 +247,6 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 * Ficheros `castleXX/test3/*`
 * Ficheros `var/test3/*`
 
----
 # 4. Test: configuración básica
 
 ## 4.1 Modificar el test
@@ -307,7 +303,6 @@ Ver ejemplo de monitorización del nombre del equipo:
 * Ficheros `castleXX/test4/*`
 * Ficheros `var/test4/*`
 
----
 # 5. Test: directorios y permisos
 
 * Crear un nuevo test `castleXX/test5`.
@@ -333,7 +328,6 @@ Ver ejemplo de monitorización del nombre del equipo:
 * Ficheros `castleXX/test5/*`
 * Ficheros `var/test5/*`
 
----
 # 6. Test: Otros sistemas
 
 ## 6.1 Crear el test

@@ -8,7 +8,6 @@ Requisitos      : GNU/Linux y Windows
 Tiempo estimado : 8 horas
 ```
 
----
 # Icinga2 : OpenSUSE + Windows
 
 Propuesta de rúbrica:
@@ -20,7 +19,6 @@ Propuesta de rúbrica:
 | 03 | IcingaWeb2 -> Overview -> Services ||||
 | 04 | Contenido de los ficheros de configuración |||.|
 
----
 # 1. Preparativos
 
 ## 1.1 Preparar las máquinas
