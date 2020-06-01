@@ -126,10 +126,9 @@ Permisos especiales                |                            | &#x2714;
 
 ## 2.2 Instalar WinINSTALL
 
-Ahora vamos a crear nuestro propio paquete de instalación MSI, usando la herramienta WinINSTALL. Si ya tenemos el software que queremos instalar en los clientes en formato MSI, nos podemos saltar este apartado.
+> **OTROS PROGRAMAS**: Si tenemos problemas con el programa WinINSTALL, podemos usar [Advanced Installer](https://www.advancedinstaller.com/)
 
-> Enlaces de interés:
-> * [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+Ahora vamos a crear nuestro propio paquete de instalación MSI, usando la herramienta WinINSTALL. Si ya tenemos el software que queremos instalar en los clientes en formato MSI, nos podemos saltar este apartado.
 
 **En el servidor**
 * Descargar el programa WinINSTALL y lo instalamos.
@@ -139,7 +138,12 @@ Ahora vamos a crear nuestro propio paquete de instalación MSI, usando la herram
 
 ## 2.3 Crear paquete MSI
 
-> Si disponemos del paquete MSI nos saltamos este apartado.
+> Enlaces de interés:
+> * [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+
+Si disponemos del paquete MSI nos saltamos este apartado.
+
+> **NOTA**: Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 
 **En el cliente**
 * Entramos con el usuario administrador del dominio.
