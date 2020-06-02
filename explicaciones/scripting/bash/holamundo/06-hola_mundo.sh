@@ -1,5 +1,5 @@
 #!/bin/bash
 
-. hola_mundo6b.sh
+. 06-lib_hola_mundo.sh
 
 saludar 6 
