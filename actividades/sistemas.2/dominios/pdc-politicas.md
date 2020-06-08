@@ -140,6 +140,7 @@ Ahora vamos a crear nuestro propio paquete de instalación MSI, usando la herram
 
 > Enlaces de interés:
 > * [Crear paquetes MSI con WinINSTALL](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/11Directivas/crear_paquetes_msi.html).
+> * [Vídeo - Crear MSI con WinINSTALL](https://www.youtube.com/watch?v=cBzmcROYAcA)
 
 Si disponemos del paquete MSI nos saltamos este apartado.
 
@@ -182,12 +183,10 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 
 > Enlaces de interés
 >
-> * Crear política de instalación para nuestro paquete MSI
->    * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
->    * La política de despliegue la vamos a crear a nivel de cuenta de usuario. Marcamos "Asignada" e "Instalar al iniciar Sesión".
-> * Crear y probar las directivas del siguiente enlace Windows Server 2008
->    * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
-> *  [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
+> * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
+> * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
+> * [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
+> * [Vídeo - Instalación de software con extensión MSI a través de GPO en windows server 2016](https://www.youtube.com/watch?v=JUR-1JDWDZI)
 
 ## 3.1 Crear nueva GPO en el servidor
 
