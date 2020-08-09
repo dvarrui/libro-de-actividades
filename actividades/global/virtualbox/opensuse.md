@@ -52,3 +52,7 @@ keeppackages=0
 * Instalar desde los repositorios el nuevo paquete de virtualbox-4.3
 * Además hay que instalar los paquetes `make`, `gcc` y `kernel-devel`.
 * Ejecutamos `/etc/init.d/vboxdvr setup` y listo.
+
+## VirtualBox + Secure Boot + Ubuntu = fail
+
+https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
