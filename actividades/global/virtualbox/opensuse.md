@@ -53,6 +53,7 @@ keeppackages=0
 * Además hay que instalar los paquetes `make`, `gcc` y `kernel-devel`.
 * Ejecutamos `/etc/init.d/vboxdvr setup` y listo.
 
-## VirtualBox + Secure Boot + Ubuntu = fail
+## VirtualBox + UEFI
 
-https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
+* https://gist.github.com/reillysiemens/ac6bea1e6c7684d62f544bd79b2182a4
+* https://stegard.net/2016/10/virtualbox-secure-boot-ubuntu-fail/
