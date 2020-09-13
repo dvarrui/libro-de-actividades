@@ -25,74 +25,73 @@ Formato de salida:
 
 =end
 class ListPeople
+  def initialize
+    @outputfilename = 'usuarios-moodle-emyd'
+    @change = [ ['Á','A'] , ['É','E'], ['Í','I'], ['Ó','O'], ['Ú','U'], ['Ñ','N'], ['  ',' '] ]
+  end
 
-	def initialize
-		@outputfilename = 'usuarios_emyd'
-		@change = [ ['Á','a'] , ['É','e'], ['Í','i'], ['Ó','o'], ['Ú','u'], ['Ñ','n'], ['  ',' '] ]
-	end
+  def create_list_for(arg)
+    if arg == '--help'
+      show_help
+    else
+      process(arg)
+    end
+  end
 
-	def create_list_for(arg='--help')
-		if arg == '--help'
-			show_help
-		else
-			process(arg)
-		end
-	end
+  def process(filename)
+    puts "\n[INFO] Processing..."
 
-	def process(filename)
-		verbose "\n[INFO] Processing..."
+    unless File.exists? filename
+      puts "[ERROR] Filename #{filename} unknown!\n"
+      exit 1
+    end
 
-		unless File.exists? filename
-			puts "[ERROR] Filename #{filename} unknown!\n"
-			exit 1
-		end
+    data = File.open(filename,'r').readlines
 
-		@data = File.open(filename,'r').readlines
+    file = File.open("#{@outputfilename}.txt",'w')
+    file.write("username;password;firstname;lastname;email;city\n")
 
-		file = File.open("#{@outputfilename}.txt",'w')
-		file.write("username;password;firstname;lastname;email;city\n")
+    data.each do |line|
+      items = line.split(',')
+      # items = line.force_encoding('iso-8859-1').split(',')
+      username = items[0].downcase
+      password = items[1]
+      firstname = items[2].strip.upcase
+      lastname = items[3].strip.upcase
+      email = items[4]
+      city = items[5]
 
-		@data.each do |line|
-			items = line.split(',')
-			# items = line.force_encoding('iso-8859-1').split(',')
-			username = items[0].downcase
-			password = items[1]
-			firstname = items[2].strip.upcase
-			lastname = items[3].strip.upcase
-			email = items[4]
-			city = items[5]
+      password = "123456" if password.nil?
+      sanitize!(firstname)
+      sanitize!(lastname)
+      if email.nil?
+        email = "exp#{username}@notienecorreo.com"
+	sanitize!(email.downcase!)
+      end
+      city.gsub!("\n",'')
 
-			password = "123456" if password.size < 2
-			sanitize!(firstname)
-			sanitize!(lastname)
-			if email.size < 2
-				email = "exp#{username}@notienecorreo.com"
-				sanitize!(email.downcase!)
-			end
-			city.gsub!("\n",'')
+      file.write("#{username};#{password};#{firstname};#{lastname};#{email};#{city}\n")
+    end
 
-			file.write("#{username};#{password};#{firstname};#{lastname};#{email};#{city}\n")
-		end
-
-		file.close
-	end
+    file.close
+  end
 
 private
 
   def sanitize!(text)
-		@change.each { |i| text.gsub!(i[0],i[1]) }
-		text
-	end
+    @change.each { |i| text.gsub!(i[0],i[1]) }
+    text
+  end
 
-	def show_help
-		puts "Uso:\n"
-		puts " #{$0} FICHERO.csv"
-		puts "\nFormato de entrada:"
+  def show_help
+    puts "Uso:\n"
+    puts " #{$0} FICHERO.csv"
+    puts "\nFormato de entrada:"
     puts "  username, password, firstname, lastname, email, city"
-		puts "\nFormato de salida:"
-		puts "  username; password; firstname; lastname; email; city"
-	end
+    puts "\nFormato de salida:"
+    puts "  username; password; firstname; lastname; email; city"
+  end
 end
 
 i = ListPeople.new
-i.create_list_for (ARGV.first)
+i.create_list_for (ARGV.first || '--help')
