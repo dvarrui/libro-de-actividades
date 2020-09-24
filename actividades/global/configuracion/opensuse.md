@@ -56,7 +56,7 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g1
 * Nombre de dominio: `curso1920` (Modificar los números al curso actual).
-* Servidor DNS: `8.8.4.4`.
+* Servidor DNS: `1.1.1.1`.
 * Vamos a `Encaminamiento`, y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
 * Ir dispositivo y elegir el interfaz de red.
 
@@ -86,8 +86,8 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 ```
 ip a                     # Información de red
 ifstatus NOMBREINTERFAZ  # Configuración del interfaz de red
-ping 8.8.4.4             # Verifica la conectividad con Internet
-traceroute 8.8.4.4       # Comprobar enrutamiento   
+ping 1.1.1.1             # Verifica la conectividad con Internet
+traceroute 1.1.1.1       # Comprobar enrutamiento   
 host www.nba.com         # Comprueba DNS
 ```
 

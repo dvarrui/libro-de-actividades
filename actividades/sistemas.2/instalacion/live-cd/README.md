@@ -38,8 +38,8 @@ hostname
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
 * Comprobar la descarga (Comando sha256sum):
 ```
-$ sha256sum -c openSUSE-Leap-15.0-DVD-x86_64.iso.sha256 
-openSUSE-Leap-15.0-DVD-x86_64.iso: La suma coincide
+$ sha256sum -c openSUSE-Leap-15.1-DVD-x86_64.iso.sha256
+openSUSE-Leap-15.1-DVD-x86_64.iso: La suma coincide
 ```
 
 * Crear una MV, esta vez si tendrá disco duro.
@@ -100,4 +100,3 @@ hostname
 * Crear algunos archivos y carpetas.
 * Reiniciar el SO live.
 * Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
-
