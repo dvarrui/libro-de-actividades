@@ -47,8 +47,6 @@ openSUSE-Leap-15.1-DVD-x86_64.iso: La suma coincide
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/opensuse.md)):
     * Supongamos que el alumno se llama "Obiwan Kenobi"  y está en el puesto 42.
     * Nombre de usuario : `obiwan`
-    * Nombre del equipo : `kenobi42g`
-    * Nombre del dominio: `curso1920` (Adapta este valor al curso actual)
     * Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
 
 ## 2.2 Después de la instalación
@@ -57,10 +55,11 @@ openSUSE-Leap-15.1-DVD-x86_64.iso: La suma coincide
 
 * Una vez instalado el sistema operativo, ejecutar el programa
 `Yast`. Ir a `Ajustes de red -> Nombre de Host/DNS`.
-    * Escribir nombre de host/máquina
-    * Escribir nombre de dominio
+    * Escribir nombre de host/máquina. Supongamos que el alumno se llama "Obiwan Kenobi"  y está en el puesto 42. Nombre del equipo : `kenobi42g`. Siempre usar minúsculas. No poner tildes, caracteres que no estén en el teclado inglés.
+    * Escribir nombre de dominio.
     * Deshabilitar `Modificar nombre...`
     * Activar `Asignar nombre...`
+    * Nombre del dominio: `curso1920` (Adapta este valor al curso actual)
 
 ![hostname](./images/hostname.png)
 
@@ -98,5 +97,5 @@ hostname
 ```
 
 * Crear algunos archivos y carpetas.
-* Reiniciar el SO live.
+* Reiniciar el SO Live.
 * Comprobar que los archivos/carpetas creados anteriormente no se han guardado.
