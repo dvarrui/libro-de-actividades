@@ -33,7 +33,7 @@ hostname
 > Enlace de interés:
 > * [Vídeo Install OpenSUSE](http://www.youtube.com/embed/nC8n1Pg6gto?list=PL3E447E094F7E3EBB)
 
-## 2.1 Durante la intalación
+## 2.1 Durante la instalación
 
 * Descargar la versión de *GNU/Linux OpenSUSE* recomendada por el profesor.
 * Comprobar la descarga (Comando sha256sum):
