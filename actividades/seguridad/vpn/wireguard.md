@@ -7,6 +7,8 @@ EN CONSTRUCCIÓN!!!
 
 Enlaces de interés:
 * [WireGuard VPN: Instalación y configuración](https://www.redeszone.net/tutoriales/vpn/wireguard-vpn-configuracion/)
+* https://dev.to/miguelmota/getting-started-with-wireguard-n9e
+* https://geekland.eu/conectarse-al-vpn-wireguard-en-windows-android-y-linux/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A%20geeklandlinux%20(geekland)&s=09
 
 # 1. Servidor
 
