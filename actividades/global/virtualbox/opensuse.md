@@ -7,8 +7,6 @@
 * En la consola como root.
 * `zypper in kernel-devel kernel-desktop-devel gcc make`, para instalar paquetes para compilar el código fuente.
 * Reiniciar MV.
-* En a la máquina real, ir a `VirtualBox -> Instalar Guest Additions`
-* Ir a la MV.
 * En la consola como root
 * `cd /run/media/....`, moverse a la carpeta de la ISO (DVD).
 * `./VBoxLinuxAdditions.run`, ejecutar la instalación para GNU/Linux.
