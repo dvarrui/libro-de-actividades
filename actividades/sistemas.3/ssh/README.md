@@ -40,7 +40,7 @@ Entrega:
 
 Vamos a necesitar las siguientes MVs:
 
-| Función | Sistema Operativo     | IP        | Nombre |
+| Función | Sistema Operativo     | IP        | Hostname |
 | ------- |--------------------- | --------- | --------- |
 | Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | serverXXg |
 | Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | clientXXg |
@@ -86,13 +86,12 @@ Crear los siguientes usuarios en `serverXXg`:
 
 * Instalar software cliente SSH en Windows. Para este ejemplo usaremos [PuTTY](http://www.putty.org/).
 * Configurar el cliente2 Windows con los siguientes valores:
-    * SO Windows 7
+    * SO Windows
     * Nombre de equipo: `clientXXw`
     * [Configuración de las MV's](../../global/configuracion/windows.md)
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` los equipos serverXXg y clientXXg.
-* Comprobar haciendo ping a ambos equipos.
+* Comprobar haciendo `ping` a ambos equipos.
 
----
 # 2 Instalación del servicio SSH
 
 * Instalar el servicio SSH en la máquina serverXXg. Por comandos o entorno gráfico.
