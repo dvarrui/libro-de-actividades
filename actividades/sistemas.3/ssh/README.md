@@ -92,11 +92,12 @@ Crear los siguientes usuarios en `serverXXg`:
 * Añadir en `C:\Windows\System32\drivers\etc\hosts` los equipos serverXXg y clientXXg.
 * Comprobar haciendo `ping` a ambos equipos.
 
+---
 # 2 Instalación del servicio SSH
 
 * Instalar el servicio SSH en la máquina serverXXg. Por comandos o entorno gráfico.
 
-> ENlaces de interés:
+> Enlaces de interés:
 >
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 >
@@ -113,8 +114,8 @@ Crear los siguientes usuarios en `serverXXg`:
 ## 2.1 Comprobación
 
 * Desde el propio servidor, verificar que el servicio está en ejecución.
-    * `systemctl status sshd`, esta es la forma de comprobarlo en *systemd*
-    * `ps -ef|grep sshd`, esta es la forma de comprobarlo mirando los procesos del sistema.
+    * `systemctl status sshd`, esta es la forma habitual de comprobar los servicios.
+    * `ps -ef|grep sshd`, esta es otra forma de comprobarlo mirando los procesos del sistema.
 
 ![servicio-sshd](./opensuse/servicio-sshd.png)
 
@@ -124,37 +125,28 @@ Crear los siguientes usuarios en `serverXXg`:
 >  * `systemctl enable sshd` por comandos
 >  * `Yast -> servicios` por entorno gráfico
 
-* `sudo lsof -i:22 -n`: Comprobar que el servicio está escuchando por el puerto 22.
+* `sudo lsof -i:22`, comprobar que el servicio está escuchando por el puerto 22.
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
 * Ir al cliente `clientXXg`.
 * `ping serverXXg`, comprobar la conectividad con el servidor.
-* `nmap -Pn serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open). Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh".
+* `nmap -Pn serverXXg`, comprobar los puertos abiertos en el servidor (SSH debe estar open). Debe mostrarnos que el puerto 22 está abierto. Debe aparecer una línea como  "22/tcp open ssh". Si esto falla, debemos comprobar en el servidor la configuración del cortafuegos.
 
 ![ssh-nmap](./opensuse/ssh-nmap.png)
 
 > Existe una herramienta gráfica para nmap, llamada nmapfe
-
-* Si esto falla debemos comprobar en el servidor la configuración del cortafuegos.
 
 Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario *1er-apellido-alumno1*.
 * Desde el cliente GNU/Linux nos conectamos mediante `ssh 1er-apellido-alumno1@serverXXg`. Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
-* Si nos volvemos a conectar tendremos:
+* A partir de ahora cuando nos conectamos sólo nos pide la contraseña:
 
 ![ssh-conexion2](./opensuse/ssh-conexion2.png)
 
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo cliente. OJO el prompt nos indica en qué equipo estamos.
-
-```
-david@client42g:~> vdir .ssh/
-total 216
--rw-r--r-- 1 david users 14910 oct 22 09:48 known_hosts
-```
-
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
@@ -174,9 +166,9 @@ total 216
 ¿Qué pasaría si cambiamos la identidad del servidor?
 Esto es, ¿Y si cambiamos las claves del servidor? ¿Qué pasa?
 
-* Confirmar que existen los siguientes ficheros en `/etc/ssh`,
-Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
-que identifican a nuestro servidor frente a nuestros clientes:
+* Los ficheros `ssh_host*key` y `ssh_host*key.pub`, son ficheros de clave pública/privada
+que identifican a nuestro servidor frente a nuestros clientes. Confirmar que existen
+el en `/etc/ssh`,:
 
 ```
 david@server42g:~> cd /etc/ssh/
@@ -199,13 +191,13 @@ total 576
 ```
 
 * Modificar el fichero de configuración SSH (`/etc/ssh/sshd_config`) para dejar una única línea: `HostKey /etc/ssh/ssh_host_rsa_key`. Comentar el resto de líneas con configuración HostKey.
-Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro servidor. Con este cambio decimos que sólo vamos a usar las claves del tipo RSA.
+Este parámetro define los ficheros de clave publica/privada que van a identificar a nuestro servidor. Con este cambio decimos que sólo se van a utilizar las claves del tipo RSA.
 
 ## 3.1 Regenerar certificados
 
-Vamos a cambiar o volver a generar nuevas claves públicas/privadas para la identificación de nuestro servidor.
-* En el servidor, como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`.
-    * ¡OJO! -> No poner password al certificado de la máquina.
+Vamos a cambiar o volver a generar nuevas claves públicas/privadas que identifican nuestro servidor.
+* Ir al servidor.
+* Como usuario root ejecutamos: `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`. ¡OJO! No poner password al certificado.
 * Reiniciar el servicio SSH: `systemctl restart sshd`.
 * Comprobar que el servicio está en ejecución correctamente: `systemctl status sshd`
 
@@ -242,8 +234,10 @@ else
    PS1="\[$(pwd)\]\u@\h:\w>"
 fi
 ```
+
 * Además, crear el fichero el fichero `/home/1er-apellido-alumno1/.alias`,
 donde pondremos el siguiente contenido:
+
 ```
 alias c='clear'
 alias g='geany'
@@ -251,6 +245,7 @@ alias p='ping'
 alias v='vdir -cFl'
 alias s='ssh'
 ```
+
 * Comprobar funcionamiento de la conexión SSH desde cada cliente.
 
 ---
@@ -344,6 +339,7 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 * Comprobamos el funcionamiento en el servidor en local.
 * Comprobamos el funcionamiento desde el cliente en remoto (Recordar `ssh -X ...`).
 
+---
 # 9. Servidor SSH en Windows
 
 * Configurar el servidor Windows con los siguientes valores:
