@@ -45,7 +45,7 @@ Vamos a necesitar las siguientes MVs:
 | Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | serverXXg |
 | Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | clientXXg |
 | Un servidor SSH | Windows Server| 172.AA.XX.11 | serverXXs |
-| Un cliente SSH | Windows7 | 172.AA.XX.12 | clienteXXw |
+| Un cliente SSH | Windows | 172.AA.XX.12 | clienteXXw |
 
 ## 1.1 Servidor SSH
 
