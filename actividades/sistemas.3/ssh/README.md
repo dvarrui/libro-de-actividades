@@ -358,6 +358,10 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 ---
 # ANEXO A
 
+# Setup Passwordless SSH Login for Multiple Remote Servers Using Script
+
+https://www.tecmint.com/passwordless-ssh-login-for-multiple-remote-servers/
+
 ## SSH cipher
 
 https://answers.launchpad.net/ubuntu/+source/openssh/+question/669164
