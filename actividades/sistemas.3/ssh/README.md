@@ -50,7 +50,7 @@ Vamos a necesitar las siguientes MVs:
 ## 1.1 Servidor SSH
 
 * Configurar el servidor GNU/Linux con siguientes valores:
-    * SO GNU/Linux: OpenSUSE - Sin entorno gráfico
+    * SO GNU/Linux: OpenSUSE
     * Nombre de equipo: `serverXXg`
     * [Configuración de las MV's](../../global/configuracion/opensuse.md)
     * Poner clave compleja al usuario root.
