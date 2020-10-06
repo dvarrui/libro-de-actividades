@@ -1,7 +1,7 @@
 
 # VirtualBox y SO OpenSUSE
 
-## Guest Additions en OpenSUSE
+## Instalar las Guest Additions en OpenSUSE
 
 * Ir a la MV.
 * En la consola como root.
@@ -12,13 +12,15 @@
 * `./VBoxLinuxAdditions.run`, ejecutar la instalación para GNU/Linux.
 * Reiniciar MV si todo va bien.
 
-Para montar una carpeta compartida
+## Montar una carpeta compartida
+
+* Las GuestAdditions deben estar instaladas.
 * Configurar en VirtualBox el recurso de carpeta compartida con NOMBRE y PATH-HOST-REAL
 * Iniciar la MV
 * Entrar en consola como root
     * crear carpeta local PATH-DENTRO-MV
-    * `mount -t vboxsf NOMBRE PATH-DE-MV`
-* Ya está!
+    * `mount -t vboxsf NOMBRE PATH-DENTRO-MV`
+* ¡Ya está!
 
 ---
 # ANEXO
