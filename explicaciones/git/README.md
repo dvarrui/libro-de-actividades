@@ -15,18 +15,23 @@ Enlace de interés:
 * Crear un repositorio "curso-nombre-del-alumno". Por ejemplo, si el alumno se llama David Vargas,
 nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los guiones (-).
 
-> [OJO] Marcar la opción "Initialize this repository with a README", para crear un repositorio que contenga al menos un fichero.
-> La creación del repositorio en GitHub, sólo hay que hacerla una vez.
+> **ATENCIÓN:** Marcar la opción "Initialize this repository with a README", para crear un repositorio que contenga al menos un fichero.
+> La creación del repositorio remoto alojado en GitHub, sólo hay que hacerla una vez.
 
 ### En el equipo local (La primera vez)
 
-* Instalar GIT (`apt-get install git`)
+* Instalar GIT:
+    * Debian/Ubuntu: `apt-get install git`
+    * OpenSUSE: `zypper install git`
+    * Windows: https://git-scm.com/downloads
 * Establecer algunas configuraciones:
+
 ```
 git config --global user.email "email-del-alumno"
 git config --global user.name "nombre-del-alumno"
 git config --global push.default simple
 ```
+
 * `ssh-keygen`: Generar par de claves pública/privada
 * Copiar la clave pública en GitHub (Configuración -> SSH Keys).
 
@@ -37,19 +42,21 @@ git config --global push.default simple
 * Ya podemos a trabajar, creando ficheros/carpetas en el directorio del proyecto git.
 
 En el equipo local, al terminar de trabajar para subir los cambios al servidor GitHub:
+
 ```
-    cd idp1314-nombre-del-alumno
-    git status
-    git add nombre-de-fichero-o-carpeta
-    git commit -m "Mensaje informativo"
-    git push -u origin master
+cd idp1314-nombre-del-alumno
+git status
+git add nombre-de-fichero-o-carpeta
+git commit -m "Mensaje informativo"
+git push -u origin master
 ```
+
 > **RECORDATORIO**
 >
 > Cada vez que vayamos a trabajar en un equipo local por primera vez hay que:
 > * Instalar git y configurar el usuario
 > * Crear el par de claves y subir la clave pública al servidor
-> * y clonar el repositorio en el nuevo equipo local
+> * Clonar el repositorio en el nuevo equipo local
 
 ## 1.2. Cada día de trabajo
 
@@ -88,17 +95,20 @@ Esto ¿cómo lo haremos?:
 > `git show etiqueta`: Para ver el detalle de una etiqueta concreta.
 > `git log --pretty=oneline` Para consultar en pantalla todos los textos de los commits.
 
-En el moodle es conveniente indicar la URL del trabajo entregado vía Git.
+En el Moodle es conveniente indicar la URL del trabajo entregado vía Git.
 Que debe ser algo como *"usuario-git/add1516-nombrealumno/trim.3/unit.5/actividad1/README.md*".
 
 Imagen que muestra el texto del *commit* asociado a la entrega:
+
 ![git-repo-tarea-commit](./images/git-repo-tarea-commit.png)
 
 Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
+
 ![git-repo-tarea-url](./images/git-repo-tarea-url.png)
 
 El árbol de directorios creado en el repositorio debe ser como el siguiente:
 El árbol de directorios creado en el repositorio debe ser como el siguiente:
+
 ```
 ├── u1
 │   ├── vnc
