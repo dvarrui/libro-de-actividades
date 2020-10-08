@@ -100,7 +100,7 @@ Ejemplo de rúbrica:
     * Nombre de dominio: `curso1920`
     * La clave de root
     * Nombre de usuario (`nombre-del-alumno`) y su clave.
-* Zona horaria: elegir la de Canarias.
+* Zona horaria: elegir la zona de Canarias.
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
 
@@ -111,6 +111,9 @@ Ejemplo de rúbrica:
 | Lógica#7  | Home     | 500 M  | ext3                | /home     |
 | Lógica#8  | Sin usar | 100 MB | ext2                | No montar |
 | -         | Sin usar | Resto  | -                   | No montar |
+
+> En este punto el profesor debe explicar el esquema de particionado elegido
+y qué utilidad tiene cada partición.
 
 * Capturar imagen del esquema de particionado final.
 

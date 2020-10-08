@@ -25,10 +25,11 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 >     * Ponemos el `nombre-maquina.nombre-dominio`
 >     * Por ejemplo: `vargasXXd.curso1920`
 > * Fichero `/etc/hosts`.
->     * Asegurarse de que hay una línea con `ip nombre-de-host`
+>     * Asegurarse de que hay una sola línea con `ip nombre-de-host.dominio   nombre-de-host`
 >     * Por ejemplo: `127.0.0.2   vargasXXd.curso1920   vargasXXd`
 
-*Comprobar nombre de equipo y usuario:*
+Comprobamos:
+
 ```
    date
    uname -a
@@ -54,7 +55,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.42, 172.AA.XX.43, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.AA.0.1`
-    * Servidor DNS: `8.8.4.4`
+    * Servidor DNS: `1.1.1.1`
 
 ---
 
@@ -69,7 +70,7 @@ Por comandos debemos modificar el contenido de los ficheros de configuración de
 >
 > * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
-## Sin entorno gráfico 
+## Sin entorno gráfico
 
 * Usar comando `ip a`para averiguar el nombre de nuestras interfaces de red.
 * `nano /etc/network/interfaces`, para modificar el fichero de configuración de red.
@@ -100,10 +101,8 @@ iface eth1 inet dhcp
    * Reiniciar el equipo o
    * `systemctl restart networking` o
    * `service networking restart` o
+* Comprobamos:
 
----
-
-*Comprobar la red:*
 ```
    ip a                  # Muestra configuración de red
    ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
