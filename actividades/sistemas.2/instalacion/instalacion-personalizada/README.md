@@ -84,9 +84,9 @@ Ejemplo de rúbrica:
 
 > Capturar imágenes de los siguientes pasos
 
-* Descargar del servidor la ISO de Debian y su fichero md5.
+* Descargar del servidor la ISO de Debian y su fichero de comprobación.
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
-    * `md5sum -c nombre-fichero.md5`
+    * `sha512sum -c nombre-fichero-comprobación`
     * Debe aparecer mensaje `la suma coincide`.
 
 ## 3.2 Instalar SO
@@ -106,7 +106,7 @@ Ejemplo de rúbrica:
 
 | Partición | Uso      | Tamaño | Tipo                | Montar    |
 | --------- | -------- | ------ | ------------------- | --------- |
-| Lógica#5  | Swap     | 1 GB   | Área de Intercambio | No        | 
+| Lógica#5  | Swap     | 1 GB   | Área de Intercambio | No        |
 | Lógica#6  | Raíz     | 7 GB   | ext4                | /         |
 | Lógica#7  | Home     | 500 M  | ext3                | /home     |
 | Lógica#8  | Sin usar | 100 MB | ext2                | No montar |
