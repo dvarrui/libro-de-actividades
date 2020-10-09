@@ -154,8 +154,7 @@ Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usand
 
 * Desde el cliente Windows nos conectamos usando `PuTTY`.
     * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-    * No usar `Save Settings` para guardar la configuración de la conexión SSH en los perfiles de PuTTY.
-    * En la ventana `PuTTY Security Alert`, poner que SI grabar las información del servidor.
+    * Guardar la identificación del servidor.
 * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
 * Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 * La siguiente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH. Comprobarlo.
