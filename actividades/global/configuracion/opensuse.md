@@ -61,9 +61,9 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 * Ir dispositivo y elegir el interfaz de red.
 
 
-> INFORMACIÓN sobre los **ficheros de configuración de red**
+> INFORMACIÓN sobre los **ficheros de configuración de red** gestionados por Wicked.
 >
-> El fichero de configuración de red de OpenSUSE es `/etc/sysconfig/network/ifcfg-eth0` para la tarjeta `eth0`.
+> El fichero de configuración de red es `/etc/sysconfig/network/ifcfg-eth0` para la tarjeta `eth0`.
 > Ejemplo de configuración del modo automático o dinámico:
 > ```
 > BOOTPROTO='dhcp'
@@ -74,9 +74,14 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 > Ejemplo de configuración del modo manual o estático:
 > ```
 > BOOTPROTO='static'
+> STARTMODE='auto'
 > IPADDR='192.168.16.11/24'
-> STARTMODE='ifplugd'
 > ```
+>
+> Fichero de configuración de la puerta de enlace `/etc/sysconfig/network/ifroute-eth0` para la tarjeta `eth0`. Ejemplo: `default 172.19.0.1 - eth0`
+>
+> Fichero de configuración del servidor DNS `/etc/sysconfig/network/config`. Parámetro
+`NETCONFIG_DNS_STATIC_SERVERS="1.1.1.1"`
 
 ---
 # Comprobaciones finales
