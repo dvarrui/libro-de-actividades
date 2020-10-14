@@ -93,23 +93,17 @@ Crear los siguientes usuarios en `serverXXg`:
 * Comprobar haciendo `ping` a ambos equipos.
 
 ---
-# 2 Instalación del servicio SSH
+# 2 Instalación del servicio SSH en GNU/Linux
 
 * Instalar el servicio SSH en la máquina serverXXg. Por comandos o entorno gráfico.
 
-> Enlaces de interés:
->
-> * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
->
 > Instalación de SSH:
 >
 > * Desde la herramienta `yast -> Instalar Software`
 > * Desde terminal `zypper search openssh` muestra los paquetes instalados o no con nombre openssh*.
 > * Desde terminal `zypper install openssh`, instala el paquete OpenSSH.
 >
-> Configuración:
->
-> * Los ficheros de configuración del servicio se guardan en /etc/ssh.
+> Los ficheros de configuración del servicio SSH se guardan en /etc/ssh.
 
 ## 2.1 Comprobación
 
@@ -351,6 +345,10 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 * Comprobar acceso SSH desde los clientes Windows y GNU/Linux al servidor SSH Windows.
     * `netstat -n` en Windows.
     * `lsof -i -n` en GNU/Linux.
+
+> Enlaces de interés:
+>
+> * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
 ---
 # ANEXO A
