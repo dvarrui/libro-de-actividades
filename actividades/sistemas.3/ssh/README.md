@@ -1,5 +1,5 @@
 ```
-Cursos      : 201920, 201819, 201718, etc.
+Cursos      : 202021, 201920, 201819, 201718, etc.
 Area        : Sistemas oprativos, acceso remoto
 Descripción : Practicar con la herramienta de acceso remoto SSH
 Requisitos  : SO GNU/Linux y SO Windows
@@ -153,10 +153,8 @@ Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usand
 ## 2.3 Primera conexión SSH desde cliente Windows
 
 * Desde el cliente Windows nos conectamos usando `PuTTY`.
-    * Capturar imagen del intercambio de claves que se produce en el primer proceso de conexión SSH.
-    * Guardar la identificación del servidor.
-* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
-* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
+* Podremos ver el intercambio de claves que se produce en el primer proceso de conexión SSH. * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
+* Guardar la identificación del servidor.
 * La siguiente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH. Comprobarlo.
 
 ---
