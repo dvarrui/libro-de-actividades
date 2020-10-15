@@ -1,15 +1,10 @@
 
 # 0. Introducción VNC
 
-Entrega a determinar por el profesor:
-* (a) Correccción remota con TEUTON.
-* (b) Entrega informe por GIT.
-
 > En el caso de la entrega por GIT:
 > * URL con la ruta al archivo del informe dentro del repositorio del alumno.
 > * URl commit del repositorio con la versión entregada.
 > * Etiquetaremos la entrega en el repositorio Git con `vnc`.
-> * Capturar imágenes de la instalación y configuración VNC para poder acceder a una máquina remota.
 
 ## 0.1 Propuesta de rúbrica
 
