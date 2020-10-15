@@ -66,10 +66,6 @@ id nombre-de-usuario  # Comprobar que existe el usuario
 Podemos configurar la red por entorno gráfico usando la aplicación NetworkManager.
 Por comandos debemos modificar el contenido de los ficheros de configuración de red.
 
-> Enlace de interés:
->
-> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
-
 ## Sin entorno gráfico
 
 * Usar comando `ip a`para averiguar el nombre de nuestras interfaces de red.
@@ -94,9 +90,6 @@ iface enp0s3 inet static
 # iface eth1 inet dhcp
 ```
 
-> NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres
-(Servidor DNS) debemos modificar el fichero `/etc/resolv.conf` y añadir `nameserver 8.8.4.4`.
-
 * Para que se apliquen los cambios hacemos lo siguiente:
    * Reiniciar el equipo o
    * `systemctl restart networking`
@@ -113,6 +106,10 @@ blkid
 ---
 
 # ANEXO
+
+> Enlace de interés:
+>
+> * [Configurar tarjeta de red con IP estática en Debian sin interfaz gráfica](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/)
 
 ## resolvconf
 
