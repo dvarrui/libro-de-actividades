@@ -150,20 +150,20 @@ Veamos imagen de ejemplo:
 > Enlace de interés:
 > * Información sobre [configurar la tarjeta de red](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) en Debian.
 
-* Entrar al sistema como root (superusuario)
+* Entrar al sistema como root (`su -l`).
 
 Capturar imagen de los siguientes comandos:
 
 ```
-    date         # Muestra la fecha/hora del sistema
-    hostname -a  # Muestra nombre del sistema
-    hostname -d  # Muestra nombre de dominio
-    uname -a     # Muestra datos del kernel
-    ip a         # Muestra información de red
-    df -hT       # Muestra información de ocupación del disco
-    fdisk --list # Muestra información de particiones (Ejecutar como superusuario)
-    lsblk        # Muestra información de las particiones
-    blkid        # Muestra los códigos UUID de las particiones
+date         # Muestra la fecha/hora del sistema
+hostname -a  # Muestra nombre del sistema
+hostname -d  # Muestra nombre de dominio
+uname -a     # Muestra datos del kernel
+ip a         # Muestra información de red
+df -hT       # Muestra información de ocupación del disco
+fdisk --list # Muestra información de particiones (Ejecutar como superusuario)
+lsblk        # Muestra información de las particiones
+blkid        # Muestra los códigos UUID de las particiones
 ```
 * Salir con el comando `exit`.
 
