@@ -31,14 +31,14 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
 Comprobamos:
 
 ```
-   date
-   uname -a
-   hostname -f           # Muestra nombre-máquina.nombre-dominio
-   hostname -a           # Muestra nombre-máquina
-   hostname -d           # Muestra nombre-dominio
+date
+uname -a
+hostname -f           # Muestra nombre-máquina.nombre-dominio
+hostname -a           # Muestra nombre-máquina
+hostname -d           # Muestra nombre-dominio
 
-   tail -n 5 /etc/passwd # Comprobar que existe el usuario
-   id nombre-de-usuario  # Comprobar que existe el usuario
+tail -n 5 /etc/passwd # Comprobar que existe el usuario
+id nombre-de-usuario  # Comprobar que existe el usuario
 ```
 
 ---
@@ -90,8 +90,8 @@ iface enp0s3 inet static
   dns-nameserver 8.8.4.4
 
 # Ejemplo configuración interfaz ethq en modo dinámico
-auto eth1
-iface eth1 inet dhcp
+# auto eth1
+# iface eth1 inet dhcp
 ```
 
 > NOTA: Si NO tenemos instalado el paquete `resolvconf`, para configurar la resolución de nombres
@@ -99,16 +99,15 @@ iface eth1 inet dhcp
 
 * Para que se apliquen los cambios hacemos lo siguiente:
    * Reiniciar el equipo o
-   * `systemctl restart networking` o
-   * `service networking restart` o
+   * `systemctl restart networking`
 * Comprobamos:
 
 ```
-   ip a                  # Muestra configuración de red
-   ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
-   ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
-   host www.nba.com      # Comprueba que funciona bien el DNS
-   blkid
+ip a                  # Muestra configuración de red
+ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
+ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
+host www.nba.com      # Comprueba que funciona bien el DNS
+blkid
 ```
 
 ---
