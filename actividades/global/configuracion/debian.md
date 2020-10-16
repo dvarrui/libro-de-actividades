@@ -83,7 +83,7 @@ iface enp0s3 inet static
   address 172.AA.XX.41
   netmask 255.255.0.0
   gateway 172.AA.0.1
-  dns-nameserver 8.8.4.4
+  dns-nameserver 1.1.1.1
 
 # Ejemplo configuración interfaz ethq en modo dinámico
 # auto eth1
@@ -98,9 +98,8 @@ iface enp0s3 inet static
 ```
 ip a                  # Muestra configuración de red
 ip route              # Muestra la tabla de enrutamiento. Antes se usaba "route -n"
-ping 8.8.4.4          # Comprueba la conexión con una máquina de Internet
+ping 1.1.1.1          # Comprueba la conexión con una máquina de Internet
 host www.nba.com      # Comprueba que funciona bien el DNS
-blkid
 ```
 
 ---
