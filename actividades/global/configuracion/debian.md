@@ -19,8 +19,7 @@
 
 > **ATENCIÓN**
 >
-> * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
-Sin usar caracteres especiales como ñ, tildes, espacios, etc.
+> * Los nombres de usuario, máquina y dominio deben estar en minúsculas. No usar caracteres especiales como ñ, tildes, espacios, etc.
 > * Fichero `/etc/hostname`
 >     * Ponemos el `nombre-maquina.nombre-dominio`
 >     * Por ejemplo: `vargasXXd.curso1920`
