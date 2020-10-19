@@ -1,4 +1,12 @@
 
+```
+Cursos      : 202021
+Area        : Sistemas oprativos, Integración de sistemas
+Descripción : Practicar recursos compartidos de red SMB/CIFS
+Requisitos  : SO GNU/Linux y SO Windows
+Tiempo      : 8 sesiones
+```
+
 # Samba (con OpenSUSE y Windows)
 
 Ejemplo de rúbrica:
@@ -9,8 +17,6 @@ Ejemplo de rúbrica:
 | (2.1 y 2.2) Conexión SMB desde Windows   | | | |
 | (3.1 y 3.2) Conexión SMB desde GNU/Linux | | | |
 | (3.3) Montaje automático                 | | | |
-
----
 
 ## Entrega
 
