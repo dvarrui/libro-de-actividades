@@ -25,13 +25,11 @@ Ejemplo de rúbrica:
 
 Vamos a necesitar las siguientes máquinas:
 
-| MV1: Servidor   | MV2: Cliente    | MV3: Cliente    |
-| --------------- | --------------- | --------------- |
-| OpenSUSE        | OpenSUSE        | Windows         |
-| **IP estática** | **IP estática** | **IP estática** |
-| 172.AA.XX.31    | 172.AA.XX.32    | 172.AA.XX.11    |
-| **Nombre:**     | **Nombre:**     | **Nombre:**     |
-| `smb-serverXX`  | `smb-cliXXg`    | `smb-cliXXw`    |
+| ID  | Función  | SSOO     | IP estática  | Hostname  |
+| --- | -------- | -------- | ------------ | --------- |
+| MV1 | Servidor | OpenSUSE | 172.AA.XX.31 | serverXXg |
+| MV2 | Cliente  | OpenSUSE | 172.AA.XX.32 | clientXXg |
+| MV3 | Cliente  | Windows  | 172.AA.XX.11 | clientXXw |
 
 ---
 
@@ -41,10 +39,11 @@ Vamos a necesitar las siguientes máquinas:
 
 * [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
 Usar los siguientes valores:
-    * Nombre de equipo: smb-serverXX (Donde XX es el número del puesto de cada uno).
-* Añadir en `/etc/hosts` los equipos `smb-cliXXg` y `smb-cliXXw` (Donde XX es el número del puesto de cada uno).
+    * Nombre de equipo: `serverXXg` (Donde XX es el número del puesto de cada uno).
+* Añadir en `/etc/hosts` los equipos `clientXXg` y `c.lientXXw` (Donde XX es el número del puesto de cada uno).
 
 Capturar salida de los comandos siguientes en el servidor:
+
 ```
 hostname -f
 ip a
@@ -54,38 +53,33 @@ sudo blkid
 
 ## 1.2 Usuarios locales
 
-* Capturar imágenes del resultado final.
-* Podemos usar comandos o entorno gráfico Yast.
-
 Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
 * Crear los grupos `piratas`, `soldados` y `todos`.
 * Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
 entrar en nuestra máquina mediante login, vamos a modificar este usuario y le ponemos
 como shell `/bin/false`.
-    * Por entorno gráfico lo cambiamos usando Yast.
-    * Por comandos el cambio se hace editando el fichero `/etc/passwd`.
+
+> NOTA: Podemos hacer estos cambios por entorno gráfico usando Yast, o
+por comandos editando el fichero `/etc/passwd`.
+
 * Dentro del grupo `piratas` incluir a los usuarios `pirata1`, `pirata2` y `supersamba`.
 * Dentro del grupo `soldados` incluir a los usuarios `soldado1` y `soldado2` y `supersamba`.
 * Dentro del grupo `todos`, poner a todos los usuarios `soldados`, `pitatas`, `supersamba` y a `smbguest`.
-* Poner a los usuarios de samba dentro del grupo `cdrom`.
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
-* Capturar imagen del resultado final.
 * Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
 
-|                 | Public          | Castillo        | Barco           |
-| --------------- | --------------- | --------------- | --------------- |
-| Directorio base | `/srv/sambaXX/` | `/srv/sambaXX/` | `/srv/sambaXX/` |
-| Carpeta         | `public.d`      | `castillo.d`    | `barco.d`       |
-| Usuario prop.   | `supersamba`    |`supersamba`     | `supersamba`    |
-| Grupo prop.     | `sambausers`    |`soldados`       | `piratas`       |
-| Permisos        | 777             | 777             | 777             |
-
+|                 | Public        | Castillo      | Barco         |
+| --------------- | ------------- | ------------- | ------------- |
+| Directorio base | /srv/sambaXX/ | /srv/sambaXX/ | /srv/sambaXX/ |
+| Carpeta         | public.d      | castillo.d    | barco.d       |
+| Usuario prop.   | supersamba    | supersamba    | supersamba    |
+| Grupo prop.     | sambausers    | soldados      | piratas       |
+| Permisos        | 777           | 777           | 777           |
 
 ## 1.4 Configurar el servidor Samba
 
-* Capturar imágenes del proceso.
 * Vamos a hacer una copia de seguridad del fichero de configuración existente
 `cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
 
@@ -115,17 +109,12 @@ barco, y castillo como la siguiente:
 
 ```
 [global]
-  netbios name = smb-serverXX
+  netbios name = serverXXg
   workgroup = cursoXXYY
   server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
   guest account = smbguest
-
-[cdrom]
-  path = /dev/cdrom
-  guest ok = yes
-  read only = yes
 
 [public]
   comment = public de nombre-alumno-XX
@@ -146,7 +135,8 @@ barco, y castillo como la siguiente:
   valid users = pirata1, pirata2
 ```
 
-* No vale copiar y pegar el ejemplo anterior. Hay que adaptarlo a tus requisitos.
+> No vale copiar y pegar el ejemplo anterior. Hay que adaptarlo a tus requisitos.
+
 * Abrimos una consola para comprobar los resultados.
     * `cat /etc/samba/smb.conf`
     * `testparm`
@@ -156,7 +146,7 @@ barco, y castillo como la siguiente:
 Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 * `smbpasswd -a USUARIO`, para crear clave Samba de USUARIO.
     * **¡OJO!: NO te saltes este paso.**
-    * USUARIO son los usuarios que se conectarán a los recursos comartidos SMB/CIFS.
+    * USUARIO son los usuarios que se conectarán a los recursos compartidos SMB/CIFS.
     * Esto hay que hacerlo para cada uno de los usuarios de Samba.
 * `pdbedit -L`, para comprobar la lista de usuarios Samba.
 * Capturar imagen del comando anterior.
@@ -182,6 +172,7 @@ Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
 | systemctl status  SERVICE-NAME | Ver estado |
 
 * Capturar imagen de los siguientes comando de comprobación:
+
 ```
 sudo testparm  # Verifica la sintaxis del fichero de configuración del servidor Samba
 sudo lsof -i   # Vemos que el servicio SMB/CIF está a la escucha
@@ -202,8 +193,6 @@ máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
 * Configurar el fichero `...\etc\hosts` de Windows.
 * En los clientes Windows el software necesario viene preinstalado.
 
----
-
 ## 2.1 Cliente Windows GUI
 
 Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor Samba.
@@ -223,8 +212,6 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `lsof -i`, desde el servidor Samba.
-
----
 
 ## 2.2 Cliente Windows comandos
 
@@ -261,8 +248,6 @@ Capturar imagen de los comandos siguientes:
 * Usar nombre y la IP que hemos establecido al comienzo.
 * Configurar el fichero `/etc/hosts` de la máquina.
 
----
-
 ## 3.1 Cliente GNU/Linux GUI
 
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS.
@@ -289,8 +274,6 @@ Capturar imagen de lo siguiente:
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
     * `lsof -i`, desde el servidor Samba.
-
----
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -362,11 +345,6 @@ Usuarios:
 Recursos compartidos:
 
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
-
-> Para REVISAR
-> * ¿Cómo pueden los clientes acceder al CDROM del servidor usando Samba?
->    * /dev/cdrom ¿Dónde apunta? ¿Qué permisos tiene?
->    * /dev/sr0 ¿Que permisos tiene?
 
 ---
 
