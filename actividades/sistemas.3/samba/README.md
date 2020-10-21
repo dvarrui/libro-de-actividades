@@ -1,7 +1,7 @@
 
 ```
 Cursos      : 202021
-Area        : Sistemas oprativos, Integración de sistemas
+Area        : Sistemas operativos, integración de sistemas
 Descripción : Practicar recursos compartidos de red SMB/CIFS
 Requisitos  : SO GNU/Linux y SO Windows
 Tiempo      : 8 sesiones
@@ -25,8 +25,8 @@ Ejemplo de rúbrica:
 
 ## Introducción
 
-* Leer documentación proporcionada por el profesor.
 * Atender a la explicación del profesor.
+* Leer documentación proporcionada por el profesor.
 * Vídeo [LPIC-2 202 Samba Server Configuration](http://www.youtube.com/embed/Gkhl0mHpm1E")
 
 Vamos a necesitar las siguientes máquinas:
@@ -44,37 +44,24 @@ Vamos a necesitar las siguientes máquinas:
 ## 1.1 Preparativos
 
 * [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
-Usar los siguientes valores:
-    * Nombre de equipo: `serverXXg` (Donde XX es el número del puesto de cada uno).
+* Nombre de equipo: `serverXXg` (Donde XX es el número del puesto de cada uno).
 * Añadir en `/etc/hosts` los equipos `clientXXg` y `c.lientXXw` (Donde XX es el número del puesto de cada uno).
-
-Capturar salida de los comandos siguientes en el servidor:
-
-```
-hostname -f
-ip a
-lsblk
-sudo blkid
-```
 
 ## 1.2 Usuarios locales
 
-Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios:
-* Crear los grupos `piratas`, `soldados` y `todos`.
-* Crear el usuario `smbguest`. Para asegurarnos que nadie puede usar `smbguest` para
+Vamos a GNU/Linux, y creamos los siguientes grupos y usuarios locales:
+* Crear los grupos `piratas`, `soldados` y `sambausers`.
+* Crear el usuario `sambaguest`. Para asegurarnos que nadie puede usar `sambaguest` para
 entrar en nuestra máquina mediante login, vamos a modificar este usuario y le ponemos
-como shell `/bin/false`.
-
-> NOTA: Podemos hacer estos cambios por entorno gráfico usando Yast, o
+como shell `/bin/false`. NOTA: Podemos hacer estos cambios por entorno gráfico usando Yast, o
 por comandos editando el fichero `/etc/passwd`.
-
 * Dentro del grupo `piratas` incluir a los usuarios `pirata1`, `pirata2` y `supersamba`.
 * Dentro del grupo `soldados` incluir a los usuarios `soldado1` y `soldado2` y `supersamba`.
-* Dentro del grupo `todos`, poner a todos los usuarios `soldados`, `pitatas`, `supersamba` y a `smbguest`.
+* Dentro del grupo `sambausers`, poner a todos los usuarios `soldados`, `piratas`, `supersamba` y a `sambaguest`.
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
-* Vamos a crear las carpetas de los recursos compartidos con los permisos siguientes:
+* Vamos a crear las carpetas para los recursos compartidos de la siguiente forma:
 
 |                 | Public        | Castillo      | Barco         |
 | --------------- | ------------- | ------------- | ------------- |
@@ -86,32 +73,36 @@ por comandos editando el fichero `/etc/passwd`.
 
 ## 1.4 Configurar el servidor Samba
 
-* Vamos a hacer una copia de seguridad del fichero de configuración existente
-`cp /etc/samba/smb.conf /etc/samba/smb.conf.000`.
+* `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
 
-> Podemos usar comandos o el entorno gráfico para instalar y configurar el servicio Samba.
+> Para instalar y configurar el servicio Samba, podemos usar comandos o el entorno gráfico.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
 * `Yast -> Samba Server`
-    * Workgroup: `curso1819`
+    * Workgroup: `curso2021`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
     * Ajustes del cortafuegos -> Abrir puertos
 
-## 1.5 Crear los recursos compartidos de Samba
+> **Comprobar CORTAFUEGOS**
+>
+> Para descartar un problema del servidor Samba con el cortafuegos, usaremos
+el comando `nmap -Pn IP-servidor-Samba` desde otra máquina GNU/Linux.
+Los puertos SMB/CIFS (139 y 445) deben estar abiertos.
 
-Vamos a configurar los recursos compartido del servidor Samba.
+## 1.5 Crear los recursos compartidos de red
+
+Vamos a configurar los recursos compartidos de red en el servidor.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
 
-* Capturar imágenes del proceso.
 * `Yast -> Samba Server -> Recursos compartidos -> Configurar`.
-* Tenemos que conseguir una configuración con las secciones global, cdrom, public,
-barco, y castillo como la siguiente:
-
-> * Donde pone XX, sustituir por el núméro del puesto de cada uno
-> * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
-> * `cdrom`, es el recurso dispositivo cdrom de la máquina donde está instalado el servidor samba.
+* Tenemos que conseguir una configuración con las secciones: `global`, `public`,
+`barco`, y `castillo` como la siguiente:
+    * Donde pone XX, sustituir por el número del puesto de cada uno.
+    * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
+    * `barco`, recurso compartido de red de lectura/escritura para todos los piratas.
+    * `castillo`, recurso compartido de red de lectura/escritura para todos los soldados.
 
 ```
 [global]
@@ -120,7 +111,7 @@ barco, y castillo como la siguiente:
   server string = Servidor de nombre-alumno-XX
   security = user
   map to guest = bad user
-  guest account = smbguest
+  guest account = sambaguest
 
 [public]
   comment = public de nombre-alumno-XX
@@ -141,11 +132,10 @@ barco, y castillo como la siguiente:
   valid users = pirata1, pirata2
 ```
 
-> No vale copiar y pegar el ejemplo anterior. Hay que adaptarlo a tus requisitos.
+> No vale copiar y pegar el ejemplo anterior. Hay que adaptarlo al servidor de cada uno.
 
-* Abrimos una consola para comprobar los resultados.
-    * `cat /etc/samba/smb.conf`
-    * `testparm`
+* `testparm`, verificar la sintaxis del fichero de configuración.
+* `more /etc/samba/smb.conf`, consultar el contenido del fichero de configuración.
 
 ## 1.6 Usuarios Samba
 
@@ -155,7 +145,6 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
     * USUARIO son los usuarios que se conectarán a los recursos compartidos SMB/CIFS.
     * Esto hay que hacerlo para cada uno de los usuarios de Samba.
 * `pdbedit -L`, para comprobar la lista de usuarios Samba.
-* Capturar imagen del comando anterior.
 
 ## 1.7 Reiniciar
 
@@ -163,11 +152,7 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 >
 > * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
 
-Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración.
-
-Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
-* Servicio smb `systemctl reload smb`
-* Servicio nmb `systemctl reload nmb`
+* Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración. Podemos hacerlo por `Yast -> Servicios`, o usar los comandos: `systemctl reload smb` y `systemctl reload nmb`.
 
 | Comandos Servicio              | Descripción |
 | ------------------------------ | ----------- |
@@ -177,18 +162,7 @@ Podemos hacerlo por `Yast -> Servicios`, o usar los comandos.
 | systemctl reload  SERVICE-NAME | Volver a releer la configuración |
 | systemctl status  SERVICE-NAME | Ver estado |
 
-* Capturar imagen de los siguientes comando de comprobación:
-
-```
-sudo testparm  # Verifica la sintaxis del fichero de configuración del servidor Samba
-sudo lsof -i   # Vemos que el servicio SMB/CIF está a la escucha
-```
-
-> **Comprobar CORTAFUEGOS**
->
-> Para descartar un problema con el cortafuegos del servidor Samba.
-> Probamos el comando `nmap -Pn smb-serverXX` desde la máquina real, u otra
-máquina GNU/Linux. Deberían verse los puertos SMB/CIFS(139 y 445) abiertos.
+* `sudo lsof -i`, comprobar que el servicio SMB/CIF está a la escucha.
 
 ---
 
