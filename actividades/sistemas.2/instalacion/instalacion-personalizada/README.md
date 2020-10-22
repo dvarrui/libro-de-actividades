@@ -73,7 +73,8 @@ Ejemplo de rúbrica:
     * ponerse como root (comando su) y
     * ejecutar gparted (comando gparted).
 * Se ha iniciado `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
-* Vamos a crear una partición extendida que ocupe todo el disco (Consultar documentación de gparted). Aplicar los cambios.
+* Vamos a crear una partición que ocupe todo el disco, de tipo **partición extendida**.
+* Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
 
 ---
