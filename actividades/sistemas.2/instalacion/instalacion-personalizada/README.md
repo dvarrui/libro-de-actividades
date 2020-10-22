@@ -105,13 +105,13 @@ Ejemplo de rúbrica:
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
 
-| Partición | Uso      | Tamaño | Tipo                | Montar    |
-| --------- | -------- | ------ | ------------------- | --------- |
-| Lógica#5  | Swap     | 1 GB   | Área de Intercambio | No        |
-| Lógica#6  | Raíz     | 7 GB   | ext4                | /         |
-| Lógica#7  | Home     | 500 M  | ext3                | /home     |
-| Lógica#8  | Sin usar | 100 MB | ext2                | No montar |
-| -         | Sin usar | Resto  | -                   | No montar |
+| Uso      | Tamaño | Partición | Tipo                | Montar    |
+| -------- | ------ | --------- | ------------------- | --------- |
+| Swap     | 1 GB   | Lógica#5  | Área de Intercambio | No        |
+| Raíz     | 7 GB   | Lógica#6  | ext4                | /         |
+| Home     | 500 M  | Lógica#7  | ext3                | /home     |
+| Sin usar | 100 MB | Lógica#8  | ext2                | No montar |
+| Sin usar | Resto  | -         | -                   | No montar |
 
 > En este punto el profesor debe explicar el esquema de particionado elegido
 y qué utilidad tiene cada partición.
@@ -147,10 +147,6 @@ Veamos imagen de ejemplo:
 
 * Entrar al sistema como root (superusuario)
 * Vamos a configurar la tarjeta de red con la siguiente [Configuración de la MV](../../../global/configuracion/debian.md).
-
-> Enlace de interés:
-> * Información sobre [configurar la tarjeta de red](http://www.driverlandia.com/configurar-tarjeta-de-red-con-ip-estatica-en-debian-sin-interfaz-grafica/) en Debian.
-
 * Entrar al sistema como root (`su -l`).
 
 Capturar imagen de los siguientes comandos:
