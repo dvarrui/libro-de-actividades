@@ -63,13 +63,11 @@ por comandos editando el fichero `/etc/passwd`.
 
 * Vamos a crear las carpetas para los recursos compartidos de la siguiente forma:
 
-|                 | Public        | Castillo      | Barco         |
-| --------------- | ------------- | ------------- | ------------- |
-| Directorio base | /srv/sambaXX/ | /srv/sambaXX/ | /srv/sambaXX/ |
-| Carpeta         | public.d      | castillo.d    | barco.d       |
-| Usuario prop.   | supersamba    | supersamba    | supersamba    |
-| Grupo prop.     | sambausers    | soldados      | piratas       |
-| Permisos        | 777           | 777           | 777           |
+| Recurso  | Directorio              | Usuario    | Grupo      | Permisos |
+| -------- | ----------------------- | ---------- | ---------- | -------- |
+| Public   | /srv/sambaXX/public.d   | supersamba | sambausers | 770 |
+| Castillo | /srv/sambaXX/castillo.d | supersamba | soldados   | 770 |
+| Barco    | /srv/sambaXX/barco.d    | supersamba | piratas    | 770 |
 
 ## 1.4 Configurar el servidor Samba
 
