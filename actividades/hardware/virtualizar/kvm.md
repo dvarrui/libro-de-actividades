@@ -44,6 +44,11 @@ operativo que queramos instalar en MVs.
 
 ![](images/kvm-06.png)
 
+* Creamos un pool de almacenamiento:
+    * Nombre del pool: `alumno`
+    * Ubicación: `/home/alumno/kvm`
+    * Volumen: `fichero.qcow2`
+
 ![](images/kvm-07.png)
 
 ![](images/kvm-08.png)
@@ -75,9 +80,75 @@ operativo que queramos instalar en MVs.
 Con la instalacion de KVM también tenemos libvirt. Comprobamos `systemctl status libvirtd`.
 * `sudo usermod -a -G libvirt alumno`, añadimos a nuestro usuario al grupo libvirt para
 que pueda gestionar la herramienta de virtualización sin ser root.
+* Consultar los pool disponibles:
+
+```bash
+> virsh -c qemu:///system pool-list
+ Nombre    Estado   Inicio automático
+---------------------------------------
+ david     activo   si
+ default   activo   si
+```
+
+* Consultar los volúmenes de un pool:
+
+```bash
+> virsh -c qemu:///system vol-list david
+ Nombre              Ruta
+--------------------------------------------------------
+ debian10.qcow2      /home/david/kvm/debian10.qcow2
+ opensuse152.qcow2   /home/david/kvm/opensuse152.qcow2
+```
+
+```bash
+> virsh net-start default
+La red default se ha iniciado
+
+> virsh net-list
+ Nombre    Estado   Inicio automático   Persistente
+-----------------------------------------------------
+ default   activo   no                  si
+
+> virsh list --all
+Id   Nombre        Estado
+-----------------------------
+-    debian10      apagado
+-    opensuse152   apagado
+
+> virsh start debian10
+> virsh list
+Id   Nombre        Estado
+--------------------------------
+ 4    debian10      ejecutando
+ -    opensuse152   apagado
+
+> virsh destroy debian10
+ El dominio debian10 ha sido destruido
+```
 
 ---
 
 # ANEXO
 
 * **isardvdi**: https://www.isardvdi.com/
+
+Crear un nuevo pool:
+
+```bash
+$ virsh -c qemu:///system \
+    pool-define-as devel \
+    dir --target /opt/kvms/pools/devel
+$ virsh -c qemu:///system pool-autostart devel
+$ virsh -c qemu:///system pool-start devel
+```
+
+Instalar una MV:
+```bash
+virt-install -n debian-testing \
+             --ram 2048 --vcpus=2 \
+             --cpu=host \
+             -c ./netinst/debian-6.0.7-amd64-netinst.iso \
+             --os-type=linux --os-variant=debiansqueeze \
+             --disk=pool=devel,size=2,format=qcow2 \
+             -w network=devel --graphics=vnc
+```
