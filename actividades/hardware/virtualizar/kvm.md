@@ -64,13 +64,17 @@ operativo que queramos instalar en MVs.
 ---
 # 2. libvirt
 
-
 > Enlaces de interés:
 >
 > * [How to get started with libvirt on Linux](http://rabexc.org/posts/how-to-get-started-with-libvirt-on/)
 > * [Linux KVM Libvirt Tutorial – POFTUT](https://www.poftut.com/linux-kvm-libvirt-tutorial/)
 > * [Virtualization - libvirt | Server documentation | Ubuntu](https://ubuntu.com/server/docs/virtualization-libvirt)
 
+## 2.1 Instalación
+
+Con la instalacion de KVM también tenemos libvirt. Comprobamos `systemctl status libvirtd`.
+* `sudo usermod -a -G libvirt alumno`, añadimos a nuestro usuario al grupo libvirt para
+que pueda gestionar la herramienta de virtualización sin ser root.
 
 ---
 
