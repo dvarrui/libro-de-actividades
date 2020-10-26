@@ -61,6 +61,9 @@ por comandos editando el fichero `/etc/passwd`.
 
 ## 1.3 Crear las carpetas para los futuros recursos compartidos
 
+* Creamos la carpeta base para los recursos de red de Samba de la siguiente forma:
+    * `mkdir /srv/sambaXX`
+    * `chmod 755 /srv/sambaXX`
 * Vamos a crear las carpetas para los recursos compartidos de la siguiente forma:
 
 | Recurso  | Directorio              | Usuario    | Grupo      | Permisos |
