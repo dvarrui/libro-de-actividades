@@ -197,8 +197,8 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 ## 2.2 Cliente Windows comandos
 
 * Abrir una shell de windows.
-* `net use /?`, para consultar la ayuda del comando.
-* `net use`, para consultar todas las conexiones/recursos conectados hacemos .
+* `net use`, para consultar todas las conexiones/recursos conectados hacemos.
+Con `net use /?`, podemos consultar la ayuda.
 * Si hubiera alguna conexión abierta la cerramos.
     * `net use * /d /y`, para cerrar las conexiones SMB.
     * `net use` ahora vemos que NO hay conexiones establecidas.
@@ -210,11 +210,8 @@ Capturar imagen de los comandos siguientes:
 > * `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
 > * [Error 6118](https://stackoverflow.com/questions/13676714/command-prompt-net-view-system-error-6118) que aparece el ejecutar `net view` en Windows.
 
-* `net use S: \\IP-SERVIDOR-SAMBA\recurso clave /USER:usuario /p:yes` crear una conexión con el recurso compartido y lo monta en la unidad S.
-    * Probar a montar el recurso `barco`.
-
-> Con la opción /p:yes hacemos el montaje persistente. De modo que se mantiene en cada reinicio de máquina.
-
+Montar el recurso `barco` de forma persistente.
+* `net use S: \\IP-SERVIDOR-SAMBA\recurso contraseña /USER:usuario /p:yes` crear una conexión con el recurso compartido y lo monta en la unidad S. Con la opción `/p:yes` hacemos el montaje persistente. De modo que se mantiene en cada reinicio de máquina.
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
@@ -233,13 +230,9 @@ Capturar imagen de los comandos siguientes:
 
 Desde en entorno gráfico, podemos comprobar el acceso a recursos compartidos SMB/CIFS.
 
-> Estas son algunas herramientas:
-> * Yast en OpenSUSE
-> * Nautilus en GNOME
-> * Konqueror en KDE
-> * En Ubuntu podemos ir a "Lugares -> Conectar con el servidor..."
-> * También podemos instalar "smb4k".
-> * existen otras para otros entornos gráficos. Busca en tu GNU/Linux la forma de acceder vía GUI.
+> Algunas herramientas para acceder a recursos Samba por entorno gráfico: Yast en OpenSUSE,
+Nautilus en GNOME, Konqueror en KDE, En Ubuntu podemos ir a "Lugares -> Conectar con el servidor...",
+También podemos instalar "smb4k".
 
 Ejemplo accediendo al recurso prueba del servidor Samba,
 pulsamos CTRL+L y escribimos `smb://IP-SERVIDOR-SAMBA`:
