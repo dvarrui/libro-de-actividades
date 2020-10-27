@@ -117,10 +117,6 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
     * Partición home (montar /home) de tamaño 100MB y con formato ext3.
     * Partición del sistema (montar /) de tamaño 7GB y con formato ext4.
     * Quedará espacio libre. Lo dejamos sin usar.
-* Capturar imagen como la siguiente:
-
-![dual-suse-particiones1](./images/dual-suse-particiones1.png)
-
 * Botón derecho sobre la partición `ext3` -> para montar `/home`
 
 ![dual-suse-home](./images/dual-suse-home.png)
