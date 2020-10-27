@@ -55,7 +55,7 @@ Incluir breves comentarios de cada captura de pantalla.
 * Dentro de la extendida haremos las siguientes particiones lógicas:
     * Área de intercambio o SWAP (500 MiB),
     * Partición de tamaño 100 MiB y con formato ext3.
-    * Partición de tamaño 7GB (7168 MiB) y con formato ext4.
+    * Partición de tamaño 7 GiB (7168 MiB) y con formato ext4.
     * Quedará un espacio libre que lo dejamos sin usar.
 * Capturar pantalla del `gparted` con las particiones solicitadas
 * Apagar MV.
