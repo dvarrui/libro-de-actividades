@@ -133,10 +133,6 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 GNU/Linux.
 
 * Aceptar.
-* Capturar imagen como la siguiente:
-
-![dual-suse-particiones2](./images/dual-suse-particiones2.png)
-
 * Verificar y siguiente.
 
 ![dual-suse-particiones3](./images/dual-suse-particiones3.png)
