@@ -49,13 +49,13 @@ Incluir breves comentarios de cada captura de pantalla.
     * Iniciamos la herramienta de particionado con el usuario root ejecutando el comando `gparted`.
 * `Gparted -> Dispositivo -> Crear tabla de particiones -> MSDOS`.
 * Crear las siguientes particiones:
-    * Una partición primaria, tipo NTFS para Windows (12GB),
-    * Una primaria FAT32 para datos (100MB).
+    * Una partición primaria, tipo NTFS para Windows (12 GiB = 12288 MiB),
+    * Una primaria FAT32 para datos (100 MiB).
     * Crearemos una partición extendida que coja todo el disco restante.
 * Dentro de la extendida haremos las siguientes particiones lógicas:
-    * Área de intercambio o SWAP (500MB),
-    * Partición de tamaño 100MB y con formato ext3.
-    * Partición de tamaño 7GB y con formato ext4.
+    * Área de intercambio o SWAP (500 MiB),
+    * Partición de tamaño 100 MiB y con formato ext3.
+    * Partición de tamaño 7GB (7168 MiB) y con formato ext4.
     * Quedará un espacio libre que lo dejamos sin usar.
 * Capturar pantalla del `gparted` con las particiones solicitadas
 * Apagar MV.
