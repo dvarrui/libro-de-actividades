@@ -1,11 +1,14 @@
 
 ```
-Curso             : 201819
-Software          : Windows 7 y OpenSUSE Leap 15.0
-Duracion estimada : 11 horas
+Curso       : 202021, 201819, 201718
+Area        : Sistemas operativos, instalación
+Descripción : Instalación de dos SSOO en la misma máquina.
+Requisitos  : Windows 7 y GNU/Linux OpenSUSE Leap 15
+Tiempo      : 11 sesiones
 ```
----
 
+
+---
 # Instalación Dual (PC BIOS)
 
 > Enlaces de interés:
@@ -19,28 +22,23 @@ Esto es, instalar dos SSOO en la misma máquina.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
-> **Recuerda**
->
-> * Pasado una semana si no vamos a usar más dicha MV, procederemos a eliminarla completamente para liberar espacio en disco.
-> * Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas
-operativos, muy probablemente las imágenes actuales sean diferentes.
+> **Recuerda**: Las capturas de pantallas del enunciado se han puesto como ejemplo. Al cambiar las versiones de los sistemas operativos, muy probablemente las imágenes actuales sean diferentes.
 
 ---
-
 # 1. Preparar la máquina virtual
 
 * Crear una máquina virtual (VirtualBox).
 * Configurar con:
-    * tipo Windows 7 (64 bits)
+    * Tipo Windows 7 (64 bits)
     * RAM 1024MB
-    * disco duro de 20GB
-    * tarjeta de red en modo puente (bridge).
+    * Disco duro de 20GB
+    * Tarjeta de red en modo puente (bridge).
 
 ## 1.1 Particionado
 
 * Usaremos un CD-LIVE (Knoppix) para crear las particiones.
 
-> **RECORDAR**
+> **RECORDAR**:
 >
 > * Cuando se inicia Knoppix y aparece el prompt "boot:", pondremos `knoppix lang=es` para iniciarlo en español.
 > * La tecla "=" puede estar en "¡".
@@ -63,20 +61,18 @@ operativos, muy probablemente las imágenes actuales sean diferentes.
 * Apagar MV.
 
 ---
-
 # 2. Instalación del primer SO
 
 Vamos a instalar primero el SO Windows.
 * Montamos ISO de instalación de Windows en la MV y la iniciamos.
 * Idioma español. Leer licencia antes de aceptarla.
 * Instalación personalizada. Elegir la partición 1 para instalar el SO.
-Producto/Licencia:
 * Clave de producto: La dejamos vacía por esta vez.
 * Si aparece la opción *Activar Windows automáticamente*, elegiremos que NO.
 * [Configuración de la MV](../../../global/configuracion/windows.md)
-    * Nombre equipo: `1er-apellidoXXw1`
-    * IP estática 172.AA.XX.12
-* Comprobar la conexión de red haciendo `ping www.google.es`.
+    * Nombre equipo: `1er-apellidoXXw`
+    * IP estática 172.AA.XX.11
+* Comprobar la conexión de red haciendo `ping www.nba.com`.
 * Capturar imagen como la siguiente. Mostrando las particiones del disco duro
 (`Ir a miEquipo -> Btn Derecho -> Administrar -> Almacenamiento`).
 
@@ -91,21 +87,18 @@ Poner nombre grupo de trabajo indicado. Reiniciar
 
 ![dual-win7-nombres](./images/dual-win7-nombres.png)
 
-* Cuando terminen la instalación de Windows debemos acordarnos de desmontar
-la ISO (CD de instalación) de la MV.
-
-> Enlace de interés:
->
-> * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
+* Cuando terminen la instalación de Windows debemos acordarnos de desmontar la ISO
+(CD de instalación) de la MV.
 
 ---
-
 # 3. Instalación del segundo SO
 
 A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
-* [Configurar MV OpenSUSE](../../../global/configuracion/opensuse.md)
-* [Acceso remoto MV OpenSUSE](../../../global/acceso-remoto/opensuse.md)
 
+> Enlaces de interés:
+>
+> * [Configurar MV OpenSUSE](../../../global/configuracion/opensuse.md)
+> * [Acceso remoto MV OpenSUSE](../../../global/acceso-remoto/opensuse.md)
 
 ## 3.1 Empezamos con la ISO
 
@@ -214,6 +207,10 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 # ANEXO
 
 Esto NO hay que hacerlo.
+
+> Enlace de interés:
+>
+> * [Cómo aceder a una partición GNU/Linux desde Windows](https://es.opensuse.org/SDB:Acceder_a_la_particion_de_GNU/Linux_desde_Windows)
 
 ## Cambiar el menu de arranque Windows
 
