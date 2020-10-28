@@ -74,11 +74,10 @@ por comandos editando el fichero `/etc/passwd`.
 
 ## 1.4 Configurar el servidor Samba
 
-* `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
-
 > Para instalar y configurar el servicio Samba, podemos usar comandos o el entorno gráfico.
 > Como estamos en OpenSUSE vamos a usar Yast.
 
+* `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
 * `Yast -> Samba Server`
     * Workgroup: `curso2021`
     * Sin controlador de dominio.
@@ -97,13 +96,17 @@ Los puertos SMB/CIFS (139 y 445) deben estar abiertos.
 Vamos a configurar los recursos compartidos de red en el servidor.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
 
-* `Yast -> Samba Server -> Recursos compartidos -> Configurar`.
 * Tenemos que conseguir una configuración con las secciones: `global`, `public`,
 `barco`, y `castillo` como la siguiente:
     * Donde pone XX, sustituir por el número del puesto de cada uno.
     * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
     * `barco`, recurso compartido de red de lectura/escritura para todos los piratas.
     * `castillo`, recurso compartido de red de lectura/escritura para todos los soldados.
+* Podemos modificar la configuración:
+    * (a) Editando directamente el ficher `/etc/samba/smb.conf` o
+    * (b) `Yast -> Samba Server -> Recursos compartidos -> Configurar`.
+
+Ejemplo de fichero de configuración:
 
 ```
 [global]
@@ -154,15 +157,6 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 > * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
 
 * Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración. Podemos hacerlo por `Yast -> Servicios`, o usar los comandos: `systemctl restart smb` y `systemctl restart nmb`.
-
-| Comandos Servicio              | Descripción |
-| ------------------------------ | ----------- |
-| systemctl stop    SERVICE-NAME | Parar |
-| systemctl start   SERVICE-NAME | Iniciar |
-| systemctl restart SERVICE-NAME | Parar e iniciar |
-| systemctl reload  SERVICE-NAME | Volver a releer la configuración |
-| systemctl status  SERVICE-NAME | Ver estado |
-
 * `sudo lsof -i`, comprobar que el servicio SMB/CIF está a la escucha.
 
 ---
