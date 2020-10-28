@@ -173,7 +173,7 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 * Vamos al la herramienta `YAST -> Ajustes de red` para poner los siguientes valores:
     * [Configuración de la MV](../../../global/configuracion/opensuse.md)
     * IP estática 172.AA.XX.31
-    * Poner como nombre del host o equipo `1er-apellidoXXg1`.
+    * Poner como nombre del host o equipo `1er-apellidoXXg`.
     * Poner NO a "Modificar nombre de HOST mediante DHCP". En caso contrario
     el nombre del equipo puede cambiar en cada reinicio.
 
