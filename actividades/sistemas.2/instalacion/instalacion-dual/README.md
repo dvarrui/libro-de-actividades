@@ -110,8 +110,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ## 3.2 Particionado
 
-* Elegir instalación nueva, y DESACTIVAR la configuración automática. No vamos a usar la configuración automática porque la vamos a personalizar según las especificaciones de esta práctica.
-* Entrar en el modo experto.
+* Modo experto -> Usar las particiones existentes.
 * Si no se ven las particiones que habíamos creado pulsar en `Volver a explorar dispositivos`.
 * Esquema de uso de las particiones:
     * Área de intercambio o SWAP (500MB),
