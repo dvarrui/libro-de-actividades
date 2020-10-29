@@ -125,13 +125,6 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ![dual-suse-raiz](./images/dual-suse-raiz.png)
 
-
-> **IMPORTANTE**
->
-> * Montar la partición donde tenemos instalado el SO Windows en la ruta `/mnt/windows`.
-* Esto lo hacemos para poder acceder de forma sencilla a la partición Windows desde el SO
-GNU/Linux.
-
 * Aceptar.
 * Verificar y siguiente.
 
