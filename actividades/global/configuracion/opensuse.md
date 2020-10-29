@@ -9,18 +9,14 @@
 ---
 # Configurar MV GNU/Linux OpenSUSE
 
-
----
 # Antes de empezar
 
 Crear la máquina VirtualBox con:
 * Crear un **disco VirtualBox de 20 GB**.
 * Tarjeta de red VBox en `modo puente`.
-* Activamos EFI en la MV. Ir a `VBox -> Configuración -> Sistema -> EFI -> Habilitar`.
 
 > Para comprobar la ISO de instalación usamos el siguiente comando: `sha256sum -c opensuse-version.sha256`.
 
----
 # Durante la instalación del SO
 
 * Redordar: Hacer la primera partición FAT32 de 500 MB para Boot EFI.
