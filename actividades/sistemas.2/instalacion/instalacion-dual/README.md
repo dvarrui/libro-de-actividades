@@ -176,15 +176,17 @@ donde se ve un menú para eligir el sistema operativo a iniciar.
 * Ejecutar `ping www.google.com` para comprobar la conexión de red.
 * Ejecutar comando su para convertirnos en superusuario (clave de root).
 * Como superusuario (root) ejecutar los comandos siguientes y capturar su salida:
+
 ```
-    date      # Muestra la fecha/hora del sistema
-    hostname  # Muestra nombre del sistema
-    uname -a  # Muestra datos del kernel
-    ip a      # Muestra información de red
-    df -hT    # Muestra información de ocupación del disco
-    fdisk -l  # Muestra información de particiones
-    lsblk     # Muestra UUID de las particiones
+date      # Muestra la fecha/hora del sistema
+hostname  # Muestra nombre del sistema
+uname -a  # Muestra datos del kernel
+ip a      # Muestra información de red
+df -hT    # Muestra información de ocupación del disco
+fdisk -l  # Muestra información de particiones
+lsblk     # Muestra UUID de las particiones
 ```
+
 * Al iniciarse la MV deben aparecer los dos SSOO en el menú de inicio (Boot Loader).
 
 ---

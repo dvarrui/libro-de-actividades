@@ -86,6 +86,7 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 
 ```
 ip a                     # Información de red
+ip route                 # Información de la puerta de enlace
 ifstatus NOMBREINTERFAZ  # Configuración del interfaz de red
 ping 1.1.1.1             # Verifica la conectividad con Internet
 traceroute 1.1.1.1       # Comprobar enrutamiento   
