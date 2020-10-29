@@ -106,6 +106,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * Ponemos ISO en la MV y la iniciamos.
 * Pulsar F2 para cambiar el idioma a Español.
 * Leer licencia y aceptar si corresponde.
+* Elegir escritorio genérico.
 
 ## 3.2 Particionado
 
