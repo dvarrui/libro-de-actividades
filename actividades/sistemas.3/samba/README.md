@@ -267,7 +267,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 
 > En versiones anteriores de GNU/Linux se usaba el comando
 
-`smbmount //smb-serverXX/public /mnt/remotoXX/public/ -o -username=smbguest`.
+`smbmount //IP-del-servidor-Samba/public /mnt/remotoXX/public/ -o -username=sambaguest`.
 
 * `df -hT`, para comprobar que el recurso ha sido montado.
 
@@ -279,7 +279,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i`, desde el servidor Samba.
 
 ## 3.3 Montaje automático
 
