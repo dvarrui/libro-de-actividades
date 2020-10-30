@@ -241,7 +241,7 @@ Capturar imagen de lo siguiente:
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i`, desde el servidor Samba.
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -265,9 +265,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado1`
 
-> En versiones anteriores de GNU/Linux se usaba el comando
-
-`smbmount //IP-del-servidor-Samba/public /mnt/remotoXX/public/ -o -username=sambaguest`.
+> En versiones anteriores de GNU/Linux se usaba el comando: `smbmount //172.AA.XX.31/public /mnt/remotoXX/public/ -o -username=sambaguest`.
 
 * `df -hT`, para comprobar que el recurso ha sido montado.
 
@@ -292,7 +290,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
-    * `//smb-serverXX/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
+    * `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
