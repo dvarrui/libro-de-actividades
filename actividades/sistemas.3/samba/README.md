@@ -198,7 +198,7 @@ Con `net use /?`, podemos consultar la ayuda.
     * `net use` ahora vemos que NO hay conexiones establecidas.
 
 Capturar imagen de los comandos siguientes:
-* `net view \\IP-SERVIDOR-SAMBA`, para ver los recursos de esta máquina.
+* `net view \\IP-SERVIDOR-SAMBA`, para ver los recursos del servidor remoto.
 
 > Para REVISAR:
 > * `net view`, para ver las máquinas (SMB/CIFS) accesibles por la red.
@@ -209,7 +209,7 @@ Montar el recurso `barco` de forma persistente.
 * `net use`, comprobamos.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
-    * `smbstatus`, desde el servidor Samba.
+    * `sudo smbstatus`, desde el servidor Samba.
     * `lsof -i`, desde el servidor Samba.
 
 ---
@@ -240,7 +240,7 @@ Capturar imagen de lo siguiente:
 * Probar a crear carpetas/archivos en `castillo` y en  `barco`.
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
-    * `smbstatus`, desde el servidor Samba.
+    * `sudo smbstatus`, desde el servidor Samba.
     * `sudo lsof -i`, desde el servidor Samba.
 
 ## 3.2 Cliente GNU/Linux comandos
@@ -276,7 +276,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
-    * `smbstatus`, desde el servidor Samba.
+    * `sudo smbstatus`, desde el servidor Samba.
     * `sudo lsof -i`, desde el servidor Samba.
 
 ## 3.3 Montaje automático
@@ -311,9 +311,3 @@ Usuarios:
 Recursos compartidos:
 
 * Añadir el recurso `[homes]` al fichero `smb.conf` según los apuntes. ¿Qué efecto tiene?
-
----
-
-# ANEXO
-
-* Revisar comando net view
