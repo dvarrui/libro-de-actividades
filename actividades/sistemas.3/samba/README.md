@@ -176,13 +176,13 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
-* Acceder al recurso compartido con el usuario `invitado`
+* Acceder al recurso compartido `public`.
     * `net use` para ver las conexiones abiertas.
-    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hadn realizado.
-* Acceder al recurso compartido con el usuario `soldado`
+    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
+* Acceder al recurso compartido `castillo` con el usuario `soldado`.
     * `net use` para ver las conexiones abiertas.
-    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hadn realizado.
-* Acceder al recurso compartido con el usuario `pirata`
+    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
+* Acceder al recurso compartido `barco` con el usuario `pirata`.
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
