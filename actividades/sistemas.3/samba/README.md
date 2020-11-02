@@ -260,7 +260,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 >    * Hay que parar el cortafuegos para que funcione (`systemctl stop firewalld`), o bien
 >    * ejecutar comando desde la máquina real.
 
-* Probar desde OpenSUSE: `smbclient --list IP-SERVIDOR-SAMBA`, Muestra los recursos SMB/CIFS de un equipo.
+* Probar desde el cliente GNU/Linux el comando `smbclient --list IP-SERVIDOR-SAMBA`, que muestra los recursos SMB/CIFS del servidor remoto.
 * Ahora crearemos en local la carpeta `/mnt/remotoXX/castillo`.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 `mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado1`
@@ -316,4 +316,4 @@ Recursos compartidos:
 
 # ANEXO
 
-* Cambios para el curso1718 => Revisar comando net view
+* Revisar comando net view
