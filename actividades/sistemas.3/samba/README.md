@@ -290,7 +290,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
-    * `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=clave 0 0`
+    * `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
