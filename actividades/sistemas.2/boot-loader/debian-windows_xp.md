@@ -1,8 +1,8 @@
 
-#BootLoader (Debian y WindowsXP)
+# BootLoader (Debian y WindowsXP)
 
 El *Boot loader* es el programa encargado de la carga el sistema operativo.
-Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo. 
+Una vez se termina de cargar el sistema, entonces comienza la ejecución del sistema operativo.
 GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP, y bcdedit de Windows 7, etc.
 
 * Entregar documento en formato ODT o PDF con capturas de pantalla.
@@ -19,9 +19,9 @@ GRUB2 es el actual *boot loader* de GNU/Linux, como NTLoader lo es de WindowsXP,
 > * [GRUB2 Documentation] (http://www.gnu.org/software/grub/grub-documentation.html)
 > * [Tutorial sobre la personalización de GRUB2] (http://linuxzone.es/2012/01/22/la-forma-mas-simple-de-personalizar-tu-grub-y-sin-tocarlo/)
 
-#1.Debian/Ubuntu. GRUB2
+# 1.Debian/Ubuntu. GRUB2
 
-#1.1 Añadir entrada SO Linux a GRUB2 (Debian/Ubuntu)
+## 1.1 Añadir entrada SO Linux a GRUB2 (Debian/Ubuntu)
 * Abrir un terminal y entrar como superusuario (comando su).
 * Ir a `/etc/grub.d`
 * Editamos el fichero(Script) `nano 40_custom` y vamos a modificarlo para
@@ -53,15 +53,17 @@ Continuamos:
 
 Veamos imagen:
 
-![debian-update-grub2] (./images/debian-update-grub2.png)
+![debian-update-grub2](./images/debian-update-grub2.png)
 
 Si reiniciamos el sistema debemos ver algo como:
 
-![debian-bootmenu] (./images/debian-bootmenu.png)
+![debian-bootmenu](./images/debian-bootmenu.png)
 
-#1.2 Añadir entrada SO Windows a GRUB2
+# 1.2 Añadir entrada SO Windows a GRUB2
+
 * Ahora vamos a añadir otra entrada para el sistema Windows.
 * Añadir las siguientes líneas al fichero /etc/grub.d/40_custom:
+
 ```
 echo "[INFO] Añadiendo entrada Windows" >&2
 cat<<EOF
@@ -71,11 +73,13 @@ chainloader +1
 }
 EOF
 ```
+
 > Sustituir X por el número de la partición donde está Windows.
 > Actualizamos GRUB2 con el comando "update-grub2"
 > Atención a los mensajes de salida por si aparece algún error o warning. Si todo es correcto, reiniciamos el sistema y comprobamos los cambios (Captura del menú de inicio del sistema).
 
-##1.3 Cambio del aspecto de GRUB2
+## 1.3 Cambio del aspecto de GRUB2
+
 * Entramos en GNU/Linux. Abrimos terminal como superusuario.
 * Ir a /etc/grub.dy editamos el fichero 05_debian_theme
 * Vamos a modificar los colores del menú de arranque, cambiando el valor de las opciones menu_color_normal y menu_color_highlight. Los valores black/blue significan color de frente negro y color de fondo azul. Elige tu combinación de colores.
@@ -85,13 +89,13 @@ EOF
 * Para grabar los cambios hacemos: `update-grub2`
 * Reiniciar el sistema y comprobar los resultados. Captura de pantalla.
 
+# 2. Windows XP Loader
 
-#2. Windows XP Loader
-
-Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual. 
+Vamos a realizar la práctica con el sistema que tengamos instalado en nuestra instalación Dual.
 No es necesario hacerlo con cada Windows.
 
-##2.1 Crear otra entrada Windows XP
+## 2.1 Crear otra entrada Windows XP
+
 * Iniciar el sistema Windows XP.
 * Abrir el fichero C:\boot.ini
 * Crear una segunda entrada de SO y para WindowsXP de la siguiente forma:
@@ -106,7 +110,8 @@ multi...."Windows XP 2"
 * Se añade una segunda entrada en el apartado de sistemas operativos.
 * Reiniciar el sistema y comprobar los cambios.
 
-##2.2 Crear entrada para Linux en XP
+## 2.2 Crear entrada para Linux en XP
+
 Crear fichero de arranque
 * Iniciar el sistema GNU/Linux. Abrir un terminal y entrar como superusuario.
 * Ejecutar el comando: "dd if=/dev/sda of=linux.bin bs=512 count=1". Con esto copiamos el contenido del sector 0 en el fichero "linux.bin".
@@ -114,8 +119,8 @@ Crear fichero de arranque
 Copiar fichero a Windows
 * Iniciar el sistema Windows XP.
 * Abrir el fichero C:\boot.ini
-* Crear una segunda entrada de SO y para GNU/Linux, añadiendo la configuración en el apartado de sistemas operativos.
-de la siguiente forma:
+* Crear una segunda entrada de SO y para GNU/Linux, añadiendo la configuración en el apartado de sistemas operativos de la siguiente forma:
+
 ```
 [boot loader]
 timeout=30
@@ -124,5 +129,5 @@ default=multi...
 multi....
 C:\linux.bin="Iniciar Linux desde NTLoader(WXP)"
 ```
-* Reiniciar el sistema y probar los cargadores de ambos sistemas operativos.
 
+* Reiniciar el sistema y probar los cargadores de ambos sistemas operativos.
