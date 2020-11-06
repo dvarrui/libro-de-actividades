@@ -27,7 +27,7 @@ Enlace de interés:
 
 * Instalar el sistema de impresión CUPS para GNU/Linux.
 * `systemctl status ...`, verificar que el servicio está en ejecución.
-* Configurar CUPS (Ver vídeo):
+* Configurar CUPS `/etc/cups/cupsd.conf` (Ver vídeo):
     * `Listen *:631`
     * `<Location> Allow @LOCAL...`
 * `systemctl restart ...`.
