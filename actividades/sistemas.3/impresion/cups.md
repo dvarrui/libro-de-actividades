@@ -23,14 +23,16 @@ Ejemplo de rúbrica:
 Enlace de interés:
 * [Vídeo LPIC-1 102 Printing using CUPS](https://youtu.be/6M4oGNn9cVc)
 
----
 # 2. Servidor de Impresión
 
 * Instalar el sistema de impresión CUPS para GNU/Linux.
 * `systemctl status ...`, verificar que el servicio está en ejecución.
+* Configurar CUPS (Ver vídeo):
+    * `Listen *:631`
+    * `<Location> Allow @LOCAL...`
+* `systemctl restart ...`.
 * A continuación, conectar a la interfaz web de CUPS.
-* Acceder a la sección de `Administración`, y dentro de ahí a la
-parte de `Ver archivo de registro de accesos`.
+* Acceder a la sección de `Administración`, y dentro de ahí a la parte de `Ver archivo de registro de accesos`.
 
 > OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`.
 
