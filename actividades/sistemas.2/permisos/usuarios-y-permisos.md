@@ -116,11 +116,6 @@ Modificar los permisos de la siguiente forma:
 * Ir al gestor de usuarios de OpenSUSE: `Ir a Yast -> Gestión de Usuarios`.
 * ¿Cuántos usuarios hay que no aparecen en la ventana de inicio al sistema? ¿Por qué?
 
-> En Debian/Ubuntu iremos a
->
-> * `Aplicaciones -> Herramientas -> Configuración del sistema -> Preferencias -> Cuentas de usuarios`,
-> * `Sistemas -> Administración -> Usuarios y Grupos`.
-
 ## 2.2 Usando el GUI GNU/Linux
 
 * Capturar imagen del resultado final.
