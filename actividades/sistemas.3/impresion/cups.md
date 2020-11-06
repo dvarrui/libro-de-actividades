@@ -42,7 +42,8 @@ Enlace de interés:
 Ahora vamos a usar una impresora de forma local en el servidor de impresión.
 
 * Instalar el paquete `cups-pdf` que nos permite hacer uso de una impresora virtual PDF local. Usaremos esta impresora virtual para las pruebas en caso de no disponer de una impresora real.
-* Hacemos una impresión local con el nombre `imprimirXXg-local`.
+* Crear una archivo TXT o ODT con algún contenido.
+* Imprimir el documento en la impresora local.
 * Comprobar el resultado. Los trabajos de impresión de la impresora virtual PDF se guardan en alguno de estos directorios:
 
 ```
@@ -50,9 +51,8 @@ Ahora vamos a usar una impresora de forma local en el servidor de impresión.
 /var/spool/cups-pdf/anonymous
 ```
 
-> NOTA: Además del interfaz de CUPS, también podemos hacer uso
-de la herramienta que proporciona en entorno de escritorio GNOME
-en `Sistema -> Administración -> Impresión`.
+> NOTA: Además del interfaz de CUPS, también podemos hacer uso de la herramienta
+que proporciona en entorno de escritorio GNOME en `Sistema -> Administración -> Impresión`.
 
 ---
 # 4. Imprimir de forma remota
@@ -65,6 +65,7 @@ en la máquina cliente.
 * Habilitamos la impresora como recurso de red compartido.
 * Ir a un cliente.
 * Configuramos la impresora de red.
-* Hacemos una impresión de prueba (`imprimirXXg-remoto`).
+* Crear una archivo TXT o ODT con algún contenido.
+* Imprimir el documento en la impresora remota.
 * Ir al servidor.
 * Comprobamos que se ha realizado la impresión remota.
