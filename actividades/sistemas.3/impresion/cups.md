@@ -62,9 +62,10 @@ que proporciona en entorno de escritorio GNOME en `Sistema -> Administración ->
 NO es necesario crear el fichero `/etc/cups/client.conf `
 en la máquina cliente.
 
-* Ir al servidor.
+Ir al servidor.
 * Habilitamos la impresora como recurso de red compartido.
-* Ir a un cliente.
+
+Ir a un cliente.
 * Configuramos la impresora de red.
 * Crear una archivo TXT o ODT con algún contenido.
 * Imprimir el documento en la impresora remota.
