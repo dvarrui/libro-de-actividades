@@ -1,8 +1,10 @@
 
 ```
-Curso           : 201920, 201819, 201718
-Requisitos      : MV GNU/Linux
-Tiempo estimado :
+Curso       : 202021, 201920, 201819, 201718
+Area        : Sistemas operativos, servidor de impresión
+Descripción : Practicar con la herramienta de acceso remoto SSH
+Requisitos  : SO GNU/Linux
+Tiempo      : 3 sesiones
 ```
 
 ---
@@ -32,9 +34,8 @@ Enlace de interés:
     * `<Location> Allow @LOCAL...`
 * `systemctl restart ...`.
 * A continuación, conectar a la interfaz web de CUPS.
-* Acceder a la sección de `Administración`, y dentro de ahí a la parte de `Ver archivo de registro de accesos`.
-
-> OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`.
+* OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`.
+* Acceder a la sección de `Administración` con el usuario/clave de root. Desde ahí acceder a la sección `Ver archivo de registro de accesos`.
 
 ---
 # 3. Imprimir de forma local
