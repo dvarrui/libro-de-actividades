@@ -1,4 +1,14 @@
 
+```
+Curso       : 202021, 201920, 201819, 201718
+Area        : Sistemas operativos, servidor de impresión
+Descripción : Practicar con servidor de impresión
+Requisitos  : SO Windows y Windows Server
+Tiempo      : 3 sesiones
+```
+
+---
+
 # Servidor de Impresión en Windows
 
 Ejemplo de rúbrica:
