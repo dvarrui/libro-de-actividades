@@ -65,8 +65,10 @@ en la máquina cliente.
 Ir al servidor.
 * Habilitamos la impresora como recurso de red compartido.
 
+> Es importante que el cliente tenga una IP definida en la cláusula Allow del servidor. 
+
 Ir a un cliente.
-* Configuramos la impresora de red.
+* Agregar impresora de red.
 * Crear una archivo TXT o ODT con algún contenido.
 * Imprimir el documento en la impresora remota.
 * Ir al servidor.
