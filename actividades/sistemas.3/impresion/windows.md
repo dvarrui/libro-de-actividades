@@ -90,6 +90,9 @@ Realizaremos una configuración para habilitar el acceso web a las impresoras de
 
 ## 3.2 Configurar impresión WEB
 
+En este apartado vamos a volver a agregar la impresora de red remota en el cliente, pero
+usando otra forma diferente de localizar la impresora.
+
 Vamos a la MV cliente:
 * Abrimos un navegador Web.
 * Ponemos URL `http://<ip-del-servidor>/printers` (o `http://<nombre-del-servidor>/printers`)
