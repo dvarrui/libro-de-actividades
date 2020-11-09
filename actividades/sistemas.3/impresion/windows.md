@@ -94,9 +94,9 @@ Vamos a la MV cliente:
 * Abrimos un navegador Web.
 * Ponemos URL `http://<ip-del-servidor>/printers` (o `http://<nombre-del-servidor>/printers`)
 para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador").
-* Pincha en la opción propiedades y captura lo que se ve.
+* Pincha en la opción propiedades y captura lo que se ve. Apuntar el URL asociado al nombre de red de la impresora para usarlo más adelante.
 * Agregar impresora (NO es local)
-* Crear nueva impresora usando el URL anterior.
+* Crear nueva impresora usando el URL nombre de red de la impresora anterior.
 
 ## 3.3 Comprobar desde el navegador
 
