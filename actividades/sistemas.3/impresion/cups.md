@@ -81,7 +81,8 @@ Ir al servidor.
 > Es importante que el cliente tenga una IP definida en la cláusula Allow del servidor.
 
 Ir a un cliente.
-* Agregar impresora de red.
+* Agregar impresora de red. Primero la buscamos en IP del servidor y nos debe aparecer automáticamente
+(Por ejemplo `ipp://ip-server:631/printes/CUPS-PDF`).
 * Crear una archivo TXT o ODT con algún contenido.
 * Imprimir el documento en la impresora remota.
 * Ir al servidor.
