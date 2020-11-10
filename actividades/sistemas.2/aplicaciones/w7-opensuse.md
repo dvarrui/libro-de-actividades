@@ -145,7 +145,7 @@ Capturar imágenes de los pasos realizados.
     * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
     * `zypper install lsb`, para instalar el paquete lsb.
 
-> El paquete libgconf2 se llama gconf2 en OpenSUSE
+> NOTA: El paquete libgconf2 se llama gconf2 en OpenSUSE
 
 * Para comprobar que está el paquete instalado:
     * `rpm -q atom`
@@ -199,20 +199,3 @@ Realizar las siguientes tareas:
     * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 * Descargar el código fuente desde internet.
 * Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
-
----
-# ANEXO
-
-* Instalar `características` Cliente Telnet.Comprobar que funcionan correctamente con: `telnet towel.blinkenlights.nl`
-
-> **INFORMACIÓN** Cliente Telnet
->
-> La herramienta telnet sirve para conectarse a equipos remotos.
->
-> En este caso le estamos dando un uso poco común, porque la estamos usando para consultar
-la página web del servidor 172.20.1.2. Lo suyo es usar un navegador web.
->
-> Una forma de comprobar el cliente telnet:
-> * Abrir terminal de comandos y escribir: `telnet 172.20.1.2 80`
-> * Escribir `olleh` y pulsar enter
-> * Debes ver algo como... etiquetas HTML ¿te suenan de algo?
