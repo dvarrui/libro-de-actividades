@@ -39,6 +39,11 @@ Listen *:631
   Allow @LOCAL
 </Location>
 
+<Location /admin>
+  ...
+  Allow @LOCAL
+</Location>
+
 <Location /admin/conf>
   ...
   Allow @LOCAL
