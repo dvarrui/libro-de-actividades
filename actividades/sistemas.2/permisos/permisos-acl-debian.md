@@ -1,11 +1,15 @@
 
 ```
-Curso : 201819
+Curso       : 201819
+Area        : Sistemas operativos, permisos ACL
+Descripción : Configuración de los permisos ACL en GNU/Linux
+Requisitos  : GNU/Linux
+Tiempo      :
 ```
 
 # 1. Teoría sobre las ACL
 
-Esta apartado es una explicación. Sólo para leer y entender.
+Este apartado inicial, sólo es una explicación para leer y entender.
 
 ---
 
@@ -55,24 +59,24 @@ A continuación probamos el comando `setfacl` para añadir permiso de lectura
 al usuario invitado sobre el fichero holamundo .
 
 ```
-    david@quigon:~/tmp/sh$ vdir
-    total 4
-    -rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
-    david@quigon:~/tmp/sh$ setfacl -m u:invitado:r holamundo
+david@quigon:~/tmp/sh$ vdir
+total 4
+-rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
+david@quigon:~/tmp/sh$ setfacl -m u:invitado:r holamundo
 ```
 
 * Ejecutamos `getfacl` para comprobar que el resultado es el que esperábamos.
 
 ```
-    david@quigon:~/tmp/sh$ getfacl holamundo
-    # file: holamundo
-    # owner: david
-    # group: david
-    user::rwx
-    user:invitado:r--
-    group::r-x
-    mask::r-x
-    other::r-x
+david@quigon:~/tmp/sh$ getfacl holamundo
+# file: holamundo
+# owner: david
+# group: david
+user::rwx
+user:invitado:r--
+group::r-x
+mask::r-x
+other::r-x
 ```
 
 --
@@ -114,13 +118,12 @@ Realizar las siguientes tareas.
 
 ## 2.2 Montar el nuevo disco
 
-* Crear directorio `/mnt/starwars`.
-
-Ahora vamos a crear un nuevo punto de montaje en `/etc/fstab` para el segundo disco. Esto es, la partición `/dev/sdb1` que se montará en el directorio `/mnt/starwars`.
+Ahora vamos a crear un nuevo punto de montaje en `/etc/fstab` para el segundo disco. Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
 
 * Primero por seguridad, hacer una instantánea de la MV.
+* Crear directorio `/mnt/starwars`.
 * Abre el fichero `/etc/fstab`
-* Añade nueva línea para partición sdb1, Montar en el directorio `/mnt/starwars` y con los parámetros.
+* Añade nueva línea para partición sdb1, Montar en el directorio `/mnt/starwars` con los parámetros para activar ACL (`/dev/sdb1  /mnt/starwars ext4 defaults,acl 0 2`)
 * `cat /etc/fstab`
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
@@ -128,7 +131,7 @@ anterior y revisar los últimos cambios realizados.
     * `df -hT`
     * `mount`
 
-¡Ya tenemos montada en modo ACL en la partición sdb1!
+Ya tenemos montada en modo ACL en la partición sdb1.
 
 ---
 

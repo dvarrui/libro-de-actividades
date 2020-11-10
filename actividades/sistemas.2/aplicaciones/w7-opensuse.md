@@ -1,9 +1,10 @@
 
 ```
-Curso           : 201920, 201819, 201817
-Software        : Windows 7/10 y OpenSUSE
-Tiempo estimado :
-Revisión        :
+Curso       : 201920, 201819, 201817
+Area        : Sistemas operativos, instalar aplicaciones
+Descripción : Diversas formas de instalar aplicaciones en los SSOO
+Requisitos  : Windows 7/10 y OpenSUSE
+Tiempo      :
 ```
 
 ---
