@@ -30,11 +30,24 @@ Enlace de interés:
 * Instalar el sistema de impresión CUPS para GNU/Linux.
 * `systemctl status ...`, verificar que el servicio está en ejecución.
 * Configurar CUPS `/etc/cups/cupsd.conf` (Ver vídeo):
-    * `Listen *:631`
-    * `<Location> Allow @LOCAL...`
-* `systemctl restart ...`.
+
+```
+Listen *:631
+...
+<Location />
+  Order allow,deny
+  Allow @LOCAL
+</Location>
+
+<Location /admin/conf>
+  ...
+  Allow @LOCAL
+</Location>
+```
+
+* `systemctl restart cupsd`.
 * A continuación, conectar a la interfaz web de CUPS.
-* OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`.
+* OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone`.
 * Acceder a la sección de `Administración` con el usuario/clave de root. Desde ahí acceder a la sección `Ver archivo de registro de accesos`.
 
 ---
@@ -65,7 +78,7 @@ en la máquina cliente.
 Ir al servidor.
 * Habilitamos la impresora como recurso de red compartido.
 
-> Es importante que el cliente tenga una IP definida en la cláusula Allow del servidor. 
+> Es importante que el cliente tenga una IP definida en la cláusula Allow del servidor.
 
 Ir a un cliente.
 * Agregar impresora de red.
