@@ -1,6 +1,6 @@
 ```
 Cursos      : 202021, 201920, 201819, 201718, etc.
-Area        : Sistemas oprativos, acceso remoto
+Area        : Sistemas operativos, acceso remoto
 Descripción : Practicar con la herramienta de acceso remoto SSH
 Requisitos  : SO GNU/Linux y SO Windows
 Tiempo      : 8 sesiones
