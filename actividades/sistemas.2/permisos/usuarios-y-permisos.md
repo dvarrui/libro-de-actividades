@@ -207,6 +207,10 @@ son internos para uso de aplicaciones o del sistema operativo.
 
 ## 2.5 Configurar `sudoers` para el otro grupo
 
+Hay dos formas de configurar `sudoers`:
+1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
+2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
+
 * Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
 * Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar la información de sudoers.
 * Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos que  tenemos permitidos.
