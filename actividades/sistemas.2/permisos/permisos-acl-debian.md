@@ -111,7 +111,8 @@ En nuestro ejemplo tenemos:
 * OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
-    * `apt install -y xfce4`
+    * `apt install -y xfce4`, instalar entorno gráfico XFCE4.
+    * `reboot`, reiniciar la MV para trabajar con el entorno gráfico.
 * `fdisk -l`, comprobar que los discos/particiones que tenemos son correctos.
 * Identificar la partición que tenemos libre para usar en esta práctica. El comando `df -hT` nos debe informa que tenemos libre la partición `/dev/sda8`.
 * `apt install acl`, instalar el paquete/software que gestiona las ACL.
