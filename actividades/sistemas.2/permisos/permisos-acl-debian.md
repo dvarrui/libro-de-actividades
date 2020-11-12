@@ -1,19 +1,17 @@
 
 ```
-Curso       : 201819
+Curso       : 202021, 201819
 Area        : Sistemas operativos, permisos ACL
 Descripción : Configuración de los permisos ACL en GNU/Linux
 Requisitos  : GNU/Linux
 Tiempo      :
 ```
 
-# 1. Teoría sobre las ACL
+# 1. INFO: Teoría sobre las ACL
 
 Este apartado inicial, sólo es una explicación para leer y entender.
 
----
-
-## 1.1 Introducción
+## 1.1 INFO Introducción
 
 Las ACL son listas de control de accesos.
 Esto es otra forma de añadir permisos con otro nivel de detalle
@@ -41,9 +39,7 @@ En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los c
 > other::r-x
 > ```
 
---
-
-## 1.2 Ejemplo de activación manual
+## 1.2 INFO Ejemplo de activación manual
 
 ACL añade más detalle al sistema clásico de permisos.
 Para poder usar el comando `setfacl`, los ficheros deben estar en un sistema de ficheros montado con la opción `acl`.
@@ -79,16 +75,14 @@ mask::r-x
 other::r-x
 ```
 
---
-
-## 1.3 Ejemplo de Activación automática
+## 1.3 INFO ejemplo de Activación automática
 
 Para activar las ACL en la partición que queramos debemos modificar
 el fichero `/etc/fstab` y luego reiniciar el equipo. Este fichero define que
 particiones serán montadas automáticamente al iniciar el sistema, y con
 qué parámetros se realizará dicho montaje automático.
 
-Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones deseadas de manera permanente: `/dev/sda2  /home ext3 defaults,acl 0 2`
+Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones deseadas de manera permanente: `/dev/partición  /punto/de/montaje ext3 defaults,acl 0 2`
 
 Tras haber modificado /etc/fstab, para que monte una partición con el parámetro acl, debemos reiniciar la máquina (comando reboot).
 
@@ -99,22 +93,17 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 Realizar las siguientes tareas.
 * [Configurar la MV](../../global/configuracion/debian.md).
 
----
+## 2.1 Preparativos
 
-## 2.1 Añadir disco
-
-* En la MV Debian, añadir un segundo disco duro de 100MB con una única partición formateada ext3.
-    * Esto debemos saber cómo se hace de las prácticas anteriores.
+* En la MV podemos usar alguna partición que tengamos libre, o bien añadir
+un segundo disco duro de 100MB con una única partición formateada ext3.
 * Iniciar MV.
 * OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
     * `apt install -y xfce4`
-* Comprobamos los discos:
-    * `fdisk -l`, comprobar que los discos/particiones son correctos.
-    * `df -hT`, comprobar qué particiones están montadas y dónde.
-
----
+* `fdisk -l`, comprobar que los discos/particiones son correctos.
+* Identificar la partición que tenemos libre para usar en esta práctica: `df -hT`.
 
 ## 2.2 Montar el nuevo disco
 
