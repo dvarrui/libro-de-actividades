@@ -116,7 +116,7 @@ En nuestro ejemplo tenemos:
 * Identificar la partición que tenemos libre para usar en esta práctica. El comando `df -hT` nos debe informa que tenemos libre la partición `/dev/sda8`.
 * `apt install acl`, instalar el paquete/software que gestiona las ACL.
 
-## 2.2 Montar el nuevo disco
+## 2.2 Montar el dispositivo (partición)
 
 Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/etc/fstab`.
 
