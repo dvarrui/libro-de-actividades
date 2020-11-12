@@ -13,9 +13,7 @@ Este apartado inicial, sólo es una explicación para leer y entender.
 
 ## 1.1 INFO Introducción
 
-Las ACL son listas de control de accesos.
-Esto es otra forma de añadir permisos con otro nivel de detalle
-similar al empleado en los Routers Cisco y en el sistema de ficheros NTFS.
+Las ACL son listas de control de accesos. Es otra forma de asignar permisos con otro nivel de detalle similar al empleado en los Routers Cisco y en el sistema de ficheros NTFS.
 
 En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los comandos:
 * `getfacl`, consultar las ACL.
@@ -95,25 +93,24 @@ Realizar las siguientes tareas.
 
 ## 2.1 Preparativos
 
-* En la MV podemos usar alguna partición que tengamos libre, o bien añadir
-un segundo disco duro de 100MB con una única partición formateada ext3.
+* En la MV podemos usar alguna partición que tengamos libre.
 * Iniciar MV.
 * OPCIONAL: Puedes instalar un entorno gráfico en la MV Debian si lo deseas.
     * Entra como usuario root.
     * `apt update`
     * `apt install -y xfce4`
-* `fdisk -l`, comprobar que los discos/particiones son correctos.
-* Identificar la partición que tenemos libre para usar en esta práctica: `df -hT`.
+* `fdisk -l`, comprobar que los discos/particiones que tenemos son correctos.
+* Identificar la partición que tenemos libre para usar en esta práctica. El comando `df -hT` nos debe informa que tenemos libre la partición `/dev/sda8`.
 * `apt install acl`, instalar el paquete/software que gestiona las ACL.
 
 ## 2.2 Montar el nuevo disco
 
-Ahora vamos a crear un nuevo punto de montaje en `/etc/fstab` para el segundo disco. Esto es, la partición `/dev/sdb1` se montará en el directorio `/mnt/starwars`.
+Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/etc/fstab`.
 
 * Primero por seguridad, hacer una instantánea de la MV.
 * Crear directorio `/mnt/starwars`.
 * Abre el fichero `/etc/fstab`
-* Añade nueva línea para partición sdb1, Montar en el directorio `/mnt/starwars` con los parámetros para activar ACL (`/dev/sdb1  /mnt/starwars ext4 defaults,acl 0 2`)
+* Añade nueva línea para la partición que queremos montar en el directorio `/mnt/starwars` con los parámetros para activar ACL: (`/dev/sda8  /mnt/starwars ext4 defaults,acl 0 2`)
 * `cat /etc/fstab`
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
@@ -121,9 +118,7 @@ anterior y revisar los últimos cambios realizados.
     * `df -hT`
     * `mount`
 
-Ya tenemos montada en modo ACL en la partición sdb1.
-
----
+Ya tenemos activo el modo ACL en la partición.
 
 ## 2.3 Poner permisos
 
