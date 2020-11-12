@@ -75,8 +75,8 @@ other::r-x
 
 ## 1.3 INFO ejemplo de Activación automática
 
-Para activar las ACL en la partición que queramos debemos modificar
-el fichero `/etc/fstab` y luego reiniciar el equipo. Este fichero define que
+Para activar las ACL en la partición que elijamos, debemos modificar
+el fichero `/etc/fstab`, y luego reiniciar el equipo. Este fichero define que
 particiones serán montadas automáticamente al iniciar el sistema, y con
 qué parámetros se realizará dicho montaje automático.
 
@@ -114,11 +114,9 @@ Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/
 * `cat /etc/fstab`
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
-* Comprobar los puntos de montaje en el inicio:
-    * `df -hT`
-    * `mount`
+* `df -hT`, comprobar los puntos de montaje en el inicio:
 
-Ya tenemos activo el modo ACL en la partición.
+Ya tenemos activo el modo ACL en la partición seleccionada.
 
 ## 2.3 Poner permisos
 
