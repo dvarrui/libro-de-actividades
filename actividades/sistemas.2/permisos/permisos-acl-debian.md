@@ -148,6 +148,8 @@ Crear carpetas y poner permisos ACL:
     * donde el usuario `han` tienen permisos ACL rwx.
     * donde el usuario `luke` tienen permisos ACL rx.
 
+> Para poner constraseña al usuario luke haremos `passpwd luke`
+
 ## 2.4 Comprobaciones
 
 * Comprobar:
