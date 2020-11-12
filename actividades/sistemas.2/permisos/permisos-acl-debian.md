@@ -104,6 +104,7 @@ un segundo disco duro de 100MB con una única partición formateada ext3.
     * `apt install -y xfce4`
 * `fdisk -l`, comprobar que los discos/particiones son correctos.
 * Identificar la partición que tenemos libre para usar en esta práctica: `df -hT`.
+* `apt install acl`, instalar el paquete/software que gestiona las ACL.
 
 ## 2.2 Montar el nuevo disco
 
