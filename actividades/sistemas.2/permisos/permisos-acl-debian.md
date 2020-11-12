@@ -45,7 +45,11 @@ Para poder usar el comando `setfacl`, los ficheros deben estar en un sistema de 
 Por ejemplo si intentamos poner permisos ACL sin haber activado antes la partición en modo `acl` veremos un error como este:  `setfacl: holamundo: La operación no está soportada`
 
 Si quisiéramos activarlos únicamente de manera temporal para
-la sesión en la que nos encontramos, ejecutaríamos el siguiente comando: `mount /dev/partition -o defaults,acl /punto/de/montaje`.
+la sesión en la que nos encontramos, ejecutaríamos el siguiente comando:
+
+```
+mount /dev/partition -o defaults,acl /punto/de/montaje
+```
 
 Podemos usar el comando mount sin parámetros para verificar que todo está montado según nuestras intenciones.
 
@@ -80,7 +84,9 @@ el fichero `/etc/fstab`, y luego reiniciar el equipo. Este fichero define que
 particiones serán montadas automáticamente al iniciar el sistema, y con
 qué parámetros se realizará dicho montaje automático.
 
-Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones deseadas de manera permanente: `/dev/partición  /punto/de/montaje ext3 defaults,acl 0 2`
+Ejemplo de como editar el fichero `/etc/fstab` para activar las ACL en las particiones deseadas de manera permanente:
+
+`/dev/partición  /punto/de/montaje ext2 defaults,acl 0 2`
 
 Tras haber modificado /etc/fstab, para que monte una partición con el parámetro acl, debemos reiniciar la máquina (comando reboot).
 
@@ -88,8 +94,8 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 
 # 2. Práctica de ACL
 
-Realizar las siguientes tareas.
-* [Configurar la MV](../../global/configuracion/debian.md).
+En nuestro ejemplo tenemos:
+* Partición libre `/dev/sda8` formateada en `ext2`
 
 ## 2.1 Preparativos
 
@@ -111,7 +117,7 @@ Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/
 * Crear directorio `/mnt/starwars`.
 * Abre el fichero `/etc/fstab`
 * Añade nueva línea para la partición que queremos montar en el directorio `/mnt/starwars` con los parámetros para activar ACL:
-    * `/dev/sda8  /mnt/starwars  ext4  defaults,acl  0  2`
+    * `/dev/sda8  /mnt/starwars  ext2  defaults,acl  0  2`
 * `cat /etc/fstab`
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
