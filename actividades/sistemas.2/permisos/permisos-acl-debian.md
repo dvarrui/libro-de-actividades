@@ -94,6 +94,13 @@ Tras haber modificado /etc/fstab, para que monte una partición con el parámetr
 
 # 2. Práctica de ACL
 
+Ejemplo de rúbrica:
+
+| Sección                  | Muy bien (2) | Regular (1) | Poco adecuado (0) |
+| ------------------------ | ------------ | ----------- | ----------------- |
+| (2.2) Configuración /etc/fstab | | | |
+| (2.4) Comprobaciones | | | .|
+
 En nuestro ejemplo tenemos:
 * Partición libre `/dev/sda8` formateada en `ext2`
 
@@ -133,12 +140,15 @@ Crear los grupos y usuarios:
 Crear carpetas y poner permisos ACL:
 * Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
     * donde la carpeta tendrá lo permisos clásicos 700.
-    * donde el grupo `troopers` tienen permisos acl rwx,
-    * donde el usuario `luke` tiene permisos acl rx.
+    * donde el grupo `troopers` tienen permisos ACL rwx,
+    * donde el usuario `luke` tiene permisos ACL rx.
 * Crear la carpeta `/mnt/starwars/xwing` con el usuario `root`,
     * donde la carpeta tendrá lo permisos clásicos 700.
-    * donde el usuario `han` tienen permisos acl rwx.
-    * donde el usuario `luke` tienen permisos acl rx.
+    * donde el usuario `han` tienen permisos ACL rwx.
+    * donde el usuario `luke` tienen permisos ACL rx.
+
+## 2.4 Comprobaciones
+
 * Comprobar:
     * `getfacl /mnt/starwars/endor`
     * `getfacl /mnt/starwars/xwing`
