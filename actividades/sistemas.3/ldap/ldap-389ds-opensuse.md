@@ -35,15 +35,12 @@ Ejemplo de rúbrica:
 | (3.3) Comprobar nuevo usuario | | | |
 | (4.3) Comprobar los usuarios creados | | | .|
 
----
 # 1. Prerequisitos
 
 > Enlaces de interés:
 >
-> * [389 Directory Server Documentation](http://directory.fedoraproject.org/docs/389ds/documentation.html)
-> * [389-DS installation RH](https://access.redhat.com/documentation/en-us/red_hat_directory_server/10/html/installation_guide/)
-Enlaces de interés:
-> * [389-DS installation Fedora](https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html#installing-the-software)
+> * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
+> * https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
 
 ## 1.1 Nombre de equipo FQDN
 
@@ -65,12 +62,6 @@ Enlaces de interés:
 
 * Abrir una consola como root.
 * `zypper in 389-ds`, instalar el script de instalación.
-
-> Enlaces de interés:
->
-> * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
-> * https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
-
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
 > Comandos principales de 389 Directory Server:
