@@ -109,12 +109,6 @@ basedn = dc=ldap42,dc=curso2021
 binddn = cn=Directory Manager
 ```
 
-
----
-```
-ESTO HAY QUE CAMBIARLO!!!
-```
-
 > **IMPORTANTE**:
 > * Cada vez que aparece ldapXX, hay que cambiar XX por el identificador de cada alumno.
 > * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP.
@@ -123,25 +117,8 @@ ESTO HAY QUE CAMBIARLO!!!
 
 ## 2.2 Comprobamos el servicio
 
-* `systemctl status dirsrv@ldapXX`, comprobar si el servicio está en ejecución.
-
-> Más ayuda:
-> * `ps -ef |grep ldap`, para comprobar si el demonio está en ejecución.
-> * `systemctl enable dirsrv@ldapXX`, activar al inicio.
-> * `systemctl start dirsrv@ldapXX`, iniciar el servicio.
-
+* `systemctl status dirsrv@localhost`, comprobar si el servicio está en ejecución.
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
-
-> **Cortafuegos**: Abrir los puertos LDAP en el cortafuegos
->
-> * `systemctl status firewalld`, comprobar el estado del cortafuegos. Debe estar en ejecución.
-> * `firewall-cmd --permanent --add-port={389/tcp,636/tcp,9830/tcp}
-`, abre determinados puertos en el cortafuegos usando la herramienta  "firewall-cmd"
-> * `firewall-cmd --reload`, recargar la configuración del cortafuegos para asegurarnos de que se han leído los nuevos cambios.
->
-> Recordatorio:
-> * `systemctl enable firewalld`, activar contafuegos en el inicio del sistema.
-> * `systemctl start firewalld`, iniciar el cortafuegos.  
 
 ## 2.3 Comprobamos el acceso al contenido del LDAP
 
