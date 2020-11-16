@@ -31,7 +31,7 @@ Ejemplo de rúbrica:
 
 | Sección | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | ------- | ------------ | ----------- | ----------------- |
-| (2.3) Comprobar contenido del DS LDAP | | | |
+| (2.4) Comprobar contenido del DS LDAP | | | |
 | (3.3) Comprobar nuevo usuario | | | |
 | (4.3) Comprobar los usuarios creados | | | .|
 
@@ -106,12 +106,12 @@ binddn = cn=Directory Manager
 > * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldapXX`
 > * El fichero de configuración `/etc/dirsrv/slapd-ldapXX/dse.ldif` contiene los parámetros principales del servicio de directorio. Como el DN de la Base, del usuario administrador, clave, etc.
 
-## 2.2 Comprobamos el servicio
+## 2.3 Comprobamos el servicio
 
 * `systemctl status dirsrv@localhost`, comprobar si el servicio está en ejecución.
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
 
-## 2.3 Comprobamos el acceso al contenido del LDAP
+## 2.4 Comprobamos el acceso al contenido del LDAP
 
 * `ldapsearch -b "dc=ldapXX,dc=curso2021" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
 * Comprobar que existen las OU Groups y People.
@@ -120,12 +120,11 @@ binddn = cn=Directory Manager
 | Parámetro                   | Descripción                |
 | --------------------------- | -------------------------- |
 | -x                          | No se valida usuario/clave |
-| -b "dc=ldap42,dc=curso1920" | Base/sufijo del contenido  |
+| -b "dc=ldap42,dc=curso2021" | Base/sufijo del contenido  |
 | -H ldap://localhost:389     | IP:puerto del servidor     |
 | -W                          | Se solicita contraseña     |
 | -D "cn=Directory Manager"   | Usuario del LDAP           |
 
----
 # 3. Añadir usuarios LDAP por comandos
 
 > Enlaces de interés:
