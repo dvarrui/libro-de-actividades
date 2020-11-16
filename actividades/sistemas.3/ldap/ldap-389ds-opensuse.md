@@ -99,6 +99,7 @@ suffix = dc=ldapXX,dc=curso2021
 * `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
 
 * Creamos el fichero `/root/.dsrc` con el siguiente contenido. Este fichero sirve para configurar los permisos para acceder a la base de datos como administrador:
+
 ```
 # cat ~/.dsrc
 [localhost]
@@ -121,9 +122,9 @@ binddn = cn=Directory Manager
 
 ## 2.3 Comprobamos el acceso al contenido del LDAP
 
-* `ldapsearch -b "dc=ldapXX,dc=curso1920" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
+* `ldapsearch -b "dc=ldapXX,dc=curso2021" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
 * Comprobar que existen las OU Groups y People.
-* `ldapsearch -H ldap://localhost -b "dc=ldapXX,dc=curso1920" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
+* `ldapsearch -H ldap://localhost -b "dc=ldapXX,dc=curso2021" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
 
 | Parámetro                   | Descripción                |
 | --------------------------- | -------------------------- |
