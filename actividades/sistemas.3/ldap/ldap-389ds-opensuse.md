@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201920, 201819
+Curso           : 202021
 Software        : Servidor 389-DS y SO OpenSUSE
 Tiempo estimado : 5 horas
 Ultimos cambios : Se quita browser ldap por fallos de las app
@@ -48,12 +48,12 @@ Enlaces de interés:
 ## 1.1 Nombre de equipo FQDN
 
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP ([Configuración MV](../../global/configuracion/opensuse.md)).
-* Nuestra máquina debe tener un FQDN=`serverXX.curso1920`.
+* Nuestra máquina debe tener un FQDN=`serverXXg.curso2021`.
     * Revisar `/etc/hostname`
     * Revisar `/etc/hosts`
 
 ```
-127.0.0.2   serverXX.curso1920   serverXX
+127.0.0.2   serverXXg.curso2021   serverXXg
 ```
 
 * Comprobar salida de: `hostname -a`, `hostname -d` y `hostname -f`.
@@ -66,8 +66,18 @@ Enlaces de interés:
 
 * Abrir una consola como root.
 * `zypper in 389-ds`, instalar el script de instalación.
-* Ahora debemos tener un script en `/usr/sbin/setup-ds.pl`.
-* `/usr/sbin/setup-ds.pl`, para ejecutar el script de instalación.
+
+> Enlaces de interés:
+>
+> * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
+> * https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
+
+
+---
+```
+ESTO HAY QUE CAMBIARLO!!!
+```
+
 A continuación iremos respondiendo a las preguntas de configuración del servicio (Cambiar XX por identificador de cada alumno):
 
 ```
