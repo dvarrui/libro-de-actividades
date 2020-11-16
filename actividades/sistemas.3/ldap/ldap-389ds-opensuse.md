@@ -147,7 +147,7 @@ Deberían estar creadas las OU People y Groups, es caso contrario hay que crearl
 ```
 ldapsearch -H ldap://localhost:389
            -W -D "cn=Directory Manager"
-           -b "dc=ldapXX,dc=curso1920" "(ou=*) | grep dn"
+           -b "dc=ldapXX,dc=curso2021" "(ou=*) | grep dn"
 ```
 
 > * Importante: No olvidar especificar la base (-b). De lo contrario probablemente no haya resultados en la búsqueda.
@@ -164,7 +164,7 @@ Uno de los usos más frecuentes para el directorio LDAP es para la administraci�
 * Fichero `mazinger-add.ldif` con la información para crear el usuario `mazinger` (Cambiar el valor de dn por el nuestro):
 
 ```
-dn: uid=mazinger,ou=People,dc=ldapXX,dc=curso1920
+dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
 uid: mazinger
 cn: Mazinger Z
 objectClass: account
@@ -187,17 +187,16 @@ gecos: Mazinger Z
 
 ## 3.3 Comprobar el nuevo usuario
 
-* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
+* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
 
-Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`.
-Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
+Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
 
 > **Eliminar usuario del árbol del directorio**
 >
 > * Crear un archivo `mazinger-delete.ldif`:
 >
 > ```
-> dn: uid=mazinger,ou=People,dc=ldapXX,dc=curso1920
+> dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
 > changetype: delete
 > ```
 >
