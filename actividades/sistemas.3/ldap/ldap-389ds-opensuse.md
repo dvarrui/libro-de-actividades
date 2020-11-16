@@ -48,9 +48,8 @@ Enlaces de interés:
 ## 1.1 Nombre de equipo FQDN
 
 * Vamos a usar una MV OpenSUSE para montar nuestro servidor LDAP ([Configuración MV](../../global/configuracion/opensuse.md)).
-* Nuestra máquina debe tener un FQDN=`serverXXg.curso2021`.
-    * Revisar `/etc/hostname`
-    * Revisar `/etc/hosts`
+* Revisar `/etc/hostname`. Nuestra máquina debe tener un FQDN=`serverXXg.curso2021`.
+* Revisar `/etc/hosts`
 
 ```
 127.0.0.2   serverXXg.curso2021   serverXXg
