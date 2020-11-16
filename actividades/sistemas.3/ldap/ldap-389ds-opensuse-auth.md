@@ -1,6 +1,6 @@
 
 ```
-Curso           : EN CONSTRUCCIÓN!!!
+Curso           : 202021
 Software        : Partimos de 389-DS en OpenSUSE
 Tiempo estimado :
 Comentarios     :
@@ -11,14 +11,11 @@ Comentarios     :
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
 
-# 1. Requisitos
+# 1. Preparativos
 
 Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
 
----
-# 2. Preparativos
-
-## 2.1 Preparar la MV2
+## 1.1 Preparar la MV2
 
 Necesitamos MV2 con:
 * SO OpenSUSE ([Configuración MV](../../global/configuracion/opensuse.md))
@@ -31,15 +28,15 @@ Necesitamos MV2 con:
 127.0.0.2      1er-apellidoXXg2.curso1920   1er-apellidoXXg2
 ```
 
-## 2.2 Comprobación
+## 1.2 Comprobación
 
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente.
-* `ldapsearch -H ldap://serverXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso1920" "(uid=*)"`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
+* `ldapsearch -H ldap://serverXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
----
-# 3. Configurar autenticación LDAP
+# 2. Configurar autenticación LDAP
 
-## 3.1 Configurar cliente de autenticación por Yast
+## 2.1 Configurar cliente de autenticación por Yast
+
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Ir a `Yast -> Cliente LDAP y Kerberos`.
@@ -53,7 +50,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Leer -> Sudo                : NO
 * Leer -> Discos              : NO
 * Ubicaciones de servidores   : IP-serverXX:389
-* DN de la base               : dc=ldapXX,dc=curso1920
+* DN de la base               : dc=ldapXX,dc=curso2021
 * DN usuario                  : (Vacío)
 * Contraseña usuario          : (Vacío)
 * Miembros de grupo por DN    : SI
@@ -67,7 +64,22 @@ Imagen de ejemplo:
 
 * Al final usar la opción de `Probar conexión`
 
-## 3.2. Comprobamos desde el cliente con comandos
+# 3. Crear usuarios y grupos dentro del LDAP
+
+En este punto vamos a escribir información dentro del servidor de directorios LDAP.
+* `Yast -> Usuarios Grupos`.
+* Set filter: `LDAP users`.
+* Bind DN: `cn=Directory Manager`.
+* Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
+* Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
+* Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
+* `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+
+# 4. Autenticación
+
+Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
+
+## 4.1 Comprobamos autenticación desde el cliente con comandos
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
@@ -81,17 +93,13 @@ getent passwd baron             # Comprobamos los datos del usuario
 cat /etc/passwd | grep baron    # El usuario NO es local
 ```
 
----
-# 4. Autenticación por entorno gráfico
-
-Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
-
-## 4.1 Comprobar autenticación desde el cliente
+## 4.2 Comprobar autenticación desde el cliente
 
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
 * Iniciar sesión con usuario local.
 * Abrir una consola y hacer lo siguiente:
+
 ```
 id drinfierno
 su -l drinfierno   # Entramos con el usuario definido en LDAP

@@ -89,6 +89,10 @@ suffix = dc=ldapXX,dc=curso2021
 * `dscreate -v from-file /root/instance.inf`, Now you can install your 389 DS instance with:
 * `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
 
+> NOTA: Si queremos eliminar una instancia de LDAP que ya tenemos creada haremos lo siguiente:
+> * `dsctl localhost stop`, para parar la instancia.
+> * `dsctl localhost remove --do-it`,para eliminar la instancia.
+
 * Creamos el fichero `/root/.dsrc` con el siguiente contenido. Este fichero sirve para configurar los permisos para acceder a la base de datos como administrador:
 
 ```
@@ -100,11 +104,12 @@ basedn = dc=ldap42,dc=curso2021
 binddn = cn=Directory Manager
 ```
 
-> **IMPORTANTE**:
+> NOTA:
+>
 > * Cada vez que aparece ldapXX, hay que cambiar XX por el identificador de cada alumno.
 > * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP.
-> * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-ldapXX`
-> * El fichero de configuración `/etc/dirsrv/slapd-ldapXX/dse.ldif` contiene los parámetros principales del servicio de directorio. Como el DN de la Base, del usuario administrador, clave, etc.
+> * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-localhost`
+> * El fichero de configuración `/etc/dirsrv/slapd-localhost/dse.ldif` contiene los parámetros principales del servicio de directorio. Como el DN de la Base, del usuario administrador, clave, etc.
 
 ## 2.3 Comprobamos el servicio
 
@@ -266,7 +271,7 @@ Agregar más usuarios:
 
 # ANEXO
 
-## Crear las unidades organizativas (OU)
+## Crear unidades organizativas (OU)
 
 * Fichero `ou_people.ldif` para la crear la OU "people":
 
@@ -276,12 +281,7 @@ ou: people
 objectclass: organizationalUnit
 ```
 
-* Ejecutar :
-
-```bash
-ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif
-```
-
+* Ejecutar : `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif`
 * Fichero `ou_group.ldif`, para crear la UO "group":
 
 ```bash
@@ -290,11 +290,7 @@ ou: group
 objectclass: organizationalUnit
 ```
 
-* Ejecutar
-
-```bash
-ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif
-```
+* Ejecutar `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif`
 
 ## Crear los grupos
 
