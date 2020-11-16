@@ -99,7 +99,6 @@ suffix = dc=ldapXX,dc=curso2021
 * `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
 
 
-
 For local instance administration (on the server), you want to use settings like:
 ```
 # cat ~/.dsrc
