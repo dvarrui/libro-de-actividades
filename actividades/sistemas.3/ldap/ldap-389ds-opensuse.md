@@ -137,7 +137,7 @@ Deberían estar creadas las OU People y Groups, es caso contrario hay que crearl
 ```
 ldapsearch -H ldap://localhost:389
            -W -D "cn=Directory Manager"
-           -b "dc=ldapXX,dc=curso2021" "(ou=*) | grep dn"
+           -b "dc=ldapXX,dc=curso2021" "(ou=*)" | grep dn
 ```
 
 > * Importante: No olvidar especificar la base (-b). De lo contrario probablemente no haya resultados en la búsqueda.
