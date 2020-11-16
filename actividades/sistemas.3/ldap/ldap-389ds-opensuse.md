@@ -73,15 +73,15 @@ Enlaces de interés:
 
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
-389 Directory Server is controlled by 3 primary commands.
-* dsctl: This manages a local instance, requiring root permissions. This starts, stops, backs-up and more.
-* dsconf: Manage a remote or local instance configuration. This requires cn=Directory Manager. It changes settings of the server and is the primary tool you will use for administration of config.
-* dsidm: Manage content inside of a backend, with an identity management focus. The permissions of this tool are granted by access controls, and can even be used for some limited self service actions.
+> Comandos principales de 389 Directory Server:
+> * dsctl: Gestiona instancia local (requiere permisos de root). Para iniciar, parar, backup, etc.
+> * dsconf: Gestiona configuración de instancia local o remota. Require cn=Directory Manager. Cambia la configuración del servidor.
+> * dsidm: Gestiona contenido dentro de la base de datos
 
+## 2.2 Configurar la instancia
 
-# Setup the instance
+* Crear el fichero `/root/instance.inf` con el siguiente contenido. Este fichero sirve para configurar el servidor:
 
-We want to setup your server now. A basic configuration is:
 ```
 # /root/instance.inf
 [general]
@@ -94,11 +94,11 @@ root_password = YOUR_ADMIN_PASSWORD_HERE
 sample_entries = yes
 suffix = dc=ldapXX,dc=curso2021
 ```
+
 * `dscreate -v from-file /root/instance.inf`, Now you can install your 389 DS instance with:
 * `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
 
-
-For local instance administration (on the server), you want to use settings like:
+* Creamos el fichero `/root/.dsrc` con el siguiente contenido. Este fichero sirve para configurar los permisos para acceder a la base de datos como administrador:
 ```
 # cat ~/.dsrc
 [localhost]
