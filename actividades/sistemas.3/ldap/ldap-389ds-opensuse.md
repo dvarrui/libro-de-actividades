@@ -115,30 +115,6 @@ binddn = cn=Directory Manager
 ESTO HAY QUE CAMBIARLO!!!
 ```
 
-A continuación iremos respondiendo a las preguntas de configuración del servicio (Cambiar XX por identificador de cada alumno):
-
-```
-==================================================
-* Choose a setup type  => 2. Typical
-* FQDN of the computer => serverXX.curso1920
-* System User          => dirsrv
-* System Group         => dirsrv
-* Network port number  => 389
-* DS identifier        => ldapXX
-* Suffix (valid DN)    => dc=ldapXX,dc=curso1920
-* Administrative user  => cn=Directory Manager
-==================================================
-```
-
-Nos aparece este "Warning2 de SELinux, pero la instancia LDAP se ha creado:
-
-```
-ImportError: No module named selinux
-Your new DS instance 'ldap42' was successfully created.
-Exiting . . .
-Log file is '/tmp/setupuofQkd.log'
-```
-
 > **IMPORTANTE**:
 > * Cada vez que aparece ldapXX, hay que cambiar XX por el identificador de cada alumno.
 > * Recordar el nombre y clave de nuestro usuario administrador del servidor de directorios LDAP.
