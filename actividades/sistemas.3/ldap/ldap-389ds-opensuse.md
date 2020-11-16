@@ -72,6 +72,44 @@ Enlaces de interés:
 > * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
 > * https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
 
+* `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
+
+389 Directory Server is controlled by 3 primary commands.
+* dsctl: This manages a local instance, requiring root permissions. This starts, stops, backs-up and more.
+* dsconf: Manage a remote or local instance configuration. This requires cn=Directory Manager. It changes settings of the server and is the primary tool you will use for administration of config.
+* dsidm: Manage content inside of a backend, with an identity management focus. The permissions of this tool are granted by access controls, and can even be used for some limited self service actions.
+
+
+# Setup the instance
+
+We want to setup your server now. A basic configuration is:
+```
+# /root/instance.inf
+[general]
+config_version = 2
+
+[slapd]
+root_password = YOUR_ADMIN_PASSWORD_HERE
+
+[backend-userroot]
+sample_entries = yes
+suffix = dc=ldapXX,dc=curso2021
+```
+* `dscreate -v from-file /root/instance.inf`, Now you can install your 389 DS instance with:
+* `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
+
+
+
+For local instance administration (on the server), you want to use settings like:
+```
+# cat ~/.dsrc
+[localhost]
+# Note that '/' is replaced to '%%2f'.
+uri = ldapi://%%2fvar%%2frun%%2fslapd-localhost.socket
+basedn = dc=ldap42,dc=curso2021
+binddn = cn=Directory Manager
+```
+
 
 ---
 ```
