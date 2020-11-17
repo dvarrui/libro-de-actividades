@@ -64,11 +64,6 @@ Ejemplo de rúbrica:
 * `zypper in 389-ds`, instalar el script de instalación.
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
-> Comandos principales de 389 Directory Server:
-> * dsctl: Gestiona instancia local (requiere permisos de root). Para iniciar, parar, backup, etc.
-> * dsconf: Gestiona configuración de instancia local o remota. Require cn=Directory Manager. Cambia la configuración del servidor.
-> * dsidm: Gestiona contenido dentro de la base de datos
-
 ## 2.2 Configurar la instancia
 
 * Crear el fichero `/root/instance.inf` con el siguiente contenido. Este fichero sirve para configurar el servidor:
@@ -86,7 +81,7 @@ sample_entries = yes
 suffix = dc=ldapXX,dc=curso2021
 ```
 
-* `dscreate -v from-file /root/instance.inf`, Now you can install your 389 DS instance with:
+* `dscreate from-file /root/instance.inf`, Now you can install your 389 DS instance with:
 * `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
 
 > NOTA: Si queremos eliminar una instancia de LDAP que ya tenemos creada haremos lo siguiente:
