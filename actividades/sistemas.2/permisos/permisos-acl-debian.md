@@ -135,6 +135,12 @@ Ya tenemos activo el modo ACL en la partición seleccionada.
 
 ## 2.3 Poner permisos
 
+> NOTA:
+>
+> * Para crear usuarios `adduser`
+> * Para crear grupos `addgroup`
+> * Para poner constraseña al usuario luke haremos `passpwd luke`
+
 Crear los grupos y usuarios:
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
@@ -147,8 +153,6 @@ Crear carpetas y poner permisos ACL:
     * donde la carpeta tendrá lo permisos clásicos 700.
     * donde el usuario `han` tienen permisos ACL rwx.
     * donde el usuario `luke` tienen permisos ACL rx.
-
-> Para poner constraseña al usuario luke haremos `passpwd luke`
 
 ## 2.4 Comprobaciones
 
