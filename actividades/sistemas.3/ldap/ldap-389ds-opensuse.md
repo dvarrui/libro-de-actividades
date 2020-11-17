@@ -81,8 +81,8 @@ sample_entries = yes
 suffix = dc=ldapXX,dc=curso2021
 ```
 
-* `dscreate from-file /root/instance.inf`, Now you can install your 389 DS instance with:
-* `dsctl localhost status`, That’s it! You have a working LDAP server. You can show this with:
+* `dscreate from-file /root/instance.inf`, creamos una nueva instancia.
+* `dsctl localhost status`, comprobar el estado actual de la instancia de la base de datos LDAP
 
 > NOTA: Si queremos eliminar una instancia de LDAP que ya tenemos creada haremos lo siguiente:
 > * `dsctl localhost stop`, para parar la instancia.
@@ -113,8 +113,7 @@ binddn = cn=Directory Manager
 
 ## 2.4 Comprobamos el acceso al contenido del LDAP
 
-* `ldapsearch -b "dc=ldapXX,dc=curso2021" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP.
-* Comprobar que existen las OU Groups y People.
+* `ldapsearch -b "dc=ldapXX,dc=curso2021" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP. "dn" significa nombre distiguido, es un identificador que tiene cada nodo dentro del árbol LDAP.
 * `ldapsearch -H ldap://localhost -b "dc=ldapXX,dc=curso2021" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.
 
 | Parámetro                   | Descripción                |
@@ -177,9 +176,9 @@ gecos: Mazinger Z
 
 ## 3.3 Comprobar el nuevo usuario
 
-* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, para comprobar si se ha creado el usuario en el LDAP.
-
 Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
+
+* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
 
 > **Eliminar usuario del árbol del directorio**
 >
@@ -192,7 +191,6 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 >
 > * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
 
----
 # 4. Contraseñas encriptadas
 
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
