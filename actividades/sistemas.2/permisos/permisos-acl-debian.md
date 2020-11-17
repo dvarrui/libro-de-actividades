@@ -137,8 +137,8 @@ Ya tenemos activo el modo ACL en la partición seleccionada.
 
 > NOTA:
 >
-> * Para crear usuarios `adduser`
-> * Para crear grupos `addgroup`
+> * Para crear usuarios `adduser` o `useradd`
+> * Para crear grupos `addgroup` o `groupadd`
 > * Para poner constraseña al usuario luke haremos `passpwd luke`
 
 Crear los grupos y usuarios:
