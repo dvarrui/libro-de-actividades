@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920, 201819, 201817
+Curso       : 202021, 201920, 201819, 201817
 Area        : Sistemas operativos, instalar aplicaciones
 Descripción : Diversas formas de instalar aplicaciones en los SSOO
 Requisitos  : Windows 7/10 y OpenSUSE
@@ -27,19 +27,20 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 
 ## 1.2 Instalar aplicación
 
-Capturar imagenes de los pasos realizados.
-* Descargar un programa GnuWin32 de la [página oficial](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, grep, gcal, stat.
+Capturar imágenes de los pasos realizados.
+* Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, grep, gcal, stat.
 * Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
 * Comprobar su funcionamiento.
 
 ## 1.3 Instalar un programa MSI
 
+Los ficheros de instalación MSI, son programas de instalación que no nos hacen preguntas durante el proceso porque ya viene configurado con opciones por defecto.
+
 * Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
 * Descargar un MSI. Por ejemplo: ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
 * Instalar el programa MSI. La instalación de un MSI no hace ninguna pregunta durante el proceso.
 
----
 # 2. Windows usando los comandos
 
 Capturar imágenes de los pasos realizados.
@@ -58,8 +59,6 @@ Capturar imágenes de los pasos realizados.
     * VLC
     * 7z
     * Steam
-
----
 
 # 3. Windows - Actualización del sistema
 
