@@ -248,7 +248,8 @@ profesor
 ## 4.3 Comprobar los usuarios creados
 
 * Ir a la MV cliente LDAP.
-* Ejecutar comando `ldpasearch -H ldap://IP-LDAP-SERVER ..."(uid=*)" | grep dn` para consultar los usuarios LDAP en el servidor de directorios remoto.
+* Ejecutar comando `ldpasearch -H ldap:///IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos
+en el servicio de directorio remoto.
 
 ---
 
