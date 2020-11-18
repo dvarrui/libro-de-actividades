@@ -29,6 +29,7 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 
 Capturar imágenes de los pasos realizados.
 * Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, grep, gcal, stat.
+Hay que elegir la descargar del paquete completo sin las fuentes.
 * Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
 * Comprobar su funcionamiento.
@@ -38,7 +39,7 @@ Capturar imágenes de los pasos realizados.
 Los ficheros de instalación MSI, son programas de instalación que no nos hacen preguntas durante el proceso porque ya viene configurado con opciones por defecto.
 
 * Abre un navegador web y pon URL siguiente `https://download.gnome.org/binaries/`.
-* Descargar un MSI. Por ejemplo: https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
+* Descargar un MSI. Por ejemplo: `https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi`. Cambiar VERSION por el valor adecuado.
 * Instalar el programa MSI. La instalación de un MSI no hace ninguna pregunta durante el proceso.
 
 # 2. Windows usando los comandos
