@@ -219,11 +219,13 @@ La herramienta `slappasswd` provee la funcionalidad para generar un valor userPa
 Para generar un valor de contraseña hasheada utilizando SHA-1 con salt compatible con el formato requerido para un valor userPassword, ejecutar el siguiente comando:
 
 ```bash
-$ slappasswd -h {SSHA}
+$ slappasswd
 New password:
 Re-enter new password:
 {SSHA}5uUxSgD1ssGkEUmQTBEtcqm+I1Aqsp37
 ```
+
+> Con slappasswd -h MD5 genera clave encriptada MD5
 
 También podemos usar el comando `sha512sum` para crear claves SHA512.
 Escribimos la clave y pulsamos CTRL+D. Ejemplo:
