@@ -223,14 +223,13 @@ Re-enter new password:
 {SSHA}5uUxSgD1ssGkEUmQTBEtcqm+I1Aqsp37
 ```
 
-**Ejemplo MD5**
-
-También podemos usar el comando `md5sum` para crear claves md5. Ejemplo:
+También podemos usar el comando `sha512sum` para crear claves SHA512.
+Escribimos la clave y pulsamos CTRL+D. Ejemplo:
 
 ```bash
-$ md5sum
-clave secreta
-43cff9e9a30167a1e383026bf61108f2  -
+$ sha512sum
+profesor
+59a343d6c28d4bdea88df037c0f6b47b569b8008e046fb9d90773edf3d49c34d19b6de9d00b5629d145b3b0ac12f7e1955c12954d0f4642bfade4d0adc25c482  -
 ```
 
 ## 4.2 Agregar más usuarios
