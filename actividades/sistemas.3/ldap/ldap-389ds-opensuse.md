@@ -239,11 +239,11 @@ profesor
 > Enlace de interés:
 > * [Cómo cifra GNU/Linux las contraseñas](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
 
-| Full name       | Login acount | uid  |
-| --------------- | ------------ | ---- |
-| Koji Kabuto     | koji         | 2002 |
-| Boss            | boss         | 2003 |
-| Doctor Infierno | drinfierno   | 2004 |
+| Full name       | Login acount | uid  | Clave encriptada SHA |
+| --------------- | ------------ | ---- | -------------------- |
+| Koji Kabuto     | koji         | 2002 | CONTRASEÑA |
+| Boss            | boss         | 2003 | CONTRASEÑA |
+| Doctor Infierno | drinfierno   | 2004 | CONTRASEÑA |
 
 ## 4.3 Comprobar los usuarios creados
 
