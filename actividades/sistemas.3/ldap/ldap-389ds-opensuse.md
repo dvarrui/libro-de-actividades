@@ -248,7 +248,7 @@ profesor
 ## 4.3 Comprobar los usuarios creados
 
 * Ir a la MV cliente LDAP.
-* Ejecutar comando `ldpasearch ... "(uid=*)" | grep dn` para consultar los usuarios LDAP en el servidor de directorios remoto.
+* Ejecutar comando `ldpasearch -H ldap://IP-LDAP-SERVER ..."(uid=*)" | grep dn` para consultar los usuarios LDAP en el servidor de directorios remoto.
 
 ---
 
@@ -306,6 +306,7 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
 * `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
+## /etc/shadow
 
 Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
 * Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
