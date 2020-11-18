@@ -234,21 +234,10 @@ profesor
 59a343d6c28d4bdea88df037c0f6b47b569b8008e046fb9d90773edf3d49c34d19b6de9d00b5629d145b3b0ac12f7e1955c12954d0f4642bfade4d0adc25c482  -
 ```
 
-## 4.2 Agregar más usuarios
+## 4.2 Agregar más usuarios con clave encriptada
 
 > Enlace de interés:
 > * [Cómo cifra GNU/Linux las contraseñas](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
-
-Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
-* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
-* Por tanto, se deduce que:
-    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
-    * aaa => salt bit
-    * bbb => clave encriptada.
-
-Agregar más usuarios:    
-* Ir a la MV servidor LDAP.
-* Crear los siguientes usuarios en LDAP con clave encriptada:
 
 | Full name       | Login acount | uid  |
 | --------------- | ------------ | ---- |
@@ -316,3 +305,15 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 * Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
 * `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+
+
+Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
+* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
+* Por tanto, se deduce que:
+    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
+    * aaa => salt bit
+    * bbb => clave encriptada.
+
+Agregar más usuarios:    
+* Ir a la MV servidor LDAP.
+* Crear los siguientes usuarios en LDAP con clave encriptada:
