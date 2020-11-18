@@ -171,6 +171,8 @@ homeDirectory: /home/mazinger
 gecos: Mazinger Z
 ```
 
+> WARNING: Los valores de cada parámetro no deben tener espacios extra al final de la línea, porque provoca un error de sintáxis.
+
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif
 `, escribir los datos del fichero **ldif** anterior en LDAP.
 
