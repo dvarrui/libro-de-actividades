@@ -37,8 +37,8 @@ Capturar imágenes de los pasos realizados.
 
 Los ficheros de instalación MSI, son programas de instalación que no nos hacen preguntas durante el proceso porque ya viene configurado con opciones por defecto.
 
-* Abre un navegador web y pon URL siguiente `ftp://ftp.gnome.org/pub/gnome/binaries/`.
-* Descargar un MSI. Por ejemplo: ftp://ftp.gnome.org/pub/gnome/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
+* Abre un navegador web y pon URL siguiente `https://download.gnome.org/binaries/`.
+* Descargar un MSI. Por ejemplo: https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi. Cambiar VERSION por el valor adecuado.
 * Instalar el programa MSI. La instalación de un MSI no hace ninguna pregunta durante el proceso.
 
 # 2. Windows usando los comandos
