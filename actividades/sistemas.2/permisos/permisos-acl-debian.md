@@ -124,7 +124,12 @@ Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/
 * Primero por seguridad, hacer una instantánea de la MV.
 * Crear directorio `/mnt/starwars`.
 * Abre el fichero `/etc/fstab`.
-* Añade nueva línea para la partición que queremos montar en el directorio `/mnt/starwars` con los parámetros para activar ACL, esto es: `/dev/sda8  /mnt/starwars  ext2  defaults,acl  0  2`
+* Añade nueva línea para la partición que queremos montar en el directorio `/mnt/starwars` con los parámetros para activar ACL, esto es:
+
+```
+/dev/sda8  /mnt/starwars  ext2  defaults,acl  0  2
+```
+
 * `cat /etc/fstab`.
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
