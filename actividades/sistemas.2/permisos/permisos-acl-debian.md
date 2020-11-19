@@ -144,11 +144,16 @@ Ya tenemos activo el modo ACL en la partición seleccionada.
 > * Para crear usuarios `adduser` o `useradd`
 > * Para crear grupos `addgroup` o `groupadd`
 > * Para poner constraseña al usuario luke haremos `passpwd luke`
-> * Para poner permiso ACL r al usuario invitado: `setfacl -m u:invitado:r holamundo`
 
 Crear los grupos y usuarios:
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
+
+> NOTA:
+>
+> * Para poner permiso ACL r al usuario invitado: `setfacl -m u:invitado:r holamundo`
+> * Para quitar los permisos ACL al usuario luke: `setfacl -x u:luke holamundo`
+
 Crear carpetas y poner permisos ACL:
 * Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
     * donde la carpeta tendrá lo permisos clásicos 700.
