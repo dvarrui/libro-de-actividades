@@ -16,12 +16,12 @@ En esta actividad vamos a practicar diversas formas de realizar la instalación 
 # 1. Windows 7 usando el GUI
 
 * Partimos de una [MV con Windows](../../global/configuracion/windows.md).
-* Capturar imagen del resultado final.
 
 ## 1.1 Agregar característica
 
 El SO viene con software que se puede instalar si se necesita. Estas reciben el nombre de características del sistema.
 
+* Capturar imagen del resultado final.
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
 * Instalar `características -> Juegos/Buscaminas`.
 
