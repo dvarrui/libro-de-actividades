@@ -321,3 +321,23 @@ Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
 Agregar más usuarios:    
 * Ir a la MV servidor LDAP.
 * Crear los siguientes usuarios en LDAP con clave encriptada:
+
+## Autenticación simple
+
+> Enlace de interés:
+> * https://es.opensuse.org/Squid_con_soporte_ldap
+
+Asegurarse de que el servidor LDAP funciona con el programa externo de autenticación, ejecute en la linea de comandos `/usr/sbin/basic_ldap_auth -b "ou=people,dc=Antiquitera,dc=site" -v 3`
+
+> * -b "ou=people,dc=Antiquitera,dc=site" indica donde se encuentran los usuarios de árbol ldap
+> * -v 3 indica que se esta utilizando la versión 3 del protocolo LDAP.
+
+Al ejecutar el comando se da un usuario y su contraseña separadas por un espacio en blanco, si el usuario existe y la contraseña es la correcta el resultado es OK sino, el resultado es ERR Success
+
+```
+jvelez@Antiquitera:~>/usr/sbin/basic_ldap_auth  -b  "ou=people,dc=Antiquitera,dc=site" -v 3
+pperez 13sktocnghkle7
+OK
+pperez klxmruiwcmfg
+ERR Success
+```
