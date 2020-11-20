@@ -66,7 +66,7 @@ Capturar imágenes de los pasos realizados.
 
 Punto de restauración de seguridad:
 * Hacer un snapshot de la MV por seguridad.
-* Usar el usuario `jedi1` (Debe tener privilegios de administrador del equipo)
+* Usar un usuario con privilegios de administrador.
 
 Vamos a instalar un paquete de actualizaciones para Windows7.
 De esta forma las actualizaciones tardarán menos tiempo.
