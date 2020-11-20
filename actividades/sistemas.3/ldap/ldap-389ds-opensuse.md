@@ -252,8 +252,7 @@ profesor
 * Ir a la MV cliente LDAP.
 * `nmap -Pn IP-LDAP-SERVER`, comprobar que el puerto LDAP del servidor está abierto.
 Si no aparecen los puertos abiertos, entonces revisar el cortafuegos.
-* Ejecutar comando `ldpasearch -H ldap:///IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos
-en el servicio de directorio remoto.
+* `ldpasearch -H ldap:///IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos en el servicio de directorio remoto.
 
 ---
 # ANEXO
