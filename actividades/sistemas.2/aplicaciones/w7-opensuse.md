@@ -3,7 +3,7 @@
 Curso       : 202021, 201920, 201819, 201817
 Area        : Sistemas operativos, instalar aplicaciones
 Descripción : Diversas formas de instalar aplicaciones en los SSOO
-Requisitos  : Windows 7/10 y OpenSUSE
+Requisitos  : Windows 10 y OpenSUSE
 Tiempo      :
 ```
 
@@ -49,7 +49,8 @@ Capturar imágenes de los pasos realizados.
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
 * Descargar a instalar Chocolatey desde http://chocolatey.org/.
-* Elegir una aplicación disponible de la lista http://chocolatey.org/packages.
+    * Ir a la web de Chocolatey -> Get Started -> Chocolate Install -> Individual. Seguir los pasos para instalar la herramienta.
+* Elegir una aplicación disponible de la lista http://chocolatey.org/packages (Por ejemplo VLC).
 * Abrir una consola como administrador.
 * Ejecutar comando para instalar el programa. Por ejemplo, para instalar VLC pondremos `choco install vlc`.
 
@@ -116,7 +117,7 @@ Capturar imágenes de los pasos realizados.
 
 * Entramos en la consola como `root`.
 * Instalar algún programa con el comando `zypper ...` (`man zypper` para consultar ayuda).
-* `zypper search nombre-programa`, comprobamnos que el programa está instalado.
+* `zypper search nombre-programa`, comprobamos que el programa está instalado.
 * Ejecutar el programa y ver funciona.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 
