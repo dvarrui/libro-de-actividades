@@ -28,7 +28,7 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 ## 1.2 Instalar aplicación
 
 Capturar imágenes de los pasos realizados.
-* Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, file, grep, gcal, stat.
+* Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, gcal, stat, file.
 Hay que elegir la descargar del paquete completo sin las fuentes.
 * Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
