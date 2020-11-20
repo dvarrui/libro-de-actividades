@@ -90,7 +90,7 @@ Actualizar algunos paquetes:
 
 ## 4.1 Instalar paquetes
 
-El gestor de paquetes es un programa para instalar/desinstalar software como un AppStore.
+Las distribuciones GNU/Linux como OpenSUSE, usan un gestor de paquetes para instalar/desinstalar software. Esto funciona igual que un AppStore.
 
 > * Enlaces de interés:
 >     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
