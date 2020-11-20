@@ -74,7 +74,7 @@ De esta forma las actualizaciones tardarán menos tiempo.
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
     * Botón derecho -> Reiniciar
-* Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
+* [SOLO PARA Windows7] Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
 * Reiniciar la máquina.
 
 Actualizar algunos paquetes:
