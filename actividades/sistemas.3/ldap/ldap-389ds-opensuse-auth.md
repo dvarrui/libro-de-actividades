@@ -54,6 +54,9 @@ Imagen de ejemplo:
 # 3. Crear usuarios y grupos dentro del LDAP
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
+Este proceso se debe poder realizar tanto desde el Yast del servidor, como desde el Yast
+del cliente.
+
 * Ir a la MV cliente.
 * `Yast -> Usuarios Grupos`.
 * Set filter: `LDAP users`.
