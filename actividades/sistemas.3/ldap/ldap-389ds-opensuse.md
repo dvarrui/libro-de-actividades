@@ -95,7 +95,7 @@ suffix = dc=ldapXX,dc=curso2021
 [localhost]
 # Note that '/' is replaced to '%%2f'.
 uri = ldapi://%%2fvar%%2frun%%2fslapd-localhost.socket
-basedn = dc=ldap42,dc=curso2021
+basedn = dc=ldapXX,dc=curso2021
 binddn = cn=Directory Manager
 ```
 
