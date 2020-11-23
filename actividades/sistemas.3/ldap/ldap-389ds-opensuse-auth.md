@@ -59,7 +59,7 @@ En este punto vamos a escribir información dentro del servidor de directorios L
 * Set filter: `LDAP users`.
 * Bind DN: `cn=Directory Manager`.
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
+* Crear los usuarios `robot`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
 * `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
@@ -71,8 +71,8 @@ Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como reposit
 
 * Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
 ```
-id drinfierno
-su -l drinfierno   # Entramos con el usuario definido en LDAP
+id robot
+su -l robot   # Entramos con el usuario definido en LDAP
 
 getent group villanos           # Comprobamos los datos del grupo
 cat /etc/group | grep villanos  # El grupo NO es local
@@ -89,8 +89,8 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 * Abrir una consola y hacer lo siguiente:
 
 ```
-id drinfierno
-su -l drinfierno   # Entramos con el usuario definido en LDAP
+id robot
+su -l robot   # Entramos con el usuario definido en LDAP
 ```
 
 ---
