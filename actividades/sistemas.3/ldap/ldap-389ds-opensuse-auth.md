@@ -13,32 +13,19 @@ En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que poda
 
 # 1. Preparativos
 
-Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+* Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
+* Necesitamos MV2 con SO OpenSUSE ([Configuración MV](../../global/configuracion/opensuse.md))
 
-## 1.1 Preparar la MV2
-
-Necesitamos MV2 con:
-* SO OpenSUSE ([Configuración MV](../../global/configuracion/opensuse.md))
-* Nombre equipo: `1er-apellido-alumnoXXg2`
-* Dominio: `curso1920`
-* Asegurarse que tenemos definido en el fichero `/etc/hosts` del cliente, el par DNS-IP del servidor. Ver ejemplo:
-
-```
-172.19.XX.31   serverXX.curso1920   serverXX   
-127.0.0.2      1er-apellidoXXg2.curso1920   1er-apellidoXXg2
-```
-
-## 1.2 Comprobación
-
+Comprobamos el acceso al LDAP desde el cliente:
+* Ir a MV cliente.
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente.
 * `ldapsearch -H ldap://serverXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
 # 2. Configurar autenticación LDAP
 
-## 2.1 Configurar cliente de autenticación por Yast
-
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
+* Ir a la MV cliente.
 * Ir a `Yast -> Cliente LDAP y Kerberos`.
 * Configurar como:
 ```
@@ -49,8 +36,8 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Leer -> Grupos              : NO
 * Leer -> Sudo                : NO
 * Leer -> Discos              : NO
-* Ubicaciones de servidores   : IP-serverXX:389
-* DN de la base               : dc=ldapXX,dc=curso2021
+* Ubicaciones de servidores   : IP-LDAP-SERVERXX:389
+* DN de la base               : dc=ldapXX,dc=curso202
 * DN usuario                  : (Vacío)
 * Contraseña usuario          : (Vacío)
 * Miembros de grupo por DN    : SI
@@ -67,6 +54,7 @@ Imagen de ejemplo:
 # 3. Crear usuarios y grupos dentro del LDAP
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
+* Ir a la MV cliente.
 * `Yast -> Usuarios Grupos`.
 * Set filter: `LDAP users`.
 * Bind DN: `cn=Directory Manager`.
@@ -93,7 +81,7 @@ getent passwd baron             # Comprobamos los datos del usuario
 cat /etc/passwd | grep baron    # El usuario NO es local
 ```
 
-## 4.2 Comprobar autenticación desde el cliente
+## 4.2 Comprobar autenticación desde el cliente por el entorno gráfico
 
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
