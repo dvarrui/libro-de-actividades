@@ -34,23 +34,6 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Al final usar la opción de `Probar conexión`
 
-```
-* Permitir autenticación      : SI
-* Almacenar entradas en caché : SI
-* Crear directorio personal   : SI
-* Leer -> Usuarios            : SI
-* Leer -> Grupos              : NO
-* Leer -> Sudo                : NO
-* Leer -> Discos              : NO
-* Ubicaciones de servidores   : IP-LDAP-SERVERXX:389
-* DN de la base               : dc=ldapXX,dc=curso202
-* DN usuario                  : (Vacío)
-* Contraseña usuario          : (Vacío)
-* Miembros de grupo por DN    : SI
-* Dejar conexines abiertas    : SI
-* Comunicación LDAP segura    : No usar seguridad
-```
-
 # 3. Crear usuarios y grupos dentro del LDAP
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
@@ -101,3 +84,20 @@ su -l robot   # Entramos con el usuario definido en LDAP
 
 Enlaces de interés:
 * Cliente LDAP: [PAM, NIS, LDAP, Kerberos, DS y Samba 4 AD-CD - Redes PYMES](http://blog.desdelinux.net/pam-nis-ldap-kerberos-ds-samba-4-ad-dc-redes-pymes/#Cliente_LDAP)
+
+```
+* Permitir autenticación      : SI
+* Almacenar entradas en caché : SI
+* Crear directorio personal   : SI
+* Leer -> Usuarios            : SI
+* Leer -> Grupos              : NO
+* Leer -> Sudo                : NO
+* Leer -> Discos              : NO
+* Ubicaciones de servidores   : IP-LDAP-SERVERXX:389
+* DN de la base               : dc=ldapXX,dc=curso202
+* DN usuario                  : (Vacío)
+* Contraseña usuario          : (Vacío)
+* Miembros de grupo por DN    : SI
+* Dejar conexines abiertas    : SI
+* Comunicación LDAP segura    : No usar seguridad
+```
