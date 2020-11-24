@@ -28,8 +28,12 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Ir a la MV cliente.
 * No aseguramos de tener bien el nombre del equipo y nombre de dominio (`/etc/hostname`, `/etc/hosts`)
 * Ir a `Yast -> Cliente LDAP y Kerberos`.
+* Configurar como la imagen de ejemplo:
 
-* Configurar como:
+![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
+
+* Al final usar la opción de `Probar conexión`
+
 ```
 * Permitir autenticación      : SI
 * Almacenar entradas en caché : SI
@@ -46,12 +50,6 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Dejar conexines abiertas    : SI
 * Comunicación LDAP segura    : No usar seguridad
 ```
-
-Imagen de ejemplo:
-
-![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
-
-* Al final usar la opción de `Probar conexión`
 
 # 3. Crear usuarios y grupos dentro del LDAP
 
