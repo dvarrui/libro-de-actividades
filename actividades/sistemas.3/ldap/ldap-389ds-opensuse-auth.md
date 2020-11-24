@@ -26,7 +26,9 @@ Comprobamos el acceso al LDAP desde el cliente:
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Ir a la MV cliente.
+* No aseguramos de tener bien el nombre del equipo y nombre de dominio (`/etc/hostname`, `/etc/hosts`)
 * Ir a `Yast -> Cliente LDAP y Kerberos`.
+
 * Configurar como:
 ```
 * Permitir autenticación      : SI
