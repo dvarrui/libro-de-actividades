@@ -1,11 +1,14 @@
 
 ```
-Curso           : 202021
-Software        : Servidor 389-DS y SO OpenSUSE
-Tiempo estimado : 5 horas
-Ultimos cambios : Se quita browser ldap por fallos de las app
-                  Se pasa autenticación desde cliente a otra actividad
-                  Se añaden comandos ldap para creación de usuarios
+Curso       : 202021
+Area        : Sistemas operativos, Servicio de Directorio LDAP
+Descripción : Montar un servicio de directorio 389-DS
+              Usar comandos LDAP para crear registros y consultar los datos
+Requisitos  : Servidor 389-DS y SO OpenSUSE
+Tiempo      : 5 horas
+Ult.Cambios : Se quita browser ldap por fallos de las app
+              Se pasa autenticación desde cliente a otra actividad
+              Se añaden comandos ldap para creación de usuarios
 ```
 
 ---

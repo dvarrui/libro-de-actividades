@@ -1,13 +1,16 @@
 
 ```
-Curso           : 202021
-Software        : Partimos de 389-DS en OpenSUSE
-Tiempo estimado :
-Comentarios     :
+Curso       : 202021
+Area        : Sistemas operativos, Servicio de Directorio LDAP, Autenticación
+Descripción : Configurar autenticación a través del servicio de directorio 389-DS
+Requisitos  : Partimos de 389-DS en OpenSUSE
+Tiempo      :
 ```
 
 ---
 # Cliente para autenticación LDAP
+
+Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
 
@@ -43,11 +46,11 @@ del cliente.
 * Ir a la MV cliente.
 * `Yast -> Usuarios Grupos`.
 * Set filter: `LDAP users`.
-* Bind DN: `cn=Directory Manager`.
+* Bind DN: `cn=Directory Manager,dc=ldapXX,dc=curso2021`.
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `robot`, `baron` (Estos se crearán dentro de la `ou=people`).
-* Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
-* `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+* Consultar/comprobar el contenido de la base de datos LDAP.
+    * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-UUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
 # 4. Autenticación
 
@@ -101,3 +104,5 @@ Enlaces de interés:
 * Dejar conexines abiertas    : SI
 * Comunicación LDAP segura    : No usar seguridad
 ```
+
+`ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`,
