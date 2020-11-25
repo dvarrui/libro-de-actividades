@@ -26,6 +26,8 @@ Comprobamos el acceso al LDAP desde el cliente:
 
 # 2. Configurar autenticación LDAP
 
+## 2.1 Crear conexión con servidor
+
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Ir a la MV cliente.
@@ -36,6 +38,17 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
 * Al final usar la opción de `Probar conexión`
+
+## 2.2 Comprobar con comandos
+
+* Vamos a la consola con usuario root, y probamos lo siguiente:
+```
+id mazinger
+su -l mazinger   # Entramos con el usuario definido en LDAP
+
+getent passwd mazinger          # Comprobamos los datos del usuario
+cat /etc/passwd | grep mazinger # El usuario NO es local
+```
 
 # 3. Crear usuarios y grupos dentro del LDAP
 
