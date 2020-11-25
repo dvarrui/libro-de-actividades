@@ -23,7 +23,7 @@ El SO viene con software que se puede instalar si se necesita. Estas reciben el 
 
 * Capturar imagen del resultado final.
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
-* Instalar `características -> Juegos/Buscaminas`.
+* Instalar `características -> Juegos/Buscaminas` (o `Imprimir en PDF`).
 
 ## 1.2 Instalar aplicación
 
