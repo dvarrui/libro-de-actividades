@@ -1,18 +1,21 @@
 
-*(Actividad probada en el curso 2014-2015)*
-*(Documento en costrucción)*
+```
+* (Actividad probada en el curso 2014-2015)
+* (Documento en construcción)
+```
 
-#Servidor LDAP - Debian
+# Servidor LDAP - Debian
 
 
 logo
-#Introducción
+
+# Introducción
 Enlaces de interés:
 * Min 38: Crear config dir a partir de config text.
 * Tool Openfile: http://www.openfiler.com/
 * Tool Zentyal
 
-#1. Instalación Servidor LDAP
+# 1. Instalación Servidor LDAP
 Realizar las siguientes tareas:
 * Descargar y leer documento "ldap-cnice-taller.pdf" para realizar esta actividad.
 * Utilizar preferentemente una máquina virtual con SO Debian/Ubuntu para instalar el servidor LDAP.
@@ -27,7 +30,7 @@ Realizar las siguientes tareas:
 
 NOTA: Para el correcto funcionamiento de phpldapadmin necesitaremos tener correctamente instalado apache2 con php. Instalar "apache2", "libapache2-mod-php5", "php5-ldap".
 
-2. Introducir datos en LDAP
+# 2. Introducir datos en LDAP
 Vídeo "LPIC-2 202 LDAP Client Usage".
 
 
@@ -40,8 +43,9 @@ Vemos un ejemplo de un árbol de datos en LDAP:
 
 arbol
 
-ANEXO 1
-A1.1 phpLDAPadmin: cambiar el almacén
+# ANEXO 1
+
+## A1.1 phpLDAPadmin: cambiar el almacén
 
 Tras instalar phpLDAPadmin y loguearse en "http://127.0.0.1/phpldapadmin/" te aparece la configuración de ejemplo 'dc=example,dc=com'. Para cambiar esto por tus datos, hay que cambiar el archivo "config.php" de phpLDAPadmin que se encuentra en "/etc/phpldapadmin/config.php".
 
@@ -50,7 +54,7 @@ Después en la línea 300 del archivo, modifican lo siguiente por sus datos:
 Original: $servers->setValue('server','base',array('dc=example,dc=com'));
 Modificado: $servers->setValue('server','base',array('dc=efrain,dc=aula108'));
 
-A1.2 phpLDAPadmin: cambiar el usuario
+## A1.2 phpLDAPadmin: cambiar el usuario
 SI en phpLDAPadmin a la hora de crear de un usuario, no puedes crearlo porque te tira un error que dice lo siguiente: "Error trying to get a non-existant value (appearance,password_hash)".
 
 Para arreglarlo vamos al archivo de configuración '/usr/share/phpldapadmin/lib/TemplateRender.php' y editamos la línea 2469 de la siguiente forma:

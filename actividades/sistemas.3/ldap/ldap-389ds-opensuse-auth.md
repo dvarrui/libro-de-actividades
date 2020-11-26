@@ -116,7 +116,7 @@ Enlaces de interés:
 * DN usuario                  : (Vacío)
 * Contraseña usuario          : (Vacío)
 * Miembros de grupo por DN    : SI
-* Dejar conexines abiertas    : SI
+* Dejar conexiones abiertas   : SI
 * Comunicación LDAP segura    : No usar seguridad
 ```
 

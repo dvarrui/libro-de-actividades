@@ -1,4 +1,7 @@
 
+```
+EN CONSTRUCCIÓN!!!
+```
 
 # Integración Samba con autenticación en LDAP
 
@@ -38,7 +41,7 @@ ldap idmap suffix = ou=idmap
 ...
 ```
 
-* Establecemos la clave Smaba para este usuario:
+* Establecemos la clave Samba para este usuario:
 ```
 smbpasswd -W
 Setting ... for "cd=Admin,...
