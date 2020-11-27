@@ -68,12 +68,11 @@ Vamos a instalar la herramienta Chocolatey:
 
 # 3. Windows - Actualización del sistema
 
-Punto de restauración de seguridad:
-* Hacer un snapshot de la MV por seguridad.
-* Usar un usuario con privilegios de administrador.
-
 Vamos a instalar un paquete de actualizaciones para Windows7.
 De esta forma las actualizaciones tardarán menos tiempo.
+
+* Hacer un snapshot de la MV por seguridad.
+* Usar un usuario con privilegios de administrador.
 * Reiniciamos el servicio Windows Update
     * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
     * Buscar Windows Update.
@@ -85,8 +84,6 @@ Actualizar algunos paquetes:
 * Ir a `Panel de control -> Windows Update`. Debe de estar desactivado.
 * Consultar las actualizaciones pendientes.
 * Elegir 3 y aplicar actualización.
-
----
 
 # 4. GNU/Linux usando el GUI
 
@@ -107,8 +104,6 @@ Las distribuciones GNU/Linux como OpenSUSE, usan un gestor de paquetes para inst
 
 * Desinstalar la aplicación con el gestor de paquetes.
 * Comprobarlo.
-
----
 
 # 5. GNU/Linux usando los comandos
 
@@ -148,15 +143,17 @@ Capturar imágenes de los pasos realizados.
 * Descargamos el fichero `.rpm`.
 * `rpm -i atom-VERSION.rpm`, para instalar el programa mediante el fichero rpm.
 * Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla manualmente. Por ejemplo:
-    * `zypper search lsb*`, para buscar todos los paquetes lsb algo.
+    * `zypper search lsb*`, para buscar todos los paquetes lsb "algo".
     * `zypper install lsb`, para instalar el paquete lsb.
 
 > NOTA: El paquete libgconf2 se llama gconf2 en OpenSUSE
 
-* Para comprobar que está el paquete instalado:
-    * `rpm -q atom`
-    * `atom`
-* Comprobamos que funciona bien el editor `atom`.
+Para comprobar que está el paquete instalado:
+
+* `rpm -q atom`
+* `atom`
+
+Comprobamos que funciona bien el editor `atom`.
 
 ## 5.5 Instalación desde el código fuente
 
