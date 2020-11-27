@@ -37,7 +37,8 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
-* DN de usuario: `cn=Directory Manager,dc=ldapXX,dc=curso2021`
+* BaseDN: `dc=ldapXX,dc=curso2021`
+* DN de usuario: `cn=Directory Manager`
 * Contraseña: CLAVE del usuario cn=Directory Manager
 * Al final usar la opción de `Probar conexión`
 
