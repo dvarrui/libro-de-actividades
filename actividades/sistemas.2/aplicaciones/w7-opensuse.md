@@ -50,11 +50,13 @@ Capturar imágenes de los pasos realizados.
 
 ## 2.1 Instalar desde la terminal Windows al estilo de GNU/Linux
 
-* Descargar a instalar Chocolatey desde http://chocolatey.org/.
-    * Ir a la web de Chocolatey -> Get Started -> Chocolate Install -> Individual. Seguir los pasos para instalar la herramienta.
-* Elegir una aplicación disponible de la lista http://chocolatey.org/packages (Por ejemplo VLC).
+Vamos a instalar la herramienta Chocolatey:
+* Ir a la web de Chocolatey (http://chocolatey.org/)
+* Ir a la sección Get Started -> Chocolate Install -> Individual. Seguir los pasos para instalar la herramienta (El proceso de instalación consiste en descargar un script de PowerShell (Fichero .ps1) y ejecutarlo).
 * Abrir una consola como administrador.
-* Ejecutar comando para instalar el programa. Por ejemplo, para instalar VLC pondremos `choco install vlc`.
+* Ejecutar comando para instalar el programa.
+    * Podemos elegir instalar cualquiera de los programas que disponibles (http://chocolatey.org/packages).
+    * Por ejemplo, para instalar VLC pondremos `choco install vlc`.
 
 ## 2.2 Gestor de paquetes
 
