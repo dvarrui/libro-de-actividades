@@ -122,3 +122,9 @@ Enlaces de interés:
 ```
 
 `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`,
+
+https://www.linuxito.com/seguridad/598-como-crear-un-certificado-ssl-autofirmado-en-dos-simples-pasos
+
+https://www.adictosaltrabajo.com/2003/08/07/iisssl/
+
+https://www.linuxito.com/gnu-linux/nivel-alto/994-como-implementar-ldap-sobre-ssl-tls-con-openldap
