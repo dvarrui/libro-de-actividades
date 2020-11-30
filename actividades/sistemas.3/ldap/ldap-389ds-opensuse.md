@@ -344,3 +344,11 @@ OK
 pperez klxmruiwcmfg
 ERR Success
 ```
+
+
+> **[PENDIENTE] de completar la información sobre los certificados.**
+>
+> Esto no funciona, pero es un intento de crear certificado y firma para LDAPS.
+>
+> * Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem - days 265`.
+> * Export firma PKCS12: `openssl pkcs12 -export -out server.pfx -in server.pem`.
