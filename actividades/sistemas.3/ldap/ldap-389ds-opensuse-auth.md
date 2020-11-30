@@ -34,12 +34,12 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * No aseguramos de tener bien el nombre del equipo y nombre de dominio (`/etc/hostname`, `/etc/hosts`)
 * Ir a `Yast -> Cliente LDAP y Kerberos`.
 * Configurar como la imagen de ejemplo:
+    * BaseDN: `dc=ldapXX,dc=curso2021`
+    * DN de usuario: `cn=Directory Manager`
+    * Contraseña: CLAVE del usuario cn=Directory Manager
 
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
-* BaseDN: `dc=ldapXX,dc=curso2021`
-* DN de usuario: `cn=Directory Manager`
-* Contraseña: CLAVE del usuario cn=Directory Manager
 * Al final usar la opción de `Probar conexión`
 
 ## 2.2 Comprobar con comandos
