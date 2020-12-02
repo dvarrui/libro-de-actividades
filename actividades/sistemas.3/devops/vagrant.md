@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920, 201819, 201718
+Curso       : 202021, 201920, 201819, 201718
 Area        : Sistemas Operativos, automatización, Devops
 Descripción : Uso de la herramienta de automatización Vagrant
 Requisitos  : Vagrant y Virtualbox
@@ -24,12 +24,19 @@ Ejemplo de rúbrica:
 
 Según *Wikipedia*:
 
-_Vagrant es una herramienta para la creación y configuración de entornos de desarrollo virtualizados.
+```
+Vagrant es una herramienta para la creación
+y configuración de entornos de desarrollo virtualizados.
 
-Originalmente se desarrolló para VirtualBox y sistemas de configuración tales como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
+Originalmente se desarrolló para VirtualBox y sistemas de configuración
+tales como Chef, Salt y Puppet.
+
+Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores,
+como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
 
 Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
-proyectos escritos en otros lenguajes._
+proyectos escritos en otros lenguajes.
+```
 
 > NOTA: Para desarrollar esta actividad se ha utilizado principalmente
 la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013.
