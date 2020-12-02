@@ -24,7 +24,6 @@ Ejemplo de rúbrica:
 
 Según *Wikipedia*:
 
-```
 Vagrant es una herramienta para la creación
 y configuración de entornos de desarrollo virtualizados.
 
@@ -36,7 +35,6 @@ como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
 
 Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
 proyectos escritos en otros lenguajes.
-```
 
 > NOTA: Para desarrollar esta actividad se ha utilizado principalmente
 la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013.
