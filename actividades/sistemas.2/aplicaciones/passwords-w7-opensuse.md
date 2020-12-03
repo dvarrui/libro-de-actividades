@@ -132,10 +132,10 @@ NO aparezcan en la ventana de inicio del sistema.
 ## 2.2 Claves seguras
 
 * Modificar las claves de los usuarios de la siguiente forma:
-    * sith1: 1234
-    * sith2: casa
-    * jedi1: frodoHOBBITbolson
-    * jedi2: gandalfELGRIS
+    * sith3: 1234
+    * sith3: casa
+    * jedi4: frodoHOBBITbolson
+    * jedi4: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
 * Usar el comando `fdisk -l` para ver las particiones MBR disponibles.
@@ -158,7 +158,7 @@ Dentro de cada fila los campos se separan por 2 puntos.
 El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave escriptada del usuario.
 
 * Copiar la clave del usuario `prueba` del fichero `/etc/shadow` a los usuarios
-`jedi2` y `sith2` del fichero `/mnt/etc/shadow`.
+`jedi3` y `sith3` del fichero `/mnt/etc/shadow`.
 
 > Podemos usar el editor `geany` que ya viene preinstalado en Knoppix.
 
@@ -167,7 +167,7 @@ El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave escriptada d
 > Con este cambio hemos dejamos los usuarios con una clave conocida por nosotros.
 
 * Reiniciar la MV sin el CDLIVE de Knoppix.
-* Ahora podremos iniciar sesión con los usuarios `jedi2` y `sith2`, usando la
+* Ahora podremos iniciar sesión con los usuarios `jedi3` y `sith3`, usando la
 clave 123456.
 
 ## 2.3 Desactivar el inicio gráfico
