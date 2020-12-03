@@ -131,8 +131,6 @@ NO aparezcan en la ventana de inicio del sistema.
 
 ## 2.2 Claves seguras
 
-* Configurar nuestro usuario y los usuarios `jedi1` y `jedi2` en el fichero `/etc/sudoers`,
-para que puedan obtener privilegios administrativos.
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith1: 1234
     * sith2: casa
