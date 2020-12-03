@@ -126,8 +126,7 @@ NO aparezcan en la ventana de inicio del sistema.
 | Escritorio    | XFCE | KDE |
 | ------------- | ---- | --- |
 | Fichero       | `/var/lib/AccountsService/users/USERNAME` | `/etc/sddm.conf`. Puede estar vacío. |
-| Contenido     | Sección `[User]` añadir `SystemAccount=true` | En la seccion [Users] añadimos la siguiente línea `HideUsers=USERNAME1,USERNAME2` |
-
+| Contenido     | Sección `[User]` añadir `SystemAccount=true` | En la seccion `[Users]` añadimos la siguiente línea `HideUsers=USERNAME1,USERNAME2` |
 > Donde USERNAME es el nombre del usuario a ocultar.
 
 ## 2.2 Claves seguras
