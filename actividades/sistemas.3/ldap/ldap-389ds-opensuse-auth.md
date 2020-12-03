@@ -129,9 +129,15 @@ https://www.adictosaltrabajo.com/2003/08/07/iisssl/
 
 https://www.linuxito.com/gnu-linux/nivel-alto/994-como-implementar-ldap-sobre-ssl-tls-con-openldap
 
-> **[PENDIENTE] de completar la información sobre los certificados.**
->
-> Esto no funciona, pero es un intento de crear certificado y firma para LDAPS.
->
-> * Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem -days 365`.
-> * Export firma PKCS12: `openssl pkcs12 -export -out server.pfx -in server.pem`.
+
+## Generar Certificados
+
+Opción 1:
+* Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem -days 365`.
+* Export firma PKCS12: `openssl pkcs12 -export -out server.p12 -in server.pem`.
+
+Opción 2:
+* `openssl genrsa -des3 -out server.key 1024`
+* `openssl rsa -in server.key -out server.pem`
+* `openssl req -new -key server.key -out server.csr`
+* `openssl x509 -req -days 360 -in server.csr -signkey server.key -out server.crt`
