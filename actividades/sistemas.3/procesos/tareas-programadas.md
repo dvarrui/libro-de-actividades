@@ -85,7 +85,7 @@ Enlaces de interés:
 * [Entender crontab ](https://crontab.guru)
 * [Programar tareas con cron y crontab](https://www.ochobitshacenunbyte.com/2018/03/22/programar-tareas-en-linux-facilmente-con-cron-y-crontab/)
 * Vídeo [Scheduling tasks with cron](https://www.youtube.com/embed/yBkJQKinZKY)
-* Enlaces de interés [Tareas programadas]](https://www.nerion.es/soporte/tutoriales/tareas-programadas-en-linux/)
+* [Tareas programadas](https://www.nerion.es/soporte/tutoriales/tareas-programadas-en-linux/)
 
 > Para programar una tarea periódica tenemos dos formas:
 >
