@@ -133,8 +133,8 @@ NO aparezcan en la ventana de inicio del sistema.
 
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith3: 1234
-    * sith3: casa
-    * jedi4: frodoHOBBITbolson
+    * sith4: casa
+    * jedi3: frodoHOBBITbolson
     * jedi4: gandalfELGRIS
 * Iniciar la máquina con un CDLIVE (Knoppix).
 * Abrir una consola y entrar como superusuario.
