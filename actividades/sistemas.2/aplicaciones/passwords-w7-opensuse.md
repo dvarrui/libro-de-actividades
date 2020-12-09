@@ -118,7 +118,7 @@ Usaremos una MV GNU/Linux OpenSUSE.
 
 ## 2.1 Ocultar usuarios
 
-Vamos a modificar el sistema para que los usuarios `jedi1` y `sith1`,
+Vamos a modificar el sistema para que los usuarios `jedi3` y `sith3`,
 NO aparezcan en la ventana de inicio del sistema.
 
 * Si nuestro entorno gráfico actual ya oculta los usuario, no hay que hacer nada. En caso contrario seguimos con este apartado.
@@ -188,6 +188,7 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 * Vamos a `Sistema -> Administrador de Servicios`
 * Cambiamos `Estado predeterminado` a `Graphical Interface`.
+* Reiniciar la MV y comprobamos.
 
 ---
 
