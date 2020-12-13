@@ -164,7 +164,7 @@ desde el código fuente.
 * Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
 * Dentro de la sección `Native`, elegir un programa  de la lista. Ejemplos:
     * Super Mario Bros Level 1
-    * Zelda (https://github.com/solarus-games/zsdx): Este programa requiere la instalación de Solarus (motor de juegos RPG). Para instalar Solarus: `zypper install solarus solarus-gui`. Una vez instalado el motor hay que escribir el comando: `solarus-run (ruta del archivo)`, donde la ruta del archivo es donde este instalado el zelda.
+    * Zelda (https://github.com/solarus-games/zsdx): Este programa requiere la instalación de Solarus (motor de juegos RPG). Para instalar Solarus: `zypper install solarus solarus-gui`. Una vez instalado el motor hay que escribir el comando: `solarus-run data`, dentro de la carpeta descargada.
 * Consultar las instrucciones de instalación.
 * Descargar el proyecto.
 * Instalar el juego.
