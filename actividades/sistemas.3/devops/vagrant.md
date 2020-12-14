@@ -46,6 +46,7 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 > * [Introducción a Vagrant](https://code.tutsplus.com/es/tutorials/introduction-to-vagrant--cms-25917)
 > * [Cómo instalar y configurar Vagrant](http://codehero.co/como-instalar-y-configurar-vagrant/)
 > * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)
+> * [Descargar y actualizar vagrant](https://www.vagrantup.com/downloads.html)
 
 La instalación vamos a hacerla en una máquina real.
 * Instalar Vagrant.
