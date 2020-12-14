@@ -184,7 +184,7 @@ Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear directorio `vagrantXX-lakers` para nuestro proyecto.
 * Entrar en dicha carpeta.
-* Crear fichero `html/index.html` con el siguiente contenido:
+* Crear la carpeta `html` y crear fichero `html/index.html` con el siguiente contenido:
 ```
 <h1>Proyecto Lakers</h1>
 <p>Curso201920</p>
@@ -202,7 +202,7 @@ apt-get install -y apache2
 Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 * `config.vm.hostname = "nombre-alumnoXX-lakers"`
 * `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
-* `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visibl dentro de la MV.
+* `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
 * `vagrant up`, para crear la MV.
     * Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
