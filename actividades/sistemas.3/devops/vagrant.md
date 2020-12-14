@@ -160,7 +160,8 @@ Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
 * `vagrant ssh`, entramos en la MV
 * Instalamos apache2.
-* Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
+
+> NOTA: Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
 
 ## 5.2 Comprobar
 
