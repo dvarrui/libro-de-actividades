@@ -296,7 +296,6 @@ desde Vagrant. Veamos cómo:
 # Crear usuario vagrant
 su
 useradd -m vagrant
-su - vagrant
 
 # Installing vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh
@@ -322,7 +321,7 @@ Tenemos que conceder permisos al usuario `vagrant` para que pueda configurar la 
 con una versión compatible con el host anfitrión.
 ```
 root@hostname:~# modinfo vboxguest |grep version
-version:        4.3.20
+version:        6.0.24
 ```
 * Apagamos la MV.
 
