@@ -292,21 +292,12 @@ desde Vagrant. Veamos cómo:
 
 * Ir a la MV de VirtualBox.
 
-Versión1
 ```
+# Crear usuario vagrant
 su
 useradd -m vagrant
 su - vagrant
-mkdir .ssh
-wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
-chmod 700 .ssh
-chmod 600 .ssh/authorized_keys
-```
 
-Versión2
-```
-su
-useradd -m vagrant
 # Installing vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh
 wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
@@ -395,3 +386,15 @@ end
 https://www.garron.me/es/gnu-linux/controla-maquinas-virtuales-virtualbox.html
 
 VBoxManage showvminfo VMNAME | grep State
+
+
+## Versión1
+```
+su
+useradd -m vagrant
+su - vagrant
+mkdir .ssh
+wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
+chmod 700 .ssh
+chmod 600 .ssh/authorized_keys
+```
