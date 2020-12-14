@@ -292,6 +292,7 @@ desde Vagrant. Veamos cómo:
 
 * Ir a la MV de VirtualBox.
 
+Versión1
 ```
 su
 useradd -m vagrant
@@ -300,6 +301,17 @@ mkdir .ssh
 wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
+```
+
+Versión2
+```
+su
+useradd -m vagrant
+# Installing vagrant keys
+mkdir -pm 700 /home/vagrant/.ssh
+wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
+chmod 0600 /home/vagrant/.ssh/authorized_keys
+chown -R vagrant /home/vagrant/.ssh
 ```
 
 ¿Qué estamos haciendo? ¿Te suena de verlo con SSH?
