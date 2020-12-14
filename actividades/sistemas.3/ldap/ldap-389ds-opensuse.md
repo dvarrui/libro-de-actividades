@@ -183,7 +183,7 @@ gecos: Mazinger Z
 
 Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
 
-* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
+* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=mazinger)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
 
 > **Eliminar usuario del árbol del directorio**
 >
