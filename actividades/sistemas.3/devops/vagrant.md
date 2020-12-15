@@ -187,7 +187,7 @@ Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear la carpeta `html` y crear fichero `html/index.html` con el siguiente contenido:
 ```
 <h1>Proyecto Lakers</h1>
-<p>Curso201920</p>
+<p>Curso202021</p>
 <p>Nombre-del-alumno</p>
 ```
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
