@@ -155,10 +155,13 @@ ls
 
 > El fichero shadow tiene una fila por cada usuarios.
 Dentro de cada fila los campos se separan por 2 puntos.
-El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave escriptada del usuario.
+El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave encriptada del usuario.
 
 * Copiar la clave del usuario `prueba` del fichero `/etc/shadow` a los usuarios
 `jedi3` y `sith3` del fichero `/mnt/etc/shadow`.
+* Capturar imagen de la clave del usuario prueba dentro del fichero /etc/shadow.
+* Capturar imagen de las claves cambiadas de los usuarios jedi3 y sith3 en el fichero /mnt/etc/shadow.
+
 
 > Podemos usar el editor `geany` que ya viene preinstalado en Knoppix.
 
