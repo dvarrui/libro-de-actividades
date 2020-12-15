@@ -50,7 +50,7 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 
 La instalación vamos a hacerla en una máquina real.
 * Instalar Vagrant.
-* Si vamos a trabajar Vagrant con MV de VirtualBox, hay que comprobar que las versiones de ambos son compatibles entre sí.
+* Hay que comprobar que las versiones de ambos programas son compatibles entre sí.
     * `vagrant version`, para comprobar la versión actual de Vagrant.
     * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 
