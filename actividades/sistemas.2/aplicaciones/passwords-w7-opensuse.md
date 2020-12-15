@@ -177,7 +177,10 @@ clave 123456.
 
 Vamos a desactivar el inicio gráfico al inicio.
 * Ir a `Yast -> Administración de Servicios`
-* Cambiar `Estado predeterminado` de `Graphical Interface` a `Multi-User System`
+* Cambiar `Estado predeterminado` de `Graphical Interface` a `Multi-User System`.
+
+> NOTA: Desactivar el inicio gráfico por comandos sería `systemctl set-default multi-user.target`.
+
 * Reiniciar
 * Entramos en el sistema sin entorno gráfico.
 
