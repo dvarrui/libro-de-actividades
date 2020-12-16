@@ -292,10 +292,8 @@ Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máq
 
 * Ir a la MV de VirtualBox.
 * Crear usuario vagrant
-```
-su
-useradd -m vagrant
-```
+    * `su`
+    * `useradd -m vagrant`
 * Poner clave `vagrant` al usuario vagrant.
 * Poner clave `vagrant` al usuario root.
 * Configuramos acceso por clave pública al usuario
