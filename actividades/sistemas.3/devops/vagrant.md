@@ -302,6 +302,10 @@ Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máq
     * `chmod 0600 /home/vagrant/.ssh/authorized_keys`, modificamos los permisos de la carpeta.
     * `chown -R vagrant /home/vagrant/.ssh`, modificamos el propietario de la carpeta.
 
+> NOTA:
+> * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
+> * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
+
 **Sudoers**
 
 Tenemos que conceder permisos al usuario `vagrant` para que pueda hacer tareas privilegiadas como configurar la red, instalar software, montar carpetas compartidas, etc. Para ello debemos configurar el fichero `/etc/sudoers` (Podemos usar el comando `visudo`) para que no nos solicite la password de root, cuando realicemos estas operaciones con el usuario `vagrant`.
@@ -329,19 +333,17 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * `vagrant box add nombre-alumno/bulls nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
 * `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
 
-> NOTA:
-> * `vagrant box remove ...` para eliminar una caja determinada de nuestro repositorio local.
-
 ## 7.3 Usar la nueva caja
 
 * Crear un nuevo fichero Vagrantfile para usar nuestra caja.
 * Levantamos una nueva MV a partir del Vagranfile.
 * Nos debemos conectar sin problemas (`vagant ssh`).
 
-> **Vagrant y SSH**
-> * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
-> * Vagrant genera un par de llaves para cada máquina.
-> * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
+Cuando terminemos la práctica, ya no nos harán falta las cajas (boxes) que tenemos cargadas en nuestro repositorio local.
+Por tanto, podemos borrarlas para liberar espacio en disco:
+
+* `vagrant box list`, para consultar las cajas disponibles.
+* `vagrant box remove BOXNAME`, para eliminar una caja BOXNAME de nuestro repositorio local.
 
 ---
 # ANEXO
