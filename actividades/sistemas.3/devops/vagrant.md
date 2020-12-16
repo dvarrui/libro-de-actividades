@@ -280,23 +280,26 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 
 **Elegir una máquina virtual**
 
-Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una configuración por defecto, por si queremos publicar nuestro Box, ésto se realiza para seguir un estándar y que todo el mundo pueda usar dicho Box.
+Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una determinada configuración para poder publicar nuestro Box.
 
 * Crear una MV VirtualBox nueva o usar una que ya tengamos.
+* Configurar la red en modo automático o dinámico (DHCP).
 * Instalar OpenSSH Server en la MV.
 
 **Crear usuario con aceso SSH**
 
-Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave
-desde Vagrant. Veamos cómo:
+Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave desde Vagrant. Veamos cómo:
 
 * Ir a la MV de VirtualBox.
-
+* Crear usuario vagrant
 ```
-# Crear usuario vagrant
 su
 useradd -m vagrant
-
+```
+* Poner clave `vagrant` al usuario vagrant.
+* Poner clave `vagrant` al usuario root.
+* Configuramos acceso por clave pública al usuario
+```
 # Installing vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh
 wget --no-check-certificate 'https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub' -O /home/vagrant/.ssh/authorized_keys
@@ -304,21 +307,15 @@ chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant /home/vagrant/.ssh
 ```
 
-¿Qué estamos haciendo? ¿Te suena de verlo con SSH?
-* IMPORTANTE: Poner clave `vagrant` al usuario vagrant y al usuario root.
-
 **Sudoers**
 
 Tenemos que conceder permisos al usuario `vagrant` para que pueda configurar la red, instalar software, montar carpetas compartidas, etc. Para ello debemos configurar el fichero `/etc/sudoers` (Podemos usar el comando `visudo`) para que no nos solicite la password de root, cuando realicemos estas operaciones con el usuario `vagrant`.
 
-* Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` a `/etc/sudoers`.
-
-> Hay que comprobar que no existe una linea indicando requiretty si existe la comentamos.
+* Añadir `vagrant ALL=(ALL) NOPASSWD: ALL` al fichero de configuración `/etc/sudoers`. Comprobar que no existe una linea indicando requiretty si existe la comentamos.
 
 **Añadir las VirtualBox Guest Additions**
 
-* Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions
-con una versión compatible con el host anfitrión.
+* Debemos asegurarnos que tenemos instalado las VirtualBox Guest Additions con una versión compatible con el host anfitrión. Comprobamos:
 ```
 root@hostname:~# modinfo vboxguest |grep version
 version:        6.0.24
@@ -330,9 +327,9 @@ version:        6.0.24
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 * Vamos a crear una nueva carpeta `vagrantXX-bulls`, para este nuevo proyecto vagrant.
-* `VBoxManage list vms`, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegiar una de las máquinas (VMNAME).
+* `VBoxManage list vms`, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegir una de las máquinas (VMNAME).
 * Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
-* `vagrant package --base VMNAME nombre-alumnoXX.box`, parar crear nuestra propia caja.
+* `vagrant package --base VMNAME --output nombre-alumnoXX.box`, parar crear nuestra propia caja.
 * Comprobamos que se ha creado el fichero `nombre-alumnoXX.box` en el directorio donde hemos ejecutado el comando.
 * `vagrant box add nombre-alumno/bulls nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
 * `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
