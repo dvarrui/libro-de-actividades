@@ -224,7 +224,7 @@ Vamos a crear un volumen *seccionado* (Esto es lo mismo que un RAID0):
 > * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
 
 Un volumen *Reflejado* (Esto es es lo mismo que un RAID1):
-* Usar los 2 discos de 200 MB anteriores para crear un volúmen reflejado de 200 MB.
+* Usar los 2 discos de 200 MB anteriores para crear un volumen reflejado de 200 MB.
 * Crear un fichero `mirror-pruebaXX.txt` en el volumen reflejado. Escribe tu nombre dentro.
 * Rompe los discos utilizando la opción adecuada. ¿Qué ocurre?
 
