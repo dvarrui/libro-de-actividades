@@ -55,9 +55,9 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | ------------------ | ------ | --------------------- | ------- | ------ |
 | /dev/md/deviceXXr0 |  20 GB | Partición del sistema | ext4    | /      |
 
-> En esta ocasión:
-> * No crearemos área de intercambio(swap).
-> * No crearemos una partición independiente para `/home`.
+> NOTA:
+> * En esta ocasión no crearemos área de intercambio(swap) ni tampoco una partición independiente para `/home`.
+> * El "tamaño de la porción" se refiere al tamaño del cluster o bloque de asignación del sistema de formateo. Dejaremos el valor por defecto.
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
@@ -82,6 +82,8 @@ df -hT            # Muestra los puntos de montaje
 cat /proc/mdstat  # Muestra la configuración RAID
 lsblk             # Muestra esquema de discos/particiones/montaje
 ```
+
+> NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea como /dev/md127. No preocuparse por este hecho.
 
 ---
 # 2. RAID-1 software
