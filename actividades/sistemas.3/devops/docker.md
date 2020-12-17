@@ -38,9 +38,10 @@ Propuesta de rúbrica:
 > * [ES - Curso de Docker en vídeos](jgaitpro.com/cursos/docker/)
 
 Ejecutar como superusuario:
-* `zypper in docker`, instalar docker.
+* `zypper in docker`, instalar docker en OpenSUSE (`apt install docker` en Debian/Ubuntu).
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
-* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`.
+* `systemctl enable docker`, si queremos que el servicio de inicie automáticamente al encender la máquina.
+* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
 
 Iniciar sesión como usuario normal.
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
@@ -50,8 +51,8 @@ Iniciar sesión como usuario normal.
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 
-* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos hacer lo siguiente:
-    * Poner el valor 1 en el fichero de texto indicado o también podemos usar Yast.
+* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos hacerlo de diversas formas:
+    * Poner el valor 1 en el fichero de texto indicado.
     * O ejecutar el siguiente comando `sysctl -w net.ipv4.ip_forward=1`
     * También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro lo siguiente:
     ```
@@ -66,15 +67,15 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 | Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
 | OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
 
-* Reiniciar el equipo para que se aplique el cambio de configuración.
+* Reiniciar el equipo para que se aplique el cambio de configuración anterior.
 
 ## 1.3 Primera prueba
 
-* `docker run hello-world`:
+* `docker run hello-world`, este comando hace lo siguiente:
     * Descarga una imagen "hello-world"
     * Crea un contenedor y
     * ejecuta la aplicación que hay dentro.
-* `docker images`, ahora vemos la nueva imagen "hello-world" descargada.
+* `docker images`, ahora vemos la nueva imagen "hello-world" descargada en nuestro equipo local.
 * `docker ps -a`, vemos que hay un contenedor en estado 'Exited'.
 * `docker stop IDContainer`, parar el conteneder.
 * `docker rm IDContainer`, eliminar el contenedor.
@@ -92,7 +93,7 @@ Tabla de referencia para no perderse:
 | Docker     | Imagen | Contenedores       | 1 |
 
 
-Información sobre otros comandos útiles:
+Comandos útiles de Docker:
 
 | Comando                   | Descripción           |
 | ------------------------- | --------------------- |
@@ -129,12 +130,12 @@ y dentro instalaremos Nginx.
 * `docker pull debian`, descargamos una imagen en local.
 * `docker images`, comprobamos.
 
-**Crear un contenedor**: Vamos a crear un contenedor con nombre `con_debian` a partir de la imagen `debian`, y ejecutaremos el programa `/bin/bash` dentro del contendor:
+**Crear un contenedor**: Vamos a crear un contenedor con nombre `app1debian` a partir de la imagen `debian`, y ejecutaremos el programa `/bin/bash` dentro del contendor:
 * `docker run --name=app1debian -i -t debian /bin/bash`
 
 ## 2.2 Personalizar el contenedor
 
-Ahora dentro del contenedor, vamos a personalizarlo a nuestro gusto:
+Ahora estamos dentro del contenedor, y vamos a personalizarlo a nuestro gusto:
 
 **Instalar aplicaciones dentro del contenedor**
 
@@ -145,7 +146,7 @@ root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedo
 root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el contenedor
 ```
 
-**Crear un fichero HTML** `holamundo.html`.
+**Crear un fichero HTML** `holamusndo.html`.
 
 ```
 root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo.html
@@ -167,7 +168,7 @@ done
 Recordatorio:
 * Hay que poner permisos de ejecución al script para que se pueda ejecutar.
 * La primera línea de un script, siempre debe comenzar por `#!/`, sin espacios.
-* Este script inicia el programa/servicio y entra en un bucle, para permanecer activo y que no se cierre el contenedor.
+* Este script inicia el programa/servicio y entra en un bucle, para mantener el contenedor activo y que no se cierre al terminar la aplicación.
 
 ## 2.3 Crear una imagen a partir del contenedor
 
@@ -179,7 +180,7 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 > NOTA:
 >
 > * Los estándares de Docker estipulan que los nombres de las imágenes deben seguir el formato `nombreusuario/nombreimagen`.
-> * Todo cambio que se haga en la imagen, y no se le haga commit se perderá en cuanto se cierre el contenedor.
+> * Todo cambio realizado que se acompañe de un commit a la imagen, se perderá en cuanto se cierre el contenedor.
 
 * `docker images`, comprobamos.
 
@@ -196,8 +197,7 @@ Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
 
 * Abrimos una nueva terminal.
 * `docker ps`, nos muestra los contenedores en ejecución. Podemos apreciar que la última columna nos indica que el puerto 80 del contenedor está redireccionado a un puerto local `0.0.0.0.:PORT -> 80/tcp`.
-* Abrir navegador web y poner URL `0.0.0.0.:PORT`. De esta forma nos
-conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor.
+* Abrir navegador web y poner URL `0.0.0.0.:PORT`. De esta forma nos conectaremos con el servidor Nginx que se está ejecutando dentro del contenedor.
 
 ![docker-url-nginx.png](./images/docker-url-nginx.png)
 
@@ -217,7 +217,7 @@ Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores 
 
 **Exportar** imagen Docker a fichero tar:
 * `docker save -o ~/alumnoXX.tar nombre-alumno/nginx1`, guardamos la imagen
-"nombre-alumno/server" en un fichero tar.
+"nombre-alumno/nginx1" en un fichero tar.
 
 Intercambiar nuestra imagen exportada con la de un compañero de clase.
 
@@ -294,7 +294,7 @@ Desde otra terminal:
 * `docker...`, para averiguar el puerto de escucha del servidor Nginx.
 * Comprobar en el navegador:
     * URL `http://localhost:PORTNUMBER`
-    * URL `http://localhost:PORTNUMBER/holamundo.html`
+    * URL `http://localhost:PORTNUMBER/holamundo2.html`
 
 Ahora que sabemos usar los ficheros Dockerfile, nos damos cuenta que es más sencillo usar estos ficheros para intercambiar con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
 
@@ -322,20 +322,23 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 * Poner el el directorio `dockerXXb` los ficheros que se requieran para construir el contenedor.
 * `docker build -t nombre-alumno/nginx3 .`, crear la imagen.
 * `docker run --name=app5nginx3 -d -p 8083:80 nombre-alumno/nginx3`, crear contenedor.
-* Comprobar el acceso a "holamundo.html".
+* Comprobar el acceso a "holamundo3.html".
 
 # 5. Docker Hub
 
-Crear contenedor un hola mundo y subirlo a Docker Hub.
+Ahora vamos a crear un contenedor "hola mundo" y subirlo a Docker Hub.
 
-* Crear un contenedor en la carpeta `dockerXXc` usando Dockerfile. Usaremos la imagen base `busybox`.
-* Al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje:
+* Crear carpeta `dockerXXc`. Entrar en la carpeta.
+* Crear fichero Dockerfile de modo que al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje siguiente:
 ```
 Hola Mundo!
 nombre-del-alumnoXX
 Proyecto dockerXXc
 Fecha actual
 ```
+
+> NOTA: Usaremos la imagen base `busybox` y la instrucción RUN o un script para mostrar mensajes por pantalla.
+
 * Registrarse en Docker Hub.
 * `docker login`, para abrir la conexión.
 * `docker push ...`, para subir la imagen a los repositorios de Docker.
