@@ -51,9 +51,9 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 * Aceptar.
 * Ya tenemos creado el nuevo dispositivo. Ahora crear una partición en él:
 
-| Dispositivo         | Size   | Tipo                  | Formato | Montar |
-| ------------------- | ------ | --------------------- | ------- | ------ |
-| /dev/md/r0_deviceXX |  20 GB | Partición del sistema | ext4    | /      |
+| Dispositivo        | Size   | Tipo                  | Formato | Montar |
+| ------------------ | ------ | --------------------- | ------- | ------ |
+| /dev/md/deviceXXr0 |  20 GB | Partición del sistema | ext4    | /      |
 
 > En esta ocasión:
 > * No crearemos área de intercambio(swap).
