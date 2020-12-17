@@ -39,7 +39,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 
 | Dispositivo   | Size   | Tipo                      | Formato | Montar    |
 | ------------- | ------ | ------------------------- | ------- | --------- |
-| /dev/sda1     | 300 MB | Partición de Arranque EFI | fat32   | /boot/efi |
+| /dev/sda1     | 300 MB | Partición de Arranque EFI | fat     | /boot/efi |
 
 > El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
