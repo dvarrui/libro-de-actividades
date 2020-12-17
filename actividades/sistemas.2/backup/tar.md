@@ -17,6 +17,7 @@ Propuesta de rúbrica:
 | (4.1) Copia inicial            | | | |
 | (4.2) Recuperación de archivos | | | |
 | (4.3) Programar las copias     | | | .|
+| rsync    | | | . |
 
 ## 1.1 Elegir una de las siguientes MV
 
@@ -251,8 +252,6 @@ Hacer una copia de seguridad de la carpeta `C:\Users\nombre-del-alumno\Documents
 
 ---
 # 7. rsync
-
-`ESTO NO HAY QUE HACERLO. ES PARA COMENTAR EN CLASE`
 
 Ahora vamos a usar la herramienta `rsync` para hacer réplicas de nuestros ficheros.
 
