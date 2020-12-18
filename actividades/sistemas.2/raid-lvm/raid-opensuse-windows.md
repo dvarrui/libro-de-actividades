@@ -35,7 +35,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 * Elegimos particionado experto o manual.
 
 **Partición de arranque**: El arranque del sistema operativo (boot) lo pondremos en una partición normal, fuera del RAID.
-* Crear la siguiente partición en el disco sda:
+* Ir a `Discos -> sda -> Particiones -> Crear nueva partición`, para crear la siguiente partición en el disco sda:
 
 | Dispositivo   | Size   | Tipo                      | Formato | Montar    |
 | ------------- | ------ | ------------------------- | ------- | --------- |
@@ -44,7 +44,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 > El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
 
 **Dispositivo para el sistema operativo**: El sistema operativo lo vamos a instalar en un dispositivo virtual RAID0.
-* Ir a `Particionador -> RAID`, y elegimos:
+* Ir a `Particionador -> RAID -> Añadir nuevo RAID`, y elegimos:
     * Hacer un `raid0`
     * Elegir los discos `sdb` y `sdc`.
     * Le pondremos el nombre `deviceXXr0` al dispositivo RAID0.
