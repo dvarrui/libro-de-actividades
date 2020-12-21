@@ -28,10 +28,7 @@ Vagrant es una herramienta para la creación
 y configuración de entornos de desarrollo virtualizados.
 
 Originalmente se desarrolló para VirtualBox y sistemas de configuración
-tales como Chef, Salt y Puppet.
-
-Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores,
-como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
+tales como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
 
 Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
 proyectos escritos en otros lenguajes.
@@ -48,9 +45,8 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 > * [Instalar vagrant en OpenSUSE 13.2](http://gattaca.es/post/running-vagrant-on-opensuse/)
 > * [Descargar y actualizar vagrant](https://www.vagrantup.com/downloads.html)
 
-La instalación vamos a hacerla en una máquina real.
-* Instalar Vagrant.
-* Hay que comprobar que las versiones de ambos programas son compatibles entre sí.
+* Instalar Vagrant. La instalación vamos a hacerla en una máquina real.
+* Hay que comprobar que las versiones de Vagrant y VirtualBox son compatibles entre sí.
     * `vagrant version`, para comprobar la versión actual de Vagrant.
     * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
 
@@ -246,7 +242,7 @@ Vagrant.configure("2") do |config|
 
 > Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
-* Ahora hay que crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet para instalar un programa determinado (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
+* Creamos la carpeta `manifests` y dentro creamos el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet necesarias para instalar el software que elijamos (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
 
 ```
 package { 'PACKAGENAME':
@@ -254,7 +250,9 @@ package { 'PACKAGENAME':
 }
 ```
 
-> El Puppet es un gestor de infraestructura que veremos en otra actividad.
+> NOTA:
+> * El Puppet es un gestor de infraestructura que veremos en profundidad otra actividad.
+> * Podemos hacer el suministro con otros gestores de infraestructura como Salt-stack. Consultar enlace  [Salt Provisioner](https://www.vagrantup.com/docs/provisioning/salt.html).
 
 Para que se apliquen los cambios de configuración tenemos 2 caminos:
 * **Con la MV encendida**
@@ -264,9 +262,6 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
     1. `vagrant destroy`, destruir la MV.
     2. `vagrant up` volver a crearla.
 
-> **Suministro con Salt-stack**
->
-> * [Salt Provisioner](https://www.vagrantup.com/docs/provisioning/salt.html)
 
 ---
 # 7. Proyecto Bulls (Nuestra caja)
