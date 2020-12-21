@@ -181,13 +181,16 @@ Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 * Crear directorio `vagrantXX-lakers` para nuestro proyecto.
 * Entrar en dicha carpeta.
 * Crear la carpeta `html` y crear fichero `html/index.html` con el siguiente contenido:
+
 ```
 <h1>Proyecto Lakers</h1>
 <p>Curso202021</p>
 <p>Nombre-del-alumno</p>
 ```
+
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
 contenido:
+
 ```
 #!/usr/bin/env bash
 
@@ -242,7 +245,8 @@ Vagrant.configure("2") do |config|
 
 > Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
-* Creamos la carpeta `manifests` y dentro creamos el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet necesarias para instalar el software que elijamos (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
+* Crear la carpeta `manifests`. OJO: un error muy típico es olvidarnos de la "s" final.
+* Crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet necesarias para instalar el software que elijamos (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
 
 ```
 package { 'PACKAGENAME':
