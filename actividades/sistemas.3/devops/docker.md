@@ -182,7 +182,9 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 > * Los estándares de Docker estipulan que los nombres de las imágenes deben seguir el formato `nombreusuario/nombreimagen`.
 > * Todo cambio realizado que se acompañe de un commit a la imagen, se perderá en cuanto se cierre el contenedor.
 
-* `docker images`, comprobamos.
+* `docker images`, comprobamos que se ha creado la nueva imagen.
+* Ahora podemos parar el contenedor, `docker stop app1debian` y
+* Eliminar el contenedor, `docker rm app1debian`.
 
 # 3. Crear contenedor a partir de nuestra imagen
 
