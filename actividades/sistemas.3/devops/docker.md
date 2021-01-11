@@ -293,7 +293,7 @@ docker run --name=app4nginx2 -p 8082:80 -t nombre-alumno/nginx2
 ```
 
 Desde otra terminal:
-* `docker...`, para averiguar el puerto de escucha del servidor Nginx.
+* `docker ps`, para comprobar que el contenedor está en ejecución y en escucha por el puerto deseado.
 * Comprobar en el navegador:
     * URL `http://localhost:PORTNUMBER`
     * URL `http://localhost:PORTNUMBER/holamundo2.html`
