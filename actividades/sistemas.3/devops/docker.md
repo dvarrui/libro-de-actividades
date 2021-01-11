@@ -348,12 +348,15 @@ Fecha actual
 # 6. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
-* `docker ps -a`
-* `docker stop ...`
-* `docker rm ...`
-Lo mismo con las imágenes:
-* `docker images`
-* `docker rmi ...`
+
+* `docker ps -a`, identificar todos los contenedores que tenemos.
+* `docker stop ...`, parar todos los contenedores.
+* `docker rm ...`, eliminar los contenedores.
+
+Hacemos lo mismo con las imágenes. Como ya no las necesitamos las eliminamos:
+
+* `docker images`, identificar todas las imágenes.
+* `docker rmi ...`, eliminar las imágenes.
 
 ---
 
