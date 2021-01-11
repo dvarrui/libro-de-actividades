@@ -249,7 +249,6 @@ usando un fichero de configuración. Esto es, vamos a crear un contenedor a part
     * Proyecto: dockerXXa
     * Autor: Nombre del alumno
     * Fecha: Fecha actual
-* Poner copia del fichero `server.sh` anterior dentro de esta carpeta.
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 
 ```
@@ -264,18 +263,13 @@ RUN apt-get install -y nginx
 COPY holamundo2.html /var/www/html
 RUN chmod 666 /var/www/html/holamundo2.html
 
-COPY server.sh /root/server.sh
-RUN chmod 755 /root/server.sh
-
 EXPOSE 80
 
-CMD ["/root/server.sh"]
+CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 ```
 
-> * Probar con: CMD ["nginx", "-g", "daemon off;"]
 > * Enlace de interés: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
 
-* Comprobar que tenemos los ficheros: Dockerfile, holamundo2.html y server.sh.
 
 ## 4.2 Crear imagen a partir del `Dockerfile`
 
