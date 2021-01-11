@@ -249,7 +249,7 @@ usando un fichero de configuración. Esto es, vamos a crear un contenedor a part
     * Proyecto: dockerXXa
     * Autor: Nombre del alumno
     * Fecha: Fecha actual
-* Poner copia del fichero `server.sh` anterior.
+* Poner copia del fichero `server.sh` anterior dentro de esta carpeta.
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 
 ```
@@ -273,6 +273,8 @@ CMD ["/root/server.sh"]
 ```
 
 > Probar con CMD ["/usr/sbin/nginx","-g"]
+
+* Comprobar que tenemos los ficheros: Dockerfile, holamundo2.html y server.sh.
 
 ## 4.2 Crear imagen a partir del `Dockerfile`
 
