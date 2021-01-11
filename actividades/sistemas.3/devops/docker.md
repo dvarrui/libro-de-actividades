@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202021, 201920
 Área        : Sistemas operativos, automatización, devops
 Descripción : Introducción a los contenedores con Docker
 Requisitos  : Se recomienda usar Docker con SSOO GNU/Linux
@@ -146,10 +146,10 @@ root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedo
 root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el contenedor
 ```
 
-**Crear un fichero HTML** `holamusndo.html`.
+**Crear un fichero HTML** `holamundo1.html`.
 
 ```
-root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo.html
+root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamundo1.html
 ```
 
 **Crear un script** `/root/server.sh` con el siguiente contenido:
@@ -201,10 +201,10 @@ Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
 
 ![docker-url-nginx.png](./images/docker-url-nginx.png)
 
-* Comprobar el acceso a `holamundo.html`.
+* Comprobar el acceso a `holamundo1.html`.
 * Paramos el contenedor `app2nginx1` y lo eliminamos.
 
-Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores cuando lo necesitemos.
+Como ya tenemos una imagen docker con Nginx (Servidor Web), podremos crear nuevos contenedores cuando lo necesitemos.
 
 ## 3.3 Migrar la imagen a otra máquina
 
@@ -216,7 +216,7 @@ Como ya tenemos una imagen docker con Nginx, podremos crear nuevos contenedores 
 > * http://linoxide.com/linux-how-to/backup-restore-migrate-containers-docker/
 
 **Exportar** imagen Docker a fichero tar:
-* `docker save -o ~/alumnoXX.tar nombre-alumno/nginx1`, guardamos la imagen
+* `docker save -o alumnoXXdocker.tar nombre-alumno/nginx1`, guardamos la imagen
 "nombre-alumno/nginx1" en un fichero tar.
 
 Intercambiar nuestra imagen exportada con la de un compañero de clase.
@@ -224,7 +224,7 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 **Importar** imagen Docker desde fichero:
 * Coger la imagen de un compañero de clase.
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
-* `docker load -i ~/alumnoXX.tar`, cargamos la imagen docker a partir del fichero tar. Cuando se importa una imagen se muestra en pantalla las capas que tiene. Las capas las veremos en un momento.
+* `docker load -i alumnoXXdocker.tar`, cargamos la imagen docker a partir del fichero tar. Cuando se importa una imagen se muestra en pantalla las capas que tiene. Las capas las veremos en un momento.
 * `docker images`, comprobamos que la nueva imagen está disponible.
 * Probar a crear un contenedor (`app3alumno`), a partir de la nueva imagen.
 
