@@ -272,7 +272,8 @@ EXPOSE 80
 CMD ["/root/server.sh"]
 ```
 
-> Probar con CMD ["/usr/sbin/nginx","-g"]
+> * Probar con: CMD ["nginx", "-g", "daemon off;"]
+> * Enlace de interés: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
 
 * Comprobar que tenemos los ficheros: Dockerfile, holamundo2.html y server.sh.
 
