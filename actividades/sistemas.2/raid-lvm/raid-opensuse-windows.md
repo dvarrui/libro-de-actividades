@@ -1,8 +1,8 @@
 
 ```
-Curso       : 201920, 201819
+Curso       : 202021, 201920, 201819
 Area        : Sistemas operativos, fundamentos de hardware
-Descripción : Practicar las configuraciones RAID0 y RAID1 por softwere.
+Descripción : Practicar las configuraciones RAID0 y RAID1 por software.
 Requisitos  : OpenSUSE Leap 15, Windows Server
 Tiempo      : 8 sesiones
 ```
@@ -32,7 +32,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 ## 1.2 Particionado e instalación
 
 * Empezamos el proceso de instalación del SO.
-* Elegimos particionado experto o manual.
+* Elegimos `particionado experto o manual -> Continuar con particiones existentes`.
 
 **Partición de arranque**: El arranque del sistema operativo (boot) lo pondremos en una partición normal, fuera del RAID.
 * Ir a `Discos -> sda -> Particiones -> Crear nueva partición`, para crear la siguiente partición en el disco sda:
@@ -50,7 +50,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
     * Elegir los discos `sdb` y `sdc`.
 * Aceptar.
 
-Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición en él:
+Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentro.
 
 * Ir a `RAID -> deviceXXr0 -> Particiones -> Crear nueva partición`:
 
@@ -59,7 +59,7 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición en é
 | /dev/md/deviceXXr0 |  20 GB | Partición del sistema | ext4    | /      |
 
 > NOTA:
-> * En esta ocasión no crearemos área de intercambio(swap) ni tampoco una partición independiente para `/home`.
+> * En esta ocasión no crearemos área de intercambio(swap), ni tampoco una partición independiente para `/home`.
 > * El "tamaño de la porción" se refiere al tamaño del cluster o bloque de asignación del sistema de formateo. Dejaremos el valor por defecto.
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
@@ -79,6 +79,7 @@ host www.nba.com  # Comprueba la resolución de nombres
 ```
 
 Información sobre los discos, particiones y dispositivos:
+
 ```
 fdisk -l          # Muestra particiones y discos
 df -hT            # Muestra los puntos de montaje
@@ -86,7 +87,7 @@ cat /proc/mdstat  # Muestra la configuración RAID
 lsblk             # Muestra esquema de discos/particiones/montaje
 ```
 
-> NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea como /dev/md127. No preocuparse por este hecho.
+> NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea también como /dev/md127. No preocuparse por este hecho. Es la nomenclatura antigua. Algunos SSOO mantienen ambos nombres por compatibilidad con herramientas antiguas.
 
 ---
 # 2. RAID-1 software
