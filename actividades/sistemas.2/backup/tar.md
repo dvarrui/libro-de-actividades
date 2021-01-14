@@ -135,6 +135,7 @@ mydocs
 
 ## 4.1 Copia seguridad inicial
 
+* Usaremos nuestro usuario normal. NO usar el usario root.
 * `tar -g mydocs.snap -cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
     * Borrar el archibo DOCFOLDER/b.txt.
