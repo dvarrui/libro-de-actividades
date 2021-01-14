@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202021, 201920
 Area        : Sistemas operativos, backup
 Descripción : Copias de seguridad usando tar, rsync, Windows
 Requisitos  : GNU/Linux, Windows, SSH
@@ -16,14 +16,15 @@ Propuesta de rúbrica:
 | -------- | ------- | --------- | -------- |
 | (4.1) Copia inicial            | | | |
 | (4.2) Recuperación de archivos | | | |
-| (4.3) Programar las copias     | | | .|
-| rsync    | | | . |
+| (4.3) Programar las copias     | | | |
+| (7.3) rsync local   | | | |
+| (7.4) rsync remoto  | | |.|
 
 ## 1.1 Elegir una de las siguientes MV
 
 Vamos a realizar esta práctica en 1 MV que puede ser:
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
-* SO Windows ([Configuración](../../global/configuracion)) con [Cygwin](https://www.cygwin.com/) instalado.
+* SO Windows ([Configuración](../../global/configuracion)) con [Cygwin](https://www.cygwin.com/) instalado. El programa Cygwin nos permite utilizar los mismos comandos de GNU/Linux dentro de un Windows.
 
 ## 1.2 Preparativos
 
@@ -101,11 +102,11 @@ Iniciar sesión con nuestro usuario:
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprobar el contenido.
 
-Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. No será necesario volver a copiar los archivos a.txt, ni b.txt mientras no hayan cambiado.
+Las copias de seguridad total son sencillas de hacer, pero no son eficientes en cuanto a optimizar el almacenamiento. Por ejemplo, es necesario volver a copiar los archivos a.txt, ni b.txt mientras no cambien.
 
 ## 3.2 Restaurar tar vs copia normal
 
-La copia de seguridad realizada con tar es mejor que un copiado normal de las carpetas y/o ficheros porque con tar se preserva la información del propietario de los archivos y sus permisos pero en el caso de una copia normal no es así. Comprobemos:
+La copia de seguridad realizada con "tar" es mejor que un copiado normal de las carpetas y/o ficheros porque con tar se preserva la información del propietario de los archivos y sus permisos pero en el caso de una copia normal no es así. Comprobemos:
 
 * Entrar como superusuario.
 * Nos movemos al directorio `/root`
@@ -151,7 +152,7 @@ Podemos comprobar que la recuperación de archivos desde la última copia increm
 
 ## 4.2 Recuperación de los archivos
 
-Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup. Esto es el full-backup inicial y todos los sucesivos incrementales.
+Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup. Esto es el "full-backup" inicial y todos los sucesivos incrementales.
 
 Pasos para una recuperación completa:
 1. Primero descomprimir el "full-backup" inicial.
@@ -222,9 +223,10 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
 
-* Pulsar la tecla `ESC`.
-* Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
-* `crontab -l`, para consultar que las tareas están programadas correctamente.
+* Para salir del editor vi hacemos lo siguiente:
+    * Pulsar la tecla `ESC`.
+    * Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
+* `crontab -l`, consultar que las tareas están programadas correctamente.
 * Esperar a que se ejecute la copia de seguridad programada con crontab.
 * `vdir /home/user/`, para comprobar que existe el fichero con la fecha esperada.
 
