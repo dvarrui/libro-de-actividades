@@ -155,15 +155,15 @@ Podemos comprobar que la recuperación de archivos desde la última copia increm
 Para conseguir restaurar el estado final completo del directorio, necesitaremos usar todos los backup. Esto es el "full-backup" inicial y todos los sucesivos incrementales.
 
 Pasos para una recuperación completa:
-1. Primero descomprimir el "full-backup" inicial.
-2. Luego aplicar el incremental usando la opción `--incremental`.
 
-* `cd /home/nombre-del-alumno`
-* `mkdir restore`
-* `tar xvf backupXX-3-init.tar -C restore/`
-* `tar --incremental -xvf backupXX-4-inc.tar -C restore/`
-* `tar --incremental -xvf backupXX-5-inc.tar -C restore/`
-* `tree restore`
+1. Primero descomprimir el "full-backup" inicial.
+    * `cd /home/nombre-del-alumno`
+    * `mkdir restore`
+    * `tar xvf backupXX-3-init.tar -C restore/`
+2. Luego aplicar el incremental usando la opción `--incremental`.
+    * `tar --incremental -xvf backupXX-4-inc.tar -C restore/`
+    * `tar --incremental -xvf backupXX-5-inc.tar -C restore/`
+    * `tree restore`
 
 Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero (b.txt) que había sido eliminado en el momento de hacer el incremental.
 
