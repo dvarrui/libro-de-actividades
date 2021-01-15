@@ -64,12 +64,12 @@ El comando "tar" sirve para empaquetar. No para comprimir. Pero podemos usarlo e
 
 Crear backup:
 * `tar -cvf ...`: Crear fichero empaquetado.
-* `tar -cvfz ...`: Crear fichero empaquetado y comprimido con formato gz.
+* `tar cvfz ...`: Crear fichero empaquetado y comprimido con formato gz.
 * `tar -cvfa ...`: Crear fichero empaquetado y comprimido.
 
 Consultar contenido del backup:
 * `tar -tvf ...`: Muestra el contenido del fichero empaquetado.
-* `tar -tvfz ...`: Muestra el contenido del fichero empaquetado y comprimido gz.
+* `tar tvfz ...`: Muestra el contenido del fichero empaquetado y comprimido gz.
 * `tar -tvfa ...`: Muestra el contenido del fichero empaquetado y comprimido.
 
 Extraer uno o varios ficheros del backup:
@@ -78,7 +78,7 @@ Extraer uno o varios ficheros del backup:
     * `tar -xvf ... --directory dir2`
     * `tar -xvf ... -C /dir2`
 * `tar -xvf backup.tar --directory dir2 file3`: Extrae un archivo (file3) del fichero empaquetado en el directorio dir2. También valdría `tar -xvf backup.tar -C dir2 archivo`.
-* `tar -xvfz ...`: Extrae el contenido del fichero empaquetado y comprimido gz.
+* `tar xvfz ...`: Extrae el contenido del fichero empaquetado y comprimido gz.
 * `tar -xvfa ...`: Extrae el contenido del fichero empaquetado y comprimido.
 
 Otros parámetros de interés:
