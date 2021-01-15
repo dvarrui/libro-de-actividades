@@ -63,23 +63,23 @@ Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
 El comando "tar" sirve para empaquetar. No para comprimir. Pero podemos usarlo en combinación con alguna herramienta de compresión para hacer las dos acciones en un sólo paso.
 
 Crear backup:
-* `tar -cvf ...`: Crear fichero empaquetado.
+* `tar cvf ...`: Crear fichero empaquetado.
 * `tar cvfz ...`: Crear fichero empaquetado y comprimido con formato gz.
-* `tar -cvfa ...`: Crear fichero empaquetado y comprimido.
+* `tar cvfa ...`: Crear fichero empaquetado y comprimido.
 
 Consultar contenido del backup:
-* `tar -tvf ...`: Muestra el contenido del fichero empaquetado.
+* `tar tvf ...`: Muestra el contenido del fichero empaquetado.
 * `tar tvfz ...`: Muestra el contenido del fichero empaquetado y comprimido gz.
-* `tar -tvfa ...`: Muestra el contenido del fichero empaquetado y comprimido.
+* `tar tvfa ...`: Muestra el contenido del fichero empaquetado y comprimido.
 
 Extraer uno o varios ficheros del backup:
-* `tar -xvf ...`: Extrae el contenido del fichero empaquetado.
+* `tar xvf ...`: Extrae el contenido del fichero empaquetado.
 * Extrae el contenido del fichero empaquetado en dir2.
-    * `tar -xvf ... --directory dir2`
-    * `tar -xvf ... -C /dir2`
-* `tar -xvf backup.tar --directory dir2 file3`: Extrae un archivo (file3) del fichero empaquetado en el directorio dir2. También valdría `tar -xvf backup.tar -C dir2 archivo`.
+    * `tar xvf ... --directory dir2`
+    * `tar xvf ... -C /dir2`
+* `tar xvf backup.tar --directory dir2 file3`: Extrae un archivo (file3) del fichero empaquetado en el directorio dir2. También valdría `tar xvf backup.tar -C dir2 archivo`.
 * `tar xvfz ...`: Extrae el contenido del fichero empaquetado y comprimido gz.
-* `tar -xvfa ...`: Extrae el contenido del fichero empaquetado y comprimido.
+* `tar xvfa ...`: Extrae el contenido del fichero empaquetado y comprimido.
 
 Otros parámetros de interés:
 * Con el parámetro `-p` los ficheros mantienen su trayectoria absoluta dentro del empaquetado.
@@ -215,11 +215,11 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 * Escribir algo parecido a lo siguiente, cambiando `user` por nuestro usuario:
 ```
-45 10 * * 1   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
-45 10 * * 2   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
-45 10 * * 3   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
-45 10 * * 4   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
-45 10 * * 5   tar -g /home/user/mydocs.snap -cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
+45 10 * * 1   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
+45 10 * * 2   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
+45 10 * * 3   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
+45 10 * * 4   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
+45 10 * * 5   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
 ```
 
 Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
