@@ -340,8 +340,8 @@ Fecha actual
 
 * Registrarse en Docker Hub.
 * `docker login -u USUARIO-DOCKER`, para abrir la conexión.
-* `docker tag nombre-alumno/holamundo version1`
-* `docker push nombre-alumno/holamundo:version1`, para subir la imagen a los repositorios de Docker.
+* `docker tag USUARIO-DOCKER/holamundo:latest USUARIO-DOCKER/holamundo:version1`, etiquetamos la imagen con "version1".
+* `docker push USUARIO-DOCKER/holamundo:version1`, para subir la imagen (version1) a los repositorios de Docker.
 
 # 6. Limpiar contenedores e imágenes
 
