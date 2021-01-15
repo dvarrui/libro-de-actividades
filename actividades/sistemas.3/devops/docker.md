@@ -41,30 +41,9 @@ Ejecutar como superusuario:
 * `zypper in docker`, instalar docker en OpenSUSE (`apt install docker` en Debian/Ubuntu).
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
 * `systemctl enable docker`, si queremos que el servicio de inicie automáticamente al encender la máquina.
+* `cat /proc/sys/net/ipv4/ip_forward`, consultar el estado de IP_FORWARD. Debe estar activo=1.  
 
-## 1.1 Habilitar el acceso a la red externa a los contenedores
-
-Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
-
-* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos hacerlo de diversas formas:
-    * Poner el valor 1 en el fichero de texto indicado.
-    * O ejecutar el siguiente comando `sysctl -w net.ipv4.ip_forward=1`
-    * También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro lo siguiente:
-    ```
-    ## Configuración para docker de alumnoXX
-    net.ipv4.ip_forward = 1
-    ```
-* También podemos **Usar YAST para activar IP_FORWARD**:
-
-| Sistema operativo | Activar "forwarding" |
-| ----------------- | -------------------- |
-| OpenSUSE Leap (configuración de red es Wicked) | Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4 |
-| Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
-| OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
-
-* Reiniciar el equipo para que se aplique el cambio de configuración anterior.
-
-## 1.3 Primera prueba
+## 1.2 Primera prueba
 
 * **IMPORTANTE**: Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
 * Iniciar sesión como usuario normal.
@@ -79,7 +58,7 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 * `docker stop IDContainer`, parar el conteneder.
 * `docker rm IDContainer`, eliminar el contenedor.
 
-## 1.4 Sólo para LEER
+## 1.3 Sólo para LEER
 
 Veamos un poco de teoría.
 
@@ -104,7 +83,7 @@ Comandos útiles de Docker:
 | docker rm CONTAINERID     | Eliminar un contenedor |
 | docker rmi IMAGENAME      | Eliminar una imagen    |
 
-## 1.5 Alias
+## 1.4 Alias
 
 Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregar los siguientes alias al fichero `/home/nombre-alumno/.alias`:
 
@@ -362,3 +341,25 @@ Hacemos lo mismo con las imágenes. Como ya no las necesitamos las eliminamos:
 Enlaces de interés:
 * [Docker stats: Métricas fáciles para contenedores](https://t.co/CUs0D6av6R)
 * [Linux con Entorno Gráfico y VNC desde Docker](https://jonathan.vargas.cr/es/temas/plataforma/18271-ejecutar-linux-con-entorno-grafico-desde-docker)
+
+## 1.1 Habilitar el acceso a la red externa a los contenedores
+
+Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
+
+* `cat /proc/sys/net/ipv4/ip_forward` para consultar el estado de IP_FORWARD (desactivado=0, activo=1). Para activarlo podemos hacerlo de diversas formas:
+    * Poner el valor 1 en el fichero de texto indicado.
+    * O ejecutar el siguiente comando `sysctl -w net.ipv4.ip_forward=1`
+    * También podemos crear el fichero `/etc/sysctl.d/alumnoXX.conf` y poner dentro lo siguiente:
+    ```
+    ## Configuración para docker de alumnoXX
+    net.ipv4.ip_forward = 1
+    ```
+* También podemos **Usar YAST para activar IP_FORWARD**:
+
+| Sistema operativo | Activar "forwarding" |
+| ----------------- | -------------------- |
+| OpenSUSE Leap (configuración de red es Wicked) | Yast -> Dispositivos de red -> Encaminamiento -> Habilitar reenvío IPv4 |
+| Cuando la red está gestionada por Network Manager | En lugar de usar YaST debemos editar el fichero "/etc/sysconfig/SuSEfirewall2" y poner FW_ROUTE="yes" |
+| OpenSUSE Tumbleweed  | Yast -> Sistema -> Configuración de red -> Menú de encaminamiento |
+
+* Reiniciar el equipo para que se aplique el cambio de configuración anterior.
