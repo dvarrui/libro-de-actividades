@@ -339,8 +339,9 @@ Fecha actual
 > NOTA: Usaremos la imagen base `busybox` y la instrucción RUN o un script para mostrar mensajes por pantalla.
 
 * Registrarse en Docker Hub.
-* `docker login`, para abrir la conexión.
-* `docker push ...`, para subir la imagen a los repositorios de Docker.
+* `docker login -u USUARIO-DOCKER`, para abrir la conexión.
+* `docker tag nombre-alumno/holamundo version1`
+* `docker push nombre-alumno/holamundo:version1`, para subir la imagen a los repositorios de Docker.
 
 # 6. Limpiar contenedores e imágenes
 
