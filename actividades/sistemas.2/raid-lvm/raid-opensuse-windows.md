@@ -239,5 +239,4 @@ Un volumen *Reflejado* (Esto es es lo mismo que un RAID1):
 > Enlace de interés:
 > * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
 
-* ¿Qué es RAID-5?
-* Investiga acerca de cómo crear en Windows un Raid-5 por software.
+* Usar los 3 discos de 200 MB anteriores para crear un RAID-5.
