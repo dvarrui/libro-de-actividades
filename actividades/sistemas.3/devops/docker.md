@@ -41,11 +41,6 @@ Ejecutar como superusuario:
 * `zypper in docker`, instalar docker en OpenSUSE (`apt install docker` en Debian/Ubuntu).
 * `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
 * `systemctl enable docker`, si queremos que el servicio de inicie automáticamente al encender la máquina.
-* **IMPORTANTE**: Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
-
-Iniciar sesión como usuario normal.
-* `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
-* **OJO**: A partir de ahora todo lo haremos con nuestro usuario, sin usar `sudo`.
 
 ## 1.1 Habilitar el acceso a la red externa a los contenedores
 
@@ -71,6 +66,10 @@ Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activ
 
 ## 1.3 Primera prueba
 
+* **IMPORTANTE**: Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
+* Iniciar sesión como usuario normal.
+* `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
+* **OJO**: A partir de ahora todo lo haremos con nuestro usuario, sin usar `sudo`.
 * `docker run hello-world`, este comando hace lo siguiente:
     * Descarga una imagen "hello-world"
     * Crea un contenedor y
