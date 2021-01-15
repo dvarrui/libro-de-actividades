@@ -165,8 +165,7 @@ Como tenemos un dispositivo RAID1, entonces podemos quitar uno de los discos y c
 * Reiniciamos la MV y comprobamos que la información no se ha perdido, aunque el disco no esté.
 ```
 lsblk                 # Muestra info de los discos/particiones
-df -hT
-tree /mnt/folderXXr1
+tree /mnt/folderXXr1  # Muestra el contenido de la carpeta
 ```
 
 ## 3.2 Poner el disco
