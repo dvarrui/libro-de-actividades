@@ -165,8 +165,8 @@ while(true) do
 done
 ```
 
-Recordatorio:
-* Hay que poner permisos de ejecución al script para que se pueda ejecutar.
+**Recordatorio:**
+* Hay que poner permisos de ejecución al script para que se pueda ejecutar (`chmod +x /root/server.sh`).
 * La primera línea de un script, siempre debe comenzar por `#!/`, sin espacios.
 * Este script inicia el programa/servicio y entra en un bucle, para mantener el contenedor activo y que no se cierre al terminar la aplicación.
 
