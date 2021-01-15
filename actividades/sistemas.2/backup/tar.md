@@ -136,11 +136,11 @@ mydocs
 ## 4.1 Copia seguridad inicial
 
 * Usaremos nuestro usuario normal. NO usar el usario root.
-* `tar -g mydocs.snap -cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
+* `tar -g mydocs.snap cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
     * Borrar el archibo DOCFOLDER/b.txt.
     * Crear el archivo DOCFOLDER/d.txt.
-* `tar -g mydocs.snap -cvf backupXX-4-inc.tar mydocs`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
+* `tar -g mydocs.snap cvf backupXX-4-inc.tar mydocs`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
 
 > Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde el último backup. El fichero snap va guardando el estado final de la copia. Esto es, qué ficheros permanecen y cuáles desaparecen.
 
@@ -162,8 +162,8 @@ Pasos para una recuperación completa:
     * `mkdir restore`
     * `tar xvf backupXX-3-init.tar -C restore/`
 2. Luego aplicar el incremental usando la opción `--incremental`.
-    * `tar --incremental -xvf backupXX-4-inc.tar -C restore/`
-    * `tar --incremental -xvf backupXX-5-inc.tar -C restore/`
+    * `tar --incremental xvf backupXX-4-inc.tar -C restore/`
+    * `tar --incremental xvf backupXX-5-inc.tar -C restore/`
     * `tree restore`
 
 Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero (b.txt) que había sido eliminado en el momento de hacer el incremental.
