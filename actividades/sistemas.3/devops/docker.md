@@ -310,14 +310,29 @@ Ahora vamos a crear un contenedor "holamundo" y subirlo a Docker Hub.
 Crear nuestra imagen "holamundo":
 
 * Crear carpeta `dockerXXc`. Entrar en la carpeta.
-* Crear un script (`nombre-alumno.sh`) de modo que al ejecutarse muestre en pantalla el mensaje siguiente:
+* Crear un script (`holamundoXX.sh`) de modo que al ejecutarse muestre en pantalla el mensaje siguiente:
+
 ```
 Hola Mundo!
 nombre-del-alumnoXX
 Proyecto dockerXXc
 Fecha actual
 ```
-* Crear fichero Dockerfile de modo que al ejecutar este comando `docker run nombre-alumno/holamundo` se ejecute el script anterior. NOTA: Usar la imagen base `busybox` y la instrucción CMD para ejecutar el script.
+
+* Crear fichero Dockerfile
+
+```
+FROM busybox
+MAINTAINER nombre-del-alumnoXX 1.0
+
+COPY holamundoXX.sh /root
+RUN chmod +x /root/holamundoXX.sh
+
+CMD ["/root/holamundoXX.sh"]
+```
+
+* A partir del Dockerfile anterior crearemos la imagen `nombre-alumno/holamundo`.
+* Comprobar que `docker run nombre-alumno/holamundo` se crea un contenedor que ejecuta el script.
 
 Subir la imagen a Docker Hub:
 
