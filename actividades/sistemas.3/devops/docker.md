@@ -171,7 +171,7 @@ Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a cr
 ## 3.1 Crear contenedor con Nginx
 
 Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
-* `docker run --name=app2nginx1 -p 80 -t dvarrui/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
+* `docker run --name=app2nginx1 -p 80 -t nombre-alumno/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
