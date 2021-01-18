@@ -310,14 +310,17 @@ Ahora vamos a crear un contenedor "holamundo" y subirlo a Docker Hub.
 Crear nuestra imagen "holamundo":
 
 * Crear carpeta `dockerXXc`. Entrar en la carpeta.
-* Crear un script (`holamundoXX.sh`) de modo que al ejecutarse muestre en pantalla el mensaje siguiente:
+* Crear un script (`holamundoXX.sh`) con lo siguiente:
 
 ```
-Hola Mundo!
-nombre-del-alumnoXX
-Proyecto dockerXXc
-Fecha actual
+#!/bin/bash
+echo "Hola Mundo!"
+echo "nombre-del-alumnoXX"
+echo "Proyecto dockerXXc"
+date
 ```
+
+Este script muestra varios mensajes por pantalla al ejecutarse.
 
 * Crear fichero Dockerfile
 
