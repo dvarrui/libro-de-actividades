@@ -45,8 +45,10 @@ Ejecutar como superusuario:
 
 ## 1.2 Primera prueba
 
-* **IMPORTANTE**: Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
-* Iniciar sesión como usuario normal.
+* **IMPORTANTE**
+    * Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
+    * `id NOMBRE-ALUMNO`, debe mostrar que pertenecemos al grupo `docker`. En caso contrario cerrar sesión y volver a entrar al sistema.
+* Iniciar sesión como nuestro usuario normal.
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
 * **OJO**: A partir de ahora todo lo haremos con nuestro usuario, sin usar `sudo`.
 * `docker run hello-world`, este comando hace lo siguiente:
@@ -303,18 +305,21 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 
 # 5. Docker Hub
 
-Ahora vamos a crear un contenedor "hola mundo" y subirlo a Docker Hub.
+Ahora vamos a crear un contenedor "holamundo" y subirlo a Docker Hub.
+
+Crear nuestra imagen "holamundo":
 
 * Crear carpeta `dockerXXc`. Entrar en la carpeta.
-* Crear fichero Dockerfile de modo que al ejecutar este comando `docker run nombre-alumno/holamundo` se mostrará en pantalla el mensaje siguiente:
+* Crear un script (`nombre-alumno.sh`) de modo que al ejecutarse muestre en pantalla el mensaje siguiente:
 ```
 Hola Mundo!
 nombre-del-alumnoXX
 Proyecto dockerXXc
 Fecha actual
 ```
+* Crear fichero Dockerfile de modo que al ejecutar este comando `docker run nombre-alumno/holamundo` se ejecute el script anterior. NOTA: Usar la imagen base `busybox` y la instrucción CMD para ejecutar el script.
 
-> NOTA: Usaremos la imagen base `busybox` y la instrucción RUN o un script para mostrar mensajes por pantalla.
+Subir la imagen a Docker Hub:
 
 * Registrarse en Docker Hub.
 * `docker login -u USUARIO-DOCKER`, para abrir la conexión.
