@@ -216,7 +216,7 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 
 Estas capas a parte de ahorrarnos peticiones de red al bajarnos una nueva versión de una imagen también ahorra espacio en disco, ya que las capas que no se hayan cambiado entre versiones no se descargarán.
 
-* `docker image history nombre_imagen:version`, para consultar las capas de la imagen del compañero.
+* `docker image history nombre_imagen:latest`, para consultar las capas de la imagen del compañero.
 
 # 4. Dockerfile
 
@@ -313,7 +313,7 @@ Crear nuestra imagen "holamundo":
 * Crear un script (`holamundoXX.sh`) con lo siguiente:
 
 ```
-#!/bin/bash
+#!/bin/sh
 echo "Hola Mundo!"
 echo "nombre-del-alumnoXX"
 echo "Proyecto dockerXXc"
