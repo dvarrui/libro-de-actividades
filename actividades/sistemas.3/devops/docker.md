@@ -329,7 +329,7 @@ FROM busybox
 MAINTAINER nombre-del-alumnoXX 1.0
 
 COPY holamundoXX.sh /root
-RUN chmod +x /root/holamundoXX.sh
+RUN chmod 755 /root/holamundoXX.sh
 
 CMD ["/root/holamundoXX.sh"]
 ```
