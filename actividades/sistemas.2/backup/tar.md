@@ -216,7 +216,7 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 45 10 * * 5   tar cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
 ```
 
-Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
+Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45.
 
 * Para salir del editor vi hacemos lo siguiente:
     * Pulsar la tecla `ESC`.
