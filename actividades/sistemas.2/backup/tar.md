@@ -33,16 +33,10 @@ Una vez elegida la MV, empezamos:
 
 Ahora vamos a crear la estructura de directorios y ficheros para probar con ellos las copias de seguridad.
 
-| Parámetro | Valor                           |
-| --------- | ------------------------------- |
-| HOME      | /home/nombre-del-alumno         |
-| DOCFOLDER | /home/nombre-del-alumno/mydocs  |
-| RECFOLDER | /home/nombre-del-alumno/restore |
-
 * Iniciar sesión con nuestro usuario (`nombre-del-alumno`). Estamos en el directorio `/home/nombre-del-alumno`
-* Crear directorio DOCFOLDER.
-    * Crear archivo DOCFOLDER/a.txt. Dentro escribir nombre completo del alumno.
-    * Crear archivo DOCFOLDER/b.txt. Dentro escribir la fecha actual.
+* Crear directorio `/home/nombre-del-alumno/mydocs`.
+    * Crear archivo `/home/nombre-del-alumno/mydocs/a.txt`. Dentro escribir nombre completo del alumno.
+    * Crear archivo `/home/nombre-del-alumno/mydocs/b.txt`. Dentro escribir la fecha actual.
 
 Se ha creado lo siguiente:
 ```
