@@ -215,11 +215,11 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 * Escribir algo parecido a lo siguiente, cambiando `user` por nuestro usuario:
 ```
-45 10 * * 1   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
-45 10 * * 2   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
-45 10 * * 3   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
-45 10 * * 4   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
-45 10 * * 5   tar -g /home/user/mydocs.snap cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
+45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
+45 10 * * 2   tar cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
+45 10 * * 3   tar cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
+45 10 * * 4   tar cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
+45 10 * * 5   tar cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
 ```
 
 Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45. Los lunes hace un backup total y de martes a viernes se hacen copias incrementales.
@@ -335,7 +335,7 @@ mydocs
 └── d.txt
 ```
 
-* `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2`, de la máquina remota `ip-mv2`.
+* `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/mydocs2`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/mydocs2`, de la máquina remota `ip-mv2`.
 * Crear `mydocs/b.txt`
 * Eliminar `mydocs/d.txt`.
 * Volver a replicar al servidor remoto.
