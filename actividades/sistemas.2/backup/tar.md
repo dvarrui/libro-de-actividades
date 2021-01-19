@@ -92,7 +92,7 @@ Otros parámetros de interés:
 Iniciar sesión con nuestro usuario:
 * `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
 * `tar tvf backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
-* Crear archivo DOCFOLDER/c.txt. Escribir dentro el título de tu película favorita.
+* Crear archivo `mydocs/c.txt`. Escribir dentro el título de tu película favorita.
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprobar el contenido.
 
@@ -107,7 +107,7 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 * `cp -r /home/alumno/mydocs .`, hacemos un copiado recursivo de los archivos con el usuario `root`.
 * Vemos que el propietario de los ficheros es ahora `root`.
 * `rm -r /root/mydocs`, limpiamos.
-* `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad.
+* `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad pero en una ruta diferente a donde estaban los archivos originales.
 * Vemos que el propietario de los ficheros restaurados se mantiene.
 
 ---
