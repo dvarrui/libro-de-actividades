@@ -17,8 +17,8 @@ Propuesta de rúbrica:
 | (4.1) Copia inicial            | | | |
 | (4.2) Recuperación de archivos | | | |
 | (4.3) Programar las copias     | | | |
-| (7.3) rsync local   | | | |
-| (7.4) rsync remoto  | | |.|
+| (6.3) rsync local   | | | |
+| (6.4) rsync remoto  | | |.|
 
 ## 1.1 Elegir una de las siguientes MV
 
@@ -241,21 +241,14 @@ Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos p
 Por ahora estamos guardando las copias de seguridad en el equipo local. Es aconsejable  guardar las copias en otro equipo de nuestra red. Podríamos guardar los ficheros de las copias de seguridad en un servidor remoto usando smb/cifs, scp, etc.
 
 ---
-# 6. Entorno gráfico
-
-En Windows como en GNU/Linux, suele haber una herramienta de entorno gráfico para realizar copias de seguridad. Es una herramienta mucho más limitada que las que tenemos en los comandos.
-
-Hacer una copia de seguridad de la carpeta `C:\Users\nombre-del-alumno\Documents`, usando la herramienta que viene por defecto en Windows.
-
----
-# 7. rsync
+# 6. rsync
 
 Ahora vamos a usar la herramienta `rsync` para hacer réplicas de nuestros ficheros.
 
 > Más información:
 > * Libro "Administración de Sistemas Linux" de ANAYA (Capítulo 11)
 
-## 7.1 Introducción
+## 6.1 Introducción
 
 Rsync transfiere archivos eficientemente por una red a otro sistema, desde el cual puede recuperarlos en caso de que le ocurra un desastre al sistema local.
 
@@ -288,14 +281,14 @@ La utilidad rsync es programa diseñado para replicar grandes cantidades de dato
 
 Después de las opciones vienen los parámetros de origen y destino. Las rutas pueden ser locales o remotas (`user@host:path`).
 
-## 7.2 Preparativos
+## 6.2 Preparativos
 
 * `whereis rsync`, para comprobar si tenemos rsync instalado en el sistema. También podemos verificarlo con: `rsync --version`, `rsync --help`, `zypper info rsync`, etc.
 * Si no está debemos instalarlo:
     * `zypper install rsync`, instalar rsync en OpenSUSE.
     * También podemos usar el comando `apt install rsync`, para OpenSUSE o Debian/Ubuntu.
 
-## 7.3 rsync en local
+## 6.3 rsync en local
 
 * Crear la siguiente estructura de ficheros en nuestro directorio HOME:
 ```
@@ -312,7 +305,7 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 * Eliminar `mydocs/b.txt` en local.
 * Ejecutar `rsync -aP --delete mydocs replica`. Comprobamos que sólo se replican lo cambios. En este caso se replica la eliminación del archivo.
 
-## 7.4 rsync remoto
+## 6.4 rsync remoto
 
 * Crear MV2 con servidor SSH activo.
 * Volver a la MV1.
