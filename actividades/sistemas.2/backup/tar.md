@@ -132,8 +132,8 @@ mydocs
 * Usaremos nuestro usuario normal. NO usar el usario root.
 * `tar -g mydocs.snap cvf backupXX-3-init.tar mydocs`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
-    * Borrar el archibo DOCFOLDER/b.txt.
-    * Crear el archivo DOCFOLDER/d.txt.
+    * Borrar el archibo mydocs/b.txt.
+    * Crear el archivo mydocs/d.txt.
 * `tar -g mydocs.snap cvf backupXX-4-inc.tar mydocs`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
 
 > Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde el último backup. El fichero snap va guardando el estado final de la copia. Esto es, qué ficheros permanecen y cuáles desaparecen.
