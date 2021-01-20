@@ -156,8 +156,8 @@ Pasos para una recuperación completa:
     * `mkdir restore`
     * `tar xvf backupXX-3-init.tar -C restore/`
 2. Luego aplicar el incremental usando la opción `--incremental`.
-    * `tar --incremental xvf backupXX-4-inc.tar -C restore/`
-    * `tar --incremental xvf backupXX-5-inc.tar -C restore/`
+    * `tar xvf backupXX-4-inc.tar -C restore/ --incremental`
+    * `tar xvf backupXX-5-inc.tar -C restore/ --incremental`
     * `tree restore`
 
 Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero (b.txt) que había sido eliminado en el momento de hacer el incremental.
@@ -238,7 +238,7 @@ Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos p
 
 > Nota: Si pasados unos días, volviésemos a crear otra copia diferencial "backupXX-8-diff" con la misma fecha, esta copia contendría también los cambios reflejados en las copias diferenciales anteriores. Por esta razón su tamaño va aumentando en comparación con los backups incrementales.
 
-Por ahora estamos guardando las copias de seguridad en el equipo local. Es aconsejable  guardar las copias en otro equipo de nuestra red. Podríamos guardar los ficheros de las copias de seguridad en un servidor remoto usando smb/cifs, scp, etc.
+Por ahora estamos guardando las copias de seguridad en el equipo local. Es aconsejable  guardar las copias en otro equipo de nuestra red. Podríamos guardar los ficheros de las copias de seguridad en un servidor remoto usando SMB/CIFS, SCP, NFS, etc.
 
 ---
 # 6. rsync
@@ -323,9 +323,12 @@ mydocs
 ```
 
 * `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/mydocs2`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/mydocs2`, de la máquina remota `ip-mv2`.
+* Ir a MV2 y comprobar que se ha copiado la carpeta.
+* Ir a MV1
 * Crear `mydocs/b.txt`
 * Eliminar `mydocs/d.txt`.
-* Volver a replicar al servidor remoto.
+* Volver a sincronizar con el servidor remoto.
+* Ir a MV2 y comprobar los resultados.
 
 ---
 # ANEXO
