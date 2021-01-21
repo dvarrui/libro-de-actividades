@@ -309,7 +309,7 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 
 * Crear MV2 con servidor SSH activo.
 * Volver a la MV1.
-* `ssh usuario2@IP-DE-LA-MV2`, comprobamos que funciona el acceso remoto SSH a la MV2.
+* `ssh usuario2@IP-DE-LA-MV2`, comprobamos que funciona el [acceso remoto SSH](../../global/acceso-remoto/opensuse.md) a la MV2.
 * `exit` para salir de la sesión SSH.
 
 Estamos en la MV1.
