@@ -300,9 +300,9 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 ```
 * `rsync -aP mydocs replica`, para crear una réplica exacta de `mydocs` en el directorio `replica`.
 * Si repetimos el proceso (`rsync -aP mydocs replica`) no copia nada porque no es necesario.
-* Crear `mydocs/d.txt` en local.
+* Crear `mydocs/d.txt`.
 * Volver a replicar. Comprobar que sólo se replican lo cambios.
-* Eliminar `mydocs/b.txt` en local.
+* Eliminar `mydocs/b.txt`.
 * Ejecutar `rsync -aP --delete mydocs replica`. Comprobamos que sólo se replican lo cambios. En este caso se replica la eliminación del archivo.
 
 ## 6.4 rsync remoto

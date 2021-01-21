@@ -32,9 +32,7 @@ Realizar las siguientes tareas:
     * [Configuración](../../global/configuracion/opensuse.md).
 * Comenzar a instalar el sistema operativo.
 * Elegir escritorio genérico.
-* **Parar al llegar al particionado**.
-
-Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
+* **OJO: Parar al llegar al particionado**.
 
 ## 1.2 Particionar
 
@@ -49,13 +47,14 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
 * Crear los siguientes volúmenes lógicos (LV) dentro del `grupoXX`:
 
-| Nombnre   | Tamaño | Tipo                | Formato | Montar |
+| Nombre    | Tamaño | Tipo                | Formato | Montar |
 | --------- | ------ | ------------------- | ------- | ------ |
 | volXXswap | 500 MB | Area de intercambio | swap    | -      |
 | volXXraiz | 6 GB   | Sistema operativo   | ext4    | /      |
 | volXXhome | 100 MB | Datos de usuario    | ext3    | /home  |
 
-> Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
+> *Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
+> * Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
 * En Software elegir "Escritorio XFCE" para tener un escritorio ligero.
