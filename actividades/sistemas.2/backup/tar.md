@@ -322,7 +322,7 @@ mydocs
 └── d.txt
 ```
 
-* `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/mydocs2`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/mydocs2`, de la máquina remota `ip-mv2`.
+* `rsync -aP --delete mydocs usuario2@ip-mv2:/home/usuario2/`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/`, de la máquina remota `ip-mv2`.
 * Ir a MV2 y comprobar que se ha copiado la carpeta.
 * Ir a MV1
 * Crear `mydocs/b.txt`
