@@ -232,7 +232,7 @@ Esta configuración programa una copia de seguridad del directorio `/home/user/m
 > * [Backups con tar](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
 * Partimos de que ya se ha realizado un "full-backup".
-* Con el comando siguiente crearemos la copia diferencial de la copia completa que hemos realizado: `tar -cvf backupXX-7-diff.tar mydocs/* -N 13-feb-18`.
+* Con el comando siguiente crearemos la copia diferencial de la copia completa que hemos realizado: `tar -cvf backupXX-7-diff.tar mydocs/* -N 2021-01-13`.
 
 Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos permite esta opción es ordenar a tar que solo archive aquellos datos que han cambiado desde una determinada fecha, hasta la fecha de ejecución del comando.
 
