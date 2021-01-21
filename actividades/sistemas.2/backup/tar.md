@@ -202,8 +202,8 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 > Información para configurar crontab:
 > * m: minuto
 > * h: hora
-> * mon: mes
 > * dow: día del mes
+> * mon: mes
 > * dom: día de la semana (0=domingo, 1=lunes, etc)
 > * Comando a ejecutar
 
