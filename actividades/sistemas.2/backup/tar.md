@@ -309,7 +309,7 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 
 * Crear MV2 con servidor SSH activo.
 * Volver a la MV1.
-* `ssh usuario2@ip-mv2`, comprobamos que funciona el acceso remoto SSH a la MV2.
+* `ssh usuario2@IP-DE-LA-MV2`, comprobamos que funciona el acceso remoto SSH a la MV2.
 * `exit` para salir de la sesión SSH.
 
 Estamos en la MV1.
@@ -322,7 +322,7 @@ mydocs
 └── d.txt
 ```
 
-* `rsync -aP mydocs usuario2@ip-mv2:/home/usuario2/replica`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/replica`, de la máquina remota `ip-mv2`.
+* `rsync -aP mydocs usuario2@IP-DE-LA-MV2:/home/usuario2/replica`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/replica`, de la máquina remota `ip-mv2`.
 * Ir a MV2 y comprobar que se ha copiado la carpeta.
 * Ir a MV1
 * Crear `mydocs/b.txt`
