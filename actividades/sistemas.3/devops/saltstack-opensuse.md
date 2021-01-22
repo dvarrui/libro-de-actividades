@@ -41,9 +41,9 @@ Propuesta de rúbrica:
 * Ir a la MV1
 * `zypper install salt-master`, instalar el software del Máster.
 
-> ATENCIÓN: El fichero de configuración siguiente tiene formato YAML. 
+> ATENCIÓN: El fichero de configuración siguiente tiene formato YAML.
 >
-> 1. Los valores de clave(key) principal no tienen espacios por delante. 
+> 1. Los valores de clave(key) principal no tienen espacios por delante.
 > 2. El resto de valores de clave(key) secundarios tendrán 2 espacios o 4 espacios por delante.
 >
 > Hay que cumplir estas restricciones para que el contenido del dichero sea válido.
@@ -165,7 +165,7 @@ apache_service:
     - name: apache2
     - enable: True
     - require:
-     - pkg: apache2
+      - pkg: apache2
 ```
 
 Entendamos las definiciones:
@@ -302,11 +302,10 @@ Ejemplo para crear directorio:
 ```
 
 ---
- # ANEXO 
- 
- ## Terraform 
- 
+ # ANEXO
+
+ ## Terraform
+
  Enlaces de interés:
  * [Terraform by HashiCorp](https://www.terraform.io/): Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service.
  * [Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation](https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c)
- 
