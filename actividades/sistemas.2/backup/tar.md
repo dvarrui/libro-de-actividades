@@ -105,10 +105,10 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 * Entrar como superusuario.
 * Nos movemos al directorio `/root`
 * `cp -r /home/alumno/mydocs .`, hacemos un copiado recursivo de los archivos con el usuario `root`.
-* Vemos que el propietario de los ficheros es ahora `root`.
+* `vdir mydocs`, comprobar que el propietario de los ficheros ha cambiado y ahora es `root`. Esta copia a modificado/alterado los metadatos de los archivos.
 * `rm -r /root/mydocs`, limpiamos.
 * `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad pero en una ruta diferente a donde estaban los archivos originales.
-* Vemos que el propietario de los ficheros restaurados se mantiene.
+* Vemos que el propietario de los ficheros restaurados se mantiene. La recuperación de backup mantiene los metadatos originales.
 
 ---
 # 4. Copia de seguridad incremental
@@ -119,7 +119,8 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 > * [EN - Incremental backup using tar command](https://www.unixmen.com/performing-incremental-backups-using-tar/)
 > * [Comando tar](https://maslinux.es/comando-tar-comprimir-y-descomprimir-los-archivosdirectorios/)
 
-Tenemos lo siguiente:
+* Usaremos nuestro usuario normal. NO usar el usuario root.
+* Tenemos lo siguiente:
 ```
 mydocs
    ├── a.txt
@@ -129,7 +130,7 @@ mydocs
 
 ## 4.1 Copia seguridad inicial
 
-* Usaremos nuestro usuario normal. NO usar el usario root.
+* Usaremos nuestro usuario normal. NO usar el usuario root.
 * `tar cvf backupXX-3-init.tar mydocs -g mydocs.snap`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
     * Borrar el archibo mydocs/b.txt.
@@ -290,6 +291,7 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 
 ## 6.3 rsync en local
 
+* Iniciar sesión con nuestro usuario normal.
 * Crear la siguiente estructura de ficheros en nuestro directorio HOME:
 ```
 ├── mydocs
@@ -322,7 +324,7 @@ mydocs
 └── d.txt
 ```
 
-* `rsync -aP mydocs usuario2@IP-DE-LA-MV2:/home/usuario2/replica`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/replica`, de la máquina remota `ip-mv2`.
+* `rsync -aP mydocs usuario2@IP-DE-LA-MV2:/home/usuario2/replica`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/replica`, de la máquina remota MV2.
 * Ir a MV2 y comprobar que se ha copiado la carpeta.
 * Ir a MV1
 * Crear `mydocs/b.txt`
