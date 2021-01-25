@@ -32,6 +32,9 @@ Propuesta de rúbrica:
 
 > "XX" es el número asignado a cada alumno.
 
+* **OJO**: Configurar correctamente los nombres de los equipos antes de continuar
+con la práctica. Comprobar salida de hostname, hostname -a, hostname -f y hostname -d.
+
 ---
 # 2. Master: instalar y configurar.
 
