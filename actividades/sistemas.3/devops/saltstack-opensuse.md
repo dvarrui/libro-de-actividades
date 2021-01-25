@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202021, 201920
 Area        : Sistemas operativos, automatización, devops   
 Descripción : Automatización de tareas con gestor de infraestructura "Saltstack"
 Requisitos  : 2 MV's con GNU/Linux
