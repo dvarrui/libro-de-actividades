@@ -248,7 +248,7 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
     * Usuarios `kojiXX`, `drinfiernoXX` dentro de dicho grupo.
 * Aplicar el estado.
 
-## 5.2 Crear estado "files"
+## 5.2 Crear estado "archivos"
 
 > Enlace de inteŕes:
 >
