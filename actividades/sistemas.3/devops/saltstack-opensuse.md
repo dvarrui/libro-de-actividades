@@ -33,7 +33,8 @@ Propuesta de rúbrica:
 > "XX" es el número asignado a cada alumno.
 
 * **OJO**: Configurar correctamente los nombres de los equipos antes de continuar
-con la práctica. Comprobar salida de hostname, hostname -a, hostname -f y hostname -d.
+con la práctica. Comprobar salida de los comandos `hostname`, `hostname -a`,
+`hostname -f` y `hostname -d`.
 
 ---
 # 2. Master: Instalar y configurar
@@ -139,6 +140,8 @@ Vamos a crear directorios para guardar lo estados de Salt. Los estados de Salt s
 
 Ir a la MV Máster:
 * Crear directorios `/srv/salt/base` y `/srv/salt/devel`.
+    * base = para guardar nuestros estados.
+    * devel = para desarrollo o para hacer pruebas.
 * Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
 ```
 file_roots:
@@ -148,10 +151,6 @@ file_roots:
     - /srv/salt/devel
 ```
 * Reiniciar el servicio del Máster.
-
-Hemos creado los directorios para:
-* base = para guardar nuestros estados.
-* devel = para desarrollo o para hacer pruebas.
 
 ## 4.2 Crear un nuevo estado
 
