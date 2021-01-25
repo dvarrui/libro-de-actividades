@@ -239,7 +239,7 @@ Total run time: 105.971 s
 > * [Create groups](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.group.html)
 > * [Create users](https://docs.saltstack.com/en/master/ref/states/all/salt.states.user.html)
 
-Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y usuarios en las máquinas Minions.
+Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y usuarios en las máquinas Minions (ver ejemplos en el ANEXO).
 
 * Crear directorio `/srv/salt/base/users`.
 * Crear fichero `/srv/salt/base/users/init.sls` con las definiciones para crear los siguiente:
@@ -260,7 +260,7 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 ## 5.3 Ampliar estado "apache"
 
 * Crear el fichero `srv/salt/files/holamundo.html`. Escribir dentro el nombre del alumno y la fecha actual.
-* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster.
+* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
 * Aplicar el estado.
 
 ---
@@ -304,6 +304,13 @@ Ejemplo para crear directorio:
     - name:  /home/kojiXX/private
     - group: mazingerz
     - mode:  700
+```
+
+Ejemplo para descargar/copiar fichero:
+```
+  file.managed:
+    - name: /var/www/html/holamundo.html
+    - source: salt://holamundo.html
 ```
 
 ## Terraform
