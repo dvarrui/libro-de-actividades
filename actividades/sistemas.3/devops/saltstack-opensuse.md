@@ -94,8 +94,7 @@ Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt
 * `firewall-cmd --zone=public --add-port=4505-4506/tcp --permanent`, abrir puerto de forma permanente en la zona "public".
 * `firewall-cmd --reload`, reiniciar el firewall para que los cambios surtan efecto.
 (También vale con `systemctl firewalld reload`)
-
-> `firewall-cmd --zone=public --list-all`, para consultar la configuración actual en esa zona.
+* `firewall-cmd --zone=public --list-all`, para consultar la configuración actual la zona `public`.
 
 ## 3.3 Aceptación desde el Master
 
