@@ -36,7 +36,7 @@ Propuesta de rúbrica:
 con la práctica. Comprobar salida de hostname, hostname -a, hostname -f y hostname -d.
 
 ---
-# 2. Master: instalar y configurar.
+# 2. Master: Instalar y configurar
 
 > Enlaces de interés:
 > * [OpenSUSE -Saltstack](https://docs.saltstack.com/en/latest/ref/configuration)
@@ -243,7 +243,7 @@ Total run time: 105.971 s
 Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y usuarios en las máquinas Minions.
 
 * Crear directorio `/srv/salt/base/users`.
-* Crear fichero `/srv/salt/base/users/init.sls` con las definiones para crear los siguiente:
+* Crear fichero `/srv/salt/base/users/init.sls` con las definiciones para crear los siguiente:
     * Grupo `mazingerz`
     * Usuarios `kojiXX`, `drinfiernoXX` dentro de dicho grupo.
 * Aplicar el estado.
@@ -253,12 +253,12 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 >
 > * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
 
-* Crear estado `files` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el home del usuario `koji` (ver ejemplos en el ANEXO).
+* Crear estado `files` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el HOME del usuario `koji` (ver ejemplos en el ANEXO).
 * Crear el fichero `srv/salt/files/README.txt`. Escribir dentro el nombre del alumno y la fecha actual.
 * Incluir en el estado anterior la creación del fichero `README.txt` en el Minion, a partir de la descarga del mismo desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
 * Aplicar el estado `files`.
 
-## 5.3 Ampliar estaod "apache"
+## 5.3 Ampliar estado "apache"
 
 * Crear el fichero `srv/salt/files/holamundo.html`. Escribir dentro el nombre del alumno y la fecha actual.
 * Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster.
@@ -280,7 +280,9 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 * Aplicar estado al Minion de Windows.
 
 ---
-# ANEXO A
+# ANEXO
+
+## Ejemplos
 
 Ejemplo para crear usuario:
 ```
@@ -295,6 +297,7 @@ user_mazinger:
 ```
 
 Ejemplo para crear directorio:
+
 ```
 /home/kojiXX/private:
   file.directory:
@@ -304,11 +307,8 @@ Ejemplo para crear directorio:
     - mode:  700
 ```
 
----
- # ANEXO
+## Terraform
 
- ## Terraform
-
- Enlaces de interés:
- * [Terraform by HashiCorp](https://www.terraform.io/): Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service.
- * [Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation](https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c)
+Enlaces de interés:
+* [Terraform by HashiCorp](https://www.terraform.io/): Use Infrastructure as Code to provision and manage any cloud, infrastructure, or service.
+* [Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation](https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c)
