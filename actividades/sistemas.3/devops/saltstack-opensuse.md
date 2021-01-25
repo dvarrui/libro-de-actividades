@@ -248,19 +248,24 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 * Aplicar el estado.
 
 ## 5.2 Crear estado "files"
+
 > Enlace de inteŕes:
 >
 > * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
 
 * Crear estado `files` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el HOME del usuario `koji` (ver ejemplos en el ANEXO).
 * Crear el fichero `srv/salt/files/README.txt`. Escribir dentro el nombre del alumno y la fecha actual.
-* Incluir en el estado anterior la creación del fichero `README.txt` en el Minion, a partir de la descarga del mismo desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
+* Incluir en el estado anterior la creación del fichero `README.txt` en el Minion, a partir de la descarga del mismo desde el servidor Salt Máster.
 * Aplicar el estado `files`.
 
 ## 5.3 Ampliar estado "apache"
 
+> Enlace de inteŕes:
+>
+> * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
+
 * Crear el fichero `srv/salt/files/holamundo.html`. Escribir dentro el nombre del alumno y la fecha actual.
-* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster. Consultar enlace [Manage Files](https://docs.saltstack.com/en/getstarted/config/files.html)
+* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster.
 * Aplicar el estado.
 
 ---
