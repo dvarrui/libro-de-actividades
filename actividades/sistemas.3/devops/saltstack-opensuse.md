@@ -289,6 +289,13 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 
 ## Ejemplos
 
+Ejemplo para crear grupo:
+
+```
+robots:
+  group.present:
+```
+
 Ejemplo para crear usuario:
 ```
 user_mazinger:
