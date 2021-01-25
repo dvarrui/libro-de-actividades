@@ -123,7 +123,7 @@ minionXXg:
 ```
 # salt '*' test.version
 minionXXg:
-    2019.2.0
+    3000
 ```
 
 > El símbolo `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
@@ -168,8 +168,8 @@ apache_service:
   service.running:
     - name: apache2
     - enable: True
-#    - require:
-#      - pkg: apache2
+    - require:
+      - install_apache
 ```
 
 Entendamos las definiciones:
