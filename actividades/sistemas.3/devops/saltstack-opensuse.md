@@ -134,7 +134,6 @@ minionXXg:
 > Enlaces de interés:
 > * [Learning SaltStack - top.sls (1 of 2)](https://www.youtube.com/watch?v=UOzmExyAXOM&t=8s)
 > * [Learning SaltStack - top.sls (2 of 2)](https://www.youtube.com/watch?v=1KblVBuHP2k)
-> * [Repositorio GitHub con estados de ejemplo](https://github.com/AkhterAli/saltstates/)
 
 ## 4.1 Preparar el directorio para los estados
 
@@ -313,7 +312,8 @@ Ejemplo para crear directorio:
     - mode:  700
 ```
 
-Ejemplo para descargar/copiar fichero:
+Ejemplos para descargar/copiar fichero:
+
 ```
   file.managed:
     - name: /var/www/html/holamundo.html
