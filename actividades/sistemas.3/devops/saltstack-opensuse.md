@@ -92,7 +92,10 @@ Hay que asegurarse de que el cortafuegos permite las conexiones al servicio Salt
 * Ir a la MV1 Máster.
 * `firewall-cmd --get-active-zones`, consultar la zona de red. El resultado será public, dmz o algún otro. Sólo debe aplicar a las zonas necesarias.
 * `firewall-cmd --zone=public --add-port=4505-4506/tcp --permanent`, abrir puerto de forma permanente en la zona "public".
-* `firewall-cmd reload`, reiniciar el firewall para que los cambios surtan efecto.
+* `firewall-cmd --reload`, reiniciar el firewall para que los cambios surtan efecto.
+(También vale con `systemctl firewalld reload`)
+
+> `firewall-cmd --zone=public --list-all`, para consultar la configuración actual en esa zona.
 
 ## 3.3 Aceptación desde el Master
 
@@ -316,6 +319,19 @@ Ejemplo para descargar/copiar fichero:
   file.managed:
     - name: /var/www/html/holamundo.html
     - source: salt://holamundo.html
+```
+
+```
+/var/www/index.html:                        # ID declaration
+  file:                                     # state declaration
+    - managed                               # function
+    - source: salt://webserver/index.html   # function arg
+```
+
+```
+  file.managed:
+    - name: /tmp/holamundo.txt
+    - contents: Hola Mundo!
 ```
 
 ## Terraform
