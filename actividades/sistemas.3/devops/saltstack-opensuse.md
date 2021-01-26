@@ -263,12 +263,12 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 > * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
 
 * Crear el fichero `/srv/salt/files/holamundo.html`. Escribir dentro el nombre del alumno y la fecha actual.
-* Incluir en el estado "apache" la creación del fichero `/var/www/html/index.html` en el Minion. Dicho fichero se descargará desde el servidor Salt Máster y se copiará en el Minion.
+* Incluir en el estado "apache" la creación del fichero "holamundo" en el Minion. Dicho fichero se descargará desde el servidor Salt Máster y se copiará en el Minion.
 
 ```
-/var/www/html/index.html:          
-  file:                            
-    - managed                      
+holamundo:
+  file.managed:
+    - name: /var/www/html/holamundo.html
     - source: salt://holamundo.html
 ```
 
