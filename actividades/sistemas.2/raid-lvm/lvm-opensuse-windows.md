@@ -38,10 +38,10 @@ Realizar las siguientes tareas:
 
 * Crearemos una partición para el **sistema de arranque EFI** independiente. De modo que se quedará fuera de los volúmenes (LVM).
 
-| ID | Size   | Tipo de partición       | Formato |
-| -- | ------ | ----------------------- | ------- |
-| 1  | 500 MB | Sistema de arranque EFI | FAT     |
-| 2  | Resto  | Linux LVM               | -       |
+| ID | Size   | Tipo de partición       | Formato   | Punto de montaje |
+| -- | ------ | ----------------------- | --------- | ---------------- |
+| 1  | 500 MB | Sistema de arranque EFI | FAT       | /boot/efi        |
+| 2  | Resto  | Volúmen                 | Linux LVM | -       |
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.

@@ -24,7 +24,10 @@ Propuesta de rúbrica:
 
 Vamos a realizar esta práctica en 1 MV que puede ser:
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
-* SO Windows ([Configuración](../../global/configuracion)) con [Cygwin](https://www.cygwin.com/) instalado. El programa Cygwin nos permite utilizar los mismos comandos de GNU/Linux dentro de un Windows.
+
+> NOTA: Si usamos un SO Windows ([Configuración](../../global/configuracion))
+debemos instalar [Cygwin](https://www.cygwin.com/). El programa Cygwin nos permite
+utilizar los mismos comandos de GNU/Linux dentro de un Windows.
 
 ## 1.2 Preparativos
 
@@ -245,9 +248,6 @@ Por ahora estamos guardando las copias de seguridad en el equipo local. Es acons
 # 6. rsync
 
 Ahora vamos a usar la herramienta `rsync` para hacer réplicas de nuestros ficheros.
-
-> Más información:
-> * Libro "Administración de Sistemas Linux" de ANAYA (Capítulo 11)
 
 ## 6.1 Introducción
 
