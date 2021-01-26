@@ -25,7 +25,6 @@ Propuesta de rúbrica:
 
 | Config   | MV1           | MV2          | MV3          |
 | -------- | ------------- | ------------ | ------------ |
-| Alias    | Master        | Minion       | Minion2      |
 | Hostname | masterXXg     | minionXXg    | minionXXw    |
 | SO       | OpenSUSE      | OpenSUSE     | Windows      |
 | IP       | 172.19.XX.31  | 172.19.XX.32 | 172.19.XX.11 |
