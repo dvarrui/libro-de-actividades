@@ -247,14 +247,14 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
     * Usuarios `kojiXX`, `drinfiernoXX` dentro de dicho grupo.
 * Aplicar el estado.
 
-## 5.2 Crear estado "archivos"
+## 5.2 Crear estado "dirs"
 
 > Enlace de inteŕes:
 >
 > * [Gestión de ficheros](https://docs.saltstack.com/en/getstarted/config/files.html)
 
-* Crear estado `archivos` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el HOME del usuario `koji` (ver ejemplos en el ANEXO).
-* Aplicar el estado `archivos`.
+* Crear estado `dirs` para crear las carpetas `private` (700), `public` (755) y `group` (750) en el HOME del usuario `koji` (ver ejemplos en el ANEXO).
+* Aplicar el estado `dirs`.
 
 ## 5.3 Ampliar estado "apache"
 
