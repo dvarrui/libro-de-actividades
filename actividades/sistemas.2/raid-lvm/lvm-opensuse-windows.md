@@ -105,7 +105,7 @@ df -hT
 
 * Hacer una instantánea o copia de seguridad de la MV antes de seguir.
 
-Vamos a añadir al sistema anterior, más almacenamiento físico LVM, puesto que ya hemos agotado todo el espacio libre de los discos físicos.
+Vamos a añadir a la máquina anterior, más almacenamiento físico LVM, puesto que ya hemos agotado todo el espacio libre de los discos físicos.
 
 Esquema de PV, VG y LV:
 
@@ -113,7 +113,7 @@ Esquema de PV, VG y LV:
 
 ## 3.1 Preparar la MV
 
-* Añadimos 2 discos virtuales nuevos:
+* Añadimos 2 discos virtuales nuevos a la MV:
     * Disco de 200MB (B)
     * Disco de 750MB (C). Crear 3 particiones de 250 MB para usar en los volúmenes.
     Sin formato, ni tipo.
