@@ -166,6 +166,7 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 
 **Ampliar el tamaño del grupo extra**
 * Añadir la tercera partición del disco (C) (no utilizada) al `grupoXXextra`. Podemos hacerlo por Yast.
+Esto es, ir a `Yast -> Particionador -> grupoXXextra -> volúmenes físicos`. Añadir nuevo volumen físico.
 * `vgdisplay grupoXXextra`, para comprobar la ampliación del tamaño del grupo.
 **Ampliar el tamaño del volumen extra**
 * Ampliar el tamaño de volXXextra a 930MB. Comprobar el aumento del espacio (lvdisplay)
