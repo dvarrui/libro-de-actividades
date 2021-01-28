@@ -180,7 +180,7 @@ El grupo de volumen `grupoXXextra`, tiene como volúmenes físicos las particion
 
 * Primero comprobamos el tamaño de nuestros datos: `du -sh /mnt/folderXXextra`. Este valor debe ser menor a 50 MB si queremos reducir el volumen.
 
-* **Reducir el tamaño del volumen lógico** lvXXextra a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por coma En caso contrario, habrá que ros sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
+* **Reducir el tamaño del volumen lógico** lvXXextra a 50 MB. Lo podemos hace por `Yast`. Si lo hacemos por comandos sería algo como `lvreduce --size 50MB /dev/grupoXXextra/volXXextra`.
 
 >  `df -hT` debe mostrar el mismo tamaño que el que tiene el volumen ahora. En caso contrario, habrá que redimensionar el sistema de ficheros para adaptarlo al nuevo espacio.
 
