@@ -232,6 +232,6 @@ Un volumen Distribuido de Windows se parece a RAID0 pero NO es RAID0. Un volumen
     * Disco de 200MB (B): con una partición completa del disco
     * Disco de 600MB (C): con 2 particiones de 300MB sin formato, ni tipo.
 * Nota: los volúmenes simples del primer disco (A) deben permanecer intactos.
-* Vamos a crear un volumen *Distribuido* con el disco (B) y la
-primera partición del disco (C).
+* Vamos a crear un volumen *Distribuido* con el disco B y la
+primera partición del disco C.
 * Comprobar que con la letra de unidad que hayamos escogido para el volumen, se accede a una zona de almacenamiento (volumen dinámico) formada por partes (particiones o volúmenes básicos) de varios discos diferentes.
