@@ -114,7 +114,8 @@ Esquema de PV, VG y LV:
 
 * Añadimos 2 discos virtuales nuevos:
     * Disco de 200MB (B)
-    * Disco de 750MB (C). Crear 3 particiones de 250MB sin formato, ni tipo.
+    * Disco de 750MB (C). Crear 3 particiones de 250 MB para usar en los volúmenes.
+    Sin formato, ni tipo.
 
 > NOTA: Las particiones las podemos crear con fdisk, gparted, Yast, etc.
 >
