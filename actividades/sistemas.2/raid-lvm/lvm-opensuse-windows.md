@@ -16,7 +16,8 @@ Ejemplo de rúbrica:
 | --------------------- | ------------ | ----------- | ----------------- |
 | (1.3) Comprobación instalación LVM | | | |
 | (2.2) Comprobamos | | | |
-| (3.6) Comprobamos | | |. |
+| (3.6) Comprobamos | | | |
+| (4.1) Volumen distribuido | | |. |
 
 ---
 # 1. Instalar SO sobre LVM
