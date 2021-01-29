@@ -28,7 +28,7 @@ Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volú
 
 Realizar las siguientes tareas:
 * Crear MV para OpenSUSE, con lo siguiente:
-    * **OJO:** Sistema UEFI-BIOS activo.
+    * **OJO: Sistema UEFI-BIOS activo**.
     * Un disco de 10 GB.
     * [Configuración](../../global/configuracion/opensuse.md).
 * Comenzar a instalar el sistema operativo.
