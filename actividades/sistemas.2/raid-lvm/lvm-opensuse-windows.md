@@ -39,26 +39,26 @@ Realizar las siguientes tareas:
 
 * Crearemos una partición para el **sistema de arranque EFI** independiente. De modo que se quedará fuera de los volúmenes (LVM).
 
-| ID | Size   | Tipo de partición       | Formato   | Punto de montaje |
-| -- | ------ | ----------------------- | --------- | ---------------- |
-| 1  | 500 MB | Sistema de arranque EFI | FAT       | /boot/efi        |
-| 2  | Resto  | Volúmen                 | Linux LVM | -       |
+| ID | Size    | Tipo de partición       | Formato | Punto de montaje |
+| -- | ------- | ----------------------- | ------- | ---------------- |
+| 1  | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
+| 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -                |
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
 * Crear los siguientes volúmenes lógicos (LV) dentro del `grupoXX`:
 
-| Nombre    | Tamaño | Tipo                | Formato | Montar |
-| --------- | ------ | ------------------- | ------- | ------ |
-| volXXswap | 500 MB | Area de intercambio | swap    | -      |
-| volXXraiz | 6 GB   | Sistema operativo   | ext4    | /      |
-| volXXhome | 100 MB | Datos de usuario    | ext3    | /home  |
+| Nombre    | Tamaño  | Tipo                | Formato | Montar |
+| --------- | ------- | ------------------- | ------- | ------ |
+| volXXswap | 500 MiB | Area de intercambio | swap    | -      |
+| volXXraiz | 6 GiB   | Sistema operativo   | ext4    | /      |
+| volXXhome | 100 MiB | Datos de usuario    | ext3    | /home  |
 
 > *Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
 > * Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
-* En Software elegir "Escritorio XFCE" para tener un escritorio ligero.
+* Se recomienda elegir un escritorio ligero como "XFCE".
 * Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
 
 ## 1.3 Comprobación de la instalación con volúmenes (LVM)

@@ -81,10 +81,9 @@ host www.nba.com  # Comprueba la resolución de nombres
 Información sobre los discos, particiones y dispositivos:
 
 ```
-fdisk -l          # Muestra particiones y discos
+lsblk             # Muestra esquema de discos/particiones/montaje
 df -hT            # Muestra los puntos de montaje
 cat /proc/mdstat  # Muestra la configuración RAID
-lsblk             # Muestra esquema de discos/particiones/montaje
 ```
 
 > NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea también como /dev/md127. No preocuparse por este hecho. Es la nomenclatura antigua. Algunos SSOO mantienen ambos nombres por compatibilidad con herramientas antiguas.
