@@ -269,10 +269,13 @@ Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y u
 holamundo:
   file.managed:
     - name: /var/www/html/holamundo.html
+    - makedirs: True
     - source: salt://holamundo.html
 ```
 
-* Aplicar el estado "apache".
+> Ir al minion y comprobamos si funciona el servidor del ficheros del master con: `slat '*' cp.get_file salt://holamundo.html`
+
+* Ir al master y aplicar el estado "apache".
 
 ---
 # 6. Añadir Minion de otro SO
