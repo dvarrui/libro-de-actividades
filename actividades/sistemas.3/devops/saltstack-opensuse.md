@@ -299,6 +299,7 @@ Ejemplo para crear grupo:
 ```
 robots:
   group.present:
+    - gid: 2000
 ```
 
 Ejemplo para crear usuario:
@@ -335,8 +336,7 @@ holamundo:
 
 ```
 /var/www/index.html:                        # ID declaration
-  file:                                     # state declaration
-    - managed                               # function
+  file.managed:                             # state declaration
     - source: salt://webserver/index.html   # function arg
 ```
 
