@@ -57,7 +57,7 @@ Realizar las siguientes tareas:
 > * Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
-* Se recomienda elegir un escritorio ligero como "XFCE".
+* Elegir un escritorio genérico.
 * Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
 
 ## 1.3 Comprobación de la instalación con volúmenes (LVM)
