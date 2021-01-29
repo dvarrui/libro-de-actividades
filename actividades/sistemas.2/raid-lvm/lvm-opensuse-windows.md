@@ -28,7 +28,7 @@ Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volú
 
 Realizar las siguientes tareas:
 * Crear MV para OpenSUSE, con lo siguiente:
-    * **OJO: Sistema UEFI-BIOS activo**.
+    * **OJO:** Sistema UEFI-BIOS activo.
     * Un disco de 10 GB.
     * [Configuración](../../global/configuracion/opensuse.md).
 * Comenzar a instalar el sistema operativo.
@@ -41,7 +41,7 @@ Realizar las siguientes tareas:
 | ID | Size    | Tipo de partición       | Formato | Punto de montaje |
 | -- | ------- | ----------------------- | ------- | ---------------- |
 | 1  | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
-| 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -                |
+| 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
@@ -57,7 +57,7 @@ Realizar las siguientes tareas:
 > * Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
-* Elegir un escritorio genérico.
+* **OJO**: Elegir un escritorio genérico.
 * Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
 
 ## 1.3 Comprobación de la instalación con volúmenes (LVM)
@@ -96,8 +96,9 @@ df -hT
 ```
 
 > **ATENCION:**
+>
 > * Si la salida de algún comando es muy extensa y es difícil hacer las capturas de pantalla, podemos hacer lo siguiente. `lvdisplay grupoXX > salida.txt`, este comando pasa toda la salida de pantalla a un fichero de texto con el nombre `salida.txt`. Luego más tarde, podemos incluir dicho texto en nuestro informe.
-> * Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el volumen, entonces podemos usar `resize2fs /dev/grupoXX/volXXhome` sirve ajustar dicho valor.
+> * Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el volumen, entonces podemos reiniciar la MV y ver si se ha actualizado la información, o usar `resize2fs /dev/grupoXX/volXXhome` para ajustar dicho valor.
 
 ---
 # 3. Modificar el espacio físico LVM
