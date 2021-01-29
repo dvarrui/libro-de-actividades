@@ -273,7 +273,7 @@ holamundo:
     - source: salt://holamundo.html
 ```
 
-> Ir al minion y comprobamos si funciona el servidor del ficheros del master con: `slat '*' cp.get_file salt://holamundo.html`
+> Ir al minion y comprobamos si funciona el servidor del ficheros del master con: `salt '*' cp.get_file salt://holamundo.html`
 
 * Ir al master y aplicar el estado "apache".
 
