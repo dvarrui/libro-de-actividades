@@ -1,7 +1,7 @@
 
 ```
-Curso       : 201920, 201819, 201718, 201617
-Area        : Sistemas operativos, monitorización, auditoría
+Curso       : 202021, 201920, 201819, 201718, 201617
+Área        : Sistemas operativos, monitorización, auditoría
 Descripción : Monitorizar y auditar eventos del sistema operativo en local
 Requisitos  : Windows y Audit con OpenSUSE
               Se recomienda trabajar esta práctica antes de AppArmor.
