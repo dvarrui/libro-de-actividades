@@ -50,6 +50,8 @@ Vamos realizar las siguientes tareas en SO Windows.
 
 **Entregar**: Captura de pantalla de los eventos de seguridad para los usuarios `soldado1`y `soldado2`.
 
+> NOTA: El evento "Inicio de sesión correcto" tiene ID 4648, y el evento "Inicio de sesión incorrecto" tiene ID 4776.
+
 ## 2.2 Exportar los datos
 
 * Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO incluirlos todos. Elegir los generados hoy, o en las últimas horas.
