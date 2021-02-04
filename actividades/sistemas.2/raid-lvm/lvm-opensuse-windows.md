@@ -130,6 +130,7 @@ Esquema de PV, VG y LV:
 ## 3.2 Crear nuevo grupo y volumen
 
 * Crear la carpeta `/mnt/folderXXextra`. Más adelante la usaremos como punto de montaje.
+* Ir a Yast -> Particionador.
 * Crear un Grupo de Volumen llamado `grupoXXextra`, con el disco (B) y las 2 primeras particiones del (C).
 * Crear un nuevo Volumen Lógico
     * Nombre: `volXXextra`
