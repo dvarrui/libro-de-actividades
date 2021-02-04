@@ -56,9 +56,11 @@ Vamos realizar las siguientes tareas en SO Windows.
 
 * Exportar o guardar los eventos a ficheros CSV. ¡OJO!: Filtrar los eventos para NO incluirlos todos. Elegir los generados hoy, o en las últimas horas.
 * Incluir fichero CSV en la entrega con el nombre `nombre-alumno-registro-windows.csv`.
-* Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas de cálculo (Por ejemplo: Calc de LibreOffice, Excel de Microsoft,  etc.). Comprobarlo.
 
 > Realmente los CSV son ficheros de texto donde cada fila es como un registro de una tabla. Normalmente se usa la coma para delimitar los campos dentro de cada fila.
+
+* Los ficheros con formato CSV se pueden abrir y manipular cómodamente usando hojas de cálculo (Por ejemplo: Calc de LibreOffice, Excel de Microsoft,  etc.). Comprobarlo.
+* Aplicar filtro en la hoja de cálculo y localizar los eventos.
 
 **Entregar:** Fichero CSV con los registros solicitados.
 
