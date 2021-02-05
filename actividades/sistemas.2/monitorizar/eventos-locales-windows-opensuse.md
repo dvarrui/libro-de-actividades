@@ -225,11 +225,19 @@ Al terminar limpiamos las reglas para que no se sigan generando más eventos:
 * Eliminar la regla del fichero `/etc/audit/rules.d/audit.rules`.
 
 ---
-# 4. Información
+# ANEXO
+
+## Audit: Más Información
 
 Esta parte no hay que hacerla. Sólo es información para consultar.
 
-## 4.1 Resumen de comandos
+> Enlace de interés:
+> * [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
+> * [Ver los logs del sistema en Linux con journalctl](http://lamiradadelreplicante.com/2015/03/29/ver-los-logs-del-sistema-en-linux-con-journalctl/)
+> * [What is the purpose of auditctl -a never,task?](https://unix.stackexchange.com/questions/491406/what-is-the-purpose-of-auditctl-a-never-task)
+> * [Locking users after X failed login attempts with pam_tally2](https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/)
+
+### Resumen de comandos
 
 | Comando     | Descripción |
 | ----------- | ----------- |
@@ -247,7 +255,7 @@ Esta parte no hay que hacerla. Sólo es información para consultar.
 | ausyscall   | mapea los syscall ID y nombre |
 | auvirt      | Muestra información relacionada con las máquinas virtuales |
 
-## 4.2 Auditar acceso de usuarios
+### Auditar acceso de usuarios
 
 Si se quiere saber que ficheros han sido accedidos por un usuario (UID) concreto
 `auditctl -a exit,always -F arch=x86_64 -S open -F auid=80`
@@ -256,15 +264,3 @@ Explicación de los parámetros:
 * -F arch=x86_64, define la arquitectura (uname -m)
 * -S open, elige las llamadas “open” al sistema
 * -F auid=80, el UID del usuario
-
-## 4.3 Systemd y journal
-
-> Enlace de interés:
-> * [OpenSUSE systemd journal](https://es.opensuse.org/SDB:Systemd_journal)
-> * [Ver los logs del sistema en Linux con journalctl](http://lamiradadelreplicante.com/2015/03/29/ver-los-logs-del-sistema-en-linux-con-journalctl/)
-
----
-# ANEXO
-
-* [What is the purpose of auditctl -a never,task?](https://unix.stackexchange.com/questions/491406/what-is-the-purpose-of-auditctl-a-never-task)
-* [Locking users after X failed login attempts with pam_tally2](https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/)
