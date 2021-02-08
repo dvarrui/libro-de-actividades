@@ -3,7 +3,7 @@
 input = `cat carpetas.txt`
 subjects = input.split("\n")
 
-puts "[INFO] subjects = #{subjets}"
+puts "[INFO] subjects = #{subjects}"
 system("mkdir curso1516")
 
 subjects.each do |name|
