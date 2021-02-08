@@ -1,5 +1,10 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
+# encoding: utf-8
+# Mi primer programa
 
-puts "Hello World!"
+texto = "Hola Mundo!"
 
-# I prefer this way...
+puts texto # Mostrando texto en pantalla
+
+puts "Hola\tcómo\tte\tllamas?"
+puts "Hola\nme\nllamo\nAndrés"
