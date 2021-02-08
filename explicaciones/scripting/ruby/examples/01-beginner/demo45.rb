@@ -2,14 +2,14 @@
 
 input = `cat carpetas.txt`
 subjects = input.split("\n")
-root = subjects[0]
-subjects.delete(0)
+base = subjects[0]
+subjects.delete_at(0)
 
-puts "[INFO] root     = #{root}"
+puts "[INFO] base     = #{base}"
 puts "[INFO] subjects = #{subjects}"
 
-system("mkdir #{root}")
+system("mkdir #{base}")
 subjects.each do |name|
-  system("mkdir #{root}/#{name}")
+  system("mkdir #{base}/#{name}")
 end
 puts "Finish!"
