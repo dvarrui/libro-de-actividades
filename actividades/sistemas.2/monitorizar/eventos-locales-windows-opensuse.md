@@ -43,7 +43,7 @@ Vamos realizar las siguientes tareas en SO Windows.
     * No entrar al sistema con `soldado3`.
 * Buscar en el sistema, la herramienta visor de eventos.
 * Seleccionar la sección "Seguridad".
-* Usar la opción de `Buscar` para localizar los eventos de `soldado1` y `soldado2`.
+* Usar la opción de `Menú derecho -> Acciones -> Buscar` para localizar los eventos de `soldado1` y `soldado2`.
 
 > Imagen de ejemplo para crear un filtro de eventos "Error de auditoría":
 >
