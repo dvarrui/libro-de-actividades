@@ -42,7 +42,8 @@ Vamos realizar las siguientes tareas en SO Windows.
     * Intentar entrar con `soldado2` poniendo la clave mal.
     * No entrar al sistema con `soldado3`.
 * Buscar en el sistema, la herramienta visor de eventos.
-* Ir a la sección "Seguridad". Buscar los eventos de `soldado1` y `soldado2`.
+* Seleccionar la sección "Seguridad".
+* Usar la opción de `Buscar` para localizar los eventos de `soldado1` y `soldado2`.
 
 > Imagen de ejemplo para crear un filtro de eventos "Error de auditoría":
 >
@@ -86,12 +87,7 @@ Hemos activado la auditoría de eventos sobre el ficheros anterior para los usua
 * Reiniciar la MV.
 * Acceder con los usuarios `soldado1` y `soldado2` al archivo para generar eventos.
     * Apuntar la hora/minuto que se hacen los accesos para que sea más sencillo encontrar los eventos.
-* Vamos al visor de eventos.
-* Crear un filtro personalizado para los eventos filtrando:
-    * Por origen -> Auditoría de seguridad de Windows
-    * Categoría -> Sistema de archivos
-* Mostrar los resultados de la auditoría.
-(Si no se ven registros entreguen la captura de pantalla de todas formas)
+* Vamos al visor de eventos. Usar la opción de `Buscar` para localizar los eventos relacionados con el fichero `estrellitaXX.txt`.
 
 **Entregar:** Captura de pantalla de los eventos registrados con los accesos al fichero `estrellita.txt`.
 
