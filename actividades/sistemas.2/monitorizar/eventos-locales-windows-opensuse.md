@@ -144,7 +144,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero "audit.rul
 Hacemos lo siguiente:
 * Abrirmos un terminal (Llamémosle "t1").
 * Crear el fichero `/home/estrellita.txt` con todos los permisos para el grupo `users`.
-* Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`.
+* Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`. Estos usuarios deben pertenecer al grupo `users` para tener acceso al fichero anterior.
 * `auditctl -w /home/estrellita.txt -p warx`, estamos creando una regla temporal (porque no está guardada en el fichero audit.rules) para auditar un fichero concreto, cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos, r=lectura o x=ejecución.
 
 **Entregar:** Las siguientes capturas de pantalla.
@@ -203,9 +203,8 @@ Como mostrar los eventos registrados con toda la información que generan es con
 * `auditctl -l`, comprobamos que nuestra regla temporal ha desaparecido.
 
 Vamos a crear una regla de auditoría permanente sobre el programa o comando `mkdir` en "audit.rules" (Reglas de audit):
-* `whereis mkdir`, averiguar la ruta de mkdir.
-* Editar el fichero `/etc/audit/rules.d/audit.rules`.
-* Comentar la línea `-a never,task`.
+* `whereis mkdir`, averiguar la ruta al fichero o comando "mkdir".
+* Editar el fichero `/etc/audit/rules.d/starwars.rules`.
 * Añadir una línea de la forma `-w RUTA-ABSOLUTA-A-MKDIR -p warx`
 * Reiniciar el servicio de audit:
     * `systemctl stop auditd`, parar el servicio.
@@ -219,7 +218,7 @@ Vamos a crear una regla de auditoría permanente sobre el programa o comando `mk
 * Crear un informe de los eventos del ejecutable `mkdir`(`aureport -x`).
 
 Al terminar limpiamos las reglas para que no se sigan generando más eventos:
-* Eliminar la regla del fichero `/etc/audit/rules.d/audit.rules`.
+* Eliminar la regla del fichero `/etc/audit/rules.d/starwars.rules`.
 
 ---
 # ANEXO
