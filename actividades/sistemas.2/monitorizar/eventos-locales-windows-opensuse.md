@@ -142,9 +142,9 @@ Para configurar los eventos que deben ser auditados se usa el fichero "audit.rul
 
 Hacemos lo siguiente:
 * Abrirmos un terminal (Llamémosle "t1").
-* Crear el fichero `/home/estrellita.txt` con todos los permisos para el grupo `users`.
+* Crear el fichero `/home/nombre-alumno/estrellita.txt` con todos los permisos para el grupo `users`.
 * Crear los usuarios `rebelde1`, `rebelde2` y `rebelde3`. Estos usuarios deben pertenecer al grupo `users` para tener acceso al fichero anterior.
-* `auditctl -w /home/estrellita.txt -p warx`, estamos creando una regla temporal (porque no está guardada en el fichero audit.rules) para auditar un fichero concreto, cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos, r=lectura o x=ejecución.
+* `auditctl -w /home/nombre-alumno/estrellita.txt -p warx`, estamos creando una regla temporal (porque no está guardada en el fichero audit.rules) para auditar un fichero concreto, cuando ocurra algunos de los eventos de w=escritura, a=cambio de atributos, r=lectura o x=ejecución.
 
 **Entregar:** Las siguientes capturas de pantalla.
 * `auditctl -l`, vemos que tenemos la regla de auditoría definida.
