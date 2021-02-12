@@ -137,7 +137,6 @@ Para configurar los eventos que deben ser auditados se usa el fichero "audit.rul
 
 ## 3.3 Crear una regla temporal para auditar un fichero
 
-* Consultar el fichero donde donde se definen (las reglas) los elementos se van a auditar (`/etc/audit/rules.d/audit.rules`).
 * `auditctl -D`, para eliminar (temporalmente) todas las reglas de audit.
 * `auditctl -l`, podemos ver que no hay ninguna regla.
 
