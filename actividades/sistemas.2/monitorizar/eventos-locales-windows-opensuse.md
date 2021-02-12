@@ -126,7 +126,7 @@ Para configurar los eventos que deben ser auditados se usa el fichero "audit.rul
 ## 3.2 Instalación
 
 * Instalar los paquetes `audit` y `yast2-audit-laf`.
-* `systemctl status auditd`, consultar el estado del servicio. También se puede usar `auditctl -s`.
+* `systemctl status auditd`, consultar el estado del servicio. También tenemos otro comando específico de Audit que da información del servicio `auditctl -s`.
 * Consultar el fichero `/etc/audit/auditd.conf`, y averiguar el significado de los siguientes parámetros: log_file, log_format, log_group.
 
 > Estos son las definiciones de algunos parámetros:
