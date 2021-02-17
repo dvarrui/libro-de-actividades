@@ -82,7 +82,7 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
 
 * Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
 * Crear el directorio `/home/nombre-alumno/aa/`.
-* Copiar el programa(fichero) `/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
+* Copiar el programa(fichero) `/usr/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
 * Crear lo siguiente:
     * Crear directorio DIRNAME1 (`/home/nombre-alumno/aa/elhalcon/`)
     * `DIRNAME1/han.txt`: Escribir en el contenido "nombre-del-alumnoXX".

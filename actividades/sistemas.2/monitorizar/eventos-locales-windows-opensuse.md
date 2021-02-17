@@ -170,7 +170,6 @@ Este comando hace un filtro de los eventos para mostrar sólo los del fichero.
 * Repetir para rebelde1, rebelde2 y rebelde3:
    * `id USERNAME`, consultar el uid del usuario.
    * `ausearch -f estrellita.txt -ua USERID`, consultar eventos sobre el fichero para el usuario con USERID.
-   * `ausearch -f estrellita.txt -ua USERID | wc -l`, contar los eventos.
 
 > ¿Diferencias entre los siguientes comandos/parámetros de filtrado?
 > * ausearch -ui USERNAME: Filtrado por el usuario real
