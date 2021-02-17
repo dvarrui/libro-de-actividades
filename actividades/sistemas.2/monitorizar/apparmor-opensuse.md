@@ -80,7 +80,7 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
 
 ## 2.1 Preparativos
 
-* Abrimos una sesión de comandos (consola1) con nuestro usuario `nombre-alumno`.
+* Abrimos una sesión de comandos ("terminal1") con nuestro usuario `nombre-alumno`.
 * Crear el directorio `/home/nombre-alumno/aa/`.
 * Copiar el programa(fichero) `/usr/bin/cp` con el nuevo nombre `/home/nombre-alumno/aa/mycopy`.
 * Crear lo siguiente:
@@ -97,18 +97,18 @@ Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYN
 
 ## 2.2 Generar el perfil
 
-* Abrimos una sesión de comandos (consola2) con el usuario `root`.
+* Abrimos una sesión de comandos ("terminal 2") con el usuario `root`.
     * `cd /etc/apparmor.d`, nos movemos al directorio donde se guardan los perfiles.
     * `ls`, para ver los perfiles que hay.
     * `aa-genprof /home/nombre-alumno/aa/mycopy`, para iniciar la generación
     de un perfil. Este programa se queda en espera.
 
-Volvemos a la "consola1":
+Volvemos a la "terminal 1":
 * Ejecutamos el comando de copia `./mycopy DIRNAME1/* DIRNAME2`. Mientras hacemos esta acción, se está registrando toda su actividad.
 
 > El objetivo es hacer las acciones con este programa, mientras está siendo auditado por aa-genprof.
 
-Vamos a la "consola2".
+Vamos a la "terminal2".
 * Pulsamos "S" para comenzar el Scan.
 * Permitir acceso de lectura a la ruta `DIRNAME1/*`
 * Permitir acceso de escritura a la ruta `DIRNAME2/*`
@@ -134,10 +134,10 @@ Revisar la configuración de audit para que permita registrar eventos.
 
 ## 3.1 Preparativos
 
-Seguimos en la "consola2".
+Seguimos en la "terminal 2".
 * `aa-enforce home.nombre-alumno.aa.mycopy`, para forzar el cumplimiento del perfil para el programa mycopy.
 
-Volvemos a la "consola1"
+Volvemos a la "terminal 1"
 * `rm DIRNAME2/*; tree`, para limpiar y comprobar.
 * `./mycopy DIRNAME1/* DIRNAME2`. Se supone que el perfil permite realizar esta acción.
 * `tree`, comprobamos el resultado.
@@ -148,7 +148,7 @@ Volvemos a la "consola1"
 
 ## 3.2 Comprobamos
 
-Vamos a "consola2".
+Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
 * `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
@@ -160,17 +160,17 @@ Vamos a "consola2".
 
 ## 4.1 Perfil en modo queja
 
-Vamos a "consola2".
+Vamos a "terminal 2".
 * `aa-complain home.nombre-alumno.aa.mycopy`, ponemos el perfil en modo queja. De esta forma no se prohíbe ninguna acción, pero sí se quedan registradas (auditoría).
 
-Volvemos a la "consola1".
+Volvemos a la "terminal 1".
 * `tree`, comprobamos el contenido de los directorios.
 * `./mycopy DIRNAME1/* DIRNAME3`, ahora sí debe funcionar el ejecutable.
 * `tree`, comprobamos que se han copiado los archivos.    
 
 ## 4.2 Comprobamos
 
-Vamos a "consola2".
+Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
 * `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
 * `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
@@ -180,11 +180,4 @@ Vamos a "consola2".
 ---
 # ANEXO
 
-## A.1 SELinux
-
 * [SELinux](https://theurbanpenguin.com/product/selinux-fundamentals-in-red-hat-enterprise-linux-8)
-
-## A.2 Ideas para usar con Teuton
-
-* Revisar la fecha dentro del fichero perfil (Last modified).
-* Crear dos comandos: uno complain y otro enforce. O usar la futura modalidad de evaluación con estados dinámicos de teuton.
