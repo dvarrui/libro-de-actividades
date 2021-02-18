@@ -127,7 +127,7 @@ Vamos a la "terminal2".
 Revisar la configuración de audit para que permita registrar eventos.
 * Editar `/etc/audit/rules.d/audit.rules`.
 * Comentar la línea `-a never,task`.
-* Reiniciar la máquina.
+* `systemctl restart auditd`, reiniciamos el servicio "auditd", para que detecte el cambio realizado.
 
 ---
 # 3. Forzamos el perfil
