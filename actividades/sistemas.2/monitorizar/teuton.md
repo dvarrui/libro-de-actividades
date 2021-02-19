@@ -100,7 +100,7 @@ Entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
 
 Ir a la MV1:
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton create castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
+* `teuton new castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
