@@ -153,7 +153,11 @@ Vamos a "terminal 2".
 * `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
 * `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
-> `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
+> NOTA:
+>
+> * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
+> * La opción `-c` (--comm comm-name) significa: Search for an event based on the given comm name. The comm name is the executable's name from the task structure.
+> * La opción `-x` (--executable executable) significa: Search for an event matching the given executable name.
 
 ---
 # 4. Modo queja
