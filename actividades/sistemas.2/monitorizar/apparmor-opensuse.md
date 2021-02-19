@@ -117,6 +117,8 @@ Vamos a la "terminal2".
 
 ## 2.3 Comprobamos
 
+Estamos en el "terminal 2" (como root).
+* `cd /etc/apparmor.d`, nos movemos a la ruta donde están los perfiles.
 * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero para ver el contenido del perfil. El perfil es un fichero de texto que se puede modificar si es necesario. Lo importante tener las siguientes reglas:
     1. Permitir ejecución de mycopy (mr).
     2. Permitir lectura `DIRNAME1/*` (r).
