@@ -113,12 +113,12 @@ Vamos a la "terminal2".
 * Permitir acceso de lectura a la ruta `DIRNAME1/*`
 * Permitir acceso de escritura a la ruta `DIRNAME2/*`
 * Pulsamos S para grabar el perfil.
-* `ls`, debemos ver el nuevo perfil creado.
+* `ls`, debemos ver el nuevo perfil creado. Esto es, debemos tener el fichero `home.aa.nombre-alumno.mycopy` como un perfil más de AppArmor.
 
 ## 2.3 Comprobamos
 
 Estamos en el "terminal 2" (como root).
-* `cd /etc/apparmor.d`, nos movemos a la ruta donde están los perfiles.
+* Estamos en la ruta `/etc/apparmor.d`, donde se guardan los perfiles.
 * `cat home.nombre-alumno.aa.mycopy`, veamos el contenido del fichero para ver el contenido del perfil. El perfil es un fichero de texto que se puede modificar si es necesario. Lo importante tener las siguientes reglas:
     1. Permitir ejecución de mycopy (mr).
     2. Permitir lectura `DIRNAME1/*` (r).
