@@ -150,12 +150,12 @@ Volvemos a la "terminal 1"
 
 Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
-* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -c mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -c mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
 > NOTA:
 >
-> * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
+> * `ausearch -c mycopy | aureport -u`, consultamos los eventos registrados asociados a nuestro ejecutable.
 > * La opción `-c` (--comm comm-name) significa: Search for an event based on the given comm name. The comm name is the executable's name from the task structure.
 > * La opción `-x` (--executable executable) significa: Search for an event matching the given executable name.
 
@@ -176,10 +176,10 @@ Volvemos a la "terminal 1".
 
 Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
-* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -c mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -c mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
-> * `ausearch -x mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
+> * `ausearch -c mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
 
 ---
 # ANEXO
