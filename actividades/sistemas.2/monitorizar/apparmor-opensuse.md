@@ -78,6 +78,13 @@ Herramientas como `aa-genprof`, nos pueden ayudar a crear el perfil:
 
 Ver el siguiente [vídeo de 9min](https://youtu.be/Yiw0pG0dl0I?list=PLFBBr-1czYNuLH6yN2dqX4Znz2fexFmAq), que explica cómo usar el comando `aa-genprof` de AppArmor para crear un perfil de seguridad a un programa concreto.
 
+Durante la práctica vamos a trabajar con dos terminales al mismo tiempo:
+
+| Terminal   | Usuario           | Directorio de trabajo  |
+| ---------- | ----------------- | ---------------------- |
+| terminal 1 | nombre-del-alumno | /home/nombre-alumno/aa |
+| terminal 2 | root              | /etc/apparmor.d        |
+
 ## 2.1 Preparativos
 
 * Abrimos una sesión de comandos ("terminal1") con nuestro usuario `nombre-alumno`.
