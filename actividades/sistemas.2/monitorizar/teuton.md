@@ -257,7 +257,6 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 ```
 ---
-:alias:
 :global:
   :host_username: root
   :username: nombre-del-alumno
@@ -284,7 +283,7 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 Ver ejemplo de monitorización del nombre del equipo:
 ```
   target "Configurar nombre de equipo con #{get(:hostname)}"
-  goto :host, :exec => "hostname"
+  run "hostname", on: :host
   expect get(:hostname)
 ```
 
