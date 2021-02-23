@@ -99,6 +99,7 @@ Entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
 ## 2.1 Crear el test
 
 Ir a la MV1:
+* A partir de ahora trabajaremos con nuestro usuario habitual (no usar root).
 * Ir al directorio `Documentos` para trabajar ahí.
 * `teuton new castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
