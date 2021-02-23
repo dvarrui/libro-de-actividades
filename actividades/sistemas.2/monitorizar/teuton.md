@@ -198,11 +198,11 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 group "alumnoXX - test3" do
 
   target "La puerta de enlace funciona correctamente"
-  goto :host, :exec => "ping -c 1 8.8.4.4"
+  run "ping -c 1 8.8.4.4", on: :host
   expect " 0% packet loss"
 
-  target "Servidor DNS funciona corectamente"
-  goto :host, :exec => "host www.nba.com"
+  target "Servidor DNS funciona correctamente"
+  run "host www.nba.com", on: host
   expect "has address"
 
 end
