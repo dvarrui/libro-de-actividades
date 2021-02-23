@@ -113,11 +113,11 @@ Ir a la MV1:
 - :tt_members: teuton-XX
   :host_ip: 127.0.0.1
 - :tt_members: GNU/Linux-XX
-  :host_ip: 172.19.XX.32
+  :host_ip: 172.18.XX.32
 - :tt_members: RaspberryPI-XX
-  :host_ip: 172.19.XX.51
+  :host_ip: 172.18.XX.51
 - :tt_members: Windows-XX
-  :host_ip: 172.19.XX.11
+  :host_ip: 172.18.XX.11
 ```
 
 * Vamos a modificar `start.rb` para comprobar que hay conectividad con las máquinas:
@@ -175,14 +175,14 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
   :host_ip: 127.0.0.1
   :host_password: clave-secreta
 - :tt_members: GNU/Linux-XX
-  :host_ip: 172.19.XX.32
+  :host_ip: 172.18.XX.32
   :host_password: clave-secreta
 - :tt_members: RaspberryPI-XX
-  :host_ip: 172.19.XX.51
+  :host_ip: 172.18.XX.51
   :host_password: clave-secreta
 - :tt_members: Windows-XX
   :tt_skip: true
-  :host_ip: 172.19.XX.11
+  :host_ip: 172.18.XX.11
   :host_password: clave-secreta
 ```
 
@@ -267,16 +267,16 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   :host_password: clave-secreta
   :hostname: apellidoXXg
 - :tt_members: GNU/Linux-XX
-  :host_ip: 172.19.XX.32
+  :host_ip: 172.18.XX.32
   :host_password: clave-secreta
   :hostname: apellidoXXg2
 - :tt_members: RaspberryPI-XX
-  :host_ip: 172.19.XX.51
+  :host_ip: 172.18.XX.51
   :host_password: clave-secreta
   :hostname: apellidoXXrb
 - :tt_members: Windows-XX
   :tt_skip: true
-  :host_ip: 172.19.XX.11
+  :host_ip: 172.18.XX.11
   :host_password: clave-secreta
   :hostname: apellidoXXw
 ```
