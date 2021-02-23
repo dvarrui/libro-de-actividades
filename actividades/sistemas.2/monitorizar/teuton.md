@@ -202,7 +202,7 @@ group "alumnoXX - test3" do
   expect " 0% packet loss"
 
   target "Servidor DNS funciona correctamente"
-  run "host www.nba.com", on: host
+  run "host www.nba.com", on: :host
   expect "has address"
 
 end
