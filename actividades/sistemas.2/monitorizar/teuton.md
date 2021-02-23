@@ -167,7 +167,6 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ```
 ---
-:alias:
 :global:
   :host_username: root
 :cases:
