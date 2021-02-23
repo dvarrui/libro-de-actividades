@@ -107,7 +107,6 @@ Ir a la MV1:
 
 ```
 ---
-:alias:
 :global:
 :cases:
 - :tt_members: teuton-XX
