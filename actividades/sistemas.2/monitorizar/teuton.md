@@ -78,7 +78,7 @@ Vamos a ver el proceso de instalación de "teuton" (T-NODE).
 
 Entrar como superusuario.
 * `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
-* `gem install teuton`, instalar Teuton.
+* `gem install teuton`, instalar Teuton (Necesitaremos tener privilegios de root para instalar).
 * `gem list | grep teuton`, para comprobar que lo tenemos instalado.
 
 > En OpenSUSE es necesario además es necesario hacer los siguiente:
