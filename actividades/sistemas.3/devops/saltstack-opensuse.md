@@ -19,6 +19,7 @@ Propuesta de rúbrica:
 | 4.5 | Aplicar estado (apache)     ||||
 | 5.1 | Aplicar estado (users)      ||||
 | 5.2 | Aplicar estado (files)      ||||
+| 5.3 | Aplicar estado (apache)     ||||
 | 6.2 | Aplicar estado al minionXXw ||||
 
 ## 1.1 Preparativos
