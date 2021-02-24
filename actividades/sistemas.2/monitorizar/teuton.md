@@ -125,7 +125,7 @@ Ir a la MV1:
 ```
 group "alumnoXX - test2" do
 
-  target "Hay conectividad con la Máquina #{get(:host_ip)}"
+  target "Comprobar la conectividad"
   run "ping -c 1 #{get(:host_ip)}"
   expect " 0% packet loss"
 end
@@ -274,7 +274,7 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 Ver ejemplo de monitorización del nombre del equipo:
 ```
-  target "Configurar nombre de equipo con #{get(:hostname)}"
+  target "Comprobar el nombre del equipo"
   run "hostname", on: :host
   expect get(:hostname)
 ```
