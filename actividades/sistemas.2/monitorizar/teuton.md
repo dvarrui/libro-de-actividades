@@ -90,7 +90,7 @@ Entrar como nuestro usuario normal:
 
 ## 1.5 Entregar
 
-Entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
+En esta práctica NO hay que hacer informe. Sólo hay que entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
 * `castleXX/*`
 * `var/*`
 
@@ -154,10 +154,6 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 * `teuton castleXX/test2`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test2`.
 * Comprobar que los resultados son los correctos.
-
-**Entregar** los ficheros de los directorios:
-* `castleXX/test2/*`
-* `var/test2/*`
 
 # 3. Test: Configuración de red
 
@@ -241,11 +237,6 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 * Tenemos los resultados en el directorio `var/test3`.
 * Comprobar que los resultados son los correctos.
 
-**Entregar**
-
-* Ficheros `castleXX/test3/*`
-* Ficheros `var/test3/*`
-
 # 4. Test: configuración básica
 
 ## 4.1 Modificar el test
@@ -296,11 +287,6 @@ Ver ejemplo de monitorización del nombre del equipo:
 * Tenemos los resultados en el directorio `var/test4`.
 * Comprobar que los resultados son los correctos.
 
-**Entregar**
-
-* Ficheros `castleXX/test4/*`
-* Ficheros `var/test4/*`
-
 # 5. Test: directorios y permisos
 
 * Crear un nuevo test `castleXX/test5`.
@@ -320,11 +306,6 @@ Ver ejemplo de monitorización del nombre del equipo:
 * `teuton castleXX/test5`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test5`.
 * Comprobar que los resultados son los correctos.
-
-**Entregar**
-
-* Ficheros `castleXX/test5/*`
-* Ficheros `var/test5/*`
 
 # 6. Test: Otros sistemas
 
@@ -347,8 +328,3 @@ Ver ejemplo de monitorización del nombre del equipo:
 * `teuton castleXX/test6`, ejecutar el test.
 * Tenemos los resultados en el directorio `var/test6`.
 * Comprobar que los resultados son los correctos.
-
-**Entregar**
-
-* Ficheros `castleXX/test6/*`
-* Ficheros `var/test6/*`
