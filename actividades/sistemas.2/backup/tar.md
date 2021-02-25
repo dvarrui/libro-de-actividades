@@ -292,7 +292,7 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 ## 6.3 rsync en local
 
 * Iniciar sesión con nuestro usuario normal.
-* Crear la siguiente estructura de ficheros en nuestro directorio HOME (`/home/alumno`):
+* Crear la siguiente estructura de ficheros en nuestro directorio HOME (`/home/nombre-alumno`):
 ```
 ├── mydocs
 │   ├── a.txt
