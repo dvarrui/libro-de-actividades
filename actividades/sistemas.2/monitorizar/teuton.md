@@ -67,7 +67,7 @@ Configurar en todas las máquinas:
 
 * Entender los modos de trabajo de Teuton: T-NODE y S-NODE.
 * T-NODE: Máquina con Teuton.
-* S-NODE: Máquina con el servicio SSH.
+* S-NODE: Máquina con el servicio SSH ([Configurar el servicio SSH](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/))
 
 ## 1.4 Instalación
 
@@ -211,7 +211,7 @@ end
 ```
 
 Explicación:
-* [goto](https://github.com/teuton-software/teuton/blob/devel/docs/dsl/definition/goto.md): La sentencia "goto" inicia una conexión SSH con el equipo "host" y ejecuta el comando indicado por "exec".
+* [run](https://github.com/teuton-software/teuton/blob/master/docs/dsl/definition/run_remote.md): La sentencia "run" ejecuta un comando en una máquina remota. La conexión con la máquina remota se realiza usando el protocolo SSH.
 * Cuando ejecutamos el comando `host www.nba.com` de forma correcta, obtenemos una salida como la siguiente, donde se obtiene al menos una línea con el texto `has address`:
 ```    
 > host www.nba.com
