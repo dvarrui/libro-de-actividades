@@ -200,8 +200,16 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 * Iniciamos sesión con nuestro usuario normal.
 * `crontab -l`, vemos que no hay ninguna configuración creada.
-* `crontab -e`, se nos abre un editor.
-* Pulsar `i`(insert) para activar el modo de empezar a escribir.
+* `export VISUAL=nano`, para decidir que queremos usar el edito nano al configurar.
+
+> NOTA: Si usamos el editor vi:
+> * Pulsar `i`(insert) para activar el modo de empezar a escribir.
+> * Para salir del editor vi hacemos lo siguiente:
+>     1. Pulsar la tecla `ESC`.
+>     2. Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
+
+* `crontab -e`, se nos abre un editor para configurar crontab.
+
 
 > Información para configurar crontab:
 > * m: minuto
@@ -222,9 +230,7 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45.
 
-* Para salir del editor vi hacemos lo siguiente:
-    * Pulsar la tecla `ESC`.
-    * Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
+
 * `crontab -l`, consultar que las tareas están programadas correctamente.
 * Esperar a que se ejecute la copia de seguridad programada con crontab.
 * `vdir /home/user/`, para comprobar que existe el fichero con la fecha esperada.
