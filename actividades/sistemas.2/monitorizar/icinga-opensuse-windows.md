@@ -45,6 +45,7 @@ Supongamos que tenemos el siguiente esquema de red:
 A fecha de 2-4-2020 se ha creado un script de instalación para automatizar los pasos:
 2.X, 3.1, 3.2, 3.3, 3.5 y 3.6. Por tanto, si se ejecuta el script, podemos saltar directamente al paso 3.7.
 
+* Abrimos sesión como usuario root.
 * Descargar los siguientes ficheros en la carpeta `/root` de la máquina monitor.
     1. Script de instalación: [icinga-instalar.sh](files/icinga-instalar.sh)
     1. Fichero SQL: [icinga-crear-bd.sql](files/icinga-crear-bd.sql)
