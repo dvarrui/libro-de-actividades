@@ -47,8 +47,8 @@ A fecha de 2-4-2020 se ha creado un script de instalación para automatizar los 
 
 * Abrimos sesión como usuario root.
 * Descargar los siguientes ficheros en la carpeta `/root` de la máquina monitor.
-    1. Script de instalación: [icinga-instalar.sh](files/icinga-instalar.sh) [Descarga](https://raw.githubusercontent.com/dvarrui/libro-de-actividades/master/actividades/sistemas.2/monitorizar/files/icinga-instalar.sh))
-    1. Fichero SQL: [icinga-crear-bd.sql](files/icinga-crear-bd.sql) [Descarga](https://raw.githubusercontent.com/dvarrui/libro-de-actividades/master/actividades/sistemas.2/monitorizar/files/icinga-crear-bd.sql)
+    1. Script de instalación: [icinga-instalar.sh](files/icinga-instalar.sh) ([Descarga](https://raw.githubusercontent.com/dvarrui/libro-de-actividades/master/actividades/sistemas.2/monitorizar/files/icinga-instalar.sh))
+    1. Fichero SQL: [icinga-crear-bd.sql](files/icinga-crear-bd.sql) ([Descarga](https://raw.githubusercontent.com/dvarrui/libro-de-actividades/master/actividades/sistemas.2/monitorizar/files/icinga-crear-bd.sql))
 * `cd /root`
 * `chmod +x icinga-instalar.sh`, dar permisos de ejecución al fichero.
 * `./icinga-instalar.sh`, ejecutar el script.
