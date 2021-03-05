@@ -183,6 +183,11 @@ Servicios para los routers:
 > * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-linux.html
 > * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-windows.html
 
+Enlaces de interés:
+* [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
+* [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
+* [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
+
 ## 5.1 Documentación
 
 Por ahora el servidor Nagios sólo puede obtener la información que los
@@ -193,23 +198,11 @@ tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno.
 El agente es una especie de "chivato" que nos puede dar datos de:
 Consumo CPU, consumo de memoria, consumo de disco, etc.
 
-Aquí vemos un ejemplo del estado de los "servicios internos" monitorizados,
-en el host "localhost". Con la instalación de los "agentes",
-podremos tener esta información desde los clientes remotos.
-
-![nagios3-details](./images/nagios3-details.png)
-
-Enlaces de interés:
-* [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
-* [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
-* [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
-
 ## 5.2 Instalar y configurar el Agente1 (cliente1)
 
 En el agente1 (cliente GNU/Linux):
 * Vamos a instalar el agente nagios en la máquina cliente. Hay que instalar los siguientes paquetes: (1)
 `paquete NRPE server` y (2) los `plugin básicos`.
-    * Pista: `apt-get update` y luego `apt-get install ...` o bien usar el gestor de paquetes.
 * Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
 
 > Tenemos dos ficheros donde podemos configurar NRPE del agente: `nrpe.cfg` y `nrpe_local.cfg`.
@@ -418,66 +411,6 @@ define service{
 * Reiniciar el servicio.
 * Consultar los `servicios` monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
 
----
-
-# 7. Monit en el Servidor
-
-* Instalar Monit en MV Debian1.
-* Renombrar el fichero `/etc/monit/monitrc` a `/etc/monit/monitrc.bak`.
-* Copiar el fichero de ejemplo proporcionado por el profesor a la ruta `/etc/monit/monitrc`.
-* Veamos un ejemplo:
-
-```
- # Fichero /etc/monit/monirc de ejemplo
- # config general
-set daemon 120
-set logfile /var/log/monit.log
-set mailserver localhost
-
- # Plantilla de email que se envía en las alertas
-set alert nombreusuarios@correousuario.com
-set mail-format {
-  from: ALUMNO@EMAIL.ES
-  subject: $SERVICE $EVENT at $DATE
-  message: Monit $ACTION $SERVICE at $DATE on $HOST: $DESCRIPTION.
-  Yours sincerely, monit
-}
-
-set httpd port 2812 and use address localhost
-allow NOMBRE_ALUMNO:CLAVE_ALUMNO
-
- # Monitorizar los recursos del sistema
-check system localhost
-if loadavg (1min) > 4 then alert
-if loadavg (5min) > 2 then alert
-if memory usage > 75% then alert
-if cpu usage (user) > 70% then alert
-if cpu usage (system) > 30% then alert
-if cpu usage (wait) > 20% then alert
-
- # Monitorizar el servicio SSH
-check process sshd with pidfile /var/run/sshd.pid
-start program "/bin/systemctl start sshd"
-stop program  "/bin/systemctl stop sshd"
-if failed port 22 protocol ssh then restart
-if 5 restarts within 5 cycles then timeout
-```
-
-* Modificar el fichero /etc/monit/monitrc para adaptarlo a nuestra máquina.
-    * Cuando aparece un texto como $TEXTO, esto es una variable.
-* Reiniciamos el servicio para que coja los cambios de configuración:
-    * `systemctl stop monit`, parar.
-    * `systemctl start monit`, reiniciamos el servicio.
-* `systemctl status monit`, comprobamos que el servicio está en ejecución.
-    * En caso de error podemos comprobar la sintaxis del fichero de configuración
-    de monit con `/usr/bin/monit -t /etc/monit/monitrc`.
-    * Para las opciones del comando monit hacemos `/usr/bin/monit -h`
-* Comprobar la lectura de datos de monit vía comandos: `monit status`
-* Comprobar la lectura de datos de monit vía GUI.
-    * Abrir un navegador web en la propia máquina, y poner URL `http://localhost:2812`.
-    * Escribir nombreusuario/claveusuario de monit (Según hayamos configurado en monitrc).
-
----
 
 # ANEXO
 
@@ -520,99 +453,4 @@ define service{
   service_description Uptime
   check_command       check_nt!UPTIME
 }
-```
-
-## A.2 Para revisar
-
-```
-define host{
-host_name winserver
-alias Windows XP del profesor
-address 172.16.108.250
-check_command check-host-alive
-check_interval 5
-retry_interval 1
-max_check_attempts 1
-check_period 24x7
-hostgroups aula108
-icon_image cook/windows_pc.png
-statusmap_image cook/windows_pc.png
-}
-
-
-define service{
-use generic-service
-host_name winserver
-service_description CPU Load
-check_command check_nt!CPULOAD!-l 5,80,90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description Memory Usage
-check_command check_nt!MEMUSE!-w 80 -c 90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description C:\ Drive Space
-check_command check_nt!USEDDISKSPACE!-l c -w 80 -c 90
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description W3SVC
-check_command check_nt!SERVICESTATE!-d SHOWALL -l W3SVC
-}
-
-define service{
-use generic-service
-host_name winserver
-service_description Explorer
-check_command check_nt!PROCSTATE!-d SHOWALL -l Explorer.exe
-}
-```
-
-## A.3 Configuraciones de ejemplo
-
-```
-define host{
-host_name leela
-alias Servidor LEELA
-address 192.168.1.3
-check_command check-host-alive
-check_interval 5
-retry_interval 1
-max_check_attempts 1
-check_period 24x7
-process_perf_data 0
-retain_nonstatus_information 0
-hostgroups servers, http-servers, ssh-servers
-contact_groups admins
-notification_interval 30
-notification_period 24x7
-notification_options d,u,r
-icon_image cook/server.png
-statusmap_image cook/server.png
-parents fry
-}
-
-    #Define router
-    define host{
-    host_name router
-    alias Router1
-    address 192.168.1.1
-    check_command check-host-alive
-    check_interval 5
-    retry_interval 1
-    max_check_attempts 1
-    check_period 24x7
-    contact_groups admins
-    icon_image cook/server.png
-    statusmap_image cook/server.png
-    parents fry
-    }
 ```
