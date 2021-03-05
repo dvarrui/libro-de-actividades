@@ -114,10 +114,9 @@ define host{
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 
-
 Comprobamos:
-* Consultar la lista de `hosts` monitorizados por Nagios.
 * `systemctl reload nagios`
+* Consultar la lista de `hosts` monitorizados por Nagios.
 
 > **Si tenemos PROBLEMAS**
 >
@@ -125,7 +124,6 @@ Comprobamos:
 la configuración que hemos añadido:
 > * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
 > * Consultar log `/var/log/nagios3/nagios.log`.
-
 
 # -----------------------
 # PENDIENTE DE ACTUALIZAR
