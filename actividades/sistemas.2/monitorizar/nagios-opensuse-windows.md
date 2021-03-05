@@ -141,8 +141,12 @@ la configuración que hemos añadido:
 
 > Enlace de interés:
 > * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/objectdefinitions.html
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-publicservices.html
 
-* Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh). Consultar la plantilla que se muestra a contonuación:
+Para monitorizar los servicios, necesitamos usar los "Comandos" de Nagios que a su vez invocan a los plugins (`/usr/lib/nagios/plugins`).
+
+Servicios para los servidores:
+* Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_command = check_http) y SSH (check_command = check_ssh). Consultar la plantilla que se muestra a continuación:
 
 ```
 define service{
@@ -155,10 +159,15 @@ define service{
 	check_period		    24x7
 }
 ```
+* Añadir al fichero de `servidoresXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
-* Añadir al fichero de `routersXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh).
+Servicios para los routers:
+* Añadir al fichero de `routersXX.cfg` la configuración del "Servicio Web" (check_command = check_http).
+    * Para simplificar, se puede crear un mismo servicio asociado para varios Host con `host_name benderXX, caronteXX`.
+* Añadir al fichero de `routersXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
+   * Para simplificar, se puede crear un mismo servicio asociado para varios Host con `host_name benderXX, caronteXX`.
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
