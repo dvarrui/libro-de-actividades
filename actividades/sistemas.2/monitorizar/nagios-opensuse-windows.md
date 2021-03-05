@@ -27,11 +27,11 @@ Supongamos que tenemos el siguiente esquema de red:
 
 ![](images/esquema-red.png)
 
-| Host    | IP          |
-| ------- | ----------- |
-| Leela   | 172.20.1.2  |
-| Bender  | 172.18.0.1  |
-| Caronte | 192.168.1.1 |
+| Host    | IP          | Grupo      |
+| ------- | ----------- | ---------- |
+| Leela   | 172.20.1.2  | Servidores |
+| Bender  | 172.18.0.1  | Routers    |
+| Caronte | 192.168.1.1 | Routers    |
 
 ---
 
