@@ -142,7 +142,7 @@ la configuración que hemos añadido:
 > Enlace de interés:
 > * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/objectdefinitions.html
 
-* Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh):
+* Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh). Consultar la plantilla que se muestra a contonuación:
 
 ```
 define service{
@@ -155,6 +155,10 @@ define service{
 	check_period		    24x7
 }
 ```
+* `systemctl reload nagios`
+* Consultar la lista de `Services` monitorizados por Nagios.
+
+* Añadir al fichero de `routersXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh).
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
