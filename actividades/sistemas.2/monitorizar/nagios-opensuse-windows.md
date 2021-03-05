@@ -48,12 +48,6 @@ Supongamos que tenemos el siguiente esquema de red:
 * Ponemos el usuario/clave, y ya podemos interactuar con el programa de monitorización.
 * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*, podemos comporbar que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
-
-# -----------------------
-# PENDIENTE DE ACTUALIZAR
-# -----------------------
-
-
 # 3. Configurar el monitorizador
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar varios
@@ -61,29 +55,37 @@ routers, un servidor y varios clientes.
 
 ## 3.1 Directorio personal
 
-* Creamos el directorio `/etc/nagios3/nombre-del-alumno.d`, para
+* Creamos el directorio `/etc/nagios/nombre-del-alumno.d`, para
 guardar nuestras configuraciones.
 * Modificamos fichero de configuración principal `/etc/nagios3/nagios.cfg`,
-y añadiremos la siguiente línea: `cfg_dir=/etc/nagios3/nombre-del-alumno.d`,
+y añadiremos la siguiente línea: `cfg_dir=/etc/nagios/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
+* `systemctl reload nagios`, para que Nagios vuelva a leer los ficheros de configuración.
 
 ## 3.2 Grupos
 
 Cuando se tienen muchos *hosts* es más cómodo agruparlos.
 Los grupos los definimos con `hostgroup`.
 
-* Vamos crear varios `hostgroup`:
-    * Sustituir XX por el identificador del alumno.
-    * Creamos el fichero `/etc/nagios3/nombre-del-alumno.d/gruposXX.cfg`.
-    * Hay que definir 3 grupos de equipos: `routersXX`, `servidoresXX` y `clientesXX`.
-    * Veamos un ejemplo (no sirve copiarlo) para definir un grupo:
+Vamos crear varios `hostgroup`:
+* Sustituir XX por el identificador del alumno.
+* Creamos el fichero `/etc/nagios/nombre-del-alumno.d/gruposXX.cfg`.
+* Hay que definir 3 grupos de equipos: `routersXX`, `servidoresXX` y `clientesXX`.
+* Veamos un ejemplo (no sirve copiarlo) para definir un grupo:
 
 ```
 define hostgroup {
-  hostgroup_name NOMBRE_DEL_GRUPO
-  alias          NOMBRE_DEL_GRUPO
+  hostgroup_name   NOMBRE_DEL_GRUPO
+  alias            NOMBRE_DEL_GRUPO
 }
 ```
+
+
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
+
+
 
 ## 3.3 Hosts
 
