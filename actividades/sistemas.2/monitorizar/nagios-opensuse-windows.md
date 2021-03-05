@@ -137,7 +137,8 @@ la configuración que hemos añadido:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
-## 3.4. Configurar Servicios
+---
+# 4. Configurar servicios
 
 > Enlace de interés:
 > * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/objectdefinitions.html
@@ -177,6 +178,10 @@ Servicios para los routers:
 
 
 # 5. Agente Nagios GNU/Linux
+
+> Enlaces de interés:
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-linux.html
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-windows.html
 
 ## 5.1 Documentación
 
