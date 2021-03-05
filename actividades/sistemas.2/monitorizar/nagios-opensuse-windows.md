@@ -125,41 +125,23 @@ la configuración que hemos añadido:
 > * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
 > * Consultar log `/var/log/nagios3/nagios.log`.
 
-# -----------------------
-# PENDIENTE DE ACTUALIZAR
-# -----------------------
+### Routers
 
-
-### Servidores
-
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servidoresXX.cfg`.
-* Definir las máquinas de tipo servidor.
-    * Hosts: `leelaXX` (172.20.1.2)
-* Todos los host servidores deben ser miembros de servidoresXX, http-servers, ssh-servers.
-* El equipo leelaXX tiene como parent a benderXX.
-* Reiniciamos Nagios. Si hay problemas, consultar el apartado anterior de cómo revisar los problemas.
-* Consultar la lista de hosts monitorizados por Nagios.
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/routersXX.cfg`.
+* Definir los hosts Bender y Caronte.
+* `systemctl reload nagios`
+* Consultar la lista de `hosts` monitorizados por Nagios.
 
 ### Clientes
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/clientesXX.cfg`.
-* Definir las siguientes máquinas de tipo cliente.
-    * Hosts: `agenteXXn1` (SO GNU/Linux), y el `agenteXXn2` (SO Windows).
-* Veamos un ejemplo (no sirve copiar) de cómo definir un host:
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/clientesXX.cfg`.
+* Definir los hosts clientes.
+* `systemctl reload nagios`
+* Consultar la lista de `hosts` monitorizados por Nagios.
 
-```
-define host{
-  use        generic-host
-  host_name  NOMBRE_HOST
-  alias      NOMBRE_LARGO_DEL_HOST
-  address    IP_DEL_HOST
-  hostgroups GRUPO_AL_QUE_PERTENECE
-}
-```
-
-* Personalizar los parámetros: host_name, alias, address y hostgroups.
-* Reiniciamos Nagios para que coja los cambios y comprobamos (`systemctl status nagios3`).
-* Consultar el `mapa` y la lista de `hosts` monitorizados por Nagios.
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
 
 ---
 
