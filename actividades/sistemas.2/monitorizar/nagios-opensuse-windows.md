@@ -64,60 +64,9 @@ y añadiremos la siguiente línea: `cfg_dir=/etc/nagios/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 * `systemctl reload nagios`, para que Nagios vuelva a leer los ficheros de configuración.
 
-## 3.2 Grup---
+## 3.2 Grupos
 
-# 4 Ver algunos ejemplos
-
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-* El verde significa OK.
-* El rojo que el equipo presenta algún problema y requiere atención.
-
-![nagios3-hosts](./images/nagios3-hosts.png)
-
-Además podemos tener una visión completa de la red en la opción "map".
-
-![nagios3-map](./images/nagios3-map.png)
-
-* Consulta la lista de hosts, el mapa de Nagios.
-
----
-os
-
-Cuando se t---
-
-# 4 Ver algunos ejemplos
-
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-* El verde significa OK.
-* El rojo q---
-
-# 4 Ver algunos ejemplos
-
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-* El verde significa OK.
-* El rojo que el equipo presenta algún problema y requiere atención.
-
-![nagios3-hosts](./images/nagios3-hosts.png)
-
-Además podemos tener una visión completa de la red en la opción "map".
-
-![nagios3-map](./images/nagios3-map.png)
-
-* Consulta la lista de hosts, el mapa de Nagios.
-
----
-ue el equipo presenta algún problema y requiere atención.
-
-![nagios3-hosts](./images/nagios3-hosts.png)
-
-Además podemos tener una visión completa de la red en la opción "map".
-
-![nagios3-map](./images/nagios3-map.png)
-
-* Consulta la lista de hosts, el mapa de Nagios.
-
----
-ienen muchos *hosts* es más cómodo agruparlos.
+Cuando se tienen muchos *hosts* es más cómodo agruparlos.
 Los grupos los definimos con `hostgroup`.
 
 Vamos crear varios `hostgroup`:
@@ -140,24 +89,7 @@ define hostgroup {
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servidoresXX.cfg`.
 * Definir el Host Leela usando la plantilla siguiente (Es una platilla de ejemplo. No sirve copiarlo):
 
-```---
-
-# 4 Ver algunos ejemplos
-
-A continuación vemos una imagen donde se muestran los hosts que estamos monitorizando.
-* El verde significa OK.
-* El rojo que el equipo presenta algún problema y requiere atención.
-
-![nagios3-hosts](./images/nagios3-hosts.png)
-
-Además podemos tener una visión completa de la red en la opción "map".
-
-![nagios3-map](./images/nagios3-map.png)
-
-* Consulta la lista de hosts, el mapa de Nagios.
-
----
-
+```
 define host{
   host_name          NOMBRE_DEL_HOST
   alias              NOMBRE_LARGO_DEL_HOST
@@ -207,8 +139,7 @@ la configuración que hemos añadido:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
-## 3.4. Configurar Servicios
-
+# 4. Configurar Servicios
 
 # -----------------------
 # PENDIENTE DE ACTUALIZAR
