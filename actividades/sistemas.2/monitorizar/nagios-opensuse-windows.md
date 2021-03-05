@@ -118,12 +118,10 @@ Comprobamos:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
-> **Si tenemos PROBLEMAS**
->
-> Si tenemos problemas al iniciar Nagios, entonces casi seguro tenemos un error en
+> **Si tenemos problemas** al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
 > * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
-> * Consultar log `/var/log/nagios3/nagios.log`.
+> * Consultar log `/var/log/nagios/nagios.log`.
 
 ### Routers
 
@@ -139,7 +137,26 @@ la configuración que hemos añadido:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
-# 4. Configurar Servicios
+## 3.4. Configurar Servicios
+
+> Enlace de interés:
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/objectdefinitions.html
+
+* Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_http) y SSH (check_ssh):
+
+```
+define service{
+	host_name		        leelaXX
+	service_description	Servidor Web
+	check_command		    check_http
+	max_check_attempts	5
+	check_interval	    5
+	retry_interval	    3
+	check_period		    24x7
+}
+```
+* `systemctl reload nagios`
+* Consultar la lista de `Services` monitorizados por Nagios.
 
 # -----------------------
 # PENDIENTE DE ACTUALIZAR
