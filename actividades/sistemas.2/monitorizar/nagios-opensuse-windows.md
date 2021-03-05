@@ -80,16 +80,9 @@ define hostgroup {
 }
 ```
 
-
-# -----------------------
-# PENDIENTE DE ACTUALIZAR
-# -----------------------
-
-
-
 ## 3.3 Hosts
 
-### Routers
+### Servidores
 
 * Veamos una platilla de ejemplo (no sirve copiarlo):
 ```
@@ -98,9 +91,6 @@ define host{
   alias              NOMBRE_LARGO_DEL_HOST
   address            IP_DEL_HOST
   hostgroups         GRUPO_AL_QUE_PERTENECE, OTRO_GRUPO, OTRO_MAS
-  icon_image         cook/NOMBRE_IMAGEN.png
-  statusmap_image    cook/NOMBRE_IMAGEN.png
-  #parents
 
   check_command      check-host-alive
   check_interval     5
@@ -119,38 +109,26 @@ define host{
 > * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
-> * [Más información sobre los parámetros](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 
-* Crear el fichero `/etc/nagios3/nombre-del-alumno.d/routersXX.cfg`.
-* Definir las siguientes máquinas de tipo router usando la plantilla(ejemplo) anterior.
-    * Hosts: router `benderXX` (172.19.0.1) y el router `caronteXX` (192.168.1.1).
-* Los host serán miembros también de los grupos `http-servers`, `ssh-servers`. NOTA:
-Los grupos `http-servers` y `ssh-servers` ya están predefinidos en Nagios.
-* El router `caronteXX` tiene como padre (parent) a `benderXX`.
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servidoresXX.cfg`.
+* Definir el Host Leela usando la plantilla anterior.
 
-### Comprobamos
-
-A continuación se muestran los comandos para manejar servicios:
-
-| Comando systemctl | Comando service | Descripción |
-| ----------------- | --------------- | ----------- |
-| `systemctl status nagios3` | `service nagios3 status` | muestra el estado actual del servicio|
-| `systemctl stop nagios3` | `service nagios3 stop` | detiene el servicio |
-| `systemctl start nagios3` | `service nagios3 start` | arranca el servicio |
-| `systemctl restart nagios3` | `service nagios3 restart` | hace un stop y un start del servicio |
-| `systemctl reload nagios3` | `service nagios3 reload` | se vuelven a leer los ficheros de configuración del servicio |
-
-* Reiniciamos el servicio de Nagios para que coja los cambios en la configuración.
-* Comprobamos si el servicio está activo `systemctl status nagios3`.
+Comprobamos:
+* Consultar la lista de `hosts` monitorizados por Nagios.
+* `systemctl reload nagios`
 
 > **Si tenemos PROBLEMAS**
 >
 > Si tenemos problemas al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
-> * `/usr/sbin/nagios3 -v /etc/nagios3/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios3.
+> * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
 > * Consultar log `/var/log/nagios3/nagios.log`.
 
-* Consultar la lista de `hosts` monitorizados por Nagios.
+
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
+
 
 ### Servidores
 
