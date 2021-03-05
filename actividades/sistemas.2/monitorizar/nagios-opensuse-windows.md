@@ -23,10 +23,6 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 | MV2 | clientXXg | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV3 | clientXXw | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
 
-Supongamos que tenemos el siguiente esquema de red:
-
-![](images/esquema-red.png)
-
 ---
 
 # 2. Instalar el monitorizador Nagios
@@ -54,6 +50,10 @@ routers, un servidor y varios clientes.
 | Caronte    | 192.168.1.1  | Routers    |
 | clienteXXg | 172.AA.XX.31 | Clientes   |
 | clienteXXw | 172.AA.XX.11 | Clientes   |
+
+Supongamos que tenemos el siguiente esquema de red:
+
+![](images/esquema-red.png)
 
 ## 3.1 Directorio personal
 
