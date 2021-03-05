@@ -27,12 +27,6 @@ Supongamos que tenemos el siguiente esquema de red:
 
 ![](images/esquema-red.png)
 
-| Host    | IP          | Grupo      |
-| ------- | ----------- | ---------- |
-| Leela   | 172.20.1.2  | Servidores |
-| Bender  | 172.18.0.1  | Routers    |
-| Caronte | 192.168.1.1 | Routers    |
-
 ---
 
 # 2. Instalar el monitorizador Nagios
@@ -52,6 +46,14 @@ Supongamos que tenemos el siguiente esquema de red:
 
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar varios
 routers, un servidor y varios clientes.
+
+| Host       | IP           | Grupo      |
+| ---------- | ------------ | ---------- |
+| Leela      | 172.20.1.2   | Servidores |
+| Bender     | 172.18.0.1   | Routers    |
+| Caronte    | 192.168.1.1  | Routers    |
+| clienteXXg | 172.AA.XX.31 | Clientes   |
+| clienteXXw | 172.AA.XX.11 | Clientes   |
 
 ## 3.1 Directorio personal
 
