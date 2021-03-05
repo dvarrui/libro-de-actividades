@@ -86,7 +86,9 @@ define hostgroup {
 
 ### Servidores
 
-* Veamos una platilla de ejemplo (no sirve copiarlo):
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servidoresXX.cfg`.
+* Definir el Host Leela usando la plantilla siguiente (Es una platilla de ejemplo. No sirve copiarlo):
+
 ```
 define host{
   host_name          NOMBRE_DEL_HOST
@@ -112,8 +114,6 @@ define host{
 >   Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 
-* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servidoresXX.cfg`.
-* Definir el Host Leela usando la plantilla anterior.
 
 Comprobamos:
 * Consultar la lista de `hosts` monitorizados por Nagios.
