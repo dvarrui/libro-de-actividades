@@ -176,7 +176,6 @@ Servicios para los routers:
 # PENDIENTE DE ACTUALIZAR
 # -----------------------
 
-
 # 5. Agente Nagios GNU/Linux
 
 > Enlaces de interés:
