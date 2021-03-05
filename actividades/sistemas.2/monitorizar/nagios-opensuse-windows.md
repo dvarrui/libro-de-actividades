@@ -48,7 +48,11 @@ Supongamos que tenemos el siguiente esquema de red:
 * Ponemos el usuario/clave, y ya podemos interactuar con el programa de monitorización.
 * Si vamos a las opciones del menú izquierdo *"Hosts"* y *"Services"*, podemos comporbar que ya estamos monitorizando nuestro propio equipo *"localhost"*.
 
----
+
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
+
 
 # 3. Configurar el monitorizador
 
