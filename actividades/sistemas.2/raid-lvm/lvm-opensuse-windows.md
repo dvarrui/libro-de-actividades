@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201920
+Curso           : 202021, 201920
 Area            : Sistemas Operativos, almacenamiento, volúmenes
 Descripción     : Gestión de volúmenes lógicos con varios SSOO.
 Requisitos      : SO OpenSUSE (Yast) y Windows
@@ -214,7 +214,7 @@ vgreduce grupoXXextra /dev/sdc3
 
 ```
 lsblk
-vgdisplay
+vgdisplay grupoXXextra
 lvdisplay grupoXXextra
 ```
 * Ahora podemos a quitar el disco `/dev/sdc` de la MV sin problemas.
