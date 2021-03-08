@@ -219,21 +219,21 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 > * dom: día de la semana (0=domingo, 1=lunes, etc)
 > * Comando a ejecutar
 
-* Escribir algo parecido a lo siguiente, cambiando `user` por nuestro usuario:
+* Escribir algo parecido a lo siguiente, cambiando `alumno` por el nombre del alumno:
+
 ```
-45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/user/mydocs
-45 10 * * 2   tar cvfz /home/user/crontabXX-mar.tar.gz /home/user/mydocs
-45 10 * * 3   tar cvfz /home/user/crontabXX-mie.tar.gz /home/user/mydocs
-45 10 * * 4   tar cvfz /home/user/crontabXX-jue.tar.gz /home/user/mydocs
-45 10 * * 5   tar cvfz /home/user/crontabXX-vie.tar.gz /home/user/mydocs
+45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/alumno/mydocs
+45 10 * * 2   tar cvfz /home/alumno/crontabXX-mar.tar.gz /home/alumno/mydocs
+45 10 * * 3   tar cvfz /home/alumno/crontabXX-mie.tar.gz /home/alumno/mydocs
+45 10 * * 4   tar cvfz /home/alumno/crontabXX-jue.tar.gz /home/alumno/mydocs
+45 10 * * 5   tar cvfz /home/alumno/crontabXX-vie.tar.gz /home/alumno/mydocs
 ```
 
-Esta configuración programa una copia de seguridad del directorio `/home/user/mydocs` a las 10:45.
-
+Esta configuración programa una copia de seguridad del directorio `/home/alumno/mydocs` a las 10:45.
 
 * `crontab -l`, consultar que las tareas están programadas correctamente.
 * Esperar a que se ejecute la copia de seguridad programada con crontab.
-* `vdir /home/user/`, para comprobar que existe el fichero con la fecha esperada.
+* `vdir /home/alumno/`, para comprobar que existe el fichero con la fecha esperada.
 
 ---
 # 5. Copias diferenciales
