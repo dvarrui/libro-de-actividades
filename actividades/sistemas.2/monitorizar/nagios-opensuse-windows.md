@@ -23,8 +23,6 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 | MV2 | clientXXg | 172.AA.XX.32 |[OpenSUSE](../../global/configuracion/opensuse.md)|
 | MV3 | clientXXw | 172.AA.XX.11 |[Windows](../../global/configuracion/windows.md)|
 
----
-
 # 2. Instalar el monitorizador Nagios
 
 * `zypper install nagios monitoring-plugings-nagios perl-Nagios-Plugin`
@@ -43,13 +41,13 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar varios
 routers, un servidor y varios clientes.
 
-| Host       | IP           | Grupo      |
-| ---------- | ------------ | ---------- |
-| Leela      | 172.20.1.2   | Servidores |
-| Bender     | 172.18.0.1   | Routers    |
-| Caronte    | 192.168.1.1  | Routers    |
-| clienteXXg | 172.AA.XX.31 | Clientes   |
-| clienteXXw | 172.AA.XX.11 | Clientes   |
+| Host       | IP           | Grupo        |
+| ---------- | ------------ | ------------ |
+| leelaXX    | 172.20.1.2   | servidoresXX |
+| benderXX   | 172.18.0.1   | routersXX    |
+| caronteXX  | 192.168.1.1  | routersXX    |
+| clienteXXg | 172.AA.XX.31 | clientesXX   |
+| clienteXXw | 172.AA.XX.11 | clientesXX   |
 
 Supongamos que tenemos el siguiente esquema de red:
 
@@ -109,9 +107,8 @@ define host{
 > * host_name: Nombre del host
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
-> * hostgroups: Grupos a los que pertenece
-> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`.
->   Poner a cada host una imagen que lo represente.
+> * hostgroups: Grupos a los que pertenece separados por comas.
+> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`. Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 
 Comprobamos:
@@ -126,14 +123,14 @@ la configuración que hemos añadido:
 ### Routers
 
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/routersXX.cfg`.
-* Definir los hosts Bender y Caronte.
+* Definir los hosts benderXX y caronteXX.
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
 ### Clientes
 
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/clientesXX.cfg`.
-* Definir los hosts clientes.
+* Definir los hosts clienteXXg y clienteXXw.
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
@@ -146,7 +143,8 @@ la configuración que hemos añadido:
 
 Para monitorizar los servicios, necesitamos usar los "Comandos" de Nagios que a su vez invocan a los plugins (`/usr/lib/nagios/plugins`).
 
-Servicios para los servidores:
+**Servicios para los servidores:**
+
 * Añadir al fichero de `servidoresXX.cfg` la configuración del servicio HTTP (check_command = check_http) y SSH (check_command = check_ssh). Consultar la plantilla que se muestra a continuación:
 
 ```
@@ -160,11 +158,13 @@ define service{
 	check_period		    24x7
 }
 ```
+
 * Añadir al fichero de `servidoresXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
-Servicios para los routers:
+**Servicios para los routers:**
+
 * Añadir al fichero de `routersXX.cfg` la configuración del "Servicio Web" (check_command = check_http).
     * Para simplificar, se puede crear un mismo servicio asociado para varios Host con `host_name benderXX, caronteXX`.
 * Añadir al fichero de `routersXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
@@ -178,31 +178,26 @@ Servicios para los routers:
 
 # 5. Agente Nagios GNU/Linux
 
-> Enlaces de interés:
-> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-linux.html
-> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-windows.html
-
 Enlaces de interés:
-* [install-nagios-nrpe-client-and-plugins-in-ubuntudebian](https://viewsby.wordpress.com/2013/02/14/install-nagios-nrpe-client-and-plugins-in-ubuntudebian/)
+* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-linux.html
+* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-windows.html
 * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
 * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 ## 5.1 Documentación
 
 Por ahora el servidor Nagios sólo puede obtener la información que los
-equipos dejan ver desde el exterior.
+equipos dejan ver desde el exterior. Cuando queremos obtener más información del interior los hosts,
+tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno. El agente
+es una especie de "chivato" que nos puede dar datos de: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
-Cuando queremos obtener más información del interior los hosts,
-tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno.
-El agente es una especie de "chivato" que nos puede dar datos de:
-Consumo CPU, consumo de memoria, consumo de disco, etc.
-
-## 5.2 Instalar y configurar el Agente1 (cliente1)
+## 5.2 Instalar y configurar el Agente1 en el cliente GNU/Linux
 
 En el agente1 (cliente GNU/Linux):
-* Vamos a instalar el agente nagios en la máquina cliente. Hay que instalar los siguientes paquetes: (1)
-`paquete NRPE server` y (2) los `plugin básicos`.
-* Editar el fichero `/etc/nagios/nrpe.cfg` del cliente y modificar lo siguiente:
+* Vamos a instalar el agente nagios en la máquina cliente.
+    * Paquete NRPE server `zypper install nrpe`
+    * Plugins NRPE `zypper install monitoring-plugins-nrpe`.
+* Editar el fichero `/etc/.../nrpe.cfg` del cliente y modificar lo siguiente:
 
 > Tenemos dos ficheros donde podemos configurar NRPE del agente: `nrpe.cfg` y `nrpe_local.cfg`.
 > En teoría las configuraciones locales las debemos hacer en nrpe_local.cfg para ser más ordenados.
@@ -238,6 +233,7 @@ command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
 command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
 
 ```
+
 * Reiniciar el servicio en el cliente:
     * Pista `systemctl ... nagios-nrpe-server`
 
