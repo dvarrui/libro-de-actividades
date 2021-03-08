@@ -15,8 +15,8 @@ Ejemplo de rúbrica:
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
 | (1.3) Comprobación instalación LVM | | | |
-| (2.2) Comprobamos | | | |
-| (3.6) Comprobamos | | | |
+| (2.1) Ampliar y (2.2) comprobar | | | |
+| (3.5) Quitar disco físico y (3.6) comprobar | | | |
 | (4.1) Volumen distribuido | | |. |
 
 ---
@@ -213,6 +213,7 @@ vgreduce grupoXXextra /dev/sdc3
 * Comprobamos lo que tenemos:
 
 ```
+lsblk
 vgdisplay
 lvdisplay grupoXXextra
 ```
