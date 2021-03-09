@@ -183,10 +183,6 @@ define service{
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
-# -----------------------
-# PENDIENTE DE ACTUALIZAR
-# -----------------------
-
 # 5. Agente Nagios GNU/Linux
 
 Enlaces de interés:
@@ -208,89 +204,77 @@ En el agente1 (cliente GNU/Linux):
 * Vamos a instalar el agente nagios en la máquina cliente.
     * Paquete NRPE server `zypper install nrpe`
     * Plugins NRPE `zypper install monitoring-plugins-nrpe`.
-* Editar el fichero `/etc/.../nrpe.cfg` del cliente y modificar lo siguiente:
+* Editar el fichero `/etc/nrpe.cfg` del cliente y modificar lo siguiente:
+    * `allowed_hosts=127.0.0.1,::1,IP-DE-NUESTRO-EQUIPO-NAGIOS`
+* `systemctl start nrpe`, iniciar el servicio.
+* `systemctl enable nrpe`
+* Abrir el puerto nrpe en el cortafuegos:
+    * `firewall-cmd --zone=public --permanent --add-service=nrpe`
+    * `firewall-cmd --reload`
 
-> Tenemos dos ficheros donde podemos configurar NRPE del agente: `nrpe.cfg` y `nrpe_local.cfg`.
-> En teoría las configuraciones locales las debemos hacer en nrpe_local.cfg para ser más ordenados.
-
-```
- # define en qué puerto (TCP) escuchará el agente.
- # Por defecto es el 5666.
-server_port=5666
-
- # indica en qué dirección IP escuchará el agente,                              
- # en caso que la MV posea más de una IP.
-server_address=IP-DEL-AGENTE1
-
- # define qué IPs tienen permitido conectarse al agente en busca de datos.
- # Es un parámetro de seguridad para limitar desde qué máquinas se conectan al agente.
-allowed_hosts=127.0.0.1,IP-DE-NUESTRO-EQUIPO-NAGIOS
-
- # Esta variable indica que NO se permite que el agente
- # reciba comandos con parámetros por seguridad.
-dont_blame_nrpe=0
-
- # alias check_user para obtener la cantidad de usuarios logueados
- # y alertar si hay más de 5 logueados al mismo tiempo.
-command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
-
- # alias check_load para obtener la carga de CPU
-command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
-
- #alias check_disk para obtener el espacio disponible en el disco /dev/sda
- # y alertar si queda menos de 20% de espacio en alguna partición.
-command[check_disk]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -x sda
-
-command[check_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
-
-```
-
-* Reiniciar el servicio en el cliente:
-    * Pista `systemctl ... nagios-nrpe-server`
-
-## 5.3 Configurar en el monitorizador
-
-En el servidor Nagios:
-* Vamos a comprobar desde el servidor lo siguiente:
+Ir a la MV del monitor Nagios:
+* Vamos a comprobar desde el monitor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la conexión NRPE hacia el cliente.
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_procs`, para comprobar que el comando check_procs devuelve información desde el agente remoto.
-* A continuación, vamos a definir varios servicios a monitorizar
-   * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-gnulinuxXX.cfg`
-   * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
+
+## 5.3 Configurar servicios internos en el monitorizador
+
+A continuación, vamos a definir varios servicios a monitorizar
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-cliente-linuxXX.cfg`
+* Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
 
 ```
 define service{
-  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Espacio en disco
   check_command       check_nrpe_1arg!check_disk
+
+	max_check_attempts	5
+	check_interval	    5
+	retry_interval	    3
+	check_period		    24x7
 }
 
 define service{
-  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Usuarios actuales
   check_command       check_nrpe_1arg!check_users
+
+  max_check_attempts	5
+	check_interval	    5
+	retry_interval	    3
+	check_period		    24x7
 }
 
 define service{
-  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Procesos totales
   check_command       check_nrpe_1arg!check_procs
+
+  max_check_attempts	5
+	check_interval	    5
+	retry_interval	    3
+	check_period		    24x7
 }
 
 define service{
-  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Carga actual
   check_command       check_nrpe_1arg!check_load
+
+  max_check_attempts	5
+	check_interval	    5
+	retry_interval	    3
+	check_period		    24x7
 }
 ```
 
-* Consultar el estado de los `servicios` monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
+* `systemctl reload nagios`
+* Consultar el estado de los `servicios` monitorizados por Nagios.
 
----
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
 
 # 6. Agente Nagios en Windows
 
