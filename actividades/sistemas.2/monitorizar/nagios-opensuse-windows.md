@@ -212,7 +212,8 @@ En el agente1 (cliente GNU/Linux):
     * `firewall-cmd --zone=public --permanent --add-service=nrpe`
     * `firewall-cmd --reload`
 
-Ir a la MV del monitor Nagios:
+Comprobamos:
+* Ir a la MV del monitor Nagios.
 * Vamos a comprobar desde el monitor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la versión NRPE del equipo cliente.
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_load`, para comprobar que el comando check_load devuelve información desde el agente remoto.
