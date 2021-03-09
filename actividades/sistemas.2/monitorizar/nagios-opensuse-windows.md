@@ -68,7 +68,7 @@ Supongamos que tenemos el siguiente esquema de red:
 
 * Creamos el directorio `/etc/nagios/nombre-del-alumno.d`, para
 guardar nuestras configuraciones.
-* Modificamos fichero de configuración principal `/etc/nagios3/nagios.cfg`,
+* Modificamos fichero de configuración principal `/etc/nagios/nagios.cfg`,
 y añadiremos la siguiente línea: `cfg_dir=/etc/nagios/nombre-del-alumno.d`,
 para que Nagios tenga en cuenta también estos ficheros al iniciarse.
 * `systemctl reload nagios`, para que Nagios vuelva a leer los ficheros de configuración.
