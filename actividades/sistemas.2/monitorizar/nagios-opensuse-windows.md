@@ -26,7 +26,7 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 # 2. Instalar el monitorizador Nagios
 
 * `zypper install nagios monitoring-plugings-nagios perl-Nagios-Plugin`
-* `htpasswd -c /etc/nagios/htpasswd.user nagiosadmin`, crear usuario/clave para acceder a Nagios.
+* `htpasswd -c /etc/nagios/htpasswd.users nagiosadmin`, crear usuario/clave para acceder a Nagios.
     * Usuario: nagiosadmin
     * Clave: Constraseña del usuario
 * `systemctl status nagios`, comprobar que el servicio Nagios está en ejecución.
