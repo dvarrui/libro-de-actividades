@@ -29,7 +29,7 @@ Para esta actividad vamos a necesitar los siguientes MV's:
     * `zypper in apache2`
     * `systemctl start apache2`
     * `systemctl enable apache2`
-* `zypper install nagios monitoring-plugings-nagios perl-Nagios-Plugin`
+* `zypper install nagios monitoring-plugins-nagios perl-Nagios-Plugin`
 * `htpasswd -c /etc/nagios/htpasswd.users nagiosadmin`, crear usuario/clave para acceder a Nagios.
     * Usuario: nagiosadmin
     * Clave: Constraseña del usuario
