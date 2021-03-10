@@ -164,13 +164,13 @@ Para monitorizar los servicios, necesitamos usar los "Comandos" de Nagios que a 
 
 ```
 define service{
-	host_name		        leelaXX
-	service_description	Servidor Web
-	check_command		    check_http
-	max_check_attempts	5
-	check_interval	    5
-	retry_interval	    3
-	check_period		    24x7
+  host_name            leelaXX
+  service_description  Servidor Web
+  check_command        check_http
+  max_check_attempts   5
+  check_interval       5
+  retry_interval       3
+  check_period         24x7
 }
 ```
 
@@ -230,14 +230,14 @@ A continuación, vamos a definir varios servicios a monitorizar
 
 ```
 define service{
-  host_name           NOMBRE_DEL_HOST
-  service_description Carga actual
-  check_command       check_nrpe!check_load
+  host_name            NOMBRE_DEL_HOST
+  service_description  Carga actual
+  check_command        check_nrpe!check_load
 
-  max_check_attempts	5
-	check_interval	    5
-	retry_interval	    3
-	check_period		    24x7
+  max_check_attempts  5
+  check_interval      5
+  retry_interval      3
+  check_period        24x7
 }
 
 define service{
