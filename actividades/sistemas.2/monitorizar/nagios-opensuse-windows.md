@@ -245,7 +245,7 @@ define service{
   service_description Usuarios actuales
   check_command       check_nrpe!check_users
 
-  max_check_attempts	5
+  max_check_attempts  5
 	check_interval	    5
 	retry_interval	    3
 	check_period		    24x7
@@ -256,10 +256,10 @@ define service{
   service_description Procesos totales
   check_command       check_nrpe!check_procs
 
-  max_check_attempts	5
-	check_interval	    5
-	retry_interval	    3
-	check_period		    24x7
+  max_check_attempts  5
+  check_interval      5
+  retry_interval	    3
+  check_period		    24x7
 }
 ```
 
