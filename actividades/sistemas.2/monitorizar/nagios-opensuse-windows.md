@@ -208,11 +208,11 @@ En el agente1 (cliente GNU/Linux):
     * `allowed_hosts=127.0.0.1,::1,IP-DE-NUESTRO-EQUIPO-NAGIOS`
 * `systemctl start nrpe`, iniciar el servicio.
 * `systemctl enable nrpe`
-* Abrir el puerto nrpe en el cortafuegos:
+* Abrir el puerto nrpe en el cortafuegos usando `Yast -> Cortafuegos`, o los comandos siguientes:
     * `firewall-cmd --zone=public --permanent --add-service=nrpe`
     * `firewall-cmd --reload`
 
-Comprobamos:
+Comprobamos la conectividad NRPE entre monitor y cliente:
 * Ir a la MV del monitor Nagios.
 * Vamos a comprobar desde el monitor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la versión NRPE del equipo cliente.
@@ -221,16 +221,16 @@ Comprobamos:
 ## 5.3 Configurar servicios internos en el monitorizador
 
 A continuación, vamos a definir varios servicios a monitorizar
-* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-cliente-linuxXX.cfg`
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-linuxXX.cfg`
 * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
 
 ```
 define service{
   host_name           NOMBRE_DEL_HOST
-  service_description Espacio en disco
-  check_command       check_nrpe_1arg!check_disk
+  service_description Carga actual
+  check_command       check_nrpe!check_load
 
-	max_check_attempts	5
+  max_check_attempts	5
 	check_interval	    5
 	retry_interval	    3
 	check_period		    24x7
@@ -239,7 +239,7 @@ define service{
 define service{
   host_name           NOMBRE_DEL_HOST
   service_description Usuarios actuales
-  check_command       check_nrpe_1arg!check_users
+  check_command       check_nrpe!check_users
 
   max_check_attempts	5
 	check_interval	    5
@@ -250,18 +250,7 @@ define service{
 define service{
   host_name           NOMBRE_DEL_HOST
   service_description Procesos totales
-  check_command       check_nrpe_1arg!check_procs
-
-  max_check_attempts	5
-	check_interval	    5
-	retry_interval	    3
-	check_period		    24x7
-}
-
-define service{
-  host_name           NOMBRE_DEL_HOST
-  service_description Carga actual
-  check_command       check_nrpe_1arg!check_load
+  check_command       check_nrpe!check_procs
 
   max_check_attempts	5
 	check_interval	    5
