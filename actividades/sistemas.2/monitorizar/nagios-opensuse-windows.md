@@ -246,9 +246,9 @@ define service{
   check_command       check_nrpe!check_users
 
   max_check_attempts  5
-	check_interval	    5
-	retry_interval	    3
-	check_period		    24x7
+  check_interval      5
+  retry_interval      3
+	check_period        24x7
 }
 
 define service{
@@ -258,8 +258,8 @@ define service{
 
   max_check_attempts  5
   check_interval      5
-  retry_interval	    3
-  check_period		    24x7
+  retry_interval      3
+  check_period        24x7
 }
 ```
 
