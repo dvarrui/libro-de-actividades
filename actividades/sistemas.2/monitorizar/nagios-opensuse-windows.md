@@ -154,7 +154,7 @@ Ejemplo:
 
 ![](images/nagios4-hosts.png)
 
-## OJO: Si los host no se muestranen verde
+## OJO: Si los host no se muestran en verde
 
 Si los hosts no se muestran en verde (Esto es equipos encendidos y con conectividad),
 entonces debemos revisar si se han instalado los plugins correctamente:
@@ -224,7 +224,7 @@ es una especie de "chivato" que nos puede dar datos de: Consumo CPU, consumo de 
 > * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 En el agente1 (cliente GNU/Linux):
-* Instalamos el agente Nagios en la máquina cliente (Paquete NRPE server): `zypper install nrpe`
+* `zypper install nrpe`, instalamos el agente Nagios en la máquina cliente (Paquete NRPE server).
 * Editar el fichero `/etc/nrpe.cfg` del cliente y modificar lo siguiente:
     * `allowed_hosts=127.0.0.1,::1,IP-DE-NUESTRO-EQUIPO-NAGIOS`
 * `systemctl start nrpe`, iniciar el servicio.
