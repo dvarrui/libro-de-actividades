@@ -161,7 +161,7 @@ entonces debemos revisar si se han instalado los plugins correctamente:
 
 * `vdir /usr/lib/nagios/plugins`, deben aparecer ficheros "check_".
 * En caso contrario debemos instalar:
-    * monitoring-nagios-plugins
+    * monitoring-plugins-nagios
     * monitoring-plugins-ping
     * monitoring-plugins-http
     * monitoring-plugins-ssh
