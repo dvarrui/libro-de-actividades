@@ -242,42 +242,45 @@ Comprobamos la conectividad NRPE entre monitor y cliente:
 
 ## 5.3 Configurar servicios internos en el monitorizador
 
+> Enlaces de interés:
+> * https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-16-04
+
 A continuación, vamos a definir varios servicios a monitorizar
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-linuxXX.cfg`
 * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
 
 ```
-define service{
+define command {
+  command_name   david_check_load
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_load
+}
+define service {
+  use                  generic-service
   host_name            NOMBRE_DEL_HOST
   service_description  Carga actual
-  check_command        check_nrpe check_load
-
-  max_check_attempts  5
-  check_interval      5
-  retry_interval      3
-  check_period        24x7
+  check_command        david_check_load
 }
 
-define service{
+define command {
+  command_name   david_check_users
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_users
+}
+define service {
+  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Usuarios actuales
-  check_command       check_nrpe check_users
-
-  max_check_attempts  5
-  check_interval      5
-  retry_interval      3
-  check_period        24x7
+  check_command       david_check_users
 }
 
+define command {
+  command_name   david_check_procs
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_procs
+}
 define service{
+  use                 generic-service
   host_name           NOMBRE_DEL_HOST
   service_description Procesos totales
-  check_command       check_nrpe check_procs
-
-  max_check_attempts  5
-  check_interval      5
-  retry_interval      3
-  check_period        24x7
+  check_command       david_check_procs
 }
 ```
 
