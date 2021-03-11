@@ -49,7 +49,8 @@ En caso de que nos haya dado Access Forbidden - error 403 (acceso denegado) hace
 
 ![](images/nagios-kohana.png)
 
-* Hecho esto, ejecutaremos este comando para asegurarnos de que Nagios y Apache2 estén activados y el módulo PHP esté activo: `su -c "chkconfig nagios on; chkconfig apache2 on; a2enmod php7"`
+* Nos aseguramos de que Nagios y Apache2 estén activados y el módulo PHP esté activo: `su -c "chkconfig nagios on; chkconfig apache2 on; a2enmod php7"`
+* `systemctl restart apache2`
 
 # 3. Configurar el monitorizador
 
