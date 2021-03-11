@@ -154,6 +154,21 @@ Ejemplo:
 
 ![](images/nagios4-hosts.png)
 
+## OJO: Si los host no se muestranen verde
+
+Si los hosts no se muestran en verde (Esto es equipos encendidos y con conectividad),
+entonces debemos revisar si se han instalado los plugins correctamente:
+
+* `vdir /usr/lib/nagios/plugins`, deben aparecer ficheros "check_".
+* En caso contrario debemos instalar:
+    * monitoring-nagios-plugins
+    * monitoring-plugins-ping
+    * monitoring-plugins-http
+    * monitoring-plugins-ssh
+    * monitoring-plugins-load
+    * monitoring-plugins-users
+    * monitoring-plugins-procs
+
 ---
 # 4. Configurar servicios
 
