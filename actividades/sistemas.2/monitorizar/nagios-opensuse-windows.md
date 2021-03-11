@@ -149,6 +149,10 @@ la configuración que hemos añadido:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
+Ejemplo:
+
+![](images/nagios4-hosts.png)
+
 ---
 # 4. Configurar servicios
 
@@ -174,26 +178,20 @@ define service{
 }
 ```
 
-* Añadir al fichero de `servidoresXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
+* Añadir al fichero de `servidoresXX.cfg` la configuración necesaria para monitorizar el "Servicio SSH" (check_command = check_ssh).
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
 **Servicios para los routers:**
 
-* Añadir al fichero de `routersXX.cfg` la configuración del "Servicio Web" (check_command = check_http).
+* Añadir al fichero de `routersXX.cfg` la configuración necesaria para monitorizar el "Servicio Web" (check_command = check_http).
     * Para simplificar, se puede crear un mismo servicio asociado para varios Host con `host_name benderXX, caronteXX`.
-* Añadir al fichero de `routersXX.cfg` la configuración del "Servicio SSH" (check_command = check_ssh).
+* Añadir al fichero de `routersXX.cfg` la configuración necesaria para monitorizar el "Servicio SSH" (check_command = check_ssh).
    * Para simplificar, se puede crear un mismo servicio asociado para varios Host con `host_name benderXX, caronteXX`.
 * `systemctl reload nagios`
 * Consultar la lista de `Services` monitorizados por Nagios.
 
 # 5. Agente Nagios GNU/Linux
-
-Enlaces de interés:
-* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-linux.html
-* https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/monitoring-windows.html
-* [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
-* [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 ## 5.1 Documentación
 
@@ -203,6 +201,11 @@ tenemos que instalar una utilidad llamada "Agente Nagios" en cada uno. El agente
 es una especie de "chivato" que nos puede dar datos de: Consumo CPU, consumo de memoria, consumo de disco, etc.
 
 ## 5.2 Instalar y configurar el Agente1 en el cliente GNU/Linux
+
+> Enlaces de interés:
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html
+> * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
+> * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 En el agente1 (cliente GNU/Linux):
 * Vamos a instalar el agente nagios en la máquina cliente.
@@ -232,7 +235,7 @@ A continuación, vamos a definir varios servicios a monitorizar
 define service{
   host_name            NOMBRE_DEL_HOST
   service_description  Carga actual
-  check_command        check_nrpe!check_load
+  check_command        check_nrpe check_load
 
   max_check_attempts  5
   check_interval      5
@@ -243,7 +246,7 @@ define service{
 define service{
   host_name           NOMBRE_DEL_HOST
   service_description Usuarios actuales
-  check_command       check_nrpe!check_users
+  check_command       check_nrpe check_users
 
   max_check_attempts  5
   check_interval      5
@@ -254,7 +257,7 @@ define service{
 define service{
   host_name           NOMBRE_DEL_HOST
   service_description Procesos totales
-  check_command       check_nrpe!check_procs
+  check_command       check_nrpe check_procs
 
   max_check_attempts  5
   check_interval      5
@@ -266,14 +269,19 @@ define service{
 * `systemctl reload nagios`
 * Consultar el estado de los `servicios` monitorizados por Nagios.
 
+Ejemplo:
+
+![](images/nagios4-services.png)
+
 # -----------------------
 # PENDIENTE DE ACTUALIZAR
 # -----------------------
 
 # 6. Agente Nagios en Windows
 
-* Enlaces de interés:
-    * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-windows.html
+> Enlaces de interés:
+> * https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-windows.html
+> * [instalacion-de-nagios-como-cliente-en-windows-y-linux](http://www.nettix.com.pe/documentacion/administracion/114-instalacion-de-nagios-como-cliente-en-windows-y-linux)
 
 ## 6.1 Instalar en el Agente 2 (Cliente Windows)
 
