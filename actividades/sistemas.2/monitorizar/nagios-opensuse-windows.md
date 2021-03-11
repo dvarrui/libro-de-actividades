@@ -208,9 +208,7 @@ es una especie de "chivato" que nos puede dar datos de: Consumo CPU, consumo de 
 > * [monitoring-linux](http://nagios.sourceforge.net/docs/3_0/monitoring-linux.html)
 
 En el agente1 (cliente GNU/Linux):
-* Vamos a instalar el agente nagios en la máquina cliente.
-    * Paquete NRPE server `zypper install nrpe`
-    * Plugins NRPE `zypper install monitoring-plugins-nrpe`.
+* Instalamos el agente Nagios en la máquina cliente (Paquete NRPE server): `zypper install nrpe`
 * Editar el fichero `/etc/nrpe.cfg` del cliente y modificar lo siguiente:
     * `allowed_hosts=127.0.0.1,::1,IP-DE-NUESTRO-EQUIPO-NAGIOS`
 * `systemctl start nrpe`, iniciar el servicio.
@@ -221,6 +219,7 @@ En el agente1 (cliente GNU/Linux):
 
 Comprobamos la conectividad NRPE entre monitor y cliente:
 * Ir a la MV del monitor Nagios.
+* Instalamos los Plugins NRPE `zypper install monitoring-plugins-nrpe`.
 * Vamos a comprobar desde el monitor lo siguiente:
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1`, para comprobar la versión NRPE del equipo cliente.
     * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE1 -c check_load`, para comprobar que el comando check_load devuelve información desde el agente remoto.
@@ -274,7 +273,7 @@ Ejemplo:
 ![](images/nagios4-services.png)
 
 # -----------------------
-# PENDIENTE DE ACTUALIZAR
+# PENDIENTE DE ACTUALIZAR!!!
 # -----------------------
 
 # 6. Agente Nagios en Windows
