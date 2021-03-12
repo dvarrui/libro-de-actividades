@@ -168,6 +168,8 @@ entonces debemos revisar si se han instalado los plugins correctamente:
     * monitoring-plugins-load
     * monitoring-plugins-users
     * monitoring-plugins-procs
+    * monitoring-plugins-disks
+    * monitoring-plugins-swap
 
 ---
 # 4. Configurar servicios
