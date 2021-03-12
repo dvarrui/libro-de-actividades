@@ -101,7 +101,7 @@ define hostgroup {
 ### Servidores
 
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servidoresXX.cfg`.
-* Definir el Host Leela usando la plantilla siguiente (Es una platilla de ejemplo. No sirve copiarlo):
+* Definir el Host Leela usando la plantilla siguiente (Es una platilla de ejemplo que hay que adaptar a las necesidades de cada uno):
 
 ```
 define host{
@@ -131,10 +131,10 @@ Comprobamos:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
-> **Si tenemos problemas** al iniciar Nagios, entonces casi seguro tenemos un error en
+**Si tenemos problemas** al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que hemos añadido:
-> * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
-> * Consultar log `/var/log/nagios/nagios.log`.
+* `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
+* Consultar log `/var/log/nagios/nagios.log`.
 
 ### Routers
 
