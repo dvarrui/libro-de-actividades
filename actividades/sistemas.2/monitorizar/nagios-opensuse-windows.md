@@ -44,7 +44,12 @@ Para esta actividad vamos a necesitar los siguientes MV's:
 
 En caso de que nos haya dado Access Forbidden - error 403 (acceso denegado) hacemos lo siguiente:
 
-* Instalamos el paquete kohana2 con este comando (requiere permisos de administrador): `su -c "zypper addrepo https://download.opensuse.org/repositories/server:monitoring/openSUSE_Leap_15.2/server:monitoring.repo; zypper refresh; zypper install kohana2"`
+* Instalamos el paquete kohana2 con este comando (requiere permisos de administrador):
+
+```
+su -c "zypper addrepo https://download.opensuse.org/repositories/server:monitoring/openSUSE_Leap_15.2/server:monitoring.repo; zypper refresh; zypper install kohana2"
+```
+
 * Editamos el archivo "/etc/apache2/conf.d/nagios.conf" y buscamos las líneas <Directory "/usr/share/nagios"> y </Directory>, una vez encontradas, modificamos el contenido entre éstas para que quede así:
 
 ![](images/nagios-kohana.png)
