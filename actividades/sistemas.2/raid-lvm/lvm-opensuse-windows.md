@@ -10,15 +10,6 @@ Tiempo estimado : 6 sesiones
 ---
 # Volúmenes Lógicos (OpenSUSE + Windows)
 
-Ejemplo de rúbrica:
-
-| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| --------------------- | ------------ | ----------- | ----------------- |
-| (1.3) Comprobación instalación LVM | | | |
-| (2.1) Ampliar y (2.2) comprobar | | | |
-| (3.5) Quitar disco físico y (3.6) comprobar | | | |
-| (4.1) Volumen distribuido | | |. |
-
 ---
 # 1. Instalar SO sobre LVM
 
