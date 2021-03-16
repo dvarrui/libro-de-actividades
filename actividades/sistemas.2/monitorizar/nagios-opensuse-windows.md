@@ -134,11 +134,10 @@ define host{
 Comprobamos:
 * `systemctl reload nagios`
 * Consultar la lista de `hosts` monitorizados por Nagios.
-
-**Si tenemos problemas** al iniciar Nagios, entonces casi seguro tenemos un error en
+* **SI TENEMOS PROBLEMAS** al iniciar Nagios, entonces casi seguro tenemos un error en
 la configuración que acabamos de añadir:
-* `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
-* Consultar log `/var/log/nagios/nagios.log`.
+    * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
+    * También podemos consultar el fichero de log `/var/log/nagios/nagios.log` para averiguar qué está pasando.
 
 ### Routers
 
