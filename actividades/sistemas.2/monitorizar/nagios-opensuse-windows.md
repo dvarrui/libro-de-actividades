@@ -247,10 +247,7 @@ Comprobamos la conectividad NRPE entre monitor y cliente:
 
 ## 5.3 Configurar servicios internos en el monitorizador
 
-> Enlaces de interés:
-> * https://www.digitalocean.com/community/tutorials/how-to-install-nagios-4-and-monitor-your-servers-on-ubuntu-16-04
-
-A continuación, vamos a definir varios servicios a monitorizar
+A continuación, vamos a definir varios servicios del host clienteXXg que queremos monitorizar.
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-linuxXX.cfg`
 * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
 
@@ -297,7 +294,8 @@ Ejemplo:
 ![](images/nagios4-services.png)
 
 # -----------------------
-# PENDIENTE DE ACTUALIZAR!!!
+# Esto no hay que hacerlo
+# PENDIENTE DE ACTUALIZAR
 # -----------------------
 
 # 6. Agente Nagios en Windows
@@ -333,14 +331,14 @@ Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nscl
 
 NSClient no utiliza el mismo formato de configuración que el visto en el host Linux.
 Para empezar, la configuración se divide en secciones.
-Por otra parte, los plugins se deben habilitar antes de ser utilizados.
-Además los plugins se llaman con nombres de ejecutables diferentes
+
+Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plugins se llaman con nombres de ejecutables diferentes
 (CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera.
 
 * Enlaces de interés:
     * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 
-> Para estandarizar, en la configuración utilizaremos los mismos alias que en el host Linux
+> Para estandarizar la configuración utilizaremos los mismos alias que en el host Linux
 > Así es posible realizar grupos de hosts que incluyan tanto servidores
 GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
@@ -387,16 +385,14 @@ check_firewall_service=CheckServiceState MpsSvc
 
 ## 6.3 Configurar en el monitorizador
 
-En el monitorizador Nagios:
-* Vamos a comprobar desde el servidor lo siguiente:
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2`, para comprobar la conexión NRPE hacia el cliente.
-    * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
+* Vamos a la MV del monitorizador Nagios.
+* `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2`, para comprobar la conexión NRPE hacia el cliente.
+* `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
 
-> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html)
-sobre cómo configurar los servicios del host Windows en Nagios Master
+> [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html) sobre cómo configurar los servicios del host Windows en Nagios Master
 
 * A continuación, vamos a definir servicios a monitorizar
-   * Crear el fichero `/etc/nagios3/nombre-del-alumno.d/servicios-windowsXX.cfg`
+   * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-windowsXX.cfg`
    * Veamos un ejemplo.
 
 ```
