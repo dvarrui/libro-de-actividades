@@ -281,7 +281,7 @@ define service {
 
 define command {
   command_name   david_check_procs
-  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_procs
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_total_procs
 }
 define service{
   use                 generic-service
