@@ -62,13 +62,13 @@ su -c "zypper addrepo https://download.opensuse.org/repositories/server:monitori
 Nos vamos a plantear como objetivo configurar Nagios para monitorizar varios
 routers, un servidor y varios clientes.
 
-| Host       | IP           | Grupo        |
-| ---------- | ------------ | ------------ |
-| leelaXX    | 172.20.1.2   | servidoresXX |
-| benderXX   | 172.18.0.1   | routersXX    |
-| caronteXX  | 192.168.1.1  | routersXX    |
-| clienteXXg | 172.AA.XX.31 | clientesXX   |
-| clienteXXw | 172.AA.XX.11 | clientesXX   |
+| Host       | IP           | Grupo        | Descripción |
+| ---------- | ------------ | ------------ | ----------- |
+| leelaXX    | 172.20.1.2   | servidoresXX | |
+| benderXX   | 172.18.0.1   | routersXX    | |
+| caronteXX  | 192.168.1.1  | routersXX    | |
+| clienteXXg | 172.AA.XX.31 | clientesXX   | MV2 Linux   |
+| clienteXXw | 172.AA.XX.11 | clientesXX   | MV3 Windows |
 
 Supongamos que tenemos el siguiente esquema de red:
 
@@ -129,7 +129,6 @@ define host{
 > * alias: Nombre largo asociado al host
 > * address: Dirección IP
 > * hostgroups: Grupos a los que pertenece separados por comas.
-> * icon_image: Imagen asociada. NOTA: Las imágenes PNG están en `/usr/share/nagios3/htdocs/images/logos/cook`. Poner a cada host una imagen que lo represente.
 > * parents: Nombre del equipo padre o anterior.
 
 Comprobamos:
@@ -137,7 +136,7 @@ Comprobamos:
 * Consultar la lista de `hosts` monitorizados por Nagios.
 
 **Si tenemos problemas** al iniciar Nagios, entonces casi seguro tenemos un error en
-la configuración que hemos añadido:
+la configuración que acabamos de añadir:
 * `/usr/sbin/nagios -v /etc/nagios/nagios.cfg`, Comando para verificar el fichero de configuración de Nagios.
 * Consultar log `/var/log/nagios/nagios.log`.
 
