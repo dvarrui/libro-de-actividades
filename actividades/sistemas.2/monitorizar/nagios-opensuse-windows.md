@@ -333,6 +333,8 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plug
 
 > Enlaces de interés:
 > * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
+> * https://support.nagios.com/kb/article/nagios-core-configuring-ssl-tls-595.html#SUSE
+> * https://help.univention.com/t/problem-nagios-ssl-issues-with-nsclient/11620
 
 * Hacer una copia de seguridad del fichero `C:\Program Files\NSClient++\nsclient.ini` y lo guardamos como "nsclient.bak" antes de continuar.
 * Iniciar `Notepad` o `Block de notas` como administrador. A continuación abrimos el fichero que vamos a editar `C:\Program Files\NSClient++\nsclient.ini`
