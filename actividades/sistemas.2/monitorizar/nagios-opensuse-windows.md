@@ -347,7 +347,7 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plug
 ;password=
 
 ; permitimos el acceso al servidor Nagios para las consultas.
-allowed hosts=IP-DEL-MONITORIZADOR-NAGIOS
+allowed hosts=127.0.0.1,::1,IP-DEL-MONITORIZADOR-NAGIOS
 
 [/settings/NRPE/server]
 ssl options = no-sslv2, no-sslv3
