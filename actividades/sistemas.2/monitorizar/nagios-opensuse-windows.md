@@ -336,8 +336,7 @@ Toda la configuración se guarda en el archivo `C:\Program Files\NSClient++\nscl
 NSClient no utiliza el mismo formato de configuración que el visto en el host Linux.
 Para empezar, la configuración se divide en secciones.
 
-Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plugins se llaman con nombres de ejecutables diferentes
-(CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera.
+Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plugins se llaman con nombres de ejecutables diferentes (CheckCpu. CheckDriveSize, etc), y los alias se definen de otra manera.
 
 * Enlaces de interés:
     * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
@@ -346,7 +345,9 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plug
 > Así es posible realizar grupos de hosts que incluyan tanto servidores
 GNU/Linux como Windows, y ejecutar los mismos comandos en ambos.
 
-* La configuración que utilizaremos será la siguiente:
+* Hacer una copia de seguridad del fichero `C:\Program Files\NSClient++\nsclient.ini` (o `C:\Archivos de Programas\NSClient++\nsclient.ini`) antes de continuar.
+* Iniciar `Notepad` como administrador. Ahora abrir el fichero que vamos a editar `C:\Program Files\NSClient++\nsclient.ini` (o `C:\Archivos de Programas\NSClient++\nsclient.ini`).
+* Incluir los siguientes cambios en la configuración:
 
 ```
 [/settings/default]
