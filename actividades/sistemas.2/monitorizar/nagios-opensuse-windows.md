@@ -248,6 +248,7 @@ Comprobamos la conectividad NRPE entre monitor y cliente:
 ## 5.3 Configurar servicios internos en el monitorizador
 
 A continuación, vamos a definir varios servicios del host clienteXXg que queremos monitorizar.
+* Ir a la MV con el monitorizador Nagios.
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-linuxXX.cfg`
 * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
     * OJO: Los parámetros `$USER1$` y `$HOSTADDRESS$` se escriben tal cual. No hay que personalizarlos porque son parámetros específicos de Nagios.
@@ -335,7 +336,7 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plug
 
 * Hacer una copia de seguridad del fichero `C:\Program Files\NSClient++\nsclient.ini` y lo guardamos como "nsclient.bak" antes de continuar.
 * Iniciar `Notepad` o `Block de notas` como administrador. A continuación abrimos el fichero que vamos a editar `C:\Program Files\NSClient++\nsclient.ini`
-* Incluir los siguientes cambios en la configuración:
+* Revisar los siguientes parámetros dentro de la configuración:
 
 ```
 [/settings/default]
@@ -389,35 +390,46 @@ check_firewall_service=CheckServiceState MpsSvc
 > [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html) sobre cómo configurar los servicios del host Windows en Nagios Master
 
 A continuación, vamos a definir servicios a monitorizar
-* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-windowsXX.cfg`
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-windowsXX.cfg`
 * Veamos un ejemplo.
 
 ```
+define command {
+  command_name   windows_check_load
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_load
+}
 define service {
   use                  generic-service
   host_name            NOMBRE_DEL_HOST
-  service_description  Carga media
-  check_command        check_nrpe_1arg!check_load
+  service_description  Carga actual
+  check_command        windows_check_load
 }
 
-define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Espacio en disco
-  check_command        check_nrpe_1arg!check_disk
+define command {
+  command_name   windows_check_disk
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_disk
+}
+define service {
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Usuarios actuales
+  check_command       windows_check_disk
 }
 
-define service{
-  use                  generic-service
-  host_name            NOMBRE_DEL_HOST
-  service_description  Firewall
-  check_command        check_nrpe_1arg!check_firewall_service
+define command {
+  command_name   windows_check_firewall
+  command_line   $USER1$/check_nrpe -H $HOSTADDRESS$ -c check_firewall_service
 }
-
+define service {
+  use                 generic-service
+  host_name           NOMBRE_DEL_HOST
+  service_description Usuarios actuales
+  check_command       windows_check_firewall
+}
 ```
 
 * Reiniciar el servicio.
-* Consultar los `servicios` monitorizados por Nagios. Esto es, ir al panel de Nagios3 -> Sección de servicios.
+* Consultar los `servicios` monitorizados por Nagios.
 
 
 # ANEXO
