@@ -250,6 +250,7 @@ Comprobamos la conectividad NRPE entre monitor y cliente:
 A continuación, vamos a definir varios servicios del host clienteXXg que queremos monitorizar.
 * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-remotos-linuxXX.cfg`
 * Añadir las siguientes líneas, teniendo en cuenta que las tenemos que personalizar:
+    * OJO: Los parámetros `$USER1$` y `$HOSTADDRESS$` se escriben tal cual. No hay que personalizarlos porque son parámetros específicos de Nagios.
 
 ```
 define command {
