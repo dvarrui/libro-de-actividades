@@ -324,10 +324,6 @@ Iniciamos el servicio `Agente Nagios` en el cliente por entorno gráfico o por c
         * `net stop nscp` para parar el servicio del agente.
         * `net start nscp` para iniciar el servicio del agente.
 
-# -----------------------
-# PENDIENTE DE ACTUALIZAR
-# -----------------------
-
 ## 6.2 Configurar el Agente 2 (cliente Windows)
 
 Toda la configuración se guarda en el archivo "nsclient.ini". NSClient no utiliza el mismo formato de configuración que el visto en el host Linux. Para empezar, la configuración se divide en secciones.
@@ -338,7 +334,7 @@ Por otra parte, los plugins se deben habilitar antes de ser utilizados. Los plug
 > * [Instalación y configuración del servidor Nagios, y de los agentes para Linux y Windows](http://itfreekzone.blogspot.com.es/2013/03/nagios-monitoreo-remoto-de-dispositivos.html)
 
 * Hacer una copia de seguridad del fichero `C:\Program Files\NSClient++\nsclient.ini` y lo guardamos como "nsclient.bak" antes de continuar.
-* Iniciar `Notepad` como administrador. Ahora abrir el fichero que vamos a editar `C:\Program Files\NSClient++\nsclient.ini`
+* Iniciar `Notepad` o `Block de notas` como administrador. A continuación abrimos el fichero que vamos a editar `C:\Program Files\NSClient++\nsclient.ini`
 * Incluir los siguientes cambios en la configuración:
 
 ```
@@ -386,11 +382,15 @@ check_firewall_service=CheckServiceState MpsSvc
 * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2`, para comprobar la conexión NRPE hacia el cliente.
 * `/usr/lib/nagios/plugins/check_nrpe -H IP-DEL-AGENTE2 -c check_disk`, para comprobar que el comando check_disk devuelve información desde el agente remoto.
 
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
+
 > [Consultar documentación](http://nagios.sourceforge.net/docs/3_0/monitoring-windows.html) sobre cómo configurar los servicios del host Windows en Nagios Master
 
-* A continuación, vamos a definir servicios a monitorizar
-   * Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-windowsXX.cfg`
-   * Veamos un ejemplo.
+A continuación, vamos a definir servicios a monitorizar
+* Crear el fichero `/etc/nagios/nombre-del-alumno.d/servicios-windowsXX.cfg`
+* Veamos un ejemplo.
 
 ```
 define service {
