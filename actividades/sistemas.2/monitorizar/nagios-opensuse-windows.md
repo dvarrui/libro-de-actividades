@@ -317,12 +317,12 @@ Windows y el servidor Nagios.
 > Si tuviéramos un fichero de instalación MSI, al ejecutarlo nos hará la
 instalación del programa con las opciones por defecto sin preguntarnos.
 
-* Servicio `Agente Nagios` en el cliente
+Iniciamos el servicio `Agente Nagios` en el cliente por entorno gráfico o por comandos:
     * Por entorno gráfico:
         * Ir a `Equipo -> Administrar -> Servicios -> NSClient++ -> Reiniciar`.
     * Por comandos:
-        * `net start nscp` para iniciar el servicio del agente.
         * `net stop nscp` para parar el servicio del agente.
+        * `net start nscp` para iniciar el servicio del agente.
 
 # -----------------------
 # PENDIENTE DE ACTUALIZAR
