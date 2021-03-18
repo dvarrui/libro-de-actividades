@@ -293,10 +293,10 @@ Ejemplo:
 
 ![](images/nagios4-services.png)
 
+# ----------------------------
+# A partir de aquí es OPCIONAL
 # -----------------------
-# Esto no hay que hacerlo
 # PENDIENTE DE ACTUALIZAR
-# -----------------------
 
 # 6. Agente Nagios en Windows
 
@@ -319,10 +319,14 @@ instalación del programa con las opciones por defecto sin preguntarnos.
 
 * Servicio `Agente Nagios` en el cliente
     * Por entorno gráfico:
-        * Ir a `Equipo -> Administrar -> Servicios -> Nagios -> Reiniciar`.
+        * Ir a `Equipo -> Administrar -> Servicios -> NSClient++ -> Reiniciar`.
     * Por comandos:
         * `net start nscp` para iniciar el servicio del agente.
         * `net stop nscp` para parar el servicio del agente.
+
+# -----------------------
+# PENDIENTE DE ACTUALIZAR
+# -----------------------
 
 ## 6.2 Configurar el Agente 2 (cliente Windows)
 
