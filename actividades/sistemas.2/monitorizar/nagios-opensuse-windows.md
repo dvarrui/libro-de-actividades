@@ -307,7 +307,7 @@ Ejemplo:
 ## 6.1 Instalar en el Agente 2 (Cliente Windows)
 
 * Descargar el programa Agente Windows (NSCLient++)
-    * Recomendado [http://nsclient.org/nscp/downloads](http://nsclient.org/nscp/downloads).
+    * Recomendado [http://nsclient.org/downloads](http://nsclient.org/downloads).
     * [http://www.nagios.org/download/addons](http://www.nagios.org/download/addons).
 * Instalar el programa nsclient.
     * Activar las opciones `common check plugins`, `nsclient server` y `NRPE server`
