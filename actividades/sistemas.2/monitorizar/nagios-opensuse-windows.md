@@ -162,8 +162,9 @@ Ejemplo:
 Si los hosts no se muestran en verde (Esto es equipos encendidos y con conectividad),
 entonces debemos revisar si se han instalado los plugins correctamente:
 
-* `vdir /usr/lib/nagios/plugins`, deben aparecer ficheros "check_".
-* En caso contrario debemos instalar:
+* `vdir /usr/lib/nagios/plugins`, deben aparecer ficheros "check_". En caso contrario debemos instalar los paquetes que nos hagan falta.
+* `zypper refresh`, para actualizar el catálogo de paquetes.
+* Instalar los siguientes paquetes:
     * monitoring-plugins-nagios
     * monitoring-plugins-ping
     * monitoring-plugins-http
