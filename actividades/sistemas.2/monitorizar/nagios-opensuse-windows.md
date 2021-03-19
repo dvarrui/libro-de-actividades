@@ -233,8 +233,8 @@ En el agente1 (cliente GNU/Linux):
 * `zypper install nrpe`, instalamos el agente Nagios en la máquina cliente (Paquete NRPE server).
 * Editar el fichero `/etc/nrpe.cfg` del cliente y modificar lo siguiente:
     * `allowed_hosts=127.0.0.1,::1,IP-DE-NUESTRO-EQUIPO-NAGIOS`
-* `systemctl start nrpe`, iniciar el servicio.
-* `systemctl enable nrpe`
+* `systemctl restart nrpe`, reiniciar el servicio.
+* `systemctl enable nrpe`, activar el servicio al inicio.
 * Abrir el puerto nrpe en el cortafuegos usando `Yast -> Cortafuegos`, o los comandos siguientes:
     * `firewall-cmd --zone=public --permanent --add-service=nrpe`
     * `firewall-cmd --reload`
