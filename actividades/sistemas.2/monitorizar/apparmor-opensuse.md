@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920, 201819, 201718
+Curso       : 202021, 201920, 201819, 201718
 Area        : Sistemas operativos, monitorización, seguridad.
 Descripción : Configuración de AppArmor en modo monitorización.
               Configuración de AppArmor en modo seguridad.
@@ -15,15 +15,6 @@ Tiempo      : 5 sesiones
 
 Para esta práctica vamos a usar una MV con SO OpenSUSE.
 
-Propuesta de rúbrica:
-
-| Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
-| --------------------- | ------------ | ----------- | ----------------- |
-| (2.3) Comprobamos | | | |
-| (3.2) Comprobamos | | | |
-| (4.2) Comprobamos | | |. |
-
----
 # 1. AppArmor: Teoría/explicación
 
 Enlaces de interés:
