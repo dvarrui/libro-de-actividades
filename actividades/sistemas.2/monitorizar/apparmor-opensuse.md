@@ -159,8 +159,8 @@ Volvemos a la "terminal 1"
 
 Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
-* `ausearch -c mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `ausearch -c mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
 > NOTA:
 >
@@ -185,8 +185,8 @@ Volvemos a la "terminal 1".
 
 Vamos a "terminal 2".
 * `apparmor_status | grep "profiles are in" -A 6` para consultar el estado de los perfiles.
-* `ausearch -c mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
-* `ausearch -c mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
+* `ausearch -x mycopy | grep DENIED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) denegados de "mycopy".
+* `ausearch -x mycopy | grep ALLOWED | wc -l`, este comando cuenta todas las líneas del fichero de log (eventos) permitidos de "mycopy".
 
 > * `ausearch -c mycopy | aureport -u`, consultamos los eventos registrado asociados a nuestro ejecutable.
 
