@@ -61,6 +61,7 @@ Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que
 ## 2.2 Instalar controlador de dominio
 
 * Ir a la MV Windows Server.
+* Comprobar la configuración del nombre del equipo, zona horaria e IP estática.
 * Hacer una instántanea de la MV antes de nada.
 * Abrir una consola (cmd) y ejecutar el comando `dcpromo`. Es es para activar la función de controlador de dominios junto con el servidor DNS.
 
