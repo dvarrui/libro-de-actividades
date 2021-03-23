@@ -10,16 +10,11 @@ Tiempo      : 6 horas
 
 # Introducción
 
-En esta práctica vamos a montar un PDC (Controlador Primario de Dominio) con Windows Server.
-
-Propuesta de rúbrica:
-
-| Criterio                         | Nivel 0 | Nivel 1 | Nivel 2 |
-| -------------------------------- | ------- | ------- | ------- |
-| (2.3) PDC: Instalar y configurar | | | |
-| (4.4) Unir equipos al dominio    | | | |
-| (5.4) Perfiles móviles           | | | |
-| (6.0) Perfil obligatorio         | | |.|
+En esta práctica vamos a:
+* PDC: Instalar y configurar
+* Unir equipos al dominio
+* Perfiles móviles
+* Perfil obligatorio
 
 # 1. Preparativos
 
@@ -27,17 +22,16 @@ Propuesta de rúbrica:
 
 Necesitaremos las siguientes máquinas virtuales:
 
-| MV | Sistema operativo | Configuración | DNS1 | DNS2 |
-| -- | ----------------- | ------------- | ---- | ---- |
-| 01 | Windows 2016 Server DataCenter | [Consultar](../../global/configuracion/windows-server.md) | 127.0.0.1 | 1.1.1.1 |
-| 02 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
-| 03 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
-
+| MV  | Sistema operativo | Configuración | DNS1 | DNS2 |
+| --- | ----------------- | ------------- | ---- | ---- |
+| MV1 | Windows 2016 Server DataCenter | [Consultar](../../global/configuracion/windows-server.md) | 127.0.0.1 | 1.1.1.1 |
+| MV2 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
+| MV3 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
 
 ## 1.2 Observaciones
 
 * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
-* Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
+* Las diferencias entre las distintas versiones de SO Windows: Standard, Data Center, etc. son las funcionalidades/características que vienen incluidas.
 * Recién instalado, Window Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
 * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
 
