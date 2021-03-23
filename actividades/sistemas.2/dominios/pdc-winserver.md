@@ -61,42 +61,22 @@ Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que
 ## 2.2 Instalar controlador de dominio
 
 * Ir a la MV Windows Server.
-* Comprobar la configuración del nombre del equipo, zona horaria e IP estática.
+* Comprobar la configuración del nombre del equipo, zona horaria, la IP estática.
 * Hacer una instántanea de la MV antes de nada.
-* Abrir una consola (cmd) y ejecutar el comando `dcpromo`. Es es para activar la función de controlador de dominios junto con el servidor DNS.
-
-Veamos imagen del comando `dcpromo` en ejecución:
-
-![pdc-dcpromo](./files/pdc-dcpromo.png)
-
-* Se inicia el asistente de configuración de los servicios del dominio de AD. Ponemos los
-siguientes valores:
-
-| Parámetro                  | Valor |
-| -------------------------- | ----- |
-| Modo experto               | NO |
-| Crear un dominio nuevo de un bosque nuevo        | SI |
-| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso2021 |
-| Nivel funcional del bosque | Windows Server 2008 |
-| Servidor DNS               | SI |
-| Carpetas de almacenamiento | Dejar valores por defecto |
-
-* Al terminar hay que reiniciar el sistema.
-
-![pdc-dcpromo-compatibilidad](./files/pdc-dcpromo-compatibilidad.png)
-
-![pdc-dcpromo-install-params](./files/pdc-dcpromo-install-params.png)
-
-Vemos imagen, donde podemos comprobar que se han instalado varios "roles" para controlar el dominio:
-
-![pdc-admin-funciones](./files/pdc-admin-funciones.png)
-
-Veamos imagen de configuración de nuestro servidor:
-
-![pdc-config-inicial](./files/pdc-config-inicial.png)
 
 > Enlace de interés:
-> * [Cómo recombrar un dominio de Windows Server 2008](http://www.cesarherrada.com/2012/06/como-renombrar-un-dominio-en-windows-server-2008.html)
+> * https://blog.ragasys.es/controlador-de-dominio-sobre-ms-windows-server-2016-dns-y-dhcp
+
+* Agregar roles.
+* Revisar que cumplimos los requisitos: clave segura de Administrador, IP fija y sistema actualizado.
+* Elegimos instalación basada en roles.
+* Seleccionamos el servidor (sólo hay uno)
+* Elegimos el rol "Servicio de Dominio Active Directory".
+* Promover el servidor a "Controlador de dominio".
+* Agregar un nuevo bosque y ponemos el nombre de nuestro dominio "segundoapellidoXXdom.curso2021".
+* Crear delegación DNS = NO
+* Instalar
+* Al terminar hay que reiniciar el sistema.
 
 ## 2.3 Comprobaciones
 
@@ -139,7 +119,7 @@ Vemos imagen con los usuarios del dominio creados:
 
 Configurar las MV's clientes de la siguiente forma:
 
-* Necesitaremos 2 MV's con Windows 7/10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla. Pero hay que modificar la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
+* Necesitaremos 2 MV's con Windows 10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla. Pero hay que modificar la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC.
@@ -157,7 +137,7 @@ Podemos unir el equipo al dominio por entorno gráfico o por comandos.
 
 * Ir al equipo cliente Windows.
 * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio`
-* Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `vargas42dom.curso1920`, nosotros pondremos sólo `vargas42dom`.
+* Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `ruiz42dom.curso2021`, nosotros pondremos sólo `ruiz42dom`.
 * Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
 
 Veamos imagen de ejemplo:
