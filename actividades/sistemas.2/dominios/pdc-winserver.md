@@ -1,10 +1,10 @@
 
 ```
-Curso       : 201920, 201819
+Curso       : 202021
 Area        : Sistemas operativos, dominios
 Descripción : Instalar un PDC y configurarlo para
               autenticación y perfiles móviles
-Requisitos  : Windows 2008 Server, Windows 7/10
+Requisitos  : Windows 2016 Server, Windows 10
 Tiempo      : 6 horas
 ```
 
@@ -27,38 +27,19 @@ Propuesta de rúbrica:
 
 Necesitaremos las siguientes máquinas virtuales:
 
-| MV | Sistema operativo | Configuración | DNS |
-| -- | ----------------- | ------------- | --- |
-| 01 | Windows 2008 Server Enterprise | [Consultar](../../global/configuracion/windows-server.md) | DNS1 = `127.0.0.1` |
-| 02 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
-| 03 | Windows 7 Enterprise | [Consultar](../../global/configuracion/windows.md) | DNS1 = IP Windows Server |
+| MV | Sistema operativo | Configuración | DNS1 | DNS2 |
+| -- | ----------------- | ------------- | ---- | ---- |
+| 01 | Windows 2016 Server DataCenter | [Consultar](../../global/configuracion/windows-server.md) | 127.0.0.1 | 1.1.1.1 |
+| 02 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
+| 03 | Windows 10 | [Consultar](../../global/configuracion/windows.md) | IP Windows Server | |
 
 
-## 1.2 OBSERVACIONES
+## 1.2 Observaciones
 
 * Realizaremos las prácticas en MV's que pueden estar todas en el mismo PC o en varios diferentes.
 * Las diferencias entre las distintas versiones de SO Windows: Standard, Professional, Enterprise, etc. son las funcionalidades/características que vienen incluidas.
 * Recién instalado, Window Server es estricto con la política de seguridad, en cuanto a cómo deben definirse las claves (Mayúsculas, minúsculas, números y caracteres especiales y longitud superior a 10).
 * Se puede deshabilitar en las `Directivas de seguridad local -> Directivas de cuenta`, pero reduciríamos la seguridad de las contraseñas. Un ejemplo de contraseñas segura: `obiwanKENOBI2016!`.
-
-> Si trabajamos con Windows 2003 Server el disco duro en VirtualBox debe estar configurado con el controlador IDE, para evitar problemas con los drivers SATA.
-
-## 1.3 [OPCIONAL] Raspberry PI
-
-Se podría usar la Raspberry PI (que se presta a cada alumno), para instalar GNU/Linux y usarla como cliente del dominio.
-
-**Raspberry PI con OpenSUSE**
-
-> Enlaces de interés: [Mi RaspberryPi 3 con openSUSE Tumbleweed](https://victorhckinthefreeworld.com/2017/11/29/mi-raspberrypi-3-con-opensuse-tumbleweed/), [Raspberry Pi – openSUSE install guide – Mic's Linux Experience](https://hreikin.wordpress.com/2014/05/03/raspberry-pi-opensuse-install-guide/)
-
-* Instalar OpenSUSE en:
-    * [Raspberry PI2](https://en.opensuse.org/HCL:Raspberry_Pi2)
-    * [Raspberry PI3](https://en.opensuse.org/HCL:Raspberry_Pi3)
-* Luego podemos usar Yast para unir el equipo RbPI al dominio.
-
-![](files/pdc-rbpi-opensuse.png)
-
-**Raspberry PI con Ubuntu/Debian**: [Leer práctica](pdc-cliente-ubuntu-debian.md)
 
 # 2. Instalar el Controlador de dominio
 
@@ -77,9 +58,9 @@ Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que
 * En realidad podríamos poner cualquier nombre, pero lo haremos según indique el profesor, para organizar mejor las distintas máquinas de la clase.
 * Los nombres de dominio NO debe ser muy largos. Preferiblemente menos de 10 letras, para evitar problemas con los clientes Windows anteriores a Vista/7/8.
 
-## 2.2 Instalar en Windows 2008 Server
+## 2.2 Instalar controlador de dominio
 
-Instalación:
+* Ir a la MV Windows Server.
 * Hacer una instántanea de la MV antes de nada.
 * Abrir una consola (cmd) y ejecutar el comando `dcpromo`. Es es para activar la función de controlador de dominios junto con el servidor DNS.
 
@@ -94,7 +75,7 @@ siguientes valores:
 | -------------------------- | ----- |
 | Modo experto               | NO |
 | Crear un dominio nuevo de un bosque nuevo        | SI |
-| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso1920 |
+| FQDN del dominio (Este es el nombre del dominio) | segundoapellidoXXdom.curso2021 |
 | Nivel funcional del bosque | Windows Server 2008 |
 | Servidor DNS               | SI |
 | Carpetas de almacenamiento | Dejar valores por defecto |
