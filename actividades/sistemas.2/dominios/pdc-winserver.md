@@ -62,11 +62,14 @@ Necesitaremos las siguientes máquinas virtuales:
 * Elegimos instalación basada en roles.
 * Seleccionamos el servidor (sólo hay uno)
 * Elegimos el rol "Servicio de Dominio Active Directory".
+* Instalar.
+* Al terminar hay que reiniciar el sistema.
+
+A continuación vamos a promover a controlador:
 * Promover el servidor a "Controlador de dominio".
 * Agregar un nuevo bosque y ponemos el nombre de nuestro dominio "segundoapellidoXXdom.curso2021".
 * Crear delegación DNS = NO
 * Instalar
-* Al terminar hay que reiniciar el sistema.
 
 ## 2.3 Comprobaciones
 
