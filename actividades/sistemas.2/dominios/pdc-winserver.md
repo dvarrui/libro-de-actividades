@@ -133,7 +133,7 @@ Podemos unir el equipo al dominio por entorno gráfico o por comandos.
 
 * Ir al equipo cliente Windows.
 * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio`
-* Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `ruiz42dom.curso2021`, nosotros pondremos sólo `ruiz42dom`.
+* Escribir el nombre del dominio. Por ejemplo `ruiz42dom.curso2021`. En caso de error podemos probar con el nombre corto del dominio `ruiz42dom`.
 * Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC (Windows Server).
 
 Veamos imagen de ejemplo:
