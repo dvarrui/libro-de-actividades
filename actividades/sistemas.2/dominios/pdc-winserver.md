@@ -155,7 +155,7 @@ _Espero que no tengas problemas, y puedas saltar este apartado, si no es así...
 Si tuviéramos poblemas al realizar esta tarea de unión del equipo al dominio, tenemos varias opciones:
 * Esperar 5 minutos y repetir el proceso. Las redes SMB/CIFS tardan un tiempo en propagar la información de los equipos por la red.
 * Volver a comprobar que todas las configuraciones son correctas.
-    * Repite el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2).
+    * Repite desde el paso uno (NOTA: Pon un compañero contigo mientras lo haces. 4 ojos ven más que 2).
     * (NOTA: Una configuración incorrecta del servidor DNS hará que no se puedan unir los equipos al dominio).
 * ¿Repetimos?
 
