@@ -37,11 +37,6 @@ Necesitaremos las siguientes máquinas virtuales:
 
 # 2. Instalar el Controlador de dominio
 
-Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que nos permite:
-* consultar la configuración del servidor
-* instalar/desinstalar paquetes/funciones/servicios,
-* y acceder a los paneles de administración de los distintos servicios.
-
 ## 2.1 Definiciones
 
 **AD**:
@@ -61,6 +56,7 @@ Windows Server tiene una herramienta en `Inicio -> Administrar el Servidor`, que
 > Enlace de interés:
 > * https://blog.ragasys.es/controlador-de-dominio-sobre-ms-windows-server-2016-dns-y-dhcp
 
+* `Inicio -> Administrar el Servidor`.
 * Agregar roles.
 * Revisar que cumplimos los requisitos: clave segura de Administrador, IP fija y sistema actualizado.
 * Elegimos instalación basada en roles.
