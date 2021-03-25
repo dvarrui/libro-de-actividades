@@ -120,8 +120,8 @@ Configurar las MV's clientes de la siguiente forma:
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
 * Cada equipo cliente debe tener como DNS1 la IP del PDC (Windows Server que hace de controlador de dominio).
 * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para **comprobar que el DNS está correcto**. Debe aparecer la respuesta desde la IP de nuestro servidor PDC (Windows Server que hace de controlador de dominio).
-* Ejecutar `hostname` en una consola powershell. Debe aparecer el nombre correcto de la máquina.
-* **Comprobar la conectividad** entre PDC-cliente y cliente-PDC usando el comando `ping` (Deshabilitar el cortafuegos si fuera necesario).
+* Ejecutar `hostname` en una consola PowerShell. Debe aparecer el nombre correcto de la máquina.
+* **Comprobar la conectividad** entre PDC-cliente y cliente-PDC usando el comando `ping` (Configurar el cortafuegos para permitir los ping entre las máquinas o deshabilitar el cortafuegos si fuera necesario).
 
 ## 4.2 Unir equipo al dominio
 
@@ -134,7 +134,7 @@ Podemos unir el equipo al dominio por entorno gráfico o por comandos.
 * Ir al equipo cliente Windows.
 * Ir a `Equipos (Botón derecho) -> Propiedades -> Cambiar configuración -> Cambiar -> Dominio`
 * Escribir el nombre del dominio corto. Por ejemplo, si el dominio largo es `ruiz42dom.curso2021`, nosotros pondremos sólo `ruiz42dom`.
-* Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC.
+* Se nos pide poner un usuario/clave del dominio. Usaremos el usuario `Administrador` del dominio, que tenemos definido en el PDC (Windows Server).
 
 Veamos imagen de ejemplo:
 
@@ -182,8 +182,8 @@ Podemos comprobarlo por entorno gráfico o usando comandos.
 
 ### Por comandos
 
-* Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
-* Abrimos consola PowerShell y ejecutamos los comandos:
+* Ir a la máquina cliente (Windows 10) y entrar con un usuario del dominio.
+* Abrimos consola PowerShell y ejecutamos los comandos siguientes.
     * `whoami`, muestra nuestro usuario actual. Que debe ser un usuario del dominio.
     * `net user`, muestra los usuarios locales del sistema y no debe mostrar el usuario anterior.
     * `hostname`, muestra el nombre del equipo local.
