@@ -293,10 +293,3 @@ Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde u
     * `WMIC computersystem where caption='nombreDEahora' rename nuevoNombre`
     * Ahora tendrás que reiniciar tu PC Windows para que tenga efecto el nuevo nombre del equipo.
     * Este comando es válido para todos los sistemas Windows 10, 8, 7, Vista, XP, Server...
-
-## Versiones anteriores a W2008server
-
-Ir al equipo CLIENTE1: Vamos a limpiar el equipo cliente.
-* Iniciar sesión en CLIENTE1 con el "administrador" del dominio.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`.
-* Comprobamos que los usuarios del dominio no tienen perfiles en local. En tal caso, vamos a eliminar las copias de los perfiles locales en el equipo cliente para estos usuarios.
