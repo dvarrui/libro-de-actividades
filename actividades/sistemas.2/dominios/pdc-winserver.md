@@ -58,7 +58,7 @@ Necesitaremos las siguientes máquinas virtuales:
 
 * `Inicio -> Administrar el Servidor`.
 * Agregar roles.
-* Revisar que cumplimos los requisitos: clave segura de Administrador, IP fija y sistema actualizado.
+* Revisar que cumplimos los requisitos: clave segura de Administrador, IP fija. OJO: tener el sistema actualizado no es necesario para seguir con la práctica.
 * Elegimos instalación basada en roles.
 * Seleccionamos el servidor (sólo hay uno)
 * Elegimos el rol "Servicio de Dominio Active Directory".
