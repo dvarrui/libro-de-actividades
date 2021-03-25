@@ -62,6 +62,8 @@ Necesitaremos las siguientes máquinas virtuales:
 * Elegimos instalación basada en roles.
 * Seleccionamos el servidor (sólo hay uno)
 * Elegimos el rol "Servicio de Dominio Active Directory".
+* Agregar características.
+* Siguiente.
 * Instalar.
 * Al terminar hay que reiniciar el sistema.
 
