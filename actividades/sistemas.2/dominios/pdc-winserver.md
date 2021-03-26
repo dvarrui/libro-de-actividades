@@ -68,7 +68,7 @@ Necesitaremos las siguientes máquinas virtuales:
 * Al terminar hay que reiniciar el sistema.
 
 A continuación vamos a promover a controlador:
-* Promover el servidor a "Controlador de dominio".
+* Promover el servidor a "Controlador de dominio". Esta acción aparece como un triángulo amarillo de advertencia en la parte superior.
 * Agregar un nuevo bosque y ponemos el nombre de nuestro dominio "segundoapellidoXXdom.curso2021".
 * Crear delegación DNS = NO
 * Instalar
