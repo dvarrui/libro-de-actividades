@@ -166,19 +166,18 @@ Podemos comprobarlo por entorno gráfico o usando comandos.
 
 ### Por entorno gráfico
 
-* Ir al PDC (Servidor) y comprobar que aparecen los equipos CLIENTE1 y CLIENTE2 como equipos del dominio.
+* Ir al PDC (MV1) y comprobar que aparecen los equipos CLIENTE1(MV2) y CLIENTE2(MV3) como equipos del dominio.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
 
 
-* Ir a la máquina cliente (Windows 7) y entrar con un usuario del dominio.
+* Ir a la máquina cliente (Windows 10) y entrar con un usuario del dominio.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
 
 ![usuarios-cliente](./files/pdc-usuarios-cliente.png)
 
 > INFO: Para entrar como usuario local poner "VARGAS42W\profesor". Esto es, "nombre-de-máquina\nombre-usuario-local".
-
 
 ### Por comandos
 
