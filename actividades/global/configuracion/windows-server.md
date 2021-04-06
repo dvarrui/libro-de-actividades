@@ -5,7 +5,7 @@
 > * Cómo trabajar en [casa](../casa.md).
 
 ---
-# MV Windows 2008 Server
+# MV Windows Server
 
 1. [Configuración](#configuracion)
 2. [Contraseñas](#contrasenas)
@@ -19,7 +19,7 @@
 >     * 19 para el aual109
 > * Donde aparezca XX debemos poner el código asignado al alumno.
 
-Configuración de la máquina Windows 2008 Server Enterprise (Instalación completa):
+Configuración de la máquina Windows Server (Instalación completa):
 * Tarjeta de red VBox en `modo puente`.
 * Dentro del SO, configuramos el interfaz de red en modo estático.
 * IP: `172.AA.XX.21`.
@@ -28,7 +28,7 @@ Configuración de la máquina Windows 2008 Server Enterprise (Instalación compl
     * Gateway: `172.AA.0.1`
     * Servidor DNS1: `127.0.0.1`
     * Servidor DNS2: `8.8.4.4`
-* Nombre de equipo: `primer-apellido-del-alumno+XXs`.
+* Nombre de equipo: `primer-apellido-del-alumnoXXs`.
     * Por ejemplo: vargas30s.
     * El nombre NetBIOS sólo puede tener 16 caractéres.
 
@@ -36,7 +36,7 @@ Configuración de la máquina Windows 2008 Server Enterprise (Instalación compl
 
 * Los nombres de usuario, máquina y dominio deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-* Grupo de trabajo: `curso1920` (Modificar los números al curso actual)
+* Grupo de trabajo: `curso2021` (Modificar los números al curso actual)
 
 > En el caso de tener un PDC, pondremos como nombre de dominio `segundo-apellido-del-alumnoXXdom.curso1920`.
 
@@ -65,7 +65,7 @@ nslookup www.iespuertodelacruz.es
 
 ## 4. Periodo de pruebas
 
-Una vez instalado el SO Windows 2008 Server disponemos de unos 60 días trabajar con el sistema, antes de que pase al estado **Copia ilegal**.
+Una vez instalado el SO Windows Server disponemos de unos 60 días trabajar con el sistema, antes de que pase al estado **Copia ilegal**.
 
 Al finalizar este plazo de tiempo podemos:
 1. Activar el SO introduciendo un código de activación válido.
