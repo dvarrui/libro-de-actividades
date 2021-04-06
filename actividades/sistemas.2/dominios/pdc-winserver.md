@@ -254,18 +254,18 @@ Vamos a comprobar el perfil móvil.
 
 * Enlaces de interés:
     * [Crear un perfil obligatorio en Active Directory sobre Windows Server 2016](http://somebooks.es/crear-perfil-obligatorio-active-directory-windows-server-2016/).
-    * [Crear perfil obligatorio dando los permisos adecuados](http://somebooks.es/?p=3400).  
-    * Vídeo [Usuario con perfil obligatorio Windows Server 2008](https://youtu.be/TKCmAFcKSGA).
+    * [Crear un perfil obligatorio en Windows Server 2016 utilizando Ubuntu](http://somebooks.es/crear-perfil-obligatorio-windows-server-2016-utilizando-ubuntu/).
+
+Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay que renombrar el fichero "NTUSER.DAT", que encontraremos dentro del la carpeta que contiene al perfil del usuario, por el de "NTUSER.MAN".
+
 * Primero vamos a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
     * Desde Windows10. Entramos con usuario `maul`
     * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
     * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V5`.
-* Convertir el perfil móvil del  Sith Maul, a perfil obligatorio (Los ficheros que hay que cambiar están ocultos y son del sistema). Renombrar el fichero NTUSER.DAT por NTUSER.MAN.
-* Comprobar que ahora el perfil no cambia.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`,
-y comprobar que el perfil es ahora obligatorio.
-
-
+* Renombrar el fichero NTUSER.DAT por NTUSER.MAN para convertir el perfil móvil del  Sith Maul, a perfil obligatorio (Los ficheros que hay que cambiar están ocultos y son del sistema).
+* Abrir sesión desde un Windows10 con el usuario Maul. Hacer cambios en el perfil.
+* Reiniciar la MV y comprobar que el perfil no cambia al ser obligatorio.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es ahora obligatorio.
 
 # 7. Control de tiempo
 
