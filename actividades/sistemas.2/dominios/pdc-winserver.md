@@ -261,19 +261,25 @@ Vamos a comprobar el perfil móvil.
 
 Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay que renombrar el fichero "NTUSER.DAT", que encontraremos dentro del la carpeta que contiene al perfil del usuario, por el de "NTUSER.MAN".
 
-* Primero vamos a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
-    * Desde Windows10. Entramos con usuario `maul`
-    * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
-    * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V5`.
-* Renombrar el fichero NTUSER.DAT por NTUSER.MAN para convertir el perfil móvil del  Sith Maul, a perfil obligatorio (Los ficheros que hay que cambiar están ocultos y son del sistema).
-* Abrir sesión desde un Windows10 con el usuario Maul. Hacer cambios en el perfil.
-* Reiniciar la MV y comprobar que el perfil no cambia al ser obligatorio.
+* Los primero es a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
+
+> Con versiones anteriores de Windows Server se podía hacer lo siguiente:
+> * Desde Windows10. Entramos con usuario `maul`
+> * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
+> * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V5`.
+
+* A continuación renombramos el fichero NTUSER.DAT por NTUSER.MAN ((Los ficheros que hay que cambiar están ocultos y son del sistema)). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
+
+Ir a MV Windows10.
+* Iniciar sesión con el usuario Maul. Hacer cambios en el perfil.
+* Cerrar sesión y volver a entrar.
+* Comprobar que el perfil no cambia al ser obligatorio.
 * Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es ahora obligatorio.
 
 # 7. Control de tiempo
 
 Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
-* Configurar a cada uno de los usuarios "jedis", para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes) y
+* Configurar a cada uno de los usuarios "jedis", para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes).
 * Configurar a cada uno de los usuarios "siths", para que sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
 
 ---
@@ -290,7 +296,7 @@ En Windows 2012 Server, queremos quitar la opcion de complejidad de contraseña 
 * Choose on the right: `Password must meet complexity requirements`
 * Choose Disable.
 
-Si no puedes realizar esto es porque tienes un GPO forzada por politicas desde un Domain Controller o estas usando la SecPol.msc.
+Si no puedes realizar esto es porque tienes un GPO forzada por políticas desde un Domain Controller o estas usando la SecPol.msc.
 
 ## Comandos de Windows
 
