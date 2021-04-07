@@ -205,13 +205,15 @@ Material de lectura/estudio/consulta:
 
 ## 5.2 Configurar la ruta de perfil de cada usuario
 
-* En el PDC, crear la carpeta `E:\perfiles`.
+Ir a la MV Windows Server. Esto es, nuestro PDC.
+* Crear la carpeta `E:\perfiles`.
 * En dicha carpeta, definir permisos lectura/escritura para el grupo `Usuarios del dominio`.
+* En dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`.
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
     * El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
-* En el PDC, vamos a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
+* Ir a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
 
 | Usuario | Ruta del perfil                 |
 | ------- | ------------------------------- |
