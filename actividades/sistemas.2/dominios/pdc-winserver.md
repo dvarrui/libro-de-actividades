@@ -210,6 +210,7 @@ Material de lectura/estudio/consulta:
 * Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
+    * El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
 * En el PDC, vamos a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
 
 | Usuario | Ruta del perfil                 |
@@ -228,10 +229,10 @@ Material de lectura/estudio/consulta:
 * Para cada usuario modificar el entorno del escritorio, colores, iconos.
 * Para el usuario del dominio `obiwan`:
     * Crear la carpeta `jedi` en el escritorio.
-    * Crear fichero `Escritorio/jedi/personajes.txt`. Escribir dentro los nombres de los 2 jedis.
+    * Crear fichero `Escritorio/jedi/jedis.txt`. Escribir dentro los nombres de los 2 jedis.
 * Para el usuario dominio `maul`:
     * Crear la carpeta `sith` en el escritorio.
-    * Crear fichero `Escritorio/sith/personajes.txt`. Escribir dentro los nombres de los 2 siths.
+    * Crear fichero `Escritorio/sith/siths.txt`. Escribir dentro los nombres de los 2 siths.
 
 > De este modo el "perfil" de cada usuario será diferente en aspecto y contenido.
 
