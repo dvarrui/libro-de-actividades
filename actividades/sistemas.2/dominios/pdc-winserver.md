@@ -263,6 +263,7 @@ Ir a la MV Windows 10:
 * Abrir sesión con usuario `maul`
 * Acceder al recurso compartido `\\ip-del-pdc\perfiles$`
 * Dar permisos de Control Total al usuario `Administrador` en la carpeta `maul.V5`.
+
 Ir al Windows Server:
 * Abrir sesión como Administrador.
 * Ir al ruta `E:\perfiles\maul.V5`
