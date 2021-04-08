@@ -209,10 +209,8 @@ Ir a la MV Windows Server. Esto es, nuestro PDC.
 * Crear la carpeta `E:\perfiles`.
 * Para dicha carpeta, asignar permisos lectura/escritura/modificar para el grupo `Usuarios del dominio`. Esto se hace por `Propiedades -> Seguridad`.
 * Para dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`.
-* Usar modo avanzado para compartir la carpeta por red con el nombre de recurso `perfiles$`.
-    * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
-    deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
-    * El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
+    * Poner nombre del recurso compartido de red como `perfiles$`. El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
+    * Ir a permisos y asignar al grupo `Todos` control total. Además de dar permisos a la carpeta, también tenemos que dar permisos en el resurso de red que es lo que hacemos en este punto.
 * Ir a la herramienta de gestión de `Usuarios del dominio`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
 
 | Usuario | Ruta del perfil                 |
