@@ -207,9 +207,9 @@ Material de lectura/estudio/consulta:
 
 Ir a la MV Windows Server. Esto es, nuestro PDC.
 * Crear la carpeta `E:\perfiles`.
-* En dicha carpeta, definir permisos lectura/escritura para el grupo `Usuarios del dominio`.
-* En dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`.
-* Usar modo avanzado para compartir la carpeta por red con el nombre `perfiles$`.
+* Para dicha carpeta, definir permisos lectura/escritura para el grupo `Usuarios del dominio`. Esto se hace por `Propiedades -> Seguridad`.
+* Para dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`.
+* Usar modo avanzado para compartir la carpeta por red con el nombre de recurso `perfiles$`.
     * Se recuerda que para acceder a la carpeta compartida de red, los usuarios
     deben tener permisos en el recurso de red y en la carpeta del sistema de ficheros.
     * El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
