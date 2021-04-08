@@ -257,18 +257,18 @@ Vamos a comprobar el perfil móvil.
     * [Crear un perfil obligatorio en Active Directory sobre Windows Server 2016](http://somebooks.es/crear-perfil-obligatorio-active-directory-windows-server-2016/).
     * [Crear un perfil obligatorio en Windows Server 2016 utilizando Ubuntu](http://somebooks.es/crear-perfil-obligatorio-windows-server-2016-utilizando-ubuntu/).
 
-Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay que renombrar el fichero "NTUSER.DAT", que encontraremos dentro del la carpeta que contiene al perfil del usuario, por el de "NTUSER.MAN".
+Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay que renombrar el fichero "NTUSER.DAT", que encontraremos dentro del la carpeta que contiene al perfil del usuario, por el de "NTUSER.MAN". Para ello necesitamos dar permisos al usuario `Administrador` sobre el perfil de `maul`.
 
-* Los primero es a dar permisos al usuario `Administrador` sobre el perfil de `maul`.
+Ir a la MV Windows 10:
+* Abrir sesión con usuario `maul`
+* Acceder al recurso compartido `\\ip-del-pdc\perfiles$`
+* Dar permisos de Control Total al usuario `Administrador` en la carpeta `maul.V5`.
+Ir al Windows Server:
+* Abrir sesión como Administrador.
+* Ir al ruta `E:\perfiles\maul.V5`
+* A continuación renombrar el fichero NTUSER.DAT por NTUSER.MAN (Los ficheros que hay que cambiar están ocultos y son del sistema). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
 
-> Con versiones anteriores de Windows Server se podía hacer lo siguiente:
-> * Desde Windows10. Entramos con usuario `maul`
-> * Accedemos al recurso compartido `\\ip-del-pdc\perfiles$`
-> * Añadimos al usuario `Administrador` para que tenga control total en la carpeta `maul.V5`.
-
-* A continuación renombramos el fichero NTUSER.DAT por NTUSER.MAN ((Los ficheros que hay que cambiar están ocultos y son del sistema)). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
-
-Ir a MV Windows10.
+Ir a MV Windows10:
 * Iniciar sesión con el usuario Maul. Hacer cambios en el perfil.
 * Cerrar sesión y volver a entrar.
 * Comprobar que el perfil no cambia al ser obligatorio.
