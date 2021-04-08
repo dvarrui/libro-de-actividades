@@ -226,7 +226,7 @@ Ir a la MV Windows Server. Esto es, nuestro PDC.
 
 * Ir a la MV CLIENTE 1.
 * Iniciar sesión con los usuarios `obiwan` y `maul`.
-* Para cada usuario modificar el entorno del escritorio, colores, iconos.
+* [OPCIONAL] Para cada usuario modificar el entorno del escritorio, colores, iconos.
 * Para el usuario del dominio `obiwan`:
     * Crear la carpeta `jedi` en el escritorio.
     * Crear fichero `Escritorio/jedi/jedis.txt`. Escribir dentro los nombres de los 2 jedis.
