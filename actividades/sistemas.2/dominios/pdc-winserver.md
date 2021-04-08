@@ -118,7 +118,7 @@ Configurar las MV's clientes de la siguiente forma:
 * Necesitaremos 2 MV's con Windows 10, que actuarán como equipos del dominio. **¡OJO!** Podemos crear una MV, y luego clonarla. Pero hay que modificar la MAC de la segunda MV, para no tener problemas de conectividad por tarjetas de red duplicadas.
 * [Configurar las MVs](../../global/configuracion/windows.md)
 * Poner la misma **fecha/hora y zona horaria** a las MV's. Todos los equipos deben estar sincronizados en cuanto al reloj. No puede haber diferencias de más de 5 minutos.
-* Cada equipo cliente debe tener como DNS1 la IP del PDC (Windows Server que hace de controlador de dominio).
+* **Cada equipo cliente debe tener como DNS1 la IP del PDC (Windows Server que hace de controlador de dominio)**.
 * Abrir una consola y ejecutar `nslookup nombre-de-dominio` para **comprobar que el DNS está correcto**. Debe aparecer la respuesta desde la IP de nuestro servidor PDC (Windows Server que hace de controlador de dominio).
 * Ejecutar `hostname` en una consola PowerShell. Debe aparecer el nombre correcto de la máquina.
 * **Comprobar la conectividad** entre PDC-cliente y cliente-PDC usando el comando `ping` (Configurar el cortafuegos para permitir los ping entre las máquinas o deshabilitar el cortafuegos si fuera necesario).
