@@ -262,7 +262,7 @@ Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay qu
 
 Ir a la MV Windows 10:
 * Abrir sesión con usuario `maul`
-* Acceder al recurso compartido `\\ip-del-pdc\perfiles$`
+* Iniciar el explorador de archivos y poner en la barra de ruta, la dirección del recurso compartido de red. Esto es: `\\ip-del-pdc\perfiles$`
 * Dar permisos de Control Total al usuario `Administrador` en la carpeta `maul.V5`.
 
 Ir al Windows Server:
