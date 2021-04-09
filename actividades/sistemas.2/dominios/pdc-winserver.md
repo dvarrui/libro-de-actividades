@@ -85,11 +85,12 @@ A continuación vamos a promover a controlador:
 
 * Leer/consultar los apuntes para entender los conceptos siguientes:
 usuario local, usuario del dominio, equipo del dominio, grupo local, grupo del dominio.
-* Enlace de interés:
-    * [Definiciones de ámbito local, global y universal](https://msdn.microsoft.com/es-es/library/cc755692%28v=ws.10%29.aspx)
-    * [Deshabilitar políticas de clave en Windows 2008 Server](http://www.radians.com.ar/blog/?p=403)  
-    * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
-    * Información sobre [Tipos y ámbitos de grupo en Windows Server](https://es.slideshare.net/cesartg65/tipos-y-mbitos-de-grupo-windows-server)
+
+> Enlace de interés:
+> * [Definiciones de ámbito local, global y universal](https://msdn.microsoft.com/es-es/library/cc755692%28v=ws.10%29.aspx)
+> * [Deshabilitar políticas de clave en Windows 2008 Server](http://www.radians.com.ar/blog/?p=403)  
+> * [Usuarios y Grupos](http://www.ite.educacion.es/formacion/materiales/85/cd/windows/10Usuarios/index.html).
+> * Información sobre [Tipos y ámbitos de grupo en Windows Server](https://es.slideshare.net/cesartg65/tipos-y-mbitos-de-grupo-windows-server)
 
 ## 3.2 Práctica
 
@@ -170,7 +171,6 @@ Podemos comprobarlo por entorno gráfico o usando comandos.
 
 ![pdc-equipo-dominio](./files/pdc-equipo-dominio.png)
 
-
 * Ir a la máquina cliente (Windows 10) y entrar con un usuario del dominio.
 
 ![pdc-login-cliente](./files/pdc-login-cliente.png)
@@ -250,13 +250,13 @@ Vamos a comprobar el perfil móvil.
 * `hostname`, para mostrar nombre del equipo.
 * `whoami`, para mostrar nuestro usuario actual.
 * Comprobar que tenemos perfiles móviles para ellos. El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es móvil.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Configuración Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es móvil.
 
 # 6. Perfiles obligatorios
 
-* Enlaces de interés:
-    * [Crear un perfil obligatorio en Active Directory sobre Windows Server 2016](http://somebooks.es/crear-perfil-obligatorio-active-directory-windows-server-2016/).
-    * [Crear un perfil obligatorio en Windows Server 2016 utilizando Ubuntu](http://somebooks.es/crear-perfil-obligatorio-windows-server-2016-utilizando-ubuntu/).
+> Enlaces de interés:
+> * [Crear un perfil obligatorio en Active Directory sobre Windows Server 2016](http://somebooks.es/crear-perfil-obligatorio-active-directory-windows-server-2016/).
+> * [Crear un perfil obligatorio en Windows Server 2016 utilizando Ubuntu](http://somebooks.es/crear-perfil-obligatorio-windows-server-2016-utilizando-ubuntu/).
 
 Para convertir el perfil móvil de un usuario en perfil obligatorio sólo hay que renombrar el fichero "NTUSER.DAT", que encontraremos dentro del la carpeta que contiene al perfil del usuario, por el de "NTUSER.MAN". Para ello necesitamos dar permisos al usuario `Administrador` sobre el perfil de `maul`.
 
