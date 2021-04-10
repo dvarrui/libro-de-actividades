@@ -1,0 +1,27 @@
+# Using the following classes:
+
+```
+public class Title {
+	String lang;
+	String title;
+}
+
+public class Book {
+	String category;
+	Title title;
+	String author;
+	int year;
+	float price;
+}
+```
+
+### a) Make the getters and setters,  empty constructors and full one and it toString method()
+
+### b) Make a programe that makes the deserialization from book1.xml using the previous classes
+	-You gotta make 3 programs in total.
+	1. Parsing the xml with DOM  
+	2. Parsing the xml with SAX
+	3. Parsing the xml wity StAX
+
+
+*To verify it works, show up for each program the output by console.
