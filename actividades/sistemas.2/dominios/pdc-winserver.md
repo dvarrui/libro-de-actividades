@@ -250,7 +250,7 @@ Vamos a comprobar el perfil móvil.
 * `hostname`, para mostrar nombre del equipo.
 * `whoami`, para mostrar nuestro usuario actual.
 * Comprobar que tenemos perfiles móviles para ellos. El perfil móvil permite al usuario moverse por PC's diferentes y ver el mismo entorno con sus datos.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Configuración Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es móvil.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Configuración Avanzadas -> Perfiles de usuario -> Configuración`, y comprobar que el perfil es móvil.
 
 # 6. Perfiles obligatorios
 
@@ -279,7 +279,7 @@ Ir a MV Windows10:
 * Iniciar sesión con el usuario Maul. Hacer cambios en el perfil.
 * Cerrar sesión y volver a entrar.
 * Comprobar que el perfil no cambia al ser obligatorio.
-* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Configuración de Perfiles de usuario`, y comprobar que el perfil es ahora obligatorio.
+* Ir a `Inicio -> Panel de Control -> Sistema -> Opciones Avanzadas -> Perfiles de usuario -> Configuración`, y comprobar que el perfil es obligatorio.
 
 # 7. Control de tiempo
 
