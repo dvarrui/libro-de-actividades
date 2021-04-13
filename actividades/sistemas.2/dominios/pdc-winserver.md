@@ -284,8 +284,8 @@ Ir a MV Windows10:
 # 7. Control de tiempo
 
 Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
-* Configurar a cada uno de los usuarios "jedis", para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes).
-* Configurar a cada uno de los usuarios "siths", para que sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
+* Para cada uno de los usuarios "jedis", seleccionar `usuario -> propiedades -> cuenta -> Hora de inicio de sesión`. Configurar para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes).
+* Para cada uno de los usuarios "siths", seleccionar `usuario -> propiedades -> cuenta -> Hora de inicio de sesión`. Configurar para que sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
 
 ---
 
