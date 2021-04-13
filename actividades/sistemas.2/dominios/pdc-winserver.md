@@ -265,6 +265,7 @@ Ir a la MV Windows 10:
 * Iniciar el explorador de archivos.
 * Donde pone "Acceso rápido", escribir la dirección del recurso compartido de red. Esto es: `\\ip-del-pdc\perfiles$`
 * Dar permisos de Control Total al usuario `Administrador` en la carpeta `maul.V5`.
+* Cerrar la sesión.
 
 Ir al Windows Server:
 * Abrir sesión como Administrador.
@@ -273,7 +274,7 @@ Ir al Windows Server:
     * Marcar => Mostrar archivos, carpetas y unidades ocultas.
     * Desmarcar => Ocultar extensiones de archivos.
     * Desmarcar => Ocultar archivos protegidos del sistema.
-* A continuación renombrar el fichero NTUSER.DAT por NTUSER.MAN (Los ficheros que hay que cambiar están ocultos y son del sistema). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
+* A continuación renombrar el fichero "NTUSER.DAT" por "NTUSER.MAN" (Los ficheros que hay que cambiar están ocultos y son del sistema). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
 
 Ir a MV Windows10:
 * Iniciar sesión con el usuario Maul. Hacer cambios en el perfil.
@@ -284,6 +285,7 @@ Ir a MV Windows10:
 # 7. Control de tiempo
 
 Modificar los permisos de acceso de los usuarios del dominio, de la siguiente forma:
+* Ir a la MV de Windows Server.
 * Para cada uno de los usuarios "jedis", seleccionar `usuario -> propiedades -> cuenta -> Hora de inicio de sesión`. Configurar para que sólo puedan acceder de 08:00 a 14:00 (de lunes a viernes).
 * Para cada uno de los usuarios "siths", seleccionar `usuario -> propiedades -> cuenta -> Hora de inicio de sesión`. Configurar para que sólo pueden acceder de 14:00 a 20:00 (de lunes a viernes).
 
