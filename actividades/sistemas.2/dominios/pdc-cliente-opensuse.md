@@ -58,7 +58,7 @@ del fichero `/etc/resolv.conf`.
 ## 4. Abrir sesión en el cliente
 
 Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
-* Desde el cliente, entramos al sistema con algún usuario del dominio de la forma `DOMAIN\username`. Por ejemplo: ruiz42dom\obiwan.
+* Desde el cliente, entramos al sistema con algún usuario del dominio de la forma `DOMAIN\username`. Por ejemplo: ruiz42dom\obiwan. Se recomienda usar el entorno gráfico XFCE.
 
 > Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
 > Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
