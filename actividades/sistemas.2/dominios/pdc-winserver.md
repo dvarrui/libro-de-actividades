@@ -270,11 +270,12 @@ Ir a la MV Windows 10:
 Ir al Windows Server:
 * Abrir sesión como Administrador.
 * Iniciar el explorador de archivos e ir a la ruta `E:\perfiles\maul.V5`
-* En el explorador de archivos, ir a `Vista -> Opciones -> cambiar opciones de carpeta y búsqueda -> Ver`:
+* Los ficheros que hay que cambiar están ocultos y son del sistema. Por ese motivo vamos al explorador de archivos, ir a `Vista -> Opciones -> cambiar opciones de carpeta y búsqueda -> Ver`:
     * Marcar => Mostrar archivos, carpetas y unidades ocultas.
     * Desmarcar => Ocultar extensiones de archivos.
     * Desmarcar => Ocultar archivos protegidos del sistema.
-* A continuación renombrar el fichero "NTUSER.DAT" por "NTUSER.MAN" (Los ficheros que hay que cambiar están ocultos y son del sistema). De esta forma convertimos el perfil móvil de Maul en perfil obligatorio .
+    * A continuación pulsamos en "Aplicar" y "Aceptar".
+* Ahora renombramos el fichero "NTUSER.DAT" por "NTUSER.MAN". De esta forma convertimos el perfil móvil del usuario Maul en perfil obligatorio .
 
 Ir a MV Windows10:
 * Iniciar sesión con el usuario Maul. Hacer cambios en el perfil.
