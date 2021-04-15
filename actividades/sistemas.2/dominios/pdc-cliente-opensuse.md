@@ -47,9 +47,9 @@ del fichero `/etc/resolv.conf`.
 
 * Usar Yast para unir la MV al dominio del PDC.
     * `Yast -> Pertenencia a dominio de Windows` (Unirse a un dominio)
-    * Activar
-        * Autenticación SMB
-        * Crear home del usuario
+    * Poner el **nombre largo del dominio**. Por ejemplo "ruiz42dom.curso2021".
+    * Activar la **Autenticación SMB**.
+    * Activar **Crear home del usuario**.
 * **OJO**: Hay que reescribir el nombre del usuario y poner `Administrador` (con d).
 * Poner la clave del Administrador del dominio.
 * Debe aparecer un mensaje de que se ha realizado la unión al dominio.
