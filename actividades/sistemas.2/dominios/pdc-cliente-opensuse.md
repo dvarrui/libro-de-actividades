@@ -28,8 +28,8 @@ que tenemos en el PDC (Windows Server).
 * Servidores DNS: Configurar el cliente GNU/Linux para tener dos servidores DNS.
 Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
 * Realizar la comprobación del DNS mediante la ejecución de
-    * `host DOMINIO-DEL-PDC`
-    * `host NOMBRE-EQUIPO-PDC`
+    * `host DOMINIO-DEL-PDC`, por ejemplo "host ruiz42dom.curso2021".
+    * `host NOMBRE-EQUIPO-PDC`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
     * `host www.google.es`
 
 > **INFO: Configuración "manual" de la resolución de nombres**
@@ -58,8 +58,7 @@ del fichero `/etc/resolv.conf`.
 ## 4. Abrir sesión en el cliente
 
 Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
-* Desde el cliente, entramos al sistema con algún usuario del dominio. Por ejemplo: `DOMAIN\username`
-(Otras formas de escribir el usuario del dominio podrían ser DOMAIN/username o username@DOMAIN).
+* Desde el cliente, entramos al sistema con algún usuario del dominio de la forma `DOMAIN\username`. Por ejemplo: ruiz42dom\obiwan. Otras formas de escribir el usuario del dominio podrían ser DOMAIN/username o username@DOMAIN.
 
 > Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
 > Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
