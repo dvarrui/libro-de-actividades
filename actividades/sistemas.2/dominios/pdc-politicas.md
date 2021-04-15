@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920, 201819
+Curso       : 202021, 201920, 201819
 Área        : Sistemas operativos, dominios, políticas, seguridad
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
@@ -17,13 +17,10 @@ Tiempo      : 8-10 horas
 * Leer la documentación que se proporciona. Concretamente el fichero `M34_directivas_grupos.pdf`.
 * Consultar las dudas al profesor.
 
-## Propuesta de rúbrica
-
-| ID | Criterios                | Muy bien(2) | Adecuado(1) | Poco adecuado(0) |
-| -- | ------------------------ | ----------- | ----------- | ---------------- |
-| 01 | gpo_jedi y gpo_sith        ||||
-| 02 | MSI y carpetas compartidas ||||
-| 03 | gpo_software               ||||
+En esta práctica veremos:
+* Crear GPO de usuarios.
+* Crear ficheros MSI.
+* Crear GPO de software.
 
 # 1. Aplicar directivas de Usuario
 
