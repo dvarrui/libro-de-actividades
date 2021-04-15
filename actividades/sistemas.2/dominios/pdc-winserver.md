@@ -207,8 +207,8 @@ Material de lectura/estudio/consulta:
 
 Ir a la MV Windows Server o PDC.
 * Crear la carpeta `E:\perfiles`.
-* Para dicha carpeta, asignar permisos lectura/escritura/modificar para el grupo llamado **Usuarios del dominio**. Esto se hace por `Propiedades -> Seguridad`.
-* Para dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`. Poner nombre del recurso compartido de red como `perfiles$`. El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
+* Para dicha carpeta, asignar permisos "contro total" para el grupo llamado **Usuarios del dominio**. Esto se hace por `Propiedades -> Seguridad`.
+* Para dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado`. Poner nombre del recurso compartido de red como **perfiles$**. El poner el $ en el nombre del recurso compartido es para hacerlo oculto.
 * Para dicha carpeta ir a `Propiedades -> Compartir -> Uso compartido avanzado -> permisos` y asignar al grupo `Todos` control total. En este punto estamos asignando permisos al recurso compartido de red.
 * Ir a la herramienta de gestión de `Usuarios y equipos de Active Directory`.
 * Seleccionar usuario, e ir a `Propiedades -> Perfil (pestaña)`. Modificar el atributo `ruta de acceso al perfil` de los siguientes usuarios del dominio:
