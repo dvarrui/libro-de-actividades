@@ -1,4 +1,12 @@
 
+```
+Curso       : 202021
+Area        : Sistemas operativos, dominios
+Descripción : Unir client GNU/Linux a un dominio Windows
+Requisitos  : Windows 2016 Server, OpenSUSE
+Tiempo      : 1 sesión
+```
+
 # 1. Introducción
 
 El objetivo de esta práctica será el de configurar una MV GNU/Linux como cliente del dominio de la práctica anterior.
@@ -8,8 +16,6 @@ Vamos a aprovechar el PDC de la actividad anterior, para realizar esta práctica
 
 Además usaremos la herramienta YAST, un programa de entorno
 gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
-
----
 
 ## 2. Preparar el cliente
 
@@ -37,8 +43,6 @@ una configuración de nombres "manual".
 > Si tenemos problemas con la resolución de nombres, revisar el contenido
 del fichero `/etc/resolv.conf`.
 
----
-
 ## 3. Unirse al dominio
 
 * Usar Yast para unir la MV al dominio del PDC.
@@ -46,12 +50,10 @@ del fichero `/etc/resolv.conf`.
     * Activar
         * Autenticación SMB
         * Crear home del usuario
-* **OJO**: Hay que escribir usuario `Administrador` (con d).
+* **OJO**: Hay que reescribir el nombre del usuario y poner `Administrador` (con d).
 * Poner la clave del Administrador del dominio.
 * Debe aparecer un mensaje de que se ha realizado la unión al dominio.
 * Comprobar en el servidor PDC, consultando los equipos del dominio.
-
----
 
 ## 4. Abrir sesión en el cliente
 
