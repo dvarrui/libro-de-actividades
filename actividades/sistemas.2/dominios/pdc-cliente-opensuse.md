@@ -58,23 +58,23 @@ del fichero `/etc/resolv.conf`.
 ## 4. Abrir sesión en el cliente
 
 Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
-* Desde el cliente, entramos al sistema con algún usuario del dominio de la forma `DOMAIN\username`. Por ejemplo: ruiz42dom\obiwan. Otras formas de escribir el usuario del dominio podrían ser DOMAIN/username o username@DOMAIN.
+* Desde el cliente, entramos al sistema con algún usuario del dominio de la forma `DOMAIN\username`. Por ejemplo: ruiz42dom\obiwan.
 
 > Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
 > Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
 >
 > ![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
 
-* Una vez iniciada la sesión ejecutar los comandos de comprobación:
-    * `whoami`, esto debe devolver `DOMINIO\USER` que ha iniciado sesión
-    * `cat /etc/passwd | grep $(whoami)`, esto debe devolver vacío, indicando
-    que el usuario no está definido como usuario local, por tanto, debe ser
-    un usuario del dominio.
+Una vez iniciada la sesión ejecutar los comandos de comprobación:
+* `whoami`, esto debe devolver `DOMINIO\USERNAME` que ha iniciado sesión
+* `cat /etc/passwd | grep USERNAME`, esto debe devolver vacío, indicando
+que el usuario no está definido como usuario local, por tanto, debe ser
+un usuario del dominio.
 
-> **Otros comandos de comprobación**
->
-> * `id USUARIO`, esto debería devolver que no existe el usuario en el sistema local.
-> * `cat /etc/passwd |grep 'DOMINIO\USUARIO'`, esto es lo mismo que `cat /etc/passwd | grep $(whoami)`.
+> Si tenemos problema para iniciar sesión desde el entorno gráfico, podemos iniciar
+sesión por el terminal:
+> * Abrir un terminal
+> * `su -l USERNAME@DOMAIN`. por ejemplo `su -l yoda@ruiz42dom`.
 
 ---
 
