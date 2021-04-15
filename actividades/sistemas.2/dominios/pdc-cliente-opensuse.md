@@ -55,8 +55,9 @@ del fichero `/etc/resolv.conf`.
 
 ## 4. Abrir sesión en el cliente
 
-* Comprobar entrando con un usuario del dominio en el cliente:
-    *  Desde el cliente, entramos al sistema con algún usuario del dominio (Ejemplos: `DOMAIN\username`, DOMAIN/username o username@DOMAIN).
+Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
+* Desde el cliente, entramos al sistema con algún usuario del dominio. Por ejemplo: `DOMAIN\username`
+(Otras formas de escribir el usuario del dominio podrían ser DOMAIN/username o username@DOMAIN).
 
 > Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
 > Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
