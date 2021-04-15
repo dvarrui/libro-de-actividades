@@ -30,7 +30,7 @@ Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
 * Realizar la comprobación del DNS mediante la ejecución de
     * `host DOMINIO-DEL-PDC`, por ejemplo "host ruiz42dom.curso2021".
     * `host NOMBRE-EQUIPO-PDC`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
-    * `host www.google.es`
+    * `host www.nba.com`
 
 > **INFO: Configuración "manual" de la resolución de nombres**
 >
