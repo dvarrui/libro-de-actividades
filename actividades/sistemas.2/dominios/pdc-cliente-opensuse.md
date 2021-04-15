@@ -66,7 +66,8 @@ Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
 > ![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
 
 Una vez iniciada la sesión ejecutar los comandos de comprobación:
-* `whoami`, esto debe devolver `DOMINIO\USERNAME` que ha iniciado sesión
+* `whoami`, esto debe devolver `DOMINIO\USERNAME` que ha iniciado sesión.
+* `pwd`, para consultar el directorio actual.
 * `cat /etc/passwd | grep USERNAME`, esto debe devolver vacío, indicando
 que el usuario no está definido como usuario local, por tanto, debe ser
 un usuario del dominio.
