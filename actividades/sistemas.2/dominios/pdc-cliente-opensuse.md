@@ -16,6 +16,7 @@ gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
 Tener en cuenta los siguientes aspectos en la configuración del cliente.
 * HORA: La fecha/hora del sistema debe sincronizarse con el PDC. Poner la misma fecha/hora
 que tenemos en el PDC (Windows Server).
+* NOBRE DEL EQUIPO: "1er-apellidoXXg".
 * VIRTUALBOX: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable configurar la red de las máquinas virtuales en modo `puente` (El modo "Red interna" también funcionará bien).
 * Interfaz de RED: Recordar que las máquinas (Servidor y cliente) deben tener la configuración de red estática. Configurar la red con IP estática.
 * Servidores DNS: Configurar el cliente GNU/Linux para tener dos servidores DNS.
@@ -45,10 +46,9 @@ del fichero `/etc/resolv.conf`.
     * Activar
         * Autenticación SMB
         * Crear home del usuario
-
-> OJO: Hay que escribir usuario `Administrador` con la clave del dominio.
-
-* Actualizar paquetes OpenSuse (`zypper update`)
+* **OJO**: Hay que escribir usuario `Administrador` (con d).
+* Poner la clave del Administrador del dominio.
+* Debe aparecer un mensaje de que se ha realizado la unión al dominio.
 * Comprobar en el servidor PDC, consultando los equipos del dominio.
 
 ---
