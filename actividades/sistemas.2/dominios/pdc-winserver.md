@@ -76,8 +76,8 @@ A continuación vamos a promover a controlador:
 ## 2.3 Comprobaciones
 
 * Ir a `Herramientas -> DNS` y comprobar que dentro de `Zona de búsqueda directa` aparece nuestro `nombre-de-dominio`.
-* Abrir una consola y ejecutar `nslookup nombre-de-dominio`. Debe aparecer la IP de nuestro servidor PDC.
-* Abrir una consola y ejecutar `nslookup nombre-PDC`. Debe aparecer la IP de nuestro servidor PDC.
+* Abrir una consola y ejecutar `nslookup nombre-de-dominio-largo`. Por ejemplo: "nslookup ruiz42dom.curso2021". Debe aparecer la IP de nuestro servidor PDC.
+* Abrir una consola y ejecutar `nslookup nombre-PDC.nombre-de-dominio-largo`. Por ejemplo: "nslookup vargas42s.ruiz42dom.curso2021". Debe aparecer la IP de nuestro servidor PDC.
 
 # 3. Usuarios del dominio
 
