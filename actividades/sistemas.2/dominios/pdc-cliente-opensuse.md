@@ -66,7 +66,7 @@ sesión por el terminal:
 > * Abrir un terminal
 > * `su -l USERNAME@DOMAIN`. por ejemplo `su -l yoda@ruiz42dom`.
 
-Vemos una imagen de ejemplo, con el dominio EZEQUIELW y el nombre de usuario ALU1.
+Vemos una imagen de ejemplo, con el dominio "EZEQUIELW" y el nombre de usuario "ALU1".
 Si no conseguimos entrar a la primera, esperaremos 5 minutos y lo volvemos a intentar.
 
 ![pdc-dentro-dominio-win.jpg](./files/pdc-dentro-dominio-win.jpg)
@@ -77,6 +77,12 @@ Una vez iniciada la sesión ejecutar los comandos de comprobación:
 * `cat /etc/passwd | grep USERNAME`, esto debe devolver vacío, indicando
 que el usuario no está definido como usuario local, por tanto, debe ser
 un usuario del dominio.
+
+## NOTA
+
+Podemos acceder al recurso compartido del Window Server (PDC) de la siguiente forma:
+* Iniciar un explorador de archivos.
+* Escribir lo siguiente en la barra de ruta que está en la parte superior, por ejemplo: `smb:\\ip-del-pdc\perfiles$\yoda.V5`.
 
 ---
 
