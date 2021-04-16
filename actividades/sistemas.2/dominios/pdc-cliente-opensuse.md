@@ -50,6 +50,7 @@ del fichero `/etc/resolv.conf`.
     * Poner el **nombre largo del dominio**. Por ejemplo "ruiz42dom.curso2021".
     * Activar la **Autenticación SMB**.
     * Activar **Crear home del usuario**.
+* Pulsamos "Aceptar". Es posible que se instalen algunos paquetes que hacen falta para seguir.
 * **OJO**: Hay que reescribir el nombre del usuario y poner `Administrador` (con d).
 * Poner la clave del Administrador del dominio.
 * Debe aparecer un mensaje de que se ha realizado la unión al dominio.
