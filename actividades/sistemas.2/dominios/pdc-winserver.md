@@ -98,7 +98,7 @@ Vamos a crear usuarios y grupos del dominio:
 * Ir a `Inicio -> Herramientas Administrativas -> Usuarios y Equipos de Active Directory`
 * Crear los siguientes grupos:
 
-| Grupo      | jediXX     | sithXX  |
+| Grupo      | jedis      | siths     |
 | ---------- | ---------- | --------- |
 | **Ámbito** | global     | global    |
 | **Tipo**   | Seguridad  | Seguridad |
