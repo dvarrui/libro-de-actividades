@@ -20,8 +20,7 @@ gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
 ## 2. Preparar el cliente
 
 Tener en cuenta los siguientes aspectos en la configuración del cliente.
-* HORA: La fecha/hora del sistema debe sincronizarse con el PDC. Poner la misma fecha/hora
-que tenemos en el PDC (Windows Server).
+* HORA: La fecha/hora y la zona horaria de la máquina debe ser igual que la del Windows Server (PDC). que tenemos en el PDC (Windows Server).
 * NOBRE DEL EQUIPO: "1er-apellidoXXg".
 * VIRTUALBOX: GNU/Linux y PDC, deben estar en la misma red, por lo que es aconsejable configurar la red de las máquinas virtuales en modo `puente` (El modo "Red interna" también funcionará bien).
 * Interfaz de RED: Recordar que las máquinas (Servidor y cliente) deben tener la configuración de red estática. Configurar la red con IP estática.
@@ -31,17 +30,6 @@ Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
     * `host DOMINIO-DEL-PDC`, por ejemplo "host ruiz42dom.curso2021".
     * `host NOMBRE-EQUIPO-PDC`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
     * `host www.nba.com`
-
-> **INFO: Configuración "manual" de la resolución de nombres**
->
-> Si la resolución de nombres fallara,  podemos en este caso, hacer
-una configuración de nombres "manual".
-> Para ello editamos el archivo `/etc/hosts` y añadimos la línea siguiente:
->
-> `IP_DEL_PDC   vargas42dom.curso1516   vargas42s.vargas42dom.curso1516`
->
-> Si tenemos problemas con la resolución de nombres, revisar el contenido
-del fichero `/etc/resolv.conf`.
 
 ## 3. Unirse al dominio
 
@@ -91,3 +79,14 @@ Podemos acceder al recurso compartido del Window Server (PDC) de la siguiente fo
 Enlaces de interés:
 * [Descargar guía OpenSUSE 13.1 con DA](http://www.mediafire.com/download/513w206qbg014bv/openSUSE+13.1+con+Active+Directory+Gu%C3%ADa+Ilustrada.zip)
 * [Integración OpenSUSE a Directorio Activo](https://es.opensuse.org/Integraci%C3%B3n_de_Directorio_Activo)
+
+## Configuración "manual" de la resolución de nombres**
+
+Si la resolución de nombres fallara, podemos en este caso, hacer
+una configuración de nombres "manual".
+Para ello editamos el archivo `/etc/hosts` y añadimos la línea siguiente:
+
+`IP-DEL-PDC   vargas42dom.curso1516   vargas42s.vargas42dom.curso1516`
+
+Si tenemos problemas con la resolución de nombres, revisar el contenido
+del fichero `/etc/resolv.conf`.
