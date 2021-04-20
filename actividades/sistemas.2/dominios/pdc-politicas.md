@@ -41,11 +41,11 @@ Realizar las siguientes tareas:
 La GPO es un conjunto de políticas o directivas que se aplica a una o varias unidades organizativas.
 
 > Enlaces de interés:
-> * Sobre [cómo aplicar una GPO a un grupo en Win Server 2008](http://www.aprendeinformaticaconmigo.com/windows-server-2008-filtrar-una-gpo-para-aplicarla-a-grupos/).
-> * Vídeo sobre [Crear políticas de grupo (GPO) para Win Server 2012 R2](https://www.youtube.com/watch?v=LnO0aeK8_P4&t=647s)
+> * [Crear GPO en Windows Server 2016](https://www.solvetic.com/tutoriales/article/4910-crear-editar-eliminar-politicas-de-grupo-gpo-windows-server-2016/)
 
 **IMPORTANTE**: No aplicar la directivas a todo el dominio, sino a las unidades organizativas que se especifiquen. Este error puede afectar al correcto funcionamiento del servidor en su totalidad.
 
+* Ir a `Herramientas -> Administración de directivas de grupo`
 * Dentro de la OU de los `jediXX` -> Botón derecho -> crear la GPO `gpo_jediXX`.
 * Dentro de la OU de los `sithXX` -> Botón derecho -> crear la GPO `gpo_sithXX`.
 
@@ -180,9 +180,6 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 
 > Enlaces de interés
 >
-> * [Crear GPO de despliegue de software](http://www.aprendeinformaticaconmigo.com/windows-server-2008-crear-gpo-de-despliegue-de-software/)
-> * [Active Directory directivas a usuarios](https://losindestructibles.wordpress.com/2011/05/22/windows-server-2008-active-directory-gpo-directivas-a-usuarios/)
-> * [Cómo utilizar directiva de grupo para instalar software de forma remota en Windows Server 2008 y Windows Server 2003](https://support.microsoft.com/es-es/help/816102/how-to-use-group-policy-to-remotely-install-software-in-windows-server-2008-and-in-windows-server-2003)
 > * [Vídeo - Instalación de software con extensión MSI a través de GPO en windows server 2016](https://www.youtube.com/watch?v=JUR-1JDWDZI)
 
 ## 3.1 Crear nueva GPO en el servidor
