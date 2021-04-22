@@ -5,7 +5,7 @@ Curso       : 202021, 201920, 201819
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
               Configurar políticas con el uso de ficheros MSI.
-Requisitos  : Windows Server (2008, 2012)
+Requisitos  : Windows Server
 Tiempo      : 8-10 horas
 ```
 
@@ -220,6 +220,13 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 
 ---
 # ANEXO A
+
+## Advanced Installer
+
+Advanced Installer
+New -> IT Pro
+Convert
+MSI from EXE
 
 ## Duda
 
