@@ -221,6 +221,11 @@ en las directivas. OJO. Este paso puede tardar bastante tiempo.
 ---
 # ANEXO A
 
+## EMCO Software
+
+* Esto es un tutorial: https://www.youtube.com/watch?v=Ak1z1iadfQw
+* Este el programa: https://emcosoftware.com/msi-package-builder
+
 ## Advanced Installer
 
 Advanced Installer
