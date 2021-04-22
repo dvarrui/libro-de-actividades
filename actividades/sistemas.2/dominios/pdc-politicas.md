@@ -31,7 +31,7 @@ Realizar las siguientes tareas:
 * Ir a la MV PDC.
 * Por seguridad, antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
 * Abrir la herramienta de gestión de "Usuarios y equipos del Active Directory".
-* En el `Lateral izquierdo -> botón derecho -> Crear OU`
+* Click en `Dominio -> Nuevo -> Crear OU`
 * Crear las OU (Unidades Organizativas) siguientes: `jediXX` y `sithXX`.
 * Los usuarios (obiwan y yoda) que teníamos creados en `Usuarios`, los movemos a la OU de `jediXX`.
 * Los usuarios (maul y vader) que teníamos creados en `Usuarios`, los movemos a la OU de `sithXX`.
