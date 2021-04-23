@@ -24,16 +24,16 @@ En esta práctica veremos:
 
 # 1. Aplicar directivas de Usuario
 
-## 1.1 Crear las OU
+## 1.1 Crear las OU (Unidad Organizativa)
 
 Realizar las siguientes tareas:
 
 * Ir a la MV PDC.
 * Por seguridad, antes de empezar la práctica vamos a crear un "snapshot" (instantánea) de la máquina virtual.
 * Abrir la herramienta de gestión de "Usuarios y equipos del Active Directory".
-* Click en `Dominio -> Nuevo -> Crear OU`
+* En el panel izquierzo, hacer click derecho sobre el nombre de nuestro dominio. Elegir `Nuevo -> Crear Unidad Organizativa`
 * Crear las OU (Unidades Organizativas) siguientes: `jediXX` y `sithXX`.
-* Los usuarios (obiwan y yoda) que teníamos creados en `Usuarios`, los movemos a la OU de `jediXX`.
+* Los usuarios (obiwan y yoda) que teníamos creados en `Usuarios`, los movemos a la OU de `jediXX`. Para ello hacemos click derecho sobre el usuario y mover.
 * Los usuarios (maul y vader) que teníamos creados en `Usuarios`, los movemos a la OU de `sithXX`.
 
 ## 1.2 Crear GPO's
