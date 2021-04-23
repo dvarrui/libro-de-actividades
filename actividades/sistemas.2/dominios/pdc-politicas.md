@@ -121,11 +121,10 @@ Permisos especiales                |                            | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
-
 ## 2.2 Crear el paquete MSI con EMCO Software
 
 * Programa: https://emcosoftware.com/msi-package-builder
-* Tutorial:
+* Tutoriales:
     * https://www.youtube.com/watch?v=Ak1z1iadfQw
     * https://www.youtube.com/watch?v=AZXhZDx2zSY&list=UUm3zqS2cJGK_Zdeq_-SzBKg&index=3 (Creado por JA Mora).
 * Crear un paquete MSI con el programa EMCO Software.
@@ -163,8 +162,7 @@ ruta de red y NO su ruta del sistema de ficheros.
 ## 3.2 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
-* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
-en las directivas. OJO. Este paso puede tardar bastante tiempo.
+* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado en las directivas (NOTA: Este paso puede tardar bastante tiempo).
 * Mostrar salida de los comandos: `whoami` y `hostname`.
 
 > **ERRORES**
