@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021, 201920, 201819
+Curso       : 202021
 Área        : Sistemas operativos, dominios, políticas, seguridad
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
@@ -121,6 +121,60 @@ Permisos especiales                |                            | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
+
+## 2.2 Crear el paquete MSI con EMCO Software
+
+* Tutorial: https://www.youtube.com/watch?v=Ak1z1iadfQw
+* Programa: https://emcosoftware.com/msi-package-builder
+
+* Crear un paquete MSI con el programa EMCO Software.
+* Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\firefox.msi`.
+
+# 3. Aplicar directiva de Equipo
+
+> Enlaces de interés
+>
+> * [Vídeo - Instalación de software con extensión MSI a través de GPO en windows server 2016](https://www.youtube.com/watch?v=JUR-1JDWDZI)
+
+## 3.1 Crear nueva GPO en el servidor
+
+**Vamos al servidor:**
+* Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
+* Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
+* Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
+    * Paquete de instalación de software de la aplicación.
+    * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+    * Configurar la instalación del paquete en modo `Asignado`.
+    * Exigido: `Sí`.
+* En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
+
+> **ADVERTENCIAS**
+>
+> * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
+ruta de red y NO su ruta del sistema de ficheros.
+>     1. Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+>     1. Ejemplo INCORRECTO: `E:\softwareXX\firefox\firefox.msi`
+> * La configuración de instalación de paquete `Publicado` no instala el programa, pero lo deja disponible por si el usuario lo quiere instalar a través de la herramienta de `Instalación de Software` del panel de control.
+
+* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas.
+* Capturar imagen del resumen de la configuración de la directiva (`Ir a directiva -> Configuración`).
+
+## 3.2 Comprobar desde los clientes
+
+**Vamos al otro cliente:**
+* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
+en las directivas. OJO. Este paso puede tardar bastante tiempo.
+* Mostrar salida de los comandos: `whoami` y `hostname`.
+
+> **ERRORES**
+>
+> * En caso de tener problemas deshabilitar de las directivas la opción de `Ocultar el icono Ubicaciones de red del escritorio`.
+> * Comprobar acceso al recurso remoto desde los clientes.
+> * Comprobar MSI de forma manual.
+
+---
+# ANEXO A
+
 ## 2.2 Instalar WinINSTALL
 
 > **OTROS PROGRAMAS**: Si tenemos problemas con el programa WinINSTALL, podemos usar [Advanced Installer](https://www.advancedinstaller.com/)
@@ -175,56 +229,6 @@ a continuación se nos mostrará otra ventana en el que seleccionaremos el fiche
 * Limpiamos el equipo cliente:
     * Eliminar el fichero `firefox.exe` que nos habíamos descargado.
     * Desinstalar el programa Firefox del cliente.
-
-# 3. Aplicar directiva de Equipo
-
-> Enlaces de interés
->
-> * [Vídeo - Instalación de software con extensión MSI a través de GPO en windows server 2016](https://www.youtube.com/watch?v=JUR-1JDWDZI)
-
-## 3.1 Crear nueva GPO en el servidor
-
-**Vamos al servidor:**
-* Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
-* Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
-* Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
-    * Paquete de instalación de software de la aplicación.
-    * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
-    * Configurar la instalación del paquete en modo `Asignado`.
-    * Exigido: `Sí`.
-* En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
-
-> **ADVERTENCIAS**
->
-> * Cuando indiquemos la ruta al paquete MSI, debemos indicar su
-ruta de red y NO su ruta del sistema de ficheros.
->     1. Ejemplo correcto: `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
->     1. Ejemplo INCORRECTO: `E:\softwareXX\firefox\firefox.msi`
-> * La configuración de instalación de paquete `Publicado` no instala el programa, pero lo deja disponible por si el usuario lo quiere instalar a través de la herramienta de `Instalación de Software` del panel de control.
-
-* Abrir consola como administrador y ejecutar `gpupdate /force` para forzar las actualizaciones de las directivas.
-* Capturar imagen del resumen de la configuración de la directiva (`Ir a directiva -> Configuración`).
-
-## 3.2 Comprobar desde los clientes
-
-**Vamos al otro cliente:**
-* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado
-en las directivas. OJO. Este paso puede tardar bastante tiempo.
-* Mostrar salida de los comandos: `whoami` y `hostname`.
-
-> **ERRORES**
->
-> * En caso de tener problemas deshabilitar de las directivas la opción de `Ocultar el icono Ubicaciones de red del escritorio`.
-> * Comprobar acceso al recurso remoto desde los clientes.
-> * Comprobar MSI de forma manual.
-
----
-# ANEXO A
-
-## EMCO Software
-
-* Esto es un tutorial: https://www.youtube.com/watch?v=Ak1z1iadfQw
-* Este el programa: https://emcosoftware.com/msi-package-builder
 
 ## Advanced Installer
 
