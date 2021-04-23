@@ -124,9 +124,10 @@ Permisos especiales                |                            | &#x2714;
 
 ## 2.2 Crear el paquete MSI con EMCO Software
 
-* Tutorial: https://www.youtube.com/watch?v=Ak1z1iadfQw
 * Programa: https://emcosoftware.com/msi-package-builder
-
+* Tutorial:
+    * https://www.youtube.com/watch?v=Ak1z1iadfQw
+    * https://www.youtube.com/watch?v=AZXhZDx2zSY&list=UUm3zqS2cJGK_Zdeq_-SzBKg&index=3 (Creado por JA Mora).
 * Crear un paquete MSI con el programa EMCO Software.
 * Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\firefox.msi`.
 
