@@ -129,6 +129,8 @@ Permisos especiales                |                            | &#x2714;
 * Crear un paquete MSI con el programa EMCO Software.
 * Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\firefox.msi`.
 
+**NOTA**: Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
+
 # 3. Aplicar directiva de Equipo
 
 > Enlaces de interés
