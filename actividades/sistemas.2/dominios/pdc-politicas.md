@@ -142,6 +142,7 @@ Permisos especiales                |                            | &#x2714;
 **Vamos al servidor:**
 * Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
+* Editar la GPO.
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
     * Paquete de instalación de software de la aplicación.
     * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
