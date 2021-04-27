@@ -84,7 +84,8 @@ Al terminar de configurar las directivas, hacemos lo siguiente:
 * Ir a la herramienta `Administración de Directivas de Grupo`.
 * Seleccionar la GPO que queremos consultar -> Configuración.
 * Capturar imagen del resumen de la configuración de cada una de las directivas creadas. Esta pestaña debe mostrar las opciones que hemos usado para configurar nuestra directiva.
-* Ir a una máquina cliente. Entrar con un usuario jedi y luego un usuario sith, para comprobar los distintos efectos que producen la aplicación de las directivas.
+* Ir a una máquina cliente. Reiniciar la máquina.
+* Entrar con un usuario jedi y luego un usuario sith, para comprobar los distintos efectos que producen la aplicación de las directivas.
 
 # 2. Paquete MSI
 
@@ -169,14 +170,16 @@ ruta de red y NO su ruta del sistema de ficheros.
 ## 3.2 Comprobar desde los clientes
 
 **Vamos al otro cliente:**
-* Entramos con un usuario del dominio y se debe haber instalado automáticamente el programa que hemos configurado en las directivas (NOTA: Este paso puede tardar bastante tiempo).
+* Reiniciar el equipo cliente (Windows10).
+* Entrar con un usuario del dominio.
+* Se tiene que haber instalado automáticamente el programa que hemos configurado en las directivas de software (NOTA: Este paso puede tardar bastante tiempo).
 * Mostrar salida de los comandos: `whoami` y `hostname`.
 
-> **ERRORES**
+> **En caso de ERROR** hacer las siguientes comprobaciones:
 >
-> * En caso de tener problemas deshabilitar de las directivas la opción de `Ocultar el icono Ubicaciones de red del escritorio`.
+> * Deshabilitar de las directivas la opción de `Ocultar el icono Ubicaciones de red del escritorio`.
 > * Comprobar acceso al recurso remoto desde los clientes.
-> * Comprobar MSI de forma manual.
+> * Comprobar de forma manual que el fichero MSI hace la instalación correctamente.
 
 ---
 # ANEXO A
