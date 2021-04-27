@@ -107,6 +107,9 @@ Escritura                          |                            | &#x2714;
 Permisos especiales                |                            | &#x2714;
 
 * Crear un recurso compartido de red `softwareXX` a la carpeta anterior.
+    * Botón derecho -> Propiedades -> Compartir -> Uso compartido avanzado.
+    * Definir nombre del recurso compartido.
+    * Asignar permisos como se muestra a continuación.
 
 Permisos                           |         **`Todos`**        | **`Usuarios del dominio`**
 ---------------------------------- | :------------------------: | :------------------------:
