@@ -149,8 +149,8 @@ Permisos especiales                |                            | &#x2714;
 * Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
 * Editar la GPO.
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
-    * Paquete de instalación de software de la aplicación.
-    * Elegir el paquete `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
+    * Instalación de software -> Paquete -> Nuevo.
+    * Elegir el paquete usando la ruta de red `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
     * Configurar la instalación del paquete en modo `Asignado`.
     * Exigido: `Sí`.
 * En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
