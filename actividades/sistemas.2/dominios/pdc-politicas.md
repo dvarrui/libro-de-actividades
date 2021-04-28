@@ -153,7 +153,7 @@ Permisos especiales                |                            | &#x2714;
     * Instalación de software -> Paquete -> Nuevo.
     * Elegir el paquete usando la ruta de red `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
     * Configurar la instalación del paquete en modo `Asignado`.
-    * Exigido: `Sí`.
+* Seleccionar la GPO y marcar `Exigido: Sí`.
 * En la GPO. Ir a la Directiva -> Ámbito -> Filtrado de seguridad y añadir `Usuarios del dominio`.
 
 > **ADVERTENCIAS**
