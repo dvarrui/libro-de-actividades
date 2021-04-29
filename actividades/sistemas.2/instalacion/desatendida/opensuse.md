@@ -54,7 +54,7 @@ Como necesitamos las respuestas a las preguntas del instalador, vamos a crear un
 ## 3.2 Configurar USB en la MV de VirtualBox
 
 * Abrir VirtualBox. Ir a `Ayuda -> Acerca de` para consultar la versión que tenemos instalada. Por ejemplo: "5.2.38".
-* Comprobar si tenemos instalado el "Oracle Extension Pack" en VirtualBox: `VirtualBox -> Archivo -> Preferencias -> Extensiones`.
+* Comprobar si tenemos instalado el "Oracle Extension Pack" en VirtualBox: `VirtualBox -> Archivo -> Preferencias -> Extensiones`. Este paquete sirve para ampliar funcionalidades a VirtualBox como por ejemplo el acceso a los dispositivos USB de la máquina real.
 * Si no lo tenemos, hay que instalarlo. Descargar "Oracle Extension Pack" correspondiente a mi versión de VirtualBox (https://download.virtualbox.org/virtualbox/).
 
 > Este paquete sirve para incluir los siguiente controladores: USB 2.0 and USB 3.0 Host Controller, Host Webcam, VirtualBox RDP, PXE ROM, Disk Encryption, NVMe.
