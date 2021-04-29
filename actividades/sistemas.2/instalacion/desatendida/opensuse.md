@@ -83,7 +83,7 @@ Ya tenemos nuestro fichero XML de respuestas en un pendrive. Ahora vamos a reali
 * En VirtualBox crear una MV2 nueva, con un tamaño de disco duro similar a la MV1.
 * Configurar MV2 para acceder al pendrive USB, igual que hicimos con la MV1.
 * Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV2.
-* Ponemos pendrive con el fichero de control XML en la máquina real.
+* Ponemos pendrive con el fichero de control XML en la máquina real. OJO: el pendrive no debe estar montado en la máquina real porque se supone que lo captura la MV2.
 * Iniciar la MV2.
 
 ![](images/opensuse-boot-options.png)
@@ -94,7 +94,7 @@ Ya tenemos nuestro fichero XML de respuestas en un pendrive. Ahora vamos a reali
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=usb://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
 * La instalación se debe realizar de forma automática y desatendida.
-* Durante el proceso de instalación habrá una parada donde el instalador nos advirte que no ha podido encontrar algunos paquetes de software (Por ejemplo: geany, tree, git, etc.). Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
+* Si durante el proceso de instalación hay una parada donde el instalador nos advirte que no ha podido encontrar algunos paquetes de software. Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
 
 # 5. Instalación desatendida desde ISO
 
