@@ -84,7 +84,8 @@ Ya tenemos nuestro fichero XML de respuestas en un pendrive. Ahora vamos a reali
 * En VirtualBox crear una MV2 nueva, con un tamaño de disco duro similar a la MV1.
 * Configurar MV2 para acceder al pendrive USB, igual que hicimos con la MV1.
 * Ponemos el DVD (ISO) de instalación de OpenSUSE en la MV2.
-* Ponemos pendrive con el fichero de control XML en la máquina real. OJO: el pendrive no debe estar montado en la máquina real porque se supone que lo captura la MV2.
+* Seleccionamos nuestra MV2 y `configuración -> USB -> Añadir`. Elegimos nuestro USB y aceptamos.
+Ahora debe estar montado el pendrive con el fichero de control XML en MV2.
 * Iniciar la MV2.
 
 ![](images/opensuse-boot-options.png)
