@@ -3,7 +3,7 @@
 Curso           : 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
-Requisitos      : OpenSUSE Leap 15.1,
+Requisitos      : OpenSUSE Leap 15,
                   Programa para editar ISO (isomaster)
                   Conveniente ver primero la creación de repositorios.
 Tiempo estimado : 4 horas
@@ -14,7 +14,7 @@ Tiempo estimado : 4 horas
 Una instalación desatendida del sistema operativo ejecuta el proceso completo de la instalación del sistema operativo de forma automática, sin hacer preguntas al usuario.
 
 Entregar:
-* Informe, capturas de imágenes o vídeo.
+* Informe, capturas de imágenes.
 * Entregar XML utilizado.
 
 ---
@@ -35,7 +35,7 @@ Entregar:
     * El proceso de instalación desatendida con UEFI debe revisarse porque es diferente.
 * Personalizamos nuestra máquina con los siguientes cambios:
     * Nombre de máquina `1er-apellidoXXy`.
-    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `evince`, `gedit`, `vlc` (Prueba los programas para que los conozcas).
+    * Instalamos paquetes que no vengan por defecto preinstalados. Por ejemplo: `evince`, `inkscape`, `vlc` (Prueba los programas para que los conozcas).
     * Creamos usuario `nombre-del-alumno`.
 
 > **Elección de los paquetes**: Hemos elegido paquetes de software que sabemos están dentro de la ISO de instalación. Si queremos incluir más paquetes RPM dentro de la ISO, debemos modificar los ficheros de configuración del repositorio ISO (Consultar ANEXO).
@@ -110,14 +110,7 @@ En la instalación desatendida anterior desde USB, tuvimos un problema porque al
 **Ubuntu/Debian**: Si la máquina real es Ubuntu/Debian podemos instalar el programa con `apt-get install isomaster`.
 
 **OpenSUSE**: Si la máquina real es OpenSUSE, debemos añadir el repositorio `packman` para poder localizar e instalar el programa isomaster. Veamos:
-* Crear fichero `/etc/zypp/repos.d/repo-packman.repo` con el siguiente contenido:
-```
-[repo-packman]
-enabled=1
-autorefresh=1
-baseurl=http://packman.inode.at/suse/openSUSE_Leap_15.1/
-type=rpm-md
-```
+* `sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_$releasever/' packman`. Esto añade el repositorio packman a nuestra máquina OpenSUSE Leap.
 * `zypper refresh; zypper install isomaster`
 
 ## 5.2 Preparar la ISO
