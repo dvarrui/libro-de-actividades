@@ -133,7 +133,7 @@ Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a rea
 ![](images/opensuse-boot-options.png)
 
 * Elegimos `Installation`.
-* Completar `Boot Options` con: `autoyast=file:///nombre-del-alumnoXX.xml`
+* Completar `Boot Options` (Opciones de arranque) con: `autoyast=file:///nombre-del-alumnoXX.xml`
 
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=file://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
