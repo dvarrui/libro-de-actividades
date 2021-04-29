@@ -105,15 +105,14 @@ En la instalación desatendida anterior desde USB, tuvimos un problema porque al
 ## 5.1 Software para editar ficheros ISO
 
 * Ir la máquina real.
-* Instalar el programa `isomaster` en la máquina real. NOTA: Es un programa para modificar el contenido de ficheros ISO.
+* Debemos tener instalado el programa `isomaster` en la máquina real. Isomaster es un programa para modificar el contenido de ficheros ISO.
 
-**Windows**: Si la máquina real es Windows podemos usar Isomaster u otro programa similar como ImgBurn, etc.
-
-**Ubuntu/Debian**: Si la máquina real es Ubuntu/Debian podemos instalar el programa con `apt-get install isomaster`.
-
-**OpenSUSE**: Si la máquina real es OpenSUSE, debemos añadir el repositorio `packman` para poder localizar e instalar el programa isomaster. Veamos:
-* `sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_$releasever/' packman`. Esto añade el repositorio packman a nuestra máquina OpenSUSE Leap.
-* `zypper refresh; zypper install isomaster`
+En caso contrario lo podemos instalar de la siguientes formas:
+* **Windows**: Si la máquina real es Windows podemos usar Isomaster u otro programa similar como ImgBurn, etc.
+* **Ubuntu/Debian**: Si la máquina real es Ubuntu/Debian podemos instalar el programa con `apt-get install isomaster`.
+* **OpenSUSE**: Si la máquina real es OpenSUSE, debemos añadir el repositorio `packman` para poder localizar e instalar el programa isomaster. Veamos:
+    * `sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_$releasever/' packman`. Esto añade el repositorio packman a nuestra máquina OpenSUSE Leap.
+    * `zypper refresh; zypper install isomaster`
 
 ## 5.2 Preparar la ISO
 
