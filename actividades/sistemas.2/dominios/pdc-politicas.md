@@ -128,7 +128,7 @@ Leeer                              | &#x2714;                   | &#x2714;
     * https://www.youtube.com/watch?v=Ak1z1iadfQw
     * https://www.youtube.com/watch?v=AZXhZDx2zSY&list=UUm3zqS2cJGK_Zdeq_-SzBKg&index=3 (Creado por JA Mora).
 * Ir al Windows Server.
-* Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\firefox.msi`.
+* Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\`.
 
 **NOTA**: Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 
