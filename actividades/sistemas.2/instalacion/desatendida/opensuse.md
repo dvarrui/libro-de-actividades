@@ -47,7 +47,7 @@ Entregar:
 Como necesitamos las respuestas a las preguntas del instalador, vamos a crear un fichero `autoinst.xml` que "copia" la configuración de nuestro sistema actual.
 
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
-* Ir a `Yast -> Crear fichero de configuración Autoyast (Autoinstallation Cloning System)` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
+* Ir a `Yast -> Autoinstallation Cloning System` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
 * El perfil se guarda en `/root/autoinst.xml`.
 * `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 
@@ -96,7 +96,7 @@ Ahora debe estar montado el pendrive con el fichero de control XML en MV2.
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=usb://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
 * La instalación se debe realizar de forma automática y desatendida.
-* Si durante el proceso de instalación hay una parada donde el instalador nos advirte que no ha podido encontrar algunos paquetes de software. Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
+* Si durante el proceso de instalación hay una parada donde el instalador nos advierte que no ha podido encontrar algunos paquetes de software. Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
 
 # 5. Instalación desatendida desde ISO
 
