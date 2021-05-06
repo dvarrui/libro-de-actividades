@@ -28,8 +28,8 @@ Tiempo      :
 
 ## 1.2 Proyecto
 
-* Importing Windows 10 image files to your PC
-* Setting up an answer file environment
+* Importando ficheros de imagen Windows 10 a nuestro PC
+* Configurando un fichero de respuestas
 
 # 2. How to create a Windows 10 answer file
 
