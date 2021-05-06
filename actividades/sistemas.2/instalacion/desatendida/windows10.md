@@ -20,6 +20,10 @@ Tiempo      :
 
 **NOTA**: Seguir los pasos indicados por el enlace anterior.
 
+---
+
+A continuación se muestra un breve resumen del proceso.
+
 # 1. Preparativos
 
 ## 1.1 Software
