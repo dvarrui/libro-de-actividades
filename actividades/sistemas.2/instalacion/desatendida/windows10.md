@@ -11,18 +11,20 @@ Tiempo      :
 
 # Instalación desatendida de Windows 10
 
-**Enlaces de interés:**
-* https://www.windowscentral.com/how-create-unattended-media-do-automated-installation-windows-10
-
 **Entrega:**
 * Informe detallado con capturas de pantalla, de la creación de una ISO de instalación desatendida de Windows 10.
 * Demostrar al profesor en el aula el correcto funcionamiento de la imagen ISO en una máquina virtual.
+
+**Enlaces de interés:**
+* https://www.windowscentral.com/how-create-unattended-media-do-automated-installation-windows-10
+
+**NOTA**: Seguir los pasos indicados por el enlace anterior.
 
 # 1. Preparativos
 
 ## 1.1 Software
 
-* Tenemos que tener la ISO de Windows 10 en nuestra máquina real.
+* Tenemos que tener la ISO de Windows 10 en nuestra máquina.
 * Descargar [Windows ADK installer for Windows 10](https://go.microsoft.com/fwlink/?linkid=873065).
 * Instalar Windows ADK marcando la opción "Herramientas de implementación" ("Check the Deployment Tools package"). Esta opción contiene "Windows System Image Manager".
 
