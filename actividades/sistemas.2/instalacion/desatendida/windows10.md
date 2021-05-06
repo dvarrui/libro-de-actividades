@@ -15,12 +15,12 @@ Tiempo      :
 * Informe detallado con capturas de pantalla, de la creación de una ISO de instalación desatendida de Windows 10.
 * Demostrar al profesor en el aula el correcto funcionamiento de la imagen ISO en una máquina virtual.
 
-**Enlaces de interés:**
+**Seguir los pasos indicados por en el enlace siguiente**
 * https://www.windowscentral.com/how-create-unattended-media-do-automated-installation-windows-10
 
-**NOTA**: Seguir los pasos indicados por el enlace anterior.
-
 ---
+
+# ANEXO
 
 A continuación se muestra un breve resumen del proceso.
 
