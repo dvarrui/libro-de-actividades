@@ -90,8 +90,9 @@ Ahora debe estar montado el pendrive con el fichero de control XML en MV2.
 
 ![](images/opensuse-boot-options.png)
 
-* Elegimos `Installation`.
-* Completar `Boot Options` (Opciones de arranque) con: `autoyast=usb:///nombre-del-alumnoXX.xml`
+* Cambiar el idioma a Español usando F2.
+* Elegimos `Instalación`.
+* Completar `Opciones de arranque` con: `autoyast=usb:///nombre-del-alumnoXX.xml`
 
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=usb://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
@@ -133,8 +134,9 @@ Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a rea
 
 ![](images/opensuse-boot-options.png)
 
-* Elegimos `Installation`.
-* Completar `Boot Options` (Opciones de arranque) con: `autoyast=file:///nombre-del-alumnoXX.xml`
+* Cambiar el idioma a Español usando F2.
+* Elegimos `Instalación`.
+* Completar `Opciones de arranque` con: `autoyast=file:///nombre-del-alumnoXX.xml`
 
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=file://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
