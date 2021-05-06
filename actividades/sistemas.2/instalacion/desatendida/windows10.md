@@ -24,7 +24,7 @@ Tiempo      :
 
 * Tenemos que tener la ISO de Windows 10 en nuestra máquina real.
 * Descargar [Windows ADK installer for Windows 10](https://go.microsoft.com/fwlink/?linkid=873065).
-* Instalar Windows ADK marcando la opción "Check the Deployment Tools package". Esta opción contiene "Windows System Image Manager".
+* Instalar Windows ADK marcando la opción "Herramientas de implementación" ("Check the Deployment Tools package"). Esta opción contiene "Windows System Image Manager".
 
 ## 1.2 Proyecto
 
