@@ -44,6 +44,12 @@ Tiempo      :
 
 ## FASE: Añadir el fichero de respuestas a la iSO de instalación.
 
-* Usar ImgBurn para añadir `autounattend.xml` a la ISO de Windows 10.
+* Ir la MV de Windows.
+* Montar la ISO de Windows 10 y copiar el contenido en C:\ficheros-ISO.
+* Copiar el `autounattend.xml` en C:\ficheros-ISO.
+* Instalar ImgBurn.
+* Ejecutar ImgBurn -> Crear imagen desde carpeta.
+* Elegir la carpeta C:\ficheros-ISO
+* Advance -> Bootable Disk. Vamos a crear una ISO de arranque
 * Guardar la nueva ISO como `windows10-alumnoXX.iso`
 * Comprobar el resultado en una nueva máquina virtual.
