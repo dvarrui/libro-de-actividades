@@ -49,7 +49,7 @@ Como necesitamos las respuestas a las preguntas del instalador, vamos a crear un
 * Instalamos la herramienta Autoyast (Paquetes `autoyast2`, `autoyast2-installation`).
 * Ir a `Yast -> Autoinstallation Cloning System` (Por el terminal es igual usando el comando `/sbin/yast2 clone_system`).
 * El perfil se guarda en `/root/autoinst.xml`.
-* `cp /root/autoinst.xml nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
+* `cp /root/autoinst.xml /root/nombre-alumnoXX.xml`. Hacemos una copia de seguridad del perfil.
 
 ## 3.2 Configurar USB en la MV de VirtualBox
 
