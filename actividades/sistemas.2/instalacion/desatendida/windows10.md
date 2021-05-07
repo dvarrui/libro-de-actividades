@@ -18,48 +18,32 @@ Tiempo      :
 **Seguir los pasos indicados por en el enlace siguiente**
 * https://www.windowscentral.com/how-create-unattended-media-do-automated-installation-windows-10
 
-# Aclaraciones
-
-* FASE: Instalar el software Windows ADK.
-    * Importante: sólo marcar la característica 2 "Deployment tools" a la hora de instalar el software.
-* FASE: Crear proyecto para el fichero de respuestas.
-    * En nuestro caso no tenemos el fichero "install.esd" en su lugar ya disponemos del fichero "install.win" y por tanto no hay que crearlo.
-    * En nuestro caso no necesitamos usar el programa Rufus.
-
 ---
 
-# ANEXO
+# Aclaraciones al enlace
 
-A continuación se muestra un breve resumen del proceso.
+## FASE: Instalar el software Windows ADK.
 
-# 1. Preparativos
-
-## 1.1 Software
-
-* Tenemos que tener la ISO de Windows 10 en nuestra máquina.
 * Descargar [Windows ADK installer for Windows 10](https://go.microsoft.com/fwlink/?linkid=873065).
-* Instalar Windows ADK marcando la opción "Herramientas de implementación" ("Check the Deployment Tools package"). Esta opción contiene "Windows System Image Manager".
+* Importante: sólo marcar la característica 2 "Deployment tools" ("Herramientas de implementación") a la hora de instalar el software.
 
-## 1.2 Proyecto
+## FASE: Crear proyecto para el fichero de respuestas.
 
-* Importando ficheros de imagen Windows 10 a nuestro PC
-* Configurando un fichero de respuestas
+* En nuestro caso no tenemos el fichero "install.esd" en su lugar ya disponemos del fichero "install.win" y por tanto no hay que crearlo.
+* En nuestro caso no necesitamos usar el programa Rufus.
 
-# 2. How to create a Windows 10 answer file
+## FASE: Preparando el entorno para el fichero de respuestas.
 
-* Pass 1 windowsPE
-    * Creating and modifying partitions
-    * Defining the product key
-* Pass 4 specialize
-* Pass 7 oobeSystem
+## FASE: Crear el fichero de respuestas para Windows 10.
 
-* How to save a Windows 10 answer file project
-    * Removing unmodified components
-    * Validating answer files
-    * Saving the answer file `autounattend.xml`.
+* Este este paso se define el contenido para el archivo "autounattend.xml".
 
-# 3 Adding the answer file to a USB installation media
+## FASE: Grabar el proyecto del fichero de respuestas.
 
-* Use ImgBurn to add `autounattend.xml` file into Windows 10 ISO.
+* Este este paso se crea el archivo "autounattend.xml".
+
+## FASE: Añadir el fichero de respuestas a la iSO de instalación.
+
+* Usar ImgBurn para añadir `autounattend.xml` a la ISO de Windows 10.
 * Guardar la nueva ISO como `windows10-alumnoXX.iso`
 * Comprobar el resultado en una nueva máquina virtual.
