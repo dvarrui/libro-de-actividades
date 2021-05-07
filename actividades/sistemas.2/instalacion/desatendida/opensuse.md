@@ -97,7 +97,7 @@ Ahora debe estar montado el pendrive con el fichero de control XML en MV2.
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=usb://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
 * La instalación se debe realizar de forma automática y desatendida.
-* Si durante el proceso de instalación hay una parada donde el instalador nos advierte que no ha podido encontrar algunos paquetes de software. Aceptamos y seguimos. Este problema lo vamos a resolver más adelante.
+* Si durante el proceso de instalación hay una parada donde el instalador nos advierte que no ha podido encontrar algunos paquetes de software. Aceptamos y seguimos. La explicación a este problema lo vamos a ver más adelante.
 
 # 5. Instalación desatendida desde ISO
 
@@ -140,7 +140,7 @@ Ya tenemos nuestro fichero XML de respuestas dentro de la ISO. Ahora vamos a rea
 
 > **OJO**: que son 3 barras seguidas después de los dos puntos. Esto es lo mismo que escribir "autoyast=file://localhost/nombre-del-alumnoXX.xml". Entonces cuando la máquina es localhost se puede omitir.
 
-* La instalación se debe realizar de forma automática y desatendida. En este caso hemos resuelto el problema de los paquetes RPM que no se encontraban, porque los hemos añadido en nuestra ISO personalizada.
+* La instalación se debe realizar de forma automática y desatendida.
 
 # 6. INFO: Otras formas de localizar el fichero XML
 
