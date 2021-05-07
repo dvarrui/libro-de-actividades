@@ -24,7 +24,6 @@ Tiempo      :
 
 ## FASE: Instalar el software Windows ADK.
 
-* Descargar [Windows ADK installer for Windows 10](https://go.microsoft.com/fwlink/?linkid=873065).
 * Importante: sólo marcar la característica 2 "Deployment tools" ("Herramientas de implementación") a la hora de instalar el software.
 
 ## FASE: Crear proyecto para el fichero de respuestas.
