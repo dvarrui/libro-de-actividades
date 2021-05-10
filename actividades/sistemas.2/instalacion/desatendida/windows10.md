@@ -20,7 +20,7 @@ Tiempo      :
 
 ---
 
-# Aclaraciones al enlace
+# Aclaraciones al tutorial del enlace
 
 ## FASE: Instalar el software Windows ADK.
 

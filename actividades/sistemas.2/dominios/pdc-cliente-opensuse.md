@@ -28,7 +28,7 @@ Tener en cuenta los siguientes aspectos en la configuración del cliente.
 Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
 * Realizar la comprobación del DNS mediante la ejecución de
     * `host DOMINIO-DEL-PDC`, por ejemplo "host ruiz42dom.curso2021".
-    * `host NOMBRE-EQUIPO-PDC`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
+    * `host NOMBRE-EQUIPO-PDC.NOMBRE-DOMINIO`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
     * `host www.nba.com`
 
 ## 3. Unirse al dominio
