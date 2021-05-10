@@ -46,6 +46,8 @@ Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
 
 ## 4. Abrir sesión en el cliente
 
+> Asegurarse que los usuarios del dominio no tienen restricciones de inicio de sesión.
+
 Iniciar sesión en el equipo GNU/Linux usando un usuario del dominio.
 * Desde el cliente, entramos al sistema con algún usuario del dominio de la siguiente forma **nombre-de-dominio-corto\usuario-del-dominio**. Por ejemplo: ruiz42dom\obiwan. Se recomienda usar el entorno gráfico XFCE.
 
