@@ -44,6 +44,7 @@ Tiempo      :
 ## FASE: Añadir el fichero de respuestas a la iSO de instalación.
 
 > Enlaces de interés:
+> * https://www.youtube.com/watch?v=jLMbHkarTMg
 > * https://tecnotuto.com/windows/como-crear-una-imagen-iso-de-windows-arrancable-a-partir-de-archivos-extraidos/
 
 * Ir la MV de Windows.
