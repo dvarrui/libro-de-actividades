@@ -28,7 +28,7 @@ Tiempo      :
 
 ## FASE: Crear proyecto para el fichero de respuestas.
 
-* En nuestro caso no tenemos el fichero "install.esd" en su lugar ya disponemos del fichero "install.win" y por tanto no hay que crearlo.
+* En nuestro caso no tenemos el fichero "install.esd" en su lugar ya disponemos del fichero "install.wim" y por tanto no hay que crearlo.
 * En nuestro caso no necesitamos usar el programa Rufus.
 
 ## FASE: Preparando el entorno para el fichero de respuestas.
