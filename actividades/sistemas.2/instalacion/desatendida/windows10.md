@@ -54,9 +54,10 @@ Tiempo      :
 * Ejecutar ImgBurn -> Crear imagen desde carpeta.
 * Elegir la carpeta C:\ficheros-ISO
 * Guardar la nueva ISO destino como `windows10-alumnoXX.iso`.
-* Advance -> Bootable Disk. Marcar la opción "Make Image Bootable".
-* Seleccione Tipo de emulación como Ninguno (Custom).
-* Escribir 8 en el cuadro junto a Sectores a cargar.
-* Ahora haga clic en el icono Examinar junto a la sección Imagen de arranque y seleccione el archivo "etfsboot.com" en el menú de arranque de la carpeta de instalación.
-* Haga clic en Build y espere a que la herramienta procese el archivo ISO. Una vez que el archivo ISO se ha creado correctamente.
-* Comprobar el resultado en una nueva máquina virtual.
+* Advanced -> Bootable Disk.
+    * Marcar la opción "Make Image Bootable".
+    * Seleccione Tipo de emulación como Ninguno (Custom).
+    * Ahora haga clic en el icono Examinar junto a la sección Imagen de arranque y seleccione el archivo "etfsboot.com" en el menú de arranque de la carpeta de instalación.
+    * Escribir 8 en el cuadro junto a Sectores a cargar.
+* Haga clic en Build y espere a que la herramienta procese el archivo ISO.
+* Una vez que el archivo ISO se ha creado correctamente, comprobar el resultado en una nueva máquina virtual.
