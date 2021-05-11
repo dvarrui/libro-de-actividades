@@ -43,12 +43,19 @@ Tiempo      :
 
 ## FASE: Añadir el fichero de respuestas a la iSO de instalación.
 
+> Enlaces de interés:
+> * https://tecnotuto.com/windows/como-crear-una-imagen-iso-de-windows-arrancable-a-partir-de-archivos-extraidos/
+
 * Ir la MV de Windows.
 * Montar la ISO de Windows 10 y copiar el contenido en C:\ficheros-ISO.
 * Copiar el `autounattend.xml` en C:\ficheros-ISO.
 * Instalar ImgBurn.
 * Ejecutar ImgBurn -> Crear imagen desde carpeta.
 * Elegir la carpeta C:\ficheros-ISO
-* Advance -> Bootable Disk. Vamos a crear una ISO de arranque
-* Guardar la nueva ISO como `windows10-alumnoXX.iso`
+* Guardar la nueva ISO destino como `windows10-alumnoXX.iso`.
+* Advance -> Bootable Disk. Marcar la opción "Make Image Bootable".
+* Seleccione Tipo de emulación como Ninguno (Custom)
+* Escribir 8 en el cuadro junto a Sectores a cargar.
+* Ahora haga clic en el icono Examinar junto a la sección Imagen de arranque y seleccione el archivo "etfsboot.com" en el menú de arranque de la carpeta de instalación.
+* Haga clic en Build y espere a que la herramienta procese el archivo ISO. Una vez que el archivo ISO se ha creado correctamente.
 * Comprobar el resultado en una nueva máquina virtual.
