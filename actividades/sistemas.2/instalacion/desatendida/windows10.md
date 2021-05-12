@@ -33,6 +33,9 @@ Tiempo      :
 
 ## FASE: Preparando el entorno para el fichero de respuestas.
 
+* Elegiremos la creación de particiones BIOS.
+* Elegir una clave de producto para Windows 10 Enterprise N o dejarla vacía.
+
 ## FASE: Crear el fichero de respuestas para Windows 10.
 
 * Este este paso se define el contenido para el archivo "autounattend.xml".
@@ -48,15 +51,16 @@ Tiempo      :
 > * https://tecnotuto.com/windows/como-crear-una-imagen-iso-de-windows-arrancable-a-partir-de-archivos-extraidos/
 
 * Ir la MV de Windows.
-* Montar la ISO de Windows 10 y copiar el contenido en C:\ficheros-ISO.
+* Montar la ISO de Windows 10 y copiar el contenido en "C:\ficheros-ISO".
 * Copiar el `autounattend.xml` en C:\ficheros-ISO.
 * Instalar ImgBurn.
 * Ejecutar ImgBurn -> Crear imagen desde carpeta.
-* Elegir la carpeta C:\ficheros-ISO
+* Elegir la carpeta "C:\ficheros-ISO" que es donde tenemos los ficheros de la ISO original.
 * Guardar la nueva ISO destino como `windows10-alumnoXX.iso`.
 * Advanced -> Bootable Disk.
     * Marcar la opción "Make Image Bootable".
     * Seleccione Tipo de emulación como Ninguno (Custom).
+    * Elegir arquitectura "80x86".
     * Ahora haga clic en el icono Examinar junto a la sección Imagen de arranque y seleccione el archivo "etfsboot.com" en el menú de arranque de la carpeta de instalación.
     * Escribir 8 en el cuadro junto a Sectores a cargar.
 * Haga clic en Build y espere a que la herramienta procese el archivo ISO.
