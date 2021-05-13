@@ -62,7 +62,7 @@ Tiempo      :
 * Copiar el `autounattend.xml` en C:\ficheros-ISO.
 * Instalar ImgBurn.
 * Ejecutar ImgBurn -> Crear imagen desde carpeta.
-* Elegir la carpeta "C:\ficheros-ISO" que es donde tenemos los ficheros de la ISO original.
+* Input -> Standard. Elegir la carpeta "C:\ficheros-ISO" que es donde tenemos los ficheros de la ISO original.
 * Guardar la nueva ISO destino como `windows10-alumnoXX.iso`.
 * Advanced -> Bootable Disk.
     * Marcar la opción "Make Image Bootable".
