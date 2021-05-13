@@ -55,8 +55,9 @@ Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar
 
 ## 1.3 Comprobar
 
+* Ir a la MV1 servidor.
 * Crear el fichero `/srv/www/htdocs/index.html`. Escribimos nuestro nombre dentro.
-* Desde la MV cliente abrimos navegador web y ponemos URL `http://ip-del-servidor`, para comprobar que accedemos vía HTTP a la otra MV. Si no se ve la página web, volver a revisar la conexión con el servidor y la configuración del cortafuegos en el servidor.
+* Desde la MV2 cliente abrimos navegador web y ponemos URL `http://ip-del-servidor`, para comprobar que accedemos vía HTTP a la otra MV. Si no se ve la página web, volver a revisar la conexión con el servidor y la configuración del cortafuegos en el servidor.
 
 # 2. Preparar el repositorio local
 
