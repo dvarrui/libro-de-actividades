@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920, 201819, 201718
+Curso       : 202021, 201920, 201819, 201718
 Área        : Sistemas operativos, servidor, instalar, software
               Servicio Web
 Descripción : Servidor de actualizaciones OpenSUSE
@@ -26,7 +26,7 @@ Tiempo      : 5 horas
 | ID  | Sistema Operativo | Rol |
 | --- | ----------------- | --- |
 | MV1 | OpenSUSE          | Servidor de actualizaciones |
-| MV2 | OpenSUSE | Cliente que instala las actualizaciones |
+| MV2 | OpenSUSE          | Cliente que instala las actualizaciones |
 
 # 1. Servidor Web
 
