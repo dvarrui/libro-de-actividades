@@ -47,7 +47,7 @@ Tiempo      :
 
 ### 1. Con Pendrive
 
-* Poner fichero "autounattend.xml" en un pendrive.
+* Poner fichero "autounattend.xml" en un pendrive. El fichero XML tiene que tener ese nombre.
 * Iniciar una nueva MV con la ISO de Windows 10 y el pendrive con el xml.
 * Debe realizar la instalación desatendida.
 
@@ -59,7 +59,7 @@ Tiempo      :
 
 * Ir la MV de Windows.
 * Montar la ISO de Windows 10 y copiar el contenido en "C:\ficheros-ISO".
-* Copiar el `autounattend.xml` en C:\ficheros-ISO.
+* Copiar el `autounattend.xml` en C:\ficheros-ISO. El fichero XML tiene que tener ese nombre.
 * Instalar ImgBurn.
 * Ejecutar ImgBurn -> Crear imagen desde carpeta.
 * Input -> Standard. Elegir la carpeta "C:\ficheros-ISO" que es donde tenemos los ficheros de la ISO original.
