@@ -79,8 +79,8 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 ## 2.2 Copiar ficheros a nuestro repositorio
 
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestra carpeta para el REPOSITORIO LOCAL.
-* Copiar toda la estructura de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL.
-* Comprobamos `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
+* Copiar toda la estructura (copia recursiva) de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL.
+* Comprobamos el contenido del repositorio: `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
 ## 2.3 Crear el fichero índice
 
@@ -94,7 +94,7 @@ Ahora hay que convertir el directorio local en un repositorio. Para ello usaremo
 
 ## 3.1 Comprobar acceso
 
-* Ir a otra MV2 (Cliente OpenSUSE)
+* Ir a otra MV2 (Cliente OpenSUSE).
 * Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/repomd.xml`, para comprobar que que tenemos acceso desde MV2 a los ficheros de MV1.
 * Debe verse el contenido del fichero XML.
 
