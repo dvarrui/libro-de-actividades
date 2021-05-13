@@ -43,7 +43,15 @@ Tiempo      :
 
 * Este este paso se crea el archivo "autounattend.xml".
 
-## FASE: Añadir el fichero de respuestas a la iSO de instalación.
+## FASE: Probar la instalación desatendida
+
+### 1. Con Pendrive
+
+* Poner fichero "autounattend.xml" en un pendrive.
+* Iniciar una nueva MV con la ISO de Windows 10 y el pendrive con el xml.
+* Debe realizar la instalación desatendida.
+
+### 2. Añadir el fichero de respuestas a la ISO de instalación.
 
 > Enlaces de interés:
 > * https://www.youtube.com/watch?v=jLMbHkarTMg
@@ -60,7 +68,7 @@ Tiempo      :
     * Marcar la opción "Make Image Bootable".
     * Seleccione Tipo de emulación como Ninguno (Custom).
     * Elegir arquitectura "80x86".
-    * Ahora haga clic en el icono Examinar junto a la sección Imagen de arranque y seleccione el archivo "etfsboot.com" en el menú de arranque de la carpeta de instalación.
+    * Boot image: Seleccionar el archivo "C:\ficheros-ISO\boot\etfsboot.com".
     * Escribir 8 en el cuadro junto a Sectores a cargar.
 * Haga clic en Build y espere a que la herramienta procese el archivo ISO.
 * Una vez que el archivo ISO se ha creado correctamente, comprobar el resultado en una nueva máquina virtual.
