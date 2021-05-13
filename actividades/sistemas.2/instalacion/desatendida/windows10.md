@@ -37,7 +37,7 @@ Tiempo      :
 
 * Este este paso se define el contenido para el archivo "autounattend.xml".
 * Elegiremos la creación de particiones BIOS.
-* Elegir una clave de producto para Windows 10 Enterprise N o dejarla vacía.
+* Elegir una clave de producto para Windows 10 Enterprise N.
 
 ## FASE: Grabar el proyecto del fichero de respuestas.
 
