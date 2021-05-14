@@ -36,6 +36,7 @@ Tiempo      :
 ## FASE: Crear el fichero de respuestas para Windows 10.
 
 * Este este paso se define el contenido para el archivo "autounattend.xml".
+* Para elegir idioma en español usaremos el valor `es-ES`.
 * Elegiremos la creación de particiones BIOS.
 * Elegir una clave de producto para Windows 10 Enterprise N.
 
