@@ -72,3 +72,8 @@ Tiempo      :
     * Escribir 8 en el cuadro junto a Sectores a cargar.
 * Haga clic en Build y espere a que la herramienta procese el archivo ISO.
 * Una vez que el archivo ISO se ha creado correctamente, comprobar el resultado en una nueva máquina virtual.
+
+---
+# ANEXO
+
+https://www.ardilu.com/sistemas-operativos/claves-activar-windows-10
