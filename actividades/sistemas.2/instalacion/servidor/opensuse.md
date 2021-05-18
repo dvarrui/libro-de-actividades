@@ -109,6 +109,7 @@ Vamos a añadir nuestro repositorio en la MV2.
 * URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
 * Autenticación: Anónimo
 * OJO: Hacer captura de la lista de repositorios actual. Esta lista la vamos a cambiar y guardamos la información para poder restaurar los valores si nos hace falta.
+* Captura imagen mostrando el listado de los repositorios desde Yast.
 * Deshabilitar todos los repositorios.
 * Habilitar sólo el `nombre-alumnoXX`. De esta forma nos aseguramos que MV2 únicamente podrá instalar paquetes desde nuestro repositorio en MV1.
 * Aceptar y cerrar Yast.
