@@ -49,7 +49,7 @@ Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar
     * `firewall-cmd --permanent --add-service=http`
 
 > También se puede hacer por Yast:
-> * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HHTP Server`
+> * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HTTP` y `HTTPS`.
 
 * Ir al cliente y ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
 
