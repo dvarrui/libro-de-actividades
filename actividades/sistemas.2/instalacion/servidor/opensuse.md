@@ -66,7 +66,8 @@ Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar
 Los ficheros RPM nos permiten instalar software en el sistema operativo.
 A continuación vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina local.
 
-* Ir a la MV1.
+* Ir a la MV1. Entrar como usuario root.
+* `zypper clean`, para limpiar todo lo que se haya quedado en la caché.
 * `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios sin archivos. No tenemos paquetes descargados por ahora.
 * Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
     * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
@@ -79,7 +80,7 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 ## 2.2 Copiar ficheros a nuestro repositorio
 
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestra carpeta para el REPOSITORIO LOCAL.
-* Copiar toda la estructura (copia recursiva) de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL.
+* Copiar toda la estructura (copia recursiva) de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL (`/srv/www/htdocs/repo/nombre-alumnoXX`).
 * Comprobamos el contenido del repositorio: `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
 
 ## 2.3 Crear el fichero índice
@@ -109,7 +110,7 @@ Vamos a añadir nuestro repositorio en la MV2.
 * URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
 * Autenticación: Anónimo
 * OJO: Hacer captura de la lista de repositorios actual. Esta lista la vamos a cambiar y guardamos la información para poder restaurar los valores si nos hace falta.
-* Captura imagen mostrando el listado de los repositorios desde Yast.
+* Captura imagen mostrando el listado de todos los repositorios habilitados o no.
 * Deshabilitar todos los repositorios.
 * Habilitar sólo el `nombre-alumnoXX`. De esta forma nos aseguramos que MV2 únicamente podrá instalar paquetes desde nuestro repositorio en MV1.
 * Aceptar y cerrar Yast.

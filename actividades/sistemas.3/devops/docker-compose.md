@@ -45,3 +45,21 @@ https://dockertips.com/volumenes
 > * [Kubernetes Services simply visually explained](https://medium.com/swlh/kubernetes-services-simply-visually-explained-2d84e58d70e5)
 
 Kubernetes (commonly referred to as "K8s") is an open source container cluster manager originally designed by Google and donated to the Cloud Native Computing Foundation. It aims to provide a "platform for automating deployment, scaling, and operations of application containers across clusters of hosts".[3] It usually works with the Docker container tool and coordinates between a wide cluster of hosts running Docker.
+
+* Instalar docker
+ `systemctl start docker`, iniciar el servicio. NOTA: El comando `docker daemon` hace el mismo efecto.
+* `docker run busybox echo "Hello world"`. Docker Hub registry at http://docker.io
+* Listing 2.2 A simple Node.js app: app.js
+
+```
+const http = require('http');
+const os = require('os');
+console.log("Kubia server starting...");
+var handler = function(request, response) {
+console.log("Received request from " + request.connection.remoteAddress);
+response.writeHead(200);
+response.end("You've hit " + os.hostname() + "\n");
+};
+var www = http.createServer(handler);
+www.listen(8080);
+```
