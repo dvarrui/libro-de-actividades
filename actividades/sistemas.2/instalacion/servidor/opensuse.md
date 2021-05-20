@@ -37,6 +37,7 @@ Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar
 ## 1.1 Instalación
 
 * Ir a la MV1 (servidor de actualizaciones).
+* Configurar el nombre del host como `servidorXX`.
 * Instalar el servidor web Apache `zypper in apache2`
 * `systemctl enable apache2`, activar apache2 al inicio.
 * `systemctl start apache2`, iniciar servicio apache2.
@@ -51,7 +52,9 @@ Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar
 > También se puede hacer por Yast:
 > * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HTTP` y `HTTPS`.
 
-* Ir al cliente y ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
+* Ir a la MV2 (cliente).
+* Configurar el nombre del host cliente como `clienteXX`.
+* Ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
 
 ## 1.3 Comprobar
 
@@ -67,7 +70,7 @@ Los ficheros RPM nos permiten instalar software en el sistema operativo.
 A continuación vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina local.
 
 * Ir a la MV1. Entrar como usuario root.
-* `zypper clean`, para limpiar todo lo que se haya quedado en la caché.
+* `zypper clean`, para limpiar todo lo que se haya quedado en la caché de zypper.
 * `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios sin archivos. No tenemos paquetes descargados por ahora.
 * Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
     * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
