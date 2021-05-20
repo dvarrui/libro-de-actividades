@@ -178,7 +178,7 @@ I usually have something like this in my .rpmmacros.
 %_tmppath /tmp
 
 As for the syntax of the specfile: it is not that hard. There exists a very detailed, be it very old, reference work called 'Maximum RPM'. Everything you want to know is in there.
-```
+
 
 ## OBS
 
