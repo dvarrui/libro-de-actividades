@@ -71,7 +71,7 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 
 * Ir a la MV1. Entrar como usuario root.
 * `zypper clean`, para limpiar todo lo que se haya quedado en la caché de zypper.
-* `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios sin archivos. No tenemos paquetes descargados por ahora.
+* `tree /var/cache/zypp/packages | grep rpm`, vemos que no tenemos paquetes rpm descargados por ahora.
 * Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
     * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
     * `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
