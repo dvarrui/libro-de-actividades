@@ -82,6 +82,7 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 
 ## 2.2 Copiar ficheros a nuestro repositorio
 
+* Como usuario root.
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestra carpeta para el REPOSITORIO LOCAL.
 * Copiar toda la estructura (copia recursiva) de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL (`/srv/www/htdocs/repo/nombre-alumnoXX`).
 * Comprobamos el contenido del repositorio: `tree /srv/www/htdocs/repo/nombre-alumnoXX/`
@@ -89,6 +90,7 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 ## 2.3 Crear el fichero índice
 
 Ahora hay que convertir el directorio local en un repositorio. Para ello usaremos la herramienta **createrepo**.
+* Como usuario root.
 * Instalar la herramienta `createrepo`.
 * `vdir /srv/www/htdocs/repo/nombre-alumnoXX/`, comprobamos el contenido actual del repositorio.
 * `createrepo -v /srv/www/htdocs/repo/nombre-alumnoXX/`, crear los índices de nuestro repositorio. Se muestra una lista de todos los paquetes detectados en este repositorio local.
