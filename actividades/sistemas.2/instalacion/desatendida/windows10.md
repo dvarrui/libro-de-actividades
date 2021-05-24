@@ -28,7 +28,7 @@ Tiempo      :
 
 ## FASE: Crear proyecto para el fichero de respuestas.
 
-* En nuestro caso no tenemos el fichero "install.esd" en su lugar ya disponemos del fichero "install.wim" y por tanto no hay que crearlo.
+* En nuestro caso, ya disponemos del fichero "install.wim", y por tanto, NO necesitamos el fichero "install.esd".
 * En nuestro caso no necesitamos usar el programa Rufus.
 
 ## FASE: Preparando el entorno para el fichero de respuestas.
@@ -39,6 +39,7 @@ Tiempo      :
 * Para elegir idioma en español usaremos el valor `es-ES`.
 * Elegiremos la creación de particiones BIOS.
 * Elegir una clave de producto para Windows 10 Enterprise N.
+* Asignar el usuario al grupo `Administrators` en Inglés. NO traducirlo al español.
 
 ## FASE: Grabar el proyecto del fichero de respuestas.
 
