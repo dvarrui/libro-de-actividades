@@ -60,6 +60,7 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf (WS2008) o montar un SQL-Server.
 ## 2.2 Instalación del servidor
 
 > Enlaces de interés:
+> * [Instalar WSUS en Windows Server 2016](https://docs.microsoft.com/es-es/windows-server/administration/windows-server-update-services/deploy/1-install-the-wsus-server-role#:~:text=foro%20de%20WSUS.-,Para%20instalar%20el%20rol%20de%20servidor%20de%20WSUS,en%20Agregar%20roles%20y%20caracter%C3%ADsticas)
 > * [Instalación y puesta en marcha Servidor de actualizaciones (WSUS I)](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus.html)
 > * [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
 > * [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
