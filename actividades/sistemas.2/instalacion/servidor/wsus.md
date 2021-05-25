@@ -70,9 +70,9 @@ Ir a la MV1 Windows Server.
 * La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de administrar del servidor Windows Server.
     * `Administrar el servidor -> Roles -> Agregar Roles -> Windows Server Update Services (WSUS)`.
+    * Capturar imagen de las opciones que vayamos eligiendo.
     * No usar base de datos.
     * Almacenar actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
-    * Capturar imagen de las opciones que vayamos eligiendo.
 
 ## 2.3 Configuración del servidor
 
