@@ -1,10 +1,12 @@
 
 ```
-Curso           : 201819, 201718
-Software        : SO Windows Server 2012/2008 y Windows 7
-Tiempo estimado :
+Curso       : 202021, 201819, 201718
+Área        : Sistemas operativos, servidor, instalar, software
+Software    : Windows Server 2016/2012/2008 y Windows 10/7
+Descripción : Servidor de actualizaciones WSUS
+Requisitos  :
+Tiempo      :
 ```
----
 
 # 1. Servidor de actualizaciones WSUS
 
@@ -33,15 +35,13 @@ Ventajas de tener un servidor WSUS que almacena y distribuye las actualizaciones
 ## 1.2 Preparativos
 
 Vamos a necesitar 2 MVs.
-* 1 MV Window Server 2012 (No es necesario que sea PDC). [Configurar](../../../global/configuracion/windows-server.md) como se indica.
-    * Añadir una disco extra de 10 GB y configurarlo en la unidad E:.
-* 1 MV Windows 7. [Configurar](../../../global/configuracion/windows.md) como se indica.
-
----
+* MV1: Window Server 2016 (No es necesario que sea PDC). [Configurar](../../../global/configuracion/windows-server.md) como se indica.
+    * Añadir una disco extra de 10 GB y montarlo en la unidad E:.
+* MV2: Windows 10. [Configurar](../../../global/configuracion/windows.md) como se indica.
 
 # 2. Servidor WSUS
 
-Vamos a la MV con Windows Server.
+Vamos a la MV1 con Windows Server.
 
 ## 2.1 Teoría
 
@@ -64,7 +64,7 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf (WS2008) o montar un SQL-Server.
 > * [Instalación y configuración de WSUS - Parte 1](https://hackpuntes.com/wsus-windows-server-update-services-instalacion-y-configuracion-parte-i/)
 > * [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
 
-Ir a la MV Windows Server.
+Ir a la MV1 Windows Server.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
 * La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de administrar del servidor Windows Server.
@@ -73,23 +73,22 @@ herramienta de administrar del servidor Windows Server.
 
 ## 2.3 Configuración del servidor
 
-En WS2012 vamos a `WSUS -> Opciones -> Asistente de configuración WSUS`, para
-ir a la configuración de WSUS.
+* Ir a la configuración de WSUS: `WSUS -> Opciones -> Asistente de configuración WSUS`.
 
-Configurar servidor WSUS con los siguientes parámetros:
+A continuación configuramos el servidor WSUS con los siguientes parámetros:
 * No usar base de datos.
 * Almacenar actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
 selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
-    * Producto: `Windows 7`
+    * Producto: `Windows 10`
     * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
 * Fuente de sincronización: `Microsoft` (Windows update).
 * Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase.
 Cuando estemos en la empresa elegiremos sincronización automática.
 * Iniciar sincronización inicial.
 
-Aprobar algunas actualizaciones del Windows 7, en el servidor WSUS:
+Aprobar algunas actualizaciones del Windows 10, en el servidor WSUS:
 * Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobarlas.
 * `Windows Server -> Update Services -> Sincronizar`, para conectar con los
 servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
@@ -104,8 +103,6 @@ configurado inicio automático al arrancar la máquina.
 ---
 
 # 3. Cliente WSUS
-
-Vamos a una MV Windows 7.
 
 ## 3.1 Teoría
 
@@ -123,7 +120,7 @@ Parámetros de configuración en el cliente:
 
 ## 3.2 Configurar el cliente
 
-Vamos a una MV con Windows 7 como cliente WSUS.
+* Vamos a la MV1 con Windows 10, para configurarla como cliente WSUS.
 
 ### Configurar sin PDC (Recomendado)
 
