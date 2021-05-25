@@ -72,7 +72,7 @@ A continuación vamos a descargar algunos paquetes (de los repositorios oficiale
 * Ir a la MV1. Entrar como usuario root.
 * `zypper clean`, para limpiar todo lo que se haya quedado en la caché de zypper.
 * `tree /var/cache/zypp/packages | grep rpm`, vemos que no tenemos paquetes rpm descargados por ahora.
-* Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. (Descargar por ejemplo: geany, tree, nmap y/o ipcalc):
+* Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. Descargar por ejemplo los siguientes paquetes: geany, tree, nmap e ipcalc.
     * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
     * `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
     instalarlo, cuando el software ya está instalado en nuestro sistema local.
@@ -130,4 +130,6 @@ Vamos a añadir nuestro repositorio en la MV2.
 * Ir a MV2.
 * `zypper refresh`, refrescar los repositorios.
 * Probar la instalación de algún paquete de nuestro repositorio personalizado. Por ejemplo: `zypper in geany`
-* Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejemplo: `zypper in chromium`
+* Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejemplo:
+    * `zypper in audacity`
+    * `zypper in chromium`
