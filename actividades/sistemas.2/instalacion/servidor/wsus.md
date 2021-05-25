@@ -123,7 +123,7 @@ Parámetros de configuración en el cliente:
 
 ## 3.2 Configurar el cliente
 
-* Vamos a la MV1 con Windows 10, para configurarla como cliente WSUS.
+* Vamos a la MV2 con Windows 10, para configurarla como cliente WSUS.
 
 ### Configurar sin PDC (Recomendado)
 
