@@ -135,11 +135,13 @@ Parámetros de configuración en el cliente:
 Vamos a configurar Windows Update de cada cliente de forma local.
 
 **Configuración usando Directivas de Grupo Local**
-* Enlaces de interés:
-    * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
-    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
+
+> Enlaces de interés:
+>    * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
+>    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
+
 * Ir a `Plantillas administrativas -> Componentes de Windows -> Windows Update`.
-* En `especificar la ubicación del servidor de Windows Update` pondremos:
+* En `Especificar la ubicación del servidor de Windows Update` pondremos:
     * En WS2012 o superior se usan los puertos 8530/8531. Entonces hay que poner
     algo como `http://ip-del-servidor:8530`.
     * En WS2008 o inferior se usan los puertos 80/443. Entonces hay que poner
@@ -163,7 +165,7 @@ Vamos a configurar Windows Update de cada cliente de forma local.
 
 Comprobación 1:
 * Ejecutar la siguiente consulta de registro en línea de comandos: `reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`
-* Se muestran parámetros configuración del servidor WSUS en pantalla.
+    * Se muestran parámetros configuración del servidor WSUS en pantalla.
 * Capturar imagen.
 
 > **Otras comprobaciones**
@@ -194,7 +196,7 @@ Podemos esperar 10 minutos a que Windows Update conecte con el servidor, o tambi
 invocar los siguientes comandos:
 * `wuauclt.exe /detectnow`: trata de conectar con el servidor y registra el equipo cliente en WSUS.
 * `wuauclt /a`, el cliente consulta al servidor.
-* Buscar actualizaciones de Windows Update desde Windows7.
+* Buscar actualizaciones de Windows Update desde Windows 10.
     * Capturar imagen de las actualizaciones pendientes de instalar.
     * Deberían ser las mismas que tenemos aprobadas en el WSUS.
 
