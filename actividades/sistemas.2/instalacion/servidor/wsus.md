@@ -95,7 +95,7 @@ selección de idiomas y de productos concretos para actualizar. Elegir:
 * Iniciar sincronización inicial.
 
 Desde el servidor WSUS hay que aprobar algunas actualizaciones del Windows 10, :
-* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
+* Ir a `Administrador del servidor -> Windows Server Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
 * `Windows Server -> Update Services -> Sincronizar`, para conectar con los
 servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
 
