@@ -132,7 +132,7 @@ Parámetros de configuración en el cliente:
 
 Vamos a configurar Windows Update de cada cliente de forma local.
 
-**Configuración usando Políticas de Grupo (Local)**
+**Configuración usando Directivas de Grupo Local**
 * Enlaces de interés:
     * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
     * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
