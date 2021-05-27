@@ -141,11 +141,7 @@ Vamos a configurar Windows Update de cada cliente de forma local.
 >    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
 * Ir a `Plantillas administrativas -> Componentes de Windows -> Windows Update`.
-* En `Especificar la ubicación del servidor de Windows Update` pondremos:
-    * En WS2012 o superior se usan los puertos 8530/8531. Entonces hay que poner
-    algo como `http://ip-del-servidor:8530`.
-    * En WS2008 o inferior se usan los puertos 80/443. Entonces hay que poner
-    algo como `http://ip-del-servidor`.
+* En `Especificar la ubicación del servidor de Windows Update` pondremos algo como `http://ip-del-servidor:8530`. En WS2012 o superior se usan los puertos 8530/8531.
 * Configurar cliente para descargar las actualizaciones sin instalaras.
 * Ejecutar `gpupdate /force` en una consola como administrador. Esto fuerza a que se apliquen los cambios realizados en las directivas.
 
