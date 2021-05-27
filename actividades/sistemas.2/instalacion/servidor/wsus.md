@@ -80,9 +80,12 @@ herramienta de administrar del servidor Windows Server.
 
 ![](image/wsus-configurar.png)
 
-* Ir a la configuración de WSUS: `Panel -> Herramientas -> Windows Server Update Services (WSUS)`.
+* Podemos acceder a la configuración de WSUS por: `Panel -> Herramientas -> Windows Server Update Services (WSUS) -> Opciones -> Asistente de configuración`.
 
 A continuación configuramos el servidor WSUS con los siguientes parámetros:
+* Sincronizar desde Microsoft.
+* No usar proxy.
+* Iniciar conexión. Esto puede tardar un tiempo.
 * Selección de Productos: Para minimizar descargas es conveniente hacer una
 selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
