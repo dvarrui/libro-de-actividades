@@ -87,7 +87,7 @@ A continuación configuramos el servidor WSUS con los siguientes parámetros:
 selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
     * Producto: `Windows 10`
-    * Tipo de actualización: `Actualizaciones críticas, de seguridad, etc`.
+    * Tipo de actualización: `Actualizaciones críticas y de seguridad`.
 * Fuente de sincronización: `Microsoft` (Windows update).
 * Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase.
 Cuando estemos en la empresa elegiremos sincronización automática.
