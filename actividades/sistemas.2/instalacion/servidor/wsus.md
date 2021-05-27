@@ -78,6 +78,8 @@ herramienta de administrar del servidor Windows Server.
 
 > Enlace de interés: [Configurar WSUS - Windows Server 2016](https://docs.microsoft.com/es-es/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus)
 
+![](image/wsus-configurar.png)
+
 * Ir a la configuración de WSUS: `Panel -> Herramientas -> Windows Server Update Services (WSUS)`.
 
 A continuación configuramos el servidor WSUS con los siguientes parámetros:
