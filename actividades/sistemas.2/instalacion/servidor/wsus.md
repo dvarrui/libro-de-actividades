@@ -91,13 +91,11 @@ selección de idiomas y de productos concretos para actualizar. Elegir:
     * Idioma: `Español` e `Inglés`
     * Producto: `Windows 10`
     * Tipo de actualización: `Actualizaciones críticas y de seguridad`.
-* Fuente de sincronización: `Microsoft` (Windows update).
-* Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase.
-Cuando estemos en la empresa elegiremos sincronización automática.
+* Elegir sincronización manual en lugar de automática. Elegimos manual para hacer nuestras pruebas de clase. Cuando estemos en la empresa elegiremos sincronización automática.
 * Iniciar sincronización inicial.
 
-Aprobar algunas actualizaciones del Windows 10, en el servidor WSUS:
-* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobarlas.
+Desde el servidor WSUS hay que aprobar algunas actualizaciones del Windows 10, :
+* Ir a `Administrador del servidor -> Windows Server -> Update Services -> Actualizaciones`, seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
 * `Windows Server -> Update Services -> Sincronizar`, para conectar con los
 servidor de Microsoft y comenzar la descarga de los paquetes aprobados.
 
