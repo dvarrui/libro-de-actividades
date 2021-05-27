@@ -72,7 +72,7 @@ herramienta de administrar del servidor Windows Server.
     * `Administrar el servidor -> Roles -> Agregar Roles -> Windows Server Update Services (WSUS)`.
     * Capturar imagen de las opciones que vayamos eligiendo.
     * No usar base de datos.
-    * Contenidos: `E:\actualizacionesXX` (donde XX es el número del alumno). Ruta donde almacenar las actualizaciones.
+    * Almacenar las actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
 
 ## 2.3 Configuración del servidor
 
