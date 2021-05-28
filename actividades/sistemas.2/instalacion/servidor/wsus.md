@@ -35,9 +35,12 @@ Ventajas de tener un servidor WSUS que almacena y distribuye las actualizaciones
 ## 1.2 Preparativos
 
 Vamos a necesitar 2 MVs.
-* MV1: Window Server 2016 (No es necesario que sea PDC). [Configurar](../../../global/configuracion/windows-server.md) como se indica.
-    * Añadir una disco extra de 10 GB y montarlo en la unidad E:.
-* MV2: Windows 10. [Configurar](../../../global/configuracion/windows.md) como se indica.
+
+| MV  | Función  | Sistema Operativo | Configuración |
+| --- | -------- | ----------------- | ------------- |
+| MV1 | Servidor | Window Server 2016 (No PDC) | [Configurar](../../../global/configuracion/windows-server.md) como se indica. |
+| MV2 | Cliente  | Windows 10        | [Configurar](../../../global/configuracion/windows.md) como se indica. |
+
 
 # 2. Servidor WSUS
 
@@ -66,6 +69,7 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf (WS2008) o montar un SQL-Server.
 > * [Vídeo WSUS en Windows 2012 Server R2](https://www.youtube.com/watch?v=2YPtfrwVObg)
 
 Ir a la MV1 Windows Server.
+* Añadir una disco extra de 10 GB y montarlo en la unidad E:.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
 * La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de administrar del servidor Windows Server.
