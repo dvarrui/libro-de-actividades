@@ -71,12 +71,13 @@ C:\WSUS\UpdateServicesDbFiles\SUSDB.mdf (WS2008) o montar un SQL-Server.
 Ir a la MV1 Windows Server.
 * Añadir una disco extra de 10 GB y montarlo en la unidad E:.
 * Asegurarse de que tenemos la instalación estado `No ilegal`.
-* La forma más sencilla para instalar el software WSUS es usar la propia
+
+La forma más sencilla para instalar el software WSUS es usar la propia
 herramienta de administrar del servidor Windows Server.
-    * `Administrar el servidor -> Roles -> Agregar Roles -> Windows Server Update Services (WSUS)`.
-    * Capturar imagen de las opciones que vayamos eligiendo.
-    * No usar base de datos.
-    * Almacenar las actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
+* `Administrar el servidor -> Roles -> Agregar Roles -> Windows Server Update Services (WSUS)`.
+* Capturar imagen de las opciones que vayamos eligiendo.
+* No usaremos la base de datos SQL-Server.
+* Almacenar las actualizaciones en `E:\actualizacionesXX` (donde XX es el número del alumno).
 
 ## 2.3 Configuración del servidor
 
