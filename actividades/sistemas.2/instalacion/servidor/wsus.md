@@ -139,12 +139,13 @@ Parámetros de configuración en el cliente:
 
 Vamos a configurar Windows Update de cada cliente de forma local.
 
-**Configuración usando Directivas de Grupo Local**
+**Configuración usando Políticas de Grupo Local**
 
 > Enlaces de interés:
 >    * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
 >    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
+* Abrir un terminal y ejecutar `gpedit`.
 * Ir a `Plantillas administrativas -> Componentes de Windows -> Windows Update`.
 * En `Especificar la ubicación del servidor de Windows Update` pondremos algo como `http://ip-del-servidor:8530` para HTTP y `https://ip-del-servidor:8531` para HTTPS.
 * Configurar cliente para descargar las actualizaciones sin instalaras.
