@@ -26,11 +26,11 @@ Configuración de la máquina Windows Server (Instalación completa):
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.22, 172.AA.XX.23, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.AA.0.1`
-    * Servidor DNS1: `127.0.0.1`
+    * Servidor DNS1: `1.1.1.1`. Solamente cuando nuestro Windows Server vaya a actuar como controlador de dominio, será cuando pondremos DNS1 `127.0.0.1`.
     * Servidor DNS2: `8.8.4.4`
 * Nombre de equipo: `primer-apellido-del-alumnoXXs`.
     * Por ejemplo: vargas30s.
-    * El nombre NetBIOS sólo puede tener 16 caractéres.
+    * El nombre NetBIOS sólo puede tener 16 caracteres.
 
 > Si tenemos varias máquinas las llamaremos vargas30s, vargas30s2, vargas30s3, etc.
 
