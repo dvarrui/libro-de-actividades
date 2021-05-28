@@ -133,11 +133,9 @@ Parámetros de configuración en el cliente:
 
 ## 3.2 Configurar el cliente
 
-* Vamos a la MV2 con Windows 10, para configurarla como cliente WSUS.
-
 ### Configurar sin PDC (Recomendado)
 
-Vamos a configurar Windows Update de cada cliente de forma local.
+Vamos a configurar Windows Update del cliente (MV2 con Windows 10), para usar el nuevo servidor WSUS.
 
 **Configuración usando Políticas de Grupo Local**
 
@@ -145,6 +143,7 @@ Vamos a configurar Windows Update de cada cliente de forma local.
 >    * [Configuración cliente para WSUS con o sin Active Directory](http://cosiis.com/blog/archives/69)
 >    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
+* Ir a la MV2 Cliente.
 * Abrir un terminal y ejecutar `gpedit`.
 * Ir a `Plantillas administrativas -> Componentes de Windows -> Windows Update`.
 * En `Especificar la ubicación del servidor de Windows Update` pondremos algo como `http://ip-del-servidor:8530` para HTTP y `https://ip-del-servidor:8531` para HTTPS.
