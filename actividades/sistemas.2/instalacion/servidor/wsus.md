@@ -108,8 +108,8 @@ Desde el servidor WSUS hay que aprobar algunas actualizaciones:
 
 ## 2.4 Servicio con inicio automático
 
-* Asegurarnos en `Administrar -> Herramientas -> Servicios` que el servicio WSUS tiene
-configurado inicio automático al arrancar la máquina.
+* Ir a `Administrar -> Herramientas -> Servicios`.
+* Configurar el `Servicio WSUS` con inicio automático. Esto es, el servicio se iniciará de forma automática cada vez que se arranque la máquina.
 
 > NOTA: Podemos consultar configuración del WSUS en el servidor, abriendo un navegador con el URL `http://WSUSServerName/iuident.cab`. Esto nos descarga el archivo `iuident.txt` que nos muestra la configuración del WSUS en el servidor.
 
