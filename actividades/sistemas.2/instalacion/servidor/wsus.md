@@ -104,7 +104,7 @@ Desde el servidor WSUS hay que aprobar algunas actualizaciones:
 * Buscamos `Actualizaciones críticas`
     * Aprobación: `cualquiera`
     * Estado: `cualquiera`
-* Seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
+* Seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos. Si no nos aparece nada, reiniciar el servidor.
 
 ## 2.4 Servicio con inicio automático
 
