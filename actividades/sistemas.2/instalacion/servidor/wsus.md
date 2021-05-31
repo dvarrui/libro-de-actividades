@@ -41,10 +41,7 @@ Vamos a necesitar 2 MVs.
 | MV1 | Servidor | Window Server 2016 (No PDC) | [Configurar](../../../global/configuracion/windows-server.md) como se indica. |
 | MV2 | Cliente  | Windows 10        | [Configurar](../../../global/configuracion/windows.md) como se indica. |
 
-
 # 2. Servidor WSUS
-
-Vamos a la MV1 con Windows Server.
 
 ## 2.1 Teoría
 
