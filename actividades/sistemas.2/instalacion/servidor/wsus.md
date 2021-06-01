@@ -166,7 +166,7 @@ Comprobación 1:
     * Se muestran parámetros configuración del servidor WSUS en pantalla.
 * Capturar imagen.
 
-> **Otras comprobaciones**
+> **[INFO] Otras comprobaciones**.
 >
 > Comprobación 2:
 > * Ir a `Inicio -> Ejecutar` el programa `rsop.msc` o `gpedit.msc`.
