@@ -101,8 +101,9 @@ Desde el servidor WSUS hay que aprobar algunas actualizaciones:
 * Buscamos `Actualizaciones críticas`
     * Aprobación: `cualquiera`
     * Estado: `cualquiera`
-* Hay que esperar a que termine el proceso de sincronización. Esto puede durar bastante tiempo.
-* Seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos. Si no nos aparece nada, reiniciar el servidor.
+* Seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
+    * Si no nos aparece nada, esperar a que termine el proceso de sincronización (Esto puede durar bastante tiempo).
+    * En caso de que haya terminado la sincronización y no aparezcan las actualizaciones reiniciar el servidor.
 
 ## 2.4 Servicio con inicio automático
 
