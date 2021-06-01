@@ -141,7 +141,7 @@ Vamos a configurar Windows Update del cliente (MV2 con Windows 10), para usar el
 >    * [Configurar Windows7 para WSUS](http://soporte.fen.uchile.cl/mw/index.php/WSUS_para_Windows_7)
 
 * Ir a la MV2 Cliente.
-* Abrir un terminal y ejecutar `gpedit`.
+* Abrir un terminal como Administrador, y ejecutar `gpedit`.
 * Ir a `Configuración del Equipo -> Plantillas administrativas -> Componentes de Windows -> Windows Update`.
 * En `Especificar la ubicación del servidor de Windows Update` pondremos algo como `http://ip-del-servidor:8530` para conectar por HTTP (Si quisiéramos conectar vía HTTPS pondríamos `https://ip-del-servidor:8531`).
 * Configurar cliente para descargar las actualizaciones sin instalaras.
