@@ -134,6 +134,7 @@ mydocs
 ## 4.1 Copia seguridad inicial
 
 * Usaremos nuestro usuario normal. NO usar el usuario root.
+* Ejecutamos `cd` para movernos a nuestro directorio HOME. Esto es `/home/nombre-del-alumno`. Lo comprobamos con `pwd`.
 * `tar cvf backupXX-3-init.tar mydocs -g mydocs.snap`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
     * Borrar el archibo mydocs/b.txt.
