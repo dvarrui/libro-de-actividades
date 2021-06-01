@@ -142,7 +142,7 @@ Vamos a configurar Windows Update del cliente (MV2 con Windows 10), para usar el
 
 * Ir a la MV2 Cliente.
 * Abrir un terminal y ejecutar `gpedit`.
-* Ir a `Plantillas administrativas -> Componentes de Windows -> Windows Update`.
+* Ir a `Configuración del Equipo -> Plantillas administrativas -> Componentes de Windows -> Windows Update`.
 * En `Especificar la ubicación del servidor de Windows Update` pondremos algo como `http://ip-del-servidor:8530` para conectar por HTTP (Si quisiéramos conectar vía HTTPS pondríamos `https://ip-del-servidor:8531`).
 * Configurar cliente para descargar las actualizaciones sin instalaras.
 * Ejecutar `gpupdate /force` en una consola como administrador. Esto fuerza a que se apliquen los cambios realizados en las directivas.
