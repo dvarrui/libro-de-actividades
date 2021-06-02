@@ -1,8 +1,8 @@
 
 ```
-Curso       : 202021, 201819, 201718
+Curso       : 202021
 Área        : Sistemas operativos, servidor, instalar, software
-Software    : Windows Server 2016/2012/2008 y Windows 10/7
+Software    : Windows Server 2016 y Windows 10
 Descripción : Servidor de actualizaciones WSUS
 Requisitos  :
 Tiempo      :
@@ -116,21 +116,7 @@ Desde el servidor WSUS hay que aprobar algunas actualizaciones:
 
 # 3. Cliente WSUS
 
-## 3.1 Teoría
-
-> Tener en cuenta que:
-> * Sistemas operativos clientes pueden ser W2K, WXP, WVista, WS2K3 y WS2K8.
-> * Los clientes se conectan vía HTTP con el servidor WSUS.
-> * Cliente Windows Update usa la firma digital y HASH (SHA1) para comprobar la autenticidad. En WXP y W2K se usa "cliente de actualizaciones automáticas".
-> * Se pueden usar directivas de grupo para distribuir la configuración de la organización ( `Conf Eq. > Direct > Plant. Admin. > Componen > Win Update`)
-
-Parámetros de configuración en el cliente:
-* Máquina Servidor WSUS
-* Frecuencia, notificaciones, grupo asignado.
-* Reinicio: automático / confirmación / retrasar
-* Administración de energía: Iniciar PC si está apagado para ejecutar actualización.
-
-## 3.2 Configurar el cliente
+## 3.1 Configurar el cliente
 
 ### Configurar sin PDC (Recomendado)
 
@@ -161,7 +147,7 @@ Vamos a configurar Windows Update del cliente (MV2 con Windows 10), para usar el
 > * Vamos a asignar el servidor WSUS a los equipos del dominio mediante directivas de grupo.
 > * Política de Grupo (AD DS). Enlace de interés [Configuración de clientes y aprobación de actualizaciones WSUS](http://cerowarnings.blogspot.com.es/2011/11/servidor-de-actualizaciones-wsus-ii.html)  
 
-## 3.3 Comprobacíón
+## 3.2 Comprobacíón
 
 Comprobación 1:
 * Ejecutar la siguiente consulta de registro en línea de comandos: `reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`
@@ -186,7 +172,7 @@ apunta a nuestro servidor WSUS.
 > * Buscar líneas `WSUS server...` y `WSUS status server...`.
 >
 
-## 3.4 Servicio en el cliente
+## 3.3 Servicio en el cliente
 
 Cuando se cambia la configuración, hay reiniciar el servicio Windows Update en el cliente:
 * `net stop wuauserv`, Para el servicio de Windows Update.
@@ -200,7 +186,7 @@ invocar los siguientes comandos:
     * Capturar imagen de las actualizaciones pendientes de instalar.
     * Deberían ser las mismas que tenemos aprobadas en el WSUS.
 
-## 3.5 En el caso de tener PROBLEMAS
+## 3.4 En el caso de tener PROBLEMAS
 
 Sólo en caso de tener problemas de conexión del cliente WSUS con el servidor.
 
