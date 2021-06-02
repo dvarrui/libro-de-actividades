@@ -78,4 +78,5 @@ Tiempo      :
 ---
 # ANEXO
 
-https://www.ardilu.com/sistemas-operativos/claves-activar-windows-10
+* https://www.ardilu.com/sistemas-operativos/claves-activar-windows-10
+* Windows Answer File Generator https://www.windowsafg.com/win10x86_x64_uefi.html
