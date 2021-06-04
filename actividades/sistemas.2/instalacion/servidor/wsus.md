@@ -149,7 +149,8 @@ Vamos a configurar Windows Update del cliente (MV2 con Windows 10), para usar el
 
 ## 3.2 Comprobacíón
 
-Comprobación 1:
+Comprobación:
+* Ir a MV2 Cliente.
 * Ejecutar la siguiente consulta de registro en línea de comandos: `reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate`
     * Se muestran parámetros configuración del servidor WSUS en pantalla.
 * Capturar imagen.
