@@ -181,7 +181,7 @@ Cuando se cambia la configuración, hay reiniciar el servicio Windows Update en 
 
 Podemos esperar 10 minutos a que Windows Update conecte con el servidor, o también
 invocar los siguientes comandos:
-* `wuauclt.exe /detectnow`: trata de conectar con el servidor y registra el equipo cliente en WSUS.
+* `wuauclt.exe /detectnow`, trata de conectar con el servidor y registra el equipo cliente en WSUS.
 * `wuauclt /a`, el cliente consulta al servidor.
 * Buscar actualizaciones de Windows Update desde Windows 10.
     * Capturar imagen de las actualizaciones pendientes de instalar.
