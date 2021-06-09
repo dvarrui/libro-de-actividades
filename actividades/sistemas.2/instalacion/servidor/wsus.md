@@ -104,6 +104,7 @@ Desde el servidor WSUS hay que aprobar algunas actualizaciones:
 * Seleccionar 3 actualizaciones críticas y aprobar su instalación en todos los equipos.
     * Si no nos aparece nada, esperar a que termine el proceso de sincronización (Esto puede durar bastante tiempo).
     * En caso de que haya terminado la sincronización y no aparezcan las actualizaciones reiniciar el servidor.
+* Seleccionar también las actualizaciones en el estado "Necesarias" y aprobarlas.
 
 ## 2.4 Servicio con inicio automático
 
@@ -186,6 +187,7 @@ invocar los siguientes comandos:
 * Buscar actualizaciones de Windows Update desde Windows 10.
     * Capturar imagen de las actualizaciones pendientes de instalar.
     * Deberían ser las mismas que tenemos aprobadas en el WSUS.
+* Forzar las actualizaciones Windows Update desde el equipo cliente.
 
 ## 3.4 En el caso de tener PROBLEMAS
 
@@ -203,8 +205,11 @@ Sólo en caso de tener problemas de conexión del cliente WSUS con el servidor.
 
 ## 4.1 Auditar desde el servidor
 
-* Estamos en la MV del servidor WSUS
-* Ir a `Herramientas -> WSUS -> Equipos`. Capturar imagen del equipo Windows registrado como cliente WSUS.
+* Ir a la MV del servidor WSUS
+* Ir a `Herramientas -> WSUS -> Equipos`.
+    * Capturar imagen del equipo Windows registrado como cliente WSUS.
+    * En el caso de que no aparezca el equipo cliente, forzar las actualizaciones de Windows Update desde el equipo cliente.
+* Si el equipo cliente aparece con un símbolo de advertencia (triángulo amarillo), entonces probablemente se requiere aprobar actualizaciones en el estado "Necesarias".
 * Para auditar las actualizaciones de los clientes desde el servidor, vamos a
 `Consola Windows Update -> Informes`.
     * Mostrar informe de las actualizaciones de nuestro equipo cliente.
