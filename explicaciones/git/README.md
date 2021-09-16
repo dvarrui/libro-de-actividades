@@ -107,18 +107,16 @@ Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
 ![git-repo-tarea-url](./images/git-repo-tarea-url.png)
 
 El árbol de directorios creado en el repositorio debe ser como el siguiente:
-El árbol de directorios creado en el repositorio debe ser como el siguiente:
 
 ```
-├── u1
+├── trim1
 │   ├── vnc
 │   │   ├── images
 │   │   └── README.md
 │   └── ssh
 │       ├── images
 │       └── README.md
-├── u2
-└── u3   
+└── trim2   
 ```
 
 ---
