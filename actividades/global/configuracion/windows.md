@@ -58,13 +58,13 @@ nslookup www.nba.com  # Configuración DNS
 
 ## 5. Periodo de pruebas
 
-Una vez instalado el SO Windows 7 disponemos de unos 30 días trabajar con el sistema,
+Una vez instalado el SO Windows disponemos de unos 30 días trabajar con el sistema,
 antes de que pase al estado *"Copia ilegal"*.
 
 Al finalizar este plazo de tiempo podemos:
 
 1. Activar el SO introduciendo un código de activación válido.
-2. Renovar el perido de pruebas por 30 días más, mediante el comando: `slmgr -rearm`.
+2. Renovar el periodo de pruebas por 30 días más, mediante el comando: `slmgr -rearm`.
 Podemos renovar varias veces, pero el tiempo máximo que podemos usar el SO antes de activarlo
 es de 90 días.
 
