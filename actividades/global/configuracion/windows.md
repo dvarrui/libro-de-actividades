@@ -26,10 +26,10 @@ Documentos relacionados
 
 * El usuario debe ser el `nombre-del-alumno`. Todos los nombres deben estar en minúsculas.
 Sin usar caracteres especiales como ñ, tildes, espacios, etc.
-* Nombre de equipo: `primer-apellido-del-alumno+XXw1`.
-    * Por ejemplo: vargas30w1
+* Nombre de equipo: `primer-apellido-del-alumno+XXw`.
+    * Por ejemplo: vargas30w
     * El nombre NetBIOS sólo puede tener 16 caractéres.
-    * Si tenemos varias máquinas las llamaremos vargas30w1, vargas30w2, vargas30w3, etc.
+    * Si tenemos varias máquinas las llamaremos vargas30w, vargas30w2, vargas30w3, etc.
 * Grupo de trabajo: `curso1819` (Modificar los números al curso actual)
 * Configuramos el interfaz de red en modo estático.
 * IP: `172.AA.XX.11` (Donde XX corresponde al nº de cada puesto).
