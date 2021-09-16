@@ -48,7 +48,7 @@ cd idp1314-nombre-del-alumno
 git status
 git add nombre-de-fichero-o-carpeta
 git commit -m "Mensaje informativo"
-git push -u origin master
+git push
 ```
 
 > **RECORDATORIO**
