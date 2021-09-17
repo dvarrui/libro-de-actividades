@@ -18,6 +18,7 @@ Formato de entrada:
   nombre
   apellidos
   email
+  city (profesor)
 
 Formato de salida:
   username, password, firstname, lastname, email, city

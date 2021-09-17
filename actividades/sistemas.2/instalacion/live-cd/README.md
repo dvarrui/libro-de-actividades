@@ -3,8 +3,7 @@
 
 ## 1.1 Durante la instalación
 
-* Descargar Windows:
-    * La versión *Windows7 enterprise sp1 x64*.
+* Descargar Windows.
 * Crear una MV, esta vez si tendrá disco duro.
     * Dejar el tamaño de disco recomendado.
 * Vamos a realizar un instalación por defecto, cambiando lo siguiente ([configuración](../../../global/configuracion/windows.md)):
