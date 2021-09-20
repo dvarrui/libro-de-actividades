@@ -50,7 +50,7 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 * Desmarcamos `Modificar nombre mediante DHCP`
 * Marcamos `Asignar nombre de host a la IP bucle local`
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
-    * Por ejemplo vargas30g1
+    * Por ejemplo vargas30g
 * Nombre de dominio: `curso1920` (Modificar los números al curso actual).
 * Servidor DNS: `1.1.1.1`.
 * Vamos a `Encaminamiento`, y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
