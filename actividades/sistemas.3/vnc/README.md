@@ -87,7 +87,7 @@ Pero lo recomendable es tener el cortafuegos en ejecución y abrir solamente los
 # 4. OpenSUSE: Master VNC
 
 * `vncviewer` es un cliente VNC que viene con OpenSUSE.
-* En la conexion remota, hay que especificar `IP:5901`, `IP:5902`, etc.
+* En la conexión remota, hay que especificar `IP:5901`, `IP:5902`, etc.
 (Usar el número del escritorio remoto obtenido anteriormente).
 * Hay varias formas de usar vncviewer:
     * `vncviewer IP-vnc-server:590N`
