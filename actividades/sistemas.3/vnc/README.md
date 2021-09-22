@@ -109,9 +109,10 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 # 5. Comprobaciones con SSOO cruzados
 
 * Conectar el cliente GNU/Linux con el Servidor VNC Windows.
+Usaremos el comando `vncviewer IP-vnc-server` sin especificar puerto alguno.
 * Ejecutar `netstat -n` en el servidor Windows.
 * Conectar el cliente Windows con el servidor VNC GNU/Linux.
-* Ejecutar en el servidor GNU/Linux `lsof -i`.
+* Ejecutar en el servidor GNU/Linux `lsof -i -nP`.
 
 ---
 
