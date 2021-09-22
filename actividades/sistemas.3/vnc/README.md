@@ -94,13 +94,13 @@ Pero lo recomendable es tener el cortafuegos en ejecución y abrir solamente los
     * `vncviewer IP-vnc-server:N`
     * `vncviewer IP-vnc-server::590N`
 
-> Si tenemos problemas, cerrar la sesión en la máquina Slave,
-antes de iniciar la sesión desde la máquina Master.
 
 ## 4.1 Comprobaciones finales
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Conectar desde GNU/Linix Master hacia GNU/Linux Slave.
+    * Si tenemos problemas, cerrar la sesión en la máquina Slave,
+    antes de iniciar la sesión desde la máquina Master.
 * Ejecutar como superusuario `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
