@@ -120,7 +120,7 @@ Usaremos el comando `vncviewer IP-vnc-server` sin especificar puerto alguno.
 
 > [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
 
-Cuando queremos ejecutar vncserver para controlar directamente la pantalla local usaremos `x0vncserver`.
+Cuando queremos ejecutar VNC en GNU/Linux para controlar directamente la pantalla local usaremos el comando `x0vncserver`.
 * Vamos a usar las 2 MV GNU/Linux.
 * Ir al servidor.
 * `x0vncserver -display :0 -passwordfile /home/nombre-alumno/.vnc/passwd`. Para más información, véase `man x0vncserver`
