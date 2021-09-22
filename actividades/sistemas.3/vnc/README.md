@@ -95,7 +95,7 @@ Pero lo recomendable es tener el cortafuegos en ejecución y abrir solamente los
     * `vncviewer IP-vnc-server::590N`
 
 > Si tenemos problemas, cerrar la sesión en la máquina Slave,
-antes de iniciar la sesión desde la máquina Master. 
+antes de iniciar la sesión desde la máquina Master.
 
 ## 4.1 Comprobaciones finales
 
@@ -123,5 +123,5 @@ Cuando queremos ejecutar vncserver para controlar directamente la pantalla local
 
 * Ir al servidor
 * `x0vncserver -display :0 -passwordfile /home/nombre-alumno/.vnc/passwd`. Para más información, véase `man x0vncserver`
-* `lsof -i -n`
 * Ir al cliente y probamos a conectarnos con el servidor.
+* `lsof -i -n`
