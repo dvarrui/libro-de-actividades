@@ -74,7 +74,7 @@ Pero lo recomendable es tener el cortafuegos en ejecución y abrir solamente los
     Apuntar este número porque lo usaremos más adelante.
 * `vdir /home/nombrealumno/.vnc`, vemos que se nos han creado unos ficheros de configuración VNC asociados a nuestro usuario.
 * Ejecutar `ps -ef|grep vnc` para comprobar que los servicios relacionados con vnc están en ejecución.
-* Ejecutar `lsof -i -n` para comprobar que están los servicios en los puertos VNC (580X y 590X).
+* Ejecutar como superusuario `lsof -i -n` para comprobar que están los servicios en los puertos VNC (580X y 590X).
 
 > NOTA: En OpenSUSE GNU/Linux el comando `netstat -ntap` está obsoleto. Pero si aún insistimos en usarlo... tendremos que instalar el paquete `net-tools-deprecated`. Lo recomendado es usar el comando `lsof`.
 
@@ -101,7 +101,7 @@ antes de iniciar la sesión desde la máquina Master.
 
 Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Conectar desde GNU/Linix Master hacia GNU/Linux Slave.
-* Ejecutar `lsof -i -n` en el servidor para comprobar las conexiones VNC.
+* Ejecutar como superusuario `lsof -i -n` en el servidor para comprobar las conexiones VNC.
 * Ejecutar `vncserver -list` en el servidor.
 
 ---
@@ -111,7 +111,7 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 * Conectar el cliente GNU/Linux con el Servidor VNC Windows.
 * Ejecutar `netstat -n` en el servidor Windows.
 * Conectar el cliente Windows con el servidor VNC GNU/Linux.
-* Ejecutar en el servidor GNU/Linux `lsof -i`.
+* Ejecutar como superusuario en el servidor GNU/Linux `lsof -i`.
 
 ---
 
@@ -120,8 +120,8 @@ Comprobaciones para verificar que se han establecido las conexiones remotas:
 > [Enlace de interés](https://wiki.archlinux.org/index.php/TigerVNC_)
 
 Cuando queremos ejecutar vncserver para controlar directamente la pantalla local usaremos `x0vncserver`.
-
-* Ir al servidor
+* Vamos a usar las 2 MV GNU/Linux.
+* Ir al servidor.
 * `x0vncserver -display :0 -passwordfile /home/nombre-alumno/.vnc/passwd`. Para más información, véase `man x0vncserver`
 * Ir al cliente y probamos a conectarnos con el servidor.
-* `lsof -i -n`
+* `lsof -i -n` como superusuario.
