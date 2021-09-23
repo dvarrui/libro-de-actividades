@@ -67,7 +67,7 @@ openSUSE-Leap-15.1-DVD-x86_64.iso: La suma coincide
 ip a
 date
 whoami
-hostname -f
+hostname
 sudo blkid
 sudo fdisk -l
 ```
