@@ -79,7 +79,7 @@ sudo fdisk -l
 # 3. Live CD
 
 Vamos a practicar con un SO en live CD.
-* Descargar una ISO Live del sistema operativo Knoppix (versión 7 por ejemplo).
+* Descargar una ISO Live del sistema operativo Knoppix. El comando de para comprobar la iso es `md5sum -c knoppix-xxx.md5`.
 * Crear una máquina virtual sin disco duro.
 * Iniciar el SO en modo LIVE.
 
