@@ -126,5 +126,6 @@ Cuando queremos ejecutar VNC en GNU/Linux para controlar directamente la pantall
 * Vamos a usar las 2 MV GNU/Linux.
 * Ir al servidor.
 * `x0vncserver -display :0 -passwordfile /home/nombre-alumno/.vnc/passwd`. Para más información, véase `man x0vncserver`
-* Ir al cliente y probamos a conectarnos con el servidor.
+* Ir al cliente. Usar nmap para comprobar que el puerto 5900 del servidor está abierto.
+* Probar a conectarnos con el servidor (`vncviewer IP-VNC-SERVER:5900`).
 * `lsof -i -nP`.
