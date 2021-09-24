@@ -24,6 +24,8 @@ Conexiones remotas con VNC:
 |  3 | OpenSUSE | 172.AA.XX.31 | Slave VNC  | Instalar servidor VNC |
 |  4 | OpenSUSE | 172.AA.XX.32 | Master VNC | Instalar cliente VNC  |
 
+> Instalar OpenSUSE con el escritorio XFCE
+
 ---
 
 # 1. Windows: Slave VNC
