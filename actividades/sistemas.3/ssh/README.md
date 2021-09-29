@@ -40,12 +40,12 @@ Entrega:
 
 Vamos a necesitar las siguientes MVs:
 
-| Función | Sistema Operativo     | IP        | Hostname |
-| ------- |--------------------- | --------- | --------- |
-| Un servidor SSH| GNU/Linux OpenSUSE (Sin entorno gráfico)| 172.AA.XX.31 | serverXXg |
-| Un cliente SSH | GNU/Linux OpenSUSE | 172.AA.XX.32 | clientXXg |
-| Un servidor SSH | Windows Server| 172.AA.XX.11 | serverXXs |
-| Un cliente SSH | Windows | 172.AA.XX.12 | clienteXXw |
+| Función | Sistema Operativo    | IP        | Hostname |
+| ------- |--------------------- | --------- | -------- |
+| Un servidor SSH | GNU/Linux OpenSUSE | 172.AA.XX.31 | serverXXg |
+| Un cliente SSH  | GNU/Linux OpenSUSE | 172.AA.XX.32 | clientXXg |
+| Un servidor SSH | Windows Server     | 172.AA.XX.11 | serverXXs |
+| Un cliente SSH  | Windows            | 172.AA.XX.12 | clientXXw |
 
 ## 1.1 Servidor SSH
 
