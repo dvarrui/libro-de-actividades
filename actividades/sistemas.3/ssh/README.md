@@ -136,13 +136,14 @@ Vamos a comprobar el funcionamiento de la conexión SSH desde cada cliente usand
 
 ![ssh-conexion1](./opensuse/ssh-conexion1.png)
 
-* A partir de ahora cuando nos conectamos sólo nos pide la contraseña:
+* A partir de ahora cuando nos volvamos a conectar sólo nos pide la contraseña:
 
 ![ssh-conexion2](./opensuse/ssh-conexion2.png)
 
 * Comprobar contenido del fichero `$HOME/.ssh/known_hosts` en el equipo cliente. OJO el prompt nos indica en qué equipo estamos.
-* ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
-* Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
+* ¿Te suena la clave que aparece? Es la clave de pública de la máquina del servidor.
+
+Una vez llegados a este punto deben de funcionar correctamente las conexiones SSH desde el cliente. Comprobarlo.
 
 ## 2.3 Primera conexión SSH desde cliente Windows
 
@@ -163,7 +164,7 @@ el en `/etc/ssh`,:
 
 ```
 david@server42g:~> cd /etc/ssh/
-david@server42g:/etc/ssh> ll
+david@server42g:/etc/ssh> vdir
 total 576
 -rw-r--r-- 1 root root   2375 oct  1 08:15 ldap.conf
 -rw------- 1 root root 535929 oct  1 08:15 moduli
