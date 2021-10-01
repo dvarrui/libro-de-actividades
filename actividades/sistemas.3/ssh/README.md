@@ -119,7 +119,7 @@ Crear los siguientes usuarios en `serverXXg`:
 >  * `systemctl enable sshd` por comandos
 >  * `Yast -> servicios` por entorno gráfico
 
-* `sudo lsof -i:22`, comprobar que el servicio está escuchando por el puerto 22.
+* `sudo lsof -i:22 -Pn`, comprobar que el servicio está escuchando por el puerto 22.
 
 ## 2.2 Primera conexión SSH desde cliente GNU/Linux
 
@@ -147,7 +147,7 @@ Una vez llegados a este punto deben de funcionar correctamente las conexiones SS
 
 ## 2.3 Primera conexión SSH desde cliente Windows
 
-* Desde el cliente Windows nos conectamos usando `PuTTY`.
+* Desde el cliente Windows (usando `PuTTY`) nos conectamos al servidor SSH de GNU/Linux.
 * Podremos ver el intercambio de claves que se produce en el primer proceso de conexión SSH. * ¿Te suena la clave que aparece? Es la clave de identificación de la máquina del servidor.
 * Guardar la identificación del servidor.
 * La siguiente vez que volvamos a usar PuTTY ya no debe aparecer el mensaje de advertencia porque hemos memorizado la identificación del servidor SSH. Comprobarlo.
