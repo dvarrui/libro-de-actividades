@@ -208,7 +208,7 @@ Vamos a cambiar o volver a generar nuevas claves públicas/privadas que identifi
 > * [Tutorial FreeSShd](http://www.redeszone.net/windows/freesshd-para-windows-instalacion-y-manual-de-configuracion-de-freesshd-para-windows-servidor-ssh-y-sftp/)
 > * [Configuración de OpenSSH para Windows7 con SSH Cygwin +Putty](http://www.taringa.net/post/linux/15562479/Configuracion-de-OpenSSH-en-Windows-7-SSH-Cygwin-Putty.html)
 > * [Installing Cygwin and Starting the SSH Daemon](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150)
-> * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta `CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys`. Para acceder al registro ejecutamos el comando `regedit`.
+> * En Windows, la información relativa a los know_hosts, se almacena en el registro. En la ruta `HKEY_CURRENT_USER/Software/SimonTaham/Putty/SSHHostKeys`. Para acceder al registro ejecutamos el comando `regedit`.
 
 * Para solucionarlo... lee los mensajes de advertencia. ¡Ahí está todo lo que necesitas!
 
@@ -258,8 +258,7 @@ Capturar imágenes de los siguientes pasos:
 * `ssh-keygen -t rsa` para generar un nuevo par de claves para el usuario en:
     * `/home/nombre-alumno/.ssh/id_rsa`
     * `/home/nombre-alumno/.ssh/id_rsa.pub`
-* Ahora vamos a copiar la clave pública (`id_rsa.pub`), al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4* que está definido en el servidor.
-    * Hay varias formas de hacerlo.
+* Ahora vamos a copiar la clave pública (`id_rsa.pub`), al fichero "authorized_keys" del usuario remoto *1er-apellido-alumno4* que está definido en el servidor. Hay varias formas de hacerlo.
     * El modo recomendado es usando el comando `ssh-copy-id`. Ejemplo para copiar la clave pública del usuario actual al usuario remoto en la máquina remota: `ssh-copy-id 1er-apellido-alumno4@serverXXg`.
 
 > Otra forma de hacerlo sería usando el programa de copia segura `scp`.
