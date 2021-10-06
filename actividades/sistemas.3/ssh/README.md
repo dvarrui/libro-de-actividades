@@ -344,7 +344,7 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
     * Documentar el proceso de instalación y configuración.
 * Comprobar acceso SSH desde los clientes Windows y GNU/Linux al servidor SSH Windows.
     * `netstat -n` en Windows.
-    * `lsof -i -n` en GNU/Linux.
+    * `lsof -i -nP` en GNU/Linux.
 
 > Enlaces de interés:
 >
