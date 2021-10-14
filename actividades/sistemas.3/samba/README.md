@@ -1,6 +1,6 @@
 
 ```
-Cursos      : 202021
+Cursos      : 202122, 202021
 Area        : Sistemas operativos, integración de sistemas
 Descripción : Practicar recursos compartidos de red SMB/CIFS
 Requisitos  : SO GNU/Linux y SO Windows
@@ -45,7 +45,7 @@ Vamos a necesitar las siguientes máquinas:
 
 * [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
 * Nombre de equipo: `serverXXg` (Donde XX es el número del puesto de cada uno).
-* Añadir en `/etc/hosts` los equipos `clientXXg` y `c.lientXXw` (Donde XX es el número del puesto de cada uno).
+* Añadir en `/etc/hosts` los equipos `clientXXg` y `clientXXw` (Donde XX es el número del puesto de cada uno).
 
 ## 1.2 Usuarios locales
 
@@ -75,7 +75,7 @@ por comandos editando el fichero `/etc/passwd`.
 ## 1.4 Configurar el servidor Samba
 
 > Para instalar y configurar el servicio Samba, podemos usar comandos o el entorno gráfico.
-> Como estamos en OpenSUSE vamos a usar Yast.
+> Como estamos en OpenSUSE podemos a usar Yast. El paquete se llama `yast2-samba-server`.
 
 * `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
 * `Yast -> Samba Server`
