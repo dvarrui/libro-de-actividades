@@ -176,7 +176,8 @@ blkid        # Muestra los códigos UUID de las particiones
 
 * Desde la máquina real hacer `ssh root@ip-de-la-máquina-virtual`, para
 comprobar que funciona bien el acceso desde fuera.
-* Apagar el sistema con el comando: `halt`
+    * Cuando queramos salir de la conexión remota `exit`.
+* Para apagar la máquina podemos usar el comando `halt` o `poweroff`, y para reiniciar la máquina `reboot`.
 
 ---
 
