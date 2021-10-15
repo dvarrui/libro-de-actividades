@@ -239,7 +239,7 @@ Capturar imagen de lo siguiente:
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `sudo lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i -Pn`, desde el servidor Samba.
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -275,7 +275,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `sudo lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i -Pn`, desde el servidor Samba.
 
 ## 3.3 Montaje automático
 
@@ -286,9 +286,10 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 > Antes accedimos a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
-* Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
-debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
-    * `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
+Para configurar las acciones de montaje automático cada vez que se inicie el equipo,
+debemos configurar el fichero `/etc/fstab`. 
+    * Hacer una copia de seguridad al fichero `/etc/fstab`.
+    * Modificar el fichero, incluyendo una línea de la siguiente forma: `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
