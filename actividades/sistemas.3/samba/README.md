@@ -177,8 +177,6 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
 * Acceder al recurso compartido `public`.
-    * `net use` para ver las conexiones abiertas.
-    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
 * Acceder al recurso compartido `castillo` con el usuario `soldado`.
     * `net use` para ver las conexiones abiertas.
     * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
@@ -186,7 +184,7 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `lsof -i -Pn`, desde el servidor Samba.
 
 ## 2.2 Cliente Windows comandos
 
@@ -210,7 +208,7 @@ Montar el recurso `barco` de forma persistente.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `lsof -i -Pn`, desde el servidor Samba.
 
 ---
 
