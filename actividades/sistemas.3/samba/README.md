@@ -289,20 +289,16 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 > Antes accedimos a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
-<<<<<<< HEAD
-* Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
-debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
+Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
+debemos configurar el fichero `/etc/fstab`.
+
+* Hacer una copia de seguridad al fichero `/etc/fstab`.
+* Modificar el fichero, incluyendo una línea de la siguiente forma:
 
 ```
 //IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
 ```
 
-=======
-Para configurar las acciones de montaje automático cada vez que se inicie el equipo,
-debemos configurar el fichero `/etc/fstab`. 
-    * Hacer una copia de seguridad al fichero `/etc/fstab`.
-    * Modificar el fichero, incluyendo una línea de la siguiente forma: `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
->>>>>>> f0e39c3b4ae26f46ef7cd35cbe9ee6c869d62674
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
