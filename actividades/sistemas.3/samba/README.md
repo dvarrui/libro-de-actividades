@@ -1,6 +1,6 @@
 
 ```
-Cursos      : 202021
+Cursos      : 202122, 202021
 Area        : Sistemas operativos, integración de sistemas
 Descripción : Practicar recursos compartidos de red SMB/CIFS
 Requisitos  : SO GNU/Linux y SO Windows
@@ -68,9 +68,9 @@ por comandos editando el fichero `/etc/passwd`.
 
 | Recurso  | Directorio              | Usuario    | Grupo      | Permisos |
 | -------- | ----------------------- | ---------- | ---------- | -------- |
-| Public   | /srv/sambaXX/public.d   | supersamba | sambausers | 770 |
-| Castillo | /srv/sambaXX/castillo.d | supersamba | soldados   | 770 |
-| Barco    | /srv/sambaXX/barco.d    | supersamba | piratas    | 770 |
+| public   | /srv/sambaXX/public.d   | supersamba | sambausers | 770 |
+| castillo | /srv/sambaXX/castillo.d | supersamba | soldados   | 770 |
+| barco    | /srv/sambaXX/barco.d    | supersamba | piratas    | 770 |
 
 ## 1.4 Configurar el servidor Samba
 
@@ -157,7 +157,7 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 > * [Demonios Samba y servicios relacionados](http://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-rg-es-4/s1-samba-daemons.html)
 
 * Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración. Podemos hacerlo por `Yast -> Servicios`, o usar los comandos: `systemctl restart smb` y `systemctl restart nmb`.
-* `sudo lsof -i`, comprobar que el servicio SMB/CIF está a la escucha.
+* `sudo lsof -i -Pn`, comprobar que el servicio SMB/CIF está a la escucha.
 
 ---
 
@@ -263,7 +263,10 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 * Probar desde el cliente GNU/Linux el comando `smbclient --list IP-SERVIDOR-SAMBA`, que muestra los recursos SMB/CIFS del servidor remoto.
 * Ahora crearemos en local la carpeta `/mnt/remotoXX/castillo`.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
-`mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado1`
+
+```
+mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado1
+```
 
 > En versiones anteriores de GNU/Linux se usaba el comando: `smbmount //172.AA.XX.31/public /mnt/remotoXX/public/ -o -username=sambaguest`.
 
@@ -290,7 +293,11 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
-    * `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
+
+```
+//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
+```
+
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
