@@ -45,7 +45,7 @@ Vamos a necesitar las siguientes máquinas:
 
 * [Configurar](../../global/configuracion/opensuse.md) el servidor GNU/Linux.
 * Nombre de equipo: `serverXXg` (Donde XX es el número del puesto de cada uno).
-* Añadir en `/etc/hosts` los equipos `clientXXg` y `c.lientXXw` (Donde XX es el número del puesto de cada uno).
+* Añadir en `/etc/hosts` los equipos `clientXXg` y `clientXXw` (Donde XX es el número del puesto de cada uno).
 
 ## 1.2 Usuarios locales
 
@@ -75,7 +75,7 @@ por comandos editando el fichero `/etc/passwd`.
 ## 1.4 Configurar el servidor Samba
 
 > Para instalar y configurar el servicio Samba, podemos usar comandos o el entorno gráfico.
-> Como estamos en OpenSUSE vamos a usar Yast.
+> Como estamos en OpenSUSE podemos a usar Yast. El paquete se llama `yast2-samba-server`.
 
 * `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
 * `Yast -> Samba Server`
@@ -177,8 +177,6 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
 * Acceder al recurso compartido `public`.
-    * `net use` para ver las conexiones abiertas.
-    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
 * Acceder al recurso compartido `castillo` con el usuario `soldado`.
     * `net use` para ver las conexiones abiertas.
     * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
@@ -186,7 +184,7 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `lsof -i -Pn`, desde el servidor Samba.
 
 ## 2.2 Cliente Windows comandos
 
@@ -210,7 +208,7 @@ Montar el recurso `barco` de forma persistente.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `lsof -i`, desde el servidor Samba.
+    * `lsof -i -Pn`, desde el servidor Samba.
 
 ---
 
@@ -241,7 +239,7 @@ Capturar imagen de lo siguiente:
 * Comprobar que el recurso `public` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `sudo lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i -Pn`, desde el servidor Samba.
 
 ## 3.2 Cliente GNU/Linux comandos
 
@@ -280,7 +278,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `sudo lsof -i`, desde el servidor Samba.
+    * `sudo lsof -i -Pn`, desde el servidor Samba.
 
 ## 3.3 Montaje automático
 
@@ -291,6 +289,7 @@ debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 
 > Antes accedimos a los recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso de  montaje manual, a no ser que hagamos una configuración de  montaje permanente o automática.
 
+<<<<<<< HEAD
 * Para configurar acciones de montaje automáticos cada vez que se inicie el equipo,
 debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 
@@ -298,6 +297,12 @@ debemos configurar el fichero `/etc/fstab`. Veamos un ejemplo:
 //IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
 ```
 
+=======
+Para configurar las acciones de montaje automático cada vez que se inicie el equipo,
+debemos configurar el fichero `/etc/fstab`. 
+    * Hacer una copia de seguridad al fichero `/etc/fstab`.
+    * Modificar el fichero, incluyendo una línea de la siguiente forma: `//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0`
+>>>>>>> f0e39c3b4ae26f46ef7cd35cbe9ee6c869d62674
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
 
