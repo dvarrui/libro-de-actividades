@@ -19,13 +19,12 @@ Ejemplo de rúbrica:
 
 Para esta parte vamos a necesitar las siguientes máquinas:
 * MV Servidor NFS
-    * Windows 2008 Server (Enterprise)
+    * Windows Server (Enterprise)
     * [ Configurar MV ](./../../global/configuracion/windows-server.md)
 * MV Cliente NFS
-    * Windows 7 (Enterprise). **IMPORTANTE** usar la versión especificada.
+    * Windows (Enterprise). **IMPORTANTE** usar la versión especificada porque el cliente NFS sólo lo tienen las versiones Enterprise.
     * [ Configurar MV ](./../../global/configuracion/windows.md)
 
->  El cliente NFS sólo lo tienen las versiones Enterprise
 
 ## 1.1 Servidor NFS Windows
 
@@ -128,20 +127,20 @@ en el sistema nos asignará la Z.
 Vamos a necesitar las siguientes máquinas:
 
 * MV Servidor NFS
-    * SO OpenSUSE 13.2
+    * SO OpenSUSE
     * [Configurar MV](./../../global/configuracion/opensuse.md)
-    * Como nombre de esta máquina usar `nfs-server-XX`.
+    * Como nombre de esta máquina usar `serverXX`.
 * MV CLiente NFS
-    * SO OpenSUSE 13.2.
+    * SO OpenSUSE
     * [Configurar MV](./../../global/configuracion/opensuse.md)
-    * Como nombre de esta máquina usar `nfs-client-XX`
+    * Como nombre de esta máquina usar `clientXX`
 
 > Para cambiar el nombre de máquina podemos usar Yast o modificar directamente los ficheros `/etc/hostname` y `/etc/hosts`.
 >
 > Podemos configurar el fichero /etc/hosts del cliente y servidor, añadiendo estas líneas:
 > ```
-> 172.18.XX.52 nfs-server-XX.curso1617   nfs-server-XX
-> 172.18.XX.62 nfs-client-XX.curso1617   nfs-client-XX
+> 172.18.XX.52 serverXX.curso2122   serverXX
+> 172.18.XX.62 clientXX.curso2122   clientXX
 > ```
 
 ## 2.1 Servidor NFS
