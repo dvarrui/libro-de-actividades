@@ -114,7 +114,7 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * Esquema de uso de las particiones:
     * Área de intercambio o SWAP (500MB),
     * Partición home (montar /home) de tamaño 100MB y con formato ext3.
-    * Partición del sistema (montar /) de tamaño 7GB y con formato ext4.
+    * Partición del sistema (montar /) de tamaño 10 GB y con formato ext4.
     * Quedará espacio libre. Lo dejamos sin usar.
 * Botón derecho sobre la partición `ext3` -> para montar `/home`
 
