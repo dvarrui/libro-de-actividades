@@ -1,12 +1,11 @@
 
 ```
-Curso       : 202021, 201819, 201718
+Curso       : 202122, 202021, 201819, 201718
 Area        : Sistemas operativos, instalación
 Descripción : Instalación de dos SSOO en la misma máquina.
 Requisitos  : Windows 7 y GNU/Linux OpenSUSE Leap 15
 Tiempo      : 11 sesiones
 ```
-
 
 ---
 # Instalación Dual (PC BIOS)
@@ -29,7 +28,7 @@ Incluir breves comentarios de cada captura de pantalla.
 
 * Crear una máquina virtual (VirtualBox).
 * Configurar con:
-    * Tipo Windows 7 (64 bits)
+    * Tipo Windows
     * RAM 1024MB
     * Disco duro de 20GB
     * Tarjeta de red en modo puente (bridge).
