@@ -35,7 +35,7 @@ curso1920
 └── sistemas-operativos
 ```
 
-* Dentro de cada carpeta crear documento `leeme.txt`
+* Dentro de cada carpeta crear documento `leeme.txt`. Podemos usar el comando `nano` para crear y editar ficheros de texto plano.
 * Dentro de dicho documento escribir el nombre y apellidos en minúsculas, sin tildes ni eñes.
 
 ---
