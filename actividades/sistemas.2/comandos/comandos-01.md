@@ -28,7 +28,7 @@ host www.google.es # Comprobar DNS
 Realizar las siguientes acciones en la MV usando los comandos:
 * Crear la siguiente estructura de directorios en la carpeta HOME de nuestro usuario (`/home/nombre-del-alumno`):
 ```
-curso1920
+curso2122
 ├── hardware
 ├── ingles
 ├── lenguaje-de-marcas
