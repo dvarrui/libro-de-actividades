@@ -29,8 +29,8 @@ Incluir breves comentarios de cada captura de pantalla.
 * Crear una máquina virtual (VirtualBox).
 * Configurar con:
     * Tipo Windows
-    * RAM 1024MB
-    * Disco duro de 20GB
+    * RAM 2048 MB
+    * Disco duro de 30 GB
     * Tarjeta de red en modo puente (bridge).
 
 ## 1.1 Particionado
@@ -48,13 +48,13 @@ Incluir breves comentarios de cada captura de pantalla.
     * Iniciamos la herramienta de particionado con el usuario root ejecutando el comando `gparted`.
 * `Gparted -> Dispositivo -> Crear tabla de particiones -> MSDOS`.
 * Crear las siguientes particiones:
-    * Una partición primaria, tipo NTFS para Windows (12 GiB = 12288 MiB),
+    * Una partición primaria, tipo NTFS para Windows (19 GiB = 19456 MiB),
     * Una primaria FAT32 para datos (100 MiB).
     * Crearemos una partición extendida que coja todo el disco restante.
 * Dentro de la extendida haremos las siguientes particiones lógicas:
     * Área de intercambio o SWAP (500 MiB),
     * Partición de tamaño 100 MiB y con formato ext3.
-    * Partición de tamaño 7 GiB (7168 MiB) y con formato ext4.
+    * Partición de tamaño 10 GiB (10240 MiB) y con formato ext4.
     * Quedará un espacio libre que lo dejamos sin usar.
 * Capturar pantalla del `gparted` con las particiones solicitadas
 * Apagar MV.
