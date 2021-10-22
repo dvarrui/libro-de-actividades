@@ -178,8 +178,8 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 * Acceder al recurso compartido `public`.
 * Acceder al recurso compartido `castillo` con el usuario `soldado`.
-    * `net use` para ver las conexiones abiertas.
-    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado.
+    * `net use` para ver las conexiones abiertas desde un terminal con nuestro usuario normal.
+    * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado desde un terminal con nuestro usuario normal.
 * Acceder al recurso compartido `barco` con el usuario `pirata`.
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
