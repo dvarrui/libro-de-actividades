@@ -3,7 +3,7 @@
 Curso       : 202122, 202021, 201819, 201718
 Area        : Sistemas operativos, instalación
 Descripción : Instalación de dos SSOO en la misma máquina.
-Requisitos  : Windows 7 y GNU/Linux OpenSUSE Leap 15
+Requisitos  : Windows y GNU/Linux OpenSUSE Leap 15
 Tiempo      : 11 sesiones
 ```
 
