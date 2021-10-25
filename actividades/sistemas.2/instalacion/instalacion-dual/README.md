@@ -17,7 +17,7 @@ Tiempo      : 11 sesiones
 Vamos a realizar una instalación dual Windows y GNU/Linux.
 Esto es, instalar dos SSOO en la misma máquina.
 
-* Usaremos en esta práctica las versiones Windows7 Enterprise, y OpenSUSE.
+* Usaremos en esta práctica las versiones Windows, y OpenSUSE.
 * Entregar un documento en formato ODT o PDF con las capturas solicitadas.
 Incluir breves comentarios de cada captura de pantalla.
 
