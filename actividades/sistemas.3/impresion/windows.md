@@ -54,15 +54,13 @@ PDFCreator es una utilidad completamente gratuita con la que podrás crear archi
 * Descargar PDFCreator (URL recomendada `www.pdfforge.org/pdfcreator/download`) e instalar.
 * En PDFCreator, configurar en `perfiles -> Guardar -> Automático`. Ahí establecemos la carpeta destino.
 
-> NOTA: PDFCreator puede requerir NET FrameWork v4.
+> NOTA: PDFCreator puede requerir NET FrameWork v4. Esto tarda unos minutos.
 
 ## 1.3 Probar la impresora en local
 
-Para crear un archivo PDF no hará falta que cambies la aplicación que estés usando, simplemente ve a la opción de imprimir y selecciona "Impresora PDF", en segundos tendrás creado tu archivo PDF.
-
 Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir. Cuando finalice el proceso se abrirá un fichero PDF con el resultado de la impresión.
 
-* Probar la impresora remota imprimiendo documento `imprimirXXs-local`.
+* Probar la impresora local imprimiendo documento `imprimirXXs-local`.
 
 ---
 
