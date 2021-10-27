@@ -86,7 +86,7 @@ Ir al servidor.
 > Es importante que el cliente tenga una IP definida en la cláusula Allow del servidor.
 
 Ir a un cliente.
-* Iniciar la herramienta "configuración de impresión".
+* Iniciar la herramienta "configuración de impresión". Desbloqueamos con la clave de root.
 * Agregar impresora de red. Primero la buscamos en IP del servidor y nos debe aparecer automáticamente
 (Por ejemplo `ipp://ip-server:631/printers/CUPS-PDF`).
 * Crear una archivo TXT o ODT con algún contenido.
