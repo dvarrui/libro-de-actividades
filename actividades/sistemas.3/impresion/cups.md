@@ -51,8 +51,8 @@ Listen *:631
 ```
 
 * `systemctl restart cups`
+* Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone`.
 * A continuación, conectar a la interfaz web de CUPS.
-* OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone`.
 * Acceder a la sección de `Administración` con el **usuario/clave de root**. Desde ahí acceder a la sección `Ver archivo de registro de accesos`.
 
 # 3. Imprimir de forma local
