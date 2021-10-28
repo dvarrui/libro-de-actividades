@@ -48,6 +48,11 @@ Listen *:631
   ...
   Allow @LOCAL
 </Location>
+
+<Location /admin/log>
+  ...
+  Allow @LOCAL
+</Location>
 ```
 
 * `systemctl restart cups`
