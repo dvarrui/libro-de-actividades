@@ -55,6 +55,9 @@ Listen *:631
 </Location>
 ```
 
+> NOTA: "Allow @LOCAL" significa que vamos a permitir el acceso al servicio vía Web
+desde todas las máquinas de la red local.
+
 * `systemctl restart cups`
 * Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone` (Seguramente la zona por defecto será `public`).
 * A continuación, conectar a la interfaz web de CUPS.
