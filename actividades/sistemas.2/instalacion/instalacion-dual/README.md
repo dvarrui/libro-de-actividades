@@ -111,6 +111,8 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 > * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
 > * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
 
+* ¿Desea activar los repositorios en línea? -> OMITIR. No vamos a actualizar el SO en este momento.
+
 ## 3.2 Particionado
 
 * Modo experto -> Usar las particiones existentes.
@@ -146,9 +148,6 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 
 ![dual-suse-verificar](./images/dual-suse-verificar.png)
 
-* ¿Desea actualización en línea? -> OMITIR actualización.
-No vamos a actualizar el SO en este momento. Esto lo hacemos para minimizar el consumo
-de ancho de banda que se produce en las actualizaciones.
 * Entrar al sistema.
 * Comprobar que la conexión de red está bien haciendo `ping www.google.es`
 * Reiniciar el sistema.
