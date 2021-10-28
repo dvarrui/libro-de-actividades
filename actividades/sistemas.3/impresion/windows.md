@@ -80,8 +80,7 @@ Vamos al cliente:
 * Seleccionar impresora -> botón derecho -> conectar.
     * Ponemos usuario/clave del Windows Server.
 * Ya tenemos la impresora remota configurada en el cliente.
-* Probar la impresora remota imprimiendo documento `imprimirXXw-remoto`.
-* Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
+* Probar la impresora remota imprimiendo documento `imprimirXXw-remoto`. Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
 programa PDFCreator y esperar un poco.
 
 > **INFO**: Para **buscar archivos** (Por ejemplo PDF) dentro de Windows podemos usar las funcionar de [buscar](https://www.islabit.com/10080/una-mejor-forma-de-buscar-archivos-en-windows-7.html)
