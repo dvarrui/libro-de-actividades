@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021, 201920, 201819, 201718
+Curso       : 202122, 202021, 201920, 201819, 201718
 Area        : Sistemas operativos, servidor de impresión
 Descripción : Practicar con servidor de impresión
 Requisitos  : SO GNU/Linux
@@ -53,14 +53,14 @@ Listen *:631
 * `systemctl restart cups`
 * A continuación, conectar a la interfaz web de CUPS.
 * OJO: Tener en cuenta que el cortafuegos debe permitir el acceso a los servicios de impresión `ipp` e `ipp-client`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone`.
-* Acceder a la sección de `Administración` con el usuario/clave de root. Desde ahí acceder a la sección `Ver archivo de registro de accesos`.
+* Acceder a la sección de `Administración` con el **usuario/clave de root**. Desde ahí acceder a la sección `Ver archivo de registro de accesos`.
 
----
 # 3. Imprimir de forma local
 
 Ahora vamos a usar una impresora de forma local en el servidor de impresión.
 
 * Instalar el paquete `cups-pdf` que nos permite hacer uso de una impresora virtual PDF local. Usaremos esta impresora virtual para las pruebas en caso de no disponer de una impresora real.
+* La impresora debe estar configurada como impresora por defecto.
 * Crear una archivo TXT o ODT con algún contenido.
 * Imprimir el documento en la impresora local.
 * Comprobar el resultado. Los trabajos de impresión de la impresora virtual PDF se guardan en alguno de estos directorios:
@@ -73,7 +73,6 @@ Ahora vamos a usar una impresora de forma local en el servidor de impresión.
 > NOTA: Además del interfaz de CUPS, también podemos hacer uso de la herramienta
 que proporciona en entorno de escritorio GNOME en `Sistema -> Administración -> Impresión`.
 
----
 # 4. Imprimir de forma remota
 
 > NOTA: Aunque lo indiquen los apuntes, para nuestras pruebas,

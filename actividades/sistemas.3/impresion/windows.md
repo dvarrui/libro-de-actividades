@@ -53,6 +53,7 @@ PDFCreator es una utilidad completamente gratuita con la que podrás crear archi
 
 * Descargar PDFCreator (URL recomendada `www.pdfforge.org/pdfcreator/download`) e instalar.
 * En PDFCreator, configurar en `perfiles -> Guardar -> Automático`. Ahí establecemos la carpeta destino.
+En esta carpeta su guardarán los archivos que se impriman.
 
 > NOTA: PDFCreator puede requerir NET FrameWork v4. Esto tarda unos minutos.
 
@@ -61,8 +62,6 @@ PDFCreator es una utilidad completamente gratuita con la que podrás crear archi
 Puedes probar la nueva impresora abriendo el Bloc de notas y creando un fichero luego selecciona imprimir. Cuando finalice el proceso se abrirá un fichero PDF con el resultado de la impresión.
 
 * Probar la impresora local imprimiendo documento `imprimirXXs-local`.
-
----
 
 # 2. Compartir por red
 
@@ -82,10 +81,10 @@ Vamos al cliente:
     * Ponemos usuario/clave del Windows Server.
 * Ya tenemos la impresora remota configurada en el cliente.
 * Probar la impresora remota imprimiendo documento `imprimirXXw-remoto`.
+* Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
+programa PDFCreator y esperar un poco.
 
 > **INFO**: Para **buscar archivos** (Por ejemplo PDF) dentro de Windows podemos usar las funcionar de [buscar](https://www.islabit.com/10080/una-mejor-forma-de-buscar-archivos-en-windows-7.html)
-
----
 
 # 3. Acceso Web
 
@@ -106,8 +105,8 @@ Vamos a la MV cliente:
 * Ponemos URL `http://<ip-del-servidor>/printers` (o `http://<nombre-del-servidor>/printers`)
 para que aparezca en nuestro navegador un entorno que permite gestionar las impresoras de dicho equipo, previa autenticación como uno de los usuarios del habilitados para dicho fin (por ejemplo el "Administrador").
 * Pincha en la opción propiedades y captura lo que se ve. Apuntar el URL asociado al nombre de red de la impresora para usarlo más adelante.
-* Agregar impresora (NO es local)
-* Crear nueva impresora usando el URL nombre de red de la impresora anterior.
+* Agregar nueva impresora (NO es local) en el SO cliente.
+* Crear nueva impresora usando el URL (nombre de red) anterior.
 
 ## 3.3 Comprobar desde el navegador
 
@@ -121,7 +120,7 @@ Vamos a realizar seguidamente una prueba sencilla en tu impresora de red:
     * Poner en `pausa` los trabajos de impresión de la impresora.
 * Ir a MV cliente.
 * Probar la impresora remota imprimiendo documento `imprimirXXw-web`.
-    * Comprobar que al estar la impresora en pausa, el trabajo aparece en cola de impresión.
+    * Comprobar que al estar la impresora en pausa, el trabajo aparece en cola de impresión del servidor.
 * Finalmente pulsa en reanudar el trabajo para que tu documento se convierta a PDF.
 * Si tenemos problemas para que aparezca el PDF en el servidor, iniciar el
 programa PDFCreator y esperar un poco.
