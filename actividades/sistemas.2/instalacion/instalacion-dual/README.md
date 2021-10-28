@@ -107,6 +107,10 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 * Leer licencia y aceptar si corresponde.
 * Elegir escritorio XFCE.
 
+> En teoría podríamos elegir el entorno gráfico que quisiéramos.
+> * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
+> * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
+
 ## 3.2 Particionado
 
 * Modo experto -> Usar las particiones existentes.
@@ -132,12 +136,6 @@ A continuación vamos a instalar un SO GNU/Linux (OpenSUSE)
 ## 3.3 Entorno, usuario y SSH
 
 * Elegir zona horaria (Canarias)
-* Selección de entorno gráfico: XFCE
-
-> En teoría podríamos elegir el entorno gráfico que quisiéramos.
-> * Gnome y KDE son bonitos pero recargados y pesados. Es probable que no quepan en el espacio disponible.
-> * XFCE y LXDE son escritorios ligeros y ocupan poco espacio en disco.
-
 * Crear usuario con `nombre-del-alumno`.
 * Desmarcar inicio de sesión automático.
 * Habilitar y abrir el Servicio SSH. NOTA: Esto lo activamos para permitir el acceso remoto a esta máquina virtual ([Configurar acceso remoto](../../../global/acceso-remoto/opensuse.md))
