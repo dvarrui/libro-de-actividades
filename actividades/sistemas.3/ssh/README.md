@@ -285,9 +285,9 @@ Capturar imágenes de los siguientes pasos:
 * Reiniciar el servicio SSH para que se lean los cambios de configuración.
 
 Vamos a clientXXg.
-* `zypper se APP1`,comprobar que no está instalado el programa APP1.
-* Vamos a comprobar desde clientXXg, que funciona APP1(del servidor).
-    * `ssh -X primer-apellido-alumno1@serverXXg`, nos conectamos de forma remota al servidor, y ahora ejecutamos APP1 de forma remota.
+* `zypper se geany`,comprobar que no está instalado el programa.
+* Vamos a comprobar desde clientXXg, que funciona "geany" (del servidor).
+    * `ssh -X primer-apellido-alumno1@serverXXg`, nos conectamos de forma remota al servidor, y ahora ejecutamos "geany" de forma remota.
     * **¡OJO!** El parámetro es `-X` en mayúsculas, no minúsculas.
 
 ---
@@ -295,9 +295,9 @@ Vamos a clientXXg.
 
 Podemos tener aplicaciones Windows nativas instaladas en ssh-server mediante el emulador WINE.
 * Instalar emulador Wine en el `serverXXg`.
-* Ahora podríamos instalar alguna aplicación (APP2) de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
-* Comprobar el funcionamiento de APP2 en serverXXg.
-* Comprobar funcionamiento de APP2, accediendo desde clientXXg.
+* Ahora podríamos instalar alguna aplicación de Windows en el servidor SSH usando el emulador Wine. O podemos usar el Block de Notas que viene con Wine: wine notepad.
+* Comprobar el funcionamiento del programa en serverXXg.
+* Comprobar funcionamiento del programa, accediendo desde clientXXg.
 
 > En este caso hemos conseguido implementar una solución similar a RemoteApps usando SSH.
 
@@ -324,9 +324,9 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 
 * Crear grupo `remoteapps`
 * Incluir al usuario `1er-apellido-alumno4` en el grupo `remoteapps`.
-* Localizar el programa APP1. Posiblemente tenga permisos 755.
-* Poner al programa APP1 el grupo propietario a remoteapps.
-* Poner los permisos del ejecutable de APP1 a 750. Para impedir que los usuarios que no pertenezcan al grupo puedan ejecutar el programa.
+* Localizar un programa (Por ejemplo "geany"). Posiblemente tenga permisos 755.
+* Poner al programa el grupo propietario "remoteapps".
+* Poner los permisos del ejecutable del programa a 750. Para impedir que los usuarios que no pertenezcan al grupo puedan ejecutar el programa.
 * Comprobamos el funcionamiento en el servidor en local.
 * Comprobamos el funcionamiento desde el cliente en remoto (Recordar `ssh -X ...`).
 
