@@ -94,7 +94,6 @@ suffix = dc=ldapXX,dc=curso2021
 * Creamos el fichero `/root/.dsrc` con el siguiente contenido. Este fichero sirve para configurar los permisos para acceder a la base de datos como administrador:
 
 ```
-# cat ~/.dsrc
 [localhost]
 # Note that '/' is replaced to '%%2f'.
 uri = ldapi://%%2fvar%%2frun%%2fslapd-localhost.socket
