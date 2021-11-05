@@ -39,7 +39,7 @@ Crear la máquina VirtualBox con:
 >     * 19 para el aula109
 > * Donde aparezca XX debemos poner el código asignado al alumno. Esto es su número de PC.
 
-**Configurar la red y el nombre del equipo por YAST.** Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red usando la herramienta Yast. Vamos a `Inicio -> Configuración -> Yast -> Ajustes de red`.
+**Configurar la red y el nombre del equipo por YAST.** Una vez instalado el sistema operativo, podemos hacer cambios en la configuración de red usando la herramienta Yast. Vamos a `Inicio -> Configuración -> Yast -> Configuración de red`.
 * Seleccionamos el interfaz de red y editamos.
 * Marcamos IP fija.
 * IP: `172.AA.XX.31` (Donde XX corresponde al nº de cada puesto).
