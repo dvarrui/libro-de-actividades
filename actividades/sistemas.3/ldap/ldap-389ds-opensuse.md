@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Area        : Sistemas operativos, Servicio de Directorio LDAP
 Descripción : Montar un servicio de directorio 389-DS
               Usar comandos LDAP para crear registros y consultar los datos
@@ -243,11 +243,11 @@ profesor
 > Enlace de interés:
 > * [Cómo cifra GNU/Linux las contraseñas](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
 
-| Full name       | Login acount | uid  | Clave encriptada SHA  |
-| --------------- | ------------ | ---- | --------------------- |
-| Koji Kabuto     | koji         | 2002 | Contraseña encriptada |
-| Boss            | boss         | 2003 | Contraseña encriptada |
-| Doctor Infierno | drinfierno   | 2004 | Contraseña encriptada |
+| Full name       | Account(uid) | uidNumber | Clave encriptada SHA  |
+| --------------- | ------------ | --------- | --------------------- |
+| Koji Kabuto     | koji         | 2002      | Contraseña encriptada |
+| Boss            | boss         | 2003      | Contraseña encriptada |
+| Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
 
 ## 4.3 Comprobar los usuarios creados
 
