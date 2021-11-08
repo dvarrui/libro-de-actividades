@@ -275,7 +275,7 @@ ou: people
 objectclass: organizationalUnit
 ```
 
-* Ejecutar : `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f people.ldif`
+* Ejecutar : `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_people.ldif`
 * Fichero `ou_group.ldif`, para crear la UO "group":
 
 ```bash
@@ -284,7 +284,7 @@ ou: group
 objectclass: organizationalUnit
 ```
 
-* Ejecutar `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f group.ldif`
+* Ejecutar `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_group.ldif`
 
 ## Crear los grupos
 
