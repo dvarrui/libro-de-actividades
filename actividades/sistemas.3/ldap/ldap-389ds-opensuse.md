@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Area        : Sistemas operativos, Servicio de Directorio LDAP
 Descripción : Montar un servicio de directorio 389-DS
               Usar comandos LDAP para crear registros y consultar los datos
@@ -68,6 +68,8 @@ Ejemplo de rúbrica:
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
 ## 2.2 Configurar la instancia
+
+> Enlace de interés: [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 
 * Crear el fichero `/root/instance.inf` con el siguiente contenido. Este fichero sirve para configurar el servidor:
 
@@ -196,6 +198,8 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 > * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
 
 # 4. Contraseñas encriptadas
+
+> Enlace de interés: [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
 
