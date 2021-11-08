@@ -199,18 +199,20 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 
 # 4. Contraseñas encriptadas
 
-> Enlace de interés: [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
 
 ## 4.1 TEORIA: Herramienta slappasswd
 
 > Enlace de interés:
+> [onfiguración básica 389-DS pwdhash](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 > * [Configurar password LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
 > * [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)´
 > * [Cómo configurar el password de root de LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
 
 * Ejecutar `zypper in openldap2`, para instalar la heramienta `slappasswd` en OpenSUSE.
+
+> Usar la herramienta **pwdhash** para generar las claves encriptadas de los usuarios.
 
 La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
 1. {CLEARTEXT} (texto plano),
