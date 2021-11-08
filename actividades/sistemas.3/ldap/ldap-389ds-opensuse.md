@@ -138,8 +138,8 @@ binddn = cn=Directory Manager
 Deberían estar creadas las OU People y Groups, es caso contrario hay que crearlas (Consultar ANEXO). Ejemplo para buscar las OU:
 
 ```
-ldapsearch -H ldap://localhost:389
-           -W -D "cn=Directory Manager"
+ldapsearch -H ldap://localhost:389 \
+           -W -D "cn=Directory Manager" \
            -b "dc=ldapXX,dc=curso2021" "(ou=*)" | grep dn
 ```
 
