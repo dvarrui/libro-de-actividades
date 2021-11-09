@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201920, 201819
+Curso           : 202122, 202021, 201920, 201819
 Requisitios     : Knoppix y Debian
 Tiempo estimado : 4 sesiones
 ```
@@ -58,6 +58,8 @@ Ejemplo de rúbrica:
     * `md5sum -c nombre-fichero.md5`, ejecutamos el comando de comprobación.
     * Debe aparecer mensaje `la suma coincide`.
 
+> NOTA: para comprobar en Windows/PowerShell hacemos `Get-FileHash knoppix.iso.md5 -Algorithm MD5`
+
 ## 2.2 Iniciar Knoppix
 
 * Iniciar la MV con CDLive de Knoppix.
@@ -89,6 +91,8 @@ Ejemplo de rúbrica:
 * Comprobar que la descarga fue correcta, ejecutando el comando siguiente:
     * `sha512sum -c nombre-fichero-comprobación`
     * Debe aparecer mensaje `la suma coincide`.
+
+> NOTA: para comprobar en Windows/PowerShell hacemos `Get-FileHash debian.iso.sha512 -Algorithm SHA512`
 
 ## 3.2 Instalar SO
 
