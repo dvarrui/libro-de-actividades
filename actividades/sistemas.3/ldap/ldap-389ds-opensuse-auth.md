@@ -21,7 +21,7 @@ En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que poda
 
 Comprobamos el acceso al LDAP desde el cliente:
 * Ir a MV cliente.
-* `nmap -Pn IP-LDAP-SERVERXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente.
+* `nmap -Pn IP-LDAP-SERVERXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la MV2 cliente. En caso contrario revisar que el cortafuegos está abierto en el servidor y que el servicio está activo.
 * `ldapsearch -H ldap://IP-LDAP-SERVERXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
 # 2. Configurar autenticación LDAP
