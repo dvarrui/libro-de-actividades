@@ -30,20 +30,7 @@ Comprobamos el acceso al LDAP desde el cliente:
 > * https://doc.opensuse.org/documentation/leap/archive/15.0/security/html/book.security/cha.security.auth.html
 > * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
-## 2.1 Configurar la autenticación en el servidor
-
-**PARA REVISAR**
-
-Ir a la MV servidor:
-* Ir a `Yast -> Configurar servidor de autenticación LDAP`.
-* Start LDAP server  = Yes
-* Firewall settings = Open ports
-* Server type: Stand-alone server
-* Security options = No
-* ...
-* Enable Kerberos = No
-
-## 2.2 Crear conexión con servidor
+## 2.1 Crear conexión con servidor
 
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
@@ -60,7 +47,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Pulsar el botón para `Probar conexión`.
 * Aceptar.
 
-## 2.3 Comprobar con comandos
+## 2.2 Comprobar con comandos
 
 * Vamos a la consola con usuario root, y probamos lo siguiente:
 ```
