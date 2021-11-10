@@ -42,8 +42,8 @@ Ejemplo de rúbrica:
 
 > Enlaces de interés:
 >
-> * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
 > * https://doc.opensuse.org/documentation/leap/security/html/book-security/cha-security-ldap.html
+> * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
 
 ## 1.1 Nombre de equipo FQDN
 
@@ -69,7 +69,8 @@ Ejemplo de rúbrica:
 
 ## 2.2 Configurar la instancia
 
-> Enlace de interés: [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
+> Enlace de interés:
+> * [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 
 * Crear el fichero `/root/instance.inf` con el siguiente contenido. Este fichero sirve para configurar el servidor:
 
@@ -80,6 +81,7 @@ config_version = 2
 
 [slapd]
 root_password = YOUR_ADMIN_PASSWORD_HERE
+# instance_name = nombre-alumnoXX
 
 [backend-userroot]
 sample_entries = yes
@@ -90,6 +92,7 @@ suffix = dc=ldapXX,dc=curso2021
 * `dsctl localhost status`, comprobar el estado actual de la instancia de la base de datos LDAP
 
 > NOTA: Si queremos eliminar una instancia de LDAP que ya tenemos creada haremos lo siguiente:
+> * `dsctl -l`, muestra los nombres de todas las instancias.
 > * `dsctl localhost stop`, para parar la instancia.
 > * `dsctl localhost remove --do-it`,para eliminar la instancia.
 
@@ -98,6 +101,7 @@ suffix = dc=ldapXX,dc=curso2021
 ```
 [localhost]
 # Note that '/' is replaced to '%%2f'.
+# uri = ldapi://%%2fvar%%2frun%%2fslapd-NOMBREDELAINSTANCIA.socket
 uri = ldapi://%%2fvar%%2frun%%2fslapd-localhost.socket
 basedn = dc=ldapXX,dc=curso2021
 binddn = cn=Directory Manager
@@ -110,12 +114,22 @@ binddn = cn=Directory Manager
 > * Los ficheros de configuración de nuestro servicio/instancia los tenemos en `/etc/dirsrv/slapd-localhost`
 > * El fichero de configuración `/etc/dirsrv/slapd-localhost/dse.ldif` contiene los parámetros principales del servicio de directorio. Como el DN de la Base, del usuario administrador, clave, etc.
 
-## 2.3 Comprobamos el servicio
+## 2.3 Abrir los puertos del cortafuegos
+
+Podemos abrir los puertos "ldap" y "ldaps" por el cortafuegos de Yast, o usar los comandos:
+
+```
+sudo firewall-cmd --add-service=ldap --zone=public
+sudo firewall-cmd --add-service=ldaps --zone=public
+sudo firewall-cmd --runtime-to-permanent
+```
+
+## 2.4 Comprobamos el servicio
 
 * `systemctl status dirsrv@localhost`, comprobar si el servicio está en ejecución.
 * `nmap -Pn serverXX | grep -P '389|636'`, para comprobar que el servidor LDAP es accesible desde la red. En caso contrario, comprobar cortafuegos.
 
-## 2.4 Comprobamos el acceso al contenido del LDAP
+## 2.5 Comprobamos el acceso al contenido del LDAP
 
 * `ldapsearch -b "dc=ldapXX,dc=curso2021" -x | grep dn`, muestra el contenido de nuestra base de datos LDAP. "dn" significa nombre distiguido, es un identificador que tiene cada nodo dentro del árbol LDAP.
 * `ldapsearch -H ldap://localhost -b "dc=ldapXX,dc=curso2021" -W -D "cn=Directory Manager" | grep dn`, en este caso hacemos la consulta usando usuario/clave.

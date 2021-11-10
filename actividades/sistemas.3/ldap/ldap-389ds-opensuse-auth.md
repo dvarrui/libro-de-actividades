@@ -26,7 +26,22 @@ Comprobamos el acceso al LDAP desde el cliente:
 
 # 2. Configurar autenticación LDAP
 
-## 2.1 Crear conexión con servidor
+> Enlaces de interés:
+> * https://doc.opensuse.org/documentation/leap/archive/15.0/security/html/book.security/cha.security.auth.html
+> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
+
+## 2.1 Configurar la autenticación en el servidor
+
+Ir a la MV servidor:
+* Ir a `Yast -> Configurar servidor de autenticación LDAP`.
+* Start LDAP server  = Yes
+* Firewall settings = Open ports
+* Server type: Stand-alone server
+* Security options = No
+* ...
+* Enable Kerberos = No
+
+## 2.2 Crear conexión con servidor
 
 Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
@@ -43,7 +58,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 * Pulsar el botón para `Probar conexión`.
 * Aceptar.
 
-## 2.2 Comprobar con comandos
+## 2.3 Comprobar con comandos
 
 * Vamos a la consola con usuario root, y probamos lo siguiente:
 ```
@@ -55,9 +70,6 @@ cat /etc/passwd | grep mazinger # El usuario NO es local
 ```
 
 # 3. Crear usuarios y grupos dentro del LDAP
-
-> Enlaces de interés:
-> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
 Este proceso se debe poder realizar tanto desde el Yast del servidor, como desde el Yast
@@ -94,13 +106,11 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 
 * Ir a la MV cliente.
 * Iniciar sesión gráfica con algún usuario LDAP.
-* Iniciar sesión con usuario local.
-* Abrir una consola y hacer lo siguiente:
+* Iniciar sesión con usuarios definidos en el LDAP remoto.
 
-```
-id robot
-su -l robot   # Entramos con el usuario definido en LDAP
-```
+> También podemos probar desde el terminal haciendo lo siguiente:
+> * `id robot`
+> * `su -l robot`, entramos con el usuario definido en LDAP
 
 ---
 # ANEXO
