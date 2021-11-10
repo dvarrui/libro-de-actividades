@@ -32,6 +32,8 @@ Comprobamos el acceso al LDAP desde el cliente:
 
 ## 2.1 Configurar la autenticación en el servidor
 
+**PARA REVISAR**
+
 Ir a la MV servidor:
 * Ir a `Yast -> Configurar servidor de autenticación LDAP`.
 * Start LDAP server  = Yes
