@@ -1,6 +1,6 @@
 
 ```
-Cursos     : 202021, 201920, 201817, 201716
+Cursos     : 202122, 202021, 201920, 201817, 201716
 Requisitos : Windows y GNU/Linux
 ```
 ---
@@ -21,7 +21,7 @@ Ejemplo de rúbrica:
 
 ---
 
-# 1. SO Windows 7
+# 1. SO Windows
 
 * [Configurar la MV](../../global/configuracion/windows.md).
 * Para la creación de usuarios podemos ir por `Panel de Control`, pero esa
