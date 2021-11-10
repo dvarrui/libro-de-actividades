@@ -56,6 +56,9 @@ cat /etc/passwd | grep mazinger # El usuario NO es local
 
 # 3. Crear usuarios y grupos dentro del LDAP
 
+> Enlaces de interés:
+> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
+
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
 Este proceso se debe poder realizar tanto desde el Yast del servidor, como desde el Yast
 del cliente.
