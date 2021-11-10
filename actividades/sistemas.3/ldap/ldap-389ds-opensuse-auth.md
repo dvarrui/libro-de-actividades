@@ -40,7 +40,8 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 ![opensuse422-ldap-client-conf.png](./images/opensuse422-ldap-client-conf.png)
 
-* Al final usar la opción de `Probar conexión`
+* Pulsar el botón para `Probar conexión`.
+* Aceptar.
 
 ## 2.2 Comprobar con comandos
 
