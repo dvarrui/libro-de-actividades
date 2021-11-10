@@ -32,7 +32,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 * Ir a la MV cliente.
 * No aseguramos de tener bien el nombre del equipo y nombre de dominio (`/etc/hostname`, `/etc/hosts`)
-* Ir a `Yast -> Cliente LDAP y Kerberos`.
+* Ir a `Yast -> LDAP y Kerberos`. En el caso de que no nos aparezca esta herramienta, la podemos instalar con el paquete `yast2-auth-client`.
 * Configurar como la imagen de ejemplo:
     * BaseDN: `dc=ldapXX,dc=curso2021`
     * DN de usuario: `cn=Directory Manager`
