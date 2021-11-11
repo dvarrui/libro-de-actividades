@@ -58,6 +58,27 @@ getent passwd mazinger          # Comprobamos los datos del usuario
 cat /etc/passwd | grep mazinger # El usuario NO es local
 ```
 
+# 3. Crear usuarios usando otros comandos
+
+Ir a la MV del servidor:
+* `dsidm localhost user list`, consultar la lista de usuarios.
+* Crear usuario robot1
+```
+dsidm localhost user create --uid robot1 \
+   --cn robot1 --displayName 'robot1' --uidNumber 2101 --gidNumber 100 \
+  --homeDirectory /home/robot1
+```
+* Poner la clave al usuario robot1:
+```
+dsidm localhost account reset_password \
+  uid=robot1,ou=people,dc=ldapXX,dc=curso2122
+```
+* `dsidm localhost user list`, consultar la lista de usuarios.
+
+Ir a la MV cliente:
+* Abrir terminal.
+* `su robot1`, entrar como ese usuario.
+
 # 3. Crear usuarios y grupos dentro del LDAP
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
