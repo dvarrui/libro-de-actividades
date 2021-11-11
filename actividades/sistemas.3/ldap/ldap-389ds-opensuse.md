@@ -191,6 +191,7 @@ gecos: Mazinger Z
 > WARNING: Los valores de cada parámetro no deben tener espacios extra al final de la línea, porque provoca un error de sintáxis.
 
 Nuevo formato LDIF
+
 ```
 # robot1, people, ldap25.curso2122
 dn: uid=robot1,ou=people,dc=ldap25,dc=curso2122
@@ -204,8 +205,9 @@ cn: robot1
 displayName: robot1
 uidNumber: 2101
 gidNumber: 100
-loginShell: /bin/bash
 homeDirectory: /home/robot1
+loginShell: /bin/bash
+userPassword: ESCRIBIR LA CONTRASEÑA EN TEXTO PLANO
 ```
 
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif
