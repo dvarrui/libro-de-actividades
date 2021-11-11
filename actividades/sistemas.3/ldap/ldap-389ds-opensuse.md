@@ -232,7 +232,6 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 
 # 4. Contraseñas encriptadas
 
-
 En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
 
 ## 4.1 TEORIA: Herramienta slappasswd
