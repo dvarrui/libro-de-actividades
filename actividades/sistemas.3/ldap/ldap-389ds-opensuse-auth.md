@@ -60,13 +60,13 @@ Ir a la MV cliente:
 
 Ir a la MV del servidor:
 * `dsidm localhost user list`, consultar la lista de usuarios.
-* Crear usuario robot1
+* Crear usuario robot:
 ```
 dsidm localhost user create --uid robot \
    --cn robot --displayName 'robot' --uidNumber 2101 --gidNumber 100 \
   --homeDirectory /home/robot1
 ```
-* Poner la clave al usuario robot1:
+* Poner la clave al usuario:
 ```
 dsidm localhost account reset_password \
   uid=robot,ou=people,dc=ldapXX,dc=curso2122
