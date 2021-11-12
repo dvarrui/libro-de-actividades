@@ -61,7 +61,7 @@ Ejemplo de rúbrica:
 
 > Enlaces de interés:
 >
-> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/part-auth.html
+> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
 > * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
 
 ## 1.1 Nombre de equipo FQDN

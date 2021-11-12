@@ -27,7 +27,7 @@ Comprobamos el acceso al LDAP desde el cliente:
 # 2. Configurar autenticación LDAP
 
 > Enlaces de interés:
-> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/part-auth.html
+> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
 > * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
 ## 2.1 Crear conexión con servidor
