@@ -98,6 +98,7 @@ config_version = 2
 
 [slapd]
 # Por defecto el administrador LDAP será "cn=Directory Manager"
+# root_dn = cn=admin
 root_password = YOUR_ADMIN_PASSWORD_HERE
 
 # Por defecto el nombre de la instancia es "localhost"
