@@ -211,8 +211,6 @@ userPassword: ESCRIBIR LA CONTRASEÑA EN TEXTO PLANO
 
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif`, para escribir los datos del fichero **ldif** anterior dentro de LDAP.
 
-> NOTA: Se puede usar la herramienta **pwdhash** para generar las claves encriptadas.
-
 ## 3.3 Comprobar el nuevo usuario
 
 Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
@@ -262,6 +260,9 @@ dsidm localhost account reset_password \
 | Koji Kabuto     | koji         | 2002      | Contraseña encriptada |
 | Boss            | boss         | 2003      | Contraseña encriptada |
 | Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
+
+Pero vamos usar la herramienta **pwdhash** para generar las claves encriptadas
+dentro de los ficheros "ldif".
 
 ## 4.2 Comprobar desde el cliente
 
