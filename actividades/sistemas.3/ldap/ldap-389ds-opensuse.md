@@ -263,7 +263,7 @@ dsidm localhost account reset_password \
 | Boss            | boss         | 2003      | Contraseña encriptada |
 | Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
 
-## 4.2 Comprobar los usuarios creados
+## 4.2 Comprobar desde el cliente
 
 * Ir a la MV cliente LDAP.
 * `nmap -Pn IP-LDAP-SERVER`, comprobar que el puerto LDAP del servidor está abierto.
