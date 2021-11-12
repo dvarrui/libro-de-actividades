@@ -165,8 +165,7 @@ sudo firewall-cmd --runtime-to-permanent
 
 # 3. Usuarios LDAP
 
-> Enlaces de interés:
-> * [Consultas a directorios LDAP utilizando ldapsearch](https://www.linuxito.com/gnu-linux/nivel-alto/1023-consultas-a-directorios-ldap-utilizando-ldapsearch)
+> Enlaces de interés: [Consultas a directorios LDAP utilizando ldapsearch](https://www.linuxito.com/gnu-linux/nivel-alto/1023-consultas-a-directorios-ldap-utilizando-ldapsearch)
 
 ## 3.1 Buscar Unidades Organizativas
 
@@ -184,8 +183,7 @@ ldapsearch -H ldap://localhost:389 \
 
 ## 3.2 Agregar usuarios
 
-> Enlaces de interés:
-> * VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
+> Enlaces de interés: VÍDEO Teoría [Los ficheros LDIF](http://www.youtube.com/watch?v=ccFT94M-c4Y)
 
 Uno de los usos más frecuentes para el directorio LDAP es para la administración de usuarios. Vamos a utilizar ficheros **ldif** para agregar usuarios.
 
@@ -230,9 +228,6 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 > * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
 
 ## 3.4 Comprobar la autenticación
-
-> Enlace de interés:
-> * https://es.opensuse.org/Squid_con_soporte_ldap
 
 Asegurarse de que el servidor LDAP funciona con el programa externo de autenticación
 * `/usr/sbin/basic_ldap_auth -b "ou=people,dc=ldapXX,dc=curso2122" -v 3`
