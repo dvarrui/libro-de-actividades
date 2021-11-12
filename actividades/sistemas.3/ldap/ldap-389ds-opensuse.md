@@ -219,7 +219,7 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 
 * `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=mazinger)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
 
-> Para **eliminar usuario del árbol del directorio** hacemos lo siguiente:
+> INFO: Para **eliminar usuario del árbol del directorio** hacemos lo siguiente:
 > * Crear un archivo `mazinger-delete.ldif`:
 >
 > ```
