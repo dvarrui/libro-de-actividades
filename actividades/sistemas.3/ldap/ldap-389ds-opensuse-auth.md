@@ -50,6 +50,7 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 ## 2.2 Comprobar con comandos
 
 * Vamos a la consola con usuario root, y probamos lo siguiente:
+
 ```
 id mazinger
 su -l mazinger   # Entramos con el usuario definido en LDAP
@@ -92,7 +93,7 @@ del cliente.
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
 * Crear los usuarios `robot`, `baron` (Estos se crearán dentro de la `ou=people`).
 * Consultar/comprobar el contenido de la base de datos LDAP.
-    * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-UUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+    * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-USUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 
 # 4. Autenticación
 
@@ -125,36 +126,11 @@ cat /etc/passwd | grep baron    # El usuario NO es local
 ---
 # ANEXO
 
-Enlaces de interés:
-* Cliente LDAP: [PAM, NIS, LDAP, Kerberos, DS y Samba 4 AD-CD - Redes PYMES](http://blog.desdelinux.net/pam-nis-ldap-kerberos-ds-samba-4-ad-dc-redes-pymes/#Cliente_LDAP)
-
-```
-* Permitir autenticación      : SI
-* Almacenar entradas en caché : SI
-* Crear directorio personal   : SI
-* Leer -> Usuarios            : SI
-* Leer -> Grupos              : NO
-* Leer -> Sudo                : NO
-* Leer -> Discos              : NO
-* Ubicaciones de servidores   : IP-LDAP-SERVERXX:389
-* DN de la base               : dc=ldapXX,dc=curso202
-* DN usuario                  : (Vacío)
-* Contraseña usuario          : (Vacío)
-* Miembros de grupo por DN    : SI
-* Dejar conexiones abiertas   : SI
-* Comunicación LDAP segura    : No usar seguridad
-```
-
-`ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`,
-
-https://www.linuxito.com/seguridad/598-como-crear-un-certificado-ssl-autofirmado-en-dos-simples-pasos
-
-https://www.adictosaltrabajo.com/2003/08/07/iisssl/
-
-https://www.linuxito.com/gnu-linux/nivel-alto/994-como-implementar-ldap-sobre-ssl-tls-con-openldap
-
-
 ## Generar Certificados
+
+* https://www.linuxito.com/seguridad/598-como-crear-un-certificado-ssl-autofirmado-en-dos-simples-pasos
+* https://www.adictosaltrabajo.com/2003/08/07/iisssl/
+* https://www.linuxito.com/gnu-linux/nivel-alto/994-como-implementar-ldap-sobre-ssl-tls-con-openldap
 
 Opción 1:
 * Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem -days 365`.
@@ -165,3 +141,10 @@ Opción 2:
 * `openssl rsa -in server.key -out server.pem`
 * `openssl req -new -key server.key -out server.csr`
 * `openssl x509 -req -days 360 -in server.csr -signkey server.key -out server.crt`
+
+## [PENDIENTE] de completar la información sobre los certificados.
+
+Esto no funciona, pero es un intento de crear certificado y firma para LDAPS.
+
+* Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem - days 265`.
+* Export firma PKCS12: `openssl pkcs12 -export -out server.pfx -in server.pem`.

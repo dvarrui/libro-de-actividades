@@ -100,7 +100,6 @@ config_version = 2
 
 [slapd]
 # Por defecto el administrador LDAP será "cn=Directory Manager"
-# root_dn
 root_password = YOUR_ADMIN_PASSWORD_HERE
 
 # Por defecto el nombre de la instancia es "localhost"
@@ -165,7 +164,7 @@ sudo firewall-cmd --runtime-to-permanent
 | -W                          | Se solicita contraseña     |
 | -D "cn=Directory Manager"   | Usuario del LDAP           |
 
-# 3. Añadir usuarios LDAP por comandos
+# 3. Usuarios LDAP
 
 > Enlaces de interés:
 > * [Consultas a directorios LDAP utilizando ldapsearch](https://www.linuxito.com/gnu-linux/nivel-alto/1023-consultas-a-directorios-ldap-utilizando-ldapsearch)
@@ -194,6 +193,136 @@ Uno de los usos más frecuentes para el directorio LDAP es para la administraci�
 * Fichero `mazinger-add.ldif` con la información para crear el usuario `mazinger` (Cambiar el valor de dn por el nuestro):
 
 ```
+# mazinger, people, ldapXX.curso2122
+dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2122
+objectClass: top
+objectClass: nsPerson
+objectClass: nsAccount
+objectClass: nsOrgPerson
+objectClass: posixAccount
+uid: mazinger
+cn: mazinger
+displayName: mazinger
+uidNumber: 2001
+gidNumber: 100
+homeDirectory: /home/mazinger
+loginShell: /bin/bash
+userPassword: ESCRIBIR LA CONTRASEÑA EN TEXTO PLANO
+```
+
+> WARNING: Los valores de cada parámetro no deben tener espacios extra al final de la línea, porque provoca un error de sintáxis.
+
+* `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif`, para escribir los datos del fichero **ldif** anterior dentro de LDAP.
+
+## 3.3 Comprobar el nuevo usuario
+
+Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
+
+* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=mazinger)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
+
+> Para **eliminar usuario del árbol del directorio** hacemos lo siguiente:
+> * Crear un archivo `mazinger-delete.ldif`:
+>
+> ```
+> dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
+> changetype: delete
+> ```
+>
+> * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
+
+## 3.4 Comprobar la autenticación
+
+> Enlace de interés:
+> * https://es.opensuse.org/Squid_con_soporte_ldap
+
+Asegurarse de que el servidor LDAP funciona con el programa externo de autenticación
+* `/usr/sbin/basic_ldap_auth -b "ou=people,dc=ldapXX,dc=curso2122" -v 3`
+
+> * -b "ou=people,dc=ldapXX,dc=curso2122" indica donde se encuentran los usuarios de árbol ldap
+> * -v 3 indica que se esta utilizando la versión 3 del protocolo LDAP.
+
+* Al ejecutar el comando se da un usuario y su contraseña separadas por un espacio en blanco, si el usuario existe y la contraseña es la correcta el resultado es OK, en caso contrario es ERR Success. Veamos un ejemplo:
+
+```
+jvelez@Antiquitera:~>/usr/sbin/basic_ldap_auth  -b  "ou=people,dc=Antiquitera,dc=site" -v 3
+pperez 13sktocnghkle7
+OK
+pperez klxmruiwcmfg
+ERR Success
+```
+
+* Podemos actualizar la contraseña del usuario de la siguiente forma:
+```
+dsidm localhost account reset_password \
+  uid=mazinger,ou=people,dc=ldapXX,dc=curso2122
+```
+
+# 4. Agregar más usuarios
+
+## 4.1 Agregar los siguientes usuarios
+
+| Full name       | Account(uid) | uidNumber | Clave encriptada SHA  |
+| --------------- | ------------ | --------- | --------------------- |
+| Koji Kabuto     | koji         | 2002      | Contraseña encriptada |
+| Boss            | boss         | 2003      | Contraseña encriptada |
+| Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
+
+## 4.2 Comprobar los usuarios creados
+
+* Ir a la MV cliente LDAP.
+* `nmap -Pn IP-LDAP-SERVER`, comprobar que el puerto LDAP del servidor está abierto.
+Si no aparecen los puertos abiertos, entonces revisar el cortafuegos.
+* `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos en el servicio de directorio remoto.
+Ir a la MV del servidor:
+* `dsidm localhost user list`, consultar la lista de usuarios.
+
+---
+# ANEXO
+
+## Crear unidades organizativas (OU)
+
+* Fichero `ou_people.ldif` para la crear la OU "people":
+
+```bash
+dn: ou=people,dc=apellidoXX,dc=asir
+ou: people
+objectclass: organizationalUnit
+```
+
+* Ejecutar : `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_people.ldif`
+* Fichero `ou_group.ldif`, para crear la UO "group":
+
+```bash
+dn: ou=group,dc=apellidoXX,dc=asir
+ou: group
+objectclass: organizationalUnit
+```
+
+* Ejecutar `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_group.ldif`
+
+## Crear los grupos
+
+* Fichero `g_users.ldif`, para crear el grupo "users":
+
+```bash
+dn: cn=users,ou=group,dc=apellidoXX,dc=asir
+objectclass: posixGroup
+objectclass: top
+cn: users
+userPassword: {crypt}*
+gidNumber: 100
+```
+
+* Ejecutar los comandos:
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif  # Agregar registro
+ldapsearch -x -b "dc=apellidoXX,dc=asir" # Comprobar los resultados.
+```
+
+# Formato LDIF antiguo
+
+```
 dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
 uid: mazinger
 cn: Mazinger Z
@@ -211,47 +340,19 @@ gidNumber: 100
 homeDirectory: /home/mazinger
 gecos: Mazinger Z
 ```
-> WARNING: Los valores de cada parámetro no deben tener espacios extra al final de la línea, porque provoca un error de sintáxis.
 
-Nuevo formato LDIF
+## /etc/shadow
 
-```
-# robot1, people, ldap25.curso2122
-dn: uid=robot1,ou=people,dc=ldap25,dc=curso2122
-objectClass: top
-objectClass: nsPerson
-objectClass: nsAccount
-objectClass: nsOrgPerson
-objectClass: posixAccount
-uid: robot1
-cn: robot1
-displayName: robot1
-uidNumber: 2101
-gidNumber: 100
-homeDirectory: /home/robot1
-loginShell: /bin/bash
-userPassword: ESCRIBIR LA CONTRASEÑA EN TEXTO PLANO
-```
+Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
+* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
+* Por tanto, se deduce que:
+    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
+    * aaa => salt bit
+    * bbb => clave encriptada.
 
-* `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif
-`, escribir los datos del fichero **ldif** anterior en LDAP.
-
-## 3.3 Comprobar el nuevo usuario
-
-Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
-
-* `ldapsearch -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=mazinger)"`, para comprobar si se ha creado el usuario correctamente en el LDAP.
-
-> **Eliminar usuario del árbol del directorio**
->
-> * Crear un archivo `mazinger-delete.ldif`:
->
-> ```
-> dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
-> changetype: delete
-> ```
->
-> * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
+Agregar más usuarios:    
+* Ir a la MV servidor LDAP.
+* Crear los siguientes usuarios en LDAP con clave encriptada:
 
 # 4. Contraseñas encriptadas
 
@@ -298,117 +399,3 @@ $ sha512sum
 profesor
 59a343d6c28d4bdea88df037c0f6b47b569b8008e046fb9d90773edf3d49c34d19b6de9d00b5629d145b3b0ac12f7e1955c12954d0f4642bfade4d0adc25c482  -
 ```
-
-## 4.2 Agregar más usuarios con clave encriptada
-
-> Enlace de interés:
-> * [Cómo cifra GNU/Linux las contraseñas](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
-
-| Full name       | Account(uid) | uidNumber | Clave encriptada SHA  |
-| --------------- | ------------ | --------- | --------------------- |
-| Koji Kabuto     | koji         | 2002      | Contraseña encriptada |
-| Boss            | boss         | 2003      | Contraseña encriptada |
-| Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
-
-## 4.3 Comprobar los usuarios creados
-
-* Ir a la MV cliente LDAP.
-* `nmap -Pn IP-LDAP-SERVER`, comprobar que el puerto LDAP del servidor está abierto.
-Si no aparecen los puertos abiertos, entonces revisar el cortafuegos.
-* `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos en el servicio de directorio remoto.
-
----
-# ANEXO
-
-## Crear unidades organizativas (OU)
-
-* Fichero `ou_people.ldif` para la crear la OU "people":
-
-```bash
-dn: ou=people,dc=apellidoXX,dc=asir
-ou: people
-objectclass: organizationalUnit
-```
-
-* Ejecutar : `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_people.ldif`
-* Fichero `ou_group.ldif`, para crear la UO "group":
-
-```bash
-dn: ou=group,dc=apellidoXX,dc=asir
-ou: group
-objectclass: organizationalUnit
-```
-
-* Ejecutar `ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f ou_group.ldif`
-
-## Crear los grupos
-
-* Fichero `g_users.ldif`, para crear el grupo "users":
-
-```bash
-dn: cn=users,ou=group,dc=apellidoXX,dc=asir
-objectclass: posixGroup
-objectclass: top
-cn: users
-userPassword: {crypt}*
-gidNumber: 100
-```
-
-* Ejecutar los comandos:
-
-```bash
-ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif  # Agregar registro
-ldapsearch -x -b "dc=apellidoXX,dc=asir" # Comprobar los resultados.
-```
----
-## 3.3 Crear usuarios y grupos dentro del LDAP
-
-En este punto vamos a escribir información dentro del servidor de directorios LDAP.
-* `Yast -> Usuarios Grupos`.
-* Set filter: `LDAP users`.
-* Bind DN: `cn=Directory Manager`.
-* Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `drinfierno`, `baron` (Estos se crearán dentro de la `ou=people`).
-* Usar el browser LDAP para consultar/comprobar el contenido de la base de datos LDAP.
-* `ldapsearch -x -L -u -t "(uid=nombre-del-usuario)"`, comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
-
-## /etc/shadow
-
-Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
-* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
-* Por tanto, se deduce que:
-    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
-    * aaa => salt bit
-    * bbb => clave encriptada.
-
-Agregar más usuarios:    
-* Ir a la MV servidor LDAP.
-* Crear los siguientes usuarios en LDAP con clave encriptada:
-
-## Autenticación simple
-
-> Enlace de interés:
-> * https://es.opensuse.org/Squid_con_soporte_ldap
-
-Asegurarse de que el servidor LDAP funciona con el programa externo de autenticación, ejecute en la linea de comandos `/usr/sbin/basic_ldap_auth -b "ou=people,dc=Antiquitera,dc=site" -v 3`
-
-> * -b "ou=people,dc=Antiquitera,dc=site" indica donde se encuentran los usuarios de árbol ldap
-> * -v 3 indica que se esta utilizando la versión 3 del protocolo LDAP.
-
-Al ejecutar el comando se da un usuario y su contraseña separadas por un espacio en blanco, si el usuario existe y la contraseña es la correcta el resultado es OK sino, el resultado es ERR Success
-
-```
-jvelez@Antiquitera:~>/usr/sbin/basic_ldap_auth  -b  "ou=people,dc=Antiquitera,dc=site" -v 3
-pperez 13sktocnghkle7
-OK
-pperez klxmruiwcmfg
-ERR Success
-```
-
-
-> **[PENDIENTE] de completar la información sobre los certificados.**
->
-> Esto no funciona, pero es un intento de crear certificado y firma para LDAPS.
->
-> * Crear certificado autofirmado: `openssl req -newkey rsa:1024 -x509 -nodes -out server.pem -keyout server.pem - days 265`.
-> * Export firma PKCS12: `openssl pkcs12 -export -out server.pfx -in server.pem`.
