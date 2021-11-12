@@ -211,6 +211,8 @@ userPassword: ESCRIBIR LA CONTRASEÑA EN TEXTO PLANO
 
 * `ldapadd -x -W -D "cn=Directory Manager" -f mazinger-add.ldif`, para escribir los datos del fichero **ldif** anterior dentro de LDAP.
 
+> NOTA: Se puede usar la herramienta **pwdhash** para generar las claves encriptadas.
+
 ## 3.3 Comprobar el nuevo usuario
 
 Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un directorio LDAP. Dicha clase posee el atributo `uid`. Por tanto, para listar los usuarios de un directorio, podemos filtrar por `"(uid=*)"`.
@@ -333,63 +335,4 @@ uidNumber: 2001
 gidNumber: 100
 homeDirectory: /home/mazinger
 gecos: Mazinger Z
-```
-
-## /etc/shadow
-
-Identificar el sistema de encriptación de contraseñas utilizado por GNU/Linux.
-* Consultando nuestro fichero `/etc/shadow` podemos ver que las contraseñas tienen el esquema `$6$aaa$bbbb`.
-* Por tanto, se deduce que:
-    * $6$ => estamos usando SHA-512 (86 Caracteres) para encriptar.
-    * aaa => salt bit
-    * bbb => clave encriptada.
-
-Agregar más usuarios:    
-* Ir a la MV servidor LDAP.
-* Crear los siguientes usuarios en LDAP con clave encriptada:
-
-# 4. Contraseñas encriptadas
-
-En el ejemplo anterior la clave se puso en texto plano. Cualquiera puede leerlo y no es seguro. Vamos generar valores de password encriptados.
-
-## 4.1 TEORIA: Herramienta slappasswd
-
-> Enlace de interés:
-> [onfiguración básica 389-DS pwdhash](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
-> * [Configurar password LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
-> * [UNIX/GNU/Linux md5sum Command Examples](https://linux.101hacks.com/unix/md5sum/)´
-> * [Cómo configurar el password de root de LDAP en MD5 o SHA-1](https://www.linuxito.com/seguridad/991-como-configurar-el-password-de-root-de-ldap-en-md5-o-sha-1)
-
-* Ejecutar `zypper in openldap2`, para instalar la heramienta `slappasswd` en OpenSUSE.
-
-> Usar la herramienta **pwdhash** para generar las claves encriptadas de los usuarios.
-
-La herramienta `slappasswd` provee la funcionalidad para generar un valor userPassword adecuado. Con la opción -h es posible elegir uno de los siguientes esquemas para almacenar la contraseña:
-1. {CLEARTEXT} (texto plano),
-1. {CRYPT} (crypt),
-1. {MD5} (md5sum),
-1. {SMD5} (MD5 con salt),
-1. {SHA} (1ssl sha) y
-1. {SSHA} (SHA-1 con salt, esquema por defecto).
-
-**Ejemplo SHA-1**
-
-Para generar un valor de contraseña hasheada utilizando SHA-1 con salt compatible con el formato requerido para un valor userPassword, ejecutar el siguiente comando:
-
-```bash
-$ slappasswd
-New password:
-Re-enter new password:
-{SSHA}5uUxSgD1ssGkEUmQTBEtcqm+I1Aqsp37
-```
-
-> Con slappasswd -h MD5 genera clave encriptada MD5
-
-También podemos usar el comando `sha512sum` para crear claves SHA512.
-Escribimos la clave y pulsamos CTRL+D. Ejemplo:
-
-```bash
-$ sha512sum
-profesor
-59a343d6c28d4bdea88df037c0f6b47b569b8008e046fb9d90773edf3d49c34d19b6de9d00b5629d145b3b0ac12f7e1955c12954d0f4642bfade4d0adc25c482  -
 ```
