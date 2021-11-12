@@ -62,6 +62,7 @@ Ejemplo de rúbrica:
 > Enlaces de interés:
 >
 > * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
+> * [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 > * https://directory.fedoraproject.org/docs/389ds/howto/quickstart.html
 
 ## 1.1 Nombre de equipo FQDN
@@ -87,9 +88,6 @@ Ejemplo de rúbrica:
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
 ## 2.2 Configurar la instancia
-
-> Enlace de interés:
-> * [Configuración básica 389-DS](https://www.javieranto.com/kb/GNU-Linux/pr%C3%A1cticas/Administraci%C3%B3n%20b%C3%A1sica%20389DS/)
 
 * Crear el fichero `/root/instance.inf` con el siguiente contenido. Este fichero sirve para configurar el servidor:
 
