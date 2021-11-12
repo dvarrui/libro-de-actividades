@@ -49,15 +49,12 @@ Vamos a configurar de la conexión del cliente con el servidor LDAP.
 
 ## 2.2 Comprobar con comandos
 
-* Vamos a la consola con usuario root, y probamos lo siguiente:
-
-```
-id mazinger
-su -l mazinger   # Entramos con el usuario definido en LDAP
-
-getent passwd mazinger          # Comprobamos los datos del usuario
-cat /etc/passwd | grep mazinger # El usuario NO es local
-```
+Ir a la MV cliente:
+* Vamos a la consola.
+* `id mazinger`, consultar información del usuario.
+* `getent passwd mazinger`, consultamos más datos del usuario
+* `cat /etc/passwd | grep mazinger`, nos aseguramos que el usuario NO es local.
+* `su -l mazinger`, entrar con el usuario definido en LDAP.
 
 # 3. Crear usuarios usando otros comandos
 
@@ -65,22 +62,24 @@ Ir a la MV del servidor:
 * `dsidm localhost user list`, consultar la lista de usuarios.
 * Crear usuario robot1
 ```
-dsidm localhost user create --uid robot1 \
-   --cn robot1 --displayName 'robot1' --uidNumber 2101 --gidNumber 100 \
+dsidm localhost user create --uid robot \
+   --cn robot --displayName 'robot' --uidNumber 2101 --gidNumber 100 \
   --homeDirectory /home/robot1
 ```
 * Poner la clave al usuario robot1:
 ```
 dsidm localhost account reset_password \
-  uid=robot1,ou=people,dc=ldapXX,dc=curso2122
+  uid=robot,ou=people,dc=ldapXX,dc=curso2122
 ```
 * `dsidm localhost user list`, consultar la lista de usuarios.
 
 Ir a la MV cliente:
-* Abrir terminal.
-* `su robot1`, entrar como ese usuario.
+* Abrir terminal con nuestro usuario normal (NO usar root).
+* `su robot`, entrar como ese usuario.
 
-# 3. Crear usuarios y grupos dentro del LDAP
+# 4. Usando Yast
+
+## 4.1 Crear usuario LDAP usando Yast
 
 En este punto vamos a escribir información dentro del servidor de directorios LDAP.
 Este proceso se debe poder realizar tanto desde el Yast del servidor, como desde el Yast
@@ -91,37 +90,14 @@ del cliente.
 * Set filter: `LDAP users`.
 * Bind DN: `cn=Directory Manager,dc=ldapXX,dc=curso2021`.
 * Crear el grupo `villanos` (Estos se crearán dentro de la `ou=groups`).
-* Crear los usuarios `robot`, `baron` (Estos se crearán dentro de la `ou=people`).
-* Consultar/comprobar el contenido de la base de datos LDAP.
-    * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-USUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+* Crear usuario `baron` (Se creará dentro de la `ou=people`).
+* Incluir los usuarios `robot` y `drinfierno` en el grupo de `villanos`.
 
-# 4. Autenticación
-
-Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
-
-## 4.1 Comprobamos autenticación desde el cliente con comandos
-
-* Vamos a la consola con nuestro usuario normal, y probamos lo siguiente:
-```
-id robot
-su -l robot   # Entramos con el usuario definido en LDAP
-
-getent group villanos           # Comprobamos los datos del grupo
-cat /etc/group | grep villanos  # El grupo NO es local
-
-getent passwd baron             # Comprobamos los datos del usuario
-cat /etc/passwd | grep baron    # El usuario NO es local
-```
-
-## 4.2 Comprobar autenticación desde el cliente por el entorno gráfico
+## 4.2 Comprobamos
 
 * Ir a la MV cliente.
-* Iniciar sesión gráfica con algún usuario LDAP.
-* Iniciar sesión con usuarios definidos en el LDAP remoto.
-
-> También podemos probar desde el terminal haciendo lo siguiente:
-> * `id robot`
-> * `su -l robot`, entramos con el usuario definido en LDAP
+* `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-USUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
+* Iniciar sesión de entorno gráfico con algún usuario LDAP.
 
 ---
 # ANEXO
