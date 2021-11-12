@@ -4,6 +4,7 @@ Realizado en el curso 2014-2015 y anteriores
 ```
 
 # Autenticación LDAP
+
 Con autenticacion LDAP prentendemos usar una máquina como servidor LDAP,
 donde se guardará la información de grupos, usuarios, claves, etc. Y desde
 otras máquinas conseguiremos autenticarnos (entrar al sistema) con los
