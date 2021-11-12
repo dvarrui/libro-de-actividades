@@ -14,6 +14,10 @@ Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como reposit
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
 
+> Enlaces de interés:
+> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
+> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
+
 # 1. Preparativos
 
 * Supondremos que tenemos una MV1 (serverXX) con DS-389 instalado, y con varios usuarios dentro del DS.
@@ -25,10 +29,6 @@ Comprobamos el acceso al LDAP desde el cliente:
 * `ldapsearch -H ldap://IP-LDAP-SERVERXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
 # 2. Configurar autenticación LDAP
-
-> Enlaces de interés:
-> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
-> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
 ## 2.1 Crear conexión con servidor
 
