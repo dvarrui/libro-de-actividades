@@ -227,30 +227,6 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 >
 > * Ejecutamos el siguiente comando para eliminar un usuario del árbol LDAP: `ldapmodify -x -D "cn=Directory Manager" -W -f mazinger-delete.ldif`
 
-## 3.4 Comprobar la autenticación
-
-Asegurarse de que el servidor LDAP funciona con el programa externo de autenticación
-* `/usr/sbin/basic_ldap_auth -b "ou=people,dc=ldapXX,dc=curso2122" -v 3`
-
-> * -b "ou=people,dc=ldapXX,dc=curso2122" indica donde se encuentran los usuarios de árbol ldap
-> * -v 3 indica que se esta utilizando la versión 3 del protocolo LDAP.
-
-* Al ejecutar el comando se da un usuario y su contraseña separadas por un espacio en blanco, si el usuario existe y la contraseña es la correcta el resultado es OK, en caso contrario es ERR Success. Veamos un ejemplo:
-
-```
-jvelez@Antiquitera:~>/usr/sbin/basic_ldap_auth  -b  "ou=people,dc=Antiquitera,dc=site" -v 3
-pperez 13sktocnghkle7
-OK
-pperez klxmruiwcmfg
-ERR Success
-```
-
-* Podemos actualizar la contraseña del usuario de la siguiente forma:
-```
-dsidm localhost account reset_password \
-  uid=mazinger,ou=people,dc=ldapXX,dc=curso2122
-```
-
 # 4. Agregar más usuarios
 
 ## 4.1 Agregar los siguientes usuarios
