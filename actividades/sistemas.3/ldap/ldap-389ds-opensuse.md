@@ -269,8 +269,6 @@ dsidm localhost account reset_password \
 * `nmap -Pn IP-LDAP-SERVER`, comprobar que el puerto LDAP del servidor está abierto.
 Si no aparecen los puertos abiertos, entonces revisar el cortafuegos.
 * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn` para consultar los usuarios LDAP que tenemos en el servicio de directorio remoto.
-Ir a la MV del servidor:
-* `dsidm localhost user list`, consultar la lista de usuarios.
 
 ---
 # ANEXO
