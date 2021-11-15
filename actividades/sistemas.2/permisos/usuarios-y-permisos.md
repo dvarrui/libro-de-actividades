@@ -188,11 +188,12 @@ las configuraciones del comando sudo.
 >     * -g para definir el grupo principal del usuario.
 >     * -G para incluir el usuario en otros grupos.
 >     * -p para definir una constraseña/password al nuevo usuario.
+> * `userdel`, para borrar usuario.
+> * `groupadd`, para crear nuevo grupo.
 > * `chown`, cambiar propietario.
 > * `chgrp`, cambiar grupo propietario.
 > * `chmod`, cambiar permisos de acceso.
-> * `userdel`, para borrar usuario.
-> * `groupadd`, para crear nuevo grupo.
+> * `passwd`, cambiar la contraseña.
 
 **Crear el grupo y los usuarios**
 * Crear el grupo `siths`.
