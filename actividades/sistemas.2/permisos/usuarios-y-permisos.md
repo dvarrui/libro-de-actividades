@@ -77,6 +77,7 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 **Crear usuarios**
 
+* Buscar la herramienta PowerShell. Botón derecho y ejecutar como Administrador.
 * `net localgroup`, para ver los grupos.
 * `net localgroup siths /add`, crear el grupo `siths`.
 * Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
@@ -87,7 +88,7 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 **Asignar permisos**
 
-* Entrar con el usuario `sith2`
+* Entrar con el usuario `sith2`.
     * Crear la carpeta `C:\Users\sith2\private`
     * Crear la carpeta `C:\Users\sith2\group`
     * Crear la carpeta `C:\Users\sith2\public`
