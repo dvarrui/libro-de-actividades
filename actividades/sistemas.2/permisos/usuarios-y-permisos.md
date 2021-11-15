@@ -121,7 +121,7 @@ Modificar los permisos de la siguiente forma:
 
 * Capturar imagen del resultado final.
 * Crear el grupo `jedis`.
-* Crear los usuarios `jedi3` y `jedi4` dentro del grupo anterior.
+* Crear los usuarios `jedi3` y `jedi4` dentro de los grupo `jedis` y `users`.
 * Entrar como el usuario `jedi3`
     * Crear la carpeta `/home/jedi3/private`
     * Crear la carpeta `/home/jedi3/group`
@@ -196,7 +196,7 @@ las configuraciones del comando sudo.
 
 **Crear el grupo y los usuarios**
 * Crear el grupo `siths`.
-* Crear los usuarios `sith3` y `sith4` dentro del grupo anterior.
+* Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
     * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
     * `id sith4` para comprobar que el usuario existe.
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
