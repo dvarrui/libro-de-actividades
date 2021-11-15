@@ -184,10 +184,10 @@ las configuraciones del comando sudo.
 > **INFORMACIÓN**
 >
 > * `useradd`, Crear usuario. Podemos usar los siguientes parámetros:
->     * -m para crear carpeta home del usuario
->     * -g para definir el grupo principal del usuario
->     * -G para incluir el usuario en otros grupos
->     * -p para definir una constraseña/password al nuevo usuario
+>     * -m para crear carpeta home del usuario. Ejemplo: `useradd obiwan -m`.
+>     * -g para definir el grupo principal del usuario.
+>     * -G para incluir el usuario en otros grupos.
+>     * -p para definir una constraseña/password al nuevo usuario.
 > * `chown`, cambiar propietario
 > * `chgrp`, cambiar grupo propietario
 > * `chmod`, cambiar permisos de acceso
