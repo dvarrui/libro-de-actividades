@@ -148,7 +148,8 @@ Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
 Hay dos formas de configurar `sudoers`:
-1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
+1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior). Si no nos aparece esta
+opción, la podemos instalar con `sudo zypper in yast2-sudo`.
 2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
 
 Vamos a dar privilegios de superusuario a los miembros del grupo `jedis` usando
