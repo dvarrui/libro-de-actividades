@@ -1,9 +1,11 @@
 
 ```
-Cursos     : 202122, 202021, 201920, 201817, 201716
-Requisitos : Windows y GNU/Linux
+Cursos      : 202122, 202021, 201920, 201817, 201716
+Área        : Sistemas operativos
+Descripción : Crear usuarios y asignar permisos
+Requisitos  : Windows y GNU/Linux
+Tiempo      :
 ```
----
 
 # Usuarios y permisos
 
@@ -147,28 +149,19 @@ Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
-Hay dos formas de configurar `sudoers`:
-1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior). Si no nos aparece esta
-opción, la podemos instalar con `sudo zypper in yast2-sudo`.
-2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano, o usar el comando `visudo`.
 
-Vamos a dar privilegios de superusuario a los miembros del grupo `jedis` usando
-las configuraciones del comando sudo.
-
+Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para la siguiente configuración de permisos.
+* Si no nos aparece esta opción en Yast, entonces la podemos instalar con `sudo zypper in yast2-sudo`.
 * Añadir la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers, para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo.
 
->
-> Esto quiere decir:
+> Los campos de la configuración anterior significan lo siguiente:
 > * `Usuarios -> %jedis`, a todos los usuarios jedis
 > * `Host -> ALL`
 > * `Ejecutar como -> (root)`, puede ejecutar como usuario root.
 > * `Sin contraseña -> Si`
 > * `Comandos -> ALL`, todos los comandos están permitidos.
 
-* Guardar y salir
-
-> Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
-
+* Guardar y salir. Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
 * Entrar al sistema con el usuario `jedi3` y ejecutar `sudo -l` para consultar la configuración de sudoers.
 
 > Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
@@ -216,12 +209,10 @@ son internos para uso de aplicaciones o del sistema operativo.
 
 ## 2.5 Configurar `sudoers` para el otro grupo
 
-Hay dos formas de configurar `sudoers`:
-1. **GUI**: Usar Yast en OpenSUSE (Ver ejemplo en la imagen anterior).
-2. **CLI**: Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
-
-* Configurar el grupo `siths` en sudoers con `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
-* Entrar al sistema con el usuario `sith1` y ejecutar `sudo -l`, para consultar la información de sudoers.
+Vamos a configurar los permisos "sudo" por comandos.
+* Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
+* Anñadir la siguiente información para configurar el grupo `siths` en sudoers: `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
+* Entrar al sistema con el usuario `sith3` y ejecutar `sudo -l`, para consultar la información de permisos sudoers que tenemos asignados.
 * Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos que  tenemos permitidos.
 * Comprobar que no tenemos permitido el uso del comando `/sbin/yast`.
 
