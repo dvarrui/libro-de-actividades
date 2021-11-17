@@ -212,7 +212,7 @@ son internos para uso de aplicaciones o del sistema operativo.
 Vamos a configurar los permisos "sudo" por comandos.
 * Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
 * Anñadir la siguiente información para configurar el grupo `siths` en sudoers: `%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci`.
-* Entrar al sistema con el usuario `sith3` y ejecutar `sudo -l`, para consultar la información de permisos sudoers que tenemos asignados.
+* Entrar al sistema con el usuario `sith4` y ejecutar `sudo -l`, para consultar la información de permisos sudoers que tenemos asignados.
 * Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos que  tenemos permitidos.
 * Comprobar que no tenemos permitido el uso del comando `/sbin/yast`.
 
