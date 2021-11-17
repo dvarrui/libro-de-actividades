@@ -59,7 +59,7 @@ Ir a la MV cliente:
 
 Ir a la MV del servidor:
 * `dsidm localhost user list`, consultar la lista de usuarios.
-* Crear usuario robot:
+* Crear usuario robot1:
 ```
 dsidm localhost user create --uid robot1 \
    --cn robot1 --displayName 'robot1' --uidNumber 2101 --gidNumber 100 \
@@ -74,7 +74,7 @@ dsidm localhost account reset_password \
 
 Ir a la MV cliente:
 * Abrir terminal con nuestro usuario normal (NO usar root).
-* `su robot`, entrar como ese usuario.
+* `su robot1`, entrar como ese usuario.
 
 # 4. Usando Yast
 
