@@ -1,22 +1,17 @@
 
 ```
 Curso       : 202021
-Area        : Sistemas operativos, Servicio de Directorio LDAP, Autenticación
+Área        : Sistemas operativos, Servicio de Directorio LDAP, Autenticación
 Descripción : Configurar autenticación a través del servicio de directorio 389-DS
 Requisitos  : Partimos de 389-DS en OpenSUSE
 Tiempo      :
 ```
 
----
 # Cliente para autenticación LDAP
 
 Con autenticacion LDAP prentendemos usar la máquina servidor LDAP, como repositorio centralizado de la información de grupos, usuarios, claves, etc. Desde otras máquinas conseguiremos autenticarnos (entrar al sistema) con los usuarios definidos no en la máquina local, sino en la máquina remota con LDAP. Una especie de *Domain Controller*.
 
 En esta actividad, vamos a configurar otra MV (GNU/Linux OpenSUSE) para que podamos hacer autenticación en ella, pero usando los usuarios y grupos definidos en el servidor de directorios LDAP de la MV1.
-
-> Enlaces de interés:
-> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
-> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
 # 1. Preparativos
 
@@ -29,6 +24,10 @@ Comprobamos el acceso al LDAP desde el cliente:
 * `ldapsearch -H ldap://IP-LDAP-SERVERXX:389 -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=*)" | grep dn`, comprobamos que los usuarios del LDAP remoto son visibles en el cliente.
 
 # 2. Configurar autenticación LDAP
+
+> Enlaces de interés:
+> * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
+> * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
 
 ## 2.1 Crear conexión con servidor
 
@@ -62,14 +61,14 @@ Ir a la MV del servidor:
 * `dsidm localhost user list`, consultar la lista de usuarios.
 * Crear usuario robot:
 ```
-dsidm localhost user create --uid robot \
-   --cn robot --displayName 'robot' --uidNumber 2101 --gidNumber 100 \
+dsidm localhost user create --uid robot1 \
+   --cn robot1 --displayName 'robot1' --uidNumber 2101 --gidNumber 100 \
   --homeDirectory /home/robot1
 ```
 * Poner la clave al usuario:
 ```
 dsidm localhost account reset_password \
-  uid=robot,ou=people,dc=ldapXX,dc=curso2122
+  uid=robot1,ou=people,dc=ldapXX,dc=curso2122
 ```
 * `dsidm localhost user list`, consultar la lista de usuarios.
 
@@ -101,6 +100,9 @@ del cliente.
 
 ---
 # ANEXO
+
+Hasta ahora hemos usado el protocolo no seguro LDAP, ahora vamos a implementar
+la conexión segura LDAPS.
 
 ## Generar Certificados
 

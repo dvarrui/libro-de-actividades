@@ -11,22 +11,11 @@ Ult.Cambios : Se quita browser ldap por fallos de las app
               Se añaden comandos ldap para creación de usuarios
 ```
 
----
 # Servicio de Directorio con comandos
 
-## Introducción
+> Enlaces de interés: VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
 
-> Enlaces de interés:
->
-> * VÍDEO Teoría [¿Qué es LDAP?](http://www.youtube.com/watch?v=CXe0Wxqep_g)
->
-> ![arbol](./images/arbol.png)
-
-Hay varias herramientas que implementan el servidor de directorios LDAP (389-DS, OpenLDAP, Active Directory, etc).
-
-Según parece [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/), por este motivo, hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS.
-
-En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS.
+![arbol](./images/arbol.png)
 
 ### ¿Que es LDAP?
 
@@ -45,7 +34,6 @@ En  conclusión, LDAP es un protocolo de acceso unificado a un conjunto  de info
 ### ¿Qué tipo de información se puede almacenar en un directorio?
 
 En principio en un servicio de directorio se puede almacenar cualquier tipo de información. Como por ejemplo, nombre, dirección de habitación, nombre de la mascota, música preferida, bebida favorita, etc. Sin embargo, la información que se almacena es aquella que permita organizar de manera jerárquica todos los usuarios de la red. Estructurar la información de los usuarios de la red es de utilidad a la hora de restringir el acceso a los servicios y recursos de la red; Permitiendo gestionar con mayor facilidad la red.
-
 
 ## Entrega
 
@@ -77,9 +65,11 @@ Ejemplo de rúbrica:
 
 * Comprobar salida de: `hostname -a`, `hostname -d` y `hostname -f`.
 
----
-
 # 2. Instalar el Servidor LDAP
+
+Hay varias herramientas que implementan el servidor de directorios LDAP (389-DS, OpenLDAP, Active Directory, etc). Según parece [Red Hat y Suse retiran su apoyo a OpenLDAP2](https://www.ostechnix.com/redhat-and-suse-announced-to-withdraw-support-for-openldap/), por este motivo, hemos decido a partir de noviembre de 2018 cambiar OpenLDAP2 por 389-DS.
+
+En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS usando comandos.
 
 ## 2.1 Instalación del paquete
 
@@ -237,8 +227,8 @@ Estamos usando la clase `posixAccount`, para almacenar usuarios dentro de un dir
 | Boss            | boss         | 2003      | Contraseña encriptada |
 | Doctor Infierno | drinfierno   | 2004      | Contraseña encriptada |
 
-Pero vamos usar la herramienta **pwdhash** para generar las claves encriptadas
-dentro de los ficheros "ldif".
+Vamos a agregar al LDAP los usuarios de la tabla, pero en este caso vamos usar
+la herramienta **pwdhash** para generar las claves encriptadas dentro de los ficheros "ldif".
 
 ## 4.2 Comprobar desde el cliente
 
@@ -291,7 +281,10 @@ ldapadd -x -W -D "cn=admin,dc=apellidoXX,dc=asir" -f users.ldif  # Agregar regis
 ldapsearch -x -b "dc=apellidoXX,dc=asir" # Comprobar los resultados.
 ```
 
-# Formato LDIF antiguo
+## Formato LDIF antiguo
+
+En noviembre de 2021 se decide dejar de usar este fichero LDIF porque provocaba
+problemas en el momento de realizar la autenticación.
 
 ```
 dn: uid=mazinger,ou=people,dc=ldapXX,dc=curso2021
