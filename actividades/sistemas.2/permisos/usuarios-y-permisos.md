@@ -192,26 +192,31 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 * Crear el grupo `siths` (Usar comando "groupadd").
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
 Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
-    * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+**¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+* Para poner la clave al usuario podemos hacer "passwd USUARIO".
+
+* Comprobaciones:
     * `id sith4` para comprobar que el usuario existe.
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
     * `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros son internos para uso de aplicaciones o del sistema operativo.
+
+**Crear las carpetas y modificar los permisos**
 * Entrar como el usuario `sith4`
     * Crear la carpeta `/home/sith4/private`
     * Crear la carpeta `/home/sith4/group`
     * Crear la carpeta `/home/sith4/public`
-
-**Modificar los permisos de las carpetas:**
-* `private`: Sólo el usuario propietario tendrá todos los permisos.
-* `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
-* `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+* Cambiar los permisos de la siguiente forma:
+    * `private`: Sólo el usuario propietario tendrá todos los permisos.
+    * `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+    * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+* Comprobamos con "vdir".
 
 ## 2.5 Configurar `sudoers` para el otro grupo
 
 Vamos a configurar los permisos "sudo" por comandos.
 * Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
-* Añadir la siguiente información para configurar el grupo `siths` en el fichero `/etc/sudoers`: 
+* Añadir la siguiente información para configurar el grupo `siths` en el fichero `/etc/sudoers`:
 ```
 %siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci
 ```
