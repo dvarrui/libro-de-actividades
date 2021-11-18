@@ -151,7 +151,7 @@ Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
 
 Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para la siguiente configuración de permisos.
-* Si no nos aparece esta opción en Yast, entonces la podemos instalar con `sudo zypper in yast2-sudo`.
+* Ir a `Yast -> Sudo`. Si no nos aparece esta opción en Yast, entonces la podemos instalar con `sudo zypper in yast2-sudo`.
 * Añadir la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers, para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo.
 
 > Los campos de la configuración anterior significan lo siguiente:
@@ -189,14 +189,14 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 > * `passwd`, cambiar la contraseña.
 
 **Crear el grupo y los usuarios**
-* Crear el grupo `siths`.
+* Crear el grupo `siths` (Usar comando "groupadd").
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
+Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
     * **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
     * `id sith4` para comprobar que el usuario existe.
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
     * `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
-* Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros
-son internos para uso de aplicaciones o del sistema operativo.
+* Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros son internos para uso de aplicaciones o del sistema operativo.
 * Entrar como el usuario `sith4`
     * Crear la carpeta `/home/sith4/private`
     * Crear la carpeta `/home/sith4/group`
