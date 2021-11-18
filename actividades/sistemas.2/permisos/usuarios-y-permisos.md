@@ -190,7 +190,7 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 * Crear el grupo `siths` (Usar comando "groupadd").
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
     * Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
-    * La opcion "-m" es para crear el HOME del usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+    * La opcion "-m" es para crear el HOME del usuario al crear el usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
     * Se puede usar el comando "usemod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
 * Para poner la clave al usuario podemos hacer "passwd USUARIO".
 
