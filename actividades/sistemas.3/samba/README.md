@@ -79,7 +79,7 @@ por comandos editando el fichero `/etc/passwd`.
 
 * `cp /etc/samba/smb.conf /etc/samba/smb.conf.bak`, hacer una copia de seguridad del fichero de configuración antes de modificarlo.
 * `Yast -> Samba Server`
-    * Workgroup: `curso2021`
+    * Workgroup: `curso2122`
     * Sin controlador de dominio.
 * En la pestaña de `Inicio` definimos
     * Iniciar el servicio durante el arranque de la máquina.
@@ -159,8 +159,6 @@ Después de crear los usuarios en el sistema, hay que añadirlos a Samba.
 * Ahora que hemos terminado con el servidor, hay que recargar los ficheros de configuración del servicio. Esto es, leer los cambios de configuración. Podemos hacerlo por `Yast -> Servicios`, o usar los comandos: `systemctl restart smb` y `systemctl restart nmb`.
 * `sudo lsof -i -Pn`, comprobar que el servicio SMB/CIF está a la escucha.
 
----
-
 # 2. Windows
 
 * [Configurar](../../global/configuracion/windows.md) el cliente Windows.
@@ -184,7 +182,7 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
-    * `lsof -i -Pn`, desde el servidor Samba.
+    * `lsof -i -Pn`,para ver las conexiones establecidas con la máquina cliente.
 
 ## 2.2 Cliente Windows comandos
 
@@ -208,7 +206,7 @@ Montar el recurso `barco` de forma persistente.
 * Ahora podemos entrar en la unidad S ("s:") y crear carpetas, etc.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
-    * `lsof -i -Pn`, desde el servidor Samba.
+    * `lsof -i -Pn`, para ver las conexiones establecidas con el cliente.
 
 ---
 
@@ -243,7 +241,7 @@ Capturar imagen de lo siguiente:
 
 ## 3.2 Cliente GNU/Linux comandos
 
-Capturar imagenes de todo el proceso.
+Capturar imágenes de todo el proceso.
 
 > Existen comandos (`smbclient`, `mount` , `smbmount`, etc.) para ayudarnos
 a acceder vía comandos al servidor Samba desde el cliente.
@@ -276,10 +274,6 @@ mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado
 debe aparecer en la máquina del servidor Samba. ¡Comprobarlo!
 > * Para desmontar el recurso remoto usamos el comando `umount`.
 
-* Capturar imagen de los siguientes comandos para comprobar los resultados:
-    * `sudo smbstatus`, desde el servidor Samba.
-    * `sudo lsof -i -Pn`, desde el servidor Samba.
-
 ## 3.3 Montaje automático
 
 * Hacer una instantánea de la MV antes de seguir. Por seguridad.
@@ -299,10 +293,8 @@ debemos configurar el fichero `/etc/fstab`.
 //IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
 ```
 
-* Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio.
+* Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio (df -hT).
 * Incluir contenido del fichero `/etc/fstab` en la entrega.
-
----
 
 # 4. Preguntas para resolver
 
