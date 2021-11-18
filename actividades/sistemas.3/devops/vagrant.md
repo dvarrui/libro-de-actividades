@@ -77,7 +77,7 @@ cd vagrantXX-celtics
 ```
 
 A partir de ahora vamos a trabajar dentro de esta carpeta.
-* Crear el fichero `Vagrantfile` de la siguiente forma:
+* Crear un fichero nuevo llamado `Vagrantfile` con el siguiente contenido:
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "BOXNAME"
@@ -86,7 +86,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> NOTA: Con `vagrant init` se crea un fichero `Vagrantfile` con las opciones por defecto.
+> INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crearlo.
 
 ## 3.3 Comprobar
 
