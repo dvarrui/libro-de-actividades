@@ -174,25 +174,24 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 
 * Recuerda que hay que capturar imagen del resultado final.
 
-> **INFORMACIÓN**
->
+> Información de comandos:
 > * `useradd`, Crear usuario. Podemos usar los siguientes parámetros:
 >     * -m para crear carpeta home del usuario. Ejemplo: `useradd obiwan -m`.
 >     * -g para definir el grupo principal del usuario.
 >     * -G para incluir el usuario en otros grupos.
 >     * -p para definir una constraseña/password al nuevo usuario.
+> * `passwd`, establecer la contraseña del usuario.
 > * `userdel`, para borrar usuario.
+> * `usermod`, para modificar un usuario.
 > * `groupadd`, para crear nuevo grupo.
-> * `chown`, cambiar propietario.
-> * `chgrp`, cambiar grupo propietario.
-> * `chmod`, cambiar permisos de acceso.
-> * `passwd`, cambiar la contraseña.
 
 **Crear el grupo y los usuarios**
+
 * Crear el grupo `siths` (Usar comando "groupadd").
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
-Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
-**¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+    * Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
+    * La opcion "-m" es para crear el HOME del usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+    * Se puede usar el comando "usemod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
 * Para poner la clave al usuario podemos hacer "passwd USUARIO".
 
 * Comprobaciones:
@@ -200,6 +199,11 @@ Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
     * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
     * `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros son internos para uso de aplicaciones o del sistema operativo.
+
+> Información de comandos:
+> * `chown`, cambiar propietario.
+> * `chgrp`, cambiar grupo propietario.
+> * `chmod`, cambiar permisos de acceso.
 
 **Crear las carpetas y modificar los permisos**
 * Entrar como el usuario `sith4`
