@@ -57,6 +57,9 @@ Ir a la MV cliente:
 
 # 3. Crear usuarios usando otros comandos
 
+> Para que funcionen bien los siguientes comandos el fichero /root/.dsrc
+debe estar correctamente configurado.
+
 Ir a la MV del servidor:
 * `dsidm localhost user list`, consultar la lista de usuarios.
 * Crear usuario robot1:
