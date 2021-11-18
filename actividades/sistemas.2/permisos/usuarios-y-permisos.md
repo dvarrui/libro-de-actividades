@@ -222,11 +222,12 @@ Vamos a configurar los permisos "sudo" por comandos.
 * Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
 * Añadir la siguiente información para configurar el grupo `siths` en el fichero `/etc/sudoers`:
 ```
-%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l, /sbin/lspci
+%siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l
 ```
 * Entrar al sistema con el usuario `sith4` y ejecutar `sudo -l`, para consultar la información de permisos sudoers que tenemos asignados.
-* Comprobar los nuevos permisos de los usuarios del grupo siths probando los comandos que  tenemos permitidos.
-* Comprobar que no tenemos permitido el uso del comando `/sbin/yast`.
+* Comprobar los nuevos permisos asignados:
+    * No tenemos permitido el uso del comando privilegiado `fdisk -l` sin sudo.
+    * Tenemos permitido usar el comando privilegiado `sudo fdisk -l` a través de sudo.
 
 ---
 
