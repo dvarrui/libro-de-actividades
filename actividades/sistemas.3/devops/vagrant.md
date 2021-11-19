@@ -120,11 +120,12 @@ Ejemplos para configurar las carpetas compartidas:
 * `config.vm.synced_folder ".", "/vagrant"`: La carpeta del proyecto es accesible desde /vagrant de la MV.
 * `config.vm.synced_folder "html", "/var/www/html"`. La carpeta htdocs del proyecto es accesible desde /var/www/html de la MV.
 
-**Redireccionamiento de los puertos**
+**Configuración de red**
 
-Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos enfocados a la web, y para acceder a las páginas es necesario configurar el enrutamiento de puertos.
+Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos enfocados a la web, y para acceder a las páginas es necesario configurar la red.
 
-* `config.vm.network "private_network", ip: "192.168.33.10"`: Ejemplo para configurar la red.
+* Ejemplo para redirigir los puertos: `config.vm.network :forwarded_port, host: 4567, guest: 80`
+* Ejemplo para configurar la IP: `config.vm.network "private_network", ip: "192.168.33.10"`: 
 
 **Conexión SSH**: Ejemplo para personalizar la conexión SSH a nuestra máquina virtual:
 
