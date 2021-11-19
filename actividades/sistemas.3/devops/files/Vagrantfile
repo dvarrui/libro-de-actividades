@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "salt-master" do |i|
+  config.vm.define "add-opensuse" do |i|
     i.vm.box = "generic/opensuse15"
-    i.vm.hostname = "salt-master"
+    i.vm.hostname = "vargas42g"
     i.vm.network "public_network", bridge: [
       "wlp1s0",
       "enp2s0",
@@ -13,9 +13,10 @@ Vagrant.configure("2") do |config|
     i.vm.provision "shell", inline: <<-SHELL
     zypper install -y tree
     zypper install -y vim
+    useradd profesor -m -p profesor
     SHELL
     i.vm.provider "virtualbox" do |v|
-      v.name = 'salt-master'
+      v.name = 'add-opensuse'
       v.memory = 2048
     end
   end
