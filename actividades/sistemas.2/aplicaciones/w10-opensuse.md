@@ -37,11 +37,10 @@ Capturar imágenes de los pasos realizados.
 
 Los ficheros de instalación MSI, son programas de instalación que no nos hacen preguntas durante el proceso porque ya viene configurado con opciones por defecto.
 
-* Abre un navegador web y pon URL siguiente `https://download.gnome.org/binaries/`.
 * Descargar un MSI. Por ejemplo:
-    * `https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi`. Cambiar VERSION por el valor adecuado.
-    * https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers
-* Instalar el programa MSI. La instalación de un fichero MSI no hace ninguna pregunta durante el proceso.
+    * Ejemplo 1: Abre un navegador web y pon URL siguiente `https://download.gnome.org/binaries/`. Descargar el fichero `https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi`. Cambiar VERSION por el valor adecuado.
+    * Ejemplo 2: https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers
+* Instalar el programa MSI descargado. Recordar un fichero MSI no hace ninguna pregunta durante el proceso de instalación.
 
 # 2. Windows usando los comandos
 
