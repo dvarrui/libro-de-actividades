@@ -69,7 +69,7 @@ Vamos a instalar la herramienta Chocolatey:
 * Hacer un snapshot de la MV por seguridad.
 
 Vamos a actualizar algunos paquetes:
-* Ir a `Panel de control -> Windows Update`.
+* Ir a `Windows Update`.
 * Consultar las actualizaciones pendientes.
 * Elegir 3 y aplicar actualización.
 
