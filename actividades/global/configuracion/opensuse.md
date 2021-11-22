@@ -52,7 +52,7 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 * Nombre de equipo: `primer-apellido-del-alumnoXXg`.
     * Por ejemplo vargas30g
 * Nombre de dominio: `curso1920` (Modificar los números al curso actual).
-* Servidor DNS: `1.1.1.1`.
+* Servidor DNS: `9.9.9.9`.
 * Vamos a `Encaminamiento`, y ponemos Gateway o pasarela IPv4: `172.AA.0.1`. Esto es la puerta de enlace o encaminamiento.
 * Ir dispositivo y elegir el interfaz de red.
 
@@ -77,7 +77,7 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 > Fichero de configuración de la puerta de enlace `/etc/sysconfig/network/ifroute-eth0` para la tarjeta `eth0`. Ejemplo: `default 172.19.0.1 - eth0`
 >
 > Fichero de configuración del servidor DNS `/etc/sysconfig/network/config`. Parámetro
-`NETCONFIG_DNS_STATIC_SERVERS="1.1.1.1"`
+`NETCONFIG_DNS_STATIC_SERVERS="9.9.9.9"`
 
 ---
 # Comprobaciones finales
@@ -88,8 +88,8 @@ Vamos a `Nombre de Host/DNS` y hacemos lo siguiente:
 ip a                     # Información de red
 ip route                 # Información de la puerta de enlace
 ifstatus NOMBREINTERFAZ  # Configuración del interfaz de red
-ping 1.1.1.1             # Verifica la conectividad con Internet
-traceroute 1.1.1.1       # Comprobar enrutamiento   
+ping 9.9.9.9             # Verifica la conectividad con Internet
+traceroute 9.9.9.9       # Comprobar enrutamiento   
 host www.nba.com         # Comprueba DNS
 ```
 

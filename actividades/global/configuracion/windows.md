@@ -36,7 +36,7 @@ Sin usar caracteres especiales como ñ, tildes, espacios, etc.
     * Si tenemos varias máquinas usaremos las IP 172.AA.XX.12, 172.AA.XX.13, etc.
     * Máscara de red: `255.255.0.0`
     * Gateway: `172.AA.0.1`
-    * Servidor DNS: `1.1.1.1`
+    * Servidor DNS: `9.9.9.9`
 
 ## 3. Después de la Instalación
 
