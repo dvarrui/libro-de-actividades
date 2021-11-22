@@ -103,10 +103,13 @@ Capturar imágenes de los pasos realizados.
 ## 5.1 Instalar software
 
 * Entramos en la consola como `root`.
-* Instalar algún programa con el comando `zypper ...` (`man zypper` para consultar ayuda).
+* Con `zypper refresh`, nos conectamos con los repositorios de software remotos para
+actualziar la lista de software dispomible para instalar.
+* Instalar algún programa con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
 * `zypper search nombre-programa`, comprobamos que el programa está instalado.
-* Ejecutar el programa y ver funciona.
+Esto es, debe aparecer el programa y el estado (la primera columna) debe tener el símbolo `i` que significa que está instalado.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
+* Ejecutar el programa y ver que funciona.
 
 ## 5.2 Desinstalar software
 
