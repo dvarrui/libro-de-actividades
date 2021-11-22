@@ -23,16 +23,15 @@ El SO Windows viene con software que se puede instalar si se necesita. Este soft
 
 * Capturar imagen del resultado final.
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
-* Instalar `características -> Juegos/Buscaminas` (o `Imprimir en PDF`).
+* Instalar alguna característica.
 
 ## 1.2 Instalar aplicación
 
 Capturar imágenes de los pasos realizados.
-* Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, gcal, stat, file.
-Hay que elegir la descargar del paquete completo sin las fuentes.
+* Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, gcal, stat, file. Hay que elegir la descargar del paquete completo sin el código fuente (NO sources).
 * Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
-* Comprobar su funcionamiento.
+* Comprobar su funcionamiento desde un terminal. Los comandos deben funcionar igual que en GNU/Linux.
 
 ## 1.3 Instalar un programa MSI
 
@@ -68,20 +67,10 @@ Vamos a instalar la herramienta Chocolatey:
 
 # 3. Windows - Actualización del sistema
 
-Vamos a instalar un paquete de actualizaciones para Windows7.
-De esta forma las actualizaciones tardarán menos tiempo.
-
 * Hacer un snapshot de la MV por seguridad.
-* Usar un usuario con privilegios de administrador.
-* Reiniciamos el servicio Windows Update
-    * `Equipos -> Botón derecho -> Administrar -> Servicios y Aplicaciones -> Servicios`
-    * Buscar Windows Update.
-    * Botón derecho -> Reiniciar
-* [SOLO PARA Windows7] Descargar e instalar el paquete [KB3102810x64](https://www.microsoft.com/es-ES/download/details.aspx?id=49540)
-* Reiniciar la máquina.
 
-Actualizar algunos paquetes:
-* Ir a `Panel de control -> Windows Update`. Debe de estar desactivado.
+Vamos a actualizar algunos paquetes:
+* Ir a `Panel de control -> Windows Update`.
 * Consultar las actualizaciones pendientes.
 * Elegir 3 y aplicar actualización.
 
@@ -97,7 +86,7 @@ Las distribuciones GNU/Linux como OpenSUSE, usan un gestor de paquetes para inst
 >     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
 * Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
-* Instalar por ejemplo algunos de los siguientes programas: `geany`, `gkrellm` y `gtk-recordmydesktop`.
+* Instalar por ejemplo algunos de los siguientes programas: `geany`, `gkrellm` y `vlc`.
 * Comprobar que funcionan los programas que hemos instalado.
 
 ## 4.2 Desinstalar paquetes
