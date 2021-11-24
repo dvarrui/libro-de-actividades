@@ -373,7 +373,6 @@ end
 
 ## A.3 Cambios próximo Curso
 
-* Probar Vagrant dentro de una MV...y luego con VBox dentro de la MV.
 * Arreglar warning que Apache2 "Fully qualified. domain name".
 * Duda: ¿El comando vagrant package XXX debe ejecutarse en $HOME? Porque parece que se crea un directorio .vagrant.
 
@@ -382,16 +381,3 @@ end
 https://www.garron.me/es/gnu-linux/controla-maquinas-virtuales-virtualbox.html
 
 VBoxManage showvminfo VMNAME | grep State
-
-
-## A.5 Versión1
-
-```
-su
-useradd -m vagrant
-su - vagrant
-mkdir .ssh
-wget https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub -O .ssh/authorized_keys
-chmod 700 .ssh
-chmod 600 .ssh/authorized_keys
-```
