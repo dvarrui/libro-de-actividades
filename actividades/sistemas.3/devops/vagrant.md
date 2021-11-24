@@ -125,7 +125,7 @@ Ejemplos para configurar las carpetas compartidas:
 Cuando trabajamos con máquinas virtuales, es frecuente usarlas para proyectos enfocados a la web, y para acceder a las páginas es necesario configurar la red.
 
 * Ejemplo para redirigir los puertos: `config.vm.network :forwarded_port, host: 4567, guest: 80`
-* Ejemplo para configurar la IP: `config.vm.network "private_network", ip: "192.168.33.10"`: 
+* Ejemplo para configurar la IP: `config.vm.network "private_network", ip: "192.168.33.10"`:
 
 **Conexión SSH**: Ejemplo para personalizar la conexión SSH a nuestra máquina virtual:
 
@@ -150,12 +150,15 @@ Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
 
 ## 5.1 Creamos proyecto Hawks
 
+En la máquina real:
 * Crear carpeta `vagrantXX-hawks`. Entrar en el directorio.
 * Crear proyecto Vagrant.
 * Configurar Vagrantfile para usar nuestra caja BOXNAME y hostname = "nombre-alumnoXX-hawks".
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
 * `vagrant ssh`, entramos en la MV
+
+en la máquina virtual:
 * Instalamos apache2.
 
 > NOTA: Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
@@ -164,9 +167,10 @@ Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
 
 Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
 podemos ejecutar los siguientes comandos:
-* En el HOST-CON-VAGRANT (Máquina real). Comprobaremos que el puerto 4567 está a la escucha.
-    * `vagrant port` para ver la redirección de puertos de la máquina Vagrant.
-* En HOST-CON-VAGRANT (Máquina real), abrimos el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
+
+En la máquina real vamos a comprobar que el puerto 4567 está a la escucha.
+* `vagrant port` para ver la redirección de puertos de la máquina Vagrant.
+* Abrir el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
 # 6. Suministro
 
@@ -202,8 +206,7 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 * `config.vm.hostname = "nombre-alumnoXX-lakers"`
 * `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
 * `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
-* `vagrant up`, para crear la MV.
-    * Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
+* `vagrant up`, para crear la MV. Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:4567`.
 
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
