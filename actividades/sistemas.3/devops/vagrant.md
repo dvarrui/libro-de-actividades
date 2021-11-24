@@ -269,8 +269,6 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
     1. `vagrant destroy`, destruir la MV.
     2. `vagrant up` volver a crearla.
 
-
----
 # 7. Proyecto Bulls (Nuestra caja)
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y la hemos personalizado. En este apartado vamos a crear nuestra propia caja/box a partir de una MV de VirtualBox que tengamos.
