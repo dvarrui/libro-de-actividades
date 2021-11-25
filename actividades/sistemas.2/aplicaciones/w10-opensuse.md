@@ -114,6 +114,9 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 ## 5.2 Desinstalar software
 
 * Desinstalar el programa con `zypper ...`.
+
+> NOTA: Para eliminar las dependencias usamos el parámetro "--clean-deps" a la hora de eliminar el software.
+
 * `zypper se nombre-programa`, comprobar que el programa no está instalado. Esto es, debe aparecer el programa y el estado (la primera columna) debe estar vacía, lo que significa que no está instalado.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 * Ejecutar el programa y ver que no funciona.
