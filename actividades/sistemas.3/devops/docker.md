@@ -15,13 +15,14 @@ Tiempo      : 6 sesiones
 
 Es muy común que nos encontremos desarrollando una aplicación, y llegue el momento que decidamos tomar todos sus archivos y migrarlos, ya sea al ambiente de producción, de prueba, o simplemente probar su comportamiento en diferentes plataformas y servicios.
 
-Para situaciones de este estilo existen herramientas que, entre otras cosas, nos facilitan el embalaje y despliegue de la aplicación, es aquí donde entra en juego los contenedores (Por ejemplo Docker o Podman).
+Para este tipo de situaciones existen herramientas que nos facilitan el embalaje y despliegue de la aplicación, es aquí donde entra en juego los contenedores (Por ejemplo Docker o Podman).
 
-Esta herramienta nos permite crear "contenedores", que son aplicaciones empaquetadas auto-suficientes, muy livianas, capaces de funcionar en prácticamente cualquier ambiente, ya que tiene su propio sistema de archivos, librerías, terminal, etc.
+Estas herramientas nos permite crear "contenedores", que son aplicaciones empaquetadas auto-suficientes, muy livianas, capaces de funcionar en prácticamente cualquier ambiente, ya que tiene su propio sistema de archivos, librerías, terminal, etc.
 
 Docker es una tecnología contenedor de aplicaciones construida sobre LXC.
 
 Propuesta de rúbrica:
+
 | ID  | Criterio      | Muy bien(2) | Regular(1) | Poco adecuado(0) |
 | --- | ------------- | ----------- | ---------- | ---------------- |
 | 3.2 | Comprobar     ||||
@@ -45,12 +46,13 @@ Ejecutar como superusuario:
 
 ## 1.2 Primera prueba
 
-* **IMPORTANTE**
-    * Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
-    * `id NOMBRE-ALUMNO`, debe mostrar que pertenecemos al grupo `docker`. En caso contrario cerrar sesión y volver a entrar al sistema.
+Como usuario root:
+* Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
+* `id NOMBRE-ALUMNO`, debe mostrar que pertenecemos al grupo `docker`. En caso contrario cerrar sesión y volver a entrar al sistema.
 * Iniciar sesión como nuestro usuario normal.
+
+Como usuario normal:
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
-* **OJO**: A partir de ahora todo lo haremos con nuestro usuario, sin usar `sudo`.
 * `docker run hello-world`, este comando hace lo siguiente:
     * Descarga una imagen "hello-world"
     * Crea un contenedor y
@@ -60,9 +62,9 @@ Ejecutar como superusuario:
 * `docker stop IDContainer`, parar el conteneder.
 * `docker rm IDContainer`, eliminar el contenedor.
 
-## 1.3 Sólo para LEER
+Hemos comprobado que Docker funciona correctamente.
 
-Veamos un poco de teoría.
+## 1.3 TEORIA: Sólo para LEER
 
 Tabla de referencia para no perderse:
 
@@ -71,7 +73,6 @@ Tabla de referencia para no perderse:
 | VirtualBox | ISO    | Máquinas virtuales | N |
 | Vagrant    | Box    | Máquinas virtuales | N |
 | Docker     | Imagen | Contenedores       | 1 |
-
 
 Comandos útiles de Docker:
 
@@ -97,7 +98,6 @@ alias drm='docker rm '
 alias drmi='docker rmi '
 alias ds='docker stop '
 ```
-
 # 2. Creación manual de nuestra imagen
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian,
@@ -108,10 +108,18 @@ y dentro instalaremos Nginx.
 **Descargar una imagen**
 * `docker search debian`, buscamos en los repositorios de Docker Hub contenedores con la etiqueta `debian`.
 * `docker pull debian`, descargamos una imagen en local.
-* `docker images`, comprobamos.
+* `docker images`, comprobamos que se ha descargado.
 
 **Crear un contenedor**: Vamos a crear un contenedor con nombre `app1debian` a partir de la imagen `debian`, y ejecutaremos el programa `/bin/bash` dentro del contendor:
 * `docker run --name=app1debian -i -t debian /bin/bash`
+
+| Parámetro  | Descripción |
+| ---------- | ----------- |
+| docker run | Crea un contenedor y lo pone en ejecución |
+| -name      | Nombre del nuevo contenedor |
+| -i         | Abrir una sesión interactiva |
+| -t         | Imagen que se usará para crear el contenedor |
+| /bin/bash  | Es la aplicación que se va a ejecutar |
 
 ## 2.2 Personalizar el contenedor
 
@@ -152,25 +160,25 @@ done
 
 ## 2.3 Crear una imagen a partir del contenedor
 
-Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora debemos vamos a crear una nueva imagen que incluya los cambios que hemos hecho.
+Ya tenemos nuestro contenedor auto-suficiente de Nginx, ahora vamos a crear una nueva imagen que incluya los cambios que hemos hecho.
 
 * Abrir otra ventana de terminal.
-* `docker commit app1debian nombre-del-alumno/nginx1`, a partir del CONTAINERID vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx1".
+* `docker commit app1debian nombre-del-alumno/nginx1`, a partir del contenedor modificado vamos a crear la nueva imagen que se llamará "nombre-del-alumno/nginx1".
 
 > NOTA:
 >
 > * Los estándares de Docker estipulan que los nombres de las imágenes deben seguir el formato `nombreusuario/nombreimagen`.
-> * Todo cambio realizado que se acompañe de un commit a la imagen, se perderá en cuanto se cierre el contenedor.
+> * Todo cambio realizado que no se acompañe de un commit a la imagen, se perderá en cuanto se cierre el contenedor.
 
 * `docker images`, comprobamos que se ha creado la nueva imagen.
 * Ahora podemos parar el contenedor, `docker stop app1debian` y
 * Eliminar el contenedor, `docker rm app1debian`.
 
-# 3. Crear contenedor a partir de nuestra imagen
+# 3. Crear contenedor a partir de nuestra nueva imagen
 
 ## 3.1 Crear contenedor con Nginx
 
-Ya tenemos una imagen "dvarrui/nginx" con Nginx instalado.
+Ya tenemos una imagen "nombre-alumno/nginx" con Nginx preinstalado dentro.
 * `docker run --name=app2nginx1 -p 80 -t nombre-alumno/nginx1 /root/server.sh`, iniciar el contenedor a partir de la imagen anterior.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
@@ -257,7 +265,7 @@ CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
 El fichero Dockerfile contiene toda la información necesaria para construir el contenedor, veamos:
 
-* `cd dockerXXa`, entramos al directorio con el Dockerfile.
+* `cd dockerXXlocal`, entramos al directorio con el Dockerfile.
 * `docker build -t nombre-alumno/nginx2 .`, construye una nueva imagen a partir del Dockerfile. OJO: el punto final es necesario.
 * `docker images`, ahora debe aparecer nuestra nueva imagen.
 
@@ -284,7 +292,7 @@ El ejemplo anterior donde creábamos una imagen Docker con Nginx se puede simpli
 > Enlace de interés:
 > * [nginx - Docker Official Images] https://hub.docker.com/_/nginx
 
-* Crea el directorio `dockerXXb`. Entrar al directorio.
+* Crea el directorio `dockerXXweb`. Entrar al directorio.
 * Crear fichero `holamundo3.html` con:
     * Proyecto: dockerXXb
     * Autor: Nombre del alumno
@@ -307,16 +315,18 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 
 Ahora vamos a crear un contenedor "holamundo" y subirlo a Docker Hub.
 
+## 5.1 Creamos los ficheros necesarios
+
 Crear nuestra imagen "holamundo":
 
-* Crear carpeta `dockerXXc`. Entrar en la carpeta.
+* Crear carpeta `dockerXXpush`. Entrar en la carpeta.
 * Crear un script (`holamundoXX.sh`) con lo siguiente:
 
 ```
 #!/bin/sh
 echo "Hola Mundo!"
 echo "nombre-del-alumnoXX"
-echo "Proyecto dockerXXc"
+echo "Proyecto dockerXXpush"
 date
 ```
 
@@ -335,9 +345,9 @@ CMD ["/root/holamundoXX.sh"]
 ```
 
 * A partir del Dockerfile anterior crearemos la imagen `nombre-alumno/holamundo`.
-* Comprobar que `docker run nombre-alumno/holamundo` se crea un contenedor que ejecuta el script.
+* Comprobar que `docker run nombre-alumno/holamundo` se crea un contenedor que ejecuta el script. Eliminar el contenedor si todo va bien.
 
-Subir la imagen a Docker Hub:
+## 5.2 Subir la imagen a Docker Hub
 
 * Registrarse en Docker Hub.
 * `docker login -u USUARIO-DOCKER`, para abrir la conexión.
@@ -365,7 +375,7 @@ Enlaces de interés:
 * [Docker stats: Métricas fáciles para contenedores](https://t.co/CUs0D6av6R)
 * [Linux con Entorno Gráfico y VNC desde Docker](https://jonathan.vargas.cr/es/temas/plataforma/18271-ejecutar-linux-con-entorno-grafico-desde-docker)
 
-## 1.1 Habilitar el acceso a la red externa a los contenedores
+## Habilitar el acceso a la red externa a los contenedores
 
 Si queremos que nuestro contenedor tenga acceso a la red exterior, debemos activar tener activada la opción IP_FORWARD (`net.ipv4.ip_forward`). ¿Recuerdas lo que implica `forwarding` en los dispositivos de red?
 

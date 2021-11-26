@@ -37,7 +37,7 @@ https://dockertips.com/volumenes
 ---
 # ANEXO
 
-## A.3 Kubernetes
+## Kubernetes
 
 > Enlaces de interés:
 > * https://www.adictosaltrabajo.com/tutoriales/primeros-pasos-con-kubernetes/
