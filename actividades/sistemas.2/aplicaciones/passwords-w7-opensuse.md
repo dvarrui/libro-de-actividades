@@ -25,7 +25,7 @@ Ejemplo de rúbrica:
 
 # 1. SO Windows
 
-Vamos a usar una MV Windows 7.
+Vamos a usar una MV Windows 10.
 
 > **PRECAUCIONES al tocar el registro de Windows**
 >
