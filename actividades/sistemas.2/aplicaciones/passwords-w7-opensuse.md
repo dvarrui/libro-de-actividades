@@ -60,16 +60,16 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 Con este modo de inicio se ocultan los nombres de todos los usuarios.
 * [Enlace de interés](http://www.zonasystem.com/2012/04/no-mostrar-nombres-de-usuarios-en-el.html)
 * Inciar consola CMD con usuario administrador.
-* Ejecutar `secpol.msc`
+* Ejecutar el programa `secpol.msc`.
 * `Directivas locales -> Seguridad -> Inicio de sesión...: No mostrar último nombre... -> Habilitar`.
 * En este modo de inicio de sesión, debemos escribir nombre usuario y clave para iniciar sesión. Comprobarlo.
 
 ## 1.3 Claves seguras
 
 Para que una clave sea un poco segura debe tener:
-* longitud 14,
-* incluir minúsculas y mayúsculas,
-* incluir números y algún carácter especial.
+* Longitud 14,
+* Incluir minúsculas y mayúsculas,
+* Incluir números y algún carácter especial.
 
 Vamos a modificar las claves de los usuarios de la siguiente forma:
 * sith1: 1234 (También se puede probar con un número de 4 dígitos)
@@ -80,9 +80,10 @@ Vamos a modificar las claves de los usuarios de la siguiente forma:
 * administrador: DNI del alumno
 
 ¿Podemos descubrir las claves?
-* Descargar la iso OphCrack para Windows7. Buscar primero en el servidor
-del departamento antes de descargarlo de Internet.
-* Iniciar la máquina W7 con la iso OphCrack.
+
+* Descargar la iso OphCrack para Windows. Buscar primero en el servidor
+del departamento antes de descargarlo de Internet. OphCrack es una distribución LIVE de GNU/Linux que ejecuta un programa para descubrir las claves al iniciarse.
+* Iniciar la máquina Windows con la iso OphCrack.
 * En el caso de que no se inicie la herramienta en entorno gráfico, hacer lo siguiente:
     * Pulsar F12
     * Elegir la opción de CDROM (c)
