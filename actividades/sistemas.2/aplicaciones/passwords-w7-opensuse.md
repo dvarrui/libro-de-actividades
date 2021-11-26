@@ -44,13 +44,13 @@ Vamos a modificar la configuración del sistema para que los usuarios `jedi1` y 
 * Entrar al registro del sistema (comando `regedit`)
 * Hacer una copia de seguridad del registro (exportar) antes de hacer cualquier cambio.
 
-> Cuando tenemos que tocar el registro del sistema hay que ser muy precavidos. Un error puede hacer que el sistema completo deje de funcionar.
+> IMPORTANTE: Cuando tenemos que tocar el registro del sistema hay que ser muy precavidos. Un error puede hacer que el sistema completo deje de funcionar.
 > * Ejecutar comando regedit para abrir el registro del sistema, y lo primero, usar la opción de export, para hacer una copia de seguridad del registro.
 > * Leer bien cómo hacerlo, y hacerlo con mucha atención.
 > * Consultar enlace [¿Cómo esconder una cuenta de la pantalla de bienvenida?](http://www.computerperformance.co.uk/windows7/windows7_registry_hide_users.htm#Scenarios_for_Hiding_User_Accounts_From_Welcome_Screen_).
 
-* Ir a la llave: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\` (OJO: HKLM = H Key Local Machine)
-* Crear una llave (carpeta del registry) con el nombre: `SpecialAccounts`
+* Ir a la llave: `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\` (HKLM = H Key Local Machine).
+* Crear una llave (carpeta) con el nombre: `SpecialAccounts`
 * Dentro de `SpecialAccounts` crear otra llave (carpeta) llamada: `UserList`.
 * Dentro de `UserList` crear un registro tipo `DWORD` con el nombre de la cuenta que se desea ocultar. Por ejemplo: `jedi1` con un valor `0`.
 * Reiniciar y comprobar.
@@ -79,7 +79,7 @@ Vamos a modificar las claves de los usuarios de la siguiente forma:
 * nombrealumno: clave a elegir por el alumno
 * administrador: DNI del alumno
 
-¿Podemos descubrir las claves?
+¿Podremos descubrir las claves?
 
 * Descargar la iso OphCrack para Windows. Buscar primero en el servidor
 del departamento antes de descargarlo de Internet. OphCrack es una distribución LIVE de GNU/Linux que ejecuta un programa para descubrir las claves al iniciarse.
@@ -89,27 +89,23 @@ del departamento antes de descargarlo de Internet. OphCrack es una distribución
     * Elegir la opción de CDROM (c)
     * Elegir arranque manual
 
-> Otra opción es usar CDLive de Kali Linux
->
+> Otra opción es usar **CDLive de Kali Linux**
 > * Iniciar con CDLive de Kali Linux
-> * Abrir terminal, buscar partición del sistema Windows (`fdisk -l`)
+> * Abrir terminal y  buscar partición del sistema Windows (`fdisk -l`)
 > * Montar la partición de Windows en `/mnt` (`mount /dev/sdaX /mnt`)
 > * Iniciar aplicación OphCrack
 > * Botón `Load -> Encrypted SAM -> /mnt/Windows/System32/config`
 > * Botón `Crack`
 
-* Esperar y comprobar cómo aparecen las claves.
+* Esperar y comprobar cómo se descifran las claves sencillas.
 * Realizar captura de pantalla.
 
 > **TABLAS DE DICCIONARIO**
 >
 > Si quisiéramos aumentar la velocidad del programa, deberíamos incluir *"tablas de diccionario"*. Las podemos descargar del servidor del departamento o la web.
->
 > * El fichero zip lo descomprimimos dentro de la máquina con OhpCrack.
 > * En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
 > * A continuación en el programa -> Crack y comienza a buscar las claves usando las "tablas de diccionario" escogidas.
-
----
 
 # 2. SO GNU/Linux
 
@@ -152,17 +148,20 @@ pwd
 ls
 ```    
 * Copia de seguridad del fichero de claves: `cp /mnt/etc/shadow /mnt/etc/shadow.bak`.
-* Crear usuario `prueba` en knoppix con la clave `123456`.
+* Crear usuario `prueba` en Knoppix con la clave `123456`.
 
 > El fichero shadow tiene una fila por cada usuarios.
 Dentro de cada fila los campos se separan por 2 puntos.
 El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave encriptada del usuario.
+>
+> Enlaces de interés
+* [¿Cómo cifra linux las contraseñas?](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
+* [Descifrando password encriptadas con shadow (md5 + salt)](https://blog.zerial.org/seguridad/descifrando-password-encriptadas-con-shadow-md5-salt/)
 
 * Copiar la clave del usuario `prueba` del fichero `/etc/shadow` a los usuarios
 `jedi3` y `sith3` del fichero `/mnt/etc/shadow`.
 * Capturar imagen de la clave del usuario prueba dentro del fichero /etc/shadow.
 * Capturar imagen de las claves cambiadas de los usuarios jedi3 y sith3 en el fichero /mnt/etc/shadow.
-
 
 > Podemos usar el editor `geany` que ya viene preinstalado en Knoppix.
 
@@ -189,7 +188,6 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 * Ejecutamos `yast`
 
 > Usaremos:
->
 > * la tecla tabulador para movernos por los campos, y
 > * la tecla enter para entrar/aceptar opciones
 
@@ -197,16 +195,8 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 * Cambiamos `Estado predeterminado` a `Graphical Interface`.
 * Reiniciar la MV y comprobamos.
 
----
-
 # ANEXO
 
 ## A.1 Modificar claves de Windows con el comando chntpw
 
 * [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
-
-## A.1 Cifrado /etc/shadow
-
-Enlaces de inteŕes
-* [¿Cómo cifra linux las contraseñas?](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
-* [Descifrando password encriptadas con shadow (md5 + salt)](https://blog.zerial.org/seguridad/descifrando-password-encriptadas-con-shadow-md5-salt/)
