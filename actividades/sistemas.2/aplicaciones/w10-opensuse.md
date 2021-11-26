@@ -134,8 +134,8 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 
 * Comprobar que el programa `atom` no está disponible en los respositorios.
 * Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
-* Descargamos el fichero `.rpm`.
-* `rpm -i atom-VERSION.rpm`, para instalar el programa mediante el fichero rpm.
+* Descargamos el fichero `.rpm` desde la página web. Este fichero es el instalador del programa.
+* Abrimos un terminal y usamos el comando `rpm` para instalar el programa que acabamos de descargar. Esto es `rpm -i atom-VERSION.rpm`.
 * Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla manualmente. Por ejemplo:
     * `zypper search lsb*`, para buscar todos los paquetes lsb "algo".
     * `zypper install lsb`, para instalar el paquete lsb.
@@ -144,8 +144,8 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 
 Para comprobar que está el paquete instalado:
 
-* `rpm -q atom`
-* `atom`
+* `rpm -q atom`, usamo el programa rpm para consultar información del paquete.
+* `atom`, ejecutamos el programa atom.
 
 Comprobamos que funciona bien el editor `atom`.
 
