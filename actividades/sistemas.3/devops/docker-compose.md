@@ -17,22 +17,22 @@ En esta práctica vamos a trabajar:
 * Usando contenedores Docker creados a partir de Dockerfile.
 * Usando la herramienta Docker-compose para gestionar conjuntos de contenedores.
 
+
+Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
+
 > Enlaces de interés:
+> * [Aprendiendo a utilizar Docker Compose](https://dockertips.com/utilizando-docker-compose)
+> * [Empezando con docker-compose](https://riptutorial.com/es/docker-compose)
 > * [Getting started](https://docs.docker.com/compose/gettingstarted/)
 > * [Taller de introducción a Docker](https://github.com/sergarb1/TallerIntroduccionDocker)
 > * https://aulasoftwarelibre.github.io/taller-de-docker/docker-compose/
 
-## Docker-compose
-
-Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
-
-Enlaces de interés:
-* [Aprendiendo a utilizar Docker Compose](https://dockertips.com/utilizando-docker-compose)
-* [Empezando con docker-compose](https://riptutorial.com/es/docker-compose)
-
-# Gestión de volúmenes
+# 2. Gestionar un contenedor con volumen
 
 https://dockertips.com/volumenes
+
+# 3. Gestionar dos contenedores
+
 
 ---
 # ANEXO
