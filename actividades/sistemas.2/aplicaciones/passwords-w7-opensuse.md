@@ -155,8 +155,8 @@ Dentro de cada fila los campos se separan por 2 puntos.
 El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave encriptada del usuario.
 >
 > Enlaces de interés
-* [¿Cómo cifra linux las contraseñas?](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
-* [Descifrando password encriptadas con shadow (md5 + salt)](https://blog.zerial.org/seguridad/descifrando-password-encriptadas-con-shadow-md5-salt/)
+> * [¿Cómo cifra linux las contraseñas?](http://www.nexolinux.com/como-cifra-linux-las-contrasenas/)
+> * [Descifrando password encriptadas con shadow (md5 + salt)](https://blog.zerial.org/seguridad/descifrando-password-encriptadas-con-shadow-md5-salt/)
 
 * Copiar la clave del usuario `prueba` del fichero `/etc/shadow` a los usuarios
 `jedi3` y `sith3` del fichero `/mnt/etc/shadow`.
