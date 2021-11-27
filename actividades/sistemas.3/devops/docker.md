@@ -233,7 +233,7 @@ usando un fichero de configuración. Esto es, vamos a crear un contenedor a part
 
 ## 4.1 Preparar ficheros
 
-* Crear directorio `/home/nombre-alumno/dockerXXa`.
+* Crear directorio `/home/nombre-alumno/dockerXXlocal`.
 * Entrar el directorio anterior.
 * Crear fichero `holamundo2.html` con:
     * Proyecto: dockerXXa
@@ -259,7 +259,6 @@ CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 ```
 
 > * Enlace de interés: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
-
 
 ## 4.2 Crear imagen a partir del `Dockerfile`
 

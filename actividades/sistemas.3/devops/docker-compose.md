@@ -13,11 +13,6 @@ Descripción : Gestionar granjas de contenedores
 
 Existen varias herramientas muy conocidas para trabajar con granjas de contenedores: Kubernetes, Swarm, Docker-compose.
 
-En esta práctica vamos a trabajar:
-* Usando contenedores Docker creados a partir de Dockerfile.
-* Usando la herramienta Docker-compose para gestionar conjuntos de contenedores.
-
-
 Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
 
 > Enlaces de interés:
@@ -30,6 +25,7 @@ Docker Compose es una herramienta que permite simplificar el uso de Docker. Faci
 # 2. Gestionar un contenedor con volumen
 
 https://dockertips.com/volumenes
+
 
 # 3. Gestionar dos contenedores
 
