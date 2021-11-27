@@ -32,6 +32,8 @@ docker-compose -v
 
 ## 2.2 Descargar imagen
 
+Buscar imagen contenedor Nginx en hub.docker.com
+
 docker images
 docker search nginx
 docker pull nginx
@@ -40,18 +42,24 @@ docker images
 ## 2.3 Compose
 
 TEORIA: volumenes
-
 https://dockertips.com/volumenes
 
-docker-compose up
+Crear htmlXX.d/index.htmlm
+Crear docker-compose.yaml
+docker-compose config
+docker-compose ps
+
+Levantar el contenedor con compose
+
+docker-compose up -d
+docker-compose ps
+docker ps
 Comprobar cambios del volumen en caliente
 docker-compose down
 
-Buscar imagen contenedor Nginx en hub.docker.com
-
-
 # 3. Gestionar dos contenedores
 
+Por ejemplo Wordpress cpn Mysql
 
 ---
 # ANEXO
