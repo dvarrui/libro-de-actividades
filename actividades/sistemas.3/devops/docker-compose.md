@@ -24,31 +24,48 @@ Docker Compose es una herramienta que permite simplificar el uso de Docker. Faci
 
 # 2. Gestionar un contenedor con volumen
 
+## 2.1 Instalar docker-compose
+
+zypper se docker-compose
+zypper in ...
+docker-compose -v
+
+## 2.2 Descargar imagen
+
 docker images
 docker search nginx
 docker pull nginx
 docker images
 
-/usr/share/nginx/html
+## 2.3 Compose
 
-## 2.1 Volúmenes
+TEORIA: volumenes
 
 https://dockertips.com/volumenes
 
-A continuación vamos lanzar un contenedor
-`docker --name=app1nginx -d -p 8081:80 -v html:/usr/share/nginx/html -t nginx`
-
-docker port
-docker volume
-
+docker-compose up
+Comprobar cambios del volumen en caliente
+docker-compose down
 
 Buscar imagen contenedor Nginx en hub.docker.com
+
 
 # 3. Gestionar dos contenedores
 
 
 ---
 # ANEXO
+
+/usr/share/nginx/html
+
+
+A continuación vamos lanzar un contenedor
+`docker --name=app1nginx -d -p 8081:80 -v ./html:/usr/share/nginx/html -t nginx`
+
+docker port
+docker volume
+
+## 2.4 Usando compose para un contenedor con volumen
 
 ## Kubernetes
 
