@@ -39,13 +39,25 @@ docker search nginx
 docker pull nginx
 docker images
 
-## 2.3 Compose
+## 2.3 Compose Nginx con volumen
 
 TEORIA: volumenes
 https://dockertips.com/volumenes
 
-Crear htmlXX.d/index.htmlm
+Crear carpeta composeXXnginx
+Crear html/index.html
 Crear docker-compose.yaml
+```
+version: "3.3"
+services:
+  web:
+    image: "nginx"
+    ports:
+    - "8081:80"
+    volumes:
+    - ./html:/usr/share/nginx/html
+```
+
 docker-compose config
 docker-compose ps
 
@@ -56,6 +68,41 @@ docker-compose ps
 docker ps
 Comprobar cambios del volumen en caliente
 docker-compose down
+
+# 3. Compose Mysql con volumen
+
+hub.docker.com
+mysql
+Variables de entorno
+Crear directorio composeXXmysql
+
+Crear fichero docker-compose.ysaml con:
+
+* Servicio que se llama database
+* Imagen basada en mysql
+* Redirigir el puerto de mysql
+
+Error obtenido
+```
+web_1  | 2021-11-28 13:45:32+00:00 [ERROR] [Entrypoint]: Database is uninitialized and password option is not specified
+web_1  |     You need to specify one of the following:
+web_1  |     - MYSQL_ROOT_PASSWORD
+web_1  |     - MYSQL_ALLOW_EMPTY_PASSWORD
+web_1  |     - MYSQL_RANDOM_ROOT_PASSWORD
+mysql_web_1 exited with code 1
+```    
+
+Poner la clave de Mysql ROOT como variable de Entorno
+Definir un volumen para que lso datos de la base de datos sean persistentes.
+
+docker-compose config
+docker-compose up
+docker-compose ps
+
+
+nmap -Pn localhost
+Usar el cliente mysql para acceder a la base de datos que gestiona el contenedor.
+
 
 # 3. Gestionar dos contenedores
 
