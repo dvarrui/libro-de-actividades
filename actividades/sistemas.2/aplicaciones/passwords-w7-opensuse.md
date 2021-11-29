@@ -61,7 +61,7 @@ Con este modo de inicio se ocultan los nombres de todos los usuarios.
 * [Enlace de interés](http://www.zonasystem.com/2012/04/no-mostrar-nombres-de-usuarios-en-el.html)
 * Inciar consola CMD con usuario administrador.
 * Ejecutar el programa `secpol.msc`.
-* `Directivas locales -> Seguridad -> Inicio de sesión...: No mostrar último nombre... -> Habilitar`.
+* `Directivas locales -> Seguridad -> Inicio de sesión interactivo: No mostrar último nombre... -> Habilitar`.
 * En este modo de inicio de sesión, debemos escribir nombre usuario y clave para iniciar sesión. Comprobarlo.
 
 ## 1.3 Claves seguras
@@ -106,6 +106,7 @@ del departamento antes de descargarlo de Internet. OphCrack es una distribución
 > * El fichero zip lo descomprimimos dentro de la máquina con OhpCrack.
 > * En el programa vamos a tablas -> Instalar. Buscamos la ruta donde hemos puesto los ficheros.
 > * A continuación en el programa -> Crack y comienza a buscar las claves usando las "tablas de diccionario" escogidas.
+
 
 # 2. SO GNU/Linux
 
@@ -191,6 +192,16 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
-## A.1 Modificar claves de Windows con el comando chntpw
+## Modificar claves de Windows con el comando chntpw de GNU/Linux
 
-* [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
+* Enlace de interés: [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
+* Ir a VirtualBox -> Configuración de la MV OpenSUSE
+* Añadir un nuevo disco y escoger la ruta el fichero VDI de la MV Windows.
+* Iniciar MV OpenSUSE.
+* Abrir un terminal como usuario root.
+* Instalar la herramienta "chntpw", `zypper install chntpw`.
+* Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
+* `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
+* `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
+    * Pulsar `1` para poner dejar la contraseña vacía.
+* Comprobamos `chntpw -l SAM`.
