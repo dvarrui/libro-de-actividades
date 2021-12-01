@@ -218,6 +218,7 @@ Usar la herramienta:
 
 ### OpenSUSE
 
+Montar disco:
 * Ir a VirtualBox -> Configuración de la MV OpenSUSE
 * Añadir un nuevo disco y escoger la ruta el fichero VDI de la MV Windows.
 * Iniciar MV OpenSUSE.
