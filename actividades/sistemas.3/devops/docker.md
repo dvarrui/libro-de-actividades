@@ -235,10 +235,12 @@ usando un fichero de configuración. Esto es, vamos a crear un contenedor a part
 
 * Crear directorio `/home/nombre-alumno/dockerXXlocal`.
 * Entrar el directorio anterior.
-* Crear fichero `holamundo2.html` con:
-    * Proyecto: dockerXXa
-    * Autor: Nombre del alumno
-    * Fecha: Fecha actual
+* Crear fichero `holamundo2.html` con el siguiente contenido:
+```
+Proyecto : dockerXXlocal
+Autor    : Nombre del alumno
+Fecha    : Fecha actual
+```
 * Crear el fichero `Dockerfile` con el siguiente contenido:
 
 ```
@@ -259,6 +261,15 @@ CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 ```
 
 > * Enlace de interés: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
+
+| Parámetro  | Descripción |
+| ---------- | ----------- |
+| FROM       | Imagen a partir de la cual se creará el contenedor |
+| MAINTAINER | Información del autor |
+| RUN        | Comando que se ejeuctará dentro del contenedor |
+| COPY       | Copiar un fichero dentro del contenedor |
+| EXPOSE     | Puerto de contenedor que será visible desde el exterior |
+| CMD        | Comando que se ejecutará al iniciar el contenedor |
 
 ## 4.2 Crear imagen a partir del `Dockerfile`
 
@@ -286,7 +297,7 @@ Ahora que sabemos usar los ficheros Dockerfile, nos damos cuenta que es más sen
 
 ## 4.4 Usar imágenes ya creadas
 
-El ejemplo anterior donde creábamos una imagen Docker con Nginx se puede simplificar aún más aprovechando imágenes oficiales que ya existen.
+El ejemplo anterior donde creábamos una imagen Docker con Nginx, pero esto se puede simplificar aún más si aprovechamos las imágenes oficiales que ya existen.
 
 > Enlace de interés:
 > * [nginx - Docker Official Images] https://hub.docker.com/_/nginx
