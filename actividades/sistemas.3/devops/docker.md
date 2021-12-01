@@ -59,7 +59,7 @@ Como usuario normal:
     * ejecuta la aplicación que hay dentro.
 * `docker images`, ahora vemos la nueva imagen "hello-world" descargada en nuestro equipo local.
 * `docker ps -a`, vemos que hay un contenedor en estado 'Exited'.
-* `docker stop IDContainer`, parar el conteneder.
+* `docker stop IDContainer`, parar el conteneder identificado por su IDContainer. Este valor lo obtenemos tras consultar la salida del comando anterior (docker ps -a).
 * `docker rm IDContainer`, eliminar el contenedor.
 
 Hemos comprobado que Docker funciona correctamente.
