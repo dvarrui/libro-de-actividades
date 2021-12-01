@@ -200,9 +200,16 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 Realizar los siguientes pasos:
 * Iniciar MV Windows con ISO de Ubuntu (que funciona también como CDLIVE).
+
+Localizar la partición de Windows:
 * Abrir un terminal como usuario root.
-* Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
+* `fdisk -l`, para ver los discos/particiones y localizar la partición de Windows.
+* Montar el disco de Windows, `mount /dev/sda2 /mnt`.
+
+Instalar la herramienta:
 * `apt install chntpwd`, instalar la utilidad "chntpwd".
+
+Usar la herramienta:
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
 * `chntpw -u NOMBRE-DE-USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
     * Pulsar `1` para poner dejar la contraseña vacía.
@@ -213,10 +220,16 @@ Realizar los siguientes pasos:
 * Ir a VirtualBox -> Configuración de la MV OpenSUSE
 * Añadir un nuevo disco y escoger la ruta el fichero VDI de la MV Windows.
 * Iniciar MV OpenSUSE.
+
+Instalar la herramienta:
 * Abrir un terminal como usuario root.
 * Instalar la herramienta "chntpw", `zypper install chntpw`.
 
+Localizar la partición de Windows:
+* `fdisk -l`, para ver los discos/particiones y localizar la partición de Windows.
 * Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
+
+Usar la herramienta:
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
 * `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
     * Pulsar `1` para poner dejar la contraseña vacía.
