@@ -199,10 +199,12 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 ### Ubuntu
 
 Realizar los siguientes pasos:
-* Iniciar MV Windows con ISO de Ubuntu.
+* Iniciar MV Windows con ISO de Ubuntu (que funciona también como CDLIVE).
+* Abrir un terminal como usuario root.
 * Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
+* `apt install chntpwd`, instalar la utilidad "chntpwd".
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
-* `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
+* `chntpw -u NOMBRE-DE-USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
     * Pulsar `1` para poner dejar la contraseña vacía.
 * Comprobamos `chntpw -l SAM`.
 
