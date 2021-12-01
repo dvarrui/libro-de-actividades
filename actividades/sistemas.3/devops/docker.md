@@ -129,9 +129,9 @@ Ahora estamos dentro del contenedor, y vamos a personalizarlo a nuestro gusto:
 
 ```
 root@IDContenedor:/# cat /etc/motd            # Comprobamos que estamos en Debian
-root@IDContenedor:/# apt-get update
-root@IDContenedor:/# apt-get install -y nginx # Instalamos nginx en el contenedor
-root@IDContenedor:/# apt-get install -y vim   # Instalamos editor vi en el contenedor
+root@IDContenedor:/# apt update
+root@IDContenedor:/# apt install -y nginx # Instalamos nginx en el contenedor
+root@IDContenedor:/# apt install -y nano  # Instalamos editor nano en el contenedor
 ```
 
 **Crear un fichero HTML** `holamundo1.html`.
