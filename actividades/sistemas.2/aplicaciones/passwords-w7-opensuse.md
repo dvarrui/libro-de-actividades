@@ -207,7 +207,7 @@ Localizar la partición de Windows:
 * Montar el disco de Windows, `mount /dev/sda2 /mnt`.
 
 Instalar la herramienta:
-* `apt install chntpwd`, instalar la utilidad "chntpwd".
+* `apt install chntpw`, instalar la utilidad "chntpwd".
 
 Usar la herramienta:
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
