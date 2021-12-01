@@ -194,7 +194,7 @@ Ya tenemos una imagen "nombre-alumno/nginx" con Nginx preinstalado dentro.
 
 ![docker-url-nginx.png](./images/docker-url-nginx.png)
 
-* Comprobar el acceso a `holamundo1.html`.
+* Comprobar el acceso al fichero HTML. Abrir navegador web y poner URL `0.0.0.0.:PORT/holamundo1.html`.
 * Paramos el contenedor `app2nginx1` y lo eliminamos.
 
 Como ya tenemos una imagen docker con Nginx (Servidor Web), podremos crear nuevos contenedores cuando lo necesitemos.
