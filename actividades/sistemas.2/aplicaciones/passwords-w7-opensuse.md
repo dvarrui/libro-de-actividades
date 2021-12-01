@@ -196,6 +196,16 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 * Enlace de interés: [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
 
+### Ubuntu
+
+Realizar los siguientes pasos:
+* Iniciar MV Windows con ISO de Ubuntu.
+* Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
+* `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
+* `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
+    * Pulsar `1` para poner dejar la contraseña vacía.
+* Comprobamos `chntpw -l SAM`.
+
 ### OpenSUSE
 
 * Ir a VirtualBox -> Configuración de la MV OpenSUSE
@@ -204,16 +214,6 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 * Abrir un terminal como usuario root.
 * Instalar la herramienta "chntpw", `zypper install chntpw`.
 
-* Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
-* `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
-* `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
-    * Pulsar `1` para poner dejar la contraseña vacía.
-* Comprobamos `chntpw -l SAM`.
-
-### Kali Linux
-
-Realizar los siguientes pasos:
-* Iniciar MV Windows con CDLIVE de Kali Linux
 * Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
 * `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
