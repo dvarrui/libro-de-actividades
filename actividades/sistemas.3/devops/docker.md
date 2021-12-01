@@ -144,10 +144,10 @@ root@IDContenedor:/# echo "<p>Hola nombre-del-alumno</p>" > /var/www/html/holamu
 
 ```
 #!/bin/bash
-echo "Booting Nginx!"
+echo "[INFO] Iniciando Nginx!"
 /usr/sbin/nginx &
 
-echo "Waiting..."
+echo "[INFO] No cierres esta terminal y abre una nueva"
 while(true) do
   sleep 60
 done
