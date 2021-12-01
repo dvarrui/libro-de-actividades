@@ -210,6 +210,7 @@ Instalar la herramienta:
 * `apt install chntpw`, instalar la utilidad "chntpwd".
 
 Usar la herramienta:
+* `cd /mnt/Windows/System32/config`, nos movemos a la ruta donde están los archivos SAM, que contienen las claves encriptadas de los usuarios de Windows.
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
 * `chntpw -u NOMBRE-DE-USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
     * Pulsar `1` para poner dejar la contraseña vacía.
@@ -230,6 +231,7 @@ Localizar la partición de Windows:
 * Montar el disco de Windows, `mount /dev/sdb2 /mnt`.
 
 Usar la herramienta:
+* `cd /mnt/Windows/System32/config`, nos movemos a la ruta donde están los archivos SAM, que contienen las claves encriptadas de los usuarios de Windows.
 * `chntpw -l SAM`, listar los usuarios que se han creado en el Windows.
 * `chntpw -u USUARIO SAM` , para cambiar la contraseña del usuario USUARIO.
     * Pulsar `1` para poner dejar la contraseña vacía.
