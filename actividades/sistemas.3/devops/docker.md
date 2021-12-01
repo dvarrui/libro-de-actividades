@@ -48,8 +48,8 @@ Ejecutar como superusuario:
 
 Como usuario root:
 * Incluir a nuestro usuario (nombre-del-alumno) como miembro del grupo `docker`. Solamente los usuarios dentro del grupo `docker` tendrán permiso para usarlo.
-* `id NOMBRE-ALUMNO`, debe mostrar que pertenecemos al grupo `docker`. En caso contrario cerrar sesión y volver a entrar al sistema.
-* Iniciar sesión como nuestro usuario normal.
+* `id NOMBRE-ALUMNO`, debe mostrar que pertenecemos al grupo `docker`.
+* Cerrar sesión y volver a entrar al sistema con nuestro usuario normal.
 
 Como usuario normal:
 * `docker version`, comprobamos que se muestra la información de las versiones cliente y servidor.
