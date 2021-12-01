@@ -216,7 +216,7 @@ Intercambiar nuestra imagen exportada con la de un compañero de clase.
 * Nos llevamos el tar a otra máquina con docker instalado, y restauramos.
 * `docker load -i alumnoXXdocker.tar`, cargamos la imagen docker a partir del fichero tar. Cuando se importa una imagen se muestra en pantalla las capas que tiene. Las capas las veremos en un momento.
 * `docker images`, comprobamos que la nueva imagen está disponible.
-* Probar a crear un contenedor (`app3alumno`), a partir de la nueva imagen.
+* Probar a crear un contenedor (`app3tar`), a partir de la nueva imagen.
 
 ## 3.4 Capas
 
