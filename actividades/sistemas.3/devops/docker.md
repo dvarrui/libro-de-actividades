@@ -183,6 +183,9 @@ Ya tenemos una imagen "nombre-alumno/nginx" con Nginx preinstalado dentro.
 
 > El argumento `-p 80` le indica a Docker que debe mapear el puerto especificado del contenedor, en nuestro caso el puerto 80 es el puerto por defecto sobre el cual se levanta Nginx.
 
+* No cierres la terminal. El contenedor ya está en ejecución y se queda esperando a que nos conectemos a él usando un navegador.
+* Seguimos.
+
 ## 3.2 Comprobamos
 
 * Abrimos una nueva terminal.
