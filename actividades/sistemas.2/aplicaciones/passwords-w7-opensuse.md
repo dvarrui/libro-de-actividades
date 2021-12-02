@@ -196,10 +196,12 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 * Enlace de interés: [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)
 
-### Ubuntu
+### XUbuntu 20
 
 Realizar los siguientes pasos:
-* Iniciar MV Windows con ISO de Ubuntu (que funciona también como CDLIVE).
+* Iniciar MV Windows con ISO de XUbuntu 20 (que funciona también como CDLIVE).
+    * Elegir idioma español.
+    * Probar el sistema lo inicia en modo LIVE.
 
 Localizar la partición de Windows:
 * Abrir un terminal como usuario root.
