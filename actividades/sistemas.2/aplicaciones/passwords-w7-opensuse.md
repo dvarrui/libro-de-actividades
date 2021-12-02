@@ -183,8 +183,9 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 * Ejecutamos `yast`
 
 > Usaremos:
-> * la tecla tabulador para movernos por los campos, y
-> * la tecla enter para entrar/aceptar opciones
+> * la tecla "tabulador" para movernos por los campos,
+> * la tecla "espacio" para marcar/desmarcar opciones, y
+> * la tecla "enter" para entrar/aceptar opciones
 
 * Vamos a `Sistema -> Administrador de Servicios`
 * Cambiamos `Estado predeterminado` a `Graphical Interface`.
