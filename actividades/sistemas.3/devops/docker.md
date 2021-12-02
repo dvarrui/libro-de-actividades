@@ -263,6 +263,8 @@ CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
 > * Enlace de interés: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/
 
+Descripción de los parámetros del Dockerfile:
+
 | Parámetro  | Descripción |
 | ---------- | ----------- |
 | FROM       | Imagen a partir de la cual se creará el contenedor |
@@ -271,6 +273,8 @@ CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 | COPY       | Copiar un fichero dentro del contenedor |
 | EXPOSE     | Puerto de contenedor que será visible desde el exterior |
 | CMD        | Comando que se ejecutará al iniciar el contenedor |
+
+> Ahora no nos hace falta el script /root/server.sh que mantenía la aplicación "despierta" porque estamos invocando (Instrucción CMD) al servidor Nginx con los parámetros "-g" y "daemon off;" que mantienen el servicio activo.
 
 ## 4.2 Crear imagen a partir del `Dockerfile`
 
@@ -294,7 +298,7 @@ Desde otra terminal:
     * URL `http://localhost:PORTNUMBER`
     * URL `http://localhost:PORTNUMBER/holamundo2.html`
 
-Ahora que sabemos usar los ficheros Dockerfile, nos damos cuenta que es más sencillo usar estos ficheros para intercambiar con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
+Ahora que sabemos usar los ficheros Dockerfile, vemos que es más sencillo usar estos ficheros para intercambiar con nuestros compañeros que las herramientas de exportar/importar que usamos anteriormente.
 
 ## 4.4 Usar imágenes ya creadas
 
@@ -362,7 +366,7 @@ CMD ["/root/holamundoXX.sh"]
 
 * Registrarse en Docker Hub.
 * `docker login -u USUARIO-DOCKER`, para abrir la conexión.
-* `docker tag nombre-alumno/holamundo:latest USUARIO-DOCKER/holamundo:version1`, etiquetamos la imagen con "version1".
+* `docker tag USUARIO-DOCKER/holamundo:latest USUARIO-DOCKER/holamundo:version1`, etiquetamos la imagen con "version1".
 * `docker push USUARIO-DOCKER/holamundo:version1`, para subir la imagen (version1) a los repositorios de Docker.
 
 # 6. Limpiar contenedores e imágenes
