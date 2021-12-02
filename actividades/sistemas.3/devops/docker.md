@@ -74,6 +74,10 @@ Tabla de referencia para no perderse:
 | Vagrant    | Box    | Máquinas virtuales | N |
 | Docker     | Imagen | Contenedores       | 1 |
 
+Veamos cómo es el flujo de trabajo con los contenedores Docker:
+
+![](images/docker-flujo.png)
+
 Comandos útiles de Docker:
 
 | Comando                   | Descripción           |
@@ -88,16 +92,10 @@ Comandos útiles de Docker:
 
 ## 1.4 Alias
 
-Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregar los siguientes alias al fichero `/home/nombre-alumno/.alias`:
+Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregaremos `alias d='docker'` a nuestro fichero `/home/nombre-alumno/.alias`.
 
-```
-alias di='docker images'
-alias dp='docker ps'
-alias dpa='docker ps -a'
-alias drm='docker rm '
-alias drmi='docker rmi '
-alias ds='docker stop '
-```
+Ahora `d ps` equivale a `docker ps`.
+
 # 2. Creación manual de nuestra imagen
 
 Nuestro SO base es OpenSUSE, pero vamos a crear un contenedor Debian,
