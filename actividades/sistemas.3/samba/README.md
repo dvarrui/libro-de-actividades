@@ -261,7 +261,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 
 ```
-mount -t cifs //172.AA.XX.31/castilloXX /mnt/remotoXX/castillo -o username=soldado1
+mount -t cifs //IP-servidor-Samba/castilloXX /mnt/remotoXX/castillo -o username=soldado1
 ```
 
 > En versiones anteriores de GNU/Linux se usaba el comando: `smbmount //172.AA.XX.31/public /mnt/remotoXX/public/ -o -username=sambaguest`.
