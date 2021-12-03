@@ -22,8 +22,8 @@ puts texto #Mostrar variable en la pantalla
 # 2. Métodos, Array e iteraciones
 
 ```
-ri String #Consultar la documentación de la clase String
-ri String#downcase #Consultar la documentación del método downcase de la clase String
+ri String          # Consultar la documentación de la clase String
+ri String#downcase # Consultar la documentación del método downcase de la clase String
 
 a = `pwd` #Ejecutar un comando y guardar la salida en la variable <a> como String
 b = system("pwd") #Ejecuta un comando y devuelve true/false indicando si se ha ejecutado correctamente o no
