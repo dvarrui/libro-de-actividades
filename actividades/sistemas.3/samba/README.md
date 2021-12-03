@@ -66,11 +66,11 @@ por comandos editando el fichero `/etc/passwd`.
     * `chmod 755 /srv/sambaXX`
 * Vamos a crear las carpetas para los recursos compartidos de la siguiente forma:
 
-| Recurso  | Directorio              | Usuario    | Grupo      | Permisos |
-| -------- | ----------------------- | ---------- | ---------- | -------- |
-| public   | /srv/sambaXX/public.d   | supersamba | sambausers | 770 |
-| castillo | /srv/sambaXX/castillo.d | supersamba | soldados   | 770 |
-| barco    | /srv/sambaXX/barco.d    | supersamba | piratas    | 770 |
+| Recurso    | Directorio              | Usuario    | Grupo      | Permisos |
+| ---------- | ----------------------- | ---------- | ---------- | -------- |
+| publicXX   | /srv/sambaXX/public.d   | supersamba | sambausers | 770 |
+| castilloXX | /srv/sambaXX/castillo.d | supersamba | soldados   | 770 |
+| barcoXX    | /srv/sambaXX/barco.d    | supersamba | piratas    | 770 |
 
 ## 1.4 Configurar el servidor Samba
 
@@ -96,12 +96,12 @@ Los puertos SMB/CIFS (139 y 445) deben estar abiertos.
 Vamos a configurar los recursos compartidos de red en el servidor.
 Podemos hacerlo modificando el fichero de configuración o por entorno gráfico con Yast.
 
-* Tenemos que conseguir una configuración con las secciones: `global`, `public`,
-`barco`, y `castillo` como la siguiente:
+* Tenemos que conseguir una configuración con las secciones: `global`, `publicXX`,
+`barcoXX`, y `castilloXX` como la siguiente:
     * Donde pone XX, sustituir por el número del puesto de cada uno.
-    * `public`, será un recurso compartido accesible para todos los usuarios en modo lectura.
-    * `barco`, recurso compartido de red de lectura/escritura para todos los piratas.
-    * `castillo`, recurso compartido de red de lectura/escritura para todos los soldados.
+    * `publicXX`, será un recurso compartido accesible para todos los usuarios en modo lectura.
+    * `barcoXX`, recurso compartido de red de lectura/escritura para todos los piratas.
+    * `castilloXX`, recurso compartido de red de lectura/escritura para todos los soldados.
 * Podemos modificar la configuración:
     * (a) Editando directamente el ficher `/etc/samba/smb.conf` o
     * (b) `Yast -> Samba Server -> Recursos compartidos -> Configurar`.
@@ -117,19 +117,19 @@ Ejemplo de fichero de configuración:
   map to guest = bad user
   guest account = sambaguest
 
-[public]
+[publicXX]
   comment = public de nombre-alumno-XX
   path = /srv/sambaXX/public.d
   guest ok = yes
   read only = yes
 
-[castillo]
+[castilloXX]
   comment = castillo de nombre-alumno-XX
   path = /srv/sambaXX/castillo.d
   read only = no
   valid users = @soldados
 
-[barco]
+[barcoXX]
   comment = barco de nombre-alumno-XX
   path = /srv/sambaXX/barco.d
   read only = no
@@ -174,11 +174,11 @@ Desde un cliente Windows vamos a acceder a los recursos compartidos del servidor
 
 ![samba-win7-cliente-gui](./images/samba-win7-client-gui.png)
 
-* Acceder al recurso compartido `public`.
-* Acceder al recurso compartido `castillo` con el usuario `soldado`.
+* Acceder al recurso compartido `publicXX`.
+* Acceder al recurso compartido `castilloXX` con el usuario `soldado`.
     * `net use` para ver las conexiones abiertas desde un terminal con nuestro usuario normal.
     * `net use * /d /y`, para borrar todas las conexión SMB/CIFS que se hayan realizado desde un terminal con nuestro usuario normal.
-* Acceder al recurso compartido `barco` con el usuario `pirata`.
+* Acceder al recurso compartido `barcoXX` con el usuario `pirata`.
 * Ir al servidor Samba.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `smbstatus`, desde el servidor Samba.
@@ -233,8 +233,8 @@ pulsamos CTRL+L y escribimos `smb://IP-SERVIDOR-SAMBA`:
 en **Dominio** el *nombre-netbios-del-servidor-samba*.
 
 Capturar imagen de lo siguiente:
-* Probar a crear carpetas/archivos en `castillo` y en  `barco`.
-* Comprobar que el recurso `public` es de sólo lectura.
+* Probar a crear carpetas/archivos en `castilloXX` y en  `barcoXX`.
+* Comprobar que el recurso `publicXX` es de sólo lectura.
 * Capturar imagen de los siguientes comandos para comprobar los resultados:
     * `sudo smbstatus`, desde el servidor Samba.
     * `sudo lsof -i -Pn`, desde el servidor Samba.
@@ -261,7 +261,7 @@ equipo usaremos comandos para acceder a la carpeta compartida.
 * **MONTAJE MANUAL**: Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:
 
 ```
-mount -t cifs //172.AA.XX.31/castillo /mnt/remotoXX/castillo -o username=soldado1
+mount -t cifs //172.AA.XX.31/castilloXX /mnt/remotoXX/castillo -o username=soldado1
 ```
 
 > En versiones anteriores de GNU/Linux se usaba el comando: `smbmount //172.AA.XX.31/public /mnt/remotoXX/public/ -o -username=sambaguest`.
@@ -290,7 +290,7 @@ debemos configurar el fichero `/etc/fstab`.
 * Modificar el fichero, incluyendo una línea de la siguiente forma:
 
 ```
-//IP-servidor-samba/public /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
+//IP-servidor-samba/publicXX /mnt/remotoXX/public cifs username=soldado1,password=CLAVE-DE-SOLDADO1 0 0
 ```
 
 * Reiniciar el equipo y comprobar que se realiza el montaje automático al inicio (df -hT).
