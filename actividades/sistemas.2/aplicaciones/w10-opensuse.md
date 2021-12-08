@@ -7,7 +7,6 @@ Requisitos  : Windows 10 y OpenSUSE
 Tiempo      :
 ```
 
----
 # Instalar aplicaciones y actualizar el sistema (Windows + OpenSUSE)
 
 En esta actividad vamos a practicar diversas formas de realizar la instalación de aplicaciones en varios sistemas operativos, así como la forma de mantener nuestros sistemas actualizados.
@@ -177,6 +176,11 @@ desde el código fuente.
 # ANEXO
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
+
+## A.2 Flatpack vs Snap
+
+* https://docs.flatpak.org/en/latest/first-build.html
+* https://www.compostela21.com/tutorial_de_creacion_de_paquetes_snap_con_snapcraft_163.html
 
 ## A.1 Instalación desde las fuentes
 
