@@ -47,10 +47,10 @@ administradores, para que puedan actuar como superusuarios.
 
 > **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
 
-* Entrar como el usuario `jedi1`
-    * Crear la carpeta `C:\Users\jedi1\private`
-    * Crear la carpeta `C:\Users\jedi1\group`
-    * Crear la carpeta `C:\Users\jedi1\public`
+* Entrar como el usuario `jedi1`.
+* Crear la carpeta `C:\Users\jedi1\privateXX` (Sustituir XX por el número asignado a cada alumno)
+* Crear la carpeta `C:\Users\jedi1\groupXX`
+* Crear la carpeta `C:\Users\jedi1\publicXX`
 
 > **INFORMACIÓN sobre Permisos NTFS**
 >
@@ -64,11 +64,10 @@ en una carpeta determinada, haremos lo siguiente:
 >
 > Para modificar los permisos de una carpeta vamos a `Botón derecho -> Propiedades -> Seguridad -> Editar`.
 
-* Vamos a modificar los permisos de la siguiente forma:
-    * `private`: El usuario propietario tendrá control total y nadie más tendrá permisos.
-    * `group`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
-    * `public`: todos tienen permiso de lectura, y el usuario propietario control total.
-
+Vamos a modificar los permisos de la siguiente forma:
+* `privateXX`: El usuario propietario tendrá control total y nadie más tendrá permisos.
+* `groupXX`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
+* `publicXX`: todos tienen permiso de lectura, y el usuario propietario control total.
 * Capturar imagen del resultado de la asignación de permisos.
 
 Veamos un ejemplo de permisos para la carpeta public:
@@ -86,14 +85,14 @@ Veamos un ejemplo de permisos para la carpeta public:
     * `net user USERNAME /add`, para crear usuarios.
     * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario dentro de un grupo.
 
-> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que aparezca como iconos de la ventana de inicio de sesión del sistema.
+> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que aparezca como icono de la ventana de inicio de sesión del sistema.
 
 **Asignar permisos**
 
 * Entrar con el usuario `sith2`.
-    * Crear la carpeta `C:\Users\sith2\private`
-    * Crear la carpeta `C:\Users\sith2\group`
-    * Crear la carpeta `C:\Users\sith2\public`
+* Crear la carpeta `C:\Users\sith2\privateXX`
+* Crear la carpeta `C:\Users\sith2\groupXX`
+* Crear la carpeta `C:\Users\sith2\publicXX`
 
 > Veamos un ejemplo de permisos por comandos:
 >
@@ -105,11 +104,9 @@ Veamos un ejemplo de permisos para la carpeta public:
 > * `icacls directorio /remove USERNAME`, Para quitar el acceso al usuario USERNAME
 
 Modificar los permisos de la siguiente forma:
-* `private`: Sólo el usuario propietario tendrá control total.
-* `group`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
-* `public`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
-
----
+* `privateXX`: Sólo el usuario propietario tendrá control total.
+* `groupXX`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
+* `publicXX`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
 
 # 2. SO GNU/Linux OpenSUSE
 
@@ -121,14 +118,6 @@ Modificar los permisos de la siguiente forma:
 
 ## 2.2 Usando el GUI GNU/Linux
 
-* Capturar imagen del resultado final.
-* Crear el grupo `jedis`.
-* Crear los usuarios `jedi3` y `jedi4` dentro de los grupo `jedis` y `users`.
-* Entrar como el usuario `jedi3`
-    * Crear la carpeta `/home/jedi3/private`
-    * Crear la carpeta `/home/jedi3/group`
-    * Crear la carpeta `/home/jedi3/public`
-
 > Veamos un ejemplo de permisos por el entorno GUI, donde:
 > * Permiso R = Ver contenido
 > * Permiso W = Cambiar contenido
@@ -136,11 +125,20 @@ Modificar los permisos de la siguiente forma:
 >
 > ![linux-permisos-gui](./images/linux-permisos-gui.png)
 
+Entrar como usuario root:
+* Crear el grupo `jedis`.
+* Crear los usuarios `jedi3` y `jedi4` dentro de los grupo `jedis` y `users`.
+
+Entrar como el usuario `jedi3`
+* Crear la carpeta `/home/jedi3/privateXX`
+* Crear la carpeta `/home/jedi3/groupXX`
+* Crear la carpeta `/home/jedi3/publicXX`
 * Capturar imagen del resultado final de cada carpeta.
-* Modificar los permisos de las carpetas de la siguiente forma:
-    * `private`: Sólo el usuario propietario tendrá todos los permisos.
-    * `group`: grupo `jedis` permisos de lectura/ejecución, y usuario propietario todos los permisos.
-    * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+
+Modificar los permisos de las carpetas de la siguiente forma:
+* `privateXX`: Sólo el usuario propietario tendrá todos los permisos.
+* `groupXX`: grupo `jedis` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+* `publicXX`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 
 ## 2.3 Sudoers (Grupo privilegiado)
 
@@ -149,17 +147,19 @@ Pero dicho comando sólo lo pueden ejecutar algunos elegidos.
 
 ![opensuse-sudoers](./images/opensuse-sudoers.png)
 
-
 Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para la siguiente configuración de permisos.
 * Ir a `Yast -> Sudo`. Si no nos aparece esta opción en Yast, entonces la podemos instalar con `sudo zypper in yast2-sudo`.
 * Añadir la línea siguiente `%jedis ALL = (root) NOPASSWD:ALL` al fichero de configuración de sudoers, para permitir que los usuarios del grupo `jedis` puedan usar el comando sudo.
 
-> Los campos de la configuración anterior significan lo siguiente:
-> * `Usuarios -> %jedis`, a todos los usuarios jedis
-> * `Host -> ALL`
-> * `Ejecutar como -> (root)`, puede ejecutar como usuario root.
-> * `Sin contraseña -> Si`
-> * `Comandos -> ALL`, todos los comandos están permitidos.
+Los campos de la configuración anterior significan lo siguiente:
+
+| Campo          | Valor  | Descripción |
+| -------------- | ------ | ----------- |
+| Usuarios       | %jedis | Todos los usuarios del grupo jedis |
+| Host           | ALL    | En todos los hosts |
+| Ejecutar como  | (root) | Cuando se use sudo nos convertiremos en root |
+| Sin contraseña | Si     | Solicitará nuestra contraseña |
+| Comandos       | ALL    | Se permite ejecutar todos los comandos con sudo |
 
 * Guardar y salir. Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
 * Entrar al sistema con el usuario `jedi3` y ejecutar `sudo -l` para consultar la configuración de sudoers.
@@ -191,13 +191,13 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
     * Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
     * La opcion "-m" es para crear el HOME del usuario al crear el usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
-    * Se puede usar el comando "usemod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
+    * Se puede usar el comando "usermod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
 * Para poner la clave al usuario podemos hacer "passwd USUARIO".
 
-* Comprobaciones:
-    * `id sith4` para comprobar que el usuario existe.
-    * `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
-    * `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
+Comprobaciones:
+* `id sith4` para comprobar que el usuario existe.
+* `vdir /home`, para comprobar si existe la carpeta HOME del usuario.
+* `cat /etc/passwd | grep sith4`, para consultar la información del usuario dentro del fichero /etc/passwd.
 * Ejecutar el comando `cat /etc/passwd`. Así vemos todos los usuarios definidos el el sistema. Algunos son usados por personas físicas, y otros son internos para uso de aplicaciones o del sistema operativo.
 
 > Información de comandos:
@@ -207,13 +207,13 @@ Vamos a usar Yast por entorno gráfico (Ver ejemplo en la imagen anterior) para 
 
 **Crear las carpetas y modificar los permisos**
 * Entrar como el usuario `sith4`
-    * Crear la carpeta `/home/sith4/private`
-    * Crear la carpeta `/home/sith4/group`
-    * Crear la carpeta `/home/sith4/public`
+    * Crear la carpeta `/home/sith4/privateXX`
+    * Crear la carpeta `/home/sith4/groupXX`
+    * Crear la carpeta `/home/sith4/publicXX`
 * Cambiar los permisos de la siguiente forma:
-    * `private`: Sólo el usuario propietario tendrá todos los permisos.
-    * `group`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
-    * `public`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
+    * `privateXX`: Sólo el usuario propietario tendrá todos los permisos.
+    * `groupXX`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
+    * `publicXX`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 * Comprobamos con "vdir".
 
 ## 2.5 Configurar `sudoers` para el otro grupo
