@@ -170,29 +170,29 @@ Los campos de la configuración anterior significan lo siguiente:
 
 ## 2.4 Usando los comandos
 
-> Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
+> Enlace de interés:
+> * Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
-* Recuerda que hay que capturar imagen del resultado final.
+**Crear el grupo**
+
+> Pista: Podemos usar el comando `groupadd`, para crear nuevo grupo.
+
+* Crear el grupo `siths`.
+
+**Crear los usuarios**
 
 > Información de comandos:
 > * `useradd`, Crear usuario. Podemos usar los siguientes parámetros:
->     * -m para crear carpeta home del usuario. Ejemplo: `useradd obiwan -m`.
->     * -g para definir el grupo principal del usuario.
+>     * -m para crear carpeta home del usuario. Ejemplo: `useradd obiwan -m`. La opcion "-m" es para crear el HOME del usuario al crear el usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
+>     * -g para definir el grupo principal del usuario. Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
 >     * -G para incluir el usuario en otros grupos.
 >     * -p para definir una constraseña/password al nuevo usuario.
-> * `passwd`, establecer la contraseña del usuario.
+> * `passwd`, establecer la contraseña del usuario. Ejemplo: `passwd USUARIO`.
 > * `userdel`, para borrar usuario.
-> * `usermod`, para modificar un usuario.
-> * `groupadd`, para crear nuevo grupo.
+> * `usermod`, para modificar un usuario. Se puede usar el comando "usermod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
 
-**Crear el grupo y los usuarios**
-
-* Crear el grupo `siths` (Usar comando "groupadd").
 * Crear los usuarios `sith3` y `sith4` dentro de los grupos `siths` y `users`.
-    * Podemos usar el comando "useradd USUARIO -m -g GRUPOPRINCIPAL -G OTROSGRUPOS".
-    * La opcion "-m" es para crear el HOME del usuario al crear el usuario. **¡OJO!** Un error típico es crear a los usuarios sin su carpeta HOME.
-    * Se puede usar el comando "usermod USUARIO -a -G GRUPO", para añadir un usuario que ya existe a un grupo determinado.
-* Para poner la clave al usuario podemos hacer "passwd USUARIO".
+* Para poner la clave al usuario podemos hacer.
 
 Comprobaciones:
 * `id sith4` para comprobar que el usuario existe.
