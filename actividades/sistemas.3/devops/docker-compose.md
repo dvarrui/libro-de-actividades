@@ -67,7 +67,10 @@ Este fichero se encarga se suministrar la información necesaria para crear el c
 
 * `docker-compose config`, comprobamos que el fichero esté bien escrito.
 * `docker-compose ps`, comprobamos que todavía no se ha creado el contenedor.
-* `docker-compose up -d`, iniciamos *Compose*.
+* `docker-compose up`, iniciamos *Compose* en primer plano (foreground).
+* Abrimos otro terminal (sin cerrar el anterior).
+
+En el terminal2:
 * `docker-compose ps`, comprobamos que se ha creado el contenedor.
 * `docker ps`, también lo comprobamos con el comando de Docker.
 * Abrir navegador. URL localhost:8081 y comprobar que se ve nuestra página web.
@@ -75,40 +78,46 @@ Este fichero se encarga se suministrar la información necesaria para crear el c
 ## 2.3 Cambios en "caliente"
 
 Ahora vamos a ver que si hacemos cambios en el contenido de los ficheros dentro del volumen, podemos hacer cambios en "caliente".
+* Ir al terminal 2.
 * Modificar "index.html"
 * Abrir navegador y validar los cambios.
 
 Ahora vamos a apagar los contenedores
+* Ir al terminal 2.
 * `docker-compose down`.
 * `docker-compose ps`.
 * `docker ps -a`
+* Si volvemos al terminal 1 veremos que el comando se terminó y liberó el terminal.
 
 Es más sencillo gestionar contenedores con *Compose* que con los comandos de Docker.
 
 # 3. Gestionar un contenedor Mysql con volumen
 
-* Vamos a la web hub.docker.com y buscamos algún contenedor Mysql.
-* Consultar información sobre las variables de entorno.
-
-Terminal 1:
+* Consultar información:
+    * Vamos a la web hub.docker.com y buscamos algún contenedor Mysql.
+    * Consultar información sobre las variables de entorno.
 * Crear directorio `composeXXmysql`.
 * Crear directorio `composeXXmysql/data`. Usaremos este directorio para mantener la información de la base de datos.
-* Crear fichero `docker-compose.yaml`:
-    * Servicio que se llama "database".
-    * Imagen basada en "mysql".
-    * Redirigir el puerto de mysql (3306).
-    * Incluir esta configuración `command: --default-authentication-plugin=mysql_native_password`.
-    * Poner la clave de Mysql ROOT como variable de Entorno.
-    * Definir un volumen para que los datos de la base de datos sean persistentes. Mapearemos a carpeta "./data" con el directorio "/var/lib/mysql" del contenedor".
-* `docker-compose config`, validar que está bien escrito el fichero.
-* `docker-compose up`, levantar los contenedores.
 
-Terminal 2:
+Crear fichero `docker-compose.yaml` conlo siguiente:
+* Servicio que se llama "database".
+* Imagen basada en "mysql".
+* Redirigir el puerto de mysql (3306).
+* Incluir esta configuración `command: --default-authentication-plugin=mysql_native_password`.
+* Poner la clave de Mysql ROOT como variable de Entorno.
+* Definir un volumen para que los datos de la base de datos sean persistentes. Mapearemos a carpeta "./data" con el directorio "/var/lib/mysql" del contenedor".
+
+En el terminal:
+* `docker-compose config`, validar que está bien escrito el fichero.
+* `docker-compose up -d`, levantar los contenedores en segundo plano (parámetro -d).
+* Si queremos ver los "logs" generados hacemos `docker-compose logs`. Esto nos sirve para depurar o solucionar problemas que puedan surgir.
 * `docker-compose ps`, comprobar que los contenedores están en ejecución.
+
+Comprobamos el MySQL:
 * `nmap -Pn localhost`, comprobar que el puerto (mysql) está abierto.
 * Usar el cliente mysql para acceder a la base de datos que gestiona el contenedor, y vamos a escribir algo dentro.
 ```
-$ mysql -h 192.168.1.141 -u root  -p
+$ mysql -h IP-DE-LA-MAQUINA -u root  -p
 mysql> create database alumnoXX
 mysql> show databases
 mysql> quit
@@ -117,10 +126,8 @@ $
 * `docker-compose down`, destruimos los contenedores.
 * `docker-compose ps`, comprobamos.
 
-Terminal 1:
-* `docker-compose up`, volvemos a levantar los contenedores.
-
-Terminal 2: Comprobar la persistencia de los datos en Mysql.
+Comprobar la persistencia de los datos en Mysql:
+* `docker-compose up -d`, volvemos a levantar los contenedores.
 * Usar el cliente Mysql para volver a entrar en la base de datos y confirmar que se mantiene la información que habíamos escrito.
 
 # 4. Gestionar dos contenedores
@@ -132,9 +139,17 @@ Ahora vamos a hacer un nuevo proyecto de *Compose*, donde vamos a gestionar 2 co
 
 * Crear directorio `composeXXwp`
 * Crear directorio `composeXXwp/data`. Este directorio contendrá los datos de la base de datos MariaDB.
-* Crear directorio `composeXXwp/html`. Este directorio guardará los ficheros (html, css, phph, etc.) de la herramienta Wordpress.
+* Crear directorio `composeXXwp/html`. Este directorio guardará los ficheros (html, css, php, etc.) de la herramienta Wordpress.
 * Crear fichero `composeXXwp/docker-compose.yaml` siguiendo las instrucciones del enlace anterior, para crear una configuración de Compose para gestionar 2 contenedores: uno con Wordpress y el otro con la base de datos MariaDB.
-* Comprobarlo.
+* Configuración para el contenedor de MySQL:
+    * Usar como volumen el directorio "./data".
+    * Configurar variables de entorno según documentación.
+* Configuración para el contenedor de Wordpress:
+    * Este contenedor depende del anterior (base de datos).
+    * Usar como volumen el directorio "./html".
+    * Configurar variables de entorno según documentación.
+    * Configurar la redirección de puertos.
+* Comprobar que funciona correctamente.
 
 Como vemos *Compose* es una buena herramienta para gestionar contenedores Docker dentro de un host local. Existen otras herramientas más potentes capaces de gestionar contenedores en varios hosts de nuestra red: Swarm y Kubernetes.
 
