@@ -76,18 +76,18 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ## 1.2 Usando los comandos Windows
 
-**Crear usuarios**
+### 1.2.1 Crear usuarios
 
 * Buscar la herramienta PowerShell. Botón derecho y ejecutar como Administrador.
 * `net localgroup`, para ver los grupos.
 * `net localgroup siths /add`, crear el grupo `siths`.
-* Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`.
+* Pondremos a los usuarios `sith1` y `sith2`, dentro de los grupos `siths` y `usuarios`. Veamos unas pistas:
     * `net user USERNAME /add`, para crear usuarios.
     * `net localgroup GROUPNAME USERNAME /add`, para incluir un usuario dentro de un grupo.
 
-> Al incluir a un usuario como miembro del grupo Usuarios conseguimos que aparezca como icono de la ventana de inicio de sesión del sistema.
+> Al incluir a un usuario como miembro del grupo "Usuarios" conseguimos que aparezca como icono de la ventana de inicio de sesión del sistema.
 
-**Asignar permisos**
+### 1.2.2 Asignar permisos
 
 * Entrar con el usuario `sith2`.
 * Crear la carpeta `C:\Users\sith2\privateXX`
@@ -173,13 +173,9 @@ Los campos de la configuración anterior significan lo siguiente:
 > Enlace de interés:
 > * Vídeo sobre [permisos en GNU/Linux](https://www.youtube.com/embed/Lq0UMXujGyc)
 
-**Crear el grupo**
+### 2.4.1 Grupos y usuarios
 
-> Pista: Podemos usar el comando `groupadd`, para crear nuevo grupo.
-
-* Crear el grupo `siths`.
-
-**Crear los usuarios**
+* Crear el grupo `siths`. Pista: Podemos usar el comando `groupadd`, para crear nuevo grupo.
 
 > Información de comandos:
 > * `useradd`, Crear usuario. Podemos usar los siguientes parámetros:
@@ -205,7 +201,8 @@ Comprobaciones:
 > * `chgrp`, cambiar grupo propietario.
 > * `chmod`, cambiar permisos de acceso.
 
-**Crear las carpetas y modificar los permisos**
+### 2.4.2 Crear las carpetas y modificar los permisos
+
 * Entrar como el usuario `sith4`
     * Crear la carpeta `/home/sith4/privateXX`
     * Crear la carpeta `/home/sith4/groupXX`
@@ -216,10 +213,10 @@ Comprobaciones:
     * `publicXX`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
 * Comprobamos con "vdir".
 
-## 2.5 Configurar `sudoers` para el otro grupo
+## 2.5 Configurar `sudoers` por comandos
 
 Vamos a configurar los permisos "sudo" por comandos.
-* Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`).
+* Editar el fichero de configuración `/etc/sudoers` directamente con nano  (o usando el comando `visudo`. Para salir del editor usamos la secuencia ESC:q).
 * Añadir la siguiente información para configurar el grupo `siths` en el fichero `/etc/sudoers`:
 ```
 %siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l
