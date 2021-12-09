@@ -104,7 +104,7 @@ Crear fichero `docker-compose.yaml` conlo siguiente:
 * Imagen basada en "mysql".
 * Redirigir el puerto de mysql (3306).
 * Incluir esta configuración `command: --default-authentication-plugin=mysql_native_password`.
-* Poner la clave de Mysql ROOT como variable de Entorno.
+* Poner la clave de Mysql ROOT como variable de Entorno (Leer la documentación para saber cómo se hace).
 * Definir un volumen para que los datos de la base de datos sean persistentes. Mapearemos a carpeta "./data" con el directorio "/var/lib/mysql" del contenedor".
 
 En el terminal:
