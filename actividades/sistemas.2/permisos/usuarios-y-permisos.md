@@ -4,7 +4,7 @@ Cursos      : 202122, 202021, 201920, 201817, 201716
 Área        : Sistemas operativos
 Descripción : Crear usuarios y asignar permisos
 Requisitos  : Windows y GNU/Linux
-Tiempo      :
+Tiempo      : 10 sesiones
 ```
 
 # Usuarios y permisos
@@ -33,7 +33,7 @@ herramienta está limitada. Nosotros vamos a ir a
 
 ## 1.1 Usando el GUI Windows
 
-**Crear usuarios**
+### 1.1.1 Crear usuarios
 
 * Crear el grupo `jedis`.
 * Crear los usuarios `jedi1` y `jedi2` dentro del grupo anterior.
@@ -43,7 +43,7 @@ administradores, para que puedan actuar como superusuarios.
 `Equipo -> Botón Derecho -> Administrar -> Usuarios y grupos`.
 * Capturar imagen.
 
-**Asignar permisos**
+### 1.1.2 Asignar permisos
 
 > **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
 
