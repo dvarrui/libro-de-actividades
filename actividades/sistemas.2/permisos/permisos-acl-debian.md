@@ -19,23 +19,24 @@ En una MV Debian hay que instalar el paquete `acl`, que es el que contiene los c
 * `getfacl`, consultar las ACL.
 * `setfacl`, modificar las ACL.
 
-> Veamos un ejemplo del clásico permisos user-group-others:
-> ```
-> david@quigon:~/tmp/sh$ vdir
-> total 4
-> -rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
-> ```
->
-> Ahora veamos un ejemplo de permisos ACL con getfacl:
-> ```
-> david@quigon:~/tmp/sh$ getfacl holamundo
-> # file: holamundo
-> # owner: david
-> # group: david
-> user::rwx
-> group::r-x
-> other::r-x
-> ```
+Veamos un ejemplo del clásico permisos user-group-others:
+
+```
+david@quigon:~/tmp/sh$ vdir
+total 4
+-rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
+```
+
+Ahora veamos un ejemplo de permisos ACL con getfacl:
+```
+david@quigon:~/tmp/sh$ getfacl holamundo
+# file: holamundo
+# owner: david
+# group: david
+user::rwx
+group::r-x
+other::r-x
+```
 
 ## 1.2 INFO Ejemplo de activación manual
 
@@ -54,7 +55,7 @@ mount /dev/partition -o defaults,acl /punto/de/montaje
 Podemos usar el comando mount sin parámetros para verificar que todo está montado según nuestras intenciones.
 
 A continuación probamos el comando `setfacl` para añadir permiso de lectura
-al usuario invitado sobre el fichero holamundo .
+al usuario `invitado` sobre el fichero `holamundo`.
 
 ```
 david@quigon:~/tmp/sh$ vdir
@@ -62,6 +63,15 @@ total 4
 -rwxr-xr-x 1 david david 19 2011-02-03 22:52 holamundo*
 david@quigon:~/tmp/sh$ setfacl -m u:invitado:r holamundo
 ```
+
+| Parámetro | Descripción |
+| --------- | ----------- |
+| setfacl   | Comando para poner permisos ACL |
+| -m        | Modificar ACL |
+| u         | Modificar un usuario  |
+| invitado  | Usuario invitado |
+| r         | Permiso de lectura |
+| holamundo | Nombre del fichero |
 
 * Ejecutamos `getfacl` para comprobar que el resultado es el que esperábamos.
 
@@ -76,6 +86,8 @@ group::r-x
 mask::r-x
 other::r-x
 ```
+
+> Para quitar los permisos hacemos `setfacl -x u:invitado holamundo`.
 
 ## 1.3 INFO ejemplo de Activación automática
 
