@@ -166,7 +166,7 @@ Crear los grupos y usuarios:
 
 > NOTA:
 >
-> * Para poner permiso ACL r al usuario invitado: `setfacl -m u:invitado:r holamundo`
+> * Para poner permiso ACL r (read) al usuario invitado: `setfacl -m u:invitado:r holamundo`
 > * Para quitar los permisos ACL al usuario luke: `setfacl -x u:luke holamundo`
 
 Crear carpetas y poner permisos ACL:

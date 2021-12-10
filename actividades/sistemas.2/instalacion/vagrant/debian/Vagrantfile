@@ -1,0 +1,25 @@
+#-*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+ config.vm.define "idp-debian" do |i|
+   i.vm.box = "generic/debian10"
+   i.vm.hostname = "vargas42d.curso2122"
+   i.vm.network "public_network", bridge: [
+     "wlan0",
+     "eth0",
+   ]
+
+   i.vm.synced_folder "./", "/vagrant"
+   i.vm.provision "shell", inline: <<-SHELL
+     echo "[INFO] Installing tools..."
+     apt update
+     apt install -y vim tree nmap git
+
+   SHELL
+   i.vm.provider "virtualbox" do |v|
+     v.name = 'idp-debian'
+     v.memory = 2048
+   end
+ end
+end
