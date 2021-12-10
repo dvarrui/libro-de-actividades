@@ -292,6 +292,8 @@ A continuación vamos a crear un contenedor con el nombre `app4nginx2`, a partir
 docker run --name=app4nginx2 -p 8082:80 -t nombre-alumno/nginx2
 ```
 
+* El terminal se ha quedado "bloqueado" porque el comando anterior no ha terminado y lo hemos lanzado en primer plano (foreground). Vamos a abrir otro terminal.
+
 Desde otra terminal:
 * `docker ps`, para comprobar que el contenedor está en ejecución y en escucha por el puerto deseado.
 * Comprobar en el navegador:
@@ -323,7 +325,16 @@ RUN chmod 666 /usr/share/nginx/html/holamundo3.html
 
 * Poner el el directorio `dockerXXb` los ficheros que se requieran para construir el contenedor.
 * `docker build -t nombre-alumno/nginx3 .`, crear la imagen.
-* `docker run --name=app5nginx3 -d -p 8083:80 nombre-alumno/nginx3`, crear contenedor.
+* `docker run -d --name=app5nginx3 -p 8083:80 nombre-alumno/nginx3`, crear contenedor. En este caso hemos añadido la opción "-d" que sirve para ejecutar el contenedor en segundo plano (background).
+
+| Parámetro            | Descripción |
+| -------------------- | ----------- |
+| docker run -d        | Crea un contenedor y lo ejecuta en segundo plano |
+| --name               | Nombre del nuevo contenedor |
+| -p                   | Redirección de puertos |
+|                      | Se expone el puerto 80 del contenedor por le puerto 8083 de la máquina anfitrión |
+| nombre-alumno/nginx3 | Imagen que se usará para crear el contenedor |
+
 * Comprobar el acceso a "holamundo3.html".
 
 # 5. Docker Hub
