@@ -125,9 +125,12 @@ En nuestro ejemplo tenemos:
     * `apt update`
     * `apt install -y xfce4`, instalar entorno gráfico XFCE4.
     * `reboot`, reiniciar la MV para trabajar con el entorno gráfico.
-* `fdisk -l`, comprobar que los discos/particiones que tenemos son correctos.
-* Identificar la partición que tenemos libre para usar en esta práctica. El comando `df -hT` nos debe informa que tenemos libre la partición `/dev/sda8`.
 * `apt install acl`, instalar el paquete/software que gestiona las ACL.
+
+Identificar la partición que tenemos libre para usar en esta práctica:
+* `fdisk -l`, comprobar que los discos/particiones que tenemos creados.
+* `df -hT` nos muestra las particiones que ya están montadas (y en uso).
+* Por tanto, aquella partición que fdisk indique que exista y que df no la muestre montada será la partición libre que usaremos (Probablemente debe ser `/dev/sda8`). Apuntamos este dato (nombre de la partición libre) para usarlo más adelante.
 
 ## 2.2 Montar el dispositivo (partición)
 
@@ -145,7 +148,7 @@ Ahora vamos a crear un nuevo punto de montaje en el fichero de configuración `/
 * `cat /etc/fstab`.
 * Reiniciar el sistema. Si la MV no arranca correctamente volver a la instantánea
 anterior y revisar los últimos cambios realizados.
-* `df -hT`, comprobar los puntos de montaje en el inicio:
+* `df -hT`, comprobar los puntos de montaje en el inicio.
 
 Ya tenemos activo el modo ACL en la partición seleccionada.
 
