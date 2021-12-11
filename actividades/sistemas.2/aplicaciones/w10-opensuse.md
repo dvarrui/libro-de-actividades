@@ -41,6 +41,15 @@ Los ficheros de instalación MSI, son programas de instalación que no nos hacen
     * Ejemplo 2: https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers
 * Instalar el programa MSI descargado. Recordar un fichero MSI no hace ninguna pregunta durante el proceso de instalación.
 
+## 1.4 Actualización del sistema
+
+* Hacer un snapshot de la MV por seguridad.
+
+Vamos a actualizar algunos paquetes:
+* Ir a `Windows Update`.
+* Consultar las actualizaciones pendientes.
+* Elegir 3 y aplicar actualización.
+
 # 2. Windows usando los comandos
 
 Capturar imágenes de los pasos realizados.
@@ -63,43 +72,35 @@ Vamos a instalar la herramienta Chocolatey:
     * 7z
     * Steam
 
-# 3. Windows - Actualización del sistema
 
-* Hacer un snapshot de la MV por seguridad.
-
-Vamos a actualizar algunos paquetes:
-* Ir a `Windows Update`.
-* Consultar las actualizaciones pendientes.
-* Elegir 3 y aplicar actualización.
-
-# 4. GNU/Linux usando el GUI
+# 3. GNU/Linux usando el GUI
 
 * Partimos de una [MV con OpenSUSE](../../global/configuracion/opensuse.md).
 
-## 4.1 Instalar paquetes
+## 3.1 Instalar software
 
 Las distribuciones GNU/Linux como OpenSUSE, usan un gestor de paquetes para instalar/desinstalar software. Esto funciona igual que un AppStore.
 
 > * Enlaces de interés:
 >     * [Gestión de software con Yast](https://es.opensuse.org/SDB:Gesti%C3%B3n_de_software_con_YaST)
 
-* Iniciar el gestor de paquetes ( `Inicio -> Yast -> Inst. Software`).
+* Iniciar el gestor de paquetes ( `Inicio -> Yast -> Instalar Software`).
 * Instalar por ejemplo algunos de los siguientes programas: `geany`, `gkrellm` y `vlc`.
 * Comprobar que funcionan los programas que hemos instalado.
 
-## 4.2 Desinstalar paquetes
+## 3.2 Desinstalar paquetes
 
 * Desinstalar la aplicación con el gestor de paquetes.
 * Comprobarlo.
 
-# 5. GNU/Linux usando los comandos
+# 4. GNU/Linux usando los comandos
 
 Capturar imágenes de los pasos realizados.
 
 > Enlace de interés:
 > * [Zypper](https://es.opensuse.org/Zypper)
 
-## 5.1 Instalar software
+## 4.1 Instalar software
 
 * Entramos en la consola como `root`.
 * Con `zypper refresh`, nos conectamos con los repositorios de software remotos para
@@ -110,7 +111,7 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 * Ejecutar el programa y ver que funciona.
 
-## 5.2 Desinstalar software
+## 4.2 Desinstalar software
 
 * Desinstalar el programa con `zypper ...`.
 
@@ -120,13 +121,13 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 * Ejecutar el programa y ver que no funciona.
 
-## 5.3 Instalar programa nativo de Windows en GNU/Linux
+## 4.3 Instalar programa nativo de Windows en GNU/Linux
 
 * Instalar el emulador Windows (`wine`).
 * Elegir un de programa Windows. Por ejemplo: Jhonny Simulator.
 * Ejecutarlo usando `wine`.
 
-## 5.4 Instalar programa desde rpm
+## 4.4 Instalar programa desde rpm
 
 > * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
@@ -148,7 +149,14 @@ Para comprobar que está el paquete instalado:
 
 Comprobamos que funciona bien el editor `atom`.
 
-## 5.5 Instalación desde el código fuente
+## 4.5 Actualización del sistema
+
+* Hacer un snapshot de la MV.
+* Entramos en la consola como `root`.
+* `zypper refresh`, para actualizar el catálogo de productos software disponible.
+* `zypper update`, para actualizar todas las aplicaciones del sistema.
+
+# 5. Instalación desde el código fuente
 
 GitHub es una plataforma donde los desarrolladores ponen sus proyectos de forma
 pública. Vamos a realizar la instalación de un programa alojado en este repositorio,
@@ -157,44 +165,28 @@ desde el código fuente.
 * Consultar la lista [Games on GitHub](https://github.com/leereilly/games)
 * Dentro de la sección `Native`, elegir un programa de la lista.
 * Consultar las instrucciones de instalación.
-* Descargar el proyecto.
-* Instalar el juego según las instrucciones.
+* Descargar el proyecto al equipo local (Botón `Code -> Download ZIP`).
+* Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
 
 > Ejemplos:
 > * Super Mario Bros Level 1.
 > * Zelda (https://github.com/solarus-games/zsdx): Este programa requiere la instalación de Solarus (motor de juegos RPG). Para instalar Solarus: `zypper install solarus solarus-gui`. Una vez instalado el motor hay que escribir el comando: `solarus-run data`, dentro de la carpeta descargada.
-
-## 6. GNU/Linux actualización del sistema
-
-* Hacer un snapshot de la MV.
-* Entramos en la consola como `root`.
-* `zypper refresh`, para actualizar el catálogo de productos software disponible.
-* `zypper update`, para actualizar todas las aplicaciones del sistema.
+> * [ASEprite](https://github.com/aseprite/aseprite)
+> * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
+> * http://www.valarsoft.com/
+> * http://goonies.jorito.net/ (SO recomendado Debian7)
+> * http://www.gameover.es/juegos-gratis/
+> * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
+> * Geany. El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
+> * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
+> * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
 ---
-
 # ANEXO
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
-## A.2 Flatpack vs Snap
+## A.1 Crear un paquete Flatpack y/o Snap
 
 * https://docs.flatpak.org/en/latest/first-build.html
 * https://www.compostela21.com/tutorial_de_creacion_de_paquetes_snap_con_snapcraft_163.html
-
-## A.1 Instalación desde las fuentes
-
-Realizar las siguientes tareas:
-* Elegir un programa/software/aplicación para instalar desde las fuentes. Ejemplos:
-    * [ASEprite](https://github.com/aseprite/aseprite)
-    * http://www.juegoslibres.net/linux/ghouls-and-ghost-version-libre.html
-    * http://www.valarsoft.com/
-    * http://goonies.jorito.net/ (SO recomendado Debian7)
-    * http://www.gameover.es/juegos-gratis/
-    * [Jhonny_Simulator sources](http://sourceforge.net/projects/johnnysimulator/files/?source=navbar)
-    * Si elijen otro programa deben consultarlo con el profesor. Por ejemplo Geany.
-    El [código fuente de Geany](https://github.com/geany/geany) está alojado en GitHub.
-    * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
-    * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
-* Descargar el código fuente desde internet.
-* Realizar la instalación según se indique en el documento README, INSTALL o SETUP.
