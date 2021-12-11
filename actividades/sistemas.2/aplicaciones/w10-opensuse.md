@@ -23,7 +23,7 @@ El SO Windows viene con software que se puede instalar si se necesita. Este soft
 * Capturar imagen del resultado final.
 * Vamos a las `Herramientas de Windows -> Panel de control -> Programas y características -> Activar o desactivar características de Windows`.
 * Instalar alguna característica, por ejemplo `Cliente Telnet`. Telnet es una herramienta (insegura y obsoleta) para acceder de forma a máquinas remotas.
-* Comprobamos. Abrimos un terminal y ejecutamos `telnet towel.blinkenlights.nl`.
+* Comprobamos. Abrimos un terminal y ejecutamos `telnet towel.blinkenlights.nl` (Pulsar CTRL+C o CTRL+D para salir).
 
 ## 1.2 Instalar aplicación
 
