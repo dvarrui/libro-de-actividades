@@ -102,14 +102,18 @@ Capturar imágenes de los pasos realizados.
 
 ## 4.1 Instalar software
 
+Instalación:
 * Entramos en la consola como `root`.
 * Con `zypper refresh`, nos conectamos con los repositorios de software remotos para
-actualziar la lista de software dispomible para instalar.
+actualizar la lista de software disponible (catálogo).
 * Instalar algún programa con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
+
+Comprobamos:
 * `zypper search nombre-programa`, comprobamos que el programa está instalado.
 Esto es, debe aparecer el programa y el estado (la primera columna) debe tener el símbolo `i` que significa que está instalado.
+* `zypper info atom`, consultar información sobre el paquete, y si está o no instalado.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
-* Ejecutar el programa y ver que funciona.
+* Desde el terminal, ejecutar el programa y ver que funciona.
 
 ## 4.2 Desinstalar software
 
@@ -144,7 +148,9 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 
 Para comprobar que está el paquete instalado:
 
-* `rpm -q atom`, usamo el programa rpm para consultar información del paquete.
+* Usamos los siguientes comandos para consultar información sobre el paquete, y si está o no instalado.
+    * `rpm -q atom`
+    * `zypper info atom`
 * `atom`, ejecutamos el programa atom.
 
 Comprobamos que funciona bien el editor `atom`.
