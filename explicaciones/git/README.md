@@ -96,7 +96,7 @@ Esto ¿cómo lo haremos?:
 > `git log --pretty=oneline` Para consultar en pantalla todos los textos de los commits.
 
 En el Moodle es conveniente indicar la URL del trabajo entregado vía Git.
-Que debe ser algo como *"usuario-git/add1516-nombrealumno/trim.3/unit.5/actividad1/README.md*".
+Que debe ser algo como *"usuario-git/add1516-nombrealumno/trim3/nombre-actividad/README.md*".
 
 Imagen que muestra el texto del *commit* asociado a la entrega:
 
