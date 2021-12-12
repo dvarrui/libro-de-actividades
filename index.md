@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2021-11-28 18:02:47 +0000`
+`Fecha UM: 2021-12-12 00:04:21 +0000`
 
 # Resumen
 
@@ -39,12 +39,12 @@
 | 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01](actividades/sistemas.2/comandos/comandos-01.md), [scripts-iterativos](actividades/sistemas.2/comandos/scripts-iterativos.md) |
 | 4 | [dominios](actividades/sistemas.2/dominios) | 8 | [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas-wininstall](actividades/sistemas.2/dominios/pdc-politicas-wininstall.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver-2008](actividades/sistemas.2/dominios/pdc-winserver-2008.md), [pdc-winserver-2012](actividades/sistemas.2/dominios/pdc-winserver-2012.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
 | 5 | [faq](actividades/sistemas.2/faq) | 2 | [README](actividades/sistemas.2/faq/README.md), [ln](actividades/sistemas.2/faq/ln.md) |
-| 6 | [instalacion](actividades/sistemas.2/instalacion) | 6 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor) |
+| 6 | [instalacion](actividades/sistemas.2/instalacion) | 7 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor), [vagrant](actividades/sistemas.2/instalacion/vagrant) |
 | 7 | [licencias](actividades/sistemas.2/licencias) | 1 | [README](actividades/sistemas.2/licencias/README.md) |
 | 8 | [monitorizar](actividades/sistemas.2/monitorizar) | 10 | [apparmor-opensuse](actividades/sistemas.2/monitorizar/apparmor-opensuse.md), [eventos-locales-windows-debian](actividades/sistemas.2/monitorizar/eventos-locales-windows-debian.md), [eventos-locales-windows-opensuse](actividades/sistemas.2/monitorizar/eventos-locales-windows-opensuse.md), [eventos-remotos-rsyslog](actividades/sistemas.2/monitorizar/eventos-remotos-rsyslog.md), [grafana-influxdb-collectd](actividades/sistemas.2/monitorizar/grafana-influxdb-collectd.md), [icinga-opensuse-windows](actividades/sistemas.2/monitorizar/icinga-opensuse-windows.md), [monit](actividades/sistemas.2/monitorizar/monit.md), [nagios-debian-windows](actividades/sistemas.2/monitorizar/nagios-debian-windows.md), [nagios-opensuse-windows](actividades/sistemas.2/monitorizar/nagios-opensuse-windows.md), [teuton](actividades/sistemas.2/monitorizar/teuton.md) |
 | 9 | [particiones](actividades/sistemas.2/particiones) | 1 | [README](actividades/sistemas.2/particiones/README.md) |
 | 10 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
-| 11 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 5 | [lvm-debian-windows](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
+| 11 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 6 | [brtfs](actividades/sistemas.2/raid-lvm/brtfs.md), [lvm-debian-windows](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse-windows](actividades/sistemas.2/raid-lvm/raid-opensuse-windows.md), [raid-y-lvm](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
 | 12 | [tests](actividades/sistemas.2/tests) | 1 | [trim1](actividades/sistemas.2/tests/trim1.md) |
 
 ## Categoría: sistemas.3
