@@ -56,7 +56,7 @@ Listen *:631
 </Location>
 ```
 
-* `systemctl restart cups`
+* Reiniciar el servicio para que coja los cambios de configuración. Lo podemos hacer con un "reload".
 
 Cortafuegos:
 * Abrir en el cortafuegos el acceso al servicio de impresión `ipp`. En el cortafuegos hay varias zonas, para saber la que tenemos activa hacemos `firewall-cmd --get-default-zone`. Seguramente la zona por defecto será `public` pero hay que comprobarlo.
