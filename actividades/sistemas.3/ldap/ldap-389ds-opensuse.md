@@ -74,7 +74,7 @@ En esta guía vamos a instalar y configurar del servidor LDAP con 389-DS usando 
 ## 2.1 Instalación del paquete
 
 * Abrir una consola como root.
-* `zypper in 389-ds`, instalar el script de instalación.
+* `zypper in 389-ds`, instalar el software LDAP.
 * `rpm -qa | grep 389-ds`, comprobar que la versión es >= 1.4.*
 
 ## 2.2 Configurar la instancia
