@@ -1,6 +1,6 @@
 
 ```
-Curso       : 2021
+Curso       : 202122
 Area        : Sistemas operativos, automatización, devops
 Requisitos  : Docker
 Tiempo      : 6 sesiones
@@ -24,6 +24,7 @@ Docker Compose es una herramienta que permite simplificar el uso de Docker. Faci
 * `zypper se docker-compose`, buscamos el paquete en los repositorios.
 * `zypper in ...`, instalamos el paquete de *Compose*.
 * `docker-compose -v`, comprobamos la versión que hemos instalado.
+* Crear un alias `dc = 'docker-compose'`. Esto nos servirá para escribir más rápido, aunque no sea relevante para la práctica.
 
 # 2. Gestionar un contenedor Nginx
 
