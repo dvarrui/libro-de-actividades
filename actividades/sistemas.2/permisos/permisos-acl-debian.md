@@ -164,10 +164,10 @@ Crear los grupos y usuarios:
 * Crear el grupo `rebels`, con los usuarios `han`, `luke`.
 * Crear el grupo `troopers` con los usuarios `trooper1`, `trooper2`.
 
-> NOTA:
+> Ejemplos
 >
-> * Para poner permiso ACL r (read) al usuario invitado: `setfacl -m u:invitado:r holamundo`
-> * Para quitar los permisos ACL al usuario luke: `setfacl -x u:luke holamundo`
+> * Al usuario USERNAME se le asigna el permiso ACL r (read) sobre DIRNAME: `setfacl -m u:USERNAME:r DIRNAME`
+> * Al usuario "luke" le quitamos permisos ACL sobre DIRNAME: `setfacl -x u:luke DIRNAME`
 
 Crear carpetas y poner permisos ACL:
 * Crear la carpeta `/mnt/starwars/endor` con el usuario `root`:
