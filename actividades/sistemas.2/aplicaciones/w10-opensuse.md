@@ -190,8 +190,12 @@ desde el código fuente.
 > * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 > * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
+
 ---
 # ANEXO
+
+IDEAS: Incluir la instalaciób de Chrome (rpm o repo)
+Instalación de Teamviewer (rpm)
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 

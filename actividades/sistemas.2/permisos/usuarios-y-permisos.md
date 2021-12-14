@@ -230,6 +230,9 @@ Vamos a configurar los permisos "sudo" por comandos.
 
 # ANEXO
 
+IDEAS: Entender los ficheros /etc/default/useradd y /etc/skel, .basrc y .profile.
+/etc/login.defs
+
 El anexo contiene información complementaria. No hay que hacerlo.
 
 ## A.1 Ejemplo/Información sobre PowerShell
