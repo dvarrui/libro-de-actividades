@@ -41,6 +41,7 @@ Los ficheros de instalación MSI, son programas de instalación que no nos hacen
     * Ejemplo 1: Abre un navegador web y pon URL siguiente `https://download.gnome.org/binaries/`. Descargar el fichero `https://download.gnome.org/binaries/win64/gedit/gedit-VERSION.msi`. Cambiar VERSION por el valor adecuado.
     * Ejemplo 2: https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers
 * Instalar el programa MSI descargado. Recordar un fichero MSI no hace ninguna pregunta durante el proceso de instalación.
+* Comprobar que funciona el programa.
 
 ## 1.4 Actualización del sistema
 
@@ -67,6 +68,7 @@ Usar Chocolatey:
 * Consultar la lista de los programas disponibles (http://chocolatey.org/packages) para instalar con Chcolatey.
 * Abrir una consola como administrador.
 * `choco install NOMBRE-DEL-PROGRAMA`, para instalar el programa elegido.
+* Comprobar que funciona el programa.
 
 ## 2.2 Gestor de paquetes
 
@@ -75,6 +77,7 @@ Usar Chocolatey:
     * VLC
     * 7z
     * Steam
+* Comprobar que funciona alguno de los programas.
 
 # 3. GNU/Linux usando el GUI
 
@@ -109,7 +112,7 @@ Instalación:
 * Entramos en la consola como `root`.
 * Con `zypper refresh`, nos conectamos con los repositorios de software remotos para
 actualizar la lista de software disponible (catálogo).
-* Instalar algún programa (Por ejemplo `0ad`) con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
+* Instalar algún programa (Por ejemplo `0ad`, `chromium` o `ipcalc`) con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
 
 Comprobamos:
 * `zypper search nombre-programa`, comprobamos que el programa está instalado.
@@ -196,9 +199,6 @@ desde el código fuente.
 
 ---
 # ANEXO
-
-IDEAS: Incluir la instalaciób de Chrome (rpm o repo)
-Instalación de Teamviewer (rpm)
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
