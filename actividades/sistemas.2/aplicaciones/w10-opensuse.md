@@ -109,12 +109,12 @@ Instalación:
 * Entramos en la consola como `root`.
 * Con `zypper refresh`, nos conectamos con los repositorios de software remotos para
 actualizar la lista de software disponible (catálogo).
-* Instalar algún programa con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
+* Instalar algún programa (Por ejemplo `0ad`) con el comando `zypper ...` (`man zypper` o [Zypper](https://es.opensuse.org/Zypper) para consultar ayuda).
 
 Comprobamos:
 * `zypper search nombre-programa`, comprobamos que el programa está instalado.
 Esto es, debe aparecer el programa y el estado (la primera columna) debe tener el símbolo `i` que significa que está instalado.
-* `zypper info atom`, consultar información sobre el paquete, y si está o no instalado.
+* `zypper info NOMBRE-DEL-PAQUETE`, consultar información sobre el paquete, y si está o no instalado.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 * Desde el terminal, ejecutar el programa y ver que funciona.
 
