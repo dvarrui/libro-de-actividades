@@ -103,7 +103,7 @@ Capturar imágenes de los pasos realizados.
 > Enlace de interés:
 > * [Zypper](https://es.opensuse.org/Zypper)
 
-## 4.1 Instalar software
+## 4.1 Instalar software por comandos
 
 Instalación:
 * Entramos en la consola como `root`.
@@ -118,8 +118,11 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`
 * Desde el terminal, ejecutar el programa y ver que funciona.
 
-## 4.2 Desinstalar software
+## 4.2 Instalar agregando repositorios
 
+Instalar Chrome con el comando `zypper`, pero antes hay que agregar el repositorio adecuado para que zypper pueda localizar el softwware.
+
+Desinstalar software por comandos:
 * Desinstalar el programa con `zypper ...`.
 
 > NOTA: Para eliminar las dependencias usamos el parámetro "--clean-deps" a la hora de eliminar el software.
@@ -139,6 +142,7 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 > * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
 
+Atom:
 * Comprobar que el programa `atom` no está disponible en los respositorios.
 * Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
 * Descargamos el fichero `.rpm` desde la página web. Este fichero es el instalador del programa.
@@ -149,14 +153,13 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 
 > NOTA: El paquete libgconf2 se llama gconf2 en OpenSUSE
 
-Para comprobar que está el paquete instalado:
-
-* Usamos los siguientes comandos para consultar información sobre el paquete, y si está o no instalado.
+* Para comprobar que está el paquete instalado poder usar diferentes comandos:
     * `rpm -q atom`
     * `zypper info atom`
 * `atom`, ejecutamos el programa atom.
 
-Comprobamos que funciona bien el editor `atom`.
+TeamViewer:
+* Instalar el programa TeamViewer decargando previamente el fichero rpm correspondiente.
 
 ## 4.5 Actualización del sistema
 
