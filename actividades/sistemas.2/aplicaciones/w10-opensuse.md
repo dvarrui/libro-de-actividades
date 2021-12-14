@@ -143,9 +143,9 @@ Desinstalar software por comandos:
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
 
 Atom:
-* Comprobar que el programa `atom` no está disponible en los respositorios.
-* Buscamos en la web de [atom.io](https://atom.io) el instalador para nuestro sistema.
-* Descargamos el fichero `.rpm` desde la página web. Este fichero es el instalador del programa.
+* Comprobar que el programa `atom` no está disponible en los repositorios. Por tanto, lo vamos a poder usar el comando zypper para instalarlo.
+* Buscamos más información en la web de [atom.io](https://atom.io). Queremos localizar la forma de instalar el programa para nuestro sistema.
+* Descargamos el fichero `.rpm` desde la página web. Este fichero es el instalador del programa (Para SSOO RedHat, OpenSUSE, Centos, etc.)
 * Abrimos un terminal y usamos el comando `rpm` para instalar el programa que acabamos de descargar. Esto es `rpm -i atom-VERSION.rpm`.
 * Si la instalación de atom requiere alguna dependencia, ésta hay que instalarla manualmente. Por ejemplo:
     * `zypper search lsb*`, para buscar todos los paquetes lsb "algo".
