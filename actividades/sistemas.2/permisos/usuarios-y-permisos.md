@@ -18,7 +18,6 @@ Ejemplo de rúbrica:
 | (G) Usuarios y grupos    | | | |
 | (G) Permisos de carpetas | | | .|
 
-
 * Entregar documento en formato ODT o PDF, con el informe de la actividad. Incluir las acciones realizadas y las capturas solicitadas.
 
 ---
@@ -45,13 +44,6 @@ administradores, para que puedan actuar como superusuarios.
 
 ### 1.1.2 Asignar permisos
 
-> **OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
-
-* Entrar como el usuario `jedi1`.
-* Crear la carpeta `C:\Users\jedi1\privateXX` (Sustituir XX por el número asignado a cada alumno)
-* Crear la carpeta `C:\Users\jedi1\groupXX`
-* Crear la carpeta `C:\Users\jedi1\publicXX`
-
 > **INFORMACIÓN sobre Permisos NTFS**
 >
 > En Windows las carpetas HEREDAN los permisos de su carpeta padre. Para desactivar esta función
@@ -64,10 +56,18 @@ en una carpeta determinada, haremos lo siguiente:
 >
 > Para modificar los permisos de una carpeta vamos a `Botón derecho -> Propiedades -> Seguridad -> Editar`.
 
-Vamos a modificar los permisos de la siguiente forma:
-* `privateXX`: El usuario propietario tendrá control total y nadie más tendrá permisos.
-* `groupXX`: grupo `jedis` permisos de lectura, y el usuario propietario control total.
-* `publicXX`: todos tienen permiso de lectura, y el usuario propietario control total.
+**OJO** Cuando se agreguen los permisos de lectura en NFTS, nos vamos a referir a los 3 permisos de lectura/mostrar que hay disponibles.
+
+* Entrar como el usuario `jedi1`. Crear las carpetas siguientes en su directorio HOME (`C:\Users\jedi1`) y asignar los permisos de la siguiente forma.
+
+> Sustituir XX por el número asignado a cada alumno.
+
+| Carpeta | Permisos |
+| ------- | -------- |
+| privateXX | El usuario propietario tendrá control total y nadie más tendrá permisos |
+| groupXX  | El grupo `jedis` permisos de lectura, y el usuario propietario control total |
+| publicXX | Todos tienen permiso de lectura, y el usuario propietario control total |
+
 * Capturar imagen del resultado de la asignación de permisos.
 
 Veamos un ejemplo de permisos para la carpeta public:
@@ -89,12 +89,7 @@ Veamos un ejemplo de permisos para la carpeta public:
 
 ### 1.2.2 Asignar permisos
 
-* Entrar con el usuario `sith2`.
-* Crear la carpeta `C:\Users\sith2\privateXX`
-* Crear la carpeta `C:\Users\sith2\groupXX`
-* Crear la carpeta `C:\Users\sith2\publicXX`
-
-> Veamos un ejemplo de permisos por comandos:
+> Chuleta para usar los permisos por comandos:
 >
 > * `icacls /?`, Ver la ayuda del comando icacls
 > * `icacls public /inheritance:r`, Quitar los permisos heredados a la carpeta public
@@ -103,10 +98,13 @@ Veamos un ejemplo de permisos para la carpeta public:
 > * `icacls public /grant alumno1:F`, Dar permisos control total al usuario alumno1
 > * `icacls directorio /remove USERNAME`, Para quitar el acceso al usuario USERNAME
 
-Modificar los permisos de la siguiente forma:
-* `privateXX`: Sólo el usuario propietario tendrá control total.
-* `groupXX`: grupo `siths` permisos de lectura, y usuario propietario permisos de control total.
-* `publicXX`: todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total.
+* Entrar con el usuario `sith2` y en su HOME crear las carpetas y modificar sus permisos de la siguiente forma usando los comandos:
+
+| Carpeta   | Permisos |
+| --------- | -------- |
+| privateXX | Sólo el usuario propietario tendrá control total |
+| groupXX   | El `siths` permisos de lectura, y usuario propietario permisos de control total |
+| publicXX  | Todos tienen permiso de lectura, y el usuario propietario tiene permisos de control total. |
 
 # 2. SO GNU/Linux OpenSUSE
 
@@ -204,15 +202,17 @@ Comprobaciones:
 
 ### 2.4.2 Crear las carpetas y modificar los permisos
 
-* Entrar como el usuario `sith4`
-    * Crear la carpeta `/home/sith4/privateXX`
-    * Crear la carpeta `/home/sith4/groupXX`
-    * Crear la carpeta `/home/sith4/publicXX`
-* Cambiar los permisos de la siguiente forma:
-    * `privateXX`: Sólo el usuario propietario tendrá todos los permisos.
-    * `groupXX`: grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos.
-    * `publicXX`: todos tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos.
-* Comprobamos con "vdir".
+* Entrar como el usuario `sith4`.
+* Por comandos crear las carpetas `privateXX`, `groupXX` y `publicXX` en su directorio HOME.
+* Por comandos, asignar los permisos a las carpetas de la siguiente forma:
+
+| Carpeta | Permisos |
+| ------- | -------- |
+| privateXX | Sólo el usuario propietario tendrá todos los permisos. |
+| groupXX   | El grupo `siths` permisos de lectura/ejecución, y usuario propietario todos los permisos |
+| publicXX  | todos/otros tienen permiso de lectura/ejecución, y el usuario propietario tiene todos los permisos |
+
+* Por comandos, comprobar/consultar el resultado.
 
 ## 2.5 Configurar `sudoers` por comandos
 
@@ -223,9 +223,10 @@ Vamos a configurar los permisos "sudo" por comandos.
 %siths ALL = (root) NOPASSWD:/sbin/shutdown, /sbin/fdisk -l
 ```
 * Entrar al sistema con el usuario `sith4` y ejecutar `sudo -l`, para consultar la información de permisos sudoers que tenemos asignados.
-* Comprobar los nuevos permisos asignados:
-    * No tenemos permitido el uso del comando privilegiado `fdisk -l` sin sudo.
-    * Tenemos permitido usar el comando privilegiado `sudo fdisk -l` a través de sudo.
+
+Comprobar los nuevos permisos asignados:
+* NO tenemos permitido el uso del comando privilegiado `fdisk -l` sin sudo.
+* SI tenemos permitido usar el comando privilegiado `sudo fdisk -l` a través de sudo. Además no debe solicitarnos la clave. Revisar/modificar el contenidos del fichero sudoers si el resultado no es el esperado.
 
 ---
 
