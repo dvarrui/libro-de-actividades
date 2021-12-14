@@ -161,8 +161,9 @@ Los campos de la configuración anterior significan lo siguiente:
 | Sin contraseña | Si     | Solicitará nuestra contraseña |
 | Comandos       | ALL    | Se permite ejecutar todos los comandos con sudo |
 
-* Guardar y salir. Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario).
-* Entrar al sistema con el usuario `jedi3` y ejecutar `sudo -l` para consultar la configuración de sudoers.
+* Guardar y salir. Ahora los usuarios del grupo anterior ya pueden ejecutar el comando sudo, para realizar todas las tareas administrativas (de superusuario) y además sin necesidad de introducir la contraseña.
+* Entrar al sistema con el usuario `jedi3` y ejecutar `sudo -l` para consultar la configuración de sudoers. Comprobar que los datos son correctos.
+* Ejecutar el comando sudo con el usuario `jedi3` para comprobar que funciona como se espera. En caso contrario, revisar/leer/modificar el fichero `/etc/sudoers`.
 
 > Veamos un ejemplo de un usuario sin privilegios que intenta usar el comando sudo:
 >
