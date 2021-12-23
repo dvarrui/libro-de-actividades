@@ -28,10 +28,15 @@ El SO Windows viene con software que se puede instalar si se necesita. Este soft
 ## 1.2 Instalar aplicación
 
 Capturar imágenes de los pasos realizados.
+**Instalar GnuWin32**
 * Descargar un programa GnuWin32 de la página oficial [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html). Por ejemplo: tree, gcal, stat, file. Hay que elegir la descargar del paquete completo sin el código fuente (NO sources).
 * Instalar el programa.
 * `cd c:\Program Files (x86)\GnuWin32\bin`. Debe estar el programa instalado con la extensión `.exe`.
 * Comprobar su funcionamiento desde un terminal. Los comandos deben funcionar igual que en GNU/Linux.
+
+**Instalar Ruby**
+* Ir a la web "rubyinstaller", descargar e instalar.
+* Comprobar `ruby -v` muestra la versión de ruby instalada en el sistema.
 
 ## 1.3 Instalar un programa MSI
 
@@ -123,6 +128,7 @@ Esto es, debe aparecer el programa y el estado (la primera columna) debe tener e
 
 ## 4.2 Instalar agregando repositorios
 
+**Instalar Chrome**
 Instalar Chrome con el comando `zypper`, pero antes hay que agregar el repositorio adecuado para que zypper pueda localizar el softwware.
 
 Desinstalar software por comandos:
@@ -133,6 +139,9 @@ Desinstalar software por comandos:
 * `zypper se nombre-programa`, comprobar que el programa no está instalado. Esto es, debe aparecer el programa y el estado (la primera columna) debe estar vacía, lo que significa que no está instalado.
 * Buscar el programa en el sistema de ficheros: `whereis nombre-programa`, y no encontrarlo.
 * Ejecutar el programa y ver que no funciona.
+
+**Instalar VSCode**
+IDEAS: https://en.opensuse.org/Visual_Studio_Code Instalar VSCode añadiendo nuevos repositorios.
 
 ## 4.3 Instalar programa nativo de Windows en GNU/Linux
 
@@ -145,7 +154,7 @@ Desinstalar software por comandos:
 > * `.rpm`, extensión de los ficheros de instalación para los sistemas operativos OpenSUSE y Red Hat.
 > * `.deb`, extensión de los ficheros de instalación para los sistemas operativos Debian y Ubuntu.
 
-Atom:
+**Instalar Atom**
 * Comprobar que el programa `atom` no está disponible en los repositorios. Por tanto, lo vamos a poder usar el comando zypper para instalarlo.
 * Buscamos más información en la web de [atom.io](https://atom.io). Queremos localizar la forma de instalar el programa para nuestro sistema.
 * Descargamos el fichero `.rpm` desde la página web. Este fichero es el instalador del programa (Para SSOO RedHat, OpenSUSE, Centos, etc.)
@@ -161,8 +170,8 @@ Atom:
     * `zypper info atom`
 * `atom`, ejecutamos el programa atom.
 
-TeamViewer:
-* Instalar el programa TeamViewer decargando previamente el fichero rpm correspondiente.
+**Instalar TeamViewer**
+* Instalar el programa TeamViewer para OpenSUSE.
 
 ## 4.5 Actualización del sistema
 
@@ -196,9 +205,9 @@ desde el código fuente.
 > * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 > * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
-
 ---
 # ANEXO
+
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
