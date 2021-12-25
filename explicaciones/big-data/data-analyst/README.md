@@ -6,7 +6,15 @@ Enlaces de interés:
 * https://www.youtube.com/watch?v=4QajduKoSWA
 * https://www.simplilearn.com/how-to-build-successful-data-analyst-career-article
 
-How to Become a Data Analyst: Tasks Performed by Data Analysts
+# Herramientas de visualización de datos
+
+QlikView, QlikSense, Tableau, Power BI, Domo,
+Pentaho, MicroStrategy, Business Objects, RJMetrics, Klipfolio, entre otras.
+
+– Tendencias de visualización de datos.
+
+
+# How to Become a Data Analyst: Tasks Performed by Data Analysts
 
     Gathering and extracting numerical data.
     Finding trends, patterns, and algorithms within the data.
