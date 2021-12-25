@@ -2,10 +2,23 @@
 Enlaces de interés:
 * [BOE BigData](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2021-7686)
 
+# Curso de especialización: Big Data e IA
 
-Sistemas y Aplicaciones Informáticas.
-* 5074. Sistemas de Big Data.
-* 5075. Big Data aplicado.
+Módulos asignados a Sistemas y Aplicaciones Informáticas.
+* (5074) Sistemas de Big Data.
+* (5075) Big Data aplicado.
+
+
+
+(5074) Sistemas de Big Data (Data Analyst)
+* Este parece más un popurrí, han puesto de todo.
+* Desde la parte de extracción de información a partir de datos, el modelado, temas de cuadros de mandos, minería de datos, R, Python, visualización, etc...
+
+(5075) Big Data aplicado (Data Engineer)
+* Se trata de que ver la parte más de sistemas de Big Data.
+* Centrado sobre todo en los sistemas de almacenamiento, integridad de los datos, monitorización y validación de modelos.
+* Qué sistema elegir, por qué, para qué, cómo se gestionan los diferentes sistemas, cómo se puede garantizar su integridad, qué herramientas uso para hacer el monitoreo, etc...
+
 
 Equipamiento:
 * Programas informáticos específicos del curso de especialización.
@@ -16,6 +29,7 @@ Equipamiento:
 * Licencias de estudiantes.
 
 # MP: Sistemas de Big Data (Código: 5074)
+
 Duración: 55 horas.
 
 Resultados de aprendizaje y criterios de evaluación.
