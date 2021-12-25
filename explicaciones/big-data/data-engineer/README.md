@@ -1,5 +1,7 @@
 
 
+![](roadmap.png)
+
 Herramientas:
 * Map Reduce.
 * Pig, Hive, Flume.

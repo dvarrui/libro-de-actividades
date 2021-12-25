@@ -20,7 +20,8 @@ Módulos asignados a Sistemas y Aplicaciones Informáticas.
 * Qué sistema elegir, por qué, para qué, cómo se gestionan los diferentes sistemas, cómo se puede garantizar su integridad, qué herramientas uso para hacer el monitoreo, etc...
 
 
-Equipamiento:
+## Equipamiento
+
 * Programas informáticos específicos del curso de especialización.
 * Software de desarrollo y entorno Big Data.
 * Software de gestión de datos y BI.
@@ -149,87 +150,53 @@ cuenta la normativa vigente de control de calidad y de seguridad informática y
 protección de datos.
 
 # Módulo profesional: Big Data aplicado (Código: 5075)
+
 Duración: 75 horas
 
-Resultados de aprendizaje y criterios de evaluación.
-1. Gestiona soluciones a problemas propuestos, utilizando sistemas de almacenamiento
-y herramientas asociadas al centro de datos.
-a) Se ha caracterizado el proceso de diseño y construcción de soluciones en sistemas
-de almacenamiento de datos.
-b) Se han determinado los procedimientos y mecanismos para la ingestión de datos.
-c) Se ha determinado el formato de datos adecuado para el almacenamiento.
-d) Se han procesado los datos almacenados,
-e) Se han presentado los resultados y las soluciones al cliente final en una forma fácil
-de interpretar.
+## Resultados de aprendizaje
 
-2. Gestiona sistemas de almacenamiento y el amplio ecosistema alrededor de ellos
-facilitando el procesamiento de grandes cantidades de datos sin fallos y de forma rápida.
-
-a) Se ha determinado la importancia de los sistemas de almacenamiento para
-depositar y procesar grandes cantidades de cualquier tipo de datos rápidamente.
-b) Se ha comprobado el poder de procesamiento de su modelo de computación
-distribuida.
-c) Se ha probado la tolerancia a fallos de los sistemas.
-d) Se ha determinado que se pueden almacenar tantos datos como se desee y
-decidir cómo utilizarlos más tarde.
-e) Se ha visualizado que el sistema puede crecer fácilmente añadiendo módulos.
-
-3. Genera mecanismos de integridad de los datos, comprobando su mantenimiento
+1. Gestiona soluciones a problemas propuestos, utilizando **sistemas de almacenamiento y herramientas asociadas al centro de datos**.
+2. Gestiona sistemas de almacenamiento y el amplio ecosistema alrededor de ellos facilitando el procesamiento de grandes cantidades de datos sin fallos y de forma rápida.
+    * b) Se ha comprobado el poder de procesamiento de su modelo de computación distribuida.
+    * c) Se ha probado la tolerancia a fallos de los sistemas.
+    * e) Se ha visualizado que el sistema puede crecer fácilmente añadiendo módulos.
+3. Genera **mecanismos de integridad de los datos**, comprobando su mantenimiento
 en los sistemas de ficheros distribuidos y valorando la sobrecarga que conlleva en el
 tratamiento de los datos.
-Criterios de evaluación:
-a) Se ha valorado la importancia de la calidad de los datos en los sistemas de ficheros
-distribuidos.
-b) Se ha valorado que a mayor volumen de tratamiento de datos corresponde un
-mayor peligro relacionado con la integridad de los datos.
-c) Se ha reconocido que los sistemas de ficheros distribuidos implementan una suma
-de verificación para la comprobación de los contenidos de los archivos.
-d) Se ha reconocido el papel del servidor en los procesos previos a la suma de
-verificación.
+    * a) Se ha valorado la importancia de la **calidad de los datos en los sistemas de ficheros distribuidos**.
+    * b) Se ha valorado que a mayor volumen de tratamiento de datos corresponde un mayor **peligro relacionado con la integridad de los datos**.
+    * c) Se ha reconocido que los **sistemas de ficheros distribuidos implementan una suma de verificación para la comprobación de los contenidos de los archivos**.
+4. Realiza el **seguimiento de la monitorización de un sistema**, asegurando la fiabilidad y estabilidad de los servicios que se proveen.
+    * b) Se han recogido métricas, procesamiento y visualización de los datos.
+    * c) Se han generado alertas para detectar un riesgo o mal funcionamiento.
+    * f) Se ha analizado la estabilidad de servicios.
+5. Valida las **técnicas de Big Data para transformar una gran cantidad de datos en información significativa, facilitando la toma de decisiones de negocios**.
+    * a) Se han seleccionado gran cantidad de datos estructurados y no estructurados para reforzar la función de BI.
+    * b) Se ha realizado la limpieza y transformación de datos en base a los objetivos predeterminados.
+    * c) Se ha comprobado que el Big Data multiplica la relevancia y la utilidad del BI para el negocio.
+    * d) Se han conjugado dentro de un modelo de empresa datos de clientes, financieros de ventas, de productos, de marketing, de redes sociales, de la competencia, entre otros, para extraer un análisis valioso y efectivo para el negocio.
+    * e) Se ha evaluado e interpretado la información extraída de los datos y su influencia en el triunfo de diferentes negocios.
+    * f) Se ha simulado la implantación de un modelo de Inteligencia de negocios BI.
 
-4. Realiza el seguimiento de la monitorización de un sistema, asegurando la fiabilidad y estabilidad de los servicios que se proveen.
-Criterios de evaluación:
-a) Se han aplicado herramientas de monitorización eficiente de los recursos.
-b) Se han recogido métricas, procesamiento y visualización de los datos.
-c) Se han generado alertas para detectar un riesgo o mal funcionamiento.
-d) Se ha comprobado que las herramientas usadas ofrecen un rendimiento elevado
-con rapidez.
-e) Se ha comprobado la fiabilidad de los datos según respuestas.
-f) Se ha analizado la estabilidad de servicios.
-
-5. Valida las técnicas de Big Data para transformar una gran cantidad de datos en
-información significativa, facilitando la toma de decisiones de negocios.
-a) Se han seleccionado gran cantidad de datos estructurados y no estructurados
-para reforzar la función de BI.
-b) Se ha realizado la limpieza y transformación de datos en base a los objetivos
-predeterminados.
-c) Se ha comprobado que el Big Data multiplica la relevancia y la utilidad del BI para
-el negocio.
-d) Se han conjugado dentro de un modelo de empresa datos de clientes, financieros
-de ventas, de productos, de marketing, de redes sociales, de la competencia,
-entre otros, para extraer un análisis valioso y efectivo para el negocio.
-e) Se ha evaluado e interpretado la información extraída de los datos y su influencia
-en el triunfo de diferentes negocios.
-f) Se ha simulado la implantación de un modelo de Inteligencia de negocios BI.
-
-Contenidos básicos:
+## Contenidos básicos:
 
 Gestión de soluciones con sistemas de almacenamiento y herramientas del centro de
 datos para la resolución de problemas:
--– Almacenamiento de datos masivo.
-– Procesamiento de datos.
-– Analítica de Big Data en los ecosistemas de almacenamiento.
-– Big Data y Cloud.
+* Almacenamiento de datos masivo.
+* Procesamiento de datos.
+* Analítica de Big Data en los ecosistemas de almacenamiento.
+* Big Data y Cloud.
+
 Gestión de sistemas de almacenamiento y ecosistemas Big Data:
-– Computación distribuida. Computación paralela,
-– Sistemas de almacenamiento distribuidos. Tolerancia a fallos.
-– Herramientas:
-• Map Reduce.
-• Pig, Hive, Flume.
-• Sqoop, Oozie.
-• Automatización de Jobs.
-• Consultas Pig y Hive.
-• Otras herramientas.
+* Computación distribuida. Computación paralela,
+* Sistemas de almacenamiento distribuidos. Tolerancia a fallos.
+* Herramientas:
+    * Map Reduce.
+    * Pig, Hive, Flume.
+    * Sqoop, Oozie.
+    * Automatización de Jobs.
+    * Consultas Pig y Hive.
+    * Otras herramientas.
 
 Generación de mecanismos de Integridad de los datos. Comprobación de mantenimiento
 de sistemas de ficheros:
