@@ -1,7 +1,9 @@
-
-
 ```
-EN CONSTRUCCIÓN!!!
+Curso       : 202122
+Area        : Sistemas operativos, git, trabajo en equipo
+Requisitos  : Git, editor texto plano
+Tiempo      : 6 sesiones
+Descripción : Resolver un problema en equipo usando git
 ```
 
 # Trabajar en equipo con GIT
@@ -46,10 +48,30 @@ automatització de tasques", que tiene 110 páginas.
 * En el documento README.md de la sección 01 pondremos la traducción del apartado 1 del PDF, y así sucesivamente.
 * Usaremos la carpeta "images" de cada sección para poner las imágenes.
 
-## Modo de trabajo
+## Modo de trabajo 1(todos en el mismo nivel)
 
-Trabajaremo en nuestro equipo local con una copia del repositorio e iremos subiendo los cambios que vayamos realizando. Durante el proceso surgirán "conflictos" normales del trabajo conjunto que iremos resolviendo sobre la marcha.
+Trabajaremos en nuestro equipo local con una copia del repositorio original (https://github.com/dvarrui/contenidos-cfgs-ioc) e iremos subiendo los cambios que vayamos realizando.
 
+Durante el proceso surgirán "conflictos" normales del trabajo conjunto que iremos resolviendo sobre la marcha.
+
+Primero vamos a trabajar, de modo que todos los miembros tenemos acceso de lectura/escritura directo al repositorio.
+
+Cuando el profesor lo indique pasaremos al siguiente apartado.
+
+## Modo de trabajo 2(Dos niveles)
+
+En este, modo de trabajo, haremos 3 grupos. Sólo el responsable de cada grupo tendrá permisos de lectura/escritura sobre el repositorio principal.
+
+Cada grupo deberá trabajar en un repositorio creado por su responsable (repositorio secundario). Y será el responsable de cada repositorio secundario el encargado de realizar y/o solicitar las "fusiones" con el repositorio principal.
+
+# Entrega
+
+Realizar un breve informe individual:
+* Comentando lo que se ha hecho.
+* Explicar en detalle los problemas que han surgido y
+* Explicar en detalle como se han solucionado.
+
+El resto del trabajo realizado se podrá analizar consultando los "commits" del repositorio.
 
 # ANEXO
 
