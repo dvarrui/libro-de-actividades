@@ -28,6 +28,7 @@ Comprobamos el acceso al LDAP desde el cliente:
 > Enlaces de interés:
 > * https://doc.opensuse.org/documentation/leap/archive/15.3/security/html/book-security/cha-security-ldap.html
 > * [Configurar_servidor_de_autenticacion_usando_YaST](https://es.opensuse.org/Configurar_servidor_de_autenticacion_usando_YaST)
+> * https://luiszambrana.com.ar/2020/12/09/gestion-de-usuarios-con-openldap/?s=09
 
 ## 2.1 Crear conexión con servidor
 
@@ -100,6 +101,11 @@ del cliente.
 * Ir a la MV cliente.
 * `ldapsearch -H ldap://IP-LDAP-SERVER -W -D "cn=Directory Manager" -b "dc=ldapXX,dc=curso2021" "(uid=NOMBRE-DEL-USUARIO)"` comando para consultar en la base de datos LDAP la información del usuario con uid concreto.
 * Iniciar sesión de entorno gráfico con algún usuario LDAP.
+
+
+# IDEAS para le próximo curso
+Squid con soporte ldap - openSUSE Wiki
+https://es.opensuse.org/Squid_con_soporte_ldap
 
 ---
 # ANEXO
