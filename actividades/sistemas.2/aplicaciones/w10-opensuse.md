@@ -210,6 +210,8 @@ desde el código fuente.
 Linuxbrew, una bifurcación del administrador de paquetes Homebrew | Ubunlog
 https://ubunlog.com/linuxbrew-bifurcacion-homebrew-paquetes/
 
+https://docs.brew.sh/Homebrew-on-Linux
+
 ---
 # ANEXO
 
