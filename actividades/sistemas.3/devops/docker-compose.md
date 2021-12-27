@@ -96,6 +96,7 @@ Es más sencillo gestionar contenedores con *Compose* que con los comandos de Do
 
 > Enlaces de interñes:
 > * [MySQL Tutorial => Simple example with docker-compose](https://riptutorial.com/mysql/example/15570/simple-example-with-docker-compose)
+> * [How to Create a MySql Instance with Docker Compose by Chris Chuck](https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee)
 
 * Consultar información:
     * Vamos a la web hub.docker.com y buscamos algún contenedor Mysql.
