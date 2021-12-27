@@ -94,6 +94,9 @@ Es más sencillo gestionar contenedores con *Compose* que con los comandos de Do
 
 # 3. Gestionar un contenedor Mysql con volumen
 
+> Enlaces de interñes:
+> * [MySQL Tutorial => Simple example with docker-compose](https://riptutorial.com/mysql/example/15570/simple-example-with-docker-compose)
+
 * Consultar información:
     * Vamos a la web hub.docker.com y buscamos algún contenedor Mysql.
     * Consultar información sobre las variables de entorno.
