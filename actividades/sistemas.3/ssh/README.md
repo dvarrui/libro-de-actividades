@@ -350,6 +350,9 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 >
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
+IDEAS para el próximo curso
+
+* [Usos del comando ncat cpn ejemplos](https://www.ochobitshacenunbyte.com/2021/11/04/uso-del-comando-ncat-nc-en-linux-con-ejemplos/)
 ---
 # ANEXO A
 

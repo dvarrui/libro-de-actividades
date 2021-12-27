@@ -1,4 +1,7 @@
 
+Data Analyst vs Data Engineer vs Data Scientist | Edureka
+https://www.edureka.co/blog/data-analyst-vs-data-engineer-vs-data-scientist/
+
 
 ![](roadmap.png)
 
