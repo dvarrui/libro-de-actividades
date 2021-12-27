@@ -50,3 +50,7 @@ Funciones que vamos a necesitar:
 ```
 
 * En Ruby los argumentos que se pasan por comandos los tenemos dentro de una variable tipo Array o lista llamada ARGV. Por ejemplo ARGV[0] es el primer argumento, etc.
+
+# ANEXO
+
+* [Procno - Un monitor de procesos para linux.](https://victorhckinthefreeworld.com/2021/12/23/procno-un-monitor-de-procesos-para-linux/) 

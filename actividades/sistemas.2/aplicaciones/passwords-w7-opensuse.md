@@ -129,6 +129,9 @@ NO aparezcan en la ventana de inicio del sistema.
 
 ## 2.2 Claves seguras
 
+> Enlaces de interés:
+> * [Configure the minimum password length on Linux systems](https://linux-audit.com/configure-the-minimum-password-length-on-linux-systems/)
+
 * Modificar las claves de los usuarios de la siguiente forma:
     * sith3: 1234
     * sith4: casa
@@ -151,6 +154,7 @@ ls
 * Copia de seguridad del fichero de claves: `cp /mnt/etc/shadow /mnt/etc/shadow.bak`.
 * Crear usuario `prueba` en Knoppix con la clave `123456`.
 
+> **¿Dónde está la contraseña?**
 > El fichero shadow tiene una fila por cada usuarios.
 Dentro de cada fila los campos se separan por 2 puntos.
 El campo nº 1 es el nombre del usuario, el campo nº 2 es la clave encriptada del usuario.

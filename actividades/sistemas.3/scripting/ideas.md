@@ -1,6 +1,9 @@
 
 # IDEAS: scripting
 
+Guardar código en un PNG
+https://github.com/Fusion/pngsource
+
 ## A.1 Restricción sobre una IP con `iptables`
 
 * Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.

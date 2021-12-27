@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Area        : Sistemas operativos, instalar aplicaciones
 Descripción : Diversas formas de instalar aplicaciones en los SSOO
 Requisitos  : Windows 10 y OpenSUSE
@@ -205,9 +205,13 @@ desde el código fuente.
 > * [Instalar node.js en Ubuntu](http://lobotuerto.com/blog/2013/02/19/como-instalar-node-js-en-ubuntu/)
 > * [Instalar el editor Atom desde las fuentes alojadas en GitHub](https://github.com/atom/atom/blob/master/docs/build-instructions/linux.md)
 
+# IDEAS para el próximo curso
+
+Linuxbrew, una bifurcación del administrador de paquetes Homebrew | Ubunlog
+https://ubunlog.com/linuxbrew-bifurcacion-homebrew-paquetes/
+
 ---
 # ANEXO
-
 
 El ANEXO sólo contiene información extra. No hay que realizar ninguna tarea con el contenido de esta sección.
 
