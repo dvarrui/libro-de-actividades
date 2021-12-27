@@ -6,6 +6,10 @@ Enlaces de interés:
 * https://www.youtube.com/watch?v=4QajduKoSWA
 * https://www.simplilearn.com/how-to-build-successful-data-analyst-career-article
 
+* [10 herramientas de Big Data imprescindibles para el análisis de datos](https://www.iebschool.com/blog/mejores-herramientas-big-data/)
+* [7 Herramientas Big Data para tu empresa - IIC](https://www.iic.uam.es/innovacion/herramientas-big-data-para-empresa/)
+
+
 # Herramientas de visualización de datos
 
 QlikView, QlikSense, Tableau, Power BI, Domo,
