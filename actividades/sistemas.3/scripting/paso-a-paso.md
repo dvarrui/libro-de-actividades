@@ -19,6 +19,7 @@ Ejemplo de rúbrica:
 * Consultar el material para aprender paso a paso.
     * [Charla: Ruby scripting](https://github.com/dvarrui/proyectos-de-ejemplo/tree/master/charlas/ruby/scripting)
 * Consultar y resolver las dudas en clase.
+* https://pythontutor.com/ruby.html#mode=edit
 
 ## 1.2 Vamos paso a paso
 

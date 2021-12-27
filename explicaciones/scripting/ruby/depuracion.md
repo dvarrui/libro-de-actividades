@@ -7,9 +7,9 @@ errores de programación (debugging).
 
 Tenemos varias caminos a la hora de depurar programas:
 * Usar `print MESSAGES`
-* Usar herramienta de depuración
+* Usar herramienta de depuración (https://pythontutor.com/ruby.html#mode=edit)
 * Usar unidades de prueba
-* etc.
+* Etc.
 
 ## print MESSAGES
 
