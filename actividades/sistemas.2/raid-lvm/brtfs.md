@@ -15,7 +15,7 @@ Tiempo      : 8 sesiones
 ## 1.1 Preparar la máquina virtual
 
 * MV Opensuse
-* Añadir 3 discos de 5GB cada uno. Los llamaremos discoB, discoC y discoD.
+* Añadir 4 discos de 5GB cada uno. Los llamaremos discoB, discoC, discoD y discoE.
 
 # 1.2 Consultar la información
 
@@ -49,13 +49,22 @@ Consultar las siguientes guías:
 
 **Simular un RAID0 con BrtFS usando 2 discos**
 
-* Añadir discoC al sistema de ficheros "en caliente" para simular un RAID0.
+* Añadir discoC al sistema de ficheros "en caliente".
+* Configurar el sistema de ficheros en modo RAID0.
 * Comprobar resultado.
 
 ## 2.3 Usando tres discos
 
 * Vamos a simular un RAID5 con BrtFS usando los 3 discos.
-* Añadir el discoD al sistema de ficheros "en caliente" para simular un RAID5.
+* Añadir el discoD al sistema de ficheros "en caliente".
+* Configurar el sistema de ficheros en modo RAID5.
+* Comprobar.
+
+## 2.4 Usando 4 discos
+
+* Vamos a simular un RAID6 con BrtFS usando los 4 discos.
+* Añadir el discoE al sistema de ficheros "en caliente".
+* Configurar el sistema de ficheros en modo RAID6.
 * Comprobar.
 
 ## 2.4 Snapshots
