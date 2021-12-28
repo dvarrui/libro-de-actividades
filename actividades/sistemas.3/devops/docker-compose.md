@@ -199,3 +199,5 @@ response.end("You've hit " + os.hostname() + "\n");
 var www = http.createServer(handler);
 www.listen(8080);
 ```
+
+https://github.com/sergarb1/CursoIntroduccionADocker/tree/main/FuentesCurso/UD%2008.%20Introduccion%20a%20Kubernetes
