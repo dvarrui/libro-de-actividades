@@ -27,22 +27,36 @@ Consultar el siguiente vídeo:
 
 # 2. Práctica con BtrFS
 
-## 2.1 Simular un RAID1 con BrtFS usando un único disco
+## 2.1 Usando 1 único disco
+
+**BrtFS en modo single**
 
 * Crear partición al discoB y formatear brtfs
 * Montar discoB en /mnt
 * Crear dos subvolúmenes en /mnt de la siguiente forma:
     * Nombre del subvolumen "data". Los datos estarán duplicados.
     * Nombre del subvolumen "zip". Los datos estarán duplicados y comprimidos.
-* Escribir información en cada subvolumen hasta llenar el discoB completamente.
+* Escribir algo información en cada subvolumen dejando más del 60% del disco vacío.
+* Comprobar resultado.
 
-## 2.2 Simular un RAID0 con BrtFS usando 2 discos
+**Simular un RAID1 con BrtFS usando un único disco**
+
+* En caliente modificar el sistema de ficheros en modo "duplicado".
+* Escribir información en cada subvolumen hasta llenar el discoB completamente.
+* Comprobar resultado.
+
+## 2.2 Usando dos discos
+
+**Simular un RAID0 con BrtFS usando 2 discos**
 
 * Añadir discoC al sistema de ficheros "en caliente" para simular un RAID0.
+* Comprobar resultado.
 
-## 2.3 Simular un RAID5 con BrtFS usando los 3 discos
+## 2.3 Usando tres discos
 
+* Vamos a simular un RAID5 con BrtFS usando los 3 discos.
 * Añadir el discoD al sistema de ficheros "en caliente" para simular un RAID5.
+* Comprobar.
 
 ## 2.4 Snapshots
 
