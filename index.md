@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2021-12-12 00:04:21 +0000`
+`Fecha UM: 2021-12-28 10:54:26 +0000`
 
 # Resumen
 
@@ -8,7 +8,7 @@
 | --------- | --------- |
 | [hardware](#categoría-hardware) | 15 |
 | [sistemas.2](#categoría-sistemas2) | 13 |
-| [sistemas.3](#categoría-sistemas3) | 13 |
+| [sistemas.3](#categoría-sistemas3) | 12 |
 
 ## Categoría: hardware
 
@@ -53,15 +53,14 @@
 | -- | ------- | -------- | ----------- |
 | 0 | [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) | 2 | [README](actividades/sistemas.3/clientes-ligeros/README.md), [enlaces-de-interes](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md) |
 | 1 | [devops](actividades/sistemas.3/devops) | 7 | [ansible](actividades/sistemas.3/devops/ansible.md), [docker-compose](actividades/sistemas.3/devops/docker-compose.md), [docker](actividades/sistemas.3/devops/docker.md), [puppet-debian](actividades/sistemas.3/devops/puppet-debian.md), [puppet-opensuse](actividades/sistemas.3/devops/puppet-opensuse.md), [saltstack-opensuse](actividades/sistemas.3/devops/saltstack-opensuse.md), [vagrant](actividades/sistemas.3/devops/vagrant.md) |
-| 2 | [exposicion](actividades/sistemas.3/exposicion) | 2 | [exposision-clase](actividades/sistemas.3/exposicion/exposision-clase.md), [exposision-turismo](actividades/sistemas.3/exposicion/exposision-turismo.md) |
-| 3 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups](actividades/sistemas.3/impresion/cups.md), [windows](actividades/sistemas.3/impresion/windows.md) |
-| 4 | [ldap](actividades/sistemas.3/ldap) | 7 | [ldap-389ds-opensuse-auth](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md) |
-| 5 | [nfs](actividades/sistemas.3/nfs) | 1 | [README](actividades/sistemas.3/nfs/README.md) |
-| 6 | [procesos](actividades/sistemas.3/procesos) | 9 | [install-service](actividades/sistemas.3/procesos/install-service.md), [limitar](actividades/sistemas.3/procesos/limitar.md), [powershell](actividades/sistemas.3/procesos/powershell.md), [presentacion](actividades/sistemas.3/procesos/presentacion.md), [signals](actividades/sistemas.3/procesos/signals.md), [system-v](actividades/sistemas.3/procesos/system-v.md), [systemd](actividades/sistemas.3/procesos/systemd.md), [tareas-programadas](actividades/sistemas.3/procesos/tareas-programadas.md), [upstart](actividades/sistemas.3/procesos/upstart.md) |
-| 7 | [proyecto](actividades/sistemas.3/proyecto) | 1 | [trim1](actividades/sistemas.3/proyecto/trim1.md) |
-| 8 | [rdp](actividades/sistemas.3/rdp) | 1 | [README](actividades/sistemas.3/rdp/README.md) |
-| 9 | [samba](actividades/sistemas.3/samba) | 4 | [README](actividades/sistemas.3/samba/README.md), [samba-cron](actividades/sistemas.3/samba/samba-cron.md), [samba-debian](actividades/sistemas.3/samba/samba-debian.md), [samba-pdc-debian](actividades/sistemas.3/samba/samba-pdc-debian.md) |
-| 10 | [scripting](actividades/sistemas.3/scripting) | 9 | [IDEAS](actividades/sistemas.3/scripting/IDEAS.md), [README](actividades/sistemas.3/scripting/README.md), [c](actividades/sistemas.3/scripting/c), [config](actividades/sistemas.3/scripting/config), [info](actividades/sistemas.3/scripting/info), [misc](actividades/sistemas.3/scripting/misc), [paso-a-paso](actividades/sistemas.3/scripting/paso-a-paso.md), [process](actividades/sistemas.3/scripting/process), [redes](actividades/sistemas.3/scripting/redes) |
-| 11 | [ssh](actividades/sistemas.3/ssh) | 3 | [README](actividades/sistemas.3/ssh/README.md), [opensuse](actividades/sistemas.3/ssh/opensuse), [ssh-debian-windows](actividades/sistemas.3/ssh/ssh-debian-windows.md) |
-| 12 | [vnc](actividades/sistemas.3/vnc) | 1 | [README](actividades/sistemas.3/vnc/README.md) |
+| 2 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups](actividades/sistemas.3/impresion/cups.md), [windows](actividades/sistemas.3/impresion/windows.md) |
+| 3 | [ldap](actividades/sistemas.3/ldap) | 7 | [ldap-389ds-opensuse-auth](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md) |
+| 4 | [nfs](actividades/sistemas.3/nfs) | 1 | [README](actividades/sistemas.3/nfs/README.md) |
+| 5 | [procesos](actividades/sistemas.3/procesos) | 9 | [install-service](actividades/sistemas.3/procesos/install-service.md), [limitar](actividades/sistemas.3/procesos/limitar.md), [powershell](actividades/sistemas.3/procesos/powershell.md), [presentacion](actividades/sistemas.3/procesos/presentacion.md), [signals](actividades/sistemas.3/procesos/signals.md), [system-v](actividades/sistemas.3/procesos/system-v.md), [systemd](actividades/sistemas.3/procesos/systemd.md), [tareas-programadas](actividades/sistemas.3/procesos/tareas-programadas.md), [upstart](actividades/sistemas.3/procesos/upstart.md) |
+| 6 | [proyectos](actividades/sistemas.3/proyectos) | 4 | [exposision-clase](actividades/sistemas.3/proyectos/exposision-clase.md), [exposision-turismo](actividades/sistemas.3/proyectos/exposision-turismo.md), [git](actividades/sistemas.3/proyectos/git.md), [trim1](actividades/sistemas.3/proyectos/trim1.md) |
+| 7 | [rdp](actividades/sistemas.3/rdp) | 1 | [README](actividades/sistemas.3/rdp/README.md) |
+| 8 | [samba](actividades/sistemas.3/samba) | 4 | [README](actividades/sistemas.3/samba/README.md), [samba-cron](actividades/sistemas.3/samba/samba-cron.md), [samba-debian](actividades/sistemas.3/samba/samba-debian.md), [samba-pdc-debian](actividades/sistemas.3/samba/samba-pdc-debian.md) |
+| 9 | [scripting](actividades/sistemas.3/scripting) | 11 | [README](actividades/sistemas.3/scripting/README.md), [c](actividades/sistemas.3/scripting/c), [config](actividades/sistemas.3/scripting/config), [ideas](actividades/sistemas.3/scripting/ideas.md), [info](actividades/sistemas.3/scripting/info), [kill](actividades/sistemas.3/scripting/kill), [misc](actividades/sistemas.3/scripting/misc), [paso-a-paso](actividades/sistemas.3/scripting/paso-a-paso.md), [process](actividades/sistemas.3/scripting/process), [redes](actividades/sistemas.3/scripting/redes), [teoria](actividades/sistemas.3/scripting/teoria.md) |
+| 10 | [ssh](actividades/sistemas.3/ssh) | 3 | [README](actividades/sistemas.3/ssh/README.md), [opensuse](actividades/sistemas.3/ssh/opensuse), [ssh-debian-windows](actividades/sistemas.3/ssh/ssh-debian-windows.md) |
+| 11 | [vnc](actividades/sistemas.3/vnc) | 1 | [README](actividades/sistemas.3/vnc/README.md) |
 
