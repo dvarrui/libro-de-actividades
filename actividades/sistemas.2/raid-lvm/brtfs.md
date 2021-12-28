@@ -9,8 +9,6 @@ Tiempo      : 8 sesiones
 
 # BtrFS
 
-> Enlaces de interés:
-> * https://puerto53.com/linux/filesystems-btrfs/
 
 # 1. Preparativos
 
@@ -21,9 +19,11 @@ Tiempo      : 8 sesiones
 
 # 1.2 Consultar la información
 
-Consultar el siguiente vídeo:
+Consultar las siguientes guías:
 * [Guía de administración BTRFS](https://www.youtube.com/watch?v=uD6u5_tgaeE)
+* [Filesystems BTRFS en Linux](https://puerto53.com/linux/filesystems-btrfs/)
 * Tomar notas/apuntes de los comandos que se están usando y entender la función de cada uno. Vamos a necesitarlos en los siguientes apartados.
+* Resolver todas las dudas antes de pasar al siguiente apartado.
 
 # 2. Práctica con BtrFS
 
@@ -62,3 +62,24 @@ Consultar el siguiente vídeo:
 
 ---
 # ANEXO
+
+mkfs.btrfs /dev/sdb /dev/sdc | raid1
+mkfs.btrfs -m raid0 /dev/sdb /dev/sdc |raid0
+mkfs.btrfs -m raid10 -d raid10 /dev/sdb /dev/sdc /dev/sdd /dev/sde|raid 10
+mkfs.btrfs -m single /dev/sdb | single un disco
+tail -1 /etc/fstab
+df -hP /testbtrfs/
+btrfs device add /dev/sdd /testbtrfs/ | Añadir un disco al FS
+btrfs filesystem show /testbtrfs/
+btrfs filesystem usage /testbtrfs
+btrfs device delete /dev/sdd /testbtrfs
+En BTRFS el equivalente al PVMOVE de LVM es automático cuando eliminamos un disco.
+btrfs device scan
+btrfs device scan /dev/sdb
+btrfs filesystem balance /testbtrfs
+btrfs filesystem resize 2:-100m /testbtrfs/
+btrfs filesystem resize 2:max /testbtrfs/
+btrfs subvolume create /testbtrfs/subvol1
+btrfs subvolume list /testbtrfs
+btrfs subvolume snapshot /testbtrfs/subvol1/ /testbtrfs/subvol1/snapshot
+rm -r /testbtrfs/subvol1/*
