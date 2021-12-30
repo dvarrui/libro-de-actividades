@@ -1,6 +1,6 @@
 
 ```
-Curso       :
+Curso       : OLD
 Area        : Sistemas operativos, scripting, servicios, procesos
 Descripción : Script para matar aplicaciones de los usuarios y
               leyendo la configuración desde un fichero externo.

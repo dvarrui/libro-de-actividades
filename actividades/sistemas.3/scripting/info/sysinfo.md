@@ -1,4 +1,14 @@
 
+```
+Curso       : OLD
+Área        : Sistemas operativos, scripting, hardware, información del sistema
+Descripción : Script consultar y mostrar la información del Sistema
+              Funcionamiento similar a Neofeetch
+Requisitos  : GNU/Linux, Ruby
+Tiempo      : 5 sesiones
+```
+
+
 # Información del sistema
 
 Crear un script `sysinfo.sh` con las siguientes funcionalidades:
