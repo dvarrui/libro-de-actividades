@@ -3,7 +3,7 @@
 Curso       : 202122
 Area        : Sistemas operativos, scripting, servicios, procesos
 Descripción : Crear script para matar un procesos de usuarios.
-Requisitos  : GNU/Linux, Ruby
+Requisitos  : GNU/Linux, comandos de procesos, Ruby
 Tiempo      : 5 sesiones
 ```
 
