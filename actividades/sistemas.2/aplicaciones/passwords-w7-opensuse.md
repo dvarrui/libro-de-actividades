@@ -197,6 +197,11 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
+[Reenviado de Seguridad BlockChain]
+* [L0phtCrack, la herramienta de auditoría y recuperación de contraseñas ya es open source](https://www.linuxadictos.com/l0phtcrack-la-herramienta-de-auditoria-y-recuperacion-de-contrasenas-ya-es-open-source.html)
+
+https://gitlab.com/l0phtcrack/l0phtcrack
+
 ## Modificar claves de Windows con el comando chntpw de GNU/Linux
 
 * Enlace de interés: [Modifying Windows local accounts with Fedora and chntpw](https://fedoramagazine.org/modifying-windows-local-accounts-with-fedora-and-chntpw)

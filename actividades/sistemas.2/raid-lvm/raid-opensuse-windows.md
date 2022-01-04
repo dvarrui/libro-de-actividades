@@ -7,8 +7,12 @@ Requisitos  : OpenSUSE Leap 15, Windows Server
 Tiempo      : 8 sesiones
 ```
 
----
-# 1. Instalar OpenSUSE en disco RAID0 software
+# Instalar OpenSUSE en disco RAID0 software
+
+# 1. Introducción
+
+> Enlaces de interés:
+> [Niveles RAID](https://blog.elhacker.net/2013/12/tipos-niveles-raid-hardware-software.html?m=1&s=09)
 
 Ejemplo de rúbrica:
 
