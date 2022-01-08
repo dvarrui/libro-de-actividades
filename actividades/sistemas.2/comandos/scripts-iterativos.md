@@ -27,10 +27,12 @@ Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la sig
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXX.sh` en shell script para crear un número MAX usuarios en el sistema.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
+    * La variable MAX contiene el número de usuarios a crear.
     * Recordar que también queremos que se cree el HOME del usuario.
     * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
 * Hacer script `borrar-usuariosXX.sh` en shell script para borrar un número MAX usuarios del sistema.
     * Los usuarios que se van a borrar tendrán los siguientes nombres: "nombre-alumno1", "nombre-alumno2", etc.
+    * La variable MAX contiene el número de usuarios a crear.
     * Recordar que al borrar el usuario se tendrá que eliminar su HOME.
 
 ## 2.2 Comprobar
@@ -50,7 +52,8 @@ Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la sig
 Vamos a crear el mismo script del apartado anterior pero en Ruby.
 * Recordar que el script comienza con `#!/usr/bin/env ruby`
 * Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
-* Los iteradores o bucle de Ruby son igual que en Bash. Por ejemplo
+* Los iteradores o bucle de Ruby son igual que en Bash. Por ejemplo:
+
 ```
 for i in VALORES do
   HACER ALGO CON CADA i
