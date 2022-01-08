@@ -21,7 +21,7 @@ Tiempo      :
 
 # 2. Crear usuarios y borrar usuarios en GNU/Linux
 
-## 2.1 Crear el script en Bash
+## 2.1 Crear scripts en Bash
 
 Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la siguiente tareas:
 * Ir a una MV con GNU/Linux.
@@ -43,7 +43,7 @@ Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la sig
 * Ejecutar el script de borrado.
 * Consultar contenido de /etc/passwd.
 
-# 3. Crear el script en Ruby
+# 3. Crear scripts en Ruby
 
 ## 3.1 Crear el script
 
