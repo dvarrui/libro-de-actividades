@@ -3,12 +3,12 @@
 Curso       : 201920
 Area        : Sistemas operativos, comandos, scripting
 Descripción : Introducción a los script para solucionar problemas.
-              Estructura secuencial
+              Estructura condicional
 Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
-# Título: "Génesis y apocalipsis"
+# Scripring: Estructura condicional
 
 # 1. INFO: Explicación del profesor usando ejemplos
 
@@ -18,18 +18,11 @@ Tiempo      :
 * [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
 * [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
 
-**Ejemplos: Find and copy**. Hacer explicación en clase usando los siguientes ejemplos:
-* [backup1-iterar.sh](files/backup1-iterar.sh)
-* [backup2-filtrar.sh](files/backup2-filtrar.sh)
-* [backup3-argumentos.sh](files/backup3-argumentos.sh)
-* [backup4-ruby.rb](files/backup4-ruby.rb)
-* [backup5-windows.rb](files/backup5-windows.rb)
-
 # 2. Crear usuarios y borrar usuarios en GNU/Linux
 
 ## 2.1 Crear el script
 
-Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la siguiente tareas:
+Vamos a crear un script que usando la estructura condicional iterativa van a realizar la siguiente tareas:
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXX.sh` en shell script para crear un número MAX usuarios en el sistema.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
