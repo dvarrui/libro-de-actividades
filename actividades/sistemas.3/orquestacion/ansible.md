@@ -18,24 +18,25 @@ Enlaces de interés:
 
 ## 1.1 Consultar los vídeos
 
-Consultar los siguientes vídeos:
-* [Ansible 1 - ¿Qué es Ansible](https://youtu.be/slNIwBPeQvE)
-* [Ansible 2 - Instalación](https://youtu.be/Zimn-UCbQ0A)
-* [Ansible 3 - Inventario](https://youtu.be/VgnidinNlkQ)
-
 ## 1.2 Crear las máquinas
 
 | MVs | Nombre   | Rol    | SO        | IP           |
 | --- | -------- | ------ | --------- | ------------ |
-| MV1 | masterXX | Master | OpenSUSE  | 172.19.XX.31 |
-| MV2 | slaveXXg | Slave  | OpenSUSE  | 172.19.XX.32 |
+| MV1 | masterXX | Master | GNU/Linux | 172.19.XX.51 |
+| MV2 | slaveXXg | Slave  | GNU/linux | 172.19.XX.52 |
 | MV3 | slaveXXw | Slave  | Windows10 | 172.19.XX.11 |
 
 > Te recuerdo que puedes hacer uso de [Vagrant](../../global/vagrant) para crear estas máquinas.
 
+* Definir las máquinas "slaveXXg" y "slaveXXw" dentro del /etc/hosts de "masterXX".
+
 # 2. Instalación de SSH y Ansible
 
 # 2.1 Instalar Ansible
+
+Consultar los siguientes vídeos:
+* [Ansible 1 - ¿Qué es Ansible](https://youtu.be/slNIwBPeQvE)
+* [Ansible 2 - Instalación](https://youtu.be/Zimn-UCbQ0A)
 
 > [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
@@ -46,9 +47,24 @@ Ir a MV1 e instalar Ansible.
 * Instalar el servicio SSH en MV2 y MV3.
 * El usuario "nombre-alumno" de la MV1 debe poder acceder por SSH sin clave a MV2 y MV3. Recordar el uso de clave pública/privada de SSH. Esto lo hicimos en la actividad SSH de la unidad 1.
 
-# 3. El inventario
+## 2.3. El inventario
 
 El **inventario** es el conjunto de máquinas que tenemos declaradas en nuestra instalación de Ansible para informarle al sistema que son aquellas máquinas con las que vamos a trabajar.
+
+Consultar los siguientes vídeos:
+* [Ansible 3 - Inventario](https://youtu.be/VgnidinNlkQ)
+
+* Crear un grupo dentro del inventario llamado "alumnoXX".
+* Poner las máquinas "slaveXXg" y "slaveXXw" dentro del grupo.
+
+# 3. Comandos básicos ad-hoc
+
+Los comandos ad-hoc se lanzan de golpe en la terminal y te permiten realizar tareas rápidas en un servidor.
+
+Consultar los siguientes vídeos:
+* [Ansible 4 - Comandos básicos ad-hoc](https://youtu.be/83DBL6CGNmY)
+
+* `ansible MV2 -m ping`, comprobar la conectividad con una máquina.
 
 # ANEXO
 
