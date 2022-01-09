@@ -1,16 +1,19 @@
 ```
-Estado      : EN CONSTRUCCION!!!
 Curso       : 202122
 Area        : Sistemas operativos, copias de seguridad, raid y LVM
 Descripción : Practicar copias de seguridad, RAID y LVM en caliente
-Requisitos  : GNU/Linux
+Requisitos  : OpenSUSE Leap 15, Windows Server
 Tiempo      : 8 sesiones
 ```
 
-# BtrFS
+# Sistema de ficheros BtrFS y volúmenes dinámicos de Windows
 
+1. [Introducción](#1-introduccion)
+2. [Práctica con BtrFS](#2-practica-conn-btrfs)
+3. [Snpashots](#2-snapshots)
+4. [Discos dinámicos en Windows](#4-discos-dinamicos-en-windows)
 
-# 1. Preparativos
+# 1. Introducción
 
 ## 1.1 Preparar la máquina virtual
 
@@ -67,7 +70,57 @@ Consultar las siguientes guías:
 * Configurar el sistema de ficheros en modo RAID6.
 * Comprobar.
 
-## 2.4 Snapshots
+# 3. Snapshots
+
+# 4. Discos dinámicos en Windows
+
+Ahora vamos a practicar las configuraciones RAID software con una MV Windows. Elegimos Windows Server porque así nos aseguramos de tener soporte para implementar RAID5.
+
+**Preparativos**
+
+* Crear una MV con [Windows Server](../../global/configuracion/windows-server.md).
+
+**Teoría**: A continuación podemos una tabla con la traducción de los terminos:
+
+| Nomenclatura Windows | Nomenclatura Standard |
+| -------------------- | --------------------- |
+| Volumen básico       | Partición             |
+| Volumen dinámico     | Partición tipo RAID   |
+| Reflejo              | RAID-1                |
+| Seccionado           | RAID-0 (Todos los discos de igual tamaño) |
+| Distribuido          | LVM (Parecido a RAID-0 pero usando discos de distinto tamaño |
+
+En Windows las particiones normales se llaman `volúmenes básicos`. Para poder hacer RAID tendremos que convertir el volumen básico en dinámico.
+
+## 4.1 Volumen Seccionado (RAID-0)
+
+> Enlaces de interés:
+> * Vídeo sobre la [Creacion de un volumen seccionado de Windows](https://www.youtube.com/watch?v=g0TF38JV1Xk)
+> * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
+
+Vamos a crear un volumen *seccionado* (Esto es lo mismo que un RAID0):
+* Añadir a la MV 3 discos duros virtuales de 200 MB cada uno.
+* Crea un volumen seccionado con un tamaño total de 600 MB, utilizando los discos anteriores.
+
+## 342 Volumen Reflejado (RAID-1)
+
+> Enlaces de interés:
+> * Vídeo sobre la [Creación de un volumen reflejado en Windows7](https://www.youtube.com/watch?v=UzIR9FHZyEQ).
+> * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
+> * Enlace sobre cómo [Configurar unas particiones reflejadas en Windows Server 2008](https://support.microsoft.com/es-es/kb/951985)
+
+Un volumen *Reflejado* (Esto es es lo mismo que un RAID1):
+* Usar los 2 discos de 200 MB anteriores para crear un volumen reflejado de 200 MB.
+* Crear un fichero `mirror-pruebaXX.txt` en el volumen reflejado. Escribe tu nombre dentro.
+* Apaga la máquina y quita uno de los discos del RAID-1.
+* Reinicia y comprueba que seguimos teniendo los datos. El RAID-1 sigue funcionando con un sólo disco.
+
+## 4.3 Pregunta RAID-5
+
+> Enlace de interés:
+> * Vídeo sobre [RAID 0, 1 y 5 en Windows Server 2008](https://www.youtube.com/watch?v=qUNvCqWkeBA)
+
+* Usar los 3 discos de 200 MB anteriores para crear un RAID-5.
 
 ---
 # ANEXO
