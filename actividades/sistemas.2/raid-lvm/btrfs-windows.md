@@ -11,7 +11,7 @@ Tiempo      : 8 sesiones
 1. [Introducción](#1-introduccion)
 2. [Práctica con BtrFS](#2-practica-conn-btrfs)
 3. [Snpashots](#2-snapshots)
-4. [Discos dinámicos en Windows](#4-discos-dinamicos-en-windows)
+4. [Discos dinámicos en Windows](#4-discos-dinámicos-en-windows)
 
 # 1. Introducción
 
