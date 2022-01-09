@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2022-01-09 19:52:06 +0000`
+`Fecha UM: 2022-01-09 19:53:36 +0000`
 
 # Resumen
 
@@ -52,7 +52,7 @@
 | ID | Sección | Cantidad | Actividades |
 | -- | ------- | -------- | ----------- |
 | 0 | [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) | 2 | [README](actividades/sistemas.3/clientes-ligeros/README.md), [enlaces-de-interes](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md) |
-| 1 | [docker](actividades/sistemas.3/docker) | 3 | [docker-compose](actividades/sistemas.3/docker/docker-compose.md), [docker](actividades/sistemas.3/docker/docker.md), [private-problema](actividades/sistemas.3/docker/private-problema) |
+| 1 | [docker](actividades/sistemas.3/docker) | 2 | [docker-compose](actividades/sistemas.3/docker/docker-compose.md), [docker](actividades/sistemas.3/docker/docker.md) |
 | 2 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups](actividades/sistemas.3/impresion/cups.md), [windows](actividades/sistemas.3/impresion/windows.md) |
 | 3 | [ldap](actividades/sistemas.3/ldap) | 7 | [ldap-389ds-opensuse-auth](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md) |
 | 4 | [nfs](actividades/sistemas.3/nfs) | 1 | [README](actividades/sistemas.3/nfs/README.md) |
