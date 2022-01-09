@@ -9,10 +9,13 @@ Tiempo      : 8 sesiones
 
 # Instalar OpenSUSE en disco RAID0 software
 
+Vamos a instalar un sistema operativo OpenSUSE sobre varios discos usando RAID0 software.
+
 # 1. Introducción
 
-> Enlaces de interés:
-> [Niveles RAID](https://blog.elhacker.net/2013/12/tipos-niveles-raid-hardware-software.html?m=1&s=09)
+Leer sobre el tema y consultar las dudas:
+* [Raid - Wikipedia](https://es.wikipedia.org/wiki/RAID)
+* [Niveles RAID](https://blog.elhacker.net/2013/12/tipos-niveles-raid-hardware-software.html?m=1&s=09)
 
 Ejemplo de rúbrica:
 
@@ -22,18 +25,17 @@ Ejemplo de rúbrica:
 | (2.3) Comprobar RAID-1 | | | |
 | (3) Quitar disco y probar RAID-1 | | |. |
 
-Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 software.
-
 ## 1.1 Creación de la MV
 
 * Crear una máquina virtual sin discos.
+* Configurar la MV con EFI activo (`Configuración -> Sistema -> EFI`).
 * Añadir 3 discos virtuales SATA a la MV:
-    * (a) 300MB,
-    * (b) 10GB
-    * (c) 10GB.
-* **IMPORTANTE**: Configurar la MV con EFI activo (`Configuración -> Sistema -> EFI`).
+    * (a) 300 MiB
+    * (b) 10 GiB
+    * (c) 10 GiB
+* OJO: Los discos deben tener esos tamaños y ese orden concreto.
 
-## 1.2 Particionado e instalación
+## 1.2 Partición EFI
 
 * Empezamos el proceso de instalación del SO.
 * Elegimos `particionado experto o manual -> Continuar con particiones existentes`.
@@ -45,13 +47,15 @@ Vamos a instalar un sistema operativo OpenSUSE sobre unos discos en RAID0 softwa
 | ------------- | ------ | ------------------------- | ------- | --------- |
 | /dev/sda1     | 300 MB | Partición de Arranque EFI | fat     | /boot/efi |
 
-> El sistema de arranque irá en el disco (a). Los ficheros que inician el SO irán en una partición aparte sin RAID, para evitar problemas en el boot del sistema.
+> El sistema de arranque irá en el disco (a). Por tanto, los ficheros que inician el SO (boot) irán en una partición aparte sin RAID, para evitar problemas durante el arranque del sistema.
+
+## 1.3 Partición del sistema operativo
 
 **Dispositivo para el sistema operativo**: El sistema operativo lo vamos a instalar en un dispositivo virtual RAID0.
 * Ir a `Particionador -> RAID -> Añadir nuevo RAID`, y elegimos:
     * Hacer un `raid0`
-    * Le pondremos el nombre `deviceXXr0` al dispositivo RAID0.
-    * Elegir los discos `sdb` y `sdc`.
+    * Le pondremos el nombre `deviceXXr0` al dispositivo RAID0. Donde XX es el número asignado al alumno.
+    * Elegir los discos `sdb` y `sdc` para conformar el RAID0.
 * Aceptar.
 
 Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentro.
@@ -68,7 +72,7 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentr
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
-## 1.3 Comprobar RAID0
+## 1.4 Comprobar RAID0
 
 > Como resultado final obtenemos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 formado por la unión de dos discos físicos `sdb` y `sdc`.
 
@@ -82,6 +86,8 @@ ip route          # Muestra información de enrutamiento
 host www.nba.com  # Comprueba la resolución de nombres
 ```
 
+> Si estos comandos no devuelven la información esperada, entonces solucionar el problema y volver a comprobar la salida de los comandos.
+
 Información sobre los discos, particiones y dispositivos:
 
 ```
@@ -90,23 +96,28 @@ df -hT            # Muestra los puntos de montaje
 cat /proc/mdstat  # Muestra la configuración RAID
 ```
 
-> NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea también como /dev/md127. No preocuparse por este hecho. Es la nomenclatura antigua. Algunos SSOO mantienen ambos nombres por compatibilidad con herramientas antiguas.
+NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAID0 se vea también como `/dev/md127`. No preocuparse por este hecho. Es la nomenclatura antigua. Algunos SSOO mantienen ambos nombres por compatibilidad con herramientas antiguas.
+
+> Si estos comandos no devuelven la información esperada, entonces solucionar el problema y volver a comprobar la salida de los comandos.
+
 
 ---
 # 2. RAID-1 software
 
 Ahora vamos a practicar el RAID1 con nuestra MV anterior.
 
-> **IMPORTANTE**: Haz copia de seguridad de la MV VBox (snapshot/instantánea o clonarla).
+**IMPORTANTE**: Antes de seguir, haz copia del estado de la MV. Esto es, snapshot/instantánea de VirtualBox como se ha enseñado en clase.
 
 ## 2.1 Preparar la MV
 
-Vamos a añadir a la MV, varios discos para montar un RAID-1 software:
+Vamos a añadir a la MV, varios discos más para montar un RAID-1 software:
 * Crear 2 discos virtuales (del mismo tamaño) a la MV:
-    * (d) 500MB
-    * (e) 500MB.
+    * (d) 500 MiB
+    * (e) 500 MiB
+* OJO: estos discos deben estar al final del resto.
 * Reiniciar la MV
 * Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
+* En caso contrario apagar la MV y reordenar los discos como se pide en la práctica.
 
 ## 2.2 Crear y montar RAID-1
 
@@ -114,12 +125,13 @@ Vamos a añadir a la MV, varios discos para montar un RAID-1 software:
 > * [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 
 Vamos a crear RAID-1 con los discos `sdd` y `sde`:
-* Ir a `Particionador -> RAID`, y elegimos:
+* Iniciar la MV.
+* Ir a `Yast -> Particionador -> RAID`, y elegimos:
     * Elegir tipo `raid1`
     * Elegir los discos `sdd` y `sde`.
     * Le pondremos el nombre `deviceXXr1`.
 * Aceptar
-* Crear directorio `/mnt/folderXXr1`. Este es el directorio que vamos a usar para montar el dispositivo.
+* Crear directorio `/mnt/folderXXr1`. Este es el directorio que vamos a usar para montar el dispositivo nuevo (RAID1).
 * Crear una partición en el nuevo dispositivo `deviceXXr1`:
     * Formato `ext3`.
     * Tamaño: `Disco completo`.
@@ -134,8 +146,9 @@ cat /proc/mdstat                  # Muestra info de discos RAID
 lsblk                             # Muestra info de los discos/particiones
 mdadm --detail /dev/md/deviceXXr1 # Muestra info del disposivo RAID1
 ```
+En el fichero `/etc/mdadm.conf`, se guardan todas las configuraciones relacionadas con los dispositivos RAID.
 
-> En el fichero `/etc/mdadm.conf`, se guardan todas las configuraciones relacionadas con los dispositivos RAID.
+> Si estos comandos no devuelven la información esperada, entonces solucionar el problema y volver a comprobar la salida de los comandos.
 
 * `df -hT | grep XX`, comprobar si el dispositivo está correctamente montado.
 * `cat /etc/fstab`, comando para consultar el fichero de configuración de los montajes automáticos. Esto es para que se monte el dispositivo automáticamente en cada reinicio de la máquina.
@@ -151,6 +164,7 @@ Crea lo siguiente:
 * Fichero `/mnt/folderXXr1/endor/sandtrooper.txt`
 
 Reiniciar la MV y comprobar que se mantienen los datos:
+
 ```
 df -hT |grep XX
 tree /mnt/folderXXr1
@@ -164,8 +178,9 @@ Como tenemos un dispositivo RAID1, entonces podemos quitar uno de los discos y c
 ## 3.1 Quitar un disco
 
 * Apagamos la MV.
-* Quitar en VirtualBox uno de los discos del raid1 (`/dev/sde`).
+* Quitar en VirtualBox uno el disco `/dev/sde` de la MV.
 * Reiniciamos la MV y comprobamos que la información no se ha perdido, aunque el disco no esté.
+
 ```
 lsblk                 # Muestra info de los discos/particiones
 tree /mnt/folderXXr1  # Muestra el contenido de la carpeta
