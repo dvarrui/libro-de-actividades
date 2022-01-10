@@ -172,6 +172,7 @@ Modificar el inventario de Ansible de la siguiente forma:
 Playbook:
 * Crear un playbook `tarea61gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
 * [Crear un playbook `tarea62windows.yaml`, y aplicarlo al grupo "windows".](https://docs.ansible.com/ansible/latest/user_guide/windows_usage.html).
+* Comprobarlos.
 
 # ANEXO
 
