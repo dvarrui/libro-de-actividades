@@ -10,7 +10,7 @@ Requisitos :
 Entrega
 * Trabajar de forma individual.
 * Crear un script en el repositorio GITHUB.
-* Entregar información del nombre-repositorio y nombe del directorio con el trabajo.
+* Entregar información del nombre-repositorio y nombre del directorio con el trabajo.
 
 ---
 # Objetivo
