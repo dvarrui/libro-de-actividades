@@ -33,8 +33,7 @@ Enlaces de interés:
 
 # 2.1 Instalar Ansible
 
-> Enlaces de interés:
-> * [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
+> Enlaces de interés: [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
 Consultar los siguientes vídeos:
 * [Ansible 1 - ¿Qué es Ansible](https://youtu.be/slNIwBPeQvE)
@@ -62,6 +61,7 @@ El **inventario** es el conjunto de máquinas que tenemos declaradas en nuestra 
 Consultar los siguientes vídeos:
 * [Ansible 3 - Inventario](https://youtu.be/VgnidinNlkQ)
 
+Ir a la MV1:
 * Crear un grupo dentro del inventario llamado "alumnoXX".
 * Poner las máquinas "slaveXXg" y "slaveXXw" dentro del grupo.
 
