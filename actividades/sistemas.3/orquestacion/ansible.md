@@ -1,6 +1,5 @@
 
 ```
-EN CONSTRUCCIÓN!!!
 Curso       : 2122
 Area        : Sistemas operativos, automatización, aprovisionamiento, devops   
 Descripción : Automatización de tareas con gestor de infraestructura "Ansible"
@@ -87,26 +86,52 @@ Ir a la MV1:
 * Moverse dentro de la directorio anterior.
 * Crear el fichero `tarea-01-ping.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
-    * A todos los hosts del inventario
+    * Aplicar a todos los hosts del inventario
     * Comprobar conectividad ping
     * Crear el fichero `tarea-01-ping.yaml`.
+* Comprobarlo.
 
-## 4.2 install
+## 4.2 Instalar y desinstalar
 
 * Crear el fichero `tarea-02-install.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
-    * Al host GNU/Linux del inventario
+    * Aplicar al host GNU/Linux del inventario
     * Instalar el paquete `neofetch` y otros dos paquetes a elegir por el alumno.
-
-## 4.3 uninstall
+* Comprobarlo.
 
 * Crear el fichero `tarea-03-uninstall.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
-    * Al host GNU/Linux del inventario
+    * Aplicar al host GNU/Linux del inventario
     * Desinstalar los paquetes instalados por la tarea 02.
+* Comprobarlo.
 
+## 4.3 Nginx
+
+Cómo conectarse a una máquina remota como otro usuario mediante el uso de remote_user.
+* [Ansible 7 - Conectarse como otro usuario](https://youtu.be/ggTS32i2JmA)
+
+* Crear el fichero `tarea-04-nginx-on.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Aplicar al host GNU/Linux del inventario
+    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
+    * Instalar Nginx.
+    * Iniciar el servicio.
+* Comprobarlo.
+* Crear el fichero `tarea-05-nginx-off.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Aplicar al host GNU/Linux del inventario
+    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
+    * Desinstalar Nginx.
+* Comprobarlo.
+
+---
+`EN CONSTRUCCIÓN!!!`
+
+* [Ansible 8 - Handlers](https://youtu.be/G97sqHIG38w)
 
 # ANEXO
+
+Comandos de ansible:
 
 ansible MV -m ping
 ansible MV -m ping -i HOSTFILE
@@ -120,6 +145,20 @@ ansible MV -m zypper -a "name=neofetch state=present" -b -k
 https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
 
 ansible-playbook FILE.yaml
+
+## Ficheros de configuración de Ansible
+
+```
+ansible.cfg
+HOME/.ansible.cfg
+/etc/ansible/ansible.cfg
+```
+
+Contenido
+```
+[defaults]
+remote_user = vagrant
+```
 
 ## Clave privada con password
 eval $(ssh-agent)
