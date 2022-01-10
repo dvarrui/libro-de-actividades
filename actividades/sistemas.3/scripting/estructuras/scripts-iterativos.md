@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202122
 Area        : Sistemas operativos, comandos, scripting
 Descripción : Introducción a los script para solucionar problemas.
               Estructura iterativa
@@ -10,7 +10,9 @@ Tiempo      :
 
 # Scripting: Estructura iterativa
 
-# 1. INFO: Explicación del profesor usando ejemplos
+# 1. Teoría
+
+## 1.1 Ejemplos
 
 **Ejemplos: Find and copy**. Hacer explicación en clase usando los siguientes ejemplos:
 * [backup1-iterar.sh](files/backup1-iterar.sh)
@@ -19,40 +21,68 @@ Tiempo      :
 * [backup4-ruby.rb](files/backup4-ruby.rb)
 * [backup5-windows.rb](files/backup5-windows.rb)
 
-# 2. Crear usuarios y borrar usuarios en GNU/Linux
+# 2. Práctica Bash
 
-## 2.1 Crear scripts en Bash
+Vamos crear usuarios y borrar usuarios en GNU/Linux
 
-Vamos a crear 2 scripts que usando la estructura iterativa van a realizar la siguiente tareas:
+## 2.1 Recordatorio de Bash
+
+* Recordar que el script comienza con `#!/usr/bin/env bash`
+* Para ejecutar un comando del sistema hacemos `COMANDO-DEL-SISTEMA`.
+* Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Ejemplo de condicional en Bash:
+```
+if [ CONDICION ]; then
+  HACER ALGO
+fi
+```
+* Se usa `read` para preguntar un valor al usuario.
+* Se usa `$1` para leer el primer argumento, `$2` el segundo. etc.
+* Ejemplo de bucle en Bash:
+
+```
+for i in VALORES do
+  HACER ALGO CON CADA i
+done
+```
+
+## 2.1 Crear scripts
+
+Vamos a crear scripts usando la estructura iterativa.
 * Ir a una MV con GNU/Linux.
-* Hacer script `crear-usuariosXX.sh` en shell script para crear un número MAX usuarios en el sistema.
-    * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
-    * La variable MAX contiene el número de usuarios a crear.
-    * Recordar que también queremos que se cree el HOME del usuario.
-    * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
-* Hacer script `borrar-usuariosXX.sh` en shell script para borrar un número MAX usuarios del sistema.
-    * Los usuarios que se van a borrar tendrán los siguientes nombres: "nombre-alumno1", "nombre-alumno2", etc.
-    * La variable MAX contiene el número de usuarios a crear.
-    * Recordar que al borrar el usuario se tendrá que eliminar su HOME.
+* Hacer la segunda versión del script `crear-usuariosXXv2.sh` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `borrar-usuariosXXv2.sh` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `elegirXXv2.sh` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear (v2).
 
 ## 2.2 Comprobar
 
 * Estamos en la MV GNU/Linux.
-* Abrir un terminal Bash.
-* Consultar contenido de /etc/passwd.
-* Ejecutar el script de creación.
-* Consultar contenido de /etc/passwd.
-* Ejecutar el script de borrado.
-* Consultar contenido de /etc/passwd.
+* Abrir un terminal.
+* Consultar contenido inicial de /etc/passwd.
+* Ejecutar el script eligiendo 1 y consultar contenido de /etc/passwd.
+* Ejecutar el script eligiendo 2 y consultar contenido de /etc/passwd.
+* Ejecutar el script eligiendo 0. ¿Qué sucede?
 
-# 3. Crear scripts en Ruby
+# 3. Práctica Ruby
 
-## 3.1 Crear el script
+Vamos crear usuarios y borrar usuarios en GNU/Linux
 
-Vamos a crear el mismo script del apartado anterior pero en Ruby.
+## 3.1 Recordatorio de Ruby
+
 * Recordar que el script comienza con `#!/usr/bin/env ruby`
 * Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
-* Los iteradores o bucle de Ruby son igual que en Bash. Por ejemplo:
+* Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Ejemplo de condicional en Ruby:
+```
+if (CONDICION)
+  HACER ALGO
+else
+  HACER OTRA COSA
+end
+```
+* Se usa `gets` para preguntar un valor al usuario de forma interactiva.
+* Se usa `ARGV[0]` para leer el primer argumento, `ARGV[1]` para el segundo, etc.
+* Ejemplo de bucle en Ruby:
 
 ```
 for i in VALORES do
@@ -60,12 +90,19 @@ for i in VALORES do
 end
 ```
 
-## 3.2 Comprobar
+## 3.2 Crear scripts
+
+Vamos a crear scripts usando la estructura iterativa.
+* Ir a una MV con GNU/Linux.
+* Hacer la segunda versión del script `crear-usuariosXXv2.rb` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `borrar-usuariosXXv2.rb` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `elegirXXv2.rb` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear (v2).
+
+## 3.3 Comprobar
 
 * Estamos en la MV GNU/Linux.
-* Abrir un terminal Bash.
-* Consultar contenido de /etc/passwd.
-* Ejecutar el script de creación.
-* Consultar contenido de /etc/passwd.
-* Ejecutar el script de borrado.
-* Consultar contenido de /etc/passwd.
+* Abrir un terminal.
+* Consultar contenido inicial de /etc/passwd.
+* Ejecutar el script eligiendo 1 y consultar contenido de /etc/passwd.
+* Ejecutar el script eligiendo 2 y consultar contenido de /etc/passwd.
+* Ejecutar el script eligiendo 0. ¿Qué sucede?
