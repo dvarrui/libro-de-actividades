@@ -88,7 +88,7 @@ Consultar los siguientes vídeos:
 * [Ansible 6 - Redactando un playbook](https://youtu.be/Wuv0ZPOMLf0)
 * [Playbooks de Ansible - Atareado](https://atareao.es/tutorial/ansible/playbooks-de-ansible/)
 
-## 4.1 ping
+## 4.1 Playbook ping
 
 Ir a la MV1:
 * Crear directorio `/home/nombre-alumno/ansibleXX.d`
@@ -100,7 +100,7 @@ Ir a la MV1:
     * Crear el fichero `tarea-01-ping.yaml`.
 * Comprobarlo.
 
-## 4.2 Instalar y desinstalar
+## 4.2 Playbook install y uninstall
 
 Ir a la MV1:
 * Moverse al `/home/nombre-alumno/ansibleXX.d`
