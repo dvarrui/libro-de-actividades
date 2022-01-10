@@ -57,16 +57,69 @@ Consultar los siguientes vídeos:
 * Crear un grupo dentro del inventario llamado "alumnoXX".
 * Poner las máquinas "slaveXXg" y "slaveXXw" dentro del grupo.
 
-# 3. Comandos básicos ad-hoc
+# 3. Comandos ad-hoc
 
-Los comandos ad-hoc se lanzan de golpe en la terminal y te permiten realizar tareas rápidas en un servidor.
+Los comandos ad-hoc se lanzan desde la terminal y permiten realizar tareas rápidas en un servidor. También pueden ser usados para lanzar instrucciones concretas usando módulos específicos de Ansible en un servidor.
 
 Consultar los siguientes vídeos:
 * [Ansible 4 - Comandos básicos ad-hoc](https://youtu.be/83DBL6CGNmY)
+* [Ansible 5 - Comandos ad-hoc para controlar módulos](https://youtu.be/-MuOmvN1tgY)
 
-* `ansible MV2 -m ping`, comprobar la conectividad con una máquina.
+Ir a la MV1:
+* Usar Ansible para comprobar la conectividad con las máquinas del inventario.
+* [Ansible - Module Index](https://docs.ansible.com/ansible/2.8/modules/modules_by_category.html)
+* Usar Ansible para instalar 'neofetch' en las máquinas del inventario.
+* Comprobar que el paquete está instalado.
+* Volver a ejecutar el comando Ansible de instalación del mismo paquete y ver qué ocurre.
+
+# 4. Playbook
+
+La forma reutilizable de usar Ansible es escribiendo playbooks, que son archivos en los que declaramos las tareas que necesitamos hacer con nuestro servidor que vayamos a aprovisionar.
+
+Consultar los siguientes vídeos:
+* [Ansible 6 - Redactando un playbook](https://youtu.be/Wuv0ZPOMLf0)
+* [Playbooks de Ansible - Atareado](https://atareao.es/tutorial/ansible/playbooks-de-ansible/)
+
+## 4.1 ping
+
+Ir a la MV1:
+* Crear directorio `/home/nombre-alumno/ansibleXX.d`
+* Moverse dentro de la directorio anterior.
+* Crear el fichero `tarea-01-ping.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * A todos los hosts del inventario
+    * Comprobar conectividad ping
+    * Crear el fichero `tarea-01-ping.yaml`.
+
+## 4.2 install
+
+* Crear el fichero `tarea-02-install.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Al host GNU/Linux del inventario
+    * Instalar el paquete `neofetch` y otros dos paquetes a elegir por el alumno.
+
+## 4.3 uninstall
+
+* Crear el fichero `tarea-03-uninstall.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Al host GNU/Linux del inventario
+    * Desinstalar los paquetes instalados por la tarea 02.
+
 
 # ANEXO
+
+ansible MV -m ping
+ansible MV -m ping -i HOSTFILE
+ansible MV -a 'echo "hola"'
+ansible MV -m shell -a 'echo "hola"'
+ansible MV -m apt -a "name=vim state=present"
+ansible MV -m zypper -a "name=neofetch state=present"
+ansible MV -m zypper -a "name=neofetch state=present" -b
+ansible MV -m zypper -a "name=neofetch state=present" -b -k
+
+https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
+
+ansible-playbook FILE.yaml
 
 ## Clave privada con password
 eval $(ssh-agent)
