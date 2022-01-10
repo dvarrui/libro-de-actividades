@@ -9,23 +9,27 @@ Tiempo      : 5 sesiones
 
 # 1. Orquestación con Ansible
 
-Enlaces de interés:
-* [Automatización con Ansible. Una introducción](https://www.atareao.es/tutorial/ansible/)
-* [¿Qué es la orquestación de sistemas](https://www.redhat.com/es/topics/automation/what-is-orchestration)
-* [EN - Ansible Documentation](https://docs.ansible.com/ansible/latest/)
-* [EN - Red Hat Ansible Automation Platform](https://www.ansible.com/)
+> Enlaces de interés:
+> * [Automatización con Ansible. Una introducción](https://www.atareao.es/tutorial/ansible/)
+> * [¿Qué es la orquestación de sistemas](https://www.redhat.com/es/topics/automation/what-is-orchestration)
+> * [EN - Ansible Documentation](https://docs.ansible.com/ansible/latest/)
+> * [EN - Red Hat Ansible Automation Platform](https://www.ansible.com/)
 
-## 1.1 Consultar los vídeos
+## 1.1 Entrega
+
+* Entregar un informe tipo tutorial en formato Markdown por la plataforma GitHub.
+* Entregar también los ficheros YAML que se vayan creando.
+* Etiquetar las entrega (commit final) como `ansible`.
 
 ## 1.2 Crear las máquinas
+
+> Te recuerdo que puedes hacer uso de [Vagrant](../../global/vagrant) para crear estas máquinas.
 
 | MVs | Nombre   | Rol    | SO        | IP           |
 | --- | -------- | ------ | --------- | ------------ |
 | MV1 | masterXX | Master | GNU/Linux | 172.19.XX.51 |
 | MV2 | slaveXXg | Slave  | GNU/linux | 172.19.XX.52 |
 | MV3 | slaveXXw | Slave  | Windows10 | 172.19.XX.11 |
-
-> Te recuerdo que puedes hacer uso de [Vagrant](../../global/vagrant) para crear estas máquinas.
 
 * Definir las máquinas "slaveXXg" y "slaveXXw" dentro del /etc/hosts de "masterXX".
 
@@ -93,25 +97,24 @@ Consultar los siguientes vídeos:
 Ir a la MV1:
 * Crear directorio `/home/nombre-alumno/ansibleXX.d`
 * Moverse dentro de la directorio anterior.
-* Crear el fichero `tarea-01-ping.yaml`.
+* Crear el fichero `tarea-41-ping.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar a todos los hosts del inventario
     * Comprobar conectividad ping
-    * Crear el fichero `tarea-01-ping.yaml`.
 * Comprobarlo.
 
 ## 4.2 Playbook install y uninstall
 
 Ir a la MV1:
 * Moverse al `/home/nombre-alumno/ansibleXX.d`
-* Crear el fichero `tarea-02-install.yaml`.
+* Crear el fichero `tarea-42-install.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario
     * Instalar el paquete `neofetch` y otros dos paquetes a elegir por el alumno.
 * Comprobarlo.
 
 Seguimos:
-* Crear el fichero `tarea-03-uninstall.yaml`.
+* Crear el fichero `tarea-43-uninstall.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario
     * Desinstalar los paquetes instalados por la tarea 02.
@@ -129,7 +132,7 @@ Vídeos:
 
 Ir a la MV1:
 * Moverse al `/home/nombre-alumno/ansibleXX.d`
-* Crear el fichero `tarea-04-apache-on.yaml`.
+* Crear el fichero `tarea-51-apache-on.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario
     * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
@@ -138,7 +141,7 @@ Ir a la MV1:
 * Comprobarlo.
 
 Seguimos:
-* Crear el fichero `tarea-05-apache-off.yaml`.
+* Crear el fichero `tarea-52-apache-off.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario.
     * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
@@ -167,8 +170,8 @@ Modificar el inventario de Ansible de la siguiente forma:
 * Poner en el grupo [windows] a: MV3a, MV3b, MV3c, MV3d, MV3e.
 
 Playbook:
-* Crear un playbook y aplicarlo al grupo "gnulinux".
-* [Crear un playbook y aplicarlo al grupo "windows".](https://docs.ansible.com/ansible/latest/user_guide/windows_usage.html).
+* Crear un playbook `tarea61gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
+* [Crear un playbook `tarea62windows.yaml`, y aplicarlo al grupo "windows".](https://docs.ansible.com/ansible/latest/user_guide/windows_usage.html).
 
 # ANEXO
 
