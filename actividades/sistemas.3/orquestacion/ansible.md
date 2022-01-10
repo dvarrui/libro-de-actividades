@@ -33,11 +33,12 @@ Enlaces de interés:
 
 # 2.1 Instalar Ansible
 
+> Enlaces de interés:
+> * [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
+
 Consultar los siguientes vídeos:
 * [Ansible 1 - ¿Qué es Ansible](https://youtu.be/slNIwBPeQvE)
 * [Ansible 2 - Instalación](https://youtu.be/Zimn-UCbQ0A)
-
-> [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
 Ir a MV1:
 * Instalar Ansible.
