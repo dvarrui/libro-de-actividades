@@ -39,12 +39,20 @@ Consultar los siguientes vídeos:
 
 > [EN - Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
 
-Ir a MV1 e instalar Ansible.
+Ir a MV1:
+* Instalar Ansible.
+* Añadir al fichero de alias (`/home/nombre-alumno/.alias`) lo siguiente:
+```
+alias an='ansible'
+alias anpb='ansible-playbook'
+```
 
 ## 2.2 Acceso por SSH a las máquinas
 
 * Instalar el servicio SSH en MV2 y MV3.
-* El usuario "nombre-alumno" de la MV1 debe poder acceder por SSH sin clave a MV2 y MV3. Recordar el uso de clave pública/privada de SSH. Esto lo hicimos en la actividad SSH de la unidad 1.
+* El usuario "nombre-alumno" de la MV1 debe poder acceder por SSH sin clave a MV2. Recordar el uso de clave pública/privada de SSH. Esto lo hicimos en la actividad SSH de la unidad 1.
+
+> Por ahora NO vamos a necesitar acceder por SSH a las máquinas Windows.
 
 ## 2.3. El inventario
 
@@ -93,41 +101,74 @@ Ir a la MV1:
 
 ## 4.2 Instalar y desinstalar
 
+Ir a la MV1:
+* Moverse al `/home/nombre-alumno/ansibleXX.d`
 * Crear el fichero `tarea-02-install.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario
     * Instalar el paquete `neofetch` y otros dos paquetes a elegir por el alumno.
 * Comprobarlo.
 
+Seguimos:
 * Crear el fichero `tarea-03-uninstall.yaml`.
 * Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
     * Aplicar al host GNU/Linux del inventario
     * Desinstalar los paquetes instalados por la tarea 02.
 * Comprobarlo.
 
-## 4.3 Nginx
+# 5. Handlers
 
-Cómo conectarse a una máquina remota como otro usuario mediante el uso de remote_user.
+Vamos a practicar lo siguiente:
+* Conectarse a una máquina remota como otro usuario mediante el uso de remote_user.
+* Usar los handlers para disparar la ejecución de más tareas cuando una tarea previamente descrita en la sección tasks se ejecuta de forma satisfactoria provocando cambios.
+
+Vídeos:
 * [Ansible 7 - Conectarse como otro usuario](https://youtu.be/ggTS32i2JmA)
-
-* Crear el fichero `tarea-04-nginx-on.yaml`.
-* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
-    * Aplicar al host GNU/Linux del inventario
-    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
-    * Instalar Nginx.
-    * Iniciar el servicio.
-* Comprobarlo.
-* Crear el fichero `tarea-05-nginx-off.yaml`.
-* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
-    * Aplicar al host GNU/Linux del inventario
-    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
-    * Desinstalar Nginx.
-* Comprobarlo.
-
----
-`EN CONSTRUCCIÓN!!!`
-
 * [Ansible 8 - Handlers](https://youtu.be/G97sqHIG38w)
+
+Ir a la MV1:
+* Moverse al `/home/nombre-alumno/ansibleXX.d`
+* Crear el fichero `tarea-04-apache-on.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Aplicar al host GNU/Linux del inventario
+    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
+    * Instalar Apache2
+    * Iniciar el servicio Apache2. Configurar esta acción como un "Handler", de modo que se ejecuta cuando la acción anterior ha terminado bien.
+* Comprobarlo.
+
+Seguimos:
+* Crear el fichero `tarea-05-apache-off.yaml`.
+* Dentro del fichero anterior define un playbook de Ansible con lo siguiente:
+    * Aplicar al host GNU/Linux del inventario.
+    * Definir `remote_user` con un usuario con privilegios de superusuario en las máquinas remotas.
+    * Para el servicio Apache2
+    * Desinstalar Apache2. Configurar esta acción como un "Handler", de modo que se ejecuta cuando la acción anterior ha terminado bien.
+* Comprobarlo.
+
+# 6. Trabajar en grupo
+
+* Formar un grupo con tus compañeros del mismo pasillo. Deben ser entre 4 a 6 personas.
+* Supongamos que tenemos las siguientes máquinas
+    * AlumnoA: MV1a, MV2a, MV3a
+    * AlumnoB: MV1b, MV2b, MV3b
+    * AlumnoC: MV1c, MV2c, MV3c
+    * AlumnoD: MV1d, MV2d, MV3d
+    * AlumnoE: MV1e, MV2e, MV3e
+* Elegir a un coordinador. Por ejemplo AlumnoA. Ahora "MV1a" será el master para todas las demás.
+* Ir a la MV1a.
+* Crear usuario "supermaster". Crearle clave pública/privada.
+* Ahora necesitamos configurar el SSH en las máquinas Windows.
+* Permitir acceso por SSH al usuario "supermaster" a todas las máquinas MV2x y MV3x del grupo.
+
+Modificar el inventario de Ansible de la siguiente forma:
+* Crear 2 grupos en el inventario: [gnulinux] y [windows]
+* Poner en el grupo [gnulinux] a: MV2a, MV2b, MV2c, MV2d, MV2e.
+* Poner en el grupo [windows] a: MV3a, MV3b, MV3c, MV3d, MV3e.
+
+Playbook:
+* Crear un playbook y aplicarlo al grupo "gnulinux".
+* Crear un playbook y aplicarlo al grupo "windows".
+
 
 # ANEXO
 
