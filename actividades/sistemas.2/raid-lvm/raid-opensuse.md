@@ -80,7 +80,7 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentr
 
 ```
 date              # Muestra la fecha/hora actual
-hostname          # Nombre de la máquina
+hostnamectl       # Nombre de la máquina
 ip a              # Muestra configuración interfaces de red
 ip route          # Muestra información de enrutamiento
 host www.nba.com  # Comprueba la resolución de nombres
