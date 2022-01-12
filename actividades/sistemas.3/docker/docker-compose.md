@@ -118,7 +118,9 @@ En el terminal:
 * Si queremos ver los "logs" generados hacemos `docker-compose logs`. Esto nos sirve para depurar o solucionar problemas que puedan surgir.
 * `docker-compose ps`, comprobar que los contenedores están en ejecución.
 
+
 Comprobamos el MySQL:
+* Ir a otra máquina donde podamos tener el cliente MySQL. OpenSUSE no, porque por defecto se instala MariaDB que no es 100% compatible con MySQL.
 * `nmap -Pn localhost`, comprobar que el puerto (mysql) está abierto.
 * Usar el cliente mysql para acceder a la base de datos que gestiona el contenedor, y vamos a escribir algo dentro.
 ```
@@ -128,6 +130,8 @@ mysql> show databases
 mysql> quit
 $
 ```
+
+Volver a la MV con los conetenedores:
 * `docker-compose down`, destruimos los contenedores.
 * `docker-compose ps`, comprobamos.
 
