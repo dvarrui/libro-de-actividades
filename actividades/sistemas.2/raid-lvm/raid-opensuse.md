@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021, 201920, 201819
+Curso       : 202122, 202021, 201920, 201819
 Area        : Sistemas operativos, fundamentos de hardware
 Descripción : Practicar las configuraciones RAID0 y RAID1 por software.
 Requisitos  : OpenSUSE Leap 15, Windows Server
@@ -27,13 +27,21 @@ Ejemplo de rúbrica:
 
 ## 1.1 Creación de la MV
 
+**Teoría sobre EFI BIOS**
+A partir de ahora, vamos a hacer las instalaciones en máquinas con EFI BIOS. Los ordenadores actuales todos vienen con EFI BIOS. Es una característica del hardware de la placa base.
+
+Para crear una MV con EFI: `Ir VirtualBox -> Configuración de la MV -> sistema -> activar EFI`
+
+Durante la instalación hay crear la partición EFI. La particion EFI la usan los sistemas operativos para guardar sus ficheros de arranque. En el caso de una instalación dual EFI...  tanto Windows como GNU/Linux guardarán sus ficheros de arranque en la partición EFI. Recordar que habrá que montar /boot/efi en la partición EFI. Esta carpeta contiene los ficheros de arranque del sistema operativo.
+
+**Ir a VirtualBox:**
 * Crear una máquina virtual sin discos.
 * Configurar la MV con EFI activo (`Configuración -> Sistema -> EFI`).
 * Añadir 3 discos virtuales SATA a la MV:
     * (a) 300 MiB
     * (b) 10 GiB
     * (c) 10 GiB
-* OJO: Los discos deben tener esos tamaños y ese orden concreto.
+* OJO: Los discos deben tener esos tamaños, y en ese orden concreto.
 
 ## 1.2 Partición EFI
 
