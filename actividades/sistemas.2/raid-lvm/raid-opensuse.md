@@ -55,6 +55,8 @@ Durante la instalación hay crear la partición EFI. La particion EFI la usan lo
 | ------------- | ------ | ------------------------- | ------- | --------- |
 | /dev/sda1     | 300 MB | Partición de Arranque EFI | fat     | /boot/efi |
 
+**OJO: /dev/sda es el disco y /dev/sda1 es la partición 1.**
+
 > El sistema de arranque irá en el disco (a). Por tanto, los ficheros que inician el SO (boot) irán en una partición aparte sin RAID, para evitar problemas durante el arranque del sistema.
 
 ## 1.3 Partición del sistema operativo
