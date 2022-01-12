@@ -30,7 +30,7 @@ Ejemplo de rúbrica:
 **Teoría sobre EFI BIOS**
 A partir de ahora, vamos a hacer las instalaciones en máquinas con EFI BIOS. Los ordenadores actuales todos vienen con EFI BIOS. Es una característica del hardware de la placa base.
 
-Para crear una MV con EFI: `Ir VirtualBox -> Configuración de la MV -> sistema -> activar EFI`
+Para crear una MV con EFI: `Ir VirtualBox -> Configuración de la MV -> Sistema -> Placa base -> Habilitar EFI`
 
 Durante la instalación hay crear la partición EFI. La particion EFI la usan los sistemas operativos para guardar sus ficheros de arranque. En el caso de una instalación dual EFI...  tanto Windows como GNU/Linux guardarán sus ficheros de arranque en la partición EFI. Recordar que habrá que montar /boot/efi en la partición EFI. Esta carpeta contiene los ficheros de arranque del sistema operativo.
 
@@ -72,19 +72,19 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentr
 
 * Ir a `RAID -> deviceXXr0 -> Particiones -> Crear nueva partición`:
 
-| Dispositivo        | Size   | Tipo                  | Formato | Montar |
-| ------------------ | ------ | --------------------- | ------- | ------ |
-| /dev/md/deviceXXr0 |  20 GB | Partición del sistema | ext4    | /      |
+| Partición            | Size   | Tipo                  | Formato | Montar |
+| -------------------- | ------ | --------------------- | ------- | ------ |
+| /dev/md/deviceXXr0p1 | 20 GiB | Partición del sistema | ext4    | /      |
 
 > NOTA:
 > * En esta ocasión no crearemos área de intercambio(swap), ni tampoco una partición independiente para `/home`.
-> * El "tamaño de la porción" se refiere al tamaño del cluster o bloque de asignación del sistema de formateo. Dejaremos el valor por defecto.
+> * El "tamaño de la porción" se refiere al tamaño del cluster o bloque de asignación del sistema de formateo (Lo explicamos en la Unidad 1). Dejaremos el valor por defecto.
 
 * Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
 
 ## 1.4 Comprobar RAID0
 
-> Como resultado final obtenemos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 formado por la unión de dos discos físicos `sdb` y `sdc`.
+> Como resultado final obtendremos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 de 20 GiB, formado por la unión de dos discos físicos `sdb` (10 GiB) y `sdc` (10 GiB).
 
 * Una vez instalado ejecutar los siguientes comandos, e incluir su salida en el informe:
 
@@ -110,23 +110,26 @@ NOTA: Es posible que la salida de algunos comandos el nombre del dispositivo RAI
 
 > Si estos comandos no devuelven la información esperada, entonces solucionar el problema y volver a comprobar la salida de los comandos.
 
-
 ---
 # 2. RAID-1 software
 
 Ahora vamos a practicar el RAID1 con nuestra MV anterior.
 
-**IMPORTANTE**: Antes de seguir, haz copia del estado de la MV. Esto es, snapshot/instantánea de VirtualBox como se ha enseñado en clase.
+**IMPORTANTE**: Antes de seguir, haz una instantánea de la MV. Esto es:
+* Ir a VirtualBox.
+* Elegir la MV.
+* Ir a `Snapshot/instantánea -> Tomar instantánea`.
 
 ## 2.1 Preparar la MV
 
 Vamos a añadir a la MV, varios discos más para montar un RAID-1 software:
+* Apagamos la MV.
 * Crear 2 discos virtuales (del mismo tamaño) a la MV:
     * (d) 500 MiB
     * (e) 500 MiB
 * OJO: estos discos deben estar al final del resto.
 * Reiniciar la MV
-* Usar `fdisk -l` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
+* Usar `lsblk` para asegurarnos que los discos nuevos son `/dev/sdd` y `/dev/sde`.
 * En caso contrario apagar la MV y reordenar los discos como se pide en la práctica.
 
 ## 2.2 Crear y montar RAID-1
@@ -135,7 +138,7 @@ Vamos a añadir a la MV, varios discos más para montar un RAID-1 software:
 > * [URL wikipedia sobre mdadm](https://en.wikipedia.org/wiki/Mdadm):
 
 Vamos a crear RAID-1 con los discos `sdd` y `sde`:
-* Iniciar la MV.
+* Ir a la MV.
 * Ir a `Yast -> Particionador -> RAID`, y elegimos:
     * Elegir tipo `raid1`
     * Elegir los discos `sdd` y `sde`.
