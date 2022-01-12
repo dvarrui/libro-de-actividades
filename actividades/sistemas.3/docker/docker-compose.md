@@ -94,9 +94,11 @@ Es más sencillo gestionar contenedores con *Compose* que con los comandos de Do
 
 # 3. Gestionar un contenedor Mysql con volumen
 
-> Enlaces de interñes:
+> Enlaces de interés:
 > * [MySQL Tutorial => Simple example with docker-compose](https://riptutorial.com/mysql/example/15570/simple-example-with-docker-compose)
 > * [How to Create a MySql Instance with Docker Compose by Chris Chuck](https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee)
+
+## 3.1 Preparativos
 
 * Consultar información:
     * Vamos a la web hub.docker.com y buscamos algún contenedor Mysql.
@@ -104,7 +106,7 @@ Es más sencillo gestionar contenedores con *Compose* que con los comandos de Do
 * Crear directorio `composeXXmysql`.
 * Crear directorio `composeXXmysql/data`. Usaremos este directorio para mantener la información de la base de datos.
 
-Crear fichero `docker-compose.yaml` conlo siguiente:
+Crear fichero `docker-compose.yaml` con lo siguiente:
 * Servicio que se llama "database".
 * Imagen basada en "mysql".
 * Redirigir el puerto de mysql (3306).
@@ -112,12 +114,16 @@ Crear fichero `docker-compose.yaml` conlo siguiente:
 * Poner la clave de Mysql ROOT como variable de Entorno (Leer la documentación para saber cómo se hace).
 * Definir un volumen para que los datos de la base de datos sean persistentes. Mapearemos a carpeta "./data" con el directorio "/var/lib/mysql" del contenedor".
 
+## 3.2 Levantar los contenedores
+
 En el terminal:
 * `docker-compose config`, validar que está bien escrito el fichero.
 * `docker-compose up -d`, levantar los contenedores en segundo plano (parámetro -d).
 * Si queremos ver los "logs" generados hacemos `docker-compose logs`. Esto nos sirve para depurar o solucionar problemas que puedan surgir.
 * `docker-compose ps`, comprobar que los contenedores están en ejecución.
 
+
+## 3.3 Comprobar MySQL
 
 Comprobamos el MySQL (Esta parte ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüe el problema):
 * Ir a otra máquina donde podamos tener el cliente MySQL. OpenSUSE no, porque por defecto se instala MariaDB que no es 100% compatible con MySQL.
@@ -130,6 +136,8 @@ mysql> show databases
 mysql> quit
 $
 ```
+
+## 3.4 Eliminar los contenedores
 
 Volver a la MV con los contenedores:
 * Comprobamos que hay datos en el directorio `data`.
