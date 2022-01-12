@@ -10,6 +10,7 @@ Tiempo      : 6 sesiones
 # 1. Contenedores con Docker
 
 > Enlaces de interés
+> * [Curso “Introducción a Docker”](https://sergarb1.github.io/CursoIntroduccionADocker/)
 > * [Docker for beginners](http://prakhar.me/docker-curriculum/)
 > * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 

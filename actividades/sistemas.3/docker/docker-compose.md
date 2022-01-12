@@ -14,6 +14,7 @@ Existen varias herramientas muy conocidas para trabajar con granjas de contenedo
 Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
 
 > Enlaces de interés:
+> * [Curso “Docker Compose”](https://sergarb1.github.io/CursoIntroduccionADocker/)
 > * [Aprendiendo a utilizar Docker Compose](https://dockertips.com/utilizando-docker-compose)
 > * [Empezando con docker-compose](https://riptutorial.com/es/docker-compose)
 > * [Getting started](https://docs.docker.com/compose/gettingstarted/)

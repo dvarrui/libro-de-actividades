@@ -207,10 +207,9 @@ desde el código fuente.
 
 # IDEAS para el próximo curso
 
-Linuxbrew, una bifurcación del administrador de paquetes Homebrew | Ubunlog
-https://ubunlog.com/linuxbrew-bifurcacion-homebrew-paquetes/
-
-https://docs.brew.sh/Homebrew-on-Linux
+* Linuxbrew, una bifurcación del administrador de paquetes Homebrew | Ubunlog https://ubunlog.com/linuxbrew-bifurcacion-homebrew-paquetes/
+* https://docs.brew.sh/Homebrew-on-Linux
+* grow bonsai trees in your terminal https://gitlab.com/jallbrit/cbonsai
 
 ---
 # ANEXO
