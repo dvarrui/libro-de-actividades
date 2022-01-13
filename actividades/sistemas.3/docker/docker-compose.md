@@ -126,10 +126,12 @@ En el terminal:
 
 ## 3.3 Comprobar MySQL
 
-Comprobamos el MySQL (Esta parte ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüe el problema):
-* Ir a otra máquina donde podamos tener el cliente MySQL. OpenSUSE no, porque por defecto se instala MariaDB que no es 100% compatible con MySQL.
+Comprobamos el MySQL:
+* Ir a una máquina donde podamos tener el cliente MySQL. OpenSUSE no, porque por defecto se instala MariaDB que no es 100% compatible con MySQL.
 * `nmap -Pn localhost`, comprobar que el puerto (mysql) está abierto.
-* Usar el cliente mysql para acceder a la base de datos que gestiona el contenedor, y vamos a escribir algo dentro.
+
+_(El siguente punto ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüemos la causa)_
+* Usar el cliente MySQL para acceder a la base de datos que gestiona el contenedor, y vamos a escribir algo dentro.
 ```
 $ mysql -h IP-DE-LA-MAQUINA -u root  -p
 mysql> create database alumnoXX
@@ -147,7 +149,9 @@ Volver a la MV con los contenedores:
 
 Comprobar la persistencia de los datos en Mysql:
 * `docker-compose up -d`, volvemos a levantar los contenedores.
-* Usar el cliente Mysql para volver a entrar en la base de datos y confirmar que se mantiene la información que habíamos escrito.
+
+_(El siguente punto ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüemos la causa)_
+* Usar el cliente MySQL para volver a entrar en la base de datos y confirmar que se mantiene la información que habíamos escrito.
 
 # 4. Gestionar dos contenedores
 
