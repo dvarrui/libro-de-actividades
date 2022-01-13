@@ -1,0 +1,5 @@
+
+=================================================
+Herramientas de Linux para el análisis de malware
+https://www.welivesecurity.com/la-es/2022/01/05/herramientas-de-linux-para-el-analisis-de-malware/
+https://twitter.com/elhackernet/status/1479362669538807808?t=W2meneRhQpWGOfiFy9AsIg&s=09

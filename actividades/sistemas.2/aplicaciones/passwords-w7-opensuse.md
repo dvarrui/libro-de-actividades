@@ -197,6 +197,12 @@ Ahora vamos a restaurar el inicio gráfico automático al inicio.
 
 # ANEXO
 
+Create random passwords with OpenSSL/LibreSSL
+Random Passwords Generation
+https://linux-audit.com/create-random-passwords-with-openssl-libressl/
+https://twitter.com/linuxaudit/status/1478166333384654848?t=5NzJ8ZEiC1nrt725MXMNqg&s=09
+
+
 [Reenviado de Seguridad BlockChain]
 * [L0phtCrack, la herramienta de auditoría y recuperación de contraseñas ya es open source](https://www.linuxadictos.com/l0phtcrack-la-herramienta-de-auditoria-y-recuperacion-de-contrasenas-ya-es-open-source.html)
 

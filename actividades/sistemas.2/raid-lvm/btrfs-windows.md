@@ -20,15 +20,15 @@ Tiempo      : 8 sesiones
 * MV Opensuse
 * Añadir 4 discos de 5GB cada uno. Los llamaremos discoB, discoC, discoD y discoE.
 
-# 1.2 Consultar la información
-
-Consultar las siguientes guías:
-* [Guía de administración BTRFS](https://www.youtube.com/watch?v=uD6u5_tgaeE)
-* [Filesystems BTRFS en Linux](https://puerto53.com/linux/filesystems-btrfs/)
-* Tomar notas/apuntes de los comandos que se están usando y entender la función de cada uno. Vamos a necesitarlos en los siguientes apartados.
-* Resolver todas las dudas antes de pasar al siguiente apartado.
+Enlaces de interés:
+* [TUTORIAL - Filesystems BTRFS en Linux](https://puerto53.com/linux/filesystems-btrfs/)
 
 # 2. Práctica con BtrFS
+
+La práctica está en su mayoría basada en el siguiente vídeo:
+* [VIDEO 1 hora - Guía de administración BTRFS](https://www.youtube.com/watch?v=uD6u5_tgaeE)
+* Tomar notas/apuntes de los comandos que se están usando y entender la función de cada uno. Vamos a necesitarlos en los siguientes apartados.
+* Resolver todas las dudas antes de pasar al siguiente apartado.
 
 ## 2.1 Usando 1 único disco
 
