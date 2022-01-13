@@ -93,12 +93,17 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 * `vagrant up`, para iniciar una nueva instancia de la máquina.
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 
+## 1.4 Eliminamos la MV
+
+* `exit` para salir fuera de la MV.
+* Ahora estamos en la máquina real.
+* `vagrant halt`, para apagar la máquina virtual.
+* `vagrant status`, consultar el estado actual de la máquina virtual.
+* `vagrant destroy`, para eliminar la máquina virtual (No los ficheros de configuración).
+
 > **Otros comandos últiles de Vagrant son**:
 > * `vagrant suspend`: Suspender la máquina virtual. Tener en cuenta que la MV en modo **suspendido** consume más espacio en disco debido a que el estado de la máquina virtual que suele almacenarse en la RAM se pasa a disco.
 > * `vagrant resume` : Volver a despertar la máquina virtual.
-> * `vagrant halt`: Apagarla la máquina virtual.
-> * `vagrant status`: Estado actual de la máquina virtual.
-> * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
 
 # 2. TEORÍA
 
