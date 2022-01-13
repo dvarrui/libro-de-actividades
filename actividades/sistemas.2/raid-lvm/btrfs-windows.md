@@ -8,14 +8,12 @@ Tiempo      : 8 sesiones
 
 # Sistema de ficheros BtrFS y volúmenes dinámicos de Windows
 
-1. [Introducción](#1-introduccion)
+1. [Preparativos](#1-preparativos)
 2. [Práctica con BtrFS](#2-practica-conn-btrfs)
 3. [Snpashots](#2-snapshots)
 4. [Discos dinámicos en Windows](#4-discos-dinámicos-en-windows)
 
-# 1. Introducción
-
-## 1.1 Preparar la máquina virtual
+# 1. Preparativos
 
 * MV Opensuse
 * Añadir 4 discos de 5GB cada uno. Los llamaremos discoB, discoC, discoD y discoE.
