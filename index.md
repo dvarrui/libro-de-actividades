@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2022-01-09 19:53:36 +0000`
+`Fecha UM: 2022-01-13 15:18:17 +0000`
 
 # Resumen
 
@@ -61,7 +61,7 @@
 | 7 | [proyectos](actividades/sistemas.3/proyectos) | 4 | [exposision-clase](actividades/sistemas.3/proyectos/exposision-clase.md), [exposision-turismo](actividades/sistemas.3/proyectos/exposision-turismo.md), [git](actividades/sistemas.3/proyectos/git.md), [trim1](actividades/sistemas.3/proyectos/trim1.md) |
 | 8 | [rdp](actividades/sistemas.3/rdp) | 1 | [README](actividades/sistemas.3/rdp/README.md) |
 | 9 | [samba](actividades/sistemas.3/samba) | 4 | [README](actividades/sistemas.3/samba/README.md), [samba-cron](actividades/sistemas.3/samba/samba-cron.md), [samba-debian](actividades/sistemas.3/samba/samba-debian.md), [samba-pdc-debian](actividades/sistemas.3/samba/samba-pdc-debian.md) |
-| 10 | [scripting](actividades/sistemas.3/scripting) | 11 | [README](actividades/sistemas.3/scripting/README.md), [c](actividades/sistemas.3/scripting/c), [config](actividades/sistemas.3/scripting/config), [ideas](actividades/sistemas.3/scripting/ideas.md), [info](actividades/sistemas.3/scripting/info), [kill](actividades/sistemas.3/scripting/kill), [misc](actividades/sistemas.3/scripting/misc), [paso-a-paso](actividades/sistemas.3/scripting/paso-a-paso.md), [process](actividades/sistemas.3/scripting/process), [redes](actividades/sistemas.3/scripting/redes), [teoria](actividades/sistemas.3/scripting/teoria.md) |
+| 10 | [scripting](actividades/sistemas.3/scripting) | 12 | [README](actividades/sistemas.3/scripting/README.md), [c](actividades/sistemas.3/scripting/c), [config](actividades/sistemas.3/scripting/config), [estructuras](actividades/sistemas.3/scripting/estructuras), [ideas](actividades/sistemas.3/scripting/ideas.md), [info](actividades/sistemas.3/scripting/info), [kill](actividades/sistemas.3/scripting/kill), [misc](actividades/sistemas.3/scripting/misc), [paso-a-paso](actividades/sistemas.3/scripting/paso-a-paso.md), [process](actividades/sistemas.3/scripting/process), [redes](actividades/sistemas.3/scripting/redes), [teoria](actividades/sistemas.3/scripting/teoria.md) |
 | 11 | [ssh](actividades/sistemas.3/ssh) | 3 | [README](actividades/sistemas.3/ssh/README.md), [opensuse](actividades/sistemas.3/ssh/opensuse), [ssh-debian-windows](actividades/sistemas.3/ssh/ssh-debian-windows.md) |
 | 12 | [vagrant](actividades/sistemas.3/vagrant) | 1 | [vagrant](actividades/sistemas.3/vagrant/vagrant.md) |
 | 13 | [vnc](actividades/sistemas.3/vnc) | 1 | [README](actividades/sistemas.3/vnc/README.md) |

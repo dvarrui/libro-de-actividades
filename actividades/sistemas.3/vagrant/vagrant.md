@@ -169,6 +169,10 @@ Para confirmar que hay un servicio a la escucha en 4567:
 * `vagrant port` para ver la redirección de puertos de la máquina Vagrant.
 * Abrir el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
+## 3.3 Eliminar la MV
+
+(Ya sabes cómo hacerlo)
+
 # 4. Proyecto: Suministro mediante shell script
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.

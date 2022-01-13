@@ -1,0 +1,22 @@
+
+
+
+https://www.johndcook.com/powershell.html
+PowerShell
+
+PowerShell is an object-based shell.
+Imagine a Unix shell (bash, Korn shell, etc.) that passes around .NET objects.
+
+
+In many ways, PowerShell is a best-of-both-worlds synthesis of Windows and Unix culture.
+It was developed at Microsoft by former Unix developers.
+The core of the PowerShell language is based on the IEEE POSIX 1003.2 standard
+for Unix shells. But where Unix shells pipe text between commands,
+PowerShell passes .NET objects. That means instead of having to tease apart
+text to extract the information you want, you can simply access methods
+and properties of objects. It takes a while to realize just how powerful this is.
+
+Because PowerShell is built on .NET, you can access the full functionality of the .NET framework from PowerShell just as you would from C# or VB.NET. But in addition, PowerShell wraps previous Microsoft object models such as COM and WMI in a consistent way so you can mix these objects together without paying a great deal of attention to where the objects originated.
+
+A.2 The IEEE 1003.2 POSIX Shell Standard docstore.mik.ua/orelly/unix/ksh/appa_02.htm
+https://docstore.mik.ua/orelly/unix/ksh/appa_02.htm
