@@ -19,8 +19,7 @@ Ejemplo de rúbrica:
 | (6.2) Suministro Puppet       | | | |
 | (7.2) Crear Box Vagrant       | | |. |
 
----
-# 1. Introducción
+## Introducción
 
 Según *Wikipedia*:
 
@@ -36,8 +35,7 @@ proyectos escritos en otros lenguajes.
 > NOTA: Para desarrollar esta actividad se ha utilizado principalmente
 la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013.
 
----
-# 2. Instalar Vagrant
+## Instalar Vagrant
 
 > Enlaces de interés:
 > * [Introducción a Vagrant](https://code.tutsplus.com/es/tutorials/introduction-to-vagrant--cms-25917)
@@ -49,11 +47,11 @@ la información del enlace anterior publicado por Jonathan Wiesel, el 16/07/2013
 * Hay que comprobar que las versiones de Vagrant y VirtualBox son compatibles entre sí.
     * `vagrant version`, para comprobar la versión actual de Vagrant.
     * `VBoxManage -v`, para comprobar la versión actual de VirtualBox.
+* Crear el alias `va='vagrant'`.
 
----
-# 3. Proyecto Celtics
+# 1. Proyecto: Añadir cajas
 
-## 3.1 Imagen, caja o box
+## 1.1 Imagen, caja o box
 
 Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (Imágenes o boxes). Incluso podemos descargarnos cajas de otros sistemas oprativos desde [VagrantCloud Box List](https://app.vagrantup.com/boxes/search?provider=virtualbox)
 
@@ -67,13 +65,13 @@ Existen muchos repositorios desde donde podemos descargar la cajas de Vagrant (I
 BOXNAME (virtualbox, 0)
 ```
 
-## 3.2 Directorio
+## 1.2 Directorio
 
 * Crear un directorio para nuestro proyecto. Donde XX es el número de cada alumno:
 
 ```
-mkdir vagrantXX-celtics
-cd vagrantXX-celtics
+mkdir nombre-alumnoXX-va1box
+cd nombrealumnoXX-vagrant1
 ```
 
 A partir de ahora vamos a trabajar dentro de esta carpeta.
@@ -81,17 +79,17 @@ A partir de ahora vamos a trabajar dentro de esta carpeta.
 ```
 Vagrant.configure("2") do |config|
   config.vm.box = "BOXNAME"
-  config.vm.hostname = "nombre-alumnoXX-celtics"
+  config.vm.hostname = "nombre-alumnoXX-va1box"
   config.vm.provider "virtualbox"
 end
 ```
 
 > INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crearlo.
 
-## 3.3 Comprobar
+## 1.3 Comprobar
 
 Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
-* Debemos estar dentro de `vagrantXX-celtics`.
+* Debemos estar dentro de `nombre-alumnoXX-va1box`.
 * `vagrant up`, para iniciar una nueva instancia de la máquina.
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 
@@ -102,8 +100,7 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 > * `vagrant status`: Estado actual de la máquina virtual.
 > * `vagrant destroy`: Para eliminar la máquina virtual (No los ficheros de configuración).
 
----
-# 4. TEORÍA
+# 2. TEORÍA
 
 `NO ES NECESARIO hacer este apartado. Sólo es información.`
 
@@ -143,53 +140,58 @@ config.ssh.forward_x11 = true
 
 > ¿Cómo podríamos crear una MV Windows usando vagrant en GNU/Linux?
 
----
-# 5. Proyecto Hawks
+# 3. Proyecto: Redirección de puertos
 
 Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
 
-## 5.1 Creamos proyecto Hawks
+## 3.1 Creamos los ficheros
 
 En la máquina real:
-* Crear carpeta `vagrantXX-hawks`. Entrar en el directorio.
-* Crear proyecto Vagrant.
-* Configurar Vagrantfile para usar nuestra caja BOXNAME y hostname = "nombre-alumnoXX-hawks".
+* Crear carpeta `nombre-alumnoXX-va3port`.
+* Entrar en el directorio.
+* Configurar Vagrantfile para usar nuestra caja BOXNAME y hostname = "nombre-alumnoXX-vagrant3".
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 4567 del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 4567, guest: 80`
-* `vagrant ssh`, entramos en la MV
+* Entramos en la MV en la máquina virtual (`vagrant ssh`).
+* Instalamos Apache2.
 
-en la máquina virtual:
-* Instalamos apache2.
+> NOTA: Cuando la MV está iniciada y si el fichero de configuración ha cambiado y queremos recargarlo (que se vuelva a leer) hacemos `vagrant reload`.
 
-> NOTA: Cuando la MV está iniciada y queremos recargar el fichero de configuración si ha cambiado hacemos `vagrant reload`.
+## 3.2 Comprobar
 
-## 5.2 Comprobar
-
-Para confirmar que hay un servicio a la escucha en 4567, desde la máquina real
-podemos ejecutar los siguientes comandos:
-
-En la máquina real vamos a comprobar que el puerto 4567 está a la escucha.
+Para confirmar que hay un servicio a la escucha en 4567:
+* Ir a la máquina real.
 * `vagrant port` para ver la redirección de puertos de la máquina Vagrant.
 * Abrir el navegador web con el URL `http://127.0.0.1:4567`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 
-# 6. Suministro
+# 4. Proyecto: Suministro mediante shell script
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.
 
 * `vagrant halt`, apagamos la MV.
 * `vagrant destroy` y la destruimos para volver a empezar.
 
-## 6.1 Proyecto Lakers (Suministro mediante shell script)
+## 4.1 Crear ficheros
 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
-* Crear directorio `vagrantXX-lakers` para nuestro proyecto.
+
+Ejemplo:
+```
+david42-va4script
+├── html
+│   └── index.html
+├── install_apache.sh
+└── Vagrantfile
+```
+
+* Crear directorio `nombre-alumnoXX-va4script` para nuestro proyecto.
 * Entrar en dicha carpeta.
 * Crear la carpeta `html` y crear fichero `html/index.html` con el siguiente contenido:
 
 ```
-<h1>Proyecto Lakers</h1>
-<p>Curso202021</p>
-<p>Nombre-del-alumno</p>
+<h1>Proyecto Vagrant4 Scripting</h1>
+<p>Curso202122</p>
+<p>Nombre-del-alumnoXX</p>
 ```
 
 * Crear el script `install_apache.sh`, dentro del proyecto con el siguiente
@@ -203,7 +205,7 @@ apt-get install -y apache2
 ```
 
 Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
-* `config.vm.hostname = "nombre-alumnoXX-lakers"`
+* `config.vm.hostname = "nombre-alumnoXX-va4script"`
 * `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
 * `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
 * `vagrant up`, para crear la MV. Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
@@ -213,7 +215,9 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 
 > NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
 
-## 6.2 Proyecto Raptors (Suministro mediante Puppet)
+# 5. Proyecto: Suministro mediante Puppet
+
+Puppet es un orquestador. Sirve para aprovisionar las máquinas locales o remotas sin usar scripting.
 
 > Enlace de interés:
 > * [Crear un entorno de desarrollo con vagrant y puppet](http://developerlover.com/crear-un-entorno-de-desarrollo-con-vagrant-y-puppet/)
@@ -227,14 +231,15 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 >
 > ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
 
+
 Se pide hacer lo siguiente.
-* Crear directorio `vagrantXX-raptors` como nuevo proyecto Vagrant.
+* Crear directorio `nombre-alumnoXX-va5puppet` como nuevo proyecto Vagrant.
 * Modificar el archivo `Vagrantfile` de la siguiente forma:
 
 ```
 Vagrant.configure("2") do |config|
   ...
-  config.vm.hostname = "nombre-alumnoXX-raptors"
+  config.vm.hostname = "nombre-alumnoXX-va5puppet"
   ...
   # Nos aseguramos de tener Puppet en la MV antes de usarlo.
   config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
@@ -249,10 +254,10 @@ Vagrant.configure("2") do |config|
 > Cuando usamos `config.vm.provision "shell", inline: '"echo "Hola"'`, se ejecuta directamente el comando especificado en la MV. Es lo que llamaremos provisión inline.
 
 * Crear la carpeta `manifests`. OJO: un error muy típico es olvidarnos de la "s" final.
-* Crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet necesarias para instalar el software que elijamos (Cambiar `PACKAGENAME` por el paquete que queramos). Ejemplo:
+* Crear el fichero `manifests/nombre-del-alumnoXX.pp`, con las órdenes/instrucciones Puppet necesarias para instalar el software que elijamos. Ejemplo:
 
 ```
-package { 'PACKAGENAME':
+package { 'neofetch':
   ensure => 'present',
 }
 ```
@@ -269,11 +274,11 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
     1. `vagrant destroy`, destruir la MV.
     2. `vagrant up` volver a crearla.
 
-# 7. Proyecto Bulls (Nuestra caja)
+# 6. Proyecto: Caja personalizada
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y la hemos personalizado. En este apartado vamos a crear nuestra propia caja/box a partir de una MV de VirtualBox que tengamos.
 
-## 7.1 Preparar la MV VirtualBox
+## 6.1 Preparar la MV VirtualBox
 
 > Enlace de interés:
 > * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
@@ -321,7 +326,7 @@ version:        6.0.24
 ```
 * Apagamos la MV.
 
-## 7.2 Crear caja Vagrant
+## 6.2 Crear caja Vagrant
 
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
@@ -333,7 +338,7 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * `vagrant box add nombre-alumno/bulls nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
 * `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
 
-## 7.3 Usar la nueva caja
+## 6.3 Usar la nueva caja
 
 * Crear un nuevo fichero Vagrantfile para usar nuestra caja.
 * Levantamos una nueva MV a partir del Vagranfile.
