@@ -1,0 +1,6 @@
+
+
+IEEE POSIX 10003.2
+PowerShell y Bash
+
+Installing seeing-is-believing to /home/david/.atom/packages ✓
