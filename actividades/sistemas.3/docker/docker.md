@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021, 201920
+Curso       : 202122, 202021, 201920
 Área        : Sistemas operativos, automatización, devops
 Descripción : Introducción a los contenedores con Docker
 Requisitos  : Se recomienda usar Docker con SSOO GNU/Linux
