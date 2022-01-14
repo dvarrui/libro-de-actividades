@@ -137,3 +137,11 @@ hostname -d      # Muestra nombre-dominio
 ## Cambiar el idioma/country desde comandos
 
 https://www.suse.com/documentation/opensuse110/opensuse110_reference/data/sec_suse_l10n.html
+
+## End of life
+
+https://news.opensuse.org/2022/01/13/opensuse-reaches-eol/
+
+Users can upgrade from 15.2 to 15.3 by downloading the iso image
+or following the instructions on how to upgrade
+found on https://en.opensuse.org/SDB:System_upgrade.

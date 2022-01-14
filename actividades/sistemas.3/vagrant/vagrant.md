@@ -180,6 +180,10 @@ Para confirmar que hay un servicio a la escucha en 4567:
 
 (Ya sabes cómo hacerlo)
 
+> Si levantamos 2 MV con Vagrant...
+> * ¿Pueden verse entre ellas? (ping)
+> * En caso negativo ¿cómo podemos configurar la red para que se vean?
+
 # 4. Proyecto: Suministro mediante shell script
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.
@@ -206,7 +210,7 @@ david42-va4script.d
 
 ```
 <h1>Proyecto Vagrant4 Scripting</h1>
-<p>Curso actual</p>
+<p>FECHA-ACTUAL</p>
 <p>Nombre-del-alumnoXX</p>
 ```
 
@@ -216,8 +220,10 @@ contenido:
 ```
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install -y apache2
+echo "[INFO] Script de instalación de apache2 de [nombre-alumnoXX]"
+apt update
+apt install -y apache2
+echo "[INFO] Fin del script: $(date)"
 ```
 
 ## 4.2 Vagrantfile
