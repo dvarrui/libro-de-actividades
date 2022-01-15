@@ -205,8 +205,7 @@ tree /mnt/folderXXr1  # Muestra el contenido de la carpeta
 
 Vamos a sincronizar los discos y comprobar que todo está correcto.
 
-> Para sincronizar los discos RAID1:
-> * [Enlace de interés para arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
+> Enlace de interés: [Arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
 
 * `mdadm --detail /dev/md/deviceXXr1`, comprobamos que de los dos discos configurados, sólo hay uno.
 * `mdadm /dev/md/deviceXXr1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
