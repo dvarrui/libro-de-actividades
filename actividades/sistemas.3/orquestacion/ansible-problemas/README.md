@@ -7,9 +7,22 @@
 
 ![](01/problema.png)
 
-**Alumno**: En versiones actuales, las claves públicas no me funcionaban ya que ahora, por defecto, si estás en el grupo de administradores, se almacenan en `C:\ProgramData\ssh\administrators_authorized_keys` en lugar de `C:\Users\..\.ssh\authorized_keys`. Así lo hice, pero seguían sin funcionar.
+**Alumno**: En versiones actuales, las claves públicas no funcionan ya que ahora, si el usuario forma parte del grupo de administradores, se almacenan por defecto en `C:\ProgramData\ssh\administrators_authorized_keys`, en lugar de `C:\Users\nombreusuario\.ssh\authorized_keys`.
 
-Lo que hice fue al archivo de configuración y comentar las dos últimas líneas, por si acaso reinicié el servicio usando 'sc stop sshd' y 'sc stop sshd' desde la terminal de legado, cmd, y empezó a funcionar.
+Aun así, poniendo las claves públicas en `C:\ProgramData\ssh\administrators_authorized_key`, siendo administrador, no funciona.
+
+Para que funcione, hay que ir al archivo de configuración en `C:\ProgramData\ssh\sshd_config` y comentar las dos últimas líneas:
+
+```
+# Match Group administrators
+#     AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+```
+
+Después reiniciamos el servicio, abriendo una terminal y ejecutando este comando PowerShell: `Restart-Service -Name "sshd"`
+
+> En CMD sería: `sc stop sshd` y `sc start sshd`
+
+En esta imagen vemos las líneas (resaltadas) que hay que comentar.
 
 ![](01/windows-sshd-config.png)
 
