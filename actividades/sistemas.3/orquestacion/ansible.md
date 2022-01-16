@@ -151,6 +151,8 @@ Seguimos:
 
 # 6. Trabajar en grupo
 
+**OJO: En este curso y para este apartado no vamos a usar la MV3x. Tendremos sólo el master en MV1a y los clientes MV2a, MV2b, MV2c, MV2d y MV2e. Para evitar los problemas de espacio en el disco duro de clase.**
+
 * Formar un grupo con tus compañeros del mismo pasillo. Deben ser entre 4 a 6 personas.
 * Supongamos que tenemos las siguientes máquinas
     * AlumnoA: MV1a, MV2a, MV3a
