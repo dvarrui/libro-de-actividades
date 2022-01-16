@@ -1,0 +1,4 @@
+# Comandos BASH
+
+-   [whoami](whoami)
+
