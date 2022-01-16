@@ -1,6 +1,8 @@
+author: fvarrui
+
 # SSH Reverse Tunneling con 'ngrok'
 
-En ocasiones puede ser que necesitemos exponer un servicio local (servidor SSH, Jupyter, RStudio, Web, FTP, ...) con el resto del mundo. 
+En ocasiones puede ser que necesitemos exponer un servicio local (servidor SSH, Jupyter, RStudio, Web, FTP, ...) con el resto del mundo.
 
 ## Problema
 
@@ -32,7 +34,7 @@ ssh -R 8888:localhost:8888 193.72.x.x
 
 ## Solución 3: ngrok
 
-La solución más rápida y sencilla se llama **ngrok**, que es un servicio que ya nos ofrece la posibilidad de hacer **redirección de puertos inversa de SSH** (*SSH Remote Port Forwarding* o *Reverse Tunnelling*). 
+La solución más rápida y sencilla se llama **ngrok**, que es un servicio que ya nos ofrece la posibilidad de hacer **redirección de puertos inversa de SSH** (*SSH Remote Port Forwarding* o *Reverse Tunnelling*).
 
 ![](image04.png)
 
