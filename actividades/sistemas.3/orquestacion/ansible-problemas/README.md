@@ -85,3 +85,9 @@ Existe un parámetro que se añade al comando "ansible" para que nos solicite la
 **Descripción**: Puedo conectarme por SSH sin poner contraseña pero ahora tengo otro problema y llevo rato buscando y no lo consigo solucionar.
 
 ![](04/ansible_ping_windows.png)
+
+**Profesor:**
+PISTA:
+El playbook de gnulinux no sirve para Windows. Me explico
+El módulo "ping" de Ansible sólo sirve para el grupo "gnulinux".
+Para el grupo "windows" si quieres hacer ping... hay que usar otro módulo diferente de Ansible.
