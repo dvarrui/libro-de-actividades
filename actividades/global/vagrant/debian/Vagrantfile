@@ -2,10 +2,11 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "debian10" do |i|
+  config.vm.define "vagrant-debian" do |i|
     i.vm.box = "generic/debian10"
     i.vm.hostname = "vagrant-debian"
     #i.vm.network "public_network", bridge: [ "eth0" ]
+    #i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2241
     i.vm.synced_folder "./", "/vagrant"
     i.vm.provision "shell", inline: <<-SHELL
