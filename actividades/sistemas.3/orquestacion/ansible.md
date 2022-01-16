@@ -153,6 +153,8 @@ Seguimos:
 
 **OJO: En este curso y para este apartado no vamos a usar la MV3x. Tendremos sólo el master en MV1a y los clientes MV2a, MV2b, MV2c, MV2d y MV2e. Para evitar los problemas de espacio en el disco duro de clase.**
 
+## 6.1 Preparativos
+
 * Formar un grupo con tus compañeros del mismo pasillo. Deben ser entre 4 a 6 personas.
 * Supongamos que tenemos las siguientes máquinas
     * AlumnoA: MV1a, MV2a, MV3a
@@ -161,20 +163,32 @@ Seguimos:
     * AlumnoD: MV1d, MV2d, MV3d
     * AlumnoE: MV1e, MV2e, MV3e
 * Elegir a un coordinador. Por ejemplo AlumnoA. Ahora "MV1a" será el master para todas las demás.
+
+## 6.2 Configurar SSH
+
 * Ir a la MV1a.
 * Crear usuario "supermaster". Crearle clave pública/privada.
 * Ahora necesitamos configurar el SSH en las máquinas Windows.
 * Permitir acceso por SSH al usuario "supermaster" a todas las máquinas MV2x y MV3x del grupo.
+
+## 6.3 Configurar el inventario
 
 Modificar el inventario de Ansible de la siguiente forma:
 * Crear 2 grupos en el inventario: [gnulinux] y [windows]
 * Poner en el grupo [gnulinux] a: MV2a, MV2b, MV2c, MV2d, MV2e.
 * Poner en el grupo [windows] a: MV3a, MV3b, MV3c, MV3d, MV3e.
 
+## 6.4 Crear playbook para GNU/Linux
+
 Playbook:
 * Crear un playbook `tarea61gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
+* Comprobarlo.
+
+## 6.5 Crear playbook para Windows
+
+* Enlace de interés: https://geekflare.com/es/connecting-windows-ansible-from-ubuntu/
 * [Crear un playbook `tarea62windows.yaml`, y aplicarlo al grupo "windows".](https://docs.ansible.com/ansible/latest/user_guide/windows_usage.html).
-* Comprobarlos.
+* Comprobarlo.
 
 # ANEXO
 

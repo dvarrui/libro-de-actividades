@@ -79,3 +79,9 @@ La imagen de clientXXw tiene sentido pero la del masterXXg no porque tienes que 
 Se puede usar ansible sin tener configuradas las claves públicas en el cliente. En los vídeos que les pasé está indicado cómo se hace. ¿Vieron los vídeos?
 
 Existe un parámetro que se añade al comando "ansible" para que nos solicite la clave SSH antes de intentar la conexión. Con esto NO es necesario tener la clave pública en los clientes... sólo que si la ponen todo va más rápido.
+
+# 4. Ansible ping Windows
+
+**Descripción**: Puedo conectarme por SSH sin poner contraseña pero ahora tengo otro problema y llevo rato buscando y no lo consigo solucionar.
+
+![](04/ansible_ping_windows.png)
