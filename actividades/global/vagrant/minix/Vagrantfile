@@ -1,0 +1,19 @@
+Vagrant.configure("2") do |config|
+  config.vm.define "vagrant-minix" do |i|
+    i.vm.box = "mcandre/minix"
+    i.vm.box_version = "0.0.1"
+
+    i.vm.hostname = "vagrant-minix"
+    #i.vm.network "public_network", bridge: [ "eth0" ]
+    #i.vm.network "public_network", bridge: [ "wlan0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2252
+    i.vm.synced_folder "./", "/vagrant"
+    i.vm.provision "shell", inline: <<-SHELL
+      hostname
+    SHELL
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'vagrant-minix'
+      v.memory = 2048
+    end
+  end
+end
