@@ -1,4 +1,11 @@
 
+```
+Trabajar con Git en clase
+* Explicación
+* Instalación en el equipo local
+* Trabajo diario
+* Cómo entregar los trabajo
+```
 
 # 1. Trabajando con GIT
 
@@ -109,14 +116,13 @@ Imagen que muestra la ruta del trabajo/actividad dentro del repositorio GIT:
 El árbol de directorios creado en el repositorio debe ser como el siguiente:
 
 ```
-├── trim1
-│   ├── vnc
-│   │   ├── images
-│   │   └── README.md
-│   └── ssh
-│       ├── images
-│       └── README.md
-└── trim2   
+├── vnc
+│   ├── images
+│   └── README.md
+├── ssh
+│   ├── images
+│   └── README.md
+└── etc   
 ```
 
 ---
