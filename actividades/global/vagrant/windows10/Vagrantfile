@@ -2,15 +2,15 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define "windows10" do |i|
+  config.vm.define "vagrant-windows10" do |i|
     i.vm.box = "senglin/win-10-enterprise-vs2015community"
     i.vm.box_version = "1.0.0"
-    i.vm.hostname = "profesor42w10"
-    i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.hostname = "vagrant-windows10"
+    # i.vm.network "public_network", bridge: [ "eth0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2211
     i.vm.synced_folder "./", "/vagrant"
     i.vm.provider "virtualbox" do |v|
-      v.name = "windows10-ent-vs2015"
+      v.name = "vagrant-windows10"
       v.memory = 2048
     end
   end
