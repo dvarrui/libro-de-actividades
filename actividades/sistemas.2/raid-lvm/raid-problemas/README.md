@@ -56,3 +56,5 @@ Adjunto video subido a youtube ya que el video de varios minutos y a buena calid
 
 **Profesor:**
 * El hecho de elegir formato VDI o VHD no afecta en este caso.
+* En el vídeo me costó ver bien las cosas porque se veía muy chico (me puse las gafas). El proceso está bien hecho! Pero creo que el problema puede venir de que se haya llenado el disco raid0 de 20GiB.
+* Prueba a instalar pero ELIGE ESCRITORIO XFCE que es más ligero. Si vuelve a surgir el problema nos conectamos online y lo vemos juntos, pero creo que no va a hacer falta.
