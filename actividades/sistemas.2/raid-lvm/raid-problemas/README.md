@@ -49,3 +49,10 @@ En caso contrario es que han esperado demasiado tiempo:
 _Sugerencia_: graba un vídeo con todo el proceso desde el principio hasta llegar al problema. Que se vea grande para no tener que hacer zoom. Usa un editor de vídeos para cortar las partes "aburridas" donde hay que esperar o pones pausa en la grabación. De esta forma tendremos un vídeo donde se ven las decisiones que vas tomando durante el proceso.
 
 El vídeo lo puedes subir por el foro de Moodle porque no debe ser mayor a 49 MiB.
+
+**Alumno:** Entiendo que debamos estar más avanzados del punto 3, pero si no he sido capaz de instalar si quiera el sistema operativo y al no estar presencial en clase para intentar solucionarlo me es imposible avanzar, y no es que haya empezado tarde ni que no haya consultado problemas ya que he posteado en este foro bastante y desde el miércoles pasado.
+
+Adjunto video subido a youtube ya que el video de varios minutos y a buena calidad para no hacer zoom pesa más de 49 MiB. El vídeo está grabado hasta que le doy a instalar, ahí comienza el proceso de instalación y sube hasta el 97% cuando se congela y salta el error que subí antes en la foto. Espero que con este vídeo se vea el error que seguramente estoy cometiendo al crearla. (en esta máquina creo discos VHD en vez de VDI porque a un compañero en clase le funcionó, pero con ninguno de los dos tipos de discos me ha funcionado la instalación)
+
+**Profesor:**
+* El hecho de elegir formato VDI o VHD no afecta en este caso.

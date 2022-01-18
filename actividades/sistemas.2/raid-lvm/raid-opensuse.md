@@ -80,8 +80,10 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentr
 > * En esta ocasión no crearemos área de intercambio(swap), ni tampoco una partición independiente para `/home`.
 > * El "tamaño de la porción" se refiere al tamaño del cluster o bloque de asignación del sistema de formateo (Lo explicamos en la Unidad 1). Dejaremos el valor por defecto.
 
-* Seguimos la instalación como siempre. Consultar la [configuración](../../global/configuracion/opensuse.md).
-
+* Seguimos la instalación teniendo en cuenta lo siguiente:
+    * Consultar la [configuración](../../global/configuracion/opensuse.md).
+    * Elegir escritorio XFCE porque ocupa menos espacio en disco.
+    
 ## 1.4 Comprobar RAID0
 
 > Como resultado final obtendremos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 de 20 GiB, formado por la unión de dos discos físicos `sdb` (10 GiB) y `sdc` (10 GiB).

@@ -21,9 +21,8 @@ Crear la máquina VirtualBox con:
 
 * Redordar: Hacer la primera partición FAT32 de 500 MB para Boot EFI.
 * Crear usuario identificado como `nombre-del-alumno`.
-* Seleccionar entorno gráfico ligero (XFCE o MATE preferiblemente).
-    * Escritorio -> Genérico.
-    * En la pantalla de comprobación final -> Software -> Añadir escritorio XFCE.
+* Seleccionar entorno gráfico ligero (XFCE preferiblemente).
+    * Escritorio -> XFCE.
 * Recordatorio.
     * Abrir puerto SSH.
     * Habilitar servicio SSH.
