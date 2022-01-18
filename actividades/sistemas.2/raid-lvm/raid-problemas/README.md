@@ -75,21 +75,21 @@ Adjunto video subido a youtube ya que el video de varios minutos y a buena calid
 
 ![](04/etcfstab.png)
 
-================================
+**Profesor:**
 DUDA:
 La información de /etc/fstab
 * Lo hiciste por Yast? Entonces envía captura.
 * Lo hiciste por comandos? Entonce ¿De dónde has sacado el valor de UUID?
 
 Te dije que me enviaras las salida de estos comandos:
+```
 sudo blkid
 cat /etc/fstab
 lsblk
+```
 
-Y te olvidaste de uno???
-Envía el comando que falta. Por favor!
+Y te olvidaste de uno??? Envía el comando que falta. Por favor!
 
-=====================================
 Haz lo siguiente para salir de dudas:
 (1) Pon el disco que falta.
 (2) Asegúrate que el raid1 está correcto con los 2 discos
@@ -97,6 +97,6 @@ Haz lo siguiente para salir de dudas:
 (4) Vuelve a quitar el disco sdd.
 (5) Y volvemos a comprobar que los datos están.
 
-Si me vuelves a decir que te ha fallado pero no me envías capturas de imagen de los apartados ... estamos en las mismas y te tendré que volver a decir los mismo. Necesito las imágenes o hacer un vídeo como hizo Roberto. Como te sea más cómodo. Pero si haces un vídeo... por favor que se vea en grande!
+Si me vuelves a decir que te ha fallado pero no me envías capturas de imagen de los apartados ... estamos en las mismas y te tendré que volver a decir lo mismo. Necesito las imágenes de esos puntos, o hacer un vídeo como hizo Roberto. Como te sea más cómodo. Pero si haces un vídeo... por favor que se vea en grande!
 
 Muchas gracias!
