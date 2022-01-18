@@ -64,7 +64,7 @@ Adjunto video subido a youtube ya que el video de varios minutos y a buena calid
 * Prueba a instalar pero ELIGE ESCRITORIO XFCE que es más ligero. Si vuelve a surgir el problema nos conectamos online y lo vemos juntos, pero creo que no va a hacer falta.
 * Si repiten la instalación varias veces usando los discos ya creados... recuerden formatearlos porque la segunda vez tiene los discos ocupados con los ficheros de la primera vez.
 
-**Alumno:** Lo he intentado con todos los escritorios y ninguno ha funcionado, esta mañana nos pusimos Cristian, Nahuel y yo a hacer MV, la mía y la de Nahuel dieron el fallo, pero la de Cristian se creó y me la pasó, así que trabajo a partir de esa. Gracias por cambiar la fecha al viernes, me pongo a ello para poder postear mis dudas de los siguientes pasos lo antes posible y tenerlo acabado a tiempo.
+**Alumno:** Lo he intentado con todos los escritorios y ninguno ha funcionado, esta mañana nos pusimos los compañeros a hacer MV, dieron el fallo, pero la del alumnoX se creó y me la pasó, así que trabajo a partir de esa. Gracias por cambiar la fecha al viernes, me pongo a ello para poder postear mis dudas de los siguientes pasos lo antes posible y tenerlo acabado a tiempo.
 
 # 3. Montaje automático del RAID1
 
