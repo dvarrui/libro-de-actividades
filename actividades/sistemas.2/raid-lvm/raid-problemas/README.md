@@ -59,3 +59,44 @@ Adjunto video subido a youtube ya que el video de varios minutos y a buena calid
 * En el vídeo me costó ver bien las cosas porque se veía muy chico (me puse las gafas). El proceso está bien hecho! Pero creo que el problema puede venir de que se haya llenado el disco raid0 de 20GiB.
 * Prueba a instalar pero ELIGE ESCRITORIO XFCE que es más ligero. Si vuelve a surgir el problema nos conectamos online y lo vemos juntos, pero creo que no va a hacer falta.
 * Si repiten la instalación varias veces usando los discos ya creados... recuerden formatearlos porque la segunda vez tiene los discos ocupados con los ficheros de la primera vez.
+
+**Alumno:** Lo he intentado con todos los escritorios y ninguno ha funcionado, esta mañana nos pusimos Cristian, Nahuel y yo a hacer MV, la mía y la de Nahuel dieron el fallo, pero la de Cristian se creó y me la pasó, así que trabajo a partir de esa. Gracias por cambiar la fecha al viernes, me pongo a ello para poder postear mis dudas de los siguientes pasos lo antes posible y tenerlo acabado a tiempo.
+
+# 3. Montaje automático del RAID1
+
+**Descripción:** Buenas tardes. Tuve algunos problemas al inicio con la configuración en virtualbox pero pude avanzar correctamente. Ahora me encuentro en la parte de la raid1 y tengo el problema de que al reiniciar la máquina no se me monta automáticamente en /mnt/folderXXr1. Mañana en clase lo intentaré solucionar.
+
+**Profesor:**
+* Revisa el fichero /etc/fstab por el terminal o
+* También lo puedes revisar por Yast -> particionado. Verificar el punto de montaje de la partición.
+* Envía captura de imagen.
+
+**Descripción:** No sé si está montado correctamente pero seguí con la práctica y me encuentro con el problema de que creé las carpetas para ver si se conserva la información con el reinicio y no se me conservó.
+
+![](04/etcfstab.png)
+
+================================
+DUDA:
+La información de /etc/fstab
+* Lo hiciste por Yast? Entonces envía captura.
+* Lo hiciste por comandos? Entonce ¿De dónde has sacado el valor de UUID?
+
+Te dije que me enviaras las salida de estos comandos:
+sudo blkid
+cat /etc/fstab
+lsblk
+
+Y te olvidaste de uno???
+Envía el comando que falta. Por favor!
+
+=====================================
+Haz lo siguiente para salir de dudas:
+(1) Pon el disco que falta.
+(2) Asegúrate que el raid1 está correcto con los 2 discos
+(3) Escribe información en ellos.
+(4) Vuelve a quitar el disco sdd.
+(5) Y volvemos a comprobar que los datos están.
+
+Si me vuelves a decir que te ha fallado pero no me envías capturas de imagen de los apartados ... estamos en las mismas y te tendré que volver a decir los mismo. Necesito las imágenes o hacer un vídeo como hizo Roberto. Como te sea más cómodo. Pero si haces un vídeo... por favor que se vea en grande!
+
+Muchas gracias!
