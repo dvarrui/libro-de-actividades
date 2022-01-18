@@ -1,20 +1,24 @@
 
 ```
-Curso       : 201920
+Curso       : 202122
 Area        : Sistemas operativos, comandos, scripting
-Descripción : Introducción a los script para solucionar problemas.
-              Estructura secuencial
+Descripción : Usar script con estructura secuencial para solucionar problemas.
+              Crear y borrar usuarios del sistema.
 Requisitos  : Bash, Ruby
-Tiempo      :
+Tiempo      : 2 sessiones
 ```
 
 # Scripting: Estructura secuencial
+
+Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
+* Todos los scripts que se suban al GitHub deben funcionar.
+* Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
 
 # 1. Teoría
 
 Explicación del profesor usando ejemplos
 
-**Ejemplo script secuencial**. Hacer explicación en clase usando el siguiente ejemplo:
+**Ejemplo script secuencial**: Hacer explicación en clase usando los ejemplos:
 * [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
 * [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
 * [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
@@ -23,12 +27,12 @@ Explicación del profesor usando ejemplos
 
 # 2. Práctica en Bash
 
-Crear usuarios y borrar usuarios
+Crear usuarios y borrar usuarios mediante un script Bash.
 
 ## 2.1 Recordatorio de Bash
 
 * Recordar que el script comienza con `#!/usr/bin/env bash`
-* Para ejecutar un comando del sistema hacemos `COMANDO-DEL-SISTEMA`.
+* Para ejecutar un comando del sistema escribimos el `COMANDO-DEL-SISTEMA`.
 * Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
 
 ## 2.2 Crear el script
@@ -36,22 +40,21 @@ Crear usuarios y borrar usuarios
 Vamos a crear 2 scripts que usando la estructura secuencial.
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXX.sh` en Bash para crear un número de 10 usuarios en el sistema.
-    * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
-    * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
-* Hacer script `borrar-usuariosXX.sh` en Bash para borrar un número de 10 usuarios del sistema.
-    * Los usuarios que se van a borrar tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
+    * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1b", "nombre-alumno2b", etc.
+    * La password de cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
+* Hacer script `borrar-usuariosXX.sh` en Bash para borrar los 10 usuarios anteriores.
 
 ## 2.2 Comprobar
 
 * Estamos en la MV.
 * Abrir un terminal.
-* Consultar la lista de usuarios inicialmente.
-* Ejecutar el script de creación y consultar la lista de usuarios.
-* Ejecutar el script de borrado y consultar la lista de usuarios.
+* Consultar la lista de usuarios del sistema. Sólo hace falta ver los que tienen la shell bash (Pista: usar cat y grep).
+* Ejecutar el script de creación y consultar la lista de usuarios. Comprobar que funciona la creación.
+* Ejecutar el script de borrado y consultar la lista de usuarios. Comprobar que funciona el borrado.
 
 # 3. Práctica en Ruby
 
-Crear usuarios y borrar usuarios
+Crear usuarios y borrar usuarios con un script Ruby.
 
 ## 3.1 Recordatorio de Ruby
 
@@ -64,15 +67,14 @@ Crear usuarios y borrar usuarios
 Vamos a crear 2 scripts que usando la estructura secuencial.
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXX.rb` en Ruby para crear un número de 10 usuarios en el sistema.
-    * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
-    * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
-* Hacer script `borrar-usuariosXX.rb` en Ruby para borrar un número de 10 usuarios del sistema.
-    * Los usuarios que se van a borrar tendrán los siguientes nombres: "nombre-alumno1g", "nombre-alumno2g", etc.
+    * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1r", "nombre-alumno2r", etc.
+    * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42r", tendrá la clave "david42r".
+* Hacer script `borrar-usuariosXX.rb` en Ruby para borrar los usuarios anteriores.
 
 ## 3.3 Comprobar
 
 * Estamos en la MV.
 * Abrir un terminal.
-* Consultar la lista de usuarios inicialmente.
-* Ejecutar el script de creación y consultar la lista de usuarios.
-* Ejecutar el script de borrado y consultar la lista de usuarios.
+* Consultar la lista de usuarios antes de empezar. Sólo necesitamos ver los usuarios con shell Bash (Pista: usar cat y grep).
+* Ejecutar el script de creación y consultar la lista de usuarios. Comprobar que el script ha funcionado.
+* Ejecutar el script de borrado y consultar la lista de usuarios. Comprobar que el script ha funcionado.
