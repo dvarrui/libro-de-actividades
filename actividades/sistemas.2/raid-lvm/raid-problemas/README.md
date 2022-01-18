@@ -32,6 +32,10 @@ lsblk
 
 Con esta información les explico. Gracias por la descripción del problema. Vamos bien!
 
+**Alumno:** El disco 5 no aparece quitado porque en la práctica te pide que lo quites, compruebes que los datos se conservan y por ende, lo vuelvas a colocar. Por eso no aparece quitado, porque yo estoy teniendo problemas para que OpenSuse me lo añada de nuevo al RAID 1, ya que las comprobaciones las tengo hechas. Adjunto captura de los comandos que me pides:
+
+![](01/mv-uuid.png)
+
 # 2. Problemas para instalar OpenSUSE en RAID0
 
 **Descripción:** Sigo teniendo problemas con la instalación y sigo sin poder instalar, hay veces que se me para en el 97%, otras en el 94%, otras ni si quiera me inicia la instalación de opensuse y hoy me salió un error nuevo.
