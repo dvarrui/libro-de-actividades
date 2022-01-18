@@ -66,6 +66,9 @@ Adjunto video subido a youtube ya que el video de varios minutos y a buena calid
 
 **Alumno:** Lo he intentado con todos los escritorios y ninguno ha funcionado, esta mañana nos pusimos los compañeros a hacer MV, dieron el fallo, pero la del alumnoX se creó y me la pasó, así que trabajo a partir de esa. Gracias por cambiar la fecha al viernes, me pongo a ello para poder postear mis dudas de los siguientes pasos lo antes posible y tenerlo acabado a tiempo.
 
+**Profesor:** ¿No podría ser la ISO que se hubiera descargado y no estuviera verificada con el SHA512?
+(Pensando...)
+
 # 3. Montaje automático del RAID1
 
 **Descripción:** Buenas tardes. Tuve algunos problemas al inicio con la configuración en virtualbox pero pude avanzar correctamente. Ahora me encuentro en la parte de la raid1 y tengo el problema de que al reiniciar la máquina no se me monta automáticamente en /mnt/folderXXr1. Mañana en clase lo intentaré solucionar.
