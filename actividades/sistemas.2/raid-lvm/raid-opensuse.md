@@ -83,7 +83,7 @@ Ya tenemos creado el nuevo dispositivo. Ahora vamos a crear una partición dentr
 * Seguimos la instalación teniendo en cuenta lo siguiente:
     * Consultar la [configuración](../../global/configuracion/opensuse.md).
     * Elegir escritorio XFCE porque ocupa menos espacio en disco.
-    
+
 ## 1.4 Comprobar RAID0
 
 > Como resultado final obtendremos una instalación de SO GNU/Linux OpenSUSE en un disco RAID0 de 20 GiB, formado por la unión de dos discos físicos `sdb` (10 GiB) y `sdc` (10 GiB).
@@ -206,9 +206,6 @@ tree /mnt/folderXXr1  # Muestra el contenido de la carpeta
 * Volver a poner el disco en la MV, reiniciar.
 
 Vamos a sincronizar los discos y comprobar que todo está correcto.
-
-> Enlace de interés: [Arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
-
 * `mdadm --detail /dev/md/deviceXXr1`, comprobamos que de los dos discos configurados, sólo hay uno.
 * `mdadm /dev/md/deviceXXr1 --manage --add /dev/sdX`, añadimos el disco que falta (sdd o sde, depende de cada caso).
 * `mdadm --detail /dev/md/deviceXXr1`, comprobamos que están los dos.
@@ -221,3 +218,5 @@ fdisk -l
 cat /proc/mdstat
 lsblk
 ```
+
+> Enlace de interés: [Arreglar dispositivos RAID1](http://www.seavtec.com/en/content/soporte/documentacion/mdadm-raid-por-software-ensamblar-un-raid-no-activo).
