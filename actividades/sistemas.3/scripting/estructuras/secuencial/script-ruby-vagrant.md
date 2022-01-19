@@ -1,5 +1,11 @@
 
 ```
+Curso       : 202122
+Area        : Sistemas operativos, comandos, scripting
+Descripción : Usar script con estructura secuencial para solucionar problemas.
+              Aprovisionar máquinas con scripts en Vagrant
+Requisitos  : Bash, Ruby
+Tiempo      : 4 sessiones
 ```
 
 # Script secuencial con Ruby y Vagrant
@@ -8,11 +14,12 @@
 
 ## 1.1 Ficheros de partida
 
-Te voy a dar un fichero Vagrantfile tal que así:
+Aquí tenemos un fichero Vagrantfile:
 
 ```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# File: Vagrantfile
 
 Vagrant.configure("2") do |config|
   config.vm.define "alumnoXX-script-ruby-vagrant-opensuse" do |i|
@@ -43,6 +50,7 @@ Como habrás notado (Ya sabes Vagrant), el fichero configura lo necesario para c
 
 ```
 #!/usr/bin/env bash
+# File: install-software.sh
 
 zypper refresh
 
@@ -53,24 +61,29 @@ zypper install -y figlet
 
 figlet OpenSUSE > /etc/motd
 echo "" >> /etc/motd
-echo "David Vargas Ruiz" >> /etc/motd
-echo "https://github.com/dvarrui" >> /etc/motd
+echo "NOMBRE-COMPLETO-DEL-ALUMNO (XX)" >> /etc/motd
+echo "URL-REPOSITORIO-DEL-ALUMNO" >> /etc/motd
 
 echo "# Adding more alias" >> /home/vagrant/.bashrc
 echo "alias c='clear'" >> /home/vagrant/.bashrc
 echo "alias v='vdir'" >> /home/vagrant/.bashrc
+echo "alias yosoy='echo nombre-alumnoXX'" >> /home/vagrant/.bashrc
 
 lsb_release -d
+
+exit 0
 ```
 
 ## 1.2 Personalización y prueba
 
-* Ahora debes personalizar estos ficheros con la información de "nombre-alumnoXX" que te corresponda.
-* A continuación, probar los ficheros y asegurarte de que funcionan correctamente (Aunque te los pase el profesor, siempre es buena práctica comprobarlo todo por si acaso). ;-)
+* Ahora debes personalizar los ficheros anteriores con la información que te corresponda.
+* A continuación, probar los ficheros, y asegurarte de que funcionan correctamente (Aunque te los pase el profesor, siempre es buena práctica comprobarlo todo por si acaso). ;-)
 
 ## 1.3 Resolver las dudas
 
-No quiero que te quedes con dudas, así que aprende bien el contenido de los ficheros anteriores. Pero no me refiero a que te lo aprendas de memoria NO. Me refiero a que quiero que entiendas TODO lo que pone en dichos ficheros. Este conocimiento te hará falta para lo que viene a continuación. Además que caerán preguntas en los cuestionarios basadas en estos ficheros.
+No quiero que te quedes con dudas, así que aprende bien el contenido de los ficheros anteriores.
+
+Pero no me refiero a que te lo aprendas de memoria NO. Me refiero a que quiero que entiendas TODO lo que pone en dichos ficheros. Este conocimiento te hará falta para lo que viene a continuación. Además que caerán preguntas en los cuestionarios basadas en estos ficheros.
 
 Entiende bien lo que hace el script! ¿Cómo?
 1. Buscando información en Internet al respecto de tus dudas.
@@ -82,4 +95,15 @@ Entender la utlizadad de todos los programas que se instalan. Entender todo lo q
 
 Las dudas que tengas, con su solución las escribes en el informe.
 
-#
+# 2. Vagrant con aprovisionamiento script de Ruby
+
+## 2.1 Ficheros de partida
+
+* Asegúrate (creo que es así) de que la MV que se crea tiene por defecto instalado Ruby. En caso contrario añade una configuración `...vm.provision "shell", inline: "COMANDO-PARA-INSTALAR-RUBY"` al Vagrantflke. Si lo entiendes... seguimos.
+* Crear un script Ruby que realice exactamente la misma función que el script Bash anterior.
+
+Pistas:
+* La primera línea cambia con `.../bin/env ruby`.
+* El resto de comentarios son iguales en Ruby.
+* Los comandos del sistema se ejecutan así `system("COMANDO-DEL-SISTEMA")`.
+* El exit es igual en Ruby.
