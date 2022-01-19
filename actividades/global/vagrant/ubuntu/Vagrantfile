@@ -3,17 +3,18 @@
 
 Vagrant.configure("2") do |config|
   config.vm.define "vagrant-ubuntu" do |i|
+    # Configure box
     i.vm.box = "ubuntu/focal64"
+
+    # Configure VM
     i.vm.hostname = "vagrant-ubuntu"
     # i.vm.network "public_network", bridge: [ "eth0" ]
     # i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2242
     i.vm.synced_folder "./", "/vagrant"
-    i.vm.provision "shell", inline: <<-SHELL
-      apt-get update
-      apt-get install -y vim tree nmap
-      lsb_release -d
-    SHELL
+    i.vm.provision "shell", path: 'install_software.sh'
+
+    # Configure provider   
     i.vm.provider "virtualbox" do |v|
       v.name = 'vagrant-ubuntu'
       v.memory = 2048
