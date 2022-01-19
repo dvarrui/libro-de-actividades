@@ -97,7 +97,7 @@ Las dudas que tengas, con su solución las escribes en el informe.
 
 # 2. Vagrant con aprovisionamiento script de Ruby
 
-## 2.1 Ficheros de partida
+## 2.1 Modificar Bash por Ruby
 
 * Asegúrate (creo que es así) de que la MV que se crea tiene por defecto instalado Ruby. En caso contrario añade una configuración `...vm.provision "shell", inline: "COMANDO-PARA-INSTALAR-RUBY"` al Vagrantflke. Si lo entiendes... seguimos.
 * Crear un script Ruby que realice exactamente la misma función que el script Bash anterior.
@@ -107,3 +107,25 @@ Pistas:
 * El resto de comentarios son iguales en Ruby.
 * Los comandos del sistema se ejecutan así `system("COMANDO-DEL-SISTEMA")`.
 * El exit es igual en Ruby.
+
+## 2.2
+
+Comprobar que el nuevo script funciona correctamente conel fichero Vagranfile adaptado.
+
+# 3. Investigación (vale 1 punto)
+
+OBJETIVO: En este apartado te planteo un objetivo y habrá que "investigar un poco" para resolverlo.
+
+# 3.1 Script Ruby con Vagrant Ubuntu
+
+* Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Ubuntu.
+* Listado de paquetes que debemos aprovisionar: neofetch, neovim, git, nmap, tree, traceroute, tmate.
+* Comprobar que los ficheros creados funcionan correctamente para crear la MV Ubuntu anteior.
+* Investiga la utilidad de los paquetes instalados y aprende a usarlos.
+
+# 3.2 Script Ruby con Vagrant Windows
+
+* Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Windows.
+* Listado de paquetes que debemos aprovisionar: (elige 3 paquetes que se puedan aprovisionar con comandos). Recuerda que existe `chocolatey` que tiene el comando `choco` (Lo usamos en 1ASIR).
+* Comprobar que los ficheros creados funcionan correctamente para crear la MV Windows anteior.
+* Investiga la utilidad de los paquetes instalados y aprende a usarlos.
