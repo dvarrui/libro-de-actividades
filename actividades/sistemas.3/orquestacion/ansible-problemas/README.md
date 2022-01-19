@@ -105,3 +105,7 @@ A ver, tan "máquina" no soy. Necesito información:
 2) Qué versión de Python y de Ansible tienes instalada?
 3) Que SO estás usando en el master y en el slave OpenSUSE?
 4) Puedes acceder SSH desde el master al slave?
+
+Puedes probar hacer el comando had hoc con MV que tenga apt igual que el vídeo para descartar. En la práctica se dice que el SO será GNU/Linux... el que quieran.
+
+A ver que en OpenSUSE funciona Ansible.... pero si quieren pueden seguir el vídeo que está muy bien explicado.
