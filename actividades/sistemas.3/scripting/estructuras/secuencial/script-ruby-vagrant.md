@@ -54,8 +54,8 @@ Como habrás notado (Ya sabes Vagrant), el fichero configura lo necesario para c
 
 zypper refresh
 
-zypper install -y vim neovim nano
-zypper install -y tree nmap git
+zypper install -y vim nano
+zypper install -y tree nmap
 zypper install -y neofetch lsb-release
 zypper install -y figlet
 
@@ -85,7 +85,7 @@ No quiero que te quedes con dudas, así que aprende bien el contenido de los fic
 
 Pero no me refiero a que te lo aprendas de memoria NO. Me refiero a que quiero que entiendas TODO lo que pone en dichos ficheros. Este conocimiento te hará falta para lo que viene a continuación. Además que caerán preguntas en los cuestionarios basadas en estos ficheros.
 
-Entiende bien lo que hace el script! ¿Cómo?
+¡Entiende bien lo que hace el script! ¿Cómo?
 1. Buscando información en Internet al respecto de tus dudas.
 2. Probando de forma aislada cada elemento que quieras entender bien.
 3. Consultando en clase y mirando los apuntes.
@@ -112,18 +112,19 @@ Pistas:
 
 Comprobar que el nuevo script funciona correctamente conel fichero Vagranfile adaptado.
 
-# 3. Investigación (vale 1 punto)
+# 3. Investigación
 
 OBJETIVO: En este apartado te planteo un objetivo y habrá que "investigar un poco" para resolverlo.
 
-# 3.1 Script Ruby con Vagrant Ubuntu
+# 3.1 Script Ruby con Vagrant Ubuntu (1 punto)
 
 * Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Ubuntu.
 * Listado de paquetes que debemos aprovisionar: neofetch, neovim, git, nmap, tree, traceroute, tmate.
 * Comprobar que los ficheros creados funcionan correctamente para crear la MV Ubuntu anteior.
 * Investiga la utilidad de los paquetes instalados y aprende a usarlos.
 
-# 3.2 Script Ruby con Vagrant Windows
+---
+# ANEXO: Script Ruby con Vagrant Windows
 
 * Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Windows.
 * Listado de paquetes que debemos aprovisionar: (elige 3 paquetes que se puedan aprovisionar con comandos). Recuerda que existe `chocolatey` que tiene el comando `choco` (Lo usamos en 1ASIR).
