@@ -98,4 +98,10 @@ Para el grupo "windows" si quieres hacer ping... hay que usar otro módulo difer
 
 ![](05/python-error.png)
 
-**Profesor:** ¿Qué cosas dices que has hecho?
+**Profesor:** Dices "Al parecer son problemas de Python creo pero no consigo solucionar el problema haga lo que haga."
+
+A ver, tan "máquina" no soy. Necesito información:
+1) Exactamente ¿qué cosas son las que has hecho?
+2) Qué versión de Python y de Ansible tienes instalada?
+3) Que SO estás usando en el master y en el slave OpenSUSE?
+4) Puedes acceder SSH desde el master al slave?

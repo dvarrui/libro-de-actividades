@@ -33,6 +33,8 @@ Tiempo      : 5 sesiones
 
 * Definir las máquinas "slaveXXg" y "slaveXXw" dentro del /etc/hosts de "masterXX".
 
+> WARNING: Ansible requiere Python3.
+
 # 2. Instalación de SSH y Ansible
 
 # 2.1 Instalar Ansible
