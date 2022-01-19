@@ -91,3 +91,11 @@ PISTA:
 El playbook de gnulinux no sirve para Windows. Me explico
 El módulo "ping" de Ansible sólo sirve para el grupo "gnulinux".
 Para el grupo "windows" si quieres hacer ping... hay que usar otro módulo diferente de Ansible.
+
+# 5. Problemas de Ansible con Python
+
+**Descripción:** Empecé el lunes y llegué al apartado 3 y no puedo avanzar debido al error de la imagen... Al parecer son problemas de Python creo pero no consigo solucionar el problema haga lo que haga.
+
+![](05/python-error.png)
+
+**Profesor:** ¿Qué cosas dices que has hecho?
