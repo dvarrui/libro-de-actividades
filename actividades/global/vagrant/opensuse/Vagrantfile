@@ -3,19 +3,19 @@
 
 Vagrant.configure("2") do |config|
   config.vm.define "vagrant-opensuse" do |i|
+    # Configure BOX
     i.vm.box = "generic/opensuse15"
+
+    # Configure VM
     i.vm.hostname = "vagrant-opensuse"
     # i.vm.network "public_network", bridge: [ "eth0" ]
     # i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2222
     i.vm.network :forwarded_port, guest: 22, host: 2231
     i.vm.synced_folder "./", "/vagrant"
-    i.vm.provision "shell", inline: <<-SHELL
-      zypper refresh
-      zypper in -y vim tree nmap
-      zypper in -y neofetch lsb-release
-      lsb_release -d
-    SHELL
+    i.vm.provision "shell", path: 'install-software.sh'
+
+    # Configure VIRTUALBOX
     i.vm.provider "virtualbox" do |v|
       v.name = 'vagrant-opensuse'
       v.memory = 2048
