@@ -109,3 +109,17 @@ A ver, tan "máquina" no soy. Necesito información:
 Puedes probar hacer el comando had hoc con MV que tenga apt igual que el vídeo para descartar. En la práctica se dice que el SO será GNU/Linux... el que quieran.
 
 A ver que en OpenSUSE funciona Ansible.... pero si quieren pueden seguir el vídeo que está muy bien explicado.
+
+**Alumno:**
+1) He hecho todo hasta el apartado 3 como se veía en la imagen.
+2) ansible 2.9.21 python 2.7.17 python3 3.6.10.
+3) Master: OpenSUSE, SlaveXXg: OpenSUSE, SlaveXXw: Windows 10.
+4) Si, del master a las dos.
+5) Simplemente porque con docker-compose tuve problemas también.
+
+
+# 6. Problemas con el inventario
+
+**Descripción:** En el apartado 3, he hecho lo que indica el video a la hora de crear el inventario, me da un warning, probé hosts por hosts y el de Windows me da también me da el siguiente error:
+
+![](06/inventario-error.png)
