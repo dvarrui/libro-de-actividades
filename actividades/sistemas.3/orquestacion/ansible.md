@@ -1,10 +1,10 @@
 
 ```
-Curso       : 2122
+Curso       : 202122
 Area        : Sistemas operativos, automatización, aprovisionamiento, devops   
 Descripción : Automatización de tareas con gestor de infraestructura "Ansible"
-Requisitos  : 2 MV's con GNU/Linux
-Tiempo      : 5 sesiones
+Requisitos  : 2 MV's con GNU/Linux, 1 MV con Windows
+Tiempo      : 6 sesiones
 ```
 
 # 1. Orquestación con Ansible
@@ -183,12 +183,15 @@ Modificar el inventario de Ansible de la siguiente forma:
 ## 6.4 Crear playbook para GNU/Linux
 
 Playbook:
-* Crear un playbook `tarea61gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
+* Crear un playbook `tarea-64-gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
 * Comprobarlo.
 
 ## 6.5 Crear playbook para Windows
 
-* Enlace de interés: https://geekflare.com/es/connecting-windows-ansible-from-ubuntu/
+> Enlace de interés: https://geekflare.com/es/connecting-windows-ansible-from-ubuntu/
+
+Playbook:
+* Crear un playbook `tarea-65-gnulinux.yaml`, y aplicarlo al grupo "gnulinux".
 * [Crear un playbook `tarea62windows.yaml`, y aplicarlo al grupo "windows".](https://docs.ansible.com/ansible/latest/user_guide/windows_usage.html).
 * Comprobarlo.
 
@@ -196,6 +199,7 @@ Playbook:
 
 Comandos de ansible:
 
+```
 ansible MV -m ping
 ansible MV -m ping -i HOSTFILE
 ansible MV -a 'echo "hola"'
@@ -204,6 +208,7 @@ ansible MV -m apt -a "name=vim state=present"
 ansible MV -m zypper -a "name=neofetch state=present"
 ansible MV -m zypper -a "name=neofetch state=present" -b
 ansible MV -m zypper -a "name=neofetch state=present" -b -k
+```
 
 https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html
 
