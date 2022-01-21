@@ -17,7 +17,7 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 > ACLARACIÓN:
 > * El informe va a tener pocas frases si la cosa va bien (_"hago esto por esto... y aquí pongo esto para que pase esto... etc"_) y  se entiende el script.
 > * Si no se entiende habrá que acompañarlo de más texto explicativo.
-> * Si va mal hay que indicar los problemas 
+> * Si va mal hay que indicar los problemas
 
 # 1. Teoría
 
@@ -48,6 +48,7 @@ Vamos a crear 2 scripts que usando la estructura secuencial.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1b", "nombre-alumno2b", etc.
     * La password de cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
 * Hacer script `borrar-usuariosXX.sh` en Bash para borrar los 10 usuarios anteriores.
+  * Cuando el script termine ejecuta `cowsay "¡Usuarios borrados!"`
 
 ## 2.2 Comprobar
 
@@ -75,6 +76,7 @@ Vamos a crear 2 scripts que usando la estructura secuencial.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1r", "nombre-alumno2r", etc.
     * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42r", tendrá la clave "david42r".
 * Hacer script `borrar-usuariosXX.rb` en Ruby para borrar los usuarios anteriores.
+    * Cuando el script termine ejecuta `xcowsay "¡Usuarios borrados!"`
 
 ## 3.3 Comprobar
 
