@@ -42,7 +42,7 @@ Vamos a crear un script usando la estructura condicional.
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXuser.sh` en Bash.
-    * El script preguntará al usuario qué quiere hacer: (c) Crear usuarios o (b) Borrar usuarios.
+    * El script tendrá una variable que podrá tomar el valor `c` o `b` sin preguntar al usuario.
     * Si se elige (c) se ejecuta el script secuencial `crear-usuariosXX.sh`.
     * Si se elige (b) se ejecuta el script secuencial `borrar-usuariosXX.sh`.
 
@@ -61,9 +61,13 @@ Vamos a modificar script usando la estructura condicional.
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXvar.sh` en Bash.
-    * El script tendrá una variable que podrá tomar el valor `c` o `b` sin preguntar al usuario.
+    * El script preguntará al usuario qué quiere hacer: (c) Crear usuarios o (b) Borrar usuarios.
     * Si se elige (c) se ejecuta el script secuencial `crear-usuariosXX.sh`.
     * Si se elige (b) se ejecuta el script secuencial `borrar-usuariosXX.sh`.
+    * Si se elige otra cosa:
+        * Ponemos un mensaje en pantalla.
+        * Ejecutamos el comando `sl`.
+        * Terminamos con `exit 1`.
 * Comprobarlo.
 
 # 3. Práctica en Ruby
@@ -92,9 +96,12 @@ Vamos a crear un script usando la estructura condicional.
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXX.rb` en Ruby.
-    * El script preguntará al usuario qué quiere hacer: (1) Crear usuarios o (2) Borrar usuarios.
-    * Si se elige (1) se ejecuta el script secuencial `crear-usuariosXX.rb`.
-    * Si se elige (2) se ejecuta el script secuencial `borrar-usuariosXX.rb`.
+    * El script preguntará al usuario qué quiere hacer: (c) Crear usuarios o (b) Borrar usuarios.
+    * Si se elige (c) se ejecuta el script secuencial `crear-usuariosXX.rb`.
+    * Si se elige (b) se ejecuta el script secuencial `borrar-usuariosXX.rb`.
+    * Si se elige otra cosa:
+        * Ponemos un mensaje en pantalla.
+        * Terminamos con `exit 1`.
 
 ## 3.3 Comprobar
 
@@ -114,4 +121,7 @@ Vamos a modificar script usando la estructura condicional.
     * El script leerá los argumentos a la hora de ejecutarse.
     * Si se elige (c) se ejecuta el script secuencial `crear-usuariosXX.rb`.
     * Si se elige (b) se ejecuta el script secuencial `borrar-usuariosXX.rb`.
-* Comprobarlo.
+    * Si se elige otra cosa:
+        * Ponemos un mensaje en pantalla.
+        * Ejecutamos el comando `sl`.
+        * Terminamos con `exit 1`.* Comprobarlo.
