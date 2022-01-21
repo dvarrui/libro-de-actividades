@@ -14,6 +14,11 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 * Todos los scripts que se suban al GitHub deben funcionar.
 * Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
 
+> ACLARACIÓN:
+> * El informe va a tener pocas frases si la cosa va bien (_"hago esto por esto... y aquí pongo esto para que pase esto... etc"_) y  se entiende el script.
+> * Si no se entiende habrá que acompañarlo de más texto explicativo.
+> * Si va mal hay que indicar los problemas 
+
 # 1. Teoría
 
 Explicación del profesor usando ejemplos
