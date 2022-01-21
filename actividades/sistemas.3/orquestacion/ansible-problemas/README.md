@@ -91,3 +91,35 @@ PISTA:
 El playbook de gnulinux no sirve para Windows. Me explico
 El módulo "ping" de Ansible sólo sirve para el grupo "gnulinux".
 Para el grupo "windows" si quieres hacer ping... hay que usar otro módulo diferente de Ansible.
+
+# 5. Problemas de Ansible con Python
+
+**Descripción:** Empecé el lunes y llegué al apartado 3 y no puedo avanzar debido al error de la imagen... Al parecer son problemas de Python creo pero no consigo solucionar el problema haga lo que haga.
+
+![](05/python-error.png)
+
+**Profesor:** Dices "Al parecer son problemas de Python creo pero no consigo solucionar el problema haga lo que haga."
+
+A ver, tan "máquina" no soy. Necesito información:
+1) Exactamente ¿qué cosas son las que has hecho?
+2) Qué versión de Python y de Ansible tienes instalada?
+3) Que SO estás usando en el master y en el slave OpenSUSE?
+4) Puedes acceder SSH desde el master al slave?
+
+Puedes probar hacer el comando had hoc con MV que tenga apt igual que el vídeo para descartar. En la práctica se dice que el SO será GNU/Linux... el que quieran.
+
+A ver que en OpenSUSE funciona Ansible.... pero si quieren pueden seguir el vídeo que está muy bien explicado.
+
+**Alumno:**
+1) He hecho todo hasta el apartado 3 como se veía en la imagen.
+2) ansible 2.9.21 python 2.7.17 python3 3.6.10.
+3) Master: OpenSUSE, SlaveXXg: OpenSUSE, SlaveXXw: Windows 10.
+4) Si, del master a las dos.
+5) Simplemente porque con docker-compose tuve problemas también.
+
+
+# 6. Problemas con el inventario
+
+**Descripción:** En el apartado 3, he hecho lo que indica el video a la hora de crear el inventario, me da un warning, probé hosts por hosts y el de Windows me da también me da el siguiente error:
+
+![](06/inventario-error.png)
