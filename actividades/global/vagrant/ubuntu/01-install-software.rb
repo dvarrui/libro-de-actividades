@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 text = <<-TEXT
+  apt update
   apt install -y vim tree nmap
   apt install -y git
 
@@ -18,11 +19,7 @@ text = <<-TEXT
 TEXT
 
 lines = text.split("\n")
-total = lines.size
-lines.each_with_index do |line, index|
-  print '=' * 10 
-  print " [ INFO ] Step #{index + 1}/#{total}" 
-  putps '=' * 10 
+for line in lines do
   system(line)
 end
 
