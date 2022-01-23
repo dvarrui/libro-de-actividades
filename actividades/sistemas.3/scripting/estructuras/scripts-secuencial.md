@@ -85,3 +85,17 @@ Vamos a crear 2 scripts que usando la estructura secuencial.
 * Consultar la lista de usuarios antes de empezar. Sólo necesitamos ver los usuarios con shell Bash (Pista: usar cat y grep).
 * Ejecutar el script de creación y consultar la lista de usuarios. Comprobar que el script ha funcionado.
 * Ejecutar el script de borrado y consultar la lista de usuarios. Comprobar que el script ha funcionado.
+
+# ANEXO
+
+
+Recomendaciones
+1. Sólo secuencial. NO bucle no condicionales
+2. La valirable "us" no significa nada ponle otro nombre con más sentido.
+3. Veo que has usado colores... bien. Si vas a poner colores en Ruby hazlo con esto:
+   https://rubygems.org/gems/colorize
+4. Compruebas el usuario por /home/usuario pero luego lo haces por /etc/passwd
+   Unifícalo mejor.
+
+   Mira el comando "id" a ver si te sirve.
+   O el comando "getent passwd" o el comando "getent shadow"
