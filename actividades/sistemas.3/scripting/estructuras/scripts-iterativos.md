@@ -51,7 +51,9 @@ done
 Vamos a crear scripts usando la estructura iterativa.
 * Ir a una MV con GNU/Linux.
 * Hacer la segunda versión del script `crear-usuariosXXv2.sh` pero usando la estructura iterativa.
+    * Comenzar el script ejecutando `figlet nombre-alumnoXX`.
 * Hacer la segunda versión del script `borrar-usuariosXXv2.sh` pero usando la estructura iterativa.
+    * Comenzar el script ejecutando `figlet nombre-alumnoXX`.
 * Hacer la segunda versión del script `elegirXXv2.sh` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear (v2).
 
 ## 2.2 Comprobar

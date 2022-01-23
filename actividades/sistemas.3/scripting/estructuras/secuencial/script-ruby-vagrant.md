@@ -124,6 +124,7 @@ OBJETIVO: En este apartado te planteo un objetivo y habrá que "investigar un po
 * Investiga la utilidad de los paquetes instalados y aprende a usarlos.
 
 ---
+
 # ANEXO: Script Ruby con Vagrant Windows
 
 * Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Windows.

@@ -12,7 +12,10 @@ Vagrant.configure("2") do |config|
     # i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2242
     i.vm.synced_folder "./", "/vagrant"
-    i.vm.provision "shell", path: 'install_software.sh'
+    #i.vm.provision "shell", path: 'install-software.sh'
+    i.vm.provision "shell", inline: 'apt-get update'
+    i.vm.provision "shell", inline: 'apt-get install -y ruby'
+    i.vm.provision "shell", path: 'install-software.rb'
 
     # Configure provider   
     i.vm.provider "virtualbox" do |v|

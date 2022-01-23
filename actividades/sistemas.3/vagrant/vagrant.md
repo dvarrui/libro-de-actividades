@@ -161,6 +161,8 @@ Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
 * La MV de VirtualBox debe tener el nombre `vagrantXX-port`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
+Levantar la MV podemos hace `vagrant up` pero también `time vagrant up` para medir el tiempo que se tarda en levantar la MV. El añadir el comando `time COMMAND` delante de un comando nos calcula el tiempo que tarda en ejecutarse dicho comandos/programa (COMMAND).
+
 ## 3.2 Entramos en la MV
 
 * Entramos en la MV en la máquina virtual (`vagrant ssh`).
