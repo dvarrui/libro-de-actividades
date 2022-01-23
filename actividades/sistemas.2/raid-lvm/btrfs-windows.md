@@ -54,20 +54,6 @@ La práctica está en su mayoría basada en el siguiente vídeo:
 * Configurar el sistema de ficheros en modo RAID0.
 * Comprobar resultado.
 
-## 2.3 Usando tres discos
-
-* Vamos a simular un RAID5 con BrtFS usando los 3 discos.
-* Añadir el discoD al sistema de ficheros "en caliente".
-* Configurar el sistema de ficheros en modo RAID5.
-* Comprobar.
-
-## 2.4 Usando 4 discos
-
-* Vamos a simular un RAID6 con BrtFS usando los 4 discos.
-* Añadir el discoE al sistema de ficheros "en caliente".
-* Configurar el sistema de ficheros en modo RAID6.
-* Comprobar.
-
 # 3. Snapshots
 
 # 4. Discos dinámicos en Windows
@@ -123,6 +109,9 @@ Un volumen *Reflejado* (Esto es es lo mismo que un RAID1):
 ---
 # ANEXO
 
+## Chuleta de comandos
+
+```
 mkfs.btrfs /dev/sdb /dev/sdc | raid1
 mkfs.btrfs -m raid0 /dev/sdb /dev/sdc |raid0
 mkfs.btrfs -m raid10 -d raid10 /dev/sdb /dev/sdc /dev/sdd /dev/sde|raid 10
@@ -133,7 +122,11 @@ btrfs device add /dev/sdd /testbtrfs/ | Añadir un disco al FS
 btrfs filesystem show /testbtrfs/
 btrfs filesystem usage /testbtrfs
 btrfs device delete /dev/sdd /testbtrfs
+```
+
 En BTRFS el equivalente al PVMOVE de LVM es automático cuando eliminamos un disco.
+
+```
 btrfs device scan
 btrfs device scan /dev/sdb
 btrfs filesystem balance /testbtrfs
@@ -143,3 +136,18 @@ btrfs subvolume create /testbtrfs/subvol1
 btrfs subvolume list /testbtrfs
 btrfs subvolume snapshot /testbtrfs/subvol1/ /testbtrfs/subvol1/snapshot
 rm -r /testbtrfs/subvol1/*
+```
+
+## 2.3 Usando tres discos
+
+* Vamos a simular un RAID5 con BrtFS usando los 3 discos.
+* Añadir el discoD al sistema de ficheros "en caliente".
+* Configurar el sistema de ficheros en modo RAID5.
+* Comprobar.
+
+## 2.4 Usando 4 discos
+
+* Vamos a simular un RAID6 con BrtFS usando los 4 discos.
+* Añadir el discoE al sistema de ficheros "en caliente".
+* Configurar el sistema de ficheros en modo RAID6.
+* Comprobar.
