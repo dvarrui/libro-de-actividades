@@ -10,7 +10,6 @@ Tiempo estimado : 6 sesiones
 ---
 # Volúmenes Lógicos (OpenSUSE + Windows)
 
----
 # 1. Instalar SO sobre LVM
 
 Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volúmenes(LVM) en lugar de particiones.
@@ -19,23 +18,35 @@ Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volú
 
 Realizar las siguientes tareas:
 * Crear MV para OpenSUSE, con lo siguiente:
-    * **OJO: Sistema UEFI-BIOS activo**.
-    * Un disco de 10 GB.
-    * [Configuración](../../global/configuracion/opensuse.md).
+
+| Opción EFI-BIOS   | Opción BIOS legacy |
+| ----------------- | -------- |
+| Un disco de 10 GB | Un disco de 10 GB |
+| Sistema UEFI-BIOS activo | Sin EFI |
+| [Configuración](../../global/configuracion/opensuse.md) | [Configuración](../../global/configuracion/opensuse.md) |
+
 * Comenzar a instalar el sistema operativo.
+* ¿Activar repositorios en línea? NO
+* Escritorio: XFCE
 * **OJO: Parar al llegar al particionado**.
 
 ## 1.2 Particionar
 
-* Crearemos una partición para el **sistema de arranque EFI** independiente. De modo que se quedará fuera de los volúmenes (LVM).
+**Creando las particiones**
 
-| ID | Size    | Tipo de partición       | Formato | Punto de montaje |
-| -- | ------- | ----------------------- | ------- | ---------------- |
-| 1  | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
-| 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+> Vamos a crear una partición para el **sistema de arranque** independiente. De modo que se quedará fuera de los volúmenes (LVM).
+
+| OPCION      | ID | Size    | Tipo de partición       | Formato | Punto de montaje |
+| ----------- | -- | ------- | ----------------------- | ------- | ---------------- |
+| EFI-BIOS    | 1  | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
+|             | 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+| BIOS legacy | 1  | 300 MiB | Sistema operativo       | ext4    | /boot            |
+|             | 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+
+**Creando los volúmenes**
 
 * Ir a la gestión de volúmenes (LVM).
-* Crear un grupo de volumen llamado `grupoXX`. Donde XX es el número asociado a cada alumno.
+* Crear un grupo de volumen llamado `grupoXX` que coja el disco disponible. Donde XX es el número asociado a cada alumno.
 * Crear los siguientes volúmenes lógicos (LV) dentro del `grupoXX`:
 
 | Nombre    | Tamaño  | Tipo                | Formato | Montar |
