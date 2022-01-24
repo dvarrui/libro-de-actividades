@@ -52,7 +52,7 @@ Realizar las siguientes tareas:
 | Nombre    | Tamaño  | Tipo                | Formato | Montar |
 | --------- | ------- | ------------------- | ------- | ------ |
 | volXXswap | 500 MiB | Area de intercambio | swap    | -      |
-| volXXraiz | 8 GiB   | Sistema operativo   | ext4    | /      |
+| volXXssoo | 8 GiB   | Sistema operativo   | ext4    | /      |
 | volXXhome | 100 MiB | Datos de usuario    | ext3    | /home  |
 
 > *Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
