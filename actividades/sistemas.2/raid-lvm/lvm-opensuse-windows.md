@@ -75,6 +75,8 @@ Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya
     * Habilitar servicio SSH y Abrir puerto SSH.
 * Reiniciamos el sistema y seguimos.
 
+> ¿Te acordaste de quitar la ISO (DVD) de la unidad de la MV?
+
 Si no puedes entrar al sistema o no se inicia correctamente...
 1. Repasa bien los pasos anteriores y volver a hacer.
 2. Si sigues con problemas, llama a alguien que se siente al lado y le vas contando en voz alta los pasos mientras lo vuelves a repetir para que te des cuenta de dónde has tenido el fallo.
@@ -87,7 +89,8 @@ Podemos hacernos la idea de que:
 * los "volúmenes lógicos" particiones.
 
 Configuramos la primera tarjeta de red en modo estático/manual:
-* Ir a Yast -> Cambiar gestor de red "Network Manager" por "Wicked".
+* Ir a `Yast -> Red`.
+* Cambiar gestor de red "Network Manager" por "Wicked".
 * Configurar IP, máscara, puerta de enlace y servidor DNS.
 
 Comandos de comprobación:
