@@ -33,7 +33,7 @@ Realizar las siguientes tareas:
 * Comenzar a instalar el sistema operativo.
 * ¿Activar repositorios en línea? NO
 * Escritorio: XFCE
-* **OJO: Parar al llegar al particionado**.
+* OJO: Parar al llegar al particionado.
 
 ## 1.2 Creando los volúmenes físicos (particiones y discos)
 
@@ -43,8 +43,9 @@ Realizar las siguientes tareas:
 | ----------- | ---- | ------- | ----------------------- | ------- | ---------------- |
 | EFI-BIOS    | 1 | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
 |             | 2 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
-| BIOS legacy | 1 | 300 MiB | Sistema operativo       | ext4    | /boot            |
-|             | 2 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+| BIOS legacy | 1 | 8 MiB | Arranque BIOS       | FAT4    |           |
+| BIOS legacy | 2 | 300 MiB | Sistema operativo       | ext4    | /boot            |
+|             | 3 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
 
 ![](images/opensuse-lvm-volumenes-fisicos.png)
 
@@ -52,13 +53,16 @@ Realizar las siguientes tareas:
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX` que coja el disco disponible. Donde XX es el número asociado a cada alumno.
+
+![](images/opensuse-lvm-grupo-logico.png)
+
 * Crear los siguientes volúmenes lógicos (LV) dentro del `grupoXX`:
 
 | Nombre    | Tamaño  | Tipo                | Formato | Montar |
 | --------- | ------- | ------------------- | ------- | ------ |
 | volXXswap | 500 MiB | Area de intercambio | swap    | -      |
 | volXXssoo | 8 GiB   | Sistema operativo   | ext4    | /      |
-| volXXhome | 100 MiB | Datos de usuario    | ext3    | /home  |
+| volXXhome | 100 MiB | Datos de usuario    | xfs     | /home  |
 
 ![](images/opensuse-lvm-volumenes-logicos.png)
 
@@ -67,8 +71,14 @@ Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelan
 Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
+* En configuración de la instalación:
+    * Habilitar servicio SSH y Abrir puerto SSH.
 * Reiniciamos el sistema y seguimos.
 
+Si no puedes entrar al sistema o no se inicia correctamente...
+1. Repasa bien los pasos anteriores y volver a hacer.
+2. Si sigues con problemas, llama a alguien que se siente al lado y le vas contando en voz alta los pasos mientras lo vuelves a repetir para que te des cuenta de dónde has tenido el fallo.
+3. ¡Uff!... espero que no lleguemos a este punto...
 
 ## 1.4 Comprobación de la instalación con volúmenes (LVM)
 
