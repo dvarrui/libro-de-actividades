@@ -1,8 +1,8 @@
 
 ```
-Curso       : 202021, 201920
+Curso       : 202122, 202021, 201920
 Area        : Sistemas operativos, backup
-Descripción : Copias de seguridad usando tar, rsync, Windows
+Descripción : Copias de seguridad usando tar, rsync
 Requisitos  : GNU/Linux, Windows, SSH
 Tiempo      : 11 sesiones
 ```
@@ -37,18 +37,17 @@ Una vez elegida la MV, empezamos:
 Ahora vamos a crear la estructura de directorios y ficheros para probar con ellos las copias de seguridad.
 
 * Iniciar sesión con nuestro usuario (`nombre-del-alumno`). Estamos en el directorio `/home/nombre-del-alumno`
-* Crear directorio `/home/nombre-del-alumno/mydocs`.
-    * Crear archivo `/home/nombre-del-alumno/mydocs/a.txt`. Dentro escribir nombre completo del alumno.
-    * Crear archivo `/home/nombre-del-alumno/mydocs/b.txt`. Dentro escribir la fecha actual.
+* Crear directorio `/home/nombre-del-alumno/mydocsXX`.
+* Crear archivo `/home/nombre-del-alumno/mydocsXX/a.txt`. Dentro escribir nombre completo del alumno (Pista: `figlet nombre-alumnoXX > a.txt`)
+* Crear archivo `/home/nombre-del-alumno/mydocsXX/b.txt`. Dentro escribir la fecha actual (Pista: `date > b.txt`).
 
 Se ha creado lo siguiente:
 ```
-mydocs
+mydocsXX
 ├── a.txt
 └── b.txt
 ```
 
----
 # 2 TEORÍA: Aprendiendo a usar el comando tar
 
 Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
@@ -93,9 +92,9 @@ Otros parámetros de interés:
 ## 3.1 Realizar copia total
 
 Iniciar sesión con nuestro usuario:
-* `tar cvf backupXX-1-full.tar mydocs`, parea realizar una copia de seguridad total.
+* `tar cvf backupXX-1-full.tar mydocsXX`, parea realizar una copia de seguridad total.
 * `tar tvf backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
-* Crear archivo `mydocs/c.txt`. Escribir dentro el título de tu película favorita.
+* Crear archivo `mydocsXX/c.txt`. Escribir dentro el título de tu película favorita.
 * Realiza copia seguridad total con el nombre `backupXX-2-full.tar`.
 * Comprobar el contenido.
 
@@ -107,13 +106,12 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 
 * Entrar como superusuario.
 * Nos movemos al directorio `/root`
-* `cp -r /home/alumno/mydocs .`, hacemos un copiado recursivo de los archivos con el usuario `root`.
-* `vdir mydocs`, comprobar que el propietario de los ficheros ha cambiado y ahora es `root`. Esta copia a modificado/alterado los metadatos de los archivos.
-* `rm -r /root/mydocs`, limpiamos.
+* `cp -r /home/alumno/mydocsXX /root/mydocsXXcopia`, hacemos un copiado recursivo de los archivos con el usuario `root`.
+* `vdir mydocsXXcopia`, comprobar que el propietario de los ficheros ha cambiado y ahora es `root`. Esta copia a modificado/alterado los metadatos de los archivos.
+* `rm -r /root/mydocsXXcopia`, limpiamos.
 * `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad pero en una ruta diferente a donde estaban los archivos originales.
 * Vemos que el propietario de los ficheros restaurados se mantiene. La recuperación de backup mantiene los metadatos originales.
 
----
 # 4. Copia de seguridad incremental
 
 > Enlaces de interés:
@@ -125,7 +123,7 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 * Usaremos nuestro usuario normal. NO usar el usuario root.
 * Tenemos lo siguiente:
 ```
-mydocs
+mydocsXXinc
    ├── a.txt
    ├── b.txt
    └── c.txt
@@ -135,15 +133,15 @@ mydocs
 
 * Usaremos nuestro usuario normal. NO usar el usuario root.
 * Ejecutamos `cd` para movernos a nuestro directorio HOME. Esto es `/home/nombre-del-alumno`. Lo comprobamos con `pwd`.
-* `tar cvf backupXX-3-init.tar mydocs -g mydocs.snap`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
+* `tar cvf backupXX-3-init.tar mydocsXXinc -g mydocsXX.snap`, crear el full-backup inicial indicando el fichero de metadatos (snapshot file).
 * A continuación simulamos dos cambios
-    * Borrar el archibo mydocs/b.txt.
-    * Crear el archivo mydocs/d.txt.
-* `tar cvf backupXX-4-inc.tar mydocs -g mydocs.snap`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
+    * Borrar el archivo mydocsXXinc/b.txt.
+    * Crear el archivo mydocsXXinc/d.txt.
+* `tar cvf backupXX-4-inc.tar mydocsXXinc -g mydocsXX.snap`, y hacemos el backup incremental indicando el fichero de metadatos que ya tenemos creado.
 
 > Como podemos comprobar, la copia incremental sólo guarda los cambios realizados desde el último backup. El fichero snap va guardando el estado final de la copia. Esto es, qué ficheros permanecen y cuáles desaparecen.
 
-* Realizar otra copia incremental (snap file `mydocs.snap`), pero usando como nombre de fichero de backup el siguiente: `backupXX-5-inc.tar`
+* Realizar otra copia incremental (snap file `mydocsXX.snap`), pero usando como nombre de fichero de backup el siguiente: `backupXX-5-inc.tar`
 * Comprobar el contenido de `backupXX-5-inc.tar`.
 
 > Sin hacer cambios en los ficheros, cuando volvemos a realizar otra copia incremental (basándonos en el snap file anterior), podemos comprobar... que NO se copia ningún archivo, porque no ha habido ningún cambio.
@@ -158,11 +156,11 @@ Pasos para una recuperación completa:
 
 1. Primero descomprimir el "full-backup" inicial.
     * `cd /home/nombre-del-alumno`
-    * `mkdir restore`
-    * `tar xvf backupXX-3-init.tar -C restore/`
+    * `mkdir restoreXXinc`
+    * `tar xvf backupXX-3-init.tar -C restoreXXinc/`
 2. Luego aplicar el incremental usando la opción `--incremental`.
-    * `tar xvf backupXX-4-inc.tar -C restore/ --incremental`
-    * `tar xvf backupXX-5-inc.tar -C restore/ --incremental`
+    * `tar xvf backupXX-4-inc.tar -C restoreXXinc/ --incremental`
+    * `tar xvf backupXX-5-inc.tar -C restoreXXinc/ --incremental`
     * `tree restore`
 
 Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha borrado el fichero (b.txt) que había sido eliminado en el momento de hacer el incremental.
@@ -172,7 +170,7 @@ Podemos comprobar que ha añadido el fichero creado (d.txt), pero también se ha
 La información final de los archivos que deben persistir entre todos los backups (full o inc) se guarda en el fichero snap. Pero como está en formato binario es difícil de ver, para ello usaremos un visor hexadecimal, de la siguiente forma:
 
 ```
-$ hexdump mydocs.snap -C
+$ hexdump mydocsXX.snap -C
 00000000  47 4e 55 20 74 61 72 2d  31 2e 33 32 2d 32 0a 31  |GNU tar-1.32-2.1|
 00000010  35 37 32 30 31 31 35 32  34 00 36 31 33 31 35 38  |572011524.613158|
 00000020  34 37 32 00 30 00 31 35  37 32 30 31 31 33 31 34  |472.0.1572011314|
@@ -184,9 +182,9 @@ $ hexdump mydocs.snap -C
 ```
 
 De la salida anterior, comprobamos que los ficheros que persisten son:
-* mydocs/a.txt
-* mydocs/c.txt
-* mydocs/d.txt
+* mydocsXXinc/a.txt
+* mydocsXXinc/c.txt
+* mydocsXXinc/d.txt
 
 Conclusiones:
 * Las copias totales (full-backup) son sencillas de hacer, pero desaprovechamos espacio duplicando archivos que no cambian.
@@ -201,7 +199,7 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 
 * Iniciamos sesión con nuestro usuario normal.
 * `crontab -l`, vemos que no hay ninguna configuración creada.
-* `export VISUAL=nano`, para decidir que queremos usar el edito nano al configurar.
+* `export VISUAL=nano`, para decidir que queremos usar el editor "nano" por defecto.
 
 > NOTA: Si usamos el editor vi:
 > * Pulsar `i`(insert) para activar el modo de empezar a escribir.
@@ -210,7 +208,6 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 >     2. Escribir: , `:`, `wq`. Así grabamos(w=write) y salimos (q=quiet) del editor de crontab.
 
 * `crontab -e`, se nos abre un editor para configurar crontab.
-
 
 > Información para configurar crontab:
 > * m: minuto
@@ -223,11 +220,11 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 * Escribir algo parecido a lo siguiente, cambiando `alumno` por el nombre del alumno:
 
 ```
-45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/alumno/mydocs
-45 10 * * 2   tar cvfz /home/alumno/crontabXX-mar.tar.gz /home/alumno/mydocs
-45 10 * * 3   tar cvfz /home/alumno/crontabXX-mie.tar.gz /home/alumno/mydocs
-45 10 * * 4   tar cvfz /home/alumno/crontabXX-jue.tar.gz /home/alumno/mydocs
-45 10 * * 5   tar cvfz /home/alumno/crontabXX-vie.tar.gz /home/alumno/mydocs
+45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/alumno/mydocsXX
+45 10 * * 2   tar cvfz /home/alumno/crontabXX-mar.tar.gz /home/alumno/mydocsXX
+45 10 * * 3   tar cvfz /home/alumno/crontabXX-mie.tar.gz /home/alumno/mydocsXX
+45 10 * * 4   tar cvfz /home/alumno/crontabXX-jue.tar.gz /home/alumno/mydocsXX
+45 10 * * 5   tar cvfz /home/alumno/crontabXX-vie.tar.gz /home/alumno/mydocsXX
 ```
 
 Esta configuración programa una copia de seguridad del directorio `/home/alumno/mydocs` a las 10:45.
@@ -236,14 +233,13 @@ Esta configuración programa una copia de seguridad del directorio `/home/alumno
 * Esperar a que se ejecute la copia de seguridad programada con crontab.
 * `vdir /home/alumno/`, para comprobar que existe el fichero con la fecha esperada.
 
----
 # 5. Copias diferenciales
 
 > Enlace de interés:
 > * [Backups con tar](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
 * Partimos de que ya se ha realizado un "full-backup".
-* Con el comando siguiente crearemos la copia diferencial de la copia completa que hemos realizado: `tar -cvf backupXX-7-diff.tar mydocs/* -N 2021-01-13`.
+* Con el comando siguiente crearemos la copia diferencial de la copia completa que hemos realizado: `tar -cvf backupXX-7-diff.tar mydocsXX/* -N 2021-01-13`.
 
 Para realizar backups diferenciales con tar usaremos su opción -N. Lo que nos permite esta opción es ordenar a tar que solo archive aquellos datos que han cambiado desde una determinada fecha, hasta la fecha de ejecución del comando.
 
@@ -301,18 +297,18 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 * Iniciar sesión con nuestro usuario normal.
 * Crear la siguiente estructura de ficheros en nuestro directorio HOME (`/home/nombre-alumno`):
 ```
-├── mydocs
+├── mydocsXXrsync
 │   ├── a.txt
 │   ├── b.txt
 │   └── c.txt
-└── replica
+└── replicaXXrsync
 ```
-* `rsync -aP mydocs replica`, para crear una réplica exacta de `mydocs` en el directorio `replica`.
-* Si repetimos el proceso (`rsync -aP mydocs replica`) no copia nada porque no es necesario.
-* Crear `mydocs/d.txt`.
+* `rsync -aP mydocsXXrsync replicaXXrsync`, para crear una réplica exacta de `mydocsXXrsync` en el directorio `replicaXXrsync`.
+* Si repetimos el proceso (`rsync -aP mydocsXXrsync replicaXXrsync`) no copia nada porque no es necesario.
+* Crear `mydocsXXrsync/d.txt`.
 * Volver a replicar. Comprobar que sólo se replican lo cambios.
-* Eliminar `mydocs/b.txt`.
-* Ejecutar `rsync -aP --delete mydocs replica`. Comprobamos que sólo se replican lo cambios. En este caso se replica la eliminación del archivo.
+* Eliminar `mydocsXXrsync/b.txt`.
+* Ejecutar `rsync -aP --delete mydocsXXrsync replicaXXrsync`. Comprobamos que sólo se replican lo cambios. En este caso se replica la eliminación del archivo.
 
 ## 6.4 rsync remoto
 
@@ -320,29 +316,36 @@ Después de las opciones vienen los parámetros de origen y destino. Las rutas p
 * Instalar `rsync` en la MV2.
 * Volver a la MV1.
 * `ssh usuario2@IP-DE-LA-MV2`, comprobamos que funciona el [acceso remoto SSH](../../global/acceso-remoto/opensuse.md) a la MV2.
-* Crear la carpeta `replica2` en la MV2.
+* Crear la carpeta `replicaXXremoto` en la MV2.
 * `exit` para salir de la sesión SSH.
 
 Estamos en la MV1.
 * Partimos de la siguiente estructura de ficheros en nuestro directorio (`/home/alumno`):
 
 ```
-mydocs
+mydocsXXrsync
 ├── a.txt
 ├── c.txt
 └── d.txt
 ```
 
-* `rsync -aP --delete mydocs usuario2@IP-DE-LA-MV2:/home/usuario2/replica2`, para replicar los datos del directorio `mydocs` de mi máquina local, al directorio `/home/usuario2/replica2`, de la máquina remota MV2.
+* `rsync -aP --delete mydocsXXrsync usuario2@IP-DE-LA-MV2:/home/usuario2/replicaXXremoto`, para replicar los datos del directorio `mydocsXXrsync` de mi máquina local, al directorio `/home/usuario2/replicaXXremoto`, de la máquina remota MV2.
 * Ir a MV2 y comprobar que se han copiado los archivos.
 * Ir a MV1
-* Crear `mydocs/b.txt`
-* Eliminar `mydocs/d.txt`.
+* Crear `mydocsXXrsync/b.txt`
+* Eliminar `mydocsXXrsync/d.txt`.
 * Volver a sincronizar con el servidor remoto.
 * Ir a MV2 y comprobar los resultados.
 
----
+# 7. Windows
+
+* Ir a MV Windows.
+* Instala Cygwin (https://www.cygwin.com/)
+* Localiza la ruta `C:\Users\nombre-alumno`.
+* Abrir entorno Cygwin y probar los comandos tar, rsync, etc.
+
 # ANEXO
 
+Enlaces de interés:
 * [Tar Vs Zip Vs Gz : Difference And Efficiency](https://itsfoss.com/tar-vs-zip-vs-gz/): Difference between Tar, Zip and gz explained and their performance compared. Find out which is the most efficient among the three.
 * [Reading files in a zip archive, without unzipping the archive - Stack Overflow](https://stackoverflow.com/questions/28100888/reading-files-in-a-zip-archive-without-unzipping-the-archive)
