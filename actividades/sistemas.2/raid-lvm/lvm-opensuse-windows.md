@@ -10,6 +10,10 @@ Tiempo estimado : 6 sesiones
 ---
 # Volúmenes Lógicos (OpenSUSE + Windows)
 
+* Leer el siguiente enlace ([LVM para torpes](https://blog.inittab.org/administracion-sistemas/lvm-para-torpes-i/)) para entender qué son los volúmenes lógicos.
+* OPCIONAL: [SUSE - LVM documentation](https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-lvm.html)
+* OPCIONAL: [Red Hat - Manual LVM](https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/5/html-single/logical_volume_manager_administration/index)
+
 # 1. Instalar SO sobre LVM
 
 Vamos a instalar un sistema operativo GNU/Linux OpenSUSE desde cero, sobre volúmenes(LVM) en lugar de particiones.
@@ -23,6 +27,7 @@ Realizar las siguientes tareas:
 | ----------------- | -------- |
 | Un disco de 10 GB | Un disco de 10 GB |
 | Sistema UEFI-BIOS activo | Sin EFI |
+| 2 interfaces de red | 2 interfaces de red |
 | [Configuración](../../global/configuracion/opensuse.md) | [Configuración](../../global/configuracion/opensuse.md) |
 
 * Comenzar a instalar el sistema operativo.
@@ -30,20 +35,20 @@ Realizar las siguientes tareas:
 * Escritorio: XFCE
 * **OJO: Parar al llegar al particionado**.
 
-## 1.2 Particionar
-
-**Creando las particiones**
+## 1.2 Creando los volúmenes físicos (particiones y discos)
 
 > Vamos a crear una partición para el **sistema de arranque** independiente. De modo que se quedará fuera de los volúmenes (LVM).
 
-| OPCION      | ID | Size    | Tipo de partición       | Formato | Punto de montaje |
-| ----------- | -- | ------- | ----------------------- | ------- | ---------------- |
-| EFI-BIOS    | 1  | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
-|             | 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
-| BIOS legacy | 1  | 300 MiB | Sistema operativo       | ext4    | /boot            |
-|             | 2  | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+| OPCION      | Partición | Size    | Tipo de partición       | Formato | Punto de montaje |
+| ----------- | ---- | ------- | ----------------------- | ------- | ---------------- |
+| EFI-BIOS    | 1 | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
+|             | 2 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
+| BIOS legacy | 1 | 300 MiB | Sistema operativo       | ext4    | /boot            |
+|             | 2 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
 
-**Creando los volúmenes**
+![](images/opensuse-lvm-volumenes-fisicos.png)
+
+## 1.3 Creando los volúmenes lógicos (grupos lógicos y volúmenes lógicos)
 
 * Ir a la gestión de volúmenes (LVM).
 * Crear un grupo de volumen llamado `grupoXX` que coja el disco disponible. Donde XX es el número asociado a cada alumno.
@@ -55,19 +60,27 @@ Realizar las siguientes tareas:
 | volXXssoo | 8 GiB   | Sistema operativo   | ext4    | /      |
 | volXXhome | 100 MiB | Datos de usuario    | ext3    | /home  |
 
-> *Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
-> * Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
+![](images/opensuse-lvm-volumenes-logicos.png)
+
+Vemos que nos ha sobrado espacio. Lo dejamos así porque lo usaremos más adelante.
+
+Por la experiencia de instalaciones previas de OpenSUSE con entorno gráfico, ya sabemos que el espacio en disco se nos va a quedar pequeño enseguida. Cuando se nos llene el espacio del sistema, vamos a hacer uso de los volúmenes (LVM) para ampliarlo sin necesidad de reinstalar el sistema.
 
 * Seguimos con la instalación del sistema operativo.
-* **OJO**: Elegir un escritorio genérico.
-* Cambiar gestor de red "Network Manager" por "Wicked". Si nos olvidamos de este punto, lo podemos hacer por `Yast` con el sistema instalado.
+* Reiniciamos el sistema y seguimos.
 
-## 1.3 Comprobación de la instalación con volúmenes (LVM)
 
-Podemos hacernos la idea de que los "grupos de volumen" son como si fueran discos, y los "volúmenes lógicos" particiones.
+## 1.4 Comprobación de la instalación con volúmenes (LVM)
 
-* Reiniciamos el sistema y comprobamos lo que tenemos:
+Podemos hacernos la idea de que:
+* los "grupos de volumen" son como si fueran discos, y
+* los "volúmenes lógicos" particiones.
 
+Configuramos la primera tarjeta de red en modo estático/manual:
+* Ir a Yast -> Cambiar gestor de red "Network Manager" por "Wicked".
+* Configurar IP, máscara, puerta de enlace y servidor DNS.
+
+Comandos de comprobación:
 ```
 date
 hostname
@@ -75,6 +88,9 @@ ip a
 lsblk              # Muestra discos, particiones, volúmenes y puntos de montaje
 vgdisplay          # Muestra los grupos de volumen
 ```
+
+**Regla nº1:** Si no sabes o no entiendes para qué sirven estos comandos... no sigas. Averigua, lee, prueba y pregunta.
+**Regla nº2:** Primero aprende la regla nº 1.
 
 ---
 # 2 Aumentar el tamaño del VL en caliente
