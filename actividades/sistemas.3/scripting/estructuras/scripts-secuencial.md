@@ -10,6 +10,16 @@ Tiempo      : 2 sessiones
 
 # Scripting: Estructura secuencial
 
+# 1. Teoría
+
+## 1.1 Script de shell - Wikipedia, la enciclopedia libre
+
+Leamos y entendamos la definición:
+* Wikipedia - [Script de shell/lenguaje de programación]((https://es.m.wikipedia.org/wiki/Script_de_shell)
+* Consulta las dudas en clase.
+
+## 1.2 Entrega
+
 Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
 * Todos los scripts que se suban al GitHub deben funcionar.
 * Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
@@ -19,7 +29,7 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 > * Si no se entiende habrá que acompañarlo de más texto explicativo.
 > * Si va mal hay que indicar los problemas
 
-# 1. Teoría
+## 1.3 Ejemplos
 
 Explicación del profesor usando ejemplos
 
@@ -30,7 +40,10 @@ Explicación del profesor usando ejemplos
 * [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
 * [ejemplo5-ruby.rb](files/ejemplo5-ruby.rb)
 
+---
 # 2. Práctica en Bash
+
+_¡Empezamos a trabajar!_
 
 Crear usuarios y borrar usuarios mediante un script Bash.
 

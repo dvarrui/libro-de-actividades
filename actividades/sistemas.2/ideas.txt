@@ -1,0 +1,24 @@
+
+
+Pendiente
+
+http://systemadmin.es/2009/04/uso-de-xargs-herramientas-unix-ii
+xargs
+
+
+Apuntes SSOO
+Y se ve aquí como quedan:
+
+https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes
+
+ull-esit-sistemas-operativos.github.io (https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes)
+Sistemas Operativos
+
+
+Los de sistemas operativos son esto:
+
+https://github.com/ull-esit-sistemas-operativos/ssoo-apuntes
+
+GitHub (https://github.com/ull-esit-sistemas-operativos/ssoo-apuntes)
+GitHub - ull-esit-sistemas-operativos/ssoo-apuntes: Clases de Sistemas Operativos. Apuntes de la asignatura.
+Clases de Sistemas Operativos. Apuntes de la asignatura. - GitHub - ull-esit-sistemas-operativos/ssoo-apuntes: Clases de Sistemas Operativos. Apuntes de la asignatura
