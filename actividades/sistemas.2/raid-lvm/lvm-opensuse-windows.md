@@ -41,10 +41,10 @@ Realizar las siguientes tareas:
 
 | OPCION      | Partición | Size    | Tipo de partición       | Formato | Punto de montaje |
 | ----------- | ---- | ------- | ----------------------- | ------- | ---------------- |
-| EFI-BIOS    | 1 | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
+| **EFI-BIOS**    | 1 | 300 MiB | Sistema de arranque EFI | FAT     | /boot/efi        |
 |             | 2 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
-| BIOS legacy | 1 | 8 MiB | Arranque BIOS       | FAT4    |           |
-| BIOS legacy | 2 | 300 MiB | Sistema operativo       | ext4    | /boot            |
+| **BIOS legacy** | 1 | 8 MiB | Arranque BIOS       | FAT4    |           |
+|             | 2 | 300 MiB | Sistema operativo       | ext4    | /boot            |
 |             | 3 | Resto   | Volúmen sin procesar    | (Linux LVM) | -            |
 
 ![](images/opensuse-lvm-volumenes-fisicos.png)
