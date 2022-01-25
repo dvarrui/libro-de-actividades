@@ -102,10 +102,10 @@ lsblk              # Muestra discos, particiones, volúmenes y puntos de montaje
 vgdisplay          # Muestra los grupos de volumen
 ```
 
-| Regla | Descripción |
-| ----- | ----------- |
-| nº1   | Si no sabes o no entiendes para qué sirven estos comandos... no sigas. Averigua, lee, prueba y pregunta |
-| nº2   | Primero aprende la regla nº 1 |
+| Regla   | Descripción |
+| ------- | ----------- |
+| **nº1** | _Si no sabes o no entiendes para qué sirven estos comandos... no sigas. Averigua, lee, prueba y pregunta_ |
+| **nº2** | _Primero aprende la regla nº 1_ |
 
 ---
 # 2 Aumentar el tamaño del VL en caliente
