@@ -102,8 +102,10 @@ lsblk              # Muestra discos, particiones, volúmenes y puntos de montaje
 vgdisplay          # Muestra los grupos de volumen
 ```
 
-**Regla nº1:** Si no sabes o no entiendes para qué sirven estos comandos... no sigas. Averigua, lee, prueba y pregunta.
-**Regla nº2:** Primero aprende la regla nº 1.
+| Regla | Descripción |
+| ----- | ----------- |
+| nº1   | Si no sabes o no entiendes para qué sirven estos comandos... no sigas. Averigua, lee, prueba y pregunta |
+| nº2   | Primero aprende la regla nº 1 |
 
 ---
 # 2 Aumentar el tamaño del VL en caliente
@@ -126,9 +128,12 @@ lvdisplay grupoXX
 df -hT
 ```
 
-> **ATENCION:**
+> **¿Qué pasa si la salida del comando es muy larga?**
 >
-> * Si la salida de algún comando es muy extensa y es difícil hacer las capturas de pantalla, podemos hacer lo siguiente. `lvdisplay grupoXX > salida.txt`, este comando pasa toda la salida de pantalla a un fichero de texto con el nombre `salida.txt`. Luego más tarde, podemos incluir dicho texto en nuestro informe.
+> * Si la salida de algún comando es muy extensa y es difícil hacer las capturas de pantalla, podemos hacer lo siguiente. `lvdisplay grupoXX > salida.txt`. Esto es "redirección de comandos". El primer comando pasa toda la salida de pantalla a un fichero de texto con el nombre `salida.txt`. Luego más tarde, podemos incluir dicho texto en nuestro informe.
+> * Otra forma es usando el comando `script`. Este comando cuando se lanza queda activo y todos los comandos y sus salidas quedan registradas en un fichero de texto (`typescript`). Al terminar hacemos `exit`.
+
+> **Coherencia con los datos obtenidos de distintos comandos**
 > * Si el comando `df -hT` no nos devuelve el tamaño que esperamos para el volumen, entonces podemos reiniciar la MV y ver si se ha actualizado la información, o usar `resize2fs /dev/grupoXX/volXXhome` para ajustar dicho valor.
 
 ---
