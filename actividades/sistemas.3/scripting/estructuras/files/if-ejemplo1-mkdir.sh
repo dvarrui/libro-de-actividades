@@ -11,14 +11,4 @@ else
   mkdir $DIRNAME
 fi
 
-FILEPATH="$DIRNAME/readme.txt"
-if [ -f "$FILEPATH" ]
-then
-  echo " => ."
-else
-  echo " => Crear fichero $FILEPATH"
-  touch $FILEPATH
-  echo "Este es el fichero readme de $NOMBREALUMNO" >> $FILEPATH
-fi
-
 exit 0
