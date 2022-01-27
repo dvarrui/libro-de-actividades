@@ -6,7 +6,7 @@ DIRNAME=backupXX
 if [ -d $DIRNAME ]
 then
   echo " => Borrar directorio $DIRNAME"
-  rmdir $DIRNAME
+  rm -r -i $DIRNAME
 end
 
 cowsay "Fin del script"
