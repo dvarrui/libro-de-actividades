@@ -8,23 +8,50 @@ Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
-# Scripring: Estructura condicional
+# Scripting: Estructura condicional
 
-# 1. INFO: Teoría, explicaciones iniciales y ejemplos
+# 1. Teoría
 
-## 1.1 INFO: Explicación del profesor usando ejemplos
+## 1.1 Script de shell - Wikipedia, la enciclopedia libre
 
-**Ejemplo script secuencial**. Hacer explicación en clase usando el siguiente ejemplo:
-* [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
-* [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
-* [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
-* [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
+Leamos y entendamos la definición:
+* Wikipedia - [Script de shell/lenguaje de programación]((https://es.m.wikipedia.org/wiki/Script_de_shell)
+* Consulta las dudas en clase.
 
-## 1.2 INFO: Recordatorio de Bash
+## 1.2 Entrega
+
+Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
+* Todos los scripts que se suban al GitHub deben funcionar.
+* Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
+
+> ACLARACIÓN:
+> * El informe va a tener pocas frases si la cosa va bien (_"hago esto por esto... y aquí pongo esto para que pase esto... etc"_) y  se entiende el script.
+> * Si no se entiende habrá que acompañarlo de más texto explicativo.
+> * Si va mal hay que indicar los problemas
+
+## 1.3 Explicación del profesor usando ejemplos
+
+Explicación del profesor usando ejemplos
+
+**Ejemplo script condicionales**
+
+* [if-ejemplo1-mkdir.sh](files/if-ejemplo1-mkdir.sh)
+* [if-ejemplo2-rm.sh](files/if-ejemplo2-rm.sh)
+* [if-ejemplo3-mkdir.sh](files/if-ejemplo3-mkdir.sh)
+* [if-ejemplo4-rm.sh](files/if-ejemplo4-rm.sh)
+* [if-ejemplo5-ruby.rb](files/if-ejemplo5-ruby.rb)
+* [if-ejemplo6-ruby.rb](files/if-ejemplo6-ruby.rb)
+
+---
+# 2. Práctica de Bash condicional
+
+## 2.1 Recordatorio de Bash
 
 * Recordar que el script comienza con `#!/usr/bin/env bash`
 * Para ejecutar un comando del sistema hacemos `COMANDO-DEL-SISTEMA`.
+* Para ejecutar un script nuestro escribimos el `PATH/TO/SCRIPT.sh`.
 * Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Hay que dar permisos de ejecución al fichero.
 * Ejemplo de condicional en Bash:
 ```
 if [ CONDICION ]; then
@@ -34,28 +61,11 @@ fi
 * Se usa `read` para preguntar un valor al usuario.
 * Se usa `$1` para leer el primer argumento, `$2` el segundo. etc.
 
-## 1.3 INFO: Recordatorio de Ruby
+## 2.2 Crear un script con entrada manual
 
-* Recordar que el script comienza con `#!/usr/bin/env ruby`
-* Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
-* Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
-* Ejemplo de condicional en Ruby:
-```
-if (CONDICION)
-  HACER ALGO
-else
-  HACER OTRA COSA
-end
-```
-* Se usa `gets` para preguntar un valor al usuario de forma interactiva.
-* Se usa `ARGV[0]` para leer el primer argumento, `ARGV[1]` para el segundo, etc.
-
----
-# 2. Script condicional preguntando al usuario
-
-Vamos a crear un script:
 * usando la estructura condicional.
 * y con entrada de datos del usuario.
+
 
 ## 2.1 Bash: condicional preguntando al usuario
 
@@ -69,10 +79,10 @@ Vamos a crear un script:
     * Ejecutamos el comando `sl`
     * Terminamos con `exit 1`.
 
-**Comprobamos**
+## 2.2 Comprobar
 
 * Estamos en la MV GNU/Linux.
-* Abrir un terminal.
+* Abrir un terminal con nuestro usuario.
 * Consultar contenido inicial de /etc/passwd con `getent passwd`.
     * ¿Qué diferencia hay entre `cat /etc/passwd` y `getent passwd`. ¿Hay uno mejor que otro? Sí/No ¿Por qué?
 * Ejecutar el script eligiendo c y comprobar el resultado `getent passwd`.
@@ -83,7 +93,44 @@ Vamos a crear un script:
     * ¿Se puede solucinar?
     * ¿Cómo?
 
-## 2.2 Ruby: condicional preguntando al usuario
+## 2.3 Bash condicional usando variable fija
+
+* Ir a una MV con GNU/Linux.
+* Hacer script `elegirXXvar.sh` en Bash que será una copia del anterior.
+* Crear una variable al comienzo del script llamada "option" y le damos el valor manualmente en el script.
+* Comprobar.
+
+# 2.4 Bash condicional usando argumentos
+
+* Ir a una MV con GNU/Linux.
+* Hacer script `elegirXXarg.sh` en Bash. Será una copia del anterior.
+* Leer el paso de argumentos al script. Los argumentos en Bash son $1, $2, etc. Entonces a la variable "option" se le asigna el valor del primer argumento. Veamos ejemplo:
+    * `./elegirXXarg.sh -c` para invocar las acciones de creación y
+    * `./elegirXXarg.sh -d` para invocar las acciones de borrado.
+* Modificar el script y.
+* Comprobamos.
+
+# 3. Ruby script condicional
+
+## 3.1 Recordatorio de Ruby
+
+* Recordar que el script comienza con `#!/usr/bin/env ruby`
+* Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
+* Para ejecutar un script nuestro escribimos el `system("PATH/TO/SCRIPT.rb")`.
+* Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Hay que dar permisos de ejecución al fichero.
+* Ejemplo de condicional en Ruby:
+```
+if (CONDICION)
+  HACER ALGO
+else
+  HACER OTRA COSA
+end
+```
+* Se usa `gets` para preguntar un valor al usuario de forma interactiva.
+* Se usa `ARGV[0]` para leer el primer argumento, `ARGV[1]` para el segundo, etc.
+
+## 3.2 Ruby: condicional preguntando al usuario
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXuser.rb` en Ruby.
@@ -96,57 +143,24 @@ Vamos a crear un script:
     * Terminamos con `exit 1`.
 * Comprobamos.
 
----
-# 3. Script condicional usando variables
-
-Vamos a crear un script:
-* usando la estructura condicional.
-* sin entrada de datos del usuario.
-* Usaremos una variable para tomas las decisiones de control.
-
-## 3.1 Bash: Modificar para usar variable manual
-
-* Ir a una MV con GNU/Linux.
-* Hacer script `elegirXXvar.sh` en Bash.
-* Crear una variable al comienzo del script llamada "option" y le damos el valor manualmente en el script.
-* Comprobarmos.
-
-## 3.2 Ruby:  Modificar para usar variable manual
+## 3.3 Ruby condicional con variable fija
 
 * Ir a una MV con GNU/Linux.
 * Crear script `elegirXXvar.rb` en Ruby. Será una copia del anterior.
 * Crear una variable al comienzo del script llamada "option" y le damos el valor manualmente en el script.
 * Comprobarmos.
 
-# 4. Script condicional usando argumentos
-
-Vamos a crear un script:
-* usando la estructura condicional.
-* sin entrada de datos del usuario.
-* Usaremos una variable para tomar las decisiones de control.
-* La variable tomará el valor en el paso de argumentos.
-
-## 4.1 Bash: Modificar el script para usar argumentos
-
-* Ir a una MV con GNU/Linux.
-* Hacer script `elegirXXarg.sh` en Bash. Será una copia del anterior.
-* Leer el paso de argumentos al script. Los argumentos en Bash son $1, $2, etc. Entonces a la variable "option" se le asigna el valor del primer argumento. Veamos ejemplo:
-    * `./elegirXXarg.sh c` para invocar las acciones de creación y
-    * `./elegirXXarg.sh d` para invocar las acciones de borrado.
-* Modificar el script y.
-* Comprobamos.
-
-## 4.2 Ruby: Modificar el script para usar argumentos
+## 3.4 Ruby condicionale con argumentos
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXarg.rb` en Ruby. Será una copia del anterior.
 * Leer el paso de argumentos. Los argumentos en Ruby son ARGV[0], ARGV[1], ARGV[2], etc. Entonces a la variable "option" se le asigna el valor del primer argumento. Veamos ejemplo:
-    * `./elegirXXarg.rb c` para invocar las acciones de creación y
-    * `./elegirXXarg.rb d` para invocar las acciones de borrado.
+    * `./elegirXXarg.rb -c` para invocar las acciones de creación y
+    * `./elegirXXarg.rb -d` para invocar las acciones de borrado.
 * Modificar el script y.
 * Comprobamos.
 
-# 5. Mejorar con código de salida (exit status)
+# 4. Mejorar con código de salida (exit status)
 
 Objetivos a mejorar:
 * Comprobar que el usuario no existe antes de crearlo.
@@ -158,7 +172,7 @@ Para cumplir estos objetivos vamos a hacerlo en 2 pasos:
 * Paso 1: Averiguar que comando nos sirve para saber si existe un usuario.
 * Paso 2: Recordar que cuando se termina la ejecución de un comando, éste nos devuelve un valor indicando si ha terminado bien o ha terminado mal.
 
-## 5.1 Bash: exit status
+## 4.1 Bash: exit status
 
 Veamos ejemplos en Bash:
 
@@ -188,7 +202,7 @@ id: «vader»: no existe ese usuario
 * Modificar el script para:
   * Comprobar que el usuario SI existe antes de borrarlo.
 
-## 5.2 Ruby: exit status
+## 5ç4.2 Ruby: exit status
 
 Veamos ejemplos en Ruby:
 
@@ -211,6 +225,9 @@ ok = system("id vader")  # => false (ok is false)
 * Hacer script `borrar-usuariosXXexitstatus.rb` en Ruby. Será una copia de `borrar-usuariosXX.rb`.
 * Modificar el script para:
   * Comprobar que el usuario SI existe antes de borrarlo.
+
+---
+# ANEXO
 
 # 6. OPCIONAL: para subir un punto extra
 

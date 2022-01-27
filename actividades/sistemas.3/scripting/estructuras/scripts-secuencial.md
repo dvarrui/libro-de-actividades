@@ -33,12 +33,13 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 
 Explicación del profesor usando ejemplos
 
-**Ejemplo script secuencial**: Hacer explicación en clase usando los ejemplos:
-* [if-ejemplo1-mkdir.sh](files/if-ejemplo1-mkdir.sh)
-* [if-ejemplo2-rm.sh](files/if-ejemplo2-rm.sh)
-* [if-ejemplo3-mkdir.sh](files/if-ejemplo3-mkdir.sh)
-* [if-ejemplo4-rm.sh](files/if-ejemplo4-rm.sh)
-* [if-ejemplo5-ruby.rb](files/if-ejemplo5-ruby.rb)
+**Ejemplo script secuencial**:
+
+* [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
+* [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
+* [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
+* [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
+* [ejemplo5-ruby.rb](files/ejemplo5-ruby.rb)
 
 # 2. Práctica en Bash
 
