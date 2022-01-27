@@ -34,7 +34,7 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 Explicación del profesor usando ejemplos
 
 **Ejemplo script secuencial**: Hacer explicación en clase usando los ejemplos:
-* [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
+* [if-ejemplo1-mkdir.sh](files/if-ejemplo1-mkdir.sh)
 * [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
 * [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
 * [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
