@@ -176,6 +176,8 @@ Esquema de PV, VG y LV:
 
 > NOTA: La partición 3 del disco (C) NO la estamos usando por ahora.
 
+![](images/lvm-esquema-grupos.png)
+
 * Comprobamos lo que tenemos:
 ```
 vgdisplay grupoXXextra # Información del grupo "extra"
@@ -205,9 +207,12 @@ A partir de ahora todo lo que escribamos en la carpeta `/mnt/folderXXextra` se e
 * Añadir la tercera partición del disco (C) (no utilizada) al `grupoXXextra`. Podemos hacerlo por Yast.
 Esto es, ir a `Yast -> Particionador -> grupoXXextra -> volúmenes físicos`. Añadir nuevo volumen físico.
 * `vgdisplay grupoXXextra`, para comprobar la ampliación del tamaño del grupo.
+
 **Ampliar el tamaño del volumen extra**
 * Ampliar el tamaño de volXXextra a 930MB. Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
+
+![](images/lvm-esquema-3.4.png)
 
 ## 3.5 Quitar un disco físico del grupo
 
