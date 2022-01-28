@@ -33,14 +33,14 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 
 Explicación del profesor usando ejemplos
 
-**Ejemplo script secuencial**: Hacer explicación en clase usando los ejemplos:
+**Ejemplo script secuencial**:
+
 * [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
 * [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
 * [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
 * [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
 * [ejemplo5-ruby.rb](files/ejemplo5-ruby.rb)
 
----
 # 2. Práctica en Bash
 
 _¡Empezamos a trabajar!_
@@ -51,12 +51,15 @@ Crear usuarios y borrar usuarios mediante un script Bash.
 
 * Recordar que el script comienza con `#!/usr/bin/env bash`
 * Para ejecutar un comando del sistema escribimos el `COMANDO-DEL-SISTEMA`.
+* Para ejecutar un script nuestro escribimos el `PATH/TO/SCRIPT.sh`.
 * Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Hay que dar permisos de ejecución al fichero.
 
 ## 2.2 Crear el script
 
 Vamos a crear 2 scripts que usando la estructura secuencial.
 * Ir a una MV con GNU/Linux.
+* Abrir sesión con nuestro usuario normal.
 * Hacer script `crear-usuariosXX.sh` en Bash para crear un número de 10 usuarios en el sistema.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1b", "nombre-alumno2b", etc.
     * La password de cada usuario será igual a su nombre. Por ejemplo el usuario "david42g", tendrá la clave "david42g".
@@ -79,17 +82,35 @@ Crear usuarios y borrar usuarios con un script Ruby.
 
 * Recordar que el script comienza con `#!/usr/bin/env ruby`
 * Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
+* Para ejecutar un script nuestro escribimos el `system("PATH/TO/SCRIPT.rb")`.
 * Se usa `exit 0` para acabar el programa OK y `exit 1` para terminar con error.
+* Hay que dar permisos de ejecución al fichero.
 
 ## 3.2 Crear el script
 
 Vamos a crear 2 scripts que usando la estructura secuencial.
 * Ir a una MV con GNU/Linux.
+* Abrir sesión con nuestro usuario normal.
 * Hacer script `crear-usuariosXX.rb` en Ruby para crear un número de 10 usuarios en el sistema.
     * Los usuarios que se van a crear tendrán los siguientes nombres: "nombre-alumno1r", "nombre-alumno2r", etc.
     * La password del cada usuario será igual a su nombre. Por ejemplo el usuario "david42r", tendrá la clave "david42r".
 * Hacer script `borrar-usuariosXX.rb` en Ruby para borrar los usuarios anteriores.
     * Cuando el script termine ejecuta `xcowsay "¡Usuarios borrados!"`
+
+> **Consejo de Angel David para solucionar un problema**
+>
+> Solución a un posible error/warning que le pueda pasar a los demás. Al eliminar los usuarios con el script de Ruby, aparece la siguiente advertencia:
+`(xcowsay:12979): Gtk-WARNING **: 10:23:35.419: cannot open display:``
+>
+> Al parecer, creo que es un problema de pantalla, ya que el comando no puede mostrarlo. Para solucionar el problema hacemos lo siguiente:
+> * Accedemos al usuario root con el comando su -.
+> * Accedemos al directorio donde tenemos los scripts con el comando cd /home/user/scripts.
+> * Ejecutamos el comando export DISPLAY=:0.0.
+> * Ejecutamos el comando xhost +.
+> * Ejecutamos el comando xhost +IP.DE.LA.MAQUINA.
+> * Volvemos a ejecutar el script.
+>
+> Con esto debería funcionar...
 
 ## 3.3 Comprobar
 
