@@ -45,7 +45,7 @@ Explicación del profesor usando ejemplos
 ---
 # 2. Práctica de Bash condicional
 
-## 2.1 Recordatorio de Bash
+## 2.1 INFO: Recordatorio de Bash
 
 * Recordar que el script comienza con `#!/usr/bin/env bash`
 * Para ejecutar un comando del sistema hacemos `COMANDO-DEL-SISTEMA`.
@@ -67,7 +67,7 @@ fi
 * y con entrada de datos del usuario.
 
 
-## 2.1 Bash: condicional preguntando al usuario
+## 2.3 Bash: condicional preguntando al usuario
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXconsulta.sh` en Bash.
@@ -79,7 +79,7 @@ fi
     * Ejecutamos el comando `sl`
     * Terminamos con `exit 1`.
 
-## 2.2 Comprobar
+## 2.4 Comprobar
 
 * Estamos en la MV GNU/Linux.
 * Abrir un terminal con nuestro usuario.
@@ -93,14 +93,14 @@ fi
     * ¿Se puede solucinar?
     * ¿Cómo?
 
-## 2.3 Bash condicional usando variable fija
+## 2.5 Bash condicional usando variable fija
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXvar.sh` en Bash que será una copia del anterior.
 * Crear una variable al comienzo del script llamada "option" y le damos el valor manualmente en el script.
 * Comprobar.
 
-# 2.4 Bash condicional usando argumentos
+# 2.6 Bash condicional usando argumentos
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `elegirXXarg.sh` en Bash. Será una copia del anterior.
@@ -112,7 +112,7 @@ fi
 
 # 3. Ruby script condicional
 
-## 3.1 Recordatorio de Ruby
+## 3.1 INFO: Recordatorio de Ruby
 
 * Recordar que el script comienza con `#!/usr/bin/env ruby`
 * Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
@@ -172,27 +172,35 @@ Para cumplir estos objetivos vamos a hacerlo en 2 pasos:
 * Paso 1: Averiguar que comando nos sirve para saber si existe un usuario.
 * Paso 2: Recordar que cuando se termina la ejecución de un comando, éste nos devuelve un valor indicando si ha terminado bien o ha terminado mal.
 
-## 4.1 Bash: exit status
+## 4.1 INFO: Bash ejemplos de exit status
+
+Cada vez que se ejecuta un comando/script éste devuelve un número que se llama (código de salida o exit status). Nosotros lo hemos hecho ya usando `exit 0` y `exit 1`... pero ¿cómo podemos usar ese valor? ¿cómo podemos comprobarlo? ¡Vamos allá!
 
 Veamos ejemplos en Bash:
 
+* Ejemplo: ha ido BIEN en Bash y el código de salida es 0.
 ```
-# Ejemplo: ha ido BIEN en Bash
-
 > id david
 uid=1000(david) gid=100(users) grupos=497(wheel),466(vboxusers),465(docker),100(users)
 > echo $?
 0
 ```
 
+* Ejemplo: ha ido MAL en Bash y el código de salida es 1.
 ```
-# Ejemplo: ha ido MAL en Bash
-
 > id vader
 id: «vader»: no existe ese usuario
 > echo $?
 1
 ```
+
+Haz estas pruebas y entiende el funcionamiento antes de seguir con la práctica:
+1. `id root && echo "[INFO] Esto va bien!"`
+1. `id root || echo "[INFO] Esto nunca lo vas a ver con root!"`
+1. `id vader && echo "[INFO] Esto nunca lo vas a ver vader!"`
+1. `id vader || echo "[INFO] Esto va MAL!"`
+
+## 4.2 Bash: practicar exit status
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXXexitstatus.sh` en Bash. Será una copia de `crear-usuariosXX.sh`.
@@ -202,21 +210,27 @@ id: «vader»: no existe ese usuario
 * Modificar el script para:
   * Comprobar que el usuario SI existe antes de borrarlo.
 
-## 5ç4.2 Ruby: exit status
+## 4.3 INFO: Ruby ejemplos de exit status
 
-Veamos ejemplos en Ruby:
+Veamos ejemplos en Ruby.
 
+* Ejemplo: ha ido BIEN en Ruby y devuelve `true`.
 ```
-# Ejemplo: ha ido BIEN en Ruby
-
 ok = system("id david")  # => true (ok is true)
 ```
 
+* Ejemplo: ha ido MAL en Ruby y devuelve `false`.
 ```
-# Ejemplo: ha ido MAL en Ruby
-
 ok = system("id vader")  # => false (ok is false)
 ```
+
+Entra el `irb`, haz estas pruebas y entiende el funcionamiento antes de seguir con la práctica:
+1. `system("id root") and puts "[INFO] Esto va bien!"`
+1. `system("id root") or puts "[INFO] Esto nunca lo vas a ver con root!"`
+1. `system("id vader") and puts "[INFO] Esto nunca lo vas a ver vader!"`
+1. `system("id vader") or puts "[INFO] Esto va MAL!"`
+
+## 4.4 Ruby: practicar exit status
 
 * Ir a una MV con GNU/Linux.
 * Hacer script `crear-usuariosXXexitstatus.rb` en Ruby. Será una copia de `crear-usuariosXX.rb`.
