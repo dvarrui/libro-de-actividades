@@ -1,22 +1,31 @@
 
 ```
 Curso       : 202122
-Area        : Sistemas operativos, comandos, scripting
+Área        : Sistemas operativos, comandos, scripting
 Descripción : Introducción a los script para solucionar problemas.
               Estructura condicional
 Requisitos  : Bash, Ruby
-Tiempo      :
+Tiempo      : 5 sesiones
 ```
 
 # Scripting: Estructura condicional
 
-# 1. Teoría
+# 1. Teoría para LEER y ENTENDER
 
-## 1.1 Script de shell - Wikipedia, la enciclopedia libre
+## 1.1 Solucionar problemas
 
-Leamos y entendamos la definición:
-* Wikipedia - [Script de shell/lenguaje de programación]((https://es.m.wikipedia.org/wiki/Script_de_shell)
-* Consulta las dudas en clase.
+Si encuentras problemas en un script, porque tienes fallos y/o errores, y no detectas el fallo.
+1. Lee bien los mensaje de error y piensa qué lo pudo causar. Compruébalo.
+2. Haz un debug del script (sigue leyendo).
+
+Para depurar un script hay varias técnicas.
+1. Poner mensajes por pantalla cada ciertas líneas a ver qué pasa o
+1. Poner comentarios en las líneas e irlas quitando poco a poco o
+1. **Ejecutar el script paso a paso**.
+
+Técnicar para depurar:
+* [Técnicas para depurar Bash](https://atareao.es/tutorial/scripts-en-bash/depurar-en-bash/)
+* [En Ruby usamos la gema pry-byebug](https://rubygems.org/gems/pry-byebug)
 
 ## 1.2 Entrega
 
@@ -58,6 +67,7 @@ if [ CONDICION ]; then
   HACER ALGO
 fi
 ```
+* También se pude usar la sentencia [case](https://linuxize.com/post/bash-case-statement/). De hecho, `case` es el equivalente a múltiples `if`.
 * Se usa `read` para preguntar un valor al usuario.
 * Se usa `$1` para leer el primer argumento, `$2` el segundo. etc.
 
@@ -127,6 +137,7 @@ else
   HACER OTRA COSA
 end
 ```
+* También se pude usar la sentencia [case](https://www.rubyguides.com/2015/10/ruby-case/). De hecho, `case` es el equivalente a múltiples `if`.
 * Se usa `gets` para preguntar un valor al usuario de forma interactiva.
 * Se usa `ARGV[0]` para leer el primer argumento, `ARGV[1]` para el segundo, etc.
 

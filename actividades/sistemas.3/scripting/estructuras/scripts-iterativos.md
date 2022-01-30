@@ -5,14 +5,41 @@ Area        : Sistemas operativos, comandos, scripting
 Descripción : Introducción a los script para solucionar problemas.
               Estructura iterativa
 Requisitos  : Bash, Ruby
-Tiempo      :
+Tiempo      : 4
 ```
 
 # Scripting: Estructura iterativa
 
-# 1. Teoría
+# 1. Teoría para LEER y ENTENDER
 
-## 1.1 Ejemplos
+## 1.1 Solucionar problemas
+
+Si encuentras problemas en un script, porque tienes fallos y/o errores, y no detectas el fallo.
+1. Lee bien los mensaje de error y piensa qué lo pudo causar. Compruébalo.
+2. Haz un debug del script (sigue leyendo).
+
+Para depurar un script hay varias técnicas.
+1. Poner mensajes por pantalla cada ciertas líneas a ver qué pasa o
+1. Poner comentarios en las líneas e irlas quitando poco a poco o
+1. **Ejecutar el script paso a paso**.
+
+Técnicar para depurar:
+* [Técnicas para depurar Bash](https://atareao.es/tutorial/scripts-en-bash/depurar-en-bash/)
+* [En Ruby usamos la gema pry-byebug](https://rubygems.org/gems/pry-byebug)
+
+## 1.2 Entrega
+
+Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
+* Todos los scripts que se suban al GitHub
+ deben funcionar.
+* Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
+
+> ACLARACIÓN:
+> * El informe va a tener pocas frases si la cosa va bien (_"hago esto por esto... y aquí pongo esto para que pase esto... etc"_) y  se entiende el script.
+> * Si no se entiende habrá que acompañarlo de más texto explicativo.
+> * Si va mal hay que indicar los problemas
+
+## 1.3 Explicación del profesor usando ejemplos
 
 **Ejemplos: Find and copy**. Hacer explicación en clase usando los siguientes ejemplos:
 * [backup1-iterar.sh](files/backup1-iterar.sh)
