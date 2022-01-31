@@ -35,7 +35,7 @@ El uso de colores esn Bash... es un poco "raro" pero funciona. En Ruby se puede 
 * colorize (https://rubygems.org/gems/colorize)
 * rainbow (https://rubygems.org/gems/rainbow)
 
-## 4. Warning de xcowsay
+## 4. Warning de xcowsay (xhost)
 
 **Alumno**: Quisiera solucionar un posible error que le pueda pasar a los demás.
 Al eliminar ejecutar "xcowsay", aparece la siguiente advertencia:
@@ -61,3 +61,47 @@ Con esto debería funcionar... Me ha servido, así que si a alguien más le fall
 1) Solucionó el problema del Warning... pero creo que NO sabes bien por qué.
 Te pido que me digas Si sabes lo que has hecho. ... quiero saber si entiendes lo que has hecho. Y si otros han hecho lo mismo... DEBEN EXPLICARLO.
 2) Si entendiste el punto 1... entonces sabrás lo que pasó y se resuelve SIN HACER NADA. ¿Me siguen? En caso contrario, lo hablamos.
+
+## 5. Warining "no crontab for user"
+
+**Alumno**: Solución para el Warning "no crontab for user" que se muestra al borrar usuarios en OpenSUSE:
+
+> Fuente: https://stackoverflow.com/questions/4880290/how-do-i-create-a-crontab-through-a-script
+
+* Añadir la siguiente línea al script, sin las comillas dobles del inicio y el final, además hay que sustituir "USUARIO" por el usuario que estemos creando en ese momento. Para Bash hay que escribir la línea tal cual:
+
+```
+(crontab -u USUARIO -l 2>/dev/null; echo "*/5 * * * * /home/USUARIO") | crontab -u USUARIO -
+```
+
+> NOTA: La línea la creé a partir de varias soluciones del foro anterior, ya que ninguna de ellas funciona por separado, al menos las que probé
+
+* Para Ruby hay que escribirla dentro de un `system(...)`.
+
+Adjunto capturas utilizando el script en bash, antes (devel-crear-usuarios25.sh)
+
+![](images/05-antes.png)
+
+* y después (crear-usuarios25.sh) de añadir la línea.
+
+![](images/05-despues.png)
+
+**Profesor**: ¿Por qué funciona? ¿Lo sabes?
+
+**Alumno2**: Yo lo hice de otra manera y más corta, poniendo en el comando la siguiente línea: `> /dev/null 2>&1`. Adjunto la captura.
+
+![](images/05-dev-null.png)
+
+**Profesor**: ¿Sabes por qué funciona? ¿Pero no es una buena idea?
+Es una idea para "escapar temporalmente"
+
+**Alumno2**: El '>' sirve para redireccionar la salida, '/dev/null' es un archivo pseudodispositivo que acepta y descarta todas las entradas, o sea no produce salidas. Y el apartado b) es un descriptor de archivo,ya que simplemente dice de redirigir el errór estándar a la salida estándar.
+
+**Profesor**: Explícame:
+1. ¿Qué es redireccionar la salida. ¿Qué salida?
+2. ¿Qué es un pseudodispositivo?
+3. ¿Qué entradas y salida son esas?
+4. ¿Qué es un descriptor de archivo.
+5. ¿Qué son salida estándar y error estándar?
+
+¡Con tus palabras please!
