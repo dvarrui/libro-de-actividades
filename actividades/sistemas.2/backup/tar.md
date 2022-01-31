@@ -20,13 +20,12 @@ Propuesta de rúbrica:
 | (6.3) rsync local   | | | |
 | (6.4) rsync remoto  | | |.|
 
-## 1.1 Elegir una de las siguientes MV
+## 1.1 Elegir un MV
 
 Vamos a realizar esta práctica en 1 MV que puede ser:
 * SO GNU/Linux ([Configuración](../../global/configuracion)).
-
-> NOTA: Si usamos un SO Windows ([Configuración](../../global/configuracion))
-debemos instalar [Cygwin](https://www.cygwin.com/). El programa Cygwin nos permite
+* Windows con el entorno WSL ([Configuración](../../global/configuracion))
+* Windows con [Cygwin](https://www.cygwin.com/). El programa Cygwin nos permite
 utilizar los mismos comandos de GNU/Linux dentro de un Windows.
 
 ## 1.2 Preparativos
@@ -36,10 +35,11 @@ Una vez elegida la MV, empezamos:
 
 Ahora vamos a crear la estructura de directorios y ficheros para probar con ellos las copias de seguridad.
 
-* Iniciar sesión con nuestro usuario (`nombre-del-alumno`). Estamos en el directorio `/home/nombre-del-alumno`
-* Crear directorio `/home/nombre-del-alumno/mydocsXX`.
-* Crear archivo `/home/nombre-del-alumno/mydocsXX/a.txt`. Dentro escribir nombre completo del alumno (Pista: `figlet nombre-alumnoXX > a.txt`)
-* Crear archivo `/home/nombre-del-alumno/mydocsXX/b.txt`. Dentro escribir la fecha actual (Pista: `date > b.txt`).
+* Iniciar sesión con nuestro usuario (`nombre-del-alumno`).
+* Estamos en el directorio `/home/nombre-del-alumno`
+* Crear directorio `mydocsXX`.
+* Crear archivo `mydocsXX/a.txt`. Dentro escribir nombre completo del alumno (Pista: `figlet nombre-alumnoXX > a.txt`)
+* Crear archivo `mydocsXX/b.txt`. Dentro escribir la fecha actual (Pista: `date > b.txt`).
 
 Se ha creado lo siguiente:
 ```
