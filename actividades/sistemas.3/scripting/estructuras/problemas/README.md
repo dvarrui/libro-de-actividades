@@ -34,3 +34,30 @@ Ahora ¿hazme la pregunta que te viene a la cabeza? :-)
 El uso de colores esn Bash... es un poco "raro" pero funciona. En Ruby se puede usar el mismo sistema que Bash pero... mejor usaremos alguna de las siguientes gemas:
 * colorize (https://rubygems.org/gems/colorize)
 * rainbow (https://rubygems.org/gems/rainbow)
+
+## 4. Warning de xcowsay
+
+**Alumno**: Quisiera solucionar un posible error que le pueda pasar a los demás.
+Al eliminar ejecutar "xcowsay", aparece la siguiente advertencia:
+
+```
+(xcowsay:12979): Gtk-WARNING **: 10:23:35.419: cannot open display:
+```
+
+Al parecer, creo que es un problema de pantalla, ya que el comando no puede mostrarlo. Para solucionar el problema hacemos lo siguiente:
+
+* Accedemos al usuario root con el comando su -.
+* Accedemos al directorio donde tenemos los scripts con el comando cd /home/user/scripts.
+* Ejecutamos el comando export DISPLAY=:0.0.
+* Ejecutamos el comando xhost +.
+* Ejecutamos el comando xhost +IP.DE.LA.MAQUINA.
+* Volvemos a ejecutar el script.
+
+Con esto debería funcionar... Me ha servido, así que si a alguien más le falla, prueben con esto.
+
+![](images/04-warning.png)
+
+**Profesor**: Me quedé pensando en la "solución" anterior. Creo que:
+1) Solucionó el problema del Warning... pero creo que NO sabes bien por qué.
+Te pido que me digas Si sabes lo que has hecho. ... quiero saber si entiendes lo que has hecho. Y si otros han hecho lo mismo... DEBEN EXPLICARLO.
+2) Si entendiste el punto 1... entonces sabrás lo que pasó y se resuelve SIN HACER NADA. ¿Me siguen? En caso contrario, lo hablamos.
