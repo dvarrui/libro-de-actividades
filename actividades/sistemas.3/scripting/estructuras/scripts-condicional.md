@@ -73,14 +73,13 @@ fi
 
 ## 2.2 Crear un script con entrada manual
 
-* usando la estructura condicional.
-* y con entrada de datos del usuario.
-
+* Usar la estructura condicional y la estructura secuencial.
+* Entrada de datos del usuario de forma iteractiva.
 
 ## 2.3 Bash: condicional preguntando al usuario
 
 * Ir a una MV con GNU/Linux.
-* Hacer script `elegirXXconsulta.sh` en Bash.
+* Hacer script `elegirXXuser.sh` en Bash.
 * Al comienzo del script se le pregunta al usuario que quiere hacer. Su respuesta se guardará en la variable "option".
 * Si option=='c' se ejecuta el script secuencial `crear-usuariosXX.sh`.
 * Si option=='b' se ejecuta el script secuencial `borrar-usuariosXX.sh`.
