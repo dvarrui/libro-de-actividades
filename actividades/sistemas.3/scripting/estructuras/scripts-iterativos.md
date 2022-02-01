@@ -30,8 +30,7 @@ Técnicar para depurar:
 ## 1.2 Entrega
 
 Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
-* Todos los scripts que se suban al GitHub
- deben funcionar.
+* Todos los scripts que se suban al GitHub  deben funcionar.
 * Si algún script se sube al GitHub y no funciona... debe renombrarse como "devel-nombredelscript".
 
 > ACLARACIÓN:
@@ -73,30 +72,32 @@ for i in VALORES do
 done
 ```
 
-## 2.1 Crear scripts
+## 2.2 Crear scripts
 
-Vamos a crear scripts usando la estructura iterativa.
+Vamos a crear scripts usando la estructura iterativa, condicional y secuencial.
 * Ir a una MV con GNU/Linux.
-* Hacer la segunda versión del script `crear-usuariosXXv2.sh` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `crear-usuariosXXiter.sh` pero usando la estructura iterativa.
     * Comenzar el script ejecutando `figlet nombre-alumnoXX`.
-* Hacer la segunda versión del script `borrar-usuariosXXv2.sh` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `borrar-usuariosXXiter.sh` pero usando la estructura iterativa.
     * Comenzar el script ejecutando `figlet nombre-alumnoXX`.
-* Hacer la segunda versión del script `elegirXXv2.sh` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear (v2).
+* Hacer la segunda versión del script `elegirXXarg.sh` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de modificar para que sean interactivos.
+* Añadir una opción nueva "e" para consultar el estado actual de los usuarios.
 
-## 2.2 Comprobar
+## 2.3 Comprobar
 
 * Estamos en la MV GNU/Linux.
 * Abrir un terminal.
-* Consultar contenido inicial de /etc/passwd.
-* Ejecutar el script eligiendo 1 y consultar contenido de /etc/passwd.
-* Ejecutar el script eligiendo 2 y consultar contenido de /etc/passwd.
-* Ejecutar el script eligiendo 0. ¿Qué sucede?
+* Ejecutar el script eligiendo "e".
+* Ejecutar el script eligiendo "c".
+* Ejecutar el script eligiendo "e".
+* Ejecutar el script eligiendo "b".
+* Ejecutar el script eligiendo "e".
 
 # 3. Práctica Ruby
 
 Vamos crear usuarios y borrar usuarios en GNU/Linux
 
-## 3.1 Recordatorio de Ruby
+## 3.1 INFO: Recordatorio de Ruby
 
 * Recordar que el script comienza con `#!/usr/bin/env ruby`
 * Para ejecutar un comando del sistema hacemos `system("COMANDO-DEL-SISTEMA")`.
@@ -118,20 +119,37 @@ for i in VALORES do
   HACER ALGO CON CADA i
 end
 ```
+* OPCIONAL: Si quieres ser un auténtico "rubista", aquí tienes la forma de iterar estilo Ruby 100%. ¡Suerte!
+
+```
+VALORES.each do |i|
+  HACER ALGO CON CADA i
+end
+```
+
+O también...
+
+```
+VALORES.each { |i| HACER ALGO CON CADA i }
+```
+
+> Lo mejor de Ruby... tienes muchos caminos. Elige el que te haga más feliz. ;-)
 
 ## 3.2 Crear scripts
 
 Vamos a crear scripts usando la estructura iterativa.
 * Ir a una MV con GNU/Linux.
-* Hacer la segunda versión del script `crear-usuariosXXv2.rb` pero usando la estructura iterativa.
-* Hacer la segunda versión del script `borrar-usuariosXXv2.rb` pero usando la estructura iterativa.
-* Hacer la segunda versión del script `elegirXXv2.rb` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear (v2).
+* Hacer la segunda versión del script `crear-usuariosXXiter.rb` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `borrar-usuariosXXiter.rb` pero usando la estructura iterativa.
+* Hacer la segunda versión del script `elegirXXarg.rb` pero en este caso se modificará para invocar a los scripts nuevos que acabamos de crear.
+* Añadir una opción nueva "e" para consultar el estado actual de los usuarios.
 
 ## 3.3 Comprobar
 
 * Estamos en la MV GNU/Linux.
 * Abrir un terminal.
-* Consultar contenido inicial de /etc/passwd.
-* Ejecutar el script eligiendo 1 y consultar contenido de /etc/passwd.
-* Ejecutar el script eligiendo 2 y consultar contenido de /etc/passwd.
-* Ejecutar el script eligiendo 0. ¿Qué sucede?
+* Ejecutar el script eligiendo "e".
+* Ejecutar el script eligiendo "c".
+* Ejecutar el script eligiendo "e".
+* Ejecutar el script eligiendo "b".
+* Ejecutar el script eligiendo "e".
