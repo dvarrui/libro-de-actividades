@@ -7,7 +7,9 @@ Teoría/Explicación
 
 Con el comando `dmesg` podemos consultar un log que ha registrado los pasos realizados durante el arranque del sistema.
 
-Consultar [salida del comando dmesg](files/dmesg.txt)
+Consultar salida del comando dmesg:
+1. [dmesg1](files/dmesg1.txt)
+2. [dmesg2](files/dmesg2.txt)
 
 Segundo 0
 ```
