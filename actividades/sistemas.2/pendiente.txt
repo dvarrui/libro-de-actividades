@@ -1,6 +1,11 @@
 
-
 Pendiente
+
+
+swap
+https://itsfoss.com/swap-size/
+
+
 
 http://systemadmin.es/2009/04/uso-de-xargs-herramientas-unix-ii
 xargs

@@ -10,15 +10,35 @@ Tiempo      : 2 sessiones
 
 # Scripting: Estructura secuencial
 
-# 1. Teoría
+Ya comentamos o introducimos las 3 estructuras de la programación estructurada:
+1. secuencial
+2. condicional e
+3. iterativa.
 
-## 1.1 Script de shell - Wikipedia, la enciclopedia libre
+Además ustedes ya las conocen porque las han puesto en práctica con Python en la asignatura de IMW. Es un camino que tenemos avanzado. :-)
+
+Les pongo un vídeo de una charla sobre la [comparación de cómo se hace algo en Python y cómo se hace en Ruby](https://video.hardlimit.com/w/rw7i17gY1Zijmm72i6FzND).
+
+El reto va a ser que haremos script secuencial en Bash y luego su equivalente en Ruby.
+
+## 1. Forma de trabajo
+
+* Vayan comentando los avances o bloqueos que tengan.
+* NO esperen al último día de entrega para comentar los problemas... porque será demasiado tarde para solucionarlo :-)
+* TODOS nos vamos a EQUIVOCAR porque estamos aprendiendo. Eso lo se yo y todo profesor. El hecho de que no envíen mensajes por "vergúenza" no les va a ayudar a progresar en su carrera profesional.
+
+Sean profesionales.
+1. Traten de resolver los problemas con independencia pero si el tiempo se les echa encima
+2. pregunten/hablen con los compañeros (en el trabajo también será igual) o conmigo
+3. Ánimo y tengan confianza en sus capacidad para aprender y superar obstáculos SYSADMIN. Ustedes cuando salgan del ciclo tendrán un muy buen nivel SYSADMIN y eso en las empresas se sabe. Hay que ser humildes en el trabajo y profesionales.... y ustedes ya están en ese camino.
+
+## 1.2 Script de shell - Wikipedia, la enciclopedia libre
 
 Leamos y entendamos la definición:
 * Wikipedia - [Script de shell/lenguaje de programación]((https://es.m.wikipedia.org/wiki/Script_de_shell)
 * Consulta las dudas en clase.
 
-## 1.2 Entrega
+## 1.3 Entrega
 
 Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan creado.
 * Todos los scripts que se suban al GitHub deben funcionar.
@@ -29,7 +49,7 @@ Entregar un informe por la plataforma GitHub, junto con los scripts que se hayan
 > * Si no se entiende habrá que acompañarlo de más texto explicativo.
 > * Si va mal hay que indicar los problemas
 
-## 1.3 Ejemplos
+## 1.4 Ejemplos
 
 Explicación del profesor usando ejemplos
 

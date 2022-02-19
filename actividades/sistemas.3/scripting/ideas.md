@@ -4,6 +4,14 @@
 Guardar código en un PNG
 https://github.com/Fusion/pngsource
 
+# Redes
+
+A1: Change Network Configuration (chnet)
+Cambiar la configuración de red usando los comandos: ip, ifdown e ifup.
+
+A2: chnet (versión2)
+Usando copias de ficheros de configuración.
+
 ## A.1 Restricción sobre una IP con `iptables`
 
 * Hacer copia de seguridad (snapshot de la MV) antes de hacer esta parte.

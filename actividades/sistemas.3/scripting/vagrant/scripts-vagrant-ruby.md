@@ -17,29 +17,27 @@ Tiempo      : 4 sessiones
 Aquí tenemos un fichero Vagrantfile:
 
 ```
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
 # File: Vagrantfile
 
 Vagrant.configure("2") do |config|
-  config.vm.define "alumnoXX-script-ruby-vagrant-opensuse" do |i|
+  config.vm.define "alumnoXX-vagrant-bash" do |i|
 
     # Configure BOX
     i.vm.box = "generic/opensuse15"
 
     # Configure VM
-    i.vm.hostname = "alumnoXX-script-ruby-vagrant-opensuse"
+    i.vm.hostname = "alumnoXX-vagrant-bash"
 
     # i.vm.network "public_network", bridge: [ "eth0" ]
     # i.vm.network "public_network", bridge: [ "wlan0" ]
     i.vm.network :forwarded_port, guest: 22, host: 2222
     i.vm.network :forwarded_port, guest: 22, host: 2231
     i.vm.synced_folder "./", "/vagrant"
-    i.vm.provision "shell", path: 'install-software.sh'
+    i.vm.provision "shell", path: 'install-softwareXX.sh'
 
     # Configure VIRTUALBOX
     i.vm.provider "virtualbox" do |v|
-      v.name = 'alumnoXX-script-ruby-vagrant-opensuse'
+      v.name = 'alumnoXX-vagrant-bash'
       v.memory = 2048
     end
   end
@@ -97,9 +95,14 @@ Las dudas que tengas, con su solución las escribes en el informe.
 
 # 2. Vagrant con aprovisionamiento script de Ruby
 
+Como vamos a tocar el fichero Vagrantfile... hazle una copia de seguridad (`Bagrantfile.bash`). Y seguimos.
+
 ## 2.1 Modificar Bash por Ruby
 
-* Asegúrate (creo que es así) de que la MV que se crea tiene por defecto instalado Ruby. En caso contrario añade una configuración `...vm.provision "shell", inline: "COMANDO-PARA-INSTALAR-RUBY"` al Vagrantflke. Si lo entiendes... seguimos.
+Vamos a modificar y adaptar el Vagranfile para trabajar con Ruby.
+* Asegúrate (creo que es así) de que la MV que se crea tiene por defecto instalado Ruby. En caso contrario añade una línea de configuración de aprovisionamiento `...vm.provision "shell", inline: "COMANDO-PARA-INSTALAR-RUBY"` al Vagranfile. Ésta debe ser la primera orden de aprovisionamiento.
+    1. Si lo entiendes... seguimos.
+    2. Si no lo entiendes... vuelve al paso 1.
 * Crear un script Ruby que realice exactamente la misma función que el script Bash anterior.
 
 Pistas:
@@ -108,9 +111,9 @@ Pistas:
 * Los comandos del sistema se ejecutan así `system("COMANDO-DEL-SISTEMA")`.
 * El exit es igual en Ruby.
 
-## 2.2
+## 2.2 Comprobar
 
-Comprobar que el nuevo script funciona correctamente conel fichero Vagranfile adaptado.
+Comprobar que el nuevo script funciona correctamente con el fichero Vagranfile adaptado.
 
 # 3. Investigación
 
@@ -118,10 +121,18 @@ OBJETIVO: En este apartado te planteo un objetivo y habrá que "investigar un po
 
 # 3.1 Script Ruby con Vagrant Ubuntu (1 punto)
 
-* Crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Ubuntu.
-* Listado de paquetes que debemos aprovisionar: neofetch, neovim, git, nmap, tree, traceroute, tmate.
-* Comprobar que los ficheros creados funcionan correctamente para crear la MV Ubuntu anteior.
+Vamos a crear un Vagrantfile + script Ruby para realizar una aprovisionamiento en una MV Ubuntu.
+
+Vagrantfile:
+* Crear el fichero Vagrantfile sin aprovisionamiento.
+* Comprobar primero el fichero Vagrantfile para Ubuntu.
+* Si funciona... seguimos.
+
+Script Ruby para aprovisionar:
+* El listado de paquetes que debemos aprovisionar es el siguiente: neofetch, neovim, git, nmap, tree, traceroute, tmate, figlet, cowsay. Como son tantos... deberías usar la estructura it* junto con Arrays de Ruby (IMHO).
 * Investiga la utilidad de los paquetes instalados y aprende a usarlos.
+* Modificar y personalizar el fichero /etc/motd de Ubuntu para que tenga el "nombre-alumnoXX".
+* Comprobar.
 
 ---
 

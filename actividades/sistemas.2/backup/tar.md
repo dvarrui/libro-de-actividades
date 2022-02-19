@@ -20,13 +20,13 @@ Propuesta de rúbrica:
 | (6.3) rsync local   | | | |
 | (6.4) rsync remoto  | | |.|
 
-## 1.1 Elegir una de las siguientes MV
+## 1.1 Elegir un MV
 
-Vamos a realizar esta práctica en 1 MV que puede ser:
-* SO GNU/Linux ([Configuración](../../global/configuracion)).
-
-> NOTA: Si usamos un SO Windows ([Configuración](../../global/configuracion))
-debemos instalar [Cygwin](https://www.cygwin.com/). El programa Cygwin nos permite
+Vamos a realizar esta práctica con:
+* 1 MV SO GNU/Linux ([Configuración](../../global/configuracion)).
+* 1 MV Windows (elegir el entorno de Windows para trabajar):
+    * (a) Con el entorno WSL ([Configuración](../../global/configuracion))
+    * (b) Con [Cygwin](https://www.cygwin.com/). El programa Cygwin nos permite
 utilizar los mismos comandos de GNU/Linux dentro de un Windows.
 
 ## 1.2 Preparativos
@@ -36,10 +36,11 @@ Una vez elegida la MV, empezamos:
 
 Ahora vamos a crear la estructura de directorios y ficheros para probar con ellos las copias de seguridad.
 
-* Iniciar sesión con nuestro usuario (`nombre-del-alumno`). Estamos en el directorio `/home/nombre-del-alumno`
-* Crear directorio `/home/nombre-del-alumno/mydocsXX`.
-* Crear archivo `/home/nombre-del-alumno/mydocsXX/a.txt`. Dentro escribir nombre completo del alumno (Pista: `figlet nombre-alumnoXX > a.txt`)
-* Crear archivo `/home/nombre-del-alumno/mydocsXX/b.txt`. Dentro escribir la fecha actual (Pista: `date > b.txt`).
+* Iniciar sesión con nuestro usuario (`nombre-del-alumno`).
+* Estamos en el directorio `/home/nombre-del-alumno`
+* Crear directorio `mydocsXX`.
+* Crear archivo `mydocsXX/a.txt`. Dentro escribir nombre completo del alumno (Pista: `figlet nombre-alumnoXX > a.txt`)
+* Crear archivo `mydocsXX/b.txt`. Dentro escribir la fecha actual (Pista: `date > b.txt`).
 
 Se ha creado lo siguiente:
 ```
@@ -48,7 +49,7 @@ mydocsXX
 └── b.txt
 ```
 
-# 2 TEORÍA: Aprendiendo a usar el comando tar
+# 2 INFO: Aprendiendo a usar el comando tar
 
 Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
 
@@ -56,7 +57,11 @@ Este apartado no hay que hacerlo. Sólo es teoría sobre el comando.
 > * [Backup y restauración de backups incrementales con tar](http://systemadmin.es/2015/04/backup-y-restauracion-de-backups-incrementales-con-tar)
 > * [Backups con tar: fullbackups, incrementales y diferenciales](https://nebul4ck.wordpress.com/2015/03/20/backups-con-tar-full-backups-e-incrementales/)
 
-El comando "tar" sirve para empaquetar. No para comprimir. Pero podemos usarlo en combinación con alguna herramienta de compresión para hacer las dos acciones en un sólo paso.
+El comando "tar" sirve para empaquetar. No para comprimir. Para comprimir se usan herramientas como zip/unzip, gzip/gunzip, etc.
+
+El "tar" podemos usarlo en combinación con alguna herramienta de compresión para hacer las dos acciones en un sólo paso. Pero RECUERDA...:
+* **Empaquetar**: _es crear un fichero que contiene dentro 1 o más ficheros y directorios_.
+* **Comprimir**: _es aplicar técnicas de compresión a un fichero X para reducir su tamaño sin perder el contenido. A veces aplicar técnicas de compresión consigue el efecto contrario y el fichero ocupa más comprimido que su original (Pero eso en raras ocasiones)_.
 
 Crear backup:
 * `tar cvf ...`: Crear fichero empaquetado.
@@ -91,7 +96,8 @@ Otros parámetros de interés:
 
 ## 3.1 Realizar copia total
 
-Iniciar sesión con nuestro usuario:
+* Iniciar sesión con nuestro usuario normal.
+* Estamos en nuestro HOME `/home/nombre-alumno`.
 * `tar cvf backupXX-1-full.tar mydocsXX`, parea realizar una copia de seguridad total.
 * `tar tvf backupXX-1-full.tar`, comprobar el contenido de la copia de seguridad total.
 * Crear archivo `mydocsXX/c.txt`. Escribir dentro el título de tu película favorita.
@@ -111,6 +117,7 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 * `rm -r /root/mydocsXXcopia`, limpiamos.
 * `tar xvf /home/alumno/backupXX-1-full.tar -C /root`, restauramos los archivos de la copia de seguridad pero en una ruta diferente a donde estaban los archivos originales.
 * Vemos que el propietario de los ficheros restaurados se mantiene. La recuperación de backup mantiene los metadatos originales.
+* Salir del superusuario.
 
 # 4. Copia de seguridad incremental
 
@@ -120,7 +127,8 @@ La copia de seguridad realizada con "tar" es mejor que un copiado normal de las 
 > * [EN - Incremental backup using tar command](https://www.unixmen.com/performing-incremental-backups-using-tar/)
 > * [Comando tar](https://maslinux.es/comando-tar-comprimir-y-descomprimir-los-archivosdirectorios/)
 
-* Usaremos nuestro usuario normal. NO usar el usuario root.
+* Entrar con nuestro usuario normal (NO usar el usuario root).
+* Ir a nuestro directorio HOME `/home/nombre-alumno`.
 * Tenemos lo siguiente:
 ```
 mydocsXXinc
@@ -155,7 +163,7 @@ Para conseguir restaurar el estado final completo del directorio, necesitaremos 
 Pasos para una recuperación completa:
 
 1. Primero descomprimir el "full-backup" inicial.
-    * `cd /home/nombre-del-alumno`
+    * Estamos en nuestro HOME.
     * `mkdir restoreXXinc`
     * `tar xvf backupXX-3-init.tar -C restoreXXinc/`
 2. Luego aplicar el incremental usando la opción `--incremental`.
@@ -186,11 +194,13 @@ De la salida anterior, comprobamos que los ficheros que persisten son:
 * mydocsXXinc/c.txt
 * mydocsXXinc/d.txt
 
-Conclusiones:
-* Las copias totales (full-backup) son sencillas de hacer, pero desaprovechamos espacio duplicando archivos que no cambian.
-* Las copias incrementales (inc) permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo.
+| Copia               | Características |
+| ------------------- | --------------- |
+| Total (full-backup) | Son sencillas de hacer, pero desaprovechamos espacio duplicando archivos que no cambian entre backup y backup |
+| Incrementales (inc) | Permiten optimizar el espacio de almacenamiento no duplicando archivos, pero por contra, a la hora de recuperar nos lleva más trabajo |
 
-## 4.3 Programar la copias
+
+## 4.3 Programar la copias (automatizar)
 
 > Enlaces de interés:
 > * [Cómo utilizar crontab para programar tareas](https://www.redeszone.net/2017/01/09/utilizar-cron-crontab-linux-programar-tareas/)
@@ -220,7 +230,7 @@ Vamos a crear una configuración (crontab) para que las copias de seguridad se r
 * Escribir algo parecido a lo siguiente, cambiando `alumno` por el nombre del alumno:
 
 ```
-45 10 * * 1   tar cvfz /home/user/crontabXX-lun.tar.gz /home/alumno/mydocsXX
+45 10 * * 1   tar cvfz /home/alumno/crontabXX-lun.tar.gz /home/alumno/mydocsXX
 45 10 * * 2   tar cvfz /home/alumno/crontabXX-mar.tar.gz /home/alumno/mydocsXX
 45 10 * * 3   tar cvfz /home/alumno/crontabXX-mie.tar.gz /home/alumno/mydocsXX
 45 10 * * 4   tar cvfz /home/alumno/crontabXX-jue.tar.gz /home/alumno/mydocsXX
@@ -250,7 +260,7 @@ Por ahora estamos guardando las copias de seguridad en el equipo local. Es acons
 ---
 # 6. rsync
 
-Ahora vamos a usar la herramienta `rsync` para hacer réplicas de nuestros ficheros.
+Ahora vamos a usar la herramienta `rsync` para mantener sincronizadas réplicas de nuestros ficheros. Es otra forma de hacer backups.
 
 ## 6.1 Introducción
 
@@ -340,7 +350,7 @@ mydocsXXrsync
 # 7. Windows
 
 * Ir a MV Windows.
-* Instala Cygwin (https://www.cygwin.com/)
+* Entra en el entorno de comandos similar a GNU/Linux.
 * Localiza la ruta `C:\Users\nombre-alumno`.
 * Abrir entorno Cygwin y probar los comandos tar, rsync, etc.
 
