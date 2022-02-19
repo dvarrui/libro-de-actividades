@@ -1,12 +1,17 @@
 
 # HTCondor
 
-Características
+## Características
+
 * https://htcondor.org
 * Licencia Apache 2.0
 * Se puede integrar con OpenStack
 
-## Descripción/objetivo
+## Descripción
+
+HTCondor is a software system that creates a High-Throughput Computing (HTC) environment. It effectively uses the computing power of machines connected over a network, be they a single cluster, a set of clusters on a campus, cloud resources either standalone or temporarily joined to a local cluster, or international grids. Power comes from the ability to effectively harness shared resources with distributed ownership.
+
+## Objetivo
 
 La idea es tener un "supercomputador" a base de equipos "normales" que se van uniendo al pool según la disponibilidad y la demanda de trabajo, es un software bastante "famoso" dentro del mundillo científico y lo usan en sitios como NASA, CERN, Dreamworks, etc.
 
