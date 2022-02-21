@@ -223,3 +223,12 @@ Esta configuración programa una ejecución del script cada 5 minutos.
 * _¿Se podría instalar Ruby en Windows?_ => RubyInstaller
 * _¿Se podría pasar el demonio (botXXd) a Windows?_ => Cambiando los comandos de GNU/Linux dentro del script por los comandos de Windows.
 * _¿Sabrías crear una tarea programa en Windows?_ => Ir a `Panel de control -> tareas programadas`.
+
+# ANEXO
+
+https://github.com/J-Rios/TLG_JoinCaptchaBot
+
+GitHub (https://github.com/J-Rios/TLG_JoinCaptchaBot)
+GitHub - J-Rios/TLG_JoinCaptchaBot: Telegram Bot to verify if users joining a group are human. The Bot sends an image captcha for each new user and kicks any of them who can't solve the captcha in a specified time.
+Telegram Bot to verify if users joining a group are human. The Bot sends an image captcha for each new user and kicks any of them 
+
