@@ -1,18 +1,20 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+HOSTNAME='curso-windows7'
+
 Vagrant.configure("2") do |config|
-  config.vm.define "vagrant-winserver" do |i|
+  config.vm.define HOSTNAME do |i|
     i.vm.box = "gusztavvargadr/windows-server"
-    i.vm.hostname = "vagrant-winserver"
-    #i.vm.network "public_network", bridge: [ "eth0" ]
-    #i.vm.network "public_network", bridge: [ "wlan0" ]
-    i.vm.network :forwarded_port, guest: 22, host: 2221
+    i.vm.hostname = HOSTNAME
+    # i.vm.network "public_network", bridge: [ "eth0" ]
+    i.vm.network "public_network", bridge: [ "wlan0" ]
+    #i.vm.network :forwarded_port, guest: 22, host: 1122
     i.vm.synced_folder "./", "/vagrant"
     # i.ssh.username = "IEUser"
     # i.ssh.password = "Passw0rd"
     i.vm.provider "virtualbox" do |v|
-      v.name = "vagrant-winserver"
+      v.name = HOSTNAME
       v.memory = 2048
     end
   end
