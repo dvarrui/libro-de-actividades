@@ -232,3 +232,6 @@ GitHub (https://github.com/J-Rios/TLG_JoinCaptchaBot)
 GitHub - J-Rios/TLG_JoinCaptchaBot: Telegram Bot to verify if users joining a group are human. The Bot sends an image captcha for each new user and kicks any of them who can't solve the captcha in a specified time.
 Telegram Bot to verify if users joining a group are human. The Bot sends an image captcha for each new user and kicks any of them 
 
+
+https://github.com/pythoncanarias/pydeckard
+
