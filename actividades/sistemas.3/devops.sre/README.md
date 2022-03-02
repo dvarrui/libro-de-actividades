@@ -14,10 +14,12 @@ while(true)
 end
 ```
 
+## Herramientas
+
 Primero vamos a hacer una especie de resumen de herramientas típicas de devops-SRE:
 * Conocer sistemas operativos: GNU/Linux, Windows. Administración redes y programación.
 * [Git](../../../explicaciones/git), GitHub/GitLab, Pipelines, GitHun actions.
-* [Scripting: Python, Ruby. Lenguaje Go.](../scripting)
+* [Scripting: Python, Ruby](../scripting)
 * Trabajo remoto: [SSH](../ssh), [RDP](../rdp), VPN.
 * [Monitorización: Nagios, Icinga, Pandora.](../../sistemas.2/monitorizar)
 * Orquestación de sistemas: [Ansible, Salt, Puppet, Chef](../orquestacion)
@@ -31,3 +33,4 @@ Falta ver más de:
 * CD/CI
 * Terraform
 * Cloud
+* Lenguaje Go.
