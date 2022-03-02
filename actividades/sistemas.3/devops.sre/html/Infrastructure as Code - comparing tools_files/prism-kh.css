@@ -1,0 +1,300 @@
+/* PrismJS 1.24.1
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+applescript+bash+basic+c+csharp+cpp+excel-formula+fsharp+git+java+json+markdown+markup-templating+objectivec+php+powerquery+powershell+python+regex+ruby+sql+vbnet+visual-basic+yaml&plugins=line-numbers */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+/**
+ * a11y-dark rules applied on top of okaidia theme 2021-07-15
+ *
+ * a11y-dark theme for JavaScript, CSS, and HTML
+ * Based on the okaidia theme: https://github.com/PrismJS/prism/blob/gh-pages/themes/prism-okaidia.css
+ * @author ericwbailey
+ */
+ /**
+ * Khoros override class prefixes added 2021-07-15
+ * pre span and code span font family added 2021-07-15
+ */
+
+code[class*="language-"][class~="lia-code-sample"],
+pre[class*="language-"][class~="lia-code-sample"] {
+	color: #f8f8f2;
+	background: none;
+	/*text-shadow: 0 1px rgba(0, 0, 0, 0.3);*/
+	text-shadow: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 14px;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"][class~="lia-code-sample"] {
+	background: #2b2b2b;
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+  box-shadow: none;
+}
+
+:not(pre) > code[class*="language-"][class~="lia-code-sample"],
+pre[class*="language-"][class~="lia-code-sample"] {
+	background: #2b2b2b;
+	border-radius: 0.3em;
+  box-shadow: none;
+}
+
+code[class*="language-"][class~="lia-code-sample"]::-moz-selection,
+code[class*="language-"][class~="lia-code-sample"]::selection,
+pre[class*="language-"][class~="lia-code-sample"]::-moz-selection,
+pre[class*="language-"][class~="lia-code-sample"]::selection {
+	background: #3c5879;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"][class~="lia-code-sample"] {
+	margin: 0;
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+code[class*="language-"][class~="lia-code-sample"] span,
+pre[class*="language-"][class~="lia-code-sample"] span {
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.comment,
+code[class*="language-"][class~="lia-code-sample"] .token.prolog,
+code[class*="language-"][class~="lia-code-sample"] .token.doctype,
+code[class*="language-"][class~="lia-code-sample"] .token.cdata,
+pre[class*="language-"][class~="lia-code-sample"] .token.comment,
+pre[class*="language-"][class~="lia-code-sample"] .token.prolog,
+pre[class*="language-"][class~="lia-code-sample"] .token.doctype,
+pre[class*="language-"][class~="lia-code-sample"] .token.cdata {
+	color: #d4d0ab;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.punctuation,
+pre[class*="language-"][class~="lia-code-sample"] .token.punctuation {
+	color: #fefefe;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .namespace,
+pre[class*="language-"][class~="lia-code-sample"] .namespace,
+code[class*="language-"][class~="lia-code-sample"] .token.namespace,
+pre[class*="language-"][class~="lia-code-sample"] .token.namespace,
+code[class*="language-"][class~="lia-code-sample"] .token .namespace,
+pre[class*="language-"][class~="lia-code-sample"] .token .namespace {
+	opacity: .7;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.property,
+code[class*="language-"][class~="lia-code-sample"] .token.tag,
+code[class*="language-"][class~="lia-code-sample"] .token.constant,
+code[class*="language-"][class~="lia-code-sample"] .token.symbol,
+code[class*="language-"][class~="lia-code-sample"] .token.deleted,
+pre[class*="language-"][class~="lia-code-sample"] .token.property,
+pre[class*="language-"][class~="lia-code-sample"] .token.tag,
+pre[class*="language-"][class~="lia-code-sample"] .token.constant,
+pre[class*="language-"][class~="lia-code-sample"] .token.symbol,
+pre[class*="language-"][class~="lia-code-sample"] .token.deleted {
+	color: #ffa07a;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.boolean,
+code[class*="language-"][class~="lia-code-sample"] .token.number,
+pre[class*="language-"][class~="lia-code-sample"] .token.boolean,
+pre[class*="language-"][class~="lia-code-sample"] .token.number {
+	color: #00e0e0;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.selector,
+code[class*="language-"][class~="lia-code-sample"] .token.attr-name,
+code[class*="language-"][class~="lia-code-sample"] .token.string,
+code[class*="language-"][class~="lia-code-sample"] .token.char,
+code[class*="language-"][class~="lia-code-sample"] .token.builtin,
+code[class*="language-"][class~="lia-code-sample"] .token.inserted,
+pre[class*="language-"][class~="lia-code-sample"] .token.selector,
+pre[class*="language-"][class~="lia-code-sample"] .token.attr-name,
+pre[class*="language-"][class~="lia-code-sample"] .token.string,
+pre[class*="language-"][class~="lia-code-sample"] .token.char,
+pre[class*="language-"][class~="lia-code-sample"] .token.builtin,
+pre[class*="language-"][class~="lia-code-sample"] .token.inserted {
+	color: #abe338;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.operator,
+code[class*="language-"][class~="lia-code-sample"] .token.entity,
+code[class*="language-"][class~="lia-code-sample"] .token.url,
+.language-css code[class*="language-"][class~="lia-code-sample"] .token.string,
+.style code[class*="language-"][class~="lia-code-sample"] .token.string,
+code[class*="language-"][class~="lia-code-sample"] .token.variable,
+pre[class*="language-"][class~="lia-code-sample"] .token.operator,
+pre[class*="language-"][class~="lia-code-sample"] .token.entity,
+pre[class*="language-"][class~="lia-code-sample"] .token.url,
+.language-css pre[class*="language-"][class~="lia-code-sample"] .token.string,
+.style pre[class*="language-"][class~="lia-code-sample"] .token.string,
+pre[class*="language-"][class~="lia-code-sample"] .token.variable {
+	color: #00e0e0;
+	background: inherit;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.atrule,
+code[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+code[class*="language-"][class~="lia-code-sample"] .token.function,
+pre[class*="language-"][class~="lia-code-sample"] .token.atrule,
+pre[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+pre[class*="language-"][class~="lia-code-sample"] .token.function {
+	color: #ffd700;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.keyword,
+pre[class*="language-"][class~="lia-code-sample"] .token.keyword {
+	color: #00e0e0;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.regex,
+code[class*="language-"][class~="lia-code-sample"] .token.important,
+pre[class*="language-"][class~="lia-code-sample"] .token.regex,
+pre[class*="language-"][class~="lia-code-sample"] .token.important {
+	color: #ffd700;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.important,
+code[class*="language-"][class~="lia-code-sample"] .token.bold,
+pre[class*="language-"][class~="lia-code-sample"] .token.important,
+pre[class*="language-"][class~="lia-code-sample"] .token.bold {
+	font-weight: bold;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.italic,
+pre[class*="language-"][class~="lia-code-sample"] .token.italic {
+	font-style: italic;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .token.entity,
+pre[class*="language-"][class~="lia-code-sample"] .token.entity {
+	cursor: help;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .toolbar,
+pre[class*="language-"][class~="lia-code-sample"] .toolbar {
+	display: none;
+}
+
+@media screen and (-ms-high-contrast: active), screen and (forced-colors: active) {
+	code[class*="language-"][class~="lia-code-sample"],
+	pre[class*="language-"][class~="lia-code-sample"] {
+		color: windowText;
+		background: window;
+	}
+
+	:not(pre) > code[class*="language-"][class~="lia-code-sample"],
+	pre[class*="language-"][class~="lia-code-sample"] {
+		background: window;
+	}
+
+	code[class*="language-"][class~="lia-code-sample"] .token.important,
+	pre[class*="language-"][class~="lia-code-sample"] .token.important {
+		background: highlight;
+		color: window;
+		font-weight: normal;
+	}
+
+	code[class*="language-"][class~="lia-code-sample"] .token.atrule,
+	code[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	code[class*="language-"][class~="lia-code-sample"] .token.function,
+	code[class*="language-"][class~="lia-code-sample"] .token.keyword,
+	code[class*="language-"][class~="lia-code-sample"] .token.operator,
+	code[class*="language-"][class~="lia-code-sample"] .token.selector,
+	pre[class*="language-"][class~="lia-code-sample"] .token.atrule,
+	pre[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	pre[class*="language-"][class~="lia-code-sample"] .token.function,
+	pre[class*="language-"][class~="lia-code-sample"] .token.keyword,
+	pre[class*="language-"][class~="lia-code-sample"] .token.operator,
+	pre[class*="language-"][class~="lia-code-sample"] .token.selector {
+		font-weight: bold;
+	}
+
+	code[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	code[class*="language-"][class~="lia-code-sample"] .token.comment,
+	code[class*="language-"][class~="lia-code-sample"] .token.doctype,
+	code[class*="language-"][class~="lia-code-sample"] .token.function,
+	code[class*="language-"][class~="lia-code-sample"] .token.keyword,
+	code[class*="language-"][class~="lia-code-sample"] .token.operator,
+	code[class*="language-"][class~="lia-code-sample"] .token.property,
+	code[class*="language-"][class~="lia-code-sample"] .token.string,
+	pre[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	pre[class*="language-"][class~="lia-code-sample"] .token.comment,
+	pre[class*="language-"][class~="lia-code-sample"] .token.doctype,
+	pre[class*="language-"][class~="lia-code-sample"] .token.function,
+	pre[class*="language-"][class~="lia-code-sample"] .token.keyword,
+	pre[class*="language-"][class~="lia-code-sample"] .token.operator,
+	pre[class*="language-"][class~="lia-code-sample"] .token.property,
+	pre[class*="language-"][class~="lia-code-sample"] .token.string {
+		color: highlight;
+	}
+
+	code[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	code[class*="language-"][class~="lia-code-sample"] .token.url,
+	pre[class*="language-"][class~="lia-code-sample"] .token.attr-value,
+	pre[class*="language-"][class~="lia-code-sample"] .token.url {
+		font-weight: normal;
+	}
+}
+
+pre[class*="language-"][class~="lia-code-sample"].line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre[class*="language-"][class~="lia-code-sample"].line-numbers > code {
+	position: relative;
+	white-space: inherit;
+}
+
+code[class*="language-"][class~="lia-code-sample"].line-numbers .line-numbers-rows,
+pre[class*="language-"][class~="lia-code-sample"].line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .line-numbers-rows > span,
+pre[class*="language-"][class~="lia-code-sample"] .line-numbers-rows > span {
+	display: block;
+	counter-increment: linenumber;
+}
+
+code[class*="language-"][class~="lia-code-sample"] .line-numbers-rows > span:before,
+pre[class*="language-"][class~="lia-code-sample"] .line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #f8f8f2;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+}
