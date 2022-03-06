@@ -23,13 +23,11 @@ Ejemplo de rúbrica:
 
 Según *Wikipedia*:
 
-Vagrant es una herramienta para la creación
+* Vagrant es una herramienta para la creación
 y configuración de entornos de desarrollo virtualizados.
-
-Originalmente se desarrolló para VirtualBox y sistemas de configuración
+* Originalmente se desarrolló para VirtualBox y para sistemas de configuración
 tales como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
-
-Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
+* Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
 proyectos escritos en otros lenguajes.
 
 > NOTA: Para desarrollar esta actividad se ha utilizado principalmente
@@ -84,7 +82,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crearlo.
+> INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crear un fichero de ejemplo.
 
 ## 1.3 Comprobar
 
@@ -319,6 +317,10 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
 Ir a la MV:
 * Comprobar que el software está instalado.
 
+> **PREGUNTA:** ¿Dónde está la caja de Vagrant que nos acabamos de descargar? y ¿dónde está la máquina virtual que se ha creado con Vagrant? ¿No tienes curiosidad?
+> * Consulta el directorio `$HOME/.vagrant.d`
+> * Consulta el directorio `$HOME/Virtual Box`
+
 # 6. Proyecto: Caja personalizada
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y la hemos personalizado. En este apartado vamos a crear nuestra propia caja/box a partir de una MV de VirtualBox que tengamos.
@@ -328,7 +330,7 @@ En los apartados anteriores hemos descargado una caja/box de un repositorio de I
 > Enlace de interés:
 > * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-**Elegir una máquina virtual**
+### Elegir una máquina virtual
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una determinada configuración para poder publicar nuestro Box.
 
@@ -336,7 +338,7 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una de
 * Configurar la red en modo automático o dinámico (DHCP).
 * Instalar OpenSSH Server en la MV.
 
-**Crear usuario con aceso SSH**
+### Crear usuario con acceso SSH
 
 Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave desde Vagrant. Veamos cómo:
 
@@ -356,7 +358,7 @@ Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máq
 > * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
 > * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
 
-**Sudoers**
+## Sudoers
 
 Tenemos que conceder permisos al usuario `vagrant` para que pueda hacer tareas privilegiadas como configurar la red, instalar software, montar carpetas compartidas, etc. Para ello debemos configurar el fichero `/etc/sudoers` (Podemos usar el comando `visudo`) para que no nos solicite la password de root, cuando realicemos estas operaciones con el usuario `vagrant`.
 
@@ -381,8 +383,7 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 * `vagrant package --base VMNAME --output nombre-alumnoXX.box`, parar crear nuestra propia caja.
 * Comprobamos que se ha creado el fichero `nombre-alumnoXX.box` en el directorio donde hemos ejecutado el comando.
 * `vagrant box add nombre-alumno/va6custom nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
-* `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
-
+* Consultar ahora la lista de cajas Vagrant disponibles.
 
 ## 6.3 Vagrantfile
 
@@ -409,6 +410,10 @@ Cuando terminemos la práctica, ya no nos harán falta las cajas (boxes) que ten
 
 * `vagrant box list`, para consultar las cajas disponibles.
 * `vagrant box remove BOXNAME`, para eliminar una caja BOXNAME de nuestro repositorio local.
+
+> **OPCIONAL**: En una máquina real con SO Windows
+> * Instalar Vagrant en Windows.
+> * Levantar una máquina con Vagrant en Windows
 
 ---
 # ANEXO
