@@ -1,8 +1,11 @@
 
-Documentos relacionados
-* Configurar [Acceso remoto](../acceso-remoto/windows.md)
-* Configurar [Firewall](../firewall.md).
-* Cómo trabajar en [casa](../casa.md).
+| Documentos relacionados |
+| ----------------------- |
+| Configurar [Acceso remoto](../acceso-remoto/windows.md) |
+| Configurar [Firewall](../firewall.md) |
+| Cómo [trabajar en casa](../casa.md) |
+| [Descargar una MV Windows](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) |
+
 
 # MV Windows
 
