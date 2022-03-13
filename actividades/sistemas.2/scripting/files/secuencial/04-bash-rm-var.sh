@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-FOLDER=backupXX
+# Variables
+FOLDER=backupXXb
 
-echo "Borrando el directorio <backupXX>"
+# Acciones secuenciales
+echo "[+] Borrando el directorio $FOLDER"
 rm -r -i $FOLDER
-echo "Fin del script"
+
+echo "[+] Fin del script $0"
+exit 0
