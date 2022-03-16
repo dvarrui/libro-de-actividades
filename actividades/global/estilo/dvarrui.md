@@ -57,7 +57,7 @@ Reglas para los nombres de ficheros y directorio
 ## 3.2 SSH
 
 * Activar SSH en tus MVs.
-* Configurar /etc/ssh/sshd_config para permitir acceso remoto con root.
+* Configurar `/etc/ssh/sshd_config` para permitir acceso remoto con root.
 * Poner el fichero `profesor_rsa.pub` en el directorio `/root/.ssh`.
 * Comprobar que se puede acceder a la MV de forma remota usando SSH con el usuario root.
 
