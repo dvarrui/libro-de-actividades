@@ -10,6 +10,9 @@
 * Tener algo donde "apuntar" o escribir anotaciones. Bien puede ser una libreta con bolígrafo, ficheros TXT en portátil, etc.
 * En casa hará falta tener acceso a Internet, y tener VirtualBox instalado en tu PC.
 * Un disco duro externo USB y/o pendrive de tamaño recomendado 300 GB para que te quepan todas las máquinas virtuales que vas a necesitar.
+* Como herramienta de virtualización usaremos:
+    * VirtualBox en primero y
+    * Libvirt (KVM) en segundo.
 * [OPCIONAL] Este disco duro externo puede tener su propio SO instalado... lo que te hará la vida mucho más sencilla.
 
 # 2. Dudas
@@ -26,6 +29,8 @@ cemos, las decisiones que vamos tomando.
     * ¿He escrito algo mal en este punto N? Lo compruebo.
     * Estoy entendiendo este punto... Busco entender. Se supone que has entendido todo lo anterior... en caso contrario... vuelve a empezar porque te has saltado pasos.
 8. Si tienes que preguntar... escribe en el **foro de dudas** todos los detalles del problema, de modo que quien lo lea tenga toda la información para poder ayudarte.
+
+> NOTA: Al final del módulo... todas las dudas/respuestas/soluciones del foro de dudas pasarán a formar parte de un documento FAQ (Preguntas más frecuentes)
 
 # 3. Entregas
 
@@ -58,6 +63,12 @@ Reglas para los nombres de ficheros y directorio
 
 # 4. Rutinas
 
-* Los primeros 15 minutos de la clase del primer día de cada semana, un compañero hará una exposición en clase sobre un tema de libre elección basado en los contenidos del módulo.
+**Rutinas Semanales**
+* Los primeros 15 minutos de la clase del primer día de cada semana, un compañero hará una exposición en clase sobre un tema basado en los contenidos del módulo.
+    * En el primero trimestre el tema lo elige el alumno.
+    * En el segundo trimestre el tema lo elige el profesor.
+    * En el tercer trimestre el tema lo eligen el resto de compañeros.
 * Al final de cada actividad, un compañero expondrá en clase durante 15 minutos, el trabajo realizado, los problemas encontrados y soluciones. Se establecerá un debate de 15 minutos en clase donde participaremos todos.
-* Al final de cada trimestre se pasará una folio en blanco para que los alumn@s escriban por un lado todos los aspectos positivos
+
+**Rutinas trimestrales**
+* Al final de cada trimestre se pasará una folio en blanco para que los alumn@s escriban por un lado todos los aspectos positivos del trimestre sobre el módulo y el profesor. En el otro lado de la hora se escribirán (de forma respetuosa pero sincera) todos los aspectos negativos y/o mejorables del módulo y del profesor de la materia.
