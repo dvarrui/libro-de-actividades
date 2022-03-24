@@ -381,6 +381,12 @@ CMD ["/root/holamundoXX.sh"]
 * `docker tag nombre-alumno/holamundo:latest USUARIO-DOCKER/holamundo:version1`, etiquetamos la imagen con "version1".
 * `docker push USUARIO-DOCKER/holamundo:version1`, para subir la imagen (version1) a los repositorios de Docker.
 
+## 5.3 Analizar y entender
+
+Analizar y entender el siguiente Dockerfile (https://github.com/pausoft/docker)
+* Explicar qué utilidad tiene y cómo lo hace.
+
+
 # 6. Limpiar contenedores e imágenes
 
 Cuando terminamos con los contenedores, y ya no lo necesitamos, es buena idea pararlos y/o destruirlos.
