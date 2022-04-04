@@ -1,0 +1,4 @@
+
+
+Confusión de == por = tanto en igualdad como en asignación.
+
