@@ -12,7 +12,7 @@ Tiempo      :
 
 # 1. INFO: Explicación del profesor usando ejemplos
 
-[Ejemplos de scripts secuenciales](secuencial).
+[Ejemplos de scripts secuenciales](files/secuencial).
 * Consultarlos. Leerlos y tratar de hacerse una idea de su funcionamiento.
 * Anotar las dudas.
 * Probar y ejecutar los scripts. Comprobar los resultados.
