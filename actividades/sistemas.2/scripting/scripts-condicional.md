@@ -12,11 +12,7 @@ Tiempo      :
 
 # 1. INFO: Explicación del profesor usando ejemplos
 
-**Ejemplo script secuencial**. Hacer explicación en clase usando el siguiente ejemplo:
-* [ejemplo1-mkdir.sh](files/ejemplo1-mkdir.sh)
-* [ejemplo2-rm.sh](files/ejemplo2-rm.sh)
-* [ejemplo3-mkdir.sh](files/ejemplo3-mkdir.sh)
-* [ejemplo4-rm.sh](files/ejemplo4-rm.sh)
+**Ejemplo script condicional**. Hacer explicación en clase usando los siguientes [ejemplos](files/condicional).
 
 # 2. Crear usuarios y borrar usuarios en GNU/Linux
 
