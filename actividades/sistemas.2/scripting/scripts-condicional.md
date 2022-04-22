@@ -8,7 +8,7 @@ Requisitos  : Bash, Ruby
 Tiempo      :
 ```
 
-# Scripring: Estructura condicional
+# Scripting: Estructura condicional
 
 # 1. INFO: Explicación del profesor usando ejemplos
 

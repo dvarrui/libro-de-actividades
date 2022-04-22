@@ -72,7 +72,7 @@ un usuario del dominio.
 
 Podemos acceder al recurso compartido del Window Server (PDC) de la siguiente forma:
 * Iniciar un explorador de archivos.
-* Escribir lo siguiente en la barra de ruta que está en la parte superior, por ejemplo: `smb:\\ip-del-pdc\perfiles$\yoda.V5`.
+* Escribir lo siguiente en la barra de ruta que está en la parte superior, por ejemplo: `smb:\\ip-del-pdc\perfiles$\yoda.V5` para conectarse desde una máquina windows o `smb://ip-del-pdc/perfiles$` para conectarse desde una máquina linux.
 
 ---
 
