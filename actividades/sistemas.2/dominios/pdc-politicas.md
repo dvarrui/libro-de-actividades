@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Área        : Sistemas operativos, dominios, políticas, seguridad
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
@@ -142,8 +142,8 @@ Leeer                              | &#x2714;                   | &#x2714;
 
 **Vamos al servidor:**
 * Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
-* Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
-* Editar la GPO.
+* Dentro de la OU anterior, crear una nueva GPO con el nombre `gpo_softwareXX`.
+* Seleccionar la GPO.
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
     * Instalación de software -> Paquete -> Nuevo.
     * Elegir el paquete usando la ruta de red `\\ip-del-servidor\softwareXX\firefox\firefox.msi`
