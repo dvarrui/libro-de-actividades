@@ -9,6 +9,7 @@ Requisitos  : Windows Server
 Tiempo      : 8-10 horas
 ```
 
+
 # Políticas o directivas de grupo
 
 ## Preparativos
