@@ -350,10 +350,33 @@ Vamos a crear una restricción de permisos sobre determinadas aplicaciones.
 >
 > * [Vídeo: Instalación y configuración de un servidor SSH en Windows Server](http://www.youtube.com/embed/QlqokjKt69I)
 
-IDEAS para el próximo curso
+# 10. Extras: otras aplicaciones relacionadas
 
-* [Usos del comando ncat cpn ejemplos](https://www.ochobitshacenunbyte.com/2021/11/04/uso-del-comando-ncat-nc-en-linux-con-ejemplos/)
+## 10.1 ClusterSSH
+
+Es una herramienta para hacer múltiples conexiones remotas SSH en paralelo. Facilita trabajar con muchas máquinas al mismo tiempo.
+
+> Enlace de interés:
+> * https://www.putorius.net/cluster-ssh.html
+
+* Trabajaremos en grupos de 2.
+* Crear usuario `invitadoAABB` en todas las máquinas.
+    * Donde AA es el id del alumno 01
+    * Donde BB es el id del alumno 02
+* Instalar ClusterSSH en la máquina que servirá de controlador.
+* Aplicar algún cambio masivo usando `cssh`.
+
+## 10.1 Netcat
+
+> Enlaces de interés:
+> * [Usos del comando ncat cpn ejemplos](https://www.ochobitshacenunbyte.com/2021/11/04/uso-del-comando-ncat-nc-en-linux-con-ejemplos/)
+
+* Trabajaremos en grupos de 2.
+* Instalar NetCat en 2 máquinas diferentes.
+* Invocar nc con los parámetros adecuados para establecer conexión remota.
+
 ---
+
 # ANEXO A
 
 # Setup Passwordless SSH Login for Multiple Remote Servers Using Script
