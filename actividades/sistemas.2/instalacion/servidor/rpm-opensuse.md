@@ -9,6 +9,10 @@ Tiempo      :
 
 # 1. Crear paquetes RPM
 
+Enlaces de interés:
+* [OpenSUSE – Build a rpm package](https://eureka.ykyuen.info/2009/12/28/opensuse-build-a-rpm-package/)
+* [Build RPM Package for Installation and Management by System Package Manager](https://www.ordinatechnic.com/os-specific-guides/opensuse/build-rpm-package-for-local-installation)
+
 ## 1.1 Introducción
 
 En esta práctica vamos a construir un paquete RPM con la herramienta `rpmbuild`. Nos basaremos principalmente en el primer enlace de la lista de tutoriales.
@@ -121,9 +125,7 @@ cp helloXX.tar.gz /usr/src/packages/SOURCES
 * `rpmbuild -ba helloXX/hello.spec`
 * Encontraremos nuestro RPM en `/usr/src/packages/RPMS`.
 
-----
-
-# 5. Comprobamos
+# 4. Comprobamos
 
 > Por curiosidad:
 > * `zypper se hello`,
@@ -149,9 +151,11 @@ Desinstalamos el paquete:
 ---
 # ANEXO
 
-Enlaces de interés:
-* [OpenSUSE – Build a rpm package](https://eureka.ykyuen.info/2009/12/28/opensuse-build-a-rpm-package/)
-* [Build RPM Package for Installation and Management by System Package Manager](https://www.ordinatechnic.com/os-specific-guides/opensuse/build-rpm-package-for-local-installation)
+## OBS
+
+* [Beginnerʼs Guide | Open Build Service](https://openbuildservice.org/help/manuals/obs-beginners-guide/)
+
+## Info
 
 Rebuilding an existing src.rpm is probably the easiest. I would definitely not go the way of configure, make, make install because (a) that doesn't scale, (b) doesn't provide for easy removal / upgrading of the package and (c) is not atomic.
 
@@ -159,6 +163,7 @@ Building an RPM is not so hard. There used to be a pretty good beginners tutoria
 
 I'll give you a few pointers, out of the back of my head:
 
+```
    setup an .rpmmacros file in ~
    create ~/rpmbuild/{RPMS,SRPMS,SPECS,BUILD,BUILDROOT,SOURCES}
    drop the source tarball in ~/rpmbuild/SOURCES
@@ -166,6 +171,7 @@ I'll give you a few pointers, out of the back of my head:
    run rpmbuild -bp YOURSPEC in ~/rpmbuild/SPECS (runs prepare phase)
    run rpmbuild -bc YOURSPEC in ~/rpmbuild/SPECS (above and runs compile phase)
    run rpmbuild -bb YOURSPEC in ~/rpmbuild/SPECS (above and builds actual package)
+```
 
 If everything worked out, your RPM will have appeared in ~/rpmbuild/RPMS/${arch}.
 
@@ -178,8 +184,3 @@ I usually have something like this in my .rpmmacros.
 %_tmppath /tmp
 
 As for the syntax of the specfile: it is not that hard. There exists a very detailed, be it very old, reference work called 'Maximum RPM'. Everything you want to know is in there.
-
-
-## OBS
-
-* [Beginnerʼs Guide | Open Build Service](https://openbuildservice.org/help/manuals/obs-beginners-guide/)
