@@ -10,6 +10,7 @@ Tiempo      : 8 horas
 # Servidor de instalaciones PXE con OpenSUSE
 
 Enlaces de interés:
+* [Instalación de mEDUXa a través de la red del centro PXE](https://www3.gobiernodecanarias.org/educacion/cau_ce/servicios/web/noticias/mEDUXa-instalacion)
 * [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)
 * [Instalación OpenSUSE mediante TFTP y PXE](https://miguelcarmona.com/articulos/instalacion-de-opensuse-por-red-mediante-tftp-pxe)
 * Vídeo [LINUX: PXE Installation Server](https://youtu.be/59TwMw_CJwQ)
