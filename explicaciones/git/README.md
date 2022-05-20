@@ -86,6 +86,8 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante.
 * `git push`: Subir los cambios al repositorio remoto.
 
+> Poner emoticonos en los mensajes de commit (https://gitmoji.dev/)
+
 Vídeo: [GIT 02 - Trabajando cada día con git] (https://youtu.be/_IFpfdeUor0)
 
 ## 1.3. Entregas
@@ -130,3 +132,5 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 # ANEXO
 
 * [Instalar y usar Git en Windows por Rubén González Sabina](https://www.youtube.com/watch?v=7qzV04C5S-k)
+* [Gitmoji](https://gitmoji.dev/)
+
