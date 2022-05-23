@@ -68,11 +68,13 @@ Ir a la MV1
 * Entrar como usuario root.
 * `zypper clean`, para limpiar todo lo que se haya quedado en la caché de zypper.
 * `tree /var/cache/zypp/packages | grep rpm`, vemos que no tenemos paquetes rpm descargados por ahora.
-* Descargamos varios paquetes y sus dependencias:
-    * Descargar por ejemplo los siguientes paquetes: geany, tree, nmap e ipcalc.
-    * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
-    * `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
-    instalarlo, cuando el software ya está instalado en nuestro sistema local.
+* Descargamos varios paquetes y sus dependencias. Por ejemplo descargar los siguientes paquetes: geany, tree, nmap e ipcalc.
+
+| Acción | Comando |
+| ------ | ------- |
+| Descargar paquete sin instalarlo, cuando el paquete NO está instalado | `zypper in --download-only PACKAGENAME` |
+| Descargar paquete sin instalarlo, cuando el software SI está instalado | `zypper -v in -f --download-only PACKAGENAME` |
+
 * `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios con los archivos de los paquetes descargados.
 
 > INFO: Si quisiéramos descargar un repositorio remoto entero podríamos usar el comando `wget`. Por ejemplo `wget -r URL-DEL-REPOSITORIO`. Este proceso tarda mucho tiempo y no lo vamos a hacer.
