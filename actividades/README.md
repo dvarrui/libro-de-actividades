@@ -12,7 +12,6 @@ El directorio [actividades](./actividades) es la carpeta principal del proyecto 
 | [hardware](./hardware)     | Actividades que se pueden usar para asignaturas relacionadas con hardware. Por ejemplo, "Fundamentos de Hardware" de 1ASIR. |
 | [sistemas.2](./sistemas.2) | Actividades de sistemas operativos con grado de dificultad media. Se puede usar en asignaturas como "Implantación de Sistemas Operativos" de 1ASIR. |
 | [sistemas.3](./sistemas.3) | Actividades de sistemas operativos con grado de dificultad avanzado. Se puede usar en la asignatura de "Adminitración de Sistemas Operativos" de 2ASIR. |
-| [entregar](./entregar)     | Indicaciones sobre las distintas formas de hacer las entregas de los trabajos. |
 | [global](./global)         | Contiene información general, que se repite entre varias categorías |
 | programar, redes, seguridad y web | En construcción! |
 
