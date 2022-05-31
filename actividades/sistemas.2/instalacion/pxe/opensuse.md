@@ -3,7 +3,7 @@
 Curso       : 202122
 Área        : Sistemas operativos, servidor, instalar, PXE
 Descripción : Servidor de instalaciones PXE con OpenSUSE
-Requisitos  : GNU/Linux OpenSUSE Leap
+Requisitos  : GNU/Linux OpenSUSE, VirtualBox
 Tiempo      : 8 horas
 ```
 
@@ -20,7 +20,7 @@ Enlaces de interés:
 
 > Texto extraído del enlace [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)`
 
-Vamos a montar un servidor de instalaciones PXE en nuestra red local. ¿Qué es y para que sirve?
+¿Qué es y para que sirve montar un servidor de instalaciones PXE en nuestra red local?
 * Nos permite iniciar la instalación de un sistema operativo a través
 de la red sin necesidad de grabar un disco CD/DVD o utilizar un pendrive.
 * También nos sirve para iniciar un sistema Live u otras herramientas, en nuestras máquinas sin sistema operativo instalado. En este caso los equipos cliente no requieren de disco duro.
@@ -35,50 +35,52 @@ Usaremos 2 MV:
 
 | Id | SSOO | Nombre de host | Interfaz 1 externa | Interfaz 2 interna |
 | -- | ---- | -------------- | ---------- | ---------- |
-| MV1 |[OpenSUSE](../../../global/configuracion/opensuse.md)) | pxe-serverXX | IP estática (172.19.XX.31/16) | Red interna "netintXX" con IP estática (192.168.XX.31/24) |
+| MV1 |[OpenSUSE](../../../global/configuracion/opensuse.md)) | pxe-serverXX | IP estática (172.18.XX.31/16) | Red interna "netintXX" con IP estática (192.168.XX.31/24) |
 | MV2 | Sin sistema operativo | | Red interna "netintXX" ||
 
 
-Todas las tarjetas de red de hoy en día soportan arranque mediante PXE.
-Por si acaso habría que revisar la EFI/BIOS del equipo y activarla. En nuestro caso, lo haremos por VirtualBox.
+Todas las tarjetas de red de hoy en día soportan arranque mediante PXE. Es conveniente revisar la EFI/BIOS del equipo para asegurarnos de tenerlo activo. En nuestro caso, lo haremos por VirtualBox.
 
 * Ir a la VirtualBox.
 * Configurar de la MV 2.
 * `VirtualBox -> Sistema -> Arranque -> Red/LAN/PXE`.
 
-Para montar el servicio PXE en la MV1 necesitaremos lo siguiente:
-* Servicio DHCP,
-* Servicio TFTP y
-* Servicio NFS.
+Para montar el servicio PXE en la MV1 necesitaremos el servicio DHCP, el servicio TFTP y el servicio NFS. Vamos a ir uno a uno.
 
 # 2. Servicio DHCP
+
+Será en encargado de ofrecer configuración de red a las máquinas, y de suministrarles el fichero de arranque que necesitan para iniciarse.
 
 ## 2.1 Instalar el servicio DHCP
 
 * Ir la MV1.
 * Instalamos el servicio DHCP (`zypper in dhcp-server yast2-dhcp-server`).
 
-## 2.2 Configurar interfaz de uso
+🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?_
+
+## 2.2 Configurar interfaz de red
 
 Queremos que el servicio PXE sólo se ofrezca por el interfaz de red 2 (El de la red interna).
-* Hacemos una copia de los ficheros antes de modificarlos:
-    * `cp /etc/sysconfig/dhcpd /etc/sysconfig/dhcp.bak`
-    * `cp /etc/dhcp.conf /etc/dhcp.conf.bak`
+Recordemos que MV1 tiene 2 interfaces de red.
+* Hacemos una copia del fichero antes de modificarlo `cp /etc/sysconfig/dhcpd /etc/sysconfig/dhcp.bak`.
 * Edita el archivo `/etc/sysconfig/dhcpd` y en la línea `DHCPD_INTERFACE=""`
-añadir el nombre de interfaz que está en la red interna. Ver ejemplo:
+añadir el nombre de interfaz que está en la red interna. Por ejemplo:
 `DHCPD_INTERFACE="enp0s3"`.
 
-> ¿Recuerdas el comando para consultar los nombres de las interfaces de red disponibles?
+🧑‍🏫 _¿Recuerdas el comando para consultar los nombres de las interfaces de red disponibles?_
+
+Con esto estamos diciendo al servicio que sólo trabaje por el interfaz de red que le hemos especificado.
 
 ## 2.3 Configurar DHCP
 
-Este fichero configura el comportamiento de nuestro servidor DHCP.
-
+Modificamos el fichero de configuraciób del servicio DHCP.
+* Hacemos una copia del fichero antes de modificarlo: `cp /etc/dhcp.conf /etc/dhcp.conf.bak`
+* 🖥 ¿Qué tal configurar por Yast?
 * Edita el fichero `/etc/dhcpd.conf`:
 
 ```
-option domain-name "CURSO1617";
-option domain-name-servers 8.8.4.4, 80.58.61.250;
+option domain-name "CURSO2122";
+option domain-name-servers 1,1,1,1, 8.8.4.4;
 
 ddns-updates off;
 ddns-update-style none;
@@ -103,7 +105,7 @@ match if substring (option vendor-class-identifier, 0, 9) = "Etherboot";
 # Las direcciones de ese tipo quedarán englobadas en esta subnet
 subnet 192.168.XX.0 netmask 255.255.255.0 {
  pool {
-  range 192.168.XX.201 192.168.XX.220; # con estas hay de sobra
+  range 192.168.XX.201 192.168.XX.220; # con este rango hay de sobra
   filename "pxelinux.0";
   server-name "192.168.XX.31"; # Coincide con la IP del servidor
   next-server 192.168.XX.31; # Dirección del servidor TFTP
@@ -116,17 +118,18 @@ subnet 192.168.XX.0 netmask 255.255.255.0 {
 }
 ```
 
-> No quites el comentario a la línea #authoritative; si ya hay un servidor DHCP funcionando en tu red.
+> ⚠️ Si ya hay un servidor DHCP funcionando en tu red, no quites el comentario a la línea #authoritative;
 
-De esta forma, nuestro servidor DHCP sólo atenderá las peticiones extendidas del tipo PXE, dejando el resto para el sevidor DHCP de nuestra red. Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que se han definido.
+De esta forma, nuestro servidor DHCP sólo atenderá las peticiones del tipo PXE, dejando el resto de peticiones para el sevidor DHCP de nuestra red.
+
+Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que se han definido.
 
 | Atributo | Descripción |
 | -------- | ----------- |
-| range    | define que el servidor repartirá un máximo de 20 direcciones simultáneas
-(que irán desde la 192.168.XX.201 hasta la 192.168.XX.220) |
-| filename | toma el valor pxelinux.0 y a los campos server-name y next-server de la IP que le hayamos dado al servidor. |
+| range    | define que el servidor repartirá un máximo de 20 direcciones simultáneas (Desde la 192.168.XX.201 hasta la 192.168.XX.220) |
+| filename | toma el valor pxelinux.0 y los campos server-name y next-server de la IP que le hayamos dado al servidor. |
 
-* Configurar el arranque automático del servicio "dhcpd".
+* Configurar el arranque automático del servicio "dhcpd" en MV1.
 
 # 3. Servicio TFTP
 
@@ -134,10 +137,12 @@ De esta forma, nuestro servidor DHCP sólo atenderá las peticiones extendidas d
 
 * `zypper in atftp yast2-tftp-server`, instalar el servicio.
 
+🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?_
+
 ## 3.2 Cambiar la configuración
 
-* Hacemos copia de seguridad del fichero antes de modificarlo:
-    * `cp /etc/sysconfig/atftpd /etc/sysconfig/atftpd.bak`
+* Hacemos copia de seguridad del fichero antes de modificarlo `cp /etc/sysconfig/atftpd /etc/sysconfig/atftpd.bak`
+* 🖥 ¿Qué tal configurar por Yast?
 * Editar el archivo `/etc/sysconfig/atftpd`:
 
 ```
@@ -168,24 +173,30 @@ Con esta configuración:
 * Toma nota también del directorio raíz del servidor TFTP, `/srv/tftpboot`.
 * Configurar el arranque automático del servicio `atftpd`.
 
-> ¿Recuerdas cómo podemos comprobar si el servicio está levantado?
+🧑‍🏫 _¿Recuerdas cómo podemos comprobar si el servicio está levantado?_
 
 # 4. Servicio NFS
+
+Este servicio lo usaremos para tener carpetas compartidas vía red.
 
 ## 4.1 Instalar el servicio
 
 * `zypper in nfs-kernel-server yast2-nfs-server`, instalación del servicio.
 
+🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?... ¡Vale! Ya no lo pregunta más._
+
 ## 4.2 Configurar
 
-Acceder al contenido del fichero ISO:
+* Descargamos "openSUSE-Leap.iso" en nuestra MV1.
 * Crear directorio `/mnt/opensuse.iso.d`. Este directorio lo vamos a usar para leer el contenido del fichero ISO sin tener que desempaquetarlo.
+* Queremos acceder al contenido del fichero ISO pero sin "desempaquetarlo".
 * Edita el fichero `/etc/fstab` y crea un punto de montaje para la ISO en ese directorio:
 `/ruta/a/la/iso/openSUSE-Leap.iso /mnt/opensuse.iso.d/ udf,iso9660 user,auto,loop 0 0`
 * `mount -a`, se montan todas las configuraciones definidas en `/etc/fstab`.
 * `df -hT`, comprobamos.
 
-> ¿Ves el contenido de la ISO en la carpeta creada?
+‍
+🧑‍🏫 _¿Ves el contenido de la ISO en la carpeta creada (punto de montaje)?_
 
 Ahora vamos a exportar ese directorio mediante NFS. De esta forma, el contenido será accesible por la red LAN.
 * Editar el archivo `/etc/exports`.
@@ -195,22 +206,22 @@ Ahora vamos a exportar ese directorio mediante NFS. De esta forma, el contenido 
 
 # 5. Menú de arranque
 
-Preparando el menú de arranque PXE.
+Ahora vamos a preparar el menú de arranque PXE que se encontrarán los clientes cuando inicien. En este menú podrán elegir el SO que se quiere instalar.
 
 ## 5.1 Preparando el menú
 
 * `zypper in syslinux`, instalamos software.
 * En la raíz del servidor TFTP copiamos los siguientes archivos y creamos un par de directorios:
 ```
-# mkdir /srv/tftpbootp/xelinux.cfg
-# mkdir /srv/tftpboot/imagenes
-# cp /usr/share/syslinux/pxelinux.0 /srv/tftpboot
-# cp /usr/share/syslinux/menu.c32 /srv/tftpboot
-# cp /usr/share/syslinux/reboot.c32 /srv/tftpboot
-# touch /srv/tftpboot/pxelinux.cfg/default
+mkdir /srv/tftpbootp/xelinux.cfg
+mkdir /srv/tftpboot/imagesXX
+cp /usr/share/syslinux/pxelinux.0 /srv/tftpboot
+cp /usr/share/syslinux/menu.c32 /srv/tftpboot
+cp /usr/share/syslinux/reboot.c32 /srv/tftpboot
+touch /srv/tftpboot/pxelinux.cfg/default
 ```
 
-En el directorio `imagenes` crearemos un subdirectorio por cada ISO que queramos arrancar.
+En el directorio `imagesXX` crearemos un subdirectorio por cada ISO que queramos arrancar desde remoto.
 En cada uno de ellos almacenaremos el kernel y el ramdisk necesarios.
 
 El archivo `default` será nuestro menú de arranque.
@@ -226,17 +237,17 @@ NOESCAPE 1
 MENU TITLE Menu de arranque - nombre-alumnoXX
 
 LABEL 0
-        MENU LABEL ^0. Arrancar desde el disco duro
-        LOCALBOOT 0
-        TEXT HELP
-        Para arrancar desde el disco duro pulsa Enter.
-        ENDTEXT
+  MENU LABEL ^0. Arrancar desde el disco duro
+  LOCALBOOT 0
+  TEXT HELP
+    Para arrancar desde el disco duro pulsa Enter.
+  ENDTEXT
 
 MENU SEPARATOR
 
 LABEL 1
-        MENU LABEL ^1. Reiniciar
-        COM32 reboot.c32
+  MENU LABEL ^1. Reiniciar
+  COM32 reboot.c32
 
 MENU SEPARATOR
 
@@ -289,20 +300,20 @@ Estos ficheros hay que copiarlos dentro de nuestro directorio `/srv/tftpboot/` p
 
 En el caso que nos ocupa el kernel es un archivo llamado linuxXXX y el ramdisk initrdXXX. Ambos se encuentran dentro de la ISO en la ruta `boot/x86_64/loader/`.
 
-* Crear subdirectorio `/srv/tftpboot/imagenes/opensuseXX`.
-* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/linux /srv/tftpboot/imagenes/opensuseXX/`
-* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/initrd /srv/tftpboot/imagenes/opensuseXX/`
+* Crear subdirectorio `/srv/tftpboot/imagesXX/opensuse`.
+* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/linux /srv/tftpboot/imagesXX/opensuse/`
+* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/initrd /srv/tftpboot/imagesXX/opensuse/`
 
 * Editar el fichero `/srv/tftpboot/pxelinux.cfg/default` y añadir lo siguiente:
 ```
 LABEL 2
-        MENU LABEL 2. opensuseXX
-        LINUX imagenes/opensuseXX/linux
-        INITRD imagenes/opensuseXX/initrd
-        APPEND install=nfs://192.168.XX.31/mnt/opensuse.iso.d/ splash=silent ramdisk_size=512000 ramdisk_blocksize=4096 language=es_ES keytable=es quiet quiet showopts
-        TEXT HELP
-        Instalar openSUSE - nombre-del-alumnoXX
-        ENDTEXT
+  MENU LABEL 2. opensuseXX
+  LINUX imagesXX/opensuse/linux
+  INITRD imagesXX/opensuse/initrd
+  APPEND install=nfs://192.168.XX.31/mnt/opensuse.iso.d/ splash=silent ramdisk_size=512000 ramdisk_blocksize=4096 language=es_ES keytable=es quiet quiet showopts
+  TEXT HELP
+    Instalar openSUSE - nombre-del-alumnoXX
+  ENDTEXT
 ```
 
 * Iniciar MV cliente y comprobar el menú PXE.
@@ -317,6 +328,9 @@ El ramdisk de openSUSE permite acceder al contenido del DVD a través de NFS, lo
 
 
 # ANEXO
+
+Enlaces de interés:
+* https://graphviz.org/
 
 ## A.1 Poner imagen de fondo
 
