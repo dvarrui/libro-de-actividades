@@ -18,18 +18,14 @@ Enlaces de interés:
 
 ## Introducción
 
-Texto extraído del enlace [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)`
+> Texto extraído del enlace [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)`
 
-Vamos a montar un servidor PXE con OpenSUSE en nuestra red local.
-
-Un servidor PXE:
-* nos permite iniciar la instalación de un sistema operativo a través
+Vamos a montar un servidor de instalaciones PXE en nuestra red local. ¿Qué es y para que sirve?
+* Nos permite iniciar la instalación de un sistema operativo a través
 de la red sin necesidad de grabar un disco CD/DVD o utilizar un pendrive.
-* también nos sirve para iniciar un sistema Live u otras herramientas, en nuestras máquinas sin sistema operativo instalado. En este caso los equipos cliente no requieren de disco duro.
+* También nos sirve para iniciar un sistema Live u otras herramientas, en nuestras máquinas sin sistema operativo instalado. En este caso los equipos cliente no requieren de disco duro.
 
-Veremos que hay diferentes métodos de arrancar un sistema operativo a través de PXE.
-
-Con un servidor de este tipo en nuestra red, únicamente tendremos que descargar las ISO que queramos usar y averiguar la sintaxis a aplicar en cada caso. A cambio obtienes un método muy rápido de instalación que además prescinde de medios físicos.
+Con un servidor de este tipo en nuestra red, únicamente tendremos que descargar las ISO y conseguimos un método muy rápido de instalación que además prescinde de medios físicos.
 
 > Ver [ejemplo de PXE](fotos) en funcionamiento.
 
