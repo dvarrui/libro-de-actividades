@@ -31,6 +31,7 @@ Veremos que hay diferentes métodos de arrancar un sistema operativo a través d
 
 Con un servidor de este tipo en nuestra red, únicamente tendremos que descargar las ISO que queramos usar y averiguar la sintaxis a aplicar en cada caso. A cambio obtienes un método muy rápido de instalación que además prescinde de medios físicos.
 
+> Ver [ejemplo de PXE](fotos) en funcionamiento.
 
 # 1. Preparativos
 
