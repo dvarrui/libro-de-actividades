@@ -75,7 +75,7 @@ Con esto estamos diciendo al servicio que sólo trabaje por el interfaz de red q
 ## 2.3 Configurar DHCP
 
 Modificamos el fichero de configuraciób del servicio DHCP.
-* Hacemos una copia del fichero antes de modificarlo: `cp /etc/dhcp.conf /etc/dhcp.conf.bak`
+* Hacemos una copia del fichero antes de modificarlo: `cp /etc/dhcpd.conf /etc/dhcpd.conf.bak`
 * 🖥 ¿Qué tal configurar por Yast?
 * Edita el fichero `/etc/dhcpd.conf`:
 
