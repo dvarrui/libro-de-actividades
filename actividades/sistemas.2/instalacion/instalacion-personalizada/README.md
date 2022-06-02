@@ -4,7 +4,6 @@ Curso           : 202122, 202021, 201920, 201819
 Requisitios     : Knoppix y Debian
 Tiempo estimado : 4 sesiones
 ```
----
 
 # Instalación personalizada
 
@@ -33,13 +32,14 @@ Ejemplo de rúbrica:
 
 > Capturar imágenes de los siguientes pasos.
 
-* Crear una nueva MV VirtualBox con:
-    * Nombre: idp-debian-personalizado
-    * Tipo: Debian 64 bits
-    * Tamaño de disco: 10GB
-    * Tarjeta de red: modo bridge (Puente)
+Crear una nueva MV VirtualBox con:
 
----
+| Parámetro | Valor |
+| --------- | ----- |
+| Nombre    | idp-debian-personalizado |
+| Tipo      | Debian 64 bits |
+| Tamaño de disco | 10GB |
+| Tarjeta de red  | modo bridge (Puente) |
 
 # 2. Knoppix
 
@@ -48,38 +48,35 @@ Ejemplo de rúbrica:
 
 ## 2.1 Descargar
 
-* Descargar del servidor indicado por el profesor:
-    * la ISO de Knoppix y
-    * el fichero md5.
-* Vamos a comprobar que la descarga de los ficheros se hizo de forma correcta.
-    * Abrir un terminal en la máquina real.
-    * Movernos a la carpeta donde tengamos los ficheros que nos hemos descargado. Por ejemplo `cd Descargas`
-    * `vdir`, para asegurarnos que los ficheros que vamos a usar están en nuestra carpeta actual.
-    * `md5sum -c nombre-fichero.md5`, ejecutamos el comando de comprobación.
-    * Debe aparecer mensaje `la suma coincide`.
+Descargar del servidor indicado por el profesor:
+1. la ISO de Knoppix y
+2. el fichero md5.
+
+Vamos a comprobar que la descarga de los ficheros se hizo de forma correcta.
+* Abrir un terminal en la máquina real.
+* Movernos a la carpeta donde tengamos los ficheros que nos hemos descargado. Por ejemplo `cd Descargas`.
+* `vdir`, para asegurarnos que los ficheros que vamos a usar están en nuestra carpeta actual.
+* `md5sum -c nombre-fichero.md5`, ejecutamos el comando de comprobación.
+* Debe aparecer mensaje `la suma coincide`.
 
 > NOTA: para comprobar en Windows/PowerShell hacemos `Get-FileHash knoppix.iso.md5 -Algorithm MD5`
 
 ## 2.2 Iniciar Knoppix
 
-* Iniciar la MV con CDLive de Knoppix.
-    * Cuando aparezca el prompt `boot:` pulsar F3.
-    * Leer la pantalla.
-    * Para iniciar el SSOO en español, escribir: `knoppix lang=es` (El símbolo `=` puede estar en la tecla `¿`).
+Iniciar la MV con CDLive de Knoppix.
+* Cuando aparezca el prompt `boot:` pulsar F3.
+* Leer la pantalla.
+* Para iniciar el SSOO en español, escribir: `knoppix lang=es` (El símbolo `=` puede estar en la tecla `¿`).
 
 > Ahora vamos a usar gparted para crear una partición en el disco.
 
 ## 2.3 Crear particiones con Gparted
 
-* Abrir una consola
-    * ponerse como root (comando su) y
-    * ejecutar gparted (comando gparted).
+* Abrir un terminal como como root (comando su) y ejecutar gparted (comando gparted).
 * Se ha iniciado `Gparted`. Ir a `Dispositivo -> Crear tabla de particiones tipo MSDOS (MBR)`
 * Vamos a crear una partición que ocupe todo el disco, de tipo **partición extendida**.
 * Aplicar los cambios.
 * Cerrar gparted y apagar Knoppix.
-
----
 
 # 3. Instalar SO Debian
 
@@ -101,10 +98,14 @@ Ejemplo de rúbrica:
 * Montar la ISO en la MV para comenzar la instalación.
 * Elegir idioma español.
 * Configurar los siguientes parámetros durante el proceso de instalación según se especifican en [¿Cómo configurar la MV?](../../../global/configuracion/debian.md):
-    * Nombre del equipo: `1er-apellidoXXd`
-    * Nombre de dominio: `curso1920`
-    * La clave de root
-    * Nombre de usuario (`nombre-del-alumno`) y su clave.
+
+| Atributo | Valor |
+| -------- | ----- |
+| Nombre del equipo | `1er-apellidoXXd` |
+| Nombre de dominio | `curso1920` |
+| La clave de root  | |
+| Nombre de usuario | `nombre-del-alumno` |
+
 * Zona horaria: elegir la zona de Canarias.
 * Método de particionado manual. Aquí es donde vamos a empezar a personalizar nuestra instalación.
 * Crear el siguiente esquema de particiones:
