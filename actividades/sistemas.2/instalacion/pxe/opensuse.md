@@ -153,25 +153,25 @@ allow bootp;
 # Reglas para identificar peticiones DHCP desde clientes PCE y Etherboot
 
 class "pxe" {
-match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
+  match if substring (option vendor-class-identifier, 0, 9) = "PXEClient";
 }
 class "etherboot" {
-match if substring (option vendor-class-identifier, 0, 9) = "Etherboot";
+  match if substring (option vendor-class-identifier, 0, 9) = "Etherboot";
 }
 
 # Las direcciones de ese tipo quedarán englobadas en esta subnet
 subnet 192.168.XX.0 netmask 255.255.255.0 {
- pool {
-  range 192.168.XX.201 192.168.XX.220; # con este rango hay de sobra
-  filename "pxelinux.0";
-  server-name "192.168.XX.31"; # Coincide con la IP del servidor
-  next-server 192.168.XX.31; # Dirección del servidor TFTP
-  option subnet-mask 255.255.255.0;
-  option broadcast-address 192.168.XX.255;
-  option routers 192.168.XX.31;
-  allow members of "pxe"; # permitido sólo para clientes PXE
-  allow members of "etherboot"; # y también para los de etherboot
- }
+  pool {
+    range 192.168.XX.201 192.168.XX.220; # con este rango hay de sobra
+    filename "pxelinux.0";
+    server-name "192.168.XX.31";         # Coincide con la IP del servidor
+    next-server 192.168.XX.31;           # Dirección del servidor TFTP
+    option subnet-mask 255.255.255.0;
+    option broadcast-address 192.168.XX.255;
+    option routers 192.168.XX.31;
+    allow members of "pxe";              # permitido sólo para clientes PXE
+    allow members of "etherboot";        # y también para los de etherboot
+  }
 }
 ```
 
@@ -188,7 +188,6 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 
 * Configurar el arranque automático del servicio "dhcpd" en MV1.
 
-
 # 3. Servicio TFTP
 
 ## 3.1 Instalar el servicio
@@ -204,7 +203,7 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 * Editar el archivo `/etc/sysconfig/atftpd`:
 
 ```
-#  daemon user (tftp)
+# daemon user (tftp)
 ATFTPD_USER="tftp"
 ATFTPD_GROUP="tftp"
 
@@ -214,8 +213,8 @@ ATFTPD_OPTIONS="--daemon --user tftp -v"
 # Use inetd instead of daemon
 ATFTPD_USE_INETD="no"
 
-#  TFTP directory must be a world readable/writable directory.
-#  By default /srv/tftpboot is assumed.
+# TFTP directory must be a world readable/writable directory.
+# By default /srv/tftpboot is assumed.
 ATFTPD_DIRECTORY="/srv/tftpboot"
 
 ## Type:    string
@@ -241,7 +240,7 @@ Este servicio lo usaremos para tener carpetas compartidas vía red.
 
 * `zypper in nfs-kernel-server yast2-nfs-server`, instalación del servicio.
 
-🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?... ¡Vale! Ya no lo pregunta más._
+🧑‍🏫 _¿Realmente...? ¡Vale! Ya no lo pregunta más._
 
 ## 4.2 Configurar
 
@@ -270,7 +269,8 @@ Ahora vamos a preparar el menú de arranque PXE que se encontrarán los clientes
 
 * `zypper in syslinux`, instalamos software.
 * En la raíz del servidor TFTP copiamos los siguientes archivos y creamos un par de directorios:
-```
+
+```bash
 mkdir /srv/tftpbootp/xelinux.cfg
 mkdir /srv/tftpboot/imagesXX
 cp /usr/share/syslinux/pxelinux.0 /srv/tftpboot
@@ -285,6 +285,7 @@ En cada uno de ellos almacenaremos el kernel y el ramdisk necesarios.
 El archivo `default` será nuestro menú de arranque.
 
 * Editar el archivo `/stv/tftpboot/pxelinux.cfg/default` y añade lo siguiente:
+
 ```
 DEFAULT menu.c32
 PROMPT 0
@@ -358,11 +359,16 @@ Estos ficheros hay que copiarlos dentro de nuestro directorio `/srv/tftpboot/` p
 
 En el caso que nos ocupa el kernel es un archivo llamado linuxXXX y el ramdisk initrdXXX. Ambos se encuentran dentro de la ISO en la ruta `boot/x86_64/loader/`.
 
-* Crear subdirectorio `/srv/tftpboot/imagesXX/opensuse`.
-* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/linux /srv/tftpboot/imagesXX/opensuse/`
-* `cp /mnt/opensuse.iso.d/boot/x86_64/loader/initrd /srv/tftpboot/imagesXX/opensuse/`
+* Crear subdirectorio y copiar archivos:
+
+```bash
+mkdir /srv/tftpboot/imagesXX/opensuse
+cp /mnt/opensuse.iso.d/boot/x86_64/loader/linux /srv/tftpboot/imagesXX/opensuse/
+cp /mnt/opensuse.iso.d/boot/x86_64/loader/initrd /srv/tftpboot/imagesXX/opensuse/
+```
 
 * Editar el fichero `/srv/tftpboot/pxelinux.cfg/default` y añadir lo siguiente:
+
 ```
 LABEL 2
   MENU LABEL 2. opensuseXX
@@ -381,9 +387,7 @@ El ramdisk de openSUSE permite acceder al contenido del DVD a través de NFS, lo
 
 # 7. Otra ISO
 
-¿Te animas a poner otra ISO de instalación más en el servidor PXE?
-¿Qué pasos hay que hacer?
-
+¿Te animas a poner otra ISO de instalación más en el servidor PXE? ¿Qué pasos hay que hacer?
 
 # ANEXO
 
