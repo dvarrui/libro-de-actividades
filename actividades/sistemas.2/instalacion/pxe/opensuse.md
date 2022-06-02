@@ -38,6 +38,7 @@ Usaremos 2 MV:
 | MV1 |[OpenSUSE](../../../global/configuracion/opensuse.md)) | pxe-serverXX | IP estática (172.18.XX.31/16) | Red interna "netintXX" con IP estática (192.168.XX.31/24) |
 | MV2 | Sin sistema operativo | | Red interna "netintXX" ||
 
+![](files/pxe-esquema.svg)
 
 Todas las tarjetas de red de hoy en día soportan arranque mediante PXE. Es conveniente revisar la EFI/BIOS del equipo para asegurarnos de tenerlo activo. En nuestro caso, lo haremos por VirtualBox.
 
