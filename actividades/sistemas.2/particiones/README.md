@@ -33,6 +33,7 @@ También podemos añadir un segundo disco duro de 300MB, a nuestra máquina virt
 * Salir del programa.
 
 # 3. Formatear
+
 * Después de crear las particiones, ejecutamos `fdisk -l`, para comprobar que están creadas.
 * Si no aparecen las particiones que acabamos de crear, entonces reiniciaremos el SO, y lo volvemos a comprobar.
 
@@ -47,6 +48,7 @@ También podemos añadir un segundo disco duro de 300MB, a nuestra máquina virt
 ```
 
 # 4. Montar manualmente
+
 Ahora vamos a montar las particiones formateadas. Montar significa que vamos a "conectar" con ellas para empezar a usarlas.
 * Crear los directorios /mnt/part1, /mnt/part2 y /mnt/part3.
 
