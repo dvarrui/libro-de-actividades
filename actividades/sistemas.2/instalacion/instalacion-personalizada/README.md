@@ -102,8 +102,7 @@ Iniciar la MV con CDLive de Knoppix.
 | Atributo | Valor |
 | -------- | ----- |
 | Nombre del equipo | `1er-apellidoXXd` |
-| Nombre de dominio | `curso1920` |
-| La clave de root  | |
+| Nombre de dominio | `curso2122` |
 | Nombre de usuario | `nombre-del-alumno` |
 
 * Zona horaria: elegir la zona de Canarias.
@@ -132,10 +131,10 @@ Veamos un ejemplo:
 > Para marcar y desmarcar usar la barra espaciadora. OJO. No vamos a instalar entorno gráfico, o entorno de escritorio.
 > Por el momento queremos un sistema sólo en modo texto.
 
-* En la selección de programas (Usar la tecla ESPACIO para marcar/desmarcar):
-    * NO seleccionar entorno gráfico
-    * Marcar *Utilidades estándar del sistema* y
-    * Marcar *SSH Server*
+En la selección de programas (Usar la tecla ESPACIO para marcar/desmarcar):
+* NO seleccionar entorno gráfico
+* Marcar *Utilidades estándar del sistema* y
+* Marcar *SSH Server*
 
 Veamos imagen de ejemplo:
 
@@ -143,8 +142,6 @@ Veamos imagen de ejemplo:
 
 * ¿Instalar el cargador de arranque GRUB en el registro principal de arranque? SI. Esto es el disco `/dev/sda`.
 * Instalación completa -> Continuar.
-
----
 
 # 4. Con el SO instalado
 
@@ -168,8 +165,6 @@ lsblk        # Muestra información de las particiones
 blkid        # Muestra los códigos UUID de las particiones
 ```
 * Salir con el comando `exit`.
-
----
 
 # 5. Acceso externo
 
