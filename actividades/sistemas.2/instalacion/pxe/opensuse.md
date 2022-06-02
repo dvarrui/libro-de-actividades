@@ -59,6 +59,62 @@ Será en encargado de ofrecer configuración de red a las máquinas, y de sumini
 
 🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?_
 
+## INFO: Ideas para scripting del apartado anterior
+
+Supongamos que queremos prepararnos para incluir este apartado en un script.
+En tal caso nuestro algoritmo sería el siguiente:
+
+```
+Si (el paquete dhcp-server no está instalado) entonces
+  Instalar el paquete dhcp-server
+fin si
+```
+
+¿Cómo implementamos este algoritmo en Ruby? mmm Hay varias formas y todas válidas.
+Lo que debemos hacer es pensar en cómo lo hemos hecho nosotros. Es decir, ¿qué comandos hemos ejecutado para hacerlo? y luego poner esos comandos en un fichero de texto (más o menos)
+
+```ruby
+# versión 1 (Esto todavía no funciona)
+# Nos preguntamos si existe el fichero de configuración
+if (No existe el fichero /etc/dhcpd.conf) then
+  # Si el fichero de configuración no existe... podemos suponer que el paquete no está instalado
+  # entonces vamos a instalar el paquete dhcp-server
+  system("zypper install dhcp-server")
+end
+```
+
+Seguimos avanzando un poco más...
+```ruby
+# versión 2 (Esto ya funciona)
+
+if (not File.exist? '/etc/dhcpd.conf')
+  system("zypper install dhcp-server")
+end
+```
+
+¿Se entiende?... seguimos mejorándolo.
+Cualquiera de las versiones siguientes es aceptable. ¿Cuál prefieres?
+
+```ruby
+# versión 3
+if not File.exist? '/etc/dhcpd.conf'
+  system("zypper install dhcp-server")
+end
+```
+
+```ruby
+# versión 4
+unless File.exist? '/etc/dhcpd.conf'
+  system("zypper install dhcp-server")
+end
+```
+
+```ruby
+# versión 5
+system("zypper install dhcp-server") unless File.exist? '/etc/dhcpd.conf'
+```
+
+
 ## 2.2 Configurar interfaz de red
 
 Queremos que el servicio PXE sólo se ofrezca por el interfaz de red 2 (El de la red interna).
@@ -131,6 +187,7 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 | filename | toma el valor pxelinux.0 y los campos server-name y next-server de la IP que le hayamos dado al servidor. |
 
 * Configurar el arranque automático del servicio "dhcpd" en MV1.
+
 
 # 3. Servicio TFTP
 
