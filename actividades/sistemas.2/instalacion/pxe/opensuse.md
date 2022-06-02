@@ -59,7 +59,7 @@ Será en encargado de ofrecer configuración de red a las máquinas, y de sumini
 
 🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?_
 
-## INFO: Ideas para scripting del apartado anterior
+## INFO 💡💎: Ideas para scripting del apartado anterior
 
 Supongamos que queremos prepararnos para incluir este apartado en un script.
 En tal caso nuestro algoritmo sería el siguiente:
