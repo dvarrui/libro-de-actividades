@@ -9,12 +9,12 @@ Tiempo      : 8 horas
 
 # Servidor de instalaciones PXE con OpenSUSE
 
-Enlaces de interés:
-* [Instalación de mEDUXa a través de la red del centro PXE](https://www3.gobiernodecanarias.org/educacion/cau_ce/servicios/web/noticias/mEDUXa-instalacion)
-* [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)
-* [Instalación OpenSUSE mediante TFTP y PXE](https://miguelcarmona.com/articulos/instalacion-de-opensuse-por-red-mediante-tftp-pxe)
-* Vídeo [LINUX: PXE Installation Server](https://youtu.be/59TwMw_CJwQ)
-* Vídeo [LINUX: Installing from the network](https://www.youtube.com/watch?v=mPARmfWizBI)
+> Enlaces de interés:
+> * [Instalación de mEDUXa a través de la red del centro PXE](https://www3.gobiernodecanarias.org/educacion/cau_ce/servicios/web/noticias/mEDUXa-instalacion)
+> * [Puesta en marcha de un servidor PXE con OpenSUSE 13.1](https://es.opensuse.org/SDB:Puesta_en_marcha_de_un_servidor_PXE)
+> * [Instalación OpenSUSE mediante TFTP y PXE](https://miguelcarmona.com/articulos/instalacion-de-opensuse-por-red-mediante-tftp-pxe)
+> * Vídeo [LINUX: PXE Installation Server](https://youtu.be/59TwMw_CJwQ)
+> * Vídeo [LINUX: Installing from the network](https://www.youtube.com/watch?v=mPARmfWizBI)
 
 ## Introducción
 
@@ -42,7 +42,7 @@ Usaremos 2 MV:
 
 Todas las tarjetas de red de hoy en día soportan arranque mediante PXE. Es conveniente revisar la EFI/BIOS del equipo para asegurarnos de tenerlo activo. En nuestro caso, lo haremos por VirtualBox.
 
-* Ir a la VirtualBox.
+* Ir a VirtualBox.
 * Configurar de la MV 2.
 * `VirtualBox -> Sistema -> Arranque -> Red/LAN/PXE`.
 
@@ -87,7 +87,7 @@ Seguimos avanzando un poco más...
 ```ruby
 # versión 2 (Esto ya funciona)
 
-if (not File.exist? '/etc/dhcpd.conf')
+if (not File.exist?('/etc/dhcpd.conf'))
   system("zypper install dhcp-server")
 end
 ```
@@ -98,14 +98,14 @@ Cualquiera de las versiones siguientes es aceptable. ¿Cuál prefieres?
 ```ruby
 # versión 3
 if not File.exist? '/etc/dhcpd.conf'
-  system("zypper install dhcp-server")
+  system "zypper install dhcp-server"
 end
 ```
 
 ```ruby
 # versión 4
 unless File.exist? '/etc/dhcpd.conf'
-  system("zypper install dhcp-server")
+  system "zypper install dhcp-server"
 end
 ```
 
@@ -192,15 +192,13 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 
 ## 3.1 Instalar el servicio
 
-* `zypper in atftp yast2-tftp-server`, instalar el servicio.
+* Instalar los paquetes: atftp y yast2-tftp-server.
 
 🧑‍🏫 _¿Realmente necesitamos el paquete `yast2-...`?_
 
 ## 3.2 Cambiar la configuración
 
-* Hacemos copia de seguridad del fichero antes de modificarlo `cp /etc/sysconfig/atftpd /etc/sysconfig/atftpd.bak`
-* 🖥 ¿Qué tal configurar por Yast?
-* Editar el archivo `/etc/sysconfig/atftpd`:
+* Editar el archivo `/etc/sysconfig/atftpd` (Hacemos copia de seguridad del fichero antes de modificarlo)... mmm y 🖥 ¿Qué tal configurar por Yast?
 
 ```
 # daemon user (tftp)
@@ -238,21 +236,24 @@ Este servicio lo usaremos para tener carpetas compartidas vía red.
 
 ## 4.1 Instalar el servicio
 
-* `zypper in nfs-kernel-server yast2-nfs-server`, instalación del servicio.
+* Instalar los paquetes nfs-kernel-server y yast2-nfs-server.
 
 🧑‍🏫 _¿Realmente...? ¡Vale! Ya no lo pregunta más._
 
 ## 4.2 Configurar
 
-* Descargamos "openSUSE-Leap.iso" en nuestra MV1.
+* Descargamos una ISO en nuestra MV1 (Por ejemplo una de OpenSUSE). 
+
+> Si lo prefieres puedes usar una iso de instalación del sistema operativo que prefieras.
+> Si usas la iso de instalación desatendida que hiciste en las prácticas anteriores... la instalación en los clientes será muy rápida.
+
 * Crear directorio `/mnt/opensuse.iso.d`. Este directorio lo vamos a usar para leer el contenido del fichero ISO sin tener que desempaquetarlo.
 * Queremos acceder al contenido del fichero ISO pero sin "desempaquetarlo".
 * Edita el fichero `/etc/fstab` y crea un punto de montaje para la ISO en ese directorio:
-`/ruta/a/la/iso/openSUSE-Leap.iso /mnt/opensuse.iso.d/ udf,iso9660 user,auto,loop 0 0`
+`/ruta/a/la/iso/openSUSE.iso /mnt/opensuse.iso.d/ udf,iso9660 user,auto,loop 0 0`
 * `mount -a`, se montan todas las configuraciones definidas en `/etc/fstab`.
 * `df -hT`, comprobamos.
 
-‍
 🧑‍🏫 _¿Ves el contenido de la ISO en la carpeta creada (punto de montaje)?_
 
 Ahora vamos a exportar ese directorio mediante NFS. De esta forma, el contenido será accesible por la red LAN.
@@ -267,7 +268,7 @@ Ahora vamos a preparar el menú de arranque PXE que se encontrarán los clientes
 
 ## 5.1 Preparando el menú
 
-* `zypper in syslinux`, instalamos software.
+* `zypper in syslinux`, instalamos software. 🧑 _¿Para qué sirve este paquete?_
 * En la raíz del servidor TFTP copiamos los siguientes archivos y creamos un par de directorios:
 
 ```bash
@@ -279,8 +280,7 @@ cp /usr/share/syslinux/reboot.c32 /srv/tftpboot
 touch /srv/tftpboot/pxelinux.cfg/default
 ```
 
-En el directorio `imagesXX` crearemos un subdirectorio por cada ISO que queramos arrancar desde remoto.
-En cada uno de ellos almacenaremos el kernel y el ramdisk necesarios.
+En el directorio `imagesXX` crearemos un subdirectorio por cada ISO que queramos arrancar desde la red. En cada uno de ellos almacenaremos el kernel y el ramdisk necesarios.
 
 El archivo `default` será nuestro menú de arranque.
 
