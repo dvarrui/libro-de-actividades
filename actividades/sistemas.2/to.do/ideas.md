@@ -13,3 +13,7 @@
 * Sistemas Operativos: ull-esit-sistemas-operativos.github.io (https://ull-esit-sistemas-operativos.github.io/ssoo-apuntes)
 * Sistemas operativos: https://github.com/ull-esit-sistemas-operativos/ssoo-apuntes
 * GitHub (https://github.com/ull-esit-sistemas-operativos/ssoo-apuntes)
+
+## Iconos UNICODE
+
+https://tutorialzine.com/2014/12/you-dont-need-icons-here-are-100-unicode-symbols-that-you-can-use

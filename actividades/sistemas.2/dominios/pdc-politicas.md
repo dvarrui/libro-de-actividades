@@ -9,7 +9,6 @@ Requisitos  : Windows Server
 Tiempo      : 8-10 horas
 ```
 
-
 # Políticas o directivas de grupo
 
 ## Preparativos
@@ -121,17 +120,11 @@ Leeer                              | &#x2714;                   | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
-## 2.2 Crear el paquete MSI con EMCO Software
+## 2.2 Paquete MSI
 
-* Ir a la MV WIndows10.
-* Instalar el programa: https://emcosoftware.com/msi-package-builder
-* Crear un paquete MSI con el programa EMCO Software. Tutoriales:
-    * https://www.youtube.com/watch?v=Ak1z1iadfQw
-    * https://www.youtube.com/watch?v=AZXhZDx2zSY&list=UUm3zqS2cJGK_Zdeq_-SzBKg&index=3 (Creado por JA Mora).
 * Ir al Windows Server.
+* Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 * Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\`.
-
-**NOTA**: Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 
 # 3. Aplicar directiva de Equipo
 
