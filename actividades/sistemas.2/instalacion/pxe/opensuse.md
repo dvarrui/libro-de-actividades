@@ -40,6 +40,8 @@ Usaremos 2 MV:
 
 ![](files/pxe-esquema.svg)
 
+> OJO: La red interna "netint" se configura en VirtualBox.
+
 Todas las tarjetas de red de hoy en día soportan arranque mediante PXE. Es conveniente revisar la EFI/BIOS del equipo para asegurarnos de tenerlo activo. En nuestro caso, lo haremos por VirtualBox.
 
 * Ir a VirtualBox.
@@ -242,7 +244,7 @@ Este servicio lo usaremos para tener carpetas compartidas vía red.
 
 ## 4.2 Configurar
 
-* Descargamos una ISO en nuestra MV1 (Por ejemplo una de OpenSUSE). 
+* Descargamos una ISO en nuestra MV1 (Por ejemplo una de OpenSUSE).
 
 > Si lo prefieres puedes usar una iso de instalación del sistema operativo que prefieras.
 > Si usas la iso de instalación desatendida que hiciste en las prácticas anteriores... la instalación en los clientes será muy rápida.
