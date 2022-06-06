@@ -190,6 +190,8 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 
 * Configurar el arranque automático del servicio "dhcpd" en MV1.
 
+> Si cuando inicies el cliente ves que se le asigna una IP... entonces podemos suponer que el servicio DHCP está asignando IP's correctamente.
+
 # 3. Servicio TFTP
 
 ## 3.1 Instalar el servicio
