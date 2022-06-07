@@ -288,7 +288,7 @@ En el directorio `imagesXX` crearemos un subdirectorio por cada ISO que queramos
 
 El archivo `default` será nuestro menú de arranque.
 
-* Editar el archivo `/stv/tftpboot/pxelinux.cfg/default` y añade lo siguiente:
+* Editar el archivo `/srv/tftpboot/pxelinux.cfg/default` y añade lo siguiente:
 
 ```
 DEFAULT menu.c32
