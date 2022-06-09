@@ -231,6 +231,12 @@ Con esta configuración:
 * El servicio se ejecutará con la cuenta de usuario `tftp` perteneciente al grupo del mismo nombre, asegúrate de que existen.
 * Toma nota también del directorio raíz del servidor TFTP, `/srv/tftpboot`.
 * Configurar el arranque automático del servicio `atftpd`.
+* Iniciar el servicio.
+
+## 3.3 Problemas al iniciar el servicio
+
+Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguiente:
+
 * `systemctl start atftp.{service, socket}` para iniciar el servicio y el socker. Esto es lo mismo que hacer:
 ```
 systemctl start atftp.service
