@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "vagrant-debian" do |i|
     # Configure BOX
-    i.vm.box = "generic/debian10"
+    i.vm.box = "generic/debian11"
 
     # Configure VM
     i.vm.hostname = "vagrant-debian"
