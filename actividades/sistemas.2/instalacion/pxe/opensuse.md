@@ -237,10 +237,10 @@ Con esta configuración:
 
 Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguiente:
 
-* `systemctl start atftp.{service, socket}` para iniciar el servicio y el socker. Esto es lo mismo que hacer:
+* `systemctl start atftpd.{service, socket}` para iniciar el servicio y el socker. Esto es lo mismo que hacer:
 ```
-systemctl start atftp.service
-systemctl start atftp.socket
+systemctl start atftpd.service
+systemctl start atftpd.socket
 ```
 
 # 4. Servicio NFS
