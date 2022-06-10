@@ -407,8 +407,9 @@ LABEL 2
   ENDTEXT
 ```
 
-* Iniciar MV cliente y comprobar el menú PXE.
-* Instalar SO en MV cliente.
+**Incluir en la entrega un pequeño vídeo con lo siguiente:**
+1. Iniciar MV cliente y comprobar el menú PXE.
+2. Instalar SO en MV cliente.
 
 El ramdisk de openSUSE permite acceder al contenido del DVD a través de NFS, lo cual es mucho más óptimo que hacerlo a través de TFTP. Ya veremos que hay casos en los que podemos pasar como parámetro directamente una ruta a la ISO o, si ésta es de pequeño tamaño, cargarla en memoria directamente. Pero en este caso no es lo más eficiente.
 
