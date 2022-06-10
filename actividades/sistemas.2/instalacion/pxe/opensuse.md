@@ -240,20 +240,20 @@ Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguien
 * `systemctl start atftpd.socket` para iniciar el socket primero y.
 * `systemctl start atftpd` para inciiar el servicio.
 
-**Problemas al iniciar el servicio**
+**Problema "server-limit-hit"**
+Para resolverlo hacemos lo siguiente:
 
 ```
-pxe-server12:~ # systemctl status atftpd.socket                                                             │·············
-● atftpd.socket - Advanced tftp Server Activation Socket                                                    │·············
-     Loaded: loaded (/usr/lib/systemd/system/atftpd.socket; enabled; vendor preset: disabled)               │·············
-     Active: failed (Result: service-start-limit-hit) since Thu 2022-06-09 16:21:52 WEST; 16h ago           │·············
-   Triggers: ● atftpd.service                                                                               │·············
-     Listen: 0.0.0.0:69 (Datagram)                                                                          │·············
-                                                                                                            │·············
-Jun 09 09:31:27 pxe-server12 systemd[1]: Listening on Advanced tftp Server Activation Socket.               │·············
-Jun 09 16:21:52 pxe-server12 systemd[1]: atftpd.socket: Failed with result 'service-start-limit-hit'.       │·············
-pxe-server12:~ # systemctl reset.failed atftpd.socket                                                       │·············
-Unknown command verb reset.failed.                                                                          │·············
+pxe-server12:~ # systemctl status atftpd.socket
+● atftpd.socket - Advanced tftp Server Activation Socket                                     
+     Loaded: loaded (/usr/lib/systemd/system/atftpd.socket; enabled; vendor preset: disabled)
+     Active: failed (Result: service-start-limit-hit) since Thu 2022-06-09 16:21:52 WEST; 16h ago
+   Triggers: ● atftpd.service
+     Listen: 0.0.0.0:69 (Datagram)
+
+Jun 09 09:31:27 pxe-server12 systemd[1]: Listening on Advanced tftp Server Activation Socket.
+Jun 09 16:21:52 pxe-server12 systemd[1]: atftpd.socket: Failed with result 'service-start-limit-hit'.
+
 pxe-server12:~ # systemctl reset-failed atftpd.socket  
 ```
 
