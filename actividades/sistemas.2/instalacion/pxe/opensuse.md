@@ -237,11 +237,8 @@ Con esta configuración:
 
 Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguiente:
 
-* `systemctl start atftpd.{service, socket}` para iniciar el servicio y el socker. Esto es lo mismo que hacer:
-```
-systemctl start atftpd.service
-systemctl start atftpd.socket
-```
+* `systemctl start atftpd.socket` para iniciar el socket primero y.
+* `systemctl start atftpd` para inciiar el servicio.
 
 **Problemas al iniciar el servicio**
 
