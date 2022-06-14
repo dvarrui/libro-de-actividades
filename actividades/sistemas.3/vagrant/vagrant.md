@@ -69,7 +69,7 @@ BOXNAME (virtualbox, 0)
 
 ```
 mkdir nombre-alumnoXX-va1box.d
-cd nombrealumnoXX-vagrant1
+cd nombre-alumnoXX-va1box.d
 ```
 
 A partir de ahora vamos a trabajar dentro de esta carpeta.
@@ -156,7 +156,7 @@ En la máquina real:
   * `config.vm.network :forwarded_port, host: 42XX, guest: 80`, sustituir XX por el número de cada uno. Por ejemplo el PC 1 será 01.
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-port`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va3port`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
 Levantar la MV podemos hace `vagrant up` pero también `time vagrant up` para medir el tiempo que se tarda en levantar la MV. El añadir el comando `time COMMAND` delante de un comando nos calcula el tiempo que tarda en ejecutarse dicho comandos/programa (COMMAND).
@@ -234,7 +234,7 @@ Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
 * `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-script`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va4script`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
 ## 4.3 Comprobamos
@@ -301,7 +301,7 @@ package { 'neofetch':
 ## 5.2 Vagrantfile
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-puppet`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va5puppet`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
 ## 5.3 Comprobamos
