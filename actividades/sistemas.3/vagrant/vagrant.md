@@ -401,6 +401,8 @@ Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
 ## 7.1 Windows con vagrant
 
+> OJO: Puede ser que nos haga falta instalar los plugins: winrm y winrm-elevated.
+
 * Crear una MV Windows usando vagrant.
 * Comprobar
 
@@ -415,7 +417,6 @@ Cuando terminemos la práctica, ya no nos harán falta las cajas (boxes) que ten
 > * Instalar Vagrant en Windows.
 > * Levantar una máquina con Vagrant en Windows
 
----
 # ANEXO
 
 ## Pendiente
