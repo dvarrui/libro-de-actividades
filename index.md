@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2022-06-02 17:20:18 +0100`
+`Fecha UM: 2022-06-14 12:12:38 +0100`
 
 # Resumen
 
@@ -38,7 +38,7 @@
 | 1 | [backup](actividades/sistemas.2/backup) | 4 | [README](actividades/sistemas.2/backup/README.md), [ideas](actividades/sistemas.2/backup/ideas.md), [rsync](actividades/sistemas.2/backup/rsync.md), [tar](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
 | 3 | [comandos](actividades/sistemas.2/comandos) | 1 | [comandos-01](actividades/sistemas.2/comandos/comandos-01.md) |
-| 4 | [dominios](actividades/sistemas.2/dominios) | 8 | [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas-wininstall](actividades/sistemas.2/dominios/pdc-politicas-wininstall.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver-2008](actividades/sistemas.2/dominios/pdc-winserver-2008.md), [pdc-winserver-2012](actividades/sistemas.2/dominios/pdc-winserver-2012.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
+| 4 | [dominios](actividades/sistemas.2/dominios) | 9 | [msi](actividades/sistemas.2/dominios/msi.md), [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas-wininstall](actividades/sistemas.2/dominios/pdc-politicas-wininstall.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver-2008](actividades/sistemas.2/dominios/pdc-winserver-2008.md), [pdc-winserver-2012](actividades/sistemas.2/dominios/pdc-winserver-2012.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
 | 5 | [faq](actividades/sistemas.2/faq) | 2 | [README](actividades/sistemas.2/faq/README.md), [ln](actividades/sistemas.2/faq/ln.md) |
 | 6 | [instalacion](actividades/sistemas.2/instalacion) | 8 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [pxe](actividades/sistemas.2/instalacion/pxe), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor), [vagrant](actividades/sistemas.2/instalacion/vagrant) |
 | 7 | [licencias](actividades/sistemas.2/licencias) | 1 | [README](actividades/sistemas.2/licencias/README.md) |
@@ -46,7 +46,7 @@
 | 9 | [particiones](actividades/sistemas.2/particiones) | 1 | [README](actividades/sistemas.2/particiones/README.md) |
 | 10 | [permisos](actividades/sistemas.2/permisos) | 2 | [permisos-acl-debian](actividades/sistemas.2/permisos/permisos-acl-debian.md), [usuarios-y-permisos](actividades/sistemas.2/permisos/usuarios-y-permisos.md) |
 | 11 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 7 | [btrfs-windows](actividades/sistemas.2/raid-lvm/btrfs-windows.md), [lvm-debian-windows](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse](actividades/sistemas.2/raid-lvm/raid-opensuse.md), [raid-problemas](actividades/sistemas.2/raid-lvm/raid-problemas), [raid-y-lvm](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
-| 12 | [scripting](actividades/sistemas.2/scripting) | 4 | [dialog](actividades/sistemas.2/scripting/dialog.md), [scripts-condicional](actividades/sistemas.2/scripting/scripts-condicional.md), [scripts-iterativos](actividades/sistemas.2/scripting/scripts-iterativos.md), [scripts-secuencial](actividades/sistemas.2/scripting/scripts-secuencial.md) |
+| 12 | [scripting](actividades/sistemas.2/scripting) | 5 | [dialog](actividades/sistemas.2/scripting/dialog.md), [neofetch2ruby](actividades/sistemas.2/scripting/neofetch2ruby.md), [scripts-condicional](actividades/sistemas.2/scripting/scripts-condicional.md), [scripts-iterativos](actividades/sistemas.2/scripting/scripts-iterativos.md), [scripts-secuencial](actividades/sistemas.2/scripting/scripts-secuencial.md) |
 | 13 | [tests](actividades/sistemas.2/tests) | 1 | [trim1](actividades/sistemas.2/tests/trim1.md) |
 | 14 | [to.do](actividades/sistemas.2/to.do) | 5 | [bsd](actividades/sistemas.2/to.do/bsd), [genode](actividades/sistemas.2/to.do/genode), [ideas](actividades/sistemas.2/to.do/ideas.md), [kali](actividades/sistemas.2/to.do/kali.md), [redox-os.d](actividades/sistemas.2/to.do/redox-os.d) |
 
