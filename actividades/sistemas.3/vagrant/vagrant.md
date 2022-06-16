@@ -91,6 +91,11 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 * `vagrant up`, para iniciar una nueva instancia de la máquina.
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
 
+> DUDAS: 
+> * ¿Podría funcionar si tenemos el fichero Vagrantfile en un disco duro externo o pendrive e intentamos levantar la máquina virtual con Vagrant?
+> * ¿Tiene algo que ver que sea un almacenamiento externo o es por el sistema de ficheros?
+> * ¿Qué requisito tiene vagrant con respecto al sistema de ficheros sobre el que va a trabajar?
+
 ## 1.4 Eliminamos la MV
 
 * `exit` para salir fuera de la MV.
