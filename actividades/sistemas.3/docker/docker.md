@@ -93,7 +93,7 @@ Comandos útiles de Docker:
 
 ## 1.4 Alias
 
-Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregaremos `alias d='docker'` a nuestro fichero `/home/nombre-alumno/.alias`.
+Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregaremos `alias d='docker'` a nuestro fichero `$HOME/.alias`.
 
 Ahora `d ps` equivale a `docker ps`.
 

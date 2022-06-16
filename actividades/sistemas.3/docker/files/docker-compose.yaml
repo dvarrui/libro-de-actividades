@@ -1,0 +1,6 @@
+version: "3.3"
+services:
+  demo:
+    image: "debian"
+    ports:
+    - "2241:22"
