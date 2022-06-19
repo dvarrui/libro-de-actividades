@@ -134,8 +134,7 @@ Queremos que el servicio PXE sólo se ofrezca por el interfaz de red 2 (El de la
 Recordemos que MV1 tiene 2 interfaces de red.
 * Hacemos una copia del fichero antes de modificarlo `cp /etc/sysconfig/dhcpd /etc/sysconfig/dhcp.bak`.
 * Edita el archivo `/etc/sysconfig/dhcpd` y en la línea `DHCPD_INTERFACE=""`
-añadir el nombre de interfaz que está en la red interna. Por ejemplo:
-`DHCPD_INTERFACE="enp0s3"`.
+añadir el nombre de interfaz que está en la red interna.
 
 🧑‍🏫 _¿Recuerdas el comando para consultar los nombres de las interfaces de red disponibles?_
 
@@ -205,6 +204,9 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 
 ## 2.4 Comprobar
 
+* `ip a` interfaces de red.
+* `ip route`, puerta de enlace.
+* `cat /etc/sysconfig/dhcpd | grep DHCPD_INTERFACE`.
 * Comprobar el estado correcto del servicio DHCP (`systemctl status dhcpd`)
 
 # 3. Servicio TFTP
@@ -250,16 +252,18 @@ Con esta configuración:
 
 ## 3.3 Comprobar
 
+* `cat /etc/sysconfig/atftpd |grep ATFTPD_BIND_ADDRESSES`
 * Comprobar el estado correcto del servicio (`systemctl status ...`).
 
 ## 3.4 Problemas al iniciar el servicio
 
+**Problema 1**
 Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguiente:
 
 * `systemctl start atftpd.socket` para iniciar el socket primero y.
 * `systemctl start atftpd` para inciiar el servicio.
 
-**Problema "server-limit-hit"**
+**Problema 2 (server-limit-hit)**
 Para resolverlo hacemos lo siguiente:
 
 ```
@@ -275,6 +279,9 @@ Jun 09 16:21:52 pxe-server12 systemd[1]: atftpd.socket: Failed with result 'serv
 
 pxe-server12:~ # systemctl reset-failed atftpd.socket  
 ```
+
+**Problema 3**
+* Deshabilitar la línea `ATFTPD_OPTIONS` de la configuración.
 
 # 4. Servicio NFS
 
@@ -310,6 +317,8 @@ Ahora vamos a exportar ese directorio mediante NFS. De esta forma, el contenido 
 
 ## 4.3 Comprobar
 
+* `df -hT | grep iso`
+* `cat /etc/exports |grep iso`
 * Comprobar el estado correcto del servicio (`systemctl status ...`).
 
 # 5. Menú de arranque
