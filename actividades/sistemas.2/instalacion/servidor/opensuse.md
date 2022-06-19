@@ -133,3 +133,21 @@ Vamos a añadir nuestro nuevo repositorio personal en los ficheros de configurac
 * Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejemplo:
     * `zypper in audacity`
     * `zypper in chromium`
+
+---
+# ANEXO: Revisar
+
+Configuración:
+* Nombre del equipo y del usuario.
+* IP's de las máquinas.
+
+Informe:
+* Sangrado uniforme.
+* Revisar el aspecto después de subirlo al repositorio.
+* Poner texto y a continuación imagen asociada al texto anterior y así con cada imagen. OJO: NO poner todo el texto y al final toda la secuencia de imágenes.
+
+Imágenes:
+* Capturar comando y su salida completa.
+
+Comandos:
+* Si se ejecuta un comando requerido por la práctica, y el resultado no es el correcto/esperado... hay que resolverlo porque se seguimos lo más probable es que el resto falle. Además que se percibe que NO tenemos idea de para qué estamos usando el comando.
