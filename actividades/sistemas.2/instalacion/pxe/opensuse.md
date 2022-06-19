@@ -29,6 +29,17 @@ Con un servidor de este tipo en nuestra red, únicamente tendremos que descargar
 
 > Ver [ejemplo de PXE](fotos) en funcionamiento.
 
+
+**Propuesta de rúbrica:**
+
+| ID  | Criterio               | Bien(2) | Regular(1) | Poco adecuado(0) |
+| --- | ---------------------- | ------- | ---------- | ---------------- |
+| 2.4 | Comprobar DHCP ||||
+| 3.3 | Comprobar TFTP ||||
+| 4.3 | Comprobar NFT  ||||
+| 5.3 | Comprobar menú desde el cliente ||||
+| 6.2 | Comprobar proceso completo ||||
+
 # 1. Preparativos
 
 Usaremos 2 MV:
@@ -192,6 +203,10 @@ Las peticiones DHCP que nos interesan las filtramos mediante las dos reglas que 
 
 > Si cuando inicies el cliente ves que se le asigna una IP... entonces podemos suponer que el servicio DHCP está asignando IP's correctamente.
 
+## 2.4 Comprobar
+
+* Comprobar el estado correcto del servicio DHCP (`systemctl status dhcpd`)
+
 # 3. Servicio TFTP
 
 ## 3.1 Instalar el servicio
@@ -233,7 +248,11 @@ Con esta configuración:
 * Configurar el arranque automático del servicio `atftpd`.
 * Iniciar el servicio.
 
-## 3.3 Problemas al iniciar el servicio
+## 3.3 Comprobar
+
+* Comprobar el estado correcto del servicio (`systemctl status ...`).
+
+## 3.4 Problemas al iniciar el servicio
 
 Si tenemos problemas con los sockets al iniciar el servicio, probamos lo siguiente:
 
@@ -289,6 +308,10 @@ Ahora vamos a exportar ese directorio mediante NFS. De esta forma, el contenido 
 * Configurar el arranque automático del servicio `nfsserver`.
 * Reiniciar el servidor NFS.
 
+## 4.3 Comprobar
+
+* Comprobar el estado correcto del servicio (`systemctl status ...`).
+
 # 5. Menú de arranque
 
 Ahora vamos a preparar el menú de arranque PXE que se encontrarán los clientes cuando inicien. En este menú podrán elegir el SO que se quiere instalar.
@@ -336,7 +359,6 @@ LABEL 1
   COM32 reboot.c32
 
 MENU SEPARATOR
-
 ```
 
 * Guardar los cambios al archivo.
@@ -344,7 +366,6 @@ MENU SEPARATOR
 ## 5.2 TEORÍA
 
 Repasemos un poco la sintaxis del fichero que hemos creado:
-
 * **DEFAULT menu.c32**, define que cargaremos el menú en modo texto.
 * **PROMPT 0**, para mostrar esta ventana sin pulsar ninguna tecla desde que cargue el PXE. Prueba a cambiar el 0 por un 1 y ver qué pasa, debes pulsar Enter para que cargue el menú principal.
 * **TIMEOUT 300**, define un tiempo de espera de 30 segundos antes de cargar la opción predeterminada.
@@ -374,10 +395,13 @@ Veamos qué podemos seguir aprendiendo de la sintaxis de estos ficheros:
 
 > OJO: Para evitar problemas de conectividad comprobar la configuración del cortafuegos en el servidor.
 
+* Entregar un pequeño vídeo de este apartado.
 * Reiniciar una máquina cliente. Puede que tengas que pulsar la tecla F12 durante el arranque para seleccionar el arranque PXE.
 * Comprobar que accedemos al menú PXE. Aunque todavía nos faltan más opciones.
 
 # 6. Configurar una imagen para instalar
+
+## 6.1 Preparativos
 
 Usaremos una carpeta dentro del TFTP para almacenar los ficheros que necesita
 nuestra imagen para arrancar. Esto es: el kernel y el ramdisk.
@@ -406,6 +430,8 @@ LABEL 2
     Instalar openSUSE - nombre-del-alumnoXX
   ENDTEXT
 ```
+
+## 6.2 Comprobar
 
 **Incluir en la entrega un pequeño vídeo con lo siguiente:**
 1. Iniciar MV cliente y comprobar el menú PXE.
