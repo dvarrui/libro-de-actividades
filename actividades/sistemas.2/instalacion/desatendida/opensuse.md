@@ -1,6 +1,6 @@
 
 ```
-Curso           : 201920, 201819, 201718
+Curso           : 202122, 202021, 201920, 201819, 201718
 Area            : Sistemas operativos, instalaciones
 Descripción     : Instalación desatendida OpenSUSE
 Requisitos      : OpenSUSE Leap 15,
@@ -17,7 +17,7 @@ Entregar:
 * Informe, capturas de imágenes.
 * Entregar XML utilizado.
 
----
+
 # 1. Instalación desatendida con **autoyast**
 
 > Enlace de interés:
