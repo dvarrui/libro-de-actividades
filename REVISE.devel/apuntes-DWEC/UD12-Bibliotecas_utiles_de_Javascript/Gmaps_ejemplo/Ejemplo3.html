@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+      <!-- Definimos el tamaño del mapa-->
+    <style>
+      #map {
+        width: 400px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+      <!-- Definimos el div donde ira el mapa-->
+    <div id="map"></div>
+
+    <!-- Google Maps JS API -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- GMaps Library -->
+    <script src="js/gmaps.js"></script>
+    <script>
+      /* Creamos el objeto del mapa, indicando en que DIV se pone
+        y en que latitud y longitud */
+      var mapObj = new GMaps({
+        el: '#map',
+        lat: 48.857,
+        lng: 2.295
+      });
+
+     // Geolocalizamos
+      GMaps.geolocate({
+        // En el caso de que funcione bien
+        success: function(position){
+          // Establecemos el mapa en la seccion geolocalizada
+          mapObj.setCenter(position.coords.latitude, position.coords.longitude);
+          // Ponemos un cartel en el lugar que nos han geolocalizado
+          mapObj.drawOverlay({
+            lat: position.coords.latitude, 
+            lng: position.coords.longitude,
+            content: '<div style="background-color:lightblue">AQUI ESTAMOS GEOLOCALIZADOS!!!</div>'  
+          });
+        },
+        // Caso error
+        error: function(error){
+          alert('Geolocalizacion fallida: '+error.message);
+        },
+        // Caso no soportado
+        not_supported: function(){
+          alert("Tu navegador no soporta geolocalizacion");
+        },
+        // Se ejecuta siempre
+        always: function(){
+          alert("Hecho!");
+        }
+      });
+     
+    </script>
+  </body>
+</html>

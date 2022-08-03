@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- 1. Se indica que se usa UTF-8 encoding -->
+        <meta charset="utf-8">
+        <title>jQuery Localization Tool Demo</title>
+
+        <!-- 2. Incluimos el CSS de jQuery Localization Tool -->
+        <link type="text/css" rel="stylesheet" href="dist/jquery.localizationTool.min.css">
+
+    </head>
+    <body>
+        <!-- 3. Contenido para ser traducido -->
+        <h1>Get started with jquery.localizationTool.js</h1>
+        <h2>view source to see a step-by-step guide</h2>
+        <h3 class="subsubtitle">hopefully should be simple enough</h3>
+
+        <!-- 4. Etiqueta para la seleccion de lenguaje (Aqui aparece el widget para seleccionar el idioma ) 
+        Para usarlo hay que hacer click y se desplega -->
+        <div id="selectLanguageDropdown" class="localizationTool"></div>
+
+        <!-- Mas conetenido para ser traducido -->
+        <p id="welcomeText">Welcome! the dropdown should go above this text!</p>
+        <input type="text" placeholder="test placeholder"></input>
+
+        <!-- 5. Incluimos jQuery -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+        <!-- 6. Incluimos localizationTool.js DESPUES de jQuery -->
+        <script src="dist/jquery.localizationTool.min.js"></script>
+
+        <!-- 7. Ponemos en marcha Localization Tool -->
+        <script>
+            $('#selectLanguageDropdown').localizationTool({
+                'defaultLanguage' : 'en_GB', /* (optional) por defecto en_GB */
+                'showFlag': true,            /* (optional) muestra/esconde la bandera */
+                'showCountry': true,         /* (optional) muestra/esconde el pais */
+                'showLanguage': true,        /* (optional) muestra/esconde el lenguaje */
+                'languages' : {              /* (optional) define lenguajes adicionales  */
+                    'italian' : {
+                        'country': 'Italy',
+                        'language' : 'Italian',
+                        'countryTranslated': 'Italia',
+                        'languageTranslated': 'Italiano',
+                        'flag' : {
+                            'url' : 'http://upload.wikimedia.org/wikipedia/commons/f/fb/Farm-Fresh_italy.png', /* url of flag image */
+                            'class' : 'italian-flag' /* (optional) class to assign to the flag (e.g., for css styling) */
+                        }
+                    },
+                    'barletta-dialect' : {
+                        'country': 'Barletta',
+                        'language' : 'Barlettano',
+                        'countryTranslated': 'Barlett',
+                        'languageTranslated': "Barlett'n",
+                        'flag': {
+                            'url' : 'http://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_Barletta.png'
+                        }
+                    }
+                },
+                /* 
+                 * Traduce cadenas a diversos idiomas
+                 */
+                'strings' : {
+                    /* 
+                     * Ejemplo de traduccion de texto directa 
+                     */
+                    'Get started with jquery.localizationTool.js' : {
+                        'italian' : 'Inizia ad usare jquery.localizationTool.js',
+                        'barletta-dialect' : 'Accumminz a yuse` jquery.localizationTool.js',
+                        'jp_JP' : '始める jquery.localizationTool.js',
+                        'ar_TN' : 'تبدأ مع jQuery.localizationTool.js'
+                    },
+                    /* 
+                     * Traduce elementos segun el selector
+                     * element:<element-name> O id:<element-id> O class:<class-name>
+                     */
+                    'element:h2' : {
+                        'italian' : 'visualizza il sorgente per una guida passo passo',
+                        'barletta-dialect' : "veit u cudc sorgind c ve truinn na gueida vlo'c",
+                        'jp_JP' : 'ステップバイステップガイドを参照してソースを表示',
+                        'ar_TN' : 'عرض المصدر لرؤية دليل خطوة بخطوة'
+                    },
+                    /*
+                     * Ejemplo con ID: ids tienen prioridad sobre otros
+                     */
+                    'id:welcomeText': {
+                        'italian' : 'Benvenuto! il menu a discesa dovrebbe coprire questo testo!',
+                        /* NOTE: you can actually use HTML in the translated text! */
+                        'barletta-dialect' : 'Benvenout! u menu <b>va</b> cupr&iacute; st&iacute; par&oacute;l',
+                        'jp_JP' : 'ようこそ！ドロップダウンには、このテキストの上に行く必要があります！',
+                        'ar_TN' : 'أهلا وسهلا! القائمة المنسدلة يجب ان تذهب فوق هذا النص!'
+                    },
+                    /*
+                     * Ejemplo con clasess. NOTE: clases tienen preferencia sobre selectores
+                     */
+                    'class:subsubtitle' : {
+                        'italian' : 'dovrebbe essere abbastanza semplice',
+                        'barletta-dialect' : "va jiss f&eacute;cl f&eacute;cl",
+                        'jp_JP' : 'うまくいけば、十分に簡単であるべき',
+                        'ar_TN' : '(نأمل أن يكون بسيطا بما فيه الكفاية)'
+                    },
+                    /*
+                     * Puedes traducir atributos
+                     * <attribute-name>::<id/class/element>:<name>
+                     */
+                    'placeholder::element:input' : {
+                        'italian' : 'esempio segnaposto',
+                        'barletta-dialect' : "n'esimpj du signapust",
+                        'jp_JP' : 'サンプルプレースホルダー',
+                        'ar_TN' : 'نائب عينة'
+                    }
+                }
+            });
+            // Final de la guia
+        </script>
+    </body>
+</html>
