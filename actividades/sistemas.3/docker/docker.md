@@ -93,7 +93,7 @@ Comandos útiles de Docker:
 
 ## 1.4 Alias
 
-Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregaremos `alias d='docker'` a nuestro fichero `/home/nombre-alumno/.alias`.
+Para ayudarnos a trabajar de forma más rápida con la línea de comandos podemos agregaremos `alias d='docker'` a nuestro fichero `$HOME/.alias`.
 
 Ahora `d ps` equivale a `docker ps`.
 
@@ -380,6 +380,12 @@ CMD ["/root/holamundoXX.sh"]
 * `docker login -u USUARIO-DOCKER`, para abrir la conexión.
 * `docker tag nombre-alumno/holamundo:latest USUARIO-DOCKER/holamundo:version1`, etiquetamos la imagen con "version1".
 * `docker push USUARIO-DOCKER/holamundo:version1`, para subir la imagen (version1) a los repositorios de Docker.
+
+## 5.3 Analizar y entender
+
+Analizar y entender el siguiente Dockerfile (https://github.com/pausoft/docker)
+* Explicar qué utilidad tiene y cómo lo hace.
+
 
 # 6. Limpiar contenedores e imágenes
 

@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Área        : Sistemas operativos, dominios, políticas, seguridad
 Descripción : Aplicar políticas de seguridad a los equipos del dominio
               Crear paquetes de instalación desatendido
@@ -120,17 +120,11 @@ Leeer                              | &#x2714;                   | &#x2714;
 
 * Por ejemplo, si vamos a usar/crear un MSI de Firefox, entonces crearemos la subcarpeta `e:\softwareXX\firefox`.
 
-## 2.2 Crear el paquete MSI con EMCO Software
+## 2.2 Paquete MSI
 
-* Ir a la MV WIndows10.
-* Instalar el programa: https://emcosoftware.com/msi-package-builder
-* Crear un paquete MSI con el programa EMCO Software. Tutoriales:
-    * https://www.youtube.com/watch?v=Ak1z1iadfQw
-    * https://www.youtube.com/watch?v=AZXhZDx2zSY&list=UUm3zqS2cJGK_Zdeq_-SzBKg&index=3 (Creado por JA Mora).
 * Ir al Windows Server.
+* Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 * Copiar el paquete MSI en la carpeta `E:\softwareXX\firefox\`.
-
-**NOTA**: Podemos [descargar el programa Firefox en formato msi](https://support.mozilla.org/en-US/kb/deploy-firefox-msi-installers) directamente.
 
 # 3. Aplicar directiva de Equipo
 
@@ -142,8 +136,8 @@ Leeer                              | &#x2714;                   | &#x2714;
 
 **Vamos al servidor:**
 * Crear la OU `equiposXX` y mover los equipos del dominio (`computers/*`) dentro de esta OU.
-* Dentro de la OU anterior, crear una nueva directiva (`gpo_softwareXX`).
-* Editar la GPO.
+* Dentro de la OU anterior, crear una nueva GPO con el nombre `gpo_softwareXX`.
+* Seleccionar la GPO.
 * Ir a `Configuración del equipo -> Directivas -> Configuración de software`, para editar la directiva.
     * Instalación de software -> Paquete -> Nuevo.
     * Elegir el paquete usando la ruta de red `\\ip-del-servidor\softwareXX\firefox\firefox.msi`

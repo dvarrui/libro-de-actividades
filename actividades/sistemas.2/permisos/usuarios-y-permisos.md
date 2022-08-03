@@ -62,11 +62,11 @@ en una carpeta determinada, haremos lo siguiente:
 
 > Sustituir XX por el número asignado a cada alumno.
 
-| Carpeta | Permisos |
-| ------- | -------- |
+| Carpeta   | Permisos |
+| --------- | -------- |
 | privateXX | El usuario propietario tendrá control total y nadie más tendrá permisos |
-| groupXX  | El grupo `jedis` permisos de lectura, y el usuario propietario control total |
-| publicXX | Todos tienen permiso de lectura, y el usuario propietario control total |
+| groupXX   | El grupo `jedis` permisos de lectura, y el usuario propietario control total |
+| publicXX  | Todos tienen permiso de lectura, y el usuario propietario control total |
 
 * Capturar imagen del resultado de la asignación de permisos.
 

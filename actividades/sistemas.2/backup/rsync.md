@@ -5,8 +5,8 @@ Estado : EN CONSTRUCCIÓN
 
 # 1. Rsync
 
-Más información:
-* Libro "Administración de Sistemas Linux" de ANAYA (Capítulo 11)
+> Más información:
+> * Libro "Administración de Sistemas Linux" de ANAYA (Capítulo 11)
 
 ## 1.1 Introducción
 
@@ -41,8 +41,6 @@ cuando se desea mantener versiones antiguas de cada archivo.
 
 Después de las opciones vienen los parámetros de origen y destino. Las rutas pueden ser locales o remotas (user@host:path).
 
----
-
 # 2. Preparativos
 
 Necesitaremos 2 MV's:
@@ -58,8 +56,6 @@ También podemos verificarlo con: `whereis rsync`, `zypper info rsync`, etc.
 * `zypper install rsync`, instalar rsync en OpenSUSE.
 
 > También podemos usar el comando `apt install rsync`, para OpenSUSE o Debian/Ubuntu.
-
----
 
 # 3. Comando manual
 
@@ -87,8 +83,6 @@ siguientes ficheros: `file1.txt` (Fichero de texto), `file2.png` (Imagen) y
 * Borrar fichero `$HOME/misdatosXX/file2.png`
 * Invocar el comando rsync para copiar `$HOME/misdatosXX` en la MV2.
 * Comprobar que se han actualizado los datos.
-
----
 
 # 4. Usando un script
 
@@ -120,8 +114,6 @@ rsync -aHPvz . $(USERNAME)@${HOSTNAME}:.
 * Mover el fichero a `$HOME/bin/backupXX`:
 * Invocar el programa `backupXX`.
 * Comprobar.
-
----
 
 # 5. Recuperación
 

@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "vagrant-debian" do |i|
+    # Configure BOX
+    i.vm.box = "generic/debian10"
+
+    # Configure VM
+    i.vm.hostname = "vagrant-debian"
+    #i.vm.network "public_network", bridge: [ "eth0" ]
+    #i.vm.network "public_network", bridge: [ "wlan0" ]
+    i.vm.network :forwarded_port, guest: 22, host: 2241
+    i.vm.synced_folder "./", "/vagrant"
+    i.vm.provision "shell", path: 'install-software.sh'
+
+    # Configure VIRTUALBOX
+    i.vm.provider "virtualbox" do |v|
+      v.name = 'vagrant-debian'
+      v.memory = 2048
+    end
+  end
+end

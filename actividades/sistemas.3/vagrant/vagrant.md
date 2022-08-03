@@ -13,23 +13,22 @@ Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
-| (3.3) Comprobar proyecto 1    | | | |
-| (5.2) Comprobar proyecto 2    | | | |
-| (6.1) Suministro Shell Script | | | |
-| (6.2) Suministro Puppet       | | | |
-| (7.2) Crear Box Vagrant       | | |. |
+| (1) Comprobar proyecto    | | | |
+| (2) Comprobar proyecto    | | | |
+| (4) Suministro Shell Script | | | |
+| (5) Suministro Puppet       | | | |
+| (6) Crear Box Vagrant       | | | |
+| (7) Con GUI       | | |. |
 
 ## Introducción
 
 Según *Wikipedia*:
 
-Vagrant es una herramienta para la creación
+* Vagrant es una herramienta para la creación
 y configuración de entornos de desarrollo virtualizados.
-
-Originalmente se desarrolló para VirtualBox y sistemas de configuración
+* Originalmente se desarrolló para VirtualBox y para sistemas de configuración
 tales como Chef, Salt y Puppet. Sin embargo desde la versión 1.1 Vagrant es capaz de trabajar con múltiples proveedores, como VMware, Amazon EC2, LXC, DigitalOcean, etc.2
-
-Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
+* Aunque Vagrant se ha desarrollado en Ruby se puede usar en multitud de
 proyectos escritos en otros lenguajes.
 
 > NOTA: Para desarrollar esta actividad se ha utilizado principalmente
@@ -71,7 +70,7 @@ BOXNAME (virtualbox, 0)
 
 ```
 mkdir nombre-alumnoXX-va1box.d
-cd nombrealumnoXX-vagrant1
+cd nombre-alumnoXX-va1box.d
 ```
 
 A partir de ahora vamos a trabajar dentro de esta carpeta.
@@ -84,7 +83,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-> INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crearlo.
+> INFO: Si quisiéramos partir de un fichero Vagrantfile más complejo, podemos usar el comando `vagrant init` para crear un fichero de ejemplo.
 
 ## 1.3 Comprobar
 
@@ -92,6 +91,11 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 * Debemos estar dentro de `nombre-alumnoXX-va1box.d`.
 * `vagrant up`, para iniciar una nueva instancia de la máquina.
 * `vagrant ssh`: Conectar/entrar en nuestra máquina virtual usando SSH.
+
+> DUDAS:
+> * ¿Podría funcionar si tenemos el fichero Vagrantfile en un disco duro externo o pendrive e intentamos levantar la máquina virtual con Vagrant?
+> * ¿Tiene algo que ver que sea un almacenamiento externo o es por el sistema de ficheros?
+> * ¿Qué requisito tiene vagrant con respecto al sistema de ficheros sobre el que va a trabajar?
 
 ## 1.4 Eliminamos la MV
 
@@ -105,7 +109,7 @@ Vamos a crear una MV nueva y la vamos a iniciar usando Vagrant:
 > * `vagrant suspend`: Suspender la máquina virtual. Tener en cuenta que la MV en modo **suspendido** consume más espacio en disco debido a que el estado de la máquina virtual que suele almacenarse en la RAM se pasa a disco.
 > * `vagrant resume` : Volver a despertar la máquina virtual.
 
-# 2. TEORÍA
+## 1.5 TEORÍA
 
 `NO ES NECESARIO hacer este apartado. Sólo es información.`
 
@@ -144,33 +148,33 @@ config.ssh.forward_agent = true
 config.ssh.forward_x11 = true
 ```
 
-# 3. Proyecto: Redirección de puertos
+# 2. Proyecto: Redirección de puertos
 
 Ahora vamos a hacer otro proyecto añadiendo redirección de puertos.
 
-## 3.1 Creamos los ficheros
+## 2.1 Creamos los ficheros
 
 En la máquina real:
-* Crear carpeta `nombre-alumnoXX-va3port.d`.
+* Crear carpeta `nombre-alumnoXX-va2port.d`.
 * Entrar en el directorio.
 * Configurar Vagrantfile para usar nuestra caja BOXNAME y hostname = "nombre-alumnoXX-vagrant3".
 * Modificar el fichero `Vagrantfile`, de modo que el puerto 42XX del sistema anfitrión sea enrutado al puerto 80 del ambiente virtualizado.
   * `config.vm.network :forwarded_port, host: 42XX, guest: 80`, sustituir XX por el número de cada uno. Por ejemplo el PC 1 será 01.
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-port`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va2port`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
 Levantar la MV podemos hace `vagrant up` pero también `time vagrant up` para medir el tiempo que se tarda en levantar la MV. El añadir el comando `time COMMAND` delante de un comando nos calcula el tiempo que tarda en ejecutarse dicho comandos/programa (COMMAND).
 
-## 3.2 Entramos en la MV
+## 2.2 Entramos en la MV
 
 * Entramos en la MV en la máquina virtual (`vagrant ssh`).
 * Instalamos Apache2.
 
 > NOTA: Cuando la MV está iniciada y si el fichero de configuración ha cambiado y queremos recargarlo (que se vuelva a leer) hacemos `vagrant reload`.
 
-## 3.3 Comprobar
+## 2.3 Comprobar
 
 Para confirmar que hay un servicio a la escucha en 4567:
 * Ir a la máquina real.
@@ -178,7 +182,7 @@ Para confirmar que hay un servicio a la escucha en 4567:
 * Abrir el navegador web con el URL `http://127.0.0.1:42XX`. En realidad estamos accediendo al puerto 80 de nuestro sistema virtualizado.
 * `nmap -Pn localhost`
 
-## 3.4 Eliminar la MV
+## 2.4 Eliminar la MV
 
 (Ya sabes cómo hacerlo)
 
@@ -186,27 +190,24 @@ Para confirmar que hay un servicio a la escucha en 4567:
 > * ¿Pueden verse entre ellas? (ping)
 > * En caso negativo ¿cómo podemos configurar la red para que se vean?
 
-# 4. Proyecto: Suministro mediante shell script
+# 3. Proyecto: Suministro mediante shell script
 
 Una de los mejores aspectos de Vagrant es el uso de herramientas de suministro. Esto es, ejecutar *"una receta"* o una serie de scripts durante el proceso de arranque del entorno virtual para instalar, configurar y personalizar un sin fin de aspectos del SO del sistema anfitrión.
 
-* `vagrant halt`, apagamos la MV.
-* `vagrant destroy` y la destruimos para volver a empezar.
-
-## 4.1 Crear ficheros
+## 3.1 Crear ficheros
 
 Ahora vamos a suministrar a la MV un pequeño script para instalar Apache.
 
 Ejemplo:
 ```
-david42-va4script.d
+david42-va3script.d
 ├── html
 │   └── index.html
 ├── install_apache.sh
 └── Vagrantfile
 ```
 
-* Crear directorio `nombre-alumnoXX-va4script.d` para nuestro proyecto.
+* Crear directorio `nombre-alumnoXX-va3script.d` para nuestro proyecto.
 * Entrar en dicha carpeta.
 * Crear la carpeta `html` y crear fichero `html/index.html` con el siguiente contenido:
 
@@ -228,27 +229,28 @@ apt install -y apache2
 echo "[INFO] Fin del script: $(date)"
 ```
 
-## 4.2 Vagrantfile
+## 3.2 Vagrantfile
 
 Incluir en el fichero de configuración `Vagrantfile` lo siguiente:
-* `config.vm.hostname = "nombre-alumnoXX-va4script"`
+* `config.vm.hostname = "nombre-alumnoXX-va3script"`
 * `config.vm.provision :shell, :path => "install_apache.sh"`, para indicar a Vagrant que debe ejecutar el script `install_apache.sh` dentro del entorno virtual.
 * `config.vm.synced_folder "html", "/var/www/html"`, para sincronizar la carpeta exterior `html` con la carpeta interior. De esta forma el fichero "index.html" será visible dentro de la MV.
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-script`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va3script`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
-## 4.3 Comprobamos
+## 3.3 Comprobamos
 
-* `vagrant up`, para crear la MV. Podremos notar, al iniciar la máquina, que en los mensajes de salida se muestran mensajes que indican cómo se va instalando el paquete de Apache que indicamos.
+* `vagrant up`, para crear la MV. IMPORTATE: Capturar imagen de todos los comandos y su salida completa.
+* Al iniciar la máquina, aparecen mensajes de salida que muestran información sobre cómo se va instalando el paquete de Apache que indicamos.
 * Para verificar que efectivamente el servidor Apache ha sido instalado e iniciado, abrimos navegador en la máquina real con URL `http://127.0.0.1:42XX`.
 
 ![vagrant-forward-example](./images/vagrant-forward-example.png)
 
 > NOTA: Podemos usar `vagrant reload`, si la MV está en ejecución, para que coja los cambios de configuración sin necesidad de reiniciar.
 
-# 5. Proyecto: Suministro mediante Puppet
+# 4. Proyecto: Suministro mediante Puppet
 
 Puppet es un orquestador. Sirve para aprovisionar las máquinas locales o remotas sin usar scripting.
 
@@ -264,16 +266,16 @@ Puppet es un orquestador. Sirve para aprovisionar las máquinas locales o remota
 >
 > ![vagran-puppet-pp-file](./images/vagrant-puppet-pp-file.png)
 
-## 5.1 Preparativos
+## 4.1 Preparativos
 
 Se pide hacer lo siguiente.
-* Crear directorio `nombre-alumnoXX-va5puppet.d` como nuevo proyecto Vagrant.
+* Crear directorio `nombre-alumnoXX-va4puppet.d` como nuevo proyecto Vagrant.
 * Modificar el archivo `Vagrantfile` de la siguiente forma:
 
 ```
 Vagrant.configure("2") do |config|
   ...
-  config.vm.hostname = "nombre-alumnoXX-va5puppet"
+  config.vm.hostname = "nombre-alumnoXX-va4puppet"
   ...
   # Nos aseguramos de tener Puppet en la MV antes de usarlo.
   config.vm.provision "shell", inline: "sudo apt-get update && sudo apt-get install -y puppet"
@@ -300,13 +302,13 @@ package { 'neofetch':
 > * El Puppet es un gestor de infraestructura que veremos en profundidad otra actividad.
 > * Podemos hacer el suministro con otros gestores de infraestructura como Salt-stack. Consultar enlace  [Salt Provisioner](https://www.vagrantup.com/docs/provisioning/salt.html).
 
-## 5.2 Vagrantfile
+## 4.2 Vagrantfile
 
 Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
-* La MV de VirtualBox debe tener el nombre `vagrantXX-puppet`.
+* La MV de VirtualBox debe tener el nombre `vagrantXX-va4puppet`.
 * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
-## 5.3 Comprobamos
+## 4.3 Comprobamos
 
 Para que se apliquen los cambios de configuración tenemos 2 caminos:
 * **Con la MV encendida**
@@ -319,16 +321,20 @@ Para que se apliquen los cambios de configuración tenemos 2 caminos:
 Ir a la MV:
 * Comprobar que el software está instalado.
 
-# 6. Proyecto: Caja personalizada
+> **PREGUNTA:** ¿Dónde está la caja de Vagrant que nos acabamos de descargar? y ¿dónde está la máquina virtual que se ha creado con Vagrant? ¿No tienes curiosidad?
+> * Consulta el directorio `$HOME/.vagrant.d`
+> * Consulta el directorio `$HOME/Virtual Box`
+
+# 5. Proyecto: Caja personalizada
 
 En los apartados anteriores hemos descargado una caja/box de un repositorio de Internet, y la hemos personalizado. En este apartado vamos a crear nuestra propia caja/box a partir de una MV de VirtualBox que tengamos.
 
-## 6.1 Preparar la MV VirtualBox
+## 5.1 Preparar la MV VirtualBox
 
 > Enlace de interés:
 > * Indicaciones de [¿Cómo crear una Base Box en Vagrant a partir de una máquina virtual](http://www.dbigcloud.com/virtualizacion/146-como-crear-un-vase-box-en-vagrant-a-partir-de-una-maquina-virtual.html) para preparar la MV de VirtualBox.
 
-**Elegir una máquina virtual**
+### Elegir una máquina virtual
 
 Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una determinada configuración para poder publicar nuestro Box.
 
@@ -336,7 +342,7 @@ Lo primero que tenemos que hacer es preparar nuestra máquina virtual con una de
 * Configurar la red en modo automático o dinámico (DHCP).
 * Instalar OpenSSH Server en la MV.
 
-**Crear usuario con aceso SSH**
+### Crear usuario con acceso SSH
 
 Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máquina virtual por SSH desde fuera con este usuario. Y luego, a este usuario le agregamos una clave pública para autorizar el acceso sin clave desde Vagrant. Veamos cómo:
 
@@ -356,7 +362,7 @@ Vamos a crear el usuario `vagrant`. Esto lo hacemos para poder acceder a la máq
 > * Podemos cambiar los parámetros de configuración del acceso SSH. Mira la teoría...
 > * Ejecuta `vagrant ssh-config`, para averiguar donde está la llave privada para cada máquina.
 
-**Sudoers**
+## Sudoers
 
 Tenemos que conceder permisos al usuario `vagrant` para que pueda hacer tareas privilegiadas como configurar la red, instalar software, montar carpetas compartidas, etc. Para ello debemos configurar el fichero `/etc/sudoers` (Podemos usar el comando `visudo`) para que no nos solicite la password de root, cuando realicemos estas operaciones con el usuario `vagrant`.
 
@@ -371,46 +377,52 @@ version:        6.0.24
 ```
 * Apagamos la MV.
 
-## 6.2 Crear caja Vagrant
+## 5.2 Crear caja Vagrant
 
 Una vez hemos preparado la máquina virtual ya podemos crear el box.
 
-* Vamos a crear una nueva carpeta `nombre-alumnoXX-va6custom.d`, para este nuevo proyecto vagrant.
+* Vamos a crear una nueva carpeta `nombre-alumnoXX-va5custom.d`, para este nuevo proyecto vagrant.
 * `VBoxManage list vms`, comando de VirtualBox que muestra los nombres de nuestras MVs. Elegir una de las máquinas (VMNAME).
 * Nos aseguramos que la MV de VirtualBox VMNAME está apagada.
 * `vagrant package --base VMNAME --output nombre-alumnoXX.box`, parar crear nuestra propia caja.
 * Comprobamos que se ha creado el fichero `nombre-alumnoXX.box` en el directorio donde hemos ejecutado el comando.
-* `vagrant box add nombre-alumno/va6custom nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
-* `vagrant box list`, consultar ahora la lista de cajas Vagrant disponibles.
+* `vagrant box add nombre-alumno/va5custom nombre-alumnoXX.box`, añadimos la nueva caja creada por nosotros, al repositorio local de cajas vagrant de nuestra máquina.
+* Consultar ahora la lista de cajas Vagrant disponibles.
 
-
-## 6.3 Vagrantfile
+## 5.3 Vagrantfile
 
 * Crear un nuevo fichero Vagrantfile para usar nuestra caja.
 * Incluir en el fichero `Vagrantfile` las configuraciones necesarias para:
     * La MV de VirtualBox debe tener el nombre `vagrantXX-nombre-alumno`.
     * La memoria RAM de la MV en VirtualBox debe ser de 2048 MiB.
 
-## 6.4 Usar la nueva caja
+## 5.4 Usar la nueva caja
 
 * Levantamos una nueva MV a partir del Vagranfile.
 * Nos debemos conectar sin problemas (`vagant ssh`).
 
-# 7. Caja Windows
+# 6. Caja Windows
 
-## 7.1 Windows con vagrant
+## 6.1 Windows con vagrant
+
+> OJO: Puede ser que nos haga falta instalar algún plugin de Vagrant:
+> * `vagrant plugin install winrm`
+> *  y puede ser que también haga falta winrm-elevated.
 
 * Crear una MV Windows usando vagrant.
-* Comprobar
+* Comprobar que funciona.
 
-## 7.2 Limpiar
+## 6.2 Limpiar
 
 Cuando terminemos la práctica, ya no nos harán falta las cajas (boxes) que tenemos cargadas en nuestro repositorio local. Por tanto, podemos borrarlas para liberar espacio en disco:
 
 * `vagrant box list`, para consultar las cajas disponibles.
 * `vagrant box remove BOXNAME`, para eliminar una caja BOXNAME de nuestro repositorio local.
 
----
+> **OPCIONAL**: En una máquina real con SO Windows
+> * Instalar Vagrant en Windows.
+> * Levantar una máquina con Vagrant en Windows
+
 # ANEXO
 
 ## Pendiente

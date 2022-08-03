@@ -1,0 +1,17 @@
+graph structs {
+  node [shape=record; style=rounded];
+  gateway [label="<red0> 172.18.0.1| <hostname> Router BENDER| <red1> Red exterior"];
+
+  node [shape=record; style=rounded];
+  mv1 [label="<red0> 172.18.XX.31/16|<hostname> MV1 PXE Server|<red1> 192.168.XX.31/24"];
+  mv2 [label="<red1> 192.168.XX.201/24|<hostname> MV2 Client"];
+
+  node [shape=circle; style=filled];
+  netint [label="192.168.XX.0/24"]
+  net103 [label="172.18.0.0/16"]
+
+  mv1:red0 -- net103 -- gateway:red0;
+  mv1:red1 -- netint -- mv2:red1;
+
+  rankdir=LR
+}

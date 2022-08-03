@@ -1,6 +1,6 @@
 
 ```
-Curso       : 202021, 201920, 201819, 201718
+Curso       : 202122, 202021, 201920, 201819, 201718
 Área        : Sistemas operativos, servidor, instalar, software
               Servicio Web
 Descripción : Servidor de actualizaciones OpenSUSE
@@ -23,65 +23,65 @@ Tiempo      : 5 horas
 
 **Preparativos**. Necesitaremos las siguientes máquinas:
 
-| ID  | Sistema Operativo | Rol |
-| --- | ----------------- | --- |
-| MV1 | OpenSUSE          | Servidor de actualizaciones |
-| MV2 | OpenSUSE          | Cliente que instala las actualizaciones |
+| ID  | Hostname | Rol |
+| --- | -------- | --- |
+| MV1 | serverXX | Servidor de actualizaciones |
+| MV2 | clientXX | Cliente que instala las actualizaciones |
 
 # 1. Servidor Web
 
-Para compartir los paquetes de este repositorio con el resto de equipos de la red, podríamos usar diferentes protocolos (http, nfs, ftp/tftp, etc.).
-
-Para esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar un servidor Web, de modo que los clientes se podrán conectar con el servidor de actualizaciones usando el protocolo HTTP.
+Para compartir los paquetes de este repositorio con el resto de equipos de la red, se pueden usar diferentes protocolos (http, nfs, ftp/tftp, etc.). En esta práctica vamos a usar el protocolo HTTP. Por tanto, vamos a necesitar un servidor Web, de modo que los clientes se podrán conectar con el servidor de actualizaciones usando el protocolo HTTP.
 
 ## 1.1 Instalación
 
-* Ir a la MV1 (servidor de actualizaciones).
-* Configurar el nombre del host como `servidorXX`.
-* Instalar el servidor web Apache `zypper in apache2`
-* `systemctl enable apache2`, activar apache2 al inicio.
-* `systemctl start apache2`, iniciar servicio apache2.
-* `systemctl status apache2`, comprobar el estado del servicio apache2.
+Ir a la MV1:
+* Instalar el servidor web Apache (Paquete `apache2`).
+* Activar apache2 al inicio (`systemctl enable ...`).
+* Iniciar servicio apache2.
+* Comprobamos el estado del servicio apache2.
 
 ## 1.2 Cortafuegos
 
-* Abrir el puerto http(80) en el cortafuegos por comandos:
-    * `firewall-cmd --add-service=http`
-    * `firewall-cmd --permanent --add-service=http`
+Abrir el puerto http(80) en el cortafuegos por comandos:
+* `firewall-cmd --add-service=http`
+* `firewall-cmd --permanent --add-service=http`
 
 > También se puede hacer por Yast:
 > * `Yast -> Cortafuegos -> Servicios autorizados`, añadir servicio `HTTP` y `HTTPS`.
 
-* Ir a la MV2 (cliente).
-* Configurar el nombre del host cliente como `clienteXX`.
-* Ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos en el servidor. Debe aparecer abierto el servicio Web (http 80).
+* Crear el fichero `/srv/www/htdocs/index.html`. Escribimos nuestro nombre dentro para personalizarlo.
 
-## 1.3 Comprobar
+## 1.3 Comprobar el acceso remoto
 
-* Ir a la MV1 servidor.
-* Crear el fichero `/srv/www/htdocs/index.html`. Escribimos nuestro nombre dentro.
-* Desde la MV2 cliente abrimos navegador web y ponemos URL `http://ip-del-servidor`, para comprobar que accedemos vía HTTP a la otra MV. Si no se ve la página web, volver a revisar la conexión con el servidor y la configuración del cortafuegos en el servidor.
+Ir a la MV2:
+* Ejecutar `nmap -Pn ip-del-servidor`, para comprobar los servicios abiertos del servidor. Debe aparecer abierto el servicio Web (http 80).
+* Abrimos navegador web y ponemos URL `http://ip-del-servidor`, para comprobar que accedemos vía HTTP a la otra MV. Si no se ve la página web, volver a revisar la conexión con el servidor y la configuración del cortafuegos en el servidor.
 
 # 2. Preparar el repositorio local
 
 ## 2.1 Descargar ficheros rpm
 
 Los ficheros RPM nos permiten instalar software en el sistema operativo.
-A continuación vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina local.
+A continuación vamos a descargar algunos paquetes (de los repositorios oficiales) en nuestra máquina servidor local.
 
-* Ir a la MV1. Entrar como usuario root.
+Ir a la MV1
+* Entrar como usuario root.
 * `zypper clean`, para limpiar todo lo que se haya quedado en la caché de zypper.
 * `tree /var/cache/zypp/packages | grep rpm`, vemos que no tenemos paquetes rpm descargados por ahora.
-* Ejecutar los siguientes comandos para descargar algunos paquetes y sus dependencias. Descargar por ejemplo los siguientes paquetes: geany, tree, nmap e ipcalc.
-    * `zypper in --download-only PACKAGENAME`, para descargar paquete sin instalarlo,
-    * `zypper -v in -f --download-only PACKAGENAME`, para descargar paquete sin
-    instalarlo, cuando el software ya está instalado en nuestro sistema local.
+* Descargamos varios paquetes y sus dependencias. Por ejemplo descargar los siguientes paquetes: geany, tree, nmap e ipcalc.
+
+| Acción | Comando |
+| ------ | ------- |
+| Descargar paquete sin instalarlo, cuando el paquete NO está instalado | `zypper in --download-only PACKAGENAME` |
+| Descargar paquete sin instalarlo, cuando el software SI está instalado | `zypper -v in -f --download-only PACKAGENAME` |
+
 * `tree /var/cache/zypp/packages | grep rpm`, vemos una estructura de directorios con los archivos de los paquetes descargados.
 
-> INFO: Si quisiéramos descargar un repositorio remoto entero podríamos hacer `wget -r URL-DEL-REPOSITORIO`. Este proceso tarda mucho tiempo y no lo vamos a hacer.
+> INFO: Si quisiéramos descargar un repositorio remoto entero podríamos usar el comando `wget`. Por ejemplo `wget -r URL-DEL-REPOSITORIO`. Este proceso tarda mucho tiempo y no lo vamos a hacer.
 
 ## 2.2 Copiar ficheros a nuestro repositorio
 
+Ir a la MV1:
 * Como usuario root.
 * Crear directorio local `/srv/www/htdocs/repo/nombre-alumnoXX`. Esta carpeta será nuestra carpeta para el REPOSITORIO LOCAL.
 * Copiar toda la estructura (copia recursiva) de directorios y ficheros desde la caché de zypper (`/var/cache/zypp/packages/*`) hasta el directorio de nuestro REPOSITORIO LOCAL (`/srv/www/htdocs/repo/nombre-alumnoXX`).
@@ -100,24 +100,24 @@ Ahora hay que convertir el directorio local en un repositorio. Para ello usaremo
 
 ## 3.1 Comprobar acceso
 
-* Ir a otra MV2 (Cliente OpenSUSE).
+Ir a MV2:
 * Abrir navegador y poner URL `http://ip-del-servidor/repo/nombre-alumnoXX/repodata/repomd.xml`, para comprobar que que tenemos acceso desde MV2 a los ficheros de MV1.
 * Debe verse el contenido del fichero XML.
 
 ## 3.2 Añadir nuevo repositorio
 
-Vamos a añadir nuestro repositorio en la MV2.
-
+Vamos a añadir nuestro nuevo repositorio personal en los ficheros de configuración de la MV2.
 * Ir a MV2.
 * Ir a `Yast -> Repositorios`. Añadir nuevo repositorio.
 * Seleccionar: HTTP y Descargar archivos de descripción de repositorio
 * Nombre de repositorio: `nombre-alumnoXX`
 * URL del repositorio: `http://ip-del-servidor/repo/nombre-alumnoXX/`
 * Autenticación: Anónimo
-* OJO: Hacer captura de la lista de repositorios actual. Esta lista la vamos a cambiar y guardamos la información para poder restaurar los valores si nos hace falta.
+
+> OJO: Hacer captura de la lista de repositorios actual. Esta lista la vamos a cambiar y guardamos la información para poder restaurar los valores si nos hace falta.
+
 * Captura imagen mostrando el listado de todos los repositorios habilitados o no.
-* Deshabilitar todos los repositorios.
-* Habilitar sólo el `nombre-alumnoXX`. De esta forma nos aseguramos que MV2 únicamente podrá instalar paquetes desde nuestro repositorio en MV1.
+* Deshabilitar todos los repositorios y habilitar únicamente el repositorio `nombre-alumnoXX`. De esta forma nos aseguramos que MV2 únicamente podrá instalar paquetes desde nuestro repositorio en MV1.
 * Aceptar y cerrar Yast.
 * `cat /etc/zypp/repos.d/nombre-alumnoXX.repo`, comprobamos que la configuración del repositorio nuevo está en este fichero de texto.
 
@@ -133,3 +133,21 @@ Vamos a añadir nuestro repositorio en la MV2.
 * Probar la instalación de algún paquete que no esté en nuestro repositorio personalizado. Por ejemplo:
     * `zypper in audacity`
     * `zypper in chromium`
+
+---
+# ANEXO: Revisar
+
+Configuración:
+* Nombre del equipo y del usuario.
+* IP's de las máquinas.
+
+Informe:
+* Sangrado uniforme.
+* Revisar el aspecto después de subirlo al repositorio.
+* Poner texto y a continuación imagen asociada al texto anterior y así con cada imagen. OJO: NO poner todo el texto y al final toda la secuencia de imágenes.
+
+Imágenes:
+* Capturar comando y su salida completa.
+
+Comandos:
+* Si se ejecuta un comando requerido por la práctica, y el resultado no es el correcto/esperado... hay que resolverlo porque se seguimos lo más probable es que el resto falle. Además que se percibe que NO tenemos idea de para qué estamos usando el comando.

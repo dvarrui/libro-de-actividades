@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:10
 
 MAINTAINER David Vargas version 1.0
 

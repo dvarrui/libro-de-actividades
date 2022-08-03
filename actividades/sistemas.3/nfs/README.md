@@ -6,7 +6,7 @@
 
 NFS es un protocolo para compartir recursos (directorios y archivos) por red entre sistemas operativos heterogéneos.
 
-Ejemplo de rúbrica:
+## Ejemplo de rúbrica:
 
 | Sección               | Muy bien (2) | Regular (1) | Poco adecuado (0) |
 | --------------------- | ------------ | ----------- | ----------------- |
@@ -15,20 +15,20 @@ Ejemplo de rúbrica:
 | (2.1) Serv. NFS iniciado en OpenSUSE | | | |
 | (2.2) Cliente accede a los recursos NFS | | | |
 
-# 1. SO Windows
+# 1. Requisitos Windows
 
-Para esta parte vamos a necesitar las siguientes máquinas:
-* MV Servidor NFS
-    * Windows Server (Enterprise)
-    * [ Configurar MV ](./../../global/configuracion/windows-server.md)
-* MV Cliente NFS
-    * Windows (Enterprise). **IMPORTANTE** usar la versión especificada porque el cliente NFS sólo lo tienen las versiones Enterprise.
-    * [ Configurar MV ](./../../global/configuracion/windows.md)
+Vamos a necesitar las siguientes máquinas:
 
+| MV         | Sistema Operativo           | Configuración |
+| ---------- | --------------------------- | ------------- |
+| NFS server | Windows Server (Enterprise) | [ Configurar MV ](./../../global/configuracion/windows-server.md)|
+| NFS client | Windows (Enterprise) | [ Configurar MV ](./../../global/configuracion/windows.md) |
 
-## 1.1 Servidor NFS Windows
+> **IMPORTANTE** usar la versión especificada porque el cliente NFS sólo lo tienen las versiones Enterprise.
 
-> Vídeos:
+# 2. Servidor NFS Windows
+
+> Vídeos de interés:
 >
 > * [Vídeo que explica cómo instalar NFS en Windows Server](https://www.youtube.com/embed/1yigsSPwxds)
 > * [Vídeo: NFS - Parte 1. SO Windows 7 FUNCIONANDO](http://www.youtube.com/watch?v=QWx-WlKf1DY&feature=youtu.be)
@@ -41,13 +41,13 @@ Para esta parte vamos a necesitar las siguientes máquinas:
 > * Comandos NFS: [Guía paso a paso de Servicios para NFS para Windows Server 2008 R2](https://support.microsoft.com/es-es/kb/324089)
 >
 
-### Instalación del servicio NFS
+## 2.1 Instalación del servicio NFS
 
 Vamos a la MV con Windows 2008 Server
 * Agregar rol `Servidor de Archivos`.
 * Marcar `Servicio para NFS`.
 
-### Configurar el servidor NFS
+## 2.2 Configurar el servidor NFS
 
 * Crear la carpeta `c:\exportsXX\public`.
     * Configurar en `Carpeta -> Botón derecho propiedades -> Compartir NFS`.
@@ -65,13 +65,13 @@ el recurso con "Permitir Acceso Anónimo".
 
 * Ejecutamos el comando `showmount -e IP-DEL-SERVIDOR`, para comprobar que los recursos exportados.
 
-## 1.2 Cliente NFS
+# 3. Cliente NFS
 
 Algunas versiones de Windows permiten trabajar con directorios de red NFS nativos de sistemas UNIX.
 En esta sección veremos como montar y desmontar estos directorios bajo un entorno de Windows 7
 Enterprise (Las versiones home y starter no tienen soporte para NFS).
 
-### Instalar el soporte cliente NFS bajo Windows
+## 3.1 Instalar el soporte cliente NFS bajo Windows
 
 * En primer lugar vamos a instalar el componente cliente NFS para Windows.
 Para ello vamos a `Panel de Control -> Programas -> Activar o desactivar características de Windows`.
@@ -87,7 +87,7 @@ Iniciar el servicio cliente NFS. Captura imagen del proceso.
 * Para iniciar el servicio NFS en el cliente, abrimos una consola con permisos de Administrador.
 * Ejecutamos el siguiente comando: `nfsadmin client start`
 
-### Montando el recurso
+## 3.2 Montando el recurso
 
 Ahora necesitamos montar el recurso remoto para poder trabajar con él.
 * Esto no lo hacemos con Administrador, sino con nuestro usuario normal.
@@ -122,28 +122,24 @@ en el sistema nos asignará la Z.
 
 ---
 
-# 2. SO OpenSUSE
+# 4. SO OpenSUSE
 
 Vamos a necesitar las siguientes máquinas:
 
-* MV Servidor NFS
-    * SO OpenSUSE
-    * [Configurar MV](./../../global/configuracion/opensuse.md)
-    * Como nombre de esta máquina usar `serverXX`.
-* MV CLiente NFS
-    * SO OpenSUSE
-    * [Configurar MV](./../../global/configuracion/opensuse.md)
-    * Como nombre de esta máquina usar `clientXX`
+| MV         | Sistema Operativo | Configuración | Nombre del host |
+| ---------- | ----------------- | ------------- | --------------- |
+| NFS server | SO OpenSUSE | [Configurar MV](./../../global/configuracion/opensuse.md) | serverXX |
+| NFS client | SO OpenSUSE | [Configurar MV](./../../global/configuracion/opensuse.md) | clientXX |
 
-> Para cambiar el nombre de máquina podemos usar Yast o modificar directamente los ficheros `/etc/hostname` y `/etc/hosts`.
->
-> Podemos configurar el fichero /etc/hosts del cliente y servidor, añadiendo estas líneas:
+> NOTA:
+> * Para cambiar el nombre de máquina podemos usar Yast o modificar directamente los ficheros `/etc/hostname` y `/etc/hosts`.
+> * Podemos configurar el fichero /etc/hosts del cliente y servidor, añadiendo estas líneas:
 > ```
 > 172.18.XX.52 serverXX.curso2122   serverXX
 > 172.18.XX.62 clientXX.curso2122   clientXX
 > ```
 
-## 2.1 Servidor NFS
+## 4.1 Servidor NFS
 
 > Enlaces de interés:
 >
@@ -151,7 +147,7 @@ Vamos a necesitar las siguientes máquinas:
 > * Vídeo [NFS. Learning Linux: Lesson 17 NFS Server and Installation Repository](https//www.youtube.com/embed/9N8QTh-oYis?list=PL3E447E094F7E3EBB)
 > * Enlace de interés a [NFS Sistema de Archivos de red](http://recursostic.educacion.es/observatorio/web/es/software/software-general/733-nfs-sistema-de-archivos-de-red)
 
-* Instalar servidor NFS por Yast.
+Instalar servidor NFS por Yast.
 * Crear las siguientes carpetas/permisos:
     * `/srv/exportsXX/public`, usuario y grupo propietario `nobody:nogroup`
     * `/srv/exportsXX/private`, usuario y grupo propietario `nobody:nogroup`, permisos 770
@@ -175,7 +171,7 @@ debemos resolverlas. Consultar los mensajes de error del servicio.
 
 * `showmount -e localhost`, muestra la lista de recursos exportados por el servidor NFS.
 
-## 2.2 Cliente NFS
+# 5. Cliente NFS
 
 Ahora vamos a comprobar que las carpetas del servidor son accesibles desde el cliente.
 Normalmente el software cliente NFS ya viene preinstalado pero si tuviéramos que instalarlo en
@@ -183,13 +179,13 @@ OpenSUSE:
 * `zypper search nfs`, para buscar los paquetes nfs.
 * `zypper install nfs-client`, para instalar el paquete cliente.
 
-### Comprobar conectividad desde cliente al servidor
+## 5.1 Comprobar conectividad desde cliente al servidor
 
 * `ping ip-del-servidor`: Comprobar la conectividad del cliente con el servidor. Si falla hay que revisar las configuraciones de red.
 * `nmap ip-del-servidor -Pn`: nmap sirve para escanear equipos remotos, y averiguar que servicios están ofreciendo al exterior. Hay que instalar el paquete nmap, porque normalemente no viene preinstalado.
 * `showmount -e ip-del-servidor`: Muestra la lista de recursos exportados por el servidor NFS.
 
-### Montar y usar cada recurso compartido desde el cliente
+## 5.2 Montar y usar cada recurso compartido desde el cliente
 
 * Estamos en el equipo cliente.
 * Crear las carpetas:
@@ -209,7 +205,7 @@ OpenSUSE:
 * Ahora vamos a crear ficheros/carpetas dentro del recurso public.
 * Comprobar que el recurso private es de sólo lectura.
 
-## 2.3. Montaje automático
+## 5.3 Montaje automático
 
 > Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount).
 Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual
@@ -224,7 +220,7 @@ ello podemos hacerlo de dos formas:
 * Reiniciar el equipo y comprobar que se monta el recurso remoto automáticamente.
 * `mount` o `df -hT`
 
-# 3. Preguntas
+# 6. Preguntas
 
 * ¿Nuestro cliente GNU/Linux NFS puede acceder al servidor Windows NFS? Comprobarlo.
 * ¿Nuestro cliente Windows NFS podría acceder al servidor GNU/Linux NFS? Comprobarlo.

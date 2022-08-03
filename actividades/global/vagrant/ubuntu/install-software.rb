@@ -22,7 +22,7 @@ total = lines.size
 lines.each_with_index do |line, index|
   print '=' * 10 
   print " [ INFO ] Step #{index + 1}/#{total}" 
-  putps '=' * 10 
+  puts '=' * 10 
   system(line)
 end
 

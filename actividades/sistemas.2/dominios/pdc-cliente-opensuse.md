@@ -1,23 +1,21 @@
 
 ```
-Curso       : 202021
+Curso       : 202122, 202021
 Area        : Sistemas operativos, dominios
-Descripción : Unir client GNU/Linux a un dominio Windows
+Descripción : Unir cliente GNU/Linux a un dominio Windows
 Requisitos  : Windows 2016 Server, OpenSUSE
 Tiempo      : 1 sesión
 ```
 
 # 1. Introducción
 
-El objetivo de esta práctica será el de configurar una MV GNU/Linux como cliente del dominio de la práctica anterior.
-En este caso la unirá al PDC del Windows Server.
+El objetivo de esta práctica será el de configurar una MV GNU/Linux como cliente del dominio de la práctica anterior. La MV cliente se unirá al PDC del Windows Server.
 
-Vamos a aprovechar el PDC de la actividad anterior, para realizar esta práctica.
+Vamos a aprovechar:
+1. el PDC de la actividad anterior, para realizar esta práctica.
+2. Además usaremos la herramienta YAST que nos ayudará a realizar la unión al dominio de forma sencilla.
 
-Además usaremos la herramienta YAST, un programa de entorno
-gráfico que nos ayudará a realizar la unión al dominio de forma sencilla.
-
-## 2. Preparar el cliente
+# 2. Preparar el cliente
 
 Tener en cuenta los siguientes aspectos en la configuración del cliente.
 * HORA: La fecha/hora y la zona horaria de la máquina debe ser igual que la del Windows Server (PDC). que tenemos en el PDC (Windows Server).
@@ -31,20 +29,22 @@ Esto es, `DNS1=ip-del-pdc`, y `DNS2=1.1.1.1`.
     * `host NOMBRE-EQUIPO-PDC.NOMBRE-DOMINIO`, por ejemplo "host vargas42s.ruiz42dom.curso2021"
     * `host www.nba.com`
 
-## 3. Unirse al dominio
+# 3. Unirse al dominio
 
-* Usar Yast para unir la MV al dominio del PDC.
-    * `Yast -> Pertenencia a dominio de Windows` (Unirse a un dominio)
-    * Poner el **nombre largo del dominio**. Por ejemplo "ruiz42dom.curso2021".
-    * Activar la **Autenticación SMB**.
-    * Activar **Crear home del usuario**.
+Usar Yast para unir la MV al dominio del PDC.
+* `Yast -> Pertenencia a dominio de Windows` (Unirse a un dominio)
+* Poner el **nombre largo del dominio**. Por ejemplo "ruiz42dom.curso2021".
+* Activar la **Autenticación SMB**.
+* Activar **Crear home del usuario**.
 * Pulsamos "Aceptar". Es posible que se instalen algunos paquetes que hacen falta para seguir.
-* **OJO**: Hay que reescribir el nombre del usuario y poner `Administrador` (con d).
+
+> **OJO**: Hay que reescribir el nombre del usuario y poner `Administrador` (con d).
+
 * Poner la clave del Administrador del dominio.
 * Debe aparecer un mensaje de que se ha realizado la unión al dominio.
 * Comprobar en el servidor PDC, consultando los equipos del dominio.
 
-## 4. Abrir sesión en el cliente
+# 4. Abrir sesión en el cliente
 
 > Asegurarse que los usuarios del dominio no tienen restricciones de inicio de sesión.
 
@@ -68,11 +68,11 @@ Una vez iniciada la sesión ejecutar los comandos de comprobación:
 que el usuario no está definido como usuario local, por tanto, debe ser
 un usuario del dominio.
 
-## NOTA
+# 5. Recursos compartidos
 
 Podemos acceder al recurso compartido del Window Server (PDC) de la siguiente forma:
 * Iniciar un explorador de archivos.
-* Escribir lo siguiente en la barra de ruta que está en la parte superior, por ejemplo: `smb:\\ip-del-pdc\perfiles$\yoda.V5`.
+* Escribir lo siguiente en la barra de ruta que está en la parte superior, por ejemplo: `smb:\\ip-del-pdc\perfiles$\yoda.V5` para conectarse desde una máquina windows o `smb://ip-del-pdc/perfiles$` para conectarse desde una máquina linux.
 
 ---
 
