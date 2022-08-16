@@ -6,19 +6,12 @@ Enlaces de interés:
 
 Módulos asignados a Sistemas y Aplicaciones Informáticas.
 * (5074) Sistemas de Big Data.
+    * (Data Analyst) Este parece más un popurrí, han puesto de todo.
+    * Desde la parte de extracción de información a partir de datos, el modelado, temas de cuadros de mandos, minería de datos, R, Python, visualización, etc...
 * (5075) Big Data aplicado.
-
-
-
-(5074) Sistemas de Big Data (Data Analyst)
-* Este parece más un popurrí, han puesto de todo.
-* Desde la parte de extracción de información a partir de datos, el modelado, temas de cuadros de mandos, minería de datos, R, Python, visualización, etc...
-
-(5075) Big Data aplicado (Data Engineer)
-* Se trata de que ver la parte más de sistemas de Big Data.
-* Centrado sobre todo en los sistemas de almacenamiento, integridad de los datos, monitorización y validación de modelos.
-* Qué sistema elegir, por qué, para qué, cómo se gestionan los diferentes sistemas, cómo se puede garantizar su integridad, qué herramientas uso para hacer el monitoreo, etc...
-
+    * (Data Engineer) Se trata de que ver la parte más de sistemas de Big Data.
+    * Centrado sobre todo en los sistemas de almacenamiento, integridad de los datos, monitorización y validación de modelos.
+    * Qué sistema elegir, por qué, para qué, cómo se gestionan los diferentes sistemas, cómo se puede garantizar su integridad, qué herramientas uso para hacer el monitoreo, etc...
 
 ## Equipamiento
 
@@ -193,3 +186,4 @@ el mantenimiento de los sistemas.
 servicios Big Data programados.
 – La validación de técnicas Big Data para transformar la información obtenida en
 decisiones acertadas de negocios BI.
+
