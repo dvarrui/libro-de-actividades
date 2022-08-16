@@ -1,11 +1,9 @@
 
-`EN CONSTRUCCIÓN!!!`
-
 ```
 Curso       : 202122
 Area        : Sistemas operativos, automatización, devops
-Requisitos  : Docker, docker compose
-Tiempo      : 6 sesiones
+Requisitos  : Docker, docker compose, Nginx
+Tiempo      : 1 sesión
 Descripción : Gestionar varios contenedores en local y con conexiones HTTPS
 ```
 
