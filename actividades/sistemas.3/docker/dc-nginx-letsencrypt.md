@@ -87,11 +87,8 @@ services:
       - ./server2.html:/usr/share/nginx/html/index.html
 ```
 
+## 1.3 Comprobamos
 
-7. Test
-
-Run the docker compose stack defined above with the command docker-compose up -d.
-
-In your browser, go to http://localhost:8080 and refresh the page multiple times. You should see server1, then server2, then server1…
-
-Congratulations, you have configured your nginx as a load balancer.
+* Iniciamos los contenedores configurados con Compose `docker-compose up -d`.
+* Iniciamos un navegador web y vamos al URL http://localhost:8080.
+* Cada vez que refresquemos nos aparecerá alternativamente server1, server2, etc.
