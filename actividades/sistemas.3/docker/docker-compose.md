@@ -11,7 +11,7 @@ Descripción : Gestionar varios contenedores en un host local
 
 Existen varias herramientas muy conocidas para trabajar con granjas de contenedores: Kubernetes, Swarm, Docker-compose.
 
-Docker Compose es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
+[Docker Compose](https://docs.docker.com/compose/) es una herramienta que permite simplificar el uso de Docker. Facilitando el diseño y la construcción de servicios o de aplicaciones con múltiples componentes.
 
 > Enlaces de interés:
 > * [Curso “Docker Compose”](https://sergarb1.github.io/CursoIntroduccionADocker/)

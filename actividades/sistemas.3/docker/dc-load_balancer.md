@@ -4,15 +4,13 @@ Curso       : 202122
 Area        : Sistemas operativos, automatización, devops
 Requisitos  : Docker, docker compose, Nginx
 Tiempo      : 1 sesión
-Descripción : Gestionar varios contenedores en local y con conexiones HTTPS
+Descripción : Gestionar balanceo de cargar entre varios contenedores
 ```
 
-# Docker-compose Nginx: + Let's Encrypt
+# Docker-compose: Load balancer con  Nginx
 
 > Enlaces de interés:
 > * [Docker Compose Nginx Tutorial](https://omarghader.github.io/docker-compose-nginx-tutorial/)
-> * [Nginx and Let’s Encrypt with Docker in Less Than 5 Minutes](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
-> * [Certificación de dominio con Let’s Encrypt, NGINX y Docker Compose](https://medium.com/eudaimonia-ar/certificar-dominios-con-letsencrypt-y-nginx-con-docker-compose-a6a948f47f2f)
 
 # 1. Nginx como balanceador de carga
 
