@@ -70,7 +70,7 @@ services:
   nginx:
     image: nginx:1.16.0-alpine
     volumes:
-      - ./data/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - "8080:80"
 
@@ -78,13 +78,13 @@ services:
   server1:
     image: nginx:1.16.0-alpine
     volumes:
-      - ./data/server1.html:/usr/share/nginx/html/index.html
+      - ./server1.html:/usr/share/nginx/html/index.html
 
   # The web server2
   server2:
     image: nginx:1.16.0-alpine
     volumes:
-      - ./data/server2.html:/usr/share/nginx/html/index.html
+      - ./server2.html:/usr/share/nginx/html/index.html
 ```
 
 
