@@ -124,3 +124,27 @@ Podemos realizar todos estos pasos manualmente o usar un script que nos lo hago 
 * Editar el script y modificar los nombres de dominio y cuenta de correo.
 * `chmod +x init-letsencrypt.sh`
 * `sudo ./init-letsencrypt.sh`
+
+# 4. Comprobamos
+
+* Iniciar los contenedores con docker compose.
+* Comprobar que funciona correctamente la conexión HTTPS.
+
+# 5. Renovación automática del certificado
+
+Last but not least, we need to make sure our certificate is renewed when it’s about to expire. The certbot image doesn’t do that automatically but we can change that!
+
+Add the following to the certbot section of docker-compose.yml:
+
+entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+This will check if your certificate is up for renewal every 12 hours as recommended by Let’s Encrypt.
+
+In the nginx section, you need to make sure that nginx reloads the newly obtained certificates:
+
+command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+This makes nginx reload its configuration (and certificates) every six hours in the background and launches nginx in the foreground.
+Docker-compose Me Up!
+
+Everything is in place now. The initial certificates have been obtained and our containers are ready to launch. Simply run docker-compose up and enjoy your HTTPS-secured website or app.
