@@ -1,10 +1,12 @@
 
+`EN CONSTRUCCIÓN!!!`
+
 ```
 Curso       : 202122
 Area        : Sistemas operativos, automatización, devops
-Requisitos  : Docker, docker compose, Nginx
+Requisitos  : Docker, docker compose, Nginx, Let's Encrypt
 Tiempo      : 1 sesión
-Descripción : Gestionar varios contenedores en local y con conexiones HTTPS
+Descripción : Gestionar varios contenedores con conexiones HTTPS
 ```
 
 # Docker-compose Nginx: + Let's Encrypt
@@ -63,48 +65,62 @@ server {
 
 # 2. Enlazando nginx y certbot
 
+Let’s Encrypt lleva a cabo la validación del dominio de la siguiente forma:
+1. Certbot escribe unos datos en el URL "well-known" del servidor.
+2. Let's Encrypt mediante consulta al URL "well-known" del dominio lee los datos.
+3. Si la respuesta recibida responde correctamente, entonces se considera el dominio validado.
 
-Let’s Encrypt performs domain validation by requesting a well-known URL from a domain. If it receives a certain response (the “challenge”), the domain is considered validated. This is similar to how Google Search Console establishes ownership of a website. The response data is provided by certbot, so we need a way for the nginx container to serve files from certbot.
-
-Vamos a necesitar compartir dos volúmenes:
+Vamos a necesitar los siguientes volúmenes:
 1. Uno para la validación.
 2. Y otro para los certificados.
 
-* En el fichero docker-compose.yaml, añadimos la siguiente configuración des volúmenes para los contenedores nginx y certbot:
+* Modificar el fichero docker-compose.yaml, y añadir la siguiente configuración de volúmenes para los contenedores:
 
 ```
-- ./data/certbot/conf:/etc/letsencrypt
-- ./data/certbot/www:/var/www/certbot
+# Volúmenes para nginx:
+  volumes:
+   - ./data/nginx:/etc/nginx/conf.d
+   - ./data/certbot/conf:/etc/letsencrypt
+   - ./data/certbot/www:/var/www/certbot
 ```
 
+```
+# Volúmenes para certbot:
+  volumes:
+   - ./data/certbot/conf:/etc/letsencrypt
+   - ./data/certbot/www:/var/www/certbot
+```
 
-Now we can make nginx serve the challenge files from certbot! Add this to the first (port 80) section of our nginx configuration (data/nginx/app.conf):
+En el fichero de configuración del servidor web (nginx) permitimos el acceso a la carpeta donde se guardarán los datos de respuesta para validar el dominio, en la sección server-port-80.
 
+```
 location /.well-known/acme-challenge/ {
     root /var/www/certbot;
 }
+```
 
-After that, we need to reference the HTTPS certificates. Add the soon-to-be-created certificate and its private key to the second server section (port 443). Make sure to once again replace example.org with your domain name.
+Añadimos las referencias a los certificados HTTPS en la sección server-port-443 del fichero de configuración del servidor web (nginx):
 
-ssl_certificate /etc/letsencrypt/live/example.org/fullchain.pem;
-ssl_certificate_key /etc/letsencrypt/live/example.org/privkey.pem;
-
-And while we’re at it: The folks at Let’s Encrypt maintain best-practice HTTPS configurations for nginx. Let’s also add them to our config file. This will score you a straight A in the SSL Labs test!
-
+```
+ssl_certificate /etc/letsencrypt/live/NAMESERVER/fullchain.pem;
+ssl_certificate_key /etc/letsencrypt/live/NAMESERVER/privkey.pem;
 include /etc/letsencrypt/options-ssl-nginx.conf;
 ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+```
 
-The Chicken or the Egg?
+# 3. ¿El huevo o la gallina?
 
-Now for the tricky part. We need nginx to perform the Let’s Encrypt validation But nginx won’t start if the certificates are missing.
+Necesitamos Nginx para ejecutar la validación de Let's Encrypt y obtener los certificados, pero Nginx no se puede ejecutar porque no tiene los certificados.
 
-So what do we do? Create a dummy certificate, start nginx, delete the dummy and request the real certificates.
-Luckily, you don’t have to do all this manually, I have created a convenient script for this.
+Para resolver este problema:
+1. Se crean unos certificados temporales
+2. Se inicia Nginx
+3. Se borran los certificados temporales
+4. Se solicita el certificado real
 
-Download the script to your working directory as init-letsencrypt.sh:
+Podemos realizar todos estos pasos manualmente o usar un script que nos lo hago por nosotros de forma automática.
 
-curl -L https://raw.githubusercontent.com/wmnnd/nginx-certbot/master/init-letsencrypt.sh > init-letsencrypt.sh
-
-Edit the script to add in your domain(s) and your email address. If you’ve changed the directories of the shared Docker volumes, make sure you also adjust the data_path variable as well.
-
-Then run chmod +x init-letsencrypt.sh and sudo ./init-letsencrypt.sh.
+* Descargar el script `curl -L https://raw.githubusercontent.com/wmnnd/nginx-certbot/master/init-letsencrypt.sh > init-letsencrypt.sh`
+* Editar el script y modificar los nombres de dominio y cuenta de correo.
+* `chmod +x init-letsencrypt.sh`
+* `sudo ./init-letsencrypt.sh`

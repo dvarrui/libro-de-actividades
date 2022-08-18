@@ -19,5 +19,5 @@ Ir a una máquina donde podamos tener el cliente MySQL. OpenSUSE no, porque por 
 
 nmap -Pn localhost, comprobar que el puerto (mysql) está abierto.
 
-(El siguente punto ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüemos la causa)
+(El siguiente punto ha estado dando un fallo de sockets en algunas máquinas. En tal caso, se lo saltan hasta que averigüemos la causa)
 ```
