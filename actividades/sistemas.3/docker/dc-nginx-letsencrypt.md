@@ -132,19 +132,19 @@ Podemos realizar todos estos pasos manualmente o usar un script que nos lo hago 
 
 # 5. Renovación automática del certificado
 
-Last but not least, we need to make sure our certificate is renewed when it’s about to expire. The certbot image doesn’t do that automatically but we can change that!
+Los certificados caducarán y entonces tendremos que volver a repetir el proceso. ¿Podríamos automatizar el proceso de renovación antes de que se caduque?
 
-Add the following to the certbot section of docker-compose.yml:
+* Añadiremos lo siguiente a la sección del `certbot` dentro del docker-compose.yaml, para que el certificado se renueve automáticamente cada 12 horas:
 
+```
 entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+```
+* En la sección `nginx`, nos aseguraremos que se recarga la configuración y los certificados cada 6 horas en background y se lanza el servidor Nginx en foreground.
 
-This will check if your certificate is up for renewal every 12 hours as recommended by Let’s Encrypt.
-
-In the nginx section, you need to make sure that nginx reloads the newly obtained certificates:
-
+```
 command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+```
 
-This makes nginx reload its configuration (and certificates) every six hours in the background and launches nginx in the foreground.
-Docker-compose Me Up!
+# 6. Comprobación
 
-Everything is in place now. The initial certificates have been obtained and our containers are ready to launch. Simply run docker-compose up and enjoy your HTTPS-secured website or app.
+* Comprobamos que funciona correctamente.
