@@ -9,11 +9,12 @@ Tiempo      : 1 sesión
 Descripción : Gestionar varios contenedores con conexiones HTTPS
 ```
 
-# Docker-compose Nginx: + Let's Encrypt
+# Docker-compose Nginx + certbot
 
 > Enlaces de interés:
 > * [Nginx and Let’s Encrypt with Docker in Less Than 5 Minutes](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
 > * [Certificación de dominio con Let’s Encrypt, NGINX y Docker Compose](https://medium.com/eudaimonia-ar/certificar-dominios-con-letsencrypt-y-nginx-con-docker-compose-a6a948f47f2f)
+> [How To Use Certbot Standalone Mode to Retrieve Let's Encrypt SSL Certificates on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-use-certbot-standalone-mode-to-retrieve-let-s-encrypt-ssl-certificates-on-ubuntu-16-04)
 
 El objetivo es usar docker-compose para:
 1. Lanzar contenedor con un servidor web que responde a las conexiones HTTPS (nginx).
