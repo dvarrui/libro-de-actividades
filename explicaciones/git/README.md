@@ -15,6 +15,7 @@ Enlace de interés:
 * [Presentación Git](https://control-versiones-git.netlify.com/)
 * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
 * [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
+* [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
 
 ### Servidor GIT en Internet:
 
@@ -133,4 +134,3 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 
 * [Instalar y usar Git en Windows por Rubén González Sabina](https://www.youtube.com/watch?v=7qzV04C5S-k)
 * [Gitmoji](https://gitmoji.dev/)
-
