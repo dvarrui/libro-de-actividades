@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2022-08-17 09:57:18 +0100`
+`Fecha UM: 2022-09-21 10:05:12 +0100`
 
 # Resumen
 
@@ -56,7 +56,7 @@
 | -- | ------- | -------- | ----------- |
 | 0 | [clientes-ligeros](actividades/sistemas.3/clientes-ligeros) | 2 | [README](actividades/sistemas.3/clientes-ligeros/README.md), [enlaces-de-interes](actividades/sistemas.3/clientes-ligeros/enlaces-de-interes.md) |
 | 1 | [devops.sre](actividades/sistemas.3/devops.sre) | 2 | [README](actividades/sistemas.3/devops.sre/README.md), [html](actividades/sistemas.3/devops.sre/html) |
-| 2 | [docker](actividades/sistemas.3/docker) | 5 | [compose-problemas](actividades/sistemas.3/docker/compose-problemas), [dc-load_balancer](actividades/sistemas.3/docker/dc-load_balancer.md), [dc-nginx-letsencrypt](actividades/sistemas.3/docker/dc-nginx-letsencrypt.md), [docker-compose](actividades/sistemas.3/docker/docker-compose.md), [docker](actividades/sistemas.3/docker/docker.md) |
+| 2 | [docker](actividades/sistemas.3/docker) | 5 | [compose-problemas](actividades/sistemas.3/docker/compose-problemas), [dc-load_balancer](actividades/sistemas.3/docker/dc-load_balancer.md), [dc-nginx-certbot](actividades/sistemas.3/docker/dc-nginx-certbot.md), [docker-compose](actividades/sistemas.3/docker/docker-compose.md), [docker](actividades/sistemas.3/docker/docker.md) |
 | 3 | [impresion](actividades/sistemas.3/impresion) | 2 | [cups](actividades/sistemas.3/impresion/cups.md), [windows](actividades/sistemas.3/impresion/windows.md) |
 | 4 | [ldap](actividades/sistemas.3/ldap) | 7 | [ldap-389ds-opensuse-auth](actividades/sistemas.3/ldap/ldap-389ds-opensuse-auth.md), [ldap-389ds-opensuse](actividades/sistemas.3/ldap/ldap-389ds-opensuse.md), [ldap-apache](actividades/sistemas.3/ldap/ldap-apache.md), [ldap-auth-debian](actividades/sistemas.3/ldap/ldap-auth-debian.md), [ldap-auth-samba](actividades/sistemas.3/ldap/ldap-auth-samba.md), [ldap-comandos](actividades/sistemas.3/ldap/ldap-comandos.md), [ldap-openldap2-opensuse](actividades/sistemas.3/ldap/ldap-openldap2-opensuse.md) |
 | 5 | [nfs](actividades/sistemas.3/nfs) | 1 | [README](actividades/sistemas.3/nfs/README.md) |
