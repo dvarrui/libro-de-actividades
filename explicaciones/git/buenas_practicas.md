@@ -7,12 +7,14 @@
 
 A continuación mostraremos un modo de trabajo GIT.
 
-Tendremos 2 ramas fijas:
-* master: para producción
-* devel: para desarrollo
-Tendremos 2 ramas de apoyo temporales:
-* feature: para añadir características a devel
-* hotfix: para revisiones, corregir fallos en master
+Tendremos las siguientes ramas:
+
+| Rama    | Padre  | Descripción     | Duración   |
+| ------- | ------ | --------------- | ---------- |
+| master  |        | Para producción | Permanente |
+| devel   | master | Para desarrollo | Permanante |
+| feature | devel  | Para añadir características | Temporal |
+| hotfix  | master | Para corregir fallos | Temporal |
 
 # 1. Rama master
 
