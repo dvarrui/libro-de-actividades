@@ -19,7 +19,7 @@ Tendremos las siguientes ramas:
 # 1. Rama master
 
 * Es la rama principal y la que se pone en producción.
-* Contiene LA ÚLTIMA VERSIÓN ESTABLE.
+* **Contiene la última versión estable**.
 * Debe tener los tags de versionado.
 
 # 2. Rama devel
@@ -32,7 +32,7 @@ Tendremos las siguientes ramas:
 
 ```
 Rama padre: DEVEL  
-Merge con : DEVELOP
+Merge con : DEVEL
 ```
 
 * Las ramas `features` se utilizan para desarrollar nuevas características para una nueva versión.  
@@ -40,7 +40,7 @@ Merge con : DEVELOP
 
 > **RECORDATORIO**: Las ramas `features` no deben existir en origin.
 
-## 3.1 comandos
+## 3.1 Creamos la rama nueva
 
 * `git checkout -b feature_notes devel`, creamos una rama feature. Esto nos crea una rama feature_notes y nos coloca directo para trabajar en ella.
 
@@ -56,8 +56,8 @@ Merge con : DEVELOP
 >
 > Es decir, si hemos realizado 12 commits en la rama `feature_notes`, no quiero que se muestren a la hora de fusionar, podemos agrupar todos esos commits en uno solo, mostrando la historia como un solo commit.
 
+## 3.2 Fusionamos con devel
 
-Incorporamos la nueva característica en `devel`
 * `git checkout devel`, cambiamos a la rama `devel`.
 * `git merge --no-ff feature_notes`, fusionamos los cambios.
 * `git branch -d feature_notes`, borramos la rama `features_notas` ya que ha cumplido su misión y ya no nos es útil.
@@ -76,7 +76,7 @@ Merge con : Master y Devel
 
 > La esencia de este método de trabajo es que los miembros del equipo (rama devel) pueden seguir trabajando mientras que otra persona soluciona el bug.
 
-## 4.1 Se detecta el problema
+## 4.1 Creamos la nueva rama
 
 Veamos un ejemplo.
 
@@ -101,15 +101,10 @@ En primer lugar actualizamos master para marcar la liberación.
 * `git merge --no-ff hotfix-1.2.1`, fusionamos la rama hotfix-1.2.1 con la master (pero recordad, con la opción --no-ff).
 * `git tag -a 1.2.1`, a continuación, y muy importante, es etiquetar la versión corregida.
 
-## 4.3 Fusinamos con devel
+## 4.3 Fusionamos con devel y terminamos
 
 Después incluimos este "parche" también en `devel`.
 
 * `git checkout devel`
 * `git merge --no-ff hotfix-1.2.1`
-
-## 4.4 Eliminamos la rama temporal
-
-Por último matamos la rama temporal, pues no servirá para nada.
-
-* `git branch -d hotfix-1.2.1`
+* `git branch -d hotfix-1.2.1`, por último eliminamos la rama temporal, pues no servirá para nada.
