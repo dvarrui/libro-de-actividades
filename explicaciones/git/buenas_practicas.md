@@ -9,12 +9,12 @@ A continuación mostraremos un modo de trabajo GIT.
 
 Tendremos las siguientes ramas:
 
-| Rama    | Padre  | Descripción     | Duración   |
-| ------- | ------ | --------------- | ---------- |
-| master  |        | Para producción | Permanente |
-| devel   | master | Para desarrollo | Permanante |
-| feature | devel  | Para añadir características | Temporal |
-| hotfix  | master | Para corregir fallos | Temporal |
+|   | Rama    | Padre  | Descripción     | Duración   |
+| - | ------- | ------ | --------------- | ---------- |
+| 1 | master  |        | Para producción | Permanente |
+| 2 | devel   | master | Para desarrollo | Permanante |
+| 3 | feature | devel  | Para añadir características | Temporal |
+| 4 | hotfix  | master | Para corregir fallos | Temporal |
 
 # 1. Rama master
 
