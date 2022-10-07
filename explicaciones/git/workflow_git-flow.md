@@ -1,8 +1,10 @@
 
-# Buenas prácticas con GIT
+# Flujo de trabajo git-flow
 
 > Enlace de interés:
 > * http://nvie.com/posts/a-successful-git-branching-model/
+> * [Comparar flujos de trabajo](https://www.atlassian.com/es/git/tutorials/comparing-workflows)
+> * [Flujo de trabajo git-flow](https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow)
 > * https://docs.google.com/document/d/1eismCwKm-0JicS68kGtX8XbQhrhcS2t2vGc7SyEQkwM/edit#
 
 A continuación mostraremos un modo de trabajo GIT.
