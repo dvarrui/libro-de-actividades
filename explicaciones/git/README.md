@@ -9,24 +9,22 @@ Trabajar con Git en clase
 
 # 1. Trabajando con GIT
 
+> Enlace de interés:
+> * [Presentación Git](https://control-versiones-git.netlify.com/)
+> * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
+> * [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
+> * [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
+
 ## 1.1. La primera vez
 
-Enlace de interés:
-* [Presentación Git](https://control-versiones-git.netlify.com/)
-* [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
-* [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
-* [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
-
-### Servidor GIT en Internet:
-
+**Crear repositorio en un servidor:**
 * Crear una cuenta en GitHub.
-* Crear un repositorio "curso-nombre-del-alumno". Por ejemplo, si el alumno se llama David Vargas,
-nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los guiones (-).
+* Crear un repositorio "curso-nombre-del-alumno". Por ejemplo, si el alumno se llama David Vargas, nombrar el repositorio como add1516-david-vargas. En minúsculas y usando los guiones (-).
 
 > **ATENCIÓN:** Marcar la opción "Initialize this repository with a README", para crear un repositorio que contenga al menos un fichero.
 > La creación del repositorio remoto alojado en GitHub, sólo hay que hacerla una vez.
 
-### En el equipo local (La primera vez)
+**En el equipo local (La primera vez)**
 
 * Instalar GIT:
     * Debian/Ubuntu: `apt-get install git`
@@ -68,8 +66,11 @@ git push
 
 ## 1.2. Cada día de trabajo
 
+> Enlace de interés:
+> * Vídeo: [GIT-02 Trabajando cada día con git](https://youtu.be/_IFpfdeUor0)
+
 En el equipo local cada día de trabajo haremos la siguiente secuencia:
-* `git pull`: Antes de empezar a trabajar para obtener los cambios del repositorio remoto.
+* `git pull`: **Antes de empezar a trabajar para obtener los cambios del repositorio remoto**.
 * A continuación nos ponemos a trabajar con los ficheros del directorio controlado por git.
 Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 * `git status`: Para consultar y comprobar los nuevos cambios locales.
@@ -84,17 +85,13 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 > * `git mv nombre-actul nombre-nuevo`: Para renombrar un fichero que está controlado por git
 >
 
-* `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante.
+* `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante. Podemos poner [emoticonos](https://gitmoji.dev/) en los mensajes de commit.
 * `git push`: Subir los cambios al repositorio remoto.
-
-> Poner emoticonos en los mensajes de commit (https://gitmoji.dev/)
-
-Vídeo: [GIT 02 - Trabajando cada día con git] (https://youtu.be/_IFpfdeUor0)
 
 ## 1.3. Entregas
 
-Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado
-el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
+Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
+
 Esto ¿cómo lo haremos?:
 * Cada actividad tendrá asociada una etiqueta que vendrá definida en el enunciado de la misma.
 * `git tag -a etiqueta -m "Entrega de la Actividad XX"`: para crear una etiqueta.
