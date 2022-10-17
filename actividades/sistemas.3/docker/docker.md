@@ -13,6 +13,7 @@ Tiempo      : 6 sesiones
 > * [Curso “Introducción a Docker”](https://sergarb1.github.io/CursoIntroduccionADocker/)
 > * [Docker for beginners](http://prakhar.me/docker-curriculum/)
 > * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
+> * [Docker for Beginners](https://testdriven.io/blog/docker-for-beginners/)
 
 Es muy común que nos encontremos desarrollando una aplicación, y llegue el momento que decidamos tomar todos sus archivos y migrarlos, ya sea al ambiente de producción, de prueba, o simplemente probar su comportamiento en diferentes plataformas y servicios.
 
