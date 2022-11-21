@@ -39,12 +39,34 @@ Veamos el contenido de `.git/hooks`:
 └── update.sample
 ```
 
-## Escribir un Git Hook
+## Escribir un Git Hook en Bash
 
 Supongamos que queremos mejorar la seguridad. Para ello vamos a crear un Git Hook que le pida confirmación al usuario antes de envirar algo a una rama.
 
 * Crear un nuevo archivo llamado `.git/hooks/pre-commit`.
 * Añadir el siguiente contenido:
- y ábralo en un editor de texto. Agregue el siguiente texto, que consulta a Git para obtener una lista de los archivos que se van a confirmar para el nombre de la rama actual y luego ingresa un ciclo while hasta que obtiene una respuesta del usuario:
 
- 
+```bash
+#!/bin/sh
+
+echo "You are about to commit" $(git diff --cached --name-only --diff-filter=ACM)
+echo "to" $(git branch --show-current)
+
+while : ; do
+    read -p "Do you really want to do this? [y/n] " RESPONSE < /dev/tty
+    case "${RESPONSE}" in
+        [Yy]* ) exit 0; break;;
+        [Nn]* ) exit 1;;
+    esac
+done
+```
+
+Este script hace los siguiente:
+1. Primero consulta a Git para obtener una lista de los archivos que se van a confirmar (commit) para la rama actual.
+2. Luego entra en un bucle while esperando una respuesta del usuario.
+3. Si la respuesta es `Y` se termina el script con `exit 0`. Esto es terminación correcta y se completa la acción `commit.`
+3. Si la respuesta es `N` se termina el script con `exit 1`. Esto es terminación incorrecta y no se completa la acción `commit`.
+
+## Escribir un Git Hook en Ruby
+
+Vamos a intentar convertir el script anterior de Bash a Ruby.
