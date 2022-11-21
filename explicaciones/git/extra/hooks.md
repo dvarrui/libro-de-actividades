@@ -67,6 +67,13 @@ Este script hace los siguiente:
 3. Si la respuesta es `Y` se termina el script con `exit 0`. Esto es terminación correcta y se completa la acción `commit.`
 3. Si la respuesta es `N` se termina el script con `exit 1`. Esto es terminación incorrecta y no se completa la acción `commit`.
 
+Modificamos, por ejemplo, un fichero `README.md`, y si hacemos `commit` se debe ejecutar nuestro script `pre-commit` Git Hook. ;-)
+
+
 ## Escribir un Git Hook en Ruby
 
 Vamos a intentar convertir el script anterior de Bash a Ruby.
+
+_En construcción_
+
+
