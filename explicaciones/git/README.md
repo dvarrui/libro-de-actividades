@@ -118,11 +118,15 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 ```
 ├── vnc
 │   ├── images
+│   │   ├── image01.png
+│   │   └── image02.png
 │   └── README.md
 ├── ssh
 │   ├── images
+│   │   ├── image01.png
+│   │   └── image02.png
 │   └── README.md
-└── etc   
+└── etcetera   
 ```
 
 ---
@@ -131,3 +135,4 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 
 * [Instalar y usar Git en Windows por Rubén González Sabina](https://www.youtube.com/watch?v=7qzV04C5S-k)
 * [Gitmoji](https://gitmoji.dev/)
+* [Informative git prompt for bash and fish](https://github.com/magicmonty/bash-git-prompt)
