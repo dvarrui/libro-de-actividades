@@ -14,6 +14,7 @@ Trabajar con Git en clase
 > * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
 > * [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
 > * [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
+> * [Clientes Git GUI](https://git-scm.com/downloads/guis/)
 
 ## 1.1. La primera vez
 
