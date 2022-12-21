@@ -15,6 +15,7 @@ Trabajar con Git en clase
 > * [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
 > * [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
 > * [Clientes Git GUI](https://git-scm.com/downloads/guis/)
+> * [EN - How to write a good README](https://dev.to/merlos/how-to-write-a-good-readme-bog?utm_source=newsletter&utm_medium=email&utm_campaign=rubyforum_how_to_write_a_good_readme_ruby_313_305_277_postgresql_the_most_loved_database_and_more&utm_term=2022-12-21)
 
 ## 1.1. La primera vez
 
