@@ -44,7 +44,7 @@ A partir del siguiente estado inicial, vamos a ver los efectos de aplicar cada t
 
 * `git pull --rebase`. Se obtiene una única línea histórica de commits.
 
-![](images/git-pull-no-rebase.png)
+![](images/git-pull-rebase.png)
 
 * `git pull --ffi-only`
 
