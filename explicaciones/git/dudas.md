@@ -28,9 +28,9 @@ fatal: Necesita especificar cómo reconciliar las ramas divergentes.
 
 **Tipos de pull**
 
-Vemos que hay varios tipos de pull (rebase, no rebase y ff only) entonces ¿Qué implica cada una de las formas de reconciliación?
+Vemos que hay varios tipos de pull (rebase, no rebase y ff only) entonces ¿Qué significa cada uno?
 
-A partir del siguiente estado inicial vamos a ver los efectos de cada tipo de pull:
+A partir del siguiente estado inicial, vamos a ver los efectos de aplicar cada tipo de pull:
 
 ![](images/before-git-pull.png)
 
@@ -38,7 +38,7 @@ A partir del siguiente estado inicial vamos a ver los efectos de cada tipo de pu
 
 ![](images/git-pull.png)
 
-* `git pull --no-rebase`.
+* `git pull --no-rebase`. Vemos que es igual a la opción por defecto `git pull`.
 
 ![](images/git-pull-no-rebase.png)
 
