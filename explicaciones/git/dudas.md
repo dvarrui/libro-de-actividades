@@ -31,5 +31,22 @@ fatal: Necesita especificar cómo reconciliar las ramas divergentes.
 **Tipos de pull**
 ¿Qué implica cada una de las formas de reconciliación: rebase, no rebase y ff only?
 
-* `git pull`, cuando se fusiona se crea un nuevo commit con el resultado final.
-* `git pull --rebase` para mantener alineada la secuencia de commits de las distintas ramas fusionadas en el histórico común.
+A partir de este estado inicial vamos a ver los efectos de cada `git pull`:
+
+![](images/before-git-pull.png)
+
+* `git pull`, se mantienen las 2 líneas históricas de commits y se crear un nuevo commit con el resultado final de la fusión.
+
+![](images/git-pull.png)
+
+* `git pull --no-rebase`.
+
+![](images/git-pull-no-rebase.png)
+
+* `git pull --rebase`. Se obtiene una única línea histórica de commits.
+
+![](images/git-pull-no-rebase.png)
+
+* `git pull --ffi-only`
+
+![](images/git-pull-ffi-only.png)
