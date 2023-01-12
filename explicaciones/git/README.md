@@ -16,6 +16,11 @@ Trabajar con Git en clase
 > * [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
 > * [Clientes Git GUI](https://git-scm.com/downloads/guis/)
 > * [EN - How to write a good README](https://dev.to/merlos/how-to-write-a-good-readme-bog?utm_source=newsletter&utm_medium=email&utm_campaign=rubyforum_how_to_write_a_good_readme_ruby_313_305_277_postgresql_the_most_loved_database_and_more&utm_term=2022-12-21)
+> * Documentación Git Book: https://git-scm.com/book/en/v2
+> * Git Command Explorer: Find the right commands you need without digging through the web. https://gitexplorer.com/
+> * Visualizing Git Concepts with D3: https://onlywei.github.io/explain-git-with-d3/
+> * A Visual Git Reference: https://marklodato.github.io/visual-git-guide/index-en.html
+> * Oh Shit, Git!?!: https://ohshitgit.com/
 
 ## 1.1. La primera vez
 
