@@ -21,6 +21,7 @@ Trabajar con Git en clase
 > * Visualizing Git Concepts with D3: https://onlywei.github.io/explain-git-with-d3/
 > * A Visual Git Reference: https://marklodato.github.io/visual-git-guide/index-en.html
 > * Oh Shit, Git!?!: https://ohshitgit.com/
+> * Learning Git: https://fpsvogel.com/posts/2023/learn-git
 
 ## 1.1. La primera vez
 
