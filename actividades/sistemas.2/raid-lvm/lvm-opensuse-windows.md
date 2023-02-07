@@ -1,6 +1,6 @@
 
 ```
-Curso           : 202021, 201920
+Curso           : 202223, 202021, 201920
 Area            : Sistemas Operativos, almacenamiento, volúmenes
 Descripción     : Gestión de volúmenes lógicos con varios SSOO.
 Requisitos      : SO OpenSUSE (Yast) y Windows
@@ -209,7 +209,11 @@ Esto es, ir a `Yast -> Particionador -> grupoXXextra -> volúmenes físicos`. A�
 * `vgdisplay grupoXXextra`, para comprobar la ampliación del tamaño del grupo.
 
 **Ampliar el tamaño del volumen extra**
-* Ampliar el tamaño de volXXextra a 930MB. Comprobar el aumento del espacio (lvdisplay)
+
+* Podemos usar `Yast` para ampliar el tamaño de volXXextra a 930MB o los comandos.
+* En el caso de que automáticamente no nos aparezca la ampliación a 930MB usar el
+siguiente comando: `lvextend -l +100%FREE /dev/grupoXXextra/volXXextra`.
+* Comprobar el aumento del espacio (lvdisplay)
 * Comprobar que los datos/información no se han borrado al ampliar el volumen lógico.
 
 ![](images/lvm-esquema-3.4.png)
