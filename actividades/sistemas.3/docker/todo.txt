@@ -1,0 +1,7 @@
+
+
+# Docker
+
+https://www.youtube.com/watch?v=XdatMdAM6oQ
+https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
+https://github.com/atareao/workshop
