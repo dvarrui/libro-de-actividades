@@ -6,6 +6,8 @@ https://www.youtube.com/watch?v=XdatMdAM6oQ
 https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
 https://github.com/atareao/workshop
 
+* https://devopswithdocker.com/: DevOps with Docker. Free MOOC from the University of Helsinki. The course focuses on container technology and practices around containerization.
+
 # Kubernetes
 
 * Primeros pasos con Kubernetes: (https://www.adictosaltrabajo.com/2016/04/25/primeros-pasos-con-kubernetes/) En este tutorial veremos una pequeña introducción a la gestión de servicios que nos ofrece la herramienta Kubernetes.
