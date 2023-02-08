@@ -96,6 +96,8 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante. Podemos poner [emoticonos](https://gitmoji.dev/) en los mensajes de commit.
 * `git push`: Subir los cambios al repositorio remoto.
 
+![](https://pbs.twimg.com/media/FjJ62xKXkAYfFjt?format=jpg&name=900x900)
+
 ## 1.3. Entregas
 
 Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
