@@ -16,6 +16,7 @@ Vamos a instalar un sistema operativo OpenSUSE sobre varios discos usando RAID0 
 Leer sobre el tema y consultar las dudas:
 * [Raid - Wikipedia](https://es.wikipedia.org/wiki/RAID)
 * [Niveles RAID](https://blog.elhacker.net/2013/12/tipos-niveles-raid-hardware-software.html?m=1&s=09)
+* [Niveles RAID (Tipos, ventajas e inconvenientes](https://blog.elhacker.net/2013/12/tipos-niveles-raid-hardware-software.html?m=1&s=09)
 
 Ejemplo de rúbrica:
 
