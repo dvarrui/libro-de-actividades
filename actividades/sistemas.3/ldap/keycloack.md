@@ -11,12 +11,33 @@ Enlaces de interés:
 
 # Introducción
 
-Muchas aplicaciones deben gestionar la identificación del usuario y gestionar los accesos de forma segura. Pero esto no es fácil y además ya está inventado. IAM.
+IAM es software que se encarga de:
+* La gestión de identidad y
+* La gestión de accesos/permisos
 
-IAM es software de gestión de identidades y accesos. EL objetivo de IAM es verificar la identidad de un usuario o sistema que solicita acceso y evalúa a qué características y activos tiene acceso el usuario/sistema.
+Keycloack es un IAM que se puede configurar para usarse por otros programas que requieran los servicios anteriores. A estos programas que hacen uso de Keycloak se les llama **clientes**.
 
-La gestión de identidad y la gestión de acceso son dos entidades diferentes.
+Keycloak es capaz de hablar con los clientes usando diversos protocolos:
+* 0Auth
+* OpenID
+* SAML
 
-En situaciones clásicas, la gestión de acceso se basa en un proveedor de identidad para verificar al usuario y se basa en él para mapear la identidad del usuario / sistema con lo que puede hacer en un entorno.
+Keycloack se puede usar en combinación con otros proveedores de identidad:
+* Sitios de inicio de sesión de redes sociales
+* Bases de datos de usuarios externos federados como servidores LDAP
+* etc.
 
-Normalmente, el control de acceso basado en roles (RBAC) es un concepto estándar que se sigue para establecer una capa de control de acceso. Se agrega una capa de soporte para hacer uso de esta gestión de acceso, básicamente un conjunto de protocolos para usarlo con otras aplicaciones. Por lo general, el protocolo termina siendo OAuth, que es un estándar responsable de administrar los parámetros de control de acceso en el lado del software de Autorización, así como establecer las pautas a seguir por las aplicaciones que utilizan el servicio de Autorización.
+# Instalación y configuración
+
+* Vamos a "instalar" KC (Keycloack) mediante contenedor.
+
+```
+$ docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin quay.io/keycloak/keycloak:latest
+```
+
+* Abrir el navegador en http://127.0.0.1:8080/auth/ y haga clic en Consola de administración (Debería redirigirnos a http://127.0.0.1:8080/auth/admin/master/console/).
+* Inicie sesión en la consola con el usuario/clave administrador (comando docker).
+
+![](https://ichi.pro/assets/images/max/724/1*VCq4kNW_ndIrrsCEfjNQgQ.png)
+
+![](https://ichi.pro/assets/images/max/724/1*X4KVVVhkk670OExxcd5oGg.png)
