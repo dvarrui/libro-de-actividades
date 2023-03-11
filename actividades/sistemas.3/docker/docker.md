@@ -387,7 +387,14 @@ CMD ["/root/holamundoXX.sh"]
 
 Analizar y entender el siguiente Dockerfile (https://github.com/pausoft/docker)
 * Explicar qué utilidad tiene y cómo lo hace.
-
+
+**Explorando el interior de las imágenes**: Supongamos que tenemos una imagen docker pero no encontramos el repositorio original. ¿Podemos acceder al código fuente de la imagen?
+
+Enlaces de interés:
+* [Is it possible to reverse engineer the source code from a docker image?](https://www.reddit.com/r/docker/comments/11gm85a/is_it_possible_to_reverse_engineer_the_source/?utm_source=share&utm_medium=android_app&utm_name=androidcss&utm_term=14&utm_content=share_button):
+* https://github.com/wagoodman/dive
+* `docker cp`: Copy files/folders between a container and the local filesystem
+* `docker history`: Show the history of an image
 
 # 6. Limpiar contenedores e imágenes
 
