@@ -149,3 +149,10 @@ para copiar los documentos del usuario en una zona de backup.
 
 Otras tareas que se podrían realizar en Windows:
 * ¿Cómo podríamos programar el inicio/parada de un servicio con los comandos de PowerShell?
+
+## Artículo: ow To Run a Cron Job Every 30 Seconds in Linux
+
+> Enlace al artículo original https://t.co/mOpUGOKzXN?s=35
+>
+> How To Run a Cron Job Every 10, 20, and 30 Seconds in Linux
+In this article, we will show you a simple trick to help you run a cron job every 10, 20, and 30 seconds or x seconds in Linux.
