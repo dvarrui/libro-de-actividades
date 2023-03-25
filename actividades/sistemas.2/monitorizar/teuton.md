@@ -23,9 +23,9 @@ Propuesta de rúbrica:
 ## 1.1 Introducción
 
 * ¿Qué son los test de infraestructura?
-* Ver la infraestructura como código (IaC).
+* ¿Qué significa ver la infraestructura como código (IaC)?
 
-* Comparativa de varios test de infraestructura:
+Comparativa de varios test de infraestructura:
 
 | Features | Teuton | Testinfra | Goss |
 | -------- | ------ | --------- | ---- |
@@ -41,11 +41,11 @@ Propuesta de rúbrica:
 | Builtin functions | Yes | Yes | ... |
 | Function creation | Yes | ?   | ? |
 
-> Incluir Inspec en la comparativa.
+> TODO: Incluir Inspec en la comparativa.
 
 ## 1.2 Preparativos
 
-Listado de las máquinas que necesitamos:
+Listado de las máquinas que vamos a necesitar:
 
 | ID | Sistema  | Hostname     | IP           |
 | -- | -------- | ------------ | ------------ |
@@ -58,35 +58,35 @@ Configurar en todas las máquinas:
 * IP estática.
 * Activar servicio SSH.
 * Habilitar acceso SSH a root (Modificar fichero de configuración con `PermitRootLogin Yes`).
-* Comprobar acceso remoto con `ssh root@ip-mv`.
+* Comprobar acceso remoto SSH con el comando `ssh root@IP-DE-LA-MV`.
 
 ## 1.3 Modos de trabajo
 
 > Enlaces de interés:
-> * [Modos de uso](https://github.com/teuton-software/teuton/blob/devel/docs/install/modes_of_use.md)
+> * [Modos de uso](https://github.com/teuton-software/teuton/blob/master/docs/install/modes_of_use.md)
 
-* Entender los modos de trabajo de Teuton: T-NODE y S-NODE.
+* Entender los modos de trabajo de Teuton y la diferencia entre T-NODE y S-NODE.
 * T-NODE: Máquina con Teuton.
 * S-NODE: Máquina con el servicio SSH ([Configurar el servicio SSH](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/))
 
 ## 1.4 Instalación
 
 > Enlace de interés:
-> * [Instalación](https://github.com/teuton-software/teuton/blob/devel/docs/install/install.md)
+> * [Instalación](https://github.com/teuton-software/teuton/blob/master/docs/install/README.md)
 
-Vamos a ver el proceso de instalación de "teuton" (T-NODE).
+Vamos a ver el proceso de instalación de `teuton` en la máquina T-NODE:
 
 Entrar como superusuario.
-* `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
+* `ruby -v` para comprobar la versión de ruby ( >= 2.5.9). En caso contrario instalar ruby.
 * `gem install teuton`, instalar Teuton (Necesitaremos tener privilegios de root para instalar).
-* `gem list | grep teuton`, para comprobar que lo tenemos instalado.
+* `gem info teuton`, para comprobar que lo tenemos instalado.
 
-> En OpenSUSE es necesario además es necesario hacer los siguiente:
+> **ADVERTENCIA**: En OpenSUSE es necesario además es necesario hacer los siguiente:
 > * `find /usr -name teuton`, para localizar el ejecutable.
 > * `ln -s PATH/TO/FILE/teuton /usr/local/bin/teuton`, crear un enlace al ejecutable.
 
 Entrar como nuestro usuario normal:
-* `teuton version`, comprobar versión.
+* `teuton version`, comprobar versión (>= 2.4.5).
 
 ## 1.5 Entregar
 
@@ -120,11 +120,10 @@ Ir a la MV1:
   :host_ip: 172.18.XX.11
 ```
 
-* Vamos a modificar `start.rb` para comprobar que hay conectividad con las máquinas:
+* Vamos a modificar `start.rb` para preparar un test de conectividad con las máquinas:
 
 ```
 group "alumnoXX - test2" do
-
   target "Comprobar la conectividad"
   run "ping -c 1 #{get(:host_ip)}"
   expect " 0% packet loss"
@@ -147,7 +146,7 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ![](images/teuton-ping.png)
 
-* `teuton test castleXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+* `teuton check castleXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
 
 ## 2.2 Comprobar
 
@@ -182,10 +181,13 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
   :host_password: clave-secreta
 ```
 
-> Fijarse que hemos añadido los siguientes parámetros:
-> * `host_username`: será el nombre del usuario que usaremos para conectarnos de forma remota a las máquinas vía SSH.
-> * `host_ip`: será valor de IP de la máquina a la que vamos a conectarnos de forma remota vía SSH.
-> * `tt_skip`: si se pone a true estamos indicando que esta máquina no la vamos a comprobar por ahora. De momento vamos a excluir (skip==true) la máquina Windows de la monitorización, porque los comandos son diferentes. Lo arreglaremos más adelante.
+Nos fijamos que se han añadido los siguientes parámetros:
+
+| Parámetro     | Descripción |
+| ------------- | ----------- |
+| host_username | será el nombre del usuario que usaremos para conectarnos de forma remota a las máquinas vía SSH |
+| host_ip       | será valor de IP de la máquina a la que vamos a conectarnos de forma remota vía SSH |
+| tt_skip       | si se pone a true estamos indicando que esta máquina no la vamos a comprobar por ahora. De momento vamos a excluir (skip==true) la máquina Windows de la monitorización, porque los comandos son diferentes. Lo arreglaremos más adelante.|
 
 * Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
     * Puerta de enlace: `ping -c 1 8.8.4.4`
@@ -210,9 +212,11 @@ play do
 end
 ```
 
-Explicación:
+**Explicación:**
+
 * [run](https://github.com/teuton-software/teuton/blob/master/docs/dsl/definition/run_remote.md): La sentencia "run" ejecuta un comando en una máquina remota. La conexión con la máquina remota se realiza usando el protocolo SSH.
 * Cuando ejecutamos el comando `host www.nba.com` de forma correcta, obtenemos una salida como la siguiente, donde se obtiene al menos una línea con el texto `has address`:
+
 ```    
 > host www.nba.com
 
@@ -223,19 +227,18 @@ www.nba.com is an alias for nbaevsecure.edgekey.net.
 nbaevsecure.edgekey.net is an alias for e737.dscg.akamaiedge.net.
 ```
 * Cuando ejecutamos el comando `host www.enebea66.com` y es incorrecto, comprobamos que la salida no muestra ninguna línea del tipo `has address`:
+
 ```
 > host www.enebea66.com
 
 Host www.enebea66.com not found: 3(NXDOMAIN)
 ```
 
-* `teuton test castleXX/test3`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
-
 ## 3.2 Comprobar
 
-* `teuton castleXX/test3`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test3`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**. `teuton check castleXX/test3`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal. En tal caso, hay que revisar el apartado anterior.
+* **Ejecución**. `teuton castleXX/test3`, ejecutar el test.
+* **Resultados**. Tenemos los resultados en el directorio `var/test3`. Comprobar que los resultados son los correctos.
 
 # 4. Test: configuración básica
 
