@@ -1,7 +1,7 @@
 
-
 ```
-Curso       : 202122
+Estado      : EN DESARROLLO!!!
+Curso       :
 Area        : Sistemas operativos, instalación
 Descripción : Instalación de SSOO BSD
 Requisitos  : ISO distro BSD
