@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202223, 201920
 Area        : Sistemas operativos, monitorización, devops
 Descripción : Practicar test de infraestructura
 Requisitos  : Varias máquinas. Una al menos con GNU/Linux
@@ -91,8 +91,10 @@ Entrar como nuestro usuario normal:
 ## 1.5 Entregar
 
 En esta práctica NO hay que hacer informe. Sólo hay que entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
-* `castleXX/*`
+* `towerXX/*`
 * `var/*`
+
+> Recordar que XX es un identificador asociado a cada alumno.
 
 # 2. Test: conectividad
 
@@ -101,12 +103,12 @@ En esta práctica NO hay que hacer informe. Sólo hay que entregar un fichero co
 Ir a la MV1:
 * A partir de ahora trabajaremos con nuestro usuario habitual (no usar root).
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton new castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
+* `teuton new towerXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
 
-```
+```yaml
 ---
 :global:
 :cases:
@@ -122,11 +124,13 @@ Ir a la MV1:
 
 * Vamos a modificar `start.rb` para preparar un test de conectividad con las máquinas:
 
-```
+```ruby
 group "alumnoXX - test2" do
+
   target "Comprobar la conectividad"
   run "ping -c 1 #{get(:host_ip)}"
   expect " 0% packet loss"
+
 end
 
 play do
@@ -146,22 +150,21 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ![](images/teuton-ping.png)
 
-* `teuton check castleXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
 
 ## 2.2 Comprobar
 
-* `teuton castleXX/test2`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test2`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**: `teuton check towerXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+* **Ejecución**: `teuton towerXX/test2`, ejecutar el test.
+* **Resultados**: Tenemos los resultados en el directorio `var/test2`. Comprobar que los resultados son los correctos.
 
 # 3. Test: Configuración de red
 
 ## 3.1 Crear el test
 
-* Crear el test `castleXX/test3`.
+* Crear el test `towerXX/test3`.
 * Personalizar el fichero de configuración (`config.yaml`):
 
-```
+```yaml
 ---
 :global:
   :host_username: root
@@ -181,7 +184,7 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
   :host_password: clave-secreta
 ```
 
-Nos fijamos que se han añadido los siguientes parámetros:
+**Explicación**. Nos fijamos que se han añadido los siguientes parámetros:
 
 | Parámetro     | Descripción |
 | ------------- | ----------- |
@@ -193,7 +196,7 @@ Nos fijamos que se han añadido los siguientes parámetros:
     * Puerta de enlace: `ping -c 1 8.8.4.4`
     * Servidor DNS: `host www.nba.com`
 
-```
+```ruby
 group "alumnoXX - test3" do
 
   target "La puerta de enlace funciona correctamente"
@@ -244,13 +247,13 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
 
 ## 4.1 Modificar el test
 
-* Copiar test3 en `castleXX/test4`.
-* Ampliar los targets para comprobar lo siguiente en las máquinas remotas:
+* Copiar test3 en `towerXX/test4`.
+* Ampliar los "targets" para evaluar lo siguiente en las máquinas remotas:
     * Nombre de equipo: `hostname`
     * Usuario alumno: `id nombre-alumno`
-* Modificar el fichero de configuración para incluir nuevos parámetros (hostname y username):
+* Modificar el fichero de configuración para incluir nuevos parámetros (`hostname` y `username`):
 
-```
+```yaml
 ---
 :global:
   :host_username: root
@@ -275,59 +278,64 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   :hostname: apellidoXXw
 ```
 
-Ver ejemplo de monitorización del nombre del equipo:
-```
+Veamos un ejemplo de monitorización del nombre del equipo:
+
+```ruby
+
   target "Comprobar el nombre del equipo"
   run "hostname", on: :host
   expect get(:hostname)
-```
 
-* `teuton test castleXX/test4`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+```
 
 ## 4.2 Comprobar
 
-* `teuton castleXX/test4`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test4`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**: `teuton test towerXX/test4`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+* **Ejecución**: `teuton towerXX/test4`, ejecutar el test.
+* **Resultados**: Tenemos los resultados en el directorio `var/test4`. Comprobar que los resultados son los correctos.
 
 # 5. Test: directorios y permisos
 
-* Crear un nuevo test `castleXX/test5`.
-* Definir las comprobaciones necesarias en `start.rb`para:
-    * Comprobar que existe el grupo `jedis`.
-    * Comprobar que existe el usuario `obiwan`.
-    * Comprobar que `obiwan`es miembro del grupo `jedis`.
-    * Comprobar que existe el directorio `/home/obiwan/private`.
-    * Comprobar que existe el directorio `/home/obiwan/group`.
-    * Comprobar que existe el directorio `/home/obiwan/public`.
-    * Comprobar `/home/obiwan/private` tiene los permisos `700`.
-    * Comprobar `/home/obiwan/group` tiene los permisos `750`.
-    * Comprobar `/home/obiwan/public` tiene los permisos `755`.
+* Crear un nuevo test `towerXX/test5`.
+
+Definir las comprobaciones necesarias en `start.rb`para:
+* Comprobar que existe el grupo `jedis`.
+* Comprobar que existe el usuario `obiwan`.
+* Comprobar que `obiwan`es miembro del grupo `jedis`.
+* Comprobar que existe el directorio `/home/obiwan/private`.
+* Comprobar que existe el directorio `/home/obiwan/group`.
+* Comprobar que existe el directorio `/home/obiwan/public`.
+* Comprobar `/home/obiwan/private` tiene los permisos `700`.
+* Comprobar `/home/obiwan/group` tiene los permisos `750`.
+* Comprobar `/home/obiwan/public` tiene los permisos `755`.
 
 ## 5.2 Comprobar
 
-* `teuton castleXX/test5`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test5`.
-* Comprobar que los resultados son los correctos.
+* Comprobar la **sintaxis**.
+* `teuton towerXX/test5`, **ejecutar** el test.
+* Tenemos los **resultados** en el directorio `var/test5`. Comprobar que los resultados son los correctos.
 
 # 6. Test: Otros sistemas
 
 ## 6.1 Crear el test
 
-* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows.
-    * Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`.
+Partimos del ejemplo anterior:
+* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo a otro sistema operativo. En nuestro caso elegiremos SO Windows. Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`, etc.
+
+Fichero de configuración:
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
-    * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
-* Definir las comprobaciones necesarias en start.rb para:
-    * Comprobar que existe el grupo jedis (`net localgroup`).
-    * Comprobar que existe el usuario obiwan (`net user`).
-    * Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
-    * Comprobar que existe el directorio `C:\Users\obiwan\private`.
-    * Comprobar que existe el directorio `C:\Users\obiwan\group`.
-    * Comprobar que existe el directorio `C:\Users\obiwan\public`.
+Esto es, usar el parámetro `:tt_skip: true` o `:tt_skip: false` según convenga para habilitar/deshabilitar el test en determinados "cases" o máquinas.
+
+Definir las comprobaciones necesarias en start.rb para:
+* Comprobar que existe el grupo jedis (`net localgroup`).
+* Comprobar que existe el usuario obiwan (`net user`).
+* Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
+* Comprobar que existe el directorio `C:\Users\obiwan\private`.
+* Comprobar que existe el directorio `C:\Users\obiwan\group`.
+* Comprobar que existe el directorio `C:\Users\obiwan\public`.
 
 ## 6.2 Comprobar
 
-* `teuton castleXX/test6`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test6`.
-* Comprobar que los resultados son los correctos.
+* Comprobar la **sintaxis**.
+* `teuton towerXX/test6`, **ejecutar** el test.
+* Tenemos los **resultados** en el directorio `var/test6`. Comprobar que los resultados son los correctos.
