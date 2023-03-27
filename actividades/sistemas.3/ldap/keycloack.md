@@ -7,7 +7,7 @@ EN CONSTRUCCION!!!
 
 Enlaces de interés:
 * https://ichi.pro/es/que-es-keycloak-como-usarlo-un-ejemplo-con-nodejs-parte-1-40971011506157
-
+* [Keycloak: una solución de gestión de acceso e identidad de código abierto](https://blog.desdelinux.net/keycloak-una-solucion-de-gestion-de-acceso-e-identidad-de-codigo-abierto/)
 
 # Introducción
 
