@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-NAME = "vagrant-debian"
+NAME = "vagrant-debianXX"
 BOX = "generic/debian11"
 
 Vagrant.configure("2") do |config|
@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     # Configure VM
     i.vm.hostname = NAME
     #i.vm.network "public_network", bridge: [ "eth0" ]
-    #i.vm.network "public_network", bridge: [ "wlp6s0" ]
+    i.vm.network "public_network", bridge: [ "wlo1" ]
     i.vm.network :forwarded_port, guest: 22, host: 2241
     i.vm.network :forwarded_port, guest: 80, host: 8080
     i.vm.network :forwarded_port, guest: 443, host: 8443
