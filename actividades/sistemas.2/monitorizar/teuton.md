@@ -1,6 +1,6 @@
 
 ```
-Curso       : 201920
+Curso       : 202223, 201920
 Area        : Sistemas operativos, monitorización, devops
 Descripción : Practicar test de infraestructura
 Requisitos  : Varias máquinas. Una al menos con GNU/Linux
@@ -23,9 +23,9 @@ Propuesta de rúbrica:
 ## 1.1 Introducción
 
 * ¿Qué son los test de infraestructura?
-* Ver la infraestructura como código (IaC).
+* ¿Qué significa ver la infraestructura como código (IaC)?
 
-* Comparativa de varios test de infraestructura:
+Comparativa de varios test de infraestructura:
 
 | Features | Teuton | Testinfra | Goss |
 | -------- | ------ | --------- | ---- |
@@ -41,11 +41,11 @@ Propuesta de rúbrica:
 | Builtin functions | Yes | Yes | ... |
 | Function creation | Yes | ?   | ? |
 
-> Incluir Inspec en la comparativa.
+> TODO: Incluir Inspec en la comparativa.
 
 ## 1.2 Preparativos
 
-Listado de las máquinas que necesitamos:
+Listado de las máquinas que vamos a necesitar:
 
 | ID | Sistema  | Hostname     | IP           |
 | -- | -------- | ------------ | ------------ |
@@ -58,41 +58,43 @@ Configurar en todas las máquinas:
 * IP estática.
 * Activar servicio SSH.
 * Habilitar acceso SSH a root (Modificar fichero de configuración con `PermitRootLogin Yes`).
-* Comprobar acceso remoto con `ssh root@ip-mv`.
+* Comprobar acceso remoto SSH con el comando `ssh root@IP-DE-LA-MV`.
 
 ## 1.3 Modos de trabajo
 
 > Enlaces de interés:
-> * [Modos de uso](https://github.com/teuton-software/teuton/blob/devel/docs/install/modes_of_use.md)
+> * [Modos de uso](https://github.com/teuton-software/teuton/blob/master/docs/install/modes_of_use.md)
 
-* Entender los modos de trabajo de Teuton: T-NODE y S-NODE.
+* Entender los modos de trabajo de Teuton y la diferencia entre T-NODE y S-NODE.
 * T-NODE: Máquina con Teuton.
 * S-NODE: Máquina con el servicio SSH ([Configurar el servicio SSH](https://github.com/dvarrui/libro-de-actividades/blob/master/actividades/global/acceso-remoto/))
 
 ## 1.4 Instalación
 
 > Enlace de interés:
-> * [Instalación](https://github.com/teuton-software/teuton/blob/devel/docs/install/install.md)
+> * [Instalación](https://github.com/teuton-software/teuton/blob/master/docs/install/README.md)
 
-Vamos a ver el proceso de instalación de "teuton" (T-NODE).
+Vamos a ver el proceso de instalación de `teuton` en la máquina T-NODE:
 
 Entrar como superusuario.
-* `ruby -v` para comprobar la versión de ruby ( >= 2.3.0). En caso contrario instalar ruby.
+* `ruby -v` para comprobar la versión de ruby ( >= 2.5.9). En caso contrario instalar ruby.
 * `gem install teuton`, instalar Teuton (Necesitaremos tener privilegios de root para instalar).
-* `gem list | grep teuton`, para comprobar que lo tenemos instalado.
+* `gem info teuton`, para comprobar que lo tenemos instalado.
 
-> En OpenSUSE es necesario además es necesario hacer los siguiente:
+> **ADVERTENCIA**: En OpenSUSE es necesario además es necesario hacer los siguiente:
 > * `find /usr -name teuton`, para localizar el ejecutable.
 > * `ln -s PATH/TO/FILE/teuton /usr/local/bin/teuton`, crear un enlace al ejecutable.
 
 Entrar como nuestro usuario normal:
-* `teuton version`, comprobar versión.
+* `teuton version`, comprobar versión (>= 2.4.5).
 
 ## 1.5 Entregar
 
 En esta práctica NO hay que hacer informe. Sólo hay que entregar un fichero comprimido zip con el contenido de las siguientes carpetas:
-* `castleXX/*`
+* `towerXX/*`
 * `var/*`
+
+> Recordar que XX es un identificador asociado a cada alumno.
 
 # 2. Test: conectividad
 
@@ -101,12 +103,12 @@ En esta práctica NO hay que hacer informe. Sólo hay que entregar un fichero co
 Ir a la MV1:
 * A partir de ahora trabajaremos con nuestro usuario habitual (no usar root).
 * Ir al directorio `Documentos` para trabajar ahí.
-* `teuton new castleXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
+* `teuton new towerXX/test2`, para crear los ficheros para nuestro test. Los ficheros principales son:
     * `config.yaml`, fichero de configuración de las máquinas
     * `start.rb`, definición de las unidades de prueba.
 * Modificar `config.yaml` para incluir todas las máquinas que queremos monitorizar:
 
-```
+```yaml
 ---
 :global:
 :cases:
@@ -120,14 +122,15 @@ Ir a la MV1:
   :host_ip: 172.18.XX.11
 ```
 
-* Vamos a modificar `start.rb` para comprobar que hay conectividad con las máquinas:
+* Vamos a modificar `start.rb` para preparar un test de conectividad con las máquinas:
 
-```
+```ruby
 group "alumnoXX - test2" do
 
   target "Comprobar la conectividad"
   run "ping -c 1 #{get(:host_ip)}"
   expect " 0% packet loss"
+
 end
 
 play do
@@ -147,22 +150,21 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
 
 ![](images/teuton-ping.png)
 
-* `teuton test castleXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
 
 ## 2.2 Comprobar
 
-* `teuton castleXX/test2`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test2`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**: `teuton check towerXX/test2`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+* **Ejecución**: `teuton towerXX/test2`, ejecutar el test.
+* **Resultados**: Tenemos los resultados en el directorio `var/test2`. Comprobar que los resultados son los correctos.
 
 # 3. Test: Configuración de red
 
 ## 3.1 Crear el test
 
-* Crear el test `castleXX/test3`.
+* Crear el test `towerXX/test3`.
 * Personalizar el fichero de configuración (`config.yaml`):
 
-```
+```yaml
 ---
 :global:
   :host_username: root
@@ -182,16 +184,19 @@ A continuación vemos una imagen de ejemplo, donde tenemos:
   :host_password: clave-secreta
 ```
 
-> Fijarse que hemos añadido los siguientes parámetros:
-> * `host_username`: será el nombre del usuario que usaremos para conectarnos de forma remota a las máquinas vía SSH.
-> * `host_ip`: será valor de IP de la máquina a la que vamos a conectarnos de forma remota vía SSH.
-> * `tt_skip`: si se pone a true estamos indicando que esta máquina no la vamos a comprobar por ahora. De momento vamos a excluir (skip==true) la máquina Windows de la monitorización, porque los comandos son diferentes. Lo arreglaremos más adelante.
+**Explicación**. Nos fijamos que se han añadido los siguientes parámetros:
+
+| Parámetro     | Descripción |
+| ------------- | ----------- |
+| host_username | será el nombre del usuario que usaremos para conectarnos de forma remota a las máquinas vía SSH |
+| host_ip       | será valor de IP de la máquina a la que vamos a conectarnos de forma remota vía SSH |
+| tt_skip       | si se pone a true estamos indicando que esta máquina no la vamos a comprobar por ahora. De momento vamos a excluir (skip==true) la máquina Windows de la monitorización, porque los comandos son diferentes. Lo arreglaremos más adelante.|
 
 * Vamos a modificar `start.rb` para comprobar lo siguiente en las máquinas remotas:
     * Puerta de enlace: `ping -c 1 8.8.4.4`
     * Servidor DNS: `host www.nba.com`
 
-```
+```ruby
 group "alumnoXX - test3" do
 
   target "La puerta de enlace funciona correctamente"
@@ -210,9 +215,11 @@ play do
 end
 ```
 
-Explicación:
+**Explicación:**
+
 * [run](https://github.com/teuton-software/teuton/blob/master/docs/dsl/definition/run_remote.md): La sentencia "run" ejecuta un comando en una máquina remota. La conexión con la máquina remota se realiza usando el protocolo SSH.
 * Cuando ejecutamos el comando `host www.nba.com` de forma correcta, obtenemos una salida como la siguiente, donde se obtiene al menos una línea con el texto `has address`:
+
 ```    
 > host www.nba.com
 
@@ -223,31 +230,30 @@ www.nba.com is an alias for nbaevsecure.edgekey.net.
 nbaevsecure.edgekey.net is an alias for e737.dscg.akamaiedge.net.
 ```
 * Cuando ejecutamos el comando `host www.enebea66.com` y es incorrecto, comprobamos que la salida no muestra ninguna línea del tipo `has address`:
+
 ```
 > host www.enebea66.com
 
 Host www.enebea66.com not found: 3(NXDOMAIN)
 ```
 
-* `teuton test castleXX/test3`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
-
 ## 3.2 Comprobar
 
-* `teuton castleXX/test3`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test3`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**. `teuton check castleXX/test3`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal. En tal caso, hay que revisar el apartado anterior.
+* **Ejecución**. `teuton castleXX/test3`, ejecutar el test.
+* **Resultados**. Tenemos los resultados en el directorio `var/test3`. Comprobar que los resultados son los correctos.
 
 # 4. Test: configuración básica
 
 ## 4.1 Modificar el test
 
-* Copiar test3 en `castleXX/test4`.
-* Ampliar los targets para comprobar lo siguiente en las máquinas remotas:
+* Copiar test3 en `towerXX/test4`.
+* Ampliar los "targets" para evaluar lo siguiente en las máquinas remotas:
     * Nombre de equipo: `hostname`
     * Usuario alumno: `id nombre-alumno`
-* Modificar el fichero de configuración para incluir nuevos parámetros (hostname y username):
+* Modificar el fichero de configuración para incluir nuevos parámetros (`hostname` y `username`):
 
-```
+```yaml
 ---
 :global:
   :host_username: root
@@ -272,59 +278,64 @@ Host www.enebea66.com not found: 3(NXDOMAIN)
   :hostname: apellidoXXw
 ```
 
-Ver ejemplo de monitorización del nombre del equipo:
-```
+Veamos un ejemplo de monitorización del nombre del equipo:
+
+```ruby
+
   target "Comprobar el nombre del equipo"
   run "hostname", on: :host
   expect get(:hostname)
-```
 
-* `teuton test castleXX/test4`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+```
 
 ## 4.2 Comprobar
 
-* `teuton castleXX/test4`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test4`.
-* Comprobar que los resultados son los correctos.
+* **Sintaxis**: `teuton test towerXX/test4`, nos hace una revisión de la sintaxis de los ficheros `config.yaml` y `start.rb` por si hemos escrito algo mal.
+* **Ejecución**: `teuton towerXX/test4`, ejecutar el test.
+* **Resultados**: Tenemos los resultados en el directorio `var/test4`. Comprobar que los resultados son los correctos.
 
 # 5. Test: directorios y permisos
 
-* Crear un nuevo test `castleXX/test5`.
-* Definir las comprobaciones necesarias en `start.rb`para:
-    * Comprobar que existe el grupo `jedis`.
-    * Comprobar que existe el usuario `obiwan`.
-    * Comprobar que `obiwan`es miembro del grupo `jedis`.
-    * Comprobar que existe el directorio `/home/obiwan/private`.
-    * Comprobar que existe el directorio `/home/obiwan/group`.
-    * Comprobar que existe el directorio `/home/obiwan/public`.
-    * Comprobar `/home/obiwan/private` tiene los permisos `700`.
-    * Comprobar `/home/obiwan/group` tiene los permisos `750`.
-    * Comprobar `/home/obiwan/public` tiene los permisos `755`.
+* Crear un nuevo test `towerXX/test5`.
+
+Definir las comprobaciones necesarias en `start.rb`para:
+* Comprobar que existe el grupo `jedis`.
+* Comprobar que existe el usuario `obiwan`.
+* Comprobar que `obiwan`es miembro del grupo `jedis`.
+* Comprobar que existe el directorio `/home/obiwan/private`.
+* Comprobar que existe el directorio `/home/obiwan/group`.
+* Comprobar que existe el directorio `/home/obiwan/public`.
+* Comprobar `/home/obiwan/private` tiene los permisos `700`.
+* Comprobar `/home/obiwan/group` tiene los permisos `750`.
+* Comprobar `/home/obiwan/public` tiene los permisos `755`.
 
 ## 5.2 Comprobar
 
-* `teuton castleXX/test5`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test5`.
-* Comprobar que los resultados son los correctos.
+* Comprobar la **sintaxis**.
+* `teuton towerXX/test5`, **ejecutar** el test.
+* Tenemos los **resultados** en el directorio `var/test5`. Comprobar que los resultados son los correctos.
 
 # 6. Test: Otros sistemas
 
 ## 6.1 Crear el test
 
-* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo al sistema operativo Windows.
-    * Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`.
+Partimos del ejemplo anterior:
+* Copiar el test anterior y modificar los comandos de comprobación para adaptarlo a otro sistema operativo. En nuestro caso elegiremos SO Windows. Por ejemplo, para comprobar si existe un usuario cambiar `id nombre-alumno` por `net user alumno`, etc.
+
+Fichero de configuración:
 * Modificar `config.yaml` para monitorizar únicamente a la máquina Windows.
-    * Poner `:tt_skip: true` o `:tt_skip: false` según convenga.
-* Definir las comprobaciones necesarias en start.rb para:
-    * Comprobar que existe el grupo jedis (`net localgroup`).
-    * Comprobar que existe el usuario obiwan (`net user`).
-    * Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
-    * Comprobar que existe el directorio `C:\Users\obiwan\private`.
-    * Comprobar que existe el directorio `C:\Users\obiwan\group`.
-    * Comprobar que existe el directorio `C:\Users\obiwan\public`.
+Esto es, usar el parámetro `:tt_skip: true` o `:tt_skip: false` según convenga para habilitar/deshabilitar el test en determinados "cases" o máquinas.
+
+Definir las comprobaciones necesarias en start.rb para:
+* Comprobar que existe el grupo jedis (`net localgroup`).
+* Comprobar que existe el usuario obiwan (`net user`).
+* Comprobar que obiwanes miembro del grupo jedis (`net user obiwan`).
+* Comprobar que existe el directorio `C:\Users\obiwan\private`.
+* Comprobar que existe el directorio `C:\Users\obiwan\group`.
+* Comprobar que existe el directorio `C:\Users\obiwan\public`.
 
 ## 6.2 Comprobar
 
-* `teuton castleXX/test6`, ejecutar el test.
-* Tenemos los resultados en el directorio `var/test6`.
-* Comprobar que los resultados son los correctos.
+* Comprobar la **sintaxis**.
+* `teuton towerXX/test6`, **ejecutar** el test.
+* Tenemos los **resultados** en el directorio `var/test6`. Comprobar que los resultados son los correctos.
