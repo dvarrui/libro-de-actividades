@@ -4,7 +4,7 @@
 > Enlace de interés:
 > * [Git hooks: How to automate actions in your Git repo](https://www.redhat.com/sysadmin/git-hooks?intcmp=7013a000002qLH8AAM&extIdCarryOver=true&sc_cid=701f2000001OH79AAG)
 
-Los `git hooks` son scripts de shell que se encuentran en el directorio oculto `.git/hooks` del repositorio Git. Estos scripts desencadenan acciones en respuesta a eventos específicos, por lo que pueden ayudarlo a automatizar tareas.
+Los `git hooks` son scripts de shell que se encuentran en el directorio oculto `.git/hooks` del repositorio Git. Estos scripts desencadenan acciones en respuesta a eventos específicos, para ayudar a automatizar tareas.
 
 Cada repositorio de Git incluye 12 scripts "ocultos" de ejemplo.
 
@@ -75,5 +75,3 @@ Modificamos, por ejemplo, un fichero `README.md`, y si hacemos `commit` se debe 
 Vamos a intentar convertir el script anterior de Bash a Ruby.
 
 _En construcción_
-
-
