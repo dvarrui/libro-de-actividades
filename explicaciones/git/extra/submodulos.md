@@ -8,13 +8,13 @@ _Los submódulos de Git nos permiten tener un repositorio de Git como un subdire
 
 ## ¿Qué es un submódulo de git?
 
-Diferentes maneras de incorporar código externo a nuestro propio repositorio:
+Hay diferentes formas de incorporar código externo a nuestro propio repositorio, por ejemplo:
 
-1. El código externo se puede **copiar y pegar** directamente en el repositorio principal. No se actualiza con los cambios realizados en el repositorio externo.
-2. Otro método sería usar un **sistema de gestión de paquetes** como Gems de Ruby, NPM de Node o Teuton. Requiere instalación y administración de las versiones.
-3. **Usar submódulos**. Esto es, usar un repositorio externo dentro de nuestro repositorio principal. Los cambios en el repositorio externo se ven inmediatamente en nuestro repositorio. Si el repositorio externo se "rompe", también lo hará el nuestro.
+1. El modo "clásico" es **copiar y pegar** el código externo directamente en el repositorio principal. El principal inconveniente es que no se actualizan los cambios realizados en el código del repositorio externo.
+2. Otro modo sería usar un **sistema de gestión de paquetes** como "apt" de SO Debian, "Gem" de Ruby, "NPM" de Node o "teuton-get" de Teuton, etc. Como invonveniente, se requiere la instalación del software de gestión de paquetes.
+3. **Usar submódulos** de Git. Esto es, usaremos los propios comandos de Git para "enlazar" a un repositorio externo desde de nuestro repositorio principal. Los cambios en el repositorio externo se ven inmediatamente en nuestro repositorio. El principal inconveniente es que si el repositorio externo se "rompe", también lo hará el nuestro.
 
-> Los métodos 1 y 2 no permiten el seguimiento de ediciones y cambios en el repositorio externo.
+> En los métodos 1 y 2 no permiten el seguimiento de ediciones, ni de los  cambios en el repositorio externo.
 
 ## Clonar un repositorio externo como un submódulo
 
@@ -38,12 +38,11 @@ repo.c
 ```
 cd repo.c
 git clone git@gitlab.com:dvarrui_test/repo_A.git
-git submodukle init
+git submodule init
 git submodule update
 ```
 
 Al agregar un submódulo a un repositorio, se creará un nuevo archivo `.gitmodules`. El cual contiene metadatos sobre la asignación entre la URL del proyecto del submódulo y el directorio local.
-
 
 ```
 ❯ more .gitmodules
@@ -52,6 +51,6 @@ Al agregar un submódulo a un repositorio, se creará un nuevo archivo `.gitmodu
 	url = git@gitlab.com:dvarrui_test/repo_A.git
 ```
 
-# Flujos de trabajo de submódulos
+# Flujos de trabajo con submódulos
 
 Una vez que los submódulos se inicializan y actualizan correctamente dentro de un repositorio principal, se pueden utilizar exactamente como repositorios independientes. Esto significa que los submódulos tienen sus propias ramas e historial. Al realizar cambios en un submódulo, es importante publicar los cambios del submódulo y luego actualizar la referencia de los repositorios principales al submódulo.
