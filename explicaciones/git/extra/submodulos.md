@@ -33,13 +33,18 @@ repo.c
 └── README.md
 ```
 
-* Ahora queremos agregar `repo_A` como submódulo del `repo_C`.
-
+Ahora vamos a agregar `repo_A` como submódulo del `repo_C`.
+* Modo 1:
 ```
 cd repo.c
 git clone git@gitlab.com:dvarrui_test/repo_A.git
 git submodule init
 git submodule update
+```
+* Modo 2:
+```
+cd repo.C
+git -C lib submodule add URLREPO
 ```
 
 Al agregar un submódulo a un repositorio, se creará un nuevo archivo `.gitmodules`. El cual contiene metadatos sobre la asignación entre la URL del proyecto del submódulo y el directorio local.
