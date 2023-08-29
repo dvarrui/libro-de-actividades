@@ -14,6 +14,7 @@ Para empezar a hacer nuestros primeros programas vamos a necesitar un **entorno*
 > Curso de GD Script desde cero:
 > * [Variables y Comentarios](https://www.youtube.com/watch?v=xmgXQb3O3ec&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW)
 > * [Sentencia IF/ELIF/ELSE](https://www.youtube.com/watch?v=H46WcOmiULA&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=2)
+> * [Estructura match](https://www.youtube.com/watch?v=Cq-Yd6H3MaI&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=3)
 
 ## Comentarios y variables
 
