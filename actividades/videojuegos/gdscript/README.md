@@ -4,17 +4,20 @@ EN CONSTRUCCIÓN!!!
 
 # GDScript
 
-GDScript es un lenguaje de programación integrado en el motor de videojuegos GodotEngine.
-Además de GDScript, Godot permite usar otros lenguajes de programación como CSharp o VisualScript. Pero para aprender a programar de forma sencilla GDScript será el más adecuado.
+GDScript es un lenguaje de programación integrado en el motor de videojuegos GodotEngine. Además de GDScript, Godot permite usar otros lenguajes de programación como CSharp o VisualScript. Pero para aprender a programar de forma sencilla GDScript será el más adecuado.
 
 Para empezar a hacer nuestros primeros programas vamos a necesitar un **entorno** para ejecutarlos:
 * Podemos usar [Godot Playground](https://gd.tumeo.space/)
 * O bien descargar e instalar el motor [GodotEngine de la página web](https://godotengine.org/).
 
-> Curso de GD Script desde cero:
-> * [Variables y Comentarios](https://www.youtube.com/watch?v=xmgXQb3O3ec&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW)
-> * [Sentencia IF/ELIF/ELSE](https://www.youtube.com/watch?v=H46WcOmiULA&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=2)
-> * [Estructura match](https://www.youtube.com/watch?v=Cq-Yd6H3MaI&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=3)
+Curso de GD Script desde cero
+1. [Variables y Comentarios](https://www.youtube.com/watch?v=xmgXQb3O3ec&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW)
+2. [Sentencia IF/ELIF/ELSE](https://www.youtube.com/watch?v=H46WcOmiULA&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=2)
+3. [Estructura match](https://www.youtube.com/watch?v=Cq-Yd6H3MaI&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=3)
+4. [Iteradores - for](https://www.youtube.com/watch?v=7J_bVdcYk5g&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=4)
+5. [Iteradores - while](https://www.youtube.com/watch?v=ly86XguJMBc&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=5)
+6. [Arrays](https://www.youtube.com/watch?v=kLwXIHYtLtw&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=6)
+7. [Diccionarios](https://www.youtube.com/watch?v=JyL0p3Ap40w&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW&index=7)
 
 ## Comentarios y variables
 
