@@ -13,7 +13,7 @@ Para empezar a hacer nuestros primeros programas vamos a necesitar un **entorno*
 > Enlaces de interés:
 > * [Doc GDScript basics](https://docs.godotengine.org/es/stable/tutorials/scripting/gdscript/gdscript_basics.html)
 
-## Videotutorial
+## Videotutorial GDSCript
 
 Curso de GD Script desde cero (Irwin Rodríguez):
 1. [Variables y Comentarios](https://www.youtube.com/watch?v=xmgXQb3O3ec&list=PLlFOKoWJ_eWbOl80xcanh9RC-WqlmgtIW)
@@ -52,7 +52,7 @@ GDScript es un lenguaje dinámico.
 * La función `_ready()` se invoca una sola vez, cuando el objeto/nodo entra en la escena activa.
 * Los nombres de las funciones comienzan por el símbolo `_` cuando son funciones privadas del objeto/nodo.
 
-## Videotutorial
+## Videotutorial de Godot 4
 
 Introducción a Godot 4 de "Leedeo Studio":
 4. [GDScript 2.0](https://www.youtube.com/watch?v=x9N1gw2qWEQ&t=115s)
@@ -60,5 +60,16 @@ Introducción a Godot 4 de "Leedeo Studio":
 6. [Señales](https://www.youtube.com/watch?v=BXkJeEGZr4o)
 7. [Depurar código GDScript 2.0](https://www.youtube.com/watch?v=VtJmmE_FGIk)
 8. [Función de movimiento global](https://www.youtube.com/watch?v=V020M2DabXo)
+
+```python
+var axis : Vector2
+
+func get_axis() -> Vector2:
+    axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+    axis.y = int(Input.is_action_pressed("ui_up")) - int(Input.is_action_pressed("ui_down"))
+    return axis.normalized()
+```
+
+9. [Diseño de interfaces](https://www.youtube.com/watch?v=5Pz1pvjjCfI)
 
 # ANEXO
