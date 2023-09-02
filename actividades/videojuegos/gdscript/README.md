@@ -52,7 +52,7 @@ GDScript es un lenguaje dinámico.
 * La función `_ready()` se invoca una sola vez, cuando el objeto/nodo entra en la escena activa.
 * Los nombres de las funciones comienzan por el símbolo `_` cuando son funciones privadas del objeto/nodo.
 
-## Videotutorial de Godot 4
+## Videotutorial: Introducción a Godot 4
 
 Introducción a Godot 4 de "Leedeo Studio":
 4. [GDScript 2.0](https://www.youtube.com/watch?v=x9N1gw2qWEQ&t=115s)
@@ -71,5 +71,13 @@ func get_axis() -> Vector2:
 ```
 
 9. [Diseño de interfaces](https://www.youtube.com/watch?v=5Pz1pvjjCfI)
+10. [AnimationPlayer](https://www.youtube.com/watch?v=v5uZuyelKRQ)
+11. [AnimationTree](https://www.youtube.com/watch?v=hfQkI5zQY3w)
+
 
 # ANEXO
+
+Godot 4 - Online Multiplayer FPS From Scratch
+YouTube (https://youtu.be/n8D3vEx7NAE?si=nzfVNNwtiLItlg6B)
+How to make a simple online multiplayer FPS game in Godot 4 and play with friends over the internet. Big thank you to @ditzyninja for his Godot 4 networking content!
+
