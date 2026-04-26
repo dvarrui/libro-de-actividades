@@ -21,10 +21,10 @@ El directorio [actividades](./actividades) es la carpeta principal. En este dire
 
 | Categoría                  | Uso recomendado           |
 | -------------------------- | ------------------------- |
-| [hardware](./hardware)     | Actividades para usar en módulos relacionados con hardware. Por ejemplo, "Fundamentos de Hardware" de 1ASIR y similares |
-| [sistemas.2](./sistemas.2) | Actividades de sistemas operativos con grado de dificultad medio. Recomensado para módulos como "Implantación de Sistemas Operativos" de 1ASIR y similares|
-| [sistemas.3](./sistemas.3) | Actividades de sistemas operativos con grado de dificultad avanzado. Recomendado para módulos como "Administración de Sistemas Operativos" de 2ASIR y similares |
-| [global](./global)         | Contiene información para todas las actividades y que depende de la instalación específica de  mi centro |
+| [hardware](./actividades/hardware)     | Actividades para usar en módulos relacionados con hardware. Por ejemplo, "Fundamentos de Hardware" de 1ASIR y similares |
+| [sistemas.2](./actividades/sistemas.2) | Actividades de sistemas operativos con grado de dificultad medio. Recomensado para módulos como "Implantación de Sistemas Operativos" de 1ASIR y similares|
+| [sistemas.3](./actividades/sistemas.3) | Actividades de sistemas operativos con grado de dificultad avanzado. Recomendado para módulos como "Administración de Sistemas Operativos" de 2ASIR y similares |
+| [global](./actividades/global)         | Contiene información para todas las actividades y que depende de la instalación específica de  mi centro |
 | Programación               | PENDIENTE |
 | Redes                      | PENDIENTE |
 | Seguridad                  | PENDIENTE |
@@ -41,7 +41,7 @@ Pero... hay ocasiones en las que los contenidos de internet no están bien expli
 
 Hay ocasiones en clase, que estamos repitiendo las mismas explicaciones por diversos motivos. Normalmente son aclaraciones de conceptos especialmente dífíciles.
 
-En esos casos, creamos un fichero con las [explicaciones](./../explicaciones) y en las actividades ponemos un enlace a este fichero.
+En esos casos, creamos un fichero con las [explicaciones](./explicaciones/) y en las actividades ponemos un enlace a este fichero.
 
 Esta sección puede desaparecer en un futuro. Las explicaciones se irán moviendo poco a poco a sus correspondientes actividades y con el tiempo irán desapareciendo o cambiando a según las dificultades que presenten los alumnos cada nuevo curso.
 
