@@ -1,6 +1,6 @@
 # Índice de actividades
 
-`Fecha UM: 2023-03-24 14:07:40 +0000`
+`Fecha UM: 2026-04-26 23:28:17 +0100`
 
 # Resumen
 
@@ -34,10 +34,10 @@
 
 | ID | Sección | Cantidad | Actividades |
 | -- | ------- | -------- | ----------- |
-| 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 8 | [hello](actividades/sistemas.2/aplicaciones/hello.md), [html](actividades/sistemas.2/aplicaciones/html), [passwords-w7-opensuse](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [revisar](actividades/sistemas.2/aplicaciones/revisar), [w10-opensuse](actividades/sistemas.2/aplicaciones/w10-opensuse.md), [w7-debian](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
+| 0 | [aplicaciones](actividades/sistemas.2/aplicaciones) | 7 | [hello](actividades/sistemas.2/aplicaciones/hello.md), [passwords-w7-opensuse](actividades/sistemas.2/aplicaciones/passwords-w7-opensuse.md), [passwords_and_sources-w7_debian](actividades/sistemas.2/aplicaciones/passwords_and_sources-w7_debian.md), [revisar](actividades/sistemas.2/aplicaciones/revisar), [w10-opensuse](actividades/sistemas.2/aplicaciones/w10-opensuse.md), [w7-debian](actividades/sistemas.2/aplicaciones/w7-debian.md), [w7-opensuse](actividades/sistemas.2/aplicaciones/w7-opensuse.md) |
 | 1 | [backup](actividades/sistemas.2/backup) | 4 | [README](actividades/sistemas.2/backup/README.md), [ideas](actividades/sistemas.2/backup/ideas.md), [rsync](actividades/sistemas.2/backup/rsync.md), [tar](actividades/sistemas.2/backup/tar.md) |
 | 2 | [boot-loader](actividades/sistemas.2/boot-loader) | 3 | [README](actividades/sistemas.2/boot-loader/README.md), [debian-windows_xp](actividades/sistemas.2/boot-loader/debian-windows_xp.md), [grub](actividades/sistemas.2/boot-loader/grub) |
-| 3 | [comandos](actividades/sistemas.2/comandos) | 1 | [comandos-01](actividades/sistemas.2/comandos/comandos-01.md) |
+| 3 | [comandos](actividades/sistemas.2/comandos) | 2 | [comandos-01](actividades/sistemas.2/comandos/comandos-01.md), [learn_linux_by_playing_games](actividades/sistemas.2/comandos/learn_linux_by_playing_games.md) |
 | 4 | [dominios](actividades/sistemas.2/dominios) | 9 | [msi](actividades/sistemas.2/dominios/msi.md), [pdc-cliente-opensuse](actividades/sistemas.2/dominios/pdc-cliente-opensuse.md), [pdc-cliente-ubuntu-debian](actividades/sistemas.2/dominios/pdc-cliente-ubuntu-debian.md), [pdc-politicas-wininstall](actividades/sistemas.2/dominios/pdc-politicas-wininstall.md), [pdc-politicas](actividades/sistemas.2/dominios/pdc-politicas.md), [pdc-winserver-2008](actividades/sistemas.2/dominios/pdc-winserver-2008.md), [pdc-winserver-2012](actividades/sistemas.2/dominios/pdc-winserver-2012.md), [pdc-winserver](actividades/sistemas.2/dominios/pdc-winserver.md), [relacion-de-confianza](actividades/sistemas.2/dominios/relacion-de-confianza.md) |
 | 5 | [faq](actividades/sistemas.2/faq) | 2 | [README](actividades/sistemas.2/faq/README.md), [ln](actividades/sistemas.2/faq/ln.md) |
 | 6 | [instalacion](actividades/sistemas.2/instalacion) | 8 | [desatendida](actividades/sistemas.2/instalacion/desatendida), [instalacion-dual](actividades/sistemas.2/instalacion/instalacion-dual), [instalacion-personalizada](actividades/sistemas.2/instalacion/instalacion-personalizada), [live-cd](actividades/sistemas.2/instalacion/live-cd), [pxe](actividades/sistemas.2/instalacion/pxe), [rbpi](actividades/sistemas.2/instalacion/rbpi), [servidor](actividades/sistemas.2/instalacion/servidor), [vagrant](actividades/sistemas.2/instalacion/vagrant) |
@@ -48,7 +48,7 @@
 | 11 | [raid-lvm](actividades/sistemas.2/raid-lvm) | 7 | [btrfs-windows](actividades/sistemas.2/raid-lvm/btrfs-windows.md), [lvm-debian-windows](actividades/sistemas.2/raid-lvm/lvm-debian-windows.md), [lvm-opensuse-windows](actividades/sistemas.2/raid-lvm/lvm-opensuse-windows.md), [raid-debian-windows](actividades/sistemas.2/raid-lvm/raid-debian-windows.md), [raid-opensuse](actividades/sistemas.2/raid-lvm/raid-opensuse.md), [raid-problemas](actividades/sistemas.2/raid-lvm/raid-problemas), [raid-y-lvm](actividades/sistemas.2/raid-lvm/raid-y-lvm.md) |
 | 12 | [scripting](actividades/sistemas.2/scripting) | 5 | [dialog](actividades/sistemas.2/scripting/dialog.md), [neofetch2ruby](actividades/sistemas.2/scripting/neofetch2ruby.md), [scripts-condicional](actividades/sistemas.2/scripting/scripts-condicional.md), [scripts-iterativos](actividades/sistemas.2/scripting/scripts-iterativos.md), [scripts-secuencial](actividades/sistemas.2/scripting/scripts-secuencial.md) |
 | 13 | [tests](actividades/sistemas.2/tests) | 1 | [trim1](actividades/sistemas.2/tests/trim1.md) |
-| 14 | [to.do](actividades/sistemas.2/to.do) | 5 | [bsd](actividades/sistemas.2/to.do/bsd), [genode](actividades/sistemas.2/to.do/genode), [ideas](actividades/sistemas.2/to.do/ideas.md), [kali](actividades/sistemas.2/to.do/kali.md), [redox-os.d](actividades/sistemas.2/to.do/redox-os.d) |
+| 14 | [to.do](actividades/sistemas.2/to.do) | 2 | [ideas](actividades/sistemas.2/to.do/ideas.md), [kali](actividades/sistemas.2/to.do/kali.md) |
 
 ## Categoría: sistemas.3
 
