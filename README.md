@@ -1,4 +1,6 @@
 
+![](./docs/logo.png)
+
 # Libro de actividades
 
 Proyecto para compartir las actividades/ejercicios/prácticas como si fueran componentes reutilizables, útiles para las clases de los **Ciclos Formativos de Informática**.
