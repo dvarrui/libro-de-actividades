@@ -1,10 +1,11 @@
 
-![](./docs/logo.png)
-
 # Libro de actividades
+
+![](./docs/logo.png)
 
 Proyecto para compartir las actividades/ejercicios/prácticas como si fueran componentes reutilizables, útiles para las clases de los **Ciclos Formativos de Informática**.
 
+* [Catálogo de actividades](./index.md)
 * [¿Cómo accedo a los documentos?](./docs/acceso.md)
 * [¿Cómo puedo contribuir al proyecto?](./docs/contribuciones.md)
 * [Proyectos similares](./docs/proyectos-similares.md)
@@ -50,4 +51,3 @@ Esta sección puede desaparecer en un futuro. Las explicaciones se irán moviend
 
 En general, los documentos del proyecto tiene licencia
 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/), excepto aquellos que expresamente tengan indicados otro tipo de licencia o tengan en su subdirectorio otro fichero LICENSE diferente.
-
