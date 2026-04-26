@@ -1,3 +1,7 @@
+```
+(Rama estable hasta agosto del próximo curso)
+```
+
 # Libro de actividades
 
 Proyecto libre para compartir actividades/ejercicios útiles para usar en los **Ciclos Formativos de Informática**.

@@ -1,6 +1,8 @@
 
 
-IEEE POSIX 10003.2
-PowerShell y Bash
+* Vim File Templates - Vimtricks (https://t.co/cSMsHlYC9Q?s=35) Vim file templates can be achieved without plugins using Vim's built-in skeleton files.
+* How to Randomly Display ASCII Art on Linux Terminal (https://www.tecmint.com/randomly-display-ascii-art-on-linux-terminal/) ASCII-Art-Splash-Screen is a utility that comprises of a python script and a collection of ASCII art to be displayed every time you open a terminal in Linux. (https://t.co/ozgYY7Id4h?s=35)
 
+PowerShell y Bash- IEEE POSIX 10003.2
 Installing seeing-is-believing to /home/david/.atom/packages ✓
+
