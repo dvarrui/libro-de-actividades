@@ -25,9 +25,6 @@ El directorio [actividades](./actividades) es la carpeta principal. En este dire
 | [sistemas.2](./actividades/sistemas.2) | Actividades de sistemas operativos con grado de dificultad medio. Recomensado para módulos como "Implantación de Sistemas Operativos" de 1ASIR y similares|
 | [sistemas.3](./actividades/sistemas.3) | Actividades de sistemas operativos con grado de dificultad avanzado. Recomendado para módulos como "Administración de Sistemas Operativos" de 2ASIR y similares |
 | [global](./actividades/global)         | Contiene información para todas las actividades y que depende de la instalación específica de  mi centro |
-| Programación               | PENDIENTE |
-| Redes                      | PENDIENTE |
-| Seguridad                  | PENDIENTE |
 
 > **NOTA**: En la medida que l@s compañer@s que imparten estas materias ofrezcan sus actividades, se podrán irán subiendo más documentos, y posiblemente irán apareciendo nuevas carpetas/categorías.
 
