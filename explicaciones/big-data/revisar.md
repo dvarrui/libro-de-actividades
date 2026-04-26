@@ -8,3 +8,9 @@
 # Big data
 
 * ['Big data': la nueva industria de los datos](https://www.eltiempo.com/vida/ciencia/grandes-ideas-de-las-matematicas-en-las-entranas-del-big-data-643692)
+
+# Herramientas
+
+* Apache HOP
+* Apache Nifi
+

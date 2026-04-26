@@ -1,13 +1,12 @@
 
 ```
-Curso       : 202021, 201920
+Curso       : 202223, 202021, 201920
 Area        : Sistemas operativos, automatización, devops   
 Descripción : Automatización de tareas con gestor de infraestructura "Saltstack"
 Requisitos  : 2 MV's con GNU/Linux
 Tiempo      : 5 sesiones
 ```
 
----
 # 1. Salt-stack
 
 Hay varias herramientas conocidas del tipo gestor de infrastructura como Puppet, Chef, Ansible y Terraform. En esta actividad vamos a practicar Salt-stack con OpenSUSE.
@@ -69,7 +68,6 @@ Unaccepted Keys:
 Rejected Keys:
 ```
 
----
 # 3. Minion
 
 Los Minios son los equipos que van a estar bajo el control del Máster.
@@ -128,7 +126,6 @@ minionXXg:
 
 > El símbolo `'*'` representa a todos los minions aceptados. Se puede especificar un minion o conjunto de minios concretos.
 
----
 # 4. Salt States
 
 > Enlaces de interés:
@@ -140,9 +137,7 @@ minionXXg:
 Vamos a crear directorios para guardar lo estados de Salt. Los estados de Salt son definiciones de cómo queremos que estén nuestras máquinas.
 
 Ir a la MV Máster:
-* Crear directorios `/srv/salt/base` y `/srv/salt/devel`.
-    * base = para guardar nuestros estados.
-    * devel = para desarrollo o para hacer pruebas.
+* Crear el directorio `/srv/salt/base`(para guardar nuestros estados), y el directorio `/srv/salt/devel` (para desarrollo o para hacer pruebas).
 * Crear archivo `/etc/salt/master.d/roots.conf` con el siguiente contenido:
 ```
 file_roots:
@@ -230,7 +225,6 @@ Total run time: 105.971 s
 
 > NOTA: Con este comando `salt '*' state.highstate`, también se pueden invocar todos los estados.
 
----
 # 5. Crear más estados
 
 ## 5.1 Crear estado "users"

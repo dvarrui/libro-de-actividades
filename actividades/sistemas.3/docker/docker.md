@@ -14,6 +14,7 @@ Tiempo      : 6 sesiones
 > * [Docker for beginners](http://prakhar.me/docker-curriculum/)
 > * [getting-started-with-docker](http://www.linux.com/news/enterprise/systems-management/873287-getting-started-with-docker)
 > * [Docker for Beginners](https://testdriven.io/blog/docker-for-beginners/)
+> * Linux Center Spain. [Conoce y domina Docker con @atareao](https://twitter.com/LinuxCenterES/status/1616722080539500544?t=B1l-yTLSgzqGU0otlGqHDQ&s=35)
 
 Es muy común que nos encontremos desarrollando una aplicación, y llegue el momento que decidamos tomar todos sus archivos y migrarlos, ya sea al ambiente de producción, de prueba, o simplemente probar su comportamiento en diferentes plataformas y servicios.
 
@@ -386,7 +387,14 @@ CMD ["/root/holamundoXX.sh"]
 
 Analizar y entender el siguiente Dockerfile (https://github.com/pausoft/docker)
 * Explicar qué utilidad tiene y cómo lo hace.
-
+
+**Explorando el interior de las imágenes**: Supongamos que tenemos una imagen docker pero no encontramos el repositorio original. ¿Podemos acceder al código fuente de la imagen?
+
+Enlaces de interés:
+* [Is it possible to reverse engineer the source code from a docker image?](https://www.reddit.com/r/docker/comments/11gm85a/is_it_possible_to_reverse_engineer_the_source/?utm_source=share&utm_medium=android_app&utm_name=androidcss&utm_term=14&utm_content=share_button):
+* https://github.com/wagoodman/dive
+* `docker cp`: Copy files/folders between a container and the local filesystem
+* `docker history`: Show the history of an image
 
 # 6. Limpiar contenedores e imágenes
 

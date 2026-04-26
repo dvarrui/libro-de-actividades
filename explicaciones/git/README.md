@@ -14,6 +14,14 @@ Trabajar con Git en clase
 > * [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
 > * [Instalación, Configuración y uso básico de Git y GitHub. (Linux / Mac / Windows)](https://github.com/omorest/Guides/tree/master/github)
 > * [git: Lo que nunca te contaron y quizás sería por algo](https://slides.sdelquin.me/git/)
+> * [Clientes Git GUI](https://git-scm.com/downloads/guis/)
+> * [EN - How to write a good README](https://dev.to/merlos/how-to-write-a-good-readme-bog?utm_source=newsletter&utm_medium=email&utm_campaign=rubyforum_how_to_write_a_good_readme_ruby_313_305_277_postgresql_the_most_loved_database_and_more&utm_term=2022-12-21)
+> * Documentación Git Book: https://git-scm.com/book/en/v2
+> * Git Command Explorer: Find the right commands you need without digging through the web. https://gitexplorer.com/
+> * Visualizing Git Concepts with D3: https://onlywei.github.io/explain-git-with-d3/
+> * A Visual Git Reference: https://marklodato.github.io/visual-git-guide/index-en.html
+> * Oh Shit, Git!?!: https://ohshitgit.com/
+> * Learning Git: https://fpsvogel.com/posts/2023/learn-git
 
 ## 1.1. La primera vez
 
@@ -88,6 +96,8 @@ Y cuando terminemos de trabajar y vayamos a irnos seguimos con lo siguiente.
 * `git commit -m "Mensaje informativo"`: Grabar los cambios en este instante. Podemos poner [emoticonos](https://gitmoji.dev/) en los mensajes de commit.
 * `git push`: Subir los cambios al repositorio remoto.
 
+![](https://pbs.twimg.com/media/FjJ62xKXkAYfFjt?format=jpg&name=900x900)
+
 ## 1.3. Entregas
 
 Cuando se vaya a realizar la entrega del trabajo vía repositorio GIT, y cuando hayamos completado el último *commit*, vamos a crear un identificador (etiqueta) asociado a dicho *commit*.
@@ -118,11 +128,15 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 ```
 ├── vnc
 │   ├── images
+│   │   ├── image01.png
+│   │   └── image02.png
 │   └── README.md
 ├── ssh
 │   ├── images
+│   │   ├── image01.png
+│   │   └── image02.png
 │   └── README.md
-└── etc   
+└── etcetera   
 ```
 
 ---
@@ -131,3 +145,4 @@ El árbol de directorios creado en el repositorio debe ser como el siguiente:
 
 * [Instalar y usar Git en Windows por Rubén González Sabina](https://www.youtube.com/watch?v=7qzV04C5S-k)
 * [Gitmoji](https://gitmoji.dev/)
+* [Informative git prompt for bash and fish](https://github.com/magicmonty/bash-git-prompt)
