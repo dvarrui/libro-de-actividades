@@ -48,3 +48,8 @@ Esta sección puede desaparecer en un futuro. Las explicaciones se irán moviend
 
 En general, los documentos del proyecto tiene licencia
 [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/), excepto aquellos que expresamente tengan indicados otro tipo de licencia o tengan en su subdirectorio otro fichero LICENSE diferente.
+
+# ANEXO
+
+Enlaces de interés:
+* [Net-Learning](https://t.co/H8VdJZ7QiY): La gamificación en entornos virtuales de aprendizaje.
