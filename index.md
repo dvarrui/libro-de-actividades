@@ -2,13 +2,13 @@
 ---
 # Catálogo de actividades
 
-`Fecha UM: 2026-04-27 00:11:24 +0100`
+`Fecha UM: 2026-04-27 00:29:49 +0100`
 
 # Resumen
 
 | Categoría | Secciones |
 | --------- | --------- |
-| [hardware](#categoría-hardware) | 16 |
+| [hardware](#categoría-hardware) | 15 |
 | [sistemas.2](#categoría-sistemas2) | 15 |
 | [sistemas.3](#categoría-sistemas3) | 16 |
 
@@ -16,21 +16,20 @@
 
 | ID | Sección | Cantidad | Actividades |
 | -- | ------- | -------- | ----------- |
-| 1 | [arquitecturas](actividades/hardware/arquitecturas) | 1 | [boot](actividades/hardware/arquitecturas/boot.md) |
-| 2 | [bios](actividades/hardware/bios) | 1 | [enlaces-de-interes](actividades/hardware/bios/enlaces-de-interes.md) |
-| 3 | [clonar](actividades/hardware/clonar) | 6 | [cifrado-opensuse42](actividades/hardware/clonar/cifrado-opensuse42.md), [cifrado](actividades/hardware/clonar/cifrado.md), [clonezilla-device-device-bios](actividades/hardware/clonar/clonezilla-device-device-bios.md), [clonezilla-device-device](actividades/hardware/clonar/clonezilla-device-device.md), [clonezilla-remote-samba](actividades/hardware/clonar/clonezilla-remote-samba.md), [recuperacion-de-datos](actividades/hardware/clonar/recuperacion-de-datos.md) |
-| 4 | [cpd](actividades/hardware/cpd) | 4 | [ceph](actividades/hardware/cpd/ceph.md), [italc](actividades/hardware/cpd/italc.md), [kvm](actividades/hardware/cpd/kvm.md), [visitas](actividades/hardware/cpd/visitas) |
-| 5 | [intro](actividades/hardware/intro) | 2 | [arquitectura-von-neumann](actividades/hardware/intro/arquitectura-von-neumann.md), [unidades-de-medida](actividades/hardware/intro/unidades-de-medida.md) |
-| 6 | [monitorizar](actividades/hardware/monitorizar) | 2 | [rendimiento-hardware](actividades/hardware/monitorizar/rendimiento-hardware.md), [windows-rendimiento](actividades/hardware/monitorizar/windows-rendimiento.md) |
-| 7 | [nas](actividades/hardware/nas) | 4 | [freenas](actividades/hardware/nas/freenas.md), [omv](actividades/hardware/nas/omv.md), [opensuse](actividades/hardware/nas/opensuse.md), [otros](actividades/hardware/nas/otros.md) |
-| 8 | [nube](actividades/hardware/nube) | 4 | [nube-debian](actividades/hardware/nube/nube-debian.md), [nube-opensuse132](actividades/hardware/nube/nube-opensuse132.md), [nube-owncloud](actividades/hardware/nube/nube-owncloud.md), [nube](actividades/hardware/nube/nube.md) |
-| 9 | [presupuesto](actividades/hardware/presupuesto) | 2 | [presupuesto-1-pc](actividades/hardware/presupuesto/presupuesto-1-pc.md), [presupuesto-2-pc](actividades/hardware/presupuesto/presupuesto-2-pc.md) |
-| 10 | [rbpi](actividades/hardware/rbpi) | 4 | [rbpi-en-red](actividades/hardware/rbpi/rbpi-en-red.md), [rbpi3-ubuntu-server](actividades/hardware/rbpi/rbpi3-ubuntu-server.md), [taller-1-raspberry](actividades/hardware/rbpi/taller-1-raspberry.md), [taller-5-encender-led](actividades/hardware/rbpi/taller-5-encender-led.md) |
-| 11 | [san](actividades/hardware/san) | 4 | [iscsi-opensuse](actividades/hardware/san/iscsi-opensuse.md), [iscsi-opensuse42](actividades/hardware/san/iscsi-opensuse42.md), [iscsi-windows](actividades/hardware/san/iscsi-windows.md), [iscsi-ws2008](actividades/hardware/san/iscsi-ws2008.md) |
-| 12 | [simulador](actividades/hardware/simulador) | 3 | [ayuda](actividades/hardware/simulador/ayuda.md), [multiplicar-y-sumar](actividades/hardware/simulador/multiplicar-y-sumar.md), [suma-y-resta](actividades/hardware/simulador/suma-y-resta.md) |
-| 13 | [software](actividades/hardware/software) | 2 | [godot.1](actividades/hardware/software/godot.1), [godot1](actividades/hardware/software/godot1.md) |
-| 14 | [taller](actividades/hardware/taller) | 7 | [cpd-1-desmontar-y-montar](actividades/hardware/taller/cpd-1-desmontar-y-montar.md), [nintendo-data-to-pc](actividades/hardware/taller/nintendo-data-to-pc.md), [taller-1-desmontar-y-montar](actividades/hardware/taller/taller-1-desmontar-y-montar.md), [taller-2-desmontar-y-montar](actividades/hardware/taller/taller-2-desmontar-y-montar.md), [taller-2-mejorar](actividades/hardware/taller/taller-2-mejorar.md), [taller-3-trastadas](actividades/hardware/taller/taller-3-trastadas.md), [taller-4-simplificar](actividades/hardware/taller/taller-4-simplificar.md) |
-| 15 | [virtualizar](actividades/hardware/virtualizar) | 1 | [kvm](actividades/hardware/virtualizar/kvm.md) |
+| 0 | [cifrar](actividades/hardware/cifrar) | 2 | [cifrado-opensuse42](actividades/hardware/cifrar/cifrado-opensuse42.md), [cifrado](actividades/hardware/cifrar/cifrado.md) |
+| 1 | [clonar](actividades/hardware/clonar) | 4 | [clonezilla-device-device-bios](actividades/hardware/clonar/clonezilla-device-device-bios.md), [clonezilla-device-device](actividades/hardware/clonar/clonezilla-device-device.md), [clonezilla-remote-samba](actividades/hardware/clonar/clonezilla-remote-samba.md), [recuperacion-de-datos](actividades/hardware/clonar/recuperacion-de-datos.md) |
+| 2 | [cpd](actividades/hardware/cpd) | 3 | [ceph](actividades/hardware/cpd/ceph.md), [italc](actividades/hardware/cpd/italc.md), [kvm](actividades/hardware/cpd/kvm.md) |
+| 3 | [intro](actividades/hardware/intro) | 2 | [arquitectura-von-neumann](actividades/hardware/intro/arquitectura-von-neumann.md), [unidades-de-medida](actividades/hardware/intro/unidades-de-medida.md) |
+| 4 | [monitorizar](actividades/hardware/monitorizar) | 2 | [rendimiento-hardware](actividades/hardware/monitorizar/rendimiento-hardware.md), [windows-rendimiento](actividades/hardware/monitorizar/windows-rendimiento.md) |
+| 5 | [nas](actividades/hardware/nas) | 4 | [freenas](actividades/hardware/nas/freenas.md), [omv](actividades/hardware/nas/omv.md), [opensuse](actividades/hardware/nas/opensuse.md), [otros](actividades/hardware/nas/otros.md) |
+| 6 | [nube](actividades/hardware/nube) | 4 | [nube-debian](actividades/hardware/nube/nube-debian.md), [nube-opensuse132](actividades/hardware/nube/nube-opensuse132.md), [nube-owncloud](actividades/hardware/nube/nube-owncloud.md), [nube](actividades/hardware/nube/nube.md) |
+| 7 | [presupuesto](actividades/hardware/presupuesto) | 2 | [presupuesto-1-pc](actividades/hardware/presupuesto/presupuesto-1-pc.md), [presupuesto-2-pc](actividades/hardware/presupuesto/presupuesto-2-pc.md) |
+| 8 | [rbpi](actividades/hardware/rbpi) | 4 | [rbpi-en-red](actividades/hardware/rbpi/rbpi-en-red.md), [rbpi3-ubuntu-server](actividades/hardware/rbpi/rbpi3-ubuntu-server.md), [taller-1-raspberry](actividades/hardware/rbpi/taller-1-raspberry.md), [taller-5-encender-led](actividades/hardware/rbpi/taller-5-encender-led.md) |
+| 9 | [san](actividades/hardware/san) | 4 | [iscsi-opensuse](actividades/hardware/san/iscsi-opensuse.md), [iscsi-opensuse42](actividades/hardware/san/iscsi-opensuse42.md), [iscsi-windows](actividades/hardware/san/iscsi-windows.md), [iscsi-ws2008](actividades/hardware/san/iscsi-ws2008.md) |
+| 10 | [simulador](actividades/hardware/simulador) | 3 | [ayuda](actividades/hardware/simulador/ayuda.md), [multiplicar-y-sumar](actividades/hardware/simulador/multiplicar-y-sumar.md), [suma-y-resta](actividades/hardware/simulador/suma-y-resta.md) |
+| 11 | [software](actividades/hardware/software) | 2 | [godot.1](actividades/hardware/software/godot.1), [godot1](actividades/hardware/software/godot1.md) |
+| 12 | [taller](actividades/hardware/taller) | 7 | [cpd-1-desmontar-y-montar](actividades/hardware/taller/cpd-1-desmontar-y-montar.md), [nintendo-data-to-pc](actividades/hardware/taller/nintendo-data-to-pc.md), [taller-1-desmontar-y-montar](actividades/hardware/taller/taller-1-desmontar-y-montar.md), [taller-2-desmontar-y-montar](actividades/hardware/taller/taller-2-desmontar-y-montar.md), [taller-2-mejorar](actividades/hardware/taller/taller-2-mejorar.md), [taller-3-trastadas](actividades/hardware/taller/taller-3-trastadas.md), [taller-4-simplificar](actividades/hardware/taller/taller-4-simplificar.md) |
+| 14 | [virtualizar](actividades/hardware/virtualizar) | 1 | [kvm](actividades/hardware/virtualizar/kvm.md) |
 
 ## Categoría: sistemas.2
 
