@@ -3,7 +3,7 @@
 # require 'pry-byebug'
 
 def show_title
-  puts '[<< back](../README.md)'
+  puts '[<< back](./README.md)'
   puts '---'
   puts '# Catálogo de actividades'
   puts ''
