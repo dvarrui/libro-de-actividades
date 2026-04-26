@@ -1,6 +1,8 @@
-# Índice de actividades
+[<< back](../README.md)
+---
+# Catálogo de actividades
 
-`Fecha UM: 2026-04-27 00:08:17 +0100`
+`Fecha UM: 2026-04-27 00:10:37 +0100`
 
 # Resumen
 

@@ -3,7 +3,9 @@
 # require 'pry-byebug'
 
 def show_title
-  puts '# Índice de actividades'
+  puts '[<< back](../README.md)'
+  puts '---'
+  puts '# Catálogo de actividades'
   puts ''
   puts format('`Fecha UM: %s`',Time.now.to_s)
   puts ''
