@@ -1,8 +1,8 @@
-[<< back](../README.md)
+[<< back](./README.md)
 ---
 # Catálogo de actividades
 
-`Fecha UM: 2026-04-27 00:10:37 +0100`
+`Fecha UM: 2026-04-27 00:11:24 +0100`
 
 # Resumen
 
