@@ -234,7 +234,7 @@ Total run time: 105.971 s
 > * [Create groups](https://docs.saltstack.com/en/latest/ref/states/all/salt.states.group.html)
 > * [Create users](https://docs.saltstack.com/en/master/ref/states/all/salt.states.user.html)
 
-Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y usuarios en las máquinas Minions (ver ejemplos en el ANEXO).
+Vamos a crear un estado llamado `users` que nos servirá para crear un grupo y varios usuarios en las máquinas Minions (ver ejemplos en el ANEXO).
 
 * Crear directorio `/srv/salt/base/users`.
 * Crear fichero `/srv/salt/base/users/init.sls` con las definiciones para crear los siguiente:
