@@ -52,4 +52,7 @@ En general, los documentos del proyecto tiene licencia
 # ANEXO
 
 Enlaces de interés:
+
 * [Net-Learning](https://t.co/H8VdJZ7QiY): La gamificación en entornos virtuales de aprendizaje.
+* [GitHub - ateeducacion/moodle-playground: Run Moodle in the browser via WebAssembly PHP](https://github.com/ateeducacion/moodle-playground): Run Moodle in the browser via WebAssembly PHP. Contribute to ateeducacion/moodle-playground development by creating.
+
