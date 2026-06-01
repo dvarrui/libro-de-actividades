@@ -12,7 +12,7 @@
 * `filetool.sh -b`, grabar los cambios 
 * Instalar ruby: `tce-load -wi ruby`
 
-## Configurar
+## 1.2 Configurar
 
 * Configurar el terminal:
 
@@ -62,4 +62,14 @@ export PATH=$PATH:$GEM_HOME/bin
 echo 'puts "¡Hola desde Ruby en Tiny Core!"' > hola.rb
 ruby hola.rb
 ```
+
+---
+
+# ANEXO
+
+## A.1 Idea
+
+* Crear una MV mínima para iniciar una única aplicación. Por ejemplo
+    - Simular una máquina de videojuegos de los 80.
+    - Crear un entorno sandbox para tareas de informática.
 
