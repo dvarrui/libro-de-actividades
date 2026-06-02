@@ -73,3 +73,7 @@ ruby hola.rb
     - Simular una máquina de videojuegos de los 80.
     - Crear un entorno sandbox para tareas de informática.
 
+## A.2 Enlaces de interés
+
+https://suckless.org/
+
